@@ -1,0 +1,291 @@
+{
+  "slug": "sales-tax-calculator",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis"
+  ],
+  "inputs": [
+    {
+      "id": "net_sales",
+      "label": "Net Sales Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Total revenue from taxable sales before any tax or discounts."
+    },
+    {
+      "id": "tax_rate",
+      "label": "Sales Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 8.25,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Combined state and local sales tax rate as a percentage."
+    },
+    {
+      "id": "exempt_ratio",
+      "label": "Exempt Sales Ratio",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of net sales that are tax-exempt (e.g., resale, non-profit)."
+    },
+    {
+      "id": "tax_jurisdiction",
+      "label": "Tax Jurisdiction",
+      "type": "select",
+      "unit": "",
+      "default": "state_county",
+      "min": null,
+      "max": null,
+      "businessContext": "Level of tax authority: state only, state+county, or state+county+city.",
+      "options": [
+        "state_only",
+        "state_county",
+        "state_county_city"
+      ]
+    },
+    {
+      "id": "use_sourcing",
+      "label": "Sourcing Method",
+      "type": "select",
+      "unit": "",
+      "default": "origin",
+      "min": null,
+      "max": null,
+      "businessContext": "Origin-based (seller's location) or destination-based (buyer's location) tax sourcing.",
+      "options": [
+        "origin",
+        "destination"
+      ]
+    },
+    {
+      "id": "include_shipping",
+      "label": "Include Shipping in Taxable Base",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "min": null,
+      "max": null,
+      "businessContext": "Whether shipping and handling charges are subject to sales tax."
+    },
+    {
+      "id": "shipping_charge",
+      "label": "Shipping & Handling Charge",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Total shipping and handling fees charged to customers."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "exempt_ratio_leq_100",
+        "condition": "exempt_ratio <= 100",
+        "message": "Exempt ratio must be between 0 and 100."
+      },
+      {
+        "id": "tax_rate_positive",
+        "condition": "tax_rate >= 0",
+        "message": "Tax rate cannot be negative."
+      },
+      {
+        "id": "net_sales_positive",
+        "condition": "net_sales >= 0",
+        "message": "Net sales must be non-negative."
+      },
+      {
+        "id": "shipping_included_logic",
+        "condition": "include_shipping == true OR shipping_charge == 0",
+        "message": "If shipping is not included, shipping charge must be zero to avoid double counting."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_tax_rate_warning",
+        "condition": "tax_rate > 12",
+        "level": "warning",
+        "message": "Tax rate exceeds 12% – consider reviewing exemptions or sourcing strategy."
+      },
+      {
+        "id": "high_exempt_ratio_alert",
+        "condition": "exempt_ratio > 50",
+        "level": "alert",
+        "message": "Exempt ratio > 50% – verify exemption documentation to avoid audit risk."
+      },
+      {
+        "id": "low_sales_alert",
+        "condition": "net_sales < 1000",
+        "level": "info",
+        "message": "Net sales below $1,000 – tax calculation may be negligible."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "taxable_base",
+      "name": "Taxable Base",
+      "description": "Net sales minus exempt portion, plus shipping if included.",
+      "formula": "net_sales * (1 - exempt_ratio/100) + (include_shipping ? shipping_charge : 0)",
+      "unit": "USD"
+    },
+    {
+      "id": "effective_tax_rate",
+      "name": "Effective Tax Rate",
+      "description": "Tax rate adjusted for jurisdiction complexity (simplified multiplier).",
+      "formula": "tax_rate * (1 + 0.05 * (tax_jurisdiction == 'state_county' ? 1 : (tax_jurisdiction == 'state_county_city' ? 2 : 0)))",
+      "unit": "%"
+    },
+    {
+      "id": "gross_tax_amount",
+      "name": "Gross Tax Amount",
+      "description": "Tax before any adjustments or rounding.",
+      "formula": "taxable_base * (effective_tax_rate / 100)",
+      "unit": "USD"
+    },
+    {
+      "id": "sourcing_adjustment",
+      "name": "Sourcing Adjustment Factor",
+      "description": "Multiplier based on sourcing method (origin=1.0, destination=1.02).",
+      "formula": "use_sourcing == 'origin' ? 1.0 : 1.02",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "adjusted_tax_amount",
+      "name": "Adjusted Tax Amount",
+      "description": "Gross tax multiplied by sourcing adjustment.",
+      "formula": "gross_tax_amount * sourcing_adjustment",
+      "unit": "USD"
+    },
+    {
+      "id": "rounding_loss",
+      "name": "Rounding Loss",
+      "description": "Difference due to rounding to nearest cent (per transaction).",
+      "formula": "adjusted_tax_amount - round(adjusted_tax_amount * 100) / 100",
+      "unit": "USD"
+    },
+    {
+      "id": "total_tax_liability",
+      "name": "Total Tax Liability (Primary Result)",
+      "description": "Final sales tax amount after rounding, to be remitted.",
+      "formula": "round(adjusted_tax_amount * 100) / 100",
+      "unit": "USD"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_tax_liability",
+      "label": "Total Sales Tax Liability",
+      "value": 0,
+      "unit": "USD",
+      "description": "Final rounded sales tax amount to remit."
+    },
+    "breakdown": {
+      "taxable_base": {
+        "id": "taxable_base",
+        "label": "Taxable Base",
+        "value": 0,
+        "unit": "USD",
+        "description": "Net sales minus exemptions plus shipping if applicable."
+      },
+      "effective_tax_rate": {
+        "id": "effective_tax_rate",
+        "label": "Effective Tax Rate",
+        "value": 0,
+        "unit": "%",
+        "description": "Tax rate adjusted for jurisdiction complexity."
+      },
+      "gross_tax_amount": {
+        "id": "gross_tax_amount",
+        "label": "Gross Tax Amount",
+        "value": 0,
+        "unit": "USD",
+        "description": "Tax before sourcing adjustment and rounding."
+      },
+      "sourcing_adjustment": {
+        "id": "sourcing_adjustment",
+        "label": "Sourcing Adjustment Factor",
+        "value": 0,
+        "unit": "dimensionless",
+        "description": "Multiplier for origin vs destination sourcing."
+      },
+      "adjusted_tax_amount": {
+        "id": "adjusted_tax_amount",
+        "label": "Adjusted Tax Amount",
+        "value": 0,
+        "unit": "USD",
+        "description": "Tax after sourcing adjustment."
+      },
+      "rounding_loss": {
+        "id": "rounding_loss",
+        "label": "Rounding Loss",
+        "value": 0,
+        "unit": "USD",
+        "description": "Difference due to rounding to nearest cent."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "high_exempt_ratio_erosion",
+        "label": "Exempt Ratio Erosion",
+        "description": "High exempt ratio reduces taxable base, potentially indicating improper exemptions.",
+        "impact": "negative",
+        "unit": "USD",
+        "estimatedValue": 0
+      },
+      {
+        "id": "sourcing_mismatch",
+        "label": "Sourcing Mismatch",
+        "description": "Destination-based sourcing may increase tax liability if rates are higher at buyer location.",
+        "impact": "negative",
+        "unit": "USD",
+        "estimatedValue": 0
+      },
+      {
+        "id": "shipping_taxability",
+        "label": "Shipping Taxability",
+        "description": "Including shipping in taxable base increases total tax, may be avoidable in some jurisdictions.",
+        "impact": "negative",
+        "unit": "USD",
+        "estimatedValue": 0
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "review_exemptions",
+        "label": "Review Exemption Certificates",
+        "description": "Ensure all exempt sales have valid certificates to reduce audit risk.",
+        "priority": "high"
+      },
+      {
+        "id": "optimize_sourcing",
+        "label": "Evaluate Sourcing Method",
+        "description": "If origin-based sourcing yields lower tax, confirm legal applicability.",
+        "priority": "medium"
+      },
+      {
+        "id": "shipping_policy",
+        "label": "Review Shipping Tax Policy",
+        "description": "Consider separating shipping charges or using tax-exempt shipping where allowed.",
+        "priority": "medium"
+      },
+      {
+        "id": "rate_monitoring",
+        "label": "Monitor Rate Changes",
+        "description": "Set up alerts for jurisdiction tax rate updates to avoid under/overpayment.",
+        "priority": "low"
+      }
+    ],
+    "dataConfidenceAdjusted": 0.95
+  }
+}

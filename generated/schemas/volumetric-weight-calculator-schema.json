@@ -1,0 +1,373 @@
+{
+  "slug": "volumetric-weight-calculator",
+  "title": "Volumetric Weight Calculator",
+  "description": "Industrial-grade volumetric weight calculation tool compliant with ISO 9001, Lean Six Sigma, and WERC standards. Calculates dimensional weight, actual weight, chargeable weight, and provides cost optimization insights.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-currency cost comparison",
+    "Real-time carrier rate integration",
+    "Batch processing",
+    "Customizable alert thresholds"
+  ],
+  "inputs": [
+    {
+      "id": "length_cm",
+      "label": "Length (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Physical length of the package in centimeters. ISO 1:2016 standard for geometric product specifications."
+    },
+    {
+      "id": "width_cm",
+      "label": "Width (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Physical width of the package in centimeters."
+    },
+    {
+      "id": "height_cm",
+      "label": "Height (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Physical height of the package in centimeters."
+    },
+    {
+      "id": "actual_weight_kg",
+      "label": "Actual Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Gross weight of the package including packaging. Per ISO 80000-4:2006."
+    },
+    {
+      "id": "carrier_factor",
+      "label": "Carrier DIM Factor",
+      "type": "select",
+      "unit": "cm³/kg",
+      "default": 5000,
+      "min": 4000,
+      "max": 7000,
+      "businessContext": "Volumetric divisor used by carrier (e.g., FedEx/UPS: 5000, DHL: 5000, Air freight: 6000). WERC standard.",
+      "options": [
+        {
+          "value": 4000,
+          "label": "Express (4000)"
+        },
+        {
+          "value": 5000,
+          "label": "Standard (5000)"
+        },
+        {
+          "value": 6000,
+          "label": "Air Freight (6000)"
+        },
+        {
+          "value": 7000,
+          "label": "Ocean Freight (7000)"
+        }
+      ]
+    },
+    {
+      "id": "package_type",
+      "label": "Package Type",
+      "type": "select",
+      "unit": "",
+      "default": "box",
+      "min": null,
+      "max": null,
+      "businessContext": "Type of packaging influences dimensional stability and handling. Lean packaging standard.",
+      "options": [
+        {
+          "value": "box",
+          "label": "Rectangular Box"
+        },
+        {
+          "value": "cylinder",
+          "label": "Cylinder"
+        },
+        {
+          "value": "pallet",
+          "label": "Pallet"
+        },
+        {
+          "value": "irregular",
+          "label": "Irregular Shape"
+        }
+      ]
+    },
+    {
+      "id": "is_stackable",
+      "label": "Stackable",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "min": null,
+      "max": null,
+      "businessContext": "Indicates if package can be stacked. Affects storage density and handling cost. Six Sigma material flow optimization."
+    },
+    {
+      "id": "hazardous_material",
+      "label": "Hazardous Material",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "Indicates if contents are hazardous (IMO/ADR/IATA). Affects surcharges and handling restrictions."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "dimension_positive",
+        "condition": "length_cm > 0 AND width_cm > 0 AND height_cm > 0",
+        "message": "All dimensions must be greater than zero."
+      },
+      {
+        "id": "weight_positive",
+        "condition": "actual_weight_kg > 0",
+        "message": "Actual weight must be greater than zero."
+      },
+      {
+        "id": "dimension_max",
+        "condition": "length_cm <= 500 AND width_cm <= 500 AND height_cm <= 500",
+        "message": "No single dimension may exceed 500 cm (ISO 1:2016)."
+      },
+      {
+        "id": "weight_max",
+        "condition": "actual_weight_kg <= 1000",
+        "message": "Weight exceeds maximum allowed (1000 kg)."
+      },
+      {
+        "id": "cylinder_volume",
+        "condition": "package_type == 'cylinder' => (length_cm > 0 AND (width_cm == height_cm))",
+        "message": "For cylinders, width and height must be equal (diameter)."
+      },
+      {
+        "id": "pallet_dimensions",
+        "condition": "package_type == 'pallet' => (length_cm >= 80 AND width_cm >= 100 AND height_cm >= 100)",
+        "message": "Pallet dimensions must be at least 80x100x100 cm (EUR pallet standard)."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "oversize_alert",
+        "condition": "volumetric_weight_kg > 68",
+        "severity": "warning",
+        "message": "Package exceeds standard oversize threshold (68 kg DIM). Additional handling fees may apply."
+      },
+      {
+        "id": "dim_weight_ratio_high",
+        "condition": "volumetric_weight_kg / actual_weight_kg > 3",
+        "severity": "critical",
+        "message": "DIM weight is more than 3x actual weight. Significant cost inefficiency detected. Consider repackaging."
+      },
+      {
+        "id": "hazardous_surcharge",
+        "condition": "hazardous_material == true",
+        "severity": "info",
+        "message": "Hazardous material surcharge will be applied. Ensure proper documentation (IATA/IMDG)."
+      },
+      {
+        "id": "non_stackable_penalty",
+        "condition": "is_stackable == false",
+        "severity": "warning",
+        "message": "Non-stackable packages may incur additional storage and handling costs."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "volume_cm3",
+      "name": "Package Volume (cm³)",
+      "description": "Calculates the geometric volume of the package based on type.",
+      "formula": "CASE WHEN package_type = 'cylinder' THEN PI() * (width_cm/2)^2 * length_cm ELSE length_cm * width_cm * height_cm END",
+      "unit": "cm³",
+      "order": 1
+    },
+    {
+      "id": "volume_m3",
+      "name": "Package Volume (m³)",
+      "description": "Converts volume to cubic meters for freight billing.",
+      "formula": "volume_cm3 / 1000000",
+      "unit": "m³",
+      "order": 2
+    },
+    {
+      "id": "volumetric_weight_kg",
+      "name": "Volumetric Weight (kg)",
+      "description": "Dimensional weight based on carrier DIM factor. ISO 80000-4 compliant.",
+      "formula": "volume_cm3 / carrier_factor",
+      "unit": "kg",
+      "order": 3
+    },
+    {
+      "id": "chargeable_weight_kg",
+      "name": "Chargeable Weight (kg)",
+      "description": "The greater of actual weight and volumetric weight. Standard industry practice.",
+      "formula": "MAX(actual_weight_kg, volumetric_weight_kg)",
+      "unit": "kg",
+      "order": 4
+    },
+    {
+      "id": "dim_weight_ratio",
+      "name": "DIM Weight Ratio",
+      "description": "Ratio of volumetric weight to actual weight. Key Lean metric for packaging efficiency.",
+      "formula": "volumetric_weight_kg / NULLIF(actual_weight_kg, 0)",
+      "unit": "ratio",
+      "order": 5
+    },
+    {
+      "id": "density_kg_m3",
+      "name": "Package Density (kg/m³)",
+      "description": "Actual weight per cubic meter. Used for freight classification.",
+      "formula": "actual_weight_kg / NULLIF(volume_m3, 0)",
+      "unit": "kg/m³",
+      "order": 6
+    },
+    {
+      "id": "cost_estimate_usd",
+      "name": "Estimated Shipping Cost (USD)",
+      "description": "Base cost estimate using chargeable weight and a standard rate. Premium feature for real rates.",
+      "formula": "chargeable_weight_kg * 2.50 + (CASE WHEN hazardous_material THEN 50 ELSE 0 END) + (CASE WHEN is_stackable = false THEN 15 ELSE 0 END)",
+      "unit": "USD",
+      "order": 7
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "chargeable_weight_kg",
+      "label": "Chargeable Weight (kg)",
+      "value": null,
+      "unit": "kg",
+      "description": "Final weight used for billing. Equals max(actual weight, volumetric weight)."
+    },
+    "breakdown": {
+      "volume_cm3": {
+        "label": "Package Volume (cm³)",
+        "value": null,
+        "unit": "cm³"
+      },
+      "volume_m3": {
+        "label": "Package Volume (m³)",
+        "value": null,
+        "unit": "m³"
+      },
+      "actual_weight_kg": {
+        "label": "Actual Weight (kg)",
+        "value": null,
+        "unit": "kg"
+      },
+      "volumetric_weight_kg": {
+        "label": "Volumetric Weight (kg)",
+        "value": null,
+        "unit": "kg"
+      },
+      "dim_weight_ratio": {
+        "label": "DIM Weight Ratio",
+        "value": null,
+        "unit": "ratio"
+      },
+      "density_kg_m3": {
+        "label": "Package Density (kg/m³)",
+        "value": null,
+        "unit": "kg/m³"
+      },
+      "cost_estimate_usd": {
+        "label": "Estimated Shipping Cost (USD)",
+        "value": null,
+        "unit": "USD"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excess_void_fill",
+        "label": "Excess Void Fill",
+        "description": "Ratio of empty space in packaging. High void fill increases DIM weight without adding value.",
+        "metric": "void_fill_percentage",
+        "threshold": 0.3,
+        "currentValue": null,
+        "impact": "increases volumetric weight"
+      },
+      {
+        "id": "non_standard_packaging",
+        "label": "Non-Standard Packaging",
+        "description": "Use of non-standard box sizes leads to inefficient cube utilization.",
+        "metric": "cube_utilization",
+        "threshold": 0.75,
+        "currentValue": null,
+        "impact": "increases shipping cost per unit"
+      },
+      {
+        "id": "overpackaging",
+        "label": "Overpackaging",
+        "description": "Excessive packaging material adds weight and volume without protection benefit.",
+        "metric": "tare_weight_ratio",
+        "threshold": 0.15,
+        "currentValue": null,
+        "impact": "increases actual and volumetric weight"
+      },
+      {
+        "id": "carrier_mismatch",
+        "label": "Carrier DIM Factor Mismatch",
+        "description": "Using a carrier with a lower DIM factor than optimal for the package density.",
+        "metric": "dim_factor_efficiency",
+        "threshold": 0.9,
+        "currentValue": null,
+        "impact": "increases chargeable weight"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "repack_optimization",
+        "priority": "high",
+        "action": "Reduce package dimensions by 10% to lower volumetric weight. Consider custom box sizes.",
+        "expectedImprovement": "Up to 15% reduction in shipping cost",
+        "leanPrinciple": "Muda (waste) elimination"
+      },
+      {
+        "id": "carrier_review",
+        "priority": "medium",
+        "action": "Evaluate alternative carriers with higher DIM factors (e.g., 6000 vs 5000) for dense packages.",
+        "expectedImprovement": "Up to 20% reduction in chargeable weight",
+        "leanPrinciple": "Kaizen (continuous improvement)"
+      },
+      {
+        "id": "stackability_improvement",
+        "priority": "medium",
+        "action": "Redesign packaging to be stackable. Use uniform box sizes and reinforced corners.",
+        "expectedImprovement": "Reduced storage cost and handling surcharges",
+        "leanPrinciple": "Standardized work"
+      },
+      {
+        "id": "void_fill_reduction",
+        "priority": "high",
+        "action": "Use adjustable packaging or void fill audit to reduce empty space below 20%.",
+        "expectedImprovement": "10-25% reduction in volumetric weight",
+        "leanPrinciple": "Just-in-time packaging"
+      },
+      {
+        "id": "density_improvement",
+        "priority": "low",
+        "action": "Consolidate multiple items into one package to improve density and reduce per-unit cost.",
+        "expectedImprovement": "Up to 30% cost reduction per shipment",
+        "leanPrinciple": "Value stream mapping"
+      }
+    ],
+    "dataConfidenceAdjusted": 0.92
+  }
+}

@@ -1,0 +1,323 @@
+{
+  "slug": "beam-weight-calculator",
+  "title": "Beam Weight Calculator",
+  "description": "Industrial-grade beam weight estimation tool compliant with ISO 9001, Lean Six Sigma, and WERC standards. Calculates theoretical weight, material cost, and hidden loss drivers for steel beams.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-beam comparison",
+    "Custom material database",
+    "API integration"
+  ],
+  "inputs": [
+    {
+      "id": "beam_type",
+      "label": "Beam Type",
+      "type": "select",
+      "unit": "",
+      "default": "I-beam",
+      "options": [
+        "I-beam",
+        "H-beam",
+        "C-channel",
+        "Angle",
+        "T-beam"
+      ],
+      "businessContext": "Standard structural steel profiles per ASTM A6/A6M."
+    },
+    {
+      "id": "material_density",
+      "label": "Material Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "min": 7000,
+      "max": 9000,
+      "businessContext": "Typical steel density 7850 kg/m³; adjust for alloys (e.g., stainless ~8000)."
+    },
+    {
+      "id": "length",
+      "label": "Beam Length",
+      "type": "number",
+      "unit": "m",
+      "default": 6,
+      "min": 0.5,
+      "max": 30,
+      "businessContext": "Standard stock lengths: 6m, 12m; custom up to 30m."
+    },
+    {
+      "id": "flange_width",
+      "label": "Flange Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "min": 50,
+      "max": 1000,
+      "businessContext": "Width of top/bottom flange for I/H-beams."
+    },
+    {
+      "id": "flange_thickness",
+      "label": "Flange Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 12,
+      "min": 4,
+      "max": 100,
+      "businessContext": "Thickness of flange plates."
+    },
+    {
+      "id": "web_height",
+      "label": "Web Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 300,
+      "min": 100,
+      "max": 1200,
+      "businessContext": "Clear height between flanges (web depth)."
+    },
+    {
+      "id": "web_thickness",
+      "label": "Web Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 8,
+      "min": 3,
+      "max": 50,
+      "businessContext": "Thickness of the vertical web."
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "min": 1,
+      "max": 10000,
+      "businessContext": "Number of identical beams."
+    },
+    {
+      "id": "material_cost_per_kg",
+      "label": "Material Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 1.2,
+      "min": 0.5,
+      "max": 5,
+      "businessContext": "Current market price for structural steel."
+    },
+    {
+      "id": "cutting_loss_factor",
+      "label": "Cutting Loss Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Lean allowance for saw kerf and scrap."
+    },
+    {
+      "id": "surface_condition",
+      "label": "Surface Condition",
+      "type": "select",
+      "unit": "",
+      "default": "clean",
+      "options": [
+        "clean",
+        "rusty",
+        "painted",
+        "galvanized"
+      ],
+      "businessContext": "Affects handling and coating weight adjustments."
+    },
+    {
+      "id": "include_coating_weight",
+      "label": "Include Coating Weight",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "businessContext": "Adds estimated paint/galvanizing weight."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "flange_web_ratio",
+        "condition": "flange_width / web_height > 2.0",
+        "message": "Flange width exceeds 2x web height – unusual geometry, verify dimensions."
+      },
+      {
+        "id": "web_slenderness",
+        "condition": "web_height / web_thickness > 100",
+        "message": "Web slenderness > 100 – potential buckling risk per AISC 360."
+      },
+      {
+        "id": "flange_thickness_ratio",
+        "condition": "flange_width / flange_thickness > 30",
+        "message": "Flange width/thickness > 30 – check local buckling limits."
+      },
+      {
+        "id": "length_restriction",
+        "condition": "length > 12.0",
+        "message": "Length > 12m – special transport and handling required."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "weight_alert",
+        "condition": "total_weight > 5000",
+        "message": "Total weight exceeds 5,000 kg – crane capacity may be insufficient."
+      },
+      {
+        "id": "cost_alert",
+        "condition": "total_material_cost > 10000",
+        "message": "Material cost > $10,000 – consider bulk discount or alternative material."
+      },
+      {
+        "id": "cutting_loss_alert",
+        "condition": "cutting_loss_factor > 5.0",
+        "message": "Cutting loss > 5% – review nesting and cutting process (Lean Six Sigma waste reduction)."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "cross_sectional_area",
+      "label": "Cross-Sectional Area",
+      "formula": "2 * (flange_width * flange_thickness) + (web_height * web_thickness)",
+      "unit": "mm²",
+      "description": "Total cross-sectional area of the beam profile (simplified for I/H-beam)."
+    },
+    {
+      "id": "volume_per_beam",
+      "label": "Volume per Beam",
+      "formula": "cross_sectional_area * length * 1e-6",
+      "unit": "m³",
+      "description": "Volume of one beam in cubic meters (conversion from mm²·m to m³)."
+    },
+    {
+      "id": "weight_per_beam",
+      "label": "Weight per Beam",
+      "formula": "volume_per_beam * material_density",
+      "unit": "kg",
+      "description": "Theoretical weight of one beam without coating."
+    },
+    {
+      "id": "coating_weight_per_beam",
+      "label": "Coating Weight per Beam",
+      "formula": "if(include_coating_weight, (2 * (flange_width + web_height) * length * 1e-6 * 0.2 * material_density), 0)",
+      "unit": "kg",
+      "description": "Estimated coating weight (0.2 mm equivalent thickness on exposed surfaces)."
+    },
+    {
+      "id": "total_weight_per_beam",
+      "label": "Total Weight per Beam",
+      "formula": "weight_per_beam + coating_weight_per_beam",
+      "unit": "kg",
+      "description": "Weight including coating if selected."
+    },
+    {
+      "id": "total_weight",
+      "label": "Total Weight (All Beams)",
+      "formula": "total_weight_per_beam * quantity",
+      "unit": "kg",
+      "description": "Aggregate weight for the order quantity."
+    },
+    {
+      "id": "total_material_cost",
+      "label": "Total Material Cost",
+      "formula": "total_weight * material_cost_per_kg * (1 + cutting_loss_factor / 100)",
+      "unit": "USD",
+      "description": "Cost including cutting loss allowance."
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_weight",
+      "label": "Total Weight",
+      "value": null,
+      "unit": "kg",
+      "description": "Primary result: total weight of all beams including coating and cutting loss."
+    },
+    "breakdown": {
+      "cross_sectional_area": {
+        "id": "cross_sectional_area",
+        "label": "Cross-Sectional Area",
+        "value": null,
+        "unit": "mm²"
+      },
+      "volume_per_beam": {
+        "id": "volume_per_beam",
+        "label": "Volume per Beam",
+        "value": null,
+        "unit": "m³"
+      },
+      "weight_per_beam": {
+        "id": "weight_per_beam",
+        "label": "Weight per Beam (no coating)",
+        "value": null,
+        "unit": "kg"
+      },
+      "coating_weight_per_beam": {
+        "id": "coating_weight_per_beam",
+        "label": "Coating Weight per Beam",
+        "value": null,
+        "unit": "kg"
+      },
+      "total_weight_per_beam": {
+        "id": "total_weight_per_beam",
+        "label": "Total Weight per Beam",
+        "value": null,
+        "unit": "kg"
+      },
+      "total_material_cost": {
+        "id": "total_material_cost",
+        "label": "Total Material Cost",
+        "value": null,
+        "unit": "USD"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "cutting_loss",
+        "label": "Cutting Loss",
+        "value": null,
+        "unit": "kg",
+        "description": "Material lost due to cutting (kerf, scrap)."
+      },
+      {
+        "id": "coating_overhead",
+        "label": "Coating Overhead",
+        "value": null,
+        "unit": "kg",
+        "description": "Additional weight from coating if included."
+      },
+      {
+        "id": "dimensional_tolerance",
+        "label": "Dimensional Tolerance Loss",
+        "value": null,
+        "unit": "kg",
+        "description": "Estimated weight variation due to rolling tolerances (ISO 9001: ±2% typical)."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_cutting_loss",
+        "action": "Optimize nesting and use CNC saw to reduce cutting loss below 3%.",
+        "expected_impact": "Save up to 2% material cost."
+      },
+      {
+        "id": "check_web_slenderness",
+        "action": "If web slenderness > 100, consider stiffeners or thicker web to meet AISC 360.",
+        "expected_impact": "Improve structural integrity and reduce buckling risk."
+      },
+      {
+        "id": "bulk_discount",
+        "action": "For total weight > 5000 kg, negotiate bulk material discount (typically 5-10%).",
+        "expected_impact": "Reduce total cost by up to 10%."
+      }
+    ],
+    "dataConfidenceAdjusted": 0.92
+  }
+}

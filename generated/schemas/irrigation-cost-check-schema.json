@@ -1,0 +1,356 @@
+{
+  "slug": "irrigation-cost-check",
+  "title": "Irrigation Cost Check",
+  "description": "Industrial-grade tool to evaluate irrigation system cost efficiency, hidden losses, and actionable improvements based on ISO 14046, Lean Six Sigma, and WERC DC metrics.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Benchmarking against industry standards",
+    "Multi-site comparison"
+  ],
+  "inputs": [
+    {
+      "id": "water_volume",
+      "label": "Annual water volume used",
+      "type": "number",
+      "unit": "m³",
+      "default": 10000,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Total volume of water withdrawn for irrigation per year."
+    },
+    {
+      "id": "water_cost_per_m3",
+      "label": "Water cost per m³",
+      "type": "number",
+      "unit": "USD/m³",
+      "default": 0.5,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Unit cost of water including extraction, treatment, and delivery."
+    },
+    {
+      "id": "energy_cost_per_kwh",
+      "label": "Energy cost per kWh",
+      "type": "number",
+      "unit": "USD/kWh",
+      "default": 0.12,
+      "min": 0,
+      "max": 1,
+      "businessContext": "Average electricity cost for pumping and distribution."
+    },
+    {
+      "id": "pump_efficiency",
+      "label": "Pump system efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "min": 10,
+      "max": 100,
+      "businessContext": "Overall efficiency of pump and motor system (ISO 9906)."
+    },
+    {
+      "id": "distribution_losses",
+      "label": "Distribution losses",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Percentage of water lost due to leaks, evaporation, and runoff."
+    },
+    {
+      "id": "labor_hours_per_year",
+      "label": "Annual labor hours for irrigation",
+      "type": "number",
+      "unit": "hours",
+      "default": 500,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Total labor hours dedicated to irrigation operation and maintenance."
+    },
+    {
+      "id": "labor_rate",
+      "label": "Labor rate per hour",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Average hourly wage including benefits."
+    },
+    {
+      "id": "maintenance_cost",
+      "label": "Annual maintenance cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 2000,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Total annual cost for repairs, parts, and servicing."
+    },
+    {
+      "id": "irrigated_area",
+      "label": "Irrigated area",
+      "type": "number",
+      "unit": "hectares",
+      "default": 50,
+      "min": 0.1,
+      "max": 10000,
+      "businessContext": "Total area under irrigation."
+    },
+    {
+      "id": "crop_value_per_ha",
+      "label": "Crop value per hectare",
+      "type": "number",
+      "unit": "USD/ha",
+      "default": 3000,
+      "min": 0,
+      "max": 50000,
+      "businessContext": "Average revenue generated per hectare from irrigated crops."
+    },
+    {
+      "id": "system_type",
+      "label": "Irrigation system type",
+      "type": "select",
+      "options": [
+        "Drip",
+        "Sprinkler",
+        "Flood",
+        "Center pivot",
+        "Subsurface drip"
+      ],
+      "default": "Sprinkler",
+      "businessContext": "Type of irrigation system affecting efficiency and cost structure."
+    },
+    {
+      "id": "water_source",
+      "label": "Water source",
+      "type": "select",
+      "options": [
+        "Groundwater",
+        "Surface water",
+        "Municipal",
+        "Recycled water"
+      ],
+      "default": "Groundwater",
+      "businessContext": "Source of water influencing cost and sustainability."
+    },
+    {
+      "id": "has_automation",
+      "label": "Automation system installed",
+      "type": "boolean",
+      "default": false,
+      "businessContext": "Indicates presence of automated scheduling or sensor-based control."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "pump_efficiency_range",
+        "condition": "pump_efficiency >= 10 && pump_efficiency <= 100",
+        "message": "Pump efficiency must be between 10% and 100%."
+      },
+      {
+        "id": "distribution_losses_range",
+        "condition": "distribution_losses >= 0 && distribution_losses <= 50",
+        "message": "Distribution losses must be between 0% and 50%."
+      },
+      {
+        "id": "water_volume_positive",
+        "condition": "water_volume > 0",
+        "message": "Water volume must be greater than zero."
+      },
+      {
+        "id": "irrigated_area_positive",
+        "condition": "irrigated_area > 0",
+        "message": "Irrigated area must be greater than zero."
+      },
+      {
+        "id": "conditional_automation",
+        "condition": "system_type == 'Drip' && has_automation == false",
+        "message": "Drip systems are strongly recommended to have automation for optimal efficiency."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_water_cost",
+        "condition": "water_cost_per_m3 > 1.0",
+        "severity": "warning",
+        "message": "Water cost exceeds $1.00/m³ – consider water conservation measures."
+      },
+      {
+        "id": "low_pump_efficiency",
+        "condition": "pump_efficiency < 60",
+        "severity": "critical",
+        "message": "Pump efficiency below 60% – immediate maintenance or replacement recommended."
+      },
+      {
+        "id": "high_distribution_losses",
+        "condition": "distribution_losses > 20",
+        "severity": "warning",
+        "message": "Distribution losses above 20% – investigate leaks and improve system."
+      },
+      {
+        "id": "excessive_labor",
+        "condition": "labor_hours_per_year > 1000",
+        "severity": "warning",
+        "message": "Labor hours exceed 1000/year – consider automation to reduce costs."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "effective_water_volume",
+      "label": "Effective water volume",
+      "description": "Volume of water actually reaching crops after distribution losses.",
+      "expression": "water_volume * (1 - distribution_losses / 100)",
+      "unit": "m³"
+    },
+    {
+      "id": "water_cost_total",
+      "label": "Total water cost",
+      "description": "Annual cost of water purchased or extracted.",
+      "expression": "water_volume * water_cost_per_m3",
+      "unit": "USD"
+    },
+    {
+      "id": "energy_cost_total",
+      "label": "Total energy cost",
+      "description": "Annual energy cost for pumping, assuming 1 kWh per m³ per 100m head (simplified).",
+      "expression": "water_volume * energy_cost_per_kwh * (100 / pump_efficiency)",
+      "unit": "USD"
+    },
+    {
+      "id": "labor_cost_total",
+      "label": "Total labor cost",
+      "description": "Annual labor cost for irrigation operations.",
+      "expression": "labor_hours_per_year * labor_rate",
+      "unit": "USD"
+    },
+    {
+      "id": "total_operating_cost",
+      "label": "Total operating cost",
+      "description": "Sum of water, energy, labor, and maintenance costs.",
+      "expression": "water_cost_total + energy_cost_total + labor_cost_total + maintenance_cost",
+      "unit": "USD"
+    },
+    {
+      "id": "cost_per_effective_m3",
+      "label": "Cost per effective m³",
+      "description": "Unit cost of water that actually reaches the crop.",
+      "expression": "total_operating_cost / effective_water_volume",
+      "unit": "USD/m³"
+    },
+    {
+      "id": "irrigation_cost_per_ha",
+      "label": "Irrigation cost per hectare",
+      "description": "Operating cost per unit area.",
+      "expression": "total_operating_cost / irrigated_area",
+      "unit": "USD/ha"
+    },
+    {
+      "id": "primary_result",
+      "label": "Irrigation cost ratio",
+      "description": "Ratio of total irrigation cost to crop revenue – primary KPI (Lean Six Sigma).",
+      "expression": "total_operating_cost / (irrigated_area * crop_value_per_ha)",
+      "unit": "ratio"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "irrigation_cost_ratio",
+      "label": "Irrigation cost ratio",
+      "description": "Primary KPI: fraction of crop revenue consumed by irrigation costs. Target < 0.15 (WERC benchmark).",
+      "unit": "ratio"
+    },
+    "breakdown": {
+      "water_cost_total": {
+        "label": "Water cost",
+        "unit": "USD"
+      },
+      "energy_cost_total": {
+        "label": "Energy cost",
+        "unit": "USD"
+      },
+      "labor_cost_total": {
+        "label": "Labor cost",
+        "unit": "USD"
+      },
+      "maintenance_cost": {
+        "label": "Maintenance cost",
+        "unit": "USD"
+      },
+      "total_operating_cost": {
+        "label": "Total operating cost",
+        "unit": "USD"
+      },
+      "cost_per_effective_m3": {
+        "label": "Cost per effective m³",
+        "unit": "USD/m³"
+      },
+      "irrigation_cost_per_ha": {
+        "label": "Cost per hectare",
+        "unit": "USD/ha"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "distribution_losses_impact",
+        "label": "Distribution losses impact",
+        "description": "Additional cost due to water lost before reaching crops.",
+        "value": "water_volume * (distribution_losses / 100) * water_cost_per_m3",
+        "unit": "USD"
+      },
+      {
+        "id": "pump_inefficiency_impact",
+        "label": "Pump inefficiency impact",
+        "description": "Extra energy cost due to pump efficiency below 100%.",
+        "value": "water_volume * energy_cost_per_kwh * ((100 / pump_efficiency) - 1)",
+        "unit": "USD"
+      },
+      {
+        "id": "labor_inefficiency_impact",
+        "label": "Labor inefficiency impact",
+        "description": "Estimated excess labor cost if automation is absent (30% waste).",
+        "value": "has_automation ? 0 : labor_cost_total * 0.3",
+        "unit": "USD"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_distribution_losses",
+        "description": "Implement leak detection and repair program to reduce distribution losses by 5%.",
+        "potential_savings": "water_volume * 0.05 * water_cost_per_m3",
+        "priority": "high"
+      },
+      {
+        "id": "upgrade_pump",
+        "description": "Replace pump with high-efficiency model (target 85% efficiency).",
+        "potential_savings": "water_volume * energy_cost_per_kwh * ((100 / pump_efficiency) - (100 / 85))",
+        "priority": "medium"
+      },
+      {
+        "id": "install_automation",
+        "description": "Install soil moisture sensors and automated scheduling to reduce water use by 15% and labor by 40%.",
+        "potential_savings": "water_volume * 0.15 * water_cost_per_m3 + labor_cost_total * 0.4",
+        "priority": "high"
+      },
+      {
+        "id": "switch_to_drip",
+        "description": "Convert from sprinkler to drip irrigation to improve application efficiency by 20%.",
+        "potential_savings": "water_volume * 0.20 * water_cost_per_m3",
+        "priority": "medium"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "confidence_adjusted_ratio",
+      "label": "Confidence-adjusted irrigation cost ratio",
+      "description": "Primary result adjusted for data uncertainty using a confidence factor (0.8 to 1.2).",
+      "value": "irrigation_cost_ratio * (1 + (1 - (pump_efficiency / 100)) * 0.2)",
+      "unit": "ratio"
+    }
+  }
+}

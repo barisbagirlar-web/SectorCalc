@@ -1,0 +1,321 @@
+{
+  "slug": "calorie-deficit-calculator",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis"
+  ],
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "min": 10,
+      "max": 120,
+      "businessContext": "Age affects basal metabolic rate (BMR) due to changes in lean body mass and hormonal factors."
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "select",
+      "unit": "",
+      "default": "male",
+      "min": null,
+      "max": null,
+      "options": [
+        "male",
+        "female"
+      ],
+      "businessContext": "Gender influences BMR through differences in body composition and hormonal profiles."
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "min": 20,
+      "max": 500,
+      "businessContext": "Body weight is a primary driver of energy expenditure and calorie needs."
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "min": 50,
+      "max": 300,
+      "businessContext": "Height is used in BMR equations to estimate lean body mass and metabolic rate."
+    },
+    {
+      "id": "activityLevel",
+      "label": "Activity Level",
+      "type": "select",
+      "unit": "",
+      "default": "moderate",
+      "min": null,
+      "max": null,
+      "options": [
+        "sedentary",
+        "light",
+        "moderate",
+        "active",
+        "very active"
+      ],
+      "businessContext": "Physical activity multiplier adjusts TDEE based on occupational and exercise habits."
+    },
+    {
+      "id": "goalRate",
+      "label": "Weight Loss Rate",
+      "type": "select",
+      "unit": "",
+      "default": "moderate",
+      "min": null,
+      "max": null,
+      "options": [
+        "slow",
+        "moderate",
+        "aggressive"
+      ],
+      "businessContext": "Desired weekly weight loss rate determines the daily calorie deficit target."
+    },
+    {
+      "id": "bodyFatPercent",
+      "label": "Body Fat Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 3,
+      "max": 70,
+      "businessContext": "Optional input for more accurate BMR estimation using the Katch-McArdle formula."
+    },
+    {
+      "id": "isPregnant",
+      "label": "Pregnant",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "Pregnancy increases energy requirements; deficit is not recommended during pregnancy."
+    },
+    {
+      "id": "isLactating",
+      "label": "Lactating",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "Lactation adds ~500 kcal/day to energy needs; deficit must be adjusted."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "pregnant_no_deficit",
+        "condition": "inputs.isPregnant === true",
+        "action": "set goalRate to 'slow' and warn user that deficit is not recommended during pregnancy"
+      },
+      {
+        "id": "lactating_adjustment",
+        "condition": "inputs.isLactating === true",
+        "action": "add 500 kcal to TDEE before calculating deficit"
+      },
+      {
+        "id": "bodyFat_required_for_katch",
+        "condition": "inputs.bodyFatPercent === null || inputs.bodyFatPercent === undefined",
+        "action": "fallback to Mifflin-St Jeor BMR formula"
+      },
+      {
+        "id": "aggressive_deficit_limit",
+        "condition": "goalRate === 'aggressive'",
+        "action": "ensure deficit <= 1000 kcal/day and warn if weight < 60 kg"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "deficit_too_high",
+        "condition": "deficit > 1000",
+        "alert": "Daily deficit exceeds 1000 kcal. Risk of muscle loss, nutrient deficiency, and metabolic slowdown."
+      },
+      {
+        "id": "calorie_intake_too_low",
+        "condition": "targetCalories < 1200 (female) or < 1500 (male)",
+        "alert": "Calorie intake is below minimum safe levels. Consult a healthcare professional."
+      },
+      {
+        "id": "bmi_underweight",
+        "condition": "bmi < 18.5",
+        "alert": "BMI indicates underweight. Weight loss is not recommended."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "bmr_mifflin",
+      "name": "BMR (Mifflin-St Jeor)",
+      "description": "Basal metabolic rate using the Mifflin-St Jeor equation.",
+      "equation": "if gender == 'male': 10 * weight + 6.25 * height - 5 * age + 5; else: 10 * weight + 6.25 * height - 5 * age - 161",
+      "unit": "kcal/day"
+    },
+    {
+      "id": "bmr_katch",
+      "name": "BMR (Katch-McArdle)",
+      "description": "Basal metabolic rate using lean body mass (requires body fat %).",
+      "equation": "370 + 21.6 * (weight * (1 - bodyFatPercent/100))",
+      "unit": "kcal/day"
+    },
+    {
+      "id": "tdee",
+      "name": "Total Daily Energy Expenditure",
+      "description": "TDEE = BMR * activity multiplier.",
+      "equation": "bmr * activityMultiplier",
+      "unit": "kcal/day",
+      "activityMultipliers": {
+        "sedentary": 1.2,
+        "light": 1.375,
+        "moderate": 1.55,
+        "active": 1.725,
+        "very active": 1.9
+      }
+    },
+    {
+      "id": "deficit_target",
+      "name": "Daily Calorie Deficit",
+      "description": "Deficit based on goal rate (slow: 250, moderate: 500, aggressive: 1000 kcal/day).",
+      "equation": "goalRateDeficit",
+      "unit": "kcal/day",
+      "goalRateDeficits": {
+        "slow": 250,
+        "moderate": 500,
+        "aggressive": 1000
+      }
+    },
+    {
+      "id": "target_calories",
+      "name": "Target Daily Calorie Intake",
+      "description": "Calories to consume daily to achieve the deficit.",
+      "equation": "tdee - deficit",
+      "unit": "kcal/day"
+    },
+    {
+      "id": "weekly_weight_loss",
+      "name": "Projected Weekly Weight Loss",
+      "description": "Based on 7700 kcal per kg of body fat.",
+      "equation": "(deficit * 7) / 7700",
+      "unit": "kg/week"
+    },
+    {
+      "id": "bmi",
+      "name": "Body Mass Index",
+      "description": "BMI = weight (kg) / (height (m))^2.",
+      "equation": "weight / ((height/100)^2)",
+      "unit": "kg/m²"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "targetCalories",
+      "label": "Target Daily Calorie Intake",
+      "value": null,
+      "unit": "kcal/day"
+    },
+    "breakdown": {
+      "bmr": {
+        "id": "bmr",
+        "label": "Basal Metabolic Rate",
+        "value": null,
+        "unit": "kcal/day"
+      },
+      "tdee": {
+        "id": "tdee",
+        "label": "Total Daily Energy Expenditure",
+        "value": null,
+        "unit": "kcal/day"
+      },
+      "deficit": {
+        "id": "deficit",
+        "label": "Daily Calorie Deficit",
+        "value": null,
+        "unit": "kcal/day"
+      },
+      "weeklyWeightLoss": {
+        "id": "weeklyWeightLoss",
+        "label": "Projected Weekly Weight Loss",
+        "value": null,
+        "unit": "kg/week"
+      },
+      "bmi": {
+        "id": "bmi",
+        "label": "Body Mass Index",
+        "value": null,
+        "unit": "kg/m²"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "metabolic_adaptation",
+        "label": "Metabolic Adaptation",
+        "description": "Prolonged deficit may reduce BMR by 5-15% beyond predicted values.",
+        "impact": "negative"
+      },
+      {
+        "id": "non_exercise_activity_thermogenesis",
+        "label": "NEAT reduction",
+        "description": "Spontaneous physical activity often decreases during calorie restriction.",
+        "impact": "negative"
+      },
+      {
+        "id": "water_weight_fluctuation",
+        "label": "Water Weight Fluctuation",
+        "description": "Initial rapid loss is often water, not fat, masking true fat loss rate.",
+        "impact": "noise"
+      },
+      {
+        "id": "glycogen_depletion",
+        "label": "Glycogen Depletion",
+        "description": "Glycogen stores (with water) can cause 1-2 kg drop unrelated to fat loss.",
+        "impact": "noise"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "increase_protein",
+        "label": "Increase Protein Intake",
+        "description": "Aim for 1.6-2.2 g/kg of body weight to preserve lean mass during deficit."
+      },
+      {
+        "id": "strength_training",
+        "label": "Incorporate Resistance Training",
+        "description": "Strength training mitigates muscle loss and supports metabolic rate."
+      },
+      {
+        "id": "monitor_trend",
+        "label": "Track Weight Trend Over 2-4 Weeks",
+        "description": "Use moving average to filter daily fluctuations and assess true fat loss."
+      },
+      {
+        "id": "adjust_deficit_plateau",
+        "label": "Reassess After 4-6 Weeks",
+        "description": "Metabolic adaptation may require recalculation of TDEE and deficit."
+      },
+      {
+        "id": "ensure_micronutrients",
+        "label": "Prioritize Micronutrient Density",
+        "description": "Low-calorie diets risk deficiencies; include vegetables, lean proteins, and supplements if needed."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "dataConfidenceAdjusted",
+      "label": "Data Confidence Adjusted Target",
+      "value": null,
+      "unit": "kcal/day",
+      "description": "Target calories adjusted downward by 5% if body fat % is not provided (less accurate BMR)."
+    }
+  }
+}

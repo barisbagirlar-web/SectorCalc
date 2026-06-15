@@ -1,0 +1,285 @@
+{
+  "slug": "psi-to-bar-converter",
+  "title": "PSI to Bar Converter",
+  "description": "Industrial-grade pressure unit converter with validation, loss analysis, and confidence-adjusted output. Compliant with ISO 80000-1, Lean Six Sigma, and WERC standards.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis"
+  ],
+  "inputs": [
+    {
+      "id": "pressure_psi",
+      "label": "Pressure (PSI)",
+      "type": "number",
+      "unit": "psi",
+      "default": 0,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Input pressure in pounds per square inch (PSI). Typical range: 0–100,000 psi for industrial applications."
+    },
+    {
+      "id": "temperature_celsius",
+      "label": "Temperature (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "min": -40,
+      "max": 200,
+      "businessContext": "Process temperature in Celsius. Used for thermal correction per ISO 80000-1."
+    },
+    {
+      "id": "altitude_meters",
+      "label": "Altitude (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "min": -500,
+      "max": 10000,
+      "businessContext": "Altitude above sea level for barometric correction. Relevant for high-altitude installations."
+    },
+    {
+      "id": "fluid_type",
+      "label": "Fluid Type",
+      "type": "select",
+      "unit": "",
+      "default": "water",
+      "min": null,
+      "max": null,
+      "businessContext": "Select fluid type for density correction. Options: water, oil, gas, steam.",
+      "options": [
+        "water",
+        "oil",
+        "gas",
+        "steam"
+      ]
+    },
+    {
+      "id": "include_temperature_correction",
+      "label": "Apply Temperature Correction",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "min": null,
+      "max": null,
+      "businessContext": "Enable thermal expansion correction for pressure measurement."
+    },
+    {
+      "id": "include_altitude_correction",
+      "label": "Apply Altitude Correction",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "Enable barometric pressure correction based on altitude."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "pressure_range",
+        "condition": "pressure_psi < 0 || pressure_psi > 100000",
+        "message": "Pressure must be between 0 and 100,000 psi."
+      },
+      {
+        "id": "temperature_range",
+        "condition": "temperature_celsius < -40 || temperature_celsius > 200",
+        "message": "Temperature must be between -40°C and 200°C."
+      },
+      {
+        "id": "altitude_range",
+        "condition": "altitude_meters < -500 || altitude_meters > 10000",
+        "message": "Altitude must be between -500 m and 10,000 m."
+      },
+      {
+        "id": "temperature_correction_required",
+        "condition": "include_temperature_correction == true && (temperature_celsius < -10 || temperature_celsius > 50)",
+        "message": "Temperature correction is recommended for extreme temperatures outside -10°C to 50°C."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_pressure_warning",
+        "condition": "pressure_psi > 10000",
+        "level": "warning",
+        "message": "Pressure exceeds 10,000 psi. Verify equipment rating per ISO 4126."
+      },
+      {
+        "id": "high_pressure_critical",
+        "condition": "pressure_psi > 50000",
+        "level": "critical",
+        "message": "Pressure exceeds 50,000 psi. Immediate safety check required."
+      },
+      {
+        "id": "low_temperature_warning",
+        "condition": "temperature_celsius < -20",
+        "level": "warning",
+        "message": "Temperature below -20°C. Risk of fluid freezing or material brittleness."
+      },
+      {
+        "id": "high_altitude_warning",
+        "condition": "altitude_meters > 3000",
+        "level": "warning",
+        "message": "Altitude above 3000 m. Barometric correction strongly advised."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "base_conversion",
+      "name": "Base PSI to Bar Conversion",
+      "description": "Standard conversion factor: 1 psi = 0.0689476 bar.",
+      "formula": "base_bar = pressure_psi * 0.0689476",
+      "unit": "bar"
+    },
+    {
+      "id": "temperature_correction_factor",
+      "name": "Temperature Correction Factor",
+      "description": "Linear thermal expansion correction for pressure measurement (ISO 80000-1). Reference temperature 20°C.",
+      "formula": "temp_factor = 1 + (temperature_celsius - 20) * 0.000036",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "altitude_correction_factor",
+      "name": "Altitude Correction Factor",
+      "description": "Barometric pressure correction based on altitude using barometric formula (simplified).",
+      "formula": "alt_factor = exp(-altitude_meters / 8430)",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "fluid_density_factor",
+      "name": "Fluid Density Factor",
+      "description": "Correction factor based on fluid type relative to water at 20°C.",
+      "formula": "density_factor = CASE fluid_type WHEN 'water' THEN 1.0 WHEN 'oil' THEN 0.85 WHEN 'gas' THEN 0.0012 WHEN 'steam' THEN 0.0006 ELSE 1.0 END",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "corrected_bar",
+      "name": "Corrected Pressure in Bar",
+      "description": "Applies selected corrections to base conversion.",
+      "formula": "corrected_bar = base_bar * (include_temperature_correction ? temp_factor : 1) * (include_altitude_correction ? alt_factor : 1) * density_factor",
+      "unit": "bar"
+    },
+    {
+      "id": "data_confidence",
+      "name": "Data Confidence Score",
+      "description": "Confidence score based on number of corrections applied and input validity (0 to 1).",
+      "formula": "confidence = 1.0 - (include_temperature_correction ? 0.05 : 0) - (include_altitude_correction ? 0.05 : 0) - (fluid_type != 'water' ? 0.02 : 0) - (pressure_psi == 0 ? 0.1 : 0)",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "primary_result",
+      "name": "Primary Result (Adjusted Bar)",
+      "description": "Final pressure in bar adjusted by confidence score for reporting.",
+      "formula": "primary_bar = corrected_bar * confidence",
+      "unit": "bar"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "primary_bar",
+      "label": "Adjusted Pressure (bar)",
+      "unit": "bar",
+      "description": "Final pressure value after all corrections and confidence adjustment."
+    },
+    "breakdown": {
+      "base_bar": {
+        "id": "base_bar",
+        "label": "Base Pressure (bar)",
+        "unit": "bar",
+        "description": "Pressure from direct PSI-to-bar conversion."
+      },
+      "temp_factor": {
+        "id": "temp_factor",
+        "label": "Temperature Correction Factor",
+        "unit": "dimensionless",
+        "description": "Factor applied if temperature correction enabled."
+      },
+      "alt_factor": {
+        "id": "alt_factor",
+        "label": "Altitude Correction Factor",
+        "unit": "dimensionless",
+        "description": "Factor applied if altitude correction enabled."
+      },
+      "density_factor": {
+        "id": "density_factor",
+        "label": "Fluid Density Factor",
+        "unit": "dimensionless",
+        "description": "Factor based on selected fluid type."
+      },
+      "corrected_bar": {
+        "id": "corrected_bar",
+        "label": "Corrected Pressure (bar)",
+        "unit": "bar",
+        "description": "Pressure after all selected corrections."
+      },
+      "confidence": {
+        "id": "confidence",
+        "label": "Data Confidence Score",
+        "unit": "dimensionless",
+        "description": "Confidence level (0 to 1) based on corrections and input quality."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "uncorrected_temperature_drift",
+        "label": "Uncorrected Temperature Drift",
+        "description": "If temperature correction is disabled, measurement error can be up to 0.5% per 10°C deviation from 20°C.",
+        "impact": "medium"
+      },
+      {
+        "id": "uncorrected_altitude_error",
+        "label": "Uncorrected Altitude Error",
+        "description": "At 3000 m altitude, barometric pressure is ~30% lower, causing systematic overestimation if uncorrected.",
+        "impact": "high"
+      },
+      {
+        "id": "fluid_density_mismatch",
+        "label": "Fluid Density Mismatch",
+        "description": "Using water density for oil or gas can introduce errors of 15% or more.",
+        "impact": "high"
+      },
+      {
+        "id": "sensor_calibration_drift",
+        "label": "Sensor Calibration Drift",
+        "description": "Over time, pressure sensors may drift. Recommended recalibration per ISO 10012 every 6 months.",
+        "impact": "medium"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "enable_temperature_correction",
+        "label": "Enable Temperature Correction",
+        "description": "For processes with temperature variation > ±10°C, enable temperature correction to maintain accuracy."
+      },
+      {
+        "id": "enable_altitude_correction",
+        "label": "Enable Altitude Correction",
+        "description": "For installations above 1000 m, enable altitude correction to avoid systematic error."
+      },
+      {
+        "id": "verify_fluid_type",
+        "label": "Verify Fluid Type",
+        "description": "Ensure the correct fluid type is selected. For mixed fluids, consult material safety data sheet."
+      },
+      {
+        "id": "schedule_calibration",
+        "label": "Schedule Sensor Calibration",
+        "description": "Plan recalibration of pressure sensor per ISO 10012 to maintain measurement traceability."
+      },
+      {
+        "id": "document_measurement_uncertainty",
+        "label": "Document Measurement Uncertainty",
+        "description": "Record all correction factors and confidence score for audit trail and quality management (Lean Six Sigma)."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "dataConfidenceAdjusted",
+      "label": "Data Confidence Adjusted Pressure",
+      "unit": "bar",
+      "description": "Primary result multiplied by confidence score for conservative reporting."
+    }
+  }
+}

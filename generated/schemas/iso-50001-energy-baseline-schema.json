@@ -1,0 +1,284 @@
+{
+  "slug": "iso-50001-energy-baseline",
+  "name": "ISO 50001 Energy Baseline Calculator",
+  "description": "Calculates the energy baseline and performance indicators per ISO 50001:2018, including normalization for production volume, weather, and other relevant variables.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-site comparison",
+    "Automated EnPI reporting"
+  ],
+  "inputs": [
+    {
+      "id": "total_energy_consumption",
+      "label": "Total Energy Consumption",
+      "type": "number",
+      "unit": "kWh",
+      "default": 0,
+      "min": 0,
+      "max": 1000000000,
+      "businessContext": "Total energy consumed by the organization in the baseline period (e.g., one year)."
+    },
+    {
+      "id": "production_volume",
+      "label": "Production Volume",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "min": 0,
+      "max": 1000000000,
+      "businessContext": "Total production output in the baseline period (e.g., number of products, tons, or other relevant unit)."
+    },
+    {
+      "id": "heating_degree_days",
+      "label": "Heating Degree Days (HDD)",
+      "type": "number",
+      "unit": "°C·day",
+      "default": 0,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Annual heating degree days for the facility location, used to normalize weather-related energy use."
+    },
+    {
+      "id": "cooling_degree_days",
+      "label": "Cooling Degree Days (CDD)",
+      "type": "number",
+      "unit": "°C·day",
+      "default": 0,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Annual cooling degree days for the facility location, used to normalize weather-related energy use."
+    },
+    {
+      "id": "operating_hours",
+      "label": "Operating Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 8760,
+      "min": 0,
+      "max": 8760,
+      "businessContext": "Total hours the facility operated during the baseline period."
+    },
+    {
+      "id": "energy_source_mix",
+      "label": "Energy Source Mix",
+      "type": "select",
+      "options": [
+        "Electricity only",
+        "Natural gas + Electricity",
+        "Oil + Electricity",
+        "Renewable + Grid",
+        "Mixed (3+ sources)"
+      ],
+      "default": "Electricity only",
+      "businessContext": "Primary energy sources used, affecting emission factors and normalization."
+    },
+    {
+      "id": "baseline_type",
+      "label": "Baseline Type",
+      "type": "select",
+      "options": [
+        "Fixed baseline",
+        "Rolling baseline (3-year)",
+        "Rolling baseline (5-year)"
+      ],
+      "default": "Fixed baseline",
+      "businessContext": "Type of baseline per ISO 50001:2018 clause 6.3."
+    },
+    {
+      "id": "use_weather_normalization",
+      "label": "Apply Weather Normalization",
+      "type": "boolean",
+      "default": true,
+      "businessContext": "If true, adjusts energy consumption for heating and cooling degree days."
+    },
+    {
+      "id": "use_production_normalization",
+      "label": "Apply Production Normalization",
+      "type": "boolean",
+      "default": true,
+      "businessContext": "If true, adjusts energy consumption for production volume."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "production_volume_required_if_normalization",
+        "condition": "inputs.use_production_normalization == true && inputs.production_volume <= 0",
+        "message": "Production volume must be greater than zero when production normalization is enabled."
+      },
+      {
+        "id": "hdd_cdd_required_if_weather_normalization",
+        "condition": "inputs.use_weather_normalization == true && (inputs.heating_degree_days <= 0 && inputs.cooling_degree_days <= 0)",
+        "message": "At least one of Heating Degree Days or Cooling Degree Days must be greater than zero when weather normalization is enabled."
+      },
+      {
+        "id": "operating_hours_positive",
+        "condition": "inputs.operating_hours <= 0",
+        "message": "Operating hours must be greater than zero."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "energy_intensity_high",
+        "condition": "outputs.energy_intensity > 1.5 * outputs.baseline_energy_intensity",
+        "severity": "warning",
+        "message": "Energy intensity is more than 50% above baseline. Investigate potential energy waste."
+      },
+      {
+        "id": "energy_intensity_critical",
+        "condition": "outputs.energy_intensity > 2.0 * outputs.baseline_energy_intensity",
+        "severity": "critical",
+        "message": "Energy intensity has doubled compared to baseline. Immediate action required."
+      },
+      {
+        "id": "production_drop",
+        "condition": "inputs.production_volume < 0.8 * outputs.baseline_production_volume",
+        "severity": "info",
+        "message": "Production volume has dropped more than 20% from baseline. Re-evaluate baseline relevance."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "weather_normalized_energy",
+      "description": "Energy consumption adjusted for weather using degree days.",
+      "formula": "total_energy_consumption / (1 + 0.02 * (heating_degree_days + cooling_degree_days) / 1000)",
+      "dependencies": [
+        "total_energy_consumption",
+        "heating_degree_days",
+        "cooling_degree_days"
+      ]
+    },
+    {
+      "id": "production_normalized_energy",
+      "description": "Energy consumption adjusted for production volume.",
+      "formula": "weather_normalized_energy / production_volume",
+      "dependencies": [
+        "weather_normalized_energy",
+        "production_volume"
+      ]
+    },
+    {
+      "id": "energy_intensity",
+      "description": "Energy intensity per unit of production (kWh/unit).",
+      "formula": "production_normalized_energy",
+      "dependencies": [
+        "production_normalized_energy"
+      ]
+    },
+    {
+      "id": "baseline_energy_intensity",
+      "description": "Baseline energy intensity calculated from historical data (assumed stored or input as reference).",
+      "formula": "baseline_energy_intensity_reference",
+      "dependencies": []
+    },
+    {
+      "id": "energy_performance_indicator",
+      "description": "EnPI = (Baseline Energy Intensity - Current Energy Intensity) / Baseline Energy Intensity * 100",
+      "formula": "((baseline_energy_intensity - energy_intensity) / baseline_energy_intensity) * 100",
+      "dependencies": [
+        "baseline_energy_intensity",
+        "energy_intensity"
+      ]
+    },
+    {
+      "id": "total_energy_cost_savings",
+      "description": "Estimated cost savings based on energy reduction and average energy price (assumed $0.12/kWh).",
+      "formula": "(total_energy_consumption - (energy_intensity * production_volume)) * 0.12",
+      "dependencies": [
+        "total_energy_consumption",
+        "energy_intensity",
+        "production_volume"
+      ]
+    },
+    {
+      "id": "primary_result",
+      "description": "Primary result: Energy Performance Indicator (EnPI) as a percentage improvement (positive = improvement).",
+      "formula": "energy_performance_indicator",
+      "dependencies": [
+        "energy_performance_indicator"
+      ]
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "energy_performance_indicator",
+      "label": "Energy Performance Indicator (EnPI)",
+      "unit": "%",
+      "description": "Percentage improvement (positive) or deterioration (negative) relative to baseline energy intensity."
+    },
+    "breakdown": {
+      "weather_normalized_energy": {
+        "label": "Weather Normalized Energy",
+        "unit": "kWh",
+        "description": "Energy consumption after weather normalization."
+      },
+      "production_normalized_energy": {
+        "label": "Production Normalized Energy",
+        "unit": "kWh/unit",
+        "description": "Energy consumption per unit of production after weather normalization."
+      },
+      "energy_intensity": {
+        "label": "Energy Intensity",
+        "unit": "kWh/unit",
+        "description": "Current energy intensity."
+      },
+      "baseline_energy_intensity": {
+        "label": "Baseline Energy Intensity",
+        "unit": "kWh/unit",
+        "description": "Reference energy intensity from baseline period."
+      },
+      "total_energy_cost_savings": {
+        "label": "Total Energy Cost Savings",
+        "unit": "$",
+        "description": "Estimated cost savings compared to baseline energy consumption."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "weather_variation_impact",
+        "label": "Weather Variation Impact",
+        "unit": "kWh",
+        "description": "Energy change attributable to weather differences from baseline."
+      },
+      {
+        "id": "production_variation_impact",
+        "label": "Production Variation Impact",
+        "unit": "kWh",
+        "description": "Energy change attributable to production volume differences from baseline."
+      },
+      {
+        "id": "residual_energy_change",
+        "label": "Residual Energy Change",
+        "unit": "kWh",
+        "description": "Energy change not explained by weather or production (e.g., efficiency changes, behavioral)."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "label": "Investigate residual energy increase",
+        "description": "If residual energy change is positive, conduct energy audits to identify waste sources."
+      },
+      {
+        "id": "action_2",
+        "label": "Optimize HVAC scheduling",
+        "description": "If weather impact is significant, review HVAC setpoints and schedules."
+      },
+      {
+        "id": "action_3",
+        "label": "Align production planning with energy tariffs",
+        "description": "Shift high-energy processes to off-peak hours to reduce costs."
+      },
+      {
+        "id": "action_4",
+        "label": "Implement energy monitoring system",
+        "description": "Install sub-metering to identify specific high-consumption areas."
+      }
+    ],
+    "dataConfidenceAdjusted": 0.85
+  }
+}

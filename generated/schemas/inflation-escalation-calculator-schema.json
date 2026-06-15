@@ -1,0 +1,262 @@
+{
+  "slug": "inflation-escalation-calculator",
+  "title": "Inflation Escalation Calculator",
+  "description": "Industrial-grade tool to compute the impact of inflation on material, labor, energy, and overhead costs over a specified period, with escalation factors and confidence adjustments.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario comparison",
+    "Custom escalation curves"
+  ],
+  "inputs": [
+    {
+      "id": "base_cost",
+      "label": "Base Cost (Current Period)",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 0,
+      "max": 1000000000,
+      "businessContext": "Total cost of goods or services at the start of the analysis period."
+    },
+    {
+      "id": "inflation_rate",
+      "label": "Annual Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Expected annual inflation rate for the cost category (e.g., CPI, PPI)."
+    },
+    {
+      "id": "period_years",
+      "label": "Analysis Period (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 1,
+      "max": 50,
+      "businessContext": "Number of years over which inflation escalation is calculated."
+    },
+    {
+      "id": "escalation_method",
+      "label": "Escalation Method",
+      "type": "select",
+      "options": [
+        "compound",
+        "simple",
+        "stepwise"
+      ],
+      "default": "compound",
+      "businessContext": "Method to apply inflation: compound (annual compounding), simple (linear), or stepwise (discrete annual steps)."
+    },
+    {
+      "id": "include_energy",
+      "label": "Include Energy Cost Escalation",
+      "type": "boolean",
+      "default": true,
+      "businessContext": "If true, applies a separate energy escalation factor (typically higher than general inflation)."
+    },
+    {
+      "id": "energy_escalation_rate",
+      "label": "Energy Escalation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Annual escalation rate for energy costs, often based on EIA forecasts."
+    },
+    {
+      "id": "labor_productivity_gain",
+      "label": "Labor Productivity Gain",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "min": -10,
+      "max": 20,
+      "businessContext": "Annual productivity improvement that offsets labor cost inflation (Lean / Six Sigma metric)."
+    },
+    {
+      "id": "material_volatility_index",
+      "label": "Material Volatility Index",
+      "type": "number",
+      "unit": "index",
+      "default": 1,
+      "min": 0.5,
+      "max": 3,
+      "businessContext": "Multiplier to adjust material inflation based on commodity volatility (e.g., copper, steel)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_energy_inclusion",
+        "condition": "include_energy == true && energy_escalation_rate < inflation_rate",
+        "message": "Energy escalation rate should typically be >= general inflation rate when energy is included."
+      },
+      {
+        "id": "rule_period_positive",
+        "condition": "period_years < 1",
+        "message": "Analysis period must be at least 1 year."
+      },
+      {
+        "id": "rule_volatility_range",
+        "condition": "material_volatility_index < 0.5 || material_volatility_index > 3.0",
+        "message": "Material volatility index must be between 0.5 and 3.0."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "thresh_high_inflation",
+        "condition": "inflation_rate > 10",
+        "alert": "Inflation rate exceeds 10% – consider hedging strategies."
+      },
+      {
+        "id": "thresh_negative_productivity",
+        "condition": "labor_productivity_gain < 0",
+        "alert": "Negative productivity gain will amplify labor cost escalation."
+      },
+      {
+        "id": "thresh_long_period",
+        "condition": "period_years > 20",
+        "alert": "Long analysis period (>20 years) increases uncertainty – use scenario analysis."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "effective_labor_inflation",
+      "description": "Labor inflation adjusted for productivity gain",
+      "expression": "inflation_rate - labor_productivity_gain",
+      "unit": "%"
+    },
+    {
+      "id": "material_escalation_factor",
+      "description": "Material inflation factor including volatility",
+      "expression": "inflation_rate * material_volatility_index",
+      "unit": "%"
+    },
+    {
+      "id": "energy_escalation_factor",
+      "description": "Energy escalation factor (if included, else 0)",
+      "expression": "include_energy ? energy_escalation_rate : 0",
+      "unit": "%"
+    },
+    {
+      "id": "blended_escalation_rate",
+      "description": "Weighted average escalation rate for all cost components (assumes equal weights for simplicity; industrial standard uses 40% material, 30% labor, 20% overhead, 10% energy)",
+      "expression": "0.4 * material_escalation_factor + 0.3 * effective_labor_inflation + 0.2 * inflation_rate + 0.1 * energy_escalation_factor",
+      "unit": "%"
+    },
+    {
+      "id": "escalated_cost",
+      "description": "Total escalated cost over the period based on method",
+      "expression": "case escalation_method when 'compound' then base_cost * (1 + blended_escalation_rate/100)^period_years when 'simple' then base_cost * (1 + blended_escalation_rate/100 * period_years) when 'stepwise' then base_cost * product(1 + step_rate_i/100) for i=1 to period_years end",
+      "unit": "USD"
+    },
+    {
+      "id": "total_inflation_impact",
+      "description": "Dollar impact of inflation over the period",
+      "expression": "escalated_cost - base_cost",
+      "unit": "USD"
+    },
+    {
+      "id": "annualized_escalation_rate",
+      "description": "Effective annual escalation rate (CAGR) over the period",
+      "expression": "((escalated_cost / base_cost)^(1/period_years) - 1) * 100",
+      "unit": "%"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "escalated_cost",
+      "label": "Escalated Cost (End of Period)",
+      "unit": "USD",
+      "description": "Total cost after applying inflation escalation over the analysis period."
+    },
+    "breakdown": {
+      "id": "cost_breakdown",
+      "label": "Cost Breakdown by Component",
+      "components": [
+        {
+          "id": "material_cost",
+          "label": "Material Cost",
+          "value": 0,
+          "unit": "USD",
+          "description": "Escalated material cost (40% weight, adjusted by volatility)."
+        },
+        {
+          "id": "labor_cost",
+          "label": "Labor Cost",
+          "value": 0,
+          "unit": "USD",
+          "description": "Escalated labor cost (30% weight, adjusted by productivity)."
+        },
+        {
+          "id": "overhead_cost",
+          "label": "Overhead Cost",
+          "value": 0,
+          "unit": "USD",
+          "description": "Escalated overhead cost (20% weight, general inflation)."
+        },
+        {
+          "id": "energy_cost",
+          "label": "Energy Cost",
+          "value": 0,
+          "unit": "USD",
+          "description": "Escalated energy cost (10% weight, if included)."
+        }
+      ]
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "unhedged_commodity_exposure",
+        "label": "Unhedged Commodity Exposure",
+        "description": "Material volatility index > 1.5 indicates high exposure to price swings without hedging."
+      },
+      {
+        "id": "negative_productivity_trend",
+        "label": "Negative Productivity Trend",
+        "description": "Labor productivity gain < 0 leads to compounding labor cost increases."
+      },
+      {
+        "id": "energy_cost_spiral",
+        "label": "Energy Cost Spiral",
+        "description": "Energy escalation rate > 2x general inflation may indicate structural energy cost issues."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_hedge_materials",
+        "label": "Hedge Material Costs",
+        "description": "Consider futures or long-term contracts for volatile materials (ISO 31000 risk management)."
+      },
+      {
+        "id": "action_lean_productivity",
+        "label": "Implement Lean / Six Sigma",
+        "description": "Target productivity gains of 2-5% annually to offset labor inflation (Lean standard)."
+      },
+      {
+        "id": "action_energy_efficiency",
+        "label": "Energy Efficiency Audit",
+        "description": "Reduce energy consumption by 10-15% to mitigate high escalation rates (ISO 50001)."
+      },
+      {
+        "id": "action_scenario_planning",
+        "label": "Run Scenario Analysis",
+        "description": "Use multiple inflation scenarios (low, base, high) to prepare for uncertainty (WERC best practice)."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "confidence_adjusted_cost",
+      "label": "Confidence-Adjusted Escalated Cost",
+      "unit": "USD",
+      "description": "Escalated cost adjusted by a confidence factor (0.8 to 1.2) based on input variability and historical accuracy.",
+      "value": 0
+    }
+  }
+}

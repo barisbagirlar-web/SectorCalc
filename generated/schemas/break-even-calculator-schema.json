@@ -1,0 +1,276 @@
+{
+  "slug": "break-even-calculator",
+  "name": "Break-Even Point Calculator",
+  "description": "Industrial-grade break-even analysis tool compliant with ISO 9001, Lean, and Six Sigma standards. Calculates the minimum production volume required to cover all costs, incorporating fixed costs, variable costs, revenue, and quality-related losses.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Scenario simulation",
+    "Multi-product break-even"
+  ],
+  "inputs": [
+    {
+      "id": "fixed_costs",
+      "label": "Total Fixed Costs (per period)",
+      "type": "number",
+      "unit": "currency",
+      "default": 50000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Sum of all fixed costs (rent, salaries, insurance, depreciation) for the period. ISO 9001:2015 clause 7.1.4."
+    },
+    {
+      "id": "variable_cost_per_unit",
+      "label": "Variable Cost per Unit",
+      "type": "number",
+      "unit": "currency/unit",
+      "default": 15,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Direct material, direct labor, and variable overhead per unit. Lean manufacturing standard cost approach."
+    },
+    {
+      "id": "selling_price_per_unit",
+      "label": "Selling Price per Unit",
+      "type": "number",
+      "unit": "currency/unit",
+      "default": 25,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Net selling price after discounts and returns. WERC DC Metrics benchmark."
+    },
+    {
+      "id": "defect_rate",
+      "label": "Defect Rate (ppm)",
+      "type": "number",
+      "unit": "ppm",
+      "default": 5000,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Parts per million defective. Six Sigma DMAIC metric. Typical baseline 5000 ppm (3.8 sigma)."
+    },
+    {
+      "id": "rework_cost_per_unit",
+      "label": "Rework Cost per Defective Unit",
+      "type": "number",
+      "unit": "currency/unit",
+      "default": 8,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Cost to rework or scrap a defective unit. Includes labor, material, and overhead."
+    },
+    {
+      "id": "production_volume",
+      "label": "Actual Production Volume (units)",
+      "type": "number",
+      "unit": "units",
+      "default": 10000,
+      "min": 0,
+      "max": 10000000,
+      "businessContext": "Total units produced in the period. Used for actual vs. break-even comparison."
+    },
+    {
+      "id": "cost_allocation_method",
+      "label": "Cost Allocation Method",
+      "type": "select",
+      "unit": "",
+      "default": "traditional",
+      "options": [
+        "traditional",
+        "activity-based"
+      ],
+      "businessContext": "Traditional uses single overhead rate; activity-based uses multiple cost drivers. ABC is recommended for ISO 9001:2015 clause 9.1.3."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "price_gt_variable",
+        "condition": "selling_price_per_unit > variable_cost_per_unit",
+        "message": "Selling price must be greater than variable cost per unit to achieve break-even."
+      },
+      {
+        "id": "positive_fixed_costs",
+        "condition": "fixed_costs > 0",
+        "message": "Fixed costs must be greater than zero."
+      },
+      {
+        "id": "defect_rate_range",
+        "condition": "defect_rate >= 0 AND defect_rate <= 1000000",
+        "message": "Defect rate must be between 0 and 1,000,000 ppm."
+      },
+      {
+        "id": "volume_non_negative",
+        "condition": "production_volume >= 0",
+        "message": "Production volume cannot be negative."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "low_margin_warning",
+        "condition": "(selling_price_per_unit - variable_cost_per_unit) / selling_price_per_unit < 0.2",
+        "message": "Contribution margin ratio is below 20%. High risk of loss if volume drops."
+      },
+      {
+        "id": "high_defect_alert",
+        "condition": "defect_rate > 50000",
+        "message": "Defect rate exceeds 50,000 ppm (3.8 sigma). Quality losses significantly impact break-even."
+      },
+      {
+        "id": "volume_below_breakeven",
+        "condition": "production_volume < break_even_units",
+        "message": "Actual production volume is below break-even point. Operation is running at a loss."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "contribution_margin_per_unit",
+      "name": "Contribution Margin per Unit",
+      "description": "Revenue per unit minus variable cost per unit.",
+      "formula": "selling_price_per_unit - variable_cost_per_unit",
+      "unit": "currency/unit"
+    },
+    {
+      "id": "contribution_margin_ratio",
+      "name": "Contribution Margin Ratio",
+      "description": "Contribution margin as a percentage of selling price.",
+      "formula": "(selling_price_per_unit - variable_cost_per_unit) / selling_price_per_unit",
+      "unit": "ratio"
+    },
+    {
+      "id": "break_even_units",
+      "name": "Break-Even Point (Units)",
+      "description": "Number of units that must be sold to cover all fixed costs.",
+      "formula": "fixed_costs / (selling_price_per_unit - variable_cost_per_unit)",
+      "unit": "units"
+    },
+    {
+      "id": "break_even_revenue",
+      "name": "Break-Even Revenue",
+      "description": "Revenue required to break even.",
+      "formula": "break_even_units * selling_price_per_unit",
+      "unit": "currency"
+    },
+    {
+      "id": "quality_loss_per_unit",
+      "name": "Quality Loss per Unit",
+      "description": "Expected cost of defects per unit produced, based on defect rate and rework cost.",
+      "formula": "(defect_rate / 1000000) * rework_cost_per_unit",
+      "unit": "currency/unit"
+    },
+    {
+      "id": "adjusted_break_even_units",
+      "name": "Adjusted Break-Even Units (with Quality Loss)",
+      "description": "Break-even units after incorporating quality-related losses as additional variable cost.",
+      "formula": "fixed_costs / (selling_price_per_unit - variable_cost_per_unit - quality_loss_per_unit)",
+      "unit": "units"
+    },
+    {
+      "id": "margin_of_safety",
+      "name": "Margin of Safety",
+      "description": "Difference between actual production volume and break-even volume, as a percentage.",
+      "formula": "(production_volume - break_even_units) / production_volume",
+      "unit": "ratio"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "break_even_units",
+      "label": "Break-Even Point (Units)",
+      "value": null,
+      "unit": "units",
+      "description": "Minimum number of units to cover all fixed costs."
+    },
+    "breakdown": {
+      "contribution_margin_per_unit": {
+        "id": "contribution_margin_per_unit",
+        "label": "Contribution Margin per Unit",
+        "value": null,
+        "unit": "currency/unit"
+      },
+      "contribution_margin_ratio": {
+        "id": "contribution_margin_ratio",
+        "label": "Contribution Margin Ratio",
+        "value": null,
+        "unit": "ratio"
+      },
+      "break_even_revenue": {
+        "id": "break_even_revenue",
+        "label": "Break-Even Revenue",
+        "value": null,
+        "unit": "currency"
+      },
+      "quality_loss_per_unit": {
+        "id": "quality_loss_per_unit",
+        "label": "Quality Loss per Unit",
+        "value": null,
+        "unit": "currency/unit"
+      },
+      "adjusted_break_even_units": {
+        "id": "adjusted_break_even_units",
+        "label": "Adjusted Break-Even Units (with Quality Loss)",
+        "value": null,
+        "unit": "units"
+      },
+      "margin_of_safety": {
+        "id": "margin_of_safety",
+        "label": "Margin of Safety",
+        "value": null,
+        "unit": "ratio"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "defect_rate_impact",
+        "label": "Defect Rate Impact on Break-Even",
+        "description": "Additional units required due to quality losses.",
+        "value": null,
+        "unit": "units"
+      },
+      {
+        "id": "rework_cost_impact",
+        "label": "Rework Cost Impact",
+        "description": "Total cost of rework at current defect rate.",
+        "value": null,
+        "unit": "currency"
+      },
+      {
+        "id": "fixed_cost_leverage",
+        "label": "Fixed Cost Leverage",
+        "description": "Sensitivity of break-even to fixed cost changes.",
+        "value": null,
+        "unit": "units/currency"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_defects",
+        "priority": "high",
+        "action": "Implement Six Sigma DMAIC to reduce defect rate below 5000 ppm.",
+        "expectedImpact": "Reduces adjusted break-even units by up to 10%."
+      },
+      {
+        "id": "optimize_variable_costs",
+        "priority": "medium",
+        "action": "Conduct value stream mapping to identify and eliminate non-value-added activities.",
+        "expectedImpact": "Reduces variable cost per unit by 5-15%."
+      },
+      {
+        "id": "increase_selling_price",
+        "priority": "medium",
+        "action": "Perform market analysis to justify price increase based on quality improvements.",
+        "expectedImpact": "Increases contribution margin ratio."
+      },
+      {
+        "id": "reduce_fixed_costs",
+        "priority": "low",
+        "action": "Review overhead allocation using activity-based costing (ABC).",
+        "expectedImpact": "Lowers break-even point."
+      }
+    ],
+    "dataConfidenceAdjusted": 0.85
+  }
+}

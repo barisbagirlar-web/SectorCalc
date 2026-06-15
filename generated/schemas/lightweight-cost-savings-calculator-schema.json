@@ -1,0 +1,332 @@
+{
+  "slug": "lightweight-cost-savings-calculator",
+  "title": "Lightweight Cost Savings Calculator",
+  "description": "Industrial-grade calculator for evaluating cost savings from lightweighting initiatives in logistics and manufacturing, aligned with Lean, Six Sigma, and WERC standards.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario comparison",
+    "Custom reporting"
+  ],
+  "inputs": [
+    {
+      "id": "current_weight_kg",
+      "label": "Current Weight per Unit (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "min": 0.1,
+      "max": 10000,
+      "businessContext": "Weight of the product or packaging before lightweighting."
+    },
+    {
+      "id": "new_weight_kg",
+      "label": "New Weight per Unit (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 8,
+      "min": 0.1,
+      "max": 10000,
+      "businessContext": "Weight of the product or packaging after lightweighting."
+    },
+    {
+      "id": "annual_volume_units",
+      "label": "Annual Volume (units)",
+      "type": "number",
+      "unit": "units",
+      "default": 100000,
+      "min": 1,
+      "max": 1000000000,
+      "businessContext": "Total number of units produced or shipped per year."
+    },
+    {
+      "id": "material_cost_per_kg",
+      "label": "Material Cost per kg",
+      "type": "number",
+      "unit": "currency/kg",
+      "default": 2.5,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Cost of raw material per kilogram."
+    },
+    {
+      "id": "shipping_cost_per_kg",
+      "label": "Shipping Cost per kg",
+      "type": "number",
+      "unit": "currency/kg",
+      "default": 0.3,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Average freight cost per kilogram."
+    },
+    {
+      "id": "waste_rate_percent",
+      "label": "Waste Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of material wasted during production (scrap, rework)."
+    },
+    {
+      "id": "labor_hours_per_unit",
+      "label": "Labor Hours per Unit",
+      "type": "number",
+      "unit": "hours",
+      "default": 0.5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Direct labor hours required to produce one unit."
+    },
+    {
+      "id": "labor_rate_per_hour",
+      "label": "Labor Rate per Hour",
+      "type": "number",
+      "unit": "currency/hour",
+      "default": 20,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Hourly wage including benefits."
+    },
+    {
+      "id": "energy_cost_per_kwh",
+      "label": "Energy Cost per kWh",
+      "type": "number",
+      "unit": "currency/kWh",
+      "default": 0.12,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Cost of electricity per kilowatt-hour."
+    },
+    {
+      "id": "energy_consumption_per_kg",
+      "label": "Energy Consumption per kg of Material",
+      "type": "number",
+      "unit": "kWh/kg",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Energy used to process one kilogram of material."
+    },
+    {
+      "id": "overhead_rate_percent",
+      "label": "Overhead Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Percentage of direct costs allocated to overhead."
+    },
+    {
+      "id": "material_type",
+      "label": "Material Type",
+      "type": "select",
+      "unit": "",
+      "default": "plastic",
+      "options": [
+        "plastic",
+        "metal",
+        "composite",
+        "glass",
+        "paper"
+      ],
+      "businessContext": "Type of material being lightweighted, affects processing and recyclability."
+    },
+    {
+      "id": "use_recycled_content",
+      "label": "Use Recycled Content",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "businessContext": "Whether the new material includes recycled content, which may reduce cost and environmental impact."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "weight_reduction_positive",
+        "condition": "new_weight_kg < current_weight_kg",
+        "message": "New weight must be less than current weight to achieve savings."
+      },
+      {
+        "id": "volume_positive",
+        "condition": "annual_volume_units > 0",
+        "message": "Annual volume must be greater than zero."
+      },
+      {
+        "id": "material_cost_positive",
+        "condition": "material_cost_per_kg >= 0",
+        "message": "Material cost cannot be negative."
+      },
+      {
+        "id": "waste_rate_range",
+        "condition": "waste_rate_percent >= 0 AND waste_rate_percent <= 100",
+        "message": "Waste rate must be between 0% and 100%."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "savings_alert_low",
+        "condition": "total_annual_savings < 10000",
+        "level": "warning",
+        "message": "Annual savings are low; consider larger volume or greater weight reduction."
+      },
+      {
+        "id": "savings_alert_high",
+        "condition": "total_annual_savings > 1000000",
+        "level": "success",
+        "message": "Significant annual savings achieved; recommend further optimization."
+      },
+      {
+        "id": "payback_alert",
+        "condition": "payback_period_years > 3",
+        "level": "warning",
+        "message": "Payback period exceeds 3 years; evaluate investment risk."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "weight_reduction_kg",
+      "label": "Weight Reduction per Unit",
+      "description": "Difference between current and new weight.",
+      "expression": "current_weight_kg - new_weight_kg",
+      "unit": "kg"
+    },
+    {
+      "id": "material_savings_per_unit",
+      "label": "Material Savings per Unit",
+      "description": "Savings from reduced material usage, adjusted for waste.",
+      "expression": "weight_reduction_kg * material_cost_per_kg * (1 + waste_rate_percent / 100)",
+      "unit": "currency"
+    },
+    {
+      "id": "shipping_savings_per_unit",
+      "label": "Shipping Savings per Unit",
+      "description": "Savings from reduced shipping weight.",
+      "expression": "weight_reduction_kg * shipping_cost_per_kg",
+      "unit": "currency"
+    },
+    {
+      "id": "energy_savings_per_unit",
+      "label": "Energy Savings per Unit",
+      "description": "Savings from reduced energy consumption due to less material processing.",
+      "expression": "weight_reduction_kg * energy_consumption_per_kg * energy_cost_per_kwh",
+      "unit": "currency"
+    },
+    {
+      "id": "labor_savings_per_unit",
+      "label": "Labor Savings per Unit",
+      "description": "Savings from reduced labor due to lighter material handling (estimated 10% reduction per kg saved).",
+      "expression": "weight_reduction_kg * 0.1 * labor_hours_per_unit * labor_rate_per_hour",
+      "unit": "currency"
+    },
+    {
+      "id": "overhead_savings_per_unit",
+      "label": "Overhead Savings per Unit",
+      "description": "Overhead allocated to direct savings.",
+      "expression": "(material_savings_per_unit + shipping_savings_per_unit + energy_savings_per_unit + labor_savings_per_unit) * (overhead_rate_percent / 100)",
+      "unit": "currency"
+    },
+    {
+      "id": "total_annual_savings",
+      "label": "Total Annual Savings",
+      "description": "Primary result: sum of all savings multiplied by annual volume.",
+      "expression": "(material_savings_per_unit + shipping_savings_per_unit + energy_savings_per_unit + labor_savings_per_unit + overhead_savings_per_unit) * annual_volume_units",
+      "unit": "currency/year"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_annual_savings",
+      "label": "Total Annual Savings",
+      "unit": "currency/year",
+      "description": "Primary result of the calculator."
+    },
+    "breakdown": {
+      "material_savings_annual": {
+        "label": "Annual Material Savings",
+        "unit": "currency/year",
+        "description": "Savings from reduced material cost."
+      },
+      "shipping_savings_annual": {
+        "label": "Annual Shipping Savings",
+        "unit": "currency/year",
+        "description": "Savings from reduced freight cost."
+      },
+      "energy_savings_annual": {
+        "label": "Annual Energy Savings",
+        "unit": "currency/year",
+        "description": "Savings from reduced energy consumption."
+      },
+      "labor_savings_annual": {
+        "label": "Annual Labor Savings",
+        "unit": "currency/year",
+        "description": "Savings from reduced labor cost."
+      },
+      "overhead_savings_annual": {
+        "label": "Annual Overhead Savings",
+        "unit": "currency/year",
+        "description": "Savings from reduced overhead allocation."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "waste_inefficiency",
+        "label": "Waste Inefficiency",
+        "description": "High waste rate reduces effective material savings.",
+        "impact": "negative"
+      },
+      {
+        "id": "low_volume",
+        "label": "Low Volume",
+        "description": "Annual volume below 10,000 units limits total savings.",
+        "impact": "negative"
+      },
+      {
+        "id": "high_overhead",
+        "label": "High Overhead Rate",
+        "description": "Overhead above 30% may indicate indirect cost issues.",
+        "impact": "negative"
+      },
+      {
+        "id": "material_type_premium",
+        "label": "Material Type Premium",
+        "description": "Composite materials may have higher cost per kg, reducing savings.",
+        "impact": "negative"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "increase_volume",
+        "label": "Increase Production Volume",
+        "description": "Scale up to leverage fixed cost reductions and improve savings."
+      },
+      {
+        "id": "reduce_waste",
+        "label": "Reduce Waste Rate",
+        "description": "Implement Lean Six Sigma DMAIC to lower waste below 3%."
+      },
+      {
+        "id": "negotiate_shipping",
+        "label": "Negotiate Shipping Rates",
+        "description": "Use weight reduction as leverage for lower freight contracts."
+      },
+      {
+        "id": "adopt_recycled",
+        "label": "Adopt Recycled Content",
+        "description": "Switch to recycled materials to further reduce cost and environmental impact."
+      },
+      {
+        "id": "automate_handling",
+        "label": "Automate Material Handling",
+        "description": "Reduce labor hours per unit through automation, especially for lighter parts."
+      }
+    ],
+    "dataConfidenceAdjusted": 0.85
+  }
+}

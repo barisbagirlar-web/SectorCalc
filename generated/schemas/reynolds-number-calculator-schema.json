@@ -1,0 +1,365 @@
+{
+  "slug": "reynolds-number-calculator",
+  "name": "Reynolds Number Calculator",
+  "description": "Computes the Reynolds number for internal pipe flow to determine flow regime (laminar, transitional, turbulent) based on fluid properties and flow conditions. Compliant with ISO 5167, ASME MFC-2M, and Six Sigma DMAIC methodology.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario comparison",
+    "Custom fluid database"
+  ],
+  "inputs": [
+    {
+      "id": "fluid_type",
+      "label": "Fluid Type",
+      "type": "select",
+      "unit": "",
+      "default": "water",
+      "min": null,
+      "max": null,
+      "businessContext": "Select the working fluid to auto-populate density and viscosity. Options include water, air, oil, and custom."
+    },
+    {
+      "id": "density",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 998.2,
+      "min": 0.1,
+      "max": 20000,
+      "businessContext": "Mass density of the fluid at operating temperature. For water at 20°C: 998.2 kg/m³."
+    },
+    {
+      "id": "dynamic_viscosity",
+      "label": "Dynamic Viscosity",
+      "type": "number",
+      "unit": "Pa·s",
+      "default": 0.001002,
+      "min": 0.000001,
+      "max": 100,
+      "businessContext": "Absolute viscosity of the fluid. For water at 20°C: 0.001002 Pa·s."
+    },
+    {
+      "id": "velocity",
+      "label": "Flow Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 1.5,
+      "min": 0.001,
+      "max": 100,
+      "businessContext": "Average velocity of the fluid in the pipe cross-section."
+    },
+    {
+      "id": "pipe_diameter",
+      "label": "Pipe Inner Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0.05,
+      "min": 0.001,
+      "max": 10,
+      "businessContext": "Internal diameter of the pipe or conduit."
+    },
+    {
+      "id": "pipe_roughness",
+      "label": "Pipe Roughness",
+      "type": "number",
+      "unit": "m",
+      "default": 0.000045,
+      "min": 0,
+      "max": 0.1,
+      "businessContext": "Average height of surface irregularities inside the pipe. For commercial steel: 0.000045 m."
+    },
+    {
+      "id": "temperature",
+      "label": "Operating Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "min": -50,
+      "max": 500,
+      "businessContext": "Fluid temperature used for viscosity and density corrections if applicable."
+    },
+    {
+      "id": "flow_regime_threshold",
+      "label": "Flow Regime Threshold",
+      "type": "select",
+      "unit": "",
+      "default": "standard",
+      "min": null,
+      "max": null,
+      "businessContext": "Select threshold standard: 'standard' (Re<2300 laminar, 2300-4000 transitional, >4000 turbulent) or 'conservative' (Re<2000 laminar, 2000-3000 transitional, >3000 turbulent)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "viscosity_nonzero",
+        "condition": "dynamic_viscosity <= 0",
+        "message": "Dynamic viscosity must be greater than zero.",
+        "severity": "error"
+      },
+      {
+        "id": "density_nonzero",
+        "condition": "density <= 0",
+        "message": "Density must be greater than zero.",
+        "severity": "error"
+      },
+      {
+        "id": "velocity_positive",
+        "condition": "velocity <= 0",
+        "message": "Flow velocity must be positive.",
+        "severity": "error"
+      },
+      {
+        "id": "diameter_positive",
+        "condition": "pipe_diameter <= 0",
+        "message": "Pipe diameter must be positive.",
+        "severity": "error"
+      },
+      {
+        "id": "roughness_nonnegative",
+        "condition": "pipe_roughness < 0",
+        "message": "Pipe roughness cannot be negative.",
+        "severity": "warning"
+      },
+      {
+        "id": "temperature_range",
+        "condition": "temperature < -50 || temperature > 500",
+        "message": "Temperature outside recommended range (-50°C to 500°C). Results may be inaccurate.",
+        "severity": "warning"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "laminar_alert",
+        "condition": "reynolds_number < 2000",
+        "message": "Flow is laminar. Low mixing, high viscous forces dominate.",
+        "severity": "info"
+      },
+      {
+        "id": "transitional_alert",
+        "condition": "reynolds_number >= 2000 && reynolds_number <= 4000",
+        "message": "Flow is transitional. Unstable regime; design for either laminar or turbulent.",
+        "severity": "warning"
+      },
+      {
+        "id": "turbulent_alert",
+        "condition": "reynolds_number > 4000",
+        "message": "Flow is turbulent. High mixing, increased friction losses.",
+        "severity": "info"
+      },
+      {
+        "id": "high_turbulence_alert",
+        "condition": "reynolds_number > 100000",
+        "message": "Fully turbulent rough regime. Friction factor becomes independent of Re (Moody chart zone).",
+        "severity": "info"
+      },
+      {
+        "id": "low_velocity_alert",
+        "condition": "velocity < 0.1 && reynolds_number < 2300",
+        "message": "Very low velocity may cause sedimentation or stratification.",
+        "severity": "warning"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "kinematic_viscosity",
+      "name": "Kinematic Viscosity",
+      "description": "Ratio of dynamic viscosity to density.",
+      "equation": "ν = μ / ρ",
+      "inputs": [
+        "dynamic_viscosity",
+        "density"
+      ],
+      "output": "kinematic_viscosity"
+    },
+    {
+      "id": "reynolds_number",
+      "name": "Reynolds Number",
+      "description": "Dimensionless number characterizing flow regime.",
+      "equation": "Re = (ρ * V * D) / μ",
+      "inputs": [
+        "density",
+        "velocity",
+        "pipe_diameter",
+        "dynamic_viscosity"
+      ],
+      "output": "reynolds_number"
+    },
+    {
+      "id": "relative_roughness",
+      "name": "Relative Roughness",
+      "description": "Ratio of pipe roughness to diameter.",
+      "equation": "ε/D = pipe_roughness / pipe_diameter",
+      "inputs": [
+        "pipe_roughness",
+        "pipe_diameter"
+      ],
+      "output": "relative_roughness"
+    },
+    {
+      "id": "friction_factor",
+      "name": "Darcy Friction Factor (Colebrook-White)",
+      "description": "Iterative solution for turbulent flow friction factor.",
+      "equation": "1/√f = -2.0 * log10( (ε/D)/3.7 + 2.51/(Re*√f) )",
+      "inputs": [
+        "reynolds_number",
+        "relative_roughness"
+      ],
+      "output": "friction_factor",
+      "iterative": true,
+      "tolerance": 0.000001,
+      "max_iterations": 100
+    },
+    {
+      "id": "pressure_drop_per_meter",
+      "name": "Pressure Drop per Meter",
+      "description": "Head loss per unit length using Darcy-Weisbach equation.",
+      "equation": "ΔP/L = f * (ρ * V²) / (2 * D)",
+      "inputs": [
+        "friction_factor",
+        "density",
+        "velocity",
+        "pipe_diameter"
+      ],
+      "output": "pressure_drop_per_meter"
+    },
+    {
+      "id": "flow_regime",
+      "name": "Flow Regime Classification",
+      "description": "Determines laminar, transitional, or turbulent based on Re and threshold standard.",
+      "equation": "if Re < Re_low then 'Laminar' else if Re <= Re_high then 'Transitional' else 'Turbulent'",
+      "inputs": [
+        "reynolds_number",
+        "flow_regime_threshold"
+      ],
+      "output": "flow_regime"
+    },
+    {
+      "id": "mass_flow_rate",
+      "name": "Mass Flow Rate",
+      "description": "Mass of fluid flowing per unit time.",
+      "equation": "ṁ = ρ * A * V, where A = π * D² / 4",
+      "inputs": [
+        "density",
+        "pipe_diameter",
+        "velocity"
+      ],
+      "output": "mass_flow_rate"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "reynolds_number",
+      "label": "Reynolds Number",
+      "value": null,
+      "unit": "dimensionless",
+      "precision": 2
+    },
+    "breakdown": {
+      "kinematic_viscosity": {
+        "label": "Kinematic Viscosity",
+        "value": null,
+        "unit": "m²/s",
+        "precision": 6
+      },
+      "relative_roughness": {
+        "label": "Relative Roughness",
+        "value": null,
+        "unit": "dimensionless",
+        "precision": 6
+      },
+      "friction_factor": {
+        "label": "Darcy Friction Factor",
+        "value": null,
+        "unit": "dimensionless",
+        "precision": 4
+      },
+      "pressure_drop_per_meter": {
+        "label": "Pressure Drop per Meter",
+        "value": null,
+        "unit": "Pa/m",
+        "precision": 2
+      },
+      "mass_flow_rate": {
+        "label": "Mass Flow Rate",
+        "value": null,
+        "unit": "kg/s",
+        "precision": 3
+      },
+      "flow_regime": {
+        "label": "Flow Regime",
+        "value": null,
+        "unit": "",
+        "precision": 0
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "high_friction_factor",
+        "label": "High Friction Factor",
+        "description": "Friction factor > 0.03 indicates excessive energy loss due to pipe roughness or small diameter.",
+        "condition": "friction_factor > 0.03"
+      },
+      {
+        "id": "transitional_flow_instability",
+        "label": "Transitional Flow Instability",
+        "description": "Flow in transitional regime causes unpredictable pressure drops and potential vibration.",
+        "condition": "reynolds_number >= 2000 && reynolds_number <= 4000"
+      },
+      {
+        "id": "low_velocity_sedimentation",
+        "label": "Low Velocity Sedimentation Risk",
+        "description": "Velocity below 0.5 m/s may allow solids to settle in the pipe.",
+        "condition": "velocity < 0.5"
+      },
+      {
+        "id": "high_pressure_drop",
+        "label": "High Pressure Drop",
+        "description": "Pressure drop > 500 Pa/m indicates significant pumping energy waste.",
+        "condition": "pressure_drop_per_meter > 500"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "increase_diameter",
+        "label": "Increase Pipe Diameter",
+        "description": "If Reynolds number is too high or pressure drop excessive, consider a larger pipe diameter to reduce velocity and friction.",
+        "condition": "reynolds_number > 100000 || pressure_drop_per_meter > 500"
+      },
+      {
+        "id": "reduce_roughness",
+        "label": "Reduce Pipe Roughness",
+        "description": "If friction factor is high, use smoother pipe material (e.g., plastic or lined steel) to lower energy losses.",
+        "condition": "friction_factor > 0.03"
+      },
+      {
+        "id": "adjust_flow_rate",
+        "label": "Adjust Flow Rate",
+        "description": "If flow is transitional, increase or decrease velocity to achieve stable laminar or turbulent regime.",
+        "condition": "reynolds_number >= 2000 && reynolds_number <= 4000"
+      },
+      {
+        "id": "increase_velocity",
+        "label": "Increase Velocity",
+        "description": "If sedimentation risk is high, increase flow velocity above 0.5 m/s to keep solids suspended.",
+        "condition": "velocity < 0.5"
+      },
+      {
+        "id": "use_viscosity_reducer",
+        "label": "Use Viscosity Reducer",
+        "description": "If Reynolds number is too low (laminar) and mixing is needed, consider heating or adding a viscosity reducer.",
+        "condition": "reynolds_number < 2000 && velocity < 1.0"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "value": null,
+      "unit": "dimensionless",
+      "description": "Reynolds number adjusted for input uncertainty using Monte Carlo simulation (assumes ±5% variation in velocity, diameter, viscosity).",
+      "precision": 2
+    }
+  }
+}

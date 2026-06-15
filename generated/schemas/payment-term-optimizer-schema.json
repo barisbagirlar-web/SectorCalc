@@ -1,0 +1,274 @@
+{
+  "slug": "payment-term-optimizer",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario simulation",
+    "Benchmarking against industry standards"
+  ],
+  "inputs": [
+    {
+      "id": "avg_invoice_value",
+      "label": "Average Invoice Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 100,
+      "max": 10000000,
+      "businessContext": "Average monetary value of a single invoice issued to customers."
+    },
+    {
+      "id": "annual_invoice_count",
+      "label": "Annual Invoice Count",
+      "type": "number",
+      "unit": "invoices/year",
+      "default": 1200,
+      "min": 12,
+      "max": 1000000,
+      "businessContext": "Total number of invoices issued per year."
+    },
+    {
+      "id": "current_terms_days",
+      "label": "Current Payment Terms (Days)",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "min": 0,
+      "max": 180,
+      "businessContext": "Current net payment term offered to customers (e.g., Net 30)."
+    },
+    {
+      "id": "proposed_terms_days",
+      "label": "Proposed Payment Terms (Days)",
+      "type": "number",
+      "unit": "days",
+      "default": 15,
+      "min": 0,
+      "max": 180,
+      "businessContext": "New net payment term to be evaluated (e.g., Net 15)."
+    },
+    {
+      "id": "early_payment_discount_pct",
+      "label": "Early Payment Discount (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Percentage discount offered for early payment (e.g., 2/10 Net 30)."
+    },
+    {
+      "id": "discount_window_days",
+      "label": "Discount Window (Days)",
+      "type": "number",
+      "unit": "days",
+      "default": 10,
+      "min": 0,
+      "max": 60,
+      "businessContext": "Number of days within which the discount can be taken (e.g., 10 days for 2/10)."
+    },
+    {
+      "id": "cost_of_capital_pct",
+      "label": "Cost of Capital (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "max": 30,
+      "businessContext": "Annual weighted average cost of capital (WACC) for the company."
+    },
+    {
+      "id": "customer_acceptance_rate_pct",
+      "label": "Customer Acceptance Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Estimated percentage of customers who will take the early payment discount."
+    },
+    {
+      "id": "industry_benchmark_dso",
+      "label": "Industry Benchmark DSO (Days)",
+      "type": "number",
+      "unit": "days",
+      "default": 45,
+      "min": 0,
+      "max": 180,
+      "businessContext": "Average Days Sales Outstanding for the industry (WERC/CFO benchmarks)."
+    },
+    {
+      "id": "payment_behavior",
+      "label": "Customer Payment Behavior",
+      "type": "select",
+      "options": [
+        "On-time",
+        "Slightly late (1-5 days)",
+        "Late (6-15 days)",
+        "Very late (>15 days)"
+      ],
+      "default": "On-time",
+      "businessContext": "Typical payment behavior of the customer base, used to adjust effective DSO."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "condition": "proposed_terms_days >= current_terms_days",
+        "message": "Proposed terms must be shorter than current terms to achieve optimization."
+      },
+      {
+        "condition": "discount_window_days > proposed_terms_days",
+        "message": "Discount window cannot exceed proposed payment terms."
+      },
+      {
+        "condition": "early_payment_discount_pct > cost_of_capital_pct",
+        "message": "Discount rate should be greater than cost of capital to incentivize early payment."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "dso_reduction_alert",
+        "condition": "dso_reduction_days < 5",
+        "severity": "warning",
+        "message": "DSO reduction is less than 5 days; consider more aggressive terms."
+      },
+      {
+        "id": "discount_cost_alert",
+        "condition": "annual_discount_cost > 0.02 * annual_revenue",
+        "severity": "critical",
+        "message": "Annual discount cost exceeds 2% of revenue; evaluate net benefit."
+      },
+      {
+        "id": "acceptance_rate_low",
+        "condition": "customer_acceptance_rate_pct < 20",
+        "severity": "warning",
+        "message": "Low acceptance rate may indicate discount is not attractive enough."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "annual_revenue",
+      "description": "Total annual revenue from invoices",
+      "expression": "avg_invoice_value * annual_invoice_count"
+    },
+    {
+      "id": "current_dso",
+      "description": "Current Days Sales Outstanding adjusted for payment behavior",
+      "expression": "current_terms_days + CASE payment_behavior WHEN 'On-time' THEN 0 WHEN 'Slightly late (1-5 days)' THEN 3 WHEN 'Late (6-15 days)' THEN 10 WHEN 'Very late (>15 days)' THEN 20 END"
+    },
+    {
+      "id": "proposed_dso",
+      "description": "Proposed DSO after new terms, assuming discount takers pay within discount window",
+      "expression": "(customer_acceptance_rate_pct/100) * discount_window_days + (1 - customer_acceptance_rate_pct/100) * proposed_terms_days + CASE payment_behavior WHEN 'On-time' THEN 0 WHEN 'Slightly late (1-5 days)' THEN 3 WHEN 'Late (6-15 days)' THEN 10 WHEN 'Very late (>15 days)' THEN 20 END"
+    },
+    {
+      "id": "dso_reduction_days",
+      "description": "Reduction in DSO",
+      "expression": "current_dso - proposed_dso"
+    },
+    {
+      "id": "working_capital_benefit",
+      "description": "Annual working capital freed up due to DSO reduction",
+      "expression": "(dso_reduction_days / 365) * annual_revenue"
+    },
+    {
+      "id": "annual_discount_cost",
+      "description": "Annual cost of early payment discounts taken",
+      "expression": "annual_revenue * (customer_acceptance_rate_pct/100) * (early_payment_discount_pct/100)"
+    },
+    {
+      "id": "cost_of_capital_savings",
+      "description": "Savings from reduced financing need (using cost of capital)",
+      "expression": "working_capital_benefit * (cost_of_capital_pct/100)"
+    },
+    {
+      "id": "net_annual_benefit",
+      "description": "Primary result: net annual benefit from payment term optimization",
+      "expression": "cost_of_capital_savings - annual_discount_cost"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "net_annual_benefit",
+      "label": "Net Annual Benefit",
+      "unit": "USD",
+      "description": "Annual net financial benefit after accounting for discount costs and capital savings."
+    },
+    "breakdown": {
+      "annual_revenue": {
+        "label": "Annual Revenue",
+        "unit": "USD"
+      },
+      "current_dso": {
+        "label": "Current DSO",
+        "unit": "days"
+      },
+      "proposed_dso": {
+        "label": "Proposed DSO",
+        "unit": "days"
+      },
+      "dso_reduction_days": {
+        "label": "DSO Reduction",
+        "unit": "days"
+      },
+      "working_capital_benefit": {
+        "label": "Working Capital Benefit",
+        "unit": "USD"
+      },
+      "annual_discount_cost": {
+        "label": "Annual Discount Cost",
+        "unit": "USD"
+      },
+      "cost_of_capital_savings": {
+        "label": "Cost of Capital Savings",
+        "unit": "USD"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "lost_revenue_from_discount",
+        "label": "Lost Revenue from Discount",
+        "description": "Revenue foregone due to discounts taken, not captured in net benefit.",
+        "unit": "USD",
+        "value_expression": "annual_discount_cost"
+      },
+      {
+        "id": "customer_relationship_risk",
+        "label": "Customer Relationship Risk",
+        "description": "Potential negative impact on customer satisfaction if terms are too aggressive.",
+        "unit": "qualitative",
+        "value_expression": "IF proposed_terms_days < 10 THEN 'High' ELSE 'Low' END"
+      },
+      {
+        "id": "operational_disruption_cost",
+        "label": "Operational Disruption Cost",
+        "description": "Cost of updating billing systems and training staff for new terms.",
+        "unit": "USD",
+        "value_expression": "0.005 * annual_revenue"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "description": "If net benefit is positive, implement proposed terms with a pilot group of customers."
+      },
+      {
+        "id": "action_2",
+        "description": "If acceptance rate is low, consider increasing discount percentage or extending discount window."
+      },
+      {
+        "id": "action_3",
+        "description": "Monitor DSO monthly and compare to industry benchmark (ISO 30400, WERC DSO standards)."
+      },
+      {
+        "id": "action_4",
+        "description": "Use Six Sigma DMAIC to reduce variability in payment behavior."
+      }
+    ],
+    "dataConfidenceAdjusted": 0.85
+  }
+}

@@ -1,0 +1,290 @@
+{
+  "slug": "percentage-calculator",
+  "name": "Percentage Calculator",
+  "description": "Industrial-grade percentage calculator for process yield, defect rate, and efficiency analysis, compliant with ISO 9001, Lean, and Six Sigma standards.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Historical comparison",
+    "Multi-site aggregation"
+  ],
+  "inputs": [
+    {
+      "id": "total_units",
+      "label": "Total Units Produced",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "min": 1,
+      "max": 1000000,
+      "businessContext": "Total number of units produced in the reporting period (ISO 9001:2015 clause 9.1.3)."
+    },
+    {
+      "id": "defective_units",
+      "label": "Defective Units",
+      "type": "number",
+      "unit": "units",
+      "default": 50,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Number of units failing quality inspection (Six Sigma DPMO metric)."
+    },
+    {
+      "id": "rework_units",
+      "label": "Rework Units",
+      "type": "number",
+      "unit": "units",
+      "default": 20,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Units that required rework to meet specifications (Lean waste reduction)."
+    },
+    {
+      "id": "scrap_units",
+      "label": "Scrap Units",
+      "type": "number",
+      "unit": "units",
+      "default": 10,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Units that are scrapped and cannot be reworked (material yield loss)."
+    },
+    {
+      "id": "target_yield",
+      "label": "Target Yield (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 99,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Desired first-pass yield percentage (Six Sigma target ≥ 99.99966% for 6σ)."
+    },
+    {
+      "id": "process_type",
+      "label": "Process Type",
+      "type": "select",
+      "unit": "",
+      "default": "manufacturing",
+      "options": [
+        "manufacturing",
+        "service",
+        "logistics",
+        "software"
+      ],
+      "businessContext": "Type of process for contextual benchmarking (WERC DC metrics, ISO 9001)."
+    },
+    {
+      "id": "include_scrap_in_defect",
+      "label": "Include Scrap in Defect Count",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "businessContext": "If true, scrap units are counted as defective for defect rate calculation."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "defect_leq_total",
+        "condition": "defective_units <= total_units",
+        "message": "Defective units cannot exceed total units."
+      },
+      {
+        "id": "rework_leq_total",
+        "condition": "rework_units <= total_units",
+        "message": "Rework units cannot exceed total units."
+      },
+      {
+        "id": "scrap_leq_total",
+        "condition": "scrap_units <= total_units",
+        "message": "Scrap units cannot exceed total units."
+      },
+      {
+        "id": "defect_plus_rework_leq_total",
+        "condition": "defective_units + rework_units <= total_units",
+        "message": "Sum of defective and rework units cannot exceed total units."
+      },
+      {
+        "id": "target_yield_range",
+        "condition": "target_yield >= 0 AND target_yield <= 100",
+        "message": "Target yield must be between 0 and 100."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "low_yield_warning",
+        "condition": "first_pass_yield < 95",
+        "level": "warning",
+        "message": "First-pass yield is below 95% – investigate process stability."
+      },
+      {
+        "id": "critical_yield_alert",
+        "condition": "first_pass_yield < 80",
+        "level": "critical",
+        "message": "First-pass yield below 80% – immediate corrective action required (ISO 9001:2015 clause 10.2)."
+      },
+      {
+        "id": "high_scrap_alert",
+        "condition": "scrap_rate > 5",
+        "level": "critical",
+        "message": "Scrap rate exceeds 5% – review material and process parameters."
+      },
+      {
+        "id": "rework_ratio_warning",
+        "condition": "rework_rate > 10",
+        "level": "warning",
+        "message": "Rework rate above 10% – consider root cause analysis (Lean)."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "effective_defects",
+      "label": "Effective Defects",
+      "description": "Total defects including scrap if selected.",
+      "formula": "if(include_scrap_in_defect, defective_units + scrap_units, defective_units)",
+      "unit": "units"
+    },
+    {
+      "id": "defect_rate",
+      "label": "Defect Rate (%)",
+      "description": "Percentage of units that are defective (DPMO basis).",
+      "formula": "(effective_defects / total_units) * 100",
+      "unit": "%"
+    },
+    {
+      "id": "first_pass_yield",
+      "label": "First-Pass Yield (%)",
+      "description": "Percentage of units produced without any defect or rework (Six Sigma FTY).",
+      "formula": "((total_units - effective_defects - rework_units) / total_units) * 100",
+      "unit": "%"
+    },
+    {
+      "id": "scrap_rate",
+      "label": "Scrap Rate (%)",
+      "description": "Percentage of units scrapped.",
+      "formula": "(scrap_units / total_units) * 100",
+      "unit": "%"
+    },
+    {
+      "id": "rework_rate",
+      "label": "Rework Rate (%)",
+      "description": "Percentage of units requiring rework.",
+      "formula": "(rework_units / total_units) * 100",
+      "unit": "%"
+    },
+    {
+      "id": "yield_gap",
+      "label": "Yield Gap (percentage points)",
+      "description": "Difference between target yield and actual first-pass yield.",
+      "formula": "target_yield - first_pass_yield",
+      "unit": "pp"
+    },
+    {
+      "id": "overall_equipment_effectiveness_impact",
+      "label": "OEE Impact (%)",
+      "description": "Estimated impact on Overall Equipment Effectiveness due to defects and rework (ISO 22400).",
+      "formula": "defect_rate + rework_rate + scrap_rate",
+      "unit": "%"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "first_pass_yield",
+      "label": "First-Pass Yield (%)",
+      "value": null,
+      "unit": "%",
+      "description": "Primary metric for process quality performance."
+    },
+    "breakdown": {
+      "defect_rate": {
+        "id": "defect_rate",
+        "label": "Defect Rate",
+        "value": null,
+        "unit": "%"
+      },
+      "scrap_rate": {
+        "id": "scrap_rate",
+        "label": "Scrap Rate",
+        "value": null,
+        "unit": "%"
+      },
+      "rework_rate": {
+        "id": "rework_rate",
+        "label": "Rework Rate",
+        "value": null,
+        "unit": "%"
+      },
+      "yield_gap": {
+        "id": "yield_gap",
+        "label": "Yield Gap",
+        "value": null,
+        "unit": "pp"
+      },
+      "oee_impact": {
+        "id": "oee_impact",
+        "label": "OEE Impact",
+        "value": null,
+        "unit": "%"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excessive_rework",
+        "label": "Excessive Rework",
+        "description": "Rework rate above 10% indicates process instability or inadequate training.",
+        "threshold": 10,
+        "unit": "%"
+      },
+      {
+        "id": "high_scrap",
+        "label": "High Scrap",
+        "description": "Scrap rate above 5% suggests material or process parameter issues.",
+        "threshold": 5,
+        "unit": "%"
+      },
+      {
+        "id": "yield_gap_positive",
+        "label": "Yield Gap Positive",
+        "description": "Actual yield below target indicates need for process improvement.",
+        "threshold": 0,
+        "unit": "pp"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_defects",
+        "label": "Reduce Defects",
+        "description": "Implement SPC (Statistical Process Control) to monitor and reduce defect rate.",
+        "priority": "high"
+      },
+      {
+        "id": "minimize_rework",
+        "label": "Minimize Rework",
+        "description": "Conduct root cause analysis (5 Whys, Fishbone) for rework drivers.",
+        "priority": "medium"
+      },
+      {
+        "id": "scrap_reduction",
+        "label": "Scrap Reduction",
+        "description": "Review material specifications and process parameters to lower scrap.",
+        "priority": "high"
+      },
+      {
+        "id": "target_alignment",
+        "label": "Align to Target Yield",
+        "description": "Set incremental improvement goals to close yield gap (Kaizen).",
+        "priority": "medium"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_adjusted_yield",
+      "label": "Data Confidence Adjusted Yield",
+      "value": null,
+      "unit": "%",
+      "description": "First-pass yield adjusted for data completeness and measurement system accuracy (ISO 10012)."
+    }
+  }
+}

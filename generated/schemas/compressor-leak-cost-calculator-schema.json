@@ -1,0 +1,285 @@
+{
+  "slug": "compressor-leak-cost-calculator",
+  "title": "Compressed Air Leak Cost Calculator",
+  "description": "Industrial-grade tool to quantify energy and financial losses from compressed air leaks, based on ISO 50001, Lean Six Sigma, and WERC guidelines.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-site comparison",
+    "Custom reporting"
+  ],
+  "inputs": [
+    {
+      "id": "system_pressure",
+      "label": "System Pressure",
+      "type": "number",
+      "unit": "psig",
+      "default": 100,
+      "min": 60,
+      "max": 200,
+      "businessContext": "Operating pressure of the compressed air system; higher pressure increases leak flow rate."
+    },
+    {
+      "id": "leak_diameter",
+      "label": "Equivalent Leak Diameter",
+      "type": "number",
+      "unit": "inches",
+      "default": 0.125,
+      "min": 0.01,
+      "max": 1,
+      "businessContext": "Diameter of a round orifice representing the average leak size. Common sizes: 1/8\", 1/4\", 1/2\"."
+    },
+    {
+      "id": "number_of_leaks",
+      "label": "Number of Leaks",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "min": 1,
+      "max": 1000,
+      "businessContext": "Total number of identified or estimated leaks in the system."
+    },
+    {
+      "id": "operating_hours",
+      "label": "Annual Operating Hours",
+      "type": "number",
+      "unit": "hours/year",
+      "default": 8760,
+      "min": 1000,
+      "max": 8760,
+      "businessContext": "Total hours the compressor runs per year. Continuous operation = 8760 h."
+    },
+    {
+      "id": "electricity_cost",
+      "label": "Electricity Cost",
+      "type": "number",
+      "unit": "$/kWh",
+      "default": 0.1,
+      "min": 0.02,
+      "max": 0.5,
+      "businessContext": "Average blended cost of electricity per kilowatt-hour."
+    },
+    {
+      "id": "compressor_efficiency",
+      "label": "Compressor Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 75,
+      "min": 50,
+      "max": 95,
+      "businessContext": "Overall efficiency of the compressor system (motor + drive + compressor). Typical range 70-85%."
+    },
+    {
+      "id": "leak_type",
+      "label": "Leak Type",
+      "type": "select",
+      "options": [
+        "Round orifice",
+        "Crack",
+        "Threaded fitting"
+      ],
+      "default": "Round orifice",
+      "businessContext": "Geometry of the leak affects discharge coefficient. Round orifice is most common."
+    },
+    {
+      "id": "include_maintenance_cost",
+      "label": "Include Maintenance Cost",
+      "type": "boolean",
+      "default": true,
+      "businessContext": "If true, adds estimated labor and material cost for leak repair."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "pressure_range",
+        "condition": "system_pressure >= 60 && system_pressure <= 200",
+        "message": "System pressure must be between 60 and 200 psig."
+      },
+      {
+        "id": "leak_diameter_range",
+        "condition": "leak_diameter >= 0.01 && leak_diameter <= 1.0",
+        "message": "Leak diameter must be between 0.01 and 1.0 inches."
+      },
+      {
+        "id": "efficiency_range",
+        "condition": "compressor_efficiency >= 50 && compressor_efficiency <= 95",
+        "message": "Compressor efficiency must be between 50% and 95%."
+      },
+      {
+        "id": "leak_type_discharge",
+        "condition": "leak_type == 'Round orifice' || leak_type == 'Crack' || leak_type == 'Threaded fitting'",
+        "message": "Invalid leak type selected."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_cost_alert",
+        "condition": "annual_cost > 50000",
+        "message": "Annual leak cost exceeds $50,000. Immediate action recommended."
+      },
+      {
+        "id": "efficiency_warning",
+        "condition": "compressor_efficiency < 70",
+        "message": "Compressor efficiency below 70%. Consider maintenance or upgrade."
+      },
+      {
+        "id": "leak_severity",
+        "condition": "leak_diameter > 0.25",
+        "message": "Leak diameter > 0.25 inches indicates large leaks. Prioritize repair."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "leak_flow_rate",
+      "label": "Leak Flow Rate per Leak",
+      "description": "Calculates the volumetric flow rate of air through a single leak using orifice equation (ISO 6358).",
+      "formula": "C_d * A * sqrt( (2 * (P_sys + 14.7) * 144) / (R * T) )",
+      "variables": {
+        "C_d": "discharge coefficient (0.65 for round orifice, 0.55 for crack, 0.75 for threaded fitting)",
+        "A": "cross-sectional area of leak (sq ft) = pi * (leak_diameter/2)^2 / 144",
+        "P_sys": "system pressure (psig)",
+        "R": "gas constant for air = 53.35 ft·lbf/(lbm·°R)",
+        "T": "absolute temperature = 520 °R (60°F)"
+      },
+      "unit": "scfm per leak"
+    },
+    {
+      "id": "total_leak_flow",
+      "label": "Total Leak Flow",
+      "description": "Total volumetric flow rate from all leaks.",
+      "formula": "leak_flow_rate * number_of_leaks",
+      "unit": "scfm"
+    },
+    {
+      "id": "power_consumption",
+      "label": "Power Consumption due to Leaks",
+      "description": "Power required to compress the leaked air, accounting for compressor efficiency.",
+      "formula": "(total_leak_flow * 0.746) / (compressor_efficiency / 100)",
+      "unit": "kW"
+    },
+    {
+      "id": "annual_energy",
+      "label": "Annual Energy Consumption",
+      "description": "Total energy consumed by leaks over a year.",
+      "formula": "power_consumption * operating_hours",
+      "unit": "kWh/year"
+    },
+    {
+      "id": "annual_cost",
+      "label": "Annual Energy Cost",
+      "description": "Direct energy cost of leaks.",
+      "formula": "annual_energy * electricity_cost",
+      "unit": "$/year"
+    },
+    {
+      "id": "maintenance_cost",
+      "label": "Annual Maintenance Cost",
+      "description": "Estimated cost to repair leaks (labor + materials). Only included if include_maintenance_cost is true.",
+      "formula": "number_of_leaks * 50",
+      "unit": "$/year"
+    },
+    {
+      "id": "total_annual_cost",
+      "label": "Total Annual Leak Cost",
+      "description": "Primary result: total financial impact of leaks.",
+      "formula": "annual_cost + (include_maintenance_cost ? maintenance_cost : 0)",
+      "unit": "$/year"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_annual_cost",
+      "label": "Total Annual Leak Cost",
+      "unit": "$/year",
+      "description": "Primary financial metric combining energy and maintenance costs."
+    },
+    "breakdown": {
+      "energy_cost": {
+        "id": "annual_cost",
+        "label": "Annual Energy Cost",
+        "unit": "$/year"
+      },
+      "maintenance_cost": {
+        "id": "maintenance_cost",
+        "label": "Annual Maintenance Cost",
+        "unit": "$/year"
+      },
+      "total_leak_flow": {
+        "id": "total_leak_flow",
+        "label": "Total Leak Flow",
+        "unit": "scfm"
+      },
+      "power_consumption": {
+        "id": "power_consumption",
+        "label": "Power Consumption due to Leaks",
+        "unit": "kW"
+      },
+      "annual_energy": {
+        "id": "annual_energy",
+        "label": "Annual Energy Consumption",
+        "unit": "kWh/year"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "pressure_drop_effect",
+        "label": "Pressure Drop Effect",
+        "description": "Leaks cause system pressure drop, reducing end-use efficiency and increasing compressor load."
+      },
+      {
+        "id": "unplanned_maintenance",
+        "label": "Unplanned Maintenance",
+        "description": "Frequent cycling and overloading due to leaks increase wear on compressor components."
+      },
+      {
+        "id": "production_downtime",
+        "label": "Production Downtime",
+        "description": "Insufficient pressure due to leaks can cause production line stoppages."
+      },
+      {
+        "id": "carbon_emissions",
+        "label": "Carbon Emissions",
+        "description": "Excess energy consumption from leaks increases CO2 footprint (approx. 0.9 lb CO2 per kWh)."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "ultrasonic_survey",
+        "label": "Conduct Ultrasonic Leak Survey",
+        "description": "Use ultrasonic detectors to locate and quantify leaks (ISO 50001 best practice)."
+      },
+      {
+        "id": "repair_priority",
+        "label": "Prioritize Repairs by Leak Size",
+        "description": "Fix leaks > 1/4 inch first, then medium leaks. Use Six Sigma DMAIC approach."
+      },
+      {
+        "id": "pressure_reduction",
+        "label": "Reduce System Pressure",
+        "description": "Lowering pressure by 2 psi can reduce leak flow by ~1% (Lean energy principle)."
+      },
+      {
+        "id": "leak_tagging",
+        "label": "Implement Leak Tagging Program",
+        "description": "Tag and track leaks with a color-coded system (WERC recommended)."
+      },
+      {
+        "id": "compressor_controls",
+        "label": "Optimize Compressor Controls",
+        "description": "Install variable speed drives or sequencing controls to match demand."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "confidence_adjusted_cost",
+      "label": "Confidence-Adjusted Annual Cost",
+      "description": "Total annual cost adjusted by a confidence factor based on input variability.",
+      "formula": "total_annual_cost * confidence_factor",
+      "unit": "$/year",
+      "confidence_factor": 0.85
+    }
+  }
+}

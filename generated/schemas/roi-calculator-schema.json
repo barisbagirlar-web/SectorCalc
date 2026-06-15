@@ -1,0 +1,376 @@
+{
+  "slug": "roi-calculator",
+  "name": "ROI Calculator",
+  "description": "Industrial-grade ROI calculator based on Lean, Six Sigma, and ISO standards for manufacturing and logistics operations.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Benchmarking against industry standards",
+    "Multi-scenario simulation"
+  ],
+  "inputs": [
+    {
+      "id": "annual_revenue",
+      "label": "Annual Revenue (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000000,
+      "min": 100000,
+      "max": 10000000000,
+      "businessContext": "Total annual revenue of the facility or business unit."
+    },
+    {
+      "id": "operating_margin",
+      "label": "Operating Margin (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Current operating profit margin as a percentage of revenue."
+    },
+    {
+      "id": "total_inventory_value",
+      "label": "Total Inventory Value (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 2000000,
+      "min": 0,
+      "max": 1000000000,
+      "businessContext": "Current value of all inventory held (raw materials, WIP, finished goods)."
+    },
+    {
+      "id": "inventory_carrying_cost_percent",
+      "label": "Inventory Carrying Cost (% of inventory value)",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Annual cost to hold inventory (storage, insurance, obsolescence, capital cost). Typical range 20-30%."
+    },
+    {
+      "id": "annual_labor_cost",
+      "label": "Annual Direct Labor Cost (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 3000000,
+      "min": 0,
+      "max": 1000000000,
+      "businessContext": "Total annual cost of direct labor in the operation."
+    },
+    {
+      "id": "defect_rate_percent",
+      "label": "Defect Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of products that do not meet quality standards (Six Sigma metric)."
+    },
+    {
+      "id": "cost_per_defect",
+      "label": "Cost per Defect (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Average cost incurred per defective unit (rework, scrap, warranty)."
+    },
+    {
+      "id": "annual_energy_cost",
+      "label": "Annual Energy Cost (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Total annual energy expenditure for the facility."
+    },
+    {
+      "id": "lean_implementation_cost",
+      "label": "Lean Implementation Cost (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 200000,
+      "min": 0,
+      "max": 10000000,
+      "businessContext": "One-time cost for implementing Lean/Six Sigma improvements (training, tools, consulting)."
+    },
+    {
+      "id": "expected_improvement_factor",
+      "label": "Expected Improvement Factor (0-1)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.15,
+      "min": 0,
+      "max": 1,
+      "businessContext": "Expected fractional improvement from Lean initiatives (e.g., 0.15 = 15% reduction in waste)."
+    },
+    {
+      "id": "industry_type",
+      "label": "Industry Type",
+      "type": "select",
+      "unit": "none",
+      "default": "manufacturing",
+      "options": [
+        "manufacturing",
+        "logistics",
+        "warehousing",
+        "assembly",
+        "process"
+      ],
+      "businessContext": "Type of industrial operation for benchmarking and standard adjustments."
+    },
+    {
+      "id": "iso_certified",
+      "label": "ISO 9001 Certified",
+      "type": "boolean",
+      "unit": "none",
+      "default": false,
+      "businessContext": "Indicates if the facility is ISO 9001 certified, affecting quality cost baselines."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "defect_rate_range",
+        "condition": "defect_rate_percent >= 0 AND defect_rate_percent <= 100",
+        "message": "Defect rate must be between 0% and 100%."
+      },
+      {
+        "id": "improvement_factor_range",
+        "condition": "expected_improvement_factor >= 0 AND expected_improvement_factor <= 1",
+        "message": "Improvement factor must be between 0 and 1."
+      },
+      {
+        "id": "revenue_minimum",
+        "condition": "annual_revenue >= 100000",
+        "message": "Annual revenue must be at least $100,000."
+      },
+      {
+        "id": "iso_defect_adjustment",
+        "condition": "iso_certified == true AND defect_rate_percent > 3",
+        "message": "ISO 9001 certified facilities typically have defect rates below 3%. Please verify."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_defect_alert",
+        "condition": "defect_rate_percent > 10",
+        "level": "warning",
+        "message": "Defect rate exceeds 10% - immediate quality improvement recommended."
+      },
+      {
+        "id": "low_margin_alert",
+        "condition": "operating_margin < 5",
+        "level": "critical",
+        "message": "Operating margin below 5% - cost reduction initiatives critical."
+      },
+      {
+        "id": "high_inventory_alert",
+        "condition": "total_inventory_value > 0.3 * annual_revenue",
+        "level": "warning",
+        "message": "Inventory value exceeds 30% of annual revenue - potential excess inventory."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "quality_cost_savings",
+      "name": "Quality Cost Savings",
+      "description": "Annual savings from defect reduction based on Six Sigma principles.",
+      "formula": "annual_revenue * (defect_rate_percent / 100) * cost_per_defect * expected_improvement_factor",
+      "unit": "USD",
+      "dependencies": [
+        "annual_revenue",
+        "defect_rate_percent",
+        "cost_per_defect",
+        "expected_improvement_factor"
+      ]
+    },
+    {
+      "id": "inventory_carrying_cost_savings",
+      "name": "Inventory Carrying Cost Savings",
+      "description": "Reduction in inventory holding costs from Lean inventory reduction.",
+      "formula": "total_inventory_value * (inventory_carrying_cost_percent / 100) * expected_improvement_factor",
+      "unit": "USD",
+      "dependencies": [
+        "total_inventory_value",
+        "inventory_carrying_cost_percent",
+        "expected_improvement_factor"
+      ]
+    },
+    {
+      "id": "labor_efficiency_savings",
+      "name": "Labor Efficiency Savings",
+      "description": "Labor cost reduction from process improvements (Lean).",
+      "formula": "annual_labor_cost * expected_improvement_factor * 0.5",
+      "unit": "USD",
+      "dependencies": [
+        "annual_labor_cost",
+        "expected_improvement_factor"
+      ]
+    },
+    {
+      "id": "energy_savings",
+      "name": "Energy Savings",
+      "description": "Energy cost reduction from Lean and Green initiatives.",
+      "formula": "annual_energy_cost * expected_improvement_factor * 0.3",
+      "unit": "USD",
+      "dependencies": [
+        "annual_energy_cost",
+        "expected_improvement_factor"
+      ]
+    },
+    {
+      "id": "total_annual_benefit",
+      "name": "Total Annual Benefit",
+      "description": "Sum of all annual savings from improvements.",
+      "formula": "quality_cost_savings + inventory_carrying_cost_savings + labor_efficiency_savings + energy_savings",
+      "unit": "USD",
+      "dependencies": [
+        "quality_cost_savings",
+        "inventory_carrying_cost_savings",
+        "labor_efficiency_savings",
+        "energy_savings"
+      ]
+    },
+    {
+      "id": "net_present_value",
+      "name": "Net Present Value (NPV) - 5 Year",
+      "description": "NPV of improvement investment over 5 years using 10% discount rate.",
+      "formula": "total_annual_benefit * ((1 - (1 + 0.10)^-5) / 0.10) - lean_implementation_cost",
+      "unit": "USD",
+      "dependencies": [
+        "total_annual_benefit",
+        "lean_implementation_cost"
+      ]
+    },
+    {
+      "id": "roi_percent",
+      "name": "Return on Investment (ROI) %",
+      "description": "Primary ROI metric as a percentage.",
+      "formula": "((total_annual_benefit * 5) - lean_implementation_cost) / lean_implementation_cost * 100",
+      "unit": "%",
+      "dependencies": [
+        "total_annual_benefit",
+        "lean_implementation_cost"
+      ]
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "roi_percent",
+      "label": "Return on Investment (ROI)",
+      "value": null,
+      "unit": "%",
+      "description": "Overall ROI percentage over 5 years from Lean/Six Sigma implementation."
+    },
+    "breakdown": {
+      "quality_cost_savings": {
+        "label": "Quality Cost Savings",
+        "value": null,
+        "unit": "USD",
+        "description": "Annual savings from defect reduction."
+      },
+      "inventory_carrying_cost_savings": {
+        "label": "Inventory Carrying Cost Savings",
+        "value": null,
+        "unit": "USD",
+        "description": "Annual savings from reduced inventory holding costs."
+      },
+      "labor_efficiency_savings": {
+        "label": "Labor Efficiency Savings",
+        "value": null,
+        "unit": "USD",
+        "description": "Annual savings from improved labor productivity."
+      },
+      "energy_savings": {
+        "label": "Energy Savings",
+        "value": null,
+        "unit": "USD",
+        "description": "Annual savings from energy efficiency improvements."
+      },
+      "total_annual_benefit": {
+        "label": "Total Annual Benefit",
+        "value": null,
+        "unit": "USD",
+        "description": "Sum of all annual savings."
+      },
+      "net_present_value": {
+        "label": "Net Present Value (5 Year)",
+        "value": null,
+        "unit": "USD",
+        "description": "NPV of the investment over 5 years at 10% discount rate."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excess_motion_waste",
+        "label": "Excess Motion Waste",
+        "description": "Unnecessary movement of people or equipment, typical in non-Lean environments.",
+        "estimated_cost": null,
+        "unit": "USD"
+      },
+      {
+        "id": "overprocessing_waste",
+        "label": "Overprocessing Waste",
+        "description": "Doing more work than required by the customer (e.g., extra inspections).",
+        "estimated_cost": null,
+        "unit": "USD"
+      },
+      {
+        "id": "waiting_time_waste",
+        "label": "Waiting Time Waste",
+        "description": "Idle time due to bottlenecks or unbalanced workflows.",
+        "estimated_cost": null,
+        "unit": "USD"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "priority": "high",
+        "description": "Implement 5S workplace organization to reduce motion and waiting waste.",
+        "expected_impact": "5-10% improvement in labor efficiency."
+      },
+      {
+        "id": "action_2",
+        "priority": "high",
+        "description": "Deploy Statistical Process Control (SPC) to reduce defect rates.",
+        "expected_impact": "30-50% reduction in defect rate within 6 months."
+      },
+      {
+        "id": "action_3",
+        "priority": "medium",
+        "description": "Conduct value stream mapping to identify and eliminate overprocessing.",
+        "expected_impact": "10-20% reduction in cycle time."
+      },
+      {
+        "id": "action_4",
+        "priority": "medium",
+        "description": "Optimize inventory levels using Kanban systems.",
+        "expected_impact": "15-25% reduction in inventory carrying costs."
+      },
+      {
+        "id": "action_5",
+        "priority": "low",
+        "description": "Invest in energy-efficient equipment and lighting.",
+        "expected_impact": "10-15% reduction in energy costs."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "adjusted_roi",
+      "label": "Confidence-Adjusted ROI",
+      "value": null,
+      "unit": "%",
+      "description": "ROI adjusted for data uncertainty using a confidence factor of 0.85 (based on typical industrial data quality).",
+      "confidence_factor": 0.85
+    }
+  }
+}

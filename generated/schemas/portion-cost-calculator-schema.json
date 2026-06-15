@@ -1,0 +1,294 @@
+{
+  "slug": "portion-cost-calculator",
+  "name": "Portion Cost Calculator",
+  "description": "Industrial-grade tool for calculating the true cost per portion of a product or recipe, incorporating material, labor, overhead, waste, and yield losses. Aligned with ISO 9001, Lean Six Sigma, and WERC cost-to-serve standards.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-plant comparison",
+    "Real-time yield tracking"
+  ],
+  "inputs": [
+    {
+      "id": "raw_material_cost_per_unit",
+      "label": "Raw Material Cost per Unit",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 5,
+      "min": 0.01,
+      "max": 1000,
+      "businessContext": "Purchase price of the primary ingredient per kilogram, sourced from supplier invoice or ERP."
+    },
+    {
+      "id": "portion_weight",
+      "label": "Portion Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 250,
+      "min": 1,
+      "max": 5000,
+      "businessContext": "Target weight of one finished portion as specified in the recipe or product spec."
+    },
+    {
+      "id": "yield_percentage",
+      "label": "Yield Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Usable output after processing (trimming, cooking, etc.). Measured via Six Sigma process capability studies."
+    },
+    {
+      "id": "labor_cost_per_hour",
+      "label": "Labor Cost per Hour",
+      "type": "number",
+      "unit": "USD/hr",
+      "default": 18,
+      "min": 7.25,
+      "max": 150,
+      "businessContext": "Fully burdened labor rate including wages, benefits, and payroll taxes."
+    },
+    {
+      "id": "labor_hours_per_batch",
+      "label": "Labor Hours per Batch",
+      "type": "number",
+      "unit": "hr",
+      "default": 0.5,
+      "min": 0.01,
+      "max": 24,
+      "businessContext": "Direct labor time to produce one batch of the product."
+    },
+    {
+      "id": "batch_size",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "portions",
+      "default": 100,
+      "min": 1,
+      "max": 100000,
+      "businessContext": "Number of portions produced per batch."
+    },
+    {
+      "id": "overhead_rate",
+      "label": "Overhead Rate",
+      "type": "number",
+      "unit": "% of direct cost",
+      "default": 25,
+      "min": 0,
+      "max": 200,
+      "businessContext": "Allocated overhead (utilities, rent, equipment depreciation) as a percentage of direct material and labor costs. Based on WERC cost-to-serve model."
+    },
+    {
+      "id": "waste_disposal_cost_per_kg",
+      "label": "Waste Disposal Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 0.15,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Cost to dispose of trimmings and waste, including hauling and landfill fees."
+    },
+    {
+      "id": "trim_loss_percentage",
+      "label": "Trim Loss Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Percentage of raw material lost during trimming or preparation."
+    },
+    {
+      "id": "currency",
+      "label": "Currency",
+      "type": "select",
+      "unit": "",
+      "default": "USD",
+      "min": null,
+      "max": null,
+      "options": [
+        "USD",
+        "EUR",
+        "GBP",
+        "CAD",
+        "AUD"
+      ],
+      "businessContext": "Currency for all monetary inputs and outputs."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "yield_plus_trim_rule",
+        "condition": "yield_percentage + trim_loss_percentage <= 100",
+        "message": "Yield percentage plus trim loss percentage must not exceed 100%.",
+        "severity": "error"
+      },
+      {
+        "id": "batch_size_positive",
+        "condition": "batch_size > 0",
+        "message": "Batch size must be greater than zero.",
+        "severity": "error"
+      },
+      {
+        "id": "portion_weight_positive",
+        "condition": "portion_weight > 0",
+        "message": "Portion weight must be greater than zero.",
+        "severity": "error"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_portion_cost",
+        "condition": "primary_result > 2.0",
+        "message": "Portion cost exceeds $2.00 — investigate material or yield improvements.",
+        "severity": "warning"
+      },
+      {
+        "id": "low_yield",
+        "condition": "yield_percentage < 75",
+        "message": "Yield below 75% — consider Lean Six Sigma process improvement.",
+        "severity": "warning"
+      },
+      {
+        "id": "high_labor_cost_ratio",
+        "condition": "labor_cost_per_portion > 0.5 * primary_result",
+        "message": "Labor cost is more than 50% of total portion cost — review automation or efficiency.",
+        "severity": "info"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "effective_raw_material_cost",
+      "label": "Effective Raw Material Cost per kg",
+      "description": "Adjusts raw material cost for trim loss and waste disposal.",
+      "formula": "raw_material_cost_per_unit / (1 - trim_loss_percentage / 100) + waste_disposal_cost_per_kg * (trim_loss_percentage / 100)",
+      "unit": "USD/kg"
+    },
+    {
+      "id": "material_cost_per_portion",
+      "label": "Material Cost per Portion",
+      "description": "Cost of raw material in one portion after accounting for yield loss.",
+      "formula": "effective_raw_material_cost * (portion_weight / 1000) / (yield_percentage / 100)",
+      "unit": "USD/portion"
+    },
+    {
+      "id": "labor_cost_per_portion",
+      "label": "Labor Cost per Portion",
+      "description": "Direct labor cost allocated to one portion.",
+      "formula": "labor_cost_per_hour * labor_hours_per_batch / batch_size",
+      "unit": "USD/portion"
+    },
+    {
+      "id": "direct_cost_per_portion",
+      "label": "Direct Cost per Portion",
+      "description": "Sum of material and labor costs per portion.",
+      "formula": "material_cost_per_portion + labor_cost_per_portion",
+      "unit": "USD/portion"
+    },
+    {
+      "id": "overhead_cost_per_portion",
+      "label": "Overhead Cost per Portion",
+      "description": "Allocated overhead based on direct cost.",
+      "formula": "direct_cost_per_portion * (overhead_rate / 100)",
+      "unit": "USD/portion"
+    },
+    {
+      "id": "total_cost_per_portion",
+      "label": "Total Cost per Portion (Primary Result)",
+      "description": "Fully loaded cost per portion including material, labor, and overhead.",
+      "formula": "direct_cost_per_portion + overhead_cost_per_portion",
+      "unit": "USD/portion"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_cost_per_portion",
+      "label": "Total Cost per Portion",
+      "unit": "USD/portion",
+      "description": "Fully loaded cost per portion, the primary result of the calculator."
+    },
+    "breakdown": {
+      "material_cost_per_portion": {
+        "id": "material_cost_per_portion",
+        "label": "Material Cost per Portion",
+        "unit": "USD/portion"
+      },
+      "labor_cost_per_portion": {
+        "id": "labor_cost_per_portion",
+        "label": "Labor Cost per Portion",
+        "unit": "USD/portion"
+      },
+      "overhead_cost_per_portion": {
+        "id": "overhead_cost_per_portion",
+        "label": "Overhead Cost per Portion",
+        "unit": "USD/portion"
+      },
+      "effective_raw_material_cost": {
+        "id": "effective_raw_material_cost",
+        "label": "Effective Raw Material Cost per kg",
+        "unit": "USD/kg"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "trim_loss_cost",
+        "label": "Trim Loss Cost",
+        "description": "Additional cost due to trim loss, calculated as (raw_material_cost_per_unit * trim_loss_percentage/100) per kg.",
+        "unit": "USD/kg",
+        "value": null
+      },
+      {
+        "id": "yield_loss_cost",
+        "label": "Yield Loss Cost",
+        "description": "Cost of material lost due to yield percentage less than 100%.",
+        "unit": "USD/portion",
+        "value": null
+      },
+      {
+        "id": "waste_disposal_hidden",
+        "label": "Waste Disposal Hidden Cost",
+        "description": "Cost of disposing trim waste, often overlooked in standard costing.",
+        "unit": "USD/portion",
+        "value": null
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "improve_yield",
+        "condition": "yield_percentage < 80",
+        "action": "Implement Lean Six Sigma DMAIC project to improve yield by reducing process variation.",
+        "expectedImpact": "Reduce material cost per portion by up to 10%."
+      },
+      {
+        "id": "reduce_trim_loss",
+        "condition": "trim_loss_percentage > 8",
+        "action": "Review trimming specifications and consider alternative cutting patterns or supplier pre-trimming.",
+        "expectedImpact": "Reduce effective raw material cost by 5-15%."
+      },
+      {
+        "id": "optimize_labor",
+        "condition": "labor_cost_per_portion > 0.3",
+        "action": "Conduct time-motion study to identify non-value-added activities; consider automation.",
+        "expectedImpact": "Reduce labor cost per portion by 20%."
+      },
+      {
+        "id": "bulk_purchasing",
+        "condition": "raw_material_cost_per_unit > 4.0",
+        "action": "Negotiate volume discounts or explore alternative suppliers to lower material cost.",
+        "expectedImpact": "Reduce material cost by 5-10%."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_adjusted_cost",
+      "label": "Data Confidence Adjusted Cost",
+      "description": "Total cost per portion adjusted for data quality and variability using a confidence factor (0.8 to 1.2). Based on input variability and historical accuracy.",
+      "unit": "USD/portion",
+      "value": null
+    }
+  }
+}

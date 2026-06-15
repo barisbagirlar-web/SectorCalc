@@ -21,6 +21,9 @@ export function resolveGeneratedToolTitle(
   if (premiumName !== schema.toolName) {
     return premiumName;
   }
+  if (schema.toolName.trim()) {
+    return schema.toolName;
+  }
   return humanizeSlug(slug);
 }
 

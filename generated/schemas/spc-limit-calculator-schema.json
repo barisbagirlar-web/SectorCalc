@@ -1,0 +1,335 @@
+{
+  "slug": "spc-limit-calculator",
+  "title": "Statistical Process Control Limit Calculator",
+  "description": "Calculates control limits for X-bar and R charts based on subgroup data, with process capability analysis and actionable insights per ISO 7870, Six Sigma, and Lean standards.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Real-time data streaming",
+    "Multi-plant comparison"
+  ],
+  "inputs": [
+    {
+      "id": "subgroup_size",
+      "label": "Subgroup Size (n)",
+      "type": "number",
+      "unit": "units",
+      "default": 5,
+      "min": 2,
+      "max": 25,
+      "businessContext": "Number of samples per subgroup for X-bar and R charts. Typical values: 3-10."
+    },
+    {
+      "id": "num_subgroups",
+      "label": "Number of Subgroups (k)",
+      "type": "number",
+      "unit": "subgroups",
+      "default": 20,
+      "min": 10,
+      "max": 100,
+      "businessContext": "Total subgroups used to estimate process variation. Minimum 10 for reliable limits."
+    },
+    {
+      "id": "overall_mean",
+      "label": "Overall Mean (X-double-bar)",
+      "type": "number",
+      "unit": "measurement unit",
+      "default": 50,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Average of subgroup means. Central line for X-bar chart."
+    },
+    {
+      "id": "average_range",
+      "label": "Average Range (R-bar)",
+      "type": "number",
+      "unit": "measurement unit",
+      "default": 5,
+      "min": 0.1,
+      "max": 100,
+      "businessContext": "Mean of subgroup ranges. Used to estimate process sigma."
+    },
+    {
+      "id": "usl",
+      "label": "Upper Specification Limit (USL)",
+      "type": "number",
+      "unit": "measurement unit",
+      "default": 60,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Maximum acceptable value per customer or design requirement."
+    },
+    {
+      "id": "lsl",
+      "label": "Lower Specification Limit (LSL)",
+      "type": "number",
+      "unit": "measurement unit",
+      "default": 40,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Minimum acceptable value per customer or design requirement."
+    },
+    {
+      "id": "chart_type",
+      "label": "Chart Type",
+      "type": "select",
+      "unit": "",
+      "default": "Xbar-R",
+      "options": [
+        "Xbar-R",
+        "Xbar-s",
+        "I-MR"
+      ],
+      "businessContext": "Select control chart type. Xbar-R for small subgroups, Xbar-s for larger, I-MR for individual measurements."
+    },
+    {
+      "id": "use_estimated_sigma",
+      "label": "Use Estimated Sigma from R-bar",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "businessContext": "If true, sigma is estimated from R-bar/d2. If false, use pooled standard deviation."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "subgroup_size_range",
+        "condition": "subgroup_size >= 2 && subgroup_size <= 25",
+        "message": "Subgroup size must be between 2 and 25."
+      },
+      {
+        "id": "num_subgroups_min",
+        "condition": "num_subgroups >= 10",
+        "message": "At least 10 subgroups required for reliable limits."
+      },
+      {
+        "id": "spec_limits_order",
+        "condition": "lsl < usl",
+        "message": "LSL must be less than USL."
+      },
+      {
+        "id": "overall_mean_within_spec",
+        "condition": "overall_mean >= lsl && overall_mean <= usl",
+        "message": "Overall mean should be within specification limits for capable process."
+      },
+      {
+        "id": "average_range_positive",
+        "condition": "average_range > 0",
+        "message": "Average range must be greater than zero."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "cpk_warning",
+        "condition": "cpk < 1.33",
+        "message": "Process capability (Cpk) below 1.33. Process not capable per Six Sigma standards."
+      },
+      {
+        "id": "cpk_critical",
+        "condition": "cpk < 1.0",
+        "message": "Process capability (Cpk) below 1.0. Immediate improvement required."
+      },
+      {
+        "id": "ppk_warning",
+        "condition": "ppk < 1.33",
+        "message": "Process performance (Ppk) below 1.33. Long-term capability insufficient."
+      },
+      {
+        "id": "out_of_control",
+        "condition": "points_beyond_limits > 0",
+        "message": "One or more points beyond control limits. Process out of statistical control."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "d2_constant",
+      "name": "d2 Constant",
+      "description": "Unbiasing constant for range-based sigma estimation, based on subgroup size.",
+      "formula": "d2 = lookup_d2(subgroup_size)",
+      "inputs": [
+        "subgroup_size"
+      ],
+      "intermediate": true
+    },
+    {
+      "id": "estimated_sigma",
+      "name": "Estimated Process Sigma (σ_hat)",
+      "description": "Standard deviation estimated from average range.",
+      "formula": "σ_hat = average_range / d2",
+      "inputs": [
+        "average_range",
+        "d2_constant"
+      ],
+      "intermediate": true
+    },
+    {
+      "id": "ucl_xbar",
+      "name": "Upper Control Limit for X-bar",
+      "description": "Upper control limit for subgroup means.",
+      "formula": "UCL_Xbar = overall_mean + (A2 * average_range)",
+      "inputs": [
+        "overall_mean",
+        "average_range",
+        "subgroup_size"
+      ],
+      "intermediate": true,
+      "notes": "A2 = 3 / (d2 * sqrt(n))"
+    },
+    {
+      "id": "lcl_xbar",
+      "name": "Lower Control Limit for X-bar",
+      "description": "Lower control limit for subgroup means.",
+      "formula": "LCL_Xbar = overall_mean - (A2 * average_range)",
+      "inputs": [
+        "overall_mean",
+        "average_range",
+        "subgroup_size"
+      ],
+      "intermediate": true
+    },
+    {
+      "id": "ucl_r",
+      "name": "Upper Control Limit for R chart",
+      "description": "Upper control limit for subgroup ranges.",
+      "formula": "UCL_R = D4 * average_range",
+      "inputs": [
+        "average_range",
+        "subgroup_size"
+      ],
+      "intermediate": true,
+      "notes": "D4 = 1 + 3*(d3/d2)"
+    },
+    {
+      "id": "lcl_r",
+      "name": "Lower Control Limit for R chart",
+      "description": "Lower control limit for subgroup ranges.",
+      "formula": "LCL_R = D3 * average_range",
+      "inputs": [
+        "average_range",
+        "subgroup_size"
+      ],
+      "intermediate": true,
+      "notes": "D3 = max(0, 1 - 3*(d3/d2))"
+    },
+    {
+      "id": "cpk",
+      "name": "Process Capability Index (Cpk)",
+      "description": "Measures how well the process meets specification limits, centered.",
+      "formula": "Cpk = min((usl - overall_mean) / (3 * σ_hat), (overall_mean - lsl) / (3 * σ_hat))",
+      "inputs": [
+        "usl",
+        "lsl",
+        "overall_mean",
+        "estimated_sigma"
+      ],
+      "primary": true
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "cpk",
+      "label": "Process Capability Index (Cpk)",
+      "value": null,
+      "unit": "dimensionless",
+      "description": "Primary capability metric. Target ≥ 1.33 for Six Sigma."
+    },
+    "breakdown": {
+      "ucl_xbar": {
+        "label": "UCL for X-bar",
+        "value": null,
+        "unit": "measurement unit"
+      },
+      "lcl_xbar": {
+        "label": "LCL for X-bar",
+        "value": null,
+        "unit": "measurement unit"
+      },
+      "ucl_r": {
+        "label": "UCL for R chart",
+        "value": null,
+        "unit": "measurement unit"
+      },
+      "lcl_r": {
+        "label": "LCL for R chart",
+        "value": null,
+        "unit": "measurement unit"
+      },
+      "estimated_sigma": {
+        "label": "Estimated Process Sigma",
+        "value": null,
+        "unit": "measurement unit"
+      },
+      "cp": {
+        "label": "Process Capability Ratio (Cp)",
+        "value": null,
+        "unit": "dimensionless"
+      },
+      "ppk": {
+        "label": "Process Performance Index (Ppk)",
+        "value": null,
+        "unit": "dimensionless"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "centering_shift",
+        "label": "Centering Shift",
+        "description": "Deviation of process mean from target midpoint. Reduces Cpk relative to Cp.",
+        "value": null,
+        "unit": "measurement unit"
+      },
+      {
+        "id": "excess_variation",
+        "label": "Excess Variation",
+        "description": "Extra variation beyond common cause, e.g., from tool wear or raw material batches.",
+        "value": null,
+        "unit": "measurement unit"
+      },
+      {
+        "id": "special_cause_count",
+        "label": "Special Cause Count",
+        "description": "Number of subgroups with points beyond control limits or runs violating Western Electric rules.",
+        "value": null,
+        "unit": "count"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_center_process",
+        "priority": "high",
+        "description": "If Cpk < 1.33 and centering shift > 0.5*σ, adjust process target to midpoint of specification limits."
+      },
+      {
+        "id": "action_reduce_variation",
+        "priority": "high",
+        "description": "If Cp < 1.33, implement process improvement (e.g., DOE, SMED, Poka-Yoke) to reduce common cause variation."
+      },
+      {
+        "id": "action_investigate_special_causes",
+        "priority": "medium",
+        "description": "If special cause count > 0, perform root cause analysis using 5 Whys or fishbone diagram."
+      },
+      {
+        "id": "action_review_measurement_system",
+        "priority": "medium",
+        "description": "If Ppk significantly lower than Cpk, conduct Gage R&R study to assess measurement system variation."
+      },
+      {
+        "id": "action_update_control_limits",
+        "priority": "low",
+        "description": "After process improvement, recalculate control limits with new data to reflect improved state."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_score",
+      "label": "Data Confidence Score",
+      "value": null,
+      "unit": "percentage",
+      "description": "Adjusted confidence based on number of subgroups, outliers, and measurement system reliability. Range 0-100%."
+    }
+  }
+}

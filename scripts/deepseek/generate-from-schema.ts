@@ -1,107 +1,88 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import fs from "node:fs";
+import path from "node:path";
+import { compileFormulaExpression } from "@/lib/generated-tools/compile-formula-expression";
+import { toGeneratedExportBaseName, toSafeVarName } from "@/lib/generated-tools/export-names";
+import { normalizeRawGeneratedSchema } from "@/lib/generated-tools/normalize-schema";
+import type { GeneratedToolSchema } from "@/lib/generated-tools/types";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// ----- Güvenli yardımcılar -----
-function toSafeVarName(str: any): string {
-  if (typeof str !== 'string') return 'unknown';
-  return str.replace(/[^a-zA-Z0-9]/g, '_').replace(/^(\d)/, '_$1');
-}
-
-function toSafePascalCase(str: any): string {
-  const safe = toSafeVarName(str);
-  return safe.charAt(0).toUpperCase() + safe.slice(1);
-}
-
-function normalizeAscii(str: any): string {
-  if (typeof str !== 'string') return '';
-  const map: Record<string, string> = {
-    ğ: 'g', Ğ: 'G', ü: 'u', Ü: 'U', ş: 's', Ş: 'S',
-    ı: 'i', İ: 'I', ö: 'o', Ö: 'O', ç: 'c', Ç: 'C',
-  };
-  return str.replace(/[ğĞüÜşŞıİöÖçÇ]/g, (ch) => map[ch] ?? ch);
-}
-
-function ensureString(val: any, defaultValue: string = ''): string {
-  if (typeof val === 'string') return val;
-  if (val && typeof val === 'object') {
-    // Önce 'en' dilini dene, yoksa ilk değeri al
-    if (val.en) return String(val.en);
-    const firstKey = Object.keys(val)[0];
-    return firstKey ? String(val[firstKey]) : defaultValue;
+function ensureString(val: unknown, defaultValue = ""): string {
+  if (typeof val === "string") {
+    return val;
   }
-  if (val === undefined || val === null) return defaultValue;
+  if (val && typeof val === "object") {
+    const record = val as Record<string, unknown>;
+    if (typeof record.en === "string") {
+      return record.en;
+    }
+    const firstKey = Object.keys(record)[0];
+    return firstKey ? String(record[firstKey]) : defaultValue;
+  }
+  if (val === undefined || val === null) {
+    return defaultValue;
+  }
   return String(val);
 }
 
-function extractPrimaryFormulaKey(schema: any): string {
-  const primary = schema.outputs?.primary;
-  if (typeof primary === 'string') {
-    const match = primary.match(/^([A-Za-z0-9_]+)/);
-    return match ? match[1] : 'total';
-  }
-  return 'total';
-}
-
-// ----- Zod şeması -----
-function generateZodSchema(inputs: any[]): string {
+function generateZodSchema(schema: GeneratedToolSchema): string {
   const shape: string[] = [];
-  for (const input of inputs) {
-    const id = input.id;
-    const safeId = toSafeVarName(id);
+  for (const input of schema.inputs) {
+    const safeId = toSafeVarName(input.id);
     const type = input.type;
-    if (type === 'number') {
-      let zod = `z.number()`;
-      if (typeof input.min === 'number') zod += `.min(${input.min})`;
-      if (typeof input.max === 'number') zod += `.max(${input.max})`;
-      if (input.default !== undefined && typeof input.default === 'number') zod += `.default(${input.default})`;
-      shape.push(`  ${safeId}: ${zod},`);
-    } else if (type === 'select' && Array.isArray(input.options)) {
-      const optionValues = input.options.map((o: any) =>
-        `'${ensureString(o, 'unknown').replace(/'/g, "\\'")}'`,
-      );
-      let zod = `z.enum([${optionValues.join(', ')}])`;
-      if (input.default !== undefined) {
-        zod += `.default('${ensureString(input.default, '').replace(/'/g, "\\'")}')`;
+    if (type === "number") {
+      let zod = "z.number()";
+      if (typeof input.min === "number") {
+        zod += `.min(${input.min})`;
+      }
+      if (typeof input.max === "number") {
+        zod += `.max(${input.max})`;
+      }
+      if (input.default !== undefined && typeof input.default === "number") {
+        zod += `.default(${input.default})`;
       }
       shape.push(`  ${safeId}: ${zod},`);
-    } else if (type === 'boolean') {
-      let zod = `z.boolean()`;
-      if (input.default !== undefined) zod += `.default(${input.default})`;
+    } else if (type === "select" && Array.isArray(input.options)) {
+      const optionValues = input.options.map((option) =>
+        `'${ensureString(option, "unknown").replace(/'/g, "\\'")}'`,
+      );
+      let zod = `z.enum([${optionValues.join(", ")}])`;
+      if (input.default !== undefined) {
+        zod += `.default('${ensureString(input.default, "").replace(/'/g, "\\'")}')`;
+      }
+      shape.push(`  ${safeId}: ${zod},`);
+    } else if (type === "boolean") {
+      let zod = "z.boolean()";
+      if (input.default !== undefined) {
+        zod += `.default(${input.default})`;
+      }
       shape.push(`  ${safeId}: ${zod},`);
     } else {
       shape.push(`  ${safeId}: z.string().default(''),`);
     }
   }
-  return `z.object({\n${shape.join('\n')}\n})`;
+  return `z.object({\n${shape.join("\n")}\n})`;
 }
 
-// ----- Input interface -----
-function generateTypeInterface(inputs: any[], toolName: string): string {
+function generateTypeInterface(schema: GeneratedToolSchema, exportBase: string): string {
   const fields: string[] = [];
-  for (const input of inputs) {
+  for (const input of schema.inputs) {
     const id = toSafeVarName(input.id);
-    let tsType = 'any';
-    const type = input.type;
-    if (type === 'number') tsType = 'number';
-    else if (type === 'select') tsType = 'string';
-    else if (type === 'boolean') tsType = 'boolean';
-    else tsType = 'string';
+    let tsType = "string";
+    if (input.type === "number") {
+      tsType = "number";
+    } else if (input.type === "boolean") {
+      tsType = "boolean";
+    }
     fields.push(`  ${id}: ${tsType};`);
   }
-  return `export interface ${toSafePascalCase(toolName)}Input {\n${fields.join('\n')}\n}`;
+  return `export interface ${exportBase}Input {\n${fields.join("\n")}\n}`;
 }
 
-// ----- Output interface -----
-function generateOutputType(schema: any, toolName: string): string {
-  const breakdownKeys = Object.keys(schema.outputs?.breakdown || {});
+function generateOutputType(schema: GeneratedToolSchema, exportBase: string): string {
+  const breakdownKeys = Object.keys(schema.outputs.breakdown);
   return `
-export interface ${toSafePascalCase(toolName)}Output {
+export interface ${exportBase}Output {
   totalWasteCost: number;
-  breakdown: { ${breakdownKeys.map(k => `${k}: number`).join('; ')} };
+  breakdown: { ${breakdownKeys.map((key) => `${key}: number`).join("; ")} };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
@@ -110,47 +91,60 @@ export interface ${toSafePascalCase(toolName)}Output {
 }`;
 }
 
-// ----- Güvenli formül değerlendirici -----
-function generateFormulaEvaluator(formulas: any, inputs: any[]): string {
-  if (!formulas || typeof formulas !== 'object') {
-    return `const formulas = {};`;
+function generateFormulaEvaluator(schema: GeneratedToolSchema, exportBase: string): string {
+  const formulaEntries = Object.entries(schema.formulas);
+  if (formulaEntries.length === 0) {
+    return `function evaluateAllFormulas(_input: ${exportBase}Input): Record<string, number> {
+  return {};
+}`;
   }
-  const lines: string[] = [];
-  for (const [key, expr] of Object.entries(formulas)) {
-    // expr string değilse, atla veya boş string kullan
-    let jsExpr = (typeof expr === 'string') ? expr : '';
-    if (!jsExpr) {
-      lines.push(`  ${key}: (input: any) => 0,`);
+
+  const formulaKeys = formulaEntries.map(([key]) => key);
+  const inputIds = schema.inputs.map((input) => input.id);
+  const lines: string[] = ["const results: Record<string, number> = {};"];
+
+  for (const [key, expression] of formulaEntries) {
+    const compiled = compileFormulaExpression(expression, {
+      inputIds,
+      inputToAccess: (inputId) => `input.${toSafeVarName(inputId)}`,
+      formulaKeys,
+      selfKey: key,
+    });
+
+    if (!compiled) {
+      lines.push(`results[${JSON.stringify(key)}] = 0;`);
       continue;
     }
-    // Değişken isimlerini dönüştür
-    for (const inp of inputs) {
-      const oldId = inp.id;
-      const newId = toSafeVarName(oldId);
-      const regex = new RegExp(`\\b${oldId}\\b`, 'g');
-      jsExpr = jsExpr.replace(regex, `input.${newId}`);
-    }
-    lines.push(`  ${key}: (input: any) => {
-    try { return ${jsExpr}; } catch { return 0; }
-  },`);
+
+    lines.push(
+      `try { results[${JSON.stringify(key)}] = ${compiled}; } catch { results[${JSON.stringify(key)}] = 0; }`,
+    );
   }
-  return `const formulas = {\n${lines.join('\n')}\n};`;
+
+  lines.push("return results;");
+
+  return `function evaluateAllFormulas(input: ${exportBase}Input): Record<string, number> {
+  ${lines.join("\n  ")}
+}`;
 }
 
-// ----- Ana hesaplama fonksiyonu -----
-function generateCalculateFunction(schema: any, toolName: string): string {
-  const primaryKey = extractPrimaryFormulaKey(schema);
-  const breakdownKeys = Object.keys(schema.outputs?.breakdown || {});
+function generateCalculateFunction(schema: GeneratedToolSchema, exportBase: string): string {
+  const primaryKey = schema.outputs.primary;
+  const breakdownKeys = Object.keys(schema.outputs.breakdown);
+
   return `
-export function calculate${toSafePascalCase(toolName)}(input: ${toSafePascalCase(toolName)}Input): ${toSafePascalCase(toolName)}Output {
-  const values = formulas;
-  const totalWasteCost = values.${primaryKey} ? values.${primaryKey}(input) : 0;
+export function calculate${exportBase}(input: ${exportBase}Input): ${exportBase}Output {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values[${JSON.stringify(primaryKey)}] ?? 0;
   const breakdown = {
-    ${breakdownKeys.map(k => `${k}: values.${k} ? values.${k}(input) : 0`).join(',\n    ')}
+    ${breakdownKeys.map((key) => `${key}: values[${JSON.stringify(key)}] ?? 0`).join(",\n    ")}
   };
-  const hiddenLossDrivers: string[] = ${JSON.stringify(schema.outputs?.hiddenLossDrivers || [])};
-  const suggestedActions: string[] = ${JSON.stringify(schema.outputs?.suggestedActions || [])};
-  const dataConfidenceAdjusted = input.dataConfidence ? totalWasteCost * (input.dataConfidence / 100) : totalWasteCost;
+  const hiddenLossDrivers: string[] = ${JSON.stringify(schema.outputs.hiddenLossDrivers)};
+  const suggestedActions: string[] = ${JSON.stringify(schema.outputs.suggestedActions)};
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
   return {
     totalWasteCost,
     breakdown,
@@ -158,56 +152,57 @@ export function calculate${toSafePascalCase(toolName)}(input: ${toSafePascalCase
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: ${schema.premiumRequired === true},
-    premiumFeatures: ${JSON.stringify(schema.premiumFeatures || [])},
+    premiumFeatures: ${JSON.stringify(schema.premiumFeatures)},
   };
 }`;
 }
 
-// ----- Ana dışa aktarım -----
-export function generateFromSchemaFile(schemaPath: string, outPath: string) {
-  const raw = fs.readFileSync(schemaPath, 'utf-8');
-  const schema = JSON.parse(raw);
-  const toolName = schema.toolName || path.basename(schemaPath, '-schema.json');
-  const inputs = (schema.inputs || []).map((inp: any) => ({
-    ...inp,
-    label: ensureString(inp.label, inp.id),
-    businessContext: ensureString(inp.businessContext, ''),
-    unit: typeof inp.unit === 'string' ? inp.unit : '',
-  }));
+export function generateFromSchemaFile(schemaPath: string, outPath: string): void {
+  const raw = JSON.parse(fs.readFileSync(schemaPath, "utf-8")) as unknown;
+  const slug = path.basename(schemaPath, "-schema.json");
+  const schema = normalizeRawGeneratedSchema(raw, slug);
+  if (!schema) {
+    throw new Error(`Schema could not be normalized: ${schemaPath}`);
+  }
+
+  const exportBase = toGeneratedExportBaseName(slug);
+  const formulaEvaluator = generateFormulaEvaluator(schema, exportBase);
 
   const content = `// Auto-generated from ${path.basename(schemaPath)}
 import * as z from 'zod';
 
-${generateTypeInterface(inputs, toolName)}
+${generateTypeInterface(schema, exportBase)}
 
-export const ${toSafePascalCase(toolName)}InputSchema = ${generateZodSchema(inputs)};
+export const ${exportBase}InputSchema = ${generateZodSchema(schema)};
 
-${generateFormulaEvaluator(schema.formulas, inputs)}
+${formulaEvaluator}
 
-${generateCalculateFunction(schema, toolName)}
+${generateCalculateFunction(schema, exportBase)}
 
-${generateOutputType(schema, toolName)}
+${generateOutputType(schema, exportBase)}
 `;
+
   fs.writeFileSync(outPath, content);
   console.log(`✅ Generated ${outPath}`);
 }
 
-// ----- CLI -----
-function main() {
+function main(): void {
   const args = process.argv.slice(2);
-  const schemaPathArg = args.find(a => a.startsWith('--schema='));
+  const schemaPathArg = args.find((arg) => arg.startsWith("--schema="));
   if (!schemaPathArg) {
-    console.error('Usage: npm run generate:tool -- --schema=<path-to-schema.json>');
+    console.error("Usage: npm run generate:tool -- --schema=<path-to-schema.json>");
     process.exit(1);
   }
-  const schemaPath = schemaPathArg.split('=')[1];
-  if (!fs.existsSync(schemaPath)) {
-    console.error(`Schema not found: ${schemaPath}`);
+  const schemaPath = schemaPathArg.split("=")[1];
+  if (!schemaPath || !fs.existsSync(schemaPath)) {
+    console.error(`Schema not found: ${schemaPath ?? ""}`);
     process.exit(1);
   }
-  const toolName = path.basename(schemaPath, '-schema.json');
-  const outDir = path.join(process.cwd(), 'generated');
-  if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
+  const toolName = path.basename(schemaPath, "-schema.json");
+  const outDir = path.join(process.cwd(), "generated");
+  if (!fs.existsSync(outDir)) {
+    fs.mkdirSync(outDir, { recursive: true });
+  }
   const outPath = path.join(outDir, `${toolName}.ts`);
   generateFromSchemaFile(schemaPath, outPath);
 }

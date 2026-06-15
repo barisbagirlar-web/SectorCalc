@@ -1,0 +1,325 @@
+{
+  "slug": "total-employee-cost-calculator",
+  "title": "Total Employee Cost Calculator",
+  "description": "Industrial-grade calculator to compute the fully loaded cost of an employee, including direct compensation, indirect benefits, overhead, and productivity loss factors, aligned with ISO 30400, Lean, and Six Sigma standards.",
+  "version": "1.0.0",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Benchmarking against industry standards",
+    "Scenario simulation",
+    "API access"
+  ],
+  "inputs": [
+    {
+      "id": "base_salary",
+      "label": "Base Annual Salary",
+      "type": "number",
+      "unit": "USD",
+      "default": 60000,
+      "min": 0,
+      "max": 10000000,
+      "businessContext": "Annual gross salary before any deductions or benefits."
+    },
+    {
+      "id": "bonus_percent",
+      "label": "Target Bonus (% of base salary)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Typical annual bonus as a percentage of base salary."
+    },
+    {
+      "id": "benefits_percent",
+      "label": "Benefits Cost (% of base salary)",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Includes health insurance, retirement contributions, paid leave, etc. Typical range 25-40%."
+    },
+    {
+      "id": "payroll_tax_percent",
+      "label": "Payroll Tax (% of base salary)",
+      "type": "number",
+      "unit": "%",
+      "default": 7.65,
+      "min": 0,
+      "max": 20,
+      "businessContext": "Employer portion of Social Security and Medicare (FICA) in the US."
+    },
+    {
+      "id": "overhead_percent",
+      "label": "Overhead Allocation (% of direct cost)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Facilities, equipment, IT, admin support allocated per employee."
+    },
+    {
+      "id": "training_cost",
+      "label": "Annual Training Cost per Employee",
+      "type": "number",
+      "unit": "USD",
+      "default": 1500,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Direct cost of training programs, certifications, and development."
+    },
+    {
+      "id": "productivity_factor",
+      "label": "Productivity Factor (0-1)",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.85,
+      "min": 0,
+      "max": 1,
+      "businessContext": "Lean metric: actual productive time vs. available time. 1 = full productivity."
+    },
+    {
+      "id": "turnover_rate",
+      "label": "Annual Turnover Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of employees leaving per year. Drives replacement and ramp-up costs."
+    },
+    {
+      "id": "replacement_cost_percent",
+      "label": "Replacement Cost (% of base salary)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 200,
+      "businessContext": "Cost of recruiting, hiring, and onboarding a replacement."
+    },
+    {
+      "id": "overtime_hours_per_week",
+      "label": "Average Overtime Hours per Week",
+      "type": "number",
+      "unit": "hours",
+      "default": 2,
+      "min": 0,
+      "max": 40,
+      "businessContext": "Average weekly overtime hours per employee."
+    },
+    {
+      "id": "overtime_premium",
+      "label": "Overtime Premium (multiplier)",
+      "type": "number",
+      "unit": "ratio",
+      "default": 1.5,
+      "min": 1,
+      "max": 3,
+      "businessContext": "Typically 1.5x for time-and-a-half, 2x for double time."
+    },
+    {
+      "id": "currency",
+      "label": "Currency",
+      "type": "select",
+      "unit": "",
+      "default": "USD",
+      "min": null,
+      "max": null,
+      "options": [
+        "USD",
+        "EUR",
+        "GBP",
+        "JPY",
+        "CHF"
+      ],
+      "businessContext": "Currency for all monetary values."
+    },
+    {
+      "id": "include_hidden_costs",
+      "label": "Include Hidden Cost Drivers",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "min": null,
+      "max": null,
+      "businessContext": "Toggle to include absenteeism, engagement loss, and quality costs."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_1",
+        "condition": "bonus_percent + benefits_percent + payroll_tax_percent > 100",
+        "message": "Sum of bonus, benefits, and payroll tax percentages exceeds 100% of base salary. Please adjust."
+      },
+      {
+        "id": "rule_2",
+        "condition": "productivity_factor > 1",
+        "message": "Productivity factor cannot exceed 1 (100%)."
+      },
+      {
+        "id": "rule_3",
+        "condition": "turnover_rate > 50 && replacement_cost_percent < 30",
+        "message": "High turnover rate with low replacement cost may underestimate true cost. Consider increasing replacement cost."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_1",
+        "metric": "total_employee_cost",
+        "condition": "> 150000",
+        "alert": "Total employee cost exceeds $150,000. Review cost reduction opportunities."
+      },
+      {
+        "id": "threshold_2",
+        "metric": "hidden_loss_percentage",
+        "condition": "> 15",
+        "alert": "Hidden loss drivers exceed 15% of total cost. Investigate productivity and turnover issues."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "direct_compensation",
+      "label": "Direct Compensation",
+      "formula": "base_salary * (1 + bonus_percent / 100)",
+      "description": "Base salary plus target bonus."
+    },
+    {
+      "id": "benefits_and_taxes",
+      "label": "Benefits and Payroll Taxes",
+      "formula": "base_salary * ((benefits_percent + payroll_tax_percent) / 100)",
+      "description": "Total benefits and employer payroll taxes."
+    },
+    {
+      "id": "overhead_cost",
+      "label": "Overhead Allocation",
+      "formula": "(direct_compensation + benefits_and_taxes) * (overhead_percent / 100)",
+      "description": "Allocated overhead based on direct cost."
+    },
+    {
+      "id": "overtime_cost",
+      "label": "Overtime Cost",
+      "formula": "(base_salary / 2080) * overtime_hours_per_week * 52 * overtime_premium",
+      "description": "Annual overtime cost based on hourly rate (2080 hours/year)."
+    },
+    {
+      "id": "turnover_cost",
+      "label": "Turnover Cost",
+      "formula": "base_salary * (turnover_rate / 100) * (replacement_cost_percent / 100)",
+      "description": "Annualized cost of employee turnover."
+    },
+    {
+      "id": "hidden_loss_drivers",
+      "label": "Hidden Loss Drivers",
+      "formula": "if(include_hidden_costs, (direct_compensation + benefits_and_taxes) * 0.05, 0)",
+      "description": "Estimated cost of absenteeism, disengagement, and quality defects (5% of direct cost)."
+    },
+    {
+      "id": "total_employee_cost",
+      "label": "Total Employee Cost (Primary Result)",
+      "formula": "direct_compensation + benefits_and_taxes + overhead_cost + training_cost + overtime_cost + turnover_cost + hidden_loss_drivers",
+      "description": "Fully loaded annual cost per employee."
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_employee_cost",
+      "label": "Total Employee Cost",
+      "unit": "USD",
+      "description": "Fully loaded annual cost per employee."
+    },
+    "breakdown": {
+      "direct_compensation": {
+        "label": "Direct Compensation",
+        "unit": "USD",
+        "description": "Base salary plus bonus."
+      },
+      "benefits_and_taxes": {
+        "label": "Benefits & Payroll Taxes",
+        "unit": "USD",
+        "description": "Benefits and employer taxes."
+      },
+      "overhead_cost": {
+        "label": "Overhead Allocation",
+        "unit": "USD",
+        "description": "Allocated overhead."
+      },
+      "training_cost": {
+        "label": "Training Cost",
+        "unit": "USD",
+        "description": "Annual training investment."
+      },
+      "overtime_cost": {
+        "label": "Overtime Cost",
+        "unit": "USD",
+        "description": "Annual overtime expense."
+      },
+      "turnover_cost": {
+        "label": "Turnover Cost",
+        "unit": "USD",
+        "description": "Annualized replacement cost."
+      },
+      "hidden_loss_drivers": {
+        "label": "Hidden Loss Drivers",
+        "unit": "USD",
+        "description": "Costs from absenteeism, disengagement, quality."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "absenteeism",
+        "label": "Absenteeism Cost",
+        "description": "Cost of unplanned absences beyond paid leave.",
+        "estimated_value": "base_salary * 0.02"
+      },
+      {
+        "id": "disengagement",
+        "label": "Disengagement Cost",
+        "description": "Productivity loss due to low engagement.",
+        "estimated_value": "base_salary * 0.02"
+      },
+      {
+        "id": "quality_defects",
+        "label": "Quality Defect Cost",
+        "description": "Rework and scrap costs attributable to employee.",
+        "estimated_value": "base_salary * 0.01"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "label": "Reduce Overtime",
+        "description": "If overtime cost > 5% of total cost, consider hiring additional staff or process improvement."
+      },
+      {
+        "id": "action_2",
+        "label": "Improve Retention",
+        "description": "If turnover cost > 10% of total cost, implement retention programs and exit interviews."
+      },
+      {
+        "id": "action_3",
+        "label": "Optimize Benefits",
+        "description": "Benchmark benefits against industry to ensure cost-effectiveness."
+      },
+      {
+        "id": "action_4",
+        "label": "Lean Productivity Improvement",
+        "description": "If productivity factor < 0.8, conduct value stream mapping to reduce waste."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_adjusted_cost",
+      "label": "Data Confidence Adjusted Cost",
+      "unit": "USD",
+      "description": "Total cost adjusted for data quality confidence (e.g., ±10% uncertainty).",
+      "formula": "total_employee_cost * (1 + (1 - productivity_factor) * 0.1)"
+    }
+  }
+}

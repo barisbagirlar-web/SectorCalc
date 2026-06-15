@@ -1,0 +1,77 @@
+// Auto-generated from renovation-budget-optimizer-schema.json
+import * as z from 'zod';
+
+export interface Renovation_budget_optimizerInput {
+  total_area_sqft: number;
+  scope_complexity: string;
+  material_quality: string;
+  labor_efficiency_factor: number;
+  waste_factor_pct: number;
+  contingency_pct: number;
+  region_cost_index: number;
+  sustainability_target: string;
+  phased_renovation: boolean;
+}
+
+export const Renovation_budget_optimizerInputSchema = z.object({
+  total_area_sqft: z.number().min(100).max(100000).default(2000),
+  scope_complexity: z.enum(['low', 'medium', 'high']).default('medium'),
+  material_quality: z.enum(['economy', 'standard', 'premium']).default('standard'),
+  labor_efficiency_factor: z.number().min(0.05).max(0.5).default(0.15),
+  waste_factor_pct: z.number().min(0).max(30).default(10),
+  contingency_pct: z.number().min(5).max(30).default(15),
+  region_cost_index: z.number().min(0.7).max(1.5).default(1),
+  sustainability_target: z.enum(['none', 'LEED', 'WELL', 'BREEAM']).default('none'),
+  phased_renovation: z.boolean().default(false),
+});
+
+function evaluateAllFormulas(input: Renovation_budget_optimizerInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  results["base_material_cost"] = 0;
+  results["scope_multiplier"] = 0;
+  results["sustainability_surcharge"] = 0;
+  results["phasing_efficiency"] = 0;
+  try { results["material_cost_total"] = input.total_area_sqft * (results["base_material_cost"] ?? 0) * (results["scope_multiplier"] ?? 0) * (1 + input.waste_factor_pct/100) * input.region_cost_index * (1 + (results["sustainability_surcharge"] ?? 0)) * (results["phasing_efficiency"] ?? 0); } catch { results["material_cost_total"] = 0; }
+  try { results["labor_cost_total"] = input.total_area_sqft * input.labor_efficiency_factor * 65 * (results["scope_multiplier"] ?? 0) * input.region_cost_index * (results["phasing_efficiency"] ?? 0); } catch { results["labor_cost_total"] = 0; }
+  try { results["contingency_amount"] = ((results["material_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0)) * (input.contingency_pct/100); } catch { results["contingency_amount"] = 0; }
+  try { results["primaryResult"] = (results["material_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0) + (results["contingency_amount"] ?? 0); } catch { results["primaryResult"] = 0; }
+  return results;
+}
+
+
+export function calculateRenovation_budget_optimizer(input: Renovation_budget_optimizerInput): Renovation_budget_optimizerOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values["total_budget"] ?? 0;
+  const breakdown = {
+    material_cost: values["material_cost"] ?? 0,
+    labor_cost: values["labor_cost"] ?? 0,
+    contingency: values["contingency"] ?? 0,
+    cost_per_sqft: values["cost_per_sqft"] ?? 0
+  };
+  const hiddenLossDrivers: string[] = ["Material Waste Inefficiency","Labor Productivity Gap","Scope Creep Allowance"];
+  const suggestedActions: string[] = ["Implement Lean Material Management","Enhance Crew Training & Workflow","Conduct Value Engineering Review","Optimize Phasing Schedule"];
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    premiumRequired: true,
+    premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-scenario comparison","Gantt chart integration"],
+  };
+}
+
+
+export interface Renovation_budget_optimizerOutput {
+  totalWasteCost: number;
+  breakdown: { material_cost: number; labor_cost: number; contingency: number; cost_per_sqft: number };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+}

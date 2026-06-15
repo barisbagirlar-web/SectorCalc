@@ -1,0 +1,299 @@
+{
+  "slug": "compound-interest-calculator",
+  "name": "Compound Interest Calculator",
+  "description": "Industrial-grade compound interest calculator with lean and six sigma principles for financial forecasting and investment analysis.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Scenario comparison",
+    "Sensitivity analysis"
+  ],
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Principal Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "min": 0,
+      "max": 1000000000,
+      "businessContext": "Initial investment or loan amount in base currency."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "percent",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Nominal annual interest rate as a percentage."
+    },
+    {
+      "id": "compoundingFrequency",
+      "label": "Compounding Frequency",
+      "type": "select",
+      "unit": "times per year",
+      "default": "12",
+      "min": 1,
+      "max": 365,
+      "businessContext": "Number of compounding periods per year (e.g., 1=annual, 12=monthly, 365=daily).",
+      "options": [
+        {
+          "value": "1",
+          "label": "Annually"
+        },
+        {
+          "value": "2",
+          "label": "Semi-annually"
+        },
+        {
+          "value": "4",
+          "label": "Quarterly"
+        },
+        {
+          "value": "12",
+          "label": "Monthly"
+        },
+        {
+          "value": "52",
+          "label": "Weekly"
+        },
+        {
+          "value": "365",
+          "label": "Daily"
+        }
+      ]
+    },
+    {
+      "id": "timePeriod",
+      "label": "Time Period",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Total duration of investment or loan in years."
+    },
+    {
+      "id": "additionalContribution",
+      "label": "Additional Contribution per Period",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Fixed amount added at the end of each compounding period."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Inflation Rate",
+      "type": "number",
+      "unit": "percent",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Expected annual inflation rate for real value adjustment."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate on Interest",
+      "type": "number",
+      "unit": "percent",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of interest earnings taxed annually."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_positive_principal",
+        "condition": "principal > 0",
+        "message": "Principal must be greater than zero."
+      },
+      {
+        "id": "rule_positive_rate",
+        "condition": "annualInterestRate >= 0",
+        "message": "Annual interest rate cannot be negative."
+      },
+      {
+        "id": "rule_positive_time",
+        "condition": "timePeriod > 0",
+        "message": "Time period must be greater than zero."
+      },
+      {
+        "id": "rule_contribution_positive",
+        "condition": "additionalContribution >= 0",
+        "message": "Additional contribution cannot be negative."
+      },
+      {
+        "id": "rule_compounding_frequency_valid",
+        "condition": "compoundingFrequency >= 1 && compoundingFrequency <= 365",
+        "message": "Compounding frequency must be between 1 and 365."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_high_interest",
+        "condition": "annualInterestRate > 20",
+        "severity": "warning",
+        "message": "Interest rate exceeds typical market rates; verify input."
+      },
+      {
+        "id": "threshold_long_term",
+        "condition": "timePeriod > 30",
+        "severity": "info",
+        "message": "Long-term projection beyond 30 years may have reduced accuracy."
+      },
+      {
+        "id": "threshold_high_inflation",
+        "condition": "inflationRate > 10",
+        "severity": "warning",
+        "message": "Inflation rate is unusually high; consider economic context."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "effectiveRate",
+      "name": "Effective Annual Rate (EAR)",
+      "description": "Converts nominal rate to effective annual rate considering compounding frequency.",
+      "formula": "EAR = (1 + (annualInterestRate / 100) / compoundingFrequency) ^ compoundingFrequency - 1",
+      "unit": "decimal"
+    },
+    {
+      "id": "futureValueWithoutContributions",
+      "name": "Future Value without Additional Contributions",
+      "description": "Compound interest on principal only.",
+      "formula": "FV_principal = principal * (1 + (annualInterestRate / 100) / compoundingFrequency) ^ (compoundingFrequency * timePeriod)",
+      "unit": "currency"
+    },
+    {
+      "id": "futureValueOfContributions",
+      "name": "Future Value of Additional Contributions",
+      "description": "Future value of a series of equal payments made at the end of each compounding period.",
+      "formula": "FV_contributions = additionalContribution * (((1 + (annualInterestRate / 100) / compoundingFrequency) ^ (compoundingFrequency * timePeriod) - 1) / ((annualInterestRate / 100) / compoundingFrequency))",
+      "unit": "currency"
+    },
+    {
+      "id": "grossFutureValue",
+      "name": "Gross Future Value",
+      "description": "Total future value before tax and inflation adjustments.",
+      "formula": "grossFV = FV_principal + FV_contributions",
+      "unit": "currency"
+    },
+    {
+      "id": "taxAdjustment",
+      "name": "Tax Adjustment Factor",
+      "description": "Factor to reduce future value by tax on interest earned.",
+      "formula": "taxFactor = 1 - (taxRate / 100)",
+      "unit": "decimal"
+    },
+    {
+      "id": "netFutureValue",
+      "name": "Net Future Value (After Tax)",
+      "description": "Future value after deducting taxes on interest.",
+      "formula": "netFV = principal + (grossFV - principal) * taxFactor",
+      "unit": "currency"
+    },
+    {
+      "id": "realFutureValue",
+      "name": "Real Future Value (Inflation Adjusted)",
+      "description": "Future value in today's purchasing power.",
+      "formula": "realFV = netFV / (1 + (inflationRate / 100)) ^ timePeriod",
+      "unit": "currency"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "realFutureValue",
+      "label": "Real Future Value (Inflation & Tax Adjusted)",
+      "unit": "currency",
+      "description": "Primary result: future value adjusted for inflation and taxes."
+    },
+    "breakdown": {
+      "totalContributions": {
+        "id": "totalContributions",
+        "label": "Total Contributions",
+        "value": "principal + (additionalContribution * compoundingFrequency * timePeriod)",
+        "unit": "currency",
+        "description": "Sum of all money invested."
+      },
+      "totalInterestEarned": {
+        "id": "totalInterestEarned",
+        "label": "Total Interest Earned (Gross)",
+        "value": "grossFV - totalContributions",
+        "unit": "currency",
+        "description": "Gross interest earned before tax."
+      },
+      "totalTaxPaid": {
+        "id": "totalTaxPaid",
+        "label": "Total Tax Paid",
+        "value": "(grossFV - principal) * (taxRate / 100)",
+        "unit": "currency",
+        "description": "Total tax deducted from interest."
+      },
+      "inflationLoss": {
+        "id": "inflationLoss",
+        "label": "Loss Due to Inflation",
+        "value": "netFV - realFV",
+        "unit": "currency",
+        "description": "Reduction in purchasing power due to inflation."
+      },
+      "effectiveAnnualRate": {
+        "id": "effectiveAnnualRate",
+        "label": "Effective Annual Rate (EAR)",
+        "value": "EAR",
+        "unit": "decimal",
+        "description": "Actual annual yield considering compounding."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "loss_inflation",
+        "label": "Inflation Erosion",
+        "description": "Inflation reduces real purchasing power over time.",
+        "impact": "inflationLoss"
+      },
+      {
+        "id": "loss_tax",
+        "label": "Tax Drag",
+        "description": "Taxes on interest reduce net returns.",
+        "impact": "totalTaxPaid"
+      },
+      {
+        "id": "loss_opportunity",
+        "label": "Opportunity Cost of Low Compounding Frequency",
+        "description": "Less frequent compounding reduces potential growth.",
+        "impact": "grossFV - FV_principal (if compoundingFrequency < 12)"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_increase_frequency",
+        "label": "Increase Compounding Frequency",
+        "description": "Switching from annual to monthly compounding can increase returns."
+      },
+      {
+        "id": "action_reduce_tax",
+        "label": "Tax-Efficient Investing",
+        "description": "Consider tax-advantaged accounts to minimize tax drag."
+      },
+      {
+        "id": "action_inflation_hedge",
+        "label": "Inflation-Protected Investments",
+        "description": "Invest in assets that historically outpace inflation (e.g., equities, TIPS)."
+      },
+      {
+        "id": "action_regular_contributions",
+        "label": "Increase Additional Contributions",
+        "description": "Regular contributions significantly boost future value."
+      }
+    ],
+    "dataConfidenceAdjusted": 0.92
+  }
+}

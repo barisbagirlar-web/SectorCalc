@@ -1,0 +1,328 @@
+{
+  "slug": "supplier-performance-tco",
+  "name": "Supplier Performance Total Cost of Ownership",
+  "description": "Industrial-grade TCO model for supplier evaluation incorporating quality, logistics, and lifecycle costs per ISO 14040, Lean, and Six Sigma principles.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-supplier comparison",
+    "Automated alerting",
+    "Benchmarking against industry standards"
+  ],
+  "inputs": [
+    {
+      "id": "purchase_price",
+      "label": "Purchase Price per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Negotiated unit price from supplier contract."
+    },
+    {
+      "id": "annual_quantity",
+      "label": "Annual Order Quantity",
+      "type": "number",
+      "unit": "units",
+      "default": 10000,
+      "min": 1,
+      "max": 10000000,
+      "businessContext": "Total units purchased per year."
+    },
+    {
+      "id": "defect_rate",
+      "label": "Defect Rate (ppm)",
+      "type": "number",
+      "unit": "ppm",
+      "default": 500,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Parts per million defective, Six Sigma metric."
+    },
+    {
+      "id": "inspection_cost_per_unit",
+      "label": "Inspection Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Cost of incoming quality inspection per unit."
+    },
+    {
+      "id": "freight_cost_per_unit",
+      "label": "Freight Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 5,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Average shipping cost per unit from supplier."
+    },
+    {
+      "id": "lead_time_days",
+      "label": "Lead Time (days)",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "min": 1,
+      "max": 365,
+      "businessContext": "Supplier lead time from order to delivery."
+    },
+    {
+      "id": "carrying_cost_rate",
+      "label": "Inventory Carrying Cost Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Annual inventory holding cost as percentage of unit cost (Lean metric)."
+    },
+    {
+      "id": "warranty_claim_rate",
+      "label": "Warranty Claim Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of units that result in warranty claims."
+    },
+    {
+      "id": "average_claim_cost",
+      "label": "Average Warranty Claim Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Average cost per warranty claim (labor, parts, logistics)."
+    },
+    {
+      "id": "supplier_quality_level",
+      "label": "Supplier Quality Level",
+      "type": "select",
+      "options": [
+        "Premium",
+        "Standard",
+        "Economy"
+      ],
+      "default": "Standard",
+      "businessContext": "Qualitative assessment of supplier quality management system (ISO 9001)."
+    },
+    {
+      "id": "use_eco_cost",
+      "label": "Include Environmental Cost",
+      "type": "boolean",
+      "default": false,
+      "businessContext": "Toggle to include estimated carbon and waste disposal costs (ISO 14040)."
+    },
+    {
+      "id": "co2_per_unit",
+      "label": "CO2 Emissions per Unit",
+      "type": "number",
+      "unit": "kg CO2e",
+      "default": 10,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Estimated carbon footprint per unit from supplier operations."
+    },
+    {
+      "id": "carbon_tax_rate",
+      "label": "Carbon Tax Rate",
+      "type": "number",
+      "unit": "USD/kg CO2e",
+      "default": 0.05,
+      "min": 0,
+      "max": 1,
+      "businessContext": "Applicable carbon tax or internal carbon price."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "defect_rate_range",
+        "condition": "defect_rate >= 0 AND defect_rate <= 100000",
+        "message": "Defect rate must be between 0 and 100,000 ppm."
+      },
+      {
+        "id": "carrying_cost_range",
+        "condition": "carrying_cost_rate >= 0 AND carrying_cost_rate <= 100",
+        "message": "Carrying cost rate must be between 0% and 100%."
+      },
+      {
+        "id": "eco_cost_conditional",
+        "condition": "use_eco_cost == true => (co2_per_unit >= 0 AND carbon_tax_rate >= 0)",
+        "message": "If environmental cost is included, CO2 and carbon tax must be non-negative."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_defect_alert",
+        "condition": "defect_rate > 1000",
+        "severity": "warning",
+        "message": "Defect rate exceeds 1000 ppm; consider supplier quality improvement (Six Sigma)."
+      },
+      {
+        "id": "high_tco_alert",
+        "condition": "tco_per_unit > purchase_price * 1.5",
+        "severity": "critical",
+        "message": "TCO per unit exceeds 150% of purchase price; review supplier performance."
+      },
+      {
+        "id": "long_lead_time_alert",
+        "condition": "lead_time_days > 60",
+        "severity": "warning",
+        "message": "Lead time exceeds 60 days; risk of inventory stockout (Lean JIT)."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "quality_cost",
+      "label": "Quality Cost per Unit",
+      "description": "Cost of defects including inspection and rework (Six Sigma COPQ).",
+      "expression": "inspection_cost_per_unit + (defect_rate / 1000000) * (purchase_price * 0.5)",
+      "unit": "USD"
+    },
+    {
+      "id": "logistics_cost",
+      "label": "Logistics Cost per Unit",
+      "description": "Freight and inventory carrying cost based on lead time.",
+      "expression": "freight_cost_per_unit + (purchase_price * carrying_cost_rate / 100) * (lead_time_days / 365)",
+      "unit": "USD"
+    },
+    {
+      "id": "warranty_cost",
+      "label": "Warranty Cost per Unit",
+      "description": "Expected warranty liability per unit.",
+      "expression": "(warranty_claim_rate / 100) * average_claim_cost",
+      "unit": "USD"
+    },
+    {
+      "id": "environmental_cost",
+      "label": "Environmental Cost per Unit",
+      "description": "Carbon tax and waste disposal cost (ISO 14040).",
+      "expression": "use_eco_cost ? (co2_per_unit * carbon_tax_rate) : 0",
+      "unit": "USD"
+    },
+    {
+      "id": "tco_per_unit",
+      "label": "Total Cost of Ownership per Unit",
+      "description": "Primary TCO metric combining all cost drivers.",
+      "expression": "purchase_price + quality_cost + logistics_cost + warranty_cost + environmental_cost",
+      "unit": "USD"
+    },
+    {
+      "id": "annual_tco",
+      "label": "Annual Total Cost of Ownership",
+      "description": "Total annual cost based on quantity.",
+      "expression": "tco_per_unit * annual_quantity",
+      "unit": "USD"
+    },
+    {
+      "id": "tco_index",
+      "label": "TCO Performance Index",
+      "description": "Normalized index comparing TCO to purchase price (1.0 = baseline).",
+      "expression": "tco_per_unit / purchase_price",
+      "unit": "ratio"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "annual_tco",
+      "label": "Annual Total Cost of Ownership",
+      "unit": "USD",
+      "description": "Primary result: total annual cost including all hidden drivers."
+    },
+    "breakdown": {
+      "purchaseCost": {
+        "id": "purchase_cost",
+        "label": "Purchase Cost",
+        "value": null,
+        "unit": "USD",
+        "description": "Annual purchase price cost."
+      },
+      "qualityCost": {
+        "id": "quality_cost",
+        "label": "Quality Cost",
+        "value": null,
+        "unit": "USD",
+        "description": "Annual cost of defects and inspection."
+      },
+      "logisticsCost": {
+        "id": "logistics_cost",
+        "label": "Logistics Cost",
+        "value": null,
+        "unit": "USD",
+        "description": "Annual freight and inventory carrying cost."
+      },
+      "warrantyCost": {
+        "id": "warranty_cost",
+        "label": "Warranty Cost",
+        "value": null,
+        "unit": "USD",
+        "description": "Annual warranty liability."
+      },
+      "environmentalCost": {
+        "id": "environmental_cost",
+        "label": "Environmental Cost",
+        "value": null,
+        "unit": "USD",
+        "description": "Annual carbon and waste cost (if included)."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "defect_hidden_loss",
+        "label": "Defect Rework & Scrap",
+        "description": "Unaccounted cost of internal rework and scrap due to defects.",
+        "estimatedImpact": "0.5 * defect_rate/1000000 * purchase_price * annual_quantity"
+      },
+      {
+        "id": "expediting_cost",
+        "label": "Expedited Shipping Cost",
+        "description": "Premium freight due to lead time variability.",
+        "estimatedImpact": "0.1 * freight_cost_per_unit * annual_quantity"
+      },
+      {
+        "id": "admin_overhead",
+        "label": "Supplier Management Overhead",
+        "description": "Cost of procurement and quality audits per supplier.",
+        "estimatedImpact": "0.02 * annual_tco"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_defects",
+        "label": "Implement Six Sigma DMAIC",
+        "description": "Target defect rate reduction to <500 ppm to lower quality cost.",
+        "expectedSavings": "0.3 * quality_cost * annual_quantity"
+      },
+      {
+        "id": "optimize_lead_time",
+        "label": "Lean JIT Inventory Reduction",
+        "description": "Negotiate lead time reduction to 15 days to cut carrying cost.",
+        "expectedSavings": "0.2 * logistics_cost * annual_quantity"
+      },
+      {
+        "id": "warranty_improvement",
+        "label": "Root Cause Analysis (RCA)",
+        "description": "Reduce warranty claims by 50% through design and process improvements.",
+        "expectedSavings": "0.5 * warranty_cost * annual_quantity"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "tco_confidence_adjusted",
+      "label": "TCO with Confidence Adjustment",
+      "description": "TCO adjusted for data uncertainty using a confidence factor (0.8-1.0).",
+      "value": null,
+      "unit": "USD",
+      "confidenceFactor": 0.9
+    }
+  }
+}

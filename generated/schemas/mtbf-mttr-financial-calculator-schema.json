@@ -1,0 +1,319 @@
+{
+  "slug": "mtbf-mttr-financial-calculator",
+  "title": "MTBF/MTTR Financial Impact Calculator",
+  "version": "1.0.0",
+  "description": "Calculates the financial impact of equipment reliability (MTBF) and maintainability (MTTR) based on industrial engineering standards (ISO 14224, ISO 55000, Six Sigma, Lean).",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Monte Carlo simulation",
+    "Benchmarking against industry standards"
+  ],
+  "inputs": [
+    {
+      "id": "operating_hours_per_year",
+      "label": "Operating Hours per Year",
+      "type": "number",
+      "unit": "hours/year",
+      "default": 8760,
+      "min": 1,
+      "max": 8760,
+      "businessContext": "Total planned operating hours of the equipment per year. Used to calculate failure frequency and downtime."
+    },
+    {
+      "id": "number_of_units",
+      "label": "Number of Units",
+      "type": "number",
+      "unit": "units",
+      "default": 10,
+      "min": 1,
+      "max": 10000,
+      "businessContext": "Total number of identical or similar assets in the fleet."
+    },
+    {
+      "id": "mtbf",
+      "label": "Mean Time Between Failures (MTBF)",
+      "type": "number",
+      "unit": "hours",
+      "default": 500,
+      "min": 1,
+      "max": 100000,
+      "businessContext": "Average time between failures for a repairable system. Higher is better. ISO 14224."
+    },
+    {
+      "id": "mttr",
+      "label": "Mean Time To Repair (MTTR)",
+      "type": "number",
+      "unit": "hours",
+      "default": 4,
+      "min": 0.1,
+      "max": 1000,
+      "businessContext": "Average time to restore a failed system to operational state. Lower is better. Includes diagnosis, repair, testing."
+    },
+    {
+      "id": "cost_per_downtime_hour",
+      "label": "Cost per Downtime Hour",
+      "type": "number",
+      "unit": "currency/hour",
+      "default": 1000,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Lost profit or cost incurred per hour of equipment downtime (lost production, labor, penalties)."
+    },
+    {
+      "id": "cost_per_failure_event",
+      "label": "Cost per Failure Event (excluding downtime)",
+      "type": "number",
+      "unit": "currency",
+      "default": 500,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Fixed costs per failure: spare parts, logistics, contractor fees, administrative overhead."
+    },
+    {
+      "id": "maintenance_labor_rate",
+      "label": "Maintenance Labor Rate",
+      "type": "number",
+      "unit": "currency/hour",
+      "default": 75,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Hourly cost of maintenance personnel (including overhead)."
+    },
+    {
+      "id": "reliability_improvement_investment",
+      "label": "Reliability Improvement Investment (annual)",
+      "type": "number",
+      "unit": "currency/year",
+      "default": 0,
+      "min": 0,
+      "max": 10000000,
+      "businessContext": "Annual budget allocated to reliability improvement projects (training, redesign, predictive maintenance)."
+    },
+    {
+      "id": "availability_target",
+      "label": "Availability Target",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Target operational availability (uptime / total time). Used for gap analysis."
+    },
+    {
+      "id": "industry_benchmark_mtbf",
+      "label": "Industry Benchmark MTBF",
+      "type": "number",
+      "unit": "hours",
+      "default": 1000,
+      "min": 1,
+      "max": 100000,
+      "businessContext": "Reference MTBF from industry standards (e.g., WERC, ISO) for comparison."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "mtbf_mttr_ratio",
+        "condition": "mtbf > 0 AND mttr > 0",
+        "message": "MTBF and MTTR must be positive numbers."
+      },
+      {
+        "id": "availability_consistency",
+        "condition": "mtbf / (mtbf + mttr) * 100 >= availability_target",
+        "message": "Current availability is below target. Consider improving MTBF or reducing MTTR."
+      },
+      {
+        "id": "investment_positive",
+        "condition": "reliability_improvement_investment >= 0",
+        "message": "Investment cannot be negative."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "low_availability",
+        "condition": "availability < 90",
+        "severity": "high",
+        "alert": "Availability is critically low. Immediate action recommended."
+      },
+      {
+        "id": "high_downtime_cost",
+        "condition": "total_downtime_cost > 100000",
+        "severity": "medium",
+        "alert": "Annual downtime cost exceeds $100k. Consider reliability improvement."
+      },
+      {
+        "id": "mtbf_below_benchmark",
+        "condition": "mtbf < industry_benchmark_mtbf",
+        "severity": "low",
+        "alert": "MTBF is below industry benchmark. Investigate root causes."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "failure_rate",
+      "name": "Failure Rate (λ)",
+      "description": "Number of failures per operating hour per unit.",
+      "formula": "λ = 1 / MTBF",
+      "unit": "failures/hour"
+    },
+    {
+      "id": "annual_failures_per_unit",
+      "name": "Annual Failures per Unit",
+      "description": "Expected number of failures per unit per year.",
+      "formula": "F_unit = operating_hours_per_year / MTBF",
+      "unit": "failures/year/unit"
+    },
+    {
+      "id": "total_annual_failures",
+      "name": "Total Annual Failures (Fleet)",
+      "description": "Total failures across all units.",
+      "formula": "F_total = F_unit * number_of_units",
+      "unit": "failures/year"
+    },
+    {
+      "id": "annual_downtime_hours",
+      "name": "Annual Downtime Hours",
+      "description": "Total hours of downtime per year due to failures.",
+      "formula": "Downtime_hours = F_total * MTTR",
+      "unit": "hours/year"
+    },
+    {
+      "id": "availability",
+      "name": "Operational Availability (A)",
+      "description": "Inherent availability based on MTBF and MTTR.",
+      "formula": "A = MTBF / (MTBF + MTTR) * 100",
+      "unit": "%"
+    },
+    {
+      "id": "total_downtime_cost",
+      "name": "Total Downtime Cost",
+      "description": "Financial loss from downtime (lost production + labor).",
+      "formula": "Downtime_cost = Downtime_hours * (cost_per_downtime_hour + maintenance_labor_rate)",
+      "unit": "currency/year"
+    },
+    {
+      "id": "total_failure_cost",
+      "name": "Total Failure Cost",
+      "description": "Total cost including downtime, failure events, and labor.",
+      "formula": "Failure_cost = Downtime_cost + (F_total * cost_per_failure_event) + (F_total * MTTR * maintenance_labor_rate)",
+      "unit": "currency/year"
+    },
+    {
+      "id": "net_financial_impact",
+      "name": "Net Financial Impact (Primary Result)",
+      "description": "Total annual cost of unreliability including improvement investment.",
+      "formula": "Net_impact = Failure_cost + reliability_improvement_investment",
+      "unit": "currency/year"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "net_financial_impact",
+      "label": "Net Annual Financial Impact",
+      "unit": "currency/year",
+      "description": "Total annual cost attributed to equipment unreliability and maintenance, including improvement investments."
+    },
+    "breakdown": {
+      "annual_downtime_hours": {
+        "id": "annual_downtime_hours",
+        "label": "Annual Downtime Hours",
+        "unit": "hours/year"
+      },
+      "total_annual_failures": {
+        "id": "total_annual_failures",
+        "label": "Total Annual Failures",
+        "unit": "failures/year"
+      },
+      "availability": {
+        "id": "availability",
+        "label": "Operational Availability",
+        "unit": "%"
+      },
+      "total_downtime_cost": {
+        "id": "total_downtime_cost",
+        "label": "Total Downtime Cost",
+        "unit": "currency/year"
+      },
+      "total_failure_cost": {
+        "id": "total_failure_cost",
+        "label": "Total Failure Cost (incl. events & labor)",
+        "unit": "currency/year"
+      },
+      "cost_per_failure": {
+        "id": "cost_per_failure",
+        "label": "Average Cost per Failure",
+        "unit": "currency/failure",
+        "formula": "total_failure_cost / total_annual_failures"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excessive_mttr",
+        "label": "Excessive MTTR",
+        "description": "MTTR is above 4 hours, indicating slow repair processes or lack of spare parts.",
+        "impact": "Increases downtime hours and cost."
+      },
+      {
+        "id": "low_mtbf",
+        "label": "Low MTBF relative to benchmark",
+        "description": "MTBF is below industry benchmark, suggesting design or maintenance issues.",
+        "impact": "Increases failure frequency and total cost."
+      },
+      {
+        "id": "high_failure_event_cost",
+        "label": "High cost per failure event",
+        "description": "Cost per failure event exceeds 10% of equipment value, indicating expensive repairs or logistics.",
+        "impact": "Directly increases total failure cost."
+      },
+      {
+        "id": "underinvestment_in_reliability",
+        "label": "Underinvestment in Reliability",
+        "description": "Reliability improvement investment is zero or very low compared to total failure cost.",
+        "impact": "Missed opportunity to reduce long-term costs."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_mttr",
+        "label": "Reduce MTTR",
+        "description": "Implement standardized repair procedures, improve spare parts availability, and train technicians.",
+        "expectedBenefit": "Reduces downtime hours and cost."
+      },
+      {
+        "id": "increase_mtbf",
+        "label": "Increase MTBF",
+        "description": "Adopt predictive maintenance (vibration analysis, thermography), improve design, and use higher quality components.",
+        "expectedBenefit": "Reduces failure frequency and total cost."
+      },
+      {
+        "id": "optimize_maintenance_labor",
+        "label": "Optimize Maintenance Labor",
+        "description": "Cross-train staff, use remote diagnostics, and reduce travel time.",
+        "expectedBenefit": "Lowers labor cost per repair."
+      },
+      {
+        "id": "invest_in_reliability",
+        "label": "Invest in Reliability Improvement",
+        "description": "Allocate budget for reliability engineering, root cause analysis, and condition monitoring.",
+        "expectedBenefit": "Long-term reduction in failure cost and improved availability."
+      },
+      {
+        "id": "benchmark_and_target",
+        "label": "Benchmark and Set Targets",
+        "description": "Compare MTBF and MTTR against industry standards (WERC, ISO) and set improvement targets.",
+        "expectedBenefit": "Aligns performance with best-in-class."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_score",
+      "label": "Data Confidence Score",
+      "unit": "%",
+      "description": "Confidence in the output based on input data quality and completeness. Adjusted for missing or estimated inputs.",
+      "value": 85
+    }
+  }
+}

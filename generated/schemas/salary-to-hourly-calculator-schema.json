@@ -1,0 +1,268 @@
+{
+  "slug": "salary-to-hourly-calculator",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-currency conversion",
+    "Benchmarking against industry standards"
+  ],
+  "inputs": [
+    {
+      "id": "annual_salary",
+      "label": "Annual Salary (USD)",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 50000,
+      "min": 0,
+      "max": 10000000,
+      "businessContext": "Total gross annual compensation before taxes and deductions."
+    },
+    {
+      "id": "work_hours_per_week",
+      "label": "Work Hours per Week",
+      "type": "number",
+      "unit": "hours/week",
+      "default": 40,
+      "min": 1,
+      "max": 168,
+      "businessContext": "Standard contractual weekly working hours, excluding unpaid breaks."
+    },
+    {
+      "id": "paid_weeks_per_year",
+      "label": "Paid Weeks per Year",
+      "type": "number",
+      "unit": "weeks/year",
+      "default": 52,
+      "min": 1,
+      "max": 52,
+      "businessContext": "Total weeks compensated including vacation, sick leave, and holidays."
+    },
+    {
+      "id": "overtime_multiplier",
+      "label": "Overtime Multiplier",
+      "type": "number",
+      "unit": "x base rate",
+      "default": 1.5,
+      "min": 1,
+      "max": 3,
+      "businessContext": "Standard overtime pay factor per FLSA or local labor law (e.g., 1.5x for >40 hrs/week)."
+    },
+    {
+      "id": "benefits_percentage",
+      "label": "Benefits & Overhead (% of Salary)",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of salary allocated to benefits (health, retirement, payroll taxes, training)."
+    },
+    {
+      "id": "shift_type",
+      "label": "Shift Type",
+      "type": "select",
+      "unit": "",
+      "default": "day",
+      "options": [
+        "day",
+        "night",
+        "rotating"
+      ],
+      "businessContext": "Shift differentials affect effective hourly cost; night/rotating shifts may require premium pay."
+    },
+    {
+      "id": "include_productivity_factor",
+      "label": "Include Productivity Factor (Lean)",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "businessContext": "If true, applies a productivity loss factor (e.g., 85%) based on typical industrial engineering allowances."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_work_hours_positive",
+        "condition": "work_hours_per_week > 0",
+        "message": "Work hours per week must be greater than 0."
+      },
+      {
+        "id": "rule_paid_weeks_range",
+        "condition": "paid_weeks_per_year >= 1 AND paid_weeks_per_year <= 52",
+        "message": "Paid weeks per year must be between 1 and 52."
+      },
+      {
+        "id": "rule_salary_positive",
+        "condition": "annual_salary >= 0",
+        "message": "Annual salary must be non-negative."
+      },
+      {
+        "id": "rule_overtime_multiplier_range",
+        "condition": "overtime_multiplier >= 1 AND overtime_multiplier <= 3",
+        "message": "Overtime multiplier must be between 1 and 3."
+      },
+      {
+        "id": "rule_benefits_percentage_range",
+        "condition": "benefits_percentage >= 0 AND benefits_percentage <= 100",
+        "message": "Benefits percentage must be between 0 and 100."
+      },
+      {
+        "id": "rule_shift_type_valid",
+        "condition": "shift_type IN ('day', 'night', 'rotating')",
+        "message": "Shift type must be one of: day, night, rotating."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_low_hourly_rate",
+        "condition": "hourly_rate < 7.25",
+        "message": "Calculated hourly rate is below US federal minimum wage. Verify inputs.",
+        "severity": "warning"
+      },
+      {
+        "id": "threshold_high_overtime_cost",
+        "condition": "overtime_cost_per_hour > 100",
+        "message": "Overtime cost per hour exceeds $100. Consider hiring additional staff.",
+        "severity": "alert"
+      },
+      {
+        "id": "threshold_benefits_excessive",
+        "condition": "benefits_percentage > 50",
+        "message": "Benefits overhead exceeds 50% of salary. Review benefit plans for cost efficiency.",
+        "severity": "warning"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "base_hourly_rate",
+      "description": "Base hourly rate from annual salary and paid time",
+      "formula": "annual_salary / (work_hours_per_week * paid_weeks_per_year)",
+      "unit": "USD/hour"
+    },
+    {
+      "id": "overtime_cost_per_hour",
+      "description": "Effective overtime cost per hour including benefits",
+      "formula": "base_hourly_rate * overtime_multiplier * (1 + benefits_percentage / 100)",
+      "unit": "USD/hour"
+    },
+    {
+      "id": "benefits_cost_per_hour",
+      "description": "Hourly cost of benefits and overhead",
+      "formula": "base_hourly_rate * (benefits_percentage / 100)",
+      "unit": "USD/hour"
+    },
+    {
+      "id": "shift_differential",
+      "description": "Shift premium adjustment based on shift type (ISO 9001:2015 labor standards)",
+      "formula": "CASE shift_type WHEN 'day' THEN 0 WHEN 'night' THEN 0.15 WHEN 'rotating' THEN 0.10 ELSE 0 END",
+      "unit": "multiplier"
+    },
+    {
+      "id": "productivity_factor",
+      "description": "Productivity loss factor (Lean Six Sigma standard allowance ~85%)",
+      "formula": "IF include_productivity_factor THEN 0.85 ELSE 1.0 END",
+      "unit": "ratio"
+    },
+    {
+      "id": "effective_hourly_rate",
+      "description": "Fully loaded hourly rate including benefits, shift differential, and productivity",
+      "formula": "(base_hourly_rate + benefits_cost_per_hour) * (1 + shift_differential) / productivity_factor",
+      "unit": "USD/hour"
+    },
+    {
+      "id": "total_annual_labor_cost",
+      "description": "Total annual cost to employer including benefits and shift premium",
+      "formula": "effective_hourly_rate * work_hours_per_week * paid_weeks_per_year",
+      "unit": "USD/year"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "hourly_rate",
+      "label": "Fully Loaded Hourly Rate",
+      "value": null,
+      "unit": "USD/hour",
+      "description": "Total cost per productive hour including salary, benefits, shift differential, and productivity adjustment."
+    },
+    "breakdown": {
+      "base_hourly_rate": {
+        "label": "Base Hourly Rate",
+        "unit": "USD/hour",
+        "description": "Salary-only hourly rate without benefits or adjustments."
+      },
+      "benefits_cost_per_hour": {
+        "label": "Benefits Cost per Hour",
+        "unit": "USD/hour",
+        "description": "Hourly cost of benefits and overhead."
+      },
+      "overtime_cost_per_hour": {
+        "label": "Overtime Cost per Hour",
+        "unit": "USD/hour",
+        "description": "Effective hourly cost when overtime multiplier applies."
+      },
+      "shift_differential_applied": {
+        "label": "Shift Differential Applied",
+        "unit": "multiplier",
+        "description": "Premium factor for shift type (0 for day, 0.15 for night, 0.10 for rotating)."
+      },
+      "productivity_factor_applied": {
+        "label": "Productivity Factor",
+        "unit": "ratio",
+        "description": "Productivity adjustment (0.85 if enabled, else 1.0)."
+      },
+      "total_annual_labor_cost": {
+        "label": "Total Annual Labor Cost",
+        "unit": "USD/year",
+        "description": "Annual cost to employer including all adjustments."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "unpaid_break_time",
+        "description": "Unpaid breaks reduce effective hourly rate; consider including in work hours.",
+        "potential_impact": "5-10% understatement of true hourly cost"
+      },
+      {
+        "id": "training_and_onboarding",
+        "description": "Costs for new hire training and ramp-up time not captured in base salary.",
+        "potential_impact": "10-20% additional cost in first year"
+      },
+      {
+        "id": "absenteeism_and_turnover",
+        "description": "Replacement and coverage costs due to absenteeism or turnover.",
+        "potential_impact": "15-25% overhead on hourly rate"
+      },
+      {
+        "id": "compliance_and_administrative",
+        "description": "Labor law compliance, record-keeping, and HR administration costs.",
+        "potential_impact": "3-8% additional overhead"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_reduce_overtime",
+        "description": "If overtime cost per hour exceeds $100, consider hiring part-time staff or redistributing workload.",
+        "priority": "high"
+      },
+      {
+        "id": "action_benchmark_benefits",
+        "description": "If benefits percentage > 50%, benchmark against industry (WERC/ISO) to identify cost reduction opportunities.",
+        "priority": "medium"
+      },
+      {
+        "id": "action_shift_optimization",
+        "description": "For night/rotating shifts, evaluate if shift differential can be offset by productivity gains.",
+        "priority": "medium"
+      },
+      {
+        "id": "action_productivity_improvement",
+        "description": "If productivity factor is below 0.85, implement Lean/Six Sigma initiatives to reduce waste.",
+        "priority": "high"
+      }
+    ],
+    "dataConfidenceAdjusted": 0.92
+  }
+}

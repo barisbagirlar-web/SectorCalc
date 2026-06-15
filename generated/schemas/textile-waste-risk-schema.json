@@ -1,0 +1,304 @@
+{
+  "slug": "textile-waste-risk",
+  "title": "Textile Waste Risk Assessment",
+  "description": "Industrial-grade tool to quantify and mitigate waste risk in textile manufacturing, based on ISO 14001, Lean Six Sigma, and WERC standards.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-plant comparison",
+    "Real-time dashboard"
+  ],
+  "inputs": [
+    {
+      "id": "production_volume_meters",
+      "label": "Monthly Production Volume (meters)",
+      "type": "number",
+      "unit": "m",
+      "default": 100000,
+      "min": 0,
+      "max": 10000000,
+      "businessContext": "Total fabric produced per month, used as baseline for waste ratio calculations."
+    },
+    {
+      "id": "fabric_type",
+      "label": "Fabric Type",
+      "type": "select",
+      "unit": "",
+      "default": "cotton",
+      "min": null,
+      "max": null,
+      "options": [
+        "cotton",
+        "polyester",
+        "blend",
+        "denim",
+        "knit"
+      ],
+      "businessContext": "Different fabric types have distinct waste generation profiles and recycling potential."
+    },
+    {
+      "id": "waste_percentage",
+      "label": "Current Waste Percentage (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 8.5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Measured waste as a percentage of total production, including cutting, sewing, and finishing losses."
+    },
+    {
+      "id": "rework_rate",
+      "label": "Rework Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of products requiring rework, a key Lean Six Sigma metric for process efficiency."
+    },
+    {
+      "id": "defect_density",
+      "label": "Defect Density (defects per 1000 meters)",
+      "type": "number",
+      "unit": "defects/1000m",
+      "default": 12,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Number of defects per 1000 meters of fabric, critical for quality control."
+    },
+    {
+      "id": "energy_cost_per_kwh",
+      "label": "Energy Cost ($/kWh)",
+      "type": "number",
+      "unit": "$/kWh",
+      "default": 0.12,
+      "min": 0,
+      "max": 1,
+      "businessContext": "Average electricity cost, used to calculate energy waste from inefficient processes."
+    },
+    {
+      "id": "labor_cost_per_hour",
+      "label": "Labor Cost ($/hour)",
+      "type": "number",
+      "unit": "$/hour",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Average hourly wage, used to quantify labor waste from rework and idle time."
+    },
+    {
+      "id": "recycling_capability",
+      "label": "Recycling Capability",
+      "type": "select",
+      "unit": "",
+      "default": "low",
+      "min": null,
+      "max": null,
+      "options": [
+        "none",
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Current ability to recycle waste fabric, affecting waste disposal cost and environmental impact."
+    },
+    {
+      "id": "iso_14001_certified",
+      "label": "ISO 14001 Certified",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "Indicates if the facility has ISO 14001 environmental management certification, influencing waste reduction practices."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "waste_vs_rework",
+        "condition": "waste_percentage < rework_rate",
+        "message": "Waste percentage should not be lower than rework rate; check data consistency."
+      },
+      {
+        "id": "defect_density_range",
+        "condition": "defect_density > 50 && fabric_type == 'denim'",
+        "message": "Defect density for denim is unusually high; verify measurement method."
+      },
+      {
+        "id": "recycling_capability_iso",
+        "condition": "recycling_capability == 'high' && iso_14001_certified == false",
+        "message": "High recycling capability without ISO 14001 certification may indicate unverified processes."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "waste_alert",
+        "condition": "waste_percentage > 10",
+        "severity": "high",
+        "message": "Waste percentage exceeds 10% – immediate action required."
+      },
+      {
+        "id": "rework_alert",
+        "condition": "rework_rate > 5",
+        "severity": "medium",
+        "message": "Rework rate above 5% – investigate root causes."
+      },
+      {
+        "id": "defect_alert",
+        "condition": "defect_density > 20",
+        "severity": "medium",
+        "message": "Defect density exceeds 20 per 1000m – quality control review needed."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "material_waste_cost",
+      "label": "Material Waste Cost",
+      "description": "Cost of wasted raw material based on production volume and waste percentage.",
+      "formula": "production_volume_meters * (waste_percentage / 100) * 0.5",
+      "unit": "$",
+      "notes": "Assumes average material cost of $0.50 per meter."
+    },
+    {
+      "id": "rework_labor_cost",
+      "label": "Rework Labor Cost",
+      "description": "Labor cost incurred due to rework activities.",
+      "formula": "production_volume_meters * (rework_rate / 100) * 0.1 * labor_cost_per_hour",
+      "unit": "$",
+      "notes": "Assumes 0.1 hours per meter rework time."
+    },
+    {
+      "id": "energy_waste_cost",
+      "label": "Energy Waste Cost",
+      "description": "Cost of energy wasted due to inefficient processes (defects and rework).",
+      "formula": "(defect_density / 1000) * production_volume_meters * 0.05 * energy_cost_per_kwh",
+      "unit": "$",
+      "notes": "Assumes 0.05 kWh wasted per defect."
+    },
+    {
+      "id": "waste_disposal_cost",
+      "label": "Waste Disposal Cost",
+      "description": "Cost of disposing non-recycled waste, adjusted by recycling capability.",
+      "formula": "production_volume_meters * (waste_percentage / 100) * (1 - recycling_factor(recycling_capability)) * 0.02",
+      "unit": "$",
+      "notes": "Recycling factor: none=0, low=0.2, medium=0.5, high=0.8. Disposal cost $0.02 per meter."
+    },
+    {
+      "id": "total_waste_cost",
+      "label": "Total Waste Cost",
+      "description": "Sum of all waste-related costs.",
+      "formula": "material_waste_cost + rework_labor_cost + energy_waste_cost + waste_disposal_cost",
+      "unit": "$"
+    },
+    {
+      "id": "waste_risk_index",
+      "label": "Waste Risk Index",
+      "description": "Normalized risk score (0-100) based on waste percentage, rework rate, and defect density.",
+      "formula": "MIN(100, (waste_percentage * 3 + rework_rate * 2 + defect_density * 0.5))",
+      "unit": "index"
+    },
+    {
+      "id": "data_confidence_adjusted",
+      "label": "Data Confidence Adjusted Waste Risk",
+      "description": "Waste risk index adjusted for data confidence (based on ISO 14001 certification and recycling capability).",
+      "formula": "waste_risk_index * (1 - 0.1 * iso_14001_certified - 0.05 * recycling_factor(recycling_capability))",
+      "unit": "index"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "waste_risk_index",
+      "label": "Waste Risk Index",
+      "value": null,
+      "unit": "index",
+      "description": "Primary risk score (0-100) indicating overall waste risk level."
+    },
+    "breakdown": {
+      "material_waste_cost": {
+        "id": "material_waste_cost",
+        "label": "Material Waste Cost",
+        "value": null,
+        "unit": "$"
+      },
+      "rework_labor_cost": {
+        "id": "rework_labor_cost",
+        "label": "Rework Labor Cost",
+        "value": null,
+        "unit": "$"
+      },
+      "energy_waste_cost": {
+        "id": "energy_waste_cost",
+        "label": "Energy Waste Cost",
+        "value": null,
+        "unit": "$"
+      },
+      "waste_disposal_cost": {
+        "id": "waste_disposal_cost",
+        "label": "Waste Disposal Cost",
+        "value": null,
+        "unit": "$"
+      },
+      "total_waste_cost": {
+        "id": "total_waste_cost",
+        "label": "Total Waste Cost",
+        "value": null,
+        "unit": "$"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excess_material_allowance",
+        "label": "Excess Material Allowance",
+        "description": "Hidden waste from over-allowance in cutting patterns, often 2-5% of material.",
+        "estimated_impact": "medium"
+      },
+      {
+        "id": "setup_changeover_loss",
+        "label": "Setup/Changeover Loss",
+        "description": "Waste during machine setup and fabric changeovers, not captured in standard waste percentage.",
+        "estimated_impact": "high"
+      },
+      {
+        "id": "idle_time_waste",
+        "label": "Idle Time Waste",
+        "description": "Labor and energy waste during unplanned downtime, often overlooked.",
+        "estimated_impact": "medium"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_lean_six_sigma",
+        "label": "Implement Lean Six Sigma DMAIC",
+        "description": "Deploy a DMAIC project to reduce waste percentage below 5% and rework below 2%.",
+        "priority": "high",
+        "estimated_cost_savings": "15-25% of total waste cost"
+      },
+      {
+        "id": "action_recycling_upgrade",
+        "label": "Upgrade Recycling Capability",
+        "description": "Invest in recycling infrastructure to move from low to medium or high capability, reducing disposal cost.",
+        "priority": "medium",
+        "estimated_cost_savings": "10-20% of disposal cost"
+      },
+      {
+        "id": "action_iso_14001",
+        "label": "Obtain ISO 14001 Certification",
+        "description": "Certification drives systematic waste reduction and improves data confidence.",
+        "priority": "medium",
+        "estimated_cost_savings": "5-10% of total waste cost"
+      },
+      {
+        "id": "action_defect_reduction",
+        "label": "Defect Reduction Program",
+        "description": "Target defect density below 10 per 1000m using statistical process control (SPC).",
+        "priority": "high",
+        "estimated_cost_savings": "20-30% of energy waste cost"
+      }
+    ],
+    "dataConfidenceAdjusted": null
+  }
+}

@@ -1,0 +1,261 @@
+{
+  "slug": "wind-load-calculator",
+  "name": "Wind Load Calculator",
+  "description": "Calculates wind load on structures based on ISO 4354 and ASCE 7 standards, incorporating terrain, exposure, and dynamic factors.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis"
+  ],
+  "inputs": [
+    {
+      "id": "basic_wind_speed",
+      "label": "Basic Wind Speed (V)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 40,
+      "min": 10,
+      "max": 100,
+      "businessContext": "Design wind speed at 10m height for the location, typically from local building codes."
+    },
+    {
+      "id": "terrain_category",
+      "label": "Terrain Category",
+      "type": "select",
+      "unit": "",
+      "default": "B",
+      "min": null,
+      "max": null,
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "businessContext": "Terrain roughness per ISO 4354: A=open sea, B=open country, C=suburban, D=urban."
+    },
+    {
+      "id": "building_height",
+      "label": "Building Height (z)",
+      "type": "number",
+      "unit": "m",
+      "default": 30,
+      "min": 1,
+      "max": 500,
+      "businessContext": "Height above ground to the top of the structure."
+    },
+    {
+      "id": "exposure_factor",
+      "label": "Exposure Factor (Ce)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0.5,
+      "max": 2,
+      "businessContext": "Adjustment for local topography and shielding, per ASCE 7."
+    },
+    {
+      "id": "gust_factor",
+      "label": "Gust Effect Factor (G)",
+      "type": "number",
+      "unit": "",
+      "default": 0.85,
+      "min": 0.7,
+      "max": 1.2,
+      "businessContext": "Dynamic response factor for wind gusts, typically 0.85 for rigid structures."
+    },
+    {
+      "id": "pressure_coefficient",
+      "label": "Pressure Coefficient (Cp)",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "min": -1.5,
+      "max": 1.5,
+      "businessContext": "Aerodynamic shape factor for the building surface (positive for windward, negative for leeward)."
+    },
+    {
+      "id": "air_density",
+      "label": "Air Density (ρ)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1.225,
+      "min": 1,
+      "max": 1.5,
+      "businessContext": "Standard air density at sea level, adjust for altitude if needed."
+    },
+    {
+      "id": "is_cyclic_loading",
+      "label": "Cyclic Loading Consideration",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "If true, applies fatigue reduction factor per ISO 4354 for dynamic wind events."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "condition": "terrain_category == 'D' && building_height > 100",
+        "message": "For urban terrain (D) and heights >100m, consider using a more detailed wind tunnel study."
+      },
+      {
+        "condition": "basic_wind_speed > 70 && exposure_factor < 0.8",
+        "message": "High wind speed with low exposure factor may indicate inconsistent input; verify local topography."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "wind_load_warning",
+        "condition": "primaryResult > 2000",
+        "message": "Wind load exceeds 2000 Pa; structural reinforcement recommended.",
+        "severity": "warning"
+      },
+      {
+        "id": "wind_load_critical",
+        "condition": "primaryResult > 4000",
+        "message": "Wind load exceeds 4000 Pa; immediate structural review required.",
+        "severity": "critical"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "velocity_pressure",
+      "name": "Velocity Pressure (q)",
+      "description": "q = 0.5 * ρ * V² * Ce * G",
+      "expression": "0.5 * air_density * basic_wind_speed^2 * exposure_factor * gust_factor",
+      "unit": "Pa"
+    },
+    {
+      "id": "terrain_adjustment",
+      "name": "Terrain Height Factor (Kz)",
+      "description": "Kz = 2.01 * (z / zg)^(2/α) for terrain categories per ASCE 7",
+      "expression": "CASE terrain_category WHEN 'A' THEN 2.01 * (building_height / 365.76)^(2/7.0) WHEN 'B' THEN 2.01 * (building_height / 274.32)^(2/9.5) WHEN 'C' THEN 2.01 * (building_height / 213.36)^(2/11.5) WHEN 'D' THEN 2.01 * (building_height / 152.4)^(2/15.0) END",
+      "unit": ""
+    },
+    {
+      "id": "design_wind_pressure",
+      "name": "Design Wind Pressure (p)",
+      "description": "p = q * Cp * Kz",
+      "expression": "velocity_pressure * pressure_coefficient * terrain_adjustment",
+      "unit": "Pa"
+    },
+    {
+      "id": "cyclic_reduction",
+      "name": "Cyclic Reduction Factor (Rc)",
+      "description": "If cyclic loading, Rc = 0.85, else Rc = 1.0",
+      "expression": "IF is_cyclic_loading THEN 0.85 ELSE 1.0 END",
+      "unit": ""
+    },
+    {
+      "id": "adjusted_wind_pressure",
+      "name": "Adjusted Wind Pressure (p_adj)",
+      "description": "p_adj = p * Rc",
+      "expression": "design_wind_pressure * cyclic_reduction",
+      "unit": "Pa"
+    },
+    {
+      "id": "total_wind_force",
+      "name": "Total Wind Force (F)",
+      "description": "F = p_adj * projected_area (assuming 1m² reference area for unit load)",
+      "expression": "adjusted_wind_pressure * 1.0",
+      "unit": "N/m²"
+    },
+    {
+      "id": "primary_result",
+      "name": "Primary Wind Load (W)",
+      "description": "W = F (final wind load in Pa)",
+      "expression": "total_wind_force",
+      "unit": "Pa"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "wind_load",
+      "label": "Wind Load",
+      "value": null,
+      "unit": "Pa",
+      "description": "Final wind load on the structure per unit area."
+    },
+    "breakdown": {
+      "velocity_pressure": {
+        "id": "velocity_pressure",
+        "label": "Velocity Pressure (q)",
+        "value": null,
+        "unit": "Pa"
+      },
+      "terrain_adjustment": {
+        "id": "terrain_adjustment",
+        "label": "Terrain Height Factor (Kz)",
+        "value": null,
+        "unit": ""
+      },
+      "design_wind_pressure": {
+        "id": "design_wind_pressure",
+        "label": "Design Wind Pressure (p)",
+        "value": null,
+        "unit": "Pa"
+      },
+      "cyclic_reduction": {
+        "id": "cyclic_reduction",
+        "label": "Cyclic Reduction Factor (Rc)",
+        "value": null,
+        "unit": ""
+      },
+      "adjusted_wind_pressure": {
+        "id": "adjusted_wind_pressure",
+        "label": "Adjusted Wind Pressure (p_adj)",
+        "value": null,
+        "unit": "Pa"
+      },
+      "total_wind_force": {
+        "id": "total_wind_force",
+        "label": "Total Wind Force (F)",
+        "value": null,
+        "unit": "N/m²"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "terrain_mismatch",
+        "label": "Terrain Category Mismatch",
+        "description": "Incorrect terrain category can lead to 30-50% error in wind load estimation.",
+        "impact": "high"
+      },
+      {
+        "id": "gust_factor_uncertainty",
+        "label": "Gust Factor Uncertainty",
+        "description": "Using default gust factor without dynamic analysis may underestimate loads for flexible structures.",
+        "impact": "medium"
+      },
+      {
+        "id": "pressure_coefficient_variation",
+        "label": "Pressure Coefficient Variation",
+        "description": "Cp values from standards may not account for local architectural features.",
+        "impact": "medium"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "review_terrain",
+        "label": "Review Terrain Category",
+        "description": "Verify terrain category against actual site conditions using ISO 4354 guidelines."
+      },
+      {
+        "id": "dynamic_analysis",
+        "label": "Perform Dynamic Analysis",
+        "description": "For buildings taller than 100m, conduct a full dynamic wind analysis to refine gust factor."
+      },
+      {
+        "id": "wind_tunnel_test",
+        "label": "Consider Wind Tunnel Test",
+        "description": "If wind load exceeds 3000 Pa, a wind tunnel test is recommended for complex geometries."
+      }
+    ],
+    "dataConfidenceAdjusted": 0.85
+  }
+}

@@ -1,0 +1,462 @@
+{
+  "slug": "margin-calculator",
+  "name": "Industrial Margin Calculator",
+  "description": "Calculates gross margin and identifies hidden loss drivers using industrial engineering standards (Lean, Six Sigma, WERC).",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis"
+  ],
+  "inputs": [
+    {
+      "id": "revenue",
+      "label": "Total Revenue",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Total sales revenue for the period (ISO 9001 financial reporting)."
+    },
+    {
+      "id": "materialCost",
+      "label": "Direct Material Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 40000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Cost of raw materials directly used in production (Lean cost accounting)."
+    },
+    {
+      "id": "laborCost",
+      "label": "Direct Labor Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Wages and benefits for production labor (Six Sigma labor variance)."
+    },
+    {
+      "id": "overheadCost",
+      "label": "Manufacturing Overhead",
+      "type": "number",
+      "unit": "USD",
+      "default": 15000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Indirect manufacturing costs (ISO 14000 environmental overhead allocation)."
+    },
+    {
+      "id": "defectRate",
+      "label": "Defect Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2.5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of defective units (Six Sigma DPMO metric)."
+    },
+    {
+      "id": "reworkCostPerUnit",
+      "label": "Rework Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Average cost to rework one defective unit (Lean waste reduction)."
+    },
+    {
+      "id": "unitsProduced",
+      "label": "Units Produced",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "min": 1,
+      "max": 1000000,
+      "businessContext": "Total units produced in the period (WERC throughput metric)."
+    },
+    {
+      "id": "inventoryHoldingCost",
+      "label": "Inventory Holding Cost Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Annual holding cost as percentage of inventory value (WERC warehousing standard)."
+    },
+    {
+      "id": "averageInventoryValue",
+      "label": "Average Inventory Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Average value of inventory held (ISO 9001 inventory management)."
+    },
+    {
+      "id": "logisticsCost",
+      "label": "Logistics Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Total inbound and outbound freight costs (WERC logistics benchmark)."
+    },
+    {
+      "id": "qualitySystemCost",
+      "label": "Quality System Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Cost of quality management system (ISO 9001 compliance)."
+    },
+    {
+      "id": "productionVolume",
+      "label": "Production Volume",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "min": 1,
+      "max": 1000000,
+      "businessContext": "Number of units produced for the period (Lean throughput)."
+    },
+    {
+      "id": "setupTimeHours",
+      "label": "Setup Time per Batch",
+      "type": "number",
+      "unit": "hours",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Time to change over equipment between batches (Lean SMED)."
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "min": 1,
+      "max": 100000,
+      "businessContext": "Number of units per production batch (Lean batch size reduction)."
+    },
+    {
+      "id": "laborRate",
+      "label": "Labor Rate",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 25,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Hourly wage including benefits (Six Sigma labor variance)."
+    },
+    {
+      "id": "machineDowntimePercent",
+      "label": "Machine Downtime",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of scheduled time machine is down (OEE metric)."
+    },
+    {
+      "id": "energyCostPerUnit",
+      "label": "Energy Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Energy cost allocated per unit produced (ISO 50001 energy management)."
+    },
+    {
+      "id": "warrantyReturnRate",
+      "label": "Warranty Return Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of units returned under warranty (Six Sigma customer quality)."
+    },
+    {
+      "id": "warrantyCostPerReturn",
+      "label": "Warranty Cost per Return",
+      "type": "number",
+      "unit": "USD",
+      "default": 200,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Average cost to process one warranty return (ISO 9001 customer feedback)."
+    },
+    {
+      "id": "scrapRate",
+      "label": "Scrap Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 1.5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of material scrapped (Lean waste elimination)."
+    },
+    {
+      "id": "materialCostPerUnit",
+      "label": "Material Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 40,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Standard material cost per good unit (Lean cost analysis)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_positive_revenue",
+        "condition": "revenue > 0",
+        "message": "Revenue must be greater than zero."
+      },
+      {
+        "id": "rule_cost_less_than_revenue",
+        "condition": "(materialCost + laborCost + overheadCost + logisticsCost + qualitySystemCost) <= revenue",
+        "message": "Total direct costs must not exceed revenue."
+      },
+      {
+        "id": "rule_defect_rate_range",
+        "condition": "defectRate >= 0 AND defectRate <= 100",
+        "message": "Defect rate must be between 0 and 100."
+      },
+      {
+        "id": "rule_scrap_rate_range",
+        "condition": "scrapRate >= 0 AND scrapRate <= 100",
+        "message": "Scrap rate must be between 0 and 100."
+      },
+      {
+        "id": "rule_batch_size_positive",
+        "condition": "batchSize > 0",
+        "message": "Batch size must be greater than zero."
+      },
+      {
+        "id": "rule_units_produced_positive",
+        "condition": "unitsProduced > 0",
+        "message": "Units produced must be greater than zero."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_low_margin",
+        "condition": "primaryResult < 10",
+        "severity": "warning",
+        "message": "Gross margin is below 10% - immediate cost reduction needed."
+      },
+      {
+        "id": "threshold_high_defect",
+        "condition": "defectRate > 5",
+        "severity": "critical",
+        "message": "Defect rate exceeds 5% - Six Sigma improvement required."
+      },
+      {
+        "id": "threshold_high_scrap",
+        "condition": "scrapRate > 3",
+        "severity": "warning",
+        "message": "Scrap rate above 3% - Lean waste reduction opportunity."
+      },
+      {
+        "id": "threshold_excessive_downtime",
+        "condition": "machineDowntimePercent > 10",
+        "severity": "critical",
+        "message": "Machine downtime exceeds 10% - OEE improvement needed."
+      },
+      {
+        "id": "threshold_high_warranty",
+        "condition": "warrantyReturnRate > 2",
+        "severity": "warning",
+        "message": "Warranty return rate above 2% - quality system review."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "totalDirectCost",
+      "description": "Sum of direct material, labor, and overhead costs.",
+      "expression": "materialCost + laborCost + overheadCost"
+    },
+    {
+      "id": "qualityCost",
+      "description": "Costs due to defects, rework, scrap, and warranty.",
+      "expression": "(defectRate / 100) * unitsProduced * reworkCostPerUnit + (scrapRate / 100) * unitsProduced * materialCostPerUnit + (warrantyReturnRate / 100) * unitsProduced * warrantyCostPerReturn"
+    },
+    {
+      "id": "logisticsAndInventoryCost",
+      "description": "Logistics cost plus inventory holding cost.",
+      "expression": "logisticsCost + (inventoryHoldingCost / 100) * averageInventoryValue"
+    },
+    {
+      "id": "setupAndDowntimeCost",
+      "description": "Cost of setup time and machine downtime.",
+      "expression": "(setupTimeHours * laborRate * (unitsProduced / batchSize)) + (machineDowntimePercent / 100) * (laborCost + overheadCost)"
+    },
+    {
+      "id": "energyCost",
+      "description": "Total energy cost for production.",
+      "expression": "energyCostPerUnit * unitsProduced"
+    },
+    {
+      "id": "totalCost",
+      "description": "Sum of all cost components.",
+      "expression": "totalDirectCost + qualityCost + logisticsAndInventoryCost + setupAndDowntimeCost + energyCost + qualitySystemCost"
+    },
+    {
+      "id": "grossMargin",
+      "description": "Primary result: gross margin percentage.",
+      "expression": "((revenue - totalCost) / revenue) * 100"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "grossMargin",
+      "label": "Gross Margin (%)",
+      "description": "Primary result: gross margin percentage after all hidden costs.",
+      "unit": "%",
+      "dataConfidenceAdjusted": 0.95
+    },
+    "breakdown": {
+      "totalDirectCost": {
+        "label": "Total Direct Cost",
+        "value": null,
+        "unit": "USD",
+        "description": "Sum of material, labor, and overhead."
+      },
+      "qualityCost": {
+        "label": "Quality Cost",
+        "value": null,
+        "unit": "USD",
+        "description": "Cost of defects, rework, scrap, and warranty."
+      },
+      "logisticsAndInventoryCost": {
+        "label": "Logistics & Inventory Cost",
+        "value": null,
+        "unit": "USD",
+        "description": "Freight and holding costs."
+      },
+      "setupAndDowntimeCost": {
+        "label": "Setup & Downtime Cost",
+        "value": null,
+        "unit": "USD",
+        "description": "Cost of changeovers and machine downtime."
+      },
+      "energyCost": {
+        "label": "Energy Cost",
+        "value": null,
+        "unit": "USD",
+        "description": "Energy consumption cost."
+      },
+      "qualitySystemCost": {
+        "label": "Quality System Cost",
+        "value": null,
+        "unit": "USD",
+        "description": "ISO 9001 compliance cost."
+      },
+      "totalCost": {
+        "label": "Total Cost",
+        "value": null,
+        "unit": "USD",
+        "description": "Sum of all cost components."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "defectLoss",
+        "label": "Defect Loss",
+        "description": "Loss due to defects and rework.",
+        "value": null,
+        "unit": "USD"
+      },
+      {
+        "id": "scrapLoss",
+        "label": "Scrap Loss",
+        "description": "Loss due to scrapped material.",
+        "value": null,
+        "unit": "USD"
+      },
+      {
+        "id": "warrantyLoss",
+        "label": "Warranty Loss",
+        "description": "Loss from warranty returns.",
+        "value": null,
+        "unit": "USD"
+      },
+      {
+        "id": "setupLoss",
+        "label": "Setup Loss",
+        "description": "Loss from non-productive setup time.",
+        "value": null,
+        "unit": "USD"
+      },
+      {
+        "id": "downtimeLoss",
+        "label": "Downtime Loss",
+        "description": "Loss from machine downtime.",
+        "value": null,
+        "unit": "USD"
+      },
+      {
+        "id": "inventoryHoldingLoss",
+        "label": "Inventory Holding Loss",
+        "description": "Cost of carrying inventory.",
+        "value": null,
+        "unit": "USD"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_defects",
+        "condition": "defectRate > 3",
+        "action": "Implement Six Sigma DMAIC to reduce defect rate below 3%.",
+        "expectedImpact": "Improve margin by 1-3%."
+      },
+      {
+        "id": "reduce_scrap",
+        "condition": "scrapRate > 2",
+        "action": "Apply Lean waste reduction techniques to lower scrap rate.",
+        "expectedImpact": "Reduce material cost by 5-10%."
+      },
+      {
+        "id": "reduce_setup_time",
+        "condition": "setupTimeHours > 1",
+        "action": "Use SMED methodology to cut setup time by 50%.",
+        "expectedImpact": "Increase OEE and reduce cost per unit."
+      },
+      {
+        "id": "reduce_downtime",
+        "condition": "machineDowntimePercent > 5",
+        "action": "Implement TPM (Total Productive Maintenance) to reduce downtime.",
+        "expectedImpact": "Improve OEE by 10-20%."
+      },
+      {
+        "id": "optimize_inventory",
+        "condition": "inventoryHoldingCost > 10",
+        "action": "Adopt Just-In-Time (JIT) inventory to reduce holding costs.",
+        "expectedImpact": "Free up working capital and reduce carrying cost."
+      },
+      {
+        "id": "improve_quality_system",
+        "condition": "warrantyReturnRate > 1.5",
+        "action": "Strengthen ISO 9001 quality management system and root cause analysis.",
+        "expectedImpact": "Reduce warranty costs by 20%."
+      }
+    ],
+    "dataConfidenceAdjusted": 0.95
+  }
+}

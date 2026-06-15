@@ -1,0 +1,440 @@
+{
+  "slug": "fertilizer-dosage-calculator",
+  "title": "Fertilizer Dosage Calculator",
+  "description": "Industrial-grade calculator for optimal fertilizer application rates based on crop needs, soil analysis, and application efficiency, following ISO 14051, Lean Six Sigma, and WERC guidelines.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-field comparison",
+    "Customizable reporting dashboard"
+  ],
+  "inputs": [
+    {
+      "id": "crop_type",
+      "label": "Crop Type",
+      "type": "select",
+      "unit": "",
+      "default": "corn",
+      "options": [
+        "corn",
+        "wheat",
+        "soybean",
+        "rice",
+        "cotton"
+      ],
+      "businessContext": "Determines the nitrogen (N), phosphorus (P), and potassium (K) uptake coefficients from agronomic tables."
+    },
+    {
+      "id": "target_yield",
+      "label": "Target Yield",
+      "type": "number",
+      "unit": "kg/ha",
+      "default": 8000,
+      "min": 1000,
+      "max": 20000,
+      "businessContext": "Expected harvest per hectare, used to calculate total nutrient demand."
+    },
+    {
+      "id": "soil_nitrogen",
+      "label": "Soil Nitrogen (N) Content",
+      "type": "number",
+      "unit": "mg/kg",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Measured from soil test; influences the amount of N fertilizer needed."
+    },
+    {
+      "id": "soil_phosphorus",
+      "label": "Soil Phosphorus (P) Content",
+      "type": "number",
+      "unit": "mg/kg",
+      "default": 10,
+      "min": 0,
+      "max": 80,
+      "businessContext": "Measured from soil test; influences the amount of P fertilizer needed."
+    },
+    {
+      "id": "soil_potassium",
+      "label": "Soil Potassium (K) Content",
+      "type": "number",
+      "unit": "mg/kg",
+      "default": 120,
+      "min": 0,
+      "max": 400,
+      "businessContext": "Measured from soil test; influences the amount of K fertilizer needed."
+    },
+    {
+      "id": "application_efficiency",
+      "label": "Application Efficiency Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "min": 30,
+      "max": 95,
+      "businessContext": "Percentage of applied fertilizer that is actually taken up by the crop; affected by method, timing, and weather."
+    },
+    {
+      "id": "fertilizer_type_n",
+      "label": "Nitrogen Fertilizer Type",
+      "type": "select",
+      "unit": "",
+      "default": "urea",
+      "options": [
+        "urea",
+        "ammonium_nitrate",
+        "ammonium_sulfate",
+        "anhydrous_ammonia"
+      ],
+      "businessContext": "Different sources have different N concentration and loss characteristics."
+    },
+    {
+      "id": "fertilizer_type_p",
+      "label": "Phosphorus Fertilizer Type",
+      "type": "select",
+      "unit": "",
+      "default": "dap",
+      "options": [
+        "dap",
+        "map",
+        "superphosphate",
+        "tsp"
+      ],
+      "businessContext": "Different sources have different P concentration and solubility."
+    },
+    {
+      "id": "fertilizer_type_k",
+      "label": "Potassium Fertilizer Type",
+      "type": "select",
+      "unit": "",
+      "default": "mop",
+      "options": [
+        "mop",
+        "sop",
+        "k_magnesia"
+      ],
+      "businessContext": "Different sources have different K concentration and salt index."
+    },
+    {
+      "id": "soil_moisture",
+      "label": "Soil Moisture Content",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 5,
+      "max": 50,
+      "businessContext": "Affects nutrient availability and leaching risk; used in loss adjustment."
+    },
+    {
+      "id": "rainfall_forecast",
+      "label": "Rainfall Forecast (next 7 days)",
+      "type": "number",
+      "unit": "mm",
+      "default": 25,
+      "min": 0,
+      "max": 200,
+      "businessContext": "Expected precipitation; high rainfall increases N loss via leaching and denitrification."
+    },
+    {
+      "id": "organic_matter",
+      "label": "Soil Organic Matter",
+      "type": "number",
+      "unit": "%",
+      "default": 2.5,
+      "min": 0.5,
+      "max": 10,
+      "businessContext": "Contributes to nutrient supply; higher OM reduces fertilizer requirement."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_1",
+        "condition": "soil_nitrogen > 40 && target_yield < 5000",
+        "message": "Soil nitrogen is high relative to target yield; consider reducing N application to avoid over-fertilization."
+      },
+      {
+        "id": "rule_2",
+        "condition": "rainfall_forecast > 50 && application_efficiency > 80",
+        "message": "High rainfall forecast may reduce efficiency; consider split application or use of inhibitors."
+      },
+      {
+        "id": "rule_3",
+        "condition": "soil_moisture < 10",
+        "message": "Very dry soil; fertilizer may not dissolve properly. Consider irrigation or delayed application."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_n",
+        "variable": "n_rate",
+        "warning": 200,
+        "critical": 300,
+        "message": "Nitrogen application rate exceeds recommended limits for environmental safety."
+      },
+      {
+        "id": "threshold_p",
+        "variable": "p_rate",
+        "warning": 80,
+        "critical": 120,
+        "message": "Phosphorus application rate may cause runoff and eutrophication."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "nutrient_demand_n",
+      "label": "Nitrogen Demand (kg N/ha)",
+      "description": "Calculates total N required by the crop to achieve target yield.",
+      "expression": "target_yield * 0.017",
+      "unit": "kg N/ha",
+      "intermediate": true
+    },
+    {
+      "id": "nutrient_demand_p",
+      "label": "Phosphorus Demand (kg P2O5/ha)",
+      "description": "Calculates total P2O5 required by the crop.",
+      "expression": "target_yield * 0.006",
+      "unit": "kg P2O5/ha",
+      "intermediate": true
+    },
+    {
+      "id": "nutrient_demand_k",
+      "label": "Potassium Demand (kg K2O/ha)",
+      "description": "Calculates total K2O required by the crop.",
+      "expression": "target_yield * 0.015",
+      "unit": "kg K2O/ha",
+      "intermediate": true
+    },
+    {
+      "id": "soil_supply_n",
+      "label": "Soil Nitrogen Supply (kg N/ha)",
+      "description": "Estimates N available from soil based on soil test and organic matter.",
+      "expression": "soil_nitrogen * 2.0 + organic_matter * 10",
+      "unit": "kg N/ha",
+      "intermediate": true
+    },
+    {
+      "id": "soil_supply_p",
+      "label": "Soil Phosphorus Supply (kg P2O5/ha)",
+      "description": "Estimates P available from soil.",
+      "expression": "soil_phosphorus * 1.5",
+      "unit": "kg P2O5/ha",
+      "intermediate": true
+    },
+    {
+      "id": "soil_supply_k",
+      "label": "Soil Potassium Supply (kg K2O/ha)",
+      "description": "Estimates K available from soil.",
+      "expression": "soil_potassium * 0.8",
+      "unit": "kg K2O/ha",
+      "intermediate": true
+    },
+    {
+      "id": "net_requirement_n",
+      "label": "Net Nitrogen Requirement (kg N/ha)",
+      "description": "Demand minus soil supply, adjusted for efficiency.",
+      "expression": "max(0, (nutrient_demand_n - soil_supply_n) / (application_efficiency / 100))",
+      "unit": "kg N/ha",
+      "intermediate": true
+    },
+    {
+      "id": "net_requirement_p",
+      "label": "Net Phosphorus Requirement (kg P2O5/ha)",
+      "description": "Demand minus soil supply, adjusted for efficiency.",
+      "expression": "max(0, (nutrient_demand_p - soil_supply_p) / (application_efficiency / 100))",
+      "unit": "kg P2O5/ha",
+      "intermediate": true
+    },
+    {
+      "id": "net_requirement_k",
+      "label": "Net Potassium Requirement (kg K2O/ha)",
+      "description": "Demand minus soil supply, adjusted for efficiency.",
+      "expression": "max(0, (nutrient_demand_k - soil_supply_k) / (application_efficiency / 100))",
+      "unit": "kg K2O/ha",
+      "intermediate": true
+    },
+    {
+      "id": "fertilizer_rate_n",
+      "label": "Nitrogen Fertilizer Rate (kg product/ha)",
+      "description": "Converts net N requirement to product rate based on fertilizer type.",
+      "expression": "net_requirement_n / n_concentration",
+      "unit": "kg/ha",
+      "intermediate": true,
+      "lookup": {
+        "urea": 0.46,
+        "ammonium_nitrate": 0.34,
+        "ammonium_sulfate": 0.21,
+        "anhydrous_ammonia": 0.82
+      }
+    },
+    {
+      "id": "fertilizer_rate_p",
+      "label": "Phosphorus Fertilizer Rate (kg product/ha)",
+      "description": "Converts net P2O5 requirement to product rate.",
+      "expression": "net_requirement_p / p_concentration",
+      "unit": "kg/ha",
+      "intermediate": true,
+      "lookup": {
+        "dap": 0.46,
+        "map": 0.52,
+        "superphosphate": 0.2,
+        "tsp": 0.46
+      }
+    },
+    {
+      "id": "fertilizer_rate_k",
+      "label": "Potassium Fertilizer Rate (kg product/ha)",
+      "description": "Converts net K2O requirement to product rate.",
+      "expression": "net_requirement_k / k_concentration",
+      "unit": "kg/ha",
+      "intermediate": true,
+      "lookup": {
+        "mop": 0.6,
+        "sop": 0.5,
+        "k_magnesia": 0.22
+      }
+    },
+    {
+      "id": "loss_factor_n",
+      "label": "Nitrogen Loss Factor",
+      "description": "Adjusts for leaching and denitrification based on rainfall and soil moisture.",
+      "expression": "1 + (rainfall_forecast / 100) * (1 - soil_moisture / 100) * 0.3",
+      "unit": "dimensionless",
+      "intermediate": true
+    },
+    {
+      "id": "adjusted_rate_n",
+      "label": "Adjusted Nitrogen Rate (kg product/ha)",
+      "description": "Final N fertilizer rate after loss adjustment.",
+      "expression": "fertilizer_rate_n * loss_factor_n",
+      "unit": "kg/ha",
+      "intermediate": true
+    },
+    {
+      "id": "adjusted_rate_p",
+      "label": "Adjusted Phosphorus Rate (kg product/ha)",
+      "description": "Final P fertilizer rate (no loss adjustment for P).",
+      "expression": "fertilizer_rate_p",
+      "unit": "kg/ha",
+      "intermediate": true
+    },
+    {
+      "id": "adjusted_rate_k",
+      "label": "Adjusted Potassium Rate (kg product/ha)",
+      "description": "Final K fertilizer rate (no loss adjustment for K).",
+      "expression": "fertilizer_rate_k",
+      "unit": "kg/ha",
+      "intermediate": true
+    },
+    {
+      "id": "total_fertilizer_cost",
+      "label": "Total Fertilizer Cost (USD/ha)",
+      "description": "Sum of cost for all three fertilizers using default unit prices.",
+      "expression": "adjusted_rate_n * 0.50 + adjusted_rate_p * 0.60 + adjusted_rate_k * 0.45",
+      "unit": "USD/ha",
+      "intermediate": false
+    },
+    {
+      "id": "primary_result",
+      "label": "Recommended Total Fertilizer Application Rate (kg product/ha)",
+      "description": "Sum of all adjusted fertilizer rates as the primary output.",
+      "expression": "adjusted_rate_n + adjusted_rate_p + adjusted_rate_k",
+      "unit": "kg/ha",
+      "intermediate": false
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "primary_result",
+      "label": "Recommended Total Fertilizer Application Rate",
+      "value": null,
+      "unit": "kg/ha",
+      "description": "Total mass of fertilizer products to apply per hectare."
+    },
+    "breakdown": {
+      "nitrogen": {
+        "id": "adjusted_rate_n",
+        "label": "Nitrogen Fertilizer Rate",
+        "value": null,
+        "unit": "kg/ha",
+        "description": "Adjusted rate of N fertilizer product."
+      },
+      "phosphorus": {
+        "id": "adjusted_rate_p",
+        "label": "Phosphorus Fertilizer Rate",
+        "value": null,
+        "unit": "kg/ha",
+        "description": "Adjusted rate of P fertilizer product."
+      },
+      "potassium": {
+        "id": "adjusted_rate_k",
+        "label": "Potassium Fertilizer Rate",
+        "value": null,
+        "unit": "kg/ha",
+        "description": "Adjusted rate of K fertilizer product."
+      },
+      "cost": {
+        "id": "total_fertilizer_cost",
+        "label": "Total Fertilizer Cost",
+        "value": null,
+        "unit": "USD/ha",
+        "description": "Estimated cost per hectare."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "loss_driver_1",
+        "label": "Nitrogen Leaching Potential",
+        "value": null,
+        "unit": "kg N/ha",
+        "description": "Estimated N lost due to leaching based on rainfall and soil moisture."
+      },
+      {
+        "id": "loss_driver_2",
+        "label": "Denitrification Risk",
+        "value": null,
+        "unit": "%",
+        "description": "Percentage of applied N lost as N2O/N2 due to anaerobic conditions."
+      },
+      {
+        "id": "loss_driver_3",
+        "label": "Phosphorus Runoff Risk",
+        "value": null,
+        "unit": "kg P2O5/ha",
+        "description": "Estimated P lost if rainfall exceeds 50 mm."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "label": "Use split application for nitrogen",
+        "description": "Apply N in 2-3 splits to reduce loss and improve uptake efficiency."
+      },
+      {
+        "id": "action_2",
+        "label": "Incorporate fertilizer into soil",
+        "description": "Banding or injection reduces volatilization and runoff."
+      },
+      {
+        "id": "action_3",
+        "label": "Consider nitrification inhibitor",
+        "description": "Slows conversion of ammonium to nitrate, reducing leaching."
+      },
+      {
+        "id": "action_4",
+        "label": "Adjust timing based on weather forecast",
+        "description": "Avoid application before heavy rain events."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "confidence_score",
+      "label": "Data Confidence Adjusted Factor",
+      "value": null,
+      "unit": "dimensionless",
+      "description": "Multiplier (0.8-1.2) reflecting reliability of input data; based on completeness and variability."
+    }
+  }
+}

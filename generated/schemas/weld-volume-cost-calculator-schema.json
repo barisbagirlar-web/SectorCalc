@@ -1,0 +1,476 @@
+{
+  "slug": "weld-volume-cost-calculator",
+  "title": "Weld Volume & Cost Calculator",
+  "description": "Industrial-grade calculator for estimating weld metal volume, weight, cost, and efficiency based on joint geometry, process parameters, and labor factors. Compliant with ISO 9692, AWS D1.1, and Lean Six Sigma standards.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-user collaboration",
+    "Custom joint library",
+    "API access"
+  ],
+  "inputs": [
+    {
+      "id": "joint_type",
+      "label": "Joint Type",
+      "type": "select",
+      "unit": "",
+      "default": "butt",
+      "min": null,
+      "max": null,
+      "businessContext": "Select the weld joint geometry per ISO 9692. Affects volume calculation formula.",
+      "options": [
+        {
+          "value": "butt",
+          "label": "Butt Joint (Square Groove)"
+        },
+        {
+          "value": "single_v",
+          "label": "Single V-Groove"
+        },
+        {
+          "value": "double_v",
+          "label": "Double V-Groove"
+        },
+        {
+          "value": "fillet",
+          "label": "Fillet Weld"
+        },
+        {
+          "value": "single_bevel",
+          "label": "Single Bevel"
+        },
+        {
+          "value": "double_bevel",
+          "label": "Double Bevel"
+        }
+      ]
+    },
+    {
+      "id": "plate_thickness",
+      "label": "Plate Thickness (t)",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "min": 1,
+      "max": 200,
+      "businessContext": "Thickness of the base metal. Critical for groove volume calculation."
+    },
+    {
+      "id": "root_face",
+      "label": "Root Face (f)",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Land at the root of the groove. Affects effective depth."
+    },
+    {
+      "id": "root_gap",
+      "label": "Root Gap (g)",
+      "type": "number",
+      "unit": "mm",
+      "default": 3,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Gap between plates at root. Increases weld volume."
+    },
+    {
+      "id": "groove_angle",
+      "label": "Groove Angle (α)",
+      "type": "number",
+      "unit": "degrees",
+      "default": 60,
+      "min": 20,
+      "max": 90,
+      "businessContext": "Included angle of V-groove. Standard range per AWS D1.1."
+    },
+    {
+      "id": "weld_length",
+      "label": "Weld Length (L)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "min": 10,
+      "max": 100000,
+      "businessContext": "Total length of the weld seam."
+    },
+    {
+      "id": "leg_length",
+      "label": "Leg Length (for fillet)",
+      "type": "number",
+      "unit": "mm",
+      "default": 6,
+      "min": 2,
+      "max": 50,
+      "businessContext": "Fillet weld leg size. Only used when joint_type = fillet."
+    },
+    {
+      "id": "weld_process",
+      "label": "Welding Process",
+      "type": "select",
+      "unit": "",
+      "default": "SMAW",
+      "min": null,
+      "max": null,
+      "businessContext": "Select the welding process. Affects deposition efficiency and labor rate.",
+      "options": [
+        {
+          "value": "SMAW",
+          "label": "Shielded Metal Arc (SMAW)"
+        },
+        {
+          "value": "GMAW",
+          "label": "Gas Metal Arc (GMAW/MIG)"
+        },
+        {
+          "value": "FCAW",
+          "label": "Flux Cored Arc (FCAW)"
+        },
+        {
+          "value": "SAW",
+          "label": "Submerged Arc (SAW)"
+        },
+        {
+          "value": "GTAW",
+          "label": "Gas Tungsten Arc (GTAW/TIG)"
+        }
+      ]
+    },
+    {
+      "id": "material_density",
+      "label": "Material Density",
+      "type": "number",
+      "unit": "g/cm³",
+      "default": 7.85,
+      "min": 2.7,
+      "max": 19.3,
+      "businessContext": "Density of weld metal. Steel ~7.85, Aluminum ~2.7, Stainless ~8.0."
+    },
+    {
+      "id": "labor_rate",
+      "label": "Labor Rate",
+      "type": "number",
+      "unit": "USD/hr",
+      "default": 45,
+      "min": 10,
+      "max": 200,
+      "businessContext": "Hourly cost of welder including overhead."
+    },
+    {
+      "id": "overhead_rate",
+      "label": "Overhead Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage added to direct labor for indirect costs."
+    },
+    {
+      "id": "consumable_cost_per_kg",
+      "label": "Consumable Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 5.5,
+      "min": 1,
+      "max": 50,
+      "businessContext": "Cost of filler metal per kilogram."
+    },
+    {
+      "id": "deposition_efficiency",
+      "label": "Deposition Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 65,
+      "min": 30,
+      "max": 99,
+      "businessContext": "Ratio of deposited metal to consumed filler. Varies by process: SMAW~65%, GMAW~90%, FCAW~85%, SAW~99%, GTAW~95%."
+    },
+    {
+      "id": "operator_factor",
+      "label": "Operator Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "min": 10,
+      "max": 80,
+      "businessContext": "Percentage of total time that the welder is actually depositing metal. Typical range 20-50%."
+    },
+    {
+      "id": "weld_speed",
+      "label": "Weld Speed",
+      "type": "number",
+      "unit": "mm/min",
+      "default": 300,
+      "min": 50,
+      "max": 2000,
+      "businessContext": "Travel speed of the welding arc. Affects deposition rate and time."
+    },
+    {
+      "id": "wire_feed_speed",
+      "label": "Wire Feed Speed (if applicable)",
+      "type": "number",
+      "unit": "m/min",
+      "default": 8,
+      "min": 1,
+      "max": 30,
+      "businessContext": "Only for GMAW/FCAW processes. Used to calculate deposition rate."
+    },
+    {
+      "id": "wire_diameter",
+      "label": "Wire Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 1.2,
+      "min": 0.8,
+      "max": 4,
+      "businessContext": "Diameter of filler wire. Affects cross-sectional area and deposition rate."
+    },
+    {
+      "id": "use_premium_data",
+      "label": "Use Premium Data (historical trends)",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "If true, adjusts deposition efficiency and operator factor based on historical data from premium database."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_1",
+        "condition": "joint_type == 'fillet' && leg_length <= 0",
+        "message": "Leg length must be greater than 0 for fillet welds.",
+        "severity": "error"
+      },
+      {
+        "id": "rule_2",
+        "condition": "joint_type != 'fillet' && (groove_angle < 20 || groove_angle > 90)",
+        "message": "Groove angle must be between 20° and 90° for groove welds.",
+        "severity": "warning"
+      },
+      {
+        "id": "rule_3",
+        "condition": "root_face >= plate_thickness",
+        "message": "Root face must be less than plate thickness.",
+        "severity": "error"
+      },
+      {
+        "id": "rule_4",
+        "condition": "weld_process == 'GMAW' && (wire_feed_speed <= 0 || wire_diameter <= 0)",
+        "message": "Wire feed speed and diameter are required for GMAW process.",
+        "severity": "error"
+      },
+      {
+        "id": "rule_5",
+        "condition": "deposition_efficiency < 50",
+        "message": "Deposition efficiency below 50% indicates potential process issues. Verify parameters.",
+        "severity": "warning"
+      },
+      {
+        "id": "rule_6",
+        "condition": "operator_factor < 20",
+        "message": "Operator factor below 20% suggests excessive non-arc time. Consider Lean improvements.",
+        "severity": "warning"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_1",
+        "field": "total_cost",
+        "condition": "> 10000",
+        "message": "Total cost exceeds $10,000. Consider alternative joint design or process.",
+        "severity": "alert"
+      },
+      {
+        "id": "threshold_2",
+        "field": "weld_volume",
+        "condition": "> 500000",
+        "message": "Weld volume exceeds 500,000 mm³. Verify joint dimensions for over-welding.",
+        "severity": "alert"
+      },
+      {
+        "id": "threshold_3",
+        "field": "deposition_efficiency",
+        "condition": "< 60",
+        "message": "Deposition efficiency below 60% indicates high waste. Consider process change.",
+        "severity": "alert"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "cross_sectional_area",
+      "label": "Cross-Sectional Area of Weld (A)",
+      "description": "Calculates the cross-sectional area of the weld based on joint geometry.",
+      "formula": "if joint_type == 'butt': A = plate_thickness * root_gap; if joint_type == 'single_v': A = (plate_thickness - root_face)^2 * tan(groove_angle/2 * pi/180) + root_gap * plate_thickness; if joint_type == 'double_v': A = 2 * ((plate_thickness/2 - root_face)^2 * tan(groove_angle/2 * pi/180)) + root_gap * plate_thickness; if joint_type == 'fillet': A = (leg_length^2)/2; if joint_type == 'single_bevel': A = (plate_thickness - root_face)^2 * tan(groove_angle * pi/180) + root_gap * plate_thickness; if joint_type == 'double_bevel': A = 2 * ((plate_thickness/2 - root_face)^2 * tan(groove_angle * pi/180)) + root_gap * plate_thickness",
+      "unit": "mm²",
+      "intermediate": true
+    },
+    {
+      "id": "weld_volume",
+      "label": "Weld Volume (V)",
+      "description": "Total volume of deposited weld metal.",
+      "formula": "V = cross_sectional_area * weld_length",
+      "unit": "mm³",
+      "intermediate": false
+    },
+    {
+      "id": "weld_mass",
+      "label": "Weld Mass (M)",
+      "description": "Mass of deposited weld metal.",
+      "formula": "M = weld_volume * material_density / 1000",
+      "unit": "g",
+      "intermediate": false
+    },
+    {
+      "id": "consumable_mass",
+      "label": "Consumable Mass (Mc)",
+      "description": "Mass of filler metal required including losses.",
+      "formula": "Mc = weld_mass / (deposition_efficiency / 100)",
+      "unit": "g",
+      "intermediate": false
+    },
+    {
+      "id": "arc_time",
+      "label": "Arc Time (T_arc)",
+      "description": "Total time the arc is on.",
+      "formula": "T_arc = weld_length / weld_speed",
+      "unit": "min",
+      "intermediate": false
+    },
+    {
+      "id": "total_labor_time",
+      "label": "Total Labor Time (T_labor)",
+      "description": "Total time including non-arc activities.",
+      "formula": "T_labor = arc_time / (operator_factor / 100)",
+      "unit": "min",
+      "intermediate": false
+    },
+    {
+      "id": "total_cost",
+      "label": "Total Cost (C)",
+      "description": "Primary result: total cost of the weld including labor, overhead, and consumables.",
+      "formula": "C = (total_labor_time / 60) * labor_rate * (1 + overhead_rate/100) + (consumable_mass / 1000) * consumable_cost_per_kg",
+      "unit": "USD",
+      "intermediate": false,
+      "primary": true
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_cost",
+      "label": "Total Weld Cost",
+      "value": null,
+      "unit": "USD",
+      "confidence": null
+    },
+    "breakdown": {
+      "labor_cost": {
+        "id": "labor_cost",
+        "label": "Labor Cost (incl. overhead)",
+        "value": null,
+        "unit": "USD",
+        "formula": "(total_labor_time / 60) * labor_rate * (1 + overhead_rate/100)"
+      },
+      "consumable_cost": {
+        "id": "consumable_cost",
+        "label": "Consumable Cost",
+        "value": null,
+        "unit": "USD",
+        "formula": "(consumable_mass / 1000) * consumable_cost_per_kg"
+      },
+      "weld_volume": {
+        "id": "weld_volume",
+        "label": "Weld Volume",
+        "value": null,
+        "unit": "mm³"
+      },
+      "weld_mass": {
+        "id": "weld_mass",
+        "label": "Weld Mass",
+        "value": null,
+        "unit": "g"
+      },
+      "arc_time": {
+        "id": "arc_time",
+        "label": "Arc Time",
+        "value": null,
+        "unit": "min"
+      },
+      "total_labor_time": {
+        "id": "total_labor_time",
+        "label": "Total Labor Time",
+        "value": null,
+        "unit": "min"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excess_weld_metal",
+        "label": "Excess Weld Metal",
+        "description": "Volume above the minimum required per standard. Indicates over-welding.",
+        "value": null,
+        "unit": "mm³",
+        "formula": "weld_volume - (minimum_volume_per_standard)"
+      },
+      {
+        "id": "inefficiency_loss",
+        "label": "Deposition Inefficiency Loss",
+        "description": "Mass of filler wasted due to low deposition efficiency.",
+        "value": null,
+        "unit": "g",
+        "formula": "consumable_mass - weld_mass"
+      },
+      {
+        "id": "non_arc_time_loss",
+        "label": "Non-Arc Time Loss",
+        "description": "Time spent on non-deposition activities (setup, cleaning, movement).",
+        "value": null,
+        "unit": "min",
+        "formula": "total_labor_time - arc_time"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "condition": "excess_weld_metal > 10000",
+        "action": "Reduce groove angle or root gap to minimize weld volume. Consider double-V joint for thicker plates."
+      },
+      {
+        "id": "action_2",
+        "condition": "deposition_efficiency < 70",
+        "action": "Switch to a process with higher deposition efficiency (e.g., GMAW or SAW) to reduce consumable waste."
+      },
+      {
+        "id": "action_3",
+        "condition": "operator_factor < 30",
+        "action": "Implement Lean techniques: reduce setup time, use quick-change fixtures, and improve work cell layout."
+      },
+      {
+        "id": "action_4",
+        "condition": "total_cost > 5000",
+        "action": "Perform a cost-benefit analysis for robotic welding or automation to reduce labor cost."
+      },
+      {
+        "id": "action_5",
+        "condition": "true",
+        "action": "Review weld procedure specifications (WPS) to ensure parameters are optimized per AWS D1.1."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "dataConfidenceAdjusted",
+      "label": "Data Confidence Adjusted Cost",
+      "description": "Total cost adjusted for data quality and variability using a confidence factor (0.8 to 1.2). Based on input precision and historical accuracy.",
+      "value": null,
+      "unit": "USD",
+      "formula": "total_cost * confidence_factor"
+    }
+  }
+}

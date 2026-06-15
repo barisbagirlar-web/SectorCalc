@@ -1,0 +1,300 @@
+{
+  "slug": "restaurant-menu-margin-leak",
+  "title": "Restaurant Menu Margin Leak Calculator",
+  "version": "1.0.0",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-location benchmarking",
+    "Ingredient cost roll-up"
+  ],
+  "inputs": [
+    {
+      "id": "avg_cover_price",
+      "label": "Average Cover Price (Menu Price)",
+      "type": "number",
+      "unit": "USD",
+      "default": 18.5,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Average price paid per guest for a main dish or complete meal as listed on the menu."
+    },
+    {
+      "id": "food_cost_per_cover",
+      "label": "Food Cost per Cover",
+      "type": "number",
+      "unit": "USD",
+      "default": 6.5,
+      "min": 0,
+      "max": 200,
+      "businessContext": "Direct ingredient cost allocated to each cover (plate cost)."
+    },
+    {
+      "id": "labor_cost_per_cover",
+      "label": "Labor Cost per Cover",
+      "type": "number",
+      "unit": "USD",
+      "default": 4.2,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Direct labor (kitchen + service) cost per guest."
+    },
+    {
+      "id": "overhead_per_cover",
+      "label": "Overhead per Cover",
+      "type": "number",
+      "unit": "USD",
+      "default": 2.8,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Rent, utilities, insurance, and other fixed costs allocated per cover."
+    },
+    {
+      "id": "waste_percentage",
+      "label": "Food Waste Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Percentage of food purchased that is discarded due to spoilage, overproduction, or plate waste."
+    },
+    {
+      "id": "theft_shrinkage_percentage",
+      "label": "Theft & Shrinkage Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 1.5,
+      "min": 0,
+      "max": 20,
+      "businessContext": "Estimated loss of inventory due to theft, misreporting, or unrecorded consumption."
+    },
+    {
+      "id": "discount_comp_percentage",
+      "label": "Discount & Comp Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "min": 0,
+      "max": 30,
+      "businessContext": "Percentage of revenue lost due to employee meals, promotions, comps, and discounts."
+    },
+    {
+      "id": "covers_per_period",
+      "label": "Covers per Period (Monthly)",
+      "type": "number",
+      "unit": "covers",
+      "default": 3000,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Total number of guests served in the measurement period (month)."
+    },
+    {
+      "id": "menu_engineering_score",
+      "label": "Menu Engineering Score (1-10)",
+      "type": "number",
+      "unit": "score",
+      "default": 6,
+      "min": 1,
+      "max": 10,
+      "businessContext": "Subjective score of menu layout, item placement, and upselling effectiveness (1=poor, 10=excellent)."
+    },
+    {
+      "id": "lean_kitchen_maturity",
+      "label": "Lean Kitchen Maturity Level",
+      "type": "select",
+      "unit": "level",
+      "default": "Developing",
+      "options": [
+        "Initial",
+        "Developing",
+        "Standardized",
+        "Optimized",
+        "World-Class"
+      ],
+      "businessContext": "Maturity of Lean/Six Sigma practices in kitchen operations (ISO 9001 / Lean principles)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "cost_sum_check",
+        "condition": "food_cost_per_cover + labor_cost_per_cover + overhead_per_cover >= avg_cover_price",
+        "message": "Total direct costs exceed or equal the cover price. Margin is negative or zero."
+      },
+      {
+        "id": "waste_theft_ratio",
+        "condition": "waste_percentage + theft_shrinkage_percentage > 15",
+        "message": "Combined waste and theft exceeds 15% — critical operational leak."
+      },
+      {
+        "id": "lean_maturity_discount",
+        "condition": "lean_kitchen_maturity == 'Initial' AND discount_comp_percentage > 5",
+        "message": "Low lean maturity combined with high discounts indicates lack of process control."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "margin_alert",
+        "metric": "net_margin_percentage",
+        "operator": "<",
+        "value": 10,
+        "severity": "warning",
+        "message": "Net margin below 10% — investigate cost drivers."
+      },
+      {
+        "id": "leak_alert",
+        "metric": "total_leak_per_cover",
+        "operator": ">",
+        "value": 2,
+        "severity": "critical",
+        "message": "Total leak per cover exceeds $2.00 — immediate action recommended."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "gross_margin_per_cover",
+      "name": "Gross Margin per Cover",
+      "description": "Revenue minus direct food cost per cover.",
+      "formula": "avg_cover_price - food_cost_per_cover",
+      "unit": "USD"
+    },
+    {
+      "id": "contribution_margin_per_cover",
+      "name": "Contribution Margin per Cover",
+      "description": "Gross margin minus labor and overhead.",
+      "formula": "gross_margin_per_cover - labor_cost_per_cover - overhead_per_cover",
+      "unit": "USD"
+    },
+    {
+      "id": "waste_leak_per_cover",
+      "name": "Waste Leak per Cover",
+      "description": "Monetary loss from food waste per cover.",
+      "formula": "food_cost_per_cover * (waste_percentage / 100)",
+      "unit": "USD"
+    },
+    {
+      "id": "theft_leak_per_cover",
+      "name": "Theft & Shrinkage Leak per Cover",
+      "description": "Monetary loss from theft and shrinkage per cover.",
+      "formula": "food_cost_per_cover * (theft_shrinkage_percentage / 100)",
+      "unit": "USD"
+    },
+    {
+      "id": "discount_leak_per_cover",
+      "name": "Discount & Comp Leak per Cover",
+      "description": "Revenue loss from discounts and comps per cover.",
+      "formula": "avg_cover_price * (discount_comp_percentage / 100)",
+      "unit": "USD"
+    },
+    {
+      "id": "total_leak_per_cover",
+      "name": "Total Leak per Cover",
+      "description": "Sum of all hidden losses per cover.",
+      "formula": "waste_leak_per_cover + theft_leak_per_cover + discount_leak_per_cover",
+      "unit": "USD"
+    },
+    {
+      "id": "net_margin_per_cover",
+      "name": "Net Margin per Cover",
+      "description": "Contribution margin minus total leak.",
+      "formula": "contribution_margin_per_cover - total_leak_per_cover",
+      "unit": "USD"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "net_margin_percentage",
+      "label": "Net Margin Percentage",
+      "description": "Primary result: net margin as a percentage of cover price.",
+      "formula": "(net_margin_per_cover / avg_cover_price) * 100",
+      "unit": "%"
+    },
+    "breakdown": {
+      "gross_margin_per_cover": {
+        "label": "Gross Margin per Cover",
+        "unit": "USD"
+      },
+      "contribution_margin_per_cover": {
+        "label": "Contribution Margin per Cover",
+        "unit": "USD"
+      },
+      "waste_leak_per_cover": {
+        "label": "Waste Leak per Cover",
+        "unit": "USD"
+      },
+      "theft_leak_per_cover": {
+        "label": "Theft & Shrinkage Leak per Cover",
+        "unit": "USD"
+      },
+      "discount_leak_per_cover": {
+        "label": "Discount & Comp Leak per Cover",
+        "unit": "USD"
+      },
+      "total_leak_per_cover": {
+        "label": "Total Leak per Cover",
+        "unit": "USD"
+      },
+      "net_margin_per_cover": {
+        "label": "Net Margin per Cover",
+        "unit": "USD"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "waste_driver",
+        "label": "Food Waste",
+        "value": "waste_leak_per_cover",
+        "impact": "Direct reduction of gross margin through unused inventory."
+      },
+      {
+        "id": "theft_driver",
+        "label": "Theft & Shrinkage",
+        "value": "theft_leak_per_cover",
+        "impact": "Unaccounted inventory loss erodes cost control."
+      },
+      {
+        "id": "discount_driver",
+        "label": "Discounts & Comps",
+        "value": "discount_leak_per_cover",
+        "impact": "Revenue leakage from pricing and promotional policies."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_lean_kitchen",
+        "label": "Implement Lean Kitchen Practices",
+        "description": "Adopt 5S, standardized work, and waste walk audits to reduce waste and improve flow.",
+        "referenceStandard": "ISO 9001:2015 / Lean Six Sigma DMAIC"
+      },
+      {
+        "id": "action_inventory_control",
+        "label": "Strengthen Inventory Control",
+        "description": "Use perpetual inventory systems, cycle counting, and variance reporting to reduce theft.",
+        "referenceStandard": "WERC DC Metrics / COSO Internal Control"
+      },
+      {
+        "id": "action_menu_reengineering",
+        "label": "Menu Re-engineering",
+        "description": "Analyze item profitability, reposition high-margin items, and reduce discount frequency.",
+        "referenceStandard": "Menu Engineering Matrix (Kasavana & Smith)"
+      },
+      {
+        "id": "action_portion_control",
+        "label": "Enforce Portion Control",
+        "description": "Standardize recipes, use portion scales, and train staff to reduce waste and cost variability.",
+        "referenceStandard": "Six Sigma Process Control (SPC)"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "adjusted_net_margin",
+      "label": "Data Confidence Adjusted Net Margin",
+      "description": "Net margin adjusted by a confidence factor based on input reliability (e.g., waste and theft estimates).",
+      "formula": "net_margin_per_cover * (1 - (waste_percentage + theft_shrinkage_percentage) / 200)",
+      "unit": "USD"
+    }
+  }
+}

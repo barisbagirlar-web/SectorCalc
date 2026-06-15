@@ -1,0 +1,327 @@
+{
+  "slug": "shift-cost-efficiency-calculator",
+  "title": "Shift Cost Efficiency Calculator",
+  "description": "Calculates the overall cost efficiency of a production shift based on labor, material, energy, quality, and downtime factors, aligned with ISO 22400, Lean, and Six Sigma principles.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-shift comparison",
+    "Real-time OEE integration"
+  ],
+  "inputs": [
+    {
+      "id": "shift_duration_hours",
+      "label": "Shift Duration (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "min": 1,
+      "max": 24,
+      "businessContext": "Total scheduled shift time in hours. Standard shifts are 8 or 12 hours."
+    },
+    {
+      "id": "total_units_produced",
+      "label": "Total Units Produced",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Total good units produced during the shift, including reworked units."
+    },
+    {
+      "id": "defective_units",
+      "label": "Defective Units",
+      "type": "number",
+      "unit": "units",
+      "default": 50,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Units that failed quality inspection and are not reworkable."
+    },
+    {
+      "id": "rework_units",
+      "label": "Rework Units",
+      "type": "number",
+      "unit": "units",
+      "default": 30,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Units that required rework to meet quality standards."
+    },
+    {
+      "id": "labor_cost_per_hour",
+      "label": "Labor Cost per Hour",
+      "type": "number",
+      "unit": "currency/hour",
+      "default": 25,
+      "min": 0,
+      "max": 200,
+      "businessContext": "Average fully loaded labor cost per operator per hour."
+    },
+    {
+      "id": "number_of_operators",
+      "label": "Number of Operators",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "min": 1,
+      "max": 100,
+      "businessContext": "Total operators assigned to the shift."
+    },
+    {
+      "id": "material_cost_per_unit",
+      "label": "Material Cost per Unit",
+      "type": "number",
+      "unit": "currency/unit",
+      "default": 2.5,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Direct material cost per unit produced."
+    },
+    {
+      "id": "energy_cost_per_shift",
+      "label": "Energy Cost per Shift",
+      "type": "number",
+      "unit": "currency",
+      "default": 500,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Total energy cost (electricity, gas, etc.) for the shift."
+    },
+    {
+      "id": "planned_downtime_minutes",
+      "label": "Planned Downtime (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 30,
+      "min": 0,
+      "max": 480,
+      "businessContext": "Scheduled breaks, maintenance, and changeovers."
+    },
+    {
+      "id": "unplanned_downtime_minutes",
+      "label": "Unplanned Downtime (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 20,
+      "min": 0,
+      "max": 480,
+      "businessContext": "Unexpected breakdowns, material shortages, etc."
+    },
+    {
+      "id": "shift_type",
+      "label": "Shift Type",
+      "type": "select",
+      "unit": "",
+      "default": "day",
+      "min": null,
+      "max": null,
+      "options": [
+        "day",
+        "night",
+        "weekend"
+      ],
+      "businessContext": "Shift type affects labor premiums and energy tariffs."
+    },
+    {
+      "id": "overtime_applied",
+      "label": "Overtime Applied",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "Indicates if overtime rates apply to any portion of the shift."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "defect_less_than_produced",
+        "condition": "defective_units + rework_units <= total_units_produced",
+        "message": "Defective and rework units cannot exceed total units produced."
+      },
+      {
+        "id": "downtime_less_than_shift",
+        "condition": "planned_downtime_minutes + unplanned_downtime_minutes <= shift_duration_hours * 60",
+        "message": "Total downtime cannot exceed shift duration in minutes."
+      },
+      {
+        "id": "overtime_shift_type",
+        "condition": "overtime_applied == true AND shift_type == 'night'",
+        "message": "Night shift overtime may require additional premium calculations."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "low_efficiency",
+        "condition": "primary_result < 0.5",
+        "alert": "Critical: Shift cost efficiency is below 50%. Immediate review required.",
+        "severity": "critical"
+      },
+      {
+        "id": "high_defect_rate",
+        "condition": "(defective_units / total_units_produced) > 0.1",
+        "alert": "Warning: Defect rate exceeds 10%. Investigate root cause.",
+        "severity": "warning"
+      },
+      {
+        "id": "excessive_downtime",
+        "condition": "unplanned_downtime_minutes > 60",
+        "alert": "Alert: Unplanned downtime exceeds 60 minutes. Review maintenance logs.",
+        "severity": "warning"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "total_labor_cost",
+      "label": "Total Labor Cost",
+      "description": "Total labor cost for the shift including overtime premium if applicable.",
+      "formula": "labor_cost_per_hour * number_of_operators * shift_duration_hours * (1 + (overtime_applied ? 0.5 : 0))",
+      "unit": "currency"
+    },
+    {
+      "id": "total_material_cost",
+      "label": "Total Material Cost",
+      "description": "Total material cost for all units produced (including defective and rework).",
+      "formula": "material_cost_per_unit * total_units_produced",
+      "unit": "currency"
+    },
+    {
+      "id": "total_energy_cost",
+      "label": "Total Energy Cost",
+      "description": "Energy cost adjusted for shift type (night/weekend surcharge).",
+      "formula": "energy_cost_per_shift * (shift_type == 'night' ? 1.15 : (shift_type == 'weekend' ? 1.25 : 1.0))",
+      "unit": "currency"
+    },
+    {
+      "id": "total_downtime_cost",
+      "label": "Total Downtime Cost",
+      "description": "Cost of lost production due to downtime, based on labor and overhead.",
+      "formula": "(planned_downtime_minutes + unplanned_downtime_minutes) / 60 * labor_cost_per_hour * number_of_operators * 0.8",
+      "unit": "currency"
+    },
+    {
+      "id": "quality_cost",
+      "label": "Quality Cost",
+      "description": "Cost of defects and rework including material and labor.",
+      "formula": "(defective_units + rework_units) * material_cost_per_unit * 1.2",
+      "unit": "currency"
+    },
+    {
+      "id": "total_shift_cost",
+      "label": "Total Shift Cost",
+      "description": "Sum of all direct and indirect costs for the shift.",
+      "formula": "total_labor_cost + total_material_cost + total_energy_cost + total_downtime_cost + quality_cost",
+      "unit": "currency"
+    },
+    {
+      "id": "shift_cost_efficiency",
+      "label": "Shift Cost Efficiency",
+      "description": "Primary result: ratio of value-added output to total cost. Higher is better.",
+      "formula": "(total_units_produced - defective_units) * material_cost_per_unit / total_shift_cost",
+      "unit": "ratio (0-1)"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "shift_cost_efficiency",
+      "label": "Shift Cost Efficiency",
+      "value": null,
+      "unit": "ratio",
+      "description": "Primary KPI indicating how efficiently resources are converted into good output."
+    },
+    "breakdown": {
+      "total_labor_cost": {
+        "label": "Total Labor Cost",
+        "value": null,
+        "unit": "currency",
+        "percentageOfTotal": null
+      },
+      "total_material_cost": {
+        "label": "Total Material Cost",
+        "value": null,
+        "unit": "currency",
+        "percentageOfTotal": null
+      },
+      "total_energy_cost": {
+        "label": "Total Energy Cost",
+        "value": null,
+        "unit": "currency",
+        "percentageOfTotal": null
+      },
+      "total_downtime_cost": {
+        "label": "Total Downtime Cost",
+        "value": null,
+        "unit": "currency",
+        "percentageOfTotal": null
+      },
+      "quality_cost": {
+        "label": "Quality Cost",
+        "value": null,
+        "unit": "currency",
+        "percentageOfTotal": null
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excess_material_waste",
+        "label": "Excess Material Waste",
+        "description": "Material cost of defective and rework units beyond standard allowance.",
+        "value": null,
+        "unit": "currency"
+      },
+      {
+        "id": "unplanned_downtime_impact",
+        "label": "Unplanned Downtime Impact",
+        "description": "Cost specifically from unplanned downtime events.",
+        "value": null,
+        "unit": "currency"
+      },
+      {
+        "id": "labor_efficiency_gap",
+        "label": "Labor Efficiency Gap",
+        "description": "Difference between actual labor cost and ideal labor cost for good units.",
+        "value": null,
+        "unit": "currency"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_defects",
+        "priority": "high",
+        "action": "Implement SPC and root cause analysis to reduce defect rate below 5%.",
+        "expectedImpact": "Reduction in quality cost by up to 30%."
+      },
+      {
+        "id": "optimize_changeovers",
+        "priority": "medium",
+        "action": "Apply SMED methodology to reduce planned downtime by 20%.",
+        "expectedImpact": "Decrease downtime cost and increase available production time."
+      },
+      {
+        "id": "energy_audit",
+        "priority": "medium",
+        "action": "Conduct energy audit to identify peak usage and shift loads to off-peak.",
+        "expectedImpact": "Reduce energy cost by 10-15%."
+      },
+      {
+        "id": "cross_training",
+        "priority": "low",
+        "action": "Cross-train operators to reduce labor idle time during unplanned downtime.",
+        "expectedImpact": "Improve labor utilization and reduce overtime needs."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_score",
+      "label": "Data Confidence Score",
+      "value": null,
+      "unit": "percentage",
+      "description": "Adjusted efficiency score based on data completeness and accuracy flags."
+    }
+  }
+}

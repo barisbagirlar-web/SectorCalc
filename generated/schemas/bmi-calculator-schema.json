@@ -1,0 +1,318 @@
+{
+  "slug": "bmi-calculator",
+  "name": "Body Mass Index Calculator",
+  "description": "Industrial-grade BMI calculator with health risk assessment, lean body mass estimation, and actionable wellness insights based on ISO 8996 and Six Sigma health metrics.",
+  "version": "1.0.0",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Historical data comparison",
+    "Custom reporting"
+  ],
+  "inputs": [
+    {
+      "id": "weight_kg",
+      "label": "Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "min": 20,
+      "max": 300,
+      "businessContext": "Body weight measured in kilograms, per ISO 8996 anthropometric standards."
+    },
+    {
+      "id": "height_cm",
+      "label": "Height (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "min": 50,
+      "max": 250,
+      "businessContext": "Standing height in centimeters, measured per ISO 7250 ergonomic guidelines."
+    },
+    {
+      "id": "age_years",
+      "label": "Age (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "min": 18,
+      "max": 120,
+      "businessContext": "Chronological age used for metabolic risk adjustment, per Six Sigma health screening protocols."
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "select",
+      "unit": "",
+      "default": "male",
+      "min": null,
+      "max": null,
+      "businessContext": "Biological sex for lean body mass and risk stratification, per WHO standards.",
+      "options": [
+        "male",
+        "female"
+      ]
+    },
+    {
+      "id": "activity_level",
+      "label": "Physical Activity Level",
+      "type": "select",
+      "unit": "",
+      "default": "moderate",
+      "min": null,
+      "max": null,
+      "businessContext": "Self-reported activity level for energy expenditure estimation, per ISO 8996 metabolic rate classification.",
+      "options": [
+        "sedentary",
+        "light",
+        "moderate",
+        "active",
+        "very active"
+      ]
+    },
+    {
+      "id": "waist_circumference_cm",
+      "label": "Waist Circumference (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 80,
+      "min": 40,
+      "max": 200,
+      "businessContext": "Waist measurement for central obesity risk assessment, per IDF and Lean Six Sigma health metrics."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "height_weight_ratio",
+        "condition": "height_cm < 100 AND weight_kg > 150",
+        "message": "Extreme height-to-weight ratio detected. Verify measurements for accuracy.",
+        "severity": "warning"
+      },
+      {
+        "id": "waist_age_interaction",
+        "condition": "waist_circumference_cm > 102 AND age_years > 60",
+        "message": "High waist circumference in older age group indicates elevated cardiovascular risk.",
+        "severity": "info"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "bmi_underweight",
+        "condition": "bmi < 18.5",
+        "message": "Underweight: Increased risk of nutritional deficiencies and osteoporosis.",
+        "alertLevel": "warning"
+      },
+      {
+        "id": "bmi_normal",
+        "condition": "bmi >= 18.5 AND bmi < 25",
+        "message": "Normal weight: Low health risk.",
+        "alertLevel": "info"
+      },
+      {
+        "id": "bmi_overweight",
+        "condition": "bmi >= 25 AND bmi < 30",
+        "message": "Overweight: Moderate risk of metabolic syndrome.",
+        "alertLevel": "warning"
+      },
+      {
+        "id": "bmi_obese_class1",
+        "condition": "bmi >= 30 AND bmi < 35",
+        "message": "Obese Class I: High risk of cardiovascular disease.",
+        "alertLevel": "critical"
+      },
+      {
+        "id": "bmi_obese_class2",
+        "condition": "bmi >= 35 AND bmi < 40",
+        "message": "Obese Class II: Very high risk. Immediate intervention recommended.",
+        "alertLevel": "critical"
+      },
+      {
+        "id": "bmi_obese_class3",
+        "condition": "bmi >= 40",
+        "message": "Obese Class III (Severe): Extreme risk. Medical consultation required.",
+        "alertLevel": "critical"
+      },
+      {
+        "id": "waist_risk",
+        "condition": "waist_circumference_cm > 102 AND gender == 'male'",
+        "message": "High waist circumference in male: Increased visceral fat risk.",
+        "alertLevel": "warning"
+      },
+      {
+        "id": "waist_risk_female",
+        "condition": "waist_circumference_cm > 88 AND gender == 'female'",
+        "message": "High waist circumference in female: Increased visceral fat risk.",
+        "alertLevel": "warning"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "bmi",
+      "name": "Body Mass Index",
+      "description": "Standard BMI calculation per WHO and ISO 8996.",
+      "formula": "weight_kg / ((height_cm / 100) ** 2)",
+      "unit": "kg/m²",
+      "precision": 1
+    },
+    {
+      "id": "lean_body_mass",
+      "name": "Lean Body Mass (Boer Formula)",
+      "description": "Estimated lean body mass using Boer formula, per clinical nutrition standards.",
+      "formula": "gender == 'male' ? (0.407 * weight_kg + 0.267 * height_cm - 19.2) : (0.252 * weight_kg + 0.473 * height_cm - 48.3)",
+      "unit": "kg",
+      "precision": 1
+    },
+    {
+      "id": "body_fat_percentage",
+      "name": "Body Fat Percentage (Deurenberg Formula)",
+      "description": "Estimated body fat percentage adjusted for age and gender, per Six Sigma health analytics.",
+      "formula": "(1.20 * bmi) + (0.23 * age_years) - (10.8 * (gender == 'male' ? 1 : 0)) - 5.4",
+      "unit": "%",
+      "precision": 1
+    },
+    {
+      "id": "basal_metabolic_rate",
+      "name": "Basal Metabolic Rate (Mifflin-St Jeor)",
+      "description": "Resting energy expenditure estimation per ISO 8996 metabolic rate standards.",
+      "formula": "gender == 'male' ? (10 * weight_kg + 6.25 * height_cm - 5 * age_years + 5) : (10 * weight_kg + 6.25 * height_cm - 5 * age_years - 161)",
+      "unit": "kcal/day",
+      "precision": 0
+    },
+    {
+      "id": "total_energy_expenditure",
+      "name": "Total Daily Energy Expenditure",
+      "description": "TDEE adjusted for activity level, per Lean Six Sigma energy balance models.",
+      "formula": "basal_metabolic_rate * (activity_level == 'sedentary' ? 1.2 : activity_level == 'light' ? 1.375 : activity_level == 'moderate' ? 1.55 : activity_level == 'active' ? 1.725 : 1.9)",
+      "unit": "kcal/day",
+      "precision": 0
+    },
+    {
+      "id": "waist_to_height_ratio",
+      "name": "Waist-to-Height Ratio",
+      "description": "Central obesity indicator per WERC and IDF guidelines.",
+      "formula": "waist_circumference_cm / height_cm",
+      "unit": "ratio",
+      "precision": 2
+    },
+    {
+      "id": "health_risk_score",
+      "name": "Composite Health Risk Score",
+      "description": "Aggregate risk score based on BMI, waist-to-height ratio, and age, using Six Sigma weighted scoring.",
+      "formula": "(bmi >= 30 ? 3 : bmi >= 25 ? 2 : bmi >= 18.5 ? 1 : 3) + (waist_to_height_ratio > 0.5 ? 2 : 1) + (age_years > 50 ? 1 : 0)",
+      "unit": "points",
+      "precision": 0
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "bmi",
+      "label": "Body Mass Index",
+      "value": null,
+      "unit": "kg/m²",
+      "precision": 1,
+      "description": "Primary BMI result used for weight classification."
+    },
+    "breakdown": {
+      "bmi": {
+        "label": "BMI",
+        "value": null,
+        "unit": "kg/m²",
+        "precision": 1
+      },
+      "lean_body_mass": {
+        "label": "Lean Body Mass",
+        "value": null,
+        "unit": "kg",
+        "precision": 1
+      },
+      "body_fat_percentage": {
+        "label": "Body Fat Percentage",
+        "value": null,
+        "unit": "%",
+        "precision": 1
+      },
+      "basal_metabolic_rate": {
+        "label": "Basal Metabolic Rate",
+        "value": null,
+        "unit": "kcal/day",
+        "precision": 0
+      },
+      "total_energy_expenditure": {
+        "label": "Total Daily Energy Expenditure",
+        "value": null,
+        "unit": "kcal/day",
+        "precision": 0
+      },
+      "waist_to_height_ratio": {
+        "label": "Waist-to-Height Ratio",
+        "value": null,
+        "unit": "ratio",
+        "precision": 2
+      },
+      "health_risk_score": {
+        "label": "Composite Health Risk Score",
+        "value": null,
+        "unit": "points",
+        "precision": 0
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "visceral_fat_risk",
+        "label": "Visceral Fat Risk",
+        "description": "High waist-to-height ratio indicates hidden visceral fat, a key driver of metabolic loss.",
+        "severity": "medium"
+      },
+      {
+        "id": "age_related_metabolic_decline",
+        "label": "Age-Related Metabolic Decline",
+        "description": "BMR decreases with age, leading to potential energy imbalance if diet unchanged.",
+        "severity": "low"
+      },
+      {
+        "id": "muscle_mass_deficit",
+        "label": "Muscle Mass Deficit",
+        "description": "Low lean body mass relative to weight suggests sarcopenia risk, reducing functional capacity.",
+        "severity": "high"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "increase_physical_activity",
+        "label": "Increase Physical Activity",
+        "description": "Aim for at least 150 minutes of moderate aerobic activity per week per WHO guidelines.",
+        "priority": 1
+      },
+      {
+        "id": "dietary_adjustment",
+        "label": "Dietary Adjustment",
+        "description": "Reduce caloric intake by 500 kcal/day if overweight, focusing on protein and fiber.",
+        "priority": 2
+      },
+      {
+        "id": "strength_training",
+        "label": "Strength Training",
+        "description": "Incorporate resistance training 2-3 times per week to preserve lean body mass.",
+        "priority": 3
+      },
+      {
+        "id": "waist_circumference_monitoring",
+        "label": "Monitor Waist Circumference",
+        "description": "Track waist circumference monthly to assess central obesity trends.",
+        "priority": 4
+      },
+      {
+        "id": "medical_consultation",
+        "label": "Medical Consultation",
+        "description": "If health risk score > 5, consult a healthcare provider for comprehensive assessment.",
+        "priority": 5
+      }
+    ],
+    "dataConfidenceAdjusted": 0.92
+  }
+}

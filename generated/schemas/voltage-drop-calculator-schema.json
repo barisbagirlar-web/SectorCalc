@@ -1,0 +1,385 @@
+{
+  "slug": "voltage-drop-calculator",
+  "name": "Voltage Drop Calculator",
+  "description": "Calculates voltage drop in electrical conductors per NEC and IEC standards, with loss drivers and corrective actions.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis"
+  ],
+  "inputs": [
+    {
+      "id": "conductor_material",
+      "label": "Conductor Material",
+      "type": "select",
+      "unit": "",
+      "default": "copper",
+      "min": null,
+      "max": null,
+      "businessContext": "Material affects resistivity; copper and aluminum are common in industrial installations.",
+      "options": [
+        {
+          "value": "copper",
+          "label": "Copper"
+        },
+        {
+          "value": "aluminum",
+          "label": "Aluminum"
+        }
+      ]
+    },
+    {
+      "id": "conductor_size",
+      "label": "Conductor Size (AWG or kcmil)",
+      "type": "select",
+      "unit": "AWG/kcmil",
+      "default": "10",
+      "min": null,
+      "max": null,
+      "businessContext": "Cross-sectional area determines resistance per unit length.",
+      "options": [
+        {
+          "value": "14",
+          "label": "14 AWG"
+        },
+        {
+          "value": "12",
+          "label": "12 AWG"
+        },
+        {
+          "value": "10",
+          "label": "10 AWG"
+        },
+        {
+          "value": "8",
+          "label": "8 AWG"
+        },
+        {
+          "value": "6",
+          "label": "6 AWG"
+        },
+        {
+          "value": "4",
+          "label": "4 AWG"
+        },
+        {
+          "value": "2",
+          "label": "2 AWG"
+        },
+        {
+          "value": "1",
+          "label": "1 AWG"
+        },
+        {
+          "value": "1/0",
+          "label": "1/0 AWG"
+        },
+        {
+          "value": "2/0",
+          "label": "2/0 AWG"
+        },
+        {
+          "value": "3/0",
+          "label": "3/0 AWG"
+        },
+        {
+          "value": "4/0",
+          "label": "4/0 AWG"
+        },
+        {
+          "value": "250",
+          "label": "250 kcmil"
+        },
+        {
+          "value": "300",
+          "label": "300 kcmil"
+        },
+        {
+          "value": "350",
+          "label": "350 kcmil"
+        },
+        {
+          "value": "500",
+          "label": "500 kcmil"
+        }
+      ]
+    },
+    {
+      "id": "circuit_length",
+      "label": "One-Way Circuit Length",
+      "type": "number",
+      "unit": "ft",
+      "default": 100,
+      "min": 1,
+      "max": 10000,
+      "businessContext": "Distance from source to load; longer runs increase voltage drop."
+    },
+    {
+      "id": "load_current",
+      "label": "Load Current (Amperes)",
+      "type": "number",
+      "unit": "A",
+      "default": 20,
+      "min": 0.1,
+      "max": 5000,
+      "businessContext": "Current drawn by the load; higher current increases drop."
+    },
+    {
+      "id": "system_voltage",
+      "label": "System Voltage (Line-to-Line)",
+      "type": "number",
+      "unit": "V",
+      "default": 480,
+      "min": 12,
+      "max": 35000,
+      "businessContext": "Nominal voltage of the system; used to compute percentage drop."
+    },
+    {
+      "id": "phase_type",
+      "label": "Phase Type",
+      "type": "select",
+      "unit": "",
+      "default": "three_phase",
+      "min": null,
+      "max": null,
+      "businessContext": "Single-phase or three-phase affects the voltage drop formula (factor sqrt(3) for three-phase).",
+      "options": [
+        {
+          "value": "single_phase",
+          "label": "Single-Phase"
+        },
+        {
+          "value": "three_phase",
+          "label": "Three-Phase"
+        }
+      ]
+    },
+    {
+      "id": "power_factor",
+      "label": "Power Factor (cos φ)",
+      "type": "number",
+      "unit": "",
+      "default": 0.85,
+      "min": 0.5,
+      "max": 1,
+      "businessContext": "Reactive component increases effective current; typical industrial PF is 0.8-0.95."
+    },
+    {
+      "id": "ambient_temperature",
+      "label": "Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 30,
+      "min": -10,
+      "max": 60,
+      "businessContext": "Temperature affects conductor resistance; higher temperature increases resistance."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_length_current",
+        "condition": "circuit_length > 500 AND load_current > 200",
+        "message": "Long circuit with high current may require parallel conductors or larger size."
+      },
+      {
+        "id": "rule_voltage_drop_percent",
+        "condition": "voltage_drop_percent > 3",
+        "message": "Voltage drop exceeds 3% recommended by NEC for branch circuits."
+      },
+      {
+        "id": "rule_voltage_drop_percent_feeder",
+        "condition": "voltage_drop_percent > 5",
+        "message": "Voltage drop exceeds 5% recommended by NEC for feeders."
+      },
+      {
+        "id": "rule_power_factor_low",
+        "condition": "power_factor < 0.8",
+        "message": "Low power factor increases voltage drop; consider power factor correction."
+      },
+      {
+        "id": "rule_temperature_high",
+        "condition": "ambient_temperature > 40",
+        "message": "High ambient temperature reduces conductor ampacity; check NEC derating."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "alert_voltage_drop_high",
+        "condition": "voltage_drop_percent > 5",
+        "severity": "critical",
+        "message": "Voltage drop exceeds 5% – immediate redesign recommended."
+      },
+      {
+        "id": "alert_voltage_drop_warning",
+        "condition": "voltage_drop_percent > 3 AND voltage_drop_percent <= 5",
+        "severity": "warning",
+        "message": "Voltage drop between 3% and 5% – consider larger conductor or shorter run."
+      },
+      {
+        "id": "alert_current_over_ampacity",
+        "condition": "load_current > ampacity_of_selected_conductor",
+        "severity": "critical",
+        "message": "Load current exceeds conductor ampacity – risk of overheating."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "resistance_per_unit",
+      "name": "Resistance per unit length at 20°C",
+      "description": "Base resistance from NEC Table 8 for copper and aluminum at 20°C.",
+      "formula": "R20 = lookup_resistance(conductor_material, conductor_size)",
+      "unit": "Ω/1000ft"
+    },
+    {
+      "id": "temperature_correction_factor",
+      "name": "Temperature correction factor",
+      "description": "Adjusts resistance for ambient temperature using copper/aluminum temperature coefficient α=0.00393 (Cu) or 0.00403 (Al).",
+      "formula": "TCF = 1 + α * (ambient_temperature - 20)",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "adjusted_resistance",
+      "name": "Adjusted resistance at operating temperature",
+      "description": "Resistance corrected for ambient temperature.",
+      "formula": "R_adj = R20 * TCF",
+      "unit": "Ω/1000ft"
+    },
+    {
+      "id": "effective_impedance",
+      "name": "Effective impedance per 1000 ft",
+      "description": "Includes resistance and reactance (X assumed 0.048 Ω/1000ft for typical conductors).",
+      "formula": "Z = sqrt(R_adj^2 + X^2)",
+      "unit": "Ω/1000ft"
+    },
+    {
+      "id": "voltage_drop_volts",
+      "name": "Voltage drop in volts",
+      "description": "Uses standard formula: Vd = (I * L * Z * K) / 1000, where K=2 for single-phase, K=√3 for three-phase.",
+      "formula": "Vd = (load_current * circuit_length * Z * phase_factor) / 1000",
+      "unit": "V"
+    },
+    {
+      "id": "voltage_drop_percent",
+      "name": "Voltage drop in percent",
+      "description": "Percentage of nominal system voltage.",
+      "formula": "Vd_percent = (Vd / system_voltage) * 100",
+      "unit": "%"
+    },
+    {
+      "id": "power_loss",
+      "name": "Power loss in conductor",
+      "description": "I²R losses in the conductor (total both ways).",
+      "formula": "P_loss = 2 * (load_current^2 * R_adj * circuit_length / 1000)",
+      "unit": "W"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "voltage_drop_percent",
+      "label": "Voltage Drop (%)",
+      "value": null,
+      "unit": "%",
+      "description": "Calculated voltage drop as a percentage of system voltage."
+    },
+    "breakdown": {
+      "resistance_at_20C": {
+        "id": "resistance_at_20C",
+        "label": "Resistance at 20°C",
+        "value": null,
+        "unit": "Ω/1000ft"
+      },
+      "temperature_correction_factor": {
+        "id": "temperature_correction_factor",
+        "label": "Temperature Correction Factor",
+        "value": null,
+        "unit": ""
+      },
+      "adjusted_resistance": {
+        "id": "adjusted_resistance",
+        "label": "Adjusted Resistance",
+        "value": null,
+        "unit": "Ω/1000ft"
+      },
+      "effective_impedance": {
+        "id": "effective_impedance",
+        "label": "Effective Impedance",
+        "value": null,
+        "unit": "Ω/1000ft"
+      },
+      "voltage_drop_volts": {
+        "id": "voltage_drop_volts",
+        "label": "Voltage Drop (Volts)",
+        "value": null,
+        "unit": "V"
+      },
+      "power_loss": {
+        "id": "power_loss",
+        "label": "Power Loss (I²R)",
+        "value": null,
+        "unit": "W"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "loss_high_resistance",
+        "label": "High conductor resistance",
+        "description": "Small conductor size or high-resistivity material increases I²R losses.",
+        "impact": "medium"
+      },
+      {
+        "id": "loss_long_run",
+        "label": "Excessive circuit length",
+        "description": "Longer runs increase total resistance and voltage drop.",
+        "impact": "high"
+      },
+      {
+        "id": "loss_low_power_factor",
+        "label": "Low power factor",
+        "description": "Reactive current increases effective current and losses.",
+        "impact": "medium"
+      },
+      {
+        "id": "loss_high_temperature",
+        "label": "High ambient temperature",
+        "description": "Increases conductor resistance and reduces ampacity.",
+        "impact": "low"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_increase_conductor",
+        "label": "Increase conductor size",
+        "description": "Select a larger AWG/kcmil to reduce resistance and voltage drop.",
+        "priority": 1
+      },
+      {
+        "id": "action_reduce_length",
+        "label": "Reduce circuit length",
+        "description": "Relocate load closer to source or use a sub-panel.",
+        "priority": 2
+      },
+      {
+        "id": "action_improve_pf",
+        "label": "Improve power factor",
+        "description": "Install power factor correction capacitors to reduce reactive current.",
+        "priority": 3
+      },
+      {
+        "id": "action_parallel_conductors",
+        "label": "Use parallel conductors",
+        "description": "Run multiple conductors per phase to halve effective resistance.",
+        "priority": 4
+      },
+      {
+        "id": "action_use_copper",
+        "label": "Switch to copper conductor",
+        "description": "If aluminum is used, copper offers lower resistivity.",
+        "priority": 5
+      }
+    ],
+    "dataConfidenceAdjusted": 0.92
+  }
+}

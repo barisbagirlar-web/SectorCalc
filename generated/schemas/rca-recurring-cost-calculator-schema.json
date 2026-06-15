@@ -1,0 +1,328 @@
+{
+  "slug": "rca-recurring-cost-calculator",
+  "title": "Recurring Cost Calculator (RCA)",
+  "description": "Industrial-grade recurring cost analysis tool based on Lean, Six Sigma, and ISO 14000 standards. Calculates total recurring cost, identifies hidden loss drivers, and suggests improvement actions.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario comparison",
+    "Automated report generation"
+  ],
+  "inputs": [
+    {
+      "id": "labor_rate",
+      "label": "Labor Rate (per hour)",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 25,
+      "min": 7.25,
+      "max": 150,
+      "businessContext": "Average hourly wage including burden for direct labor operators."
+    },
+    {
+      "id": "labor_hours_per_cycle",
+      "label": "Labor Hours per Cycle",
+      "type": "number",
+      "unit": "hours",
+      "default": 0.5,
+      "min": 0.01,
+      "max": 8,
+      "businessContext": "Standard time per production cycle (e.g., per unit or batch)."
+    },
+    {
+      "id": "material_cost_per_unit",
+      "label": "Material Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 12,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Direct material cost per unit of output."
+    },
+    {
+      "id": "energy_cost_per_cycle",
+      "label": "Energy Cost per Cycle",
+      "type": "number",
+      "unit": "USD",
+      "default": 1.5,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Electricity, gas, or other energy costs per production cycle."
+    },
+    {
+      "id": "maintenance_cost_per_cycle",
+      "label": "Maintenance Cost per Cycle",
+      "type": "number",
+      "unit": "USD",
+      "default": 0.75,
+      "min": 0,
+      "max": 200,
+      "businessContext": "Average preventive and corrective maintenance cost allocated per cycle."
+    },
+    {
+      "id": "overhead_rate",
+      "label": "Overhead Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage applied to direct costs to cover indirect expenses (ISO 14051)."
+    },
+    {
+      "id": "cycle_time_minutes",
+      "label": "Cycle Time (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 30,
+      "min": 0.1,
+      "max": 480,
+      "businessContext": "Actual cycle time per unit; used for throughput and efficiency calculations."
+    },
+    {
+      "id": "defect_rate",
+      "label": "Defect Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of units that fail quality inspection (Six Sigma metric)."
+    },
+    {
+      "id": "rework_cost_per_defect",
+      "label": "Rework Cost per Defect",
+      "type": "number",
+      "unit": "USD",
+      "default": 5,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Additional cost to rework or scrap a defective unit."
+    },
+    {
+      "id": "production_volume",
+      "label": "Production Volume (units/month)",
+      "type": "number",
+      "unit": "units",
+      "default": 10000,
+      "min": 1,
+      "max": 1000000,
+      "businessContext": "Monthly production quantity used to scale recurring costs."
+    },
+    {
+      "id": "shift_pattern",
+      "label": "Shift Pattern",
+      "type": "select",
+      "unit": "",
+      "default": "single",
+      "options": [
+        "single",
+        "double",
+        "continuous"
+      ],
+      "businessContext": "Determines labor multiplier and overhead allocation (Lean standard)."
+    },
+    {
+      "id": "include_environmental_cost",
+      "label": "Include Environmental Cost (ISO 14000)",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "businessContext": "If true, adds estimated environmental compliance and waste disposal costs."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_cycle_time_vs_labor",
+        "condition": "cycle_time_minutes > 0 AND labor_hours_per_cycle > 0",
+        "message": "Cycle time and labor hours must be positive."
+      },
+      {
+        "id": "rule_defect_rate_range",
+        "condition": "defect_rate >= 0 AND defect_rate <= 100",
+        "message": "Defect rate must be between 0% and 100%."
+      },
+      {
+        "id": "rule_overhead_non_negative",
+        "condition": "overhead_rate >= 0",
+        "message": "Overhead rate cannot be negative."
+      },
+      {
+        "id": "rule_shift_labor_multiplier",
+        "condition": "shift_pattern == 'single' OR shift_pattern == 'double' OR shift_pattern == 'continuous'",
+        "message": "Shift pattern must be one of: single, double, continuous."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "thresh_labor_cost_high",
+        "condition": "labor_rate * labor_hours_per_cycle > 50",
+        "level": "warning",
+        "message": "Labor cost per cycle exceeds $50. Consider process improvement (Lean)."
+      },
+      {
+        "id": "thresh_defect_rate_high",
+        "condition": "defect_rate > 5",
+        "level": "critical",
+        "message": "Defect rate above 5% — Six Sigma DMAIC project recommended."
+      },
+      {
+        "id": "thresh_energy_cost_high",
+        "condition": "energy_cost_per_cycle > 10",
+        "level": "warning",
+        "message": "Energy cost per cycle > $10. Investigate energy efficiency (ISO 50001)."
+      },
+      {
+        "id": "thresh_overhead_high",
+        "condition": "overhead_rate > 50",
+        "level": "warning",
+        "message": "Overhead rate > 50%. Review indirect cost drivers (ABC analysis)."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "direct_labor_cost_per_unit",
+      "label": "Direct Labor Cost per Unit",
+      "expression": "labor_rate * labor_hours_per_cycle",
+      "unit": "USD",
+      "description": "Labor cost incurred per unit produced."
+    },
+    {
+      "id": "quality_cost_per_unit",
+      "label": "Quality Cost per Unit",
+      "expression": "(defect_rate / 100) * rework_cost_per_defect",
+      "unit": "USD",
+      "description": "Expected rework/scrap cost per unit due to defects."
+    },
+    {
+      "id": "environmental_cost_per_unit",
+      "label": "Environmental Cost per Unit (if included)",
+      "expression": "include_environmental_cost ? (0.05 * (material_cost_per_unit + energy_cost_per_cycle)) : 0",
+      "unit": "USD",
+      "description": "Estimated environmental compliance and waste disposal cost per unit (5% of material+energy)."
+    },
+    {
+      "id": "shift_multiplier",
+      "label": "Shift Multiplier",
+      "expression": "CASE shift_pattern WHEN 'single' THEN 1.0 WHEN 'double' THEN 1.5 WHEN 'continuous' THEN 2.0 ELSE 1.0 END",
+      "unit": "",
+      "description": "Multiplier to account for shift-related overhead and labor premiums."
+    },
+    {
+      "id": "total_direct_cost_per_unit",
+      "label": "Total Direct Cost per Unit",
+      "expression": "direct_labor_cost_per_unit + material_cost_per_unit + energy_cost_per_cycle + maintenance_cost_per_cycle + quality_cost_per_unit + environmental_cost_per_unit",
+      "unit": "USD",
+      "description": "Sum of all direct costs per unit."
+    },
+    {
+      "id": "overhead_cost_per_unit",
+      "label": "Overhead Cost per Unit",
+      "expression": "(overhead_rate / 100) * total_direct_cost_per_unit * shift_multiplier",
+      "unit": "USD",
+      "description": "Allocated overhead per unit based on direct costs and shift pattern."
+    },
+    {
+      "id": "total_recurring_cost_per_unit",
+      "label": "Total Recurring Cost per Unit (Primary Result)",
+      "expression": "total_direct_cost_per_unit + overhead_cost_per_unit",
+      "unit": "USD",
+      "description": "Primary result: fully loaded recurring cost per unit."
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_recurring_cost_per_unit",
+      "label": "Total Recurring Cost per Unit",
+      "value": null,
+      "unit": "USD",
+      "description": "Primary result of the calculation."
+    },
+    "breakdown": {
+      "direct_labor_cost_per_unit": {
+        "label": "Direct Labor Cost per Unit",
+        "unit": "USD"
+      },
+      "material_cost_per_unit": {
+        "label": "Material Cost per Unit",
+        "unit": "USD"
+      },
+      "energy_cost_per_cycle": {
+        "label": "Energy Cost per Cycle",
+        "unit": "USD"
+      },
+      "maintenance_cost_per_cycle": {
+        "label": "Maintenance Cost per Cycle",
+        "unit": "USD"
+      },
+      "quality_cost_per_unit": {
+        "label": "Quality Cost per Unit",
+        "unit": "USD"
+      },
+      "environmental_cost_per_unit": {
+        "label": "Environmental Cost per Unit",
+        "unit": "USD"
+      },
+      "overhead_cost_per_unit": {
+        "label": "Overhead Cost per Unit",
+        "unit": "USD"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "loss_defect_rework",
+        "label": "Defect & Rework Loss",
+        "description": "Costs due to defects and rework, often hidden in standard accounting.",
+        "value": null,
+        "unit": "USD"
+      },
+      {
+        "id": "loss_energy_inefficiency",
+        "label": "Energy Inefficiency Loss",
+        "description": "Excess energy cost compared to benchmark (ISO 50001).",
+        "value": null,
+        "unit": "USD"
+      },
+      {
+        "id": "loss_overhead_allocation",
+        "label": "Overhead Allocation Distortion",
+        "description": "Potential misallocation of overhead due to shift pattern and indirect costs.",
+        "value": null,
+        "unit": "USD"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_reduce_defects",
+        "label": "Implement Six Sigma DMAIC to reduce defect rate below 2%.",
+        "impact": "Reduces quality cost per unit and hidden loss."
+      },
+      {
+        "id": "action_energy_audit",
+        "label": "Conduct energy audit (ISO 50001) to identify savings opportunities.",
+        "impact": "Lowers energy cost per cycle and environmental cost."
+      },
+      {
+        "id": "action_lean_kaizen",
+        "label": "Apply Lean Kaizen to reduce cycle time and labor hours.",
+        "impact": "Decreases direct labor cost and improves throughput."
+      },
+      {
+        "id": "action_overhead_review",
+        "label": "Review overhead allocation using Activity-Based Costing (ABC).",
+        "impact": "Ensures accurate cost assignment and identifies waste."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_adjusted_cost",
+      "label": "Data Confidence Adjusted Cost",
+      "value": null,
+      "unit": "USD",
+      "description": "Total recurring cost adjusted by a confidence factor (0.8 to 1.2) based on input variability."
+    }
+  }
+}

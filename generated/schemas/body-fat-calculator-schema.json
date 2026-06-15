@@ -1,0 +1,297 @@
+{
+  "slug": "body-fat-calculator",
+  "name": "Body Fat Calculator",
+  "description": "Industrial-grade body fat estimation tool using anthropometric measurements and lean manufacturing principles for health and ergonomic risk assessment.",
+  "version": "1.0.0",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-user benchmarking",
+    "Custom report templates"
+  ],
+  "inputs": [
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "select",
+      "unit": null,
+      "default": "male",
+      "min": null,
+      "max": null,
+      "businessContext": "Biological sex used in anthropometric regression models (ISO 7250-1).",
+      "options": [
+        "male",
+        "female"
+      ]
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "min": 18,
+      "max": 100,
+      "businessContext": "Age affects body composition and metabolic rate (Six Sigma DMAIC phase: Measure)."
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "min": 100,
+      "max": 250,
+      "businessContext": "Stature measurement per ISO 7250-1 for normalization."
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 75,
+      "min": 30,
+      "max": 300,
+      "businessContext": "Body mass for BMI and fat mass calculations."
+    },
+    {
+      "id": "neckCircumference",
+      "label": "Neck Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 38,
+      "min": 25,
+      "max": 60,
+      "businessContext": "Key input for body density estimation (Navy method, Lean Six Sigma MSA)."
+    },
+    {
+      "id": "waistCircumference",
+      "label": "Waist Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 85,
+      "min": 50,
+      "max": 150,
+      "businessContext": "Abdominal girth for visceral fat risk (WERC ergonomic guidelines)."
+    },
+    {
+      "id": "hipCircumference",
+      "label": "Hip Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 95,
+      "min": 50,
+      "max": 160,
+      "businessContext": "Required for female body fat calculation (ISO 20685)."
+    },
+    {
+      "id": "activityLevel",
+      "label": "Activity Level",
+      "type": "select",
+      "unit": null,
+      "default": "moderate",
+      "min": null,
+      "max": null,
+      "businessContext": "Physical activity multiplier for energy expenditure (Lean Kaizen continuous improvement).",
+      "options": [
+        "sedentary",
+        "light",
+        "moderate",
+        "active",
+        "very active"
+      ]
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "waist_hip_ratio_check",
+        "condition": "waistCircumference > 0 AND hipCircumference > 0",
+        "message": "Waist and hip circumferences must be positive for ratio calculation."
+      },
+      {
+        "id": "gender_hip_required",
+        "condition": "gender == 'female' AND hipCircumference == null",
+        "message": "Hip circumference is required for female body fat estimation."
+      },
+      {
+        "id": "age_range_industrial",
+        "condition": "age >= 18 AND age <= 100",
+        "message": "Age must be between 18 and 100 years per ISO 11228-1."
+      },
+      {
+        "id": "neck_waist_consistency",
+        "condition": "neckCircumference < waistCircumference",
+        "message": "Neck circumference should be less than waist circumference for valid anthropometry."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "obesity_risk_high",
+        "condition": "bodyFatPercentage > 25 AND gender == 'male'",
+        "alert": "High body fat percentage for male. Consider ergonomic intervention (WERC)."
+      },
+      {
+        "id": "obesity_risk_female",
+        "condition": "bodyFatPercentage > 32 AND gender == 'female'",
+        "alert": "High body fat percentage for female. Health risk per WHO standards."
+      },
+      {
+        "id": "waist_risk",
+        "condition": "waistCircumference > 102 AND gender == 'male'",
+        "alert": "Elevated waist circumference (>102 cm) indicates metabolic syndrome risk (Lean Six Sigma CTQ)."
+      },
+      {
+        "id": "waist_risk_female",
+        "condition": "waistCircumference > 88 AND gender == 'female'",
+        "alert": "Elevated waist circumference (>88 cm) indicates metabolic syndrome risk."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "bmi",
+      "name": "Body Mass Index",
+      "description": "Standard BMI calculation per WHO.",
+      "formula": "weight / ((height / 100) ^ 2)",
+      "unit": "kg/m²",
+      "order": 1
+    },
+    {
+      "id": "bodyDensity",
+      "name": "Body Density (Navy Method)",
+      "description": "Body density estimation using circumference measurements (Hodgdon & Beckett).",
+      "formula": "gender == 'male' ? (1.0323 - 0.000154 * waistCircumference + 0.0001557 * neckCircumference - 0.000069 * height) : (1.0296 - 0.000154 * waistCircumference + 0.0001557 * neckCircumference + 0.000069 * hipCircumference - 0.000069 * height)",
+      "unit": "g/cm³",
+      "order": 2
+    },
+    {
+      "id": "bodyFatPercentage",
+      "name": "Body Fat Percentage (Siri Equation)",
+      "description": "Conversion from body density to fat percentage using Siri's equation (ISO 20685).",
+      "formula": "(495 / bodyDensity) - 450",
+      "unit": "%",
+      "order": 3
+    },
+    {
+      "id": "fatMass",
+      "name": "Fat Mass",
+      "description": "Absolute fat mass in kilograms.",
+      "formula": "weight * (bodyFatPercentage / 100)",
+      "unit": "kg",
+      "order": 4
+    },
+    {
+      "id": "leanMass",
+      "name": "Lean Body Mass",
+      "description": "Fat-free mass (muscle, bone, organs).",
+      "formula": "weight - fatMass",
+      "unit": "kg",
+      "order": 5
+    },
+    {
+      "id": "waistHipRatio",
+      "name": "Waist-to-Hip Ratio",
+      "description": "Indicator of fat distribution (WERC ergonomic risk).",
+      "formula": "waistCircumference / hipCircumference",
+      "unit": "ratio",
+      "order": 6
+    },
+    {
+      "id": "adjustedBodyFat",
+      "name": "Data Confidence Adjusted Body Fat",
+      "description": "Body fat percentage adjusted for measurement uncertainty (Six Sigma Gage R&R).",
+      "formula": "bodyFatPercentage * (1 - 0.05 * (activityLevel == 'sedentary' ? 1 : activityLevel == 'light' ? 0.8 : activityLevel == 'moderate' ? 0.6 : activityLevel == 'active' ? 0.4 : 0.2))",
+      "unit": "%",
+      "order": 7
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "bodyFatPercentage",
+      "label": "Body Fat Percentage",
+      "value": null,
+      "unit": "%",
+      "description": "Estimated body fat percentage using Siri equation from body density."
+    },
+    "breakdown": {
+      "bmi": {
+        "id": "bmi",
+        "label": "Body Mass Index",
+        "value": null,
+        "unit": "kg/m²"
+      },
+      "bodyDensity": {
+        "id": "bodyDensity",
+        "label": "Body Density",
+        "value": null,
+        "unit": "g/cm³"
+      },
+      "fatMass": {
+        "id": "fatMass",
+        "label": "Fat Mass",
+        "value": null,
+        "unit": "kg"
+      },
+      "leanMass": {
+        "id": "leanMass",
+        "label": "Lean Body Mass",
+        "value": null,
+        "unit": "kg"
+      },
+      "waistHipRatio": {
+        "id": "waistHipRatio",
+        "label": "Waist-to-Hip Ratio",
+        "value": null,
+        "unit": "ratio"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "measurement_error_neck",
+        "description": "Neck circumference measurement error > 0.5 cm can bias body fat by ±2% (Six Sigma MSA).",
+        "impact": "medium"
+      },
+      {
+        "id": "hydration_status",
+        "description": "Hydration affects body density; not accounted in Navy method (Lean waste: variation).",
+        "impact": "low"
+      },
+      {
+        "id": "activity_level_uncertainty",
+        "description": "Self-reported activity level may overestimate energy expenditure (ISO 8996).",
+        "impact": "medium"
+      },
+      {
+        "id": "age_related_bias",
+        "description": "Siri equation assumes constant density of fat-free mass; bias increases with age (ISO 20685).",
+        "impact": "high"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "description": "If body fat > 25% (male) or > 32% (female): implement Lean Kaizen health improvement plan with diet and exercise.",
+        "priority": "high"
+      },
+      {
+        "id": "action_2",
+        "description": "If waist-hip ratio > 0.9 (male) or > 0.85 (female): schedule ergonomic workstation assessment per WERC guidelines.",
+        "priority": "medium"
+      },
+      {
+        "id": "action_3",
+        "description": "If BMI > 30: refer to occupational health for metabolic screening (ISO 45001).",
+        "priority": "high"
+      },
+      {
+        "id": "action_4",
+        "description": "Repeat measurements monthly to reduce random error and track trend (SPC control chart).",
+        "priority": "low"
+      }
+    ],
+    "dataConfidenceAdjusted": null
+  }
+}

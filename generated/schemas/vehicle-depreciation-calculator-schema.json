@@ -1,0 +1,345 @@
+{
+  "slug": "vehicle-depreciation-calculator",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario comparison",
+    "API integration"
+  ],
+  "inputs": [
+    {
+      "id": "purchase_price",
+      "label": "Purchase Price (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "min": 1000,
+      "max": 500000,
+      "businessContext": "Initial acquisition cost of the vehicle, including taxes and fees."
+    },
+    {
+      "id": "residual_value",
+      "label": "Residual Value (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 12000,
+      "min": 0,
+      "max": 500000,
+      "businessContext": "Estimated market value of the vehicle at the end of the holding period."
+    },
+    {
+      "id": "holding_period_years",
+      "label": "Holding Period (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 1,
+      "max": 20,
+      "businessContext": "Expected number of years the vehicle will be owned and used."
+    },
+    {
+      "id": "annual_mileage",
+      "label": "Annual Mileage (miles)",
+      "type": "number",
+      "unit": "miles",
+      "default": 12000,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Average miles driven per year, directly impacts wear and depreciation."
+    },
+    {
+      "id": "depreciation_method",
+      "label": "Depreciation Method",
+      "type": "select",
+      "unit": "",
+      "default": "straight_line",
+      "min": null,
+      "max": null,
+      "businessContext": "Accounting method used to allocate depreciation expense over the holding period.",
+      "options": [
+        "straight_line",
+        "declining_balance",
+        "sum_of_years_digits"
+      ]
+    },
+    {
+      "id": "maintenance_cost_per_year",
+      "label": "Annual Maintenance Cost (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 800,
+      "min": 0,
+      "max": 50000,
+      "businessContext": "Average yearly expenditure on repairs, tires, and routine servicing."
+    },
+    {
+      "id": "fuel_efficiency_mpg",
+      "label": "Fuel Efficiency (MPG)",
+      "type": "number",
+      "unit": "mpg",
+      "default": 25,
+      "min": 5,
+      "max": 100,
+      "businessContext": "Miles per gallon, used to estimate fuel cost and total cost of ownership."
+    },
+    {
+      "id": "fuel_price_per_gallon",
+      "label": "Fuel Price per Gallon (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 3.5,
+      "min": 0.5,
+      "max": 10,
+      "businessContext": "Current or projected average fuel price for the vehicle's fuel type."
+    },
+    {
+      "id": "insurance_cost_per_year",
+      "label": "Annual Insurance Cost (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 1200,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Yearly premium for comprehensive and liability coverage."
+    },
+    {
+      "id": "discount_rate",
+      "label": "Discount Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 30,
+      "businessContext": "Annual discount rate used for net present value calculations (cost of capital)."
+    },
+    {
+      "id": "vehicle_type",
+      "label": "Vehicle Type",
+      "type": "select",
+      "unit": "",
+      "default": "sedan",
+      "min": null,
+      "max": null,
+      "businessContext": "Category of vehicle, influences depreciation curves and maintenance patterns.",
+      "options": [
+        "sedan",
+        "suv",
+        "truck",
+        "van",
+        "luxury"
+      ]
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "residual_less_than_purchase",
+        "condition": "residual_value >= purchase_price",
+        "message": "Residual value must be less than purchase price.",
+        "severity": "error"
+      },
+      {
+        "id": "holding_period_positive",
+        "condition": "holding_period_years <= 0",
+        "message": "Holding period must be at least 1 year.",
+        "severity": "error"
+      },
+      {
+        "id": "mileage_non_negative",
+        "condition": "annual_mileage < 0",
+        "message": "Annual mileage cannot be negative.",
+        "severity": "error"
+      },
+      {
+        "id": "fuel_efficiency_positive",
+        "condition": "fuel_efficiency_mpg <= 0",
+        "message": "Fuel efficiency must be greater than 0.",
+        "severity": "error"
+      },
+      {
+        "id": "discount_rate_range",
+        "condition": "discount_rate < 0 || discount_rate > 30",
+        "message": "Discount rate must be between 0% and 30%.",
+        "severity": "warning"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_depreciation_alert",
+        "condition": "annual_depreciation_rate > 0.25",
+        "message": "Annual depreciation rate exceeds 25% — consider shorter holding period or different vehicle type.",
+        "severity": "warning"
+      },
+      {
+        "id": "total_cost_alert",
+        "condition": "total_cost_of_ownership > purchase_price * 1.5",
+        "message": "Total cost of ownership exceeds 150% of purchase price — review operating expenses.",
+        "severity": "warning"
+      },
+      {
+        "id": "low_residual_alert",
+        "condition": "residual_value / purchase_price < 0.2",
+        "message": "Residual value is less than 20% of purchase price — high depreciation risk.",
+        "severity": "info"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "annual_depreciation_straight_line",
+      "name": "Annual Depreciation (Straight Line)",
+      "description": "Equal annual depreciation over holding period.",
+      "formula": "(purchase_price - residual_value) / holding_period_years",
+      "unit": "USD/year"
+    },
+    {
+      "id": "annual_depreciation_declining_balance",
+      "name": "Annual Depreciation (Declining Balance)",
+      "description": "Accelerated depreciation using double declining balance method.",
+      "formula": "2 * (book_value / holding_period_years)",
+      "unit": "USD/year",
+      "note": "Book value is updated each year; simplified as average for total."
+    },
+    {
+      "id": "annual_depreciation_sum_of_years",
+      "name": "Annual Depreciation (Sum of Years Digits)",
+      "description": "Depreciation based on remaining life fraction.",
+      "formula": "(remaining_years / sum_of_years) * (purchase_price - residual_value)",
+      "unit": "USD/year",
+      "note": "Sum of years = holding_period_years * (holding_period_years + 1) / 2"
+    },
+    {
+      "id": "annual_fuel_cost",
+      "name": "Annual Fuel Cost",
+      "description": "Yearly expenditure on fuel based on mileage and efficiency.",
+      "formula": "(annual_mileage / fuel_efficiency_mpg) * fuel_price_per_gallon",
+      "unit": "USD/year"
+    },
+    {
+      "id": "total_operating_cost",
+      "name": "Total Operating Cost",
+      "description": "Sum of all annual operating expenses over holding period.",
+      "formula": "(maintenance_cost_per_year + insurance_cost_per_year + annual_fuel_cost) * holding_period_years",
+      "unit": "USD"
+    },
+    {
+      "id": "net_present_value_operating",
+      "name": "Net Present Value of Operating Costs",
+      "description": "Discounted sum of annual operating costs using discount rate.",
+      "formula": "SUM_{t=1}^{holding_period_years} (annual_operating_cost / (1 + discount_rate/100)^t)",
+      "unit": "USD"
+    },
+    {
+      "id": "total_cost_of_ownership",
+      "name": "Total Cost of Ownership (TCO)",
+      "description": "Comprehensive cost including purchase, depreciation, and operating costs (NPV).",
+      "formula": "purchase_price - residual_value + net_present_value_operating",
+      "unit": "USD"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "annual_depreciation_rate",
+      "label": "Annual Depreciation Rate",
+      "value": null,
+      "unit": "%",
+      "description": "Effective annual depreciation as a percentage of purchase price."
+    },
+    "breakdown": {
+      "annual_depreciation_amount": {
+        "id": "annual_depreciation_amount",
+        "label": "Annual Depreciation Amount",
+        "value": null,
+        "unit": "USD/year",
+        "description": "Depreciation expense per year based on selected method."
+      },
+      "total_depreciation": {
+        "id": "total_depreciation",
+        "label": "Total Depreciation over Holding Period",
+        "value": null,
+        "unit": "USD",
+        "description": "Total loss in value from purchase to residual."
+      },
+      "annual_fuel_cost": {
+        "id": "annual_fuel_cost",
+        "label": "Annual Fuel Cost",
+        "value": null,
+        "unit": "USD/year"
+      },
+      "total_operating_cost": {
+        "id": "total_operating_cost",
+        "label": "Total Operating Cost (undiscounted)",
+        "value": null,
+        "unit": "USD"
+      },
+      "net_present_value_operating": {
+        "id": "net_present_value_operating",
+        "label": "NPV of Operating Costs",
+        "value": null,
+        "unit": "USD"
+      },
+      "total_cost_of_ownership": {
+        "id": "total_cost_of_ownership",
+        "label": "Total Cost of Ownership (TCO)",
+        "value": null,
+        "unit": "USD"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excess_mileage_penalty",
+        "label": "Excess Mileage Penalty",
+        "description": "Above-average mileage accelerates depreciation beyond standard curves.",
+        "impact": "high"
+      },
+      {
+        "id": "maintenance_deferred",
+        "label": "Deferred Maintenance",
+        "description": "Skipping scheduled maintenance reduces residual value and increases long-term costs.",
+        "impact": "medium"
+      },
+      {
+        "id": "market_volatility",
+        "label": "Market Volatility (Resale Value Risk)",
+        "description": "Unexpected shifts in demand for vehicle type can lower residual value.",
+        "impact": "medium"
+      },
+      {
+        "id": "fuel_price_spikes",
+        "label": "Fuel Price Spikes",
+        "description": "Sudden increases in fuel cost disproportionately affect low-MPG vehicles.",
+        "impact": "low"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_optimize_holding",
+        "label": "Optimize Holding Period",
+        "description": "Consider a shorter holding period to avoid steep depreciation after year 3-5."
+      },
+      {
+        "id": "action_reduce_mileage",
+        "label": "Reduce Annual Mileage",
+        "description": "Lower mileage preserves resale value and reduces fuel/maintenance costs."
+      },
+      {
+        "id": "action_improve_maintenance",
+        "label": "Implement Preventive Maintenance Schedule",
+        "description": "Regular servicing improves reliability and residual value."
+      },
+      {
+        "id": "action_choose_fuel_efficient",
+        "label": "Select Higher MPG Vehicle",
+        "description": "Better fuel efficiency reduces operating cost and exposure to fuel price volatility."
+      },
+      {
+        "id": "action_negotiate_residual",
+        "label": "Negotiate Higher Residual Value Guarantee",
+        "description": "If leasing, secure a higher residual to lower depreciation cost."
+      }
+    ],
+    "dataConfidenceAdjusted": 0.85
+  }
+}

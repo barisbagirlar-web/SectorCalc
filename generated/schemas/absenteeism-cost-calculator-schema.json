@@ -1,0 +1,318 @@
+{
+  "slug": "absenteeism-cost-calculator",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Benchmarking against industry standards",
+    "Automated alerts via email"
+  ],
+  "inputs": [
+    {
+      "id": "total_employees",
+      "label": "Total Employees",
+      "type": "number",
+      "unit": "employees",
+      "default": 500,
+      "min": 1,
+      "max": 100000,
+      "businessContext": "Total number of full-time equivalent employees in the organization."
+    },
+    {
+      "id": "absenteeism_rate",
+      "label": "Absenteeism Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 3.5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of scheduled work hours lost due to unplanned absences (ISO 30400)."
+    },
+    {
+      "id": "avg_hourly_wage",
+      "label": "Average Hourly Wage (USD)",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 25,
+      "min": 7.25,
+      "max": 200,
+      "businessContext": "Weighted average hourly wage including benefits and payroll taxes."
+    },
+    {
+      "id": "avg_hours_per_day",
+      "label": "Average Hours per Day",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "min": 1,
+      "max": 16,
+      "businessContext": "Standard scheduled hours per employee per day."
+    },
+    {
+      "id": "working_days_per_year",
+      "label": "Working Days per Year",
+      "type": "number",
+      "unit": "days",
+      "default": 250,
+      "min": 1,
+      "max": 365,
+      "businessContext": "Number of scheduled working days per year (excluding weekends and holidays)."
+    },
+    {
+      "id": "replacement_cost_per_hour",
+      "label": "Replacement Cost per Hour (USD)",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 35,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Average cost of overtime, temporary staff, or cross-training to cover absent employees."
+    },
+    {
+      "id": "overhead_multiplier",
+      "label": "Overhead Multiplier",
+      "type": "number",
+      "unit": "ratio",
+      "default": 1.3,
+      "min": 1,
+      "max": 5,
+      "businessContext": "Multiplier to account for indirect costs (supervision, facilities, HR) per direct labor hour."
+    },
+    {
+      "id": "industry_type",
+      "label": "Industry Type",
+      "type": "select",
+      "unit": "",
+      "default": "Manufacturing",
+      "min": null,
+      "max": null,
+      "options": [
+        "Manufacturing",
+        "Healthcare",
+        "Retail",
+        "Logistics",
+        "Professional Services",
+        "Construction"
+      ],
+      "businessContext": "Industry sector for benchmarking and adjusting cost factors."
+    },
+    {
+      "id": "include_overtime_penalty",
+      "label": "Include Overtime Penalty",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "min": null,
+      "max": null,
+      "businessContext": "If true, applies a 1.5x multiplier to replacement costs for overtime hours."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_abs_rate_range",
+        "condition": "absenteeism_rate >= 0 AND absenteeism_rate <= 100",
+        "message": "Absenteeism rate must be between 0% and 100%."
+      },
+      {
+        "id": "rule_wage_positive",
+        "condition": "avg_hourly_wage > 0",
+        "message": "Average hourly wage must be greater than zero."
+      },
+      {
+        "id": "rule_employees_positive",
+        "condition": "total_employees > 0",
+        "message": "Total employees must be at least 1."
+      },
+      {
+        "id": "rule_replacement_cost_non_negative",
+        "condition": "replacement_cost_per_hour >= 0",
+        "message": "Replacement cost per hour cannot be negative."
+      },
+      {
+        "id": "rule_overhead_multiplier_range",
+        "condition": "overhead_multiplier >= 1 AND overhead_multiplier <= 5",
+        "message": "Overhead multiplier must be between 1 and 5."
+      },
+      {
+        "id": "rule_industry_manufacturing_overtime",
+        "condition": "industry_type == 'Manufacturing' AND include_overtime_penalty == true",
+        "message": "Manufacturing industry typically includes overtime penalty; verify if applicable."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "thresh_high_abs_rate",
+        "condition": "absenteeism_rate > 5",
+        "level": "warning",
+        "message": "Absenteeism rate exceeds 5% – consider root cause analysis (Lean Six Sigma)."
+      },
+      {
+        "id": "thresh_critical_cost",
+        "condition": "total_annual_cost > 1000000",
+        "level": "critical",
+        "message": "Total absenteeism cost exceeds $1,000,000 – immediate management review recommended."
+      },
+      {
+        "id": "thresh_low_confidence",
+        "condition": "data_confidence_score < 0.5",
+        "level": "warning",
+        "message": "Data confidence is low – consider validating input data sources."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "total_scheduled_hours",
+      "label": "Total Scheduled Hours per Year",
+      "description": "Total hours all employees are scheduled to work per year.",
+      "expression": "total_employees * avg_hours_per_day * working_days_per_year",
+      "unit": "hours"
+    },
+    {
+      "id": "absent_hours",
+      "label": "Absent Hours per Year",
+      "description": "Total hours lost due to absenteeism.",
+      "expression": "total_scheduled_hours * (absenteeism_rate / 100)",
+      "unit": "hours"
+    },
+    {
+      "id": "direct_labor_cost",
+      "label": "Direct Labor Cost of Absenteeism",
+      "description": "Cost of wages paid to absent employees (including benefits).",
+      "expression": "absent_hours * avg_hourly_wage",
+      "unit": "USD"
+    },
+    {
+      "id": "replacement_cost",
+      "label": "Replacement Cost",
+      "description": "Cost to cover absent employees (overtime, temp staff, etc.).",
+      "expression": "absent_hours * replacement_cost_per_hour * (include_overtime_penalty ? 1.5 : 1.0)",
+      "unit": "USD"
+    },
+    {
+      "id": "overhead_cost",
+      "label": "Overhead Cost",
+      "description": "Indirect costs allocated to absenteeism (supervision, facilities, HR).",
+      "expression": "direct_labor_cost * (overhead_multiplier - 1)",
+      "unit": "USD"
+    },
+    {
+      "id": "total_annual_cost",
+      "label": "Total Annual Absenteeism Cost",
+      "description": "Primary result – total cost of absenteeism per year.",
+      "expression": "direct_labor_cost + replacement_cost + overhead_cost",
+      "unit": "USD"
+    },
+    {
+      "id": "cost_per_absent_hour",
+      "label": "Cost per Absent Hour",
+      "description": "Average cost per hour of absence.",
+      "expression": "total_annual_cost / absent_hours",
+      "unit": "USD/hour"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_annual_cost",
+      "label": "Total Annual Absenteeism Cost",
+      "value": null,
+      "unit": "USD",
+      "description": "The comprehensive annual cost of absenteeism including direct, replacement, and overhead costs."
+    },
+    "breakdown": {
+      "direct_labor_cost": {
+        "id": "direct_labor_cost",
+        "label": "Direct Labor Cost",
+        "value": null,
+        "unit": "USD",
+        "description": "Wages paid to absent employees."
+      },
+      "replacement_cost": {
+        "id": "replacement_cost",
+        "label": "Replacement Cost",
+        "value": null,
+        "unit": "USD",
+        "description": "Cost of overtime, temporary staff, or cross-training."
+      },
+      "overhead_cost": {
+        "id": "overhead_cost",
+        "label": "Overhead Cost",
+        "value": null,
+        "unit": "USD",
+        "description": "Indirect costs allocated to absenteeism."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "lost_productivity",
+        "label": "Lost Productivity (Quality & Rework)",
+        "description": "Estimated cost of defects and rework due to understaffing or inexperienced replacements.",
+        "estimated_value": null,
+        "unit": "USD",
+        "source": "Six Sigma DMAIC – Defects per Million Opportunities (DPMO) analysis"
+      },
+      {
+        "id": "morale_turnover",
+        "label": "Morale & Turnover Impact",
+        "description": "Cost of increased voluntary turnover due to burnout from covering absences.",
+        "estimated_value": null,
+        "unit": "USD",
+        "source": "WERC – Workforce turnover cost models"
+      },
+      {
+        "id": "customer_impact",
+        "label": "Customer Service Impact",
+        "description": "Lost revenue from delayed orders or reduced service levels.",
+        "estimated_value": null,
+        "unit": "USD",
+        "source": "Lean – Value stream mapping of customer lead time"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "priority": "high",
+        "action": "Implement predictive attendance analytics to identify high-risk employees.",
+        "expected_reduction": "15-25% reduction in absenteeism rate",
+        "reference": "ISO 30414 – Human capital reporting"
+      },
+      {
+        "id": "action_2",
+        "priority": "high",
+        "action": "Introduce cross-training program to reduce replacement cost.",
+        "expected_reduction": "10-20% reduction in replacement cost",
+        "reference": "Lean – Standardized work and multi-skilling"
+      },
+      {
+        "id": "action_3",
+        "priority": "medium",
+        "action": "Conduct root cause analysis using Six Sigma (DMAIC) for departments with >5% absenteeism.",
+        "expected_reduction": "20-30% reduction in absenteeism in targeted areas",
+        "reference": "Six Sigma – DMAIC methodology"
+      },
+      {
+        "id": "action_4",
+        "priority": "medium",
+        "action": "Review and adjust overtime policies to minimize penalty costs.",
+        "expected_reduction": "5-10% reduction in replacement cost",
+        "reference": "WERC – Labor cost optimization"
+      },
+      {
+        "id": "action_5",
+        "priority": "low",
+        "action": "Enhance employee wellness programs to improve overall attendance.",
+        "expected_reduction": "5-15% reduction in absenteeism rate",
+        "reference": "ISO 45001 – Occupational health and safety"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_score",
+      "label": "Data Confidence Score",
+      "value": null,
+      "unit": "ratio (0-1)",
+      "description": "Weighted confidence based on input data completeness and reliability. Default 0.8 if all inputs provided."
+    }
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "slug": "discount-calculator",
+  "name": "Discount Calculator",
+  "description": "Industrial-grade discount analysis tool for evaluating pricing strategies, margin impact, and volume trade-offs. Aligns with ISO 9001 cost management and Lean Six Sigma value stream principles.",
+  "version": "1.0.0",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario comparison",
+    "API integration"
+  ],
+  "inputs": [
+    {
+      "id": "list_price",
+      "label": "List Price (per unit)",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "min": 0.01,
+      "max": 100000,
+      "businessContext": "Standard selling price before any discount, as defined in ISO 9001 cost accounting procedures."
+    },
+    {
+      "id": "discount_percent",
+      "label": "Discount Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Negotiated or promotional discount off list price, typical in Lean pricing strategies."
+    },
+    {
+      "id": "quantity",
+      "label": "Order Quantity",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "min": 1,
+      "max": 1000000,
+      "businessContext": "Number of units in the transaction, used for volume-based discount analysis per WERC DC metrics."
+    },
+    {
+      "id": "variable_cost_per_unit",
+      "label": "Variable Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 40,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Direct material, labor, and variable overhead per unit (ISO 14051 MFCA standard)."
+    },
+    {
+      "id": "fixed_cost_allocation",
+      "label": "Fixed Cost Allocation (total)",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "min": 0,
+      "max": 10000000,
+      "businessContext": "Allocated fixed costs for the order batch (e.g., setup, engineering, admin) per Lean cost deployment."
+    },
+    {
+      "id": "discount_type",
+      "label": "Discount Type",
+      "type": "select",
+      "options": [
+        "percentage",
+        "fixed_amount"
+      ],
+      "default": "percentage",
+      "businessContext": "Method of discount application: percentage off list or fixed dollar amount per unit."
+    },
+    {
+      "id": "apply_to_all_units",
+      "label": "Apply Discount to All Units",
+      "type": "boolean",
+      "default": true,
+      "businessContext": "If true, discount applies to entire quantity; if false, only to incremental units (tiered pricing)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "discount_not_exceed_margin",
+        "condition": "discount_percent > 0 AND (list_price * (1 - discount_percent/100)) <= variable_cost_per_unit",
+        "message": "Discounted price is at or below variable cost. This may violate ISO 9001 profitability thresholds.",
+        "severity": "warning"
+      },
+      {
+        "id": "quantity_minimum",
+        "condition": "quantity < 10",
+        "message": "Order quantity is low; consider minimum order quantity policies per Lean lot sizing.",
+        "severity": "info"
+      },
+      {
+        "id": "fixed_cost_ratio",
+        "condition": "fixed_cost_allocation > 0.5 * (list_price * quantity)",
+        "message": "Fixed cost allocation exceeds 50% of total list revenue. Review cost allocation method (ABC).",
+        "severity": "warning"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "negative_margin_alert",
+        "condition": "net_margin < 0",
+        "message": "Net margin is negative. Immediate pricing review recommended per Six Sigma DMAIC.",
+        "severity": "critical"
+      },
+      {
+        "id": "low_margin_alert",
+        "condition": "net_margin_percent < 10",
+        "message": "Net margin below 10%. Consider cost reduction or price optimization (Lean value stream).",
+        "severity": "warning"
+      },
+      {
+        "id": "high_discount_alert",
+        "condition": "discount_percent > 30",
+        "message": "Discount exceeds 30%. Validate strategic intent and impact on brand value (ISO 20437).",
+        "severity": "warning"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "discount_amount_per_unit",
+      "label": "Discount Amount per Unit",
+      "description": "Calculated discount per unit based on type and list price.",
+      "formula": "IF(discount_type='percentage', list_price * discount_percent/100, IF(discount_type='fixed_amount', discount_percent, 0))",
+      "unit": "USD"
+    },
+    {
+      "id": "discounted_price_per_unit",
+      "label": "Discounted Price per Unit",
+      "description": "Net price after discount per unit.",
+      "formula": "list_price - discount_amount_per_unit",
+      "unit": "USD"
+    },
+    {
+      "id": "total_revenue",
+      "label": "Total Revenue",
+      "description": "Total revenue from the order after discount.",
+      "formula": "discounted_price_per_unit * quantity",
+      "unit": "USD"
+    },
+    {
+      "id": "total_variable_cost",
+      "label": "Total Variable Cost",
+      "description": "Total variable cost for the order quantity.",
+      "formula": "variable_cost_per_unit * quantity",
+      "unit": "USD"
+    },
+    {
+      "id": "total_cost",
+      "label": "Total Cost",
+      "description": "Sum of variable and fixed costs for the order.",
+      "formula": "total_variable_cost + fixed_cost_allocation",
+      "unit": "USD"
+    },
+    {
+      "id": "net_margin",
+      "label": "Net Margin",
+      "description": "Profit after all costs (primary result).",
+      "formula": "total_revenue - total_cost",
+      "unit": "USD"
+    },
+    {
+      "id": "net_margin_percent",
+      "label": "Net Margin Percentage",
+      "description": "Profit margin as a percentage of total revenue.",
+      "formula": "IF(total_revenue > 0, (net_margin / total_revenue) * 100, 0)",
+      "unit": "%"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "net_margin",
+      "label": "Net Margin",
+      "description": "Primary financial outcome: profit after discount and all costs.",
+      "unit": "USD"
+    },
+    "breakdown": {
+      "discount_amount_per_unit": {
+        "id": "discount_amount_per_unit",
+        "label": "Discount Amount per Unit",
+        "unit": "USD"
+      },
+      "discounted_price_per_unit": {
+        "id": "discounted_price_per_unit",
+        "label": "Discounted Price per Unit",
+        "unit": "USD"
+      },
+      "total_revenue": {
+        "id": "total_revenue",
+        "label": "Total Revenue",
+        "unit": "USD"
+      },
+      "total_variable_cost": {
+        "id": "total_variable_cost",
+        "label": "Total Variable Cost",
+        "unit": "USD"
+      },
+      "total_cost": {
+        "id": "total_cost",
+        "label": "Total Cost",
+        "unit": "USD"
+      },
+      "net_margin_percent": {
+        "id": "net_margin_percent",
+        "label": "Net Margin Percentage",
+        "unit": "%"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excess_discount_leakage",
+        "description": "Discounts exceeding the break-even threshold erode profit. Compare discount_amount_per_unit to (list_price - variable_cost_per_unit).",
+        "metric": "discount_amount_per_unit / (list_price - variable_cost_per_unit)",
+        "threshold": "> 0.8"
+      },
+      {
+        "id": "fixed_cost_absorption_gap",
+        "description": "If fixed cost allocation is not fully absorbed by the discounted revenue, hidden loss occurs.",
+        "metric": "fixed_cost_allocation / total_revenue",
+        "threshold": "> 0.3"
+      },
+      {
+        "id": "volume_margin_tradeoff",
+        "description": "High discount may require disproportionate volume increase to maintain same net margin (Lean throughput accounting).",
+        "metric": "quantity * (list_price - variable_cost_per_unit - discount_amount_per_unit)",
+        "threshold": "< 0"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "description": "If net_margin_percent < 10, consider reducing discount or negotiating lower variable costs with suppliers (Lean sourcing).",
+        "condition": "net_margin_percent < 10"
+      },
+      {
+        "id": "action_2",
+        "description": "If fixed_cost_allocation > 0.3 * total_revenue, review fixed cost drivers using activity-based costing (ABC).",
+        "condition": "fixed_cost_allocation > 0.3 * total_revenue"
+      },
+      {
+        "id": "action_3",
+        "description": "If discount_percent > 20, evaluate if the discount is tied to a strategic volume increase or market share gain (Six Sigma project charter).",
+        "condition": "discount_percent > 20"
+      },
+      {
+        "id": "action_4",
+        "description": "If net_margin < 0, immediately halt discount and perform root cause analysis (DMAIC).",
+        "condition": "net_margin < 0"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_score",
+      "label": "Data Confidence Adjusted Net Margin",
+      "description": "Net margin adjusted for data quality and input variability (Monte Carlo simulation readiness).",
+      "value": 0.85,
+      "unit": "index (0-1)",
+      "methodology": "Based on completeness of input fields, historical accuracy of cost data, and adherence to ISO 9001 data governance."
+    }
+  }
+}

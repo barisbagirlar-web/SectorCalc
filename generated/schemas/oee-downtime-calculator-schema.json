@@ -1,0 +1,301 @@
+{
+  "slug": "oee-downtime-calculator",
+  "title": "OEE & Downtime Calculator",
+  "description": "Calculates Overall Equipment Effectiveness (OEE) based on Availability, Performance, and Quality, with detailed downtime loss analysis and actionable improvement suggestions. Compliant with ISO 22400, Lean Manufacturing, and Six Sigma standards.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Real-time dashboard",
+    "Multi-plant comparison",
+    "Historical data storage"
+  ],
+  "inputs": [
+    {
+      "id": "planned_production_time",
+      "label": "Planned Production Time (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 480,
+      "min": 0,
+      "max": 1440,
+      "businessContext": "Total scheduled time for production in a shift/day (e.g., 8 hours = 480 minutes)."
+    },
+    {
+      "id": "downtime_minutes",
+      "label": "Total Downtime (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 60,
+      "min": 0,
+      "max": 1440,
+      "businessContext": "Sum of all unplanned and planned stops (breakdowns, setup, maintenance)."
+    },
+    {
+      "id": "ideal_cycle_time",
+      "label": "Ideal Cycle Time (minutes per unit)",
+      "type": "number",
+      "unit": "minutes/unit",
+      "default": 0.5,
+      "min": 0.001,
+      "max": 100,
+      "businessContext": "Theoretical fastest time to produce one unit under optimal conditions."
+    },
+    {
+      "id": "total_parts_produced",
+      "label": "Total Parts Produced",
+      "type": "number",
+      "unit": "units",
+      "default": 800,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Total count of units produced during the planned production time."
+    },
+    {
+      "id": "defective_parts",
+      "label": "Defective Parts",
+      "type": "number",
+      "unit": "units",
+      "default": 20,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Number of units that do not meet quality standards (scrap, rework)."
+    },
+    {
+      "id": "shift_type",
+      "label": "Shift Type",
+      "type": "select",
+      "unit": "",
+      "default": "day",
+      "options": [
+        "day",
+        "night",
+        "rotating"
+      ],
+      "businessContext": "Type of shift to adjust for fatigue or environmental factors."
+    },
+    {
+      "id": "include_micro_stops",
+      "label": "Include Micro-Stops (< 2 min) in Downtime",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "businessContext": "If true, small stops are counted as downtime per Six Sigma guidelines."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "downtime_less_than_planned",
+        "condition": "downtime_minutes <= planned_production_time",
+        "message": "Downtime cannot exceed planned production time."
+      },
+      {
+        "id": "defective_less_than_total",
+        "condition": "defective_parts <= total_parts_produced",
+        "message": "Defective parts must be less than or equal to total parts produced."
+      },
+      {
+        "id": "cycle_time_positive",
+        "condition": "ideal_cycle_time > 0",
+        "message": "Ideal cycle time must be greater than zero."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "oee_world_class",
+        "condition": "oee >= 0.85",
+        "severity": "success",
+        "message": "World-class OEE achieved (>=85%)."
+      },
+      {
+        "id": "oee_warning",
+        "condition": "oee < 0.60",
+        "severity": "warning",
+        "message": "OEE below 60% – immediate improvement needed."
+      },
+      {
+        "id": "availability_critical",
+        "condition": "availability < 0.90",
+        "severity": "critical",
+        "message": "Availability below 90% – high downtime losses."
+      },
+      {
+        "id": "performance_low",
+        "condition": "performance < 0.95",
+        "severity": "warning",
+        "message": "Performance below 95% – speed losses detected."
+      },
+      {
+        "id": "quality_issue",
+        "condition": "quality < 0.99",
+        "severity": "warning",
+        "message": "Quality below 99% – defect rate too high."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "operating_time",
+      "label": "Operating Time",
+      "description": "Time actually available for production after deducting downtime.",
+      "formula": "planned_production_time - downtime_minutes",
+      "unit": "minutes"
+    },
+    {
+      "id": "availability",
+      "label": "Availability",
+      "description": "Ratio of operating time to planned production time.",
+      "formula": "operating_time / planned_production_time",
+      "unit": "ratio (0-1)"
+    },
+    {
+      "id": "net_operating_time",
+      "label": "Net Operating Time",
+      "description": "Theoretical time required to produce total parts at ideal cycle time.",
+      "formula": "total_parts_produced * ideal_cycle_time",
+      "unit": "minutes"
+    },
+    {
+      "id": "performance",
+      "label": "Performance",
+      "description": "Ratio of net operating time to actual operating time (speed efficiency).",
+      "formula": "net_operating_time / operating_time",
+      "unit": "ratio (0-1)"
+    },
+    {
+      "id": "good_parts",
+      "label": "Good Parts",
+      "description": "Parts that meet quality standards.",
+      "formula": "total_parts_produced - defective_parts",
+      "unit": "units"
+    },
+    {
+      "id": "quality",
+      "label": "Quality",
+      "description": "Ratio of good parts to total parts produced.",
+      "formula": "good_parts / total_parts_produced",
+      "unit": "ratio (0-1)"
+    },
+    {
+      "id": "oee",
+      "label": "Overall Equipment Effectiveness (OEE)",
+      "description": "Primary metric combining availability, performance, and quality.",
+      "formula": "availability * performance * quality",
+      "unit": "ratio (0-1)"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "oee",
+      "label": "Overall Equipment Effectiveness (OEE)",
+      "unit": "percentage",
+      "value": null,
+      "description": "Primary result calculated as Availability × Performance × Quality."
+    },
+    "breakdown": {
+      "availability": {
+        "id": "availability",
+        "label": "Availability",
+        "unit": "percentage",
+        "value": null,
+        "description": "Time-based efficiency."
+      },
+      "performance": {
+        "id": "performance",
+        "label": "Performance",
+        "unit": "percentage",
+        "value": null,
+        "description": "Speed efficiency."
+      },
+      "quality": {
+        "id": "quality",
+        "label": "Quality",
+        "unit": "percentage",
+        "value": null,
+        "description": "Quality efficiency."
+      },
+      "operating_time": {
+        "id": "operating_time",
+        "label": "Operating Time",
+        "unit": "minutes",
+        "value": null,
+        "description": "Actual production time."
+      },
+      "net_operating_time": {
+        "id": "net_operating_time",
+        "label": "Net Operating Time",
+        "unit": "minutes",
+        "value": null,
+        "description": "Theoretical time for good parts."
+      },
+      "good_parts": {
+        "id": "good_parts",
+        "label": "Good Parts",
+        "unit": "units",
+        "value": null,
+        "description": "Defect-free output."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "speed_loss",
+        "label": "Speed Loss",
+        "description": "Loss due to running slower than ideal cycle time.",
+        "formula": "operating_time - net_operating_time",
+        "unit": "minutes",
+        "value": null
+      },
+      {
+        "id": "downtime_loss",
+        "label": "Downtime Loss",
+        "description": "Loss due to planned and unplanned stops.",
+        "formula": "downtime_minutes",
+        "unit": "minutes",
+        "value": null
+      },
+      {
+        "id": "quality_loss",
+        "label": "Quality Loss",
+        "description": "Loss due to defective parts (scrap and rework).",
+        "formula": "defective_parts * ideal_cycle_time",
+        "unit": "minutes",
+        "value": null
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_downtime",
+        "condition": "availability < 0.90",
+        "action": "Implement Total Productive Maintenance (TPM) and SMED to reduce setup and breakdown times.",
+        "priority": "high"
+      },
+      {
+        "id": "improve_speed",
+        "condition": "performance < 0.95",
+        "action": "Analyze cycle time variances, reduce micro-stops, and standardize operator methods.",
+        "priority": "medium"
+      },
+      {
+        "id": "improve_quality",
+        "condition": "quality < 0.99",
+        "action": "Apply Six Sigma DMAIC to identify root causes of defects and implement poka-yoke (mistake-proofing).",
+        "priority": "high"
+      },
+      {
+        "id": "overall_oee",
+        "condition": "oee < 0.60",
+        "action": "Conduct a full OEE improvement kaizen event focusing on all three loss categories.",
+        "priority": "critical"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_adjusted_oee",
+      "label": "Data Confidence Adjusted OEE",
+      "unit": "percentage",
+      "value": null,
+      "description": "OEE adjusted for data quality (e.g., manual entry errors, sensor accuracy). Uses a confidence factor of 0.95 by default."
+    }
+  }
+}

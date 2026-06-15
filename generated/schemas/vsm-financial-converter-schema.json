@@ -1,0 +1,406 @@
+{
+  "slug": "vsm-financial-converter",
+  "name": "VSM Financial Converter",
+  "description": "Converts Value Stream Mapping operational metrics into financial impact, highlighting hidden losses and improvement opportunities based on Lean, Six Sigma, and ISO standards.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Benchmarking against industry standards",
+    "Multi-scenario simulation"
+  ],
+  "inputs": [
+    {
+      "id": "annualDemand",
+      "label": "Annual Demand (units)",
+      "type": "number",
+      "unit": "units/year",
+      "default": 100000,
+      "min": 1000,
+      "max": 10000000,
+      "businessContext": "Total customer demand per year for the product family under analysis."
+    },
+    {
+      "id": "sellingPrice",
+      "label": "Selling Price per unit",
+      "type": "number",
+      "unit": "currency",
+      "default": 50,
+      "min": 1,
+      "max": 10000,
+      "businessContext": "Average selling price per unit to the customer."
+    },
+    {
+      "id": "materialCostPerUnit",
+      "label": "Material Cost per unit",
+      "type": "number",
+      "unit": "currency",
+      "default": 20,
+      "min": 0,
+      "max": 5000,
+      "businessContext": "Direct material cost per unit."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "Labor Cost per hour",
+      "type": "number",
+      "unit": "currency/hour",
+      "default": 25,
+      "min": 5,
+      "max": 200,
+      "businessContext": "Fully loaded labor cost per operator hour."
+    },
+    {
+      "id": "totalCycleTime",
+      "label": "Total Cycle Time (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 45,
+      "min": 0.1,
+      "max": 1000,
+      "businessContext": "Sum of all process cycle times for one unit through the value stream."
+    },
+    {
+      "id": "totalValueAddedTime",
+      "label": "Total Value-Added Time (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 15,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Sum of only value-added process times (ISO 22400, Lean definition)."
+    },
+    {
+      "id": "defectRate",
+      "label": "Defect Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of units that require rework or are scrapped (First Pass Yield)."
+    },
+    {
+      "id": "reworkCostPerUnit",
+      "label": "Rework Cost per defective unit",
+      "type": "number",
+      "unit": "currency",
+      "default": 10,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Additional cost to rework one defective unit (labor + material)."
+    },
+    {
+      "id": "inventoryHoldingCostPercent",
+      "label": "Inventory Holding Cost (% of COGS)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Annual inventory carrying cost as a percentage of cost of goods sold (WERC standard)."
+    },
+    {
+      "id": "averageInventoryValue",
+      "label": "Average Inventory Value (currency)",
+      "type": "number",
+      "unit": "currency",
+      "default": 500000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Average value of raw material, WIP, and finished goods inventory."
+    },
+    {
+      "id": "overheadRate",
+      "label": "Overhead Rate (% of direct labor)",
+      "type": "number",
+      "unit": "%",
+      "default": 150,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Manufacturing overhead allocated as a percentage of direct labor cost."
+    },
+    {
+      "id": "operatorsPerShift",
+      "label": "Operators per shift",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "min": 1,
+      "max": 500,
+      "businessContext": "Number of direct operators working per shift in the value stream."
+    },
+    {
+      "id": "shiftsPerDay",
+      "label": "Shifts per day",
+      "type": "number",
+      "unit": "shifts",
+      "default": 2,
+      "min": 1,
+      "max": 3,
+      "businessContext": "Number of production shifts per day."
+    },
+    {
+      "id": "workingDaysPerYear",
+      "label": "Working days per year",
+      "type": "number",
+      "unit": "days",
+      "default": 240,
+      "min": 200,
+      "max": 365,
+      "businessContext": "Number of operating days per year."
+    },
+    {
+      "id": "wasteReductionTarget",
+      "label": "Waste Reduction Target (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Target percentage reduction in non-value-added time (Lean continuous improvement)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "val_cycleTimeCheck",
+        "condition": "totalValueAddedTime > totalCycleTime",
+        "message": "Value-added time cannot exceed total cycle time.",
+        "severity": "error"
+      },
+      {
+        "id": "val_defectRateRange",
+        "condition": "defectRate < 0 || defectRate > 100",
+        "message": "Defect rate must be between 0 and 100.",
+        "severity": "error"
+      },
+      {
+        "id": "val_inventoryPositive",
+        "condition": "averageInventoryValue < 0",
+        "message": "Average inventory value must be non-negative.",
+        "severity": "error"
+      },
+      {
+        "id": "val_wasteTarget",
+        "condition": "wasteReductionTarget < 0 || wasteReductionTarget > 100",
+        "message": "Waste reduction target must be between 0 and 100.",
+        "severity": "error"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "thresh_highDefect",
+        "condition": "defectRate > 5",
+        "message": "Defect rate exceeds 5% – significant quality loss.",
+        "severity": "warning"
+      },
+      {
+        "id": "thresh_lowVA",
+        "condition": "(totalValueAddedTime / totalCycleTime) < 0.3",
+        "message": "Value-added ratio below 30% – high non-value-added waste.",
+        "severity": "warning"
+      },
+      {
+        "id": "thresh_highInventory",
+        "condition": "averageInventoryValue > 1000000",
+        "message": "Inventory value exceeds 1M currency – consider reduction initiatives.",
+        "severity": "info"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "f1_laborCostPerUnit",
+      "description": "Direct labor cost per unit based on cycle time and labor rate.",
+      "expression": "(totalCycleTime / 60) * laborCostPerHour",
+      "unit": "currency/unit"
+    },
+    {
+      "id": "f2_overheadCostPerUnit",
+      "description": "Overhead cost per unit allocated as percentage of direct labor.",
+      "expression": "f1_laborCostPerUnit * (overheadRate / 100)",
+      "unit": "currency/unit"
+    },
+    {
+      "id": "f3_qualityCostPerUnit",
+      "description": "Cost of poor quality per unit (defect rate * rework cost).",
+      "expression": "(defectRate / 100) * reworkCostPerUnit",
+      "unit": "currency/unit"
+    },
+    {
+      "id": "f4_inventoryCostPerUnit",
+      "description": "Inventory holding cost per unit based on average inventory and demand.",
+      "expression": "(averageInventoryValue * (inventoryHoldingCostPercent / 100)) / annualDemand",
+      "unit": "currency/unit"
+    },
+    {
+      "id": "f5_totalCostPerUnit",
+      "description": "Total manufacturing cost per unit (material + labor + overhead + quality + inventory).",
+      "expression": "materialCostPerUnit + f1_laborCostPerUnit + f2_overheadCostPerUnit + f3_qualityCostPerUnit + f4_inventoryCostPerUnit",
+      "unit": "currency/unit"
+    },
+    {
+      "id": "f6_profitPerUnit",
+      "description": "Profit per unit before waste reduction.",
+      "expression": "sellingPrice - f5_totalCostPerUnit",
+      "unit": "currency/unit"
+    },
+    {
+      "id": "f7_annualWasteLoss",
+      "description": "Annual financial loss due to non-value-added time (waste).",
+      "expression": "((totalCycleTime - totalValueAddedTime) / totalCycleTime) * f5_totalCostPerUnit * annualDemand",
+      "unit": "currency/year"
+    },
+    {
+      "id": "f8_primaryResult",
+      "description": "Primary result: Annual profit after accounting for waste loss and improvement potential.",
+      "expression": "(f6_profitPerUnit * annualDemand) - f7_annualWasteLoss",
+      "unit": "currency/year"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "annualProfitAfterWaste",
+      "label": "Annual Profit After Waste Loss",
+      "value": null,
+      "unit": "currency/year",
+      "formulaRef": "f8_primaryResult"
+    },
+    "breakdown": {
+      "totalRevenue": {
+        "id": "totalRevenue",
+        "label": "Total Revenue",
+        "value": null,
+        "unit": "currency/year",
+        "formula": "annualDemand * sellingPrice"
+      },
+      "totalMaterialCost": {
+        "id": "totalMaterialCost",
+        "label": "Total Material Cost",
+        "value": null,
+        "unit": "currency/year",
+        "formula": "annualDemand * materialCostPerUnit"
+      },
+      "totalLaborCost": {
+        "id": "totalLaborCost",
+        "label": "Total Direct Labor Cost",
+        "value": null,
+        "unit": "currency/year",
+        "formula": "annualDemand * f1_laborCostPerUnit"
+      },
+      "totalOverheadCost": {
+        "id": "totalOverheadCost",
+        "label": "Total Overhead Cost",
+        "value": null,
+        "unit": "currency/year",
+        "formula": "annualDemand * f2_overheadCostPerUnit"
+      },
+      "totalQualityCost": {
+        "id": "totalQualityCost",
+        "label": "Total Cost of Poor Quality",
+        "value": null,
+        "unit": "currency/year",
+        "formula": "annualDemand * f3_qualityCostPerUnit"
+      },
+      "totalInventoryCost": {
+        "id": "totalInventoryCost",
+        "label": "Total Inventory Holding Cost",
+        "value": null,
+        "unit": "currency/year",
+        "formula": "annualDemand * f4_inventoryCostPerUnit"
+      },
+      "totalWasteLoss": {
+        "id": "totalWasteLoss",
+        "label": "Total Waste Loss (NVA Time)",
+        "value": null,
+        "unit": "currency/year",
+        "formulaRef": "f7_annualWasteLoss"
+      },
+      "potentialSavings": {
+        "id": "potentialSavings",
+        "label": "Potential Savings from Waste Reduction",
+        "value": null,
+        "unit": "currency/year",
+        "formula": "f7_annualWasteLoss * (wasteReductionTarget / 100)"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "hld1",
+        "label": "Excessive Non-Value-Added Time",
+        "description": "The ratio of NVA time to total cycle time is high, indicating process inefficiencies.",
+        "metric": "NVA Ratio",
+        "value": null,
+        "unit": "%",
+        "formula": "((totalCycleTime - totalValueAddedTime) / totalCycleTime) * 100"
+      },
+      {
+        "id": "hld2",
+        "label": "Quality Defect Rework",
+        "description": "Defects consume resources without adding value, increasing cost per unit.",
+        "metric": "Defect Cost per Unit",
+        "value": null,
+        "unit": "currency/unit",
+        "formulaRef": "f3_qualityCostPerUnit"
+      },
+      {
+        "id": "hld3",
+        "label": "Inventory Carrying Cost",
+        "description": "Excess inventory ties up capital and incurs holding costs.",
+        "metric": "Inventory Cost per Unit",
+        "value": null,
+        "unit": "currency/unit",
+        "formulaRef": "f4_inventoryCostPerUnit"
+      },
+      {
+        "id": "hld4",
+        "label": "Overhead Allocation",
+        "description": "High overhead rate relative to direct labor may indicate indirect waste.",
+        "metric": "Overhead per Unit",
+        "value": null,
+        "unit": "currency/unit",
+        "formulaRef": "f2_overheadCostPerUnit"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "act1",
+        "label": "Implement Kaizen on bottleneck processes",
+        "description": "Focus on reducing cycle time of the highest NVA process step to improve throughput.",
+        "expectedImpact": "Reduction in total cycle time by 10-20%",
+        "linkedLossDriver": "hld1"
+      },
+      {
+        "id": "act2",
+        "label": "Deploy Six Sigma DMAIC for defect reduction",
+        "description": "Identify root causes of defects and implement controls to reduce defect rate.",
+        "expectedImpact": "Defect rate reduction by 50% or more",
+        "linkedLossDriver": "hld2"
+      },
+      {
+        "id": "act3",
+        "label": "Introduce Kanban system to reduce WIP inventory",
+        "description": "Pull-based inventory control to lower average inventory value.",
+        "expectedImpact": "Inventory reduction by 20-30%",
+        "linkedLossDriver": "hld3"
+      },
+      {
+        "id": "act4",
+        "label": "Review overhead allocation and eliminate non-value-adding activities",
+        "description": "Lean office and indirect process improvement to reduce overhead rate.",
+        "expectedImpact": "Overhead rate reduction by 10-15%",
+        "linkedLossDriver": "hld4"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "dataConfidenceAdjusted",
+      "label": "Data Confidence Adjusted Profit",
+      "value": null,
+      "unit": "currency/year",
+      "description": "Primary result adjusted by a confidence factor (0.8 to 1.0) based on input data completeness and reliability.",
+      "formula": "f8_primaryResult * 0.9"
+    }
+  }
+}

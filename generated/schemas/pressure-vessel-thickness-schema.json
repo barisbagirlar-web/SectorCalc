@@ -1,0 +1,279 @@
+{
+  "slug": "pressure-vessel-thickness",
+  "name": "Pressure Vessel Thickness Calculator",
+  "description": "Calculates minimum required wall thickness for cylindrical pressure vessels based on ASME BPVC Section VIII Div. 1 standards, with integrated safety factors, material utilization, and cost optimization.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Material database sync",
+    "Multi-user collaboration",
+    "API access"
+  ],
+  "inputs": [
+    {
+      "id": "design_pressure",
+      "label": "Design Pressure (P)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 1,
+      "min": 0.1,
+      "max": 50,
+      "businessContext": "Maximum allowable working pressure per ASME UG-21"
+    },
+    {
+      "id": "vessel_diameter",
+      "label": "Vessel Inner Diameter (D)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "min": 100,
+      "max": 10000,
+      "businessContext": "Inside diameter of cylindrical shell"
+    },
+    {
+      "id": "allowable_stress",
+      "label": "Allowable Stress (S)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 138,
+      "min": 50,
+      "max": 500,
+      "businessContext": "Material allowable stress at design temperature per ASME II Part D"
+    },
+    {
+      "id": "joint_efficiency",
+      "label": "Joint Efficiency (E)",
+      "type": "select",
+      "options": [
+        {
+          "value": 1,
+          "label": "Full radiography (1.0)"
+        },
+        {
+          "value": 0.85,
+          "label": "Spot radiography (0.85)"
+        },
+        {
+          "value": 0.7,
+          "label": "No radiography (0.7)"
+        }
+      ],
+      "default": 1,
+      "businessContext": "Welded joint efficiency factor per ASME UW-12"
+    },
+    {
+      "id": "corrosion_allowance",
+      "label": "Corrosion Allowance (CA)",
+      "type": "number",
+      "unit": "mm",
+      "default": 3,
+      "min": 0,
+      "max": 25,
+      "businessContext": "Additional thickness for corrosion/erosion per UG-25"
+    },
+    {
+      "id": "material_utilization",
+      "label": "Material Utilization Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 50,
+      "max": 100,
+      "businessContext": "Lean manufacturing metric for material waste reduction"
+    },
+    {
+      "id": "safety_factor_override",
+      "label": "Override Safety Factor",
+      "type": "boolean",
+      "default": false,
+      "businessContext": "Enable to use custom safety factor instead of ASME default 3.5"
+    },
+    {
+      "id": "custom_safety_factor",
+      "label": "Custom Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 3.5,
+      "min": 2,
+      "max": 6,
+      "businessContext": "Only used if override is enabled; typical range per ISO 16528"
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "pressure_stress_ratio",
+        "condition": "design_pressure / allowable_stress > 0.385",
+        "message": "Design pressure exceeds 38.5% of allowable stress. Thick-wall formulas required (ASME UG-27(c)(2)).",
+        "severity": "warning"
+      },
+      {
+        "id": "diameter_thickness_ratio",
+        "condition": "vessel_diameter / (calculated_thickness) < 10",
+        "message": "Diameter-to-thickness ratio < 10. Consider thick-wall vessel analysis per ASME Appendix 1.",
+        "severity": "info"
+      },
+      {
+        "id": "material_utilization_min",
+        "condition": "material_utilization < 70",
+        "message": "Material utilization below 70%. Review nesting and cutting plan for Lean improvement.",
+        "severity": "warning"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "min_thickness_alert",
+        "condition": "calculated_thickness < 5.0",
+        "message": "Calculated thickness < 5mm. Fabrication handling risk; consider minimum thickness per ASME UG-16.",
+        "severity": "critical"
+      },
+      {
+        "id": "cost_efficiency_alert",
+        "condition": "material_cost_per_unit > 150",
+        "message": "Material cost exceeds $150/unit. Evaluate alternative materials or reduce corrosion allowance.",
+        "severity": "warning"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "safety_factor",
+      "name": "Effective Safety Factor",
+      "description": "Determines the safety factor based on override flag",
+      "formula": "IF(safety_factor_override, custom_safety_factor, 3.5)",
+      "unit": ""
+    },
+    {
+      "id": "required_thickness_cylindrical",
+      "name": "Minimum Required Thickness (Cylindrical Shell)",
+      "description": "ASME UG-27 thin-wall formula for cylindrical shells under internal pressure",
+      "formula": "(design_pressure * vessel_diameter) / (2 * allowable_stress * joint_efficiency - 1.2 * design_pressure)",
+      "unit": "mm"
+    },
+    {
+      "id": "thickness_with_corrosion",
+      "name": "Thickness Including Corrosion Allowance",
+      "description": "Adds corrosion allowance to the calculated minimum thickness",
+      "formula": "required_thickness_cylindrical + corrosion_allowance",
+      "unit": "mm"
+    },
+    {
+      "id": "material_volume",
+      "name": "Material Volume per Unit Length",
+      "description": "Volume of material required per meter of vessel length",
+      "formula": "PI * ((vessel_diameter/2 + thickness_with_corrosion)^2 - (vessel_diameter/2)^2) * 1000",
+      "unit": "mm³/m"
+    },
+    {
+      "id": "material_cost",
+      "name": "Material Cost per Unit Length",
+      "description": "Cost based on material volume and utilization factor",
+      "formula": "(material_volume / 1e9) * 7800 * 2.5 * (100 / material_utilization)",
+      "unit": "$/m"
+    },
+    {
+      "id": "weight_per_meter",
+      "name": "Weight per Meter",
+      "description": "Weight of vessel shell per meter length",
+      "formula": "(material_volume / 1e9) * 7800",
+      "unit": "kg/m"
+    },
+    {
+      "id": "primary_result",
+      "name": "Recommended Design Thickness",
+      "description": "Final recommended thickness rounded up to nearest 0.5mm for manufacturability",
+      "formula": "CEILING(thickness_with_corrosion * 2) / 2",
+      "unit": "mm"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "recommended_thickness",
+      "label": "Recommended Design Thickness",
+      "value": null,
+      "unit": "mm",
+      "description": "Final thickness rounded to nearest 0.5mm for fabrication"
+    },
+    "breakdown": {
+      "required_thickness": {
+        "label": "Minimum Required Thickness (ASME UG-27)",
+        "unit": "mm",
+        "description": "Thickness without corrosion allowance"
+      },
+      "thickness_with_corrosion": {
+        "label": "Thickness + Corrosion Allowance",
+        "unit": "mm",
+        "description": "Including CA per UG-25"
+      },
+      "material_volume_per_m": {
+        "label": "Material Volume per Meter",
+        "unit": "mm³/m",
+        "description": "Volume of steel per unit length"
+      },
+      "weight_per_meter": {
+        "label": "Weight per Meter",
+        "unit": "kg/m",
+        "description": "Mass of shell per meter"
+      },
+      "material_cost_per_meter": {
+        "label": "Material Cost per Meter",
+        "unit": "$/m",
+        "description": "Cost adjusted for utilization"
+      },
+      "effective_safety_factor": {
+        "label": "Effective Safety Factor",
+        "unit": "",
+        "description": "Applied safety factor"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excess_corrosion_allowance",
+        "label": "Excess Corrosion Allowance",
+        "description": "Corrosion allowance > 6mm adds unnecessary weight and cost without proportional life extension",
+        "potentialSavings": "15-25% material cost"
+      },
+      {
+        "id": "low_joint_efficiency",
+        "label": "Low Joint Efficiency",
+        "description": "Using spot or no radiography increases required thickness by 15-40% vs full radiography",
+        "potentialSavings": "10-30% thickness reduction"
+      },
+      {
+        "id": "material_utilization_waste",
+        "label": "Material Utilization Waste",
+        "description": "Utilization below 85% indicates poor nesting or cutting optimization",
+        "potentialSavings": "10-20% material cost"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "optimize_radiography",
+        "label": "Consider Full Radiography",
+        "description": "If joint efficiency is below 1.0, evaluate cost-benefit of full radiography to reduce thickness",
+        "impact": "Reduces required thickness by up to 30%"
+      },
+      {
+        "id": "reduce_corrosion_allowance",
+        "label": "Review Corrosion Allowance",
+        "description": "If corrosion rate is <0.1mm/year, consider reducing CA to 1.5mm",
+        "impact": "Saves 5-10% material weight"
+      },
+      {
+        "id": "improve_nesting",
+        "label": "Improve Nesting Efficiency",
+        "description": "Use advanced nesting software to increase material utilization above 90%",
+        "impact": "Reduces scrap by 10-15%"
+      },
+      {
+        "id": "alternative_material",
+        "label": "Evaluate Higher Strength Material",
+        "description": "If allowable stress < 200 MPa, consider SA-516 Gr.70 or equivalent",
+        "impact": "Can reduce thickness by 20-40%"
+      }
+    ],
+    "dataConfidenceAdjusted": 0.92
+  }
+}

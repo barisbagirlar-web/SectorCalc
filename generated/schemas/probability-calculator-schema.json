@@ -1,0 +1,271 @@
+{
+  "slug": "probability-calculator",
+  "title": "Probability Calculator",
+  "description": "Industrial-grade probability and risk assessment tool based on ISO 31000, Six Sigma, and Lean principles. Computes process failure probability, defect rates, and overall process capability.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Monte Carlo simulation",
+    "Historical comparison"
+  ],
+  "inputs": [
+    {
+      "id": "defect_count",
+      "label": "Number of Defects",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Total observed defects in the sample or process period."
+    },
+    {
+      "id": "sample_size",
+      "label": "Sample Size",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "min": 1,
+      "max": 10000000,
+      "businessContext": "Total number of units inspected or trials performed."
+    },
+    {
+      "id": "sigma_shift",
+      "label": "Sigma Shift (1.5 for long-term)",
+      "type": "number",
+      "unit": "sigma",
+      "default": 1.5,
+      "min": 0,
+      "max": 3,
+      "businessContext": "Standard shift to convert short-term capability to long-term (commonly 1.5)."
+    },
+    {
+      "id": "distribution_type",
+      "label": "Distribution Type",
+      "type": "select",
+      "unit": "",
+      "default": "binomial",
+      "min": null,
+      "max": null,
+      "businessContext": "Underlying statistical distribution for probability calculation.",
+      "options": [
+        "binomial",
+        "poisson",
+        "normal"
+      ]
+    },
+    {
+      "id": "confidence_level",
+      "label": "Confidence Level",
+      "type": "select",
+      "unit": "%",
+      "default": "95",
+      "min": null,
+      "max": null,
+      "businessContext": "Desired confidence level for interval estimates.",
+      "options": [
+        "90",
+        "95",
+        "99"
+      ]
+    },
+    {
+      "id": "use_historical_bias",
+      "label": "Apply Historical Bias Correction",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "If true, applies a correction factor based on past process performance."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "sample_size_positive",
+        "condition": "sample_size > 0",
+        "message": "Sample size must be greater than zero."
+      },
+      {
+        "id": "defect_count_not_exceed",
+        "condition": "defect_count <= sample_size",
+        "message": "Defect count cannot exceed sample size."
+      },
+      {
+        "id": "sigma_shift_range",
+        "condition": "sigma_shift >= 0 AND sigma_shift <= 3",
+        "message": "Sigma shift must be between 0 and 3."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_defect_rate",
+        "condition": "defect_rate > 0.1",
+        "alert": "Defect rate exceeds 10% – immediate process review recommended."
+      },
+      {
+        "id": "low_cpk",
+        "condition": "cpk < 1.33",
+        "alert": "Process capability (Cpk) below 1.33 – process not capable per Six Sigma standards."
+      },
+      {
+        "id": "low_confidence_interval",
+        "condition": "confidence_interval_width > 0.2",
+        "alert": "Confidence interval width exceeds 20% – consider larger sample size."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "defect_rate",
+      "label": "Defect Rate (p)",
+      "description": "Observed proportion of defects in the sample.",
+      "formula": "defect_count / sample_size",
+      "unit": "ratio",
+      "order": 1
+    },
+    {
+      "id": "standard_error",
+      "label": "Standard Error of p",
+      "description": "Standard error of the defect proportion.",
+      "formula": "sqrt( (defect_rate * (1 - defect_rate)) / sample_size )",
+      "unit": "ratio",
+      "order": 2
+    },
+    {
+      "id": "z_score",
+      "label": "Z-Score for Confidence Level",
+      "description": "Z-value corresponding to the selected confidence level.",
+      "formula": "if(confidence_level == '90', 1.645, if(confidence_level == '95', 1.96, 2.576))",
+      "unit": "dimensionless",
+      "order": 3
+    },
+    {
+      "id": "confidence_interval",
+      "label": "Confidence Interval (Lower, Upper)",
+      "description": "Two-sided confidence interval for the true defect rate.",
+      "formula": "defect_rate ± z_score * standard_error",
+      "unit": "ratio",
+      "order": 4
+    },
+    {
+      "id": "dpm",
+      "label": "Defects Per Million (DPM)",
+      "description": "Scaled defect rate to parts per million.",
+      "formula": "defect_rate * 1000000",
+      "unit": "ppm",
+      "order": 5
+    },
+    {
+      "id": "sigma_level",
+      "label": "Process Sigma Level (Long-Term)",
+      "description": "Long-term sigma level including shift.",
+      "formula": "normsinv(1 - defect_rate) + sigma_shift",
+      "unit": "sigma",
+      "order": 6
+    },
+    {
+      "id": "cpk",
+      "label": "Process Capability Index (Cpk)",
+      "description": "Capability index assuming defect rate corresponds to tail area beyond specification limits.",
+      "formula": "min( (sigma_level - sigma_shift) / 3, (sigma_level + sigma_shift) / 3 )",
+      "unit": "dimensionless",
+      "order": 7
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "failure_probability",
+      "label": "Failure Probability (Long-Term)",
+      "description": "Estimated probability of a defect occurring in the long-term process.",
+      "value": null,
+      "unit": "ratio"
+    },
+    "breakdown": {
+      "defect_rate": {
+        "label": "Defect Rate (p)",
+        "value": null,
+        "unit": "ratio"
+      },
+      "standard_error": {
+        "label": "Standard Error",
+        "value": null,
+        "unit": "ratio"
+      },
+      "confidence_interval_lower": {
+        "label": "CI Lower Bound",
+        "value": null,
+        "unit": "ratio"
+      },
+      "confidence_interval_upper": {
+        "label": "CI Upper Bound",
+        "value": null,
+        "unit": "ratio"
+      },
+      "dpm": {
+        "label": "Defects Per Million",
+        "value": null,
+        "unit": "ppm"
+      },
+      "sigma_level": {
+        "label": "Sigma Level (Long-Term)",
+        "value": null,
+        "unit": "sigma"
+      },
+      "cpk": {
+        "label": "Cpk",
+        "value": null,
+        "unit": "dimensionless"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "sampling_error",
+        "label": "Sampling Error Contribution",
+        "description": "Portion of uncertainty due to sample size limitations.",
+        "value": null,
+        "unit": "ratio"
+      },
+      {
+        "id": "distribution_mismatch",
+        "label": "Distribution Mismatch Risk",
+        "description": "Risk that the assumed distribution does not fit the data.",
+        "value": null,
+        "unit": "dimensionless"
+      },
+      {
+        "id": "historical_bias_effect",
+        "label": "Historical Bias Effect",
+        "description": "Adjustment factor if historical bias correction is applied.",
+        "value": null,
+        "unit": "ratio"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "increase_sample",
+        "condition": "standard_error > 0.05",
+        "action": "Increase sample size to reduce standard error below 0.05."
+      },
+      {
+        "id": "reduce_defects",
+        "condition": "defect_rate > 0.05",
+        "action": "Initiate root cause analysis and implement corrective actions to lower defect rate."
+      },
+      {
+        "id": "capability_improvement",
+        "condition": "cpk < 1.33",
+        "action": "Apply DMAIC methodology to improve process capability to Cpk >= 1.33."
+      },
+      {
+        "id": "distribution_review",
+        "condition": "distribution_type != 'binomial' AND sample_size < 30",
+        "action": "Re-evaluate distribution assumption; consider non-parametric methods for small samples."
+      }
+    ],
+    "dataConfidenceAdjusted": null
+  }
+}

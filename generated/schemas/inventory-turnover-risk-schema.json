@@ -1,0 +1,340 @@
+{
+  "slug": "inventory-turnover-risk",
+  "name": "Inventory Turnover Risk Calculator",
+  "description": "Industrial-grade risk assessment for inventory turnover performance, incorporating variability, obsolescence, and carrying cost exposure. Aligns with ISO 9001, Lean, Six Sigma, and WERC DC Metrics.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Benchmarking against industry standards",
+    "Automated alerting via email"
+  ],
+  "inputs": [
+    {
+      "id": "avg_inventory_value",
+      "label": "Average Inventory Value (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "min": 0,
+      "max": 1000000000,
+      "businessContext": "Total average value of inventory over the period (e.g., monthly average of COGS-based inventory)."
+    },
+    {
+      "id": "cogs_annual",
+      "label": "Annual Cost of Goods Sold (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000000,
+      "min": 0,
+      "max": 10000000000,
+      "businessContext": "Total cost of goods sold over the last 12 months."
+    },
+    {
+      "id": "demand_variability_coefficient",
+      "label": "Demand Variability Coefficient (CV)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.3,
+      "min": 0,
+      "max": 2,
+      "businessContext": "Coefficient of variation of monthly demand (standard deviation / mean). Higher values indicate greater unpredictability."
+    },
+    {
+      "id": "obsolescence_rate",
+      "label": "Obsolescence Rate (% per year)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Annual percentage of inventory value that becomes obsolete or expired."
+    },
+    {
+      "id": "carrying_cost_rate",
+      "label": "Inventory Carrying Cost Rate (% per year)",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Annual cost to hold inventory (storage, insurance, capital, etc.) as a percentage of inventory value."
+    },
+    {
+      "id": "lead_time_days",
+      "label": "Average Lead Time (Days)",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "min": 1,
+      "max": 365,
+      "businessContext": "Average replenishment lead time from order placement to receipt."
+    },
+    {
+      "id": "service_level_target",
+      "label": "Service Level Target (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "min": 50,
+      "max": 99.99,
+      "businessContext": "Target fill rate or cycle service level (e.g., 95% = 0.95)."
+    },
+    {
+      "id": "inventory_accuracy_pct",
+      "label": "Inventory Record Accuracy (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 98,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of inventory records matching physical counts (cycle count accuracy)."
+    },
+    {
+      "id": "industry_benchmark_turnover",
+      "label": "Industry Benchmark Turnover (turns/year)",
+      "type": "number",
+      "unit": "turns/year",
+      "default": 6,
+      "min": 0.1,
+      "max": 100,
+      "businessContext": "Expected turnover rate for the industry (e.g., WERC benchmark)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "positive_inventory",
+        "condition": "avg_inventory_value > 0",
+        "message": "Average inventory value must be greater than zero."
+      },
+      {
+        "id": "positive_cogs",
+        "condition": "cogs_annual > 0",
+        "message": "Annual COGS must be greater than zero."
+      },
+      {
+        "id": "cv_range",
+        "condition": "demand_variability_coefficient >= 0 && demand_variability_coefficient <= 2",
+        "message": "Demand variability coefficient must be between 0 and 2."
+      },
+      {
+        "id": "obsolescence_range",
+        "condition": "obsolescence_rate >= 0 && obsolescence_rate <= 100",
+        "message": "Obsolescence rate must be between 0 and 100."
+      },
+      {
+        "id": "carrying_cost_range",
+        "condition": "carrying_cost_rate >= 0 && carrying_cost_rate <= 100",
+        "message": "Carrying cost rate must be between 0 and 100."
+      },
+      {
+        "id": "lead_time_positive",
+        "condition": "lead_time_days > 0",
+        "message": "Lead time must be greater than 0 days."
+      },
+      {
+        "id": "service_level_range",
+        "condition": "service_level_target >= 50 && service_level_target <= 99.99",
+        "message": "Service level target must be between 50% and 99.99%."
+      },
+      {
+        "id": "accuracy_range",
+        "condition": "inventory_accuracy_pct >= 0 && inventory_accuracy_pct <= 100",
+        "message": "Inventory accuracy must be between 0% and 100%."
+      },
+      {
+        "id": "benchmark_positive",
+        "condition": "industry_benchmark_turnover > 0",
+        "message": "Industry benchmark turnover must be greater than zero."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "turnover_risk_low",
+        "condition": "primaryResult >= 0.8 * industry_benchmark_turnover",
+        "severity": "low",
+        "message": "Turnover is within 80% of industry benchmark. Low risk."
+      },
+      {
+        "id": "turnover_risk_medium",
+        "condition": "primaryResult >= 0.5 * industry_benchmark_turnover && primaryResult < 0.8 * industry_benchmark_turnover",
+        "severity": "medium",
+        "message": "Turnover is between 50% and 80% of benchmark. Moderate risk."
+      },
+      {
+        "id": "turnover_risk_high",
+        "condition": "primaryResult < 0.5 * industry_benchmark_turnover",
+        "severity": "high",
+        "message": "Turnover is below 50% of industry benchmark. High risk of excess inventory and obsolescence."
+      },
+      {
+        "id": "carrying_cost_alert",
+        "condition": "carrying_cost_rate > 30",
+        "severity": "medium",
+        "message": "Carrying cost rate exceeds 30%. Consider reducing inventory levels."
+      },
+      {
+        "id": "obsolescence_alert",
+        "condition": "obsolescence_rate > 10",
+        "severity": "high",
+        "message": "Obsolescence rate exceeds 10%. Immediate review of slow-moving items required."
+      },
+      {
+        "id": "accuracy_alert",
+        "condition": "inventory_accuracy_pct < 95",
+        "severity": "high",
+        "message": "Inventory record accuracy below 95%. Risk of stockouts and excess safety stock."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "basic_turnover",
+      "name": "Basic Inventory Turnover",
+      "description": "Standard turnover ratio: COGS / Average Inventory.",
+      "formula": "cogs_annual / avg_inventory_value",
+      "unit": "turns/year"
+    },
+    {
+      "id": "adjusted_turnover",
+      "name": "Adjusted Turnover (Demand Variability)",
+      "description": "Turnover penalized by demand variability using a Six Sigma approach (higher CV reduces effective turns).",
+      "formula": "basic_turnover * (1 - demand_variability_coefficient * 0.5)",
+      "unit": "turns/year"
+    },
+    {
+      "id": "obsolescence_impact",
+      "name": "Obsolescence Impact Factor",
+      "description": "Factor representing the drag on turnover due to obsolescence.",
+      "formula": "1 - (obsolescence_rate / 100)",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "carrying_cost_exposure",
+      "name": "Carrying Cost Exposure",
+      "description": "Annual carrying cost as a percentage of inventory value.",
+      "formula": "(carrying_cost_rate / 100) * avg_inventory_value",
+      "unit": "USD"
+    },
+    {
+      "id": "safety_stock_factor",
+      "name": "Safety Stock Factor (Lead Time & Service Level)",
+      "description": "Z-score based on service level (normal approximation) times lead time variability. Uses standard z for service level.",
+      "formula": "qnorm(service_level_target / 100) * sqrt(lead_time_days / 365) * demand_variability_coefficient",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "accuracy_adjustment",
+      "name": "Inventory Accuracy Adjustment",
+      "description": "Penalty factor for record inaccuracy (Lean principle: accuracy drives waste).",
+      "formula": "inventory_accuracy_pct / 100",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "primary_result",
+      "name": "Inventory Turnover Risk Score (Effective Turns)",
+      "description": "Primary result: risk-adjusted turnover considering variability, obsolescence, safety stock, and accuracy. Lower values indicate higher risk.",
+      "formula": "adjusted_turnover * obsolescence_impact * accuracy_adjustment / (1 + safety_stock_factor)",
+      "unit": "turns/year"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "effective_turns",
+      "label": "Effective Inventory Turnover (Risk-Adjusted)",
+      "unit": "turns/year",
+      "description": "Primary risk-adjusted turnover metric. Lower than basic turnover indicates higher risk from variability, obsolescence, or inaccuracy."
+    },
+    "breakdown": {
+      "basic_turnover": {
+        "id": "basic_turnover",
+        "label": "Basic Turnover",
+        "unit": "turns/year"
+      },
+      "adjusted_turnover": {
+        "id": "adjusted_turnover",
+        "label": "Adjusted Turnover (Demand Variability)",
+        "unit": "turns/year"
+      },
+      "obsolescence_impact": {
+        "id": "obsolescence_impact",
+        "label": "Obsolescence Impact Factor",
+        "unit": "dimensionless"
+      },
+      "carrying_cost_exposure": {
+        "id": "carrying_cost_exposure",
+        "label": "Annual Carrying Cost Exposure",
+        "unit": "USD"
+      },
+      "safety_stock_factor": {
+        "id": "safety_stock_factor",
+        "label": "Safety Stock Factor",
+        "unit": "dimensionless"
+      },
+      "accuracy_adjustment": {
+        "id": "accuracy_adjustment",
+        "label": "Accuracy Adjustment",
+        "unit": "dimensionless"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "demand_variability_loss",
+        "label": "Demand Variability Loss",
+        "description": "Lost turnover potential due to demand unpredictability.",
+        "value": "basic_turnover - adjusted_turnover",
+        "unit": "turns/year"
+      },
+      {
+        "id": "obsolescence_loss",
+        "label": "Obsolescence Loss",
+        "description": "Value lost to obsolescence annually.",
+        "value": "avg_inventory_value * (obsolescence_rate / 100)",
+        "unit": "USD"
+      },
+      {
+        "id": "inaccuracy_loss",
+        "label": "Inventory Inaccuracy Loss",
+        "description": "Imputed loss from record inaccuracy (waste, expediting, stockouts).",
+        "value": "avg_inventory_value * (1 - accuracy_adjustment)",
+        "unit": "USD"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_demand_variability",
+        "condition": "demand_variability_coefficient > 0.5",
+        "action": "Implement demand sensing and S&OP to reduce variability. Consider postponement strategies."
+      },
+      {
+        "id": "reduce_obsolescence",
+        "condition": "obsolescence_rate > 8",
+        "action": "Conduct ABC-XYZ analysis and phase out slow movers. Use markdown optimization."
+      },
+      {
+        "id": "improve_accuracy",
+        "condition": "inventory_accuracy_pct < 95",
+        "action": "Implement cycle counting program (ISO 9001:2015 clause 7.1.5). Use barcode/RFID."
+      },
+      {
+        "id": "optimize_safety_stock",
+        "condition": "safety_stock_factor > 0.5",
+        "action": "Review safety stock levels using Six Sigma DMAIC. Reduce lead time variability."
+      },
+      {
+        "id": "reduce_carrying_cost",
+        "condition": "carrying_cost_rate > 25",
+        "action": "Negotiate lower storage rates, reduce excess inventory, or use consignment."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_score",
+      "label": "Data Confidence Score",
+      "description": "Aggregate confidence in input data quality (0-1). Based on accuracy and completeness of inputs.",
+      "value": "inventory_accuracy_pct / 100 * (1 - demand_variability_coefficient * 0.1)",
+      "unit": "dimensionless"
+    }
+  }
+}

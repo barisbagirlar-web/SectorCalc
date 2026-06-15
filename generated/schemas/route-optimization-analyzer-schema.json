@@ -1,0 +1,286 @@
+{
+  "slug": "route-optimization-analyzer",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario comparison",
+    "Real-time GPS integration"
+  ],
+  "inputs": [
+    {
+      "id": "num_stops",
+      "label": "Number of Stops",
+      "type": "number",
+      "unit": "stops",
+      "default": 10,
+      "min": 1,
+      "max": 200,
+      "businessContext": "Total delivery or service stops on the route."
+    },
+    {
+      "id": "total_distance",
+      "label": "Total Route Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 150,
+      "min": 0,
+      "max": 5000,
+      "businessContext": "Total distance traveled for the route in kilometers."
+    },
+    {
+      "id": "avg_speed",
+      "label": "Average Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 40,
+      "min": 5,
+      "max": 120,
+      "businessContext": "Average vehicle speed including traffic and stops."
+    },
+    {
+      "id": "dwell_time_per_stop",
+      "label": "Dwell Time per Stop",
+      "type": "number",
+      "unit": "minutes",
+      "default": 10,
+      "min": 0,
+      "max": 120,
+      "businessContext": "Average time spent at each stop for loading/unloading."
+    },
+    {
+      "id": "fuel_cost_per_km",
+      "label": "Fuel Cost per km",
+      "type": "number",
+      "unit": "currency/km",
+      "default": 1.2,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Fuel cost per kilometer driven."
+    },
+    {
+      "id": "driver_hourly_rate",
+      "label": "Driver Hourly Rate",
+      "type": "number",
+      "unit": "currency/hour",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Hourly wage cost for the driver."
+    },
+    {
+      "id": "vehicle_type",
+      "label": "Vehicle Type",
+      "type": "select",
+      "unit": "",
+      "default": "van",
+      "min": null,
+      "max": null,
+      "businessContext": "Type of vehicle used for the route.",
+      "options": [
+        "van",
+        "truck_light",
+        "truck_heavy",
+        "refrigerated"
+      ]
+    },
+    {
+      "id": "traffic_condition",
+      "label": "Traffic Condition",
+      "type": "select",
+      "unit": "",
+      "default": "moderate",
+      "min": null,
+      "max": null,
+      "businessContext": "Expected traffic condition along the route.",
+      "options": [
+        "light",
+        "moderate",
+        "heavy"
+      ]
+    },
+    {
+      "id": "use_optimization",
+      "label": "Use Optimization Algorithm",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "min": null,
+      "max": null,
+      "businessContext": "Toggle to apply route optimization logic."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_stops_distance",
+        "condition": "num_stops > 0 AND total_distance > 0",
+        "message": "Number of stops and total distance must be positive."
+      },
+      {
+        "id": "rule_speed_range",
+        "condition": "avg_speed >= 5 AND avg_speed <= 120",
+        "message": "Average speed must be between 5 and 120 km/h."
+      },
+      {
+        "id": "rule_dwell_time",
+        "condition": "dwell_time_per_stop >= 0 AND dwell_time_per_stop <= 120",
+        "message": "Dwell time per stop must be between 0 and 120 minutes."
+      },
+      {
+        "id": "rule_vehicle_traffic",
+        "condition": "vehicle_type == 'refrigerated' AND traffic_condition == 'heavy'",
+        "message": "Refrigerated vehicles in heavy traffic may require additional fuel surcharge."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_fuel_cost",
+        "metric": "fuel_cost_total",
+        "operator": ">",
+        "value": 500,
+        "alert": "Fuel cost exceeds 500 currency units. Consider route consolidation."
+      },
+      {
+        "id": "threshold_time",
+        "metric": "total_travel_time_hours",
+        "operator": ">",
+        "value": 8,
+        "alert": "Total travel time exceeds 8 hours. Driver may require rest break."
+      },
+      {
+        "id": "threshold_stops_per_hour",
+        "metric": "stops_per_hour",
+        "operator": "<",
+        "value": 1.5,
+        "alert": "Stops per hour below 1.5. Route density is low; consider merging stops."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "total_drive_time",
+      "label": "Total Drive Time",
+      "formula": "total_distance / avg_speed",
+      "unit": "hours",
+      "description": "Time spent driving the route."
+    },
+    {
+      "id": "total_dwell_time",
+      "label": "Total Dwell Time",
+      "formula": "num_stops * dwell_time_per_stop / 60",
+      "unit": "hours",
+      "description": "Total time spent at stops."
+    },
+    {
+      "id": "total_travel_time",
+      "label": "Total Travel Time",
+      "formula": "total_drive_time + total_dwell_time",
+      "unit": "hours",
+      "description": "Total time from start to finish including stops."
+    },
+    {
+      "id": "fuel_cost_total",
+      "label": "Fuel Cost Total",
+      "formula": "total_distance * fuel_cost_per_km",
+      "unit": "currency",
+      "description": "Total fuel cost for the route."
+    },
+    {
+      "id": "driver_cost_total",
+      "label": "Driver Cost Total",
+      "formula": "total_travel_time * driver_hourly_rate",
+      "unit": "currency",
+      "description": "Total driver wage cost."
+    },
+    {
+      "id": "stops_per_hour",
+      "label": "Stops per Hour",
+      "formula": "num_stops / total_travel_time",
+      "unit": "stops/hour",
+      "description": "Route efficiency metric: stops per hour of travel."
+    },
+    {
+      "id": "total_cost",
+      "label": "Total Cost",
+      "formula": "fuel_cost_total + driver_cost_total",
+      "unit": "currency",
+      "description": "Primary result: total route cost."
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_cost",
+      "label": "Total Route Cost",
+      "value": null,
+      "unit": "currency"
+    },
+    "breakdown": {
+      "fuel_cost_total": {
+        "label": "Fuel Cost",
+        "value": null,
+        "unit": "currency"
+      },
+      "driver_cost_total": {
+        "label": "Driver Cost",
+        "value": null,
+        "unit": "currency"
+      },
+      "total_travel_time": {
+        "label": "Total Travel Time",
+        "value": null,
+        "unit": "hours"
+      },
+      "stops_per_hour": {
+        "label": "Stops per Hour",
+        "value": null,
+        "unit": "stops/hour"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excess_dwell_time",
+        "label": "Excess Dwell Time",
+        "description": "Dwell time above industry benchmark of 8 minutes per stop.",
+        "value": null,
+        "unit": "minutes"
+      },
+      {
+        "id": "inefficient_route_factor",
+        "label": "Inefficient Route Factor",
+        "description": "Ratio of actual distance to optimal distance (if optimization not used).",
+        "value": null,
+        "unit": "ratio"
+      },
+      {
+        "id": "fuel_waste",
+        "label": "Fuel Waste",
+        "description": "Extra fuel cost due to traffic and suboptimal routing.",
+        "value": null,
+        "unit": "currency"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_consolidate_stops",
+        "label": "Consolidate Stops",
+        "description": "Merge stops within 2 km radius to reduce dwell time and distance.",
+        "impact": "Reduce total cost by up to 12%"
+      },
+      {
+        "id": "action_off_peak",
+        "label": "Schedule Off-Peak",
+        "description": "Shift route to off-peak hours to improve average speed.",
+        "impact": "Reduce travel time by up to 20%"
+      },
+      {
+        "id": "action_vehicle_upgrade",
+        "label": "Consider Fuel-Efficient Vehicle",
+        "description": "Use a vehicle with lower fuel consumption per km.",
+        "impact": "Reduce fuel cost by up to 15%"
+      }
+    ],
+    "dataConfidenceAdjusted": 0.85
+  }
+}

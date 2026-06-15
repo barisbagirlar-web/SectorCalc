@@ -1,0 +1,307 @@
+{
+  "slug": "cash-flow-gap-calculator",
+  "title": "Cash Flow Gap Calculator",
+  "description": "Industrial-grade tool to calculate and analyze cash flow gaps using Lean, Six Sigma, and WERC standards. Identifies hidden loss drivers and provides actionable recommendations.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario simulation",
+    "Benchmarking against industry standards (WERC)"
+  ],
+  "inputs": [
+    {
+      "id": "avg_days_receivable",
+      "label": "Average Days Receivable (DSO)",
+      "type": "number",
+      "unit": "days",
+      "default": 45,
+      "min": 0,
+      "max": 365,
+      "businessContext": "Average number of days to collect payment after a sale. High DSO indicates potential cash flow issues."
+    },
+    {
+      "id": "avg_days_payable",
+      "label": "Average Days Payable (DPO)",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "min": 0,
+      "max": 365,
+      "businessContext": "Average number of days to pay suppliers. Higher DPO can improve cash flow but may strain supplier relationships."
+    },
+    {
+      "id": "inventory_days",
+      "label": "Inventory Days (DII)",
+      "type": "number",
+      "unit": "days",
+      "default": 60,
+      "min": 0,
+      "max": 365,
+      "businessContext": "Average number of days inventory is held before sale. High DII ties up cash and increases holding costs."
+    },
+    {
+      "id": "operating_expenses_daily",
+      "label": "Daily Operating Expenses",
+      "type": "number",
+      "unit": "currency/day",
+      "default": 10000,
+      "min": 0,
+      "max": 10000000,
+      "businessContext": "Total daily operating costs including labor, materials, overhead. Used to compute cash gap in monetary terms."
+    },
+    {
+      "id": "revenue_daily",
+      "label": "Daily Revenue",
+      "type": "number",
+      "unit": "currency/day",
+      "default": 15000,
+      "min": 0,
+      "max": 10000000,
+      "businessContext": "Average daily revenue from sales. Used to compute cash conversion cycle and gap."
+    },
+    {
+      "id": "payment_terms_suppliers",
+      "label": "Supplier Payment Terms",
+      "type": "select",
+      "unit": "",
+      "default": "net30",
+      "options": [
+        {
+          "value": "net15",
+          "label": "Net 15"
+        },
+        {
+          "value": "net30",
+          "label": "Net 30"
+        },
+        {
+          "value": "net45",
+          "label": "Net 45"
+        },
+        {
+          "value": "net60",
+          "label": "Net 60"
+        }
+      ],
+      "businessContext": "Standard payment terms offered by suppliers. Affects DPO and cash gap."
+    },
+    {
+      "id": "customer_payment_behavior",
+      "label": "Customer Payment Behavior",
+      "type": "select",
+      "unit": "",
+      "default": "average",
+      "options": [
+        {
+          "value": "fast",
+          "label": "Fast (pays early)"
+        },
+        {
+          "value": "average",
+          "label": "Average (on time)"
+        },
+        {
+          "value": "slow",
+          "label": "Slow (late payments)"
+        }
+      ],
+      "businessContext": "Historical customer payment behavior. Adjusts effective DSO."
+    },
+    {
+      "id": "lean_inventory_flag",
+      "label": "Lean Inventory Practices Active",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "businessContext": "Indicates if Lean inventory methods (e.g., JIT) are in place to reduce inventory days."
+    },
+    {
+      "id": "six_sigma_quality_level",
+      "label": "Six Sigma Quality Level (Sigma)",
+      "type": "number",
+      "unit": "sigma",
+      "default": 3,
+      "min": 1,
+      "max": 6,
+      "step": 0.1,
+      "businessContext": "Current process sigma level. Higher sigma indicates fewer defects and less cash tied up in rework/scrap."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_dso_dpo_consistency",
+        "condition": "avg_days_receivable < avg_days_payable",
+        "message": "DSO is less than DPO. This may indicate favorable cash flow but verify payment terms consistency.",
+        "severity": "info"
+      },
+      {
+        "id": "rule_inventory_lean",
+        "condition": "lean_inventory_flag == true && inventory_days > 30",
+        "message": "Lean inventory flag is active but inventory days exceed 30. Consider JIT or reducing safety stock.",
+        "severity": "warning"
+      },
+      {
+        "id": "rule_sigma_impact",
+        "condition": "six_sigma_quality_level < 3.0",
+        "message": "Sigma level below 3.0 indicates high defect rates, increasing cash tied in rework and scrap.",
+        "severity": "critical"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "cash_gap_days_alert",
+        "metric": "cash_gap_days",
+        "condition": "> 30",
+        "message": "Cash gap exceeds 30 days. Immediate action recommended to reduce DSO or inventory.",
+        "severity": "critical"
+      },
+      {
+        "id": "cash_gap_value_alert",
+        "metric": "cash_gap_value",
+        "condition": "> 500000",
+        "message": "Cash gap value exceeds 500,000 currency units. High risk of liquidity issues.",
+        "severity": "critical"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "effective_dso",
+      "name": "Effective Days Sales Outstanding",
+      "description": "Adjusts DSO based on customer payment behavior.",
+      "formula": "effective_dso = avg_days_receivable * (1 + (customer_payment_behavior == 'slow' ? 0.2 : customer_payment_behavior == 'fast' ? -0.1 : 0))",
+      "unit": "days"
+    },
+    {
+      "id": "effective_dpo",
+      "name": "Effective Days Payable Outstanding",
+      "description": "Uses supplier payment terms as DPO, capped by contractual terms.",
+      "formula": "effective_dpo = CASE payment_terms_suppliers WHEN 'net15' THEN 15 WHEN 'net30' THEN 30 WHEN 'net45' THEN 45 WHEN 'net60' THEN 60 ELSE 30 END",
+      "unit": "days"
+    },
+    {
+      "id": "adjusted_inventory_days",
+      "name": "Adjusted Inventory Days",
+      "description": "Reduces inventory days if Lean practices are active, with sigma adjustment.",
+      "formula": "adjusted_inventory_days = inventory_days * (lean_inventory_flag ? 0.7 : 1.0) * (1 - (six_sigma_quality_level - 3.0) * 0.05)",
+      "unit": "days"
+    },
+    {
+      "id": "cash_gap_days",
+      "name": "Cash Gap Days (Cash Conversion Cycle)",
+      "description": "Primary cash gap in days: DSO + Inventory Days - DPO.",
+      "formula": "cash_gap_days = effective_dso + adjusted_inventory_days - effective_dpo",
+      "unit": "days"
+    },
+    {
+      "id": "cash_gap_value",
+      "name": "Cash Gap Value",
+      "description": "Monetary value of the cash gap based on daily operating expenses.",
+      "formula": "cash_gap_value = cash_gap_days * operating_expenses_daily",
+      "unit": "currency"
+    },
+    {
+      "id": "revenue_adjustment_factor",
+      "name": "Revenue Adjustment Factor",
+      "description": "Factor to adjust for revenue variability (Six Sigma based).",
+      "formula": "revenue_adjustment_factor = 1 + (six_sigma_quality_level - 3.0) * 0.02",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "data_confidence_score",
+      "name": "Data Confidence Score",
+      "description": "Score from 0 to 1 indicating reliability of inputs based on sigma level and lean practices.",
+      "formula": "data_confidence_score = min(1.0, (six_sigma_quality_level / 6.0) * (lean_inventory_flag ? 1.1 : 1.0) * 0.9)",
+      "unit": "dimensionless"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "cash_gap_days",
+      "label": "Cash Gap (Days)",
+      "value": null,
+      "unit": "days",
+      "description": "Number of days the company must finance operations before receiving cash from sales."
+    },
+    "breakdown": {
+      "effective_dso": {
+        "label": "Effective DSO",
+        "value": null,
+        "unit": "days"
+      },
+      "effective_dpo": {
+        "label": "Effective DPO",
+        "value": null,
+        "unit": "days"
+      },
+      "adjusted_inventory_days": {
+        "label": "Adjusted Inventory Days",
+        "value": null,
+        "unit": "days"
+      },
+      "cash_gap_value": {
+        "label": "Cash Gap Value",
+        "value": null,
+        "unit": "currency"
+      },
+      "revenue_adjustment_factor": {
+        "label": "Revenue Adjustment Factor",
+        "value": null,
+        "unit": "dimensionless"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excess_inventory_holding",
+        "label": "Excess Inventory Holding",
+        "description": "Inventory days above industry benchmark (e.g., 30 days) ties up cash.",
+        "estimated_impact": "inventory_days > 30 ? (inventory_days - 30) * operating_expenses_daily * 0.1 : 0",
+        "unit": "currency"
+      },
+      {
+        "id": "late_payment_penalties",
+        "label": "Late Payment Penalties",
+        "description": "Costs from paying suppliers late or customer discounts for early payment.",
+        "estimated_impact": "customer_payment_behavior == 'slow' ? effective_dso * revenue_daily * 0.02 : 0",
+        "unit": "currency"
+      },
+      {
+        "id": "quality_defect_cost",
+        "label": "Quality Defect Cost",
+        "description": "Cash tied in rework, scrap, and warranty due to low sigma level.",
+        "estimated_impact": "(6.0 - six_sigma_quality_level) * 0.05 * operating_expenses_daily * 30",
+        "unit": "currency"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_dso",
+        "priority": "high",
+        "action": "Implement stricter credit policies and offer early payment discounts to reduce DSO.",
+        "expected_improvement": "Reduces cash gap by 5-15 days."
+      },
+      {
+        "id": "negotiate_dpo",
+        "priority": "medium",
+        "action": "Negotiate longer payment terms with key suppliers without damaging relationships.",
+        "expected_improvement": "Increases DPO by 10-20 days."
+      },
+      {
+        "id": "lean_inventory",
+        "priority": "high",
+        "action": "Adopt Lean inventory practices (JIT, Kanban) to reduce inventory days.",
+        "expected_improvement": "Reduces inventory days by 30-50%."
+      },
+      {
+        "id": "six_sigma_improvement",
+        "priority": "medium",
+        "action": "Invest in Six Sigma projects to improve quality level above 4.5 sigma.",
+        "expected_improvement": "Reduces defect-related cash tie-up by 20-40%."
+      }
+    ],
+    "dataConfidenceAdjusted": null
+  }
+}

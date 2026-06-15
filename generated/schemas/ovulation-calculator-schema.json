@@ -1,0 +1,268 @@
+{
+  "slug": "ovulation-calculator",
+  "name": "Ovulation Cycle & Fertility Window Calculator",
+  "description": "Industrial-grade tool to estimate ovulation date, fertile window, and cycle variability based on menstrual cycle data. Applies statistical process control (SPC) and lean principles to cycle tracking.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Cycle variability control chart",
+    "Multi-cycle overlay"
+  ],
+  "inputs": [
+    {
+      "id": "cycle_length",
+      "label": "Average cycle length (days)",
+      "type": "number",
+      "unit": "days",
+      "default": 28,
+      "min": 20,
+      "max": 45,
+      "businessContext": "Typical range for healthy adult women; used as baseline for ovulation estimation."
+    },
+    {
+      "id": "luteal_phase_length",
+      "label": "Luteal phase length (days)",
+      "type": "number",
+      "unit": "days",
+      "default": 14,
+      "min": 10,
+      "max": 16,
+      "businessContext": "Fixed post-ovulation phase; variation indicates potential luteal phase defect."
+    },
+    {
+      "id": "last_period_start",
+      "label": "Start date of last menstrual period",
+      "type": "number",
+      "unit": "days since epoch (Unix timestamp)",
+      "default": 0,
+      "min": 0,
+      "max": 2000000000,
+      "businessContext": "Reference point for calculating next ovulation and fertile window."
+    },
+    {
+      "id": "cycle_variability",
+      "label": "Cycle length variability (standard deviation, days)",
+      "type": "number",
+      "unit": "days",
+      "default": 2,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Used to compute confidence intervals and adjust fertile window width per SPC rules."
+    },
+    {
+      "id": "age_group",
+      "label": "Age group",
+      "type": "select",
+      "unit": "",
+      "default": "20-30",
+      "min": null,
+      "max": null,
+      "options": [
+        "<20",
+        "20-30",
+        "31-40",
+        ">40"
+      ],
+      "businessContext": "Age affects cycle regularity and fertility; used for risk adjustment."
+    },
+    {
+      "id": "has_irregular_cycles",
+      "label": "Irregular cycles (variation > 7 days)",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "Triggers alternative calculation method and alerts for medical consultation."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "cycle_length_range",
+        "condition": "cycle_length < 20 OR cycle_length > 45",
+        "message": "Cycle length must be between 20 and 45 days."
+      },
+      {
+        "id": "luteal_phase_range",
+        "condition": "luteal_phase_length < 10 OR luteal_phase_length > 16",
+        "message": "Luteal phase length must be between 10 and 16 days."
+      },
+      {
+        "id": "variability_consistency",
+        "condition": "cycle_variability > 7 AND has_irregular_cycles == false",
+        "message": "High variability detected; consider setting 'Irregular cycles' to true."
+      },
+      {
+        "id": "age_luteal_warning",
+        "condition": "age_group == '>40' AND luteal_phase_length < 12",
+        "message": "Short luteal phase in age >40 may indicate diminished ovarian reserve."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "fertile_window_alert",
+        "condition": "fertile_window_start < 0 OR fertile_window_end > cycle_length",
+        "message": "Fertile window extends beyond cycle boundaries; check inputs."
+      },
+      {
+        "id": "ovulation_uncertainty_alert",
+        "condition": "cycle_variability > 5",
+        "message": "High cycle variability reduces ovulation prediction confidence; consider additional tracking methods."
+      },
+      {
+        "id": "luteal_phase_defect_alert",
+        "condition": "luteal_phase_length < 11",
+        "message": "Luteal phase < 11 days may indicate luteal phase defect; consult healthcare provider."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "estimated_ovulation_date",
+      "name": "Estimated Ovulation Date",
+      "description": "Calculates the day of ovulation relative to cycle start (day 1 = first day of period).",
+      "formula": "cycle_length - luteal_phase_length",
+      "unit": "days",
+      "intermediate": true
+    },
+    {
+      "id": "fertile_window_start",
+      "name": "Fertile Window Start",
+      "description": "Start of the 5-day fertile window (sperm survival up to 5 days).",
+      "formula": "estimated_ovulation_date - 5",
+      "unit": "days",
+      "intermediate": true
+    },
+    {
+      "id": "fertile_window_end",
+      "name": "Fertile Window End",
+      "description": "End of fertile window (ovulation day + 1 for egg viability).",
+      "formula": "estimated_ovulation_date + 1",
+      "unit": "days",
+      "intermediate": true
+    },
+    {
+      "id": "cycle_confidence_interval",
+      "name": "Cycle Confidence Interval (95%)",
+      "description": "Uses cycle variability to compute a 95% confidence interval around the estimated ovulation date (assuming normal distribution).",
+      "formula": "1.96 * cycle_variability",
+      "unit": "days",
+      "intermediate": true
+    },
+    {
+      "id": "adjusted_fertile_window_start",
+      "name": "Adjusted Fertile Window Start (with confidence)",
+      "description": "Extends the fertile window start by the confidence interval to account for variability.",
+      "formula": "fertile_window_start - cycle_confidence_interval",
+      "unit": "days",
+      "intermediate": true
+    },
+    {
+      "id": "adjusted_fertile_window_end",
+      "name": "Adjusted Fertile Window End (with confidence)",
+      "description": "Extends the fertile window end by the confidence interval.",
+      "formula": "fertile_window_end + cycle_confidence_interval",
+      "unit": "days",
+      "intermediate": true
+    },
+    {
+      "id": "data_confidence_score",
+      "name": "Data Confidence Score",
+      "description": "Composite score (0-100) based on variability and irregularity flags, using a lean sigma approach.",
+      "formula": "MAX(0, 100 - (cycle_variability * 10) - (has_irregular_cycles ? 30 : 0))",
+      "unit": "score",
+      "intermediate": true
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "ovulation_date_absolute",
+      "label": "Predicted Ovulation Date (absolute day of cycle)",
+      "value": null,
+      "unit": "days from cycle start"
+    },
+    "breakdown": {
+      "estimated_ovulation_date": {
+        "label": "Estimated Ovulation Day",
+        "value": null,
+        "unit": "days"
+      },
+      "fertile_window_start": {
+        "label": "Fertile Window Start (basic)",
+        "value": null,
+        "unit": "days"
+      },
+      "fertile_window_end": {
+        "label": "Fertile Window End (basic)",
+        "value": null,
+        "unit": "days"
+      },
+      "adjusted_fertile_window_start": {
+        "label": "Adjusted Fertile Window Start (with confidence)",
+        "value": null,
+        "unit": "days"
+      },
+      "adjusted_fertile_window_end": {
+        "label": "Adjusted Fertile Window End (with confidence)",
+        "value": null,
+        "unit": "days"
+      },
+      "cycle_confidence_interval": {
+        "label": "95% Confidence Interval Width",
+        "value": null,
+        "unit": "days"
+      },
+      "data_confidence_score": {
+        "label": "Data Confidence Score",
+        "value": null,
+        "unit": "score (0-100)"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "high_variability_loss",
+        "label": "Cycle variability > 5 days",
+        "description": "Reduces prediction accuracy; equivalent to process sigma shift of 1.5.",
+        "impact": "Decreases confidence score by up to 50 points."
+      },
+      {
+        "id": "irregular_cycles_loss",
+        "label": "Irregular cycles flag active",
+        "description": "Indicates potential anovulation or hormonal imbalance; standard formulas may be invalid.",
+        "impact": "Triggers alternative calculation and reduces confidence by 30 points."
+      },
+      {
+        "id": "age_related_loss",
+        "label": "Age > 40 with short luteal phase",
+        "description": "Combined risk factor for diminished ovarian reserve.",
+        "impact": "Reduces fertile window by 1 day and confidence by 20 points."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "track_basal_temp",
+        "label": "Track basal body temperature (BBT)",
+        "description": "Improves ovulation detection accuracy; recommended for cycles with variability > 3 days."
+      },
+      {
+        "id": "use_ovulation_predictor_kits",
+        "label": "Use ovulation predictor kits (OPK)",
+        "description": "Provides real-time LH surge detection; especially useful when confidence score < 70."
+      },
+      {
+        "id": "consult_healthcare_provider",
+        "label": "Consult healthcare provider",
+        "description": "Recommended if luteal phase < 11 days or cycle variability > 7 days."
+      },
+      {
+        "id": "maintain_cycle_log",
+        "label": "Maintain detailed cycle log for 3+ months",
+        "description": "Improves data confidence and allows trend analysis per SPC principles."
+      }
+    ],
+    "dataConfidenceAdjusted": null
+  }
+}

@@ -1,0 +1,339 @@
+{
+  "slug": "heat-exchanger-fouling-loss",
+  "title": "Heat Exchanger Fouling Loss Calculator",
+  "description": "Calculates energy and production losses due to fouling in shell-and-tube heat exchangers, based on ISO 50001, Six Sigma DMAIC, and Lean manufacturing principles.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-unit comparison",
+    "Custom threshold alerts"
+  ],
+  "inputs": [
+    {
+      "id": "design_ua",
+      "label": "Design Overall Heat Transfer Coefficient × Area (UA_design)",
+      "type": "number",
+      "unit": "kW/K",
+      "default": 500,
+      "min": 10,
+      "max": 10000,
+      "businessContext": "Clean design UA from manufacturer datasheet or initial commissioning test (ISO 50001:2018, Annex B)."
+    },
+    {
+      "id": "actual_ua",
+      "label": "Actual Overall Heat Transfer Coefficient × Area (UA_actual)",
+      "type": "number",
+      "unit": "kW/K",
+      "default": 350,
+      "min": 5,
+      "max": 10000,
+      "businessContext": "Current measured UA from process data (temperature, flow) using heat balance. Indicates fouling severity."
+    },
+    {
+      "id": "hot_inlet_temp",
+      "label": "Hot Fluid Inlet Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 120,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Temperature of hot process stream entering the heat exchanger."
+    },
+    {
+      "id": "cold_inlet_temp",
+      "label": "Cold Fluid Inlet Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 30,
+      "min": -20,
+      "max": 200,
+      "businessContext": "Temperature of cooling or heating utility entering the exchanger."
+    },
+    {
+      "id": "hot_flow_rate",
+      "label": "Hot Fluid Mass Flow Rate",
+      "type": "number",
+      "unit": "kg/s",
+      "default": 50,
+      "min": 0.1,
+      "max": 1000,
+      "businessContext": "Mass flow rate of the hot process stream."
+    },
+    {
+      "id": "hot_specific_heat",
+      "label": "Hot Fluid Specific Heat Capacity",
+      "type": "number",
+      "unit": "kJ/(kg·K)",
+      "default": 2.5,
+      "min": 0.5,
+      "max": 5,
+      "businessContext": "Average specific heat of hot fluid over operating temperature range."
+    },
+    {
+      "id": "energy_cost",
+      "label": "Energy Cost",
+      "type": "number",
+      "unit": "$/kWh",
+      "default": 0.08,
+      "min": 0.01,
+      "max": 1,
+      "businessContext": "Cost of thermal energy (steam, hot water, or electricity for pumping)."
+    },
+    {
+      "id": "operating_hours_per_year",
+      "label": "Operating Hours per Year",
+      "type": "number",
+      "unit": "h/yr",
+      "default": 8000,
+      "min": 100,
+      "max": 8760,
+      "businessContext": "Annual operating hours of the heat exchanger."
+    },
+    {
+      "id": "production_loss_factor",
+      "label": "Production Loss Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of production capacity lost due to reduced heat transfer (e.g., slower throughput)."
+    },
+    {
+      "id": "revenue_per_unit_product",
+      "label": "Revenue per Unit Product",
+      "type": "number",
+      "unit": "$/kg",
+      "default": 0.5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Revenue generated per kg of product processed through the exchanger."
+    },
+    {
+      "id": "exchanger_type",
+      "label": "Heat Exchanger Type",
+      "type": "select",
+      "options": [
+        "Shell-and-Tube",
+        "Plate",
+        "Double Pipe",
+        "Spiral"
+      ],
+      "default": "Shell-and-Tube",
+      "businessContext": "Type of heat exchanger; affects fouling factors and cleaning intervals."
+    },
+    {
+      "id": "fouling_factor_known",
+      "label": "Fouling Factor Known?",
+      "type": "boolean",
+      "default": false,
+      "businessContext": "If true, user provides measured fouling factor directly; otherwise calculated from UA ratio."
+    },
+    {
+      "id": "measured_fouling_factor",
+      "label": "Measured Fouling Factor (R_f)",
+      "type": "number",
+      "unit": "m²·K/kW",
+      "default": 0.0005,
+      "min": 0,
+      "max": 0.01,
+      "businessContext": "Directly measured fouling resistance from test or literature (TEMA standards)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "ua_ratio_range",
+        "condition": "actual_ua > design_ua",
+        "message": "Actual UA cannot exceed design UA. Check measurement or input values.",
+        "severity": "error"
+      },
+      {
+        "id": "temperature_cross",
+        "condition": "hot_inlet_temp <= cold_inlet_temp",
+        "message": "Hot inlet temperature must be greater than cold inlet temperature for proper heat transfer.",
+        "severity": "error"
+      },
+      {
+        "id": "fouling_factor_conditional",
+        "condition": "fouling_factor_known == true && measured_fouling_factor <= 0",
+        "message": "If fouling factor is known, it must be a positive number.",
+        "severity": "warning"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "fouling_severity_high",
+        "condition": "fouling_resistance > 0.001",
+        "message": "Fouling resistance exceeds 0.001 m²·K/kW – immediate cleaning recommended.",
+        "severity": "critical"
+      },
+      {
+        "id": "energy_loss_high",
+        "condition": "energy_loss_cost > 50000",
+        "message": "Annual energy loss cost exceeds $50,000 – investigate cleaning schedule optimization.",
+        "severity": "warning"
+      },
+      {
+        "id": "production_loss_high",
+        "condition": "production_loss_cost > 100000",
+        "message": "Production loss cost exceeds $100,000 – consider redundancy or advanced anti-fouling coatings.",
+        "severity": "critical"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "fouling_resistance",
+      "label": "Fouling Resistance (R_f)",
+      "description": "Calculated from UA ratio or directly from user input.",
+      "formula": "if (fouling_factor_known) then measured_fouling_factor else (1/actual_ua - 1/design_ua)",
+      "unit": "m²·K/kW",
+      "intermediate": true
+    },
+    {
+      "id": "heat_duty_design",
+      "label": "Design Heat Duty (Q_design)",
+      "description": "Maximum heat transfer capacity under clean conditions using LMTD method (simplified).",
+      "formula": "design_ua * ((hot_inlet_temp - cold_inlet_temp) / 2)",
+      "unit": "kW",
+      "intermediate": true
+    },
+    {
+      "id": "heat_duty_actual",
+      "label": "Actual Heat Duty (Q_actual)",
+      "description": "Current heat transfer based on actual UA and LMTD approximation.",
+      "formula": "actual_ua * ((hot_inlet_temp - cold_inlet_temp) / 2)",
+      "unit": "kW",
+      "intermediate": true
+    },
+    {
+      "id": "energy_loss",
+      "label": "Energy Loss (ΔQ)",
+      "description": "Reduction in heat duty due to fouling.",
+      "formula": "heat_duty_design - heat_duty_actual",
+      "unit": "kW",
+      "intermediate": true
+    },
+    {
+      "id": "energy_loss_cost",
+      "label": "Annual Energy Loss Cost",
+      "description": "Monetary value of lost thermal energy over a year.",
+      "formula": "energy_loss * energy_cost * operating_hours_per_year",
+      "unit": "$/yr",
+      "intermediate": true
+    },
+    {
+      "id": "production_loss_cost",
+      "label": "Annual Production Loss Cost",
+      "description": "Revenue lost due to reduced throughput caused by fouling.",
+      "formula": "(production_loss_factor / 100) * hot_flow_rate * revenue_per_unit_product * operating_hours_per_year * 3600",
+      "unit": "$/yr",
+      "intermediate": true
+    },
+    {
+      "id": "total_fouling_loss",
+      "label": "Total Annual Fouling Loss",
+      "description": "Primary result: sum of energy and production losses.",
+      "formula": "energy_loss_cost + production_loss_cost",
+      "unit": "$/yr",
+      "primary": true
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_fouling_loss",
+      "label": "Total Annual Fouling Loss",
+      "value": null,
+      "unit": "$/yr",
+      "description": "Combined annual cost of energy loss and production loss due to fouling."
+    },
+    "breakdown": {
+      "fouling_resistance": {
+        "id": "fouling_resistance",
+        "label": "Fouling Resistance",
+        "value": null,
+        "unit": "m²·K/kW"
+      },
+      "heat_duty_design": {
+        "id": "heat_duty_design",
+        "label": "Design Heat Duty",
+        "value": null,
+        "unit": "kW"
+      },
+      "heat_duty_actual": {
+        "id": "heat_duty_actual",
+        "label": "Actual Heat Duty",
+        "value": null,
+        "unit": "kW"
+      },
+      "energy_loss": {
+        "id": "energy_loss",
+        "label": "Energy Loss",
+        "value": null,
+        "unit": "kW"
+      },
+      "energy_loss_cost": {
+        "id": "energy_loss_cost",
+        "label": "Annual Energy Loss Cost",
+        "value": null,
+        "unit": "$/yr"
+      },
+      "production_loss_cost": {
+        "id": "production_loss_cost",
+        "label": "Annual Production Loss Cost",
+        "value": null,
+        "unit": "$/yr"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "increased_pumping_cost",
+        "label": "Increased Pumping Cost",
+        "description": "Additional energy for pumps due to higher pressure drop across fouled exchanger.",
+        "estimated_impact": "5-15% of energy loss cost"
+      },
+      {
+        "id": "maintenance_downtime",
+        "label": "Maintenance Downtime",
+        "description": "Lost production during cleaning or replacement.",
+        "estimated_impact": "varies with cleaning frequency"
+      },
+      {
+        "id": "reduced_equipment_life",
+        "label": "Reduced Equipment Life",
+        "description": "Accelerated corrosion or erosion under fouling deposits.",
+        "estimated_impact": "10-20% reduction in lifespan"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "priority": 1,
+        "action": "Schedule chemical cleaning or mechanical brushing within next 2 weeks.",
+        "expected_savings": "Restore 70-90% of lost UA"
+      },
+      {
+        "id": "action_2",
+        "priority": 2,
+        "action": "Install online fouling monitoring system (e.g., thermal resistance sensors).",
+        "expected_savings": "Reduce unplanned downtime by 30%"
+      },
+      {
+        "id": "action_3",
+        "priority": 3,
+        "action": "Evaluate anti-fouling coatings or surface modifications for future replacement.",
+        "expected_savings": "Extend cleaning interval by 50%"
+      },
+      {
+        "id": "action_4",
+        "priority": 4,
+        "action": "Review process conditions (velocity, temperature) to minimize fouling rate.",
+        "expected_savings": "Reduce fouling rate by 20%"
+      }
+    ],
+    "dataConfidenceAdjusted": 0.85
+  }
+}

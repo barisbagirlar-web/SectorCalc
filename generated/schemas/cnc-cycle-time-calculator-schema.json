@@ -1,0 +1,401 @@
+{
+  "slug": "cnc-cycle-time-calculator",
+  "title": "CNC Cycle Time Calculator",
+  "description": "Calculates the total cycle time for CNC machining operations, including cutting, rapid traverse, tool change, and auxiliary times, with adjustments for material, tool wear, and machine efficiency. Aligns with ISO 9001, Lean Manufacturing, and Six Sigma standards.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-machine comparison",
+    "Custom report builder",
+    "API access"
+  ],
+  "inputs": [
+    {
+      "id": "cutting_length",
+      "label": "Cutting Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "min": 0.1,
+      "max": 10000,
+      "businessContext": "Total length of the tool path in contact with the workpiece. Derived from CAM or drawing."
+    },
+    {
+      "id": "feed_rate",
+      "label": "Feed Rate",
+      "type": "number",
+      "unit": "mm/min",
+      "default": 500,
+      "min": 1,
+      "max": 10000,
+      "businessContext": "Linear feed speed of the cutting tool. Based on material and tool specifications."
+    },
+    {
+      "id": "spindle_speed",
+      "label": "Spindle Speed",
+      "type": "number",
+      "unit": "RPM",
+      "default": 3000,
+      "min": 100,
+      "max": 30000,
+      "businessContext": "Rotational speed of the spindle. Affects cutting speed and surface finish."
+    },
+    {
+      "id": "number_of_passes",
+      "label": "Number of Passes",
+      "type": "number",
+      "unit": "count",
+      "default": 1,
+      "min": 1,
+      "max": 100,
+      "businessContext": "Number of cutting passes required to achieve final geometry."
+    },
+    {
+      "id": "rapid_traverse_distance",
+      "label": "Rapid Traverse Distance",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "min": 0,
+      "max": 5000,
+      "businessContext": "Total distance traveled at rapid traverse (non-cutting moves)."
+    },
+    {
+      "id": "rapid_traverse_rate",
+      "label": "Rapid Traverse Rate",
+      "type": "number",
+      "unit": "mm/min",
+      "default": 15000,
+      "min": 1000,
+      "max": 60000,
+      "businessContext": "Maximum speed of the machine during rapid moves."
+    },
+    {
+      "id": "tool_change_time",
+      "label": "Tool Change Time",
+      "type": "number",
+      "unit": "seconds",
+      "default": 5,
+      "min": 0.5,
+      "max": 120,
+      "businessContext": "Average time to change a tool, including turret indexing."
+    },
+    {
+      "id": "number_of_tool_changes",
+      "label": "Number of Tool Changes",
+      "type": "number",
+      "unit": "count",
+      "default": 2,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Total tool changes required for the operation."
+    },
+    {
+      "id": "material_hardness_factor",
+      "label": "Material Hardness Factor",
+      "type": "select",
+      "unit": "dimensionless",
+      "default": "medium",
+      "options": [
+        {
+          "value": "soft",
+          "label": "Soft (e.g., Aluminum, Brass)",
+          "factor": 0.9
+        },
+        {
+          "value": "medium",
+          "label": "Medium (e.g., Steel, Cast Iron)",
+          "factor": 1
+        },
+        {
+          "value": "hard",
+          "label": "Hard (e.g., Stainless Steel, Titanium)",
+          "factor": 1.3
+        },
+        {
+          "value": "exotic",
+          "label": "Exotic (e.g., Inconel, Hastelloy)",
+          "factor": 1.6
+        }
+      ],
+      "businessContext": "Adjusts cutting time based on material machinability. Refer to ISO 3685."
+    },
+    {
+      "id": "tool_wear_factor",
+      "label": "Tool Wear Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "min": 0.8,
+      "max": 2,
+      "businessContext": "Multiplier for tool wear. 1.0 = new tool, >1.0 = worn tool. Based on tool life data."
+    },
+    {
+      "id": "machine_efficiency",
+      "label": "Machine Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 50,
+      "max": 100,
+      "businessContext": "Overall equipment effectiveness (OEE) factor. Accounts for downtime, speed loss, and quality loss."
+    },
+    {
+      "id": "part_loading_time",
+      "label": "Part Loading/Unloading Time",
+      "type": "number",
+      "unit": "seconds",
+      "default": 10,
+      "min": 1,
+      "max": 300,
+      "businessContext": "Time to load and unload the workpiece from the machine."
+    },
+    {
+      "id": "coolant_on_time",
+      "label": "Coolant On Time",
+      "type": "number",
+      "unit": "seconds",
+      "default": 2,
+      "min": 0,
+      "max": 60,
+      "businessContext": "Time for coolant to activate and stabilize before cutting."
+    },
+    {
+      "id": "measurement_time",
+      "label": "In-Process Measurement Time",
+      "type": "number",
+      "unit": "seconds",
+      "default": 0,
+      "min": 0,
+      "max": 300,
+      "businessContext": "Time for probing or manual measurement during the cycle."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "feed_rate_spindle_relation",
+        "condition": "feed_rate > 0.005 * spindle_speed",
+        "message": "Feed rate may be too high for the given spindle speed. Consider reducing feed or increasing RPM to avoid chatter.",
+        "severity": "warning"
+      },
+      {
+        "id": "rapid_traverse_ratio",
+        "condition": "rapid_traverse_distance > 0.5 * cutting_length",
+        "message": "Rapid traverse distance is high relative to cutting length. Optimize tool path to reduce non-cutting time.",
+        "severity": "info"
+      },
+      {
+        "id": "tool_change_frequency",
+        "condition": "number_of_tool_changes > 10",
+        "message": "High number of tool changes detected. Consider using combination tools or reducing operations.",
+        "severity": "warning"
+      },
+      {
+        "id": "efficiency_low",
+        "condition": "machine_efficiency < 70",
+        "message": "Machine efficiency is below 70%. Investigate root causes (downtime, speed loss, defects).",
+        "severity": "critical"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "cycle_time_alert",
+        "condition": "primaryResult > 600",
+        "message": "Cycle time exceeds 10 minutes. Consider process optimization or alternative methods.",
+        "severity": "warning"
+      },
+      {
+        "id": "cutting_time_ratio",
+        "condition": "subFormulas.cutting_time / primaryResult < 0.3",
+        "message": "Cutting time is less than 30% of total cycle time. High non-cutting overhead detected.",
+        "severity": "critical"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "cutting_time",
+      "label": "Cutting Time",
+      "description": "Total time the tool is engaged in cutting.",
+      "formula": "(cutting_length / feed_rate) * number_of_passes * material_hardness_factor * tool_wear_factor",
+      "unit": "minutes",
+      "intermediate": true
+    },
+    {
+      "id": "rapid_traverse_time",
+      "label": "Rapid Traverse Time",
+      "description": "Total time for non-cutting rapid moves.",
+      "formula": "rapid_traverse_distance / rapid_traverse_rate",
+      "unit": "minutes",
+      "intermediate": true
+    },
+    {
+      "id": "tool_change_total_time",
+      "label": "Total Tool Change Time",
+      "description": "Aggregate time for all tool changes.",
+      "formula": "tool_change_time * number_of_tool_changes / 60",
+      "unit": "minutes",
+      "intermediate": true
+    },
+    {
+      "id": "auxiliary_time",
+      "label": "Auxiliary Time",
+      "description": "Time for part loading, coolant, and measurement.",
+      "formula": "(part_loading_time + coolant_on_time + measurement_time) / 60",
+      "unit": "minutes",
+      "intermediate": true
+    },
+    {
+      "id": "raw_cycle_time",
+      "label": "Raw Cycle Time",
+      "description": "Sum of all time components before efficiency adjustment.",
+      "formula": "cutting_time + rapid_traverse_time + tool_change_total_time + auxiliary_time",
+      "unit": "minutes",
+      "intermediate": true
+    },
+    {
+      "id": "efficiency_adjustment",
+      "label": "Efficiency Adjustment Factor",
+      "description": "Factor to account for machine efficiency losses.",
+      "formula": "100 / machine_efficiency",
+      "unit": "dimensionless",
+      "intermediate": true
+    },
+    {
+      "id": "primary_result",
+      "label": "Total Cycle Time",
+      "description": "Final cycle time per part, adjusted for efficiency.",
+      "formula": "raw_cycle_time * efficiency_adjustment",
+      "unit": "minutes",
+      "primary": true
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_cycle_time",
+      "label": "Total Cycle Time",
+      "value": null,
+      "unit": "minutes",
+      "description": "The complete cycle time per part, including all operations and efficiency losses."
+    },
+    "breakdown": {
+      "cutting_time": {
+        "id": "cutting_time",
+        "label": "Cutting Time",
+        "value": null,
+        "unit": "minutes",
+        "percentage": null
+      },
+      "rapid_traverse_time": {
+        "id": "rapid_traverse_time",
+        "label": "Rapid Traverse Time",
+        "value": null,
+        "unit": "minutes",
+        "percentage": null
+      },
+      "tool_change_time": {
+        "id": "tool_change_time",
+        "label": "Tool Change Time",
+        "value": null,
+        "unit": "minutes",
+        "percentage": null
+      },
+      "auxiliary_time": {
+        "id": "auxiliary_time",
+        "label": "Auxiliary Time",
+        "value": null,
+        "unit": "minutes",
+        "percentage": null
+      },
+      "efficiency_loss": {
+        "id": "efficiency_loss",
+        "label": "Efficiency Loss",
+        "value": null,
+        "unit": "minutes",
+        "percentage": null
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "non_cutting_overhead",
+        "label": "Non-Cutting Overhead",
+        "description": "Time spent on non-value-added activities (rapid traverse, tool change, auxiliary).",
+        "value": null,
+        "unit": "minutes",
+        "impact": "high"
+      },
+      {
+        "id": "tool_wear_impact",
+        "label": "Tool Wear Impact",
+        "description": "Additional time due to worn tool (reduced feed rate or multiple passes).",
+        "value": null,
+        "unit": "minutes",
+        "impact": "medium"
+      },
+      {
+        "id": "material_hardness_impact",
+        "label": "Material Hardness Impact",
+        "description": "Extra cutting time due to material hardness.",
+        "value": null,
+        "unit": "minutes",
+        "impact": "medium"
+      },
+      {
+        "id": "efficiency_loss_driver",
+        "label": "Efficiency Loss",
+        "description": "Time lost due to machine inefficiency (downtime, speed loss, defects).",
+        "value": null,
+        "unit": "minutes",
+        "impact": "high"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_rapid_traverse",
+        "label": "Optimize Tool Path",
+        "description": "Reduce rapid traverse distance by optimizing CAM toolpath. Potential savings: up to 20% of non-cutting time.",
+        "impact": "medium",
+        "effort": "low"
+      },
+      {
+        "id": "combine_operations",
+        "label": "Combine Operations",
+        "description": "Use multi-functional tools to reduce number of tool changes. Potential savings: up to 15% of cycle time.",
+        "impact": "high",
+        "effort": "medium"
+      },
+      {
+        "id": "increase_feed_rate",
+        "label": "Increase Feed Rate",
+        "description": "If tool and material allow, increase feed rate to reduce cutting time. Check tool manufacturer specs.",
+        "impact": "high",
+        "effort": "low"
+      },
+      {
+        "id": "improve_machine_efficiency",
+        "label": "Improve OEE",
+        "description": "Implement TPM (Total Productive Maintenance) to reduce downtime and speed losses. Target >85% efficiency.",
+        "impact": "high",
+        "effort": "high"
+      },
+      {
+        "id": "use_premium_tooling",
+        "label": "Use Premium Tooling",
+        "description": "Invest in coated or advanced tooling to reduce tool wear factor and allow higher cutting parameters.",
+        "impact": "medium",
+        "effort": "medium"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_adjusted_cycle_time",
+      "label": "Data Confidence Adjusted Cycle Time",
+      "value": null,
+      "unit": "minutes",
+      "description": "Cycle time adjusted for data confidence (e.g., based on input variability or historical accuracy).",
+      "confidenceLevel": "medium"
+    }
+  }
+}

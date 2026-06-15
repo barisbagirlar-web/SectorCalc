@@ -1,0 +1,318 @@
+{
+  "slug": "logarithm-calculator",
+  "name": "Logarithm Calculator",
+  "description": "Industrial-grade logarithmic calculator for process scaling, decibel analysis, and logarithmic trend decomposition in manufacturing and logistics. Compliant with ISO 80000-2, Lean Six Sigma, and WERC DC Metrics.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-variable scenario simulation",
+    "Automated report generation"
+  ],
+  "inputs": [
+    {
+      "id": "value_x",
+      "label": "Value X (operand)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 100,
+      "min": 0.0001,
+      "max": 1000000,
+      "businessContext": "Primary input for logarithmic calculation. Represents throughput, defect count, or signal amplitude."
+    },
+    {
+      "id": "base",
+      "label": "Logarithm Base",
+      "type": "select",
+      "unit": "dimensionless",
+      "default": "10",
+      "min": null,
+      "max": null,
+      "options": [
+        {
+          "value": "2",
+          "label": "Base 2 (binary, information theory)"
+        },
+        {
+          "value": "e",
+          "label": "Base e (natural, growth/decay)"
+        },
+        {
+          "value": "10",
+          "label": "Base 10 (engineering, decibels)"
+        }
+      ],
+      "businessContext": "Select logarithmic base per application: base 2 for binary entropy, base e for continuous processes, base 10 for decibel and pH scales."
+    },
+    {
+      "id": "unit_type",
+      "label": "Unit Type",
+      "type": "select",
+      "unit": "dimensionless",
+      "default": "dimensionless",
+      "min": null,
+      "max": null,
+      "options": [
+        {
+          "value": "dimensionless",
+          "label": "Dimensionless"
+        },
+        {
+          "value": "power_ratio",
+          "label": "Power Ratio (dB = 10*log10(P1/P0))"
+        },
+        {
+          "value": "amplitude_ratio",
+          "label": "Amplitude Ratio (dB = 20*log10(A1/A0))"
+        }
+      ],
+      "businessContext": "Select unit type to apply correct scaling for decibel calculations in acoustics, electronics, or vibration analysis."
+    },
+    {
+      "id": "reference_value",
+      "label": "Reference Value (for ratio)",
+      "type": "number",
+      "unit": "same as X",
+      "default": 1,
+      "min": 0.0001,
+      "max": 1000000,
+      "businessContext": "Reference baseline for ratio-based logarithmic calculations (e.g., reference power, reference amplitude)."
+    },
+    {
+      "id": "enable_threshold_alerts",
+      "label": "Enable Threshold Alerts",
+      "type": "boolean",
+      "unit": null,
+      "default": true,
+      "min": null,
+      "max": null,
+      "businessContext": "Toggle to activate automated alerts when logarithmic results exceed predefined industrial thresholds."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_positive_x",
+        "condition": "value_x <= 0",
+        "message": "Value X must be greater than zero (logarithm undefined for non-positive numbers).",
+        "severity": "error"
+      },
+      {
+        "id": "rule_positive_reference",
+        "condition": "reference_value <= 0",
+        "message": "Reference value must be greater than zero.",
+        "severity": "error"
+      },
+      {
+        "id": "rule_base_valid",
+        "condition": "base == 'e' && value_x > 100000",
+        "message": "Natural log of very large numbers may cause numerical overflow; consider scaling.",
+        "severity": "warning"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "thresh_log_high",
+        "condition": "primaryResult > 100",
+        "message": "Logarithmic result exceeds 100 — possible data anomaly or extreme scaling.",
+        "severity": "warning",
+        "recommendedAction": "Verify input values and unit type. Consider using a smaller base or normalizing data."
+      },
+      {
+        "id": "thresh_log_low",
+        "condition": "primaryResult < -100",
+        "message": "Logarithmic result below -100 — extremely small ratio detected.",
+        "severity": "info",
+        "recommendedAction": "Check if reference value is appropriate. May indicate near-zero signal."
+      },
+      {
+        "id": "thresh_dB_industrial",
+        "condition": "unit_type != 'dimensionless' && primaryResult > 120",
+        "message": "Decibel level exceeds 120 dB — potential hearing damage or equipment overload per OSHA/ISO 1999.",
+        "severity": "critical",
+        "recommendedAction": "Immediately review source levels and implement engineering controls."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "log_raw",
+      "name": "Raw Logarithm",
+      "description": "Compute logarithm of value_x with selected base.",
+      "formula": "if base == 'e': ln(value_x); elif base == '2': log2(value_x); else: log10(value_x)",
+      "dependencies": [
+        "value_x",
+        "base"
+      ]
+    },
+    {
+      "id": "log_ratio",
+      "name": "Logarithm of Ratio",
+      "description": "Compute logarithm of (value_x / reference_value) with selected base.",
+      "formula": "if base == 'e': ln(value_x / reference_value); elif base == '2': log2(value_x / reference_value); else: log10(value_x / reference_value)",
+      "dependencies": [
+        "value_x",
+        "reference_value",
+        "base"
+      ]
+    },
+    {
+      "id": "decibel_power",
+      "name": "Decibel (Power Ratio)",
+      "description": "Convert power ratio to decibels: 10 * log10(P1/P0).",
+      "formula": "10 * log10(value_x / reference_value)",
+      "dependencies": [
+        "value_x",
+        "reference_value"
+      ],
+      "condition": "unit_type == 'power_ratio'"
+    },
+    {
+      "id": "decibel_amplitude",
+      "name": "Decibel (Amplitude Ratio)",
+      "description": "Convert amplitude ratio to decibels: 20 * log10(A1/A0).",
+      "formula": "20 * log10(value_x / reference_value)",
+      "dependencies": [
+        "value_x",
+        "reference_value"
+      ],
+      "condition": "unit_type == 'amplitude_ratio'"
+    },
+    {
+      "id": "log_entropy_contribution",
+      "name": "Entropy Contribution (Shannon)",
+      "description": "Compute -p * log2(p) for information entropy (p = value_x / sum).",
+      "formula": "- (value_x / (value_x + reference_value)) * log2(value_x / (value_x + reference_value))",
+      "dependencies": [
+        "value_x",
+        "reference_value"
+      ],
+      "condition": "base == '2'"
+    },
+    {
+      "id": "log_growth_rate",
+      "name": "Continuous Growth Rate",
+      "description": "Natural log of ratio as instantaneous growth rate (e.g., for Six Sigma process shift).",
+      "formula": "ln(value_x / reference_value)",
+      "dependencies": [
+        "value_x",
+        "reference_value"
+      ],
+      "condition": "base == 'e'"
+    },
+    {
+      "id": "primary_result",
+      "name": "Primary Logarithmic Result",
+      "description": "Final primary output based on unit type and base selection. Defaults to raw logarithm if dimensionless.",
+      "formula": "if unit_type == 'power_ratio': decibel_power; elif unit_type == 'amplitude_ratio': decibel_amplitude; else: log_raw",
+      "dependencies": [
+        "log_raw",
+        "decibel_power",
+        "decibel_amplitude",
+        "unit_type"
+      ]
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "primaryResult",
+      "label": "Primary Logarithmic Result",
+      "unit": "dB or dimensionless",
+      "description": "Final calculated logarithmic value based on inputs and unit type."
+    },
+    "breakdown": {
+      "id": "breakdown",
+      "label": "Calculation Breakdown",
+      "description": "Detailed component values from sub-formulas.",
+      "properties": {
+        "logRaw": {
+          "label": "Raw Logarithm",
+          "unit": "dimensionless",
+          "description": "Logarithm of value_x without ratio scaling."
+        },
+        "logRatio": {
+          "label": "Logarithm of Ratio",
+          "unit": "dimensionless",
+          "description": "Logarithm of (value_x / reference_value)."
+        },
+        "decibelPower": {
+          "label": "Decibel (Power)",
+          "unit": "dB",
+          "description": "10*log10(P1/P0) if applicable."
+        },
+        "decibelAmplitude": {
+          "label": "Decibel (Amplitude)",
+          "unit": "dB",
+          "description": "20*log10(A1/A0) if applicable."
+        },
+        "entropyContribution": {
+          "label": "Entropy Contribution",
+          "unit": "bits",
+          "description": "Shannon entropy contribution (base 2 only)."
+        },
+        "growthRate": {
+          "label": "Continuous Growth Rate",
+          "unit": "per unit time",
+          "description": "Instantaneous growth rate from natural log."
+        }
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "loss_numerical_precision",
+        "label": "Numerical Precision Loss",
+        "description": "Extreme ratios (>1e6 or <1e-6) may cause floating-point precision errors in logarithmic calculation.",
+        "severity": "medium",
+        "mitigation": "Use double-precision or scale inputs to moderate range."
+      },
+      {
+        "id": "loss_base_mismatch",
+        "label": "Base Mismatch in Decibel Context",
+        "description": "Using base 2 or e for decibel calculations may lead to misinterpretation; standard decibel uses base 10.",
+        "severity": "low",
+        "mitigation": "Ensure unit type 'power_ratio' or 'amplitude_ratio' is paired with base 10."
+      },
+      {
+        "id": "loss_reference_drift",
+        "label": "Reference Value Drift",
+        "description": "If reference value changes over time (e.g., aging sensor baseline), logarithmic ratios become unreliable.",
+        "severity": "high",
+        "mitigation": "Implement periodic recalibration per ISO 10012."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_scale_inputs",
+        "label": "Scale Inputs to Moderate Range",
+        "description": "If value_x or reference_value are extremely large/small, rescale to range [0.001, 1000] to improve numerical stability.",
+        "priority": "medium"
+      },
+      {
+        "id": "action_verify_unit_type",
+        "label": "Verify Unit Type Selection",
+        "description": "Confirm that unit type matches the physical quantity: power ratio (dB = 10log10) vs amplitude ratio (dB = 20log10).",
+        "priority": "high"
+      },
+      {
+        "id": "action_use_base10_for_dB",
+        "label": "Use Base 10 for Decibel Calculations",
+        "description": "For acoustic or electronic decibel measurements, always select base 10 to comply with IEC 60027-3.",
+        "priority": "high"
+      },
+      {
+        "id": "action_entropy_analysis",
+        "label": "Perform Entropy Analysis for Process Variation",
+        "description": "If base 2 selected, use entropy contribution to quantify information content in defect distribution (Lean Six Sigma).",
+        "priority": "low"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "dataConfidenceAdjusted",
+      "label": "Data Confidence Adjusted Result",
+      "unit": "same as primary",
+      "description": "Primary result adjusted for data quality and hidden loss drivers. Scale factor between 0.8 and 1.2 applied based on input range and threshold violations.",
+      "calculation": "primaryResult * (1 - 0.1 * (number of active high-severity hidden losses) + 0.05 * (if all inputs within recommended range))"
+    }
+  }
+}

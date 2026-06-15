@@ -1,0 +1,265 @@
+{
+  "slug": "roof-area-calculator",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario comparison",
+    "Automated report generation"
+  ],
+  "inputs": [
+    {
+      "id": "building_length",
+      "label": "Building Length",
+      "type": "number",
+      "unit": "m",
+      "default": 30,
+      "min": 1,
+      "max": 500,
+      "businessContext": "Overall length of the building footprint along the ridge direction."
+    },
+    {
+      "id": "building_width",
+      "label": "Building Width",
+      "type": "number",
+      "unit": "m",
+      "default": 20,
+      "min": 1,
+      "max": 200,
+      "businessContext": "Overall width of the building footprint perpendicular to the ridge."
+    },
+    {
+      "id": "roof_pitch",
+      "label": "Roof Pitch (rise/run ratio)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.5,
+      "min": 0.1,
+      "max": 2,
+      "businessContext": "Ratio of vertical rise to horizontal run (e.g., 0.5 = 6:12 pitch)."
+    },
+    {
+      "id": "overhang_length",
+      "label": "Eave Overhang Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0.6,
+      "min": 0,
+      "max": 3,
+      "businessContext": "Horizontal projection of the roof beyond the exterior wall."
+    },
+    {
+      "id": "roof_type",
+      "label": "Roof Type",
+      "type": "select",
+      "unit": "",
+      "default": "gable",
+      "min": null,
+      "max": null,
+      "businessContext": "Geometric configuration of the roof structure.",
+      "options": [
+        "gable",
+        "hip",
+        "flat",
+        "shed"
+      ]
+    },
+    {
+      "id": "number_of_floors",
+      "label": "Number of Floors",
+      "type": "number",
+      "unit": "floors",
+      "default": 1,
+      "min": 1,
+      "max": 10,
+      "businessContext": "Number of stories; affects complexity and potential waste factors."
+    },
+    {
+      "id": "waste_factor_percent",
+      "label": "Material Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 30,
+      "businessContext": "Percentage allowance for cutting, overlap, and installation losses (ISO 9001 waste reduction)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "pitch_range_check",
+        "condition": "roof_pitch < 0.1 OR roof_pitch > 2.0",
+        "message": "Roof pitch must be between 0.1 and 2.0 (rise/run)."
+      },
+      {
+        "id": "overhang_vs_width",
+        "condition": "overhang_length > building_width * 0.25",
+        "message": "Overhang length exceeds 25% of building width; verify design."
+      },
+      {
+        "id": "waste_factor_high",
+        "condition": "waste_factor_percent > 20",
+        "message": "Waste factor above 20% triggers Lean review (Six Sigma DMAIC)."
+      },
+      {
+        "id": "hip_flat_restriction",
+        "condition": "roof_type == 'hip' AND roof_pitch < 0.25",
+        "message": "Hip roofs require minimum pitch of 0.25 for proper drainage."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "area_alert_high",
+        "condition": "primaryResult > 2000",
+        "message": "Roof area exceeds 2000 m²; consider structural reinforcement review."
+      },
+      {
+        "id": "waste_alert",
+        "condition": "waste_factor_percent > 15",
+        "message": "Waste factor >15% indicates potential process inefficiency (Lean Kaizen opportunity)."
+      },
+      {
+        "id": "pitch_steep_alert",
+        "condition": "roof_pitch > 1.0",
+        "message": "Steep pitch (rise/run >1.0) requires safety harness protocols (OSHA compliance)."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "base_footprint_area",
+      "description": "Horizontal footprint area of the building including overhang.",
+      "formula": "(building_length + 2 * overhang_length) * (building_width + 2 * overhang_length)",
+      "unit": "m²"
+    },
+    {
+      "id": "pitch_factor",
+      "description": "Slope multiplier based on roof pitch (rise/run).",
+      "formula": "sqrt(1 + roof_pitch^2)",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "gross_roof_area",
+      "description": "Total roof surface area before waste and type adjustments.",
+      "formula": "base_footprint_area * pitch_factor",
+      "unit": "m²"
+    },
+    {
+      "id": "type_adjustment_factor",
+      "description": "Multiplier for roof type complexity (gable=1.0, hip=1.15, flat=1.0, shed=1.05).",
+      "formula": "CASE roof_type WHEN 'gable' THEN 1.0 WHEN 'hip' THEN 1.15 WHEN 'flat' THEN 1.0 WHEN 'shed' THEN 1.05 END",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "adjusted_roof_area",
+      "description": "Roof area adjusted for type complexity.",
+      "formula": "gross_roof_area * type_adjustment_factor",
+      "unit": "m²"
+    },
+    {
+      "id": "waste_adjusted_area",
+      "description": "Final material area including waste factor.",
+      "formula": "adjusted_roof_area * (1 + waste_factor_percent / 100)",
+      "unit": "m²"
+    },
+    {
+      "id": "primary_result",
+      "description": "Primary calculable roof area (net usable area for material estimation).",
+      "formula": "adjusted_roof_area",
+      "unit": "m²"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "net_roof_area",
+      "label": "Net Roof Area",
+      "value": null,
+      "unit": "m²",
+      "description": "Primary result: total roof surface area adjusted for type and pitch, excluding waste."
+    },
+    "breakdown": {
+      "footprint_area": {
+        "label": "Footprint Area (with overhang)",
+        "unit": "m²",
+        "value": null
+      },
+      "pitch_factor": {
+        "label": "Pitch Factor",
+        "unit": "dimensionless",
+        "value": null
+      },
+      "gross_roof_area": {
+        "label": "Gross Roof Area",
+        "unit": "m²",
+        "value": null
+      },
+      "type_adjustment_factor": {
+        "label": "Type Adjustment Factor",
+        "unit": "dimensionless",
+        "value": null
+      },
+      "adjusted_roof_area": {
+        "label": "Adjusted Roof Area (net)",
+        "unit": "m²",
+        "value": null
+      },
+      "waste_adjusted_area": {
+        "label": "Waste-Adjusted Material Area",
+        "unit": "m²",
+        "value": null
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "complexity_loss",
+        "label": "Complexity Loss (type factor >1.0)",
+        "value": null,
+        "unit": "m²",
+        "description": "Additional area due to roof type complexity beyond gable baseline."
+      },
+      {
+        "id": "waste_loss",
+        "label": "Waste Loss",
+        "value": null,
+        "unit": "m²",
+        "description": "Material area lost due to cutting, overlap, and installation waste."
+      },
+      {
+        "id": "pitch_penalty",
+        "label": "Pitch Penalty",
+        "value": null,
+        "unit": "m²",
+        "description": "Extra area from slope compared to flat roof (pitch factor >1.0)."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_waste",
+        "condition": "waste_factor_percent > 15",
+        "action": "Implement Lean 5S and standardized work to reduce waste factor below 10%.",
+        "priority": "high"
+      },
+      {
+        "id": "optimize_pitch",
+        "condition": "roof_pitch > 1.0 AND roof_type == 'gable'",
+        "action": "Consider reducing pitch to 0.5-0.75 to lower material cost and improve safety.",
+        "priority": "medium"
+      },
+      {
+        "id": "type_review",
+        "condition": "type_adjustment_factor > 1.1",
+        "action": "Evaluate if a simpler roof type (gable) can meet functional requirements, reducing area by up to 15%.",
+        "priority": "medium"
+      },
+      {
+        "id": "overhang_trim",
+        "condition": "overhang_length > 1.0",
+        "action": "Reduce overhang to 0.6 m standard to cut material and wind load.",
+        "priority": "low"
+      }
+    ],
+    "dataConfidenceAdjusted": 0.92
+  }
+}

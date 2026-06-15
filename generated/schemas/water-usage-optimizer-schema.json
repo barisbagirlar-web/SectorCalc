@@ -1,0 +1,322 @@
+{
+  "slug": "water-usage-optimizer",
+  "title": "Water Usage Optimizer",
+  "description": "Industrial-grade tool for analyzing and optimizing water consumption in manufacturing facilities, aligned with ISO 14046, Lean Six Sigma, and WERC guidelines.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Benchmarking against industry standards",
+    "Custom alert thresholds"
+  ],
+  "inputs": [
+    {
+      "id": "totalWaterIn",
+      "label": "Total Water Input (m³)",
+      "type": "number",
+      "unit": "m³",
+      "default": 10000,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Total volume of water entering the facility from all sources (municipal, well, recycled)."
+    },
+    {
+      "id": "productionOutput",
+      "label": "Production Output (units)",
+      "type": "number",
+      "unit": "units",
+      "default": 50000,
+      "min": 1,
+      "max": 10000000,
+      "businessContext": "Total number of units produced in the reporting period."
+    },
+    {
+      "id": "processWater",
+      "label": "Process Water Used (m³)",
+      "type": "number",
+      "unit": "m³",
+      "default": 7000,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Water directly used in manufacturing processes (e.g., cooling, rinsing, chemical mixing)."
+    },
+    {
+      "id": "coolingWater",
+      "label": "Cooling Water Makeup (m³)",
+      "type": "number",
+      "unit": "m³",
+      "default": 2000,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Water added to cooling towers or closed-loop systems to compensate for evaporation and blowdown."
+    },
+    {
+      "id": "wastewaterDischarge",
+      "label": "Wastewater Discharge (m³)",
+      "type": "number",
+      "unit": "m³",
+      "default": 6000,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Volume of wastewater discharged to sewer or treatment facility."
+    },
+    {
+      "id": "recycledWater",
+      "label": "Recycled Water (m³)",
+      "type": "number",
+      "unit": "m³",
+      "default": 1500,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Volume of water treated and reused within the facility."
+    },
+    {
+      "id": "leakageLosses",
+      "label": "Leakage Losses (m³)",
+      "type": "number",
+      "unit": "m³",
+      "default": 500,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Estimated water lost through leaks in pipes, valves, and fixtures."
+    },
+    {
+      "id": "industryType",
+      "label": "Industry Type",
+      "type": "select",
+      "unit": "",
+      "default": "general_manufacturing",
+      "min": null,
+      "max": null,
+      "options": [
+        "food_and_beverage",
+        "chemical",
+        "pharmaceutical",
+        "textile",
+        "metal_fabrication",
+        "general_manufacturing"
+      ],
+      "businessContext": "Industry classification used for benchmarking and normalization."
+    },
+    {
+      "id": "waterCostPerM3",
+      "label": "Water Cost (currency/m³)",
+      "type": "number",
+      "unit": "currency/m³",
+      "default": 2.5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Average cost per cubic meter of water including supply and wastewater treatment."
+    },
+    {
+      "id": "enableAdvancedAnalysis",
+      "label": "Enable Advanced Analysis",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "If true, enables hidden loss driver detection and suggested actions."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "waterBalanceCheck",
+        "condition": "totalWaterIn < (processWater + coolingWater + wastewaterDischarge + leakageLosses - recycledWater)",
+        "message": "Total water input is less than the sum of identified uses minus recycled water. Check for missing sources or measurement errors.",
+        "severity": "warning"
+      },
+      {
+        "id": "recycleRatioCheck",
+        "condition": "recycledWater > totalWaterIn",
+        "message": "Recycled water cannot exceed total water input.",
+        "severity": "error"
+      },
+      {
+        "id": "leakageThreshold",
+        "condition": "leakageLosses > 0.1 * totalWaterIn",
+        "message": "Leakage losses exceed 10% of total water input. Immediate investigation recommended.",
+        "severity": "warning"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "waterIntensityHigh",
+        "condition": "waterIntensity > 0.5",
+        "message": "Water intensity exceeds 0.5 m³/unit. Benchmark suggests optimization needed.",
+        "severity": "alert"
+      },
+      {
+        "id": "recycleRateLow",
+        "condition": "recycleRate < 0.1",
+        "message": "Recycle rate below 10%. Consider investing in water reuse technologies.",
+        "severity": "alert"
+      },
+      {
+        "id": "costImpactHigh",
+        "condition": "totalWaterCost > 50000",
+        "message": "Total water cost exceeds 50,000 currency units. Cost reduction opportunities exist.",
+        "severity": "alert"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "netWaterConsumption",
+      "label": "Net Water Consumption",
+      "description": "Total water input minus recycled water.",
+      "formula": "totalWaterIn - recycledWater",
+      "unit": "m³"
+    },
+    {
+      "id": "waterIntensity",
+      "label": "Water Intensity",
+      "description": "Net water consumption per unit of production output.",
+      "formula": "netWaterConsumption / productionOutput",
+      "unit": "m³/unit"
+    },
+    {
+      "id": "recycleRate",
+      "label": "Recycle Rate",
+      "description": "Fraction of total water input that is recycled.",
+      "formula": "recycledWater / totalWaterIn",
+      "unit": "ratio"
+    },
+    {
+      "id": "processEfficiency",
+      "label": "Process Efficiency",
+      "description": "Ratio of process water used to net water consumption.",
+      "formula": "processWater / netWaterConsumption",
+      "unit": "ratio"
+    },
+    {
+      "id": "wastewaterRatio",
+      "label": "Wastewater Ratio",
+      "description": "Fraction of net water consumption that becomes wastewater.",
+      "formula": "wastewaterDischarge / netWaterConsumption",
+      "unit": "ratio"
+    },
+    {
+      "id": "totalWaterCost",
+      "label": "Total Water Cost",
+      "description": "Total cost of water input including wastewater discharge.",
+      "formula": "(totalWaterIn + wastewaterDischarge) * waterCostPerM3",
+      "unit": "currency"
+    },
+    {
+      "id": "waterUsageScore",
+      "label": "Water Usage Score (Primary Result)",
+      "description": "Composite score (0-100) based on water intensity, recycle rate, and process efficiency. Higher is better.",
+      "formula": "100 * (1 - (waterIntensity / 0.5)) * 0.4 + 100 * recycleRate * 0.4 + 100 * (1 - (wastewaterRatio / 0.8)) * 0.2",
+      "unit": "score"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "waterUsageScore",
+      "label": "Water Usage Score",
+      "value": null,
+      "unit": "score",
+      "description": "Overall water usage performance score (0-100)."
+    },
+    "breakdown": {
+      "waterIntensity": {
+        "id": "waterIntensity",
+        "label": "Water Intensity",
+        "value": null,
+        "unit": "m³/unit",
+        "description": "Net water consumption per unit produced."
+      },
+      "recycleRate": {
+        "id": "recycleRate",
+        "label": "Recycle Rate",
+        "value": null,
+        "unit": "ratio",
+        "description": "Fraction of total water input recycled."
+      },
+      "processEfficiency": {
+        "id": "processEfficiency",
+        "label": "Process Efficiency",
+        "value": null,
+        "unit": "ratio",
+        "description": "Ratio of process water to net consumption."
+      },
+      "wastewaterRatio": {
+        "id": "wastewaterRatio",
+        "label": "Wastewater Ratio",
+        "value": null,
+        "unit": "ratio",
+        "description": "Fraction of net consumption discharged as wastewater."
+      },
+      "totalWaterCost": {
+        "id": "totalWaterCost",
+        "label": "Total Water Cost",
+        "value": null,
+        "unit": "currency",
+        "description": "Total cost of water and wastewater."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "unaccountedWater",
+        "label": "Unaccounted Water",
+        "description": "Difference between total water input and sum of measured uses (process + cooling + wastewater + leakage - recycled). Indicates metering gaps or unknown losses.",
+        "formula": "totalWaterIn - (processWater + coolingWater + wastewaterDischarge + leakageLosses - recycledWater)",
+        "unit": "m³"
+      },
+      {
+        "id": "evaporationLoss",
+        "label": "Evaporation Loss",
+        "description": "Estimated water lost to evaporation from cooling towers and open tanks. Typically 1-2% of cooling water makeup per cycle.",
+        "formula": "coolingWater * 0.015",
+        "unit": "m³"
+      },
+      {
+        "id": "blowdownLoss",
+        "label": "Blowdown Loss",
+        "description": "Water discharged from cooling towers to control mineral concentration. Estimated as 20% of cooling water makeup.",
+        "formula": "coolingWater * 0.2",
+        "unit": "m³"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "leakRepair",
+        "label": "Leak Repair Program",
+        "description": "Implement a systematic leak detection and repair program targeting the identified leakage losses.",
+        "potentialSavings": "leakageLosses * waterCostPerM3",
+        "priority": "high"
+      },
+      {
+        "id": "recycleUpgrade",
+        "label": "Increase Water Recycling",
+        "description": "Invest in additional treatment capacity to increase recycled water volume by 20%.",
+        "potentialSavings": "0.2 * recycledWater * waterCostPerM3",
+        "priority": "medium"
+      },
+      {
+        "id": "processOptimization",
+        "label": "Process Water Reduction",
+        "description": "Conduct a Lean Six Sigma project to reduce process water usage by 10% through best practices.",
+        "potentialSavings": "0.1 * processWater * waterCostPerM3",
+        "priority": "medium"
+      },
+      {
+        "id": "coolingEfficiency",
+        "label": "Cooling Tower Optimization",
+        "description": "Optimize cycles of concentration and install drift eliminators to reduce makeup water by 15%.",
+        "potentialSavings": "0.15 * coolingWater * waterCostPerM3",
+        "priority": "high"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "dataConfidenceAdjusted",
+      "label": "Data Confidence Adjusted Score",
+      "value": null,
+      "unit": "score",
+      "description": "Water usage score adjusted for data quality and completeness (0-100)."
+    }
+  }
+}

@@ -1,0 +1,297 @@
+{
+  "slug": "tool-wear-cost-calculator",
+  "title": "Tool Wear Cost Calculator",
+  "description": "Calculates the total cost of tool wear per part, including replacement, downtime, rework, and quality losses, based on industrial engineering standards (ISO 8688, Lean, Six Sigma).",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-machine comparison",
+    "Custom threshold alerts"
+  ],
+  "inputs": [
+    {
+      "id": "tool_cost",
+      "label": "Tool Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 150,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Purchase price of a single cutting tool or insert."
+    },
+    {
+      "id": "tool_life_parts",
+      "label": "Tool Life (Parts per Tool)",
+      "type": "number",
+      "unit": "parts",
+      "default": 500,
+      "min": 1,
+      "max": 100000,
+      "businessContext": "Average number of parts produced before tool replacement is required."
+    },
+    {
+      "id": "replacement_time_min",
+      "label": "Replacement Time",
+      "type": "number",
+      "unit": "minutes",
+      "default": 10,
+      "min": 0,
+      "max": 120,
+      "businessContext": "Time required to replace or index the tool."
+    },
+    {
+      "id": "machine_hourly_rate",
+      "label": "Machine Hourly Rate",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 85,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Fully burdened cost per hour of machine operation (including labor, overhead, depreciation)."
+    },
+    {
+      "id": "rework_rate",
+      "label": "Rework Rate due to Wear",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of parts requiring rework due to tool wear, based on Six Sigma defect tracking."
+    },
+    {
+      "id": "rework_cost_per_part",
+      "label": "Rework Cost per Part",
+      "type": "number",
+      "unit": "USD",
+      "default": 5,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Average cost to rework a defective part (material, labor, overhead)."
+    },
+    {
+      "id": "scrap_rate",
+      "label": "Scrap Rate due to Wear",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of parts scrapped due to tool wear beyond tolerance."
+    },
+    {
+      "id": "scrap_material_cost",
+      "label": "Scrap Material Cost per Part",
+      "type": "number",
+      "unit": "USD",
+      "default": 12,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Cost of raw material lost per scrapped part."
+    },
+    {
+      "id": "tool_type",
+      "label": "Tool Type",
+      "type": "select",
+      "unit": "",
+      "default": "carbide",
+      "options": [
+        "carbide",
+        "ceramic",
+        "cbn",
+        "diamond",
+        "hss"
+      ],
+      "businessContext": "Material of the cutting tool, affects wear rate and cost multipliers."
+    },
+    {
+      "id": "coolant_used",
+      "label": "Coolant Used",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "businessContext": "Indicates if coolant is used; affects tool life and wear rate."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "tool_life_parts_min",
+        "condition": "tool_life_parts >= 1",
+        "message": "Tool life must be at least 1 part."
+      },
+      {
+        "id": "rework_rate_max",
+        "condition": "rework_rate <= 100",
+        "message": "Rework rate cannot exceed 100%."
+      },
+      {
+        "id": "scrap_rate_max",
+        "condition": "scrap_rate <= 100",
+        "message": "Scrap rate cannot exceed 100%."
+      },
+      {
+        "id": "replacement_time_non_negative",
+        "condition": "replacement_time_min >= 0",
+        "message": "Replacement time cannot be negative."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_tool_wear_cost",
+        "condition": "primaryResult > 2.0",
+        "alert": "Tool wear cost per part exceeds $2.00. Investigate tool life or replacement process.",
+        "severity": "warning"
+      },
+      {
+        "id": "critical_scrap_rate",
+        "condition": "scrap_rate > 5.0",
+        "alert": "Scrap rate due to wear exceeds 5%. Immediate process review required.",
+        "severity": "critical"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "tool_cost_per_part",
+      "name": "Tool Cost per Part",
+      "description": "Direct tool cost allocated per part.",
+      "formula": "tool_cost / tool_life_parts",
+      "unit": "USD/part"
+    },
+    {
+      "id": "downtime_cost_per_part",
+      "name": "Downtime Cost per Part",
+      "description": "Cost of machine downtime for tool replacement per part.",
+      "formula": "(replacement_time_min / 60) * machine_hourly_rate / tool_life_parts",
+      "unit": "USD/part"
+    },
+    {
+      "id": "rework_cost_per_part_wear",
+      "name": "Rework Cost per Part (Wear)",
+      "description": "Expected rework cost due to tool wear.",
+      "formula": "(rework_rate / 100) * rework_cost_per_part",
+      "unit": "USD/part"
+    },
+    {
+      "id": "scrap_cost_per_part_wear",
+      "name": "Scrap Cost per Part (Wear)",
+      "description": "Expected scrap cost due to tool wear.",
+      "formula": "(scrap_rate / 100) * scrap_material_cost",
+      "unit": "USD/part"
+    },
+    {
+      "id": "tool_type_multiplier",
+      "name": "Tool Type Multiplier",
+      "description": "Adjustment factor based on tool material (ISO 8688 wear resistance).",
+      "formula": "CASE tool_type WHEN 'carbide' THEN 1.0 WHEN 'ceramic' THEN 1.2 WHEN 'cbn' THEN 1.5 WHEN 'diamond' THEN 2.0 WHEN 'hss' THEN 0.8 ELSE 1.0 END",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "coolant_adjustment",
+      "name": "Coolant Adjustment Factor",
+      "description": "Reduces effective wear cost if coolant is used (typical 10% improvement).",
+      "formula": "IF coolant_used THEN 0.9 ELSE 1.0 END",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "primaryResult",
+      "name": "Total Tool Wear Cost per Part",
+      "description": "Primary result: total cost per part attributable to tool wear, adjusted for tool type and coolant.",
+      "formula": "(tool_cost_per_part + downtime_cost_per_part + rework_cost_per_part_wear + scrap_cost_per_part_wear) * tool_type_multiplier * coolant_adjustment",
+      "unit": "USD/part"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_tool_wear_cost_per_part",
+      "label": "Total Tool Wear Cost per Part",
+      "value": null,
+      "unit": "USD/part",
+      "description": "Fully burdened cost per part due to tool wear, including replacement, downtime, rework, scrap, and adjustments."
+    },
+    "breakdown": {
+      "tool_cost_per_part": {
+        "label": "Tool Cost per Part",
+        "unit": "USD/part",
+        "description": "Direct tool cost allocated per part."
+      },
+      "downtime_cost_per_part": {
+        "label": "Downtime Cost per Part",
+        "unit": "USD/part",
+        "description": "Machine downtime cost for tool replacement per part."
+      },
+      "rework_cost_per_part_wear": {
+        "label": "Rework Cost per Part (Wear)",
+        "unit": "USD/part",
+        "description": "Expected rework cost due to tool wear."
+      },
+      "scrap_cost_per_part_wear": {
+        "label": "Scrap Cost per Part (Wear)",
+        "unit": "USD/part",
+        "description": "Expected scrap cost due to tool wear."
+      },
+      "tool_type_multiplier": {
+        "label": "Tool Type Multiplier",
+        "unit": "dimensionless",
+        "description": "Adjustment factor based on tool material."
+      },
+      "coolant_adjustment": {
+        "label": "Coolant Adjustment Factor",
+        "unit": "dimensionless",
+        "description": "Reduction factor if coolant is used."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excessive_replacement_time",
+        "label": "Excessive Replacement Time",
+        "description": "Replacement time above 15 minutes significantly increases downtime cost.",
+        "threshold": "replacement_time_min > 15"
+      },
+      {
+        "id": "high_rework_rate",
+        "label": "High Rework Rate",
+        "description": "Rework rate above 3% indicates tool wear is affecting quality.",
+        "threshold": "rework_rate > 3.0"
+      },
+      {
+        "id": "low_tool_life",
+        "label": "Low Tool Life",
+        "description": "Tool life below 200 parts may indicate suboptimal cutting parameters.",
+        "threshold": "tool_life_parts < 200"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "optimize_cutting_parameters",
+        "label": "Optimize Cutting Parameters",
+        "description": "Review speed, feed, and depth of cut to extend tool life (Lean/Six Sigma approach)."
+      },
+      {
+        "id": "implement_predictive_maintenance",
+        "label": "Implement Predictive Maintenance",
+        "description": "Use tool wear monitoring sensors to reduce unplanned downtime."
+      },
+      {
+        "id": "standardize_tool_replacement_procedure",
+        "label": "Standardize Tool Replacement Procedure",
+        "description": "Reduce replacement time through SMED (Single-Minute Exchange of Die) techniques."
+      },
+      {
+        "id": "evaluate_coolant_system",
+        "label": "Evaluate Coolant System",
+        "description": "Ensure coolant flow and concentration are optimal to reduce wear."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_adjusted_cost",
+      "label": "Data Confidence Adjusted Cost",
+      "value": null,
+      "unit": "USD/part",
+      "description": "Primary result adjusted by a confidence factor (0.8 to 1.2) based on input data completeness and variability. Default 1.0 if all inputs provided."
+    }
+  }
+}

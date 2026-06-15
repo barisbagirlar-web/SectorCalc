@@ -1,0 +1,338 @@
+{
+  "slug": "interest-rate-risk-calculator",
+  "title": "Interest Rate Risk Calculator",
+  "version": "1.0.0",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Monte Carlo simulation",
+    "Sensitivity heatmap"
+  ],
+  "inputs": [
+    {
+      "id": "current_rate",
+      "label": "Current Interest Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 30,
+      "businessContext": "The prevailing market interest rate for the reference period."
+    },
+    {
+      "id": "rate_change",
+      "label": "Expected Rate Change (bps)",
+      "type": "number",
+      "unit": "bps",
+      "default": 50,
+      "min": -500,
+      "max": 500,
+      "businessContext": "Anticipated shift in interest rate in basis points (1 bps = 0.01%)."
+    },
+    {
+      "id": "portfolio_value",
+      "label": "Portfolio Value (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000000,
+      "min": 1000,
+      "max": 10000000000,
+      "businessContext": "Total notional value of the fixed-income portfolio."
+    },
+    {
+      "id": "duration",
+      "label": "Modified Duration (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 4.5,
+      "min": 0.1,
+      "max": 30,
+      "businessContext": "Sensitivity of bond price to yield changes, adjusted for yield."
+    },
+    {
+      "id": "convexity",
+      "label": "Convexity",
+      "type": "number",
+      "unit": "unitless",
+      "default": 25,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Second-order measure of curvature in price-yield relationship."
+    },
+    {
+      "id": "hedge_ratio",
+      "label": "Hedge Ratio (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of portfolio hedged using derivatives or swaps."
+    },
+    {
+      "id": "confidence_level",
+      "label": "Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "95%",
+      "min": null,
+      "max": null,
+      "businessContext": "Statistical confidence for VaR and tail risk estimation.",
+      "options": [
+        "90%",
+        "95%",
+        "99%"
+      ]
+    },
+    {
+      "id": "volatility_regime",
+      "label": "Volatility Regime",
+      "type": "select",
+      "unit": "",
+      "default": "normal",
+      "min": null,
+      "max": null,
+      "businessContext": "Market volatility environment for stress testing.",
+      "options": [
+        "low",
+        "normal",
+        "high",
+        "extreme"
+      ]
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "duration_convexity_consistency",
+        "condition": "duration > 0 AND convexity < duration * 2",
+        "message": "Convexity is unusually low relative to duration. Verify inputs."
+      },
+      {
+        "id": "hedge_ratio_bound",
+        "condition": "hedge_ratio >= 0 AND hedge_ratio <= 100",
+        "message": "Hedge ratio must be between 0% and 100%."
+      },
+      {
+        "id": "rate_change_volatility",
+        "condition": "volatility_regime == 'extreme' AND abs(rate_change) < 100",
+        "message": "Extreme volatility regime typically requires rate change > 100 bps."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_loss_alert",
+        "condition": "primary_result < -0.05 * portfolio_value",
+        "message": "Projected loss exceeds 5% of portfolio value. Immediate review recommended."
+      },
+      {
+        "id": "convexity_risk_alert",
+        "condition": "convexity < 10 AND abs(rate_change) > 100",
+        "message": "Low convexity amplifies risk under large rate shifts."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "price_change_duration",
+      "name": "Duration-based price change",
+      "description": "First-order approximation of price change using modified duration.",
+      "formula": "ΔP_dur = -duration * (rate_change / 10000) * portfolio_value",
+      "inputs": [
+        "duration",
+        "rate_change",
+        "portfolio_value"
+      ],
+      "output_unit": "USD"
+    },
+    {
+      "id": "price_change_convexity",
+      "name": "Convexity adjustment",
+      "description": "Second-order convexity correction for price change.",
+      "formula": "ΔP_conv = 0.5 * convexity * (rate_change / 10000)^2 * portfolio_value",
+      "inputs": [
+        "convexity",
+        "rate_change",
+        "portfolio_value"
+      ],
+      "output_unit": "USD"
+    },
+    {
+      "id": "total_price_change",
+      "name": "Total price change (unhedged)",
+      "description": "Combined duration and convexity effect on portfolio value.",
+      "formula": "ΔP_total = ΔP_dur + ΔP_conv",
+      "inputs": [
+        "price_change_duration",
+        "price_change_convexity"
+      ],
+      "output_unit": "USD"
+    },
+    {
+      "id": "hedged_price_change",
+      "name": "Hedged price change",
+      "description": "Net price change after applying hedge ratio.",
+      "formula": "ΔP_hedged = ΔP_total * (1 - hedge_ratio / 100)",
+      "inputs": [
+        "total_price_change",
+        "hedge_ratio"
+      ],
+      "output_unit": "USD"
+    },
+    {
+      "id": "value_at_risk",
+      "name": "Value at Risk (VaR)",
+      "description": "Statistical loss estimate at given confidence level under normal volatility.",
+      "formula": "VaR = -1.645 * (abs(ΔP_total) * volatility_factor) for 95% confidence",
+      "inputs": [
+        "total_price_change",
+        "confidence_level",
+        "volatility_regime"
+      ],
+      "output_unit": "USD",
+      "parameters": {
+        "volatility_factor": {
+          "low": 0.5,
+          "normal": 1,
+          "high": 1.5,
+          "extreme": 2.5
+        },
+        "z_score": {
+          "90%": 1.282,
+          "95%": 1.645,
+          "99%": 2.326
+        }
+      }
+    },
+    {
+      "id": "data_confidence_adjustment",
+      "name": "Data confidence adjusted loss",
+      "description": "Adjusts the hedged loss by a confidence factor based on input quality and volatility regime.",
+      "formula": "DCA = ΔP_hedged * (1 - 0.1 * (volatility_regime_index))",
+      "inputs": [
+        "hedged_price_change",
+        "volatility_regime"
+      ],
+      "output_unit": "USD",
+      "parameters": {
+        "volatility_regime_index": {
+          "low": 0,
+          "normal": 1,
+          "high": 2,
+          "extreme": 3
+        }
+      }
+    },
+    {
+      "id": "primary_result",
+      "name": "Net Interest Rate Risk Exposure",
+      "description": "Primary result: expected financial impact after hedging and confidence adjustment.",
+      "formula": "primary_result = DCA",
+      "inputs": [
+        "data_confidence_adjustment"
+      ],
+      "output_unit": "USD"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "net_interest_rate_risk_exposure",
+      "label": "Net Interest Rate Risk Exposure",
+      "unit": "USD",
+      "description": "Expected change in portfolio value after hedging and confidence adjustment."
+    },
+    "breakdown": {
+      "id": "breakdown",
+      "label": "Risk Breakdown",
+      "type": "object",
+      "properties": {
+        "duration_impact": {
+          "label": "Duration Impact",
+          "unit": "USD",
+          "description": "First-order price change from duration."
+        },
+        "convexity_impact": {
+          "label": "Convexity Impact",
+          "unit": "USD",
+          "description": "Second-order convexity adjustment."
+        },
+        "unhedged_impact": {
+          "label": "Unhedged Impact",
+          "unit": "USD",
+          "description": "Total price change before hedging."
+        },
+        "hedged_impact": {
+          "label": "Hedged Impact",
+          "unit": "USD",
+          "description": "Net impact after applying hedge ratio."
+        },
+        "value_at_risk": {
+          "label": "Value at Risk (VaR)",
+          "unit": "USD",
+          "description": "Statistical loss at selected confidence level."
+        }
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "driver_1",
+        "name": "Parallel Shift Assumption",
+        "description": "Assumes all maturities shift equally; non-parallel shifts may cause additional basis risk.",
+        "severity": "medium"
+      },
+      {
+        "id": "driver_2",
+        "name": "Liquidity Spread Compression",
+        "description": "In stressed markets, liquidity premiums may erode, amplifying losses beyond duration/convexity estimates.",
+        "severity": "high"
+      },
+      {
+        "id": "driver_3",
+        "name": "Counterparty Credit Risk on Hedges",
+        "description": "Hedge effectiveness may degrade if counterparty defaults or collateral calls are missed.",
+        "severity": "high"
+      },
+      {
+        "id": "driver_4",
+        "name": "Embedded Options (Call/Put)",
+        "description": "Bonds with embedded options have negative convexity at certain yield levels, not captured by standard convexity.",
+        "severity": "medium"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "priority": 1,
+        "description": "Increase hedge ratio to 80% if volatility regime is high or extreme."
+      },
+      {
+        "id": "action_2",
+        "priority": 2,
+        "description": "Diversify into floating-rate notes to reduce duration exposure."
+      },
+      {
+        "id": "action_3",
+        "priority": 3,
+        "description": "Implement interest rate swaps to lock in current rates for 6-12 months."
+      },
+      {
+        "id": "action_4",
+        "priority": 4,
+        "description": "Conduct scenario analysis for non-parallel yield curve shifts (e.g., steepening/flattening)."
+      },
+      {
+        "id": "action_5",
+        "priority": 5,
+        "description": "Review counterparty credit limits and collateral agreements for hedge positions."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_adjusted_loss",
+      "label": "Data Confidence Adjusted Loss",
+      "unit": "USD",
+      "description": "Loss figure adjusted for volatility regime and input reliability."
+    }
+  }
+}

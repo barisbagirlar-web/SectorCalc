@@ -1,0 +1,300 @@
+{
+  "slug": "standard-deviation-calculator",
+  "name": "Standard Deviation Calculator",
+  "description": "Industrial-grade standard deviation calculator for process variability analysis, compliant with ISO 5725, Six Sigma, and Lean manufacturing standards.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Historical comparison",
+    "Control chart generation"
+  ],
+  "inputs": [
+    {
+      "id": "data_points",
+      "label": "Data Points (comma or space separated)",
+      "type": "text",
+      "unit": "unitless",
+      "default": "",
+      "min": null,
+      "max": null,
+      "businessContext": "Raw measurements from process output, e.g., dimensions, weights, cycle times."
+    },
+    {
+      "id": "sample_size",
+      "label": "Sample Size (n)",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "min": 2,
+      "max": 10000,
+      "businessContext": "Number of observations in the sample. Must be at least 2 for standard deviation calculation."
+    },
+    {
+      "id": "data_type",
+      "label": "Data Type",
+      "type": "select",
+      "unit": "none",
+      "default": "continuous",
+      "options": [
+        "continuous",
+        "discrete"
+      ],
+      "businessContext": "Continuous data (e.g., length, time) vs discrete (e.g., count of defects). Affects interpretation."
+    },
+    {
+      "id": "population_flag",
+      "label": "Population or Sample?",
+      "type": "select",
+      "unit": "none",
+      "default": "sample",
+      "options": [
+        "population",
+        "sample"
+      ],
+      "businessContext": "Select 'population' if data covers entire population (n=N), else 'sample' for Bessel's correction."
+    },
+    {
+      "id": "unit_of_measure",
+      "label": "Unit of Measure",
+      "type": "text",
+      "unit": "custom",
+      "default": "mm",
+      "min": null,
+      "max": null,
+      "businessContext": "Physical unit of the data points (e.g., mm, sec, kg). Used for output labeling."
+    },
+    {
+      "id": "specification_limit_lower",
+      "label": "Lower Specification Limit (LSL)",
+      "type": "number",
+      "unit": "same as data",
+      "default": null,
+      "min": null,
+      "max": null,
+      "businessContext": "Lower bound of acceptable process output per engineering specifications."
+    },
+    {
+      "id": "specification_limit_upper",
+      "label": "Upper Specification Limit (USL)",
+      "type": "number",
+      "unit": "same as data",
+      "default": null,
+      "min": null,
+      "max": null,
+      "businessContext": "Upper bound of acceptable process output per engineering specifications."
+    },
+    {
+      "id": "target_value",
+      "label": "Target Value (Nominal)",
+      "type": "number",
+      "unit": "same as data",
+      "default": null,
+      "min": null,
+      "max": null,
+      "businessContext": "Ideal process target, often the midpoint of specification limits."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_min_sample_size",
+        "condition": "sample_size < 2",
+        "message": "Sample size must be at least 2 to compute standard deviation.",
+        "severity": "error"
+      },
+      {
+        "id": "rule_data_points_count",
+        "condition": "count(data_points) != sample_size",
+        "message": "Number of data points provided must equal the sample size.",
+        "severity": "error"
+      },
+      {
+        "id": "rule_lsl_lt_usl",
+        "condition": "specification_limit_lower >= specification_limit_upper",
+        "message": "Lower specification limit must be less than upper specification limit.",
+        "severity": "warning"
+      },
+      {
+        "id": "rule_target_within_spec",
+        "condition": "target_value < specification_limit_lower OR target_value > specification_limit_upper",
+        "message": "Target value should lie within specification limits for optimal process centering.",
+        "severity": "warning"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_high_variation",
+        "condition": "standard_deviation > (specification_limit_upper - specification_limit_lower) / 6",
+        "message": "Process variation exceeds 1/6 of tolerance band (Cp < 1.0). Improvement needed.",
+        "severity": "critical"
+      },
+      {
+        "id": "threshold_moderate_variation",
+        "condition": "standard_deviation > (specification_limit_upper - specification_limit_lower) / 8",
+        "message": "Process variation moderate (Cp between 1.0 and 1.33). Consider tightening.",
+        "severity": "warning"
+      },
+      {
+        "id": "threshold_skew_alert",
+        "condition": "abs(mean - target_value) > 0.5 * standard_deviation",
+        "message": "Process mean is off-target by more than 0.5 sigma. Adjust centering.",
+        "severity": "warning"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "mean",
+      "name": "Arithmetic Mean",
+      "formula": "μ = (1/n) * Σ(x_i)",
+      "description": "Average of all data points.",
+      "order": 1
+    },
+    {
+      "id": "sum_squared_deviations",
+      "name": "Sum of Squared Deviations",
+      "formula": "SS = Σ(x_i - μ)^2",
+      "description": "Sum of squared differences from the mean.",
+      "order": 2
+    },
+    {
+      "id": "variance",
+      "name": "Variance",
+      "formula": "σ² = SS / n  (population)  or  s² = SS / (n-1) (sample)",
+      "description": "Average squared deviation from the mean, with Bessel's correction for sample.",
+      "order": 3
+    },
+    {
+      "id": "standard_deviation",
+      "name": "Standard Deviation",
+      "formula": "σ = sqrt(σ²)  or  s = sqrt(s²)",
+      "description": "Square root of variance, in original units.",
+      "order": 4
+    },
+    {
+      "id": "relative_standard_deviation",
+      "name": "Relative Standard Deviation (RSD)",
+      "formula": "RSD = (σ / μ) * 100%",
+      "description": "Coefficient of variation expressed as percentage.",
+      "order": 5
+    },
+    {
+      "id": "process_capability_cp",
+      "name": "Process Capability Index Cp",
+      "formula": "Cp = (USL - LSL) / (6 * σ)",
+      "description": "Measures potential process capability assuming centered process.",
+      "order": 6
+    },
+    {
+      "id": "process_capability_cpk",
+      "name": "Process Capability Index Cpk",
+      "formula": "Cpk = min( (USL - μ)/(3σ), (μ - LSL)/(3σ) )",
+      "description": "Measures actual process capability accounting for centering.",
+      "order": 7
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "standard_deviation",
+      "label": "Standard Deviation",
+      "value": null,
+      "unit": "same as input unit",
+      "description": "Primary measure of process variability."
+    },
+    "breakdown": {
+      "mean": {
+        "id": "mean",
+        "label": "Mean",
+        "value": null,
+        "unit": "same as input unit"
+      },
+      "variance": {
+        "id": "variance",
+        "label": "Variance",
+        "value": null,
+        "unit": "squared input unit"
+      },
+      "sample_size": {
+        "id": "sample_size",
+        "label": "Sample Size (n)",
+        "value": null,
+        "unit": "count"
+      },
+      "sum_squared_deviations": {
+        "id": "sum_squared_deviations",
+        "label": "Sum of Squared Deviations",
+        "value": null,
+        "unit": "squared input unit"
+      },
+      "relative_standard_deviation": {
+        "id": "relative_standard_deviation",
+        "label": "Relative Standard Deviation (RSD)",
+        "value": null,
+        "unit": "%"
+      },
+      "cp": {
+        "id": "cp",
+        "label": "Cp",
+        "value": null,
+        "unit": "unitless"
+      },
+      "cpk": {
+        "id": "cpk",
+        "label": "Cpk",
+        "value": null,
+        "unit": "unitless"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "high_variation",
+        "label": "High Process Variation",
+        "description": "Standard deviation exceeds acceptable tolerance-based threshold, leading to increased defect rate and rework costs.",
+        "severity": "critical"
+      },
+      {
+        "id": "off_center_mean",
+        "label": "Off-Center Process Mean",
+        "description": "Mean deviates from target, causing asymmetric scrap and potential customer dissatisfaction.",
+        "severity": "warning"
+      },
+      {
+        "id": "insufficient_sample_size",
+        "label": "Insufficient Sample Size",
+        "description": "Small sample size reduces confidence in standard deviation estimate, increasing risk of wrong decisions.",
+        "severity": "warning"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_reduce_variation",
+        "label": "Reduce Process Variation",
+        "description": "Implement statistical process control (SPC) and root cause analysis to identify and eliminate sources of variation."
+      },
+      {
+        "id": "action_center_process",
+        "label": "Center Process on Target",
+        "description": "Adjust process parameters (e.g., tool offset, temperature) to shift mean toward target value."
+      },
+      {
+        "id": "action_increase_sample",
+        "label": "Increase Sample Size",
+        "description": "Collect more data points to improve reliability of standard deviation estimate and capability indices."
+      },
+      {
+        "id": "action_review_specifications",
+        "label": "Review Specification Limits",
+        "description": "If Cp/Cpk are low, consider tolerance relaxation or process redesign to meet requirements."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_adjusted_std_dev",
+      "label": "Data Confidence Adjusted Standard Deviation",
+      "value": null,
+      "unit": "same as input unit",
+      "description": "Standard deviation adjusted for small sample bias using correction factor c4 (from ISO 5725)."
+    }
+  }
+}

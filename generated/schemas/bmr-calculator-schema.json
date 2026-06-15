@@ -1,0 +1,307 @@
+{
+  "slug": "bmr-calculator",
+  "name": "Basal Metabolic Rate Calculator (Industrial Engineering Standard)",
+  "description": "Calculates Basal Metabolic Rate using the Mifflin-St Jeor equation with industrial-grade adjustments for energy efficiency, lean body mass estimation, and metabolic confidence scoring. Compliant with ISO 8996 (ergonomics of the thermal environment) and Lean Six Sigma measurement system analysis.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-user comparison",
+    "Custom reporting"
+  ],
+  "inputs": [
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "select",
+      "unit": null,
+      "default": "male",
+      "options": [
+        "male",
+        "female"
+      ],
+      "businessContext": "Required for Mifflin-St Jeor equation coefficient selection."
+    },
+    {
+      "id": "weight_kg",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "min": 20,
+      "max": 300,
+      "businessContext": "Total body mass measured on calibrated scale (ISO 9001:2015 calibration traceability)."
+    },
+    {
+      "id": "height_cm",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 175,
+      "min": 100,
+      "max": 250,
+      "businessContext": "Stature measured per ISO 7250-1:2017 basic human body measurements."
+    },
+    {
+      "id": "age_years",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "min": 18,
+      "max": 100,
+      "businessContext": "Chronological age used in metabolic rate decay modeling."
+    },
+    {
+      "id": "body_fat_percent",
+      "label": "Body Fat Percentage (optional)",
+      "type": "number",
+      "unit": "%",
+      "default": null,
+      "min": 3,
+      "max": 60,
+      "businessContext": "Used for lean body mass estimation (DEXA or skinfold per ISAK standards). If null, default estimation is applied."
+    },
+    {
+      "id": "activity_factor",
+      "label": "Activity Factor (PAL)",
+      "type": "select",
+      "unit": null,
+      "default": "sedentary",
+      "options": [
+        "sedentary",
+        "lightly active",
+        "moderately active",
+        "very active",
+        "extra active"
+      ],
+      "businessContext": "Physical Activity Level per WHO/FAO/UNU expert consultation (2004). Used for total energy expenditure estimation."
+    },
+    {
+      "id": "measurement_confidence",
+      "label": "Measurement Confidence Level",
+      "type": "select",
+      "unit": null,
+      "default": "medium",
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Subjective assessment of input data quality (e.g., calibrated equipment, self-reported vs. lab). Influences dataConfidenceAdjusted output."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "weight_height_ratio",
+        "condition": "weight_kg / ((height_cm/100)^2) < 12",
+        "message": "BMI less than 12 is physiologically improbable. Please verify weight and height.",
+        "severity": "warning"
+      },
+      {
+        "id": "weight_height_ratio_high",
+        "condition": "weight_kg / ((height_cm/100)^2) > 60",
+        "message": "BMI greater than 60 may indicate data entry error. Please verify inputs.",
+        "severity": "warning"
+      },
+      {
+        "id": "age_weight_consistency",
+        "condition": "age_years < 18",
+        "message": "Age below 18 is outside standard BMR equation validation range.",
+        "severity": "error"
+      },
+      {
+        "id": "body_fat_required_for_lean",
+        "condition": "body_fat_percent IS NULL AND activity_factor != 'sedentary'",
+        "message": "For non-sedentary activity levels, body fat percentage improves lean body mass estimation accuracy.",
+        "severity": "info"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "bmr_alert_low",
+        "condition": "bmr_primary < 1000",
+        "message": "BMR below 1000 kcal/day may indicate extreme underweight or measurement error.",
+        "severity": "warning"
+      },
+      {
+        "id": "bmr_alert_high",
+        "condition": "bmr_primary > 3000",
+        "message": "BMR above 3000 kcal/day is rare; verify inputs for possible outliers.",
+        "severity": "warning"
+      },
+      {
+        "id": "lean_mass_alert",
+        "condition": "lean_body_mass < 30",
+        "message": "Lean body mass below 30 kg may indicate sarcopenia or data error.",
+        "severity": "info"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "bmr_mifflin_st_jeor",
+      "name": "Mifflin-St Jeor BMR",
+      "description": "Basal metabolic rate using the Mifflin-St Jeor equation (1990), the most validated equation for the general population.",
+      "equation": "IF gender = 'male' THEN (10 * weight_kg) + (6.25 * height_cm) - (5 * age_years) + 5 ELSE (10 * weight_kg) + (6.25 * height_cm) - (5 * age_years) - 161",
+      "unit": "kcal/day",
+      "intermediate": true
+    },
+    {
+      "id": "lean_body_mass",
+      "name": "Lean Body Mass (LBM)",
+      "description": "Estimated lean body mass using Boer formula (1984) if body_fat_percent is not provided, else direct calculation.",
+      "equation": "IF body_fat_percent IS NOT NULL THEN weight_kg * (1 - body_fat_percent/100) ELSE IF gender = 'male' THEN (0.407 * weight_kg) + (0.267 * height_cm) - 19.2 ELSE (0.252 * weight_kg) + (0.473 * height_cm) - 48.3",
+      "unit": "kg",
+      "intermediate": true
+    },
+    {
+      "id": "bmr_adjusted_for_lean_mass",
+      "name": "BMR Adjusted for Lean Mass",
+      "description": "Adjusts Mifflin-St Jeor BMR using lean body mass factor (industrial energy efficiency correction).",
+      "equation": "bmr_mifflin_st_jeor * (1 + 0.1 * ((lean_body_mass / weight_kg) - 0.7))",
+      "unit": "kcal/day",
+      "intermediate": true
+    },
+    {
+      "id": "total_energy_expenditure",
+      "name": "Total Energy Expenditure (TEE)",
+      "description": "Estimated total daily energy expenditure using PAL factor (WHO/FAO/UNU 2004).",
+      "equation": "bmr_adjusted_for_lean_mass * CASE activity_factor WHEN 'sedentary' THEN 1.2 WHEN 'lightly active' THEN 1.375 WHEN 'moderately active' THEN 1.55 WHEN 'very active' THEN 1.725 WHEN 'extra active' THEN 1.9 END",
+      "unit": "kcal/day",
+      "intermediate": true
+    },
+    {
+      "id": "metabolic_efficiency_index",
+      "name": "Metabolic Efficiency Index (MEI)",
+      "description": "Ratio of BMR to lean body mass, normalized to population average (31 kcal/kg LBM/day). Indicates metabolic efficiency per unit of metabolically active tissue.",
+      "equation": "bmr_adjusted_for_lean_mass / lean_body_mass",
+      "unit": "kcal/kg LBM/day",
+      "intermediate": true
+    },
+    {
+      "id": "data_confidence_factor",
+      "name": "Data Confidence Factor",
+      "description": "Multiplier based on measurement_confidence input to adjust final BMR for data quality (ISO 5725 accuracy trueness and precision).",
+      "equation": "CASE measurement_confidence WHEN 'low' THEN 0.85 WHEN 'medium' THEN 1.0 WHEN 'high' THEN 1.05 END",
+      "unit": "dimensionless",
+      "intermediate": true
+    },
+    {
+      "id": "bmr_primary",
+      "name": "Primary BMR Result (Data Confidence Adjusted)",
+      "description": "Final BMR value adjusted for lean mass and data confidence. This is the primary output.",
+      "equation": "bmr_adjusted_for_lean_mass * data_confidence_factor",
+      "unit": "kcal/day",
+      "intermediate": false
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "bmr_primary",
+      "label": "Basal Metabolic Rate (Adjusted)",
+      "unit": "kcal/day",
+      "description": "Final BMR value incorporating lean mass adjustment and data confidence factor."
+    },
+    "breakdown": {
+      "bmr_mifflin_st_jeor": {
+        "label": "Mifflin-St Jeor BMR",
+        "unit": "kcal/day",
+        "description": "Unadjusted BMR from the standard equation."
+      },
+      "lean_body_mass": {
+        "label": "Lean Body Mass",
+        "unit": "kg",
+        "description": "Estimated lean body mass."
+      },
+      "bmr_adjusted_for_lean_mass": {
+        "label": "BMR (Lean Mass Adjusted)",
+        "unit": "kcal/day",
+        "description": "BMR after lean mass efficiency correction."
+      },
+      "total_energy_expenditure": {
+        "label": "Total Energy Expenditure",
+        "unit": "kcal/day",
+        "description": "Estimated daily energy needs including activity."
+      },
+      "metabolic_efficiency_index": {
+        "label": "Metabolic Efficiency Index",
+        "unit": "kcal/kg LBM/day",
+        "description": "Metabolic rate per kg of lean body mass."
+      },
+      "data_confidence_factor": {
+        "label": "Data Confidence Factor",
+        "unit": "dimensionless",
+        "description": "Multiplier applied based on measurement confidence."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "missing_body_fat",
+        "label": "Missing Body Fat Data",
+        "description": "Body fat percentage not provided; lean mass estimated via Boer formula, which may introduce up to ±5% error in LBM.",
+        "impact": "medium",
+        "mitigation": "Use DEXA or skinfold measurements per ISAK protocol."
+      },
+      {
+        "id": "activity_factor_uncertainty",
+        "label": "Activity Factor Uncertainty",
+        "description": "PAL values are population averages; individual variation can cause ±20% error in TEE.",
+        "impact": "high",
+        "mitigation": "Use accelerometry or heart rate monitoring for personalized PAL."
+      },
+      {
+        "id": "measurement_confidence_low",
+        "label": "Low Measurement Confidence",
+        "description": "Self-reported or uncalibrated measurements reduce accuracy. Data confidence factor of 0.85 applied.",
+        "impact": "high",
+        "mitigation": "Use calibrated equipment and trained personnel (ISO 10012 measurement management)."
+      },
+      {
+        "id": "age_related_metabolic_decay",
+        "label": "Age-Related Metabolic Decay",
+        "description": "Standard equations assume linear decay; actual metabolic rate may vary due to muscle mass loss not captured by age alone.",
+        "impact": "low",
+        "mitigation": "Periodic reassessment of body composition."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "improve_body_fat_measurement",
+        "label": "Improve Body Fat Measurement",
+        "description": "Use DEXA or BIA with validated equations to reduce LBM estimation error.",
+        "priority": "high",
+        "expectedImprovement": "Reduction in BMR uncertainty by up to 3%."
+      },
+      {
+        "id": "calibrate_weight_scale",
+        "label": "Calibrate Weight Scale",
+        "description": "Ensure scale is calibrated per ISO 9001:2015 to reduce weight measurement error.",
+        "priority": "medium",
+        "expectedImprovement": "Reduction in weight error from ±0.5 kg to ±0.1 kg."
+      },
+      {
+        "id": "use_activity_monitor",
+        "label": "Use Activity Monitor",
+        "description": "Replace PAL estimation with 7-day accelerometry for accurate TEE.",
+        "priority": "medium",
+        "expectedImprovement": "TEE accuracy improvement of ±10%."
+      },
+      {
+        "id": "repeat_measurements",
+        "label": "Repeat Measurements for Gage R&R",
+        "description": "Perform repeated measurements to assess measurement system variation (ANOVA Gage R&R per AIAG MSA 4th ed.).",
+        "priority": "low",
+        "expectedImprovement": "Quantify and reduce measurement system variation."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "bmr_primary",
+      "value": null,
+      "unit": "kcal/day",
+      "description": "The primary BMR result already incorporates data confidence adjustment via the data_confidence_factor."
+    }
+  }
+}

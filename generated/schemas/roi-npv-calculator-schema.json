@@ -1,0 +1,438 @@
+{
+  "slug": "roi-npv-calculator",
+  "name": "ROI & NPV Calculator",
+  "description": "Industrial-grade financial evaluation tool for capital investments, incorporating lean and six sigma principles, ISO standards, and WERC metrics.",
+  "version": "1.0.0",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Monte Carlo simulation",
+    "Sensitivity analysis",
+    "Multi-scenario comparison",
+    "Automated report generation"
+  ],
+  "inputs": [
+    {
+      "id": "initial_investment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Total upfront capital expenditure including equipment, installation, and training costs."
+    },
+    {
+      "id": "annual_cash_inflow",
+      "label": "Annual Cash Inflow",
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Expected annual net cash inflow from the investment (revenue increase or cost savings)."
+    },
+    {
+      "id": "annual_cash_outflow",
+      "label": "Annual Cash Outflow",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Annual operating and maintenance costs associated with the investment."
+    },
+    {
+      "id": "discount_rate",
+      "label": "Discount Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Weighted average cost of capital (WACC) or required rate of return per ISO 15663."
+    },
+    {
+      "id": "project_life_years",
+      "label": "Project Life (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 1,
+      "max": 50,
+      "businessContext": "Expected useful life of the investment per ISO 15686."
+    },
+    {
+      "id": "salvage_value",
+      "label": "Salvage Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Estimated residual value at end of project life."
+    },
+    {
+      "id": "inflation_rate",
+      "label": "Inflation Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Expected annual inflation rate for adjusting future cash flows."
+    },
+    {
+      "id": "tax_rate",
+      "label": "Tax Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Effective corporate tax rate for after-tax cash flow calculations."
+    },
+    {
+      "id": "depreciation_method",
+      "label": "Depreciation Method",
+      "type": "select",
+      "unit": "",
+      "default": "straight_line",
+      "min": null,
+      "max": null,
+      "options": [
+        "straight_line",
+        "double_declining",
+        "sum_of_years_digits"
+      ],
+      "businessContext": "Depreciation method per GAAP/IFRS standards."
+    },
+    {
+      "id": "risk_adjustment",
+      "label": "Risk Adjustment Factor",
+      "type": "number",
+      "unit": "factor",
+      "default": 1,
+      "min": 0.5,
+      "max": 2,
+      "businessContext": "Multiplier to discount rate for project risk (1.0 = baseline)."
+    },
+    {
+      "id": "lean_six_sigma_savings",
+      "label": "Lean Six Sigma Annual Savings",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Additional annual savings from Lean/Six Sigma improvements (DMAIC)."
+    },
+    {
+      "id": "werc_throughput",
+      "label": "WERC Throughput (units/year)",
+      "type": "number",
+      "unit": "units/year",
+      "default": 10000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Annual throughput per WERC warehouse metrics."
+    },
+    {
+      "id": "quality_defect_rate",
+      "label": "Quality Defect Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 1.5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Defect rate per Six Sigma DPMO target (default 1.5% = 4 sigma)."
+    },
+    {
+      "id": "energy_cost_per_unit",
+      "label": "Energy Cost per Unit",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 0.05,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Energy cost per unit produced (ISO 50001)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_positive_investment",
+        "condition": "initial_investment > 0",
+        "message": "Initial investment must be greater than zero."
+      },
+      {
+        "id": "rule_discount_rate_range",
+        "condition": "discount_rate >= 0 && discount_rate <= 100",
+        "message": "Discount rate must be between 0% and 100%."
+      },
+      {
+        "id": "rule_project_life_positive",
+        "condition": "project_life_years >= 1",
+        "message": "Project life must be at least 1 year."
+      },
+      {
+        "id": "rule_cash_flow_positive",
+        "condition": "annual_cash_inflow >= 0 && annual_cash_outflow >= 0",
+        "message": "Cash flows must be non-negative."
+      },
+      {
+        "id": "rule_inflation_non_negative",
+        "condition": "inflation_rate >= 0",
+        "message": "Inflation rate must be non-negative."
+      },
+      {
+        "id": "rule_tax_rate_range",
+        "condition": "tax_rate >= 0 && tax_rate <= 100",
+        "message": "Tax rate must be between 0% and 100%."
+      },
+      {
+        "id": "rule_risk_adjustment_range",
+        "condition": "risk_adjustment >= 0.5 && risk_adjustment <= 2.0",
+        "message": "Risk adjustment factor must be between 0.5 and 2.0."
+      },
+      {
+        "id": "rule_defect_rate_range",
+        "condition": "quality_defect_rate >= 0 && quality_defect_rate <= 100",
+        "message": "Defect rate must be between 0% and 100%."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_negative_npv",
+        "condition": "npv < 0",
+        "alert": "Net Present Value is negative. Investment may not be viable.",
+        "severity": "warning"
+      },
+      {
+        "id": "threshold_low_roi",
+        "condition": "roi < 10",
+        "alert": "Return on Investment is below 10%. Consider alternative investments.",
+        "severity": "warning"
+      },
+      {
+        "id": "threshold_high_defect_rate",
+        "condition": "quality_defect_rate > 3.4",
+        "alert": "Defect rate exceeds Six Sigma target (3.4 DPMO). Process improvement recommended.",
+        "severity": "critical"
+      },
+      {
+        "id": "threshold_payback_period",
+        "condition": "payback_period > project_life_years",
+        "alert": "Payback period exceeds project life. Investment may not recover costs.",
+        "severity": "critical"
+      },
+      {
+        "id": "threshold_energy_cost",
+        "condition": "energy_cost_per_unit > 0.10",
+        "alert": "Energy cost per unit exceeds $0.10. Consider energy efficiency improvements (ISO 50001).",
+        "severity": "info"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "annual_net_cash_flow",
+      "name": "Annual Net Cash Flow",
+      "description": "Net cash flow after tax, depreciation, and Lean Six Sigma savings.",
+      "formula": "(annual_cash_inflow - annual_cash_outflow + lean_six_sigma_savings) * (1 - tax_rate / 100) + (depreciation_expense * (tax_rate / 100))",
+      "dependencies": [
+        "annual_cash_inflow",
+        "annual_cash_outflow",
+        "lean_six_sigma_savings",
+        "tax_rate",
+        "depreciation_expense"
+      ]
+    },
+    {
+      "id": "depreciation_expense",
+      "name": "Annual Depreciation Expense",
+      "description": "Depreciation based on selected method.",
+      "formula": "if(depreciation_method == 'straight_line', (initial_investment - salvage_value) / project_life_years, if(depreciation_method == 'double_declining', (initial_investment - accumulated_depreciation) * (2 / project_life_years), if(depreciation_method == 'sum_of_years_digits', (initial_investment - salvage_value) * (remaining_life / sum_of_years), 0)))",
+      "dependencies": [
+        "initial_investment",
+        "salvage_value",
+        "project_life_years",
+        "depreciation_method"
+      ]
+    },
+    {
+      "id": "npv",
+      "name": "Net Present Value (NPV)",
+      "description": "Sum of discounted cash flows minus initial investment.",
+      "formula": "-initial_investment + sum_{t=1}^{project_life_years} (annual_net_cash_flow / (1 + (discount_rate * risk_adjustment) / 100)^t) + (salvage_value / (1 + (discount_rate * risk_adjustment) / 100)^project_life_years)",
+      "dependencies": [
+        "initial_investment",
+        "annual_net_cash_flow",
+        "discount_rate",
+        "risk_adjustment",
+        "project_life_years",
+        "salvage_value"
+      ]
+    },
+    {
+      "id": "roi",
+      "name": "Return on Investment (ROI)",
+      "description": "Percentage return over project life.",
+      "formula": "(npv / initial_investment) * 100",
+      "dependencies": [
+        "npv",
+        "initial_investment"
+      ]
+    },
+    {
+      "id": "payback_period",
+      "name": "Payback Period",
+      "description": "Time to recover initial investment from net cash flows.",
+      "formula": "initial_investment / annual_net_cash_flow",
+      "dependencies": [
+        "initial_investment",
+        "annual_net_cash_flow"
+      ]
+    },
+    {
+      "id": "irr",
+      "name": "Internal Rate of Return (IRR)",
+      "description": "Discount rate that makes NPV zero (approximated via Newton-Raphson).",
+      "formula": "irr_approximation(initial_investment, annual_net_cash_flow, project_life_years, salvage_value)",
+      "dependencies": [
+        "initial_investment",
+        "annual_net_cash_flow",
+        "project_life_years",
+        "salvage_value"
+      ]
+    },
+    {
+      "id": "six_sigma_dpmo",
+      "name": "Six Sigma DPMO",
+      "description": "Defects per million opportunities based on defect rate.",
+      "formula": "quality_defect_rate * 10000",
+      "dependencies": [
+        "quality_defect_rate"
+      ]
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "npv",
+      "label": "Net Present Value (NPV)",
+      "value": null,
+      "unit": "USD",
+      "description": "Primary financial metric indicating investment viability."
+    },
+    "breakdown": {
+      "id": "financial_breakdown",
+      "label": "Financial Breakdown",
+      "components": [
+        {
+          "id": "roi",
+          "label": "Return on Investment",
+          "value": null,
+          "unit": "%"
+        },
+        {
+          "id": "payback_period",
+          "label": "Payback Period",
+          "value": null,
+          "unit": "years"
+        },
+        {
+          "id": "irr",
+          "label": "Internal Rate of Return",
+          "value": null,
+          "unit": "%"
+        },
+        {
+          "id": "annual_net_cash_flow",
+          "label": "Annual Net Cash Flow",
+          "value": null,
+          "unit": "USD"
+        },
+        {
+          "id": "depreciation_expense",
+          "label": "Annual Depreciation Expense",
+          "value": null,
+          "unit": "USD"
+        },
+        {
+          "id": "total_cash_inflow",
+          "label": "Total Cash Inflow (Lifecycle)",
+          "value": null,
+          "unit": "USD"
+        },
+        {
+          "id": "total_cash_outflow",
+          "label": "Total Cash Outflow (Lifecycle)",
+          "value": null,
+          "unit": "USD"
+        }
+      ]
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "quality_defect_cost",
+        "label": "Quality Defect Cost",
+        "description": "Annual cost of defects based on defect rate and throughput.",
+        "formula": "werc_throughput * (quality_defect_rate / 100) * energy_cost_per_unit * 10",
+        "value": null,
+        "unit": "USD"
+      },
+      {
+        "id": "energy_waste",
+        "label": "Energy Waste",
+        "description": "Excess energy cost due to inefficiency (ISO 50001).",
+        "formula": "werc_throughput * energy_cost_per_unit * 0.15",
+        "value": null,
+        "unit": "USD"
+      },
+      {
+        "id": "lean_waste",
+        "label": "Lean Waste (Muda)",
+        "description": "Estimated cost of non-value-added activities.",
+        "formula": "annual_cash_inflow * 0.10",
+        "value": null,
+        "unit": "USD"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_reduce_defects",
+        "label": "Reduce Defect Rate",
+        "description": "Implement Six Sigma DMAIC to reduce defect rate below 3.4 DPMO.",
+        "impact": "Potential savings of $X based on defect cost."
+      },
+      {
+        "id": "action_energy_efficiency",
+        "label": "Improve Energy Efficiency",
+        "description": "Conduct ISO 50001 energy audit to reduce energy cost per unit.",
+        "impact": "Potential savings of $Y based on energy waste."
+      },
+      {
+        "id": "action_lean_implementation",
+        "label": "Implement Lean Practices",
+        "description": "Adopt 5S, Kaizen, and Value Stream Mapping to reduce waste.",
+        "impact": "Potential savings of $Z based on lean waste."
+      },
+      {
+        "id": "action_review_discount_rate",
+        "label": "Review Discount Rate",
+        "description": "If NPV is negative, consider lowering risk adjustment or WACC.",
+        "impact": "May improve NPV and ROI."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "confidence_adjusted_npv",
+      "label": "Data Confidence Adjusted NPV",
+      "description": "NPV adjusted for data quality and uncertainty (Monte Carlo simulation).",
+      "value": null,
+      "unit": "USD",
+      "confidenceLevel": 0.85
+    }
+  }
+}

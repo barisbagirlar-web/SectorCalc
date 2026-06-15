@@ -1,0 +1,310 @@
+{
+  "slug": "clv-cac-calculator",
+  "title": "CLV / CAC Ratio Calculator",
+  "version": "1.0.0",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario simulation",
+    "Benchmarking against industry standards (WERC, Lean Six Sigma)",
+    "Automated alerting via email"
+  ],
+  "inputs": [
+    {
+      "id": "avg_order_value",
+      "label": "Average Order Value (AOV)",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "min": 1,
+      "max": 100000,
+      "businessContext": "Mean revenue per transaction. Used in CLV calculation. Typical range: $20-$200 for B2C, $500-$5000 for B2B."
+    },
+    {
+      "id": "purchase_frequency",
+      "label": "Purchase Frequency per Year",
+      "type": "number",
+      "unit": "transactions/year",
+      "default": 4,
+      "min": 0.5,
+      "max": 365,
+      "businessContext": "Number of purchases per customer per year. Derived from historical data or cohort analysis."
+    },
+    {
+      "id": "customer_lifetime_years",
+      "label": "Customer Lifetime (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 3,
+      "min": 0.5,
+      "max": 50,
+      "businessContext": "Average retention period. For subscription models, use 1/churn rate."
+    },
+    {
+      "id": "gross_margin_pct",
+      "label": "Gross Margin (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Profit margin after COGS. Typical range: 30-70% for product businesses, 60-90% for SaaS."
+    },
+    {
+      "id": "cac_total",
+      "label": "Total Customer Acquisition Cost (CAC)",
+      "type": "number",
+      "unit": "USD",
+      "default": 200,
+      "min": 1,
+      "max": 100000,
+      "businessContext": "Sum of all marketing and sales costs divided by number of new customers. Includes ad spend, salaries, tools."
+    },
+    {
+      "id": "retention_rate",
+      "label": "Annual Retention Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of customers retained year over year. Used for churn adjustment. Industry benchmark: 60-90%."
+    },
+    {
+      "id": "discount_rate",
+      "label": "Discount Rate (Annual)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Cost of capital or required rate of return. Typical range: 8-15%."
+    },
+    {
+      "id": "data_confidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "medium",
+      "businessContext": "Subjective assessment of input data reliability. Low = estimates, High = audited data."
+    },
+    {
+      "id": "include_churn_adjustment",
+      "label": "Include Churn Adjustment",
+      "type": "boolean",
+      "default": true,
+      "businessContext": "If true, uses retention rate to adjust CLV for churn. Recommended for subscription models."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_cac_positive",
+        "condition": "cac_total > 0",
+        "message": "CAC must be greater than zero."
+      },
+      {
+        "id": "rule_aov_positive",
+        "condition": "avg_order_value > 0",
+        "message": "Average order value must be positive."
+      },
+      {
+        "id": "rule_margin_range",
+        "condition": "gross_margin_pct >= 0 AND gross_margin_pct <= 100",
+        "message": "Gross margin must be between 0 and 100."
+      },
+      {
+        "id": "rule_retention_range",
+        "condition": "retention_rate >= 0 AND retention_rate <= 100",
+        "message": "Retention rate must be between 0 and 100."
+      },
+      {
+        "id": "rule_discount_range",
+        "condition": "discount_rate >= 0 AND discount_rate <= 50",
+        "message": "Discount rate must be between 0 and 50."
+      },
+      {
+        "id": "rule_lifetime_positive",
+        "condition": "customer_lifetime_years > 0",
+        "message": "Customer lifetime must be greater than zero."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_clv_cac_ratio",
+        "metric": "clv_cac_ratio",
+        "warning": 3,
+        "critical": 1,
+        "message": "CLV/CAC ratio below 3:1 indicates potential inefficiency. Below 1:1 means negative ROI."
+      },
+      {
+        "id": "threshold_payback_period",
+        "metric": "payback_months",
+        "warning": 12,
+        "critical": 24,
+        "message": "Payback period >12 months may strain cash flow. >24 months is critical."
+      },
+      {
+        "id": "threshold_churn_rate",
+        "metric": "churn_rate_pct",
+        "warning": 10,
+        "critical": 20,
+        "message": "Annual churn >10% is above average. >20% is critical for SaaS."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "annual_revenue_per_customer",
+      "name": "Annual Revenue per Customer",
+      "formula": "avg_order_value * purchase_frequency",
+      "description": "Total revenue generated by a single customer in one year."
+    },
+    {
+      "id": "churn_rate",
+      "name": "Annual Churn Rate",
+      "formula": "1 - (retention_rate / 100)",
+      "description": "Proportion of customers lost per year. Used for churn-adjusted lifetime."
+    },
+    {
+      "id": "adjusted_lifetime_years",
+      "name": "Churn-Adjusted Lifetime (Years)",
+      "formula": "if(include_churn_adjustment, 1 / (churn_rate / 100), customer_lifetime_years)",
+      "description": "Effective customer lifetime considering churn. If churn is 30%, lifetime = 1/0.3 ≈ 3.33 years."
+    },
+    {
+      "id": "clv_gross",
+      "name": "Gross Customer Lifetime Value (undiscounted)",
+      "formula": "annual_revenue_per_customer * adjusted_lifetime_years",
+      "description": "Total revenue over customer lifetime before margin and discount."
+    },
+    {
+      "id": "clv_net",
+      "name": "Net Customer Lifetime Value (discounted, margin-adjusted)",
+      "formula": "clv_gross * (gross_margin_pct / 100) * (1 - pow(1 + discount_rate/100, -adjusted_lifetime_years)) / (discount_rate/100)",
+      "description": "Present value of future profit from a customer. Uses annuity formula for discounting."
+    },
+    {
+      "id": "clv_cac_ratio",
+      "name": "CLV / CAC Ratio",
+      "formula": "clv_net / cac_total",
+      "description": "Primary metric: ratio of customer value to acquisition cost. Target >3:1."
+    },
+    {
+      "id": "payback_months",
+      "name": "CAC Payback Period (Months)",
+      "formula": "(cac_total / (annual_revenue_per_customer * (gross_margin_pct/100))) * 12",
+      "description": "Months needed to recover CAC from gross profit. Lower is better."
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "clv_cac_ratio",
+      "label": "CLV / CAC Ratio",
+      "unit": "ratio",
+      "description": "Primary KPI: Customer Lifetime Value divided by Customer Acquisition Cost. Healthy >3:1."
+    },
+    "breakdown": {
+      "annual_revenue_per_customer": {
+        "label": "Annual Revenue per Customer",
+        "unit": "USD",
+        "description": "AOV * Purchase Frequency"
+      },
+      "churn_rate_pct": {
+        "label": "Annual Churn Rate",
+        "unit": "%",
+        "description": "1 - Retention Rate"
+      },
+      "adjusted_lifetime_years": {
+        "label": "Adjusted Lifetime (Years)",
+        "unit": "years",
+        "description": "Churn-adjusted or input lifetime"
+      },
+      "clv_gross": {
+        "label": "Gross CLV (undiscounted)",
+        "unit": "USD",
+        "description": "Revenue before margin and discount"
+      },
+      "clv_net": {
+        "label": "Net CLV (discounted, margin-adjusted)",
+        "unit": "USD",
+        "description": "Present value of future profit"
+      },
+      "cac_total": {
+        "label": "Customer Acquisition Cost",
+        "unit": "USD",
+        "description": "Input CAC"
+      },
+      "payback_months": {
+        "label": "CAC Payback Period",
+        "unit": "months",
+        "description": "Time to recover CAC from gross profit"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "high_churn",
+        "label": "High Churn Rate",
+        "description": "Churn above 10% significantly reduces CLV. Consider retention programs.",
+        "impact": "Reduces adjusted lifetime, lowering CLV."
+      },
+      {
+        "id": "low_margin",
+        "label": "Low Gross Margin",
+        "description": "Margin below 30% may indicate pricing or cost issues.",
+        "impact": "Directly reduces net CLV."
+      },
+      {
+        "id": "long_payback",
+        "label": "Long Payback Period",
+        "description": "Payback >12 months strains cash flow and increases risk.",
+        "impact": "Indicates high CAC relative to profit."
+      },
+      {
+        "id": "high_discount_rate",
+        "label": "High Discount Rate",
+        "description": "Discount rate above 15% may overstate risk or capital cost.",
+        "impact": "Reduces present value of future cash flows."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_increase_retention",
+        "label": "Improve Retention Rate",
+        "description": "Implement loyalty programs, customer success, or product improvements to reduce churn by 5%.",
+        "expectedImpact": "Increase CLV by 15-25%."
+      },
+      {
+        "id": "action_reduce_cac",
+        "label": "Reduce Customer Acquisition Cost",
+        "description": "Optimize ad spend, improve conversion funnels, or focus on organic channels.",
+        "expectedImpact": "Improve CLV/CAC ratio by 20%."
+      },
+      {
+        "id": "action_increase_aov",
+        "label": "Increase Average Order Value",
+        "description": "Upsell, cross-sell, or bundle products to raise AOV by 10%.",
+        "expectedImpact": "Increase CLV by 10%."
+      },
+      {
+        "id": "action_improve_margin",
+        "label": "Improve Gross Margin",
+        "description": "Negotiate supplier costs, reduce waste (Lean), or increase prices.",
+        "expectedImpact": "Increase net CLV by 5-15%."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "clv_cac_ratio_adjusted",
+      "label": "CLV/CAC Ratio (Confidence Adjusted)",
+      "unit": "ratio",
+      "description": "Primary result multiplied by a confidence factor (low=0.8, medium=0.95, high=1.0). Provides conservative estimate.",
+      "formula": "clv_cac_ratio * confidence_factor"
+    }
+  }
+}

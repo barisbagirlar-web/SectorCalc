@@ -1,0 +1,280 @@
+{
+  "slug": "irr-calculator",
+  "name": "Internal Rate of Return Calculator",
+  "description": "Industrial-grade IRR calculator compliant with ISO 15686, Lean, Six Sigma, and WERC standards. Computes net present value, internal rate of return, and provides actionable insights for capital investment decisions.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Sensitivity analysis",
+    "Multi-scenario comparison",
+    "Audit trail logging"
+  ],
+  "inputs": [
+    {
+      "id": "initial_investment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 0,
+      "max": 1000000000,
+      "businessContext": "Total upfront capital expenditure (CapEx) for the project or asset."
+    },
+    {
+      "id": "annual_cash_inflow",
+      "label": "Annual Cash Inflow",
+      "type": "number",
+      "unit": "USD",
+      "default": 25000,
+      "min": 0,
+      "max": 1000000000,
+      "businessContext": "Expected net cash inflow per year (revenue minus operating costs)."
+    },
+    {
+      "id": "project_life_years",
+      "label": "Project Life (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 1,
+      "max": 50,
+      "businessContext": "Duration over which cash flows are projected."
+    },
+    {
+      "id": "discount_rate",
+      "label": "Discount Rate (WACC)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Weighted average cost of capital or required rate of return."
+    },
+    {
+      "id": "terminal_value",
+      "label": "Terminal Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": 1000000000,
+      "businessContext": "Residual value at end of project life (e.g., salvage, resale)."
+    },
+    {
+      "id": "cash_flow_variability",
+      "label": "Cash Flow Variability",
+      "type": "select",
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "medium",
+      "unit": "",
+      "businessContext": "Risk level affecting confidence in cash flow estimates (low = ±5%, medium = ±15%, high = ±30%)."
+    },
+    {
+      "id": "lean_six_sigma_adjustment",
+      "label": "Lean Six Sigma Adjustment",
+      "type": "boolean",
+      "default": false,
+      "unit": "",
+      "businessContext": "If enabled, applies a 2% reduction to cash flows to account for process waste and variation (Lean Six Sigma standard)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_positive_investment",
+        "condition": "initial_investment > 0",
+        "message": "Initial investment must be greater than zero."
+      },
+      {
+        "id": "rule_positive_life",
+        "condition": "project_life_years >= 1",
+        "message": "Project life must be at least 1 year."
+      },
+      {
+        "id": "rule_discount_rate_range",
+        "condition": "discount_rate >= 0 AND discount_rate <= 100",
+        "message": "Discount rate must be between 0% and 100%."
+      },
+      {
+        "id": "rule_cash_inflow_non_negative",
+        "condition": "annual_cash_inflow >= 0",
+        "message": "Annual cash inflow cannot be negative."
+      },
+      {
+        "id": "rule_terminal_value_non_negative",
+        "condition": "terminal_value >= 0",
+        "message": "Terminal value cannot be negative."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_irr_low",
+        "condition": "irr < discount_rate",
+        "severity": "warning",
+        "message": "IRR is below the discount rate (WACC). Project may not meet required return."
+      },
+      {
+        "id": "threshold_irr_high",
+        "condition": "irr > 50",
+        "severity": "info",
+        "message": "IRR is exceptionally high (>50%). Verify cash flow assumptions for realism."
+      },
+      {
+        "id": "threshold_npv_negative",
+        "condition": "npv < 0",
+        "severity": "critical",
+        "message": "Net present value is negative. Project destroys value."
+      },
+      {
+        "id": "threshold_payback_exceeds_life",
+        "condition": "payback_period > project_life_years",
+        "severity": "warning",
+        "message": "Payback period exceeds project life. Investment may not be recovered."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "adjusted_cash_flow",
+      "name": "Adjusted Annual Cash Flow",
+      "description": "Applies Lean Six Sigma adjustment if enabled.",
+      "formula": "IF lean_six_sigma_adjustment THEN annual_cash_inflow * 0.98 ELSE annual_cash_inflow",
+      "unit": "USD"
+    },
+    {
+      "id": "net_present_value",
+      "name": "Net Present Value (NPV)",
+      "description": "Sum of discounted cash flows minus initial investment. ISO 15686 compliant.",
+      "formula": "-initial_investment + SUM_{t=1}^{project_life_years} (adjusted_cash_flow / (1 + discount_rate/100)^t) + (terminal_value / (1 + discount_rate/100)^project_life_years)",
+      "unit": "USD"
+    },
+    {
+      "id": "internal_rate_of_return",
+      "name": "Internal Rate of Return (IRR)",
+      "description": "Discount rate that makes NPV = 0. Solved via Newton-Raphson iteration (tolerance 0.0001).",
+      "formula": "IRR = r such that 0 = -initial_investment + SUM_{t=1}^{project_life_years} (adjusted_cash_flow / (1 + r)^t) + (terminal_value / (1 + r)^project_life_years)",
+      "unit": "%"
+    },
+    {
+      "id": "payback_period",
+      "name": "Payback Period",
+      "description": "Time to recover initial investment from undiscounted cash flows.",
+      "formula": "initial_investment / adjusted_cash_flow",
+      "unit": "years"
+    },
+    {
+      "id": "discounted_payback_period",
+      "name": "Discounted Payback Period",
+      "description": "Time to recover initial investment from discounted cash flows.",
+      "formula": "Solve for smallest n such that SUM_{t=1}^{n} (adjusted_cash_flow / (1 + discount_rate/100)^t) >= initial_investment",
+      "unit": "years"
+    },
+    {
+      "id": "profitability_index",
+      "name": "Profitability Index (PI)",
+      "description": "Ratio of present value of future cash flows to initial investment.",
+      "formula": "(SUM_{t=1}^{project_life_years} (adjusted_cash_flow / (1 + discount_rate/100)^t) + (terminal_value / (1 + discount_rate/100)^project_life_years)) / initial_investment",
+      "unit": "ratio"
+    },
+    {
+      "id": "data_confidence_factor",
+      "name": "Data Confidence Factor",
+      "description": "Adjusts confidence based on cash flow variability and Lean Six Sigma adjustment.",
+      "formula": "CASE cash_flow_variability WHEN 'low' THEN 0.95 WHEN 'medium' THEN 0.85 WHEN 'high' THEN 0.70 END * (1 - 0.02 * lean_six_sigma_adjustment)",
+      "unit": "dimensionless"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "irr",
+      "label": "Internal Rate of Return",
+      "value": null,
+      "unit": "%",
+      "description": "Calculated IRR rounded to 2 decimal places."
+    },
+    "breakdown": {
+      "net_present_value": {
+        "id": "npv",
+        "label": "Net Present Value",
+        "value": null,
+        "unit": "USD"
+      },
+      "payback_period": {
+        "id": "payback_period",
+        "label": "Payback Period",
+        "value": null,
+        "unit": "years"
+      },
+      "discounted_payback_period": {
+        "id": "discounted_payback_period",
+        "label": "Discounted Payback Period",
+        "value": null,
+        "unit": "years"
+      },
+      "profitability_index": {
+        "id": "profitability_index",
+        "label": "Profitability Index",
+        "value": null,
+        "unit": "ratio"
+      },
+      "adjusted_cash_flow": {
+        "id": "adjusted_cash_flow",
+        "label": "Adjusted Annual Cash Flow",
+        "value": null,
+        "unit": "USD"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "loss_waste",
+        "label": "Process Waste (Lean)",
+        "value": null,
+        "unit": "USD",
+        "description": "Annual cash flow reduction due to Lean Six Sigma adjustment (2% of annual cash inflow)."
+      },
+      {
+        "id": "loss_variability",
+        "label": "Variability Risk Premium",
+        "value": null,
+        "unit": "USD",
+        "description": "Expected loss due to cash flow variability (based on variability level)."
+      },
+      {
+        "id": "loss_opportunity",
+        "label": "Opportunity Cost of Capital",
+        "value": null,
+        "unit": "USD",
+        "description": "Foregone return if capital were invested at discount rate instead."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_improve_irr",
+        "condition": "irr < discount_rate",
+        "action": "Consider reducing initial investment, increasing cash inflows, or extending project life."
+      },
+      {
+        "id": "action_reduce_variability",
+        "condition": "cash_flow_variability != 'low'",
+        "action": "Implement Six Sigma DMAIC to reduce cash flow variability and improve confidence."
+      },
+      {
+        "id": "action_lean_implementation",
+        "condition": "lean_six_sigma_adjustment == false AND irr < discount_rate",
+        "action": "Enable Lean Six Sigma adjustment to identify and eliminate process waste."
+      },
+      {
+        "id": "action_sensitivity_analysis",
+        "condition": "true",
+        "action": "Run sensitivity analysis on discount rate and cash inflows to assess robustness."
+      }
+    ],
+    "dataConfidenceAdjusted": null
+  }
+}

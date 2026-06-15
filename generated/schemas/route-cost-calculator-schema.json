@@ -1,0 +1,360 @@
+{
+  "slug": "route-cost-calculator",
+  "title": "Route Cost Calculator",
+  "description": "Industrial-grade route cost analysis tool based on ISO 14040, Lean logistics, and Six Sigma principles. Calculates total cost per route including fuel, labor, maintenance, tolls, and hidden loss drivers.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Scenario simulation",
+    "Benchmarking against industry standards"
+  ],
+  "inputs": [
+    {
+      "id": "distance_km",
+      "label": "Route Distance (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "min": 0,
+      "max": 5000,
+      "businessContext": "Total one-way distance of the route. Used as primary driver for fuel, labor, and maintenance costs."
+    },
+    {
+      "id": "fuel_consumption_l_per_100km",
+      "label": "Fuel Consumption (L/100km)",
+      "type": "number",
+      "unit": "L/100km",
+      "default": 30,
+      "min": 5,
+      "max": 80,
+      "businessContext": "Average fuel consumption of the vehicle. Based on manufacturer data or telematics."
+    },
+    {
+      "id": "fuel_price_per_l",
+      "label": "Fuel Price (per liter)",
+      "type": "number",
+      "unit": "€/L",
+      "default": 1.5,
+      "min": 0.5,
+      "max": 3,
+      "businessContext": "Current market price of diesel or gasoline. Updated weekly."
+    },
+    {
+      "id": "driver_wage_per_hour",
+      "label": "Driver Wage (€/hour)",
+      "type": "number",
+      "unit": "€/h",
+      "default": 25,
+      "min": 10,
+      "max": 60,
+      "businessContext": "Gross hourly wage including social charges. Based on collective labor agreements."
+    },
+    {
+      "id": "average_speed_kmh",
+      "label": "Average Speed (km/h)",
+      "type": "number",
+      "unit": "km/h",
+      "default": 60,
+      "min": 10,
+      "max": 120,
+      "businessContext": "Expected average speed including traffic and stops. Used to calculate travel time."
+    },
+    {
+      "id": "maintenance_cost_per_km",
+      "label": "Maintenance Cost (€/km)",
+      "type": "number",
+      "unit": "€/km",
+      "default": 0.12,
+      "min": 0.02,
+      "max": 0.5,
+      "businessContext": "Average maintenance cost per kilometer including tires, oil, and repairs. Based on fleet data."
+    },
+    {
+      "id": "toll_cost_total",
+      "label": "Total Toll Cost (€)",
+      "type": "number",
+      "unit": "€",
+      "default": 15,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Sum of all tolls on the route. Can be obtained from route planning software."
+    },
+    {
+      "id": "load_weight_tonnes",
+      "label": "Load Weight (tonnes)",
+      "type": "number",
+      "unit": "tonnes",
+      "default": 20,
+      "min": 0,
+      "max": 40,
+      "businessContext": "Total weight of cargo. Affects fuel consumption and wear."
+    },
+    {
+      "id": "route_type",
+      "label": "Route Type",
+      "type": "select",
+      "unit": "",
+      "default": "highway",
+      "min": null,
+      "max": null,
+      "options": [
+        "highway",
+        "urban",
+        "mixed",
+        "mountain"
+      ],
+      "businessContext": "Characterizes the terrain and traffic conditions. Influences fuel consumption and speed."
+    },
+    {
+      "id": "is_return_trip",
+      "label": "Return Trip Included",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "If true, distance and costs are doubled (round trip)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "condition": "distance_km <= 0",
+        "message": "Distance must be greater than 0 km."
+      },
+      {
+        "condition": "fuel_consumption_l_per_100km <= 0",
+        "message": "Fuel consumption must be positive."
+      },
+      {
+        "condition": "fuel_price_per_l <= 0",
+        "message": "Fuel price must be positive."
+      },
+      {
+        "condition": "driver_wage_per_hour <= 0",
+        "message": "Driver wage must be positive."
+      },
+      {
+        "condition": "average_speed_kmh <= 0",
+        "message": "Average speed must be positive."
+      },
+      {
+        "condition": "maintenance_cost_per_km < 0",
+        "message": "Maintenance cost cannot be negative."
+      },
+      {
+        "condition": "toll_cost_total < 0",
+        "message": "Toll cost cannot be negative."
+      },
+      {
+        "condition": "load_weight_tonnes < 0",
+        "message": "Load weight cannot be negative."
+      },
+      {
+        "condition": "load_weight_tonnes > 40",
+        "message": "Load weight exceeds maximum legal limit (40 tonnes)."
+      },
+      {
+        "condition": "is_return_trip == true && distance_km * 2 > 5000",
+        "message": "Round trip distance exceeds 5000 km limit."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "fuel_cost_alert",
+        "condition": "fuel_cost > 200",
+        "severity": "warning",
+        "message": "Fuel cost exceeds €200. Consider route optimization or fuel-efficient driving."
+      },
+      {
+        "id": "labor_cost_alert",
+        "condition": "labor_cost > 300",
+        "severity": "warning",
+        "message": "Labor cost exceeds €300. Evaluate driver scheduling or rest breaks."
+      },
+      {
+        "id": "total_cost_alert",
+        "condition": "total_cost > 1000",
+        "severity": "critical",
+        "message": "Total route cost exceeds €1000. Perform detailed cost-benefit analysis."
+      },
+      {
+        "id": "cost_per_km_alert",
+        "condition": "cost_per_km > 2.0",
+        "severity": "warning",
+        "message": "Cost per km exceeds €2.0. Benchmark against industry average (€1.2–€1.8)."
+      },
+      {
+        "id": "fuel_efficiency_alert",
+        "condition": "fuel_consumption_l_per_100km > 35 && load_weight_tonnes < 15",
+        "severity": "info",
+        "message": "Fuel consumption is high relative to load. Check vehicle maintenance or driving behavior."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "effective_distance",
+      "label": "Effective Distance",
+      "description": "Adjusts distance for return trip.",
+      "formula": "distance_km * (1 + (is_return_trip ? 1 : 0))",
+      "unit": "km"
+    },
+    {
+      "id": "travel_time_hours",
+      "label": "Travel Time (hours)",
+      "description": "Calculates total travel time based on effective distance and average speed.",
+      "formula": "effective_distance / average_speed_kmh",
+      "unit": "hours"
+    },
+    {
+      "id": "fuel_cost",
+      "label": "Fuel Cost",
+      "description": "Calculates total fuel cost based on consumption, distance, and price.",
+      "formula": "(fuel_consumption_l_per_100km / 100) * effective_distance * fuel_price_per_l",
+      "unit": "€"
+    },
+    {
+      "id": "labor_cost",
+      "label": "Labor Cost",
+      "description": "Calculates driver labor cost including a 15% fatigue factor (ISO 11228).",
+      "formula": "travel_time_hours * driver_wage_per_hour * 1.15",
+      "unit": "€"
+    },
+    {
+      "id": "maintenance_cost",
+      "label": "Maintenance Cost",
+      "description": "Calculates maintenance cost based on effective distance.",
+      "formula": "effective_distance * maintenance_cost_per_km",
+      "unit": "€"
+    },
+    {
+      "id": "total_cost",
+      "label": "Total Route Cost",
+      "description": "Sum of all direct costs: fuel, labor, maintenance, and tolls.",
+      "formula": "fuel_cost + labor_cost + maintenance_cost + toll_cost_total",
+      "unit": "€"
+    },
+    {
+      "id": "cost_per_km",
+      "label": "Cost per Kilometer",
+      "description": "Primary result: total cost per effective kilometer.",
+      "formula": "total_cost / effective_distance",
+      "unit": "€/km"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "cost_per_km",
+      "label": "Cost per Kilometer",
+      "value": null,
+      "unit": "€/km",
+      "description": "Primary KPI for route cost efficiency. Benchmark against WERC DC Metrics (€1.2–€1.8/km)."
+    },
+    "breakdown": {
+      "fuel_cost": {
+        "id": "fuel_cost",
+        "label": "Fuel Cost",
+        "value": null,
+        "unit": "€",
+        "percentage": null
+      },
+      "labor_cost": {
+        "id": "labor_cost",
+        "label": "Labor Cost",
+        "value": null,
+        "unit": "€",
+        "percentage": null
+      },
+      "maintenance_cost": {
+        "id": "maintenance_cost",
+        "label": "Maintenance Cost",
+        "value": null,
+        "unit": "€",
+        "percentage": null
+      },
+      "toll_cost_total": {
+        "id": "toll_cost_total",
+        "label": "Toll Cost",
+        "value": null,
+        "unit": "€",
+        "percentage": null
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "empty_miles",
+        "label": "Empty Miles",
+        "description": "Percentage of distance driven without load. Increases cost per km.",
+        "value": null,
+        "unit": "%",
+        "impact": "high"
+      },
+      {
+        "id": "idle_time",
+        "label": "Idle Time",
+        "description": "Time spent idling (traffic, loading/unloading). Increases labor cost without distance.",
+        "value": null,
+        "unit": "hours",
+        "impact": "medium"
+      },
+      {
+        "id": "fuel_waste",
+        "label": "Fuel Waste",
+        "description": "Excess fuel consumption due to aggressive driving or poor maintenance.",
+        "value": null,
+        "unit": "L",
+        "impact": "high"
+      },
+      {
+        "id": "route_inefficiency",
+        "label": "Route Inefficiency",
+        "description": "Extra distance due to suboptimal routing (e.g., avoiding tolls).",
+        "value": null,
+        "unit": "km",
+        "impact": "medium"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "optimize_route",
+        "label": "Optimize Route",
+        "description": "Use route planning software to reduce distance and avoid congestion.",
+        "expectedImpact": "Reduce total cost by 5-10%"
+      },
+      {
+        "id": "driver_training",
+        "label": "Eco-Driving Training",
+        "description": "Train drivers in fuel-efficient techniques (smooth acceleration, speed management).",
+        "expectedImpact": "Reduce fuel consumption by 10-15%"
+      },
+      {
+        "id": "load_consolidation",
+        "label": "Consolidate Loads",
+        "description": "Increase load factor to reduce cost per tonne-km.",
+        "expectedImpact": "Reduce cost per km by 8-12%"
+      },
+      {
+        "id": "preventive_maintenance",
+        "label": "Preventive Maintenance",
+        "description": "Regular maintenance to keep fuel consumption and repair costs low.",
+        "expectedImpact": "Reduce maintenance cost by 15-20%"
+      },
+      {
+        "id": "toll_avoidance",
+        "label": "Evaluate Toll Alternatives",
+        "description": "Compare toll vs. non-toll routes to find cost-optimal path.",
+        "expectedImpact": "Potential savings of €5-€20 per trip"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_score",
+      "label": "Data Confidence Score",
+      "value": null,
+      "unit": "%",
+      "description": "Adjusted confidence based on input data completeness and variability. Uses Six Sigma DMAIC principles."
+    }
+  }
+}

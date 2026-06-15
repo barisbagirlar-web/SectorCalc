@@ -1,0 +1,256 @@
+{
+  "slug": "factory-layout-distance-optimizer",
+  "title": "Factory Layout Distance Optimizer",
+  "description": "Calculates the total material handling distance and identifies optimization opportunities based on facility layout, flow intensity, and path efficiency. Aligns with ISO 9001, Lean Manufacturing, and Six Sigma principles.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario comparison",
+    "Heatmap generation"
+  ],
+  "inputs": [
+    {
+      "id": "num_departments",
+      "label": "Number of Departments",
+      "type": "number",
+      "unit": "departments",
+      "default": 6,
+      "min": 2,
+      "max": 50,
+      "businessContext": "Total distinct production or storage areas in the facility."
+    },
+    {
+      "id": "flow_intensity_matrix",
+      "label": "Flow Intensity Matrix (triangular, comma-separated per row)",
+      "type": "number",
+      "unit": "trips/day",
+      "default": "0,10,5,0,0,0;10,0,8,3,0,0;5,8,0,12,0,0;0,3,12,0,6,0;0,0,0,6,0,4;0,0,0,0,4,0",
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Number of material movements between each pair of departments per day."
+    },
+    {
+      "id": "distance_matrix",
+      "label": "Distance Matrix (triangular, comma-separated per row)",
+      "type": "number",
+      "unit": "meters",
+      "default": "0,20,30,0,0,0;20,0,15,25,0,0;30,15,0,10,0,0;0,25,10,0,18,0;0,0,0,18,0,12;0,0,0,0,12,0",
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Current or proposed travel distances between department centroids."
+    },
+    {
+      "id": "path_efficiency_factor",
+      "label": "Path Efficiency Factor",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.85,
+      "min": 0.1,
+      "max": 1,
+      "businessContext": "Ratio of straight-line distance to actual travel path (1.0 = perfect straight line)."
+    },
+    {
+      "id": "layout_type",
+      "label": "Layout Type",
+      "type": "select",
+      "unit": "",
+      "default": "process",
+      "options": [
+        "process",
+        "product",
+        "cellular",
+        "fixed-position"
+      ],
+      "businessContext": "Classification of the facility layout according to standard industrial engineering taxonomy."
+    },
+    {
+      "id": "use_weighted_distance",
+      "label": "Use Weighted Distance (Flow × Distance)",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "businessContext": "If true, the primary result is the sum of flow × distance; otherwise raw distance sum."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "matrix_dimension_match",
+        "condition": "num_departments != number_of_rows(flow_intensity_matrix) OR num_departments != number_of_rows(distance_matrix)",
+        "message": "Number of departments must match the dimensions of both matrices."
+      },
+      {
+        "id": "matrix_symmetry_check",
+        "condition": "NOT is_symmetric(flow_intensity_matrix) OR NOT is_symmetric(distance_matrix)",
+        "message": "Both matrices must be symmetric (undirected flows/distances)."
+      },
+      {
+        "id": "positive_diagonal",
+        "condition": "any_diagonal_nonzero(flow_intensity_matrix) OR any_diagonal_nonzero(distance_matrix)",
+        "message": "Diagonal entries (self-distance) must be zero."
+      },
+      {
+        "id": "efficiency_range",
+        "condition": "path_efficiency_factor < 0.1 OR path_efficiency_factor > 1.0",
+        "message": "Path efficiency factor must be between 0.1 and 1.0."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_total_distance",
+        "condition": "primary_result > 50000",
+        "alert": "Total weighted distance exceeds 50,000 meter-trips/day. Consider layout reconfiguration."
+      },
+      {
+        "id": "low_efficiency",
+        "condition": "path_efficiency_factor < 0.5",
+        "alert": "Path efficiency factor below 0.5 indicates significant travel waste. Review aisle and corridor design."
+      },
+      {
+        "id": "bottleneck_flow",
+        "condition": "max_flow_intensity > 1000",
+        "alert": "A single department pair has flow intensity > 1,000 trips/day. Investigate potential congestion."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "raw_distance_sum",
+      "label": "Raw Distance Sum",
+      "description": "Sum of all pairwise distances (lower triangle).",
+      "expression": "SUM_{i<j} distance_matrix[i][j]"
+    },
+    {
+      "id": "flow_distance_product",
+      "label": "Flow-Distance Product Matrix",
+      "description": "Element-wise multiplication of flow intensity and distance matrices (lower triangle).",
+      "expression": "FOR i<j: product[i][j] = flow_intensity_matrix[i][j] * distance_matrix[i][j]"
+    },
+    {
+      "id": "total_weighted_distance",
+      "label": "Total Weighted Distance",
+      "description": "Sum of all flow-distance products.",
+      "expression": "SUM_{i<j} product[i][j]"
+    },
+    {
+      "id": "adjusted_total_distance",
+      "label": "Adjusted Total Distance",
+      "description": "Total weighted distance divided by path efficiency factor to account for non-straight travel.",
+      "expression": "total_weighted_distance / path_efficiency_factor"
+    },
+    {
+      "id": "average_distance_per_trip",
+      "label": "Average Distance per Trip",
+      "description": "Adjusted total distance divided by total flow intensity.",
+      "expression": "adjusted_total_distance / SUM_{i<j} flow_intensity_matrix[i][j]"
+    },
+    {
+      "id": "layout_efficiency_index",
+      "label": "Layout Efficiency Index",
+      "description": "Ratio of theoretical minimum distance (if all flows were adjacent) to actual adjusted distance.",
+      "expression": "theoretical_min_distance / adjusted_total_distance"
+    },
+    {
+      "id": "primary_result",
+      "label": "Primary Result: Total Material Handling Distance",
+      "description": "If use_weighted_distance is true, returns adjusted_total_distance; else returns raw_distance_sum.",
+      "expression": "IF use_weighted_distance THEN adjusted_total_distance ELSE raw_distance_sum"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_material_handling_distance",
+      "label": "Total Material Handling Distance",
+      "unit": "meter-trips/day",
+      "description": "Primary metric representing the total distance traveled by materials per day, adjusted for path efficiency."
+    },
+    "breakdown": {
+      "id": "distance_breakdown",
+      "label": "Distance Breakdown",
+      "type": "object",
+      "properties": {
+        "raw_distance_sum": {
+          "value": 0,
+          "unit": "meters",
+          "description": "Sum of all pairwise distances."
+        },
+        "total_weighted_distance": {
+          "value": 0,
+          "unit": "meter-trips/day",
+          "description": "Sum of flow × distance products."
+        },
+        "adjusted_total_distance": {
+          "value": 0,
+          "unit": "meter-trips/day",
+          "description": "Weighted distance adjusted for path efficiency."
+        },
+        "average_distance_per_trip": {
+          "value": 0,
+          "unit": "meters/trip",
+          "description": "Average travel distance per material movement."
+        },
+        "layout_efficiency_index": {
+          "value": 0,
+          "unit": "ratio",
+          "description": "Efficiency of current layout compared to theoretical optimum (1.0 = perfect)."
+        },
+        "total_flow_intensity": {
+          "value": 0,
+          "unit": "trips/day",
+          "description": "Sum of all pairwise flows."
+        }
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "long_haul_pairs",
+        "label": "Long-Haul Department Pairs",
+        "description": "Pairs with distance > 80th percentile and flow > median. These contribute disproportionately to total distance.",
+        "value": []
+      },
+      {
+        "id": "inefficient_path_segments",
+        "label": "Inefficient Path Segments",
+        "description": "Segments where path_efficiency_factor < 0.6, indicating potential for aisle or conveyor redesign.",
+        "value": []
+      },
+      {
+        "id": "high_flow_low_proximity",
+        "label": "High-Flow Low-Proximity Pairs",
+        "description": "Pairs with flow in top 20% but distance in bottom 20% of possible distances (missed adjacency opportunity).",
+        "value": []
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "relocate_high_flow_pairs",
+        "label": "Relocate High-Flow Pairs",
+        "description": "Move departments with highest flow-distance product to adjacent positions to reduce travel."
+      },
+      {
+        "id": "improve_aisle_design",
+        "label": "Improve Aisle Design",
+        "description": "Redesign corridors or install conveyors for segments with path efficiency < 0.6."
+      },
+      {
+        "id": "implement_cellular_manufacturing",
+        "label": "Implement Cellular Manufacturing",
+        "description": "For process layouts with low efficiency index, consider reorganizing into product-focused cells."
+      },
+      {
+        "id": "reduce_non_value_added_movement",
+        "label": "Reduce Non-Value-Added Movement",
+        "description": "Analyze and eliminate unnecessary material handling trips identified by hidden loss drivers."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_adjusted",
+      "label": "Data Confidence Adjusted Primary Result",
+      "description": "Primary result multiplied by a confidence factor (0.8 to 1.0) based on data completeness and accuracy.",
+      "value": 0,
+      "unit": "meter-trips/day"
+    }
+  }
+}

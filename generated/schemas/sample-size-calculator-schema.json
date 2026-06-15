@@ -1,0 +1,282 @@
+{
+  "slug": "sample-size-calculator",
+  "title": "Sample Size Calculator (Industrial Engineering)",
+  "description": "Determines the minimum sample size for process capability studies, audit sampling, and hypothesis testing based on ISO 2859, Six Sigma, and Lean standards.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-lot aggregation",
+    "Historical data import"
+  ],
+  "inputs": [
+    {
+      "id": "confidenceLevel",
+      "label": "Confidence Level",
+      "type": "select",
+      "unit": "%",
+      "default": "95",
+      "options": [
+        "90",
+        "95",
+        "99"
+      ],
+      "businessContext": "Standard confidence levels per ISO 2859-1 and Six Sigma DMAIC."
+    },
+    {
+      "id": "marginOfError",
+      "label": "Margin of Error (Precision)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 1,
+      "max": 20,
+      "businessContext": "Acceptable deviation from true population parameter; typical for process audits."
+    },
+    {
+      "id": "populationSize",
+      "label": "Population Size (Lot Size)",
+      "type": "number",
+      "unit": "units",
+      "default": 10000,
+      "min": 1,
+      "max": 10000000,
+      "businessContext": "Total items in the lot or process output per period."
+    },
+    {
+      "id": "expectedProportion",
+      "label": "Expected Proportion (Defect Rate)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0.1,
+      "max": 50,
+      "businessContext": "Historical or assumed defect rate; used in attribute sampling."
+    },
+    {
+      "id": "standardDeviation",
+      "label": "Standard Deviation (Process Sigma)",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "min": 0.01,
+      "max": 100,
+      "businessContext": "Estimated process variation for variables sampling (e.g., SPC)."
+    },
+    {
+      "id": "effectSize",
+      "label": "Effect Size (Minimum Detectable Difference)",
+      "type": "number",
+      "unit": "units",
+      "default": 0.5,
+      "min": 0.01,
+      "max": 10,
+      "businessContext": "Smallest practical change to detect in hypothesis testing (Six Sigma)."
+    },
+    {
+      "id": "samplingMethod",
+      "label": "Sampling Method",
+      "type": "select",
+      "unit": "",
+      "default": "simpleRandom",
+      "options": [
+        "simpleRandom",
+        "stratified",
+        "cluster",
+        "systematic"
+      ],
+      "businessContext": "Design effect adjustment per WERC and ISO 2859 guidelines."
+    },
+    {
+      "id": "useFiniteCorrection",
+      "label": "Apply Finite Population Correction",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "businessContext": "When sample > 5% of population, correction reduces sample size."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_confidence_margin",
+        "condition": "confidenceLevel == '99' && marginOfError < 2",
+        "message": "At 99% confidence, margin of error below 2% may require extremely large samples. Consider increasing margin or reducing confidence."
+      },
+      {
+        "id": "rule_proportion_range",
+        "condition": "expectedProportion < 1 || expectedProportion > 50",
+        "message": "Expected proportion outside typical range (1-50%). Verify input or use variables sampling."
+      },
+      {
+        "id": "rule_population_sample_ratio",
+        "condition": "populationSize < 100 && marginOfError > 10",
+        "message": "For small populations, a high margin of error may yield unreliable results. Consider census."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_sample_size_min",
+        "condition": "primaryResult < 30",
+        "alert": "Sample size below 30 may violate normality assumptions. Use non-parametric methods or increase sample."
+      },
+      {
+        "id": "threshold_sample_size_max",
+        "condition": "primaryResult > populationSize * 0.5",
+        "alert": "Sample size exceeds 50% of population. Consider full inspection (census) for cost efficiency."
+      },
+      {
+        "id": "threshold_cost_impact",
+        "condition": "primaryResult > 5000",
+        "alert": "Sample size > 5000 may incur significant inspection cost. Evaluate stratified sampling or reduced precision."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "zScore",
+      "label": "Z-Score from Confidence Level",
+      "description": "Standard normal deviate corresponding to the selected confidence level.",
+      "formula": "if confidenceLevel == '90' then 1.645 else if confidenceLevel == '95' then 1.96 else 2.576",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "designEffect",
+      "label": "Design Effect (DEFF)",
+      "description": "Adjustment for sampling method; 1.0 for simple random, higher for cluster/stratified.",
+      "formula": "if samplingMethod == 'simpleRandom' then 1.0 else if samplingMethod == 'stratified' then 0.9 else if samplingMethod == 'cluster' then 1.5 else 1.2",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "sampleSizeInfinite",
+      "label": "Sample Size (Infinite Population)",
+      "description": "Initial sample size assuming infinite population (attribute sampling).",
+      "formula": "ceil((zScore^2 * (expectedProportion/100) * (1 - expectedProportion/100)) / ((marginOfError/100)^2))",
+      "unit": "units"
+    },
+    {
+      "id": "sampleSizeFinite",
+      "label": "Sample Size (Finite Correction)",
+      "description": "Adjusted sample size using finite population correction.",
+      "formula": "if useFiniteCorrection then ceil(sampleSizeInfinite / (1 + (sampleSizeInfinite - 1) / populationSize)) else sampleSizeInfinite",
+      "unit": "units"
+    },
+    {
+      "id": "sampleSizeVariables",
+      "label": "Sample Size for Variables (Means)",
+      "description": "Sample size for continuous data based on standard deviation and effect size.",
+      "formula": "ceil((zScore^2 * standardDeviation^2) / effectSize^2)",
+      "unit": "units"
+    },
+    {
+      "id": "finalSampleSize",
+      "label": "Final Recommended Sample Size",
+      "description": "Combined sample size considering both attribute and variables approaches, adjusted by design effect.",
+      "formula": "ceil(max(sampleSizeFinite, sampleSizeVariables) * designEffect)",
+      "unit": "units"
+    },
+    {
+      "id": "dataConfidenceAdjusted",
+      "label": "Data Confidence Adjusted",
+      "description": "Confidence level adjusted for sample size adequacy relative to population.",
+      "formula": "min(confidenceLevel, 100 * (1 - (populationSize - finalSampleSize) / populationSize))",
+      "unit": "%"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "primaryResult",
+      "label": "Minimum Required Sample Size",
+      "description": "The smallest sample size that meets the specified confidence, precision, and process assumptions.",
+      "value": null,
+      "unit": "units"
+    },
+    "breakdown": {
+      "id": "breakdown",
+      "label": "Calculation Breakdown",
+      "description": "Intermediate values used in the sample size determination.",
+      "components": {
+        "zScore": {
+          "label": "Z-Score",
+          "value": null,
+          "unit": "dimensionless"
+        },
+        "designEffect": {
+          "label": "Design Effect",
+          "value": null,
+          "unit": "dimensionless"
+        },
+        "sampleSizeInfinite": {
+          "label": "Sample Size (Infinite)",
+          "value": null,
+          "unit": "units"
+        },
+        "sampleSizeFinite": {
+          "label": "Sample Size (Finite Corrected)",
+          "value": null,
+          "unit": "units"
+        },
+        "sampleSizeVariables": {
+          "label": "Sample Size (Variables)",
+          "value": null,
+          "unit": "units"
+        },
+        "finalSampleSize": {
+          "label": "Final Sample Size (with DEFF)",
+          "value": null,
+          "unit": "units"
+        }
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "loss_high_variation",
+        "label": "High Process Variation",
+        "description": "Standard deviation > 2x effect size inflates sample size. Consider process improvement (SPC).",
+        "severity": "medium"
+      },
+      {
+        "id": "loss_low_defect_rate",
+        "label": "Very Low Expected Defect Rate",
+        "description": "Proportion < 1% leads to extremely large samples. Use variables sampling or accept higher risk.",
+        "severity": "high"
+      },
+      {
+        "id": "loss_cluster_design",
+        "label": "Cluster Sampling Inefficiency",
+        "description": "Design effect > 1.2 increases sample size. Consider stratified sampling to reduce cost.",
+        "severity": "low"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_reduce_confidence",
+        "label": "Reduce Confidence Level",
+        "description": "If sample size is too large, consider 90% confidence instead of 95% or 99%."
+      },
+      {
+        "id": "action_increase_margin",
+        "label": "Increase Margin of Error",
+        "description": "Relaxing precision from 5% to 10% can dramatically reduce sample size."
+      },
+      {
+        "id": "action_use_stratified",
+        "label": "Switch to Stratified Sampling",
+        "description": "Stratified sampling often reduces sample size and improves representativeness."
+      },
+      {
+        "id": "action_improve_process",
+        "label": "Reduce Process Variation",
+        "description": "Invest in process control (SPC) to lower standard deviation and required sample size."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "dataConfidenceAdjusted",
+      "label": "Data Confidence Adjusted",
+      "description": "Effective confidence level after accounting for sample size relative to population.",
+      "value": null,
+      "unit": "%"
+    }
+  }
+}

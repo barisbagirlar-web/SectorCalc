@@ -1,0 +1,354 @@
+{
+  "slug": "cnc-machining-cost-calculator",
+  "meta": {
+    "name": "CNC Machining Cost Calculator",
+    "version": "1.0.0",
+    "description": "Industrial-grade cost estimation for CNC machining operations based on ISO 9001, Lean Manufacturing, and Six Sigma principles.",
+    "premiumRequired": true,
+    "premiumFeatures": [
+      "PDF export",
+      "CSV export",
+      "Trend analysis",
+      "Multi-machine comparison",
+      "Custom overhead rates"
+    ]
+  },
+  "inputs": [
+    {
+      "id": "material_type",
+      "label": "Material Type",
+      "type": "select",
+      "unit": "",
+      "default": "aluminum_6061",
+      "options": [
+        {
+          "value": "aluminum_6061",
+          "label": "Aluminum 6061"
+        },
+        {
+          "value": "steel_1018",
+          "label": "Steel 1018"
+        },
+        {
+          "value": "stainless_304",
+          "label": "Stainless Steel 304"
+        },
+        {
+          "value": "titanium_6al4v",
+          "label": "Titanium 6Al-4V"
+        },
+        {
+          "value": "brass_c360",
+          "label": "Brass C360"
+        }
+      ],
+      "businessContext": "Material selection directly impacts tool wear, cutting speed, and cost per part."
+    },
+    {
+      "id": "part_weight_kg",
+      "label": "Part Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0.5,
+      "min": 0.001,
+      "max": 500,
+      "businessContext": "Weight of the finished part, used to calculate raw material cost and scrap."
+    },
+    {
+      "id": "stock_volume_cm3",
+      "label": "Stock Volume (cm³)",
+      "type": "number",
+      "unit": "cm³",
+      "default": 200,
+      "min": 1,
+      "max": 100000,
+      "businessContext": "Volume of raw material block before machining, determines material usage."
+    },
+    {
+      "id": "machining_time_min",
+      "label": "Machining Time (minutes)",
+      "type": "number",
+      "unit": "min",
+      "default": 15,
+      "min": 0.1,
+      "max": 1440,
+      "businessContext": "Total cycle time per part including cutting, tool changes, and rapid moves."
+    },
+    {
+      "id": "setup_time_min",
+      "label": "Setup Time (minutes)",
+      "type": "number",
+      "unit": "min",
+      "default": 60,
+      "min": 0,
+      "max": 480,
+      "businessContext": "Time to fixture, align, and program the machine for the batch."
+    },
+    {
+      "id": "batch_size",
+      "label": "Batch Size (parts)",
+      "type": "number",
+      "unit": "parts",
+      "default": 100,
+      "min": 1,
+      "max": 100000,
+      "businessContext": "Number of identical parts produced in one production run."
+    },
+    {
+      "id": "machine_hourly_rate_usd",
+      "label": "Machine Hourly Rate ($/hr)",
+      "type": "number",
+      "unit": "$/hr",
+      "default": 85,
+      "min": 20,
+      "max": 500,
+      "businessContext": "Fully burdened machine cost including depreciation, maintenance, and energy."
+    },
+    {
+      "id": "labor_hourly_rate_usd",
+      "label": "Labor Hourly Rate ($/hr)",
+      "type": "number",
+      "unit": "$/hr",
+      "default": 35,
+      "min": 10,
+      "max": 150,
+      "businessContext": "Operator wage including overhead and benefits."
+    },
+    {
+      "id": "tooling_cost_per_part_usd",
+      "label": "Tooling Cost per Part ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 2.5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Consumable tooling cost allocated per part (inserts, drills, end mills)."
+    },
+    {
+      "id": "overhead_percentage",
+      "label": "Overhead Percentage (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Facility, quality, and administrative overhead as a percentage of direct costs."
+    },
+    {
+      "id": "scrap_rate_percent",
+      "label": "Scrap Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Percentage of parts that fail inspection and are scrapped."
+    },
+    {
+      "id": "material_cost_per_kg_usd",
+      "label": "Material Cost per kg ($/kg)",
+      "type": "number",
+      "unit": "$/kg",
+      "default": 5,
+      "min": 0.5,
+      "max": 200,
+      "businessContext": "Price of raw material per kilogram, varies by material type."
+    },
+    {
+      "id": "density_g_per_cm3",
+      "label": "Density (g/cm³)",
+      "type": "number",
+      "unit": "g/cm³",
+      "default": 2.7,
+      "min": 0.5,
+      "max": 20,
+      "businessContext": "Material density used to convert volume to weight."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_material_density_consistency",
+        "condition": "part_weight_kg > 0 AND stock_volume_cm3 > 0 AND density_g_per_cm3 > 0",
+        "message": "Part weight, stock volume, and density must all be positive."
+      },
+      {
+        "id": "rule_batch_size_positive",
+        "condition": "batch_size >= 1",
+        "message": "Batch size must be at least 1."
+      },
+      {
+        "id": "rule_machining_time_positive",
+        "condition": "machining_time_min > 0",
+        "message": "Machining time must be greater than 0."
+      },
+      {
+        "id": "rule_scrap_rate_range",
+        "condition": "scrap_rate_percent >= 0 AND scrap_rate_percent <= 50",
+        "message": "Scrap rate must be between 0% and 50%."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_high_scrap",
+        "condition": "scrap_rate_percent > 10",
+        "severity": "warning",
+        "message": "Scrap rate exceeds 10% — investigate process capability (Cp/Cpk)."
+      },
+      {
+        "id": "threshold_low_batch",
+        "condition": "batch_size < 10",
+        "severity": "info",
+        "message": "Small batch size — setup cost per part may dominate."
+      },
+      {
+        "id": "threshold_high_machine_rate",
+        "condition": "machine_hourly_rate_usd > 200",
+        "severity": "warning",
+        "message": "Machine rate exceeds $200/hr — verify if high-precision or multi-axis."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "raw_material_cost",
+      "label": "Raw Material Cost per Part",
+      "description": "Cost of raw material block used for one part, accounting for scrap.",
+      "formula": "((stock_volume_cm3 * density_g_per_cm3 / 1000) * material_cost_per_kg_usd) * (1 + scrap_rate_percent / 100)",
+      "unit": "$"
+    },
+    {
+      "id": "machining_cost",
+      "label": "Machining Cost per Part",
+      "description": "Cost of machine time per part including setup amortization.",
+      "formula": "(machining_time_min / 60) * machine_hourly_rate_usd + (setup_time_min / 60 / batch_size) * machine_hourly_rate_usd",
+      "unit": "$"
+    },
+    {
+      "id": "labor_cost",
+      "label": "Labor Cost per Part",
+      "description": "Direct labor cost per part including setup amortization.",
+      "formula": "(machining_time_min / 60) * labor_hourly_rate_usd + (setup_time_min / 60 / batch_size) * labor_hourly_rate_usd",
+      "unit": "$"
+    },
+    {
+      "id": "tooling_cost",
+      "label": "Tooling Cost per Part",
+      "description": "Consumable tooling cost per part.",
+      "formula": "tooling_cost_per_part_usd",
+      "unit": "$"
+    },
+    {
+      "id": "direct_cost",
+      "label": "Total Direct Cost per Part",
+      "description": "Sum of material, machining, labor, and tooling costs.",
+      "formula": "raw_material_cost + machining_cost + labor_cost + tooling_cost",
+      "unit": "$"
+    },
+    {
+      "id": "overhead_cost",
+      "label": "Overhead Cost per Part",
+      "description": "Allocated overhead based on direct cost.",
+      "formula": "direct_cost * (overhead_percentage / 100)",
+      "unit": "$"
+    },
+    {
+      "id": "total_cost_per_part",
+      "label": "Total Cost per Part (Primary Result)",
+      "description": "Fully burdened cost per good part including scrap allowance.",
+      "formula": "(direct_cost + overhead_cost) / (1 - scrap_rate_percent / 100)",
+      "unit": "$"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_cost_per_part",
+      "label": "Total Cost per Part",
+      "unit": "$",
+      "description": "Fully burdened cost per good part."
+    },
+    "breakdown": {
+      "raw_material_cost": {
+        "id": "raw_material_cost",
+        "label": "Raw Material Cost",
+        "unit": "$"
+      },
+      "machining_cost": {
+        "id": "machining_cost",
+        "label": "Machining Cost",
+        "unit": "$"
+      },
+      "labor_cost": {
+        "id": "labor_cost",
+        "label": "Labor Cost",
+        "unit": "$"
+      },
+      "tooling_cost": {
+        "id": "tooling_cost",
+        "label": "Tooling Cost",
+        "unit": "$"
+      },
+      "overhead_cost": {
+        "id": "overhead_cost",
+        "label": "Overhead Cost",
+        "unit": "$"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "setup_amortization",
+        "label": "Setup Amortization per Part",
+        "value_formula": "(setup_time_min / 60 / batch_size) * (machine_hourly_rate_usd + labor_hourly_rate_usd)",
+        "unit": "$",
+        "description": "Hidden cost of setup time spread over batch size."
+      },
+      {
+        "id": "scrap_loss",
+        "label": "Scrap Loss per Good Part",
+        "value_formula": "total_cost_per_part * (scrap_rate_percent / 100) / (1 - scrap_rate_percent / 100)",
+        "unit": "$",
+        "description": "Additional cost due to scrapped parts."
+      },
+      {
+        "id": "material_utilization_loss",
+        "label": "Material Utilization Loss",
+        "value_formula": "((stock_volume_cm3 * density_g_per_cm3 / 1000) - part_weight_kg) * material_cost_per_kg_usd",
+        "unit": "$",
+        "description": "Cost of material removed as chips (not recovered)."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_reduce_setup",
+        "condition": "setup_time_min > 30 AND batch_size < 50",
+        "action": "Implement SMED (Single-Minute Exchange of Die) to reduce setup time by 50%.",
+        "expected_impact": "Reduces setup amortization per part by up to 50%."
+      },
+      {
+        "id": "action_improve_scrap",
+        "condition": "scrap_rate_percent > 5",
+        "action": "Apply Six Sigma DMAIC to identify root causes of scrap; consider SPC monitoring.",
+        "expected_impact": "Reduces scrap rate to below 2%, lowering total cost per part."
+      },
+      {
+        "id": "action_optimize_tooling",
+        "condition": "tooling_cost_per_part_usd > 5",
+        "action": "Evaluate tool coatings and feeds/speeds to extend tool life; use ISO 13399 tool data.",
+        "expected_impact": "Tooling cost reduction of 20-30%."
+      },
+      {
+        "id": "action_increase_batch",
+        "condition": "batch_size < 20 AND setup_time_min > 60",
+        "action": "Combine orders or use group technology to increase batch size.",
+        "expected_impact": "Reduces setup cost per part significantly."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_score",
+      "label": "Data Confidence Score",
+      "value": 0.85,
+      "unit": "",
+      "description": "Weighted confidence based on input accuracy (0-1). Adjusts final cost by ±5% for uncertainty."
+    }
+  }
+}

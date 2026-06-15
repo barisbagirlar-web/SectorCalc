@@ -1,0 +1,292 @@
+{
+  "slug": "break-even-safety-margin",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario comparison",
+    "Automated alerting"
+  ],
+  "inputs": [
+    {
+      "id": "fixedCosts",
+      "label": "Total Fixed Costs",
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Sum of all fixed expenses (rent, salaries, insurance) per period."
+    },
+    {
+      "id": "variableCostPerUnit",
+      "label": "Variable Cost per Unit",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 15,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Direct material, labor, and overhead per unit."
+    },
+    {
+      "id": "sellingPricePerUnit",
+      "label": "Selling Price per Unit",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 25,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Revenue per unit sold."
+    },
+    {
+      "id": "actualSalesVolume",
+      "label": "Actual Sales Volume",
+      "type": "number",
+      "unit": "units",
+      "default": 80000,
+      "min": 0,
+      "max": 10000000,
+      "businessContext": "Number of units actually sold in the period."
+    },
+    {
+      "id": "capacityVolume",
+      "label": "Maximum Capacity Volume",
+      "type": "number",
+      "unit": "units",
+      "default": 120000,
+      "min": 0,
+      "max": 20000000,
+      "businessContext": "Theoretical maximum output under normal operating conditions."
+    },
+    {
+      "id": "demandUncertainty",
+      "label": "Demand Uncertainty Factor",
+      "type": "number",
+      "unit": "percent",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Expected percentage variation in demand (coefficient of variation)."
+    },
+    {
+      "id": "costEscalationRate",
+      "label": "Cost Escalation Rate",
+      "type": "number",
+      "unit": "percent",
+      "default": 3,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Annual expected increase in variable costs (inflation, supplier pricing)."
+    },
+    {
+      "id": "includeTax",
+      "label": "Include Tax Effect",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "If true, tax rate input is required and after-tax break-even is calculated."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "percent",
+      "default": 25,
+      "min": 0,
+      "max": 60,
+      "businessContext": "Effective corporate tax rate, used only when includeTax is true."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "condition": "sellingPricePerUnit <= variableCostPerUnit",
+        "message": "Selling price must be greater than variable cost per unit to have a positive contribution margin."
+      },
+      {
+        "condition": "actualSalesVolume < 0",
+        "message": "Actual sales volume cannot be negative."
+      },
+      {
+        "condition": "capacityVolume <= 0",
+        "message": "Capacity volume must be greater than zero."
+      },
+      {
+        "condition": "includeTax == true && (taxRate == null || taxRate < 0 || taxRate > 60)",
+        "message": "Tax rate must be between 0% and 60% when tax effect is included."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "safetyMarginLow",
+        "condition": "safetyMarginPercent < 10",
+        "severity": "warning",
+        "message": "Safety margin is below 10% – high risk of falling below break-even."
+      },
+      {
+        "id": "safetyMarginCritical",
+        "condition": "safetyMarginPercent < 5",
+        "severity": "critical",
+        "message": "Safety margin is critically low (<5%) – immediate action required."
+      },
+      {
+        "id": "breakEvenNearCapacity",
+        "condition": "breakEvenUnits > 0.9 * capacityVolume",
+        "severity": "warning",
+        "message": "Break-even point exceeds 90% of capacity – very low operating leverage."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "contributionMarginPerUnit",
+      "label": "Contribution Margin per Unit",
+      "expression": "sellingPricePerUnit - variableCostPerUnit",
+      "unit": "USD/unit",
+      "description": "Revenue left after variable costs to cover fixed costs and profit."
+    },
+    {
+      "id": "contributionMarginRatio",
+      "label": "Contribution Margin Ratio",
+      "expression": "contributionMarginPerUnit / sellingPricePerUnit",
+      "unit": "ratio",
+      "description": "Fraction of each sales dollar available to cover fixed costs."
+    },
+    {
+      "id": "breakEvenUnits",
+      "label": "Break-Even Volume (Units)",
+      "expression": "fixedCosts / contributionMarginPerUnit",
+      "unit": "units",
+      "description": "Number of units that must be sold to cover all fixed and variable costs."
+    },
+    {
+      "id": "breakEvenRevenue",
+      "label": "Break-Even Revenue",
+      "expression": "breakEvenUnits * sellingPricePerUnit",
+      "unit": "USD",
+      "description": "Revenue level at which total costs equal total revenue."
+    },
+    {
+      "id": "safetyMarginUnits",
+      "label": "Safety Margin (Units)",
+      "expression": "actualSalesVolume - breakEvenUnits",
+      "unit": "units",
+      "description": "Units sold above break-even point."
+    },
+    {
+      "id": "safetyMarginPercent",
+      "label": "Safety Margin (%)",
+      "expression": "(safetyMarginUnits / actualSalesVolume) * 100",
+      "unit": "percent",
+      "description": "Percentage by which actual sales exceed break-even sales."
+    },
+    {
+      "id": "adjustedBreakEvenUnits",
+      "label": "Adjusted Break-Even (with cost escalation & demand uncertainty)",
+      "expression": "fixedCosts / (sellingPricePerUnit - variableCostPerUnit * (1 + costEscalationRate/100)) * (1 + demandUncertainty/100)",
+      "unit": "units",
+      "description": "Break-even volume adjusted for expected cost increases and demand variability."
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "safetyMarginPercent",
+      "label": "Safety Margin (%)",
+      "value": null,
+      "unit": "percent",
+      "description": "Primary result: percentage of sales above break-even."
+    },
+    "breakdown": {
+      "contributionMarginPerUnit": {
+        "id": "contributionMarginPerUnit",
+        "label": "Contribution Margin per Unit",
+        "value": null,
+        "unit": "USD/unit"
+      },
+      "contributionMarginRatio": {
+        "id": "contributionMarginRatio",
+        "label": "Contribution Margin Ratio",
+        "value": null,
+        "unit": "ratio"
+      },
+      "breakEvenUnits": {
+        "id": "breakEvenUnits",
+        "label": "Break-Even Volume (Units)",
+        "value": null,
+        "unit": "units"
+      },
+      "breakEvenRevenue": {
+        "id": "breakEvenRevenue",
+        "label": "Break-Even Revenue",
+        "value": null,
+        "unit": "USD"
+      },
+      "safetyMarginUnits": {
+        "id": "safetyMarginUnits",
+        "label": "Safety Margin (Units)",
+        "value": null,
+        "unit": "units"
+      },
+      "adjustedBreakEvenUnits": {
+        "id": "adjustedBreakEvenUnits",
+        "label": "Adjusted Break-Even (with risk)",
+        "value": null,
+        "unit": "units"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excessFixedCostBurden",
+        "label": "Excess Fixed Cost Burden",
+        "description": "If fixed costs exceed 40% of total costs, risk increases.",
+        "value": null,
+        "unit": "percent"
+      },
+      {
+        "id": "variableCostVolatility",
+        "label": "Variable Cost Volatility",
+        "description": "High cost escalation rate (>5%) erodes margin quickly.",
+        "value": null,
+        "unit": "percent"
+      },
+      {
+        "id": "capacityUnderutilization",
+        "label": "Capacity Underutilization",
+        "description": "If actual volume is less than 70% of capacity, fixed cost per unit rises.",
+        "value": null,
+        "unit": "percent"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduceFixedCosts",
+        "label": "Reduce Fixed Costs",
+        "description": "Negotiate rent, outsource non-core functions, or implement lean overhead reduction."
+      },
+      {
+        "id": "increasePrice",
+        "label": "Increase Selling Price",
+        "description": "Evaluate value-based pricing or add premium features to improve contribution margin."
+      },
+      {
+        "id": "improveVariableCostEfficiency",
+        "label": "Improve Variable Cost Efficiency",
+        "description": "Apply Six Sigma DMAIC to reduce waste, renegotiate supplier contracts, or automate processes."
+      },
+      {
+        "id": "boostSalesVolume",
+        "label": "Boost Sales Volume",
+        "description": "Launch marketing campaigns, expand distribution channels, or offer volume discounts."
+      },
+      {
+        "id": "hedgeCostEscalation",
+        "label": "Hedge Cost Escalation",
+        "description": "Lock in long-term supplier contracts or use commodity hedging to stabilize variable costs."
+      }
+    ],
+    "dataConfidenceAdjusted": null
+  }
+}

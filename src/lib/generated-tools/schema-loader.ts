@@ -1,6 +1,7 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 import { normalizeGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
+import { normalizeRawGeneratedSchema } from "@/lib/generated-tools/normalize-schema";
 import type { GeneratedToolInput, GeneratedToolSchema } from "@/lib/generated-tools/types";
 
 const SCHEMAS_DIR = path.join(process.cwd(), "generated", "schemas");
@@ -45,8 +46,12 @@ export function getGeneratedToolSchema(slug: string): GeneratedToolSchema | null
   if (!fs.existsSync(schemaPath)) {
     return null;
   }
-  const raw = fs.readFileSync(schemaPath, "utf-8");
-  return normalizeGeneratedToolSchema(JSON.parse(raw) as GeneratedToolSchema);
+  const raw = JSON.parse(fs.readFileSync(schemaPath, "utf-8")) as unknown;
+  const normalized = normalizeRawGeneratedSchema(raw, slug);
+  if (!normalized) {
+    return null;
+  }
+  return normalizeGeneratedToolSchema(normalized);
 }
 
 export function generatedToolDiagramPublicPath(slug: string): string {

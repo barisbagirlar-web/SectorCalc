@@ -1,0 +1,76 @@
+// Auto-generated from route-optimization-analyzer-schema.json
+import * as z from 'zod';
+
+export interface Route_optimization_analyzerInput {
+  num_stops: number;
+  total_distance: number;
+  avg_speed: number;
+  dwell_time_per_stop: number;
+  fuel_cost_per_km: number;
+  driver_hourly_rate: number;
+  vehicle_type: string;
+  traffic_condition: string;
+  use_optimization: boolean;
+}
+
+export const Route_optimization_analyzerInputSchema = z.object({
+  num_stops: z.number().min(1).max(200).default(10),
+  total_distance: z.number().min(0).max(5000).default(150),
+  avg_speed: z.number().min(5).max(120).default(40),
+  dwell_time_per_stop: z.number().min(0).max(120).default(10),
+  fuel_cost_per_km: z.number().min(0).max(10).default(1.2),
+  driver_hourly_rate: z.number().min(0).max(100).default(25),
+  vehicle_type: z.enum(['van', 'truck_light', 'truck_heavy', 'refrigerated']).default('van'),
+  traffic_condition: z.enum(['light', 'moderate', 'heavy']).default('moderate'),
+  use_optimization: z.boolean().default(true),
+});
+
+function evaluateAllFormulas(input: Route_optimization_analyzerInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { results["total_drive_time"] = input.total_distance / input.avg_speed; } catch { results["total_drive_time"] = 0; }
+  try { results["total_dwell_time"] = input.num_stops * input.dwell_time_per_stop / 60; } catch { results["total_dwell_time"] = 0; }
+  try { results["total_travel_time"] = (results["total_drive_time"] ?? 0) + (results["total_dwell_time"] ?? 0); } catch { results["total_travel_time"] = 0; }
+  try { results["fuel_cost_total"] = input.total_distance * input.fuel_cost_per_km; } catch { results["fuel_cost_total"] = 0; }
+  try { results["driver_cost_total"] = (results["total_travel_time"] ?? 0) * input.driver_hourly_rate; } catch { results["driver_cost_total"] = 0; }
+  try { results["stops_per_hour"] = input.num_stops / (results["total_travel_time"] ?? 0); } catch { results["stops_per_hour"] = 0; }
+  try { results["total_cost"] = (results["fuel_cost_total"] ?? 0) + (results["driver_cost_total"] ?? 0); } catch { results["total_cost"] = 0; }
+  return results;
+}
+
+
+export function calculateRoute_optimization_analyzer(input: Route_optimization_analyzerInput): Route_optimization_analyzerOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values["total_cost"] ?? 0;
+  const breakdown = {
+    fuel_cost_total: values["fuel_cost_total"] ?? 0,
+    driver_cost_total: values["driver_cost_total"] ?? 0,
+    total_travel_time: values["total_travel_time"] ?? 0,
+    stops_per_hour: values["stops_per_hour"] ?? 0
+  };
+  const hiddenLossDrivers: string[] = ["Excess Dwell Time","Inefficient Route Factor","Fuel Waste"];
+  const suggestedActions: string[] = ["Consolidate Stops","Schedule Off-Peak","Consider Fuel-Efficient Vehicle"];
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    premiumRequired: true,
+    premiumFeatures: ["PDF export","CSV export","Trend analysis","Multi-scenario comparison","Real-time GPS integration"],
+  };
+}
+
+
+export interface Route_optimization_analyzerOutput {
+  totalWasteCost: number;
+  breakdown: { fuel_cost_total: number; driver_cost_total: number; total_travel_time: number; stops_per_hour: number };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+}

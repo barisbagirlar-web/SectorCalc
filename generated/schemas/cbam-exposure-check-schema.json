@@ -1,0 +1,275 @@
+{
+  "slug": "cbam-exposure-check",
+  "title": "CBAM Exposure Check",
+  "description": "Calculates the financial exposure and operational risk from the EU Carbon Border Adjustment Mechanism (CBAM) for industrial facilities, incorporating production efficiency, carbon intensity, and compliance readiness.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario simulation",
+    "Benchmarking against industry standards"
+  ],
+  "inputs": [
+    {
+      "id": "annual_production_volume",
+      "label": "Annual Production Volume",
+      "type": "number",
+      "unit": "metric tons",
+      "default": 100000,
+      "min": 0,
+      "max": 10000000,
+      "businessContext": "Total output of the primary product (e.g., steel, cement, aluminum) in metric tons per year."
+    },
+    {
+      "id": "carbon_intensity",
+      "label": "Carbon Intensity",
+      "type": "number",
+      "unit": "tCO2e per ton product",
+      "default": 1.8,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Direct and indirect greenhouse gas emissions per ton of product, based on ISO 14064 or GHG Protocol."
+    },
+    {
+      "id": "cbam_carbon_price",
+      "label": "CBAM Carbon Price",
+      "type": "number",
+      "unit": "EUR per tCO2e",
+      "default": 90,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Expected or current EU ETS allowance price used for CBAM certificate calculation."
+    },
+    {
+      "id": "free_allocation_percentage",
+      "label": "Free Allocation Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of emissions covered by free allowances under CBAM transitional rules."
+    },
+    {
+      "id": "production_efficiency_index",
+      "label": "Production Efficiency Index",
+      "type": "number",
+      "unit": "ratio (0-1)",
+      "default": 0.85,
+      "min": 0,
+      "max": 1,
+      "businessContext": "Overall equipment effectiveness (OEE) or similar lean metric; higher values reduce waste and emissions."
+    },
+    {
+      "id": "compliance_readiness_score",
+      "label": "Compliance Readiness Score",
+      "type": "number",
+      "unit": "score (0-100)",
+      "default": 60,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Assessment of data collection, reporting systems, and verification readiness per CBAM requirements."
+    },
+    {
+      "id": "industry_benchmark_intensity",
+      "label": "Industry Benchmark Intensity",
+      "type": "number",
+      "unit": "tCO2e per ton product",
+      "default": 1.2,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Best available technology (BAT) or sector average carbon intensity for benchmarking (ISO 50001)."
+    },
+    {
+      "id": "emission_scope",
+      "label": "Emission Scope",
+      "type": "select",
+      "options": [
+        "Scope 1 only",
+        "Scope 1 & 2",
+        "Scope 1, 2 & 3"
+      ],
+      "default": "Scope 1 & 2",
+      "businessContext": "Defines which emission scopes are included in the carbon intensity calculation."
+    },
+    {
+      "id": "use_verified_data",
+      "label": "Use Verified Data Only",
+      "type": "boolean",
+      "default": false,
+      "businessContext": "If true, only data from verified sources (e.g., accredited verifier) is used; otherwise estimated data may be included."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "intensity_vs_benchmark",
+        "condition": "carbon_intensity > industry_benchmark_intensity",
+        "message": "Carbon intensity exceeds industry benchmark. Consider efficiency improvements to reduce CBAM exposure."
+      },
+      {
+        "id": "efficiency_low",
+        "condition": "production_efficiency_index < 0.7",
+        "message": "Production efficiency index is below 0.7. Lean Six Sigma initiatives recommended to improve OEE."
+      },
+      {
+        "id": "compliance_risk",
+        "condition": "compliance_readiness_score < 50",
+        "message": "Compliance readiness score is low. Immediate investment in data management and verification systems required."
+      },
+      {
+        "id": "free_allocation_high",
+        "condition": "free_allocation_percentage > 80",
+        "message": "High free allocation may mask true exposure. Re-evaluate allocation assumptions."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "exposure_alert",
+        "condition": "cbam_cost_per_ton > 50",
+        "message": "CBAM cost per ton exceeds 50 EUR – high financial risk."
+      },
+      {
+        "id": "efficiency_alert",
+        "condition": "production_efficiency_index < 0.6",
+        "message": "Critical efficiency level – immediate action required."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "total_emissions",
+      "label": "Total Emissions",
+      "description": "Annual total CO2e emissions from production.",
+      "formula": "annual_production_volume * carbon_intensity",
+      "unit": "tCO2e per year"
+    },
+    {
+      "id": "allowable_emissions",
+      "label": "Allowable Emissions (Free Allocation)",
+      "description": "Emissions covered by free allowances.",
+      "formula": "total_emissions * (free_allocation_percentage / 100)",
+      "unit": "tCO2e per year"
+    },
+    {
+      "id": "exposed_emissions",
+      "label": "Exposed Emissions",
+      "description": "Emissions subject to CBAM certificate purchase.",
+      "formula": "total_emissions - allowable_emissions",
+      "unit": "tCO2e per year"
+    },
+    {
+      "id": "cbam_cost_per_ton",
+      "label": "CBAM Cost per Ton Product",
+      "description": "Financial exposure per ton of product due to CBAM.",
+      "formula": "(exposed_emissions * cbam_carbon_price) / annual_production_volume",
+      "unit": "EUR per ton product"
+    },
+    {
+      "id": "efficiency_adjusted_cost",
+      "label": "Efficiency Adjusted Cost",
+      "description": "CBAM cost adjusted for production efficiency (lean principle).",
+      "formula": "cbam_cost_per_ton / production_efficiency_index",
+      "unit": "EUR per ton product"
+    },
+    {
+      "id": "compliance_risk_factor",
+      "label": "Compliance Risk Factor",
+      "description": "Multiplier reflecting data quality and readiness risk.",
+      "formula": "1 + ((100 - compliance_readiness_score) / 100)",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "total_cbam_exposure",
+      "label": "Total CBAM Exposure (Primary Result)",
+      "description": "Risk-adjusted total financial exposure from CBAM, incorporating efficiency and compliance factors.",
+      "formula": "efficiency_adjusted_cost * compliance_risk_factor * annual_production_volume",
+      "unit": "EUR per year"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_cbam_exposure",
+      "label": "Total CBAM Exposure",
+      "unit": "EUR per year",
+      "description": "Risk-adjusted total financial exposure from CBAM."
+    },
+    "breakdown": {
+      "total_emissions": {
+        "label": "Total Emissions",
+        "unit": "tCO2e per year"
+      },
+      "allowable_emissions": {
+        "label": "Allowable Emissions",
+        "unit": "tCO2e per year"
+      },
+      "exposed_emissions": {
+        "label": "Exposed Emissions",
+        "unit": "tCO2e per year"
+      },
+      "cbam_cost_per_ton": {
+        "label": "CBAM Cost per Ton",
+        "unit": "EUR per ton product"
+      },
+      "efficiency_adjusted_cost": {
+        "label": "Efficiency Adjusted Cost",
+        "unit": "EUR per ton product"
+      },
+      "compliance_risk_factor": {
+        "label": "Compliance Risk Factor",
+        "unit": "dimensionless"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "low_efficiency_waste",
+        "label": "Low Efficiency Waste",
+        "description": "Additional emissions due to production efficiency below 1.0 (lean waste).",
+        "value": "annual_production_volume * carbon_intensity * (1 - production_efficiency_index)",
+        "unit": "tCO2e per year"
+      },
+      {
+        "id": "benchmark_gap",
+        "label": "Benchmark Gap",
+        "description": "Excess emissions compared to industry benchmark (ISO 50001).",
+        "value": "annual_production_volume * (carbon_intensity - industry_benchmark_intensity)",
+        "unit": "tCO2e per year"
+      },
+      {
+        "id": "compliance_data_gap",
+        "label": "Compliance Data Gap",
+        "description": "Potential additional cost due to unverified or missing data.",
+        "value": "total_cbam_exposure * (1 - (compliance_readiness_score / 100))",
+        "unit": "EUR per year"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "improve_oee",
+        "label": "Improve Overall Equipment Effectiveness",
+        "description": "Implement Lean Six Sigma to reduce waste and increase efficiency index above 0.85.",
+        "priority": "high"
+      },
+      {
+        "id": "reduce_carbon_intensity",
+        "label": "Reduce Carbon Intensity",
+        "description": "Adopt BAT and renewable energy to lower intensity towards industry benchmark.",
+        "priority": "high"
+      },
+      {
+        "id": "enhance_compliance_system",
+        "label": "Enhance Compliance Data System",
+        "description": "Invest in automated data collection and third-party verification to raise readiness score above 80.",
+        "priority": "medium"
+      },
+      {
+        "id": "optimize_free_allocation",
+        "label": "Optimize Free Allocation Strategy",
+        "description": "Review allocation methodology and consider early investment in low-carbon processes.",
+        "priority": "medium"
+      }
+    ],
+    "dataConfidenceAdjusted": 0.78
+  }
+}

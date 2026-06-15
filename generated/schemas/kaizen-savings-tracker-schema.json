@@ -1,0 +1,362 @@
+{
+  "slug": "kaizen-savings-tracker",
+  "title": "Kaizen Savings Tracker",
+  "description": "Industrial-grade tool for calculating cost savings from Kaizen (continuous improvement) events, aligned with Lean, Six Sigma, and ISO 9001 standards. Tracks direct savings, productivity gains, quality improvements, and hidden loss drivers.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-site comparison",
+    "Real-time dashboard",
+    "Benchmarking against industry KPIs"
+  ],
+  "inputs": [
+    {
+      "id": "labor_rate",
+      "label": "Labor Rate (per hour)",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 25,
+      "min": 7.25,
+      "max": 150,
+      "businessContext": "Average fully loaded labor cost per operator hour, including wages, benefits, and overhead. Based on industry benchmarks (BLS, ISO 9001:2015 clause 7.1.6)."
+    },
+    {
+      "id": "operators_affected",
+      "label": "Number of Operators Affected",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "min": 1,
+      "max": 500,
+      "businessContext": "Number of direct operators whose work is impacted by the Kaizen event. Used to calculate labor savings."
+    },
+    {
+      "id": "time_saved_per_operator",
+      "label": "Time Saved per Operator per Shift",
+      "type": "number",
+      "unit": "minutes",
+      "default": 15,
+      "min": 0,
+      "max": 480,
+      "businessContext": "Reduction in cycle time or non-value-added time per operator per shift, measured via time studies (Lean standard work, ISO 22400)."
+    },
+    {
+      "id": "shifts_per_day",
+      "label": "Shifts per Day",
+      "type": "number",
+      "unit": "shifts",
+      "default": 2,
+      "min": 1,
+      "max": 3,
+      "businessContext": "Number of production shifts per day. Typical in manufacturing (WERC DC Measures)."
+    },
+    {
+      "id": "operating_days_per_year",
+      "label": "Operating Days per Year",
+      "type": "number",
+      "unit": "days",
+      "default": 250,
+      "min": 200,
+      "max": 365,
+      "businessContext": "Annual operating days, excluding weekends and holidays. Standard for industrial planning (ISO 9001)."
+    },
+    {
+      "id": "defect_rate_before",
+      "label": "Defect Rate Before Kaizen",
+      "type": "number",
+      "unit": "percent",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of defective units before improvement. Six Sigma DMAIC baseline (DPMO conversion)."
+    },
+    {
+      "id": "defect_rate_after",
+      "label": "Defect Rate After Kaizen",
+      "type": "number",
+      "unit": "percent",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of defective units after improvement. Must be <= defect_rate_before for valid savings."
+    },
+    {
+      "id": "annual_production_volume",
+      "label": "Annual Production Volume",
+      "type": "number",
+      "unit": "units",
+      "default": 100000,
+      "min": 1000,
+      "max": 10000000,
+      "businessContext": "Total units produced per year. Used to scale defect savings."
+    },
+    {
+      "id": "cost_per_defect",
+      "label": "Cost per Defect",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 10,
+      "min": 0.5,
+      "max": 5000,
+      "businessContext": "Average cost of rework, scrap, warranty, and inspection per defective unit (COPQ, ISO 9001:2015 clause 9.1.3)."
+    },
+    {
+      "id": "material_cost_savings",
+      "label": "Material Cost Savings (annual)",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 0,
+      "min": 0,
+      "max": 10000000,
+      "businessContext": "Direct material savings from waste reduction, scrap reduction, or better yield. Enter 0 if not applicable."
+    },
+    {
+      "id": "energy_cost_savings",
+      "label": "Energy Cost Savings (annual)",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 0,
+      "min": 0,
+      "max": 5000000,
+      "businessContext": "Energy savings from process improvements (ISO 50001, Lean energy). Enter 0 if not applicable."
+    },
+    {
+      "id": "implementation_cost",
+      "label": "Implementation Cost (one-time)",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "min": 0,
+      "max": 500000,
+      "businessContext": "Total cost to implement the Kaizen (training, equipment, downtime). Used for ROI calculation."
+    },
+    {
+      "id": "sustainability_factor",
+      "label": "Sustainability Factor",
+      "type": "select",
+      "unit": "dimensionless",
+      "default": "medium",
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence that savings will persist over time. Low = 0.7, Medium = 0.85, High = 1.0. Based on Lean sustainability audits."
+    },
+    {
+      "id": "data_confidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "dimensionless",
+      "default": "medium",
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Quality of input data. Low = 0.8, Medium = 0.9, High = 1.0. Affects adjusted savings."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "defect_rate_consistency",
+        "condition": "defect_rate_after <= defect_rate_before",
+        "message": "Defect rate after Kaizen must be less than or equal to defect rate before."
+      },
+      {
+        "id": "positive_time_saved",
+        "condition": "time_saved_per_operator >= 0",
+        "message": "Time saved per operator must be non-negative."
+      },
+      {
+        "id": "positive_volume",
+        "condition": "annual_production_volume > 0",
+        "message": "Annual production volume must be greater than zero."
+      },
+      {
+        "id": "implementation_cost_non_negative",
+        "condition": "implementation_cost >= 0",
+        "message": "Implementation cost cannot be negative."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "low_savings_alert",
+        "condition": "total_annual_savings < 10000",
+        "message": "Total annual savings are below $10,000. Consider re-evaluating the Kaizen scope."
+      },
+      {
+        "id": "negative_roi_alert",
+        "condition": "return_on_investment < 0",
+        "message": "ROI is negative. The implementation cost exceeds first-year savings."
+      },
+      {
+        "id": "high_defect_savings_alert",
+        "condition": "defect_savings > 0.5 * total_annual_savings",
+        "message": "More than 50% of savings come from defect reduction. Verify defect rate data accuracy."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "labor_savings",
+      "name": "Labor Savings (annual)",
+      "description": "Annual labor cost savings from reduced cycle time.",
+      "formula": "labor_rate * operators_affected * (time_saved_per_operator / 60) * shifts_per_day * operating_days_per_year",
+      "unit": "USD/year"
+    },
+    {
+      "id": "defect_savings",
+      "name": "Defect Savings (annual)",
+      "description": "Annual savings from reduced defect rate.",
+      "formula": "((defect_rate_before - defect_rate_after) / 100) * annual_production_volume * cost_per_defect",
+      "unit": "USD/year"
+    },
+    {
+      "id": "direct_savings",
+      "name": "Direct Savings (annual)",
+      "description": "Sum of all direct savings components before sustainability adjustment.",
+      "formula": "labor_savings + defect_savings + material_cost_savings + energy_cost_savings",
+      "unit": "USD/year"
+    },
+    {
+      "id": "sustainability_adjusted_savings",
+      "name": "Sustainability Adjusted Savings (annual)",
+      "description": "Direct savings adjusted by sustainability factor.",
+      "formula": "direct_savings * sustainability_factor_value",
+      "unit": "USD/year",
+      "notes": "sustainability_factor_value: low=0.7, medium=0.85, high=1.0"
+    },
+    {
+      "id": "return_on_investment",
+      "name": "Return on Investment (ROI)",
+      "description": "First-year ROI of the Kaizen implementation.",
+      "formula": "((sustainability_adjusted_savings - implementation_cost) / implementation_cost) * 100",
+      "unit": "percent"
+    },
+    {
+      "id": "payback_period",
+      "name": "Payback Period",
+      "description": "Time to recover implementation cost (in months).",
+      "formula": "(implementation_cost / (sustainability_adjusted_savings / 12))",
+      "unit": "months",
+      "condition": "sustainability_adjusted_savings > 0"
+    },
+    {
+      "id": "total_annual_savings",
+      "name": "Total Annual Savings (Primary Result)",
+      "description": "Primary output: total annual savings after sustainability and data confidence adjustment.",
+      "formula": "sustainability_adjusted_savings * data_confidence_value",
+      "unit": "USD/year",
+      "notes": "data_confidence_value: low=0.8, medium=0.9, high=1.0"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_annual_savings",
+      "label": "Total Annual Savings (Adjusted)",
+      "unit": "USD/year",
+      "description": "Primary result: annual savings after applying sustainability and data confidence adjustments."
+    },
+    "breakdown": {
+      "labor_savings": {
+        "id": "labor_savings",
+        "label": "Labor Savings",
+        "unit": "USD/year"
+      },
+      "defect_savings": {
+        "id": "defect_savings",
+        "label": "Defect Savings",
+        "unit": "USD/year"
+      },
+      "material_cost_savings": {
+        "id": "material_cost_savings",
+        "label": "Material Cost Savings",
+        "unit": "USD/year"
+      },
+      "energy_cost_savings": {
+        "id": "energy_cost_savings",
+        "label": "Energy Cost Savings",
+        "unit": "USD/year"
+      },
+      "implementation_cost": {
+        "id": "implementation_cost",
+        "label": "Implementation Cost",
+        "unit": "USD"
+      },
+      "return_on_investment": {
+        "id": "return_on_investment",
+        "label": "Return on Investment (ROI)",
+        "unit": "percent"
+      },
+      "payback_period": {
+        "id": "payback_period",
+        "label": "Payback Period",
+        "unit": "months"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "unplanned_downtime",
+        "label": "Unplanned Downtime",
+        "description": "Hidden losses from machine breakdowns or material shortages not captured in labor savings. Typical OEE loss category (ISO 22400).",
+        "estimated_impact": "up to 20% of labor savings"
+      },
+      {
+        "id": "rework_loop_time",
+        "label": "Rework Loop Time",
+        "description": "Time spent on rework that is not included in defect cost per unit. Hidden quality loss (Six Sigma).",
+        "estimated_impact": "up to 15% of defect savings"
+      },
+      {
+        "id": "inventory_waste",
+        "label": "Inventory Waste",
+        "description": "Excess WIP and finished goods inventory due to process variability. Lean waste category (Muda).",
+        "estimated_impact": "up to 10% of total savings"
+      },
+      {
+        "id": "motion_waste",
+        "label": "Motion Waste",
+        "description": "Unnecessary operator movements not fully captured in time savings. Lean waste category.",
+        "estimated_impact": "up to 5% of labor savings"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "label": "Standardize Improved Process",
+        "description": "Document the new standard work and train all operators to sustain gains (ISO 9001:2015 clause 7.5, Lean standard work)."
+      },
+      {
+        "id": "action_2",
+        "label": "Implement Visual Management",
+        "description": "Use kanban boards, andon lights, or dashboards to monitor defect rates and labor productivity in real time."
+      },
+      {
+        "id": "action_3",
+        "label": "Conduct Follow-up Time Studies",
+        "description": "Re-measure cycle times after 30 days to validate time savings and adjust sustainability factor."
+      },
+      {
+        "id": "action_4",
+        "label": "Expand Kaizen to Adjacent Processes",
+        "description": "Apply similar improvements to upstream/downstream operations to maximize system-wide savings."
+      },
+      {
+        "id": "action_5",
+        "label": "Review Data Confidence",
+        "description": "If data confidence is low, invest in automated data collection (MES, IoT) to improve accuracy for future Kaizen events."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "dataConfidenceAdjusted",
+      "label": "Data Confidence Adjusted Savings",
+      "description": "Total annual savings multiplied by data confidence factor (0.8 to 1.0). Reflects risk-adjusted savings.",
+      "unit": "USD/year",
+      "value": "total_annual_savings"
+    }
+  }
+}

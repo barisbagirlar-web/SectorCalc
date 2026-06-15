@@ -1,0 +1,313 @@
+{
+  "slug": "takt-time-flexibility-cost",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Scenario simulation",
+    "Benchmarking against industry standards"
+  ],
+  "inputs": [
+    {
+      "id": "available_work_time_seconds",
+      "label": "Available Work Time per Shift (seconds)",
+      "type": "number",
+      "unit": "seconds",
+      "default": 28800,
+      "min": 0,
+      "max": 86400,
+      "businessContext": "Total planned production time per shift excluding breaks and planned downtime."
+    },
+    {
+      "id": "customer_demand_per_shift",
+      "label": "Customer Demand per Shift (units)",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "min": 1,
+      "max": 100000,
+      "businessContext": "Number of units required by the customer per shift."
+    },
+    {
+      "id": "cycle_time_seconds",
+      "label": "Actual Cycle Time (seconds)",
+      "type": "number",
+      "unit": "seconds",
+      "default": 30,
+      "min": 0.1,
+      "max": 3600,
+      "businessContext": "Measured average time to complete one unit of product at the bottleneck operation."
+    },
+    {
+      "id": "changeover_time_minutes",
+      "label": "Average Changeover Time (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 15,
+      "min": 0,
+      "max": 480,
+      "businessContext": "Time required to switch from one product variant to another, including setup and adjustments."
+    },
+    {
+      "id": "batch_size",
+      "label": "Average Batch Size (units)",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "min": 1,
+      "max": 100000,
+      "businessContext": "Number of units produced consecutively before a changeover."
+    },
+    {
+      "id": "labor_cost_per_hour",
+      "label": "Direct Labor Cost per Hour ($)",
+      "type": "number",
+      "unit": "$/hour",
+      "default": 25,
+      "min": 0,
+      "max": 200,
+      "businessContext": "Fully loaded hourly wage including benefits for direct production operators."
+    },
+    {
+      "id": "overhead_rate_percent",
+      "label": "Overhead Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 150,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Percentage of direct labor cost allocated to manufacturing overhead (e.g., supervision, utilities, maintenance)."
+    },
+    {
+      "id": "demand_variability_coefficient",
+      "label": "Demand Variability Coefficient (CV)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.3,
+      "min": 0,
+      "max": 2,
+      "businessContext": "Coefficient of variation of daily customer demand; used to quantify demand uncertainty."
+    },
+    {
+      "id": "flexibility_strategy",
+      "label": "Flexibility Strategy",
+      "type": "select",
+      "unit": "none",
+      "default": "mixed_model",
+      "options": [
+        "mixed_model",
+        "dedicated_lines",
+        "chase_demand",
+        "level_schedule"
+      ],
+      "businessContext": "Production strategy to handle demand variability: mixed-model (quick changeovers), dedicated lines (fixed product lines), chase demand (vary capacity), or level schedule (stable production with inventory)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_cycle_time_vs_takt",
+        "condition": "cycle_time_seconds > (available_work_time_seconds / customer_demand_per_shift)",
+        "message": "Cycle time exceeds takt time. Production cannot meet demand without overtime or additional capacity.",
+        "severity": "error"
+      },
+      {
+        "id": "rule_changeover_time_batch",
+        "condition": "changeover_time_minutes > 0 && batch_size <= 0",
+        "message": "Batch size must be positive when changeover time is greater than zero.",
+        "severity": "error"
+      },
+      {
+        "id": "rule_demand_variability_range",
+        "condition": "demand_variability_coefficient < 0 || demand_variability_coefficient > 2",
+        "message": "Demand variability coefficient should be between 0 and 2.",
+        "severity": "warning"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_takt_utilization",
+        "condition": "cycle_time_seconds / (available_work_time_seconds / customer_demand_per_shift) > 0.95",
+        "message": "Takt utilization exceeds 95%. Risk of missed deliveries; consider capacity increase or demand smoothing.",
+        "severity": "warning"
+      },
+      {
+        "id": "threshold_flexibility_cost_ratio",
+        "condition": "flexibility_cost_per_unit > 0.1 * (labor_cost_per_hour / 3600 * cycle_time_seconds)",
+        "message": "Flexibility cost per unit exceeds 10% of direct labor cost per unit. Review changeover reduction initiatives.",
+        "severity": "warning"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "takt_time",
+      "name": "Takt Time",
+      "description": "Available work time divided by customer demand per shift.",
+      "formula": "available_work_time_seconds / customer_demand_per_shift",
+      "unit": "seconds per unit",
+      "intermediate": true
+    },
+    {
+      "id": "takt_utilization",
+      "name": "Takt Utilization",
+      "description": "Ratio of actual cycle time to takt time.",
+      "formula": "cycle_time_seconds / (available_work_time_seconds / customer_demand_per_shift)",
+      "unit": "dimensionless",
+      "intermediate": true
+    },
+    {
+      "id": "changeover_cost_per_unit",
+      "name": "Changeover Cost per Unit",
+      "description": "Labor and overhead cost incurred per unit due to changeovers.",
+      "formula": "(changeover_time_minutes / 60) * labor_cost_per_hour * (1 + overhead_rate_percent / 100) / batch_size",
+      "unit": "$ per unit",
+      "intermediate": true
+    },
+    {
+      "id": "demand_uncertainty_penalty",
+      "name": "Demand Uncertainty Penalty",
+      "description": "Additional cost due to demand variability, modeled as a function of CV and takt time.",
+      "formula": "demand_variability_coefficient * (labor_cost_per_hour / 3600) * (available_work_time_seconds / customer_demand_per_shift) * 0.5",
+      "unit": "$ per unit",
+      "intermediate": true
+    },
+    {
+      "id": "flexibility_cost_per_unit",
+      "name": "Flexibility Cost per Unit",
+      "description": "Total cost per unit attributed to flexibility (changeover + demand uncertainty).",
+      "formula": "changeover_cost_per_unit + demand_uncertainty_penalty",
+      "unit": "$ per unit",
+      "intermediate": true
+    },
+    {
+      "id": "total_flexibility_cost_per_shift",
+      "name": "Total Flexibility Cost per Shift",
+      "description": "Total flexibility cost incurred per shift.",
+      "formula": "flexibility_cost_per_unit * customer_demand_per_shift",
+      "unit": "$ per shift",
+      "intermediate": true
+    },
+    {
+      "id": "flexibility_cost_index",
+      "name": "Flexibility Cost Index",
+      "description": "Primary result: ratio of flexibility cost per unit to direct labor cost per unit, expressed as a percentage.",
+      "formula": "(flexibility_cost_per_unit / ((labor_cost_per_hour / 3600) * cycle_time_seconds)) * 100",
+      "unit": "%",
+      "intermediate": false
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "flexibility_cost_index",
+      "label": "Flexibility Cost Index",
+      "value": null,
+      "unit": "%",
+      "description": "Percentage of direct labor cost consumed by flexibility-related costs. Lower is better."
+    },
+    "breakdown": {
+      "takt_time": {
+        "id": "takt_time",
+        "label": "Takt Time",
+        "value": null,
+        "unit": "seconds per unit"
+      },
+      "takt_utilization": {
+        "id": "takt_utilization",
+        "label": "Takt Utilization",
+        "value": null,
+        "unit": "dimensionless"
+      },
+      "changeover_cost_per_unit": {
+        "id": "changeover_cost_per_unit",
+        "label": "Changeover Cost per Unit",
+        "value": null,
+        "unit": "$ per unit"
+      },
+      "demand_uncertainty_penalty": {
+        "id": "demand_uncertainty_penalty",
+        "label": "Demand Uncertainty Penalty",
+        "value": null,
+        "unit": "$ per unit"
+      },
+      "flexibility_cost_per_unit": {
+        "id": "flexibility_cost_per_unit",
+        "label": "Flexibility Cost per Unit",
+        "value": null,
+        "unit": "$ per unit"
+      },
+      "total_flexibility_cost_per_shift": {
+        "id": "total_flexibility_cost_per_shift",
+        "label": "Total Flexibility Cost per Shift",
+        "value": null,
+        "unit": "$ per shift"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excessive_changeover_time",
+        "label": "Excessive Changeover Time",
+        "description": "Changeover time is above 10 minutes; consider SMED (Single-Minute Exchange of Die) techniques.",
+        "condition": "changeover_time_minutes > 10"
+      },
+      {
+        "id": "high_demand_variability",
+        "label": "High Demand Variability",
+        "description": "Demand CV > 0.5; consider demand smoothing or safety capacity buffers.",
+        "condition": "demand_variability_coefficient > 0.5"
+      },
+      {
+        "id": "low_batch_size_efficiency",
+        "label": "Low Batch Size Efficiency",
+        "description": "Batch size is less than 50 units; changeover cost per unit may be high.",
+        "condition": "batch_size < 50"
+      },
+      {
+        "id": "takt_time_mismatch",
+        "label": "Takt Time Mismatch",
+        "description": "Cycle time is more than 90% of takt time; risk of line stoppage.",
+        "condition": "cycle_time_seconds > 0.9 * (available_work_time_seconds / customer_demand_per_shift)"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_changeover_time",
+        "label": "Implement SMED to reduce changeover time",
+        "description": "Target changeover time below 5 minutes to lower flexibility cost.",
+        "expectedImpact": "Reduces changeover_cost_per_unit by up to 50%."
+      },
+      {
+        "id": "increase_batch_size",
+        "label": "Increase batch size where possible",
+        "description": "Consolidate orders to reduce frequency of changeovers.",
+        "expectedImpact": "Reduces changeover_cost_per_unit proportionally."
+      },
+      {
+        "id": "demand_smoothing",
+        "label": "Apply demand smoothing with customer agreements",
+        "description": "Level demand to reduce variability penalty.",
+        "expectedImpact": "Reduces demand_uncertainty_penalty by up to 30%."
+      },
+      {
+        "id": "mixed_model_sequencing",
+        "label": "Optimize mixed-model sequencing",
+        "description": "Use heijunka to balance product mix and reduce changeover impact.",
+        "expectedImpact": "Improves takt utilization and reduces flexibility cost index."
+      },
+      {
+        "id": "capacity_buffers",
+        "label": "Introduce capacity buffers (overtime or extra shifts)",
+        "description": "Temporary capacity increase to handle demand spikes.",
+        "expectedImpact": "Reduces risk of missed deliveries but may increase labor cost."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "dataConfidenceAdjusted",
+      "label": "Data Confidence Adjusted Flexibility Cost Index",
+      "value": null,
+      "unit": "%",
+      "description": "Flexibility cost index adjusted for data quality (e.g., measurement uncertainty). Currently set to primary value as a placeholder."
+    }
+  }
+}

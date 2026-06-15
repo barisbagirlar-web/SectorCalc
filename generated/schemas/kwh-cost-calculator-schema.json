@@ -1,0 +1,318 @@
+{
+  "slug": "kwh-cost-calculator",
+  "title": "KWh Cost Calculator",
+  "description": "Industrial-grade calculator for total cost of electrical energy consumption, incorporating demand charges, power factor penalties, and efficiency losses per ISO 50001 and Six Sigma DMAIC standards.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Real-time dashboard",
+    "Multi-site comparison",
+    "API integration"
+  ],
+  "inputs": [
+    {
+      "id": "energy_consumption_kwh",
+      "label": "Energy Consumption (kWh)",
+      "type": "number",
+      "unit": "kWh",
+      "default": 10000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Total metered kilowatt-hours for the billing period. Used as primary driver for energy cost."
+    },
+    {
+      "id": "peak_demand_kw",
+      "label": "Peak Demand (kW)",
+      "type": "number",
+      "unit": "kW",
+      "default": 500,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Highest 15-minute average demand in the period. Drives demand charges per utility tariff."
+    },
+    {
+      "id": "energy_rate_per_kwh",
+      "label": "Energy Rate ($/kWh)",
+      "type": "number",
+      "unit": "$/kWh",
+      "default": 0.12,
+      "min": 0.01,
+      "max": 1,
+      "businessContext": "Blended energy charge from utility bill, including generation and transmission."
+    },
+    {
+      "id": "demand_rate_per_kw",
+      "label": "Demand Rate ($/kW)",
+      "type": "number",
+      "unit": "$/kW",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Monthly demand charge per kW of peak demand, varies by utility and region."
+    },
+    {
+      "id": "power_factor",
+      "label": "Power Factor",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.85,
+      "min": 0.5,
+      "max": 1,
+      "businessContext": "Ratio of real power to apparent power. Low PF incurs penalties per utility tariff."
+    },
+    {
+      "id": "pf_penalty_threshold",
+      "label": "PF Penalty Threshold",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.9,
+      "min": 0.8,
+      "max": 1,
+      "businessContext": "Minimum power factor before penalty applies, typically 0.9 per utility standards."
+    },
+    {
+      "id": "pf_penalty_rate",
+      "label": "PF Penalty Rate ($/kvar)",
+      "type": "number",
+      "unit": "$/kvar",
+      "default": 0.5,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Cost per reactive power (kvar) when PF below threshold."
+    },
+    {
+      "id": "system_efficiency",
+      "label": "System Efficiency (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "min": 50,
+      "max": 100,
+      "businessContext": "Overall electrical system efficiency including transformers, cables, and motors. Used for loss adjustment."
+    },
+    {
+      "id": "operating_hours",
+      "label": "Operating Hours per Month",
+      "type": "number",
+      "unit": "hours",
+      "default": 720,
+      "min": 0,
+      "max": 744,
+      "businessContext": "Total hours the facility operates in the billing period. Used for load factor calculation."
+    },
+    {
+      "id": "tariff_type",
+      "label": "Tariff Type",
+      "type": "select",
+      "options": [
+        "Time-of-Use",
+        "Flat Rate",
+        "Tiered",
+        "Real-Time Pricing"
+      ],
+      "default": "Flat Rate",
+      "businessContext": "Utility rate structure. Affects how energy and demand charges are calculated."
+    },
+    {
+      "id": "include_demand_charge",
+      "label": "Include Demand Charge",
+      "type": "boolean",
+      "default": true,
+      "businessContext": "Toggle to include or exclude demand charges from total cost."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_pf_penalty",
+        "condition": "power_factor < pf_penalty_threshold",
+        "action": "apply_pf_penalty",
+        "message": "Power factor below threshold: penalty applied."
+      },
+      {
+        "id": "rule_demand_charge",
+        "condition": "include_demand_charge == true",
+        "action": "include_demand_in_total",
+        "message": "Demand charge included in total cost."
+      },
+      {
+        "id": "rule_efficiency_loss",
+        "condition": "system_efficiency < 100",
+        "action": "adjust_energy_for_losses",
+        "message": "System efficiency less than 100%: energy consumption adjusted upward."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_high_energy_cost",
+        "condition": "total_energy_cost > 50000",
+        "severity": "warning",
+        "message": "Energy cost exceeds $50,000. Consider energy audit."
+      },
+      {
+        "id": "threshold_low_pf",
+        "condition": "power_factor < 0.85",
+        "severity": "critical",
+        "message": "Power factor below 0.85: immediate correction recommended to avoid penalties."
+      },
+      {
+        "id": "threshold_high_demand",
+        "condition": "peak_demand_kw > 1000",
+        "severity": "warning",
+        "message": "Peak demand exceeds 1000 kW. Consider demand-side management."
+      },
+      {
+        "id": "threshold_low_efficiency",
+        "condition": "system_efficiency < 80",
+        "severity": "critical",
+        "message": "System efficiency below 80%: investigate equipment and wiring losses."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "adjusted_energy_kwh",
+      "label": "Adjusted Energy Consumption (kWh)",
+      "formula": "energy_consumption_kwh / (system_efficiency / 100)",
+      "description": "Adjusts raw energy consumption for system losses per ISO 50001 energy baseline."
+    },
+    {
+      "id": "energy_cost",
+      "label": "Energy Cost ($)",
+      "formula": "adjusted_energy_kwh * energy_rate_per_kwh",
+      "description": "Total cost of energy consumed, including loss adjustment."
+    },
+    {
+      "id": "demand_cost",
+      "label": "Demand Cost ($)",
+      "formula": "if(include_demand_charge, peak_demand_kw * demand_rate_per_kw, 0)",
+      "description": "Demand charge based on peak demand and rate, conditional on user selection."
+    },
+    {
+      "id": "pf_penalty_cost",
+      "label": "Power Factor Penalty ($)",
+      "formula": "if(power_factor < pf_penalty_threshold, (pf_penalty_threshold - power_factor) * peak_demand_kw * pf_penalty_rate, 0)",
+      "description": "Penalty for reactive power when PF below threshold, based on kvar demand."
+    },
+    {
+      "id": "load_factor",
+      "label": "Load Factor",
+      "formula": "energy_consumption_kwh / (peak_demand_kw * operating_hours)",
+      "description": "Ratio of average load to peak load. Indicates demand-side efficiency per WERC guidelines."
+    },
+    {
+      "id": "total_cost_before_tax",
+      "label": "Total Cost Before Tax ($)",
+      "formula": "energy_cost + demand_cost + pf_penalty_cost",
+      "description": "Sum of all direct electrical costs before taxes or surcharges."
+    },
+    {
+      "id": "total_cost_with_tax",
+      "label": "Total Cost with Tax ($)",
+      "formula": "total_cost_before_tax * 1.08",
+      "description": "Total cost including 8% standard industrial tax/surcharge (adjustable per region)."
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_cost",
+      "label": "Total KWh Cost ($)",
+      "value": "total_cost_with_tax",
+      "unit": "$",
+      "description": "Final total cost of electrical energy consumption including all charges, penalties, and taxes."
+    },
+    "breakdown": {
+      "energy_cost": {
+        "id": "energy_cost",
+        "label": "Energy Cost",
+        "value": "energy_cost",
+        "unit": "$",
+        "description": "Cost of energy consumed (adjusted for losses)."
+      },
+      "demand_cost": {
+        "id": "demand_cost",
+        "label": "Demand Cost",
+        "value": "demand_cost",
+        "unit": "$",
+        "description": "Cost based on peak demand."
+      },
+      "pf_penalty_cost": {
+        "id": "pf_penalty_cost",
+        "label": "PF Penalty Cost",
+        "value": "pf_penalty_cost",
+        "unit": "$",
+        "description": "Penalty for low power factor."
+      },
+      "load_factor": {
+        "id": "load_factor",
+        "label": "Load Factor",
+        "value": "load_factor",
+        "unit": "ratio",
+        "description": "Operational efficiency metric."
+      },
+      "adjusted_energy_kwh": {
+        "id": "adjusted_energy_kwh",
+        "label": "Adjusted Energy (kWh)",
+        "value": "adjusted_energy_kwh",
+        "unit": "kWh",
+        "description": "Energy consumption after efficiency adjustment."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "loss_transformer",
+        "label": "Transformer Losses",
+        "value": "energy_consumption_kwh * 0.02",
+        "unit": "kWh",
+        "description": "Estimated 2% loss from transformers per IEEE standards."
+      },
+      {
+        "id": "loss_cabling",
+        "label": "Cabling Losses",
+        "value": "energy_consumption_kwh * 0.015",
+        "unit": "kWh",
+        "description": "Estimated 1.5% loss from cable resistance per NEC guidelines."
+      },
+      {
+        "id": "loss_motor",
+        "label": "Motor Inefficiency",
+        "value": "energy_consumption_kwh * 0.03",
+        "unit": "kWh",
+        "description": "Estimated 3% loss from motor inefficiency per NEMA MG1."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_pf_correction",
+        "label": "Install Power Factor Correction Capacitors",
+        "description": "Reduce PF penalty by installing capacitors to improve power factor above 0.95.",
+        "estimatedSavings": "pf_penalty_cost * 0.8",
+        "priority": "high"
+      },
+      {
+        "id": "action_demand_reduction",
+        "label": "Implement Demand-Side Management",
+        "description": "Shift loads to off-peak hours to reduce peak demand and demand charges.",
+        "estimatedSavings": "demand_cost * 0.15",
+        "priority": "medium"
+      },
+      {
+        "id": "action_efficiency_upgrade",
+        "label": "Upgrade to High-Efficiency Equipment",
+        "description": "Replace old transformers and motors with IE4/NEMA Premium units to reduce losses.",
+        "estimatedSavings": "energy_cost * 0.05",
+        "priority": "medium"
+      },
+      {
+        "id": "action_energy_audit",
+        "label": "Conduct ISO 50001 Energy Audit",
+        "description": "Identify additional savings opportunities through systematic energy review.",
+        "estimatedSavings": "total_cost_before_tax * 0.1",
+        "priority": "low"
+      }
+    ],
+    "dataConfidenceAdjusted": 0.92
+  }
+}

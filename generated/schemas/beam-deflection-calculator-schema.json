@@ -1,0 +1,420 @@
+{
+  "slug": "beam-deflection-calculator",
+  "name": "Beam Deflection Calculator",
+  "description": "Industrial-grade beam deflection analysis tool based on Euler-Bernoulli beam theory, compliant with ISO 9001 and Six Sigma standards. Calculates maximum deflection, bending stress, and safety factors for simply supported beams under various loading conditions.",
+  "version": "1.0.0",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-beam comparison",
+    "Custom material database"
+  ],
+  "inputs": [
+    {
+      "id": "beam_length",
+      "label": "Beam Length (L)",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "min": 0.1,
+      "max": 50,
+      "businessContext": "Span length between supports, typical for structural steel beams in industrial racks (WERC standard)."
+    },
+    {
+      "id": "load_type",
+      "label": "Load Type",
+      "type": "select",
+      "unit": "",
+      "default": "point_center",
+      "options": [
+        {
+          "value": "point_center",
+          "label": "Point Load at Center"
+        },
+        {
+          "value": "point_any",
+          "label": "Point Load at Any Position"
+        },
+        {
+          "value": "uniform",
+          "label": "Uniformly Distributed Load (UDL)"
+        },
+        {
+          "value": "triangular",
+          "label": "Triangular Distributed Load"
+        }
+      ],
+      "businessContext": "Common load configurations in material handling and structural analysis per ISO 9001 design control."
+    },
+    {
+      "id": "point_load",
+      "label": "Point Load (P)",
+      "type": "number",
+      "unit": "kN",
+      "default": 10,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Concentrated force applied at a specific point, typical for forklift impact or equipment loads."
+    },
+    {
+      "id": "udl_load",
+      "label": "Uniformly Distributed Load (w)",
+      "type": "number",
+      "unit": "kN/m",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Load per unit length, e.g., conveyor belt or storage rack loading per linear meter."
+    },
+    {
+      "id": "load_position",
+      "label": "Load Position from Left Support (a)",
+      "type": "number",
+      "unit": "m",
+      "default": 1.5,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Distance from left support to point load application, used for asymmetric loading analysis."
+    },
+    {
+      "id": "young_modulus",
+      "label": "Young's Modulus (E)",
+      "type": "number",
+      "unit": "GPa",
+      "default": 200,
+      "min": 10,
+      "max": 400,
+      "businessContext": "Material stiffness property, typical for steel (200 GPa) or aluminum (70 GPa) per ISO 6892-1."
+    },
+    {
+      "id": "moment_of_inertia",
+      "label": "Moment of Inertia (I)",
+      "type": "number",
+      "unit": "cm⁴",
+      "default": 500,
+      "min": 1,
+      "max": 100000,
+      "businessContext": "Cross-sectional property resisting bending, calculated from beam profile (e.g., I-beam, rectangular)."
+    },
+    {
+      "id": "yield_strength",
+      "label": "Yield Strength (σ_y)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 250,
+      "min": 50,
+      "max": 1000,
+      "businessContext": "Material yield stress, typical for structural steel S235 (235 MPa) or S355 (355 MPa) per EN 10025."
+    },
+    {
+      "id": "safety_factor_target",
+      "label": "Target Safety Factor (SF)",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "min": 1,
+      "max": 5,
+      "businessContext": "Minimum acceptable safety factor per ISO 13822 for structural integrity."
+    },
+    {
+      "id": "support_condition",
+      "label": "Support Condition",
+      "type": "select",
+      "unit": "",
+      "default": "simply_supported",
+      "options": [
+        {
+          "value": "simply_supported",
+          "label": "Simply Supported"
+        },
+        {
+          "value": "fixed_fixed",
+          "label": "Fixed-Fixed"
+        },
+        {
+          "value": "cantilever",
+          "label": "Cantilever"
+        }
+      ],
+      "businessContext": "Boundary conditions affecting deflection and moment distribution per Euler-Bernoulli theory."
+    },
+    {
+      "id": "use_lean_optimization",
+      "label": "Enable Lean Optimization",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "businessContext": "If true, applies Lean Six Sigma principles to minimize material waste while meeting deflection limits."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "load_position_within_span",
+        "condition": "load_type == 'point_any' && load_position > beam_length",
+        "message": "Load position (a) must be less than beam length (L).",
+        "severity": "error"
+      },
+      {
+        "id": "udl_required",
+        "condition": "load_type == 'uniform' && udl_load <= 0",
+        "message": "Uniformly distributed load (w) must be greater than 0 for UDL load type.",
+        "severity": "error"
+      },
+      {
+        "id": "point_load_required",
+        "condition": "(load_type == 'point_center' || load_type == 'point_any') && point_load <= 0",
+        "message": "Point load (P) must be greater than 0 for point load types.",
+        "severity": "error"
+      },
+      {
+        "id": "material_properties_positive",
+        "condition": "young_modulus <= 0 || moment_of_inertia <= 0 || yield_strength <= 0",
+        "message": "Young's modulus, moment of inertia, and yield strength must be positive values.",
+        "severity": "error"
+      },
+      {
+        "id": "safety_factor_range",
+        "condition": "safety_factor_target < 1.0 || safety_factor_target > 5.0",
+        "message": "Target safety factor should be between 1.0 and 5.0 per ISO 13822.",
+        "severity": "warning"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "deflection_exceed_span_ratio",
+        "condition": "max_deflection > beam_length / 250",
+        "message": "Maximum deflection exceeds L/250 limit (typical for industrial beams per ISO 9001).",
+        "severity": "critical"
+      },
+      {
+        "id": "bending_stress_exceed_yield",
+        "condition": "max_bending_stress > yield_strength",
+        "message": "Maximum bending stress exceeds yield strength — risk of plastic deformation.",
+        "severity": "critical"
+      },
+      {
+        "id": "safety_factor_below_target",
+        "condition": "actual_safety_factor < safety_factor_target",
+        "message": "Actual safety factor is below the target value. Redesign recommended.",
+        "severity": "warning"
+      },
+      {
+        "id": "lean_waste_alert",
+        "condition": "use_lean_optimization && material_utilization < 0.6",
+        "message": "Material utilization below 60% — consider reducing cross-section to minimize waste (Lean principle).",
+        "severity": "info"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "reaction_forces",
+      "name": "Reaction Forces",
+      "description": "Calculate support reactions based on load type and position.",
+      "equation": "If load_type == 'point_center': R_A = P/2, R_B = P/2. If load_type == 'point_any': R_A = P*(L-a)/L, R_B = P*a/L. If load_type == 'uniform': R_A = w*L/2, R_B = w*L/2. If load_type == 'triangular': R_A = w*L/6, R_B = w*L/3.",
+      "inputs": [
+        "point_load",
+        "udl_load",
+        "beam_length",
+        "load_position",
+        "load_type"
+      ],
+      "output": "reaction_left, reaction_right"
+    },
+    {
+      "id": "max_bending_moment",
+      "name": "Maximum Bending Moment",
+      "description": "Determine the maximum bending moment along the beam.",
+      "equation": "If load_type == 'point_center': M_max = P*L/4. If load_type == 'point_any': M_max = P*a*(L-a)/L. If load_type == 'uniform': M_max = w*L^2/8. If load_type == 'triangular': M_max = w*L^2/9*sqrt(3).",
+      "inputs": [
+        "point_load",
+        "udl_load",
+        "beam_length",
+        "load_position",
+        "load_type"
+      ],
+      "output": "max_bending_moment"
+    },
+    {
+      "id": "max_deflection",
+      "name": "Maximum Deflection",
+      "description": "Calculate the maximum vertical deflection using Euler-Bernoulli beam theory.",
+      "equation": "If load_type == 'point_center': δ_max = (P*L^3)/(48*E*I). If load_type == 'point_any': δ_max = (P*a*(L^2 - a^2)^(3/2))/(9*sqrt(3)*E*I*L). If load_type == 'uniform': δ_max = (5*w*L^4)/(384*E*I). If load_type == 'triangular': δ_max = (w*L^4)/(120*E*I).",
+      "inputs": [
+        "point_load",
+        "udl_load",
+        "beam_length",
+        "load_position",
+        "young_modulus",
+        "moment_of_inertia",
+        "load_type"
+      ],
+      "output": "max_deflection"
+    },
+    {
+      "id": "max_bending_stress",
+      "name": "Maximum Bending Stress",
+      "description": "Compute the maximum bending stress from the bending moment and section modulus.",
+      "equation": "σ_max = (M_max * c) / I, where c = sqrt(I/A) (assumed circular section for simplicity, but user provides I directly). For general case: σ_max = M_max * y_max / I, with y_max = (I/A)^0.5. Simplified: σ_max = M_max * 1000 / (I * 1e-8) to convert to MPa.",
+      "inputs": [
+        "max_bending_moment",
+        "moment_of_inertia"
+      ],
+      "output": "max_bending_stress"
+    },
+    {
+      "id": "actual_safety_factor",
+      "name": "Actual Safety Factor",
+      "description": "Ratio of yield strength to maximum bending stress.",
+      "equation": "SF_actual = σ_y / σ_max",
+      "inputs": [
+        "yield_strength",
+        "max_bending_stress"
+      ],
+      "output": "actual_safety_factor"
+    },
+    {
+      "id": "material_utilization",
+      "name": "Material Utilization",
+      "description": "Efficiency of material usage based on stress ratio (Lean Six Sigma metric).",
+      "equation": "η = σ_max / σ_y",
+      "inputs": [
+        "max_bending_stress",
+        "yield_strength"
+      ],
+      "output": "material_utilization"
+    },
+    {
+      "id": "lean_optimized_mass",
+      "name": "Lean Optimized Mass",
+      "description": "If lean optimization enabled, suggest reduced cross-section to achieve target safety factor exactly.",
+      "equation": "I_opt = (M_max * y_max * SF_target) / σ_y. Then mass reduction = (1 - I_opt/I) * 100%.",
+      "inputs": [
+        "max_bending_moment",
+        "moment_of_inertia",
+        "yield_strength",
+        "safety_factor_target",
+        "use_lean_optimization"
+      ],
+      "output": "lean_mass_reduction_percent"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "max_deflection",
+      "label": "Maximum Deflection",
+      "value": null,
+      "unit": "mm",
+      "description": "The largest vertical displacement of the beam under the given load."
+    },
+    "breakdown": {
+      "reaction_left": {
+        "id": "reaction_left",
+        "label": "Left Support Reaction",
+        "value": null,
+        "unit": "kN"
+      },
+      "reaction_right": {
+        "id": "reaction_right",
+        "label": "Right Support Reaction",
+        "value": null,
+        "unit": "kN"
+      },
+      "max_bending_moment": {
+        "id": "max_bending_moment",
+        "label": "Maximum Bending Moment",
+        "value": null,
+        "unit": "kN·m"
+      },
+      "max_bending_stress": {
+        "id": "max_bending_stress",
+        "label": "Maximum Bending Stress",
+        "value": null,
+        "unit": "MPa"
+      },
+      "actual_safety_factor": {
+        "id": "actual_safety_factor",
+        "label": "Actual Safety Factor",
+        "value": null,
+        "unit": ""
+      },
+      "material_utilization": {
+        "id": "material_utilization",
+        "label": "Material Utilization",
+        "value": null,
+        "unit": "%"
+      },
+      "lean_mass_reduction_percent": {
+        "id": "lean_mass_reduction_percent",
+        "label": "Lean Mass Reduction Potential",
+        "value": null,
+        "unit": "%"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excess_material_cost",
+        "label": "Excess Material Cost",
+        "description": "Cost of over-designed beam cross-section beyond required strength.",
+        "value": null,
+        "unit": "USD"
+      },
+      {
+        "id": "deflection_induced_downtime",
+        "label": "Deflection-Induced Downtime",
+        "description": "Estimated production loss due to excessive deflection causing misalignment.",
+        "value": null,
+        "unit": "hours/year"
+      },
+      {
+        "id": "safety_risk_premium",
+        "label": "Safety Risk Premium",
+        "description": "Additional insurance or risk cost due to low safety factor.",
+        "value": null,
+        "unit": "USD/year"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "increase_beam_section",
+        "label": "Increase Beam Cross-Section",
+        "description": "If deflection or stress exceeds limits, select a beam with higher moment of inertia (e.g., larger I-beam).",
+        "priority": "high"
+      },
+      {
+        "id": "reduce_span",
+        "label": "Reduce Span Length",
+        "description": "Shorten the beam span by adding intermediate supports to reduce deflection.",
+        "priority": "medium"
+      },
+      {
+        "id": "use_higher_grade_material",
+        "label": "Use Higher Grade Material",
+        "description": "Upgrade to steel with higher yield strength (e.g., S355 instead of S235) to improve safety factor.",
+        "priority": "medium"
+      },
+      {
+        "id": "apply_lean_redesign",
+        "label": "Apply Lean Redesign",
+        "description": "Optimize beam cross-section to reduce material waste while meeting safety factor target.",
+        "priority": "low"
+      },
+      {
+        "id": "implement_predictive_maintenance",
+        "label": "Implement Predictive Maintenance",
+        "description": "Monitor deflection trends over time to detect fatigue or creep before failure.",
+        "priority": "low"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_score",
+      "label": "Data Confidence Score",
+      "value": 0.85,
+      "unit": "",
+      "description": "Adjusted confidence based on input precision and measurement uncertainty (0 to 1)."
+    }
+  }
+}

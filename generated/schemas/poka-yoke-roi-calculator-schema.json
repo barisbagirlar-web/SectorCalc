@@ -1,0 +1,322 @@
+{
+  "slug": "poka-yoke-roi-calculator",
+  "title": "Poka-Yoke ROI Calculator",
+  "description": "Calculates the return on investment for implementing a poka-yoke (mistake-proofing) device or process, based on defect reduction, quality cost savings, and implementation expenses.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario comparison",
+    "Custom dashboard"
+  ],
+  "inputs": [
+    {
+      "id": "annual_units",
+      "label": "Annual Units Produced",
+      "type": "number",
+      "unit": "units/year",
+      "default": 100000,
+      "min": 1000,
+      "max": 10000000,
+      "businessContext": "Total number of units produced per year for the process line where the poka-yoke will be applied."
+    },
+    {
+      "id": "current_defect_rate",
+      "label": "Current Defect Rate",
+      "type": "number",
+      "unit": "ppm",
+      "default": 5000,
+      "min": 10,
+      "max": 100000,
+      "businessContext": "Current defect rate in parts per million (ppm) for the process step targeted by the poka-yoke."
+    },
+    {
+      "id": "defect_cost_per_unit",
+      "label": "Defect Cost per Unit",
+      "type": "number",
+      "unit": "$",
+      "default": 25,
+      "min": 0.5,
+      "max": 5000,
+      "businessContext": "Average total cost incurred per defective unit, including scrap, rework, warranty, and lost customer goodwill."
+    },
+    {
+      "id": "poka_yoke_effectiveness",
+      "label": "Poka-Yoke Effectiveness",
+      "type": "select",
+      "unit": "%",
+      "default": "95",
+      "options": [
+        {
+          "value": "80",
+          "label": "80% (Low)"
+        },
+        {
+          "value": "90",
+          "label": "90% (Medium)"
+        },
+        {
+          "value": "95",
+          "label": "95% (High)"
+        },
+        {
+          "value": "99",
+          "label": "99% (Very High)"
+        }
+      ],
+      "businessContext": "Expected percentage of defects that will be prevented by the poka-yoke device or process."
+    },
+    {
+      "id": "implementation_cost",
+      "label": "Implementation Cost",
+      "type": "number",
+      "unit": "$",
+      "default": 15000,
+      "min": 500,
+      "max": 500000,
+      "businessContext": "Total one-time cost to design, purchase, install, and validate the poka-yoke solution."
+    },
+    {
+      "id": "annual_maintenance_cost",
+      "label": "Annual Maintenance Cost",
+      "type": "number",
+      "unit": "$/year",
+      "default": 2000,
+      "min": 0,
+      "max": 50000,
+      "businessContext": "Recurring yearly cost for calibration, spare parts, and upkeep of the poka-yoke system."
+    },
+    {
+      "id": "labor_hours_saved_per_year",
+      "label": "Labor Hours Saved per Year",
+      "type": "number",
+      "unit": "hours/year",
+      "default": 500,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Estimated reduction in inspection and rework labor hours per year due to the poka-yoke."
+    },
+    {
+      "id": "labor_rate",
+      "label": "Labor Rate",
+      "type": "number",
+      "unit": "$/hour",
+      "default": 35,
+      "min": 10,
+      "max": 150,
+      "businessContext": "Fully burdened hourly labor cost for operators and inspectors."
+    },
+    {
+      "id": "discount_rate",
+      "label": "Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 30,
+      "businessContext": "Annual discount rate used for net present value (NPV) calculation, reflecting the cost of capital."
+    },
+    {
+      "id": "project_life_years",
+      "label": "Project Life (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 1,
+      "max": 20,
+      "businessContext": "Expected useful life of the poka-yoke solution before major redesign or replacement."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "defect_rate_consistency",
+        "condition": "current_defect_rate >= 10 && current_defect_rate <= 100000",
+        "message": "Defect rate must be between 10 and 100,000 ppm."
+      },
+      {
+        "id": "effectiveness_range",
+        "condition": "poka_yoke_effectiveness >= 80 && poka_yoke_effectiveness <= 99",
+        "message": "Poka-yoke effectiveness must be between 80% and 99%."
+      },
+      {
+        "id": "positive_implementation_cost",
+        "condition": "implementation_cost > 0",
+        "message": "Implementation cost must be greater than zero."
+      },
+      {
+        "id": "project_life_positive",
+        "condition": "project_life_years >= 1",
+        "message": "Project life must be at least 1 year."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "low_roi_warning",
+        "condition": "primary_result < 0",
+        "level": "warning",
+        "message": "The calculated ROI is negative. Consider re-evaluating the implementation cost or expected defect reduction."
+      },
+      {
+        "id": "high_roi_alert",
+        "condition": "primary_result > 500",
+        "level": "success",
+        "message": "Exceptional ROI! The poka-yoke investment is highly justified."
+      },
+      {
+        "id": "defect_rate_high_alert",
+        "condition": "current_defect_rate > 10000",
+        "level": "warning",
+        "message": "Current defect rate is very high (>10,000 ppm). Immediate action recommended."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "defects_prevented_per_year",
+      "label": "Defects Prevented per Year",
+      "description": "Number of defects eliminated annually by the poka-yoke.",
+      "expression": "annual_units * (current_defect_rate / 1000000) * (poka_yoke_effectiveness / 100)",
+      "unit": "defects/year"
+    },
+    {
+      "id": "annual_defect_cost_savings",
+      "label": "Annual Defect Cost Savings",
+      "description": "Total cost savings from reduced defects.",
+      "expression": "defects_prevented_per_year * defect_cost_per_unit",
+      "unit": "$/year"
+    },
+    {
+      "id": "annual_labor_savings",
+      "label": "Annual Labor Savings",
+      "description": "Cost savings from reduced inspection and rework labor.",
+      "expression": "labor_hours_saved_per_year * labor_rate",
+      "unit": "$/year"
+    },
+    {
+      "id": "total_annual_benefit",
+      "label": "Total Annual Benefit",
+      "description": "Sum of all annual cost savings from the poka-yoke.",
+      "expression": "annual_defect_cost_savings + annual_labor_savings",
+      "unit": "$/year"
+    },
+    {
+      "id": "net_annual_cash_flow",
+      "label": "Net Annual Cash Flow",
+      "description": "Annual benefit minus annual maintenance cost.",
+      "expression": "total_annual_benefit - annual_maintenance_cost",
+      "unit": "$/year"
+    },
+    {
+      "id": "npv",
+      "label": "Net Present Value (NPV)",
+      "description": "Present value of net cash flows over the project life, minus initial investment.",
+      "expression": "-implementation_cost + (net_annual_cash_flow * ((1 - (1 + discount_rate/100)^(-project_life_years)) / (discount_rate/100)))",
+      "unit": "$"
+    },
+    {
+      "id": "roi",
+      "label": "Return on Investment (ROI)",
+      "description": "Primary result: ROI as a percentage over the project life.",
+      "expression": "(npv / implementation_cost) * 100",
+      "unit": "%"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "roi",
+      "label": "Return on Investment (ROI)",
+      "unit": "%",
+      "description": "Primary ROI percentage over the project life."
+    },
+    "breakdown": {
+      "defects_prevented_per_year": {
+        "id": "defects_prevented_per_year",
+        "label": "Defects Prevented per Year",
+        "unit": "defects/year"
+      },
+      "annual_defect_cost_savings": {
+        "id": "annual_defect_cost_savings",
+        "label": "Annual Defect Cost Savings",
+        "unit": "$/year"
+      },
+      "annual_labor_savings": {
+        "id": "annual_labor_savings",
+        "label": "Annual Labor Savings",
+        "unit": "$/year"
+      },
+      "total_annual_benefit": {
+        "id": "total_annual_benefit",
+        "label": "Total Annual Benefit",
+        "unit": "$/year"
+      },
+      "net_annual_cash_flow": {
+        "id": "net_annual_cash_flow",
+        "label": "Net Annual Cash Flow",
+        "unit": "$/year"
+      },
+      "npv": {
+        "id": "npv",
+        "label": "Net Present Value (NPV)",
+        "unit": "$"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "hidden_defect_escalation",
+        "label": "Hidden Defect Escalation Cost",
+        "description": "Cost of defects that escape to downstream processes or customers, not captured in defect_cost_per_unit.",
+        "estimated_value": "annual_defect_cost_savings * 0.15",
+        "unit": "$/year"
+      },
+      {
+        "id": "hidden_quality_administration",
+        "label": "Hidden Quality Administration Overhead",
+        "description": "Indirect costs for quality reporting, meetings, and corrective actions that may persist.",
+        "estimated_value": "annual_defect_cost_savings * 0.08",
+        "unit": "$/year"
+      },
+      {
+        "id": "hidden_opportunity_cost",
+        "label": "Hidden Opportunity Cost of Downtime",
+        "description": "Lost production capacity due to defect-related stoppages not fully eliminated.",
+        "estimated_value": "labor_hours_saved_per_year * labor_rate * 0.2",
+        "unit": "$/year"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "priority": 1,
+        "description": "Implement poka-yoke with highest effectiveness (99%) to maximize defect reduction.",
+        "expected_impact": "Increase ROI by up to 15% compared to 95% effectiveness."
+      },
+      {
+        "id": "action_2",
+        "priority": 2,
+        "description": "Conduct a detailed cost-of-quality study to refine defect_cost_per_unit and capture hidden costs.",
+        "expected_impact": "Improve accuracy of ROI calculation and identify additional savings."
+      },
+      {
+        "id": "action_3",
+        "priority": 3,
+        "description": "Integrate poka-yoke with real-time monitoring and SPC to sustain gains and detect drift.",
+        "expected_impact": "Extend project life and reduce maintenance costs by 10-20%."
+      },
+      {
+        "id": "action_4",
+        "priority": 4,
+        "description": "Train operators on poka-yoke principles to foster continuous improvement culture.",
+        "expected_impact": "Reduce implementation resistance and increase effectiveness."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_adjusted_roi",
+      "label": "Data Confidence Adjusted ROI",
+      "unit": "%",
+      "description": "ROI adjusted downward by 10% to account for typical uncertainty in input estimates.",
+      "value": "roi * 0.9"
+    }
+  }
+}

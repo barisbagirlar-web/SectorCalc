@@ -1,0 +1,314 @@
+{
+  "slug": "wind-turbine-roi-calculator",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Scenario comparison",
+    "Sensitivity analysis"
+  ],
+  "inputs": [
+    {
+      "id": "turbine_capacity",
+      "label": "Turbine Rated Capacity (MW)",
+      "type": "number",
+      "unit": "MW",
+      "default": 2,
+      "min": 0.5,
+      "max": 15,
+      "businessContext": "Nameplate capacity of the wind turbine model under evaluation."
+    },
+    {
+      "id": "capacity_factor",
+      "label": "Capacity Factor (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 35,
+      "min": 10,
+      "max": 60,
+      "businessContext": "Expected annual capacity factor based on site wind resource assessment (IEC 61400-1)."
+    },
+    {
+      "id": "capital_cost_per_mw",
+      "label": "Capital Cost per MW (USD)",
+      "type": "number",
+      "unit": "USD/MW",
+      "default": 1300000,
+      "min": 800000,
+      "max": 2500000,
+      "businessContext": "Total installed cost per MW, including turbine, foundation, grid connection, and logistics."
+    },
+    {
+      "id": "opex_per_mwh",
+      "label": "Operating Expenditure (USD/MWh)",
+      "type": "number",
+      "unit": "USD/MWh",
+      "default": 12,
+      "min": 5,
+      "max": 30,
+      "businessContext": "Annual operations and maintenance cost per MWh generated (includes scheduled and unscheduled maintenance)."
+    },
+    {
+      "id": "electricity_price",
+      "label": "Electricity Selling Price (USD/MWh)",
+      "type": "number",
+      "unit": "USD/MWh",
+      "default": 50,
+      "min": 20,
+      "max": 150,
+      "businessContext": "Power purchase agreement price or wholesale market price per MWh."
+    },
+    {
+      "id": "discount_rate",
+      "label": "Discount Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 3,
+      "max": 20,
+      "businessContext": "Weighted average cost of capital (WACC) used for net present value calculation."
+    },
+    {
+      "id": "project_lifetime",
+      "label": "Project Lifetime (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "min": 10,
+      "max": 30,
+      "businessContext": "Expected operational life of the wind farm (typically 20-25 years)."
+    },
+    {
+      "id": "degradation_rate",
+      "label": "Annual Degradation Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "min": 0,
+      "max": 2,
+      "businessContext": "Expected annual reduction in energy production due to blade wear, gearbox aging, and other factors."
+    },
+    {
+      "id": "incentive_tax_credit",
+      "label": "Production Tax Credit (USD/MWh)",
+      "type": "number",
+      "unit": "USD/MWh",
+      "default": 0,
+      "min": 0,
+      "max": 30,
+      "businessContext": "Government incentive per MWh generated (e.g., US PTC)."
+    },
+    {
+      "id": "grid_availability",
+      "label": "Grid Availability (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 97,
+      "min": 85,
+      "max": 100,
+      "businessContext": "Percentage of time the grid is available to accept power (curtailment factor)."
+    },
+    {
+      "id": "turbine_type",
+      "label": "Turbine Type",
+      "type": "select",
+      "options": [
+        "Onshore - Geared",
+        "Onshore - Direct Drive",
+        "Offshore - Fixed Bottom",
+        "Offshore - Floating"
+      ],
+      "default": "Onshore - Geared",
+      "businessContext": "Technology classification affecting O&M cost profiles and reliability (ISO 61400-4)."
+    },
+    {
+      "id": "maintenance_strategy",
+      "label": "Maintenance Strategy",
+      "type": "select",
+      "options": [
+        "Corrective",
+        "Preventive",
+        "Condition-Based",
+        "Predictive"
+      ],
+      "default": "Preventive",
+      "businessContext": "Maintenance approach aligned with Lean/Six Sigma principles to minimize downtime and cost."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "capacity_factor_range",
+        "condition": "capacity_factor < 15 || capacity_factor > 55",
+        "message": "Capacity factor outside typical range for most sites; verify wind resource data."
+      },
+      {
+        "id": "capital_cost_consistency",
+        "condition": "capital_cost_per_mw < 900000 && turbine_type == 'Offshore - Floating'",
+        "message": "Capital cost for floating offshore is unusually low; check input."
+      },
+      {
+        "id": "degradation_vs_maintenance",
+        "condition": "degradation_rate > 1.0 && maintenance_strategy == 'Predictive'",
+        "message": "High degradation rate contradicts predictive maintenance strategy; review assumptions."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "negative_npv",
+        "condition": "primary_result < 0",
+        "alert": "Negative net present value; project may not be financially viable."
+      },
+      {
+        "id": "low_irr",
+        "condition": "irr < discount_rate",
+        "alert": "Internal rate of return below discount rate; value destruction likely."
+      },
+      {
+        "id": "high_opex_ratio",
+        "condition": "opex_per_mwh > 0.25 * electricity_price",
+        "alert": "Operating cost exceeds 25% of revenue; investigate cost reduction opportunities."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "annual_energy_production",
+      "label": "Annual Energy Production (MWh)",
+      "formula": "turbine_capacity * 8760 * (capacity_factor / 100) * (grid_availability / 100)",
+      "description": "Gross annual energy output before degradation."
+    },
+    {
+      "id": "degraded_energy_year_n",
+      "label": "Degraded Energy in Year n (MWh)",
+      "formula": "annual_energy_production * ((1 - degradation_rate / 100) ^ (n - 1))",
+      "description": "Energy output in year n accounting for annual degradation."
+    },
+    {
+      "id": "annual_revenue",
+      "label": "Annual Revenue in Year n (USD)",
+      "formula": "degraded_energy_year_n * (electricity_price + incentive_tax_credit)",
+      "description": "Revenue from energy sales plus incentives."
+    },
+    {
+      "id": "annual_opex",
+      "label": "Annual OPEX in Year n (USD)",
+      "formula": "degraded_energy_year_n * opex_per_mwh",
+      "description": "Annual operating expenditure based on energy output."
+    },
+    {
+      "id": "net_cash_flow_year_n",
+      "label": "Net Cash Flow in Year n (USD)",
+      "formula": "annual_revenue - annual_opex",
+      "description": "Cash flow before capital and tax considerations."
+    },
+    {
+      "id": "npv",
+      "label": "Net Present Value (USD)",
+      "formula": "sum_{n=1}^{project_lifetime} (net_cash_flow_year_n / (1 + discount_rate/100)^n) - (turbine_capacity * capital_cost_per_mw)",
+      "description": "NPV of the project over its lifetime."
+    },
+    {
+      "id": "irr",
+      "label": "Internal Rate of Return (%)",
+      "formula": "IRR(net_cash_flow_array, initial_investment)",
+      "description": "Discount rate that makes NPV zero (calculated iteratively)."
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "primary_result",
+      "label": "Net Present Value (NPV)",
+      "unit": "USD",
+      "description": "Primary financial metric for investment decision."
+    },
+    "breakdown": {
+      "id": "breakdown",
+      "label": "Financial Breakdown",
+      "components": {
+        "total_energy_over_lifetime": {
+          "label": "Total Energy Produced (MWh)",
+          "unit": "MWh",
+          "description": "Sum of degraded energy over project lifetime."
+        },
+        "total_revenue": {
+          "label": "Total Revenue (USD)",
+          "unit": "USD",
+          "description": "Sum of annual revenues over project lifetime."
+        },
+        "total_opex": {
+          "label": "Total Operating Expenditure (USD)",
+          "unit": "USD",
+          "description": "Sum of annual OPEX over project lifetime."
+        },
+        "total_incentives": {
+          "label": "Total Incentives (USD)",
+          "unit": "USD",
+          "description": "Sum of production tax credits over lifetime."
+        },
+        "initial_investment": {
+          "label": "Initial Capital Investment (USD)",
+          "unit": "USD",
+          "description": "Total installed cost."
+        },
+        "irr": {
+          "label": "Internal Rate of Return (%)",
+          "unit": "%",
+          "description": "Project IRR."
+        },
+        "payback_period": {
+          "label": "Simple Payback Period (years)",
+          "unit": "years",
+          "description": "Time to recover initial investment from undiscounted cash flows."
+        }
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "curtailment_loss",
+        "label": "Grid Curtailment Loss (MWh)",
+        "description": "Energy lost due to grid unavailability (1 - grid_availability)."
+      },
+      {
+        "id": "degradation_loss",
+        "label": "Degradation Loss (MWh)",
+        "description": "Total energy lost due to annual degradation over lifetime."
+      },
+      {
+        "id": "opex_efficiency_gap",
+        "label": "OPEX Efficiency Gap (USD)",
+        "description": "Additional cost compared to best-in-class O&M (benchmark = 8 USD/MWh)."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "improve_grid_availability",
+        "condition": "grid_availability < 95",
+        "action": "Negotiate improved grid connection agreements or invest in on-site storage to reduce curtailment."
+      },
+      {
+        "id": "reduce_degradation",
+        "condition": "degradation_rate > 0.8",
+        "action": "Implement predictive maintenance and blade leading-edge protection to lower degradation rate."
+      },
+      {
+        "id": "optimize_opex",
+        "condition": "opex_per_mwh > 15",
+        "action": "Adopt condition-based maintenance and remote monitoring to reduce O&M costs (Lean/Six Sigma DMAIC)."
+      },
+      {
+        "id": "renegotiate_ppa",
+        "condition": "electricity_price < 40",
+        "action": "Explore power purchase agreement renegotiation or merchant price hedging."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_adjusted_npv",
+      "label": "Data Confidence Adjusted NPV (USD)",
+      "unit": "USD",
+      "description": "NPV adjusted by a confidence factor based on input variability (Monte Carlo simulation proxy).",
+      "formula": "npv * (1 - 0.1 * (1 - (capacity_factor / 50)))"
+    }
+  }
+}

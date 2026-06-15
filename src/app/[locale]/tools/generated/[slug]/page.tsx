@@ -8,9 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { GeneratedToolPage } from "@/components/tools/GeneratedToolPage";
 import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
-import {
-  GENERATED_CALCULATOR_SLUGS,
-} from "@/lib/generated-tools/calculator-registry";
+import { GENERATED_CALCULATOR_SLUGS } from "@/lib/generated-tools/calculator-registry";
 import { REGENERATION_ALL_SLUGS } from "@/lib/generated-tools/regeneration-slug-lists";
 import {
   generatedToolDiagramExists,
@@ -32,12 +30,16 @@ interface GeneratedToolRouteParams {
 export const dynamic = "force-static";
 export const dynamicParams = true;
 
-export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
-  const targetSlugs = new Set<string>(REGENERATION_ALL_SLUGS);
+function resolvePublishedGeneratedToolSlugs(): string[] {
+  const allowedSlugs = new Set<string>(REGENERATION_ALL_SLUGS);
   const registrySlugs = new Set<string>(GENERATED_CALCULATOR_SLUGS);
-  const params = listGeneratedToolSchemaSlugs()
-    .filter((slug) => targetSlugs.has(slug) && registrySlugs.has(slug))
-    .map((slug) => ({ slug }));
+  return listGeneratedToolSchemaSlugs().filter(
+    (slug) => allowedSlugs.has(slug) && registrySlugs.has(slug),
+  );
+}
+
+export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
+  const params = resolvePublishedGeneratedToolSlugs().map((slug) => ({ slug }));
   return limitStaticParamsForPreview(params, {
     family: "generated-tools",
     slugKey: "slug",
@@ -51,7 +53,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug, locale } = await params;
   const schema = getGeneratedToolSchema(slug);
-  if (!schema) {
+  if (!schema || !resolvePublishedGeneratedToolSlugs().includes(slug)) {
     return {};
   }
 
@@ -75,8 +77,7 @@ export default async function GeneratedToolRoutePage({
   setRequestLocale(locale);
 
   const schema = getGeneratedToolSchema(slug);
-  const isRegenerationSlug = REGENERATION_ALL_SLUGS.includes(slug);
-  if (!schema || !isRegenerationSlug || !GENERATED_CALCULATOR_SLUGS.includes(slug)) {
+  if (!schema || !resolvePublishedGeneratedToolSlugs().includes(slug)) {
     notFound();
   }
 

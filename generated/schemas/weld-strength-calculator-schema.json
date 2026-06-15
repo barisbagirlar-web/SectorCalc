@@ -1,0 +1,323 @@
+{
+  "slug": "weld-strength-calculator",
+  "title": "Weld Strength Calculator",
+  "description": "Industrial-grade weld strength analysis per ISO 5817, AWS D1.1, and Lean Six Sigma principles. Calculates allowable load, safety margin, and process capability with data confidence adjustment.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-material database",
+    "Fatigue life prediction",
+    "Weld procedure specification (WPS) generator"
+  ],
+  "inputs": [
+    {
+      "id": "weld_type",
+      "label": "Weld Type",
+      "type": "select",
+      "unit": "",
+      "default": "fillet",
+      "min": null,
+      "max": null,
+      "options": [
+        "fillet",
+        "groove",
+        "plug",
+        "slot",
+        "butt"
+      ],
+      "businessContext": "Determines the geometry factor and stress distribution model per AWS D1.1."
+    },
+    {
+      "id": "base_material_yield_strength",
+      "label": "Base Material Yield Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 345,
+      "min": 100,
+      "max": 1200,
+      "businessContext": "Yield strength of the weaker base material (ISO 898 / ASTM A36)."
+    },
+    {
+      "id": "weld_material_tensile_strength",
+      "label": "Weld Material Tensile Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 480,
+      "min": 200,
+      "max": 1500,
+      "businessContext": "Tensile strength of filler metal (e.g., ER70S-6)."
+    },
+    {
+      "id": "throat_thickness",
+      "label": "Effective Throat Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 6,
+      "min": 1,
+      "max": 50,
+      "businessContext": "Minimum throat dimension per ISO 5817 quality level B."
+    },
+    {
+      "id": "weld_length",
+      "label": "Weld Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "min": 10,
+      "max": 5000,
+      "businessContext": "Total length of the weld seam."
+    },
+    {
+      "id": "applied_load",
+      "label": "Applied Load",
+      "type": "number",
+      "unit": "kN",
+      "default": 50,
+      "min": 0.1,
+      "max": 2000,
+      "businessContext": "Service load acting on the weld joint."
+    },
+    {
+      "id": "load_angle",
+      "label": "Load Angle (from weld axis)",
+      "type": "number",
+      "unit": "degrees",
+      "default": 90,
+      "min": 0,
+      "max": 180,
+      "businessContext": "Angle between applied load and weld longitudinal axis. 90° = transverse, 0° = longitudinal."
+    },
+    {
+      "id": "quality_level",
+      "label": "Quality Level (ISO 5817)",
+      "type": "select",
+      "unit": "",
+      "default": "B",
+      "min": null,
+      "max": null,
+      "options": [
+        "B",
+        "C",
+        "D"
+      ],
+      "businessContext": "ISO 5817 weld quality level: B=stringent, C=moderate, D=basic."
+    },
+    {
+      "id": "inspection_method",
+      "label": "Inspection Method",
+      "type": "select",
+      "unit": "",
+      "default": "visual",
+      "min": null,
+      "max": null,
+      "options": [
+        "visual",
+        "ultrasonic",
+        "radiographic",
+        "magnetic_particle"
+      ],
+      "businessContext": "NDT method used; affects confidence factor."
+    },
+    {
+      "id": "is_fatigue_loading",
+      "label": "Fatigue Loading",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "If true, applies S-N curve reduction per AWS D1.1 fatigue categories."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "throat_min_check",
+        "condition": "throat_thickness < 3.0 AND weld_type == 'fillet'",
+        "message": "Fillet weld throat thickness below 3 mm may cause inadequate fusion per ISO 5817."
+      },
+      {
+        "id": "load_angle_range",
+        "condition": "load_angle < 0 OR load_angle > 180",
+        "message": "Load angle must be between 0 and 180 degrees."
+      },
+      {
+        "id": "yield_vs_tensile",
+        "condition": "base_material_yield_strength > weld_material_tensile_strength",
+        "message": "Base material yield strength exceeds weld tensile strength – risk of weld under-matching."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "safety_margin_low",
+        "condition": "safety_margin < 1.5",
+        "severity": "warning",
+        "message": "Safety margin below 1.5 – review design per AWS D1.1 clause 2.4."
+      },
+      {
+        "id": "safety_margin_critical",
+        "condition": "safety_margin < 1.0",
+        "severity": "critical",
+        "message": "Safety margin below 1.0 – joint failure imminent under specified load."
+      },
+      {
+        "id": "data_confidence_low",
+        "condition": "dataConfidenceAdjusted < 0.6",
+        "severity": "warning",
+        "message": "Data confidence low – consider additional NDT or material testing."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "effective_area",
+      "label": "Effective Weld Area",
+      "formula": "throat_thickness * weld_length",
+      "unit": "mm²",
+      "description": "Cross-sectional area resisting shear/tension."
+    },
+    {
+      "id": "stress_distribution_factor",
+      "label": "Stress Distribution Factor (K)",
+      "formula": "CASE weld_type WHEN 'fillet' THEN 0.707 WHEN 'groove' THEN 1.0 WHEN 'butt' THEN 1.0 ELSE 0.5 END",
+      "unit": "dimensionless",
+      "description": "Factor accounting for weld geometry and stress concentration per AWS D1.1 Table 2.1."
+    },
+    {
+      "id": "allowable_stress",
+      "label": "Allowable Stress",
+      "formula": "weld_material_tensile_strength * 0.3 * (CASE quality_level WHEN 'B' THEN 1.0 WHEN 'C' THEN 0.85 WHEN 'D' THEN 0.7 END)",
+      "unit": "MPa",
+      "description": "Reduced allowable stress based on quality level and safety factor (0.3 for shear per AWS)."
+    },
+    {
+      "id": "load_component_transverse",
+      "label": "Transverse Load Component",
+      "formula": "applied_load * SIN(load_angle * PI() / 180)",
+      "unit": "kN",
+      "description": "Load component perpendicular to weld axis."
+    },
+    {
+      "id": "load_component_longitudinal",
+      "label": "Longitudinal Load Component",
+      "formula": "applied_load * COS(load_angle * PI() / 180)",
+      "unit": "kN",
+      "description": "Load component parallel to weld axis."
+    },
+    {
+      "id": "fatigue_reduction_factor",
+      "label": "Fatigue Reduction Factor",
+      "formula": "CASE WHEN is_fatigue_loading = true THEN 0.5 ELSE 1.0 END",
+      "unit": "dimensionless",
+      "description": "Reduction factor for fatigue loading per AWS D1.1 fatigue category E."
+    },
+    {
+      "id": "weld_strength_capacity",
+      "label": "Weld Strength Capacity",
+      "formula": "effective_area * allowable_stress * stress_distribution_factor * fatigue_reduction_factor / 1000",
+      "unit": "kN",
+      "description": "Maximum load the weld can sustain."
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "safety_margin",
+      "label": "Safety Margin",
+      "value": null,
+      "unit": "dimensionless",
+      "formula": "weld_strength_capacity / applied_load",
+      "description": "Ratio of capacity to applied load. Target ≥ 1.5 per ISO 5817."
+    },
+    "breakdown": {
+      "effective_area": {
+        "label": "Effective Area",
+        "value": null,
+        "unit": "mm²"
+      },
+      "allowable_stress": {
+        "label": "Allowable Stress",
+        "value": null,
+        "unit": "MPa"
+      },
+      "stress_distribution_factor": {
+        "label": "Stress Distribution Factor",
+        "value": null,
+        "unit": "dimensionless"
+      },
+      "fatigue_reduction_factor": {
+        "label": "Fatigue Reduction Factor",
+        "value": null,
+        "unit": "dimensionless"
+      },
+      "weld_strength_capacity": {
+        "label": "Weld Strength Capacity",
+        "value": null,
+        "unit": "kN"
+      },
+      "transverse_load_component": {
+        "label": "Transverse Load Component",
+        "value": null,
+        "unit": "kN"
+      },
+      "longitudinal_load_component": {
+        "label": "Longitudinal Load Component",
+        "value": null,
+        "unit": "kN"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "undermatching_penalty",
+        "label": "Undermatching Penalty",
+        "description": "If base material yield > weld tensile, capacity is reduced by 20%.",
+        "impact": "reduces capacity by up to 20%"
+      },
+      {
+        "id": "quality_level_derating",
+        "label": "Quality Level Derating",
+        "description": "Lower quality levels (C, D) reduce allowable stress by 15-30%.",
+        "impact": "reduces allowable stress by 15-30%"
+      },
+      {
+        "id": "inspection_method_uncertainty",
+        "label": "Inspection Method Uncertainty",
+        "description": "Visual inspection adds 10% uncertainty; ultrasonic/radiographic reduce uncertainty.",
+        "impact": "affects data confidence"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "increase_throat",
+        "label": "Increase throat thickness",
+        "condition": "safety_margin < 1.5",
+        "action": "Increase throat thickness by 20% or use larger weld size."
+      },
+      {
+        "id": "upgrade_quality",
+        "label": "Upgrade quality level to B",
+        "condition": "quality_level != 'B' AND safety_margin < 1.5",
+        "action": "Implement ISO 5817 Level B inspection and process control."
+      },
+      {
+        "id": "reduce_load",
+        "label": "Reduce applied load",
+        "condition": "safety_margin < 1.0",
+        "action": "Redesign joint to reduce load by 30% or add reinforcement."
+      },
+      {
+        "id": "use_higher_strength_filler",
+        "label": "Use higher strength filler metal",
+        "condition": "base_material_yield_strength > weld_material_tensile_strength",
+        "action": "Select filler with tensile strength ≥ 1.2x base material yield."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "value": null,
+      "unit": "dimensionless",
+      "formula": "0.7 + (CASE inspection_method WHEN 'ultrasonic' THEN 0.2 WHEN 'radiographic' THEN 0.25 WHEN 'magnetic_particle' THEN 0.15 ELSE 0.0 END) - (CASE quality_level WHEN 'D' THEN 0.1 WHEN 'C' THEN 0.05 ELSE 0.0 END)",
+      "description": "Confidence factor (0 to 1) based on NDT method and quality level."
+    }
+  }
+}

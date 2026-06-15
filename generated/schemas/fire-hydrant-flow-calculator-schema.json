@@ -1,0 +1,322 @@
+{
+  "slug": "fire-hydrant-flow-calculator",
+  "title": "Fire Hydrant Flow Calculator",
+  "description": "Industrial-grade tool for evaluating fire hydrant flow capacity, system pressure losses, and compliance with NFPA and ISO standards. Supports Lean Six Sigma DMAIC projects and WERC warehouse fire protection audits.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-hydrant comparison",
+    "Custom threshold configuration"
+  ],
+  "inputs": [
+    {
+      "id": "static_pressure",
+      "label": "Static Pressure",
+      "type": "number",
+      "unit": "psi",
+      "default": 60,
+      "min": 0,
+      "max": 200,
+      "businessContext": "Measured at hydrant outlet with no flow. Used to determine available system pressure per NFPA 291."
+    },
+    {
+      "id": "residual_pressure",
+      "label": "Residual Pressure",
+      "type": "number",
+      "unit": "psi",
+      "default": 40,
+      "min": 0,
+      "max": 200,
+      "businessContext": "Pressure measured while hydrant is flowing at test rate. Indicates system capacity under demand."
+    },
+    {
+      "id": "flow_rate_test",
+      "label": "Test Flow Rate",
+      "type": "number",
+      "unit": "gpm",
+      "default": 500,
+      "min": 0,
+      "max": 5000,
+      "businessContext": "Flow rate measured during hydrant flow test using pitot gauge or flow meter."
+    },
+    {
+      "id": "pipe_diameter",
+      "label": "Supply Pipe Diameter",
+      "type": "number",
+      "unit": "inches",
+      "default": 6,
+      "min": 2,
+      "max": 24,
+      "businessContext": "Nominal diameter of the main supply pipe feeding the hydrant. Affects friction loss."
+    },
+    {
+      "id": "pipe_length",
+      "label": "Supply Pipe Length",
+      "type": "number",
+      "unit": "feet",
+      "default": 500,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Distance from water main to hydrant. Used in friction loss calculations."
+    },
+    {
+      "id": "hazen_williams_coefficient",
+      "label": "Hazen-Williams C Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 120,
+      "min": 60,
+      "max": 150,
+      "businessContext": "Pipe roughness coefficient. 140 for new steel, 100 for old cast iron. Per ISO 10803 and NFPA 13."
+    },
+    {
+      "id": "elevation_difference",
+      "label": "Elevation Difference",
+      "type": "number",
+      "unit": "feet",
+      "default": 0,
+      "min": -200,
+      "max": 200,
+      "businessContext": "Height difference between water source and hydrant. Positive if hydrant is above source."
+    },
+    {
+      "id": "number_of_hydrants",
+      "label": "Number of Hydrants in Test",
+      "type": "number",
+      "unit": "count",
+      "default": 1,
+      "min": 1,
+      "max": 10,
+      "businessContext": "Number of hydrants flowing simultaneously during test. Affects total demand."
+    },
+    {
+      "id": "hydrant_type",
+      "label": "Hydrant Type",
+      "type": "select",
+      "options": [
+        "Dry barrel",
+        "Wet barrel",
+        "Wall hydrant"
+      ],
+      "default": "Dry barrel",
+      "businessContext": "Type of hydrant per NFPA 291. Dry barrel common in cold climates."
+    },
+    {
+      "id": "flow_condition",
+      "label": "Flow Condition",
+      "type": "select",
+      "options": [
+        "Steady",
+        "Transient"
+      ],
+      "default": "Steady",
+      "businessContext": "Steady for normal tests, Transient for surge analysis per ISO 4126."
+    },
+    {
+      "id": "is_test_standard",
+      "label": "NFPA 291 Compliant Test",
+      "type": "boolean",
+      "default": true,
+      "businessContext": "Indicates if flow test was performed per NFPA 291 standard procedures."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "pressure_positive",
+        "condition": "static_pressure > 0 AND residual_pressure > 0",
+        "message": "Static and residual pressures must be greater than zero."
+      },
+      {
+        "id": "residual_less_than_static",
+        "condition": "residual_pressure < static_pressure",
+        "message": "Residual pressure must be less than static pressure."
+      },
+      {
+        "id": "flow_rate_positive",
+        "condition": "flow_rate_test > 0",
+        "message": "Test flow rate must be greater than zero."
+      },
+      {
+        "id": "pipe_diameter_minimum",
+        "condition": "pipe_diameter >= 2",
+        "message": "Pipe diameter must be at least 2 inches."
+      },
+      {
+        "id": "hazen_williams_range",
+        "condition": "hazen_williams_coefficient >= 60 AND hazen_williams_coefficient <= 150",
+        "message": "Hazen-Williams C factor must be between 60 and 150."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "low_flow_warning",
+        "condition": "available_flow < 500",
+        "level": "warning",
+        "message": "Available flow is below 500 gpm. May not meet minimum fire suppression requirements."
+      },
+      {
+        "id": "critical_pressure_drop",
+        "condition": "pressure_loss_percent > 20",
+        "level": "critical",
+        "message": "Pressure loss exceeds 20% of static pressure. System may be undersized."
+      },
+      {
+        "id": "high_velocity_alert",
+        "condition": "flow_velocity > 20",
+        "level": "warning",
+        "message": "Flow velocity exceeds 20 ft/s. Risk of water hammer and pipe erosion per ISO 4126."
+      },
+      {
+        "id": "elevation_impact",
+        "condition": "elevation_difference > 50 OR elevation_difference < -50",
+        "level": "info",
+        "message": "Significant elevation difference detected. Adjust pressure calculations accordingly."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "pressure_drop_available",
+      "name": "Available Pressure Drop",
+      "description": "Difference between static and residual pressure available for flow.",
+      "formula": "pressure_drop_available = static_pressure - residual_pressure",
+      "unit": "psi"
+    },
+    {
+      "id": "flow_exponent",
+      "name": "Flow Exponent (n)",
+      "description": "Exponent derived from pressure-flow relationship per NFPA 291.",
+      "formula": "n = LOG(flow_rate_test / 100) / LOG(static_pressure / residual_pressure)",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "available_flow",
+      "name": "Available Flow at 20 psi Residual",
+      "description": "Predicted flow rate when residual pressure drops to 20 psi (standard reference).",
+      "formula": "available_flow = flow_rate_test * ((static_pressure - 20) / (static_pressure - residual_pressure)) ^ (1 / n)",
+      "unit": "gpm"
+    },
+    {
+      "id": "friction_loss",
+      "name": "Friction Loss in Supply Pipe",
+      "description": "Hazen-Williams friction loss over the supply pipe length.",
+      "formula": "friction_loss = 10.67 * (available_flow / 100) ^ 1.852 * pipe_length / (hazen_williams_coefficient ^ 1.852 * pipe_diameter ^ 4.87)",
+      "unit": "psi"
+    },
+    {
+      "id": "elevation_pressure",
+      "name": "Elevation Pressure Adjustment",
+      "description": "Pressure change due to elevation difference (0.433 psi per foot).",
+      "formula": "elevation_pressure = elevation_difference * 0.433",
+      "unit": "psi"
+    },
+    {
+      "id": "flow_velocity",
+      "name": "Flow Velocity in Pipe",
+      "description": "Velocity of water in the supply pipe at available flow.",
+      "formula": "flow_velocity = 0.4085 * available_flow / (pipe_diameter ^ 2)",
+      "unit": "ft/s"
+    },
+    {
+      "id": "pressure_loss_percent",
+      "name": "Pressure Loss Percentage",
+      "description": "Total pressure loss as a percentage of static pressure.",
+      "formula": "pressure_loss_percent = ((friction_loss + ABS(elevation_pressure)) / static_pressure) * 100",
+      "unit": "%"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "available_flow",
+      "label": "Available Flow at 20 psi Residual",
+      "value": null,
+      "unit": "gpm",
+      "description": "Predicted flow rate the hydrant can deliver while maintaining a residual pressure of 20 psi."
+    },
+    "breakdown": {
+      "pressure_drop_available": {
+        "label": "Available Pressure Drop",
+        "value": null,
+        "unit": "psi"
+      },
+      "flow_exponent": {
+        "label": "Flow Exponent (n)",
+        "value": null,
+        "unit": "dimensionless"
+      },
+      "friction_loss": {
+        "label": "Friction Loss in Supply Pipe",
+        "value": null,
+        "unit": "psi"
+      },
+      "elevation_pressure": {
+        "label": "Elevation Pressure Adjustment",
+        "value": null,
+        "unit": "psi"
+      },
+      "flow_velocity": {
+        "label": "Flow Velocity",
+        "value": null,
+        "unit": "ft/s"
+      },
+      "pressure_loss_percent": {
+        "label": "Pressure Loss Percentage",
+        "value": null,
+        "unit": "%"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "pipe_aging_factor",
+        "label": "Pipe Aging Factor",
+        "description": "Reduction in Hazen-Williams C factor due to corrosion and scaling over time.",
+        "estimated_impact": "5-15% reduction in available flow"
+      },
+      {
+        "id": "valve_partial_closure",
+        "label": "Partially Closed Valve",
+        "description": "Undetected partially closed gate valve in supply line increases friction loss.",
+        "estimated_impact": "10-30% reduction in available flow"
+      },
+      {
+        "id": "turbulence_at_fittings",
+        "label": "Turbulence at Fittings",
+        "description": "Additional head loss from elbows, tees, and reducers not accounted in simple Hazen-Williams.",
+        "estimated_impact": "2-8% additional friction loss"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "priority": "high",
+        "description": "If available flow < 500 gpm, consider upgrading supply pipe diameter or installing a booster pump."
+      },
+      {
+        "id": "action_2",
+        "priority": "medium",
+        "description": "If pressure_loss_percent > 20%, inspect and clean supply pipe, replace if corroded."
+      },
+      {
+        "id": "action_3",
+        "priority": "low",
+        "description": "If flow_velocity > 20 ft/s, install pressure relief valves or surge suppressors to mitigate water hammer."
+      },
+      {
+        "id": "action_4",
+        "priority": "medium",
+        "description": "Perform a full NFPA 291 flow test annually and compare with baseline to detect degradation."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "confidence_adjusted_flow",
+      "label": "Confidence-Adjusted Available Flow",
+      "value": null,
+      "unit": "gpm",
+      "description": "Available flow reduced by a confidence factor based on input quality and test compliance.",
+      "adjustment_formula": "confidence_adjusted_flow = available_flow * (0.9 if is_test_standard else 0.7) * (1 - 0.02 * (number_of_hydrants - 1))"
+    }
+  }
+}

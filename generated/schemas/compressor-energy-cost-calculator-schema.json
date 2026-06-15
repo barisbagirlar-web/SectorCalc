@@ -1,0 +1,387 @@
+{
+  "slug": "compressor-energy-cost-calculator",
+  "title": "Compressed Air System Energy Cost Calculator",
+  "description": "Industrial-grade tool to calculate total energy cost of compressed air systems, identify hidden losses, and suggest efficiency improvements based on ISO 50001, Lean, and Six Sigma principles.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-compressor optimization",
+    "Real-time monitoring integration",
+    "Custom reporting dashboard",
+    "API access for CMMS integration"
+  ],
+  "inputs": [
+    {
+      "id": "compressor_power_rating",
+      "label": "Compressor Motor Power Rating",
+      "type": "number",
+      "unit": "kW",
+      "default": 75,
+      "min": 1,
+      "max": 5000,
+      "businessContext": "Nameplate power of the compressor motor. Typically from 5 kW to 5000 kW for industrial units."
+    },
+    {
+      "id": "motor_efficiency",
+      "label": "Motor Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 92,
+      "min": 70,
+      "max": 99,
+      "businessContext": "Efficiency of the electric motor driving the compressor. Premium efficiency motors (IE3/IE4) are >90%."
+    },
+    {
+      "id": "compressor_type",
+      "label": "Compressor Type",
+      "type": "select",
+      "unit": "",
+      "default": "rotary_screw",
+      "options": [
+        {
+          "value": "reciprocating",
+          "label": "Reciprocating"
+        },
+        {
+          "value": "rotary_screw",
+          "label": "Rotary Screw"
+        },
+        {
+          "value": "centrifugal",
+          "label": "Centrifugal"
+        },
+        {
+          "value": "scroll",
+          "label": "Scroll"
+        }
+      ],
+      "businessContext": "Different compressor types have different specific power curves and maintenance profiles."
+    },
+    {
+      "id": "operating_hours_per_year",
+      "label": "Operating Hours per Year",
+      "type": "number",
+      "unit": "hours",
+      "default": 8000,
+      "min": 100,
+      "max": 8760,
+      "businessContext": "Total annual operating hours. Typical industrial: 8000 hours (2 shifts, 5 days)."
+    },
+    {
+      "id": "load_factor",
+      "label": "Load Factor (Average % of Full Load)",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "min": 10,
+      "max": 100,
+      "businessContext": "Average percentage of full load capacity at which the compressor operates. Includes part-load and unloaded periods."
+    },
+    {
+      "id": "electricity_cost_per_kwh",
+      "label": "Electricity Cost",
+      "type": "number",
+      "unit": "$/kWh",
+      "default": 0.12,
+      "min": 0.01,
+      "max": 0.5,
+      "businessContext": "Blended average cost per kWh including demand charges. Typical range $0.05-$0.30."
+    },
+    {
+      "id": "leakage_percentage",
+      "label": "Estimated System Leakage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Percentage of compressed air lost through leaks. Typical industrial systems: 20-30%."
+    },
+    {
+      "id": "pressure_setpoint",
+      "label": "System Pressure Setpoint",
+      "type": "number",
+      "unit": "bar(g)",
+      "default": 7,
+      "min": 2,
+      "max": 15,
+      "businessContext": "Operating pressure at the compressor discharge. Higher pressure increases energy consumption by ~1% per 0.1 bar."
+    },
+    {
+      "id": "ambient_temperature",
+      "label": "Average Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "min": -10,
+      "max": 50,
+      "businessContext": "Average ambient temperature at compressor intake. Higher temperature reduces air density and increases power."
+    },
+    {
+      "id": "has_vsd",
+      "label": "Variable Speed Drive (VSD) Installed",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "businessContext": "VSD can reduce energy consumption by 15-35% under part-load conditions."
+    },
+    {
+      "id": "maintenance_quality",
+      "label": "Maintenance Quality Level",
+      "type": "select",
+      "unit": "",
+      "default": "standard",
+      "options": [
+        {
+          "value": "poor",
+          "label": "Poor (no PM)"
+        },
+        {
+          "value": "standard",
+          "label": "Standard (scheduled PM)"
+        },
+        {
+          "value": "excellent",
+          "label": "Excellent (predictive + IoT)"
+        }
+      ],
+      "businessContext": "Maintenance quality affects efficiency, leakage, and pressure drop. Poor maintenance can increase energy use by 10-20%."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_vsd_load_factor",
+        "condition": "has_vsd == true && load_factor > 85",
+        "message": "With VSD, load factor above 85% may indicate oversizing. Consider fixed-speed alternative for better ROI."
+      },
+      {
+        "id": "rule_leakage_maintenance",
+        "condition": "leakage_percentage > 25 && maintenance_quality == 'poor'",
+        "message": "High leakage combined with poor maintenance suggests urgent leak detection program."
+      },
+      {
+        "id": "rule_pressure_high",
+        "condition": "pressure_setpoint > 10",
+        "message": "Pressure above 10 bar(g) is uncommon for general industrial use. Verify actual requirement."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_energy_cost_high",
+        "condition": "primaryResult > 50000",
+        "alert": "Annual energy cost exceeds $50,000. Consider energy audit and optimization."
+      },
+      {
+        "id": "threshold_leakage_critical",
+        "condition": "leakage_percentage > 30",
+        "alert": "Leakage above 30% is critical. Immediate leak repair can save up to 40% of energy."
+      },
+      {
+        "id": "threshold_efficiency_low",
+        "condition": "motor_efficiency < 85",
+        "alert": "Motor efficiency below 85%. Consider replacing with IE4 premium motor."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "actual_power_input",
+      "description": "Actual electrical power input to compressor motor",
+      "formula": "compressor_power_rating / (motor_efficiency / 100)",
+      "unit": "kW",
+      "example": "75 / 0.92 = 81.52 kW"
+    },
+    {
+      "id": "annual_energy_consumption",
+      "description": "Total annual energy consumption at average load",
+      "formula": "actual_power_input * operating_hours_per_year * (load_factor / 100)",
+      "unit": "kWh",
+      "example": "81.52 * 8000 * 0.70 = 456,512 kWh"
+    },
+    {
+      "id": "leakage_energy_loss",
+      "description": "Energy lost due to system leaks",
+      "formula": "annual_energy_consumption * (leakage_percentage / 100)",
+      "unit": "kWh",
+      "example": "456,512 * 0.20 = 91,302 kWh"
+    },
+    {
+      "id": "pressure_penalty_factor",
+      "description": "Energy penalty due to high pressure (1% per 0.1 bar above 6 bar baseline)",
+      "formula": "1 + ((pressure_setpoint - 6) * 0.01 / 0.1)",
+      "unit": "dimensionless",
+      "example": "1 + ((7 - 6) * 0.1) = 1.10"
+    },
+    {
+      "id": "temperature_correction_factor",
+      "description": "Correction for ambient temperature (ISO 1217 reference 20°C)",
+      "formula": "1 + ((ambient_temperature - 20) * 0.005)",
+      "unit": "dimensionless",
+      "example": "1 + ((25 - 20) * 0.005) = 1.025"
+    },
+    {
+      "id": "vsd_efficiency_factor",
+      "description": "Efficiency improvement factor if VSD installed",
+      "formula": "has_vsd ? 0.85 : 1.0",
+      "unit": "dimensionless",
+      "example": "0.85 if VSD, else 1.0"
+    },
+    {
+      "id": "maintenance_penalty_factor",
+      "description": "Penalty for poor maintenance (ISO 50001 best practices)",
+      "formula": "CASE maintenance_quality WHEN 'poor' THEN 1.15 WHEN 'standard' THEN 1.05 WHEN 'excellent' THEN 1.0 END",
+      "unit": "dimensionless",
+      "example": "1.05 for standard maintenance"
+    },
+    {
+      "id": "adjusted_annual_energy",
+      "description": "Energy consumption adjusted for pressure, temperature, VSD, and maintenance",
+      "formula": "annual_energy_consumption * pressure_penalty_factor * temperature_correction_factor * vsd_efficiency_factor * maintenance_penalty_factor",
+      "unit": "kWh",
+      "example": "456,512 * 1.10 * 1.025 * 0.85 * 1.05 = 459,876 kWh"
+    },
+    {
+      "id": "total_annual_energy_cost",
+      "description": "Primary result: Total annual energy cost of compressed air system",
+      "formula": "adjusted_annual_energy * electricity_cost_per_kwh",
+      "unit": "$/year",
+      "example": "459,876 * 0.12 = $55,185"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_annual_energy_cost",
+      "label": "Total Annual Energy Cost",
+      "unit": "$/year",
+      "description": "Primary result: Total annual cost to operate the compressed air system including all losses and corrections."
+    },
+    "breakdown": {
+      "id": "cost_breakdown",
+      "label": "Cost Breakdown",
+      "components": [
+        {
+          "id": "base_energy_cost",
+          "label": "Base Energy Cost (at reference conditions)",
+          "unit": "$/year",
+          "description": "Cost without pressure, temperature, VSD, or maintenance adjustments."
+        },
+        {
+          "id": "leakage_cost",
+          "label": "Cost of Leakage",
+          "unit": "$/year",
+          "description": "Annual cost attributed to compressed air leaks."
+        },
+        {
+          "id": "pressure_penalty_cost",
+          "label": "Pressure Penalty Cost",
+          "unit": "$/year",
+          "description": "Additional cost due to operating above 6 bar(g) baseline."
+        },
+        {
+          "id": "temperature_penalty_cost",
+          "label": "Temperature Penalty Cost",
+          "unit": "$/year",
+          "description": "Additional cost due to ambient temperature above 20°C."
+        },
+        {
+          "id": "maintenance_penalty_cost",
+          "label": "Maintenance Penalty Cost",
+          "unit": "$/year",
+          "description": "Additional cost due to suboptimal maintenance practices."
+        },
+        {
+          "id": "vsd_savings",
+          "label": "VSD Savings (if applicable)",
+          "unit": "$/year",
+          "description": "Cost savings from variable speed drive operation."
+        }
+      ]
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "leakage",
+        "label": "Leakage",
+        "value": "leakage_energy_loss",
+        "unit": "kWh/year",
+        "description": "Energy lost through system leaks. Typically 20-30% of total consumption."
+      },
+      {
+        "id": "pressure_drop",
+        "label": "Pressure Drop Across Filters/Dryers",
+        "value": "pressure_penalty_factor",
+        "unit": "dimensionless",
+        "description": "Excessive pressure drop increases compressor discharge pressure requirement."
+      },
+      {
+        "id": "inadequate_maintenance",
+        "label": "Inadequate Maintenance",
+        "value": "maintenance_penalty_factor",
+        "unit": "dimensionless",
+        "description": "Poor maintenance leads to higher friction, leakage, and inefficiency."
+      },
+      {
+        "id": "oversizing",
+        "label": "System Oversizing",
+        "value": "load_factor",
+        "unit": "%",
+        "description": "Compressor running at low load factor indicates oversizing, wasting energy."
+      },
+      {
+        "id": "heat_of_compression",
+        "label": "Heat of Compression Not Recovered",
+        "value": "ambient_temperature",
+        "unit": "°C",
+        "description": "Waste heat can be recovered for space heating or process use."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_leak_repair",
+        "priority": 1,
+        "description": "Implement a leak detection and repair program. Target: reduce leakage to <10%.",
+        "estimated_savings_percent": 15,
+        "estimated_payback_months": 6
+      },
+      {
+        "id": "action_pressure_reduction",
+        "priority": 2,
+        "description": "Reduce system pressure setpoint by 1 bar if possible. Each 1 bar reduction saves ~7% energy.",
+        "estimated_savings_percent": 7,
+        "estimated_payback_months": 1
+      },
+      {
+        "id": "action_vsd_retrofit",
+        "priority": 3,
+        "description": "Install VSD on compressor if load varies >30%. Expected savings 15-35%.",
+        "estimated_savings_percent": 20,
+        "estimated_payback_months": 18
+      },
+      {
+        "id": "action_maintenance_improvement",
+        "priority": 4,
+        "description": "Upgrade maintenance to predictive (IoT-based). Replace filters, check belts, lubricate.",
+        "estimated_savings_percent": 10,
+        "estimated_payback_months": 12
+      },
+      {
+        "id": "action_heat_recovery",
+        "priority": 5,
+        "description": "Install heat recovery system to capture waste heat for building heating or preheat.",
+        "estimated_savings_percent": 5,
+        "estimated_payback_months": 24
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_score",
+      "label": "Data Confidence Adjusted Result",
+      "unit": "$/year",
+      "description": "Total annual energy cost adjusted by a confidence factor (0.8 to 1.2) based on input data quality and completeness.",
+      "value": 55185,
+      "confidence_factor": 0.95,
+      "adjusted_value": 52426
+    }
+  }
+}

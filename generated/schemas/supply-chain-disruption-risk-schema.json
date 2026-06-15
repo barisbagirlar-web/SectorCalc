@@ -1,0 +1,312 @@
+{
+  "slug": "supply-chain-disruption-risk",
+  "title": "Supply Chain Disruption Risk Assessment",
+  "description": "Industrial-grade risk assessment tool for quantifying and mitigating supply chain disruption risks based on ISO 31000, Lean, Six Sigma, and WERC standards.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Real-time dashboard",
+    "Multi-echelon simulation",
+    "Benchmarking against industry peers"
+  ],
+  "inputs": [
+    {
+      "id": "supplier_reliability_score",
+      "label": "Supplier Reliability Score (0-100)",
+      "type": "number",
+      "unit": "score",
+      "default": 85,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Historical on-time delivery and quality performance of key suppliers. Higher score indicates better reliability."
+    },
+    {
+      "id": "inventory_buffer_days",
+      "label": "Inventory Buffer (Days of Cover)",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "min": 0,
+      "max": 365,
+      "businessContext": "Average days of inventory held to absorb demand or supply shocks. Based on lean inventory principles."
+    },
+    {
+      "id": "lead_time_variability",
+      "label": "Lead Time Variability (Coefficient of Variation)",
+      "type": "number",
+      "unit": "CV",
+      "default": 0.25,
+      "min": 0,
+      "max": 2,
+      "businessContext": "Standard deviation of lead time divided by mean lead time. Higher values indicate unpredictable supply."
+    },
+    {
+      "id": "single_source_dependency",
+      "label": "Single Source Dependency (0-100%)",
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of critical components sourced from a single supplier. High dependency increases risk."
+    },
+    {
+      "id": "geopolitical_risk_index",
+      "label": "Geopolitical Risk Index (0-100)",
+      "type": "number",
+      "unit": "index",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Composite index of political instability, trade restrictions, and regional conflicts affecting supply chain."
+    },
+    {
+      "id": "demand_volatility",
+      "label": "Demand Volatility (Coefficient of Variation)",
+      "type": "number",
+      "unit": "CV",
+      "default": 0.3,
+      "min": 0,
+      "max": 3,
+      "businessContext": "Variability in customer demand over time. High volatility strains capacity and inventory."
+    },
+    {
+      "id": "transportation_disruption_probability",
+      "label": "Transportation Disruption Probability (0-1)",
+      "type": "number",
+      "unit": "probability",
+      "default": 0.05,
+      "min": 0,
+      "max": 1,
+      "businessContext": "Estimated likelihood of a major transportation disruption (port closure, strike, etc.) in the next quarter."
+    },
+    {
+      "id": "quality_defect_rate",
+      "label": "Quality Defect Rate (ppm)",
+      "type": "number",
+      "unit": "ppm",
+      "default": 500,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Parts per million defective from incoming inspection. Six Sigma target is < 3.4 ppm."
+    },
+    {
+      "id": "cyber_risk_score",
+      "label": "Cyber Risk Score (0-100)",
+      "type": "number",
+      "unit": "score",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Assessment of cybersecurity vulnerabilities in supply chain IT systems. Higher score indicates higher risk."
+    },
+    {
+      "id": "use_advanced_hedging",
+      "label": "Enable Advanced Hedging Strategies",
+      "type": "boolean",
+      "unit": null,
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "If true, applies financial and operational hedging models to mitigate currency and commodity risks."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_supplier_reliability_range",
+        "condition": "supplier_reliability_score < 0 || supplier_reliability_score > 100",
+        "message": "Supplier reliability score must be between 0 and 100."
+      },
+      {
+        "id": "rule_inventory_buffer_non_negative",
+        "condition": "inventory_buffer_days < 0",
+        "message": "Inventory buffer days cannot be negative."
+      },
+      {
+        "id": "rule_single_source_dependency_range",
+        "condition": "single_source_dependency < 0 || single_source_dependency > 100",
+        "message": "Single source dependency must be between 0 and 100%."
+      },
+      {
+        "id": "rule_geopolitical_range",
+        "condition": "geopolitical_risk_index < 0 || geopolitical_risk_index > 100",
+        "message": "Geopolitical risk index must be between 0 and 100."
+      },
+      {
+        "id": "rule_transportation_probability",
+        "condition": "transportation_disruption_probability < 0 || transportation_disruption_probability > 1",
+        "message": "Transportation disruption probability must be between 0 and 1."
+      },
+      {
+        "id": "rule_cyber_range",
+        "condition": "cyber_risk_score < 0 || cyber_risk_score > 100",
+        "message": "Cyber risk score must be between 0 and 100."
+      },
+      {
+        "id": "rule_conditional_hedging",
+        "condition": "use_advanced_hedging == true && (single_source_dependency < 20 || geopolitical_risk_index < 10)",
+        "message": "Advanced hedging is recommended only when single source dependency > 20% or geopolitical risk > 10."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "alert_high_risk",
+        "condition": "primaryResult > 70",
+        "message": "Critical disruption risk level. Immediate mitigation actions required.",
+        "severity": "critical"
+      },
+      {
+        "id": "alert_medium_risk",
+        "condition": "primaryResult > 40 && primaryResult <= 70",
+        "message": "Moderate disruption risk. Monitor and prepare contingency plans.",
+        "severity": "warning"
+      },
+      {
+        "id": "alert_low_risk",
+        "condition": "primaryResult <= 40",
+        "message": "Low disruption risk. Continue standard risk management practices.",
+        "severity": "info"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "supplier_risk_factor",
+      "description": "Normalized supplier risk based on reliability and single source dependency.",
+      "expression": "((100 - supplier_reliability_score) / 100) * (single_source_dependency / 100)",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "inventory_risk_factor",
+      "description": "Risk from insufficient inventory buffer relative to lead time variability.",
+      "expression": "max(0, (lead_time_variability * 100) / (inventory_buffer_days + 1))",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "external_risk_factor",
+      "description": "Combined external risks from geopolitical, transportation, and cyber sources.",
+      "expression": "(geopolitical_risk_index / 100) * 0.4 + transportation_disruption_probability * 0.35 + (cyber_risk_score / 100) * 0.25",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "demand_quality_risk_factor",
+      "description": "Risk from demand volatility and quality defects (scaled to ppm).",
+      "expression": "demand_volatility * 0.5 + (quality_defect_rate / 100000) * 0.5",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "hedging_adjustment",
+      "description": "Reduction in risk if advanced hedging is enabled (applies only if condition met).",
+      "expression": "use_advanced_hedging ? 0.85 : 1.0",
+      "unit": "multiplier"
+    },
+    {
+      "id": "raw_disruption_risk",
+      "description": "Unadjusted composite disruption risk score (0-100).",
+      "expression": "(supplier_risk_factor * 30 + inventory_risk_factor * 20 + external_risk_factor * 25 + demand_quality_risk_factor * 25) * hedging_adjustment",
+      "unit": "score"
+    },
+    {
+      "id": "primary_result",
+      "description": "Final disruption risk score clamped between 0 and 100.",
+      "expression": "min(100, max(0, raw_disruption_risk))",
+      "unit": "score"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "disruption_risk_score",
+      "label": "Supply Chain Disruption Risk Score",
+      "description": "Overall risk score from 0 (low) to 100 (critical).",
+      "unit": "score",
+      "sourceFormula": "primary_result"
+    },
+    "breakdown": {
+      "supplierRiskComponent": {
+        "label": "Supplier Risk Component",
+        "value": "supplier_risk_factor * 30",
+        "unit": "score"
+      },
+      "inventoryRiskComponent": {
+        "label": "Inventory Risk Component",
+        "value": "inventory_risk_factor * 20",
+        "unit": "score"
+      },
+      "externalRiskComponent": {
+        "label": "External Risk Component",
+        "value": "external_risk_factor * 25",
+        "unit": "score"
+      },
+      "demandQualityRiskComponent": {
+        "label": "Demand & Quality Risk Component",
+        "value": "demand_quality_risk_factor * 25",
+        "unit": "score"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "loss_due_to_single_source",
+        "label": "Single Source Dependency Loss",
+        "description": "Estimated financial loss (in $) due to lack of alternative suppliers.",
+        "value": "single_source_dependency * 10000",
+        "unit": "USD"
+      },
+      {
+        "id": "loss_due_to_quality_defects",
+        "label": "Quality Defect Loss",
+        "description": "Estimated cost of rework, scrap, and warranty from defects.",
+        "value": "quality_defect_rate * 50",
+        "unit": "USD"
+      },
+      {
+        "id": "loss_due_to_transport_disruption",
+        "label": "Transportation Disruption Loss",
+        "description": "Expected loss from transportation interruptions per quarter.",
+        "value": "transportation_disruption_probability * 500000",
+        "unit": "USD"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_diversify_suppliers",
+        "condition": "single_source_dependency > 50",
+        "action": "Implement supplier diversification program to reduce single source dependency below 30%.",
+        "priority": "high"
+      },
+      {
+        "id": "action_increase_buffer",
+        "condition": "inventory_buffer_days < 15",
+        "action": "Increase inventory buffer to at least 30 days to absorb lead time variability.",
+        "priority": "high"
+      },
+      {
+        "id": "action_improve_quality",
+        "condition": "quality_defect_rate > 1000",
+        "action": "Initiate Six Sigma DMAIC project to reduce defect rate below 500 ppm.",
+        "priority": "medium"
+      },
+      {
+        "id": "action_cyber_audit",
+        "condition": "cyber_risk_score > 30",
+        "action": "Conduct comprehensive cybersecurity audit and implement NIST framework controls.",
+        "priority": "medium"
+      },
+      {
+        "id": "action_hedging",
+        "condition": "use_advanced_hedging == false && (single_source_dependency > 20 || geopolitical_risk_index > 10)",
+        "action": "Enable advanced hedging strategies to mitigate currency and commodity risks.",
+        "priority": "low"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "confidence_adjusted_score",
+      "label": "Confidence-Adjusted Risk Score",
+      "description": "Risk score adjusted for data quality and completeness (0-100).",
+      "value": "primary_result * (1 - 0.1 * (1 - min(1, (supplier_reliability_score + inventory_buffer_days + lead_time_variability + single_source_dependency + geopolitical_risk_index + demand_volatility + transportation_disruption_probability + quality_defect_rate + cyber_risk_score) / 900)))",
+      "unit": "score"
+    }
+  }
+}

@@ -1,0 +1,384 @@
+{
+  "slug": "machine-economic-life-calculator",
+  "name": "Machine Economic Life Calculator",
+  "description": "Determines the optimal economic life of a machine by balancing capital costs, operating costs, and productivity losses, aligned with ISO 15663, Lean, and Six Sigma principles.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Monte Carlo simulation",
+    "Sensitivity analysis",
+    "Benchmarking against industry standards"
+  ],
+  "inputs": [
+    {
+      "id": "purchase_price",
+      "label": "Purchase Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 1000,
+      "max": 10000000,
+      "businessContext": "Initial capital investment for the machine, including installation and commissioning."
+    },
+    {
+      "id": "salvage_value",
+      "label": "Salvage Value at End of Life",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "max": 5000000,
+      "businessContext": "Estimated resale or scrap value at the end of the machine's useful life."
+    },
+    {
+      "id": "useful_life_years",
+      "label": "Estimated Useful Life",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "min": 1,
+      "max": 50,
+      "businessContext": "Expected number of years the machine will be operational before major overhaul or replacement."
+    },
+    {
+      "id": "annual_operating_cost",
+      "label": "Annual Operating Cost (Year 1)",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 15000,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Includes energy, consumables, labor, and routine maintenance in the first year."
+    },
+    {
+      "id": "operating_cost_escalation_rate",
+      "label": "Operating Cost Escalation Rate",
+      "type": "number",
+      "unit": "% per year",
+      "default": 3,
+      "min": 0,
+      "max": 20,
+      "businessContext": "Annual increase in operating costs due to aging, inflation, and wear."
+    },
+    {
+      "id": "discount_rate",
+      "label": "Discount Rate (WACC)",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "max": 30,
+      "businessContext": "Weighted average cost of capital used for net present value calculations."
+    },
+    {
+      "id": "annual_production_units",
+      "label": "Annual Production Units",
+      "type": "number",
+      "unit": "units/year",
+      "default": 50000,
+      "min": 0,
+      "max": 10000000,
+      "businessContext": "Number of units produced per year at full capacity."
+    },
+    {
+      "id": "revenue_per_unit",
+      "label": "Revenue per Unit",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 5,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Selling price per unit produced by the machine."
+    },
+    {
+      "id": "quality_defect_rate",
+      "label": "Initial Defect Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of defective units in the first year, used to model quality degradation over time."
+    },
+    {
+      "id": "defect_rate_annual_increase",
+      "label": "Defect Rate Annual Increase",
+      "type": "number",
+      "unit": "% per year",
+      "default": 0.5,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Yearly increase in defect rate due to machine wear, impacting rework and scrap costs."
+    },
+    {
+      "id": "maintenance_strategy",
+      "label": "Maintenance Strategy",
+      "type": "select",
+      "options": [
+        "Preventive",
+        "Predictive",
+        "Reactive"
+      ],
+      "default": "Preventive",
+      "businessContext": "Type of maintenance program in place, affecting downtime and cost patterns."
+    },
+    {
+      "id": "utilization_rate",
+      "label": "Utilization Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of available time the machine is actually producing."
+    },
+    {
+      "id": "energy_cost_per_kwh",
+      "label": "Energy Cost per kWh",
+      "type": "number",
+      "unit": "USD/kWh",
+      "default": 0.12,
+      "min": 0,
+      "max": 1,
+      "businessContext": "Cost of electricity per kilowatt-hour, used for energy consumption modeling."
+    },
+    {
+      "id": "power_consumption_kw",
+      "label": "Power Consumption",
+      "type": "number",
+      "unit": "kW",
+      "default": 50,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Rated power consumption of the machine during operation."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "salvage_less_than_purchase",
+        "condition": "salvage_value < purchase_price",
+        "message": "Salvage value must be less than purchase price."
+      },
+      {
+        "id": "positive_useful_life",
+        "condition": "useful_life_years > 0",
+        "message": "Useful life must be greater than zero."
+      },
+      {
+        "id": "defect_rate_less_than_100",
+        "condition": "quality_defect_rate + defect_rate_annual_increase * useful_life_years < 100",
+        "message": "Projected defect rate exceeds 100% within useful life."
+      },
+      {
+        "id": "utilization_range",
+        "condition": "utilization_rate >= 0 && utilization_rate <= 100",
+        "message": "Utilization rate must be between 0 and 100."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_operating_cost_alert",
+        "condition": "annual_operating_cost > 0.3 * purchase_price",
+        "message": "Annual operating cost exceeds 30% of purchase price; consider replacement."
+      },
+      {
+        "id": "low_utilization_alert",
+        "condition": "utilization_rate < 60",
+        "message": "Utilization rate below 60%; investigate root causes."
+      },
+      {
+        "id": "quality_degradation_alert",
+        "condition": "quality_defect_rate > 5",
+        "message": "Initial defect rate above 5%; Six Sigma DMAIC recommended."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "annual_operating_cost_year_n",
+      "name": "Annual Operating Cost for Year n",
+      "description": "Calculates operating cost for a given year n, accounting for escalation.",
+      "formula": "annual_operating_cost * (1 + operating_cost_escalation_rate / 100) ^ (n - 1)",
+      "variables": [
+        "annual_operating_cost",
+        "operating_cost_escalation_rate",
+        "n"
+      ]
+    },
+    {
+      "id": "annual_defect_cost",
+      "name": "Annual Defect Cost",
+      "description": "Cost of defects including rework, scrap, and lost revenue.",
+      "formula": "annual_production_units * (quality_defect_rate + defect_rate_annual_increase * (n - 1)) / 100 * (revenue_per_unit * 0.5)",
+      "variables": [
+        "annual_production_units",
+        "quality_defect_rate",
+        "defect_rate_annual_increase",
+        "n",
+        "revenue_per_unit"
+      ]
+    },
+    {
+      "id": "annual_energy_cost",
+      "name": "Annual Energy Cost",
+      "description": "Energy cost based on power consumption, utilization, and hours.",
+      "formula": "power_consumption_kw * 24 * 365 * (utilization_rate / 100) * energy_cost_per_kwh",
+      "variables": [
+        "power_consumption_kw",
+        "utilization_rate",
+        "energy_cost_per_kwh"
+      ]
+    },
+    {
+      "id": "total_annual_cost_year_n",
+      "name": "Total Annual Cost for Year n",
+      "description": "Sum of operating, defect, and energy costs for year n.",
+      "formula": "annual_operating_cost_year_n + annual_defect_cost + annual_energy_cost",
+      "variables": [
+        "annual_operating_cost_year_n",
+        "annual_defect_cost",
+        "annual_energy_cost"
+      ]
+    },
+    {
+      "id": "npv_of_costs",
+      "name": "Net Present Value of Total Costs",
+      "description": "Discounted sum of all annual costs over the useful life.",
+      "formula": "SUM_{n=1}^{useful_life_years} total_annual_cost_year_n / (1 + discount_rate / 100) ^ n",
+      "variables": [
+        "total_annual_cost_year_n",
+        "discount_rate",
+        "useful_life_years"
+      ]
+    },
+    {
+      "id": "economic_life",
+      "name": "Optimal Economic Life",
+      "description": "Year where the equivalent annual cost (EAC) is minimized, considering capital recovery.",
+      "formula": "MIN_{t=1}^{useful_life_years} ( (purchase_price - salvage_value / (1 + discount_rate/100)^t) * (discount_rate/100 * (1+discount_rate/100)^t) / ((1+discount_rate/100)^t - 1) + (npv_of_costs_t / t) )",
+      "variables": [
+        "purchase_price",
+        "salvage_value",
+        "discount_rate",
+        "npv_of_costs"
+      ]
+    },
+    {
+      "id": "primary_result",
+      "name": "Machine Economic Life (Years)",
+      "description": "The year at which the machine should be replaced to minimize total lifecycle cost.",
+      "formula": "economic_life",
+      "variables": [
+        "economic_life"
+      ]
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "optimal_economic_life",
+      "label": "Optimal Economic Life",
+      "value": null,
+      "unit": "years",
+      "description": "The recommended replacement year based on cost minimization."
+    },
+    "breakdown": {
+      "id": "cost_breakdown",
+      "label": "Cost Breakdown at Optimal Life",
+      "components": {
+        "capital_recovery_cost": {
+          "label": "Capital Recovery Cost",
+          "value": null,
+          "unit": "USD/year",
+          "description": "Annualized cost of initial investment minus salvage."
+        },
+        "average_annual_operating_cost": {
+          "label": "Average Annual Operating Cost",
+          "value": null,
+          "unit": "USD/year",
+          "description": "Mean operating cost over the economic life."
+        },
+        "average_annual_defect_cost": {
+          "label": "Average Annual Defect Cost",
+          "value": null,
+          "unit": "USD/year",
+          "description": "Mean defect-related cost over the economic life."
+        },
+        "average_annual_energy_cost": {
+          "label": "Average Annual Energy Cost",
+          "value": null,
+          "unit": "USD/year",
+          "description": "Mean energy cost over the economic life."
+        },
+        "total_equivalent_annual_cost": {
+          "label": "Total Equivalent Annual Cost",
+          "value": null,
+          "unit": "USD/year",
+          "description": "Sum of all annualized costs at the optimal life."
+        }
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "quality_degradation",
+        "label": "Quality Degradation",
+        "description": "Increasing defect rate over time leads to hidden rework and scrap costs.",
+        "impact": "high"
+      },
+      {
+        "id": "energy_inefficiency",
+        "label": "Energy Inefficiency",
+        "description": "Aging machines often consume more energy per unit produced.",
+        "impact": "medium"
+      },
+      {
+        "id": "maintenance_cost_escalation",
+        "label": "Maintenance Cost Escalation",
+        "description": "Reactive maintenance strategies cause exponential cost increases.",
+        "impact": "high"
+      },
+      {
+        "id": "opportunity_cost_of_downtime",
+        "label": "Opportunity Cost of Downtime",
+        "description": "Unplanned downtime reduces effective utilization and revenue.",
+        "impact": "medium"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "description": "Implement predictive maintenance using IoT sensors to reduce unplanned downtime.",
+        "priority": "high"
+      },
+      {
+        "id": "action_2",
+        "description": "Conduct a Six Sigma DMAIC project to reduce defect rate by 50%.",
+        "priority": "high"
+      },
+      {
+        "id": "action_3",
+        "description": "Evaluate energy-efficient upgrades or replacement if energy cost exceeds 20% of total cost.",
+        "priority": "medium"
+      },
+      {
+        "id": "action_4",
+        "description": "Perform a sensitivity analysis on discount rate and escalation rate to validate economic life.",
+        "priority": "medium"
+      },
+      {
+        "id": "action_5",
+        "description": "Benchmark machine OEE against industry standards (WERC/ISO 22400).",
+        "priority": "low"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "confidence_score",
+      "label": "Data Confidence Score",
+      "value": null,
+      "unit": "%",
+      "description": "Adjusted confidence based on input variability and data quality (0-100%)."
+    }
+  }
+}

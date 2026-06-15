@@ -1,0 +1,308 @@
+{
+  "slug": "supplier-currency-risk-calculator",
+  "title": "Supplier Currency Risk Calculator",
+  "version": "1.0.0",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario simulation",
+    "Automated alerting"
+  ],
+  "inputs": [
+    {
+      "id": "contract_value",
+      "label": "Contract Value (in base currency)",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "min": 10000,
+      "max": 1000000000,
+      "businessContext": "Total value of the supplier contract denominated in the base currency (e.g., USD)."
+    },
+    {
+      "id": "foreign_exposure_pct",
+      "label": "Foreign Currency Exposure (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of contract value exposed to foreign currency fluctuations."
+    },
+    {
+      "id": "volatility_annual",
+      "label": "Annual FX Volatility",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 1,
+      "max": 50,
+      "businessContext": "Expected annualized standard deviation of the foreign exchange rate, based on historical data or market consensus."
+    },
+    {
+      "id": "hedge_ratio",
+      "label": "Hedge Ratio (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of the foreign exposure that is hedged via forward contracts, options, or other instruments."
+    },
+    {
+      "id": "time_horizon_months",
+      "label": "Time Horizon (months)",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "min": 1,
+      "max": 60,
+      "businessContext": "Duration over which the currency risk is assessed, typically matching the contract payment schedule."
+    },
+    {
+      "id": "confidence_level",
+      "label": "Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "95",
+      "min": null,
+      "max": null,
+      "options": [
+        {
+          "value": "90",
+          "label": "90%"
+        },
+        {
+          "value": "95",
+          "label": "95%"
+        },
+        {
+          "value": "99",
+          "label": "99%"
+        }
+      ],
+      "businessContext": "Statistical confidence level for Value-at-Risk (VaR) calculation. Higher levels indicate more conservative risk estimates."
+    },
+    {
+      "id": "supplier_credit_rating",
+      "label": "Supplier Credit Rating (S&P equivalent)",
+      "type": "select",
+      "unit": "",
+      "default": "BBB",
+      "min": null,
+      "max": null,
+      "options": [
+        {
+          "value": "AAA",
+          "label": "AAA"
+        },
+        {
+          "value": "AA",
+          "label": "AA"
+        },
+        {
+          "value": "A",
+          "label": "A"
+        },
+        {
+          "value": "BBB",
+          "label": "BBB"
+        },
+        {
+          "value": "BB",
+          "label": "BB"
+        },
+        {
+          "value": "B",
+          "label": "B"
+        },
+        {
+          "value": "CCC",
+          "label": "CCC"
+        }
+      ],
+      "businessContext": "Credit rating of the supplier, used to adjust default probability and overall risk premium."
+    },
+    {
+      "id": "use_iso_31000",
+      "label": "Apply ISO 31000 Risk Management Framework",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "min": null,
+      "max": null,
+      "businessContext": "If enabled, the calculation incorporates ISO 31000 principles for risk identification, analysis, and evaluation."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_hedge_ratio_exposure",
+        "condition": "foreign_exposure_pct > 0 AND hedge_ratio > foreign_exposure_pct",
+        "message": "Hedge ratio cannot exceed foreign exposure percentage. Adjust hedge ratio."
+      },
+      {
+        "id": "rule_volatility_range",
+        "condition": "volatility_annual < 1 OR volatility_annual > 50",
+        "message": "Annual FX volatility must be between 1% and 50%."
+      },
+      {
+        "id": "rule_contract_value_min",
+        "condition": "contract_value < 10000",
+        "message": "Contract value must be at least 10,000 USD."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "alert_high_var",
+        "condition": "primary_result > 0.15 * contract_value",
+        "message": "Currency risk (VaR) exceeds 15% of contract value. Consider increasing hedge ratio or renegotiating terms."
+      },
+      {
+        "id": "alert_low_hedge",
+        "condition": "hedge_ratio < 50 AND foreign_exposure_pct > 30",
+        "message": "Hedge ratio is below 50% while foreign exposure exceeds 30%. Risk mitigation is insufficient."
+      },
+      {
+        "id": "alert_credit_downgrade",
+        "condition": "supplier_credit_rating IN ['BB','B','CCC']",
+        "message": "Supplier credit rating is below investment grade. Consider requiring advance payments or credit insurance."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "exposed_amount",
+      "label": "Exposed Amount",
+      "description": "Monetary value subject to currency fluctuation.",
+      "formula": "contract_value * (foreign_exposure_pct / 100)",
+      "unit": "USD"
+    },
+    {
+      "id": "unhedged_exposure",
+      "label": "Unhedged Exposure",
+      "description": "Portion of exposed amount not covered by hedging.",
+      "formula": "exposed_amount * (1 - hedge_ratio / 100)",
+      "unit": "USD"
+    },
+    {
+      "id": "var_factor",
+      "label": "VaR Factor",
+      "description": "Z-score corresponding to the selected confidence level (normal distribution assumption).",
+      "formula": "CASE confidence_level WHEN '90' THEN 1.282 WHEN '95' THEN 1.645 WHEN '99' THEN 2.326 ELSE 1.645 END",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "time_adjusted_volatility",
+      "label": "Time-Adjusted Volatility",
+      "description": "Volatility scaled to the time horizon using square-root-of-time rule (consistent with ISO 31000 and Basel II).",
+      "formula": "volatility_annual / 100 * SQRT(time_horizon_months / 12)",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "var_unhedged",
+      "label": "Value-at-Risk (Unhedged)",
+      "description": "Maximum expected loss over the time horizon at the given confidence level, assuming no hedging.",
+      "formula": "unhedged_exposure * var_factor * time_adjusted_volatility",
+      "unit": "USD"
+    },
+    {
+      "id": "credit_risk_premium",
+      "label": "Credit Risk Premium",
+      "description": "Additional risk factor based on supplier credit rating (mapping to default probability).",
+      "formula": "CASE supplier_credit_rating WHEN 'AAA' THEN 0.001 WHEN 'AA' THEN 0.003 WHEN 'A' THEN 0.005 WHEN 'BBB' THEN 0.01 WHEN 'BB' THEN 0.02 WHEN 'B' THEN 0.04 WHEN 'CCC' THEN 0.08 ELSE 0.01 END",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "primary_result",
+      "label": "Total Currency Risk (VaR adjusted)",
+      "description": "Primary output: total expected loss including credit risk premium, adjusted for ISO 31000 framework if enabled.",
+      "formula": "var_unhedged * (1 + credit_risk_premium) * (1 + CASE WHEN use_iso_31000 THEN 0.05 ELSE 0 END)",
+      "unit": "USD"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "primary_result",
+      "label": "Total Currency Risk (VaR adjusted)",
+      "unit": "USD",
+      "description": "Primary risk metric combining market and credit risk, with optional ISO 31000 adjustment."
+    },
+    "breakdown": {
+      "exposed_amount": {
+        "id": "exposed_amount",
+        "label": "Exposed Amount",
+        "unit": "USD"
+      },
+      "unhedged_exposure": {
+        "id": "unhedged_exposure",
+        "label": "Unhedged Exposure",
+        "unit": "USD"
+      },
+      "var_unhedged": {
+        "id": "var_unhedged",
+        "label": "Value-at-Risk (Unhedged)",
+        "unit": "USD"
+      },
+      "credit_risk_premium": {
+        "id": "credit_risk_premium",
+        "label": "Credit Risk Premium",
+        "unit": "dimensionless"
+      },
+      "time_adjusted_volatility": {
+        "id": "time_adjusted_volatility",
+        "label": "Time-Adjusted Volatility",
+        "unit": "dimensionless"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "driver_1",
+        "label": "Basis Risk from Imperfect Hedging",
+        "description": "Difference between hedge instrument and actual exposure may cause residual loss.",
+        "estimatedImpact": "Up to 5% of unhedged exposure"
+      },
+      {
+        "id": "driver_2",
+        "label": "Liquidity Risk in Illiquid Currency Pairs",
+        "description": "Wider bid-ask spreads during stress periods increase transaction costs.",
+        "estimatedImpact": "0.5-2% of contract value"
+      },
+      {
+        "id": "driver_3",
+        "label": "Operational Risk (Settlement Delays)",
+        "description": "Delays in payment or documentation can shift effective exchange rates.",
+        "estimatedImpact": "0.1-1% of contract value"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "label": "Increase Hedge Ratio",
+        "description": "Raise hedge ratio to at least 80% to reduce unhedged exposure and VaR.",
+        "priority": "high"
+      },
+      {
+        "id": "action_2",
+        "label": "Diversify Currency Exposure",
+        "description": "Negotiate partial invoicing in base currency to lower foreign exposure percentage.",
+        "priority": "medium"
+      },
+      {
+        "id": "action_3",
+        "label": "Implement Rolling Hedges",
+        "description": "Use short-term forwards rolled over to match payment schedule, reducing time-adjusted volatility.",
+        "priority": "medium"
+      },
+      {
+        "id": "action_4",
+        "label": "Request Credit Insurance",
+        "description": "Obtain trade credit insurance to mitigate supplier default risk, especially for sub-investment-grade ratings.",
+        "priority": "high"
+      }
+    ],
+    "dataConfidenceAdjusted": 0.85
+  }
+}

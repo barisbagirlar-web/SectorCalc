@@ -1,0 +1,321 @@
+{
+  "slug": "freight-cost-calculator",
+  "meta": {
+    "name": "Freight Cost Calculator",
+    "version": "1.0.0",
+    "description": "Industrial-grade freight cost analysis tool incorporating ISO 9001, Lean, Six Sigma, and WERC standards for total landed cost, waste identification, and continuous improvement.",
+    "premiumRequired": true,
+    "premiumFeatures": [
+      "PDF export",
+      "CSV export",
+      "Trend analysis",
+      "Benchmarking against industry standards",
+      "Real-time carrier rate integration"
+    ]
+  },
+  "inputs": [
+    {
+      "id": "shipment_weight_kg",
+      "label": "Shipment Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "min": 0,
+      "max": 50000,
+      "businessContext": "Total weight of the shipment, including packaging. Used for rate base and dimensional weight calculations."
+    },
+    {
+      "id": "shipment_volume_cbm",
+      "label": "Shipment Volume (cbm)",
+      "type": "number",
+      "unit": "cbm",
+      "default": 1,
+      "min": 0,
+      "max": 200,
+      "businessContext": "Total cubic meters of the shipment. Used for dimensional weight factor and space utilization analysis."
+    },
+    {
+      "id": "distance_km",
+      "label": "Distance (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 500,
+      "min": 0,
+      "max": 20000,
+      "businessContext": "Total transport distance from origin to destination. Influences fuel surcharge and time-based costs."
+    },
+    {
+      "id": "transport_mode",
+      "label": "Transport Mode",
+      "type": "select",
+      "unit": "",
+      "default": "FTL",
+      "options": [
+        "FTL",
+        "LTL",
+        "Air",
+        "Rail",
+        "Ocean"
+      ],
+      "businessContext": "Mode of transport. Each mode has distinct cost structures, risk profiles, and carbon impact."
+    },
+    {
+      "id": "fuel_surcharge_percent",
+      "label": "Fuel Surcharge (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Percentage applied to base freight rate to account for fuel price variability. Typically indexed to DOE or IATA."
+    },
+    {
+      "id": "accessorial_charges_usd",
+      "label": "Accessorial Charges (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "min": 0,
+      "max": 5000,
+      "businessContext": "Additional fees for liftgate, residential delivery, inside delivery, detention, etc."
+    },
+    {
+      "id": "density_factor",
+      "label": "Density Factor (kg/cbm)",
+      "type": "number",
+      "unit": "kg/cbm",
+      "default": 100,
+      "min": 10,
+      "max": 5000,
+      "businessContext": "Actual density of the shipment. Used to compare against breakpoints for LTL class or airfreight chargeable weight."
+    },
+    {
+      "id": "is_hazardous",
+      "label": "Hazardous Material",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "businessContext": "Indicates if shipment contains dangerous goods. Triggers additional compliance and handling fees."
+    },
+    {
+      "id": "is_expedited",
+      "label": "Expedited Service",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "businessContext": "If true, applies a premium multiplier for time-definite delivery."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "weight_volume_consistency",
+        "condition": "shipment_weight_kg > 0 AND shipment_volume_cbm > 0",
+        "message": "Both weight and volume must be positive for dimensional weight calculation."
+      },
+      {
+        "id": "density_range",
+        "condition": "density_factor >= 10 AND density_factor <= 5000",
+        "message": "Density factor must be between 10 and 5000 kg/cbm."
+      },
+      {
+        "id": "mode_distance_compatibility",
+        "condition": "transport_mode == 'Air' AND distance_km > 3000",
+        "message": "Air freight recommended for distances > 3000 km. Consider ocean for cost efficiency."
+      },
+      {
+        "id": "hazardous_air_restriction",
+        "condition": "is_hazardous == true AND transport_mode == 'Air'",
+        "message": "Hazardous materials by air require IATA DGR compliance and may be restricted."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_fuel_surcharge",
+        "condition": "fuel_surcharge_percent > 25",
+        "severity": "warning",
+        "message": "Fuel surcharge exceeds 25% — consider fuel hedging or modal shift."
+      },
+      {
+        "id": "low_density_alert",
+        "condition": "density_factor < 50",
+        "severity": "alert",
+        "message": "Low density shipment — potential for dimensional weight penalty. Re-evaluate packaging."
+      },
+      {
+        "id": "excessive_accessorial",
+        "condition": "accessorial_charges_usd > 500",
+        "severity": "warning",
+        "message": "Accessorial charges > $500 — audit for unnecessary services."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "dimensional_weight",
+      "name": "Dimensional Weight (kg)",
+      "description": "Chargeable weight based on volume and a standard divisor (ISO/ IATA).",
+      "formula": "ROUND(shipment_volume_cbm * 167, 1)",
+      "unit": "kg",
+      "order": 1
+    },
+    {
+      "id": "chargeable_weight",
+      "name": "Chargeable Weight (kg)",
+      "description": "The greater of actual weight and dimensional weight (Six Sigma: CTQ metric).",
+      "formula": "MAX(shipment_weight_kg, dimensional_weight)",
+      "unit": "kg",
+      "order": 2
+    },
+    {
+      "id": "base_freight_rate",
+      "name": "Base Freight Rate (USD/kg)",
+      "description": "Rate per kg based on transport mode and distance (WERC benchmarking).",
+      "formula": "CASE transport_mode WHEN 'FTL' THEN 0.12 WHEN 'LTL' THEN 0.25 WHEN 'Air' THEN 2.50 WHEN 'Rail' THEN 0.08 WHEN 'Ocean' THEN 0.04 ELSE 0.15 END",
+      "unit": "USD/kg",
+      "order": 3
+    },
+    {
+      "id": "fuel_surcharge_amount",
+      "name": "Fuel Surcharge Amount (USD)",
+      "description": "Fuel surcharge applied to base freight cost.",
+      "formula": "ROUND(base_freight_cost * (fuel_surcharge_percent / 100), 2)",
+      "unit": "USD",
+      "order": 4
+    },
+    {
+      "id": "hazardous_premium",
+      "name": "Hazardous Material Premium (USD)",
+      "description": "Additional fee for hazardous goods handling (Lean: waste of non-value-add compliance).",
+      "formula": "IF(is_hazardous == true, chargeable_weight * 0.10, 0)",
+      "unit": "USD",
+      "order": 5
+    },
+    {
+      "id": "expedite_multiplier",
+      "name": "Expedite Multiplier",
+      "description": "Premium for expedited service (time-based cost driver).",
+      "formula": "IF(is_expedited == true, 1.5, 1.0)",
+      "unit": "factor",
+      "order": 6
+    },
+    {
+      "id": "total_freight_cost",
+      "name": "Total Freight Cost (USD)",
+      "description": "Primary result: total landed freight cost including all surcharges and accessorials.",
+      "formula": "ROUND((base_freight_cost + fuel_surcharge_amount + hazardous_premium + accessorial_charges_usd) * expedite_multiplier, 2)",
+      "unit": "USD",
+      "order": 7
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_freight_cost",
+      "label": "Total Freight Cost",
+      "value": null,
+      "unit": "USD",
+      "confidenceInterval": null
+    },
+    "breakdown": {
+      "base_freight_cost": {
+        "id": "base_freight_cost",
+        "label": "Base Freight Cost",
+        "value": null,
+        "unit": "USD",
+        "formulaRef": "base_freight_cost"
+      },
+      "fuel_surcharge_amount": {
+        "id": "fuel_surcharge_amount",
+        "label": "Fuel Surcharge",
+        "value": null,
+        "unit": "USD",
+        "formulaRef": "fuel_surcharge_amount"
+      },
+      "hazardous_premium": {
+        "id": "hazardous_premium",
+        "label": "Hazardous Premium",
+        "value": null,
+        "unit": "USD",
+        "formulaRef": "hazardous_premium"
+      },
+      "accessorial_charges_usd": {
+        "id": "accessorial_charges_usd",
+        "label": "Accessorial Charges",
+        "value": null,
+        "unit": "USD",
+        "formulaRef": "accessorial_charges_usd"
+      },
+      "expedite_multiplier": {
+        "id": "expedite_multiplier",
+        "label": "Expedite Multiplier",
+        "value": null,
+        "unit": "factor",
+        "formulaRef": "expedite_multiplier"
+      },
+      "chargeable_weight": {
+        "id": "chargeable_weight",
+        "label": "Chargeable Weight",
+        "value": null,
+        "unit": "kg",
+        "formulaRef": "chargeable_weight"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "empty_miles_factor",
+        "label": "Empty Miles Factor",
+        "description": "Estimated percentage of empty return miles (Lean Muda: transportation waste).",
+        "value": 0.15,
+        "unit": "ratio",
+        "impact": "Increases cost per kg by up to 15% if not backhauled."
+      },
+      {
+        "id": "dwell_time_hours",
+        "label": "Dwell Time (hours)",
+        "description": "Average time spent at loading/unloading beyond free time (Six Sigma: cycle time waste).",
+        "value": 2.5,
+        "unit": "hours",
+        "impact": "Detention charges and reduced asset utilization."
+      },
+      {
+        "id": "packaging_inefficiency",
+        "label": "Packaging Inefficiency",
+        "description": "Ratio of void fill to product volume (Lean: overprocessing waste).",
+        "value": 0.2,
+        "unit": "ratio",
+        "impact": "Increases dimensional weight and material cost."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_consolidate",
+        "label": "Consolidate Shipments",
+        "description": "Combine LTL shipments to achieve FTL rates. Potential savings: 20-30%.",
+        "expectedImpact": "Reduce base freight rate per kg.",
+        "effort": "Medium"
+      },
+      {
+        "id": "action_optimize_packaging",
+        "label": "Optimize Packaging Density",
+        "description": "Reduce void fill to increase density factor above 100 kg/cbm. Avoids dimensional weight penalties.",
+        "expectedImpact": "Lower chargeable weight by up to 40%.",
+        "effort": "Low"
+      },
+      {
+        "id": "action_audit_accessorials",
+        "label": "Audit Accessorial Charges",
+        "description": "Review accessorial fees for errors or unnecessary services. Implement Lean Kaizen.",
+        "expectedImpact": "Reduce accessorial costs by 10-15%.",
+        "effort": "Low"
+      },
+      {
+        "id": "action_modal_shift",
+        "label": "Evaluate Modal Shift",
+        "description": "For distances > 1000 km, consider intermodal rail to reduce cost and carbon footprint.",
+        "expectedImpact": "Reduce total cost by 15-25%.",
+        "effort": "High"
+      }
+    ],
+    "dataConfidenceAdjusted": 0.92
+  }
+}

@@ -1,0 +1,382 @@
+{
+  "slug": "muda-waste-cost-calculator",
+  "title": "Muda Waste Cost Calculator",
+  "description": "Calculates the total cost of waste (Muda) in industrial processes based on Lean and Six Sigma principles, identifying hidden loss drivers and suggesting corrective actions.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-site comparison",
+    "Custom threshold configuration"
+  ],
+  "inputs": [
+    {
+      "id": "material_cost_per_unit",
+      "label": "Material Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 0.5,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Direct material cost per unit of product, including raw materials and purchased components."
+    },
+    {
+      "id": "labor_cost_per_hour",
+      "label": "Labor Cost per Hour",
+      "type": "number",
+      "unit": "USD",
+      "default": 25,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Average fully burdened labor cost per hour for direct operators."
+    },
+    {
+      "id": "overhead_rate",
+      "label": "Overhead Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 150,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Percentage of direct labor cost allocated to manufacturing overhead (ISO 9001 cost accounting)."
+    },
+    {
+      "id": "defect_rate",
+      "label": "Defect Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of units produced that are defective and require rework or scrap (Six Sigma DPMO metric)."
+    },
+    {
+      "id": "rework_time_per_unit",
+      "label": "Rework Time per Unit",
+      "type": "number",
+      "unit": "hours",
+      "default": 0.25,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Average time spent reworking a defective unit."
+    },
+    {
+      "id": "scrap_rate",
+      "label": "Scrap Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of defective units that are scrapped (cannot be reworked)."
+    },
+    {
+      "id": "waiting_time_per_unit",
+      "label": "Waiting Time per Unit",
+      "type": "number",
+      "unit": "hours",
+      "default": 0.1,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Average idle time per unit due to bottlenecks, material shortages, or equipment downtime (Lean Takt time analysis)."
+    },
+    {
+      "id": "excess_motion_cost_per_unit",
+      "label": "Excess Motion Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 0.05,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Cost of unnecessary worker movement (walking, reaching) per unit, based on time-motion studies."
+    },
+    {
+      "id": "inventory_holding_cost_per_unit",
+      "label": "Inventory Holding Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 0.2,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Cost of holding one unit in inventory per year (WERC DC Metrics)."
+    },
+    {
+      "id": "overproduction_quantity",
+      "label": "Overproduction Quantity",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Number of units produced beyond customer demand (Muda of overproduction)."
+    },
+    {
+      "id": "transportation_cost_per_unit",
+      "label": "Transportation Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 0.1,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Cost of moving materials or products between processes (Lean waste of transportation)."
+    },
+    {
+      "id": "processing_waste_per_unit",
+      "label": "Processing Waste per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 0.15,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Cost of unnecessary processing steps or non-value-added operations."
+    },
+    {
+      "id": "production_volume",
+      "label": "Production Volume",
+      "type": "number",
+      "unit": "units",
+      "default": 10000,
+      "min": 1,
+      "max": 100000000,
+      "businessContext": "Total number of units produced in the analysis period."
+    },
+    {
+      "id": "shift_hours_per_day",
+      "label": "Shift Hours per Day",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "min": 1,
+      "max": 24,
+      "businessContext": "Number of operating hours per shift."
+    },
+    {
+      "id": "working_days_per_year",
+      "label": "Working Days per Year",
+      "type": "number",
+      "unit": "days",
+      "default": 250,
+      "min": 1,
+      "max": 365,
+      "businessContext": "Number of working days per year."
+    },
+    {
+      "id": "industry_type",
+      "label": "Industry Type",
+      "type": "select",
+      "options": [
+        "Automotive",
+        "Electronics",
+        "Pharmaceutical",
+        "Food & Beverage",
+        "Logistics",
+        "General Manufacturing"
+      ],
+      "default": "General Manufacturing",
+      "businessContext": "Industry sector for benchmarking and threshold adjustment."
+    },
+    {
+      "id": "include_hidden_losses",
+      "label": "Include Hidden Losses",
+      "type": "boolean",
+      "default": true,
+      "businessContext": "If true, includes intangible losses such as lost opportunity cost and brand damage."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "defect_rate_consistency",
+        "condition": "defect_rate >= scrap_rate",
+        "message": "Defect rate must be greater than or equal to scrap rate."
+      },
+      {
+        "id": "rework_time_positive",
+        "condition": "rework_time_per_unit >= 0",
+        "message": "Rework time must be non-negative."
+      },
+      {
+        "id": "overhead_rate_range",
+        "condition": "overhead_rate >= 0 && overhead_rate <= 500",
+        "message": "Overhead rate must be between 0% and 500%."
+      },
+      {
+        "id": "production_volume_positive",
+        "condition": "production_volume > 0",
+        "message": "Production volume must be greater than zero."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_defect_cost",
+        "condition": "defect_cost > 50000",
+        "alert": "Defect cost exceeds $50,000. Immediate Six Sigma DMAIC intervention recommended.",
+        "severity": "critical"
+      },
+      {
+        "id": "high_waiting_cost",
+        "condition": "waiting_cost > 20000",
+        "alert": "Waiting cost exceeds $20,000. Consider value stream mapping and Takt time adjustment.",
+        "severity": "warning"
+      },
+      {
+        "id": "excessive_overproduction",
+        "condition": "overproduction_cost > 100000",
+        "alert": "Overproduction cost exceeds $100,000. Implement pull system (Kanban).",
+        "severity": "critical"
+      },
+      {
+        "id": "low_data_confidence",
+        "condition": "dataConfidenceAdjusted < 0.6",
+        "alert": "Data confidence is low. Verify input accuracy and consider data collection improvement.",
+        "severity": "info"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "defect_cost",
+      "label": "Defect Cost",
+      "description": "Total cost of defects including rework labor, material, and overhead.",
+      "formula": "production_volume * (defect_rate/100) * ( (rework_time_per_unit * labor_cost_per_hour * (1 + overhead_rate/100)) + (scrap_rate/100 * material_cost_per_unit) )",
+      "unit": "USD"
+    },
+    {
+      "id": "waiting_cost",
+      "label": "Waiting Cost",
+      "description": "Cost of idle time due to waiting (bottlenecks, shortages).",
+      "formula": "production_volume * waiting_time_per_unit * labor_cost_per_hour * (1 + overhead_rate/100)",
+      "unit": "USD"
+    },
+    {
+      "id": "overproduction_cost",
+      "label": "Overproduction Cost",
+      "description": "Cost of producing beyond demand, including material, labor, and holding.",
+      "formula": "overproduction_quantity * (material_cost_per_unit + labor_cost_per_hour * (1 + overhead_rate/100) * (shift_hours_per_day / production_volume) + inventory_holding_cost_per_unit)",
+      "unit": "USD"
+    },
+    {
+      "id": "motion_transport_processing_cost",
+      "label": "Motion, Transport & Processing Waste Cost",
+      "description": "Aggregated cost of excess motion, transportation, and non-value-added processing.",
+      "formula": "production_volume * (excess_motion_cost_per_unit + transportation_cost_per_unit + processing_waste_per_unit)",
+      "unit": "USD"
+    },
+    {
+      "id": "inventory_waste_cost",
+      "label": "Inventory Waste Cost",
+      "description": "Cost of excess inventory holding (WIP and finished goods).",
+      "formula": "production_volume * inventory_holding_cost_per_unit * (1 + defect_rate/100)",
+      "unit": "USD"
+    },
+    {
+      "id": "hidden_losses",
+      "label": "Hidden Losses",
+      "description": "Intangible costs such as lost sales, brand damage, and opportunity cost (only if include_hidden_losses is true).",
+      "formula": "include_hidden_losses ? (defect_cost * 0.15 + waiting_cost * 0.1 + overproduction_cost * 0.2) : 0",
+      "unit": "USD"
+    },
+    {
+      "id": "total_waste_cost",
+      "label": "Total Waste Cost (Primary Result)",
+      "description": "Sum of all identified waste costs, adjusted for data confidence.",
+      "formula": "(defect_cost + waiting_cost + overproduction_cost + motion_transport_processing_cost + inventory_waste_cost + hidden_losses) * dataConfidenceAdjusted",
+      "unit": "USD",
+      "isPrimary": true
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_waste_cost",
+      "label": "Total Waste Cost",
+      "unit": "USD",
+      "description": "Annualized total cost of Muda (waste) in the process."
+    },
+    "breakdown": {
+      "defect_cost": {
+        "label": "Defect Cost",
+        "unit": "USD"
+      },
+      "waiting_cost": {
+        "label": "Waiting Cost",
+        "unit": "USD"
+      },
+      "overproduction_cost": {
+        "label": "Overproduction Cost",
+        "unit": "USD"
+      },
+      "motion_transport_processing_cost": {
+        "label": "Motion, Transport & Processing Waste Cost",
+        "unit": "USD"
+      },
+      "inventory_waste_cost": {
+        "label": "Inventory Waste Cost",
+        "unit": "USD"
+      },
+      "hidden_losses": {
+        "label": "Hidden Losses",
+        "unit": "USD"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "lost_opportunity_cost",
+        "label": "Lost Opportunity Cost",
+        "description": "Revenue lost due to defects and delays (estimated as 10% of defect + waiting cost).",
+        "value": "0.1 * (defect_cost + waiting_cost)"
+      },
+      {
+        "id": "brand_impact_cost",
+        "label": "Brand Impact Cost",
+        "description": "Estimated cost of reputation damage from poor quality (5% of total waste).",
+        "value": "0.05 * total_waste_cost"
+      },
+      {
+        "id": "employee_morale_cost",
+        "label": "Employee Morale Cost",
+        "description": "Cost of reduced productivity due to frustration from waste (3% of labor cost).",
+        "value": "0.03 * production_volume * labor_cost_per_hour * (shift_hours_per_day / production_volume)"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_defects",
+        "action": "Implement Statistical Process Control (SPC) and root cause analysis (5 Whys) to reduce defect rate.",
+        "expectedImpact": "Reduces defect cost by up to 40%.",
+        "priority": "high"
+      },
+      {
+        "id": "reduce_waiting",
+        "action": "Conduct value stream mapping to identify bottlenecks and implement Takt time balancing.",
+        "expectedImpact": "Reduces waiting cost by up to 30%.",
+        "priority": "high"
+      },
+      {
+        "id": "eliminate_overproduction",
+        "action": "Switch to a pull-based Kanban system and reduce batch sizes.",
+        "expectedImpact": "Eliminates overproduction cost entirely.",
+        "priority": "critical"
+      },
+      {
+        "id": "optimize_motion",
+        "action": "Redesign workstations using 5S and ergonomic principles to reduce excess motion.",
+        "expectedImpact": "Reduces motion cost by up to 20%.",
+        "priority": "medium"
+      },
+      {
+        "id": "reduce_inventory",
+        "action": "Implement Just-In-Time (JIT) delivery and reduce safety stock levels.",
+        "expectedImpact": "Reduces inventory holding cost by up to 25%.",
+        "priority": "medium"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_factor",
+      "label": "Data Confidence Factor",
+      "description": "Adjusts total waste cost based on input data reliability (0.7 to 1.0). Calculated from completeness and consistency of inputs.",
+      "value": 0.85,
+      "unit": "dimensionless"
+    }
+  }
+}

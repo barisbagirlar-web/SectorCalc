@@ -1,0 +1,181 @@
+{
+  "slug": "currency-risk-calculator",
+  "title": "Currency Risk Calculator",
+  "description": "Industrial-grade tool for assessing foreign exchange exposure and quantifying potential financial impact using ISO 31000, Lean, and Six Sigma principles.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Monte Carlo simulation",
+    "Multi-currency portfolio optimization"
+  ],
+  "inputs": [
+    {
+      "id": "exposure_amount",
+      "label": "Exposure Amount (in base currency)",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "min": 1000,
+      "max": 1000000000,
+      "businessContext": "Total value of foreign currency receivables or payables subject to exchange rate fluctuation."
+    },
+    {
+      "id": "volatility_annual",
+      "label": "Annualized Volatility of Exchange Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 8.5,
+      "min": 0.5,
+      "max": 50,
+      "businessContext": "Historical or implied standard deviation of daily log returns annualized (ISO 31000 risk metric)."
+    },
+    {
+      "id": "confidence_level",
+      "label": "Confidence Level for VaR Calculation",
+      "type": "select",
+      "unit": "",
+      "default": "95",
+      "min": null,
+      "max": null,
+      "businessContext": "Statistical confidence level used in Value at Risk (VaR) estimation, typical values 90%, 95%, 99%.",
+      "options": [
+        "90",
+        "95",
+        "99"
+      ]
+    },
+    {
+      "id": "hedge_ratio",
+      "label": "Hedge Ratio",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of exposure covered by hedging instruments (forwards, options). Lean metric for waste reduction."
+    },
+    {
+      "id": "time_horizon_days",
+      "label": "Time Horizon (days)",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "min": 1,
+      "max": 365,
+      "businessContext": "Risk assessment period aligned with business planning cycles (WERC supply chain standard)."
+    },
+    {
+      "id": "enable_lean_adjustment",
+      "label": "Enable Lean Volatility Adjustment",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "min": null,
+      "max": null,
+      "businessContext": "Applies a Six Sigma-based correction factor to account for process variation in hedging execution."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "exposure_positive",
+        "condition": "exposure_amount >= 1000",
+        "message": "Exposure amount must be at least 1,000 USD."
+      },
+      {
+        "id": "volatility_range",
+        "condition": "volatility_annual >= 0.5 AND volatility_annual <= 50",
+        "message": "Annualized volatility must be between 0.5% and 50%."
+      },
+      {
+        "id": "hedge_ratio_range",
+        "condition": "hedge_ratio >= 0 AND hedge_ratio <= 100",
+        "message": "Hedge ratio must be between 0% and 100%."
+      },
+      {
+        "id": "time_horizon_valid",
+        "condition": "time_horizon_days >= 1 AND time_horizon_days <= 365",
+        "message": "Time horizon must be between 1 and 365 days."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "var_alert",
+        "condition": "primaryResult > 0.05 * exposure_amount",
+        "message": "Value at Risk exceeds 5% of exposure – consider increasing hedge ratio."
+      },
+      {
+        "id": "volatility_alert",
+        "condition": "volatility_annual > 20",
+        "message": "Volatility is above 20% – high risk environment, review hedging strategy."
+      },
+      {
+        "id": "hedge_inefficiency",
+        "condition": "hedge_ratio < 30",
+        "message": "Hedge ratio below 30% – significant unhedged exposure, potential for large losses."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "daily_volatility",
+      "description": "Convert annualized volatility to daily volatility using square root of time (ISO 31000).",
+      "expression": "volatility_annual / 100 / sqrt(252)"
+    },
+    {
+      "id": "z_score",
+      "description": "Z-score corresponding to the selected confidence level (normal distribution).",
+      "expression": "switch(confidence_level, '90', 1.2816, '95', 1.6449, '99', 2.3263, 1.6449)"
+    },
+    {
+      "id": "lean_adjustment_factor",
+      "description": "Six Sigma based correction for process variation (if enabled).",
+      "expression": "enable_lean_adjustment ? 1.0 + (0.1 * (1 - hedge_ratio/100)) : 1.0"
+    },
+    {
+      "id": "value_at_risk",
+      "description": "Value at Risk (VaR) over the time horizon, adjusted for lean factor.",
+      "expression": "exposure_amount * (1 - exp(-z_score * daily_volatility * sqrt(time_horizon_days) * lean_adjustment_factor))"
+    },
+    {
+      "id": "expected_shortfall",
+      "description": "Expected Shortfall (CVaR) – average loss beyond VaR (tail risk).",
+      "expression": "value_at_risk * (1 + 0.2 * (1 - hedge_ratio/100))"
+    },
+    {
+      "id": "hedge_effectiveness",
+      "description": "Effectiveness of hedging based on hedge ratio (Lean metric).",
+      "expression": "hedge_ratio / 100 * (1 - daily_volatility * 0.5)"
+    },
+    {
+      "id": "primaryResult",
+      "description": "Primary risk metric – weighted combination of VaR and Expected Shortfall, adjusted for confidence.",
+      "expression": "0.6 * value_at_risk + 0.4 * expected_shortfall"
+    }
+  ],
+  "outputs": {
+    "primary": "primaryResult",
+    "breakdown": {
+      "valueAtRisk": "value_at_risk",
+      "expectedShortfall": "expected_shortfall",
+      "hedgeEffectiveness": "hedge_effectiveness",
+      "dailyVolatility": "daily_volatility",
+      "zScore": "z_score"
+    },
+    "hiddenLossDrivers": [
+      "Unhedged residual exposure (1 - hedge_ratio) * exposure_amount",
+      "Volatility clustering – potential regime shift not captured by constant volatility",
+      "Basis risk between spot and forward rates",
+      "Liquidity risk in exotic currency pairs"
+    ],
+    "suggestedActions": [
+      "Increase hedge ratio to at least 70% to reduce tail risk",
+      "Implement rolling hedge program to smooth execution costs",
+      "Use options collar strategy to limit downside while retaining upside",
+      "Monitor macroeconomic indicators (interest rate differentials, trade balances)"
+    ],
+    "dataConfidenceAdjusted": 0.85
+  }
+}

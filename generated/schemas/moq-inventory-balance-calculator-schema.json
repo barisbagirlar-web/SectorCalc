@@ -1,0 +1,381 @@
+{
+  "slug": "moq-inventory-balance-calculator",
+  "name": "MOQ Inventory Balance Calculator",
+  "description": "Industrial-grade tool to calculate optimal inventory balance considering Minimum Order Quantities (MOQ), demand variability, and cost trade-offs. Aligns with Lean, Six Sigma, and WERC DC metrics.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-warehouse simulation",
+    "Supplier lead time variability analysis"
+  ],
+  "inputs": [
+    {
+      "id": "annual_demand",
+      "label": "Annual Demand (units)",
+      "type": "number",
+      "unit": "units/year",
+      "default": 10000,
+      "min": 1,
+      "max": 10000000,
+      "businessContext": "Total forecasted demand for the SKU over one year. Used to calculate order frequency and cycle stock."
+    },
+    {
+      "id": "ordering_cost",
+      "label": "Ordering Cost per Order ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 50,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Fixed cost per purchase order (setup, administrative, freight). Influences EOQ and total logistics cost."
+    },
+    {
+      "id": "holding_cost_per_unit",
+      "label": "Holding Cost per Unit per Year ($)",
+      "type": "number",
+      "unit": "$/unit/year",
+      "default": 2.5,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Cost to hold one unit in inventory for one year (storage, insurance, obsolescence). Key for inventory carrying cost."
+    },
+    {
+      "id": "unit_cost",
+      "label": "Unit Cost ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 15,
+      "min": 0.01,
+      "max": 100000,
+      "businessContext": "Purchase cost per unit from supplier. Used in total cost calculations and MOQ financial impact."
+    },
+    {
+      "id": "moq",
+      "label": "Minimum Order Quantity (units)",
+      "type": "number",
+      "unit": "units",
+      "default": 500,
+      "min": 1,
+      "max": 1000000,
+      "businessContext": "Supplier-imposed minimum batch size. If EOQ < MOQ, order quantity must be adjusted upward, increasing holding cost."
+    },
+    {
+      "id": "lead_time_days",
+      "label": "Lead Time (days)",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "min": 1,
+      "max": 365,
+      "businessContext": "Time from order placement to receipt. Used for safety stock calculation and reorder point."
+    },
+    {
+      "id": "demand_std_dev",
+      "label": "Demand Standard Deviation (units/day)",
+      "type": "number",
+      "unit": "units/day",
+      "default": 10,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Daily demand variability. Critical for safety stock under Six Sigma service levels."
+    },
+    {
+      "id": "service_level",
+      "label": "Service Level (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "min": 50,
+      "max": 99.99,
+      "businessContext": "Desired probability of not stocking out during lead time. Used to derive z-score for safety stock."
+    },
+    {
+      "id": "days_per_year",
+      "label": "Operating Days per Year",
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "min": 1,
+      "max": 365,
+      "businessContext": "Number of days the facility operates. Converts annual demand to daily demand."
+    },
+    {
+      "id": "storage_capacity",
+      "label": "Storage Capacity (units)",
+      "type": "number",
+      "unit": "units",
+      "default": 2000,
+      "min": 1,
+      "max": 10000000,
+      "businessContext": "Maximum inventory the warehouse can physically hold. Constraint for feasible order quantity."
+    },
+    {
+      "id": "backorder_cost_per_unit",
+      "label": "Backorder Cost per Unit ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 5,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Cost per unit of unmet demand (lost sales, penalty, expediting). Used in total cost trade-off."
+    },
+    {
+      "id": "supplier_reliability",
+      "label": "Supplier Reliability Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.95,
+      "min": 0.5,
+      "max": 1,
+      "businessContext": "Probability that supplier delivers on time. Adjusts safety stock for lead time variability (Lean JIT)."
+    },
+    {
+      "id": "inventory_policy",
+      "label": "Inventory Policy",
+      "type": "select",
+      "options": [
+        "continuous_review",
+        "periodic_review"
+      ],
+      "default": "continuous_review",
+      "businessContext": "Review method: continuous (Q,R) or periodic (P,T). Affects safety stock formula."
+    },
+    {
+      "id": "use_moq_override",
+      "label": "Force MOQ Compliance",
+      "type": "boolean",
+      "default": true,
+      "businessContext": "If true, order quantity is rounded up to MOQ when EOQ < MOQ. If false, EOQ is used even if below MOQ (may violate supplier terms)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "moq_less_than_capacity",
+        "condition": "moq <= storage_capacity",
+        "message": "MOQ must not exceed storage capacity. Consider negotiating lower MOQ or expanding storage.",
+        "severity": "error"
+      },
+      {
+        "id": "demand_positive",
+        "condition": "annual_demand > 0",
+        "message": "Annual demand must be greater than zero.",
+        "severity": "error"
+      },
+      {
+        "id": "service_level_range",
+        "condition": "service_level >= 50 && service_level <= 99.99",
+        "message": "Service level must be between 50% and 99.99%.",
+        "severity": "warning"
+      },
+      {
+        "id": "lead_time_positive",
+        "condition": "lead_time_days > 0",
+        "message": "Lead time must be greater than zero days.",
+        "severity": "error"
+      },
+      {
+        "id": "moq_rounding_warning",
+        "condition": "moq > 0 && annual_demand / moq < 2",
+        "message": "Order frequency is less than 2 per year. Consider reducing MOQ to avoid excessive inventory.",
+        "severity": "warning"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_inventory_ratio",
+        "condition": "total_inventory_value > 0.3 * (annual_demand * unit_cost)",
+        "message": "Total inventory value exceeds 30% of annual COGS. High carrying cost risk.",
+        "severity": "alert"
+      },
+      {
+        "id": "low_turnover",
+        "condition": "inventory_turnover < 4",
+        "message": "Inventory turnover is below 4 (WERC benchmark). Consider reducing order quantity or increasing demand.",
+        "severity": "warning"
+      },
+      {
+        "id": "moq_penalty_active",
+        "condition": "moq_penalty_cost > 0.1 * total_annual_cost",
+        "message": "MOQ penalty cost exceeds 10% of total annual cost. Renegotiate MOQ or consolidate orders.",
+        "severity": "alert"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "daily_demand",
+      "label": "Daily Demand",
+      "description": "Average daily demand based on annual demand and operating days.",
+      "formula": "annual_demand / days_per_year",
+      "unit": "units/day"
+    },
+    {
+      "id": "eoq",
+      "label": "Economic Order Quantity",
+      "description": "Classic EOQ formula minimizing total ordering and holding costs.",
+      "formula": "sqrt((2 * annual_demand * ordering_cost) / holding_cost_per_unit)",
+      "unit": "units"
+    },
+    {
+      "id": "adjusted_order_quantity",
+      "label": "Adjusted Order Quantity (with MOQ)",
+      "description": "Order quantity after applying MOQ constraint. If MOQ > EOQ and force MOQ, use MOQ; else use EOQ.",
+      "formula": "IF(use_moq_override AND moq > eoq, moq, eoq)",
+      "unit": "units"
+    },
+    {
+      "id": "safety_stock",
+      "label": "Safety Stock",
+      "description": "Safety stock based on service level z-score, lead time, demand variability, and supplier reliability.",
+      "formula": "z_score(service_level/100) * demand_std_dev * sqrt(lead_time_days / supplier_reliability)",
+      "unit": "units"
+    },
+    {
+      "id": "reorder_point",
+      "label": "Reorder Point",
+      "description": "Inventory level at which to place a new order (continuous review).",
+      "formula": "daily_demand * lead_time_days + safety_stock",
+      "unit": "units"
+    },
+    {
+      "id": "total_annual_cost",
+      "label": "Total Annual Inventory Cost",
+      "description": "Sum of ordering, holding, and backorder costs. Includes MOQ penalty if applicable.",
+      "formula": "(annual_demand / adjusted_order_quantity) * ordering_cost + (adjusted_order_quantity / 2 + safety_stock) * holding_cost_per_unit + (annual_demand * backorder_cost_per_unit * (1 - service_level/100))",
+      "unit": "$"
+    },
+    {
+      "id": "moq_penalty_cost",
+      "label": "MOQ Penalty Cost",
+      "description": "Extra holding cost incurred due to ordering above EOQ because of MOQ.",
+      "formula": "IF(adjusted_order_quantity > eoq, (adjusted_order_quantity - eoq) * holding_cost_per_unit / 2, 0)",
+      "unit": "$"
+    },
+    {
+      "id": "inventory_turnover",
+      "label": "Inventory Turnover",
+      "description": "Number of times inventory is sold and replaced per year (WERC metric).",
+      "formula": "annual_demand / ((adjusted_order_quantity / 2) + safety_stock)",
+      "unit": "turns/year"
+    },
+    {
+      "id": "total_inventory_value",
+      "label": "Total Inventory Value",
+      "description": "Average inventory value in dollars.",
+      "formula": "((adjusted_order_quantity / 2) + safety_stock) * unit_cost",
+      "unit": "$"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "optimal_order_quantity",
+      "label": "Optimal Order Quantity",
+      "value": "adjusted_order_quantity",
+      "unit": "units",
+      "description": "The recommended order quantity balancing MOQ, EOQ, and storage constraints."
+    },
+    "breakdown": {
+      "eoq": {
+        "label": "Economic Order Quantity",
+        "value": "eoq",
+        "unit": "units"
+      },
+      "safety_stock": {
+        "label": "Safety Stock",
+        "value": "safety_stock",
+        "unit": "units"
+      },
+      "reorder_point": {
+        "label": "Reorder Point",
+        "value": "reorder_point",
+        "unit": "units"
+      },
+      "total_annual_cost": {
+        "label": "Total Annual Cost",
+        "value": "total_annual_cost",
+        "unit": "$"
+      },
+      "inventory_turnover": {
+        "label": "Inventory Turnover",
+        "value": "inventory_turnover",
+        "unit": "turns/year"
+      },
+      "total_inventory_value": {
+        "label": "Total Inventory Value",
+        "value": "total_inventory_value",
+        "unit": "$"
+      },
+      "moq_penalty_cost": {
+        "label": "MOQ Penalty Cost",
+        "value": "moq_penalty_cost",
+        "unit": "$"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excess_holding_due_to_moq",
+        "label": "Excess Holding Cost from MOQ",
+        "description": "The additional holding cost incurred because MOQ forces larger order sizes than EOQ.",
+        "value": "moq_penalty_cost",
+        "unit": "$"
+      },
+      {
+        "id": "demand_uncertainty_cost",
+        "label": "Demand Uncertainty Cost",
+        "description": "Cost of safety stock due to demand variability (Six Sigma waste).",
+        "value": "safety_stock * holding_cost_per_unit",
+        "unit": "$"
+      },
+      {
+        "id": "supplier_unreliability_impact",
+        "label": "Supplier Unreliability Impact",
+        "description": "Extra safety stock needed due to supplier reliability < 1.0.",
+        "value": "safety_stock * (1 - supplier_reliability) * holding_cost_per_unit",
+        "unit": "$"
+      },
+      {
+        "id": "backorder_risk_cost",
+        "label": "Backorder Risk Cost",
+        "description": "Expected annual backorder cost based on service level.",
+        "value": "annual_demand * backorder_cost_per_unit * (1 - service_level/100)",
+        "unit": "$"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_moq",
+        "condition": "moq_penalty_cost > 0.05 * total_annual_cost",
+        "action": "Negotiate with supplier to reduce MOQ to at least {eoq} units to save ${moq_penalty_cost} annually.",
+        "priority": "high"
+      },
+      {
+        "id": "improve_supplier_reliability",
+        "condition": "supplier_reliability < 0.9",
+        "action": "Work with supplier to improve on-time delivery above 90% to reduce safety stock by {safety_stock * (1 - supplier_reliability)} units.",
+        "priority": "medium"
+      },
+      {
+        "id": "increase_service_level",
+        "condition": "service_level < 90 && backorder_cost_per_unit > holding_cost_per_unit * 2",
+        "action": "Consider increasing service level to 95% to reduce backorder costs. Additional safety stock cost is ${safety_stock_increase_cost}.",
+        "priority": "low"
+      },
+      {
+        "id": "consolidate_orders",
+        "condition": "annual_demand / adjusted_order_quantity > 12",
+        "action": "Order frequency is high. Consider consolidating orders to reduce ordering costs. Target order interval: {30} days.",
+        "priority": "medium"
+      },
+      {
+        "id": "review_storage_capacity",
+        "condition": "adjusted_order_quantity + safety_stock > storage_capacity * 0.8",
+        "action": "Storage capacity utilization exceeds 80%. Expand storage or reduce order quantity to avoid congestion.",
+        "priority": "high"
+      }
+    ],
+    "dataConfidenceAdjusted": 0.87
+  }
+}

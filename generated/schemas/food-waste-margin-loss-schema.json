@@ -1,0 +1,368 @@
+{
+  "slug": "food-waste-margin-loss",
+  "title": "Food Waste Margin Loss Calculator",
+  "version": "1.0.0",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Benchmarking against industry standards",
+    "Root cause Pareto chart",
+    "Automated corrective action tracking"
+  ],
+  "inputs": [
+    {
+      "id": "total_production_kg",
+      "label": "Total Production (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 10000,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Total weight of finished goods produced in the reporting period (ISO 14051 material flow)."
+    },
+    {
+      "id": "waste_kg",
+      "label": "Waste (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 500,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Total weight of food waste generated (including trim, spoilage, overproduction, and expired product)."
+    },
+    {
+      "id": "selling_price_per_kg",
+      "label": "Selling Price per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 5,
+      "min": 0.01,
+      "max": 1000,
+      "businessContext": "Average revenue per kg of finished product sold (net of discounts)."
+    },
+    {
+      "id": "cost_per_kg",
+      "label": "Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 3.5,
+      "min": 0.01,
+      "max": 1000,
+      "businessContext": "Total variable cost per kg (raw materials, labor, energy, packaging)."
+    },
+    {
+      "id": "waste_disposal_cost_per_kg",
+      "label": "Waste Disposal Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 0.15,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Cost to dispose of waste (landfill, composting, incineration)."
+    },
+    {
+      "id": "rework_percentage",
+      "label": "Rework Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of production that requires rework (Lean Six Sigma defect rate)."
+    },
+    {
+      "id": "labor_hourly_rate",
+      "label": "Labor Hourly Rate",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 25,
+      "min": 0,
+      "max": 200,
+      "businessContext": "Average fully loaded labor cost per hour (including benefits)."
+    },
+    {
+      "id": "rework_hours_per_kg",
+      "label": "Rework Hours per kg",
+      "type": "number",
+      "unit": "hours/kg",
+      "default": 0.05,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Average labor hours required to rework one kg of product."
+    },
+    {
+      "id": "storage_cost_per_kg_per_day",
+      "label": "Storage Cost per kg per Day",
+      "type": "number",
+      "unit": "USD/kg/day",
+      "default": 0.02,
+      "min": 0,
+      "max": 1,
+      "businessContext": "Cost to store one kg of product per day (WERC warehousing metrics)."
+    },
+    {
+      "id": "average_storage_days",
+      "label": "Average Storage Days",
+      "type": "number",
+      "unit": "days",
+      "default": 3,
+      "min": 0,
+      "max": 365,
+      "businessContext": "Average number of days waste is held before disposal or rework."
+    },
+    {
+      "id": "waste_type",
+      "label": "Waste Type",
+      "type": "select",
+      "options": [
+        "trim",
+        "spoilage",
+        "overproduction",
+        "expired",
+        "other"
+      ],
+      "default": "spoilage",
+      "businessContext": "Primary category of waste (ISO 14051 waste classification)."
+    },
+    {
+      "id": "include_hidden_costs",
+      "label": "Include Hidden Costs (Energy, Water, Overhead)",
+      "type": "boolean",
+      "default": true,
+      "businessContext": "If true, allocates a portion of fixed overhead to waste (activity-based costing)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "waste_not_exceed_production",
+        "condition": "waste_kg <= total_production_kg",
+        "message": "Waste cannot exceed total production."
+      },
+      {
+        "id": "rework_not_exceed_100",
+        "condition": "rework_percentage <= 100",
+        "message": "Rework percentage must be between 0 and 100."
+      },
+      {
+        "id": "price_greater_than_cost",
+        "condition": "selling_price_per_kg >= cost_per_kg",
+        "message": "Selling price should be greater than or equal to cost per kg for positive margin."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "waste_percentage_high",
+        "condition": "(waste_kg / total_production_kg) * 100 > 10",
+        "severity": "warning",
+        "message": "Waste percentage exceeds 10% - investigate root cause (Six Sigma DMAIC)."
+      },
+      {
+        "id": "margin_loss_critical",
+        "condition": "margin_loss_percentage > 15",
+        "severity": "critical",
+        "message": "Margin loss exceeds 15% - immediate action required (Lean waste reduction)."
+      },
+      {
+        "id": "rework_high",
+        "condition": "rework_percentage > 5",
+        "severity": "warning",
+        "message": "Rework percentage above 5% - consider process capability improvement (Cp/Cpk)."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "waste_percentage",
+      "label": "Waste Percentage",
+      "formula": "(waste_kg / total_production_kg) * 100",
+      "unit": "%",
+      "description": "Percentage of total production that becomes waste."
+    },
+    {
+      "id": "direct_material_loss",
+      "label": "Direct Material Loss",
+      "formula": "waste_kg * cost_per_kg",
+      "unit": "USD",
+      "description": "Direct cost of raw materials in waste."
+    },
+    {
+      "id": "lost_revenue",
+      "label": "Lost Revenue",
+      "formula": "waste_kg * selling_price_per_kg",
+      "unit": "USD",
+      "description": "Revenue that would have been generated if waste were sold."
+    },
+    {
+      "id": "disposal_cost",
+      "label": "Disposal Cost",
+      "formula": "waste_kg * waste_disposal_cost_per_kg",
+      "unit": "USD",
+      "description": "Cost to dispose of waste."
+    },
+    {
+      "id": "rework_labor_cost",
+      "label": "Rework Labor Cost",
+      "formula": "(rework_percentage / 100) * total_production_kg * rework_hours_per_kg * labor_hourly_rate",
+      "unit": "USD",
+      "description": "Labor cost incurred due to rework."
+    },
+    {
+      "id": "storage_cost_waste",
+      "label": "Storage Cost of Waste",
+      "formula": "waste_kg * storage_cost_per_kg_per_day * average_storage_days",
+      "unit": "USD",
+      "description": "Cost to store waste before disposal or rework."
+    },
+    {
+      "id": "hidden_overhead_allocation",
+      "label": "Hidden Overhead Allocation",
+      "formula": "if(include_hidden_costs, (waste_kg / total_production_kg) * (total_production_kg * 0.1), 0)",
+      "unit": "USD",
+      "description": "Allocated overhead (energy, water, facility) proportional to waste volume (ABC method)."
+    },
+    {
+      "id": "total_margin_loss",
+      "label": "Total Margin Loss",
+      "formula": "direct_material_loss + lost_revenue + disposal_cost + rework_labor_cost + storage_cost_waste + hidden_overhead_allocation",
+      "unit": "USD",
+      "description": "Primary result: total financial impact of food waste on margin."
+    },
+    {
+      "id": "margin_loss_percentage",
+      "label": "Margin Loss Percentage",
+      "formula": "(total_margin_loss / (total_production_kg * selling_price_per_kg)) * 100",
+      "unit": "%",
+      "description": "Percentage of total revenue lost due to waste."
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_margin_loss",
+      "label": "Total Margin Loss",
+      "value": null,
+      "unit": "USD",
+      "description": "Total financial loss from food waste (direct + hidden costs)."
+    },
+    "breakdown": {
+      "direct_material_loss": {
+        "id": "direct_material_loss",
+        "label": "Direct Material Loss",
+        "value": null,
+        "unit": "USD",
+        "percentage": null
+      },
+      "lost_revenue": {
+        "id": "lost_revenue",
+        "label": "Lost Revenue",
+        "value": null,
+        "unit": "USD",
+        "percentage": null
+      },
+      "disposal_cost": {
+        "id": "disposal_cost",
+        "label": "Disposal Cost",
+        "value": null,
+        "unit": "USD",
+        "percentage": null
+      },
+      "rework_labor_cost": {
+        "id": "rework_labor_cost",
+        "label": "Rework Labor Cost",
+        "value": null,
+        "unit": "USD",
+        "percentage": null
+      },
+      "storage_cost_waste": {
+        "id": "storage_cost_waste",
+        "label": "Storage Cost of Waste",
+        "value": null,
+        "unit": "USD",
+        "percentage": null
+      },
+      "hidden_overhead_allocation": {
+        "id": "hidden_overhead_allocation",
+        "label": "Hidden Overhead Allocation",
+        "value": null,
+        "unit": "USD",
+        "percentage": null
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "energy_waste",
+        "label": "Energy Embedded in Waste",
+        "description": "Energy consumed to produce wasted product (kWh).",
+        "estimated_value": null,
+        "unit": "kWh"
+      },
+      {
+        "id": "water_waste",
+        "label": "Water Embedded in Waste",
+        "description": "Water used in production of wasted product (liters).",
+        "estimated_value": null,
+        "unit": "L"
+      },
+      {
+        "id": "carbon_footprint",
+        "label": "Carbon Footprint of Waste",
+        "description": "CO2 emissions from production and disposal of waste (kg CO2e).",
+        "estimated_value": null,
+        "unit": "kg CO2e"
+      },
+      {
+        "id": "labor_opportunity_cost",
+        "label": "Labor Opportunity Cost",
+        "description": "Value of labor time that could have been used for value-added work.",
+        "estimated_value": null,
+        "unit": "USD"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "priority": "high",
+        "action": "Implement Lean 5S and visual management to reduce overproduction and trim waste.",
+        "expected_reduction": "15-25% waste reduction",
+        "reference_standard": "Lean Manufacturing (Womack & Jones)"
+      },
+      {
+        "id": "action_2",
+        "priority": "high",
+        "action": "Conduct root cause analysis (Fishbone / 5 Whys) for spoilage and expired waste.",
+        "expected_reduction": "10-20% spoilage reduction",
+        "reference_standard": "Six Sigma DMAIC"
+      },
+      {
+        "id": "action_3",
+        "priority": "medium",
+        "action": "Optimize inventory turnover using FIFO and demand forecasting to reduce expired waste.",
+        "expected_reduction": "5-15% expired waste reduction",
+        "reference_standard": "WERC DC Metrics"
+      },
+      {
+        "id": "action_4",
+        "priority": "medium",
+        "action": "Train operators on standardized work and error-proofing (Poka-Yoke) to reduce rework.",
+        "expected_reduction": "30-50% rework reduction",
+        "reference_standard": "Lean / TPS"
+      },
+      {
+        "id": "action_5",
+        "priority": "low",
+        "action": "Explore waste-to-value opportunities (composting, anaerobic digestion, donation).",
+        "expected_reduction": "Up to 100% disposal cost elimination",
+        "reference_standard": "ISO 14001 / Circular Economy"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_score",
+      "label": "Data Confidence Score",
+      "value": null,
+      "unit": "%",
+      "description": "Confidence in the accuracy of inputs (based on completeness and validation). Default 85% if all inputs provided."
+    }
+  }
+}

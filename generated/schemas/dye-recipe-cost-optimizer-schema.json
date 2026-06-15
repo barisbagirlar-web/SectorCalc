@@ -1,0 +1,342 @@
+{
+  "slug": "dye-recipe-cost-optimizer",
+  "title": "Dye Recipe Cost Optimizer",
+  "description": "Industrial-grade tool for optimizing dye recipe costs using lean manufacturing and Six Sigma principles. Calculates total cost per batch, identifies hidden loss drivers, and suggests cost-reduction actions.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-batch comparison",
+    "Supplier cost benchmarking"
+  ],
+  "inputs": [
+    {
+      "id": "dye_volume_l",
+      "label": "Dye bath volume (liters)",
+      "type": "number",
+      "unit": "L",
+      "default": 1000,
+      "min": 10,
+      "max": 100000,
+      "businessContext": "Total volume of dye liquor in the batch."
+    },
+    {
+      "id": "dye_concentration_gpl",
+      "label": "Dye concentration (g/L)",
+      "type": "number",
+      "unit": "g/L",
+      "default": 5,
+      "min": 0.1,
+      "max": 100,
+      "businessContext": "Grams of dye powder per liter of bath."
+    },
+    {
+      "id": "dye_price_per_kg",
+      "label": "Dye price (USD/kg)",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 25,
+      "min": 1,
+      "max": 500,
+      "businessContext": "Purchase price of dye powder."
+    },
+    {
+      "id": "chemicals_per_liter",
+      "label": "Auxiliary chemicals cost (USD/L)",
+      "type": "number",
+      "unit": "USD/L",
+      "default": 0.15,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Cost of salts, acids, bases, etc., per liter of bath."
+    },
+    {
+      "id": "energy_cost_per_batch",
+      "label": "Energy cost per batch (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Electricity, steam, or gas cost for heating and running the dyeing machine."
+    },
+    {
+      "id": "labor_cost_per_hour",
+      "label": "Labor cost (USD/hour)",
+      "type": "number",
+      "unit": "USD/h",
+      "default": 25,
+      "min": 0,
+      "max": 200,
+      "businessContext": "Hourly wage including overhead."
+    },
+    {
+      "id": "batch_time_hours",
+      "label": "Batch cycle time (hours)",
+      "type": "number",
+      "unit": "h",
+      "default": 4,
+      "min": 0.5,
+      "max": 48,
+      "businessContext": "Total time from loading to unloading."
+    },
+    {
+      "id": "waste_percentage",
+      "label": "Waste / rework rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Percentage of batches that require re-dyeing or are scrapped."
+    },
+    {
+      "id": "water_cost_per_m3",
+      "label": "Water cost (USD/m³)",
+      "type": "number",
+      "unit": "USD/m³",
+      "default": 2.5,
+      "min": 0,
+      "max": 20,
+      "businessContext": "Cost of fresh water and wastewater treatment."
+    },
+    {
+      "id": "water_usage_l_per_kg",
+      "label": "Water usage (L/kg fabric)",
+      "type": "number",
+      "unit": "L/kg",
+      "default": 100,
+      "min": 10,
+      "max": 500,
+      "businessContext": "Typical water consumption per kg of fabric processed."
+    },
+    {
+      "id": "fabric_weight_kg",
+      "label": "Fabric weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 200,
+      "min": 1,
+      "max": 50000,
+      "businessContext": "Weight of fabric in the batch."
+    },
+    {
+      "id": "dye_type",
+      "label": "Dye class",
+      "type": "select",
+      "options": [
+        {
+          "value": "reactive",
+          "label": "Reactive"
+        },
+        {
+          "value": "disperse",
+          "label": "Disperse"
+        },
+        {
+          "value": "vat",
+          "label": "Vat"
+        },
+        {
+          "value": "acid",
+          "label": "Acid"
+        },
+        {
+          "value": "direct",
+          "label": "Direct"
+        }
+      ],
+      "default": "reactive",
+      "businessContext": "Chemical class of dye, affects fixation efficiency and cost."
+    },
+    {
+      "id": "use_lean_optimization",
+      "label": "Enable Lean optimization (reduce waste)",
+      "type": "boolean",
+      "default": false,
+      "businessContext": "If true, applies lean principles to reduce waste and rework."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_volume_vs_fabric",
+        "condition": "dye_volume_l < fabric_weight_kg * 3",
+        "message": "Dye bath volume is too low for the fabric weight. Minimum recommended is 3 L per kg fabric.",
+        "severity": "warning"
+      },
+      {
+        "id": "rule_concentration_limit",
+        "condition": "dye_concentration_gpl > 20 && dye_type == 'reactive'",
+        "message": "High reactive dye concentration may cause poor fixation and increased waste.",
+        "severity": "warning"
+      },
+      {
+        "id": "rule_waste_threshold",
+        "condition": "waste_percentage > 10",
+        "message": "Waste rate exceeds 10%. Investigate root causes using Six Sigma DMAIC.",
+        "severity": "critical"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "thresh_total_cost_alert",
+        "metric": "total_cost_per_batch",
+        "operator": ">",
+        "value": 5000,
+        "message": "Total batch cost exceeds $5,000. Consider cost reduction actions.",
+        "severity": "warning"
+      },
+      {
+        "id": "thresh_cost_per_kg_alert",
+        "metric": "cost_per_kg_fabric",
+        "operator": ">",
+        "value": 15,
+        "message": "Cost per kg fabric exceeds $15. Benchmark against industry standard (ISO 14000).",
+        "severity": "critical"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "dye_mass_kg",
+      "description": "Mass of dye powder required",
+      "expression": "(dye_volume_l * dye_concentration_gpl) / 1000",
+      "unit": "kg"
+    },
+    {
+      "id": "dye_cost",
+      "description": "Cost of dye powder",
+      "expression": "dye_mass_kg * dye_price_per_kg",
+      "unit": "USD"
+    },
+    {
+      "id": "chemical_cost",
+      "description": "Cost of auxiliary chemicals",
+      "expression": "dye_volume_l * chemicals_per_liter",
+      "unit": "USD"
+    },
+    {
+      "id": "labor_cost",
+      "description": "Labor cost for the batch",
+      "expression": "labor_cost_per_hour * batch_time_hours",
+      "unit": "USD"
+    },
+    {
+      "id": "water_cost",
+      "description": "Water cost for the batch",
+      "expression": "(water_usage_l_per_kg * fabric_weight_kg / 1000) * water_cost_per_m3",
+      "unit": "USD"
+    },
+    {
+      "id": "waste_cost",
+      "description": "Cost of waste/rework (including all variable costs)",
+      "expression": "(dye_cost + chemical_cost + energy_cost_per_batch + labor_cost + water_cost) * (waste_percentage / 100)",
+      "unit": "USD"
+    },
+    {
+      "id": "total_cost_per_batch",
+      "description": "Primary result: total cost per batch including waste",
+      "expression": "dye_cost + chemical_cost + energy_cost_per_batch + labor_cost + water_cost + waste_cost",
+      "unit": "USD"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_cost_per_batch",
+      "label": "Total cost per batch",
+      "unit": "USD",
+      "description": "Sum of all direct and indirect costs including waste."
+    },
+    "breakdown": {
+      "dye_cost": {
+        "label": "Dye cost",
+        "unit": "USD",
+        "description": "Cost of dye powder."
+      },
+      "chemical_cost": {
+        "label": "Chemical cost",
+        "unit": "USD",
+        "description": "Cost of auxiliary chemicals."
+      },
+      "energy_cost": {
+        "label": "Energy cost",
+        "unit": "USD",
+        "description": "Energy cost per batch."
+      },
+      "labor_cost": {
+        "label": "Labor cost",
+        "unit": "USD",
+        "description": "Labor cost for the batch."
+      },
+      "water_cost": {
+        "label": "Water cost",
+        "unit": "USD",
+        "description": "Water cost for the batch."
+      },
+      "waste_cost": {
+        "label": "Waste / rework cost",
+        "unit": "USD",
+        "description": "Additional cost due to waste and rework."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "loss_dye_fixation",
+        "label": "Dye fixation loss",
+        "description": "Unfixed dye washed out, typical 10-30% for reactive dyes. Hidden cost in water and waste.",
+        "estimatedImpact": "dye_cost * 0.2"
+      },
+      {
+        "id": "loss_water_heating",
+        "label": "Water heating inefficiency",
+        "description": "Heat loss during bath preparation and drainage. Typical 15% of energy cost.",
+        "estimatedImpact": "energy_cost_per_batch * 0.15"
+      },
+      {
+        "id": "loss_setup_time",
+        "label": "Setup / changeover time",
+        "description": "Non-productive time between batches. Lean SMED can reduce this.",
+        "estimatedImpact": "labor_cost_per_hour * 0.5"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_reduce_waste",
+        "label": "Reduce waste using Six Sigma DMAIC",
+        "description": "Implement root cause analysis to lower waste percentage below 5%.",
+        "expectedSavings": "total_cost_per_batch * (waste_percentage - 5) / 100",
+        "effort": "medium"
+      },
+      {
+        "id": "action_optimize_dye_concentration",
+        "label": "Optimize dye concentration",
+        "description": "Use lower concentration with better fixation (e.g., 3 g/L instead of 5 g/L) to reduce dye cost and waste.",
+        "expectedSavings": "(dye_mass_kg * dye_price_per_kg) * 0.4",
+        "effort": "low"
+      },
+      {
+        "id": "action_lean_water_reduction",
+        "label": "Reduce water usage via lean methods",
+        "description": "Implement counter-current washing or reuse rinse water. Target 30% reduction.",
+        "expectedSavings": "water_cost * 0.3",
+        "effort": "high"
+      },
+      {
+        "id": "action_energy_efficiency",
+        "label": "Improve energy efficiency",
+        "description": "Insulate dyeing machines, optimize heating profiles. Target 10% reduction.",
+        "expectedSavings": "energy_cost_per_batch * 0.1",
+        "effort": "medium"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "adjusted_total_cost",
+      "label": "Adjusted total cost (with confidence factor)",
+      "unit": "USD",
+      "description": "Total cost multiplied by a confidence factor (0.9 to 1.1) based on input variability.",
+      "expression": "total_cost_per_batch * (1 + (waste_percentage / 100) * 0.1)"
+    }
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "slug": "celsius-to-fahrenheit-converter",
+  "name": "Celsius to Fahrenheit Converter",
+  "description": "Industrial-grade temperature conversion tool with precision validation, confidence adjustment, and actionable insights for process control and quality management.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Batch conversion",
+    "Custom calibration offset"
+  ],
+  "inputs": [
+    {
+      "id": "celsius_input",
+      "label": "Temperature in Celsius",
+      "type": "number",
+      "unit": "°C",
+      "default": 0,
+      "min": -273.15,
+      "max": 10000,
+      "businessContext": "Process temperature reading from sensor or manual measurement. Must be above absolute zero."
+    },
+    {
+      "id": "sensor_accuracy",
+      "label": "Sensor Accuracy (±°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 0.5,
+      "min": 0.01,
+      "max": 10,
+      "businessContext": "Manufacturer-specified accuracy of the temperature sensor (ISO 17025 calibration standard)."
+    },
+    {
+      "id": "calibration_offset",
+      "label": "Calibration Offset",
+      "type": "number",
+      "unit": "°C",
+      "default": 0,
+      "min": -5,
+      "max": 5,
+      "businessContext": "Field calibration adjustment to align sensor with reference standard (NIST traceable)."
+    },
+    {
+      "id": "unit_system",
+      "label": "Target Unit System",
+      "type": "select",
+      "unit": "",
+      "default": "Fahrenheit",
+      "options": [
+        "Fahrenheit",
+        "Rankine",
+        "Kelvin"
+      ],
+      "businessContext": "Select output temperature scale for downstream process or reporting (ISO 80000-5)."
+    },
+    {
+      "id": "enable_alerts",
+      "label": "Enable Process Alerts",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "businessContext": "Toggle threshold-based alerts for out-of-spec temperature conditions (Six Sigma control limits)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "absolute_zero_check",
+        "condition": "celsius_input < -273.15",
+        "message": "Temperature cannot be below absolute zero (-273.15°C).",
+        "severity": "error"
+      },
+      {
+        "id": "sensor_accuracy_range",
+        "condition": "sensor_accuracy < 0.01 || sensor_accuracy > 10",
+        "message": "Sensor accuracy must be between 0.01 and 10 °C (ISO 17025).",
+        "severity": "warning"
+      },
+      {
+        "id": "calibration_offset_limit",
+        "condition": "calibration_offset < -5 || calibration_offset > 5",
+        "message": "Calibration offset exceeds ±5°C. Recalibrate sensor per ISO 9001.",
+        "severity": "warning"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_temp_alert",
+        "condition": "celsius_input > 100",
+        "message": "Temperature exceeds 100°C — risk of steam generation or material degradation.",
+        "action": "Inspect cooling system and verify process limits."
+      },
+      {
+        "id": "low_temp_alert",
+        "condition": "celsius_input < -40",
+        "message": "Temperature below -40°C — potential for brittle fracture in materials (ASTM E23).",
+        "action": "Check insulation and heating elements."
+      },
+      {
+        "id": "critical_deviation",
+        "condition": "sensor_accuracy > 2",
+        "message": "Sensor accuracy > 2°C — measurement uncertainty exceeds acceptable tolerance (Six Sigma ±3σ).",
+        "action": "Replace or recalibrate sensor immediately."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "adjusted_celsius",
+      "name": "Adjusted Celsius",
+      "description": "Apply calibration offset to raw Celsius input.",
+      "formula": "celsius_input + calibration_offset",
+      "unit": "°C",
+      "intermediate": true
+    },
+    {
+      "id": "fahrenheit_conversion",
+      "name": "Fahrenheit Conversion",
+      "description": "Convert adjusted Celsius to Fahrenheit using standard formula.",
+      "formula": "(adjusted_celsius * 9/5) + 32",
+      "unit": "°F",
+      "intermediate": true
+    },
+    {
+      "id": "rankine_conversion",
+      "name": "Rankine Conversion",
+      "description": "Convert adjusted Celsius to Rankine (absolute scale based on Fahrenheit).",
+      "formula": "(adjusted_celsius + 273.15) * 9/5",
+      "unit": "°R",
+      "intermediate": true
+    },
+    {
+      "id": "kelvin_conversion",
+      "name": "Kelvin Conversion",
+      "description": "Convert adjusted Celsius to Kelvin (SI base unit).",
+      "formula": "adjusted_celsius + 273.15",
+      "unit": "K",
+      "intermediate": true
+    },
+    {
+      "id": "uncertainty_interval",
+      "name": "Measurement Uncertainty",
+      "description": "Calculate expanded uncertainty at 95% confidence (k=2) per ISO/IEC Guide 98-3 (GUM).",
+      "formula": "2 * sensor_accuracy",
+      "unit": "°C",
+      "intermediate": true
+    },
+    {
+      "id": "data_confidence",
+      "name": "Data Confidence Score",
+      "description": "Normalized confidence based on sensor accuracy (1 = perfect, 0 = unusable).",
+      "formula": "max(0, 1 - (sensor_accuracy / 10))",
+      "unit": "dimensionless",
+      "intermediate": true
+    },
+    {
+      "id": "primary_result",
+      "name": "Primary Converted Temperature",
+      "description": "Final output temperature in the selected unit system.",
+      "formula": "CASE unit_system WHEN 'Fahrenheit' THEN fahrenheit_conversion WHEN 'Rankine' THEN rankine_conversion WHEN 'Kelvin' THEN kelvin_conversion END",
+      "unit": "selected unit",
+      "intermediate": false
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "primary_result",
+      "label": "Converted Temperature",
+      "unit": "selected unit",
+      "description": "Temperature in the target unit system with calibration offset applied."
+    },
+    "breakdown": {
+      "adjusted_celsius": {
+        "id": "adjusted_celsius",
+        "label": "Adjusted Celsius",
+        "unit": "°C",
+        "value": null
+      },
+      "fahrenheit_conversion": {
+        "id": "fahrenheit_conversion",
+        "label": "Fahrenheit",
+        "unit": "°F",
+        "value": null
+      },
+      "rankine_conversion": {
+        "id": "rankine_conversion",
+        "label": "Rankine",
+        "unit": "°R",
+        "value": null
+      },
+      "kelvin_conversion": {
+        "id": "kelvin_conversion",
+        "label": "Kelvin",
+        "unit": "K",
+        "value": null
+      },
+      "uncertainty_interval": {
+        "id": "uncertainty_interval",
+        "label": "Expanded Uncertainty (k=2)",
+        "unit": "°C",
+        "value": null
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "sensor_drift",
+        "label": "Sensor Drift Risk",
+        "description": "Uncalibrated sensors may drift >1°C/year, causing hidden quality losses (ISO 10012).",
+        "severity": "medium"
+      },
+      {
+        "id": "rounding_error",
+        "label": "Rounding Error Accumulation",
+        "description": "Repeated conversions without significant figures can introduce up to 0.5°C error in batch processes.",
+        "severity": "low"
+      },
+      {
+        "id": "unit_mismatch",
+        "label": "Unit Mismatch in Reporting",
+        "description": "Mixing Fahrenheit and Celsius in reports leads to misinterpretation and rework (Lean waste).",
+        "severity": "high"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "recalibrate_sensor",
+        "label": "Recalibrate Sensor",
+        "description": "If sensor_accuracy > 1°C, schedule recalibration per ISO 9001 clause 7.1.5.",
+        "priority": "high"
+      },
+      {
+        "id": "implement_sqc",
+        "label": "Implement Statistical Quality Control",
+        "description": "Use control charts (X-bar and R) to monitor temperature variation and reduce hidden losses.",
+        "priority": "medium"
+      },
+      {
+        "id": "standardize_units",
+        "label": "Standardize Unit Usage",
+        "description": "Adopt a single temperature scale across all documentation to eliminate conversion errors (WERC best practice).",
+        "priority": "medium"
+      },
+      {
+        "id": "audit_calibration_log",
+        "label": "Audit Calibration Log",
+        "description": "Review calibration records for all sensors in the process loop to ensure traceability (ISO 17025).",
+        "priority": "low"
+      }
+    ],
+    "dataConfidenceAdjusted": null
+  }
+}

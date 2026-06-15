@@ -1,0 +1,268 @@
+{
+  "slug": "fraction-to-decimal-calculator",
+  "title": "Fraction to Decimal Calculator",
+  "description": "Converts fractions (including mixed numbers) to decimal equivalents with precision, uncertainty analysis, and industrial-grade rounding per ISO 80000-1 and Six Sigma standards.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Batch conversion",
+    "Custom rounding rules"
+  ],
+  "inputs": [
+    {
+      "id": "numerator",
+      "label": "Numerator",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "min": -999999,
+      "max": 999999,
+      "businessContext": "The top part of the fraction (dividend). For mixed numbers, use the fractional part only."
+    },
+    {
+      "id": "denominator",
+      "label": "Denominator",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 4,
+      "min": 1,
+      "max": 999999,
+      "businessContext": "The bottom part of the fraction (divisor). Must be non-zero."
+    },
+    {
+      "id": "wholeNumber",
+      "label": "Whole Number (for mixed fractions)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "min": -999999,
+      "max": 999999,
+      "businessContext": "Integer part of a mixed number (e.g., 3 in 3 1/4). Set to 0 for proper fractions."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places (precision)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 6,
+      "min": 0,
+      "max": 15,
+      "businessContext": "Number of decimal places for the result. Follows ISO 80000-1 rounding rules."
+    },
+    {
+      "id": "roundingMethod",
+      "label": "Rounding Method",
+      "type": "select",
+      "unit": "dimensionless",
+      "default": "half_up",
+      "options": [
+        "half_up",
+        "half_down",
+        "half_even",
+        "floor",
+        "ceiling",
+        "truncate"
+      ],
+      "businessContext": "Rounding rule per ISO 80000-1 (half_even recommended for statistical work)."
+    },
+    {
+      "id": "uncertaintyInput",
+      "label": "Measurement Uncertainty (±)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "min": 0,
+      "max": 999999,
+      "businessContext": "Absolute uncertainty in the numerator (e.g., from measurement tolerance). Used for Six Sigma uncertainty propagation."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "denominator_nonzero",
+        "condition": "denominator == 0",
+        "message": "Denominator must be non-zero.",
+        "severity": "error"
+      },
+      {
+        "id": "decimalPlaces_range",
+        "condition": "decimalPlaces < 0 || decimalPlaces > 15",
+        "message": "Decimal places must be between 0 and 15.",
+        "severity": "error"
+      },
+      {
+        "id": "uncertainty_nonnegative",
+        "condition": "uncertaintyInput < 0",
+        "message": "Uncertainty must be non-negative.",
+        "severity": "warning"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "repeating_decimal_warning",
+        "condition": "denominator % 2 != 0 && denominator % 5 != 0",
+        "message": "Denominator has prime factors other than 2 and 5 — decimal may be repeating.",
+        "severity": "info"
+      },
+      {
+        "id": "high_uncertainty_alert",
+        "condition": "uncertaintyInput / abs(numerator) > 0.1",
+        "message": "Relative uncertainty exceeds 10% — result may be unreliable.",
+        "severity": "warning"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "fractional_value",
+      "name": "Fractional Value (without whole part)",
+      "description": "Simple division of numerator by denominator.",
+      "formula": "numerator / denominator",
+      "dependencies": [
+        "numerator",
+        "denominator"
+      ]
+    },
+    {
+      "id": "mixed_value",
+      "name": "Mixed Number Value",
+      "description": "Adds whole number part to fractional value.",
+      "formula": "wholeNumber + fractional_value",
+      "dependencies": [
+        "wholeNumber",
+        "fractional_value"
+      ]
+    },
+    {
+      "id": "raw_decimal",
+      "name": "Raw Decimal (unrounded)",
+      "description": "The exact decimal representation before rounding.",
+      "formula": "mixed_value",
+      "dependencies": [
+        "mixed_value"
+      ]
+    },
+    {
+      "id": "rounded_decimal",
+      "name": "Rounded Decimal",
+      "description": "Decimal rounded to specified places using chosen method.",
+      "formula": "round(raw_decimal, decimalPlaces, roundingMethod)",
+      "dependencies": [
+        "raw_decimal",
+        "decimalPlaces",
+        "roundingMethod"
+      ]
+    },
+    {
+      "id": "uncertainty_propagated",
+      "name": "Propagated Uncertainty",
+      "description": "Standard uncertainty propagation for division: delta = (uncertaintyInput / denominator).",
+      "formula": "uncertaintyInput / denominator",
+      "dependencies": [
+        "uncertaintyInput",
+        "denominator"
+      ]
+    },
+    {
+      "id": "data_confidence_adjusted",
+      "name": "Data Confidence Adjusted Decimal",
+      "description": "Rounded decimal adjusted by uncertainty (lower bound). Used for conservative estimates in Lean/Six Sigma.",
+      "formula": "rounded_decimal - uncertainty_propagated",
+      "dependencies": [
+        "rounded_decimal",
+        "uncertainty_propagated"
+      ]
+    },
+    {
+      "id": "primary_result",
+      "name": "Primary Result (Final Decimal)",
+      "description": "The final decimal value with applied rounding and uncertainty adjustment.",
+      "formula": "data_confidence_adjusted",
+      "dependencies": [
+        "data_confidence_adjusted"
+      ]
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "primary_result",
+      "label": "Decimal Equivalent",
+      "description": "The final decimal value of the fraction, rounded and adjusted for uncertainty.",
+      "unit": "dimensionless",
+      "dataType": "number"
+    },
+    "breakdown": {
+      "fractionalValue": {
+        "label": "Fractional Value",
+        "value": "fractional_value",
+        "unit": "dimensionless"
+      },
+      "mixedValue": {
+        "label": "Mixed Number Value",
+        "value": "mixed_value",
+        "unit": "dimensionless"
+      },
+      "rawDecimal": {
+        "label": "Raw Decimal (unrounded)",
+        "value": "raw_decimal",
+        "unit": "dimensionless"
+      },
+      "roundedDecimal": {
+        "label": "Rounded Decimal",
+        "value": "rounded_decimal",
+        "unit": "dimensionless"
+      },
+      "propagatedUncertainty": {
+        "label": "Propagated Uncertainty (±)",
+        "value": "uncertainty_propagated",
+        "unit": "dimensionless"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "repeating_decimal_loss",
+        "label": "Repeating Decimal Precision Loss",
+        "description": "When denominator has factors other than 2 and 5, the decimal repeats infinitely, causing truncation error.",
+        "severity": "medium"
+      },
+      {
+        "id": "rounding_method_bias",
+        "label": "Rounding Method Bias",
+        "description": "Systematic bias introduced by rounding method (e.g., floor vs ceiling).",
+        "severity": "low"
+      },
+      {
+        "id": "measurement_uncertainty",
+        "label": "Measurement Uncertainty",
+        "description": "Uncertainty in numerator propagates into the decimal result.",
+        "severity": "variable"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "use_half_even",
+        "label": "Use 'half_even' rounding for statistical work",
+        "description": "ISO 80000-1 recommends half_even (banker's rounding) to reduce cumulative bias."
+      },
+      {
+        "id": "increase_precision",
+        "label": "Increase decimal places if repeating decimal detected",
+        "description": "For denominators with factors other than 2 and 5, use more decimal places to minimize truncation error."
+      },
+      {
+        "id": "reduce_uncertainty",
+        "label": "Reduce measurement uncertainty in numerator",
+        "description": "If propagated uncertainty exceeds acceptable tolerance, improve measurement process (Six Sigma DMAIC)."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_adjusted",
+      "label": "Data Confidence Adjusted Decimal",
+      "description": "Conservative estimate subtracting propagated uncertainty from rounded decimal.",
+      "unit": "dimensionless",
+      "value": "data_confidence_adjusted"
+    }
+  }
+}

@@ -1,0 +1,382 @@
+{
+  "slug": "apy-calculator",
+  "name": "APY Calculator (Industrial Grade)",
+  "description": "Calculates Annual Percentage Yield (APY) with compounding effects, adjusted for industrial engineering standards including Lean, Six Sigma, and ISO metrics. Provides breakdown, loss drivers, and actionable suggestions.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-period comparison",
+    "Automated report generation"
+  ],
+  "inputs": [
+    {
+      "id": "nominal_rate",
+      "label": "Nominal Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "The stated annual interest rate before compounding, as per ISO 8000-1 financial data standards."
+    },
+    {
+      "id": "compounding_frequency",
+      "label": "Compounding Frequency",
+      "type": "select",
+      "unit": "times per year",
+      "default": "12",
+      "min": 1,
+      "max": 365,
+      "options": [
+        {
+          "value": 1,
+          "label": "Annually"
+        },
+        {
+          "value": 2,
+          "label": "Semi-annually"
+        },
+        {
+          "value": 4,
+          "label": "Quarterly"
+        },
+        {
+          "value": 12,
+          "label": "Monthly"
+        },
+        {
+          "value": 52,
+          "label": "Weekly"
+        },
+        {
+          "value": 365,
+          "label": "Daily"
+        }
+      ],
+      "businessContext": "Number of compounding periods per year, aligned with WERC financial metrics for logistics and supply chain."
+    },
+    {
+      "id": "time_period_years",
+      "label": "Investment Period",
+      "type": "number",
+      "unit": "years",
+      "default": 1,
+      "min": 0.0833,
+      "max": 100,
+      "businessContext": "Duration of investment in years, used for multi-period APY calculation per Lean Six Sigma project timelines."
+    },
+    {
+      "id": "initial_principal",
+      "label": "Initial Principal",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Starting capital amount, critical for ROI analysis in industrial engineering projects."
+    },
+    {
+      "id": "fee_percentage",
+      "label": "Management Fee",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Annual fee deducted from returns, typical in investment funds, referenced in ISO 31000 risk management."
+    },
+    {
+      "id": "inflation_rate",
+      "label": "Expected Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 20,
+      "businessContext": "Annual inflation rate to compute real APY, per Six Sigma DMAIC control phase."
+    },
+    {
+      "id": "tax_rate",
+      "label": "Tax Rate on Gains",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Capital gains tax rate applied to nominal returns, aligned with ISO 14000 environmental cost accounting."
+    },
+    {
+      "id": "is_continuous_compounding",
+      "label": "Continuous Compounding",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "businessContext": "If true, uses e^rt formula for maximum compounding frequency, per Lean continuous improvement philosophy."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_positive_rate",
+        "condition": "nominal_rate >= 0",
+        "message": "Nominal rate must be non-negative."
+      },
+      {
+        "id": "rule_frequency_range",
+        "condition": "compounding_frequency >= 1 && compounding_frequency <= 365",
+        "message": "Compounding frequency must be between 1 and 365."
+      },
+      {
+        "id": "rule_period_positive",
+        "condition": "time_period_years > 0",
+        "message": "Investment period must be greater than 0."
+      },
+      {
+        "id": "rule_principal_positive",
+        "condition": "initial_principal > 0",
+        "message": "Initial principal must be positive."
+      },
+      {
+        "id": "rule_fee_non_negative",
+        "condition": "fee_percentage >= 0",
+        "message": "Fee percentage cannot be negative."
+      },
+      {
+        "id": "rule_inflation_non_negative",
+        "condition": "inflation_rate >= 0",
+        "message": "Inflation rate cannot be negative."
+      },
+      {
+        "id": "rule_tax_rate_range",
+        "condition": "tax_rate >= 0 && tax_rate <= 50",
+        "message": "Tax rate must be between 0% and 50%."
+      },
+      {
+        "id": "rule_continuous_frequency",
+        "condition": "is_continuous_compounding == false || compounding_frequency == 365",
+        "message": "Continuous compounding overrides frequency; set frequency to 365 for consistency."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_high_inflation",
+        "condition": "inflation_rate > 5",
+        "level": "warning",
+        "message": "Inflation rate exceeds 5%, real APY may be negative."
+      },
+      {
+        "id": "threshold_low_apy",
+        "condition": "apy_nominal < 1",
+        "level": "alert",
+        "message": "Nominal APY below 1%, consider alternative investments."
+      },
+      {
+        "id": "threshold_high_fee",
+        "condition": "fee_percentage > 2",
+        "level": "warning",
+        "message": "Management fee above 2%, significantly reduces net return."
+      },
+      {
+        "id": "threshold_negative_real",
+        "condition": "apy_real < 0",
+        "level": "critical",
+        "message": "Real APY is negative, purchasing power is eroding."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "effective_rate",
+      "name": "Effective Annual Rate (EAR)",
+      "description": "Calculates the effective annual rate considering compounding frequency.",
+      "formula": "if is_continuous_compounding then exp(nominal_rate/100) - 1 else (1 + (nominal_rate/100)/compounding_frequency)^compounding_frequency - 1",
+      "unit": "decimal",
+      "order": 1
+    },
+    {
+      "id": "gross_future_value",
+      "name": "Gross Future Value",
+      "description": "Future value of principal before fees and taxes.",
+      "formula": "initial_principal * (1 + effective_rate)^time_period_years",
+      "unit": "USD",
+      "order": 2
+    },
+    {
+      "id": "fee_adjustment",
+      "name": "Fee Adjustment Factor",
+      "description": "Reduction factor due to management fees over the period.",
+      "formula": "(1 - fee_percentage/100)^time_period_years",
+      "unit": "decimal",
+      "order": 3
+    },
+    {
+      "id": "net_future_value",
+      "name": "Net Future Value (After Fees)",
+      "description": "Future value after deducting management fees.",
+      "formula": "gross_future_value * fee_adjustment",
+      "unit": "USD",
+      "order": 4
+    },
+    {
+      "id": "tax_adjustment",
+      "name": "Tax Adjustment Factor",
+      "description": "Factor for capital gains tax on net profit.",
+      "formula": "1 - tax_rate/100",
+      "unit": "decimal",
+      "order": 5
+    },
+    {
+      "id": "after_tax_future_value",
+      "name": "After-Tax Future Value",
+      "description": "Future value after fees and taxes.",
+      "formula": "initial_principal + (net_future_value - initial_principal) * tax_adjustment",
+      "unit": "USD",
+      "order": 6
+    },
+    {
+      "id": "apy_nominal",
+      "name": "Nominal APY",
+      "description": "Annual Percentage Yield before inflation adjustment.",
+      "formula": "((after_tax_future_value / initial_principal)^(1/time_period_years) - 1) * 100",
+      "unit": "%",
+      "order": 7,
+      "isPrimary": true
+    },
+    {
+      "id": "apy_real",
+      "name": "Real APY (Inflation Adjusted)",
+      "description": "APY adjusted for inflation, reflecting true purchasing power growth.",
+      "formula": "((1 + apy_nominal/100) / (1 + inflation_rate/100) - 1) * 100",
+      "unit": "%",
+      "order": 8
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "apy_nominal",
+      "label": "Annual Percentage Yield (Nominal)",
+      "unit": "%",
+      "description": "Primary result: effective annual return after fees and taxes, before inflation."
+    },
+    "breakdown": {
+      "effective_rate": {
+        "id": "effective_rate",
+        "label": "Effective Annual Rate (EAR)",
+        "unit": "decimal",
+        "value": null
+      },
+      "gross_future_value": {
+        "id": "gross_future_value",
+        "label": "Gross Future Value",
+        "unit": "USD",
+        "value": null
+      },
+      "fee_adjustment": {
+        "id": "fee_adjustment",
+        "label": "Fee Adjustment Factor",
+        "unit": "decimal",
+        "value": null
+      },
+      "net_future_value": {
+        "id": "net_future_value",
+        "label": "Net Future Value (After Fees)",
+        "unit": "USD",
+        "value": null
+      },
+      "after_tax_future_value": {
+        "id": "after_tax_future_value",
+        "label": "After-Tax Future Value",
+        "unit": "USD",
+        "value": null
+      },
+      "apy_real": {
+        "id": "apy_real",
+        "label": "Real APY (Inflation Adjusted)",
+        "unit": "%",
+        "value": null
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "loss_fee_impact",
+        "label": "Fee Erosion",
+        "description": "Percentage of principal lost to management fees over the period.",
+        "formula": "(gross_future_value - net_future_value) / initial_principal * 100",
+        "unit": "%",
+        "severity": "medium"
+      },
+      {
+        "id": "loss_tax_impact",
+        "label": "Tax Erosion",
+        "description": "Percentage of gains lost to taxes.",
+        "formula": "((net_future_value - initial_principal) * (tax_rate/100)) / initial_principal * 100",
+        "unit": "%",
+        "severity": "high"
+      },
+      {
+        "id": "loss_inflation_impact",
+        "label": "Inflation Erosion",
+        "description": "Reduction in purchasing power due to inflation.",
+        "formula": "apy_nominal - apy_real",
+        "unit": "%",
+        "severity": "critical"
+      },
+      {
+        "id": "loss_compounding_gap",
+        "label": "Compounding Frequency Gap",
+        "description": "Difference between continuous and discrete compounding (if applicable).",
+        "formula": "if is_continuous_compounding then 0 else (exp(nominal_rate/100) - 1) - effective_rate",
+        "unit": "decimal",
+        "severity": "low"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_reduce_fees",
+        "label": "Negotiate Lower Fees",
+        "description": "If fee_percentage > 1.5, consider lower-cost investment vehicles to improve net APY.",
+        "condition": "fee_percentage > 1.5",
+        "impact": "High"
+      },
+      {
+        "id": "action_increase_frequency",
+        "label": "Increase Compounding Frequency",
+        "description": "If compounding_frequency < 12 and not continuous, switch to monthly or daily compounding for higher EAR.",
+        "condition": "compounding_frequency < 12 && is_continuous_compounding == false",
+        "impact": "Medium"
+      },
+      {
+        "id": "action_tax_optimization",
+        "label": "Tax-Loss Harvesting",
+        "description": "If tax_rate > 20, explore tax-advantaged accounts or harvesting strategies.",
+        "condition": "tax_rate > 20",
+        "impact": "High"
+      },
+      {
+        "id": "action_inflation_hedge",
+        "label": "Inflation-Protected Securities",
+        "description": "If inflation_rate > 3, consider TIPS or I-Bonds to preserve real returns.",
+        "condition": "inflation_rate > 3",
+        "impact": "Critical"
+      },
+      {
+        "id": "action_continuous_compounding",
+        "label": "Enable Continuous Compounding",
+        "description": "If allowed, switch to continuous compounding for maximum theoretical yield.",
+        "condition": "is_continuous_compounding == false",
+        "impact": "Low"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_score",
+      "label": "Data Confidence Adjusted APY",
+      "unit": "%",
+      "description": "APY adjusted for input uncertainty using a confidence factor (0.8 to 1.0) based on data quality.",
+      "formula": "apy_nominal * confidence_factor",
+      "confidence_factor": 0.95,
+      "value": null
+    }
+  }
+}
