@@ -10,6 +10,7 @@ import {
   resolveSectorFooterPremiumHref,
   type SectorFooterPanelLink,
 } from "@/lib/footer/sector-footer-links";
+import { hasCanonicalToolCatalog } from "@/lib/tools/canonical-tool-slugs";
 
 const LEGAL_LINKS = [
   { key: "legalPrivacy", href: "/privacy" },
@@ -134,6 +135,7 @@ function FooterResourceAndSocial() {
 
 export function EnterpriseFooter() {
   const t = useTranslations("sectorFooter");
+  const showToolPanels = hasCanonicalToolCatalog();
 
   const resolveHref = (link: SectorFooterPanelLink) =>
     resolveSectorFooterPremiumHref(link.premiumSchemaSlug, link.fallbackHref);
@@ -159,38 +161,42 @@ export function EnterpriseFooter() {
         </div>
 
         <div className="sch-grid">
-          <div className="sch-panel">
-            <PanelSymbolSvg label={t("panel1Svg")} variant="cost" />
-            <div className="sch-panel-content">
-              <FooterPanelList
-                links={SECTOR_FOOTER_COST_LINKS}
-                labelFor={(key) => t(key)}
-                hrefFor={resolveHref}
-              />
-            </div>
-          </div>
+          {showToolPanels ? (
+            <>
+              <div className="sch-panel">
+                <PanelSymbolSvg label={t("panel1Svg")} variant="cost" />
+                <div className="sch-panel-content">
+                  <FooterPanelList
+                    links={SECTOR_FOOTER_COST_LINKS}
+                    labelFor={(key) => t(key)}
+                    hrefFor={resolveHref}
+                  />
+                </div>
+              </div>
 
-          <div className="sch-panel">
-            <PanelSymbolSvg label={t("panel2Svg")} variant="loss" />
-            <div className="sch-panel-content">
-              <FooterPanelList
-                links={SECTOR_FOOTER_LOSS_LINKS}
-                labelFor={(key) => t(key)}
-                hrefFor={resolveHref}
-              />
-            </div>
-          </div>
+              <div className="sch-panel">
+                <PanelSymbolSvg label={t("panel2Svg")} variant="loss" />
+                <div className="sch-panel-content">
+                  <FooterPanelList
+                    links={SECTOR_FOOTER_LOSS_LINKS}
+                    labelFor={(key) => t(key)}
+                    hrefFor={resolveHref}
+                  />
+                </div>
+              </div>
 
-          <div className="sch-panel">
-            <PanelSymbolSvg label={t("panel3Svg")} variant="technical" />
-            <div className="sch-panel-content">
-              <FooterPanelList
-                links={SECTOR_FOOTER_TECHNICAL_LINKS}
-                labelFor={(key) => t(key)}
-                hrefFor={resolveHref}
-              />
-            </div>
-          </div>
+              <div className="sch-panel">
+                <PanelSymbolSvg label={t("panel3Svg")} variant="technical" />
+                <div className="sch-panel-content">
+                  <FooterPanelList
+                    links={SECTOR_FOOTER_TECHNICAL_LINKS}
+                    labelFor={(key) => t(key)}
+                    hrefFor={resolveHref}
+                  />
+                </div>
+              </div>
+            </>
+          ) : null}
 
           <div className="sch-panel sch-panel-note">
             <PanelSymbolSvg label={t("panel4Svg")} variant="library" />

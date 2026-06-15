@@ -6,6 +6,11 @@
 import type { ToolDefinition, ToolResult } from "@/data/tool-schema";
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
 import { getToolHref } from "@/lib/tools/paths";
+import {
+  hasCanonicalToolCatalog,
+  isCanonicalFreeSlug,
+  isCanonicalPremiumSlug,
+} from "@/lib/tools/canonical-tool-slugs";
 import premiumSlugs from "../../../premium-slugs.json";
 
 export type RevenueSector = IndustrySlug;
@@ -206,11 +211,19 @@ const LEGACY_SECTOR_SLUGS: Partial<
 };
 
 export function getRevenueToolBySector(sector: RevenueSector): RevenueTool | null {
+  if (!hasCanonicalToolCatalog()) {
+    return null;
+  }
   const legacy = LEGACY_SECTOR_SLUGS[sector];
   if (legacy) {
+    const hasFree = isCanonicalFreeSlug(legacy.freeSlug);
+    const hasPaid = isCanonicalPremiumSlug(legacy.paidSlug);
+    if (!hasFree && !hasPaid) {
+      return null;
+    }
     return { ...buildPremiumSlugTool(legacy.freeSlug), ...legacy, sector };
   }
-  return { ...buildPremiumSlugTool(sector), freeSlug: sector, paidSlug: `${sector}-premium`, sector };
+  return null;
 }
 
 export function getAllRevenueToolSpecs(): readonly RevenueTool[] {

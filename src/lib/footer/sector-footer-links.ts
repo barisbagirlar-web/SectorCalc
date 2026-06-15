@@ -1,4 +1,5 @@
 import { getPremiumCalculatorSchema } from "@/lib/premium-schema/schema-registry";
+import { isCanonicalPremiumSlug } from "@/lib/tools/canonical-tool-slugs";
 import { getPremiumSchemaToolHref } from "@/lib/tools/tool-links";
 
 export type SectorFooterPanelLink = {
@@ -77,12 +78,12 @@ export const SECTOR_FOOTER_TECHNICAL_LINKS: readonly SectorFooterPanelLink[] = [
 ] as const;
 
 export function resolveSectorFooterPremiumHref(slug: string | undefined, fallbackHref: string): string {
-  if (!slug) {
+  if (!slug || !isCanonicalPremiumSlug(slug)) {
     return fallbackHref;
   }
   const schema = getPremiumCalculatorSchema(slug);
   if (!schema) {
-    return fallbackHref;
+    return `/tools/generated/${slug.replace(/-premium$/, "")}`;
   }
   return getPremiumSchemaToolHref(slug);
 }

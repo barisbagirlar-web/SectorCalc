@@ -37,3 +37,7 @@ export function humanizeCanonicalSlug(slug: string): string {
 export function countCanonicalCatalogTools(): number {
   return new Set([...CANONICAL_PREMIUM_SLUGS, ...CANONICAL_FREE_SLUGS]).size;
 }
+
+export function hasCanonicalToolCatalog(): boolean {
+  return countCanonicalCatalogTools() > 0;
+}

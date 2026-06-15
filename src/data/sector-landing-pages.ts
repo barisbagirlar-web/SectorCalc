@@ -47,18 +47,15 @@ function buildConfig(
  "freeToolHref" | "premiumToolHref" | "pricingHref" | "sectorSlug" | "path"
  >
 ): SectorLandingPageConfig {
- const tool = getRevenueToolBySector(sectorSlug as IndustrySlug);
- if (!tool) {
- throw new Error(`No revenue tool for sector: ${sectorSlug}`);
- }
- return {
- path,
- sectorSlug,
- freeToolHref: getFreeToolHref(tool),
- premiumToolHref: getPremiumToolHref(tool),
- pricingHref: getPricingHref(tool),
- ...overrides,
- };
+  const tool = getRevenueToolBySector(sectorSlug as IndustrySlug);
+  return {
+    path,
+    sectorSlug,
+    freeToolHref: tool ? getFreeToolHref(tool) : "/free-tools",
+    premiumToolHref: tool ? getPremiumToolHref(tool) : "/premium-tools",
+    pricingHref: tool ? getPricingHref(tool) : "/pricing",
+    ...overrides,
+  };
 }
 
 export const CNC_QUOTE_RISK_LANDING = buildConfig("cnc-manufacturing", "/cnc-quote-risk", {

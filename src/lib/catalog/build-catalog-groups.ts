@@ -32,6 +32,7 @@ import {
   resolveIndustryCategoryDescription,
   resolveIndustryCategoryLabel,
 } from "@/lib/i18n/catalog-labels-i18n";
+import { hasCanonicalToolCatalog } from "@/lib/tools/canonical-tool-slugs";
 
 export const INDUSTRY_CATEGORY_DESCRIPTIONS: Record<IndustryCategory, string> = {
   "heavy-industry":
@@ -168,6 +169,10 @@ export function buildPremiumToolCatalogGroups(tools: readonly Tool[]): CatalogGr
 }
 
 export function buildIndustryCatalogGroups(locale = "en"): CatalogGroup[] {
+  if (!hasCanonicalToolCatalog()) {
+    return [];
+  }
+
   const ctaLabels = resolveCatalogCtaLabels(locale);
 
   return getAllIndustryCategories()
