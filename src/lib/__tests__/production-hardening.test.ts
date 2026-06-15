@@ -29,6 +29,7 @@ import {
   listFreeTrafficSlugs,
 } from "@/lib/tools/free-traffic-catalog";
 import { listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
+import { CANONICAL_FREE_SLUGS } from "@/lib/tools/canonical-tool-slugs";
 import { PREVIEW_ENTITLEMENT } from "@/lib/entitlements/premium-entitlements";
 import { gatePremiumReportExportPayload } from "@/lib/premium-schema/premium-report-gate";
 import { buildPremiumReportExportPayload } from "@/lib/premium-schema/premium-report-export";
@@ -92,8 +93,8 @@ function collectFreeResultStrings(
 
 describe("production-hardening", () => {
   test("FREE_TRAFFIC_TOOLS matches canonical free-slugs.json", () => {
-    expect(FREE_TRAFFIC_TOOLS.length).toBe(0);
-    expect(listFreeTrafficSlugs().length).toBe(0);
+    expect(FREE_TRAFFIC_TOOLS.length).toBe(CANONICAL_FREE_SLUGS.length);
+    expect(listFreeTrafficSlugs().length).toBe(CANONICAL_FREE_SLUGS.length);
   });
 
   test("PREMIUM_SCHEMAS empty during regeneration baseline", () => {

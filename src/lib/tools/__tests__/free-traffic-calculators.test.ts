@@ -7,7 +7,11 @@ import {
   listTrafficOnlyFreeSlugs,
 } from "@/lib/tools/free-traffic-catalog";
 import { getFreeToolRoutePath, listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
-import { CANONICAL_FREE_SLUGS } from "@/lib/tools/canonical-tool-slugs";
+import {
+  CANONICAL_FREE_SLUGS,
+  CANONICAL_PREMIUM_SLUGS,
+  CANONICAL_TRAFFIC_FREE_SLUGS,
+} from "@/lib/tools/canonical-tool-slugs";
 
 const PREMIUM_LEAK_TERMS = [
   "DO NOT ACCEPT UNDER",
@@ -32,9 +36,11 @@ describe("free-traffic-calculators (canonical baseline)", () => {
     }
   });
 
-  test("traffic-only free slugs empty when free-slugs.json is empty", () => {
-    expect(listTrafficOnlyFreeSlugs().length).toBe(0);
-    expect(listAllFreeToolSlugs().length).toBe(0);
+  test("traffic-only free slugs exclude premium overlap", () => {
+    expect(listTrafficOnlyFreeSlugs().length).toBe(CANONICAL_TRAFFIC_FREE_SLUGS.length);
+    expect(listAllFreeToolSlugs().length).toBe(
+      CANONICAL_PREMIUM_SLUGS.length + CANONICAL_TRAFFIC_FREE_SLUGS.length,
+    );
   });
 
   test("calculateFreeTrafficTool returns pending regeneration for canonical slugs", () => {
@@ -55,7 +61,12 @@ describe("free-traffic-calculators (canonical baseline)", () => {
     }
   });
 
-  test("related tools skipped when catalog is empty", () => {
-    expect(FREE_TRAFFIC_TOOLS.length).toBe(0);
+  test("related tools resolve within same category", () => {
+    const tool = FREE_TRAFFIC_TOOLS.find((item) => item.slug === "margin-calculator");
+    expect(tool).toBeDefined();
+    if (!tool) return;
+    const related = listRelatedTrafficTools(tool, 3);
+    expect(related.length).toBeGreaterThan(0);
+    expect(related.every((item) => item.category === tool.category)).toBe(true);
   });
 });

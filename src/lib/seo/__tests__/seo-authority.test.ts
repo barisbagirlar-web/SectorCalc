@@ -19,6 +19,7 @@ import {
   getRelatedEntities,
 } from "@/lib/seo/seo-authority-model";
 import { FREE_TRAFFIC_TOOLS } from "@/lib/tools/free-traffic-catalog";
+import { CANONICAL_FREE_SLUGS } from "@/lib/tools/canonical-tool-slugs";
 import { PREMIUM_SCHEMAS, listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
 import { getPremiumSchemaCatalogItems } from "@/lib/premium-schema/premium-schema-catalog";
 
@@ -88,7 +89,7 @@ describe("seo-authority architecture", () => {
   });
 
   test("FREE_TRAFFIC_TOOLS count matches canonical list", () => {
-    expect(FREE_TRAFFIC_TOOLS.length).toBe(0);
+    expect(FREE_TRAFFIC_TOOLS.length).toBe(CANONICAL_FREE_SLUGS.length);
   });
 
   test("PREMIUM_SCHEMAS empty during regeneration baseline", () => {

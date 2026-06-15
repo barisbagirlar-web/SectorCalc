@@ -1,6 +1,2542 @@
 {
-  "generatedAt": "2026-06-15T15:45:34.854Z",
-  "activeRoutes": [],
+  "generatedAt": "2026-06-15T16:59:23.150Z",
+  "activeRoutes": [
+    {
+      "slug": "absenteeism-cost-calculator",
+      "routePath": "/tools/generated/absenteeism-cost-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/absenteeism-cost-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/absenteeism-cost-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/absenteeism-cost-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/absenteeism-cost-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/absenteeism-cost-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/absenteeism-cost-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "ai-compute-token-cost",
+      "routePath": "/tools/generated/ai-compute-token-cost",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/ai-compute-token-cost",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/ai-compute-token-cost",
+        "de": "https://www.sectorcalc.com/de/tools/generated/ai-compute-token-cost",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/ai-compute-token-cost",
+        "es": "https://www.sectorcalc.com/es/tools/generated/ai-compute-token-cost",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/ai-compute-token-cost"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "apy-calculator",
+      "routePath": "/tools/generated/apy-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/apy-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/apy-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/apy-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/apy-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/apy-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/apy-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "aql-sampling-risk-cost",
+      "routePath": "/tools/generated/aql-sampling-risk-cost",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/aql-sampling-risk-cost",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/aql-sampling-risk-cost",
+        "de": "https://www.sectorcalc.com/de/tools/generated/aql-sampling-risk-cost",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/aql-sampling-risk-cost",
+        "es": "https://www.sectorcalc.com/es/tools/generated/aql-sampling-risk-cost",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/aql-sampling-risk-cost"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "auto-loan-calculator",
+      "routePath": "/tools/generated/auto-loan-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/auto-loan-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/auto-loan-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/auto-loan-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/auto-loan-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/auto-loan-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/auto-loan-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "auto-repair-comeback-cost",
+      "routePath": "/tools/generated/auto-repair-comeback-cost",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/auto-repair-comeback-cost",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/auto-repair-comeback-cost",
+        "de": "https://www.sectorcalc.com/de/tools/generated/auto-repair-comeback-cost",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/auto-repair-comeback-cost",
+        "es": "https://www.sectorcalc.com/es/tools/generated/auto-repair-comeback-cost",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/auto-repair-comeback-cost"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "auto-repair-parts-labor-quote",
+      "routePath": "/tools/generated/auto-repair-parts-labor-quote",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/auto-repair-parts-labor-quote",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/auto-repair-parts-labor-quote",
+        "de": "https://www.sectorcalc.com/de/tools/generated/auto-repair-parts-labor-quote",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/auto-repair-parts-labor-quote",
+        "es": "https://www.sectorcalc.com/es/tools/generated/auto-repair-parts-labor-quote",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/auto-repair-parts-labor-quote"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "auto-repair-quote-consistency",
+      "routePath": "/tools/generated/auto-repair-quote-consistency",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/auto-repair-quote-consistency",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/auto-repair-quote-consistency",
+        "de": "https://www.sectorcalc.com/de/tools/generated/auto-repair-quote-consistency",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/auto-repair-quote-consistency",
+        "es": "https://www.sectorcalc.com/es/tools/generated/auto-repair-quote-consistency",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/auto-repair-quote-consistency"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "auto-shop-margin-leak",
+      "routePath": "/tools/generated/auto-shop-margin-leak",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/auto-shop-margin-leak",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/auto-shop-margin-leak",
+        "de": "https://www.sectorcalc.com/de/tools/generated/auto-shop-margin-leak",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/auto-shop-margin-leak",
+        "es": "https://www.sectorcalc.com/es/tools/generated/auto-shop-margin-leak",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/auto-shop-margin-leak"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "beam-deflection-calculator",
+      "routePath": "/tools/generated/beam-deflection-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/beam-deflection-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/beam-deflection-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/beam-deflection-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/beam-deflection-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/beam-deflection-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/beam-deflection-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "beam-weight-calculator",
+      "routePath": "/tools/generated/beam-weight-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/beam-weight-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/beam-weight-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/beam-weight-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/beam-weight-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/beam-weight-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/beam-weight-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "bmi-calculator",
+      "routePath": "/tools/generated/bmi-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/bmi-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/bmi-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/bmi-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/bmi-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/bmi-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/bmi-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "bmr-calculator",
+      "routePath": "/tools/generated/bmr-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/bmr-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/bmr-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/bmr-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/bmr-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/bmr-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/bmr-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "body-fat-calculator",
+      "routePath": "/tools/generated/body-fat-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/body-fat-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/body-fat-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/body-fat-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/body-fat-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/body-fat-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/body-fat-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "bolt-torque-calculator",
+      "routePath": "/tools/generated/bolt-torque-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/bolt-torque-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/bolt-torque-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/bolt-torque-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/bolt-torque-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/bolt-torque-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/bolt-torque-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "bottleneck-investment-prioritizer",
+      "routePath": "/tools/generated/bottleneck-investment-prioritizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/bottleneck-investment-prioritizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/bottleneck-investment-prioritizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/bottleneck-investment-prioritizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/bottleneck-investment-prioritizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/bottleneck-investment-prioritizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/bottleneck-investment-prioritizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "break-even-calculator",
+      "routePath": "/tools/generated/break-even-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/break-even-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/break-even-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/break-even-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/break-even-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/break-even-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/break-even-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "break-even-safety-margin",
+      "routePath": "/tools/generated/break-even-safety-margin",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/break-even-safety-margin",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/break-even-safety-margin",
+        "de": "https://www.sectorcalc.com/de/tools/generated/break-even-safety-margin",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/break-even-safety-margin",
+        "es": "https://www.sectorcalc.com/es/tools/generated/break-even-safety-margin",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/break-even-safety-margin"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "calibration-drift-risk",
+      "routePath": "/tools/generated/calibration-drift-risk",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/calibration-drift-risk",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/calibration-drift-risk",
+        "de": "https://www.sectorcalc.com/de/tools/generated/calibration-drift-risk",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/calibration-drift-risk",
+        "es": "https://www.sectorcalc.com/es/tools/generated/calibration-drift-risk",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/calibration-drift-risk"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "calorie-deficit-calculator",
+      "routePath": "/tools/generated/calorie-deficit-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/calorie-deficit-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/calorie-deficit-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/calorie-deficit-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/calorie-deficit-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/calorie-deficit-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/calorie-deficit-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "carbon-footprint-calculator",
+      "routePath": "/tools/generated/carbon-footprint-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/carbon-footprint-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/carbon-footprint-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/carbon-footprint-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/carbon-footprint-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/carbon-footprint-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/carbon-footprint-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "carbon-footprint-check",
+      "routePath": "/tools/generated/carbon-footprint-check",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/carbon-footprint-check",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/carbon-footprint-check",
+        "de": "https://www.sectorcalc.com/de/tools/generated/carbon-footprint-check",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/carbon-footprint-check",
+        "es": "https://www.sectorcalc.com/es/tools/generated/carbon-footprint-check",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/carbon-footprint-check"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "cash-flow-gap-calculator",
+      "routePath": "/tools/generated/cash-flow-gap-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/cash-flow-gap-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/cash-flow-gap-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/cash-flow-gap-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/cash-flow-gap-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/cash-flow-gap-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/cash-flow-gap-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "cbam-compliance-verdict",
+      "routePath": "/tools/generated/cbam-compliance-verdict",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/cbam-compliance-verdict",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/cbam-compliance-verdict",
+        "de": "https://www.sectorcalc.com/de/tools/generated/cbam-compliance-verdict",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/cbam-compliance-verdict",
+        "es": "https://www.sectorcalc.com/es/tools/generated/cbam-compliance-verdict",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/cbam-compliance-verdict"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "cbam-exposure-check",
+      "routePath": "/tools/generated/cbam-exposure-check",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/cbam-exposure-check",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/cbam-exposure-check",
+        "de": "https://www.sectorcalc.com/de/tools/generated/cbam-exposure-check",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/cbam-exposure-check",
+        "es": "https://www.sectorcalc.com/es/tools/generated/cbam-exposure-check",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/cbam-exposure-check"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "celsius-to-fahrenheit-converter",
+      "routePath": "/tools/generated/celsius-to-fahrenheit-converter",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/celsius-to-fahrenheit-converter",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/celsius-to-fahrenheit-converter",
+        "de": "https://www.sectorcalc.com/de/tools/generated/celsius-to-fahrenheit-converter",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/celsius-to-fahrenheit-converter",
+        "es": "https://www.sectorcalc.com/es/tools/generated/celsius-to-fahrenheit-converter",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/celsius-to-fahrenheit-converter"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "changeover-matrix-optimizer",
+      "routePath": "/tools/generated/changeover-matrix-optimizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/changeover-matrix-optimizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/changeover-matrix-optimizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/changeover-matrix-optimizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/changeover-matrix-optimizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/changeover-matrix-optimizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/changeover-matrix-optimizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "chatter-surface-quality-loss",
+      "routePath": "/tools/generated/chatter-surface-quality-loss",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/chatter-surface-quality-loss",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/chatter-surface-quality-loss",
+        "de": "https://www.sectorcalc.com/de/tools/generated/chatter-surface-quality-loss",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/chatter-surface-quality-loss",
+        "es": "https://www.sectorcalc.com/es/tools/generated/chatter-surface-quality-loss",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/chatter-surface-quality-loss"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "cleaning-bid-optimizer",
+      "routePath": "/tools/generated/cleaning-bid-optimizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/cleaning-bid-optimizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/cleaning-bid-optimizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/cleaning-bid-optimizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/cleaning-bid-optimizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/cleaning-bid-optimizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/cleaning-bid-optimizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "cloud-api-overrun-cost",
+      "routePath": "/tools/generated/cloud-api-overrun-cost",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/cloud-api-overrun-cost",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/cloud-api-overrun-cost",
+        "de": "https://www.sectorcalc.com/de/tools/generated/cloud-api-overrun-cost",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/cloud-api-overrun-cost",
+        "es": "https://www.sectorcalc.com/es/tools/generated/cloud-api-overrun-cost",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/cloud-api-overrun-cost"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "cloud-waste-elimination",
+      "routePath": "/tools/generated/cloud-waste-elimination",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/cloud-waste-elimination",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/cloud-waste-elimination",
+        "de": "https://www.sectorcalc.com/de/tools/generated/cloud-waste-elimination",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/cloud-waste-elimination",
+        "es": "https://www.sectorcalc.com/es/tools/generated/cloud-waste-elimination",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/cloud-waste-elimination"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "clv-cac-calculator",
+      "routePath": "/tools/generated/clv-cac-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/clv-cac-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/clv-cac-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/clv-cac-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/clv-cac-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/clv-cac-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/clv-cac-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "cm-to-inch-converter",
+      "routePath": "/tools/generated/cm-to-inch-converter",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/cm-to-inch-converter",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/cm-to-inch-converter",
+        "de": "https://www.sectorcalc.com/de/tools/generated/cm-to-inch-converter",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/cm-to-inch-converter",
+        "es": "https://www.sectorcalc.com/es/tools/generated/cm-to-inch-converter",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/cm-to-inch-converter"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "cnc-cycle-time-calculator",
+      "routePath": "/tools/generated/cnc-cycle-time-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/cnc-cycle-time-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/cnc-cycle-time-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/cnc-cycle-time-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/cnc-cycle-time-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/cnc-cycle-time-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/cnc-cycle-time-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "cnc-machining-cost-calculator",
+      "routePath": "/tools/generated/cnc-machining-cost-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/cnc-machining-cost-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/cnc-machining-cost-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/cnc-machining-cost-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/cnc-machining-cost-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/cnc-machining-cost-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/cnc-machining-cost-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "cobot-vs-manual-labor-comparator",
+      "routePath": "/tools/generated/cobot-vs-manual-labor-comparator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/cobot-vs-manual-labor-comparator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/cobot-vs-manual-labor-comparator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/cobot-vs-manual-labor-comparator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/cobot-vs-manual-labor-comparator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/cobot-vs-manual-labor-comparator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/cobot-vs-manual-labor-comparator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "compound-interest-calculator",
+      "routePath": "/tools/generated/compound-interest-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/compound-interest-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/compound-interest-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/compound-interest-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/compound-interest-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/compound-interest-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/compound-interest-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "compressor-energy-cost-calculator",
+      "routePath": "/tools/generated/compressor-energy-cost-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/compressor-energy-cost-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/compressor-energy-cost-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/compressor-energy-cost-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/compressor-energy-cost-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/compressor-energy-cost-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/compressor-energy-cost-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "compressor-leak-cost-calculator",
+      "routePath": "/tools/generated/compressor-leak-cost-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/compressor-leak-cost-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/compressor-leak-cost-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/compressor-leak-cost-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/compressor-leak-cost-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/compressor-leak-cost-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/compressor-leak-cost-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "compressor-tank-sizing-calculator",
+      "routePath": "/tools/generated/compressor-tank-sizing-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/compressor-tank-sizing-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/compressor-tank-sizing-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/compressor-tank-sizing-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/compressor-tank-sizing-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/compressor-tank-sizing-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/compressor-tank-sizing-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "concrete-volume-calculator",
+      "routePath": "/tools/generated/concrete-volume-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/concrete-volume-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/concrete-volume-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/concrete-volume-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/concrete-volume-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/concrete-volume-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/concrete-volume-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "container-load-calculator",
+      "routePath": "/tools/generated/container-load-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/container-load-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/container-load-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/container-load-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/container-load-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/container-load-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/container-load-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "contract-incentive-calculator",
+      "routePath": "/tools/generated/contract-incentive-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/contract-incentive-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/contract-incentive-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/contract-incentive-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/contract-incentive-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/contract-incentive-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/contract-incentive-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "cpk-ppm-converter",
+      "routePath": "/tools/generated/cpk-ppm-converter",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/cpk-ppm-converter",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/cpk-ppm-converter",
+        "de": "https://www.sectorcalc.com/de/tools/generated/cpk-ppm-converter",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/cpk-ppm-converter",
+        "es": "https://www.sectorcalc.com/es/tools/generated/cpk-ppm-converter",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/cpk-ppm-converter"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "cpm-delay-penalty-optimizer",
+      "routePath": "/tools/generated/cpm-delay-penalty-optimizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/cpm-delay-penalty-optimizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/cpm-delay-penalty-optimizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/cpm-delay-penalty-optimizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/cpm-delay-penalty-optimizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/cpm-delay-penalty-optimizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/cpm-delay-penalty-optimizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "crop-yield-loss-analyzer",
+      "routePath": "/tools/generated/crop-yield-loss-analyzer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/crop-yield-loss-analyzer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/crop-yield-loss-analyzer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/crop-yield-loss-analyzer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/crop-yield-loss-analyzer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/crop-yield-loss-analyzer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/crop-yield-loss-analyzer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "currency-risk-calculator",
+      "routePath": "/tools/generated/currency-risk-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/currency-risk-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/currency-risk-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/currency-risk-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/currency-risk-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/currency-risk-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/currency-risk-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "cut-fill-balance-optimizer",
+      "routePath": "/tools/generated/cut-fill-balance-optimizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/cut-fill-balance-optimizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/cut-fill-balance-optimizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/cut-fill-balance-optimizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/cut-fill-balance-optimizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/cut-fill-balance-optimizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/cut-fill-balance-optimizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "cutting-parameters-tool-life",
+      "routePath": "/tools/generated/cutting-parameters-tool-life",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/cutting-parameters-tool-life",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/cutting-parameters-tool-life",
+        "de": "https://www.sectorcalc.com/de/tools/generated/cutting-parameters-tool-life",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/cutting-parameters-tool-life",
+        "es": "https://www.sectorcalc.com/es/tools/generated/cutting-parameters-tool-life",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/cutting-parameters-tool-life"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "dairy-profit-detector",
+      "routePath": "/tools/generated/dairy-profit-detector",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/dairy-profit-detector",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/dairy-profit-detector",
+        "de": "https://www.sectorcalc.com/de/tools/generated/dairy-profit-detector",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/dairy-profit-detector",
+        "es": "https://www.sectorcalc.com/es/tools/generated/dairy-profit-detector",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/dairy-profit-detector"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "delivery-cost-calculator",
+      "routePath": "/tools/generated/delivery-cost-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/delivery-cost-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/delivery-cost-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/delivery-cost-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/delivery-cost-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/delivery-cost-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/delivery-cost-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "demand-forecast-inventory-cost",
+      "routePath": "/tools/generated/demand-forecast-inventory-cost",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/demand-forecast-inventory-cost",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/demand-forecast-inventory-cost",
+        "de": "https://www.sectorcalc.com/de/tools/generated/demand-forecast-inventory-cost",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/demand-forecast-inventory-cost",
+        "es": "https://www.sectorcalc.com/es/tools/generated/demand-forecast-inventory-cost",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/demand-forecast-inventory-cost"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "digital-twin-cost-comparator",
+      "routePath": "/tools/generated/digital-twin-cost-comparator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/digital-twin-cost-comparator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/digital-twin-cost-comparator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/digital-twin-cost-comparator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/digital-twin-cost-comparator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/digital-twin-cost-comparator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/digital-twin-cost-comparator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "discount-calculator",
+      "routePath": "/tools/generated/discount-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/discount-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/discount-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/discount-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/discount-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/discount-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/discount-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "downtime-cost-calculator",
+      "routePath": "/tools/generated/downtime-cost-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/downtime-cost-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/downtime-cost-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/downtime-cost-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/downtime-cost-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/downtime-cost-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/downtime-cost-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "dye-recipe-cost-optimizer",
+      "routePath": "/tools/generated/dye-recipe-cost-optimizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/dye-recipe-cost-optimizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/dye-recipe-cost-optimizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/dye-recipe-cost-optimizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/dye-recipe-cost-optimizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/dye-recipe-cost-optimizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/dye-recipe-cost-optimizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "energy-consumption-cost-report",
+      "routePath": "/tools/generated/energy-consumption-cost-report",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/energy-consumption-cost-report",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/energy-consumption-cost-report",
+        "de": "https://www.sectorcalc.com/de/tools/generated/energy-consumption-cost-report",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/energy-consumption-cost-report",
+        "es": "https://www.sectorcalc.com/es/tools/generated/energy-consumption-cost-report",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/energy-consumption-cost-report"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "environmental-waste-cost",
+      "routePath": "/tools/generated/environmental-waste-cost",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/environmental-waste-cost",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/environmental-waste-cost",
+        "de": "https://www.sectorcalc.com/de/tools/generated/environmental-waste-cost",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/environmental-waste-cost",
+        "es": "https://www.sectorcalc.com/es/tools/generated/environmental-waste-cost",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/environmental-waste-cost"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "eoq-inventory-calculator",
+      "routePath": "/tools/generated/eoq-inventory-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/eoq-inventory-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/eoq-inventory-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/eoq-inventory-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/eoq-inventory-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/eoq-inventory-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/eoq-inventory-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "evm-cost-forecast",
+      "routePath": "/tools/generated/evm-cost-forecast",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/evm-cost-forecast",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/evm-cost-forecast",
+        "de": "https://www.sectorcalc.com/de/tools/generated/evm-cost-forecast",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/evm-cost-forecast",
+        "es": "https://www.sectorcalc.com/es/tools/generated/evm-cost-forecast",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/evm-cost-forecast"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "fabric-cutting-optimizer",
+      "routePath": "/tools/generated/fabric-cutting-optimizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/fabric-cutting-optimizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/fabric-cutting-optimizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/fabric-cutting-optimizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/fabric-cutting-optimizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/fabric-cutting-optimizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/fabric-cutting-optimizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "factory-layout-distance-optimizer",
+      "routePath": "/tools/generated/factory-layout-distance-optimizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/factory-layout-distance-optimizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/factory-layout-distance-optimizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/factory-layout-distance-optimizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/factory-layout-distance-optimizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/factory-layout-distance-optimizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/factory-layout-distance-optimizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "feed-cost-estimator",
+      "routePath": "/tools/generated/feed-cost-estimator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/feed-cost-estimator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/feed-cost-estimator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/feed-cost-estimator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/feed-cost-estimator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/feed-cost-estimator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/feed-cost-estimator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "fertilizer-dosage-calculator",
+      "routePath": "/tools/generated/fertilizer-dosage-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/fertilizer-dosage-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/fertilizer-dosage-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/fertilizer-dosage-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/fertilizer-dosage-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/fertilizer-dosage-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/fertilizer-dosage-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "filament-recycling-cost-comparator",
+      "routePath": "/tools/generated/filament-recycling-cost-comparator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/filament-recycling-cost-comparator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/filament-recycling-cost-comparator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/filament-recycling-cost-comparator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/filament-recycling-cost-comparator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/filament-recycling-cost-comparator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/filament-recycling-cost-comparator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "fire-hydrant-flow-calculator",
+      "routePath": "/tools/generated/fire-hydrant-flow-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/fire-hydrant-flow-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/fire-hydrant-flow-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/fire-hydrant-flow-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/fire-hydrant-flow-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/fire-hydrant-flow-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/fire-hydrant-flow-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "flexible-manufacturing-roi",
+      "routePath": "/tools/generated/flexible-manufacturing-roi",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/flexible-manufacturing-roi",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/flexible-manufacturing-roi",
+        "de": "https://www.sectorcalc.com/de/tools/generated/flexible-manufacturing-roi",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/flexible-manufacturing-roi",
+        "es": "https://www.sectorcalc.com/es/tools/generated/flexible-manufacturing-roi",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/flexible-manufacturing-roi"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "food-waste-margin-loss",
+      "routePath": "/tools/generated/food-waste-margin-loss",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/food-waste-margin-loss",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/food-waste-margin-loss",
+        "de": "https://www.sectorcalc.com/de/tools/generated/food-waste-margin-loss",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/food-waste-margin-loss",
+        "es": "https://www.sectorcalc.com/es/tools/generated/food-waste-margin-loss",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/food-waste-margin-loss"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "fraction-to-decimal-calculator",
+      "routePath": "/tools/generated/fraction-to-decimal-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/fraction-to-decimal-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/fraction-to-decimal-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/fraction-to-decimal-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/fraction-to-decimal-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/fraction-to-decimal-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/fraction-to-decimal-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "freight-cost-calculator",
+      "routePath": "/tools/generated/freight-cost-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/freight-cost-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/freight-cost-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/freight-cost-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/freight-cost-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/freight-cost-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/freight-cost-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "fuel-route-drift-calculator",
+      "routePath": "/tools/generated/fuel-route-drift-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/fuel-route-drift-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/fuel-route-drift-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/fuel-route-drift-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/fuel-route-drift-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/fuel-route-drift-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/fuel-route-drift-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "grade-calculator",
+      "routePath": "/tools/generated/grade-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/grade-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/grade-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/grade-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/grade-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/grade-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/grade-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "haccp-deviation-cost",
+      "routePath": "/tools/generated/haccp-deviation-cost",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/haccp-deviation-cost",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/haccp-deviation-cost",
+        "de": "https://www.sectorcalc.com/de/tools/generated/haccp-deviation-cost",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/haccp-deviation-cost",
+        "es": "https://www.sectorcalc.com/es/tools/generated/haccp-deviation-cost",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/haccp-deviation-cost"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "heat-exchanger-fouling-loss",
+      "routePath": "/tools/generated/heat-exchanger-fouling-loss",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/heat-exchanger-fouling-loss",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/heat-exchanger-fouling-loss",
+        "de": "https://www.sectorcalc.com/de/tools/generated/heat-exchanger-fouling-loss",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/heat-exchanger-fouling-loss",
+        "es": "https://www.sectorcalc.com/es/tools/generated/heat-exchanger-fouling-loss",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/heat-exchanger-fouling-loss"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "hourly-rate-calculator",
+      "routePath": "/tools/generated/hourly-rate-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/hourly-rate-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/hourly-rate-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/hourly-rate-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/hourly-rate-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/hourly-rate-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/hourly-rate-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "hp-to-kw-converter",
+      "routePath": "/tools/generated/hp-to-kw-converter",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/hp-to-kw-converter",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/hp-to-kw-converter",
+        "de": "https://www.sectorcalc.com/de/tools/generated/hp-to-kw-converter",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/hp-to-kw-converter",
+        "es": "https://www.sectorcalc.com/es/tools/generated/hp-to-kw-converter",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/hp-to-kw-converter"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "hvac-capacity-optimizer",
+      "routePath": "/tools/generated/hvac-capacity-optimizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/hvac-capacity-optimizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/hvac-capacity-optimizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/hvac-capacity-optimizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/hvac-capacity-optimizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/hvac-capacity-optimizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/hvac-capacity-optimizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "hydraulic-system-energy-loss",
+      "routePath": "/tools/generated/hydraulic-system-energy-loss",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/hydraulic-system-energy-loss",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/hydraulic-system-energy-loss",
+        "de": "https://www.sectorcalc.com/de/tools/generated/hydraulic-system-energy-loss",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/hydraulic-system-energy-loss",
+        "es": "https://www.sectorcalc.com/es/tools/generated/hydraulic-system-energy-loss",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/hydraulic-system-energy-loss"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "inflation-escalation-calculator",
+      "routePath": "/tools/generated/inflation-escalation-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/inflation-escalation-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/inflation-escalation-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/inflation-escalation-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/inflation-escalation-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/inflation-escalation-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/inflation-escalation-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "interest-rate-risk-calculator",
+      "routePath": "/tools/generated/interest-rate-risk-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/interest-rate-risk-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/interest-rate-risk-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/interest-rate-risk-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/interest-rate-risk-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/interest-rate-risk-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/interest-rate-risk-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "inventory-turnover-risk",
+      "routePath": "/tools/generated/inventory-turnover-risk",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/inventory-turnover-risk",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/inventory-turnover-risk",
+        "de": "https://www.sectorcalc.com/de/tools/generated/inventory-turnover-risk",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/inventory-turnover-risk",
+        "es": "https://www.sectorcalc.com/es/tools/generated/inventory-turnover-risk",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/inventory-turnover-risk"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "irr-calculator",
+      "routePath": "/tools/generated/irr-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/irr-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/irr-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/irr-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/irr-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/irr-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/irr-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "irrigation-cost-check",
+      "routePath": "/tools/generated/irrigation-cost-check",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/irrigation-cost-check",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/irrigation-cost-check",
+        "de": "https://www.sectorcalc.com/de/tools/generated/irrigation-cost-check",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/irrigation-cost-check",
+        "es": "https://www.sectorcalc.com/es/tools/generated/irrigation-cost-check",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/irrigation-cost-check"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "iso-50001-energy-baseline",
+      "routePath": "/tools/generated/iso-50001-energy-baseline",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/iso-50001-energy-baseline",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/iso-50001-energy-baseline",
+        "de": "https://www.sectorcalc.com/de/tools/generated/iso-50001-energy-baseline",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/iso-50001-energy-baseline",
+        "es": "https://www.sectorcalc.com/es/tools/generated/iso-50001-energy-baseline",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/iso-50001-energy-baseline"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "kaizen-savings-tracker",
+      "routePath": "/tools/generated/kaizen-savings-tracker",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/kaizen-savings-tracker",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/kaizen-savings-tracker",
+        "de": "https://www.sectorcalc.com/de/tools/generated/kaizen-savings-tracker",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/kaizen-savings-tracker",
+        "es": "https://www.sectorcalc.com/es/tools/generated/kaizen-savings-tracker",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/kaizen-savings-tracker"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "kg-to-lb-converter",
+      "routePath": "/tools/generated/kg-to-lb-converter",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/kg-to-lb-converter",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/kg-to-lb-converter",
+        "de": "https://www.sectorcalc.com/de/tools/generated/kg-to-lb-converter",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/kg-to-lb-converter",
+        "es": "https://www.sectorcalc.com/es/tools/generated/kg-to-lb-converter",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/kg-to-lb-converter"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "kwh-cost-calculator",
+      "routePath": "/tools/generated/kwh-cost-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/kwh-cost-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/kwh-cost-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/kwh-cost-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/kwh-cost-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/kwh-cost-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/kwh-cost-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "lbs-to-kg-converter",
+      "routePath": "/tools/generated/lbs-to-kg-converter",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/lbs-to-kg-converter",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/lbs-to-kg-converter",
+        "de": "https://www.sectorcalc.com/de/tools/generated/lbs-to-kg-converter",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/lbs-to-kg-converter",
+        "es": "https://www.sectorcalc.com/es/tools/generated/lbs-to-kg-converter",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/lbs-to-kg-converter"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "lcm-calculator",
+      "routePath": "/tools/generated/lcm-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/lcm-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/lcm-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/lcm-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/lcm-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/lcm-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/lcm-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "learning-curve-time-estimator",
+      "routePath": "/tools/generated/learning-curve-time-estimator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/learning-curve-time-estimator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/learning-curve-time-estimator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/learning-curve-time-estimator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/learning-curve-time-estimator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/learning-curve-time-estimator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/learning-curve-time-estimator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "lease-vs-buy-comparator",
+      "routePath": "/tools/generated/lease-vs-buy-comparator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/lease-vs-buy-comparator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/lease-vs-buy-comparator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/lease-vs-buy-comparator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/lease-vs-buy-comparator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/lease-vs-buy-comparator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/lease-vs-buy-comparator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "lightweight-cost-savings-calculator",
+      "routePath": "/tools/generated/lightweight-cost-savings-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/lightweight-cost-savings-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/lightweight-cost-savings-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/lightweight-cost-savings-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/lightweight-cost-savings-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/lightweight-cost-savings-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/lightweight-cost-savings-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "liters-to-gallons-converter",
+      "routePath": "/tools/generated/liters-to-gallons-converter",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/liters-to-gallons-converter",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/liters-to-gallons-converter",
+        "de": "https://www.sectorcalc.com/de/tools/generated/liters-to-gallons-converter",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/liters-to-gallons-converter",
+        "es": "https://www.sectorcalc.com/es/tools/generated/liters-to-gallons-converter",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/liters-to-gallons-converter"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "logarithm-calculator",
+      "routePath": "/tools/generated/logarithm-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/logarithm-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/logarithm-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/logarithm-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/logarithm-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/logarithm-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/logarithm-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "logistics-route-loss-calculator",
+      "routePath": "/tools/generated/logistics-route-loss-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/logistics-route-loss-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/logistics-route-loss-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/logistics-route-loss-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/logistics-route-loss-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/logistics-route-loss-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/logistics-route-loss-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "machine-economic-life-calculator",
+      "routePath": "/tools/generated/machine-economic-life-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/machine-economic-life-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/machine-economic-life-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/machine-economic-life-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/machine-economic-life-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/machine-economic-life-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/machine-economic-life-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "machining-strategy-time-optimizer",
+      "routePath": "/tools/generated/machining-strategy-time-optimizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/machining-strategy-time-optimizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/machining-strategy-time-optimizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/machining-strategy-time-optimizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/machining-strategy-time-optimizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/machining-strategy-time-optimizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/machining-strategy-time-optimizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "margin-calculator",
+      "routePath": "/tools/generated/margin-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/margin-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/margin-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/margin-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/margin-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/margin-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/margin-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "material-replacement-cost-comparator",
+      "routePath": "/tools/generated/material-replacement-cost-comparator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/material-replacement-cost-comparator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/material-replacement-cost-comparator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/material-replacement-cost-comparator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/material-replacement-cost-comparator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/material-replacement-cost-comparator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/material-replacement-cost-comparator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "mm-to-inch-converter",
+      "routePath": "/tools/generated/mm-to-inch-converter",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/mm-to-inch-converter",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/mm-to-inch-converter",
+        "de": "https://www.sectorcalc.com/de/tools/generated/mm-to-inch-converter",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/mm-to-inch-converter",
+        "es": "https://www.sectorcalc.com/es/tools/generated/mm-to-inch-converter",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/mm-to-inch-converter"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "moq-inventory-balance-calculator",
+      "routePath": "/tools/generated/moq-inventory-balance-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/moq-inventory-balance-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/moq-inventory-balance-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/moq-inventory-balance-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/moq-inventory-balance-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/moq-inventory-balance-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/moq-inventory-balance-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "mortgage-calculator",
+      "routePath": "/tools/generated/mortgage-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/mortgage-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/mortgage-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/mortgage-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/mortgage-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/mortgage-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/mortgage-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "mpg-to-l-per-100km-converter",
+      "routePath": "/tools/generated/mpg-to-l-per-100km-converter",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/mpg-to-l-per-100km-converter",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/mpg-to-l-per-100km-converter",
+        "de": "https://www.sectorcalc.com/de/tools/generated/mpg-to-l-per-100km-converter",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/mpg-to-l-per-100km-converter",
+        "es": "https://www.sectorcalc.com/es/tools/generated/mpg-to-l-per-100km-converter",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/mpg-to-l-per-100km-converter"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "msa-gage-rr-cost",
+      "routePath": "/tools/generated/msa-gage-rr-cost",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/msa-gage-rr-cost",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/msa-gage-rr-cost",
+        "de": "https://www.sectorcalc.com/de/tools/generated/msa-gage-rr-cost",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/msa-gage-rr-cost",
+        "es": "https://www.sectorcalc.com/es/tools/generated/msa-gage-rr-cost",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/msa-gage-rr-cost"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "mtbf-mttr-financial-calculator",
+      "routePath": "/tools/generated/mtbf-mttr-financial-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/mtbf-mttr-financial-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/mtbf-mttr-financial-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/mtbf-mttr-financial-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/mtbf-mttr-financial-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/mtbf-mttr-financial-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/mtbf-mttr-financial-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "muda-waste-cost-calculator",
+      "routePath": "/tools/generated/muda-waste-cost-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/muda-waste-cost-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/muda-waste-cost-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/muda-waste-cost-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/muda-waste-cost-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/muda-waste-cost-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/muda-waste-cost-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "noise-vibration-cost",
+      "routePath": "/tools/generated/noise-vibration-cost",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/noise-vibration-cost",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/noise-vibration-cost",
+        "de": "https://www.sectorcalc.com/de/tools/generated/noise-vibration-cost",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/noise-vibration-cost",
+        "es": "https://www.sectorcalc.com/es/tools/generated/noise-vibration-cost",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/noise-vibration-cost"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "npv-calculator",
+      "routePath": "/tools/generated/npv-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/npv-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/npv-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/npv-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/npv-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/npv-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/npv-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "oee-downtime-calculator",
+      "routePath": "/tools/generated/oee-downtime-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/oee-downtime-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/oee-downtime-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/oee-downtime-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/oee-downtime-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/oee-downtime-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/oee-downtime-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "office-supplies-cost-calculator",
+      "routePath": "/tools/generated/office-supplies-cost-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/office-supplies-cost-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/office-supplies-cost-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/office-supplies-cost-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/office-supplies-cost-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/office-supplies-cost-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/office-supplies-cost-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "ohms-law-calculator",
+      "routePath": "/tools/generated/ohms-law-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/ohms-law-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/ohms-law-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/ohms-law-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/ohms-law-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/ohms-law-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/ohms-law-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "overtime-vs-hiring-breakeven",
+      "routePath": "/tools/generated/overtime-vs-hiring-breakeven",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/overtime-vs-hiring-breakeven",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/overtime-vs-hiring-breakeven",
+        "de": "https://www.sectorcalc.com/de/tools/generated/overtime-vs-hiring-breakeven",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/overtime-vs-hiring-breakeven",
+        "es": "https://www.sectorcalc.com/es/tools/generated/overtime-vs-hiring-breakeven",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/overtime-vs-hiring-breakeven"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "ovulation-calculator",
+      "routePath": "/tools/generated/ovulation-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/ovulation-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/ovulation-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/ovulation-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/ovulation-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/ovulation-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/ovulation-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "pallet-rack-optimizer",
+      "routePath": "/tools/generated/pallet-rack-optimizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/pallet-rack-optimizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/pallet-rack-optimizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/pallet-rack-optimizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/pallet-rack-optimizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/pallet-rack-optimizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/pallet-rack-optimizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "payment-term-optimizer",
+      "routePath": "/tools/generated/payment-term-optimizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/payment-term-optimizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/payment-term-optimizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/payment-term-optimizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/payment-term-optimizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/payment-term-optimizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/payment-term-optimizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "percentage-calculator",
+      "routePath": "/tools/generated/percentage-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/percentage-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/percentage-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/percentage-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/percentage-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/percentage-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/percentage-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "pipe-flow-calculator",
+      "routePath": "/tools/generated/pipe-flow-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/pipe-flow-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/pipe-flow-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/pipe-flow-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/pipe-flow-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/pipe-flow-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/pipe-flow-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "poka-yoke-roi-calculator",
+      "routePath": "/tools/generated/poka-yoke-roi-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/poka-yoke-roi-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/poka-yoke-roi-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/poka-yoke-roi-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/poka-yoke-roi-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/poka-yoke-roi-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/poka-yoke-roi-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "portion-cost-calculator",
+      "routePath": "/tools/generated/portion-cost-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/portion-cost-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/portion-cost-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/portion-cost-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/portion-cost-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/portion-cost-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/portion-cost-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "pregnancy-due-date-calculator",
+      "routePath": "/tools/generated/pregnancy-due-date-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/pregnancy-due-date-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/pregnancy-due-date-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/pregnancy-due-date-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/pregnancy-due-date-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/pregnancy-due-date-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/pregnancy-due-date-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "pressure-vessel-thickness",
+      "routePath": "/tools/generated/pressure-vessel-thickness",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/pressure-vessel-thickness",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/pressure-vessel-thickness",
+        "de": "https://www.sectorcalc.com/de/tools/generated/pressure-vessel-thickness",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/pressure-vessel-thickness",
+        "es": "https://www.sectorcalc.com/es/tools/generated/pressure-vessel-thickness",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/pressure-vessel-thickness"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "price-elasticity-simulator",
+      "routePath": "/tools/generated/price-elasticity-simulator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/price-elasticity-simulator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/price-elasticity-simulator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/price-elasticity-simulator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/price-elasticity-simulator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/price-elasticity-simulator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/price-elasticity-simulator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "probability-calculator",
+      "routePath": "/tools/generated/probability-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/probability-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/probability-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/probability-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/probability-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/probability-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/probability-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "product-carbon-footprint",
+      "routePath": "/tools/generated/product-carbon-footprint",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/product-carbon-footprint",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/product-carbon-footprint",
+        "de": "https://www.sectorcalc.com/de/tools/generated/product-carbon-footprint",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/product-carbon-footprint",
+        "es": "https://www.sectorcalc.com/es/tools/generated/product-carbon-footprint",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/product-carbon-footprint"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "product-complexity-hidden-cost",
+      "routePath": "/tools/generated/product-complexity-hidden-cost",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/product-complexity-hidden-cost",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/product-complexity-hidden-cost",
+        "de": "https://www.sectorcalc.com/de/tools/generated/product-complexity-hidden-cost",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/product-complexity-hidden-cost",
+        "es": "https://www.sectorcalc.com/es/tools/generated/product-complexity-hidden-cost",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/product-complexity-hidden-cost"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "project-cost-estimator",
+      "routePath": "/tools/generated/project-cost-estimator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/project-cost-estimator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/project-cost-estimator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/project-cost-estimator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/project-cost-estimator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/project-cost-estimator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/project-cost-estimator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "project-overrun-risk",
+      "routePath": "/tools/generated/project-overrun-risk",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/project-overrun-risk",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/project-overrun-risk",
+        "de": "https://www.sectorcalc.com/de/tools/generated/project-overrun-risk",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/project-overrun-risk",
+        "es": "https://www.sectorcalc.com/es/tools/generated/project-overrun-risk",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/project-overrun-risk"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "psi-to-bar-converter",
+      "routePath": "/tools/generated/psi-to-bar-converter",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/psi-to-bar-converter",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/psi-to-bar-converter",
+        "de": "https://www.sectorcalc.com/de/tools/generated/psi-to-bar-converter",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/psi-to-bar-converter",
+        "es": "https://www.sectorcalc.com/es/tools/generated/psi-to-bar-converter",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/psi-to-bar-converter"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "quadratic-formula-calculator",
+      "routePath": "/tools/generated/quadratic-formula-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/quadratic-formula-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/quadratic-formula-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/quadratic-formula-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/quadratic-formula-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/quadratic-formula-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/quadratic-formula-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "quality-cost-paf-calculator",
+      "routePath": "/tools/generated/quality-cost-paf-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/quality-cost-paf-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/quality-cost-paf-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/quality-cost-paf-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/quality-cost-paf-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/quality-cost-paf-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/quality-cost-paf-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "quote-risk-analyzer",
+      "routePath": "/tools/generated/quote-risk-analyzer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/quote-risk-analyzer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/quote-risk-analyzer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/quote-risk-analyzer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/quote-risk-analyzer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/quote-risk-analyzer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/quote-risk-analyzer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "rca-recurring-cost-calculator",
+      "routePath": "/tools/generated/rca-recurring-cost-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/rca-recurring-cost-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/rca-recurring-cost-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/rca-recurring-cost-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/rca-recurring-cost-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/rca-recurring-cost-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/rca-recurring-cost-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "recipe-cost-check",
+      "routePath": "/tools/generated/recipe-cost-check",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/recipe-cost-check",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/recipe-cost-check",
+        "de": "https://www.sectorcalc.com/de/tools/generated/recipe-cost-check",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/recipe-cost-check",
+        "es": "https://www.sectorcalc.com/es/tools/generated/recipe-cost-check",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/recipe-cost-check"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "renewable-energy-roi-calculator",
+      "routePath": "/tools/generated/renewable-energy-roi-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/renewable-energy-roi-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/renewable-energy-roi-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/renewable-energy-roi-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/renewable-energy-roi-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/renewable-energy-roi-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/renewable-energy-roi-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "renovation-budget-optimizer",
+      "routePath": "/tools/generated/renovation-budget-optimizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/renovation-budget-optimizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/renovation-budget-optimizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/renovation-budget-optimizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/renovation-budget-optimizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/renovation-budget-optimizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/renovation-budget-optimizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "restaurant-menu-margin-leak",
+      "routePath": "/tools/generated/restaurant-menu-margin-leak",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/restaurant-menu-margin-leak",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/restaurant-menu-margin-leak",
+        "de": "https://www.sectorcalc.com/de/tools/generated/restaurant-menu-margin-leak",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/restaurant-menu-margin-leak",
+        "es": "https://www.sectorcalc.com/es/tools/generated/restaurant-menu-margin-leak",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/restaurant-menu-margin-leak"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "reynolds-number-calculator",
+      "routePath": "/tools/generated/reynolds-number-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/reynolds-number-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/reynolds-number-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/reynolds-number-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/reynolds-number-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/reynolds-number-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/reynolds-number-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "roi-calculator",
+      "routePath": "/tools/generated/roi-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/roi-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/roi-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/roi-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/roi-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/roi-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/roi-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "roi-npv-calculator",
+      "routePath": "/tools/generated/roi-npv-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/roi-npv-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/roi-npv-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/roi-npv-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/roi-npv-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/roi-npv-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/roi-npv-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "roof-area-calculator",
+      "routePath": "/tools/generated/roof-area-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/roof-area-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/roof-area-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/roof-area-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/roof-area-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/roof-area-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/roof-area-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "route-cost-calculator",
+      "routePath": "/tools/generated/route-cost-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/route-cost-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/route-cost-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/route-cost-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/route-cost-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/route-cost-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/route-cost-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "route-optimization-analyzer",
+      "routePath": "/tools/generated/route-optimization-analyzer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/route-optimization-analyzer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/route-optimization-analyzer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/route-optimization-analyzer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/route-optimization-analyzer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/route-optimization-analyzer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/route-optimization-analyzer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "saas-shelfware-cost",
+      "routePath": "/tools/generated/saas-shelfware-cost",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/saas-shelfware-cost",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/saas-shelfware-cost",
+        "de": "https://www.sectorcalc.com/de/tools/generated/saas-shelfware-cost",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/saas-shelfware-cost",
+        "es": "https://www.sectorcalc.com/es/tools/generated/saas-shelfware-cost",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/saas-shelfware-cost"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "salary-to-hourly-calculator",
+      "routePath": "/tools/generated/salary-to-hourly-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/salary-to-hourly-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/salary-to-hourly-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/salary-to-hourly-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/salary-to-hourly-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/salary-to-hourly-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/salary-to-hourly-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "sales-tax-calculator",
+      "routePath": "/tools/generated/sales-tax-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/sales-tax-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/sales-tax-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/sales-tax-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/sales-tax-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/sales-tax-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/sales-tax-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "sample-size-calculator",
+      "routePath": "/tools/generated/sample-size-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/sample-size-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/sample-size-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/sample-size-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/sample-size-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/sample-size-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/sample-size-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "scaffolding-rental-optimizer",
+      "routePath": "/tools/generated/scaffolding-rental-optimizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/scaffolding-rental-optimizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/scaffolding-rental-optimizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/scaffolding-rental-optimizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/scaffolding-rental-optimizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/scaffolding-rental-optimizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/scaffolding-rental-optimizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "scientific-notation-converter",
+      "routePath": "/tools/generated/scientific-notation-converter",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/scientific-notation-converter",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/scientific-notation-converter",
+        "de": "https://www.sectorcalc.com/de/tools/generated/scientific-notation-converter",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/scientific-notation-converter",
+        "es": "https://www.sectorcalc.com/es/tools/generated/scientific-notation-converter",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/scientific-notation-converter"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "scrap-rate-optimizer",
+      "routePath": "/tools/generated/scrap-rate-optimizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/scrap-rate-optimizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/scrap-rate-optimizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/scrap-rate-optimizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/scrap-rate-optimizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/scrap-rate-optimizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/scrap-rate-optimizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "seed-rate-calculator",
+      "routePath": "/tools/generated/seed-rate-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/seed-rate-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/seed-rate-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/seed-rate-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/seed-rate-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/seed-rate-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/seed-rate-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "sewing-line-balancer",
+      "routePath": "/tools/generated/sewing-line-balancer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/sewing-line-balancer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/sewing-line-balancer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/sewing-line-balancer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/sewing-line-balancer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/sewing-line-balancer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/sewing-line-balancer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "shift-cost-efficiency-calculator",
+      "routePath": "/tools/generated/shift-cost-efficiency-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/shift-cost-efficiency-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/shift-cost-efficiency-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/shift-cost-efficiency-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/shift-cost-efficiency-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/shift-cost-efficiency-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/shift-cost-efficiency-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "shop-hourly-rate-calculator",
+      "routePath": "/tools/generated/shop-hourly-rate-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/shop-hourly-rate-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/shop-hourly-rate-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/shop-hourly-rate-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/shop-hourly-rate-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/shop-hourly-rate-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/shop-hourly-rate-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "signage-safe-price-tool",
+      "routePath": "/tools/generated/signage-safe-price-tool",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/signage-safe-price-tool",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/signage-safe-price-tool",
+        "de": "https://www.sectorcalc.com/de/tools/generated/signage-safe-price-tool",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/signage-safe-price-tool",
+        "es": "https://www.sectorcalc.com/es/tools/generated/signage-safe-price-tool",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/signage-safe-price-tool"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "six-sigma-project-prioritizer",
+      "routePath": "/tools/generated/six-sigma-project-prioritizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/six-sigma-project-prioritizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/six-sigma-project-prioritizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/six-sigma-project-prioritizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/six-sigma-project-prioritizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/six-sigma-project-prioritizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/six-sigma-project-prioritizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "sleep-cycle-calculator",
+      "routePath": "/tools/generated/sleep-cycle-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/sleep-cycle-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/sleep-cycle-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/sleep-cycle-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/sleep-cycle-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/sleep-cycle-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/sleep-cycle-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "smed-changeover-optimizer",
+      "routePath": "/tools/generated/smed-changeover-optimizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/smed-changeover-optimizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/smed-changeover-optimizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/smed-changeover-optimizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/smed-changeover-optimizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/smed-changeover-optimizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/smed-changeover-optimizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "spc-limit-calculator",
+      "routePath": "/tools/generated/spc-limit-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/spc-limit-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/spc-limit-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/spc-limit-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/spc-limit-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/spc-limit-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/spc-limit-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "spc-signal-delay-cost",
+      "routePath": "/tools/generated/spc-signal-delay-cost",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/spc-signal-delay-cost",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/spc-signal-delay-cost",
+        "de": "https://www.sectorcalc.com/de/tools/generated/spc-signal-delay-cost",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/spc-signal-delay-cost",
+        "es": "https://www.sectorcalc.com/es/tools/generated/spc-signal-delay-cost",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/spc-signal-delay-cost"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "sqft-to-sqm-converter",
+      "routePath": "/tools/generated/sqft-to-sqm-converter",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/sqft-to-sqm-converter",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/sqft-to-sqm-converter",
+        "de": "https://www.sectorcalc.com/de/tools/generated/sqft-to-sqm-converter",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/sqft-to-sqm-converter",
+        "es": "https://www.sectorcalc.com/es/tools/generated/sqft-to-sqm-converter",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/sqft-to-sqm-converter"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "standard-deviation-calculator",
+      "routePath": "/tools/generated/standard-deviation-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/standard-deviation-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/standard-deviation-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/standard-deviation-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/standard-deviation-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/standard-deviation-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/standard-deviation-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "steam-trap-energy-loss",
+      "routePath": "/tools/generated/steam-trap-energy-loss",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/steam-trap-energy-loss",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/steam-trap-energy-loss",
+        "de": "https://www.sectorcalc.com/de/tools/generated/steam-trap-energy-loss",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/steam-trap-energy-loss",
+        "es": "https://www.sectorcalc.com/es/tools/generated/steam-trap-energy-loss",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/steam-trap-energy-loss"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "subcontractor-margin-leak-detector",
+      "routePath": "/tools/generated/subcontractor-margin-leak-detector",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/subcontractor-margin-leak-detector",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/subcontractor-margin-leak-detector",
+        "de": "https://www.sectorcalc.com/de/tools/generated/subcontractor-margin-leak-detector",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/subcontractor-margin-leak-detector",
+        "es": "https://www.sectorcalc.com/es/tools/generated/subcontractor-margin-leak-detector",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/subcontractor-margin-leak-detector"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "supplier-currency-risk-calculator",
+      "routePath": "/tools/generated/supplier-currency-risk-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/supplier-currency-risk-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/supplier-currency-risk-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/supplier-currency-risk-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/supplier-currency-risk-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/supplier-currency-risk-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/supplier-currency-risk-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "supplier-performance-tco",
+      "routePath": "/tools/generated/supplier-performance-tco",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/supplier-performance-tco",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/supplier-performance-tco",
+        "de": "https://www.sectorcalc.com/de/tools/generated/supplier-performance-tco",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/supplier-performance-tco",
+        "es": "https://www.sectorcalc.com/es/tools/generated/supplier-performance-tco",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/supplier-performance-tco"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "supply-chain-disruption-risk",
+      "routePath": "/tools/generated/supply-chain-disruption-risk",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/supply-chain-disruption-risk",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/supply-chain-disruption-risk",
+        "de": "https://www.sectorcalc.com/de/tools/generated/supply-chain-disruption-risk",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/supply-chain-disruption-risk",
+        "es": "https://www.sectorcalc.com/es/tools/generated/supply-chain-disruption-risk",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/supply-chain-disruption-risk"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "taguchi-quality-loss-function",
+      "routePath": "/tools/generated/taguchi-quality-loss-function",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/taguchi-quality-loss-function",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/taguchi-quality-loss-function",
+        "de": "https://www.sectorcalc.com/de/tools/generated/taguchi-quality-loss-function",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/taguchi-quality-loss-function",
+        "es": "https://www.sectorcalc.com/es/tools/generated/taguchi-quality-loss-function",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/taguchi-quality-loss-function"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "takt-time-flexibility-cost",
+      "routePath": "/tools/generated/takt-time-flexibility-cost",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/takt-time-flexibility-cost",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/takt-time-flexibility-cost",
+        "de": "https://www.sectorcalc.com/de/tools/generated/takt-time-flexibility-cost",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/takt-time-flexibility-cost",
+        "es": "https://www.sectorcalc.com/es/tools/generated/takt-time-flexibility-cost",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/takt-time-flexibility-cost"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "tdee-calculator",
+      "routePath": "/tools/generated/tdee-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/tdee-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/tdee-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/tdee-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/tdee-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/tdee-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/tdee-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "textile-waste-risk",
+      "routePath": "/tools/generated/textile-waste-risk",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/textile-waste-risk",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/textile-waste-risk",
+        "de": "https://www.sectorcalc.com/de/tools/generated/textile-waste-risk",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/textile-waste-risk",
+        "es": "https://www.sectorcalc.com/es/tools/generated/textile-waste-risk",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/textile-waste-risk"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "thermal-conductivity-calculator",
+      "routePath": "/tools/generated/thermal-conductivity-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/thermal-conductivity-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/thermal-conductivity-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/thermal-conductivity-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/thermal-conductivity-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/thermal-conductivity-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/thermal-conductivity-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "time-study-analyzer",
+      "routePath": "/tools/generated/time-study-analyzer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/time-study-analyzer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/time-study-analyzer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/time-study-analyzer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/time-study-analyzer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/time-study-analyzer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/time-study-analyzer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "tip-calculator",
+      "routePath": "/tools/generated/tip-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/tip-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/tip-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/tip-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/tip-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/tip-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/tip-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "tool-wear-cost-calculator",
+      "routePath": "/tools/generated/tool-wear-cost-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/tool-wear-cost-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/tool-wear-cost-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/tool-wear-cost-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/tool-wear-cost-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/tool-wear-cost-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/tool-wear-cost-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "total-cost-of-ownership",
+      "routePath": "/tools/generated/total-cost-of-ownership",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/total-cost-of-ownership",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/total-cost-of-ownership",
+        "de": "https://www.sectorcalc.com/de/tools/generated/total-cost-of-ownership",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/total-cost-of-ownership",
+        "es": "https://www.sectorcalc.com/es/tools/generated/total-cost-of-ownership",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/total-cost-of-ownership"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "total-employee-cost-calculator",
+      "routePath": "/tools/generated/total-employee-cost-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/total-employee-cost-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/total-employee-cost-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/total-employee-cost-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/total-employee-cost-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/total-employee-cost-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/total-employee-cost-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "transfer-pricing-optimizer",
+      "routePath": "/tools/generated/transfer-pricing-optimizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/transfer-pricing-optimizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/transfer-pricing-optimizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/transfer-pricing-optimizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/transfer-pricing-optimizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/transfer-pricing-optimizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/transfer-pricing-optimizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "transport-mode-cost-risk",
+      "routePath": "/tools/generated/transport-mode-cost-risk",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/transport-mode-cost-risk",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/transport-mode-cost-risk",
+        "de": "https://www.sectorcalc.com/de/tools/generated/transport-mode-cost-risk",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/transport-mode-cost-risk",
+        "es": "https://www.sectorcalc.com/es/tools/generated/transport-mode-cost-risk",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/transport-mode-cost-risk"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "turnover-cost-calculator",
+      "routePath": "/tools/generated/turnover-cost-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/turnover-cost-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/turnover-cost-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/turnover-cost-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/turnover-cost-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/turnover-cost-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/turnover-cost-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "vacuum-leak-energy-loss-calculator",
+      "routePath": "/tools/generated/vacuum-leak-energy-loss-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/vacuum-leak-energy-loss-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/vacuum-leak-energy-loss-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/vacuum-leak-energy-loss-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/vacuum-leak-energy-loss-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/vacuum-leak-energy-loss-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/vacuum-leak-energy-loss-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "vector-addition-calculator",
+      "routePath": "/tools/generated/vector-addition-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/vector-addition-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/vector-addition-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/vector-addition-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/vector-addition-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/vector-addition-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/vector-addition-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "vehicle-depreciation-calculator",
+      "routePath": "/tools/generated/vehicle-depreciation-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/vehicle-depreciation-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/vehicle-depreciation-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/vehicle-depreciation-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/vehicle-depreciation-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/vehicle-depreciation-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/vehicle-depreciation-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "voltage-drop-calculator",
+      "routePath": "/tools/generated/voltage-drop-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/voltage-drop-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/voltage-drop-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/voltage-drop-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/voltage-drop-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/voltage-drop-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/voltage-drop-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "volumetric-weight-calculator",
+      "routePath": "/tools/generated/volumetric-weight-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/volumetric-weight-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/volumetric-weight-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/volumetric-weight-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/volumetric-weight-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/volumetric-weight-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/volumetric-weight-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "vsm-financial-converter",
+      "routePath": "/tools/generated/vsm-financial-converter",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/vsm-financial-converter",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/vsm-financial-converter",
+        "de": "https://www.sectorcalc.com/de/tools/generated/vsm-financial-converter",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/vsm-financial-converter",
+        "es": "https://www.sectorcalc.com/es/tools/generated/vsm-financial-converter",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/vsm-financial-converter"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "warehouse-layout-optimizer",
+      "routePath": "/tools/generated/warehouse-layout-optimizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/warehouse-layout-optimizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/warehouse-layout-optimizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/warehouse-layout-optimizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/warehouse-layout-optimizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/warehouse-layout-optimizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/warehouse-layout-optimizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "water-intake-calculator",
+      "routePath": "/tools/generated/water-intake-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/water-intake-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/water-intake-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/water-intake-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/water-intake-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/water-intake-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/water-intake-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "water-usage-optimizer",
+      "routePath": "/tools/generated/water-usage-optimizer",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/water-usage-optimizer",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/water-usage-optimizer",
+        "de": "https://www.sectorcalc.com/de/tools/generated/water-usage-optimizer",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/water-usage-optimizer",
+        "es": "https://www.sectorcalc.com/es/tools/generated/water-usage-optimizer",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/water-usage-optimizer"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "weld-strength-calculator",
+      "routePath": "/tools/generated/weld-strength-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/weld-strength-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/weld-strength-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/weld-strength-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/weld-strength-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/weld-strength-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/weld-strength-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "weld-volume-cost-calculator",
+      "routePath": "/tools/generated/weld-volume-cost-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/weld-volume-cost-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/weld-volume-cost-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/weld-volume-cost-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/weld-volume-cost-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/weld-volume-cost-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/weld-volume-cost-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "welding-cost-calculator",
+      "routePath": "/tools/generated/welding-cost-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/welding-cost-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/welding-cost-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/welding-cost-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/welding-cost-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/welding-cost-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/welding-cost-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "wind-load-calculator",
+      "routePath": "/tools/generated/wind-load-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/wind-load-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/wind-load-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/wind-load-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/wind-load-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/wind-load-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/wind-load-calculator"
+      },
+      "tier": "free"
+    },
+    {
+      "slug": "wind-turbine-roi-calculator",
+      "routePath": "/tools/generated/wind-turbine-roi-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/wind-turbine-roi-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/wind-turbine-roi-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/wind-turbine-roi-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/wind-turbine-roi-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/wind-turbine-roi-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/wind-turbine-roi-calculator"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "wps-preheat-temperature",
+      "routePath": "/tools/generated/wps-preheat-temperature",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/wps-preheat-temperature",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/wps-preheat-temperature",
+        "de": "https://www.sectorcalc.com/de/tools/generated/wps-preheat-temperature",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/wps-preheat-temperature",
+        "es": "https://www.sectorcalc.com/es/tools/generated/wps-preheat-temperature",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/wps-preheat-temperature"
+      },
+      "tier": "premium"
+    },
+    {
+      "slug": "z-score-calculator",
+      "routePath": "/tools/generated/z-score-calculator",
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/z-score-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/z-score-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/z-score-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/z-score-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/z-score-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/z-score-calculator"
+      },
+      "tier": "free"
+    }
+  ],
   "categoryOnly": [],
   "redirected": []
 }

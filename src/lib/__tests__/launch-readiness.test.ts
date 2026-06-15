@@ -42,6 +42,11 @@ import {
   listFreeTrafficSlugs,
 } from "@/lib/tools/free-traffic-catalog";
 import { listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
+import {
+  CANONICAL_FREE_SLUGS,
+  CANONICAL_PREMIUM_SLUGS,
+  CANONICAL_TRAFFIC_FREE_SLUGS,
+} from "@/lib/tools/canonical-tool-slugs";
 import { getPremiumCalculatorSchema } from "@/lib/premium-schema/schema-registry";
 
 const PREMIUM_PRINT_ROUTE = /\/premium-schema\/[^/]+\/print(?:\?|$|\/)/;
@@ -93,9 +98,9 @@ function collectFreeResultStrings(result: ReturnType<typeof calculateFreeTraffic
 
 describe("launch-readiness", () => {
   test("FREE_TRAFFIC_TOOLS matches canonical free-slugs.json", () => {
-    expect(FREE_TRAFFIC_TOOLS.length).toBe(0);
-    expect(listFreeTrafficSlugs().length).toBe(0);
-    expect(new Set(listFreeTrafficSlugs()).size).toBe(0);
+    expect(FREE_TRAFFIC_TOOLS.length).toBe(CANONICAL_FREE_SLUGS.length);
+    expect(listFreeTrafficSlugs().length).toBe(CANONICAL_FREE_SLUGS.length);
+    expect(new Set(listFreeTrafficSlugs()).size).toBe(CANONICAL_FREE_SLUGS.length);
   });
 
   test("PREMIUM_SCHEMAS empty during regeneration baseline", () => {
@@ -163,8 +168,13 @@ describe("launch-readiness", () => {
     expect(urls.some((url) => url.includes("/api/"))).toBe(false);
   });
 
-  test("core free tool spot checks skipped when catalog is empty", () => {
-    expect(FREE_TRAFFIC_TOOLS.length).toBe(0);
+  test("canonical slug lists loaded from root JSON files", () => {
+    expect(CANONICAL_PREMIUM_SLUGS.length).toBeGreaterThan(0);
+    expect(CANONICAL_FREE_SLUGS.length).toBeGreaterThan(0);
+    expect(CANONICAL_TRAFFIC_FREE_SLUGS.length).toBe(CANONICAL_FREE_SLUGS.length - 1);
+    expect(listAllFreeToolSlugs().length).toBe(
+      CANONICAL_PREMIUM_SLUGS.length + CANONICAL_TRAFFIC_FREE_SLUGS.length,
+    );
   });
 
   test("all routable free slugs including revenue overlap are in sitemap", () => {
