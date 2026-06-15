@@ -155,7 +155,7 @@ export function PremiumDynamicToolFormLayout({
   return (
     <>
       <div className="sc-premium-dtf-container">
-        <ToolOmniMetaSection toolTitle={toolTitle || schema.toolName} />
+        <ToolOmniMetaSection toolName={toolTitle || schema.toolName} />
 
         <div className="sc-premium-dtf-card">
           <header className="sc-premium-dtf-header">

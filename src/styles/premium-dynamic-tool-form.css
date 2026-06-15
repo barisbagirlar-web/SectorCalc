@@ -530,7 +530,7 @@
   color: var(--sc-danger, #991b1b);
 }
 
-/* ── Omni-style tool meta (creators, reviewers, social proof) ── */
+/* Omni Calculator–style tool meta (creators, reviewers, social proof) */
 .sc-tool-omni-meta {
   background: var(--sc-dtf-surface);
   border: 1px solid var(--sc-dtf-border);
@@ -553,28 +553,29 @@
   align-items: flex-start;
   gap: 0.875rem;
   min-width: 0;
-  flex: 1 1 16rem;
 }
 
-.sc-tool-omni-meta__avatar-ring {
-  padding: 3px;
-  border-radius: 50%;
-  background: conic-gradient(
-    #fbbf24 0deg 120deg,
-    #f97316 120deg 240deg,
-    #3b82f6 240deg 360deg
-  );
+.sc-tool-omni-meta__avatar-wrap {
   flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  padding: 2px;
+  border-radius: 999px;
+  background: conic-gradient(
+    from 210deg,
+    #f59e0b 0deg 100deg,
+    #3b82f6 100deg 220deg,
+    #f97316 220deg 360deg
+  );
 }
 
 .sc-tool-omni-meta__avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
   display: block;
-  border: 2px solid #ffffff;
-  background: #0f172a;
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid var(--sc-dtf-surface);
 }
 
 .sc-tool-omni-meta__copy {
@@ -582,7 +583,7 @@
 }
 
 .sc-tool-omni-meta__title {
-  margin: 0;
+  margin: 0 0 0.35rem;
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -590,20 +591,20 @@
   line-height: 1.25;
 }
 
-.sc-tool-omni-meta__credit-line {
-  margin: 0.25rem 0 0;
+.sc-tool-omni-meta__line {
+  margin: 0.15rem 0 0;
   font-size: 0.8125rem;
   color: var(--sc-dtf-muted);
   line-height: 1.45;
 }
 
-.sc-tool-omni-meta__credit-label {
-  margin-right: 0.25rem;
+.sc-tool-omni-meta__label {
+  color: var(--sc-dtf-muted);
 }
 
-.sc-tool-omni-meta__credit-name {
+.sc-tool-omni-meta__name {
   font-weight: 500;
-  color: #2563eb;
+  color: var(--sc-dtf-text);
 }
 
 .sc-tool-omni-meta__helpful {
@@ -622,13 +623,13 @@
   margin-top: 0.15rem;
   font-size: 0.6875rem;
   color: var(--sc-dtf-muted);
-  max-width: 8rem;
+  max-width: 7rem;
 }
 
 .sc-tool-omni-meta__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 1rem;
+  gap: 0.5rem;
   margin-top: 1rem;
   padding-top: 1rem;
   border-top: 1px solid var(--sc-dtf-border);
@@ -637,25 +638,21 @@
 .sc-tool-omni-meta__action {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  font-size: 0.8125rem;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 500;
   color: var(--sc-dtf-muted);
-  min-height: 32px;
+  background: #f8fafc;
+  border: 1px solid var(--sc-dtf-border);
+  border-radius: 0.5rem;
+  cursor: default;
 }
 
-.sc-tool-omni-meta__action-icon {
-  font-size: 0.875rem;
+.sc-tool-omni-meta__action-count {
   line-height: 1;
-}
-
-@media (max-width: 640px) {
-  .sc-tool-omni-meta__title {
-    font-size: 1.25rem;
-  }
-
-  .sc-tool-omni-meta__helpful {
-    text-align: left;
-  }
 }
 
 @media (max-width: 900px) {

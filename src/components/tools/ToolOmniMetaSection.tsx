@@ -1,70 +1,66 @@
-"use client";
-
-import { useTranslations } from "next-intl";
-
-const CREATOR_AVATAR_SRC = "/img/creators/neela-nataraj.png";
-
 type ToolOmniMetaSectionProps = {
-  readonly toolTitle: string;
+  readonly toolName: string;
 };
 
-const SOCIAL_STATS = [
-  { id: "likes", label: "1K", icon: "★" },
-  { id: "hearts", label: "1K", icon: "♥" },
-  { id: "bookmarks", label: "1K", icon: "◆" },
-  { id: "shares", label: "1K", icon: "↗" },
-  { id: "views", label: "1K", icon: "▣" },
-  { id: "comments", label: "1K", icon: "…" },
+const CREATOR_AVATAR_SRC = "/img/creators/neela-nataraj.png";
+const CREATOR_NAME = "Prof. Dr. Neela Nataraj";
+const REVIEWER_NAMES = "Bogna Szyk, Adena Benn";
+const HELPFUL_COUNT = "1,892";
+
+const SOCIAL_ACTIONS = [
+  { id: "like", label: "Like", count: "1K" },
+  { id: "favorite", label: "Favorite", count: "1K" },
+  { id: "bookmark", label: "Bookmark", count: "1K" },
+  { id: "share", label: "Share", count: "1K" },
+  { id: "embed", label: "Embed", count: "1K" },
+  { id: "comment", label: "Comment", count: "1K" },
 ] as const;
 
-export function ToolOmniMetaSection({ toolTitle }: ToolOmniMetaSectionProps) {
-  const t = useTranslations("generatedTool.omniMeta");
-
+export function ToolOmniMetaSection({ toolName }: ToolOmniMetaSectionProps) {
   return (
-    <section className="sc-tool-omni-meta" aria-labelledby="tool-omni-meta-title">
+    <section className="sc-tool-omni-meta" aria-label="Calculator information">
       <div className="sc-tool-omni-meta__top">
         <div className="sc-tool-omni-meta__identity">
-          <div className="sc-tool-omni-meta__avatar-ring" aria-hidden="true">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
+          <div className="sc-tool-omni-meta__avatar-wrap">
             <img
               src={CREATOR_AVATAR_SRC}
-              alt={t("creatorName")}
-              className="sc-tool-omni-meta__avatar"
+              alt={CREATOR_NAME}
               width={48}
               height={48}
+              className="sc-tool-omni-meta__avatar"
               loading="lazy"
+              decoding="async"
             />
           </div>
-
           <div className="sc-tool-omni-meta__copy">
-            <h1 id="tool-omni-meta-title" className="sc-tool-omni-meta__title">
-              {toolTitle}
-            </h1>
-            <p className="sc-tool-omni-meta__credit-line">
-              <span className="sc-tool-omni-meta__credit-label">{t("creatorsLabel")}</span>
-              <span className="sc-tool-omni-meta__credit-name">{t("creatorName")}</span>
+            <h1 className="sc-tool-omni-meta__title">{toolName}</h1>
+            <p className="sc-tool-omni-meta__line">
+              <span className="sc-tool-omni-meta__label">Creators:</span>{" "}
+              <span className="sc-tool-omni-meta__name">{CREATOR_NAME}</span>
             </p>
-            <p className="sc-tool-omni-meta__credit-line">
-              <span className="sc-tool-omni-meta__credit-label">{t("reviewersLabel")}</span>
-              <span className="sc-tool-omni-meta__credit-name">{t("reviewerNames")}</span>
+            <p className="sc-tool-omni-meta__line">
+              <span className="sc-tool-omni-meta__label">Reviewers:</span>{" "}
+              <span className="sc-tool-omni-meta__name">{REVIEWER_NAMES}</span>
             </p>
           </div>
         </div>
 
         <div className="sc-tool-omni-meta__helpful">
-          <div className="sc-tool-omni-meta__helpful-count">{t("helpfulCount")}</div>
-          <div className="sc-tool-omni-meta__helpful-label">{t("helpfulLabel")}</div>
+          <div className="sc-tool-omni-meta__helpful-count">{HELPFUL_COUNT}</div>
+          <div className="sc-tool-omni-meta__helpful-label">people find this helpful</div>
         </div>
       </div>
 
-      <div className="sc-tool-omni-meta__actions" role="group" aria-label={t("socialActionsLabel")}>
-        {SOCIAL_STATS.map((stat) => (
-          <span key={stat.id} className="sc-tool-omni-meta__action">
-            <span className="sc-tool-omni-meta__action-icon" aria-hidden="true">
-              {stat.icon}
-            </span>
-            <span>{stat.label}</span>
-          </span>
+      <div className="sc-tool-omni-meta__actions" role="group" aria-label="Social actions">
+        {SOCIAL_ACTIONS.map((action) => (
+          <button
+            key={action.id}
+            type="button"
+            className="sc-tool-omni-meta__action"
+            aria-label={`${action.label} (${action.count})`}
+          >
+            <span className="sc-tool-omni-meta__action-count">{action.count}</span>
+          </button>
         ))}
       </div>
     </section>

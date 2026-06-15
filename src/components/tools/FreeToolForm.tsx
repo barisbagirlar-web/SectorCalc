@@ -15,6 +15,10 @@ import {
 } from "@/lib/feedback/feedback-service";
 import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
 import { resolvePrimaryOutputKey } from "@/lib/generated-tools/resolve-tool-display";
+import {
+  formatSelectOptionLabel,
+  resolveGeneratedSelectOptions,
+} from "@/lib/generated-tools/select-options";
 import { buildGeneratedInputGroups } from "@/lib/generated-tools/input-groups";
 import {
   buildInitialSelectedUnits,
@@ -224,6 +228,7 @@ function FreeToolFormField({
   }
 
   if (input.type === "select" && input.options) {
+    const selectOptions = resolveGeneratedSelectOptions(input);
     return (
       <Controller
         name={input.id}
@@ -246,9 +251,9 @@ function FreeToolFormField({
                 aria-describedby={errorMessage ? errorId : undefined}
                 className="sc-premium-dtf-touch-select"
               >
-                {(input.options ?? []).map((value) => (
-                  <option key={value} value={value}>
-                    {value}
+                {selectOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
                   </option>
                 ))}
               </select>
@@ -445,9 +450,9 @@ export function FreeToolForm({
   const resolvedPrimaryKey = resolvePrimaryOutputKey(schema);
   const primaryOutputLabel =
     schema.outputs.breakdown[resolvedPrimaryKey]?.trim() ||
-    resolvedPrimaryKey.replace(/_/g, " ");
+    formatSelectOptionLabel(resolvedPrimaryKey);
   const primaryValue = result ? resolvePrimaryNumericValue(result, primaryOutputKey) : null;
-  const primaryUnitHint = typeof schema.outputs.primary === "string" ? schema.outputs.primary : "";
+  const primaryUnitHint = schema.outputs.primary;
   const formattedPrimary =
     primaryValue !== null
       ? formatFreePrimaryValue(primaryValue, locale, primaryOutputKey, primaryUnitHint)
@@ -463,7 +468,7 @@ export function FreeToolForm({
         data-testid="free-tool-form"
         data-tool-slug={slug}
       >
-        <ToolOmniMetaSection toolTitle={toolTitle} />
+        <ToolOmniMetaSection toolName={toolTitle} />
 
         <div className="sc-premium-dtf-card">
           <header className="sc-premium-dtf-header">
