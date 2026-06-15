@@ -23,7 +23,7 @@ export function isNavLinkActive(pathname: string, href: string): boolean {
 
   switch (href) {
     case "/free-tools":
-      return path === "/free-tools" || path.startsWith("/tools/free/");
+      return path === "/free-tools" || path.startsWith("/tools/free/") || path.startsWith("/tools/generated/");
     case "/premium-tools":
       return (
         path === "/premium-tools" ||

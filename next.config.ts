@@ -40,6 +40,9 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      { source: "/tools/free/:slug", destination: "/tools/generated/:slug", permanent: true },
+      { source: "/tools/premium/:slug", destination: "/tools/generated/:slug", permanent: true },
+      { source: "/tools/free-traffic/:slug", destination: "/tools/generated/:slug", permanent: true },
       { source: "/en", destination: "/", permanent: true },
       { source: "/en/:path*", destination: "/:path*", permanent: true },
       {

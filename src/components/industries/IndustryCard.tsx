@@ -12,6 +12,7 @@ import {
 } from "@/lib/tools/industry-registry";
 import { getPremiumArchitectureProfile } from "@/lib/premium/sector-loss-registry";
 import { getRevenueToolBySector } from "@/lib/tools/revenue-tools";
+import { getToolHref } from "@/lib/tools/paths";
 
 export type IndustryTool = {
   slug: string;
@@ -70,7 +71,7 @@ export function IndustryCard({
   featured = false,
 }: IndustryCardProps) {
   const sectorHref = `/industries/${slug}`;
-  const freeHref = `/tools/free/${freeTool.slug}`;
+  const freeHref = getToolHref("free", freeTool.slug);
   const premiumHref = `/tools/premium/${premiumTool.slug}`;
   const iconType: IndustryIcon = getIndustryBySlug(slug as IndustrySlug)?.icon ?? "manufacturing";
   const premiumProfile = getPremiumArchitectureProfile(premiumTool.slug);

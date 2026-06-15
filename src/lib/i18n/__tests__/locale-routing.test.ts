@@ -53,6 +53,12 @@ describe("locale-routing", () => {
     expect(getLegacyEnRedirectPath("/en")).toBe("/");
   });
 
+  test('getLegacyEnRedirectPath("/en/tools/free/margin-calculator") => "/tools/generated/margin-calculator"', () => {
+    expect(getLegacyEnRedirectPath("/en/tools/free/margin-calculator")).toBe(
+      "/tools/generated/margin-calculator",
+    );
+  });
+
   test('getLegacyEnRedirectPath("/en/tools/free/area-converter") => "/tools/free/area-converter"', () => {
     expect(getLegacyEnRedirectPath("/en/tools/free/area-converter")).toBe(
       "/tools/free/area-converter",

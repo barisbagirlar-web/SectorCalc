@@ -1,7 +1,35 @@
 import type { ToolSlug, ToolTier } from "@/data/tools";
+import {
+  isCanonicalFreeSlug,
+  isCanonicalPremiumSlug,
+} from "@/lib/tools/canonical-tool-slugs";
+
+const LEGACY_TOOL_TIER_PATTERN = /^\/tools\/(?:free|premium|free-traffic)\/([^/]+)$/;
+
+export function resolveGeneratedToolPath(slug: string): string {
+  return `/tools/generated/${slug.replace(/-premium$/, "")}`;
+}
+
+export function migrateLegacyToolPath(pathname: string): string | null {
+  const match = pathname.match(LEGACY_TOOL_TIER_PATTERN);
+  if (!match?.[1]) {
+    return null;
+  }
+  const slug = match[1];
+  if (isCanonicalFreeSlug(slug) || isCanonicalPremiumSlug(slug)) {
+    return resolveGeneratedToolPath(slug);
+  }
+  return null;
+}
 
 export function getToolHref(tier: ToolTier, slug: ToolSlug): string {
- return `/tools/${tier}/${slug}`;
+  if (tier === "free" && isCanonicalFreeSlug(slug)) {
+    return resolveGeneratedToolPath(slug);
+  }
+  if (tier === "premium" && isCanonicalPremiumSlug(slug)) {
+    return resolveGeneratedToolPath(slug);
+  }
+  return `/tools/${tier}/${slug}`;
 }
 
 export function parseToolRoute(

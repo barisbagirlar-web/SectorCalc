@@ -15,6 +15,7 @@ import {
   type SupportedLocale,
   isSupportedLocale,
 } from "@/lib/i18n/locale-config";
+import { migrateLegacyToolPath } from "@/lib/tools/paths";
 
 export {
   COUNTRY_TO_LOCALE,
@@ -160,7 +161,14 @@ export function getLegacyEnRedirectPath(pathname: string): string | null {
   }
   if (pathname.startsWith("/en/")) {
     const rest = pathname.slice(3);
-    return rest.length > 0 ? rest : "/";
+    if (!rest) {
+      return "/";
+    }
+    const migratedToolPath = migrateLegacyToolPath(rest);
+    if (migratedToolPath) {
+      return migratedToolPath;
+    }
+    return rest;
   }
   return null;
 }

@@ -5,6 +5,11 @@ import {
   buildSectorToolCatalogGroups,
   DEFAULT_FREE_TRAFFIC_CATEGORY,
 } from "@/lib/catalog/build-catalog-groups";
+import { getGeneratedToolSchema } from "@/lib/generated-tools/schema-loader";
+import {
+  resolveGeneratedToolDescription,
+  resolveGeneratedToolTitle,
+} from "@/lib/generated-tools/resolve-tool-display";
 import { listPublicFreeTrafficTools } from "@/lib/tools/free-traffic-catalog";
 import { FREE_TOOLS } from "@/data/tools";
 import type { FreeTrafficCategoryMeta } from "@/lib/tools/free-traffic-categories";
@@ -19,6 +24,36 @@ const categoryPageCache = new Map<string, readonly CatalogGroup[]>();
 const freeTrafficCache = new Map<string, readonly CatalogGroup[]>();
 
 export { DEFAULT_FREE_TRAFFIC_CATEGORY };
+
+function extractGeneratedToolSlug(href: string): string | null {
+  const match = href.match(/\/tools\/generated\/([^/]+)$/);
+  return match?.[1] ?? null;
+}
+
+function enrichFreeTrafficCatalogGroups(
+  groups: readonly CatalogGroup[],
+  locale: string,
+): readonly CatalogGroup[] {
+  return groups.map((group) => ({
+    ...group,
+    items: group.items.map((item) => {
+      const slug = extractGeneratedToolSlug(item.href);
+      if (!slug) {
+        return item;
+      }
+      const schema = getGeneratedToolSchema(slug);
+      if (!schema) {
+        return item;
+      }
+      return {
+        ...item,
+        title: item.title || resolveGeneratedToolTitle(slug, schema, locale),
+        description: item.description || resolveGeneratedToolDescription(slug, schema, locale),
+        inputCount: schema.inputs.length,
+      };
+    }),
+  }));
+}
 
 /** Module-level cache — catalog data changes only on deploy. */
 export function getCachedIndustryCatalogGroups(locale = "en"): readonly CatalogGroup[] {
@@ -65,12 +100,15 @@ export function getCachedFreeTrafficCatalogGroups(
   if (hit) {
     return hit;
   }
-  const groups = buildFreeTrafficCatalogGroups(
-    listPublicFreeTrafficTools(),
+  const groups = enrichFreeTrafficCatalogGroups(
+    buildFreeTrafficCatalogGroups(
+      listPublicFreeTrafficTools(),
+      locale,
+      resolveCategoryCopy,
+      premiumNote,
+      openCalculatorLabel,
+    ),
     locale,
-    resolveCategoryCopy,
-    premiumNote,
-    openCalculatorLabel
   );
   freeTrafficCache.set(key, groups);
   return groups;
