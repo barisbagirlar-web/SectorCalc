@@ -131,9 +131,6 @@ try {
   installNextBuildShim();
   shimInstalled = true;
 
-  console.log("deploy-production: clearing .next before Firebase frameworks rebuild…");
-  run("rm", ["-rf", join(ROOT, ".next")]);
-
   console.log("deploy-production: deploying Firebase Hosting + Firestore rules…");
   const deployStatus = run("firebase", [
     "deploy",

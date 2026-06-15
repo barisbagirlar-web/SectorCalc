@@ -5,9 +5,19 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+const BUILD_ID_PATH = join(ROOT, ".next/BUILD_ID");
 const args = process.argv.slice(2);
 
 if (args[0] === "build") {
+  if (existsSync(BUILD_ID_PATH)) {
+    spawnSync("node", ["scripts/ensure-500-export.mjs"], {
+      cwd: ROOT,
+      stdio: "inherit",
+    });
+    console.log("next-firebase-deploy-shim: reusing existing .next build for Firebase deploy.");
+    process.exit(0);
+  }
+
   const status = spawnSync("node", ["scripts/next-build-with-500-fallback.mjs"], {
     cwd: ROOT,
     stdio: "inherit",
