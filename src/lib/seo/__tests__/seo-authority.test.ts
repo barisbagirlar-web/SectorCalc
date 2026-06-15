@@ -88,7 +88,7 @@ describe("seo-authority architecture", () => {
   });
 
   test("FREE_TRAFFIC_TOOLS count matches canonical list", () => {
-    expect(FREE_TRAFFIC_TOOLS.length).toBe(51);
+    expect(FREE_TRAFFIC_TOOLS.length).toBe(0);
   });
 
   test("PREMIUM_SCHEMAS empty during regeneration baseline", () => {

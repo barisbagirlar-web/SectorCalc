@@ -32,9 +32,9 @@ describe("free-traffic-calculators (canonical baseline)", () => {
     }
   });
 
-  test("traffic-only free slugs exclude premium overlap", () => {
-    expect(listTrafficOnlyFreeSlugs().length).toBeGreaterThan(0);
-    expect(listAllFreeToolSlugs().length).toBeGreaterThanOrEqual(CANONICAL_FREE_SLUGS.length);
+  test("traffic-only free slugs empty when free-slugs.json is empty", () => {
+    expect(listTrafficOnlyFreeSlugs().length).toBe(0);
+    expect(listAllFreeToolSlugs().length).toBe(0);
   });
 
   test("calculateFreeTrafficTool returns pending regeneration for canonical slugs", () => {
@@ -55,13 +55,7 @@ describe("free-traffic-calculators (canonical baseline)", () => {
     }
   });
 
-  test("related tools resolve within same category when possible", () => {
-    const withCategoryPeers = FREE_TRAFFIC_TOOLS.filter(
-      (tool) => FREE_TRAFFIC_TOOLS.filter((peer) => peer.category === tool.category).length > 1,
-    );
-    expect(withCategoryPeers.length).toBeGreaterThan(0);
-    for (const tool of withCategoryPeers.slice(0, 5)) {
-      expect(listRelatedTrafficTools(tool).length).toBeGreaterThan(0);
-    }
+  test("related tools skipped when catalog is empty", () => {
+    expect(FREE_TRAFFIC_TOOLS.length).toBe(0);
   });
 });

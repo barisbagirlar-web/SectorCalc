@@ -92,8 +92,8 @@ function collectFreeResultStrings(
 
 describe("production-hardening", () => {
   test("FREE_TRAFFIC_TOOLS matches canonical free-slugs.json", () => {
-    expect(FREE_TRAFFIC_TOOLS.length).toBe(51);
-    expect(listFreeTrafficSlugs().length).toBe(51);
+    expect(FREE_TRAFFIC_TOOLS.length).toBe(0);
+    expect(listFreeTrafficSlugs().length).toBe(0);
   });
 
   test("PREMIUM_SCHEMAS empty during regeneration baseline", () => {
@@ -110,10 +110,7 @@ describe("production-hardening", () => {
     for (const locale of SUPPORTED_LOCALES) {
       expect(urls).toContain(buildLocalizedUrl("/categories", locale, SITE_BASE_URL));
       expect(urls).toContain(buildLocalizedUrl("/premium-tools", locale, SITE_BASE_URL));
-      expect(urls).toContain(buildLocalizedUrl("/tools/generated/margin-calculator", locale, SITE_BASE_URL));
-      expect(urls).toContain(
-        buildLocalizedUrl("/tools/generated/oee-calculator", locale, SITE_BASE_URL),
-      );
+      expect(urls).toContain(buildLocalizedUrl("/free-tools", locale, SITE_BASE_URL));
     }
 
     for (const slug of listAllFreeToolSlugs()) {

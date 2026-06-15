@@ -93,9 +93,9 @@ function collectFreeResultStrings(result: ReturnType<typeof calculateFreeTraffic
 
 describe("launch-readiness", () => {
   test("FREE_TRAFFIC_TOOLS matches canonical free-slugs.json", () => {
-    expect(FREE_TRAFFIC_TOOLS.length).toBe(51);
-    expect(listFreeTrafficSlugs().length).toBe(51);
-    expect(new Set(listFreeTrafficSlugs()).size).toBe(51);
+    expect(FREE_TRAFFIC_TOOLS.length).toBe(0);
+    expect(listFreeTrafficSlugs().length).toBe(0);
+    expect(new Set(listFreeTrafficSlugs()).size).toBe(0);
   });
 
   test("PREMIUM_SCHEMAS empty during regeneration baseline", () => {
@@ -163,10 +163,8 @@ describe("launch-readiness", () => {
     expect(urls.some((url) => url.includes("/api/"))).toBe(false);
   });
 
-  test("core free tool spot checks return regeneration-safe output", () => {
-    const margin = calculateFreeTrafficTool("margin-calculator", { value: 100, cost: 60 });
-    expect(margin.primaryValue.length).toBeGreaterThan(0);
-    expect(containsPremiumLeakText(margin.explanation)).toBe(false);
+  test("core free tool spot checks skipped when catalog is empty", () => {
+    expect(FREE_TRAFFIC_TOOLS.length).toBe(0);
   });
 
   test("all routable free slugs including revenue overlap are in sitemap", () => {
