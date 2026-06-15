@@ -95,6 +95,7 @@ export function ShopRateCalculatorModal({
               slug={SHOP_RATE_MODAL_SLUG}
               schema={schema}
               zodSchema={zodSchema}
+              layout="standard"
               calculateLabel={t("applyToForm")}
               onSubmit={handleSubmit}
             />

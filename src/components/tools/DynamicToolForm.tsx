@@ -7,6 +7,13 @@ import { useLocale, useTranslations } from "next-intl";
 import type { z } from "zod";
 import { Link } from "@/i18n/routing";
 import { DynamicToolFormField } from "@/components/tools/DynamicToolFormField";
+import { PremiumDynamicToolFormLayout } from "@/components/tools/PremiumDynamicToolFormLayout";
+import {
+  getOrCreateFeedbackSessionId,
+  submitToolFeedback,
+} from "@/lib/feedback/feedback-service";
+import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
+import { useUserSubscription } from "@/lib/billing/use-user-subscription";
 import { BreakdownWasteDetailModal } from "@/components/tools/BreakdownWasteDetailModal";
 import { EnhancedBreakdownChart } from "@/components/tools/EnhancedBreakdownChart";
 import { ScenarioComparison } from "@/components/tools/ScenarioComparison";
@@ -15,7 +22,7 @@ import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
 import { useCredits } from "@/hooks/useCredits";
 import { useSubscription } from "@/hooks/useSubscription";
 import { buildGeneratedInputGroups } from "@/lib/generated-tools/input-groups";
-import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
+import { resolvePrimaryOutputKey } from "@/lib/generated-tools/resolve-tool-display";
 import {
   buildInitialSelectedUnits,
   convertGeneratedFormValues,
@@ -32,12 +39,15 @@ import type {
   GeneratedToolResult,
   GeneratedToolSchema,
 } from "@/lib/generated-tools/types";
+import type { FeedbackSnapshotValue } from "@/lib/feedback/types";
 
 export type DynamicToolScenarioComparisonConfig = {
   readonly calculateFn: (values: Record<string, unknown>) => GeneratedToolResult;
   readonly primaryOutputKey: string;
   readonly enabled?: boolean;
 };
+
+export type DynamicToolFormLayout = "auto" | "premium" | "standard";
 
 export type DynamicToolFormProps = {
   readonly slug: string;
@@ -47,6 +57,10 @@ export type DynamicToolFormProps = {
   readonly onSubmit: (values: Record<string, unknown>) => void;
   readonly disabled?: boolean;
   readonly loading?: boolean;
+  readonly layout?: DynamicToolFormLayout;
+  readonly toolTitle?: string;
+  readonly primaryOutputKey?: string;
+  readonly result?: GeneratedToolResult | null;
   readonly scenarioComparison?: DynamicToolScenarioComparisonConfig;
   readonly breakdown?: GeneratedToolBreakdown | null;
   readonly breakdownInputs?: Record<string, unknown>;
@@ -78,6 +92,33 @@ function buildDefaultValues(
   return fallback;
 }
 
+function buildFeedbackSnapshot(
+  values: Record<string, unknown>,
+): Record<string, FeedbackSnapshotValue> {
+  const snapshot: Record<string, FeedbackSnapshotValue> = {};
+  for (const [key, value] of Object.entries(values)) {
+    if (typeof value === "number" || typeof value === "boolean" || typeof value === "string") {
+      snapshot[key] = value;
+    }
+  }
+  return snapshot;
+}
+
+function buildResultFeedbackSnapshot(
+  result: GeneratedToolResult | null | undefined,
+): Record<string, FeedbackSnapshotValue> | undefined {
+  if (!result) {
+    return undefined;
+  }
+  const snapshot: Record<string, FeedbackSnapshotValue> = {};
+  for (const [key, value] of Object.entries(result)) {
+    if (typeof value === "number" || typeof value === "boolean" || typeof value === "string") {
+      snapshot[key] = value;
+    }
+  }
+  return Object.keys(snapshot).length > 0 ? snapshot : undefined;
+}
+
 export function DynamicToolForm({
   slug,
   schema,
@@ -86,6 +127,10 @@ export function DynamicToolForm({
   onSubmit,
   disabled = false,
   loading = false,
+  layout = "auto",
+  toolTitle,
+  primaryOutputKey,
+  result = null,
   scenarioComparison,
   breakdown = null,
   breakdownInputs,
@@ -95,10 +140,12 @@ export function DynamicToolForm({
   const locale = useLocale();
   const unitSystem = usePreferredUnitSystem();
   const t = useTranslations("generatedTool");
+  const tPremium = useTranslations("generatedTool.premiumForm");
   const tScenario = useTranslations("generatedTool.scenarioComparison");
   const tMachineRate = useTranslations("generatedTool.machineRateSelector");
   const tGroups = useTranslations("generatedTool.inputGroups");
   const { isPro, loading: subscriptionLoading } = useSubscription();
+  const { user } = useUserSubscription();
   const { credits, loading: creditsLoading, spendCredits } = useCredits();
   const [selectedUnits, setSelectedUnits] = useState<Record<string, string>>({});
   const [machineRateApplied, setMachineRateApplied] = useState(false);
@@ -107,6 +154,9 @@ export function DynamicToolForm({
   const [selectedBreakdownItem, setSelectedBreakdownItem] = useState<BreakdownChartItem | null>(
     null,
   );
+  const [vote, setVote] = useState<"up" | "down" | null>(null);
+  const [voteNotice, setVoteNotice] = useState<string | null>(null);
+  const [reportModalOpen, setReportModalOpen] = useState(false);
 
   const defaultValues = useMemo(
     () => buildDefaultValues(schema, zodSchema),
@@ -162,6 +212,19 @@ export function DynamicToolForm({
       resolveGeneratedI18nText(input.label_i18n, locale, input.label),
     [locale],
   );
+
+  const resolveBusinessContext = useCallback(
+    (input: GeneratedToolInput) =>
+      resolveGeneratedI18nText(input.businessContext_i18n, locale, input.businessContext),
+    [locale],
+  );
+
+  const usePremiumLayout =
+    layout === "premium" || (layout === "auto" && schema.premiumRequired);
+
+  const resolvedPrimaryOutputKey = primaryOutputKey?.trim() || resolvePrimaryOutputKey(schema);
+
+  const routePath = `/tools/generated/${slug}`;
 
   const relatedBreakdownInputs = useMemo(() => {
     if (!selectedBreakdownItem) {
@@ -258,6 +321,37 @@ export function DynamicToolForm({
       selectedUnits,
     );
     onSubmit(converted);
+    setVote(null);
+    setVoteNotice(null);
+  };
+
+  const handleVote = async (type: "up" | "down") => {
+    setVote(type);
+    setVoteNotice(null);
+
+    const message =
+      type === "up"
+        ? "Quick operator vote: calculation result appears correct."
+        : "Quick operator vote: calculation result appears incorrect.";
+
+    const feedbackResult = await submitToolFeedback({
+      kind: type === "up" ? "other" : "wrong_result",
+      message,
+      toolSlug: slug,
+      toolType: "premium",
+      locale,
+      routePath,
+      source: "premium_tool",
+      inputSnapshot: buildFeedbackSnapshot(formValues),
+      resultSnapshot: buildResultFeedbackSnapshot(result),
+      userId: user?.uid ?? null,
+      userEmail: user?.email ?? null,
+      sessionId: getOrCreateFeedbackSessionId(),
+    });
+
+    if (feedbackResult.ok) {
+      setVoteNotice(tPremium("voteThanks"));
+    }
   };
 
   const resolveGroupTitle = (groupId: string): string => {
@@ -308,7 +402,42 @@ export function DynamicToolForm({
         )
       ) : null}
 
-      {groups.map((group) => (
+      {usePremiumLayout ? (
+        <PremiumDynamicToolFormLayout
+          slug={slug}
+          schema={schema}
+          toolTitle={toolTitle ?? schema.toolName}
+          locale={locale}
+          routePath={routePath}
+          control={control}
+          errors={errors}
+          inputs={schema.inputs}
+          resolveInputLabel={resolveInputLabel}
+          resolveBusinessContext={resolveBusinessContext}
+          selectedUnits={selectedUnits}
+          onUnitChange={handleUnitChange}
+          result={result}
+          primaryOutputKey={resolvedPrimaryOutputKey}
+          formValues={formValues}
+          submitLabel={submitLabel}
+          creditGateError={creditGateError}
+          disabled={disabled || spendingCredits || creditsLoading}
+          loading={loading || spendingCredits}
+          vote={vote}
+          onVote={handleVote}
+          voteNotice={voteNotice}
+          modalOpen={reportModalOpen}
+          onOpenReport={() => setReportModalOpen(true)}
+          onCloseReport={() => setReportModalOpen(false)}
+          userId={user?.uid ?? null}
+          onCalculate={() => {
+            void handleSubmit(handleFormSubmit)();
+          }}
+        />
+      ) : null}
+
+      {!usePremiumLayout
+        ? groups.map((group) => (
         <section key={group.id} aria-labelledby={`${slug}-group-${group.id}`}>
           <h3
             id={`${slug}-group-${group.id}`}
@@ -337,25 +466,28 @@ export function DynamicToolForm({
             })}
           </div>
         </section>
-      ))}
+      ))
+        : null}
 
-      <div className="sc-industrial-form-actions">
-        {creditGateError ? (
-          <p className="mb-3 text-sm text-red-700" role="alert">
-            {creditGateError}{" "}
-            <Link href="/account/credits" className="font-semibold underline">
-              {t("buyCreditsCta")}
-            </Link>
-          </p>
-        ) : null}
-        <button
-          type="submit"
-          disabled={disabled || loading || spendingCredits || creditsLoading}
-          className="sc-ledger-cta-primary sc-cta-primary min-h-[44px] disabled:cursor-not-allowed disabled:opacity-60"
-        >
-          {submitLabel}
-        </button>
-      </div>
+      {!usePremiumLayout ? (
+        <div className="sc-industrial-form-actions">
+          {creditGateError ? (
+            <p className="mb-3 text-sm text-red-700" role="alert">
+              {creditGateError}{" "}
+              <Link href="/account/credits" className="font-semibold underline">
+                {t("buyCreditsCta")}
+              </Link>
+            </p>
+          ) : null}
+          <button
+            type="submit"
+            disabled={disabled || loading || spendingCredits || creditsLoading}
+            className="sc-ledger-cta-primary sc-cta-primary min-h-[44px] disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {submitLabel}
+          </button>
+        </div>
+      ) : null}
 
       {showScenarioComparison && scenarioComparison ? (
         isPro ? (

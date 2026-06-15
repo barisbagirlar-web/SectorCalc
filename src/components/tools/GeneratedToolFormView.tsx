@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { DynamicToolForm } from "@/components/tools/DynamicToolForm";
-import { resolveGeneratedToolDescription, resolveGeneratedToolTitle } from "@/lib/generated-tools/resolve-tool-display";
+import { FreeToolForm } from "@/components/tools/FreeToolForm";
+import { resolveGeneratedToolDescription, resolveGeneratedToolTitle, resolvePrimaryOutputKey } from "@/lib/generated-tools/resolve-tool-display";
 import {
   runGeneratedToolCalculation,
   useToolSchema,
@@ -24,6 +25,8 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
 
   const title = resolveGeneratedToolTitle(slug, schema, locale);
   const description = resolveGeneratedToolDescription(slug, schema, locale);
+  const primaryOutputKey = resolvePrimaryOutputKey(schema);
+  const isPremium = schema.premiumRequired === true;
 
   if (loading) {
     return (
@@ -41,24 +44,48 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
     );
   }
 
+  const handleCalculate = (values: Record<string, unknown>) => {
+    setLastInputs(values);
+    setResult(runGeneratedToolCalculation(calculator, values));
+  };
+
+  if (isPremium) {
+    return (
+      <div className="container mx-auto max-w-6xl px-4 py-8">
+        <header className="mb-6 space-y-2">
+          <h1 className="text-3xl font-bold text-premium-velvet">{title}</h1>
+          <p className="max-w-3xl text-sm text-body-charcoal sm:text-base">{description}</p>
+        </header>
+        <DynamicToolForm
+          slug={slug}
+          schema={schema}
+          zodSchema={zodSchema}
+          toolTitle={title}
+          primaryOutputKey={primaryOutputKey}
+          result={result}
+          onSubmit={handleCalculate}
+          breakdown={result?.breakdown ?? null}
+          breakdownInputs={lastInputs}
+          breakdownLabelMap={schema.outputs.breakdown}
+        />
+      </div>
+    );
+  }
+
   return (
-    <div className="container mx-auto max-w-6xl px-4 py-8">
-      <header className="mb-6 space-y-2">
-        <h1 className="text-3xl font-bold text-premium-velvet">{title}</h1>
-        <p className="max-w-3xl text-sm text-body-charcoal sm:text-base">{description}</p>
-      </header>
-      <DynamicToolForm
-        slug={slug}
-        schema={schema}
-        zodSchema={zodSchema}
-        onSubmit={(values) => {
-          setLastInputs(values);
-          setResult(runGeneratedToolCalculation(calculator, values));
-        }}
-        breakdown={result?.breakdown ?? null}
-        breakdownInputs={lastInputs}
-        breakdownLabelMap={schema.outputs.breakdown}
-      />
+    <div className="min-h-screen bg-industrial-matte py-8">
+      <div className="container mx-auto max-w-6xl px-4">
+        <p className="mb-4 max-w-3xl text-sm text-body-charcoal sm:text-base">{description}</p>
+        <FreeToolForm
+          slug={slug}
+          schema={schema}
+          zodSchema={zodSchema}
+          toolTitle={title}
+          primaryOutputKey={primaryOutputKey}
+          result={result}
+          onSubmit={handleCalculate}
+        />
+      </div>
     </div>
   );
 }
