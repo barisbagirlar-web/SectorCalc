@@ -7,7 +7,6 @@ import {
   existsSync,
   openSync,
   readFileSync,
-  rmSync,
   unlinkSync,
   writeFileSync,
 } from "node:fs";
@@ -113,7 +112,7 @@ try {
   shimInstalled = true;
 
   console.log("deploy-production: clearing .next before Firebase frameworks rebuild…");
-  rmSync(join(ROOT, ".next"), { recursive: true, force: true });
+  run("rm", ["-rf", join(ROOT, ".next")]);
 
   console.log("deploy-production: deploying Firebase Hosting + Firestore rules…");
   const deployStatus = run("firebase", [
