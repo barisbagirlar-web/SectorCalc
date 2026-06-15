@@ -5,8 +5,6 @@ export function LegalContactBlock() {
     <p>
       {LEGAL_ENTITY.companyName}
       <br />
-      {LEGAL_ENTITY.operatorName}
-      <br />
       Tax ID: {LEGAL_ENTITY.taxId}
       <br />
       Address: {LEGAL_ENTITY.address}
