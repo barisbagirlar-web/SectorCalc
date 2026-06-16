@@ -130,6 +130,14 @@ export function getOrderedFreeTrafficCategories(): readonly FreeTrafficCategoryM
   return [...FREE_TRAFFIC_CATEGORY_META].sort((a, b) => a.order - b.order);
 }
 
+export function listFreeTrafficCategorySlugs(): readonly FreeTrafficCategory[] {
+  return FREE_TRAFFIC_CATEGORY_META.map((meta) => meta.id);
+}
+
+export function isFreeTrafficCategorySlug(value: string): value is FreeTrafficCategory {
+  return FREE_TRAFFIC_CATEGORY_META.some((meta) => meta.id === value);
+}
+
 export function countToolsInCategory(
   tools: readonly { category: FreeTrafficCategory }[],
   category: FreeTrafficCategory

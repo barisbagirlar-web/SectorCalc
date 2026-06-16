@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/routing";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { GeneratedToolFormViewShell } from "@/components/tools/GeneratedToolFormViewShell";
 import type { AppLocale } from "@/i18n/routing";
@@ -14,6 +15,12 @@ import {
   resolveGeneratedToolTitle,
 } from "@/lib/generated-tools/resolve-tool-display";
 import { createPageMetadata } from "@/lib/metadata";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { AnswerBlock } from "@/components/tools/AnswerBlock";
+import { buildGeneratedToolFeaturedCopy } from "@/lib/semantic/build-generated-tool-featured-copy";
+import { buildGeneratedToolProductJsonLd } from "@/lib/semantic/build-generated-tool-product-jsonld";
+import { buildGeneratedToolWebPageJsonLd } from "@/lib/semantic/build-generated-tool-webpage-jsonld";
+import { inferFreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
 
 interface GeneratedToolRouteParams {
   slug: string;
@@ -67,9 +74,44 @@ export default async function GeneratedToolRoutePage({
     notFound();
   }
 
+  const displayName = resolveGeneratedToolTitle(slug, schema, locale);
+  const displayDescription = resolveGeneratedToolDescription(slug, schema, locale);
+  const toolWebPageJsonLd = buildGeneratedToolWebPageJsonLd({
+    toolName: displayName,
+    description: displayDescription,
+    slug,
+    locale,
+    schema,
+  });
+  const toolProductJsonLd = buildGeneratedToolProductJsonLd({
+    toolName: displayName,
+    description: displayDescription,
+    slug,
+    locale,
+    schema,
+  });
+  const featuredCopy = buildGeneratedToolFeaturedCopy(displayName, displayDescription, locale);
+  const categoryId = inferFreeTrafficCategory(slug);
+  const tCatalog = await getTranslations("freeTrafficCatalog");
+
   return (
     <PageLayout>
-      <GeneratedToolFormViewShell slug={slug} schema={schema} />
+      <JsonLd data={[toolWebPageJsonLd, toolProductJsonLd]} />
+      <article aria-label={displayName}>
+        <div className="container mx-auto max-w-6xl px-4 pt-6">
+          <AnswerBlock question={featuredCopy.question} answer={featuredCopy.answer} />
+          <p className="mb-4 text-sm text-body-charcoal">
+            <Link
+              href={`/tools/category/${categoryId}`}
+              prefetch={false}
+              className="font-medium text-deep-navy hover:underline"
+            >
+              {tCatalog(`categories.${categoryId}`)}
+            </Link>
+          </p>
+        </div>
+        <GeneratedToolFormViewShell slug={slug} schema={schema} />
+      </article>
     </PageLayout>
   );
 }

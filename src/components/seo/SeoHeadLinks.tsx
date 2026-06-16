@@ -4,6 +4,8 @@ export function SeoHeadLinks() {
     <>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://firebase.googleapis.com" />
+      <link rel="dns-prefetch" href="https://firebase.googleapis.com" />
     </>
   );
 }

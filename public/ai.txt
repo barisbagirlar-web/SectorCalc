@@ -5,6 +5,26 @@ LLM index: https://www.sectorcalc.com/llms.txt
 Sitemap: https://www.sectorcalc.com/sitemap.xml
 Developer showcase: https://www.sectorcalc.com/en/developer-showcase
 
+# AI Agent Semantic Access Protocol
+User-agent: *
+Allow: /
+Allow: /tr/tools/
+Allow: /en/tools/
+Allow: /tr/case-studies/
+Allow: /en/case-studies/
+Allow: /tr/about/
+Allow: /en/about/
+Allow: /tr/data/
+Allow: /en/data/
+Disallow: /app/
+Disallow: /api/
+Disallow: /admin routes
+Disallow: /verification queue
+
+Intended-Use: Industrial & Business Calculation Platform
+Service-Type: Manufacturing Engineering & Financial Planning Software
+Supported-Actions: OEE Calculation, CNC Cost Analysis, Carbon Footprint, Break-Even Analysis
+
 Primary machine-readable indexes:
 - https://www.sectorcalc.com/ai-tool-index.json
 - https://www.sectorcalc.com/ai-categories.json

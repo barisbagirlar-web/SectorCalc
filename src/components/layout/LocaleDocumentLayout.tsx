@@ -1,7 +1,10 @@
 import { Barlow, Inter, JetBrains_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
-import { JsonLd, buildHomepageJsonLd } from "@/components/seo/JsonLd";
+import { AuthorAuthorityHeadLinks } from "@/components/seo/AuthorAuthorityHeadLinks";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { buildSoftwareApplicationJsonLd, buildWebsiteJsonLd } from "@/lib/seo/schema-mesh";
+import { buildEntityGraph } from "@/lib/seo/entity-graph";
 import { LlmsTxtLink, SeoHeadLinks } from "@/components/seo/SeoHeadLinks";
 import type { AppLocale } from "@/i18n/routing";
 import { getLocaleTextDirection } from "@/lib/i18n/locale-config";
@@ -10,6 +13,7 @@ import { AttributionBootstrap } from "@/components/campaign/AttributionBootstrap
 import { RegionProvider } from "@/lib/compliance/region-context";
 import { ServiceWorkerRegister } from "@/components/field-mode/ServiceWorkerRegister";
 import { GeoLocaleBootstrapScript } from "@/components/i18n/GeoLocaleBootstrapScript";
+import { THEME_COLOR } from "@/config/organization-trust";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -53,13 +57,22 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
         {locale === "en" ? <GeoLocaleBootstrapScript /> : null}
         <SeoHeadLinks />
         <LlmsTxtLink />
+        <AuthorAuthorityHeadLinks />
+        <link rel="hub" href="https://pubsubhubbub.appspot.com/" />
+        <link rel="alternate" type="application/rss+xml" href="/guides/rss.xml" title="SectorCalc Guides" />
         <link rel="manifest" href="/manifest.webmanifest" />
-        <meta name="theme-color" content="#C2410C" />
+        <meta name="theme-color" content={THEME_COLOR} />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </head>
       <body className="min-w-0 overflow-x-hidden bg-industrial-matte font-sans text-[17px] leading-[1.47059] text-premium-velvet antialiased">
-        <JsonLd data={buildHomepageJsonLd(locale)} />
+        <JsonLd
+          data={[
+            buildEntityGraph(locale),
+            buildWebsiteJsonLd(locale),
+            buildSoftwareApplicationJsonLd(locale),
+          ]}
+        />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <RegionProvider region={region} source={source}>
             <AttributionBootstrap />

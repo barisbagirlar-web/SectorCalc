@@ -2,6 +2,9 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/semantic/site-url";
 
 const PRIVATE_DISALLOW = [
+  "/.env",
+  "/_next/",
+  "/app/",
   "/admin",
   "/admin/",
   "/api/",
@@ -20,6 +23,10 @@ const PRIVATE_DISALLOW = [
   "/verification-queue",
   "/verification-queue/",
   "/logs/",
+  "/404",
+  "/500",
+  "/*?*",
+  "/*?page=",
 ];
 
 const AI_INDEX_ALLOW = [

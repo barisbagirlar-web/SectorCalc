@@ -3,6 +3,17 @@
   "framework": "nextjs",
   "installCommand": "npm install",
   "buildCommand": "npm run vercel-build",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        }
+      ]
+    }
+  ],
   "build": {
     "env": {
       "SECTORCALC_VERCEL_BUILD_LIMIT": "1",

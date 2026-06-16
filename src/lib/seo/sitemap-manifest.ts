@@ -17,7 +17,7 @@ import {
 } from "@/lib/i18n/locale-routing";
 import { listProgrammaticSeoSlugs } from "@/lib/seo/programmatic-seo-pages";
 import { listPremiumToolSeoLandingSlugs } from "@/lib/seo/premium-tool-seo-landings";
-import { listCaseStudySlugs } from "@/lib/case-studies/case-study-registry";
+import { listAllCaseStudySlugs } from "@/lib/case-studies/case-study-registry";
 import { listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
 import {
   getFreeToolRoutePath,
@@ -28,6 +28,7 @@ import { listGlobalCategories } from "@/lib/catalog/global-tool-category-taxonom
 import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
 import { getPremiumRevenueRouteSlugs } from "@/lib/tools/revenue-tools";
 import { listMigratedPremiumRouteSlugs } from "@/lib/freemium/resolve-free-to-premium-migration";
+import { listFreeTrafficCategorySlugs } from "@/lib/tools/free-traffic-categories";
 import { GENERATED_CALCULATOR_SLUGS } from "@/lib/generated-tools/calculator-registry";
 import { getGeneratedToolHref } from "@/lib/generated-tools/paths";
 
@@ -181,7 +182,7 @@ export function getPremiumAnalyzerSitemapRoutes(): readonly SitemapManifestItem[
 export function getCaseStudySitemapRoutes(): readonly SitemapManifestItem[] {
   return [
     createItem("/case-studies", "hub", 0.74, "monthly"),
-    ...listCaseStudySlugs().map((slug) =>
+    ...listAllCaseStudySlugs().map((slug) =>
       createItem(`/case-studies/${slug}`, "hub", 0.72, "monthly"),
     ),
   ];
@@ -219,6 +220,9 @@ function dedupeManifestItems(items: readonly SitemapManifestItem[]): SitemapMani
 export function getGeneratedToolSitemapRoutes(): readonly SitemapManifestItem[] {
   return [
     createItem("/tools/generated", "hub", 0.8, "weekly"),
+    ...listFreeTrafficCategorySlugs().map((category) =>
+      createItem(`/tools/category/${category}`, "hub", 0.78, "weekly"),
+    ),
     ...GENERATED_CALCULATOR_SLUGS.map((slug) =>
       createItem(getGeneratedToolHref(slug), "free_tool", 0.7, "monthly"),
     ),

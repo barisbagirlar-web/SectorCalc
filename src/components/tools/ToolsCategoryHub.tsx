@@ -182,7 +182,7 @@ export function ToolsCategoryHub({ tools, basePath = "/tools/generated" }: Tools
           {categoryGroups.map((group) => {
             const iconMeta = getCategoryCardIcon(group.meta.id);
             const Icon = iconMeta.icon;
-            const href = `${basePath}?category=${group.meta.id}`;
+            const href = `/tools/category/${group.meta.id}`;
 
             return (
               <Link

@@ -11,7 +11,9 @@ export function PageLayout({ children }: PageLayoutProps) {
   return (
     <AppProviders>
       <SiteHeader />
-      <main className="sc-app-main min-w-0">{children}</main>
+      <main className="sc-app-main min-w-0" role="main" aria-label="Main content">
+        {children}
+      </main>
       <EnterpriseFooter />
     </AppProviders>
   );

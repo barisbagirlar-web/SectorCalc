@@ -8,7 +8,7 @@ import { RegionSelector } from "@/components/layout/RegionSelector";
 
 export function SiteHeader() {
   return (
-    <header id="header" className="apple-nav sc-header-craft">
+    <header id="header" className="apple-nav sc-header-craft" role="banner">
       <HeaderNavPrefetch />
       <div className="apple-nav__inner">
         <SiteLogo priority />
