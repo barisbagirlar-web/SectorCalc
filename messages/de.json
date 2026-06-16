@@ -29,6 +29,60 @@
     "unlockPro": "Pro freischalten",
     "runFreeCheck": "Gratis-Check"
   },
+  "trace": {
+    "launcher": "Mit Trace sprechen",
+    "title": "Trace",
+    "titlePro": "Trace Pro",
+    "tagline": "Folge mir zu deinen echten Kosten.",
+    "sectorAssistant": "Branchen-Assistent",
+    "inputPlaceholder": "Was möchtest du berechnen?",
+    "freeTagline": "Trace ist kostenlos.",
+    "freeTaglineLink": "Für Pro-Einblicke anmelden.",
+    "welcome": "Ich bin Trace.\nIch verfolge die Mathematik hinter deiner Branche.\nSag mir, was du berechnen möchtest, und ich finde das passende Tool.\nBeginnen wir mit einer Frage.",
+    "welcomePro": "Ich bin Trace Pro.\nIch suche den mathematischen Nachweis hinter deinen Entscheidungen.\nSag mir, welches Szenario du testen möchtest — ich kombiniere Premium-Tools und interpretiere die Ergebnisse für dich.",
+    "intro": {
+      "badge": "Dein Branchen-Mathematik-Tracker",
+      "title": "Trace kennenlernen — Dein Berechnungs-Wegweiser",
+      "description": "Trace ist nicht nur ein Chatbot. Es ist eine branchensensible KI, die deine Frage versteht, den richtigen Rechner findet und dich zu deinen echten Kosten führt. Kein Raten mehr. Kein Tabellen-Chaos.",
+      "feature1": "Immer kostenlos nutzbar",
+      "feature2": "Intelligente Tool-Empfehlungen",
+      "cta": "Gespräch starten"
+    },
+    "proBadge": "Premium-Entscheidungsnachweis",
+    "placeholder": "Beschreibe deinen Berechnungsbedarf…",
+    "placeholderPro": "Beschreibe deine Entscheidung oder dein Szenario…",
+    "send": "Fragen",
+    "loading": "Trace denkt nach…",
+    "error": "Trace konnte nicht antworten. Bitte erneut versuchen.",
+    "footerNote": "Trace ist kostenlos. Für Premium-Beratung anmelden.",
+    "disclaimer": "Nur Orientierung — keine Finanz-, Rechts- oder Ingenieurberatung. Berechnungen laufen in SectorCalc-Tools.",
+    "upsell": "Tiefere Analyse nötig?",
+    "upsellCta": "Anmelden",
+    "quickActions": {
+      "findTool": "Das richtige Tool finden",
+      "explainInputs": "Welche Eingaben brauche ich?",
+      "premiumHint": "Was bietet Premium?",
+      "pricing": "Preise ansehen",
+      "decisionSummary": "Meine Entscheidung zusammenfassen",
+      "compareScenario": "Szenarien vergleichen",
+      "reportHelp": "Meinen Bericht erklären",
+      "multiTool": "Mehrere Tools kombinieren"
+    },
+    "quickMessages": {
+      "findTool": "Welches SectorCalc-Tool passt zu meiner Frage?",
+      "explainInputs": "Welche Eingaben soll ich für diese Berechnung verwenden?",
+      "premiumHint": "Welchen Mehrwert bieten Premium-Tools?",
+      "pricing": "Wie funktioniert die SectorCalc-Preisgestaltung?",
+      "decisionSummary": "Hilf mir, diese Entscheidung mit meinen aktuellen Ergebnissen zusammenzufassen.",
+      "compareScenario": "Vergleiche alternative Szenarien für meine Situation.",
+      "reportHelp": "Erkläre meinen Berechnungsbericht in einfacher Sprache.",
+      "multiTool": "Welche Premium-Tools soll ich für dieses Problem kombinieren?"
+    },
+    "errors": {
+      "authRequired": "Melde dich an, um Trace Pro zu nutzen.",
+      "connection": "Verbindungsfehler. Bitte später erneut versuchen."
+    }
+  },
   "osGate": {
     "label": "Abonnement erforderlich",
     "message": "Diese Funktion erfordert die Intelligence-Ebene. Mit Pro freischalten.",
@@ -295,7 +349,7 @@
         "allLabel": "Alle Branchen",
         "categoryToolsTitle": "{category}-Rechner",
         "categoryToolsSubtitle": "{count} Branchenrechner",
-        "countLabel": "{count, plural, one {# Branche} other {# Branchen}}",
+        "countLabel": "{count, plural, one {# Rechner} other {# Rechner}}",
         "viewCategory": "Branchen ansehen",
         "viewCategoryOpen": "Branchen werden angezeigt",
         "openItem": "Branche öffnen →"
@@ -1068,6 +1122,7 @@
     "coverage": {
       "title": "Branchenspezifische Berechnungstools",
       "subtitle": "Rechner für Ihre Branche und Ihre Entscheidungssituation.",
+      "browseByCategory": "Nach Kategorie durchsuchen",
       "items": {
         "production": {
           "title": "Produktion & Fertigung",
@@ -3341,6 +3396,12 @@
       "creatorsLabel": "Erstellt von:",
       "creatorName": "Prof. Dr. Neela Nataraj",
       "creatorProfileAria": "Prof. Dr. Neela Nataraj, Indian Institute of Technology Bombay (öffnet die Profilseite der IIT Bombay)",
+      "mathSciNetLinkLabel": "MathSciNet",
+      "mathSciNetAria": "MathSciNet-Autorenprofil für {name} (öffnet in neuem Tab)",
+      "mrIdBadge": "MR {mrId}",
+      "institutionalProfileLink": "Institutionsprofil",
+      "academicBadge": "Akademisch verifiziert — IIT Bombay",
+      "academicBadgeAria": "Akademisches Verifizierungsabzeichen und MathSciNet-Autorenreferenz",
       "helpfulLabel": "Personen finden diesen Rechner hilfreich"
     },
     "interactionActionBar": {

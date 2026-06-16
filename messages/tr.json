@@ -29,6 +29,60 @@
     "unlockPro": "Pro",
     "runFreeCheck": "Hesapla"
   },
+  "trace": {
+    "launcher": "Trace ile konuş",
+    "title": "Trace",
+    "titlePro": "Trace Pro",
+    "tagline": "Gerçek maliyetine benimle ulaş.",
+    "sectorAssistant": "Sektörel Asistan",
+    "inputPlaceholder": "Ne hesaplamak istiyorsun?",
+    "freeTagline": "Trace ücretsizdir.",
+    "freeTaglineLink": "Pro içgörüler için giriş yap.",
+    "welcome": "Ben Trace.\nSektörel hesaplamalarının izini sürüyorum.\nNe hesaplamak istediğini söyle, sana en doğru aracı bulayım.\nBaşlamak için bir soruyla başlayalım.",
+    "welcomePro": "Ben Trace Pro.\nKararlarının matematiksel kanıtını arıyorum.\nHangi senaryoyu test etmek istediğini söyle, premium araçları birleştirip sonuçları senin için yorumlayayım.",
+    "intro": {
+      "badge": "Sektörel Matematik İzleyicin",
+      "title": "Trace ile Tanış — Hesaplamalarının İz Süreni",
+      "description": "Trace sadece bir sohbet asistanı değil. Sorunu anlayan, doğru hesaplayıcıyı bulan ve seni gerçek maliyetine ulaştıran sektörel bir rehber. Artık tahmin yok, dağınık tablolar yok.",
+      "feature1": "Her zaman ücretsiz",
+      "feature2": "Akıllı araç önerileri",
+      "cta": "Konuşmaya başla"
+    },
+    "proBadge": "Premium karar kanıtı",
+    "placeholder": "Hesaplama ihtiyacını yaz…",
+    "placeholderPro": "Kararınızı veya senaryonuzu anlatın…",
+    "send": "Sor",
+    "loading": "Trace düşünüyor…",
+    "error": "Trace yanıt üretemedi. Tekrar deneyin.",
+    "footerNote": "Trace ücretsizdir. Premium danışmanlık için giriş yap.",
+    "disclaimer": "Yalnızca rehberlik — finansal, hukuki veya mühendislik tavsiyesi değildir. Hesaplamalar SectorCalc araçlarında çalışır.",
+    "upsell": "Daha derin analiz mi?",
+    "upsellCta": "Giriş yap",
+    "quickActions": {
+      "findTool": "Doğru aracı bul",
+      "explainInputs": "Hangi girdiler gerekli?",
+      "premiumHint": "Premium ne sağlar?",
+      "pricing": "Fiyatlandırma",
+      "decisionSummary": "Kararımı özetle",
+      "compareScenario": "Senaryoları karşılaştır",
+      "reportHelp": "Raporumu açıkla",
+      "multiTool": "Birden fazla araç"
+    },
+    "quickMessages": {
+      "findTool": "Sorum için hangi SectorCalc aracını kullanmalıyım?",
+      "explainInputs": "Bu hesaplama için hangi girdileri girmeliyim?",
+      "premiumHint": "Premium araçlar ekstra ne sağlar?",
+      "pricing": "SectorCalc fiyatlandırması nasıl çalışır?",
+      "decisionSummary": "Mevcut sonuçlarımla bu kararı özetlememe yardım et.",
+      "compareScenario": "Durumum için alternatif senaryoları karşılaştır.",
+      "reportHelp": "Hesaplama raporumu sade dille açıkla.",
+      "multiTool": "Bu problem için hangi premium araçları birleştirmeliyim?"
+    },
+    "errors": {
+      "authRequired": "Trace Pro için giriş yapın.",
+      "connection": "Bağlantı hatası. Lütfen daha sonra tekrar deneyin."
+    }
+  },
   "osGate": {
     "label": "Abonelik gerekli",
     "message": "Bu işlem Pro abonelik gerektirir.",
@@ -277,20 +331,20 @@
       },
       "premium-tools": {
         "navLabel": "Rapor türüne göre göz at",
+        "allLabel": "Tüm premium araçlar",
+        "categoryToolsTitle": "{category} araçları",
+        "categoryToolsSubtitle": "{count} premium hesaplama aracı",
         "countLabel": "{count, plural, one {# hesaplayıcı} other {# hesaplayıcı}}",
         "viewCategory": "Hesaplayıcıları gör",
         "viewCategoryOpen": "Hesaplayıcılar gösteriliyor",
-        "openItem": "Hesaplayıcıyı aç →",
-        "allLabel": "Tüm premium araçlar",
-        "categoryToolsTitle": "{category} araçları",
-        "categoryToolsSubtitle": "{count} premium hesaplama aracı"
+        "openItem": "Hesaplayıcıyı aç →"
       },
       "industries": {
         "navLabel": "Sektöre göre göz at",
         "allLabel": "Tüm sektörler",
         "categoryToolsTitle": "{category} araçları",
         "categoryToolsSubtitle": "{count} sektörel hesaplama aracı",
-        "countLabel": "{count, plural, one {# sektör} other {# sektör}}",
+        "countLabel": "{count, plural, one {# hesaplayıcı} other {# hesaplayıcı}}",
         "viewCategory": "Sektörleri gör",
         "viewCategoryOpen": "Sektörler gösteriliyor",
         "openItem": "Sektörü aç →"
@@ -1084,6 +1138,7 @@
     "coverage": {
       "title": "Sektörel Hesaplama Araçları",
       "subtitle": "Her sektöre özel, ihtiyacınıza yönelik hesaplayıcılar.",
+      "browseByCategory": "Kategoriye göre göz at",
       "items": {
         "production": {
           "title": "Üretim ve İmalat Hesaplayıcıları",
@@ -3414,6 +3469,12 @@
       "creatorsLabel": "Yaratıcılar:",
       "creatorName": "Prof. Dr. Neela Nataraj",
       "creatorProfileAria": "Prof. Dr. Neela Nataraj, Indian Institute of Technology Bombay (IIT Bombay sayfasını açar)",
+      "mathSciNetLinkLabel": "MathSciNet",
+      "mathSciNetAria": "{name} için MathSciNet yazar profili (yeni sekmede açılır)",
+      "mrIdBadge": "MR {mrId}",
+      "institutionalProfileLink": "Kurumsal profil",
+      "academicBadge": "Akademik Onaylı — IIT Bombay",
+      "academicBadgeAria": "Akademik onay rozeti ve MathSciNet yazar referansı",
       "helpfulLabel": "kişi bu hesap makinesini faydalı buluyor"
     },
     "interactionActionBar": {

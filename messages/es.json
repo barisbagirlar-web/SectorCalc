@@ -29,6 +29,60 @@
     "unlockPro": "Desbloquear Pro",
     "runFreeCheck": "Control gratis"
   },
+  "trace": {
+    "launcher": "Hablar con Trace",
+    "title": "Trace",
+    "titlePro": "Trace Pro",
+    "tagline": "Sígueme hasta tu coste real.",
+    "sectorAssistant": "Asistente sectorial",
+    "inputPlaceholder": "¿Qué necesitas calcular?",
+    "freeTagline": "Trace es gratuito.",
+    "freeTaglineLink": "Inicia sesión para análisis Pro.",
+    "welcome": "Soy Trace.\nSigo las matemáticas detrás de tu sector.\nDime qué quieres calcular y encontraré la herramienta adecuada.\nEmpecemos con una pregunta.",
+    "welcomePro": "Soy Trace Pro.\nBusco la prueba matemática detrás de tus decisiones.\nDime qué escenario quieres probar — combinaré herramientas premium e interpretaré los resultados por ti.",
+    "intro": {
+      "badge": "Tu rastreador matemático sectorial",
+      "title": "Conoce Trace — Tu pionero del cálculo",
+      "description": "Trace no es solo un chatbot. Es una IA sectorial que entiende tu pregunta, encuentra la calculadora correcta y te guía hacia tu coste real. Se acabaron las suposiciones. Se acabó el caos de las hojas de cálculo.",
+      "feature1": "Gratis, siempre",
+      "feature2": "Recomendaciones inteligentes de herramientas",
+      "cta": "Iniciar conversación"
+    },
+    "proBadge": "Prueba de decisión premium",
+    "placeholder": "Describe tu necesidad de cálculo…",
+    "placeholderPro": "Describe tu decisión o escenario…",
+    "send": "Preguntar",
+    "loading": "Trace está pensando…",
+    "error": "Trace no pudo responder. Inténtalo de nuevo.",
+    "footerNote": "Trace es gratuito. Inicia sesión para orientación premium.",
+    "disclaimer": "Solo orientación — no es asesoramiento financiero, legal ni de ingeniería. Los cálculos se ejecutan en herramientas SectorCalc.",
+    "upsell": "¿Necesitas un análisis más profundo?",
+    "upsellCta": "Iniciar sesión",
+    "quickActions": {
+      "findTool": "Encontrar la herramienta adecuada",
+      "explainInputs": "¿Qué entradas necesito?",
+      "premiumHint": "¿Qué aporta premium?",
+      "pricing": "Ver precios",
+      "decisionSummary": "Resumir mi decisión",
+      "compareScenario": "Comparar escenarios",
+      "reportHelp": "Explicar mi informe",
+      "multiTool": "Combinar varias herramientas"
+    },
+    "quickMessages": {
+      "findTool": "¿Qué herramienta SectorCalc encaja con mi pregunta?",
+      "explainInputs": "¿Qué entradas debo introducir para este cálculo?",
+      "premiumHint": "¿Qué valor extra aportan las herramientas premium?",
+      "pricing": "¿Cómo funciona la tarificación de SectorCalc?",
+      "decisionSummary": "Ayúdame a resumir esta decisión con mis resultados actuales.",
+      "compareScenario": "Compara escenarios alternativos para mi situación.",
+      "reportHelp": "Explica mi informe de cálculo en lenguaje claro.",
+      "multiTool": "¿Qué herramientas premium debo combinar para este problema?"
+    },
+    "errors": {
+      "authRequired": "Inicia sesión para usar Trace Pro.",
+      "connection": "Error de conexión. Inténtalo de nuevo más tarde."
+    }
+  },
   "osGate": {
     "label": "Suscripción requerida",
     "message": "Esta función requiere la capa Intelligence. Desbloquee con Pro.",
@@ -295,7 +349,7 @@
         "allLabel": "Todos los sectores",
         "categoryToolsTitle": "Calculadoras de {category}",
         "categoryToolsSubtitle": "{count} calculadoras sectoriales",
-        "countLabel": "{count, plural, one {# sector} other {# sectores}}",
+        "countLabel": "{count, plural, one {# calculadora} other {# calculadoras}}",
         "viewCategory": "Ver sectores",
         "viewCategoryOpen": "Mostrando sectores",
         "openItem": "Abrir sector →"
@@ -1068,6 +1122,7 @@
     "coverage": {
       "title": "Herramientas de cálculo sectoriales",
       "subtitle": "Calculadoras adaptadas a su sector y a sus decisiones.",
+      "browseByCategory": "Explorar por categoría",
       "items": {
         "production": {
           "title": "Producción y fabricación",
@@ -3341,6 +3396,12 @@
       "creatorsLabel": "Creadores:",
       "creatorName": "Prof. Dr. Neela Nataraj",
       "creatorProfileAria": "Prof. Dr. Neela Nataraj, Indian Institute of Technology Bombay (abre la página de perfil del IIT Bombay)",
+      "mathSciNetLinkLabel": "MathSciNet",
+      "mathSciNetAria": "Perfil de autor en MathSciNet de {name} (se abre en una pestaña nueva)",
+      "mrIdBadge": "MR {mrId}",
+      "institutionalProfileLink": "Perfil institucional",
+      "academicBadge": "Verificado académicamente — IIT Bombay",
+      "academicBadgeAria": "Insignia de verificación académica y referencia de autor en MathSciNet",
       "helpfulLabel": "personas encuentran útil esta calculadora"
     },
     "interactionActionBar": {

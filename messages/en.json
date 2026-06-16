@@ -29,6 +29,60 @@
     "unlockPro": "Pro",
     "runFreeCheck": "Run"
   },
+  "trace": {
+    "launcher": "Talk to Trace",
+    "title": "Trace",
+    "titlePro": "Trace Pro",
+    "tagline": "Follow me to your true cost.",
+    "sectorAssistant": "Sector Assistant",
+    "inputPlaceholder": "What do you need to calculate?",
+    "freeTagline": "Trace is free.",
+    "freeTaglineLink": "Sign in for Pro insights.",
+    "welcome": "I am Trace.\nI track the math behind your industry.\nTell me what you want to calculate, and I'll find the right tool for you.\nLet's start with a question.",
+    "welcomePro": "I am Trace Pro.\nI pursue the mathematical proof behind your decisions.\nTell me which scenario you want to test—I will combine premium tools and interpret the results for you.",
+    "intro": {
+      "badge": "Your Sector Math Tracker",
+      "title": "Meet Trace — Your Calculation Trailblazer",
+      "description": "Trace is not just a chatbot. It's a sector-aware AI that reads your question, finds the right calculator, and guides you to your true cost. No more guessing. No more spreadsheet chaos.",
+      "feature1": "Free to use, always",
+      "feature2": "Smart tool recommendations",
+      "cta": "Start a conversation"
+    },
+    "proBadge": "Premium decision proof",
+    "placeholder": "Describe your calculation need…",
+    "placeholderPro": "Describe your decision or scenario…",
+    "send": "Ask",
+    "loading": "Trace is thinking…",
+    "error": "Trace could not respond. Try again.",
+    "footerNote": "Trace is free. Sign in for premium guidance.",
+    "disclaimer": "Guidance only — not financial, legal, or engineering advice. Calculations run in SectorCalc tools.",
+    "upsell": "Need deeper analysis?",
+    "upsellCta": "Sign in",
+    "quickActions": {
+      "findTool": "Find the right tool",
+      "explainInputs": "What inputs do I need?",
+      "premiumHint": "What does premium add?",
+      "pricing": "View pricing",
+      "decisionSummary": "Summarize my decision",
+      "compareScenario": "Compare scenarios",
+      "reportHelp": "Explain my report",
+      "multiTool": "Combine multiple tools"
+    },
+    "quickMessages": {
+      "findTool": "Which SectorCalc tool fits my question?",
+      "explainInputs": "What inputs should I enter for this calculation?",
+      "premiumHint": "What extra value do premium tools provide?",
+      "pricing": "How does SectorCalc pricing work?",
+      "decisionSummary": "Help me summarize this decision with my current results.",
+      "compareScenario": "Compare alternative scenarios for my situation.",
+      "reportHelp": "Explain my calculation report in plain language.",
+      "multiTool": "Which premium tools should I combine for this problem?"
+    },
+    "errors": {
+      "authRequired": "Sign in to use Trace Pro.",
+      "connection": "Connection error. Please try again later."
+    }
+  },
   "osGate": {
     "label": "Subscription required",
     "message": "This operation requires Intelligence Layer. Unlock with Pro membership.",
@@ -277,20 +331,20 @@
       },
       "premium-tools": {
         "navLabel": "Browse by report type",
+        "allLabel": "All premium calculators",
+        "categoryToolsTitle": "{category} calculators",
+        "categoryToolsSubtitle": "{count} premium calculators",
         "countLabel": "{count, plural, one {# calculator} other {# calculators}}",
         "viewCategory": "View calculators",
         "viewCategoryOpen": "Showing calculators",
-        "openItem": "View calculator →",
-        "allLabel": "All premium calculators",
-        "categoryToolsTitle": "{category} calculators",
-        "categoryToolsSubtitle": "{count} premium calculators"
+        "openItem": "View calculator →"
       },
       "industries": {
         "navLabel": "Browse by sector group",
         "allLabel": "All sectors",
         "categoryToolsTitle": "{category} calculators",
         "categoryToolsSubtitle": "{count} sector calculators",
-        "countLabel": "{count, plural, one {# sector} other {# sectors}}",
+        "countLabel": "{count, plural, one {# calculator} other {# calculators}}",
         "viewCategory": "View sectors",
         "viewCategoryOpen": "Showing sectors",
         "openItem": "Open industry →"
@@ -1084,6 +1138,7 @@
     "coverage": {
       "title": "Sector-Specific Calculation Tools",
       "subtitle": "Calculators built for your sector and the decisions you face.",
+      "browseByCategory": "Browse by category",
       "items": {
         "production": {
           "title": "Production & manufacturing",
@@ -3406,6 +3461,12 @@
       "creatorsLabel": "Creators:",
       "creatorName": "Prof. Dr. Neela Nataraj",
       "creatorProfileAria": "Prof. Dr. Neela Nataraj, Indian Institute of Technology Bombay (opens IIT Bombay profile page)",
+      "mathSciNetLinkLabel": "MathSciNet",
+      "mathSciNetAria": "MathSciNet author profile for {name} (opens in new tab)",
+      "mrIdBadge": "MR {mrId}",
+      "institutionalProfileLink": "Institutional profile",
+      "academicBadge": "Academically verified — IIT Bombay",
+      "academicBadgeAria": "Academic verification badge and MathSciNet author reference",
       "helpfulLabel": "people find this calculator helpful"
     },
     "interactionActionBar": {

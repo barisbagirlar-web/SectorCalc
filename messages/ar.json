@@ -29,6 +29,60 @@
     "unlockPro": "Pro",
     "runFreeCheck": "Run"
   },
+  "trace": {
+    "launcher": "تحدث مع Trace",
+    "title": "Trace",
+    "titlePro": "Trace Pro",
+    "tagline": "اتبعني إلى تكلفتك الحقيقية.",
+    "sectorAssistant": "المساعد القطاعي",
+    "inputPlaceholder": "ماذا تريد أن تحسب؟",
+    "freeTagline": "Trace مجاني.",
+    "freeTaglineLink": "سجّل الدخول للحصول على رؤى Pro.",
+    "welcome": "أنا Trace.\nأتتبع الرياضيات وراء قطاعك.\nأخبرني بما تريد حسابه، وسأجد الأداة المناسبة.\nلنبدأ بسؤال.",
+    "welcomePro": "أنا Trace Pro.\nأبحث عن الدليل الرياضي وراء قراراتك.\nأخبرني أي سيناريو تريد اختباره — سأجمع الأدوات المميزة وأفسّر النتائج لك.",
+    "intro": {
+      "badge": "متتبع الرياضيات القطاعي",
+      "title": "تعرّف على Trace — رائد حساباتك",
+      "description": "Trace ليس مجرد روبوت محادثة. إنه ذكاء اصطناعي قطاعي يفهم سؤالك، ويجد الحاسبة المناسبة، ويوجّهك إلى تكلفتك الحقيقية. لا مزيد من التخمين. لا مزيد من فوضى الجداول.",
+      "feature1": "مجاني دائمًا",
+      "feature2": "توصيات أدوات ذكية",
+      "cta": "ابدأ محادثة"
+    },
+    "proBadge": "إثبات قرار مميز",
+    "placeholder": "صف احتياجك الحسابي…",
+    "placeholderPro": "صف قرارك أو سيناريوك…",
+    "send": "اسأل",
+    "loading": "Trace يفكّر…",
+    "error": "تعذّر على Trace الرد. حاول مرة أخرى.",
+    "footerNote": "Trace مجاني. سجّل الدخول للحصول على إرشاد مميز.",
+    "disclaimer": "إرشاد فقط — ليس نصيحة مالية أو قانونية أو هندسية. تُنفَّذ الحسابات في أدوات SectorCalc.",
+    "upsell": "هل تحتاج تحليلًا أعمق؟",
+    "upsellCta": "تسجيل الدخول",
+    "quickActions": {
+      "findTool": "اعثر على الأداة المناسبة",
+      "explainInputs": "ما المدخلات التي أحتاجها؟",
+      "premiumHint": "ماذا يضيف المميز؟",
+      "pricing": "عرض الأسعار",
+      "decisionSummary": "لخّص قراري",
+      "compareScenario": "قارن السيناريوهات",
+      "reportHelp": "اشرح تقريري",
+      "multiTool": "اجمع عدة أدوات"
+    },
+    "quickMessages": {
+      "findTool": "أي أداة SectorCalc تناسب سؤالي؟",
+      "explainInputs": "ما المدخلات التي يجب إدخالها لهذا الحساب؟",
+      "premiumHint": "ما القيمة الإضافية التي تقدمها الأدوات المميزة؟",
+      "pricing": "كيف يعمل تسعير SectorCalc؟",
+      "decisionSummary": "ساعدني في تلخيص هذا القرار بنتائجي الحالية.",
+      "compareScenario": "قارن سيناريوهات بديلة لوضعي.",
+      "reportHelp": "اشرح تقرير الحساب بلغة واضحة.",
+      "multiTool": "ما الأدوات المميزة التي يجب أن أجمعها لهذه المشكلة؟"
+    },
+    "errors": {
+      "authRequired": "سجّل الدخول لاستخدام Trace Pro.",
+      "connection": "خطأ في الاتصال. يرجى المحاولة لاحقًا."
+    }
+  },
   "osGate": {
     "label": "الاشتراك مطلوب",
     "message": "This oلكلation requires Intelligence Layer. Unlock with Pro membership.",
@@ -290,7 +344,7 @@
         "allLabel": "كل القطاعات",
         "categoryToolsTitle": "حاسبات {category}",
         "categoryToolsSubtitle": "{count} حاسبة قطاعية",
-        "countLabel": "{count, plural, one {قطاع #} other {قطاعات #}}",
+        "countLabel": "{count, plural, one {حاسبة #} other {حاسبات #}}",
         "viewCategory": "عرض القطاعات",
         "viewCategoryOpen": "عرض القطاعات",
         "openItem": "فتح القطاع ←"
@@ -1063,6 +1117,7 @@
     "coverage": {
       "title": "أدوات الحساب القطاعية",
       "subtitle": "حاسبات مبنية لقطاعكم وللقرارات التي تواجهونها.",
+      "browseByCategory": "تصفح حسب الفئة",
       "items": {
         "production": {
           "title": "الإنتاج والتصنيع",
@@ -3363,6 +3418,12 @@
       "creatorsLabel": "المبدعون:",
       "creatorName": "أ.د. نيلا ناتاراج",
       "creatorProfileAria": "Prof. Dr. Neela Nataraj، Indian Institute of Technology Bombay (يفتح صفحة IIT Bombay)",
+      "mathSciNetLinkLabel": "MathSciNet",
+      "mathSciNetAria": "ملف مؤلف MathSciNet لـ {name} (يفتح في علامة تبويب جديدة)",
+      "mrIdBadge": "MR {mrId}",
+      "institutionalProfileLink": "الملف المؤسسي",
+      "academicBadge": "موثّق أكاديميًا — IIT Bombay",
+      "academicBadgeAria": "شارة التحقق الأكاديمي ومرجع مؤلف MathSciNet",
       "helpfulLabel": "شخصًا يجدون هذه الحاسبة مفيدة"
     },
     "interactionActionBar": {

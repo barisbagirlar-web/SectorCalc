@@ -5,6 +5,7 @@ import type { LucideIcon } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { InteractionActionBar } from "@/components/tools/InteractionActionBar";
 import { ToolCompactHeader } from "@/components/tools/ToolCompactHeader";
+import { ToolBadge } from "@/components/tools/ToolBadge";
 import { ToolReferenceCreatorAttribution } from "@/components/tools/ToolReferenceCreatorAttribution";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
 import { useToolHelpfulVote } from "@/hooks/use-tool-helpful-vote";
@@ -107,6 +108,7 @@ export function ToolOmniMetaSection({
       <section className="sc-tool-omni-meta" aria-label={t("sectionLabel")}>
         <div className="sc-tool-omni-meta__top">
           <div className="sc-tool-omni-meta__main">
+            <ToolBadge />
             {icon ? (
               <>
                 <ToolCompactHeader

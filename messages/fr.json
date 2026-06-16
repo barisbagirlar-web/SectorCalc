@@ -29,6 +29,60 @@
     "unlockPro": "Débloquer Pro",
     "runFreeCheck": "Check gratuit"
   },
+  "trace": {
+    "launcher": "Parler à Trace",
+    "title": "Trace",
+    "titlePro": "Trace Pro",
+    "tagline": "Suivez-moi jusqu'à votre coût réel.",
+    "sectorAssistant": "Assistant sectoriel",
+    "inputPlaceholder": "Que souhaitez-vous calculer ?",
+    "freeTagline": "Trace est gratuit.",
+    "freeTaglineLink": "Connectez-vous pour les analyses Pro.",
+    "welcome": "Je suis Trace.\nJe suis la mathématique derrière votre secteur.\nDites-moi ce que vous voulez calculer, et je trouverai le bon outil.\nCommençons par une question.",
+    "welcomePro": "Je suis Trace Pro.\nJe recherche la preuve mathématique derrière vos décisions.\nDites-moi quel scénario vous voulez tester — je combinerai les outils premium et interpréterai les résultats pour vous.",
+    "intro": {
+      "badge": "Votre traceur mathématique sectoriel",
+      "title": "Découvrez Trace — Votre pionnier du calcul",
+      "description": "Trace n'est pas qu'un chatbot. C'est une IA sectorielle qui comprend votre question, trouve le bon calculateur et vous guide vers votre coût réel. Fini les approximations. Fini le chaos des tableurs.",
+      "feature1": "Gratuit, toujours",
+      "feature2": "Recommandations d'outils intelligentes",
+      "cta": "Démarrer une conversation"
+    },
+    "proBadge": "Preuve de décision premium",
+    "placeholder": "Décrivez votre besoin de calcul…",
+    "placeholderPro": "Décrivez votre décision ou scénario…",
+    "send": "Demander",
+    "loading": "Trace réfléchit…",
+    "error": "Trace n'a pas pu répondre. Réessayez.",
+    "footerNote": "Trace est gratuit. Connectez-vous pour un accompagnement premium.",
+    "disclaimer": "Orientation uniquement — pas un conseil financier, juridique ou d'ingénierie. Les calculs s'exécutent dans les outils SectorCalc.",
+    "upsell": "Besoin d'une analyse plus approfondie ?",
+    "upsellCta": "Se connecter",
+    "quickActions": {
+      "findTool": "Trouver le bon outil",
+      "explainInputs": "Quelles entrées me faut-il ?",
+      "premiumHint": "Que apporte le premium ?",
+      "pricing": "Voir les tarifs",
+      "decisionSummary": "Résumer ma décision",
+      "compareScenario": "Comparer les scénarios",
+      "reportHelp": "Expliquer mon rapport",
+      "multiTool": "Combiner plusieurs outils"
+    },
+    "quickMessages": {
+      "findTool": "Quel outil SectorCalc correspond à ma question ?",
+      "explainInputs": "Quelles entrées dois-je saisir pour ce calcul ?",
+      "premiumHint": "Quelle valeur ajoutée offrent les outils premium ?",
+      "pricing": "Comment fonctionne la tarification SectorCalc ?",
+      "decisionSummary": "Aidez-moi à résumer cette décision avec mes résultats actuels.",
+      "compareScenario": "Comparez des scénarios alternatifs pour ma situation.",
+      "reportHelp": "Expliquez mon rapport de calcul en langage clair.",
+      "multiTool": "Quels outils premium dois-je combiner pour ce problème ?"
+    },
+    "errors": {
+      "authRequired": "Connectez-vous pour utiliser Trace Pro.",
+      "connection": "Erreur de connexion. Veuillez réessayer plus tard."
+    }
+  },
   "osGate": {
     "label": "Abonnement requis",
     "message": "Cette fonction nécessite la couche Intelligence. Débloquez avec Pro.",
@@ -295,7 +349,7 @@
         "allLabel": "Tous les secteurs",
         "categoryToolsTitle": "Calculateurs {category}",
         "categoryToolsSubtitle": "{count} calculateurs sectoriels",
-        "countLabel": "{count, plural, one {# secteur} other {# secteurs}}",
+        "countLabel": "{count, plural, one {# calculateur} other {# calculateurs}}",
         "viewCategory": "Voir les secteurs",
         "viewCategoryOpen": "Secteurs affichés",
         "openItem": "Ouvrir le secteur →"
@@ -1068,6 +1122,7 @@
     "coverage": {
       "title": "Outils de calcul sectoriels",
       "subtitle": "Des calculateurs adaptés à votre secteur et à vos décisions.",
+      "browseByCategory": "Parcourir par catégorie",
       "items": {
         "production": {
           "title": "Production & fabrication",
@@ -3341,6 +3396,12 @@
       "creatorsLabel": "Créateurs :",
       "creatorName": "Prof. Dr. Neela Nataraj",
       "creatorProfileAria": "Prof. Dr. Neela Nataraj, Indian Institute of Technology Bombay (ouvre la page de profil de l'IIT Bombay)",
+      "mathSciNetLinkLabel": "MathSciNet",
+      "mathSciNetAria": "Profil auteur MathSciNet pour {name} (s'ouvre dans un nouvel onglet)",
+      "mrIdBadge": "MR {mrId}",
+      "institutionalProfileLink": "Profil institutionnel",
+      "academicBadge": "Vérifié académiquement — IIT Bombay",
+      "academicBadgeAria": "Badge de vérification académique et référence auteur MathSciNet",
       "helpfulLabel": "personnes trouvent ce calculateur utile"
     },
     "interactionActionBar": {
