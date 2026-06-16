@@ -1,11 +1,11 @@
 "use client";
 
-import { useMemo, useState, useCallback } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { Search } from "lucide-react";
 import { CalculatorCard } from "@/components/catalog/CalculatorCard";
 import { CalculatorCardGrid } from "@/components/catalog/CalculatorCardGrid";
-import { CalculatorFilterBar } from "@/components/catalog/CalculatorFilterBar";
 import { CategoryCardGrid } from "@/components/catalog/CategoryCardGrid";
 import type { CategoryCardItem } from "@/components/catalog/CategoryCardGrid";
 import { resolveCalculatorCardAccent } from "@/lib/catalog/card-accent";
@@ -33,6 +33,36 @@ function normalizeSearch(value: string, locale: string): string {
     .trim();
 }
 
+function scrollToToolsList() {
+  requestAnimationFrame(() => {
+    document.getElementById("tools-list")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
+}
+
+function resolveDiscoveryTabFromSearchParam(
+  categoryParam: string,
+  allowedTabIds: ReadonlySet<string>,
+  fallbackTabId?: string,
+): string {
+  if (categoryParam === DISCOVERY_TAB_ALL) {
+    return DISCOVERY_TAB_ALL;
+  }
+  if (categoryParam && allowedTabIds.has(categoryParam)) {
+    return categoryParam;
+  }
+  if (
+    categoryParam === "" &&
+    fallbackTabId &&
+    allowedTabIds.has(fallbackTabId)
+  ) {
+    return fallbackTabId;
+  }
+  return DISCOVERY_TAB_ALL;
+}
+
 export function DiscoveryCatalogExplorer({
   groups,
   variant,
@@ -41,6 +71,10 @@ export function DiscoveryCatalogExplorer({
   const t = useTranslations("catalogExplorer");
   const tCards = useTranslations("calculatorCards");
   const locale = useLocale();
+  const searchParams = useSearchParams();
+  const didScrollForDeepLink = useRef(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
   const tabs = useMemo(() => getDiscoveryTabsForVariant(variant, groups), [variant, groups]);
   const visibleTabs = useMemo(
     () =>
@@ -49,12 +83,27 @@ export function DiscoveryCatalogExplorer({
       ),
     [groups, tabs],
   );
-  const initialTabId =
-    defaultTabId && visibleTabs.some((tab) => tab.id === defaultTabId)
-      ? defaultTabId
-      : DISCOVERY_TAB_ALL;
-  const [selectedTabId, setSelectedTabId] = useState(initialTabId);
-  const [searchQuery, setSearchQuery] = useState("");
+
+  const allowedTabIds = useMemo(
+    () => new Set(visibleTabs.map((tab) => tab.id)),
+    [visibleTabs],
+  );
+
+  const categoryParam = searchParams?.get("category") ?? "";
+  const selectedTabId = useMemo(
+    () => resolveDiscoveryTabFromSearchParam(categoryParam, allowedTabIds, defaultTabId),
+    [allowedTabIds, categoryParam, defaultTabId],
+  );
+
+  useEffect(() => {
+    if (didScrollForDeepLink.current) {
+      return;
+    }
+    if (categoryParam && allowedTabIds.has(categoryParam)) {
+      didScrollForDeepLink.current = true;
+      scrollToToolsList();
+    }
+  }, [allowedTabIds, categoryParam]);
 
   const activeTab =
     visibleTabs.find((tab) => tab.id === selectedTabId) ??
@@ -66,10 +115,21 @@ export function DiscoveryCatalogExplorer({
     [activeTab, groups],
   );
 
+  const allItems = useMemo(() => {
+    const allTab =
+      visibleTabs.find((tab) => tab.id === DISCOVERY_TAB_ALL) ?? visibleTabs[0];
+    if (!allTab) {
+      return [];
+    }
+    return getItemsForDiscoveryTab(groups, allTab);
+  }, [groups, visibleTabs]);
+
   const visibleItems = useMemo(() => {
     const normalized = normalizeSearch(searchQuery, locale);
-    if (normalized.length === 0) return items;
-    return items.filter((item) => {
+    if (normalized.length === 0) {
+      return items;
+    }
+    return allItems.filter((item) => {
       const haystack = normalizeSearch(
         [item.title, item.description, item.groupLabel, item.groupId]
           .filter(Boolean)
@@ -78,7 +138,7 @@ export function DiscoveryCatalogExplorer({
       );
       return haystack.includes(normalized);
     });
-  }, [items, searchQuery, locale]);
+  }, [allItems, items, searchQuery, locale]);
 
   const filterTabs = useMemo(
     () =>
@@ -105,21 +165,12 @@ export function DiscoveryCatalogExplorer({
         count: tab.count,
         isActive: activeTab?.id === tab.id,
       })),
-    [filterTabs, activeTab],
+    [activeTab, filterTabs],
   );
 
-  const handleCategorySelect = useCallback(
-    (tabId: string) => {
-      setSelectedTabId(tabId);
-      setSearchQuery("");
-      requestAnimationFrame(() => {
-        document.getElementById("tools-list")?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      });
-    },
-    [],
+  const formatCount = useCallback(
+    (count: number) => t(`labels.${variant}.countLabel`, { count }),
+    [t, variant],
   );
 
   const badgeFree = t("search.badgeFree");
@@ -157,16 +208,11 @@ export function DiscoveryCatalogExplorer({
       data-variant={variant}
       data-calculator-card-explorer="true"
     >
-      {isIndustry ? (
-        <CalculatorFilterBar
-          tabs={filterTabs}
-          activeTabId={activeTab?.id ?? DISCOVERY_TAB_ALL}
-          onTabChange={setSelectedTabId}
-          ariaLabel={t(`labels.${variant}.navLabel`)}
-        />
-      ) : (
-        <CategoryCardGrid items={categoryCardItems} onSelect={handleCategorySelect} />
-      )}
+      <CategoryCardGrid
+        items={categoryCardItems}
+        formatCount={formatCount}
+        variant={isIndustry ? "industry" : "default"}
+      />
 
       {!isIndustry && (
         <div className="relative mt-3">
