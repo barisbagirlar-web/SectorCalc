@@ -91,17 +91,24 @@ export interface ${exportBase}Output {
 }`;
 }
 
-function generateFormulaEvaluator(schema: GeneratedToolSchema, exportBase: string): string {
+function generateFormulaEvaluator(
+  schema: GeneratedToolSchema,
+  exportBase: string,
+): { code: string; compileFailures: number } {
   const formulaEntries = Object.entries(schema.formulas);
   if (formulaEntries.length === 0) {
-    return `function evaluateAllFormulas(_input: ${exportBase}Input): Record<string, number> {
+    return {
+      code: `function evaluateAllFormulas(_input: ${exportBase}Input): Record<string, number> {
   return {};
-}`;
+}`,
+      compileFailures: 0,
+    };
   }
 
   const formulaKeys = formulaEntries.map(([key]) => key);
   const inputIds = schema.inputs.map((input) => input.id);
   const lines: string[] = ["const results: Record<string, number> = {};"];
+  let compileFailures = 0;
 
   for (const [key, expression] of formulaEntries) {
     const compiled = compileFormulaExpression(expression, {
@@ -112,8 +119,13 @@ function generateFormulaEvaluator(schema: GeneratedToolSchema, exportBase: strin
     });
 
     if (!compiled) {
+      compileFailures += 1;
       lines.push(`results[${JSON.stringify(key)}] = 0;`);
       continue;
+    }
+
+    if (compiled.includes("Math.Math")) {
+      throw new Error(`Invalid compiled expression for "${key}": contains Math.Math`);
     }
 
     lines.push(
@@ -123,9 +135,12 @@ function generateFormulaEvaluator(schema: GeneratedToolSchema, exportBase: strin
 
   lines.push("return results;");
 
-  return `function evaluateAllFormulas(input: ${exportBase}Input): Record<string, number> {
+  return {
+    compileFailures,
+    code: `function evaluateAllFormulas(input: ${exportBase}Input): Record<string, number> {
   ${lines.join("\n  ")}
-}`;
+}`,
+  };
 }
 
 function generateCalculateFunction(schema: GeneratedToolSchema, exportBase: string): string {
@@ -157,7 +172,7 @@ export function calculate${exportBase}(input: ${exportBase}Input): ${exportBase}
 }`;
 }
 
-export function generateFromSchemaFile(schemaPath: string, outPath: string): void {
+export function generateFromSchemaFile(schemaPath: string, outPath: string): number {
   const raw = JSON.parse(fs.readFileSync(schemaPath, "utf-8")) as unknown;
   const slug = path.basename(schemaPath, "-schema.json");
   const schema = normalizeRawGeneratedSchema(raw, slug);
@@ -166,7 +181,7 @@ export function generateFromSchemaFile(schemaPath: string, outPath: string): voi
   }
 
   const exportBase = toGeneratedExportBaseName(slug);
-  const formulaEvaluator = generateFormulaEvaluator(schema, exportBase);
+  const { code: formulaEvaluator, compileFailures } = generateFormulaEvaluator(schema, exportBase);
 
   const content = `// Auto-generated from ${path.basename(schemaPath)}
 import * as z from 'zod';
@@ -183,7 +198,11 @@ ${generateOutputType(schema, exportBase)}
 `;
 
   fs.writeFileSync(outPath, content);
+  if (compileFailures > 0) {
+    console.warn(`⚠️ ${path.basename(schemaPath)}: ${compileFailures} formula(s) fell back to 0`);
+  }
   console.log(`✅ Generated ${outPath}`);
+  return compileFailures;
 }
 
 function main(): void {

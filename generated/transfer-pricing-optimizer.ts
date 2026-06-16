@@ -25,7 +25,7 @@ export const Transfer_pricing_optimizerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Transfer_pricing_optimizerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["adjusted_production_cost"] = IF(input.include_lean_waste_factor, input.production_cost_per_unit * 0.9, input.production_cost_per_unit); } catch { results["adjusted_production_cost"] = 0; }
+  try { results["adjusted_production_cost"] = ((input.include_lean_waste_factor) ? (input.production_cost_per_unit * 0.9) : (input.production_cost_per_unit)); } catch { results["adjusted_production_cost"] = 0; }
   try { results["arm_length_range_lower"] = (results["adjusted_production_cost"] ?? 0) * 1.05; } catch { results["arm_length_range_lower"] = 0; }
   try { results["arm_length_range_upper"] = input.market_price_per_unit * 0.90; } catch { results["arm_length_range_upper"] = 0; }
   try { results["optimal_transfer_price"] = (input.compliance_risk_tolerance === 'Low' ? ((results["arm_length_range_lower"] ?? 0) + (results["arm_length_range_upper"] ?? 0))/2 : (input.compliance_risk_tolerance === 'Medium' ? ((results["arm_length_range_lower"] ?? 0) * 0.4 + (results["arm_length_range_upper"] ?? 0) * 0.6) : (input.compliance_risk_tolerance === 'High' ? ((results["arm_length_range_lower"] ?? 0) * 0.3 + (results["arm_length_range_upper"] ?? 0) * 0.7) : 0))); } catch { results["optimal_transfer_price"] = 0; }

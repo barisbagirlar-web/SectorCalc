@@ -27,7 +27,7 @@ function evaluateAllFormulas(input: Tip_calculatorInput): Record<string, number>
   try { results["raw_tip_amount"] = (results["effective_bill_amount"] ?? 0) * ((results["adjusted_tip_percentage"] ?? 0) / 100); } catch { results["raw_tip_amount"] = 0; }
   results["final_tip_amount"] = 0;
   try { results["total_paid"] = input.bill_amount + input.tax_amount + (results["final_tip_amount"] ?? 0); } catch { results["total_paid"] = 0; }
-  try { results["tip_percentage"] = (Math.Math.round((((results["final_tip_amount"] ?? 0) / input.bill_amount) * 100) * 10**(2)) / 10**(2)); } catch { results["tip_percentage"] = 0; }
+  try { results["tip_percentage"] = (Math.round((((results["final_tip_amount"] ?? 0) / input.bill_amount) * 100) * 10**(2)) / 10**(2)); } catch { results["tip_percentage"] = 0; }
   return results;
 }
 

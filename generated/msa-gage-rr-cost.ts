@@ -35,7 +35,7 @@ function evaluateAllFormulas(input: Msa_gage_rr_costInput): Record<string, numbe
   const results: Record<string, number> = {};
   try { results["grr_variation"] = Math.sqrt(input.repeatability_variation**2 + input.reproducibility_variation**2); } catch { results["grr_variation"] = 0; }
   try { results["pct_grr"] = ((results["grr_variation"] ?? 0) / input.total_variation) * 100; } catch { results["pct_grr"] = 0; }
-  try { results["ndc"] = floor((input.total_variation / (results["grr_variation"] ?? 0)) * Math.sqrt(2)); } catch { results["ndc"] = 0; }
+  try { results["ndc"] = Math.floor((input.total_variation / (results["grr_variation"] ?? 0)) * Math.sqrt(2)); } catch { results["ndc"] = 0; }
   try { results["misclassification_rate"] = input.defect_rate * ((results["pct_grr"] ?? 0) / 100) * 0.5; } catch { results["misclassification_rate"] = 0; }
   try { results["annual_internal_failure_cost"] = (input.defect_rate / 1e6) * input.annual_production_volume * input.cost_per_defect; } catch { results["annual_internal_failure_cost"] = 0; }
   try { results["annual_external_failure_cost"] = (input.defect_rate / 1e6) * input.annual_production_volume * input.cost_per_escaped_defect * 0.1; } catch { results["annual_external_failure_cost"] = 0; }

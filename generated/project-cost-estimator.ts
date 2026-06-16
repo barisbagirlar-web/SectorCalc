@@ -26,7 +26,7 @@ export const Project_cost_estimatorInputSchema = z.object({
 function evaluateAllFormulas(input: Project_cost_estimatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { results["direct_labor_cost"] = input.labor_hours * input.labor_rate; } catch { results["direct_labor_cost"] = 0; }
-  try { results["direct_material_cost"] = input.material_cost * (1 - IF(input.use_lean_standardization, 0.05, 0)); } catch { results["direct_material_cost"] = 0; }
+  try { results["direct_material_cost"] = input.material_cost * (1 - ((input.use_lean_standardization) ? (0.05) : (0))); } catch { results["direct_material_cost"] = 0; }
   try { results["direct_equipment_cost"] = input.equipment_cost; } catch { results["direct_equipment_cost"] = 0; }
   try { results["total_direct_cost"] = (results["direct_labor_cost"] ?? 0) + (results["direct_material_cost"] ?? 0) + (results["direct_equipment_cost"] ?? 0); } catch { results["total_direct_cost"] = 0; }
   try { results["overhead_cost"] = (results["total_direct_cost"] ?? 0) * (input.overhead_percentage / 100); } catch { results["overhead_cost"] = 0; }

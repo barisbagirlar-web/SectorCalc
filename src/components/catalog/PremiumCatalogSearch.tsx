@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useMemo, useCallback, useEffect } from "react";
+import { useState, useMemo, useCallback, useEffect, useRef } from "react";
+import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
+import { Link, usePathname, useRouter } from "@/i18n/routing";
 import { FormulaGateCatalogMeta } from "@/components/formula/FormulaGateCatalogMeta";
 import {
   buildPremiumCatalogSearchEntries,
@@ -58,19 +59,60 @@ function scrollToToolsList() {
   });
 }
 
+function resolveCategoryFromParam(
+  categoryParam: string,
+  validSlugs: ReadonlySet<string>,
+): string {
+  if (categoryParam === "" || categoryParam === "all") {
+    return "all";
+  }
+  return validSlugs.has(categoryParam) ? categoryParam : "all";
+}
+
 export function PremiumCatalogSearch({ tools, categories }: Props) {
   const t = useTranslations("premiumCategoryCatalog");
   const tSearch = useTranslations("catalogExplorer.search");
   const locale = useLocale();
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const validCategorySlugs = useMemo(
+    () => new Set(categories.map((category) => category.slug)),
+    [categories],
+  );
+
+  const categoryParam = searchParams?.get("category") ?? "";
+  const selectedCategory = resolveCategoryFromParam(categoryParam, validCategorySlugs);
+
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedQuery = useDebouncedValue(searchQuery, 120);
+  const didScrollForDeepLink = useRef(false);
 
-  const handleCategorySelect = useCallback((slug: string) => {
-    setSelectedCategory(slug);
-    scrollToToolsList();
-  }, []);
+  useEffect(() => {
+    if (didScrollForDeepLink.current) {
+      return;
+    }
+    if (selectedCategory !== "all") {
+      didScrollForDeepLink.current = true;
+      scrollToToolsList();
+    }
+  }, [selectedCategory]);
+
+  const handleCategorySelect = useCallback(
+    (slug: string) => {
+      const params = new URLSearchParams(searchParams?.toString() ?? "");
+      if (slug === "all") {
+        params.delete("category");
+      } else {
+        params.set("category", slug);
+      }
+      const qs = params.toString();
+      router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+      scrollToToolsList();
+    },
+    [pathname, router, searchParams],
+  );
 
   const categoryCards = useMemo(
     () => [

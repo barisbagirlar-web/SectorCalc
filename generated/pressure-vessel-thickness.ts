@@ -25,13 +25,13 @@ export const Pressure_vessel_thicknessInputSchema = z.object({
 
 function evaluateAllFormulas(input: Pressure_vessel_thicknessInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["safety_factor"] = IF(input.safety_factor_override, input.custom_safety_factor, 3.5); } catch { results["safety_factor"] = 0; }
+  try { results["safety_factor"] = ((input.safety_factor_override) ? (input.custom_safety_factor) : (3.5)); } catch { results["safety_factor"] = 0; }
   try { results["required_thickness_cylindrical"] = (input.design_pressure * input.vessel_diameter) / (2 * input.allowable_stress * input.joint_efficiency - 1.2 * input.design_pressure); } catch { results["required_thickness_cylindrical"] = 0; }
   try { results["thickness_with_corrosion"] = (results["required_thickness_cylindrical"] ?? 0) + input.corrosion_allowance; } catch { results["thickness_with_corrosion"] = 0; }
-  try { results["material_volume"] = PI * ((input.vessel_diameter/2 + (results["thickness_with_corrosion"] ?? 0))**2 - (input.vessel_diameter/2)**2) * 1000; } catch { results["material_volume"] = 0; }
+  try { results["material_volume"] = Math.PI * ((input.vessel_diameter/2 + (results["thickness_with_corrosion"] ?? 0))**2 - (input.vessel_diameter/2)**2) * 1000; } catch { results["material_volume"] = 0; }
   try { results["material_cost"] = ((results["material_volume"] ?? 0) / 1e9) * 7800 * 2.5 * (100 / input.material_utilization); } catch { results["material_cost"] = 0; }
   try { results["weight_per_meter"] = ((results["material_volume"] ?? 0) / 1e9) * 7800; } catch { results["weight_per_meter"] = 0; }
-  try { results["primary_result"] = CEILING((results["thickness_with_corrosion"] ?? 0) * 2) / 2; } catch { results["primary_result"] = 0; }
+  try { results["primary_result"] = Math.ceil((results["thickness_with_corrosion"] ?? 0) * 2) / 2; } catch { results["primary_result"] = 0; }
   return results;
 }
 

@@ -32,7 +32,7 @@ export const Fire_hydrant_flow_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Fire_hydrant_flow_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { results["pressure_drop_available"] = input.static_pressure - input.residual_pressure; } catch { results["pressure_drop_available"] = 0; }
-  try { results["flow_exponent"] = LOG(input.flow_rate_test / 100) / LOG(input.static_pressure / input.residual_pressure); } catch { results["flow_exponent"] = 0; }
+  try { results["flow_exponent"] = Math.log(input.flow_rate_test / 100) / Math.log(input.static_pressure / input.residual_pressure); } catch { results["flow_exponent"] = 0; }
   try { results["available_flow"] = input.flow_rate_test * ((input.static_pressure - 20) / (input.static_pressure - input.residual_pressure)) ^ (1 / n); } catch { results["available_flow"] = 0; }
   try { results["friction_loss"] = 10.67 * ((results["available_flow"] ?? 0) / 100) ^ 1.852 * input.pipe_length / (input.hazen_williams_coefficient ^ 1.852 * input.pipe_diameter ^ 4.87); } catch { results["friction_loss"] = 0; }
   try { results["elevation_pressure"] = input.elevation_difference * 0.433; } catch { results["elevation_pressure"] = 0; }

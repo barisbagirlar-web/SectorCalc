@@ -33,8 +33,8 @@ function evaluateAllFormulas(input: Kwh_cost_calculatorInput): Record<string, nu
   const results: Record<string, number> = {};
   try { results["adjusted_energy_kwh"] = input.energy_consumption_kwh / (input.system_efficiency / 100); } catch { results["adjusted_energy_kwh"] = 0; }
   try { results["energy_cost"] = (results["adjusted_energy_kwh"] ?? 0) * input.energy_rate_per_kwh; } catch { results["energy_cost"] = 0; }
-  results["demand_cost"] = 0;
-  results["pf_penalty_cost"] = 0;
+  try { results["demand_cost"] = ((input.include_demand_charge) ? (input.peak_demand_kw * input.demand_rate_per_kw) : (0)); } catch { results["demand_cost"] = 0; }
+  try { results["pf_penalty_cost"] = ((input.power_factor < input.pf_penalty_threshold) ? ((input.pf_penalty_threshold - input.power_factor) * input.peak_demand_kw * input.pf_penalty_rate) : (0)); } catch { results["pf_penalty_cost"] = 0; }
   try { results["load_factor"] = input.energy_consumption_kwh / (input.peak_demand_kw * input.operating_hours); } catch { results["load_factor"] = 0; }
   try { results["total_cost_before_tax"] = (results["energy_cost"] ?? 0) + (results["demand_cost"] ?? 0) + (results["pf_penalty_cost"] ?? 0); } catch { results["total_cost_before_tax"] = 0; }
   try { results["total_cost_with_tax"] = (results["total_cost_before_tax"] ?? 0) * 1.08; } catch { results["total_cost_with_tax"] = 0; }

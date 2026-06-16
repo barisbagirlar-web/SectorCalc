@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
@@ -79,7 +80,9 @@ export default async function PremiumToolsPage({ params }: PageProps) {
       <CatalogPageHero title={t("title")} subtitle={t("subtitle")} />
       <section className="sc-pro-section sc-pro-section--border">
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
-          <PremiumCatalogSearch tools={searchableTools} categories={searchableCategories} />
+          <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
+            <PremiumCatalogSearch tools={searchableTools} categories={searchableCategories} />
+          </Suspense>
         </Container>
       </section>
     </PageLayout>

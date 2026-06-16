@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Search, X } from "lucide-react";
 import { CatalogGroupedSearch } from "@/components/catalog/CatalogGroupedSearch";
@@ -13,6 +13,8 @@ import { DiscoveryCatalogExplorer } from "@/components/catalog/DiscoveryCatalogE
 import { resolveCalculatorCardAccent } from "@/lib/catalog/card-accent";
 import { buildSearchEntriesFromGroups } from "@/lib/catalog/catalog-search";
 import type { CatalogGroup, CategoryExplorerVariant } from "@/lib/catalog/catalog-types";
+import { usePathname, useRouter } from "@/i18n/routing";
+import { useClientSearchParams } from "@/lib/navigation/use-client-search-params";
 import {
   DISCOVERY_TAB_ALL,
   countItemsForDiscoveryTab,
@@ -63,11 +65,35 @@ function FreeToolsCategoryCardExplorer({ groups }: FreeToolsCategoryCardExplorer
   const locale = useLocale();
   const [selectedCategoryId, setSelectedCategoryId] = useState(CATEGORY_ALL);
   const [searchQuery, setSearchQuery] = useState("");
+  const searchParams = useClientSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const discoveryTabs = useMemo(
     () => getDiscoveryTabsForVariant("free-tools", groups),
     [groups],
   );
+
+  const categoryParam = searchParams.get("category") ?? "";
+  const allowedCategoryIds = useMemo(
+    () => new Set(discoveryTabs.map((tab) => tab.id)),
+    [discoveryTabs],
+  );
+  const urlCategory = allowedCategoryIds.has(categoryParam) ? categoryParam : null;
+
+  useEffect(() => {
+    if (categoryParam === "" || categoryParam === CATEGORY_ALL) {
+      if (selectedCategoryId !== CATEGORY_ALL) {
+        setSelectedCategoryId(CATEGORY_ALL);
+      }
+      return;
+    }
+
+    if (urlCategory && urlCategory !== selectedCategoryId) {
+      setSelectedCategoryId(urlCategory);
+      scrollToToolsList();
+    }
+  }, [categoryParam, urlCategory, selectedCategoryId]);
 
   const categoryCards: CategoryCardItem[] = useMemo(
     () =>
@@ -83,10 +109,22 @@ function FreeToolsCategoryCardExplorer({ groups }: FreeToolsCategoryCardExplorer
     [discoveryTabs, groups, selectedCategoryId, t],
   );
 
-  const handleCategorySelect = useCallback((slug: string) => {
-    setSelectedCategoryId(slug);
-    scrollToToolsList();
-  }, []);
+  const handleCategorySelect = useCallback(
+    (slug: string) => {
+      setSelectedCategoryId(slug);
+
+      const params = new URLSearchParams(window.location.search);
+      if (slug === CATEGORY_ALL) {
+        params.delete("category");
+      } else {
+        params.set("category", slug);
+      }
+      const qs = params.toString();
+      router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+      scrollToToolsList();
+    },
+    [pathname, router],
+  );
 
   // Items filtered by selected category tab
   const categoryItems = useMemo(() => {
@@ -221,6 +259,9 @@ function IndustriesCategoryCardExplorer({
   const t = useTranslations("catalogExplorer");
   const tCards = useTranslations("calculatorCards");
   const locale = useLocale();
+  const searchParams = useClientSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const discoveryTabs = useMemo(
     () =>
@@ -230,6 +271,11 @@ function IndustriesCategoryCardExplorer({
     [groups],
   );
 
+  const allowedCategoryIds = useMemo(
+    () => new Set(discoveryTabs.map((tab) => tab.id)),
+    [discoveryTabs],
+  );
+
   const initialTabId =
     defaultGroupId && discoveryTabs.some((tab) => tab.id === defaultGroupId)
       ? defaultGroupId
@@ -237,6 +283,22 @@ function IndustriesCategoryCardExplorer({
 
   const [selectedCategoryId, setSelectedCategoryId] = useState(initialTabId);
   const [searchQuery, setSearchQuery] = useState("");
+
+  const categoryParam = searchParams.get("category") ?? "";
+
+  useEffect(() => {
+    if (categoryParam === "" || categoryParam === CATEGORY_ALL) {
+      if (selectedCategoryId !== CATEGORY_ALL) {
+        setSelectedCategoryId(CATEGORY_ALL);
+      }
+      return;
+    }
+
+    if (allowedCategoryIds.has(categoryParam) && categoryParam !== selectedCategoryId) {
+      setSelectedCategoryId(categoryParam);
+      scrollToToolsList();
+    }
+  }, [allowedCategoryIds, categoryParam, selectedCategoryId]);
 
   const categoryCards: CategoryCardItem[] = useMemo(
     () =>
@@ -256,10 +318,22 @@ function IndustriesCategoryCardExplorer({
     [discoveryTabs, groups, selectedCategoryId, t],
   );
 
-  const handleCategorySelect = useCallback((slug: string) => {
-    setSelectedCategoryId(slug);
-    scrollToToolsList();
-  }, []);
+  const handleCategorySelect = useCallback(
+    (slug: string) => {
+      setSelectedCategoryId(slug);
+
+      const params = new URLSearchParams(window.location.search);
+      if (slug === CATEGORY_ALL) {
+        params.delete("category");
+      } else {
+        params.set("category", slug);
+      }
+      const qs = params.toString();
+      router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+      scrollToToolsList();
+    },
+    [pathname, router],
+  );
 
   const categoryItems = useMemo(() => {
     const activeTab =

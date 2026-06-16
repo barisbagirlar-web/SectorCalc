@@ -24,7 +24,7 @@ function evaluateAllFormulas(input: Mm_to_inch_converterInput): Record<string, n
   try { results["tolerance_inches"] = input.tolerance_mm / 25.4; } catch { results["tolerance_inches"] = 0; }
   try { results["upper_spec_limit"] = (results["rounded_inches"] ?? 0) + (results["tolerance_inches"] ?? 0); } catch { results["upper_spec_limit"] = 0; }
   try { results["lower_spec_limit"] = (results["rounded_inches"] ?? 0) - (results["tolerance_inches"] ?? 0); } catch { results["lower_spec_limit"] = 0; }
-  try { results["six_sigma_adjusted"] = IF(input.apply_six_sigma, (results["rounded_inches"] ?? 0) + (0.001 * input.value_mm / 25.4), (results["rounded_inches"] ?? 0)); } catch { results["six_sigma_adjusted"] = 0; }
+  try { results["six_sigma_adjusted"] = ((input.apply_six_sigma) ? ((results["rounded_inches"] ?? 0) + (0.001 * input.value_mm / 25.4)) : ((results["rounded_inches"] ?? 0))); } catch { results["six_sigma_adjusted"] = 0; }
   try { results["primary_result"] = (results["six_sigma_adjusted"] ?? 0); } catch { results["primary_result"] = 0; }
   return results;
 }

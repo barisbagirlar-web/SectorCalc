@@ -20,7 +20,7 @@ export const Quadratic_formula_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Quadratic_formula_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { results["discriminant"] = input.coefficient_b * input.coefficient_b - 4 * input.coefficient_a * input.coefficient_c; } catch { results["discriminant"] = 0; }
-  try { results["sqrt_discriminant"] = Math.Math.sqrt(Math.Math.abs((results["discriminant"] ?? 0))); } catch { results["sqrt_discriminant"] = 0; }
+  try { results["sqrt_discriminant"] = Math.sqrt(Math.abs((results["discriminant"] ?? 0))); } catch { results["sqrt_discriminant"] = 0; }
   try { results["root1"] = (-input.coefficient_b + (results["sqrt_discriminant"] ?? 0)) / (2 * input.coefficient_a); } catch { results["root1"] = 0; }
   try { results["root2"] = (-input.coefficient_b - (results["sqrt_discriminant"] ?? 0)) / (2 * input.coefficient_a); } catch { results["root2"] = 0; }
   try { results["vertex_x"] = -input.coefficient_b / (2 * input.coefficient_a); } catch { results["vertex_x"] = 0; }

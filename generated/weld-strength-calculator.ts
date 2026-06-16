@@ -32,8 +32,8 @@ function evaluateAllFormulas(input: Weld_strength_calculatorInput): Record<strin
   try { results["effective_area"] = input.throat_thickness * input.weld_length; } catch { results["effective_area"] = 0; }
   results["stress_distribution_factor"] = 0;
   results["allowable_stress"] = 0;
-  try { results["load_component_transverse"] = input.applied_load * SIN(input.load_angle * PI() / 180); } catch { results["load_component_transverse"] = 0; }
-  try { results["load_component_longitudinal"] = input.applied_load * COS(input.load_angle * PI() / 180); } catch { results["load_component_longitudinal"] = 0; }
+  try { results["load_component_transverse"] = input.applied_load * SIN(input.load_angle * Math.PI() / 180); } catch { results["load_component_transverse"] = 0; }
+  try { results["load_component_longitudinal"] = input.applied_load * COS(input.load_angle * Math.PI() / 180); } catch { results["load_component_longitudinal"] = 0; }
   results["fatigue_reduction_factor"] = 0;
   try { results["weld_strength_capacity"] = (results["effective_area"] ?? 0) * (results["allowable_stress"] ?? 0) * (results["stress_distribution_factor"] ?? 0) * (results["fatigue_reduction_factor"] ?? 0) / 1000; } catch { results["weld_strength_capacity"] = 0; }
   return results;

@@ -43,7 +43,7 @@ function evaluateAllFormulas(input: Moq_inventory_balance_calculatorInput): Reco
   try { results["safety_stock"] = z_score(input.service_level/100) * input.demand_std_dev * Math.sqrt(input.lead_time_days / input.supplier_reliability); } catch { results["safety_stock"] = 0; }
   try { results["reorder_point"] = (results["daily_demand"] ?? 0) * input.lead_time_days + (results["safety_stock"] ?? 0); } catch { results["reorder_point"] = 0; }
   try { results["total_annual_cost"] = (input.annual_demand / (results["adjusted_order_quantity"] ?? 0)) * input.ordering_cost + ((results["adjusted_order_quantity"] ?? 0) / 2 + (results["safety_stock"] ?? 0)) * input.holding_cost_per_unit + (input.annual_demand * input.backorder_cost_per_unit * (1 - input.service_level/100)); } catch { results["total_annual_cost"] = 0; }
-  try { results["moq_penalty_cost"] = IF((results["adjusted_order_quantity"] ?? 0) > (results["eoq"] ?? 0), ((results["adjusted_order_quantity"] ?? 0) - (results["eoq"] ?? 0)) * input.holding_cost_per_unit / 2, 0); } catch { results["moq_penalty_cost"] = 0; }
+  try { results["moq_penalty_cost"] = (((results["adjusted_order_quantity"] ?? 0) > (results["eoq"] ?? 0)) ? (((results["adjusted_order_quantity"] ?? 0) - (results["eoq"] ?? 0)) * input.holding_cost_per_unit / 2) : (0)); } catch { results["moq_penalty_cost"] = 0; }
   try { results["inventory_turnover"] = input.annual_demand / (((results["adjusted_order_quantity"] ?? 0) / 2) + (results["safety_stock"] ?? 0)); } catch { results["inventory_turnover"] = 0; }
   try { results["total_inventory_value"] = (((results["adjusted_order_quantity"] ?? 0) / 2) + (results["safety_stock"] ?? 0)) * input.unit_cost; } catch { results["total_inventory_value"] = 0; }
   return results;

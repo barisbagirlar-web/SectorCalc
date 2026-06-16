@@ -1,13 +1,14 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { Link } from "@/i18n/routing";
+import { useEffect, useMemo, useState } from "react";
+import { Link, usePathname, useRouter } from "@/i18n/routing";
 import type {
   CatalogGroup,
   CategoryExplorerLabels,
   CategoryExplorerVariant,
 } from "@/lib/catalog/catalog-types";
 import { resolveDefaultGroupId } from "@/lib/catalog/build-catalog-groups";
+import { useClientSearchParams } from "@/lib/navigation/use-client-search-params";
 
 export type CategoryExplorerProps = {
   groups: readonly CatalogGroup[];
@@ -122,6 +123,31 @@ export function CategoryExplorer({
   );
   const initialGroupId = defaultGroupId ?? resolveDefaultGroupId(visibleGroups) ?? "";
   const [selected, setSelected] = useState(initialGroupId);
+  const searchParams = useClientSearchParams();
+  const categoryParam = searchParams.get("category") ?? "";
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const visibleGroupIdSet = useMemo(
+    () => new Set(visibleGroups.map((group) => group.id)),
+    [visibleGroups],
+  );
+
+  useEffect(() => {
+    if (!categoryParam) return;
+    if (!visibleGroupIdSet.has(categoryParam)) return;
+    if (categoryParam !== selected) {
+      setSelected(categoryParam);
+    }
+  }, [categoryParam, selected, visibleGroupIdSet]);
+
+  const selectGroup = (groupId: string) => {
+    setSelected(groupId);
+    const params = new URLSearchParams(window.location.search);
+    params.set("category", groupId);
+    const qs = params.toString();
+    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+  };
   const activeGroupId =
     visibleGroups.some((group) => group.id === selected) ? selected : initialGroupId;
 
@@ -152,7 +178,7 @@ export function CategoryExplorer({
                 aria-expanded={isOpen}
                 aria-controls={`${panelPrefix}-panel-${group.id}`}
                 id={`${panelPrefix}-trigger-${group.id}`}
-                onClick={() => setSelected(group.id)}
+                onClick={() => selectGroup(group.id)}
               >
                 <span className="sc-pro-eyebrow">{labels.countLabel(count)}</span>
                 <span className="mt-1 block text-base font-semibold text-premium-velvet">
@@ -197,7 +223,7 @@ export function CategoryExplorer({
                     }`}
                     aria-current={isActive ? "true" : undefined}
                     aria-controls={`${panelPrefix}-desktop-${group.id}`}
-                    onClick={() => setSelected(group.id)}
+                    onClick={() => selectGroup(group.id)}
                   >
                     <span className="sc-pro-eyebrow">{labels.countLabel(count)}</span>
                     <span className="mt-1 block text-sm font-semibold leading-snug text-premium-velvet">

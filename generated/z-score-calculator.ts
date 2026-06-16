@@ -23,8 +23,8 @@ function evaluateAllFormulas(input: Z_score_calculatorInput): Record<string, num
   const results: Record<string, number> = {};
   results["sample_mean"] = 0;
   try { results["sample_stddev"] = Math.sqrt( Σ (xi - x̄)**2 / (n - 1) ); } catch { results["sample_stddev"] = 0; }
-  try { results["effective_stddev"] = sigma_eff = IF(input.population_stddev != null, input.population_stddev, (results["sample_stddev"] ?? 0)); } catch { results["effective_stddev"] = 0; }
-  try { results["effective_mean"] = μ_eff = IF(input.population_mean != null, input.population_mean, (results["sample_mean"] ?? 0)); } catch { results["effective_mean"] = 0; }
+  try { results["effective_stddev"] = sigma_eff = ((input.population_stddev != null) ? (input.population_stddev) : ((results["sample_stddev"] ?? 0))); } catch { results["effective_stddev"] = 0; }
+  try { results["effective_mean"] = μ_eff = ((input.population_mean != null) ? (input.population_mean) : ((results["sample_mean"] ?? 0))); } catch { results["effective_mean"] = 0; }
   try { results["z_score"] = (x̄ - μ_eff) / (sigma_eff / Math.sqrt(n)); } catch { results["z_score"] = 0; }
   results["p_value"] = 0;
   results["confidence_interval"] = 0;

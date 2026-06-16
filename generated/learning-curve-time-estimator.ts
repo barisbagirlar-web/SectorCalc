@@ -25,7 +25,7 @@ export const Learning_curve_time_estimatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Learning_curve_time_estimatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["learning_exponent"] = log(input.learning_rate/100) / log(2); } catch { results["learning_exponent"] = 0; }
+  try { results["learning_exponent"] = Math.log(input.learning_rate/100) / Math.log(2); } catch { results["learning_exponent"] = 0; }
   try { results["time_for_target_unit"] = input.first_unit_time * (input.target_units ^ b)   [Wright]; } catch { results["time_for_target_unit"] = 0; }
   results["cumulative_average_time"] = 0;
   results["total_time_for_target"] = 0;

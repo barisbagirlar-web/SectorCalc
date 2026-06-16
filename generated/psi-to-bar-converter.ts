@@ -23,7 +23,7 @@ function evaluateAllFormulas(input: Psi_to_bar_converterInput): Record<string, n
   const results: Record<string, number> = {};
   try { results["base_conversion"] = input.pressure_psi * 0.0689476; } catch { results["base_conversion"] = 0; }
   try { results["temperature_correction_factor"] = 1 + (input.temperature_celsius - 20) * 0.000036; } catch { results["temperature_correction_factor"] = 0; }
-  try { results["altitude_correction_factor"] = exp(-input.altitude_meters / 8430); } catch { results["altitude_correction_factor"] = 0; }
+  try { results["altitude_correction_factor"] = Math.exp(-input.altitude_meters / 8430); } catch { results["altitude_correction_factor"] = 0; }
   results["fluid_density_factor"] = 0;
   try { results["corrected_bar"] = base_bar * (input.include_temperature_correction ? temp_factor : 1) * (input.include_altitude_correction ? alt_factor : 1) * density_factor; } catch { results["corrected_bar"] = 0; }
   try { results["data_confidence"] = 1.0 - (input.include_temperature_correction ? 0.05 : 0) - (input.include_altitude_correction ? 0.05 : 0) - (input.fluid_type != 'water' ? 0.02 : 0) - (input.pressure_psi == 0 ? 0.1 : 0); } catch { results["data_confidence"] = 0; }

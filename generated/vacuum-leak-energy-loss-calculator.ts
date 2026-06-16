@@ -28,7 +28,7 @@ export const Vacuum_leak_energy_loss_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Vacuum_leak_energy_loss_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { results["discharge_coefficient"] = (input.leak_type === 'round' ? 0.62 : (input.leak_type === 'sharp' ? 0.85 : (input.leak_type === 'long' ? 0.50 : 0))); } catch { results["discharge_coefficient"] = 0; }
-  try { results["orifice_area_m2"] = PI * (input.leak_diameter_mm / 2000)**2; } catch { results["orifice_area_m2"] = 0; }
+  try { results["orifice_area_m2"] = Math.PI * (input.leak_diameter_mm / 2000)**2; } catch { results["orifice_area_m2"] = 0; }
   try { results["absolute_pressure_pa"] = (input.system_pressure_bar + 1.01325) * 100000; } catch { results["absolute_pressure_pa"] = 0; }
   try { results["air_density_kg_per_m3"] = (results["absolute_pressure_pa"] ?? 0) / (287.058 * (input.ambient_temperature_c + 273.15)); } catch { results["air_density_kg_per_m3"] = 0; }
   try { results["mass_flow_rate_kg_per_s"] = (results["discharge_coefficient"] ?? 0) * (results["orifice_area_m2"] ?? 0) * Math.sqrt(2 * (results["air_density_kg_per_m3"] ?? 0) * ((results["absolute_pressure_pa"] ?? 0) - 101325)); } catch { results["mass_flow_rate_kg_per_s"] = 0; }

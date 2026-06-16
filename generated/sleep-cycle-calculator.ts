@@ -26,7 +26,7 @@ function evaluateAllFormulas(input: Sleep_cycle_calculatorInput): Record<string,
   try { results["optimal_bedtime"] = input.wake_time - ((results["total_sleep_minutes"] ?? 0) / 60) - (input.fall_asleep_minutes / 60); } catch { results["optimal_bedtime"] = 0; }
   try { results["circadian_penalty"] = input.shift_worker ? 0.5 : 0.0; } catch { results["circadian_penalty"] = 0; }
   try { results["adjusted_sleep_debt"] = input.sleep_debt_hours + (results["circadian_penalty"] ?? 0); } catch { results["adjusted_sleep_debt"] = 0; }
-  try { results["cycle_count"] = floor((results["total_sleep_minutes"] ?? 0) / input.cycle_length_minutes); } catch { results["cycle_count"] = 0; }
+  try { results["cycle_count"] = Math.floor((results["total_sleep_minutes"] ?? 0) / input.cycle_length_minutes); } catch { results["cycle_count"] = 0; }
   try { results["sleep_quality_index"] = Math.min(100, Math.max(0, ((results["cycle_count"] ?? 0) / 6) * 50 + (1 - ((results["adjusted_sleep_debt"] ?? 0) / 8)) * 30 + (input.recovery_efficiency - 0.5) * 40)); } catch { results["sleep_quality_index"] = 0; }
   return results;
 }

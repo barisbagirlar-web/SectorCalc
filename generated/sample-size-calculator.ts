@@ -27,10 +27,10 @@ function evaluateAllFormulas(input: Sample_size_calculatorInput): Record<string,
   const results: Record<string, number> = {};
   results["zScore"] = 0;
   results["designEffect"] = 0;
-  try { results["sampleSizeInfinite"] = ceil(((results["zScore"] ?? 0)**2 * (input.expectedProportion/100) * (1 - input.expectedProportion/100)) / ((input.marginOfError/100)**2)); } catch { results["sampleSizeInfinite"] = 0; }
+  try { results["sampleSizeInfinite"] = Math.ceil(((results["zScore"] ?? 0)**2 * (input.expectedProportion/100) * (1 - input.expectedProportion/100)) / ((input.marginOfError/100)**2)); } catch { results["sampleSizeInfinite"] = 0; }
   results["sampleSizeFinite"] = 0;
-  try { results["sampleSizeVariables"] = ceil(((results["zScore"] ?? 0)**2 * input.standardDeviation**2) / input.effectSize**2); } catch { results["sampleSizeVariables"] = 0; }
-  try { results["finalSampleSize"] = ceil(Math.max((results["sampleSizeFinite"] ?? 0), (results["sampleSizeVariables"] ?? 0)) * (results["designEffect"] ?? 0)); } catch { results["finalSampleSize"] = 0; }
+  try { results["sampleSizeVariables"] = Math.ceil(((results["zScore"] ?? 0)**2 * input.standardDeviation**2) / input.effectSize**2); } catch { results["sampleSizeVariables"] = 0; }
+  try { results["finalSampleSize"] = Math.ceil(Math.max((results["sampleSizeFinite"] ?? 0), (results["sampleSizeVariables"] ?? 0)) * (results["designEffect"] ?? 0)); } catch { results["finalSampleSize"] = 0; }
   try { results["dataConfidenceAdjusted"] = Math.min(input.confidenceLevel, 100 * (1 - (input.populationSize - (results["finalSampleSize"] ?? 0)) / input.populationSize)); } catch { results["dataConfidenceAdjusted"] = 0; }
   return results;
 }

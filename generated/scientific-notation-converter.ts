@@ -21,9 +21,9 @@ export const Scientific_notation_converterInputSchema = z.object({
 
 function evaluateAllFormulas(input: Scientific_notation_converterInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["subformula_absoluteValue"] = Math.Math.abs(input.inputNumber); } catch { results["subformula_absoluteValue"] = 0; }
+  try { results["subformula_absoluteValue"] = Math.abs(input.inputNumber); } catch { results["subformula_absoluteValue"] = 0; }
   try { results["subformula_exponent"] = (absVal === 0) ? 0 : Math.floor(Math.log10(absVal)); } catch { results["subformula_exponent"] = 0; }
-  try { results["subformula_mantissa"] = (absVal === 0) ? 0 : parseFloat((absVal / Math.Math.pow(10, exponent)).toPrecision(input.significantDigits)); } catch { results["subformula_mantissa"] = 0; }
+  try { results["subformula_mantissa"] = (absVal === 0) ? 0 : parseFloat((absVal / Math.pow(10, exponent)).toPrecision(input.significantDigits)); } catch { results["subformula_mantissa"] = 0; }
   results["subformula_engineeringAdjustment"] = 0;
   try { results["subformula_signHandling"] = (input.inputNumber < 0) ? -mantissa : mantissa; } catch { results["subformula_signHandling"] = 0; }
   try { results["subformula_scientificNotation"] = signedMantissa + ' × 10^' + exponent; } catch { results["subformula_scientificNotation"] = 0; }

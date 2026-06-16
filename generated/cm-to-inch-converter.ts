@@ -23,7 +23,7 @@ function evaluateAllFormulas(input: Cm_to_inch_converterInput): Record<string, n
   const results: Record<string, number> = {};
   try { results["conversion_factor"] = (input.conversion_precision === 'standard' ? 2.54 : (input.conversion_precision === 'high' ? 2.540005 : (input.conversion_precision === 'survey' ? 2.54000508 : 0))); } catch { results["conversion_factor"] = 0; }
   try { results["converted_inches"] = input.length_cm / (results["conversion_factor"] ?? 0); } catch { results["converted_inches"] = 0; }
-  try { results["converted_inches_rounded"] = (Math.Math.round(((results["converted_inches"] ?? 0)) * 10**(4)) / 10**(4)); } catch { results["converted_inches_rounded"] = 0; }
+  try { results["converted_inches_rounded"] = (Math.round(((results["converted_inches"] ?? 0)) * 10**(4)) / 10**(4)); } catch { results["converted_inches_rounded"] = 0; }
   try { results["tolerance_limit"] = (input.tolerance_class === 'general' ? 0.1 : (input.tolerance_class === 'fine' ? 0.05 : (input.tolerance_class === 'very_fine' ? 0.02 : 0))); } catch { results["tolerance_limit"] = 0; }
   try { results["total_cost"] = (results["converted_inches_rounded"] ?? 0) * input.unit_cost_per_inch * input.batch_quantity; } catch { results["total_cost"] = 0; }
   try { results["data_confidence"] = Math.max(0, 1 - (input.measurement_uncertainty / (input.length_cm + 0.001))); } catch { results["data_confidence"] = 0; }

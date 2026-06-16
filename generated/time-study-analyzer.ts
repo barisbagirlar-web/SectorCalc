@@ -25,7 +25,7 @@ function evaluateAllFormulas(input: Time_study_analyzerInput): Record<string, nu
   try { results["allowance_factor"] = 1 / (1 - (input.allowance_percentage / 100)); } catch { results["allowance_factor"] = 0; }
   try { results["standard_time_per_occurrence"] = (results["normal_time"] ?? 0) * (results["allowance_factor"] ?? 0); } catch { results["standard_time_per_occurrence"] = 0; }
   try { results["standard_time_per_cycle"] = (results["standard_time_per_occurrence"] ?? 0) * input.frequency_per_cycle; } catch { results["standard_time_per_cycle"] = 0; }
-  try { results["learning_curve_factor"] = input.include_learning_curve ? (1 / (1 + 0.2 * log10(100))) : 1; } catch { results["learning_curve_factor"] = 0; }
+  try { results["learning_curve_factor"] = input.include_learning_curve ? (1 / (1 + 0.2 * Math.log10(100))) : 1; } catch { results["learning_curve_factor"] = 0; }
   try { results["adjusted_standard_time"] = (results["standard_time_per_cycle"] ?? 0) * (results["learning_curve_factor"] ?? 0); } catch { results["adjusted_standard_time"] = 0; }
   results["data_confidence_adjustment"] = 0;
   try { results["primary_result"] = (results["adjusted_standard_time"] ?? 0) * (results["data_confidence_adjustment"] ?? 0); } catch { results["primary_result"] = 0; }

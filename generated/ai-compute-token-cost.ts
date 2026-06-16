@@ -30,7 +30,7 @@ function evaluateAllFormulas(input: Ai_compute_token_costInput): Record<string, 
   try { results["sub_compute_cost"] = input.compute_hours_per_month * input.gpu_hourly_cost; } catch { results["sub_compute_cost"] = 0; }
   try { results["sub_overhead_cost"] = ((results["sub_input_cost"] ?? 0) + (results["sub_output_cost"] ?? 0) + (results["sub_compute_cost"] ?? 0)) * (input.overhead_factor / 100); } catch { results["sub_overhead_cost"] = 0; }
   try { results["sub_total_before_confidence"] = (results["sub_input_cost"] ?? 0) + (results["sub_output_cost"] ?? 0) + (results["sub_compute_cost"] ?? 0) + (results["sub_overhead_cost"] ?? 0); } catch { results["sub_total_before_confidence"] = 0; }
-  try { results["sub_confidence_factor"] = IF(input.enable_data_confidence, 0.95, 1.0); } catch { results["sub_confidence_factor"] = 0; }
+  try { results["sub_confidence_factor"] = ((input.enable_data_confidence) ? (0.95) : (1.0)); } catch { results["sub_confidence_factor"] = 0; }
   try { results["primary_total_monthly_cost"] = (results["sub_total_before_confidence"] ?? 0) * (results["sub_confidence_factor"] ?? 0); } catch { results["primary_total_monthly_cost"] = 0; }
   return results;
 }

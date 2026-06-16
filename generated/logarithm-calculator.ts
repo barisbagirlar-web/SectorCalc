@@ -21,10 +21,10 @@ function evaluateAllFormulas(input: Logarithm_calculatorInput): Record<string, n
   const results: Record<string, number> = {};
   results["log_raw"] = 0;
   results["log_ratio"] = 0;
-  try { results["decibel_power"] = 10 * log10(input.value_x / input.reference_value); } catch { results["decibel_power"] = 0; }
-  try { results["decibel_amplitude"] = 20 * log10(input.value_x / input.reference_value); } catch { results["decibel_amplitude"] = 0; }
+  try { results["decibel_power"] = 10 * Math.log10(input.value_x / input.reference_value); } catch { results["decibel_power"] = 0; }
+  try { results["decibel_amplitude"] = 20 * Math.log10(input.value_x / input.reference_value); } catch { results["decibel_amplitude"] = 0; }
   try { results["log_entropy_contribution"] = - (input.value_x / (input.value_x + input.reference_value)) * log2(input.value_x / (input.value_x + input.reference_value)); } catch { results["log_entropy_contribution"] = 0; }
-  try { results["log_growth_rate"] = ln(input.value_x / input.reference_value); } catch { results["log_growth_rate"] = 0; }
+  try { results["log_growth_rate"] = Math.log(input.value_x / input.reference_value); } catch { results["log_growth_rate"] = 0; }
   results["primary_result"] = 0;
   return results;
 }

@@ -29,7 +29,7 @@ function evaluateAllFormulas(input: Cutting_parameters_tool_lifeInput): Record<s
   try { results["coolant_adjustment"] = input.coolant_used ? 1.3 : 1.0; } catch { results["coolant_adjustment"] = 0; }
   try { results["machine_stability_adjustment"] = input.machine_stability_factor; } catch { results["machine_stability_adjustment"] = 0; }
   try { results["adjusted_tool_life"] = T_base * K_material * K_tool * K_coolant * K_machine; } catch { results["adjusted_tool_life"] = 0; }
-  try { results["primary_result"] = (Math.Math.round((T_adjusted) * 10**(2)) / 10**(2)); } catch { results["primary_result"] = 0; }
+  try { results["primary_result"] = (Math.round((T_adjusted) * 10**(2)) / 10**(2)); } catch { results["primary_result"] = 0; }
   return results;
 }
 

@@ -23,7 +23,7 @@ export const Percentage_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Percentage_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["effective_defects"] = 0;
+  try { results["effective_defects"] = ((input.include_scrap_in_defect) ? (input.defective_units + input.scrap_units) : (input.defective_units)); } catch { results["effective_defects"] = 0; }
   try { results["defect_rate"] = ((results["effective_defects"] ?? 0) / input.total_units) * 100; } catch { results["defect_rate"] = 0; }
   try { results["first_pass_yield"] = ((input.total_units - (results["effective_defects"] ?? 0) - input.rework_units) / input.total_units) * 100; } catch { results["first_pass_yield"] = 0; }
   try { results["scrap_rate"] = (input.scrap_units / input.total_units) * 100; } catch { results["scrap_rate"] = 0; }

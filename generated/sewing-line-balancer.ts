@@ -21,7 +21,7 @@ export const Sewing_line_balancerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Sewing_line_balancerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["theoretical_min_operators"] = ceil(input.total_work_content / input.takt_time); } catch { results["theoretical_min_operators"] = 0; }
+  try { results["theoretical_min_operators"] = Math.ceil(input.total_work_content / input.takt_time); } catch { results["theoretical_min_operators"] = 0; }
   try { results["balance_efficiency"] = (input.total_work_content / (input.number_of_operators * input.bottleneck_time)) * 100; } catch { results["balance_efficiency"] = 0; }
   try { results["idle_time_per_cycle"] = (input.number_of_operators * input.bottleneck_time) - input.total_work_content; } catch { results["idle_time_per_cycle"] = 0; }
   try { results["line_capacity"] = 3600 / input.bottleneck_time; } catch { results["line_capacity"] = 0; }

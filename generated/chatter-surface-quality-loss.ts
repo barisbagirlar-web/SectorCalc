@@ -35,7 +35,7 @@ function evaluateAllFormulas(input: Chatter_surface_quality_lossInput): Record<s
   try { results["material_hardness_factor"] = (input.workpiece_material_hardness / 200)**0.5; } catch { results["material_hardness_factor"] = 0; }
   results["tool_material_factor"] = 0;
   results["coolant_factor"] = 0;
-  try { results["total_quality_loss_percentage"] = 100 * (1 - EXP(-0.5 * (results["chatter_index"] ?? 0) * (results["material_hardness_factor"] ?? 0) * (results["tool_material_factor"] ?? 0) * (results["coolant_factor"] ?? 0))); } catch { results["total_quality_loss_percentage"] = 0; }
+  try { results["total_quality_loss_percentage"] = 100 * (1 - Math.exp(-0.5 * (results["chatter_index"] ?? 0) * (results["material_hardness_factor"] ?? 0) * (results["tool_material_factor"] ?? 0) * (results["coolant_factor"] ?? 0))); } catch { results["total_quality_loss_percentage"] = 0; }
   return results;
 }
 

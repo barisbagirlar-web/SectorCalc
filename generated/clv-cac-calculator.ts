@@ -29,7 +29,7 @@ function evaluateAllFormulas(input: Clv_cac_calculatorInput): Record<string, num
   const results: Record<string, number> = {};
   try { results["annual_revenue_per_customer"] = input.avg_order_value * input.purchase_frequency; } catch { results["annual_revenue_per_customer"] = 0; }
   try { results["churn_rate"] = 1 - (input.retention_rate / 100); } catch { results["churn_rate"] = 0; }
-  results["adjusted_lifetime_years"] = 0;
+  try { results["adjusted_lifetime_years"] = ((input.include_churn_adjustment) ? (1 / ((results["churn_rate"] ?? 0) / 100)) : (input.customer_lifetime_years)); } catch { results["adjusted_lifetime_years"] = 0; }
   try { results["clv_gross"] = (results["annual_revenue_per_customer"] ?? 0) * (results["adjusted_lifetime_years"] ?? 0); } catch { results["clv_gross"] = 0; }
   try { results["clv_net"] = (results["clv_gross"] ?? 0) * (input.gross_margin_pct / 100) * (1 - Math.pow(1 + input.discount_rate/100, -(results["adjusted_lifetime_years"] ?? 0))) / (input.discount_rate/100); } catch { results["clv_net"] = 0; }
   try { results["clv_cac_ratio"] = (results["clv_net"] ?? 0) / input.cac_total; } catch { results["clv_cac_ratio"] = 0; }

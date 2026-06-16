@@ -11,21 +11,32 @@ export function replaceIdentifierExpression(
   return expression.replace(pattern, replacement);
 }
 
+function replaceBareMathCall(expression: string, name: string, replacement: string): string {
+  const pattern = new RegExp(`(?<!Math\\.)\\b${escapeRegExp(name)}\\s*\\(`, "gi");
+  return expression.replace(pattern, replacement);
+}
+
 function transformMathFunctions(expression: string): string {
-  return expression
-    .replace(/\bMAX\s*\(/gi, "Math.max(")
-    .replace(/\bMIN\s*\(/gi, "Math.min(")
-    .replace(/\bABS\s*\(/gi, "Math.abs(")
-    .replace(/\bSQRT\s*\(/gi, "Math.sqrt(")
-    .replace(/\bPOW\s*\(/gi, "Math.pow(")
-    .replace(/\bCEILING\s*\(/gi, "Math.ceil(")
-    .replace(/\bCEIL\s*\(/gi, "Math.ceil(")
-    .replace(/\bFLOOR\s*\(/gi, "Math.floor(")
-    .replace(/\bEXP\s*\(/gi, "Math.exp(")
-    .replace(/\bLN\s*\(/gi, "Math.log(")
-    .replace(/\bLOG\s*\(/gi, "Math.log(")
-    .replace(/\bROUND\s*\(\s*([^,]+?)\s*,\s*(\d+)\s*\)/gi, "(Math.round(($1) * 10**($2)) / 10**($2))")
-    .replace(/\bROUND\s*\(\s*([^)]+?)\s*\)/gi, "Math.round($1)");
+  let result = expression;
+  // CEILING before CEIL — both map to Math.ceil; lookbehind avoids Math.Math.ceil.
+  result = replaceBareMathCall(result, "CEILING", "Math.ceil(");
+  result = replaceBareMathCall(result, "CEIL", "Math.ceil(");
+  result = replaceBareMathCall(result, "FLOOR", "Math.floor(");
+  result = replaceBareMathCall(result, "EXP", "Math.exp(");
+  result = replaceBareMathCall(result, "LN", "Math.log(");
+  result = replaceBareMathCall(result, "LOG10", "Math.log10(");
+  result = replaceBareMathCall(result, "LOG", "Math.log(");
+  result = replaceBareMathCall(result, "MAX", "Math.max(");
+  result = replaceBareMathCall(result, "MIN", "Math.min(");
+  result = replaceBareMathCall(result, "ABS", "Math.abs(");
+  result = replaceBareMathCall(result, "SQRT", "Math.sqrt(");
+  result = replaceBareMathCall(result, "POW", "Math.pow(");
+  result = result.replace(
+    /(?<!Math\.)ROUND\s*\(\s*([^,]+?)\s*,\s*(\d+)\s*\)/gi,
+    "(Math.round(($1) * 10**($2)) / 10**($2))",
+  );
+  result = result.replace(/(?<!Math\.)ROUND\s*\(\s*([^)]+?)\s*\)/gi, "Math.round($1)");
+  return result;
 }
 
 function splitTopLevelArgs(rawArgs: string): readonly string[] {
@@ -170,7 +181,7 @@ export function compileFormulaExpression(
   }
 
   for (const formulaKey of options.formulaKeys) {
-    if (formulaKey === options.selfKey) {
+    if (formulaKey === options.selfKey || options.inputIds.includes(formulaKey)) {
       continue;
     }
     expression = replaceIdentifierExpression(

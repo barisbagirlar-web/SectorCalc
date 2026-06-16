@@ -42,7 +42,7 @@ export const Pallet_rack_optimizerInputSchema = z.object({
 function evaluateAllFormulas(input: Pallet_rack_optimizerInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { results["usable_height_per_level"] = input.rack_height_mm / input.num_levels - input.beam_thickness_mm; } catch { results["usable_height_per_level"] = 0; }
-  try { results["max_pallets_per_bay"] = floor(input.rack_length_mm / input.pallet_width_mm) * input.num_levels; } catch { results["max_pallets_per_bay"] = 0; }
+  try { results["max_pallets_per_bay"] = Math.floor(input.rack_length_mm / input.pallet_width_mm) * input.num_levels; } catch { results["max_pallets_per_bay"] = 0; }
   try { results["total_pallet_positions"] = (results["max_pallets_per_bay"] ?? 0) * input.num_bays; } catch { results["total_pallet_positions"] = 0; }
   try { results["occupied_positions"] = (results["total_pallet_positions"] ?? 0) * (input.utilization_rate / 100); } catch { results["occupied_positions"] = 0; }
   try { results["total_stored_weight_kg"] = (results["occupied_positions"] ?? 0) * input.pallet_weight_kg; } catch { results["total_stored_weight_kg"] = 0; }

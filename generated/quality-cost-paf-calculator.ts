@@ -44,7 +44,7 @@ function evaluateAllFormulas(input: Quality_cost_paf_calculatorInput): Record<st
   try { results["appraisal_cost_ratio"] = ((results["total_appraisal_cost"] ?? 0) / input.total_sales) * 100; } catch { results["appraisal_cost_ratio"] = 0; }
   try { results["failure_cost_ratio"] = ((results["total_failure_cost"] ?? 0) / input.total_sales) * 100; } catch { results["failure_cost_ratio"] = 0; }
   try { results["cost_of_poor_quality"] = (results["total_failure_cost"] ?? 0) + (results["total_appraisal_cost"] ?? 0) * 0.5; } catch { results["cost_of_poor_quality"] = 0; }
-  results["hidden_loss_drivers_score"] = 0;
+  try { results["hidden_loss_drivers_score"] = ((input.include_hidden_drivers) ? (((results["total_failure_cost"] ?? 0) * 0.2) + ((results["total_appraisal_cost"] ?? 0) * 0.1)) : (0)); } catch { results["hidden_loss_drivers_score"] = 0; }
   return results;
 }
 

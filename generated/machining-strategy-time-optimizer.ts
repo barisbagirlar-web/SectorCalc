@@ -29,7 +29,7 @@ export const Machining_strategy_time_optimizerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Machining_strategy_time_optimizerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["spindle_speed"] = (input.cutting_speed * 1000) / (PI * input.part_diameter); } catch { results["spindle_speed"] = 0; }
+  try { results["spindle_speed"] = (input.cutting_speed * 1000) / (Math.PI * input.part_diameter); } catch { results["spindle_speed"] = 0; }
   try { results["cutting_time_per_pass"] = input.part_length / (input.feed_rate * (results["spindle_speed"] ?? 0)); } catch { results["cutting_time_per_pass"] = 0; }
   try { results["total_cutting_time"] = (results["cutting_time_per_pass"] ?? 0) * input.number_of_passes; } catch { results["total_cutting_time"] = 0; }
   try { results["tool_change_frequency"] = (results["total_cutting_time"] ?? 0) / input.tool_life_minutes; } catch { results["tool_change_frequency"] = 0; }

@@ -3,11 +3,24 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { generateFromSchemaFile } from './generate-from-schema.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 const schemasDir = path.join(process.cwd(), 'generated/schemas');
 const outDir = path.join(process.cwd(), 'generated');
+
+function assertNoInvalidMathPrefix(generatedDir: string): void {
+  const offenders: string[] = [];
+  for (const file of fs.readdirSync(generatedDir)) {
+    if (!file.endsWith('.ts')) continue;
+    const content = fs.readFileSync(path.join(generatedDir, file), 'utf-8');
+    if (content.includes('Math.Math')) {
+      offenders.push(file);
+    }
+  }
+  if (offenders.length > 0) {
+    throw new Error(
+      `Invalid Math.Math prefix in generated output: ${offenders.slice(0, 5).join(', ')}${offenders.length > 5 ? ` (+${offenders.length - 5} more)` : ''}`,
+    );
+  }
+}
 
 if (!fs.existsSync(schemasDir)) {
   console.error('❌ generated/schemas/ klasörü bulunamadı. Önce npm run scan:all çalıştırın.');
@@ -20,18 +33,36 @@ console.log(`🔍 ${schemaFiles.length} JSON şeması bulundu.`);
 
 let success = 0;
 let failed = 0;
+let formulaCompileFailures = 0;
+
 for (const file of schemaFiles) {
   const schemaPath = path.join(schemasDir, file);
   const toolName = file.replace('-schema.json', '');
   const outPath = path.join(outDir, `${toolName}.ts`);
   console.log(`📡 İşleniyor: ${file}`);
   try {
-    generateFromSchemaFile(schemaPath, outPath);
+    formulaCompileFailures += generateFromSchemaFile(schemaPath, outPath);
     success++;
-  } catch (err: any) {
-    console.error(`❌ Hata: ${file} - ${err.message}`);
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error(`❌ Hata: ${file} - ${message}`);
     failed++;
   }
 }
 
+try {
+  assertNoInvalidMathPrefix(outDir);
+} catch (err: unknown) {
+  const message = err instanceof Error ? err.message : String(err);
+  console.error(`❌ ${message}`);
+  failed += 1;
+}
+
 console.log(`✅ Tamamlandı: Başarılı ${success}, Başarısız ${failed}`);
+if (formulaCompileFailures > 0) {
+  console.warn(`⚠️ Toplam ${formulaCompileFailures} formül derlenemedi (0 fallback)`);
+}
+
+if (failed > 0) {
+  process.exit(1);
+}
