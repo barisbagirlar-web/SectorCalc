@@ -3,20 +3,17 @@ import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
-import { SectorCatalogExplorer } from "@/components/catalog/SectorCatalogExplorer";
+import { SchemaToolsCatalogExplorer } from "@/components/tools/SchemaToolsCatalogExplorer";
 import { Container } from "@/components/ui/Container";
 import { CrawlIndexLinkList } from "@/components/seo/CrawlIndexLinkList";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getCachedIndustryCatalogGroups } from "@/lib/catalog/cached-catalog-groups";
 import { createPageMetadata } from "@/lib/metadata";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import { buildCoreHubCrawlGroups, buildFreeToolsCrawlGroups, buildSeoHubCrawlGroups } from "@/lib/seo/crawl-index";
 import { shouldRenderCrawlIndexForLocale } from "@/lib/i18n/catalog-labels-i18n";
-import type { IndustryCategory } from "@/lib/tools/industry-registry";
+import { getAllTools } from "@/lib/tools/all-tools-data";
 import type { AppLocale } from "@/i18n/routing";
-
-const DEFAULT_INDUSTRY_CATEGORY: IndustryCategory = "heavy-industry";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -40,7 +37,8 @@ export default async function IndustriesPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("catalogExplorer");
-  const industryGroups = getCachedIndustryCatalogGroups(locale);
+  const tools = getAllTools(locale);
+
   const jsonLd = [
     await buildLocalizedBreadcrumbJsonLd(
       [
@@ -50,12 +48,10 @@ export default async function IndustriesPage({ params }: PageProps) {
       locale
     ),
     buildItemListJsonLd(
-      industryGroups.flatMap((group) =>
-        group.items.map((item) => ({
-          name: item.title,
-          path: item.href,
-        }))
-      ),
+      tools.map((tool) => ({
+        name: tool.name,
+        path: tool.href,
+      })),
       t("industries.title"),
       locale
     ),
@@ -72,10 +68,10 @@ export default async function IndustriesPage({ params }: PageProps) {
       <section className="sc-pro-section sc-pro-section--border">
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
           <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
-            <SectorCatalogExplorer
-              groups={industryGroups}
+            <SchemaToolsCatalogExplorer
+              tools={tools}
+              filterBy="sector"
               variant="industries"
-              defaultGroupId={DEFAULT_INDUSTRY_CATEGORY}
             />
           </Suspense>
         </Container>

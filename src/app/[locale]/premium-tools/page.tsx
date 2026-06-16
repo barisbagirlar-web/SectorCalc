@@ -4,16 +4,13 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
 import { PremiumCatalogSearch } from "@/components/catalog/PremiumCatalogSearch";
-import type {
-  SearchablePremiumTool,
-  SearchablePremiumCategory,
-} from "@/components/catalog/PremiumCatalogSearch";
 import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
-import { listPremiumCatalogCategories } from "@/lib/premium/premium-category-resolver";
 import { buildPremiumCatalogTools } from "@/lib/catalog/premium-catalog-source";
+import { listPremiumCatalogCategories } from "@/lib/premium/premium-category-resolver";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
+import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = {
@@ -38,38 +35,37 @@ export default async function PremiumToolsPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const rawCategories = listPremiumCatalogCategories(locale);
-  const premiumCatalogTools = buildPremiumCatalogTools(locale);
-
-  const searchableTools: SearchablePremiumTool[] = premiumCatalogTools.map((item) => ({
-    slug: item.slug,
-    title: item.title,
-    description: item.description,
-    categorySlug: item.categoryId,
-    categoryLabel: item.categoryLabel,
-    routePath: item.routePath,
-    isActive: item.isActive,
-    searchTerms: item.searchTerms,
-    aliases: item.aliases,
-    keywords: item.keywords,
+  const t = await getTranslations("premiumCategoryCatalog");
+  const catalogTools = buildPremiumCatalogTools(locale).map((tool) => ({
+    ...tool,
+    categorySlug: tool.categoryId,
   }));
-
-  const searchableCategories: SearchablePremiumCategory[] = rawCategories
-    .filter((c) => c.premiumToolCount > 0)
-    .map((c) => ({
-      slug: c.slug,
-      title: c.title,
-      iconKey: c.iconKey,
-      count: c.premiumToolCount,
+  const activeToolCount = catalogTools.filter((tool) => tool.isActive && tool.routePath).length;
+  const categories = listPremiumCatalogCategories(locale)
+    .filter((category) => category.premiumToolCount > 0)
+    .map((category) => ({
+      slug: category.slug,
+      title: category.title,
+      iconKey: category.iconKey,
+      count: category.premiumToolCount,
     }));
 
-  const t = await getTranslations("premiumCategoryCatalog");
   const jsonLd = [
     await buildLocalizedBreadcrumbJsonLd(
       [
         { key: "home", path: "/" },
         { key: "premiumTools", path: "/premium-tools" },
       ],
+      locale,
+    ),
+    buildItemListJsonLd(
+      catalogTools
+        .filter((tool) => tool.isActive && tool.routePath)
+        .map((tool) => ({
+          name: tool.title,
+          path: tool.routePath!,
+        })),
+      t("title"),
       locale,
     ),
   ];
@@ -81,7 +77,11 @@ export default async function PremiumToolsPage({ params }: PageProps) {
       <section className="sc-pro-section sc-pro-section--border">
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
           <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
-            <PremiumCatalogSearch tools={searchableTools} categories={searchableCategories} />
+            <PremiumCatalogSearch
+              tools={catalogTools}
+              categories={categories}
+              totalActiveCount={activeToolCount}
+            />
           </Suspense>
         </Container>
       </section>

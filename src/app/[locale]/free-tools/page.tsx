@@ -4,13 +4,8 @@ import { Link } from "@/i18n/routing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
-import { SectorCatalogExplorer } from "@/components/catalog/SectorCatalogExplorer";
+import { SchemaToolsCatalogExplorer } from "@/components/tools/SchemaToolsCatalogExplorer";
 import { Container } from "@/components/ui/Container";
-import {
-  DEFAULT_FREE_TRAFFIC_CATEGORY,
-  getCachedFreeTrafficCatalogGroups,
-} from "@/lib/catalog/cached-catalog-groups";
-import type { FreeTrafficCategoryMeta } from "@/lib/tools/free-traffic-categories";
 import { CrawlIndexLinkList } from "@/components/seo/CrawlIndexLinkList";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
@@ -19,6 +14,7 @@ import { buildFreeToolsCrawlGroups, buildCoreHubCrawlGroups } from "@/lib/seo/cr
 import { shouldRenderCrawlIndexForLocale } from "@/lib/i18n/catalog-labels-i18n";
 import { createPageMetadata } from "@/lib/metadata";
 import { getPremiumToolsHref } from "@/lib/tools/tool-links";
+import { getFreeTools } from "@/lib/tools/all-tools-data";
 import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = { params: Promise<{ locale: string }> };
@@ -41,17 +37,7 @@ export default async function FreeToolsPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const tCatalog = await getTranslations("catalogExplorer");
-  const t = await getTranslations("freeTrafficCatalog");
-
-  const groups = getCachedFreeTrafficCatalogGroups(
-    locale,
-    (meta: FreeTrafficCategoryMeta) => ({
-      label: t(meta.labelKey),
-      description: t(meta.descriptionKey),
-    }),
-    t("decisionAnalyzerNote"),
-    t("openCalculator")
-  );
+  const tools = getFreeTools(locale);
 
   const jsonLd = [
     await buildLocalizedBreadcrumbJsonLd(
@@ -62,12 +48,10 @@ export default async function FreeToolsPage({ params }: PageProps) {
       locale
     ),
     buildItemListJsonLd(
-      groups.flatMap((group) =>
-        group.items.map((item) => ({
-          name: item.title,
-          path: item.href,
-        }))
-      ),
+      tools.map((tool) => ({
+        name: tool.name,
+        path: tool.href,
+      })),
       tCatalog("freeTools.title"),
       locale
     ),
@@ -84,10 +68,10 @@ export default async function FreeToolsPage({ params }: PageProps) {
       <section className="sc-pro-section sc-pro-section--border">
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
           <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
-            <SectorCatalogExplorer
-              groups={groups}
+            <SchemaToolsCatalogExplorer
+              tools={tools}
+              filterBy="category"
               variant="free-tools"
-              defaultGroupId={DEFAULT_FREE_TRAFFIC_CATEGORY}
             />
           </Suspense>
           <div className="sc-discovery-footer">

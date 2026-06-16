@@ -126,12 +126,30 @@ const CATEGORY_CARD_ICON_MAP: Record<string, CategoryCardIconMeta> = {
   "agriculture-livestock": { icon: Sprout, iconName: "SproutAgricultureLivestock" },
   "energy-environment": { icon: Recycle, iconName: "RecycleEnergyEnvironment" },
   "daily-life": { icon: Home, iconName: "HomeDailyLife" },
+  // schema catalog category labels (all-tools-data.ts)
+  "finans-kredi": { icon: Banknote, iconName: "BanknoteFinansKredi" },
+  "malzeme-fire-oee": { icon: Gauge, iconName: "GaugeMalzemeFireOee" },
+  "olcum-donusum": { icon: Ruler, iconName: "RulerOlcumDonusum" },
+  "teknik-muhendislik": { icon: Settings2, iconName: "Settings2TeknikMuhendislik" },
+  "maliyet-marj": { icon: CircleDollarSign, iconName: "CircleDollarSignMaliyetMarj" },
+  diger: { icon: RefreshCcw, iconName: "RefreshCcwDiger" },
+  "enerji-karbon": { icon: Zap, iconName: "ZapEnerjiKarbon" },
+  "insaat-saha": { icon: Building2, iconName: "Building2InsaatSaha" },
+  "perakende-gida": { icon: ShoppingBasket, iconName: "ShoppingBasketPerakendeGida" },
+  "rota-lojistik": { icon: Route, iconName: "RouteRotaLojistik" },
+  "finans-ik": { icon: Users, iconName: "UsersFinansIk" },
+  // schema catalog sector labels (all-tools-data.ts)
+  "uretim-imalat": { icon: Factory, iconName: "FactoryUretimImalat" },
+  "lojistik-sevkiyat": { icon: Truck, iconName: "TruckLojistikSevkiyat" },
+  "atolye-tamir": { icon: Wrench, iconName: "WrenchAtolyeTamir" },
 };
 
 export function getCategoryCardIcon(slug: string): CategoryCardIconMeta {
   const entry = CATEGORY_CARD_ICON_MAP[slug];
-  if (entry) return entry;
-  throw new Error(`Missing category icon mapping for slug: ${slug}`);
+  if (entry) {
+    return entry;
+  }
+  return CATEGORY_CARD_ICON_MAP.all;
 }
 
 export function assertUniqueCategoryCardIcons(): void {
