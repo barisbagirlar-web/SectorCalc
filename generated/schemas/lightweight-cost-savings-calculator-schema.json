@@ -19,7 +19,13 @@
       "default": 10,
       "min": 0.1,
       "max": 10000,
-      "businessContext": "Weight of the product or packaging before lightweighting."
+      "businessContext": "Weight of the product or packaging before lightweighting.",
+      "label_i18n": {
+        "en": "Current Weight per Unit (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of the product or packaging before lightweighting."
+      }
     },
     {
       "id": "new_weight_kg",
@@ -29,7 +35,13 @@
       "default": 8,
       "min": 0.1,
       "max": 10000,
-      "businessContext": "Weight of the product or packaging after lightweighting."
+      "businessContext": "Weight of the product or packaging after lightweighting.",
+      "label_i18n": {
+        "en": "New Weight per Unit (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of the product or packaging after lightweighting."
+      }
     },
     {
       "id": "annual_volume_units",
@@ -39,7 +51,13 @@
       "default": 100000,
       "min": 1,
       "max": 1000000000,
-      "businessContext": "Total number of units produced or shipped per year."
+      "businessContext": "Total number of units produced or shipped per year.",
+      "label_i18n": {
+        "en": "Annual Volume (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units produced or shipped per year."
+      }
     },
     {
       "id": "material_cost_per_kg",
@@ -49,7 +67,13 @@
       "default": 2.5,
       "min": 0,
       "max": 1000,
-      "businessContext": "Cost of raw material per kilogram."
+      "businessContext": "Cost of raw material per kilogram.",
+      "label_i18n": {
+        "en": "Material Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of raw material per kilogram."
+      }
     },
     {
       "id": "shipping_cost_per_kg",
@@ -59,7 +83,13 @@
       "default": 0.3,
       "min": 0,
       "max": 100,
-      "businessContext": "Average freight cost per kilogram."
+      "businessContext": "Average freight cost per kilogram.",
+      "label_i18n": {
+        "en": "Shipping Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Average freight cost per kilogram."
+      }
     },
     {
       "id": "waste_rate_percent",
@@ -69,7 +99,13 @@
       "default": 5,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of material wasted during production (scrap, rework)."
+      "businessContext": "Percentage of material wasted during production (scrap, rework).",
+      "label_i18n": {
+        "en": "Waste Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of material wasted during production (scrap, rework)."
+      }
     },
     {
       "id": "labor_hours_per_unit",
@@ -79,7 +115,13 @@
       "default": 0.5,
       "min": 0,
       "max": 100,
-      "businessContext": "Direct labor hours required to produce one unit."
+      "businessContext": "Direct labor hours required to produce one unit.",
+      "label_i18n": {
+        "en": "Labor Hours per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Direct labor hours required to produce one unit."
+      }
     },
     {
       "id": "labor_rate_per_hour",
@@ -89,7 +131,13 @@
       "default": 20,
       "min": 0,
       "max": 500,
-      "businessContext": "Hourly wage including benefits."
+      "businessContext": "Hourly wage including benefits.",
+      "label_i18n": {
+        "en": "Labor Rate per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly wage including benefits."
+      }
     },
     {
       "id": "energy_cost_per_kwh",
@@ -99,7 +147,13 @@
       "default": 0.12,
       "min": 0,
       "max": 10,
-      "businessContext": "Cost of electricity per kilowatt-hour."
+      "businessContext": "Cost of electricity per kilowatt-hour.",
+      "label_i18n": {
+        "en": "Energy Cost per kWh"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of electricity per kilowatt-hour."
+      }
     },
     {
       "id": "energy_consumption_per_kg",
@@ -109,7 +163,13 @@
       "default": 2,
       "min": 0,
       "max": 100,
-      "businessContext": "Energy used to process one kilogram of material."
+      "businessContext": "Energy used to process one kilogram of material.",
+      "label_i18n": {
+        "en": "Energy Consumption per kg of Material"
+      },
+      "businessContext_i18n": {
+        "en": "Energy used to process one kilogram of material."
+      }
     },
     {
       "id": "overhead_rate_percent",
@@ -119,7 +179,13 @@
       "default": 20,
       "min": 0,
       "max": 500,
-      "businessContext": "Percentage of direct costs allocated to overhead."
+      "businessContext": "Percentage of direct costs allocated to overhead.",
+      "label_i18n": {
+        "en": "Overhead Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of direct costs allocated to overhead."
+      }
     },
     {
       "id": "material_type",
@@ -134,7 +200,13 @@
         "glass",
         "paper"
       ],
-      "businessContext": "Type of material being lightweighted, affects processing and recyclability."
+      "businessContext": "Type of material being lightweighted, affects processing and recyclability.",
+      "label_i18n": {
+        "en": "Material Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of material being lightweighted, affects processing and recyclability."
+      }
     },
     {
       "id": "use_recycled_content",
@@ -142,7 +214,13 @@
       "type": "boolean",
       "unit": "",
       "default": false,
-      "businessContext": "Whether the new material includes recycled content, which may reduce cost and environmental impact."
+      "businessContext": "Whether the new material includes recycled content, which may reduce cost and environmental impact.",
+      "label_i18n": {
+        "en": "Use Recycled Content"
+      },
+      "businessContext_i18n": {
+        "en": "Whether the new material includes recycled content, which may reduce cost and environmental impact."
+      }
     }
   ],
   "validation": {

@@ -27,7 +27,13 @@
         "slot",
         "butt"
       ],
-      "businessContext": "Determines the geometry factor and stress distribution model per AWS D1.1."
+      "businessContext": "Determines the geometry factor and stress distribution model per AWS D1.1.",
+      "label_i18n": {
+        "en": "Weld Type"
+      },
+      "businessContext_i18n": {
+        "en": "Determines the geometry factor and stress distribution model per AWS D1.1."
+      }
     },
     {
       "id": "base_material_yield_strength",
@@ -37,7 +43,13 @@
       "default": 345,
       "min": 100,
       "max": 1200,
-      "businessContext": "Yield strength of the weaker base material (ISO 898 / ASTM A36)."
+      "businessContext": "Yield strength of the weaker base material (ISO 898 / ASTM A36).",
+      "label_i18n": {
+        "en": "Base Material Yield Strength"
+      },
+      "businessContext_i18n": {
+        "en": "Yield strength of the weaker base material (ISO 898 / ASTM A36)."
+      }
     },
     {
       "id": "weld_material_tensile_strength",
@@ -47,7 +59,13 @@
       "default": 480,
       "min": 200,
       "max": 1500,
-      "businessContext": "Tensile strength of filler metal (e.g., ER70S-6)."
+      "businessContext": "Tensile strength of filler metal (e.g., ER70S-6).",
+      "label_i18n": {
+        "en": "Weld Material Tensile Strength"
+      },
+      "businessContext_i18n": {
+        "en": "Tensile strength of filler metal (e.g., ER70S-6)."
+      }
     },
     {
       "id": "throat_thickness",
@@ -57,7 +75,13 @@
       "default": 6,
       "min": 1,
       "max": 50,
-      "businessContext": "Minimum throat dimension per ISO 5817 quality level B."
+      "businessContext": "Minimum throat dimension per ISO 5817 quality level B.",
+      "label_i18n": {
+        "en": "Effective Throat Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum throat dimension per ISO 5817 quality level B."
+      }
     },
     {
       "id": "weld_length",
@@ -67,7 +91,13 @@
       "default": 100,
       "min": 10,
       "max": 5000,
-      "businessContext": "Total length of the weld seam."
+      "businessContext": "Total length of the weld seam.",
+      "label_i18n": {
+        "en": "Weld Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of the weld seam."
+      }
     },
     {
       "id": "applied_load",
@@ -77,7 +107,13 @@
       "default": 50,
       "min": 0.1,
       "max": 2000,
-      "businessContext": "Service load acting on the weld joint."
+      "businessContext": "Service load acting on the weld joint.",
+      "label_i18n": {
+        "en": "Applied Load"
+      },
+      "businessContext_i18n": {
+        "en": "Service load acting on the weld joint."
+      }
     },
     {
       "id": "load_angle",
@@ -87,7 +123,13 @@
       "default": 90,
       "min": 0,
       "max": 180,
-      "businessContext": "Angle between applied load and weld longitudinal axis. 90° = transverse, 0° = longitudinal."
+      "businessContext": "Angle between applied load and weld longitudinal axis. 90° = transverse, 0° = longitudinal.",
+      "label_i18n": {
+        "en": "Load Angle (from weld axis)"
+      },
+      "businessContext_i18n": {
+        "en": "Angle between applied load and weld longitudinal axis. 90° = transverse, 0° = longitudinal."
+      }
     },
     {
       "id": "quality_level",
@@ -102,7 +144,13 @@
         "C",
         "D"
       ],
-      "businessContext": "ISO 5817 weld quality level: B=stringent, C=moderate, D=basic."
+      "businessContext": "ISO 5817 weld quality level: B=stringent, C=moderate, D=basic.",
+      "label_i18n": {
+        "en": "Quality Level (ISO 5817)"
+      },
+      "businessContext_i18n": {
+        "en": "ISO 5817 weld quality level: B=stringent, C=moderate, D=basic."
+      }
     },
     {
       "id": "inspection_method",
@@ -118,7 +166,13 @@
         "radiographic",
         "magnetic_particle"
       ],
-      "businessContext": "NDT method used; affects confidence factor."
+      "businessContext": "NDT method used; affects confidence factor.",
+      "label_i18n": {
+        "en": "Inspection Method"
+      },
+      "businessContext_i18n": {
+        "en": "NDT method used; affects confidence factor."
+      }
     },
     {
       "id": "is_fatigue_loading",
@@ -128,7 +182,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If true, applies S-N curve reduction per AWS D1.1 fatigue categories."
+      "businessContext": "If true, applies S-N curve reduction per AWS D1.1 fatigue categories.",
+      "label_i18n": {
+        "en": "Fatigue Loading"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies S-N curve reduction per AWS D1.1 fatigue categories."
+      }
     }
   ],
   "validation": {

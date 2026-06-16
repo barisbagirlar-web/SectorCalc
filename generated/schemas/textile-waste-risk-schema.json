@@ -19,7 +19,13 @@
       "default": 100000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Total fabric produced per month, used as baseline for waste ratio calculations."
+      "businessContext": "Total fabric produced per month, used as baseline for waste ratio calculations.",
+      "label_i18n": {
+        "en": "Monthly Production Volume (meters)"
+      },
+      "businessContext_i18n": {
+        "en": "Total fabric produced per month, used as baseline for waste ratio calculations."
+      }
     },
     {
       "id": "fabric_type",
@@ -36,7 +42,13 @@
         "denim",
         "knit"
       ],
-      "businessContext": "Different fabric types have distinct waste generation profiles and recycling potential."
+      "businessContext": "Different fabric types have distinct waste generation profiles and recycling potential.",
+      "label_i18n": {
+        "en": "Fabric Type"
+      },
+      "businessContext_i18n": {
+        "en": "Different fabric types have distinct waste generation profiles and recycling potential."
+      }
     },
     {
       "id": "waste_percentage",
@@ -46,7 +58,13 @@
       "default": 8.5,
       "min": 0,
       "max": 100,
-      "businessContext": "Measured waste as a percentage of total production, including cutting, sewing, and finishing losses."
+      "businessContext": "Measured waste as a percentage of total production, including cutting, sewing, and finishing losses.",
+      "label_i18n": {
+        "en": "Current Waste Percentage (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured waste as a percentage of total production, including cutting, sewing, and finishing losses."
+      }
     },
     {
       "id": "rework_rate",
@@ -56,7 +74,13 @@
       "default": 3,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of products requiring rework, a key Lean Six Sigma metric for process efficiency."
+      "businessContext": "Percentage of products requiring rework, a key Lean Six Sigma metric for process efficiency.",
+      "label_i18n": {
+        "en": "Rework Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of products requiring rework, a key Lean Six Sigma metric for process efficiency."
+      }
     },
     {
       "id": "defect_density",
@@ -66,7 +90,13 @@
       "default": 12,
       "min": 0,
       "max": 1000,
-      "businessContext": "Number of defects per 1000 meters of fabric, critical for quality control."
+      "businessContext": "Number of defects per 1000 meters of fabric, critical for quality control.",
+      "label_i18n": {
+        "en": "Defect Density (defects per 1000 meters)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of defects per 1000 meters of fabric, critical for quality control."
+      }
     },
     {
       "id": "energy_cost_per_kwh",
@@ -76,7 +106,13 @@
       "default": 0.12,
       "min": 0,
       "max": 1,
-      "businessContext": "Average electricity cost, used to calculate energy waste from inefficient processes."
+      "businessContext": "Average electricity cost, used to calculate energy waste from inefficient processes.",
+      "label_i18n": {
+        "en": "Energy Cost ($/kWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Average electricity cost, used to calculate energy waste from inefficient processes."
+      }
     },
     {
       "id": "labor_cost_per_hour",
@@ -86,7 +122,13 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Average hourly wage, used to quantify labor waste from rework and idle time."
+      "businessContext": "Average hourly wage, used to quantify labor waste from rework and idle time.",
+      "label_i18n": {
+        "en": "Labor Cost ($/hour)"
+      },
+      "businessContext_i18n": {
+        "en": "Average hourly wage, used to quantify labor waste from rework and idle time."
+      }
     },
     {
       "id": "recycling_capability",
@@ -102,7 +144,13 @@
         "medium",
         "high"
       ],
-      "businessContext": "Current ability to recycle waste fabric, affecting waste disposal cost and environmental impact."
+      "businessContext": "Current ability to recycle waste fabric, affecting waste disposal cost and environmental impact.",
+      "label_i18n": {
+        "en": "Recycling Capability"
+      },
+      "businessContext_i18n": {
+        "en": "Current ability to recycle waste fabric, affecting waste disposal cost and environmental impact."
+      }
     },
     {
       "id": "iso_14001_certified",
@@ -112,7 +160,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "Indicates if the facility has ISO 14001 environmental management certification, influencing waste reduction practices."
+      "businessContext": "Indicates if the facility has ISO 14001 environmental management certification, influencing waste reduction practices.",
+      "label_i18n": {
+        "en": "ISO 14001 Certified"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if the facility has ISO 14001 environmental management certification, influencing waste reduction practices."
+      }
     }
   ],
   "validation": {

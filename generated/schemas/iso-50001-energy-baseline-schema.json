@@ -19,7 +19,13 @@
       "default": 0,
       "min": 0,
       "max": 1000000000,
-      "businessContext": "Total energy consumed by the organization in the baseline period (e.g., one year)."
+      "businessContext": "Total energy consumed by the organization in the baseline period (e.g., one year).",
+      "label_i18n": {
+        "en": "Total Energy Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Total energy consumed by the organization in the baseline period (e.g., one year)."
+      }
     },
     {
       "id": "production_volume",
@@ -29,7 +35,13 @@
       "default": 0,
       "min": 0,
       "max": 1000000000,
-      "businessContext": "Total production output in the baseline period (e.g., number of products, tons, or other relevant unit)."
+      "businessContext": "Total production output in the baseline period (e.g., number of products, tons, or other relevant unit).",
+      "label_i18n": {
+        "en": "Production Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total production output in the baseline period (e.g., number of products, tons, or other relevant unit)."
+      }
     },
     {
       "id": "heating_degree_days",
@@ -39,7 +51,13 @@
       "default": 0,
       "min": 0,
       "max": 10000,
-      "businessContext": "Annual heating degree days for the facility location, used to normalize weather-related energy use."
+      "businessContext": "Annual heating degree days for the facility location, used to normalize weather-related energy use.",
+      "label_i18n": {
+        "en": "Heating Degree Days (HDD)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual heating degree days for the facility location, used to normalize weather-related energy use."
+      }
     },
     {
       "id": "cooling_degree_days",
@@ -49,7 +67,13 @@
       "default": 0,
       "min": 0,
       "max": 10000,
-      "businessContext": "Annual cooling degree days for the facility location, used to normalize weather-related energy use."
+      "businessContext": "Annual cooling degree days for the facility location, used to normalize weather-related energy use.",
+      "label_i18n": {
+        "en": "Cooling Degree Days (CDD)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual cooling degree days for the facility location, used to normalize weather-related energy use."
+      }
     },
     {
       "id": "operating_hours",
@@ -59,7 +83,13 @@
       "default": 8760,
       "min": 0,
       "max": 8760,
-      "businessContext": "Total hours the facility operated during the baseline period."
+      "businessContext": "Total hours the facility operated during the baseline period.",
+      "label_i18n": {
+        "en": "Operating Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Total hours the facility operated during the baseline period."
+      }
     },
     {
       "id": "energy_source_mix",
@@ -73,7 +103,13 @@
         "Mixed (3+ sources)"
       ],
       "default": "Electricity only",
-      "businessContext": "Primary energy sources used, affecting emission factors and normalization."
+      "businessContext": "Primary energy sources used, affecting emission factors and normalization.",
+      "label_i18n": {
+        "en": "Energy Source Mix"
+      },
+      "businessContext_i18n": {
+        "en": "Primary energy sources used, affecting emission factors and normalization."
+      }
     },
     {
       "id": "baseline_type",
@@ -85,21 +121,39 @@
         "Rolling baseline (5-year)"
       ],
       "default": "Fixed baseline",
-      "businessContext": "Type of baseline per ISO 50001:2018 clause 6.3."
+      "businessContext": "Type of baseline per ISO 50001:2018 clause 6.3.",
+      "label_i18n": {
+        "en": "Baseline Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of baseline per ISO 50001:2018 clause 6.3."
+      }
     },
     {
       "id": "use_weather_normalization",
       "label": "Apply Weather Normalization",
       "type": "boolean",
       "default": true,
-      "businessContext": "If true, adjusts energy consumption for heating and cooling degree days."
+      "businessContext": "If true, adjusts energy consumption for heating and cooling degree days.",
+      "label_i18n": {
+        "en": "Apply Weather Normalization"
+      },
+      "businessContext_i18n": {
+        "en": "If true, adjusts energy consumption for heating and cooling degree days."
+      }
     },
     {
       "id": "use_production_normalization",
       "label": "Apply Production Normalization",
       "type": "boolean",
       "default": true,
-      "businessContext": "If true, adjusts energy consumption for production volume."
+      "businessContext": "If true, adjusts energy consumption for production volume.",
+      "label_i18n": {
+        "en": "Apply Production Normalization"
+      },
+      "businessContext_i18n": {
+        "en": "If true, adjusts energy consumption for production volume."
+      }
     }
   ],
   "validation": {

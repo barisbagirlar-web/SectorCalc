@@ -19,7 +19,13 @@
       "default": 0,
       "min": -273.15,
       "max": 10000,
-      "businessContext": "Process temperature reading from sensor or manual measurement. Must be above absolute zero."
+      "businessContext": "Process temperature reading from sensor or manual measurement. Must be above absolute zero.",
+      "label_i18n": {
+        "en": "Temperature in Celsius"
+      },
+      "businessContext_i18n": {
+        "en": "Process temperature reading from sensor or manual measurement. Must be above absolute zero."
+      }
     },
     {
       "id": "sensor_accuracy",
@@ -29,7 +35,13 @@
       "default": 0.5,
       "min": 0.01,
       "max": 10,
-      "businessContext": "Manufacturer-specified accuracy of the temperature sensor (ISO 17025 calibration standard)."
+      "businessContext": "Manufacturer-specified accuracy of the temperature sensor (ISO 17025 calibration standard).",
+      "label_i18n": {
+        "en": "Sensor Accuracy (±°C)"
+      },
+      "businessContext_i18n": {
+        "en": "Manufacturer-specified accuracy of the temperature sensor (ISO 17025 calibration standard)."
+      }
     },
     {
       "id": "calibration_offset",
@@ -39,7 +51,13 @@
       "default": 0,
       "min": -5,
       "max": 5,
-      "businessContext": "Field calibration adjustment to align sensor with reference standard (NIST traceable)."
+      "businessContext": "Field calibration adjustment to align sensor with reference standard (NIST traceable).",
+      "label_i18n": {
+        "en": "Calibration Offset"
+      },
+      "businessContext_i18n": {
+        "en": "Field calibration adjustment to align sensor with reference standard (NIST traceable)."
+      }
     },
     {
       "id": "unit_system",
@@ -52,7 +70,13 @@
         "Rankine",
         "Kelvin"
       ],
-      "businessContext": "Select output temperature scale for downstream process or reporting (ISO 80000-5)."
+      "businessContext": "Select output temperature scale for downstream process or reporting (ISO 80000-5).",
+      "label_i18n": {
+        "en": "Target Unit System"
+      },
+      "businessContext_i18n": {
+        "en": "Select output temperature scale for downstream process or reporting (ISO 80000-5)."
+      }
     },
     {
       "id": "enable_alerts",
@@ -60,7 +84,13 @@
       "type": "boolean",
       "unit": "",
       "default": true,
-      "businessContext": "Toggle threshold-based alerts for out-of-spec temperature conditions (Six Sigma control limits)."
+      "businessContext": "Toggle threshold-based alerts for out-of-spec temperature conditions (Six Sigma control limits).",
+      "label_i18n": {
+        "en": "Enable Process Alerts"
+      },
+      "businessContext_i18n": {
+        "en": "Toggle threshold-based alerts for out-of-spec temperature conditions (Six Sigma control limits)."
+      }
     }
   ],
   "validation": {

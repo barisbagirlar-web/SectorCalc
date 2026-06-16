@@ -27,7 +27,13 @@
         "allergen",
         "other"
       ],
-      "businessContext": "Select the category of HACCP deviation to apply appropriate cost multipliers and regulatory thresholds."
+      "businessContext": "Select the category of HACCP deviation to apply appropriate cost multipliers and regulatory thresholds.",
+      "label_i18n": {
+        "en": "Deviation Type"
+      },
+      "businessContext_i18n": {
+        "en": "Select the category of HACCP deviation to apply appropriate cost multipliers and regulatory thresholds."
+      }
     },
     {
       "id": "affected_batch_kg",
@@ -37,7 +43,13 @@
       "default": 1000,
       "min": 0,
       "max": 100000,
-      "businessContext": "Total mass of product that was exposed to the deviation. Used to calculate material loss and rework costs."
+      "businessContext": "Total mass of product that was exposed to the deviation. Used to calculate material loss and rework costs.",
+      "label_i18n": {
+        "en": "Affected Batch Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Total mass of product that was exposed to the deviation. Used to calculate material loss and rework costs."
+      }
     },
     {
       "id": "unit_cost_per_kg",
@@ -47,7 +59,13 @@
       "default": 5,
       "min": 0,
       "max": 1000,
-      "businessContext": "Standard cost of raw materials per kilogram, including ingredients and packaging."
+      "businessContext": "Standard cost of raw materials per kilogram, including ingredients and packaging.",
+      "label_i18n": {
+        "en": "Unit Cost per kg ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard cost of raw materials per kilogram, including ingredients and packaging."
+      }
     },
     {
       "id": "rework_percentage",
@@ -57,7 +75,13 @@
       "default": 30,
       "min": 0,
       "max": 100,
-      "businessContext": "Estimated fraction of the affected batch that can be reworked (e.g., reprocessed, repackaged) instead of being scrapped."
+      "businessContext": "Estimated fraction of the affected batch that can be reworked (e.g., reprocessed, repackaged) instead of being scrapped.",
+      "label_i18n": {
+        "en": "Rework Percentage (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated fraction of the affected batch that can be reworked (e.g., reprocessed, repackaged) instead of being scrapped."
+      }
     },
     {
       "id": "rework_cost_per_kg",
@@ -67,7 +91,13 @@
       "default": 2,
       "min": 0,
       "max": 500,
-      "businessContext": "Additional cost per kilogram for rework activities (labor, energy, extra materials)."
+      "businessContext": "Additional cost per kilogram for rework activities (labor, energy, extra materials).",
+      "label_i18n": {
+        "en": "Rework Cost per kg ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional cost per kilogram for rework activities (labor, energy, extra materials)."
+      }
     },
     {
       "id": "downtime_hours",
@@ -77,7 +107,13 @@
       "default": 2,
       "min": 0,
       "max": 168,
-      "businessContext": "Total production downtime caused by the deviation, including investigation, cleaning, and corrective actions."
+      "businessContext": "Total production downtime caused by the deviation, including investigation, cleaning, and corrective actions.",
+      "label_i18n": {
+        "en": "Downtime (hours)"
+      },
+      "businessContext_i18n": {
+        "en": "Total production downtime caused by the deviation, including investigation, cleaning, and corrective actions."
+      }
     },
     {
       "id": "hourly_overhead_rate",
@@ -87,7 +123,13 @@
       "default": 500,
       "min": 0,
       "max": 10000,
-      "businessContext": "Burdened overhead cost per hour of production downtime (includes labor, utilities, facility costs)."
+      "businessContext": "Burdened overhead cost per hour of production downtime (includes labor, utilities, facility costs).",
+      "label_i18n": {
+        "en": "Hourly Overhead Rate ($/hr)"
+      },
+      "businessContext_i18n": {
+        "en": "Burdened overhead cost per hour of production downtime (includes labor, utilities, facility costs)."
+      }
     },
     {
       "id": "regulatory_penalty_flag",
@@ -97,7 +139,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "Indicates if the deviation is likely to trigger a regulatory fine or citation (e.g., FDA, USDA)."
+      "businessContext": "Indicates if the deviation is likely to trigger a regulatory fine or citation (e.g., FDA, USDA).",
+      "label_i18n": {
+        "en": "Regulatory Penalty Applicable?"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if the deviation is likely to trigger a regulatory fine or citation (e.g., FDA, USDA)."
+      }
     },
     {
       "id": "base_penalty_amount",
@@ -107,7 +155,13 @@
       "default": 10000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Estimated base fine or penalty if regulatory action is taken. Used only when regulatory_penalty_flag is true."
+      "businessContext": "Estimated base fine or penalty if regulatory action is taken. Used only when regulatory_penalty_flag is true.",
+      "label_i18n": {
+        "en": "Base Penalty Amount ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated base fine or penalty if regulatory action is taken. Used only when regulatory_penalty_flag is true."
+      }
     },
     {
       "id": "recall_cost_flag",
@@ -117,7 +171,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "Check if the deviation requires a product recall, adding logistics, testing, and brand damage costs."
+      "businessContext": "Check if the deviation requires a product recall, adding logistics, testing, and brand damage costs.",
+      "label_i18n": {
+        "en": "Recall Cost Included?"
+      },
+      "businessContext_i18n": {
+        "en": "Check if the deviation requires a product recall, adding logistics, testing, and brand damage costs."
+      }
     },
     {
       "id": "recall_fixed_cost",
@@ -127,7 +187,13 @@
       "default": 50000,
       "min": 0,
       "max": 5000000,
-      "businessContext": "Fixed cost associated with initiating a recall (notification, logistics, testing)."
+      "businessContext": "Fixed cost associated with initiating a recall (notification, logistics, testing).",
+      "label_i18n": {
+        "en": "Recall Fixed Cost ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed cost associated with initiating a recall (notification, logistics, testing)."
+      }
     },
     {
       "id": "recall_variable_per_kg",
@@ -137,7 +203,13 @@
       "default": 1,
       "min": 0,
       "max": 100,
-      "businessContext": "Per-kilogram cost for recall handling (transport, disposal, replacement)."
+      "businessContext": "Per-kilogram cost for recall handling (transport, disposal, replacement).",
+      "label_i18n": {
+        "en": "Recall Variable Cost per kg ($/kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Per-kilogram cost for recall handling (transport, disposal, replacement)."
+      }
     },
     {
       "id": "data_confidence",
@@ -147,7 +219,13 @@
       "default": 0.85,
       "min": 0,
       "max": 1,
-      "businessContext": "Subjective confidence in the accuracy of input data (0 = low, 1 = high). Used to adjust the final cost estimate."
+      "businessContext": "Subjective confidence in the accuracy of input data (0 = low, 1 = high). Used to adjust the final cost estimate.",
+      "label_i18n": {
+        "en": "Data Confidence (0-1)"
+      },
+      "businessContext_i18n": {
+        "en": "Subjective confidence in the accuracy of input data (0 = low, 1 = high). Used to adjust the final cost estimate."
+      }
     }
   ],
   "validation": {

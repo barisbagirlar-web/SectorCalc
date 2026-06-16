@@ -17,7 +17,13 @@
       "default": 100000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Total sales revenue for the period (ISO 9001 financial reporting)."
+      "businessContext": "Total sales revenue for the period (ISO 9001 financial reporting).",
+      "label_i18n": {
+        "en": "Total Revenue"
+      },
+      "businessContext_i18n": {
+        "en": "Total sales revenue for the period (ISO 9001 financial reporting)."
+      }
     },
     {
       "id": "materialCost",
@@ -27,7 +33,13 @@
       "default": 40000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Cost of raw materials directly used in production (Lean cost accounting)."
+      "businessContext": "Cost of raw materials directly used in production (Lean cost accounting).",
+      "label_i18n": {
+        "en": "Direct Material Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of raw materials directly used in production (Lean cost accounting)."
+      }
     },
     {
       "id": "laborCost",
@@ -37,7 +49,13 @@
       "default": 20000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Wages and benefits for production labor (Six Sigma labor variance)."
+      "businessContext": "Wages and benefits for production labor (Six Sigma labor variance).",
+      "label_i18n": {
+        "en": "Direct Labor Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Wages and benefits for production labor (Six Sigma labor variance)."
+      }
     },
     {
       "id": "overheadCost",
@@ -47,7 +65,13 @@
       "default": 15000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Indirect manufacturing costs (ISO 14000 environmental overhead allocation)."
+      "businessContext": "Indirect manufacturing costs (ISO 14000 environmental overhead allocation).",
+      "label_i18n": {
+        "en": "Manufacturing Overhead"
+      },
+      "businessContext_i18n": {
+        "en": "Indirect manufacturing costs (ISO 14000 environmental overhead allocation)."
+      }
     },
     {
       "id": "defectRate",
@@ -57,7 +81,13 @@
       "default": 2.5,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of defective units (Six Sigma DPMO metric)."
+      "businessContext": "Percentage of defective units (Six Sigma DPMO metric).",
+      "label_i18n": {
+        "en": "Defect Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of defective units (Six Sigma DPMO metric)."
+      }
     },
     {
       "id": "reworkCostPerUnit",
@@ -67,7 +97,13 @@
       "default": 50,
       "min": 0,
       "max": 10000,
-      "businessContext": "Average cost to rework one defective unit (Lean waste reduction)."
+      "businessContext": "Average cost to rework one defective unit (Lean waste reduction).",
+      "label_i18n": {
+        "en": "Rework Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost to rework one defective unit (Lean waste reduction)."
+      }
     },
     {
       "id": "unitsProduced",
@@ -77,7 +113,13 @@
       "default": 1000,
       "min": 1,
       "max": 1000000,
-      "businessContext": "Total units produced in the period (WERC throughput metric)."
+      "businessContext": "Total units produced in the period (WERC throughput metric).",
+      "label_i18n": {
+        "en": "Units Produced"
+      },
+      "businessContext_i18n": {
+        "en": "Total units produced in the period (WERC throughput metric)."
+      }
     },
     {
       "id": "inventoryHoldingCost",
@@ -87,7 +129,13 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Annual holding cost as percentage of inventory value (WERC warehousing standard)."
+      "businessContext": "Annual holding cost as percentage of inventory value (WERC warehousing standard).",
+      "label_i18n": {
+        "en": "Inventory Holding Cost Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual holding cost as percentage of inventory value (WERC warehousing standard)."
+      }
     },
     {
       "id": "averageInventoryValue",
@@ -97,7 +145,13 @@
       "default": 50000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Average value of inventory held (ISO 9001 inventory management)."
+      "businessContext": "Average value of inventory held (ISO 9001 inventory management).",
+      "label_i18n": {
+        "en": "Average Inventory Value"
+      },
+      "businessContext_i18n": {
+        "en": "Average value of inventory held (ISO 9001 inventory management)."
+      }
     },
     {
       "id": "logisticsCost",
@@ -107,7 +161,13 @@
       "default": 10000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Total inbound and outbound freight costs (WERC logistics benchmark)."
+      "businessContext": "Total inbound and outbound freight costs (WERC logistics benchmark).",
+      "label_i18n": {
+        "en": "Logistics Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total inbound and outbound freight costs (WERC logistics benchmark)."
+      }
     },
     {
       "id": "qualitySystemCost",
@@ -117,7 +177,13 @@
       "default": 5000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Cost of quality management system (ISO 9001 compliance)."
+      "businessContext": "Cost of quality management system (ISO 9001 compliance).",
+      "label_i18n": {
+        "en": "Quality System Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of quality management system (ISO 9001 compliance)."
+      }
     },
     {
       "id": "productionVolume",
@@ -127,7 +193,13 @@
       "default": 1000,
       "min": 1,
       "max": 1000000,
-      "businessContext": "Number of units produced for the period (Lean throughput)."
+      "businessContext": "Number of units produced for the period (Lean throughput).",
+      "label_i18n": {
+        "en": "Production Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units produced for the period (Lean throughput)."
+      }
     },
     {
       "id": "setupTimeHours",
@@ -137,7 +209,13 @@
       "default": 2,
       "min": 0,
       "max": 100,
-      "businessContext": "Time to change over equipment between batches (Lean SMED)."
+      "businessContext": "Time to change over equipment between batches (Lean SMED).",
+      "label_i18n": {
+        "en": "Setup Time per Batch"
+      },
+      "businessContext_i18n": {
+        "en": "Time to change over equipment between batches (Lean SMED)."
+      }
     },
     {
       "id": "batchSize",
@@ -147,7 +225,13 @@
       "default": 100,
       "min": 1,
       "max": 100000,
-      "businessContext": "Number of units per production batch (Lean batch size reduction)."
+      "businessContext": "Number of units per production batch (Lean batch size reduction).",
+      "label_i18n": {
+        "en": "Batch Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units per production batch (Lean batch size reduction)."
+      }
     },
     {
       "id": "laborRate",
@@ -157,7 +241,13 @@
       "default": 25,
       "min": 0,
       "max": 500,
-      "businessContext": "Hourly wage including benefits (Six Sigma labor variance)."
+      "businessContext": "Hourly wage including benefits (Six Sigma labor variance).",
+      "label_i18n": {
+        "en": "Labor Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly wage including benefits (Six Sigma labor variance)."
+      }
     },
     {
       "id": "machineDowntimePercent",
@@ -167,7 +257,13 @@
       "default": 5,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of scheduled time machine is down (OEE metric)."
+      "businessContext": "Percentage of scheduled time machine is down (OEE metric).",
+      "label_i18n": {
+        "en": "Machine Downtime"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of scheduled time machine is down (OEE metric)."
+      }
     },
     {
       "id": "energyCostPerUnit",
@@ -177,7 +273,13 @@
       "default": 2,
       "min": 0,
       "max": 100,
-      "businessContext": "Energy cost allocated per unit produced (ISO 50001 energy management)."
+      "businessContext": "Energy cost allocated per unit produced (ISO 50001 energy management).",
+      "label_i18n": {
+        "en": "Energy Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Energy cost allocated per unit produced (ISO 50001 energy management)."
+      }
     },
     {
       "id": "warrantyReturnRate",
@@ -187,7 +289,13 @@
       "default": 1,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of units returned under warranty (Six Sigma customer quality)."
+      "businessContext": "Percentage of units returned under warranty (Six Sigma customer quality).",
+      "label_i18n": {
+        "en": "Warranty Return Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of units returned under warranty (Six Sigma customer quality)."
+      }
     },
     {
       "id": "warrantyCostPerReturn",
@@ -197,7 +305,13 @@
       "default": 200,
       "min": 0,
       "max": 100000,
-      "businessContext": "Average cost to process one warranty return (ISO 9001 customer feedback)."
+      "businessContext": "Average cost to process one warranty return (ISO 9001 customer feedback).",
+      "label_i18n": {
+        "en": "Warranty Cost per Return"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost to process one warranty return (ISO 9001 customer feedback)."
+      }
     },
     {
       "id": "scrapRate",
@@ -207,7 +321,13 @@
       "default": 1.5,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of material scrapped (Lean waste elimination)."
+      "businessContext": "Percentage of material scrapped (Lean waste elimination).",
+      "label_i18n": {
+        "en": "Scrap Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of material scrapped (Lean waste elimination)."
+      }
     },
     {
       "id": "materialCostPerUnit",
@@ -217,7 +337,13 @@
       "default": 40,
       "min": 0,
       "max": 10000,
-      "businessContext": "Standard material cost per good unit (Lean cost analysis)."
+      "businessContext": "Standard material cost per good unit (Lean cost analysis).",
+      "label_i18n": {
+        "en": "Material Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Standard material cost per good unit (Lean cost analysis)."
+      }
     }
   ],
   "validation": {

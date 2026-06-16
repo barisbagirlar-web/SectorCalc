@@ -19,7 +19,13 @@
       "default": 60,
       "min": 0,
       "max": 200,
-      "businessContext": "Measured at hydrant outlet with no flow. Used to determine available system pressure per NFPA 291."
+      "businessContext": "Measured at hydrant outlet with no flow. Used to determine available system pressure per NFPA 291.",
+      "label_i18n": {
+        "en": "Static Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Measured at hydrant outlet with no flow. Used to determine available system pressure per NFPA 291."
+      }
     },
     {
       "id": "residual_pressure",
@@ -29,7 +35,13 @@
       "default": 40,
       "min": 0,
       "max": 200,
-      "businessContext": "Pressure measured while hydrant is flowing at test rate. Indicates system capacity under demand."
+      "businessContext": "Pressure measured while hydrant is flowing at test rate. Indicates system capacity under demand.",
+      "label_i18n": {
+        "en": "Residual Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Pressure measured while hydrant is flowing at test rate. Indicates system capacity under demand."
+      }
     },
     {
       "id": "flow_rate_test",
@@ -39,7 +51,13 @@
       "default": 500,
       "min": 0,
       "max": 5000,
-      "businessContext": "Flow rate measured during hydrant flow test using pitot gauge or flow meter."
+      "businessContext": "Flow rate measured during hydrant flow test using pitot gauge or flow meter.",
+      "label_i18n": {
+        "en": "Test Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Flow rate measured during hydrant flow test using pitot gauge or flow meter."
+      }
     },
     {
       "id": "pipe_diameter",
@@ -49,7 +67,13 @@
       "default": 6,
       "min": 2,
       "max": 24,
-      "businessContext": "Nominal diameter of the main supply pipe feeding the hydrant. Affects friction loss."
+      "businessContext": "Nominal diameter of the main supply pipe feeding the hydrant. Affects friction loss.",
+      "label_i18n": {
+        "en": "Supply Pipe Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal diameter of the main supply pipe feeding the hydrant. Affects friction loss."
+      }
     },
     {
       "id": "pipe_length",
@@ -59,7 +83,13 @@
       "default": 500,
       "min": 0,
       "max": 10000,
-      "businessContext": "Distance from water main to hydrant. Used in friction loss calculations."
+      "businessContext": "Distance from water main to hydrant. Used in friction loss calculations.",
+      "label_i18n": {
+        "en": "Supply Pipe Length"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from water main to hydrant. Used in friction loss calculations."
+      }
     },
     {
       "id": "hazen_williams_coefficient",
@@ -69,7 +99,13 @@
       "default": 120,
       "min": 60,
       "max": 150,
-      "businessContext": "Pipe roughness coefficient. 140 for new steel, 100 for old cast iron. Per ISO 10803 and NFPA 13."
+      "businessContext": "Pipe roughness coefficient. 140 for new steel, 100 for old cast iron. Per ISO 10803 and NFPA 13.",
+      "label_i18n": {
+        "en": "Hazen-Williams C Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Pipe roughness coefficient. 140 for new steel, 100 for old cast iron. Per ISO 10803 and NFPA 13."
+      }
     },
     {
       "id": "elevation_difference",
@@ -79,7 +115,13 @@
       "default": 0,
       "min": -200,
       "max": 200,
-      "businessContext": "Height difference between water source and hydrant. Positive if hydrant is above source."
+      "businessContext": "Height difference between water source and hydrant. Positive if hydrant is above source.",
+      "label_i18n": {
+        "en": "Elevation Difference"
+      },
+      "businessContext_i18n": {
+        "en": "Height difference between water source and hydrant. Positive if hydrant is above source."
+      }
     },
     {
       "id": "number_of_hydrants",
@@ -89,7 +131,13 @@
       "default": 1,
       "min": 1,
       "max": 10,
-      "businessContext": "Number of hydrants flowing simultaneously during test. Affects total demand."
+      "businessContext": "Number of hydrants flowing simultaneously during test. Affects total demand.",
+      "label_i18n": {
+        "en": "Number of Hydrants in Test"
+      },
+      "businessContext_i18n": {
+        "en": "Number of hydrants flowing simultaneously during test. Affects total demand."
+      }
     },
     {
       "id": "hydrant_type",
@@ -101,7 +149,13 @@
         "Wall hydrant"
       ],
       "default": "Dry barrel",
-      "businessContext": "Type of hydrant per NFPA 291. Dry barrel common in cold climates."
+      "businessContext": "Type of hydrant per NFPA 291. Dry barrel common in cold climates.",
+      "label_i18n": {
+        "en": "Hydrant Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of hydrant per NFPA 291. Dry barrel common in cold climates."
+      }
     },
     {
       "id": "flow_condition",
@@ -112,14 +166,26 @@
         "Transient"
       ],
       "default": "Steady",
-      "businessContext": "Steady for normal tests, Transient for surge analysis per ISO 4126."
+      "businessContext": "Steady for normal tests, Transient for surge analysis per ISO 4126.",
+      "label_i18n": {
+        "en": "Flow Condition"
+      },
+      "businessContext_i18n": {
+        "en": "Steady for normal tests, Transient for surge analysis per ISO 4126."
+      }
     },
     {
       "id": "is_test_standard",
       "label": "NFPA 291 Compliant Test",
       "type": "boolean",
       "default": true,
-      "businessContext": "Indicates if flow test was performed per NFPA 291 standard procedures."
+      "businessContext": "Indicates if flow test was performed per NFPA 291 standard procedures.",
+      "label_i18n": {
+        "en": "NFPA 291 Compliant Test"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if flow test was performed per NFPA 291 standard procedures."
+      }
     }
   ],
   "validation": {

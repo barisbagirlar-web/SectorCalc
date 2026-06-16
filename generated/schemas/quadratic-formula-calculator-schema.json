@@ -20,7 +20,13 @@
       "default": 1,
       "min": -1000,
       "max": 1000,
-      "businessContext": "Leading coefficient of the quadratic equation ax² + bx + c = 0. Must be non-zero for a valid quadratic."
+      "businessContext": "Leading coefficient of the quadratic equation ax² + bx + c = 0. Must be non-zero for a valid quadratic.",
+      "label_i18n": {
+        "en": "Coefficient a (quadratic term)"
+      },
+      "businessContext_i18n": {
+        "en": "Leading coefficient of the quadratic equation ax² + bx + c = 0. Must be non-zero for a valid quadratic."
+      }
     },
     {
       "id": "coefficient_b",
@@ -30,7 +36,13 @@
       "default": 0,
       "min": -10000,
       "max": 10000,
-      "businessContext": "Linear coefficient influencing the vertex position and root symmetry."
+      "businessContext": "Linear coefficient influencing the vertex position and root symmetry.",
+      "label_i18n": {
+        "en": "Coefficient b (linear term)"
+      },
+      "businessContext_i18n": {
+        "en": "Linear coefficient influencing the vertex position and root symmetry."
+      }
     },
     {
       "id": "coefficient_c",
@@ -40,7 +52,13 @@
       "default": 0,
       "min": -10000,
       "max": 10000,
-      "businessContext": "Constant term representing the y-intercept of the quadratic function."
+      "businessContext": "Constant term representing the y-intercept of the quadratic function.",
+      "label_i18n": {
+        "en": "Coefficient c (constant term)"
+      },
+      "businessContext_i18n": {
+        "en": "Constant term representing the y-intercept of the quadratic function."
+      }
     },
     {
       "id": "precision_mode",
@@ -55,7 +73,13 @@
         "high",
         "engineering"
       ],
-      "businessContext": "Selects rounding and display precision: standard (4 decimals), high (8 decimals), engineering (scientific notation)."
+      "businessContext": "Selects rounding and display precision: standard (4 decimals), high (8 decimals), engineering (scientific notation).",
+      "label_i18n": {
+        "en": "Precision Mode"
+      },
+      "businessContext_i18n": {
+        "en": "Selects rounding and display precision: standard (4 decimals), high (8 decimals), engineering (scientific notation)."
+      }
     },
     {
       "id": "use_complex_roots",
@@ -65,7 +89,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "When true, the calculator returns complex roots for negative discriminants. When false, it returns an error for non-real roots."
+      "businessContext": "When true, the calculator returns complex roots for negative discriminants. When false, it returns an error for non-real roots.",
+      "label_i18n": {
+        "en": "Allow Complex Roots"
+      },
+      "businessContext_i18n": {
+        "en": "When true, the calculator returns complex roots for negative discriminants. When false, it returns an error for non-real roots."
+      }
     }
   ],
   "validation": {

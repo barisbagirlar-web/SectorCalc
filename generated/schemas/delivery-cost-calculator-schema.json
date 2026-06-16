@@ -19,7 +19,13 @@
       "default": 100,
       "min": 0,
       "max": 5000,
-      "businessContext": "Total route distance from origin to destination, used for fuel and time cost calculations."
+      "businessContext": "Total route distance from origin to destination, used for fuel and time cost calculations.",
+      "label_i18n": {
+        "en": "Distance (km)"
+      },
+      "businessContext_i18n": {
+        "en": "Total route distance from origin to destination, used for fuel and time cost calculations."
+      }
     },
     {
       "id": "fuel_cost_per_liter",
@@ -29,7 +35,13 @@
       "default": 1.5,
       "min": 0,
       "max": 10,
-      "businessContext": "Current average fuel price per liter, directly impacts variable transport cost."
+      "businessContext": "Current average fuel price per liter, directly impacts variable transport cost.",
+      "label_i18n": {
+        "en": "Fuel Cost per Liter"
+      },
+      "businessContext_i18n": {
+        "en": "Current average fuel price per liter, directly impacts variable transport cost."
+      }
     },
     {
       "id": "fuel_efficiency_kmpl",
@@ -39,7 +51,13 @@
       "default": 8,
       "min": 1,
       "max": 50,
-      "businessContext": "Vehicle fuel consumption rate in kilometers per liter, key for fuel cost estimation."
+      "businessContext": "Vehicle fuel consumption rate in kilometers per liter, key for fuel cost estimation.",
+      "label_i18n": {
+        "en": "Fuel Efficiency (km/L)"
+      },
+      "businessContext_i18n": {
+        "en": "Vehicle fuel consumption rate in kilometers per liter, key for fuel cost estimation."
+      }
     },
     {
       "id": "driver_wage_per_hour",
@@ -49,7 +67,13 @@
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Hourly wage of the driver, including benefits and overtime provisions."
+      "businessContext": "Hourly wage of the driver, including benefits and overtime provisions.",
+      "label_i18n": {
+        "en": "Driver Wage per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly wage of the driver, including benefits and overtime provisions."
+      }
     },
     {
       "id": "average_speed_kmph",
@@ -59,7 +83,13 @@
       "default": 60,
       "min": 10,
       "max": 120,
-      "businessContext": "Expected average travel speed including traffic and stops, used to compute travel time."
+      "businessContext": "Expected average travel speed including traffic and stops, used to compute travel time.",
+      "label_i18n": {
+        "en": "Average Speed (km/h)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected average travel speed including traffic and stops, used to compute travel time."
+      }
     },
     {
       "id": "load_weight_kg",
@@ -69,7 +99,13 @@
       "default": 1000,
       "min": 0,
       "max": 40000,
-      "businessContext": "Total weight of cargo, affects fuel consumption and handling costs."
+      "businessContext": "Total weight of cargo, affects fuel consumption and handling costs.",
+      "label_i18n": {
+        "en": "Load Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Total weight of cargo, affects fuel consumption and handling costs."
+      }
     },
     {
       "id": "handling_cost_per_kg",
@@ -79,7 +115,13 @@
       "default": 0.1,
       "min": 0,
       "max": 5,
-      "businessContext": "Cost for loading/unloading and warehouse handling per kilogram of cargo."
+      "businessContext": "Cost for loading/unloading and warehouse handling per kilogram of cargo.",
+      "label_i18n": {
+        "en": "Handling Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Cost for loading/unloading and warehouse handling per kilogram of cargo."
+      }
     },
     {
       "id": "vehicle_maintenance_per_km",
@@ -89,7 +131,13 @@
       "default": 0.05,
       "min": 0,
       "max": 1,
-      "businessContext": "Average maintenance cost per kilometer, including tires, oil, and repairs."
+      "businessContext": "Average maintenance cost per kilometer, including tires, oil, and repairs.",
+      "label_i18n": {
+        "en": "Vehicle Maintenance per km"
+      },
+      "businessContext_i18n": {
+        "en": "Average maintenance cost per kilometer, including tires, oil, and repairs."
+      }
     },
     {
       "id": "toll_cost",
@@ -99,7 +147,13 @@
       "default": 0,
       "min": 0,
       "max": 500,
-      "businessContext": "Total toll charges along the route, if applicable."
+      "businessContext": "Total toll charges along the route, if applicable.",
+      "label_i18n": {
+        "en": "Toll Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total toll charges along the route, if applicable."
+      }
     },
     {
       "id": "insurance_rate_per_kg",
@@ -109,7 +163,13 @@
       "default": 0.02,
       "min": 0,
       "max": 1,
-      "businessContext": "Insurance premium per kilogram of cargo value, covering risk during transit."
+      "businessContext": "Insurance premium per kilogram of cargo value, covering risk during transit.",
+      "label_i18n": {
+        "en": "Insurance Rate per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Insurance premium per kilogram of cargo value, covering risk during transit."
+      }
     },
     {
       "id": "overhead_percentage",
@@ -119,7 +179,13 @@
       "default": 10,
       "min": 0,
       "max": 50,
-      "businessContext": "Indirect costs (administration, IT, facilities) as a percentage of direct costs."
+      "businessContext": "Indirect costs (administration, IT, facilities) as a percentage of direct costs.",
+      "label_i18n": {
+        "en": "Overhead Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Indirect costs (administration, IT, facilities) as a percentage of direct costs."
+      }
     },
     {
       "id": "is_express_delivery",
@@ -129,7 +195,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If true, applies a premium multiplier to reflect expedited service costs."
+      "businessContext": "If true, applies a premium multiplier to reflect expedited service costs.",
+      "label_i18n": {
+        "en": "Express Delivery"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies a premium multiplier to reflect expedited service costs."
+      }
     },
     {
       "id": "delivery_zone",
@@ -145,7 +217,13 @@
         "rural",
         "remote"
       ],
-      "businessContext": "Geographic zone classification affecting last-mile complexity and cost multipliers."
+      "businessContext": "Geographic zone classification affecting last-mile complexity and cost multipliers.",
+      "label_i18n": {
+        "en": "Delivery Zone"
+      },
+      "businessContext_i18n": {
+        "en": "Geographic zone classification affecting last-mile complexity and cost multipliers."
+      }
     }
   ],
   "validation": {

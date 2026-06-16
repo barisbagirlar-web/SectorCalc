@@ -22,7 +22,13 @@
         "95",
         "99"
       ],
-      "businessContext": "Standard confidence levels per ISO 2859-1 and Six Sigma DMAIC."
+      "businessContext": "Standard confidence levels per ISO 2859-1 and Six Sigma DMAIC.",
+      "label_i18n": {
+        "en": "Confidence Level"
+      },
+      "businessContext_i18n": {
+        "en": "Standard confidence levels per ISO 2859-1 and Six Sigma DMAIC."
+      }
     },
     {
       "id": "marginOfError",
@@ -32,7 +38,13 @@
       "default": 5,
       "min": 1,
       "max": 20,
-      "businessContext": "Acceptable deviation from true population parameter; typical for process audits."
+      "businessContext": "Acceptable deviation from true population parameter; typical for process audits.",
+      "label_i18n": {
+        "en": "Margin of Error (Precision)"
+      },
+      "businessContext_i18n": {
+        "en": "Acceptable deviation from true population parameter; typical for process audits."
+      }
     },
     {
       "id": "populationSize",
@@ -42,7 +54,13 @@
       "default": 10000,
       "min": 1,
       "max": 10000000,
-      "businessContext": "Total items in the lot or process output per period."
+      "businessContext": "Total items in the lot or process output per period.",
+      "label_i18n": {
+        "en": "Population Size (Lot Size)"
+      },
+      "businessContext_i18n": {
+        "en": "Total items in the lot or process output per period."
+      }
     },
     {
       "id": "expectedProportion",
@@ -52,7 +70,13 @@
       "default": 5,
       "min": 0.1,
       "max": 50,
-      "businessContext": "Historical or assumed defect rate; used in attribute sampling."
+      "businessContext": "Historical or assumed defect rate; used in attribute sampling.",
+      "label_i18n": {
+        "en": "Expected Proportion (Defect Rate)"
+      },
+      "businessContext_i18n": {
+        "en": "Historical or assumed defect rate; used in attribute sampling."
+      }
     },
     {
       "id": "standardDeviation",
@@ -62,7 +86,13 @@
       "default": 1,
       "min": 0.01,
       "max": 100,
-      "businessContext": "Estimated process variation for variables sampling (e.g., SPC)."
+      "businessContext": "Estimated process variation for variables sampling (e.g., SPC).",
+      "label_i18n": {
+        "en": "Standard Deviation (Process Sigma)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated process variation for variables sampling (e.g., SPC)."
+      }
     },
     {
       "id": "effectSize",
@@ -72,7 +102,13 @@
       "default": 0.5,
       "min": 0.01,
       "max": 10,
-      "businessContext": "Smallest practical change to detect in hypothesis testing (Six Sigma)."
+      "businessContext": "Smallest practical change to detect in hypothesis testing (Six Sigma).",
+      "label_i18n": {
+        "en": "Effect Size (Minimum Detectable Difference)"
+      },
+      "businessContext_i18n": {
+        "en": "Smallest practical change to detect in hypothesis testing (Six Sigma)."
+      }
     },
     {
       "id": "samplingMethod",
@@ -86,7 +122,13 @@
         "cluster",
         "systematic"
       ],
-      "businessContext": "Design effect adjustment per WERC and ISO 2859 guidelines."
+      "businessContext": "Design effect adjustment per WERC and ISO 2859 guidelines.",
+      "label_i18n": {
+        "en": "Sampling Method"
+      },
+      "businessContext_i18n": {
+        "en": "Design effect adjustment per WERC and ISO 2859 guidelines."
+      }
     },
     {
       "id": "useFiniteCorrection",
@@ -94,7 +136,13 @@
       "type": "boolean",
       "unit": "",
       "default": true,
-      "businessContext": "When sample > 5% of population, correction reduces sample size."
+      "businessContext": "When sample > 5% of population, correction reduces sample size.",
+      "label_i18n": {
+        "en": "Apply Finite Population Correction"
+      },
+      "businessContext_i18n": {
+        "en": "When sample > 5% of population, correction reduces sample size."
+      }
     }
   ],
   "validation": {

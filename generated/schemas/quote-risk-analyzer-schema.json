@@ -20,7 +20,13 @@
       "default": 1000,
       "min": 1,
       "max": 1000000,
-      "businessContext": "Total quantity of items in the quote. Higher volumes may reduce unit cost but increase risk exposure."
+      "businessContext": "Total quantity of items in the quote. Higher volumes may reduce unit cost but increase risk exposure.",
+      "label_i18n": {
+        "en": "Order Volume (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Total quantity of items in the quote. Higher volumes may reduce unit cost but increase risk exposure."
+      }
     },
     {
       "id": "unit_price",
@@ -30,7 +36,13 @@
       "default": 50,
       "min": 0.01,
       "max": 100000,
-      "businessContext": "Price per unit quoted to the customer."
+      "businessContext": "Price per unit quoted to the customer.",
+      "label_i18n": {
+        "en": "Unit Price ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Price per unit quoted to the customer."
+      }
     },
     {
       "id": "production_lead_time_days",
@@ -40,7 +52,13 @@
       "default": 30,
       "min": 1,
       "max": 365,
-      "businessContext": "Time from order placement to delivery. Longer lead times increase demand forecast risk."
+      "businessContext": "Time from order placement to delivery. Longer lead times increase demand forecast risk.",
+      "label_i18n": {
+        "en": "Production Lead Time (days)"
+      },
+      "businessContext_i18n": {
+        "en": "Time from order placement to delivery. Longer lead times increase demand forecast risk."
+      }
     },
     {
       "id": "material_cost_variability",
@@ -50,7 +68,13 @@
       "default": 5,
       "min": 0,
       "max": 50,
-      "businessContext": "Expected fluctuation in raw material costs during the lead time. Based on historical volatility."
+      "businessContext": "Expected fluctuation in raw material costs during the lead time. Based on historical volatility.",
+      "label_i18n": {
+        "en": "Material Cost Variability (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected fluctuation in raw material costs during the lead time. Based on historical volatility."
+      }
     },
     {
       "id": "labor_skill_level",
@@ -65,7 +89,13 @@
         "medium",
         "high"
       ],
-      "businessContext": "Skill level of the workforce assigned to the project. Low skill increases defect risk."
+      "businessContext": "Skill level of the workforce assigned to the project. Low skill increases defect risk.",
+      "label_i18n": {
+        "en": "Labor Skill Level"
+      },
+      "businessContext_i18n": {
+        "en": "Skill level of the workforce assigned to the project. Low skill increases defect risk."
+      }
     },
     {
       "id": "quality_defect_rate",
@@ -75,7 +105,13 @@
       "default": 2,
       "min": 0,
       "max": 100,
-      "businessContext": "Historical percentage of defective units from similar production runs. Used for Six Sigma DPMO calculation."
+      "businessContext": "Historical percentage of defective units from similar production runs. Used for Six Sigma DPMO calculation.",
+      "label_i18n": {
+        "en": "Historical Defect Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Historical percentage of defective units from similar production runs. Used for Six Sigma DPMO calculation."
+      }
     },
     {
       "id": "logistics_complexity",
@@ -85,7 +121,13 @@
       "default": 5,
       "min": 1,
       "max": 10,
-      "businessContext": "Score based on number of shipping modes, customs requirements, and distance. Higher score increases risk."
+      "businessContext": "Score based on number of shipping modes, customs requirements, and distance. Higher score increases risk.",
+      "label_i18n": {
+        "en": "Logistics Complexity Score"
+      },
+      "businessContext_i18n": {
+        "en": "Score based on number of shipping modes, customs requirements, and distance. Higher score increases risk."
+      }
     },
     {
       "id": "customer_credit_rating",
@@ -105,7 +147,13 @@
         "CCC",
         "D"
       ],
-      "businessContext": "Standard credit rating of the customer. Lower ratings increase payment default risk."
+      "businessContext": "Standard credit rating of the customer. Lower ratings increase payment default risk.",
+      "label_i18n": {
+        "en": "Customer Credit Rating"
+      },
+      "businessContext_i18n": {
+        "en": "Standard credit rating of the customer. Lower ratings increase payment default risk."
+      }
     },
     {
       "id": "contract_penalty_clause",
@@ -115,7 +163,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "Whether the contract includes penalty clauses for late delivery or non-conformance."
+      "businessContext": "Whether the contract includes penalty clauses for late delivery or non-conformance.",
+      "label_i18n": {
+        "en": "Contract Penalty Clause"
+      },
+      "businessContext_i18n": {
+        "en": "Whether the contract includes penalty clauses for late delivery or non-conformance."
+      }
     }
   ],
   "validation": {

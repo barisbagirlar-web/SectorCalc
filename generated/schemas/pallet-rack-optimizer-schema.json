@@ -19,7 +19,13 @@
       "default": 12000,
       "min": 3000,
       "max": 18000,
-      "businessContext": "Total vertical storage height per rack bay, typically 3-18m in high-bay warehouses."
+      "businessContext": "Total vertical storage height per rack bay, typically 3-18m in high-bay warehouses.",
+      "label_i18n": {
+        "en": "Rack Height (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Total vertical storage height per rack bay, typically 3-18m in high-bay warehouses."
+      }
     },
     {
       "id": "pallet_depth_mm",
@@ -29,7 +35,13 @@
       "default": 1200,
       "min": 800,
       "max": 1500,
-      "businessContext": "Standard pallet depth (e.g., EUR pallet 1200mm, US pallet 1200mm)."
+      "businessContext": "Standard pallet depth (e.g., EUR pallet 1200mm, US pallet 1200mm).",
+      "label_i18n": {
+        "en": "Pallet Depth (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard pallet depth (e.g., EUR pallet 1200mm, US pallet 1200mm)."
+      }
     },
     {
       "id": "pallet_width_mm",
@@ -39,7 +51,13 @@
       "default": 1000,
       "min": 800,
       "max": 1200,
-      "businessContext": "Standard pallet width (e.g., EUR pallet 800mm, US pallet 1000mm)."
+      "businessContext": "Standard pallet width (e.g., EUR pallet 800mm, US pallet 1000mm).",
+      "label_i18n": {
+        "en": "Pallet Width (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard pallet width (e.g., EUR pallet 800mm, US pallet 1000mm)."
+      }
     },
     {
       "id": "pallet_height_mm",
@@ -49,7 +67,13 @@
       "default": 1500,
       "min": 500,
       "max": 2500,
-      "businessContext": "Height of a single loaded pallet including pallet base."
+      "businessContext": "Height of a single loaded pallet including pallet base.",
+      "label_i18n": {
+        "en": "Pallet Height (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Height of a single loaded pallet including pallet base."
+      }
     },
     {
       "id": "beam_thickness_mm",
@@ -59,7 +83,13 @@
       "default": 100,
       "min": 50,
       "max": 200,
-      "businessContext": "Vertical thickness of horizontal load beams, affects usable height per level."
+      "businessContext": "Vertical thickness of horizontal load beams, affects usable height per level.",
+      "label_i18n": {
+        "en": "Beam Thickness (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical thickness of horizontal load beams, affects usable height per level."
+      }
     },
     {
       "id": "clearance_vertical_mm",
@@ -69,7 +99,13 @@
       "default": 100,
       "min": 50,
       "max": 300,
-      "businessContext": "Safety gap between top of pallet and next beam for handling equipment."
+      "businessContext": "Safety gap between top of pallet and next beam for handling equipment.",
+      "label_i18n": {
+        "en": "Vertical Clearance (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Safety gap between top of pallet and next beam for handling equipment."
+      }
     },
     {
       "id": "aisle_width_mm",
@@ -79,7 +115,13 @@
       "default": 3000,
       "min": 2000,
       "max": 5000,
-      "businessContext": "Width of forklift travel aisle between rack rows, per OSHA/ISO 3691."
+      "businessContext": "Width of forklift travel aisle between rack rows, per OSHA/ISO 3691.",
+      "label_i18n": {
+        "en": "Aisle Width (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Width of forklift travel aisle between rack rows, per OSHA/ISO 3691."
+      }
     },
     {
       "id": "rack_length_mm",
@@ -89,7 +131,13 @@
       "default": 2700,
       "min": 1800,
       "max": 3600,
-      "businessContext": "Horizontal length of a single rack bay (center-to-center of uprights)."
+      "businessContext": "Horizontal length of a single rack bay (center-to-center of uprights).",
+      "label_i18n": {
+        "en": "Rack Bay Length (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal length of a single rack bay (center-to-center of uprights)."
+      }
     },
     {
       "id": "num_bays",
@@ -99,7 +147,13 @@
       "default": 10,
       "min": 1,
       "max": 100,
-      "businessContext": "Number of adjacent rack bays in a row."
+      "businessContext": "Number of adjacent rack bays in a row.",
+      "label_i18n": {
+        "en": "Number of Bays"
+      },
+      "businessContext_i18n": {
+        "en": "Number of adjacent rack bays in a row."
+      }
     },
     {
       "id": "num_levels",
@@ -109,7 +163,13 @@
       "default": 5,
       "min": 1,
       "max": 10,
-      "businessContext": "Number of horizontal beam levels per bay."
+      "businessContext": "Number of horizontal beam levels per bay.",
+      "label_i18n": {
+        "en": "Number of Levels"
+      },
+      "businessContext_i18n": {
+        "en": "Number of horizontal beam levels per bay."
+      }
     },
     {
       "id": "pallet_weight_kg",
@@ -119,7 +179,13 @@
       "default": 800,
       "min": 100,
       "max": 2000,
-      "businessContext": "Average weight of a loaded pallet, used for structural load calculations."
+      "businessContext": "Average weight of a loaded pallet, used for structural load calculations.",
+      "label_i18n": {
+        "en": "Average Pallet Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Average weight of a loaded pallet, used for structural load calculations."
+      }
     },
     {
       "id": "utilization_rate",
@@ -129,7 +195,13 @@
       "default": 75,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of rack positions currently occupied."
+      "businessContext": "Percentage of rack positions currently occupied.",
+      "label_i18n": {
+        "en": "Current Utilization Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of rack positions currently occupied."
+      }
     },
     {
       "id": "storage_strategy",
@@ -142,7 +214,13 @@
         "ABC"
       ],
       "default": "FIFO",
-      "businessContext": "Warehouse inventory rotation strategy affecting throughput and space utilization."
+      "businessContext": "Warehouse inventory rotation strategy affecting throughput and space utilization.",
+      "label_i18n": {
+        "en": "Storage Strategy"
+      },
+      "businessContext_i18n": {
+        "en": "Warehouse inventory rotation strategy affecting throughput and space utilization."
+      }
     },
     {
       "id": "forklift_type",
@@ -155,7 +233,13 @@
         "Turret"
       ],
       "default": "Reach",
-      "businessContext": "Forklift type determines required aisle width and lift height capability."
+      "businessContext": "Forklift type determines required aisle width and lift height capability.",
+      "label_i18n": {
+        "en": "Forklift Type"
+      },
+      "businessContext_i18n": {
+        "en": "Forklift type determines required aisle width and lift height capability."
+      }
     },
     {
       "id": "seismic_zone",
@@ -168,14 +252,26 @@
         "Zone 3 (High)"
       ],
       "default": "Zone 1 (Low)",
-      "businessContext": "Seismic classification per ASCE 7 / IBC, affects rack bracing requirements."
+      "businessContext": "Seismic classification per ASCE 7 / IBC, affects rack bracing requirements.",
+      "label_i18n": {
+        "en": "Seismic Zone"
+      },
+      "businessContext_i18n": {
+        "en": "Seismic classification per ASCE 7 / IBC, affects rack bracing requirements."
+      }
     },
     {
       "id": "include_beam_deflection_check",
       "label": "Include Beam Deflection Check",
       "type": "boolean",
       "default": true,
-      "businessContext": "If enabled, validates beam deflection against L/180 standard (RMI/ANSI MH16.1)."
+      "businessContext": "If enabled, validates beam deflection against L/180 standard (RMI/ANSI MH16.1).",
+      "label_i18n": {
+        "en": "Include Beam Deflection Check"
+      },
+      "businessContext_i18n": {
+        "en": "If enabled, validates beam deflection against L/180 standard (RMI/ANSI MH16.1)."
+      }
     }
   ],
   "validation": {

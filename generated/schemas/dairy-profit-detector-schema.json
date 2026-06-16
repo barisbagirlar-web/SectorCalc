@@ -17,7 +17,13 @@
       "default": 10000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Total raw milk received daily from suppliers or own herd."
+      "businessContext": "Total raw milk received daily from suppliers or own herd.",
+      "label_i18n": {
+        "en": "Milk Volume (Liters per day)"
+      },
+      "businessContext_i18n": {
+        "en": "Total raw milk received daily from suppliers or own herd."
+      }
     },
     {
       "id": "fat_percentage",
@@ -27,7 +33,13 @@
       "default": 3.5,
       "min": 0,
       "max": 10,
-      "businessContext": "Average butterfat content of incoming milk, critical for yield calculations."
+      "businessContext": "Average butterfat content of incoming milk, critical for yield calculations.",
+      "label_i18n": {
+        "en": "Fat Content (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Average butterfat content of incoming milk, critical for yield calculations."
+      }
     },
     {
       "id": "protein_percentage",
@@ -37,7 +49,13 @@
       "default": 3.2,
       "min": 0,
       "max": 6,
-      "businessContext": "Average protein content, affects cheese and powder yields."
+      "businessContext": "Average protein content, affects cheese and powder yields.",
+      "label_i18n": {
+        "en": "Protein Content (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Average protein content, affects cheese and powder yields."
+      }
     },
     {
       "id": "selling_price_per_liter",
@@ -47,7 +65,13 @@
       "default": 0.45,
       "min": 0,
       "max": 10,
-      "businessContext": "Average revenue per liter of raw milk sold to processor or retail."
+      "businessContext": "Average revenue per liter of raw milk sold to processor or retail.",
+      "label_i18n": {
+        "en": "Selling Price (per Liter)"
+      },
+      "businessContext_i18n": {
+        "en": "Average revenue per liter of raw milk sold to processor or retail."
+      }
     },
     {
       "id": "production_cost_per_liter",
@@ -57,7 +81,13 @@
       "default": 0.35,
       "min": 0,
       "max": 10,
-      "businessContext": "Includes feed, labor, utilities, veterinary, and overhead per liter."
+      "businessContext": "Includes feed, labor, utilities, veterinary, and overhead per liter.",
+      "label_i18n": {
+        "en": "Production Cost (per Liter)"
+      },
+      "businessContext_i18n": {
+        "en": "Includes feed, labor, utilities, veterinary, and overhead per liter."
+      }
     },
     {
       "id": "waste_percentage",
@@ -67,7 +97,13 @@
       "default": 2,
       "min": 0,
       "max": 20,
-      "businessContext": "Milk lost due to spoilage, spillage, or quality rejection."
+      "businessContext": "Milk lost due to spoilage, spillage, or quality rejection.",
+      "label_i18n": {
+        "en": "Waste / Shrinkage (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Milk lost due to spoilage, spillage, or quality rejection."
+      }
     },
     {
       "id": "labor_hours_per_day",
@@ -77,7 +113,13 @@
       "default": 40,
       "min": 0,
       "max": 500,
-      "businessContext": "Total direct labor hours used in milk production and handling."
+      "businessContext": "Total direct labor hours used in milk production and handling.",
+      "label_i18n": {
+        "en": "Labor Hours per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Total direct labor hours used in milk production and handling."
+      }
     },
     {
       "id": "labor_rate_per_hour",
@@ -87,7 +129,13 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Average hourly wage including benefits."
+      "businessContext": "Average hourly wage including benefits.",
+      "label_i18n": {
+        "en": "Labor Rate (per Hour)"
+      },
+      "businessContext_i18n": {
+        "en": "Average hourly wage including benefits."
+      }
     },
     {
       "id": "energy_cost_per_day",
@@ -97,7 +145,13 @@
       "default": 200,
       "min": 0,
       "max": 10000,
-      "businessContext": "Daily electricity, fuel, and cooling costs."
+      "businessContext": "Daily electricity, fuel, and cooling costs.",
+      "label_i18n": {
+        "en": "Energy Cost (per Day)"
+      },
+      "businessContext_i18n": {
+        "en": "Daily electricity, fuel, and cooling costs."
+      }
     },
     {
       "id": "other_variable_cost_per_liter",
@@ -107,7 +161,13 @@
       "default": 0.05,
       "min": 0,
       "max": 5,
-      "businessContext": "Supplies, additives, packaging, and miscellaneous variable costs."
+      "businessContext": "Supplies, additives, packaging, and miscellaneous variable costs.",
+      "label_i18n": {
+        "en": "Other Variable Cost (per Liter)"
+      },
+      "businessContext_i18n": {
+        "en": "Supplies, additives, packaging, and miscellaneous variable costs."
+      }
     },
     {
       "id": "fixed_cost_per_day",
@@ -117,7 +177,13 @@
       "default": 500,
       "min": 0,
       "max": 50000,
-      "businessContext": "Depreciation, rent, insurance, and other fixed overhead."
+      "businessContext": "Depreciation, rent, insurance, and other fixed overhead.",
+      "label_i18n": {
+        "en": "Fixed Cost (per Day)"
+      },
+      "businessContext_i18n": {
+        "en": "Depreciation, rent, insurance, and other fixed overhead."
+      }
     },
     {
       "id": "quality_grade",
@@ -132,7 +198,13 @@
         "A",
         "B",
         "C"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Quality Grade"
+      },
+      "businessContext_i18n": {
+        "en": "Milk quality grade based on somatic cell count and bacteria (A, B, C)."
+      }
     },
     {
       "id": "seasonal_demand_factor",
@@ -147,7 +219,13 @@
         "Low",
         "Normal",
         "High"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Seasonal Demand Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Adjusts for peak/off-peak demand periods."
+      }
     }
   ],
   "validation": {

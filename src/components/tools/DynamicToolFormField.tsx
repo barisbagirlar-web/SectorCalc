@@ -11,7 +11,7 @@ import {
   shouldShowGeneratedUnitSelector,
 } from "@/lib/generated-tools/unit-conversion";
 import type { GeneratedToolInput } from "@/lib/generated-tools/types";
-import { resolveGeneratedSelectOptions } from "@/lib/generated-tools/select-options";
+import { resolveLocalizedGeneratedSelectOptions } from "@/lib/generated-tools/select-options";
 import { useLocale } from "next-intl";
 
 type DynamicToolFormFieldProps = {
@@ -48,7 +48,7 @@ export function DynamicToolFormField({
   const showStaticUnit = Boolean(input.unit) && !showUnitSelector;
 
   if (input.type === "select" && input.options) {
-    const selectOptions = resolveGeneratedSelectOptions(input);
+    const selectOptions = resolveLocalizedGeneratedSelectOptions(input, locale);
     return (
       <Controller
         name={input.id}

@@ -19,7 +19,13 @@
       "default": 1000000,
       "min": 0,
       "max": 1000000000,
-      "businessContext": "Total average value of inventory over the period (e.g., monthly average of COGS-based inventory)."
+      "businessContext": "Total average value of inventory over the period (e.g., monthly average of COGS-based inventory).",
+      "label_i18n": {
+        "en": "Average Inventory Value (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Total average value of inventory over the period (e.g., monthly average of COGS-based inventory)."
+      }
     },
     {
       "id": "cogs_annual",
@@ -29,7 +35,13 @@
       "default": 5000000,
       "min": 0,
       "max": 10000000000,
-      "businessContext": "Total cost of goods sold over the last 12 months."
+      "businessContext": "Total cost of goods sold over the last 12 months.",
+      "label_i18n": {
+        "en": "Annual Cost of Goods Sold (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost of goods sold over the last 12 months."
+      }
     },
     {
       "id": "demand_variability_coefficient",
@@ -39,7 +51,13 @@
       "default": 0.3,
       "min": 0,
       "max": 2,
-      "businessContext": "Coefficient of variation of monthly demand (standard deviation / mean). Higher values indicate greater unpredictability."
+      "businessContext": "Coefficient of variation of monthly demand (standard deviation / mean). Higher values indicate greater unpredictability.",
+      "label_i18n": {
+        "en": "Demand Variability Coefficient (CV)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of variation of monthly demand (standard deviation / mean). Higher values indicate greater unpredictability."
+      }
     },
     {
       "id": "obsolescence_rate",
@@ -49,7 +67,13 @@
       "default": 5,
       "min": 0,
       "max": 100,
-      "businessContext": "Annual percentage of inventory value that becomes obsolete or expired."
+      "businessContext": "Annual percentage of inventory value that becomes obsolete or expired.",
+      "label_i18n": {
+        "en": "Obsolescence Rate (% per year)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual percentage of inventory value that becomes obsolete or expired."
+      }
     },
     {
       "id": "carrying_cost_rate",
@@ -59,7 +83,13 @@
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Annual cost to hold inventory (storage, insurance, capital, etc.) as a percentage of inventory value."
+      "businessContext": "Annual cost to hold inventory (storage, insurance, capital, etc.) as a percentage of inventory value.",
+      "label_i18n": {
+        "en": "Inventory Carrying Cost Rate (% per year)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual cost to hold inventory (storage, insurance, capital, etc.) as a percentage of inventory value."
+      }
     },
     {
       "id": "lead_time_days",
@@ -69,7 +99,13 @@
       "default": 30,
       "min": 1,
       "max": 365,
-      "businessContext": "Average replenishment lead time from order placement to receipt."
+      "businessContext": "Average replenishment lead time from order placement to receipt.",
+      "label_i18n": {
+        "en": "Average Lead Time (Days)"
+      },
+      "businessContext_i18n": {
+        "en": "Average replenishment lead time from order placement to receipt."
+      }
     },
     {
       "id": "service_level_target",
@@ -79,7 +115,13 @@
       "default": 95,
       "min": 50,
       "max": 99.99,
-      "businessContext": "Target fill rate or cycle service level (e.g., 95% = 0.95)."
+      "businessContext": "Target fill rate or cycle service level (e.g., 95% = 0.95).",
+      "label_i18n": {
+        "en": "Service Level Target (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Target fill rate or cycle service level (e.g., 95% = 0.95)."
+      }
     },
     {
       "id": "inventory_accuracy_pct",
@@ -89,7 +131,13 @@
       "default": 98,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of inventory records matching physical counts (cycle count accuracy)."
+      "businessContext": "Percentage of inventory records matching physical counts (cycle count accuracy).",
+      "label_i18n": {
+        "en": "Inventory Record Accuracy (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of inventory records matching physical counts (cycle count accuracy)."
+      }
     },
     {
       "id": "industry_benchmark_turnover",
@@ -99,7 +147,13 @@
       "default": 6,
       "min": 0.1,
       "max": 100,
-      "businessContext": "Expected turnover rate for the industry (e.g., WERC benchmark)."
+      "businessContext": "Expected turnover rate for the industry (e.g., WERC benchmark).",
+      "label_i18n": {
+        "en": "Industry Benchmark Turnover (turns/year)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected turnover rate for the industry (e.g., WERC benchmark)."
+      }
     }
   ],
   "validation": {

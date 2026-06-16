@@ -21,7 +21,13 @@
       "default": 0,
       "min": 0,
       "max": 500,
-      "businessContext": "Physical length of the package in centimeters. ISO 1:2016 standard for geometric product specifications."
+      "businessContext": "Physical length of the package in centimeters. ISO 1:2016 standard for geometric product specifications.",
+      "label_i18n": {
+        "en": "Length (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Physical length of the package in centimeters. ISO 1:2016 standard for geometric product specifications."
+      }
     },
     {
       "id": "width_cm",
@@ -31,7 +37,13 @@
       "default": 0,
       "min": 0,
       "max": 500,
-      "businessContext": "Physical width of the package in centimeters."
+      "businessContext": "Physical width of the package in centimeters.",
+      "label_i18n": {
+        "en": "Width (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Physical width of the package in centimeters."
+      }
     },
     {
       "id": "height_cm",
@@ -41,7 +53,13 @@
       "default": 0,
       "min": 0,
       "max": 500,
-      "businessContext": "Physical height of the package in centimeters."
+      "businessContext": "Physical height of the package in centimeters.",
+      "label_i18n": {
+        "en": "Height (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Physical height of the package in centimeters."
+      }
     },
     {
       "id": "actual_weight_kg",
@@ -51,7 +69,13 @@
       "default": 0,
       "min": 0,
       "max": 1000,
-      "businessContext": "Gross weight of the package including packaging. Per ISO 80000-4:2006."
+      "businessContext": "Gross weight of the package including packaging. Per ISO 80000-4:2006.",
+      "label_i18n": {
+        "en": "Actual Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Gross weight of the package including packaging. Per ISO 80000-4:2006."
+      }
     },
     {
       "id": "carrier_factor",
@@ -79,7 +103,13 @@
           "value": 7000,
           "label": "Ocean Freight (7000)"
         }
-      ]
+      ],
+      "label_i18n": {
+        "en": "Carrier DIM Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric divisor used by carrier (e.g., FedEx/UPS: 5000, DHL: 5000, Air freight: 6000). WERC standard."
+      }
     },
     {
       "id": "package_type",
@@ -107,7 +137,13 @@
           "value": "irregular",
           "label": "Irregular Shape"
         }
-      ]
+      ],
+      "label_i18n": {
+        "en": "Package Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of packaging influences dimensional stability and handling. Lean packaging standard."
+      }
     },
     {
       "id": "is_stackable",
@@ -117,7 +153,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "Indicates if package can be stacked. Affects storage density and handling cost. Six Sigma material flow optimization."
+      "businessContext": "Indicates if package can be stacked. Affects storage density and handling cost. Six Sigma material flow optimization.",
+      "label_i18n": {
+        "en": "Stackable"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if package can be stacked. Affects storage density and handling cost. Six Sigma material flow optimization."
+      }
     },
     {
       "id": "hazardous_material",
@@ -127,7 +169,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "Indicates if contents are hazardous (IMO/ADR/IATA). Affects surcharges and handling restrictions."
+      "businessContext": "Indicates if contents are hazardous (IMO/ADR/IATA). Affects surcharges and handling restrictions.",
+      "label_i18n": {
+        "en": "Hazardous Material"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if contents are hazardous (IMO/ADR/IATA). Affects surcharges and handling restrictions."
+      }
     }
   ],
   "validation": {

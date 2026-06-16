@@ -21,7 +21,13 @@
       "default": 45000,
       "min": 20000,
       "max": 120000,
-      "businessContext": "Total annual cost per full-time equivalent worker including wages, benefits, and overhead."
+      "businessContext": "Total annual cost per full-time equivalent worker including wages, benefits, and overhead.",
+      "label_i18n": {
+        "en": "Annual Manual Labor Cost (per FTE)"
+      },
+      "businessContext_i18n": {
+        "en": "Total annual cost per full-time equivalent worker including wages, benefits, and overhead."
+      }
     },
     {
       "id": "number_of_workers",
@@ -31,7 +37,13 @@
       "default": 2,
       "min": 1,
       "max": 20,
-      "businessContext": "Number of manual workers that could be replaced or augmented by one cobot."
+      "businessContext": "Number of manual workers that could be replaced or augmented by one cobot.",
+      "label_i18n": {
+        "en": "Number of Workers Replaced"
+      },
+      "businessContext_i18n": {
+        "en": "Number of manual workers that could be replaced or augmented by one cobot."
+      }
     },
     {
       "id": "cobot_purchase_price",
@@ -41,7 +53,13 @@
       "default": 35000,
       "min": 15000,
       "max": 150000,
-      "businessContext": "Initial capital expenditure for the cobot including end-effector and controller."
+      "businessContext": "Initial capital expenditure for the cobot including end-effector and controller.",
+      "label_i18n": {
+        "en": "Cobot Purchase Price"
+      },
+      "businessContext_i18n": {
+        "en": "Initial capital expenditure for the cobot including end-effector and controller."
+      }
     },
     {
       "id": "cobot_annual_maintenance",
@@ -51,7 +69,13 @@
       "default": 3000,
       "min": 500,
       "max": 15000,
-      "businessContext": "Annual service contract, spare parts, and software updates."
+      "businessContext": "Annual service contract, spare parts, and software updates.",
+      "label_i18n": {
+        "en": "Cobot Annual Maintenance Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Annual service contract, spare parts, and software updates."
+      }
     },
     {
       "id": "cobot_lifespan_years",
@@ -61,7 +85,13 @@
       "default": 8,
       "min": 3,
       "max": 15,
-      "businessContext": "Expected operational life before major overhaul or replacement."
+      "businessContext": "Expected operational life before major overhaul or replacement.",
+      "label_i18n": {
+        "en": "Cobot Lifespan"
+      },
+      "businessContext_i18n": {
+        "en": "Expected operational life before major overhaul or replacement."
+      }
     },
     {
       "id": "discount_rate",
@@ -71,7 +101,13 @@
       "default": 8,
       "min": 2,
       "max": 20,
-      "businessContext": "Weighted average cost of capital for NPV calculation."
+      "businessContext": "Weighted average cost of capital for NPV calculation.",
+      "label_i18n": {
+        "en": "Discount Rate (WACC)"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted average cost of capital for NPV calculation."
+      }
     },
     {
       "id": "labor_productivity_factor",
@@ -81,7 +117,13 @@
       "default": 0.85,
       "min": 0.5,
       "max": 1,
-      "businessContext": "Efficiency factor for manual labor (1.0 = 100% productive, 0.85 = typical with breaks/errors)."
+      "businessContext": "Efficiency factor for manual labor (1.0 = 100% productive, 0.85 = typical with breaks/errors).",
+      "label_i18n": {
+        "en": "Manual Labor Productivity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency factor for manual labor (1.0 = 100% productive, 0.85 = typical with breaks/errors)."
+      }
     },
     {
       "id": "cobot_uptime_percent",
@@ -91,7 +133,13 @@
       "default": 95,
       "min": 80,
       "max": 99.9,
-      "businessContext": "Percentage of scheduled time the cobot is operational (excluding planned maintenance)."
+      "businessContext": "Percentage of scheduled time the cobot is operational (excluding planned maintenance).",
+      "label_i18n": {
+        "en": "Cobot Uptime"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of scheduled time the cobot is operational (excluding planned maintenance)."
+      }
     },
     {
       "id": "shift_type",
@@ -103,14 +151,26 @@
         "Triple"
       ],
       "default": "Single",
-      "businessContext": "Number of shifts per day the cobot will operate (manual labor typically single shift)."
+      "businessContext": "Number of shifts per day the cobot will operate (manual labor typically single shift).",
+      "label_i18n": {
+        "en": "Shift Type"
+      },
+      "businessContext_i18n": {
+        "en": "Number of shifts per day the cobot will operate (manual labor typically single shift)."
+      }
     },
     {
       "id": "include_training_cost",
       "label": "Include Cobot Training Cost",
       "type": "boolean",
       "default": true,
-      "businessContext": "Whether to include initial training and integration costs."
+      "businessContext": "Whether to include initial training and integration costs.",
+      "label_i18n": {
+        "en": "Include Cobot Training Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Whether to include initial training and integration costs."
+      }
     },
     {
       "id": "training_cost",
@@ -120,7 +180,13 @@
       "default": 5000,
       "min": 0,
       "max": 30000,
-      "businessContext": "One-time cost for programming, safety validation, and operator training."
+      "businessContext": "One-time cost for programming, safety validation, and operator training.",
+      "label_i18n": {
+        "en": "Cobot Training & Integration Cost"
+      },
+      "businessContext_i18n": {
+        "en": "One-time cost for programming, safety validation, and operator training."
+      }
     }
   ],
   "validation": {

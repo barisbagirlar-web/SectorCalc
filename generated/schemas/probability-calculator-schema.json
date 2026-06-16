@@ -19,7 +19,13 @@
       "default": 10,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Total observed defects in the sample or process period."
+      "businessContext": "Total observed defects in the sample or process period.",
+      "label_i18n": {
+        "en": "Number of Defects"
+      },
+      "businessContext_i18n": {
+        "en": "Total observed defects in the sample or process period."
+      }
     },
     {
       "id": "sample_size",
@@ -29,7 +35,13 @@
       "default": 1000,
       "min": 1,
       "max": 10000000,
-      "businessContext": "Total number of units inspected or trials performed."
+      "businessContext": "Total number of units inspected or trials performed.",
+      "label_i18n": {
+        "en": "Sample Size"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units inspected or trials performed."
+      }
     },
     {
       "id": "sigma_shift",
@@ -39,7 +51,13 @@
       "default": 1.5,
       "min": 0,
       "max": 3,
-      "businessContext": "Standard shift to convert short-term capability to long-term (commonly 1.5)."
+      "businessContext": "Standard shift to convert short-term capability to long-term (commonly 1.5).",
+      "label_i18n": {
+        "en": "Sigma Shift (1.5 for long-term)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard shift to convert short-term capability to long-term (commonly 1.5)."
+      }
     },
     {
       "id": "distribution_type",
@@ -54,7 +72,13 @@
         "binomial",
         "poisson",
         "normal"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Distribution Type"
+      },
+      "businessContext_i18n": {
+        "en": "Underlying statistical distribution for probability calculation."
+      }
     },
     {
       "id": "confidence_level",
@@ -69,7 +93,13 @@
         "90",
         "95",
         "99"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Confidence Level"
+      },
+      "businessContext_i18n": {
+        "en": "Desired confidence level for interval estimates."
+      }
     },
     {
       "id": "use_historical_bias",
@@ -79,7 +109,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If true, applies a correction factor based on past process performance."
+      "businessContext": "If true, applies a correction factor based on past process performance.",
+      "label_i18n": {
+        "en": "Apply Historical Bias Correction"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies a correction factor based on past process performance."
+      }
     }
   ],
   "validation": {

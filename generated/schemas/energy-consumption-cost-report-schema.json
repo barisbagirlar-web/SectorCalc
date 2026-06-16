@@ -17,7 +17,13 @@
       "default": 100000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Total electrical energy consumed by the facility over the reporting period (e.g., monthly)."
+      "businessContext": "Total electrical energy consumed by the facility over the reporting period (e.g., monthly).",
+      "label_i18n": {
+        "en": "Total Energy Consumption (kWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Total electrical energy consumed by the facility over the reporting period (e.g., monthly)."
+      }
     },
     {
       "id": "peak_demand_kw",
@@ -27,7 +33,13 @@
       "default": 500,
       "min": 0,
       "max": 100000,
-      "businessContext": "Highest recorded power demand during the period; used for demand charge calculation."
+      "businessContext": "Highest recorded power demand during the period; used for demand charge calculation.",
+      "label_i18n": {
+        "en": "Peak Demand (kW)"
+      },
+      "businessContext_i18n": {
+        "en": "Highest recorded power demand during the period; used for demand charge calculation."
+      }
     },
     {
       "id": "tariff_rate_per_kwh",
@@ -37,7 +49,13 @@
       "default": 0.12,
       "min": 0,
       "max": 10,
-      "businessContext": "Average cost per kWh from utility bill (blended rate)."
+      "businessContext": "Average cost per kWh from utility bill (blended rate).",
+      "label_i18n": {
+        "en": "Energy Rate ($/kWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost per kWh from utility bill (blended rate)."
+      }
     },
     {
       "id": "demand_charge_per_kw",
@@ -47,7 +65,13 @@
       "default": 10,
       "min": 0,
       "max": 100,
-      "businessContext": "Utility demand charge per kW of peak demand."
+      "businessContext": "Utility demand charge per kW of peak demand.",
+      "label_i18n": {
+        "en": "Demand Charge ($/kW)"
+      },
+      "businessContext_i18n": {
+        "en": "Utility demand charge per kW of peak demand."
+      }
     },
     {
       "id": "production_units",
@@ -57,7 +81,13 @@
       "default": 50000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Number of units produced in the period (e.g., pieces, kg, liters)."
+      "businessContext": "Number of units produced in the period (e.g., pieces, kg, liters).",
+      "label_i18n": {
+        "en": "Total Production Units"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units produced in the period (e.g., pieces, kg, liters)."
+      }
     },
     {
       "id": "facility_type",
@@ -74,7 +104,13 @@
         "office",
         "data_center",
         "retail"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Facility Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of facility for benchmarking and normalization."
+      }
     },
     {
       "id": "include_renewable_offset",
@@ -84,7 +120,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If true, subtracts renewable generation from total consumption for net cost calculation."
+      "businessContext": "If true, subtracts renewable generation from total consumption for net cost calculation.",
+      "label_i18n": {
+        "en": "Include Renewable Energy Offset"
+      },
+      "businessContext_i18n": {
+        "en": "If true, subtracts renewable generation from total consumption for net cost calculation."
+      }
     },
     {
       "id": "renewable_kwh",
@@ -94,7 +136,13 @@
       "default": 0,
       "min": 0,
       "max": 100000000,
-      "businessContext": "On-site renewable generation (solar, wind) during the period."
+      "businessContext": "On-site renewable generation (solar, wind) during the period.",
+      "label_i18n": {
+        "en": "Renewable Energy Generated (kWh)"
+      },
+      "businessContext_i18n": {
+        "en": "On-site renewable generation (solar, wind) during the period."
+      }
     },
     {
       "id": "co2_emission_factor",
@@ -104,7 +152,13 @@
       "default": 0.5,
       "min": 0,
       "max": 2,
-      "businessContext": "Grid average emission factor for the region (ISO 14064)."
+      "businessContext": "Grid average emission factor for the region (ISO 14064).",
+      "label_i18n": {
+        "en": "CO2 Emission Factor (kg CO2/kWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Grid average emission factor for the region (ISO 14064)."
+      }
     }
   ],
   "validation": {

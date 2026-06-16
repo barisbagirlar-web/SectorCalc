@@ -20,7 +20,13 @@
       "default": 10,
       "min": 0.1,
       "max": 1000,
-      "businessContext": "Length of the concrete slab or structure in meters. Based on ISO 9001 measurement standards."
+      "businessContext": "Length of the concrete slab or structure in meters. Based on ISO 9001 measurement standards.",
+      "label_i18n": {
+        "en": "Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the concrete slab or structure in meters. Based on ISO 9001 measurement standards."
+      }
     },
     {
       "id": "width",
@@ -30,7 +36,13 @@
       "default": 5,
       "min": 0.1,
       "max": 500,
-      "businessContext": "Width of the concrete element in meters. Typical for industrial floors and foundations."
+      "businessContext": "Width of the concrete element in meters. Typical for industrial floors and foundations.",
+      "label_i18n": {
+        "en": "Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the concrete element in meters. Typical for industrial floors and foundations."
+      }
     },
     {
       "id": "depth",
@@ -40,7 +52,13 @@
       "default": 0.15,
       "min": 0.05,
       "max": 5,
-      "businessContext": "Thickness of the concrete pour in meters. Common range for slabs: 0.1–0.3 m."
+      "businessContext": "Thickness of the concrete pour in meters. Common range for slabs: 0.1–0.3 m.",
+      "label_i18n": {
+        "en": "Depth / Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the concrete pour in meters. Common range for slabs: 0.1–0.3 m."
+      }
     },
     {
       "id": "shape",
@@ -54,7 +72,13 @@
         "L-shaped",
         "trapezoidal"
       ],
-      "businessContext": "Geometric shape of the pour area. Affects volume calculation and waste factors."
+      "businessContext": "Geometric shape of the pour area. Affects volume calculation and waste factors.",
+      "label_i18n": {
+        "en": "Shape"
+      },
+      "businessContext_i18n": {
+        "en": "Geometric shape of the pour area. Affects volume calculation and waste factors."
+      }
     },
     {
       "id": "wasteFactor",
@@ -64,7 +88,13 @@
       "default": 5,
       "min": 0,
       "max": 25,
-      "businessContext": "Expected material waste due to spillage, over-excavation, or formwork leakage. Lean target < 3%."
+      "businessContext": "Expected material waste due to spillage, over-excavation, or formwork leakage. Lean target < 3%.",
+      "label_i18n": {
+        "en": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Expected material waste due to spillage, over-excavation, or formwork leakage. Lean target < 3%."
+      }
     },
     {
       "id": "compressionStrength",
@@ -79,7 +109,13 @@
         "C35/45",
         "C40/50"
       ],
-      "businessContext": "Concrete strength class per EN 206. Higher strength increases cost and reduces volume yield slightly."
+      "businessContext": "Concrete strength class per EN 206. Higher strength increases cost and reduces volume yield slightly.",
+      "label_i18n": {
+        "en": "Compression Strength Class"
+      },
+      "businessContext_i18n": {
+        "en": "Concrete strength class per EN 206. Higher strength increases cost and reduces volume yield slightly."
+      }
     },
     {
       "id": "reinforcementRatio",
@@ -89,7 +125,13 @@
       "default": 1.5,
       "min": 0,
       "max": 5,
-      "businessContext": "Steel reinforcement as percentage of concrete volume. Typical range 0.5–3% for structural slabs."
+      "businessContext": "Steel reinforcement as percentage of concrete volume. Typical range 0.5–3% for structural slabs.",
+      "label_i18n": {
+        "en": "Reinforcement Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Steel reinforcement as percentage of concrete volume. Typical range 0.5–3% for structural slabs."
+      }
     },
     {
       "id": "laborRate",
@@ -99,7 +141,13 @@
       "default": 45,
       "min": 15,
       "max": 150,
-      "businessContext": "Hourly labor cost for concrete placement and finishing. Based on regional wage data."
+      "businessContext": "Hourly labor cost for concrete placement and finishing. Based on regional wage data.",
+      "label_i18n": {
+        "en": "Labor Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly labor cost for concrete placement and finishing. Based on regional wage data."
+      }
     },
     {
       "id": "materialCostPerM3",
@@ -109,7 +157,13 @@
       "default": 120,
       "min": 50,
       "max": 500,
-      "businessContext": "Cost of ready-mix concrete delivered to site. Includes additives if specified."
+      "businessContext": "Cost of ready-mix concrete delivered to site. Includes additives if specified.",
+      "label_i18n": {
+        "en": "Material Cost per m³"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of ready-mix concrete delivered to site. Includes additives if specified."
+      }
     },
     {
       "id": "usePump",
@@ -117,7 +171,13 @@
       "type": "boolean",
       "unit": "",
       "default": false,
-      "businessContext": "Indicates if a concrete pump is required for placement. Adds cost and reduces waste."
+      "businessContext": "Indicates if a concrete pump is required for placement. Adds cost and reduces waste.",
+      "label_i18n": {
+        "en": "Use Concrete Pump"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if a concrete pump is required for placement. Adds cost and reduces waste."
+      }
     }
   ],
   "validation": {

@@ -36,7 +36,13 @@
           "label": "20 ft Open Top (32.5 m³)"
         }
       ],
-      "businessContext": "Select the container type to define internal volume and dimensional constraints per ISO 668."
+      "businessContext": "Select the container type to define internal volume and dimensional constraints per ISO 668.",
+      "label_i18n": {
+        "en": "Container Type"
+      },
+      "businessContext_i18n": {
+        "en": "Select the container type to define internal volume and dimensional constraints per ISO 668."
+      }
     },
     {
       "id": "cargo_length_cm",
@@ -46,7 +52,13 @@
       "default": 120,
       "min": 10,
       "max": 1200,
-      "businessContext": "Length of the primary cargo unit (pallet or box). Must align with container internal length."
+      "businessContext": "Length of the primary cargo unit (pallet or box). Must align with container internal length.",
+      "label_i18n": {
+        "en": "Cargo Length (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the primary cargo unit (pallet or box). Must align with container internal length."
+      }
     },
     {
       "id": "cargo_width_cm",
@@ -56,7 +68,13 @@
       "default": 100,
       "min": 10,
       "max": 240,
-      "businessContext": "Width of the cargo unit. Affects lateral stacking and aisle space."
+      "businessContext": "Width of the cargo unit. Affects lateral stacking and aisle space.",
+      "label_i18n": {
+        "en": "Cargo Width (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Width of the cargo unit. Affects lateral stacking and aisle space."
+      }
     },
     {
       "id": "cargo_height_cm",
@@ -66,7 +84,13 @@
       "default": 150,
       "min": 10,
       "max": 270,
-      "businessContext": "Height of the cargo unit. Must respect container door height and internal height."
+      "businessContext": "Height of the cargo unit. Must respect container door height and internal height.",
+      "label_i18n": {
+        "en": "Cargo Height (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the cargo unit. Must respect container door height and internal height."
+      }
     },
     {
       "id": "cargo_weight_kg",
@@ -76,7 +100,13 @@
       "default": 500,
       "min": 1,
       "max": 28000,
-      "businessContext": "Weight per cargo unit. Critical for gross weight limit and axle load distribution."
+      "businessContext": "Weight per cargo unit. Critical for gross weight limit and axle load distribution.",
+      "label_i18n": {
+        "en": "Cargo Weight per Unit (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Weight per cargo unit. Critical for gross weight limit and axle load distribution."
+      }
     },
     {
       "id": "stacking_factor",
@@ -86,7 +116,13 @@
       "default": 1,
       "min": 1,
       "max": 5,
-      "businessContext": "Number of cargo units that can be stacked vertically, considering crush resistance and stability."
+      "businessContext": "Number of cargo units that can be stacked vertically, considering crush resistance and stability.",
+      "label_i18n": {
+        "en": "Stacking Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cargo units that can be stacked vertically, considering crush resistance and stability."
+      }
     },
     {
       "id": "load_secure_method",
@@ -108,7 +144,13 @@
           "label": "Shrink Wrap"
         }
       ],
-      "businessContext": "Method used to secure cargo. Affects usable volume and weight distribution per CTU Code."
+      "businessContext": "Method used to secure cargo. Affects usable volume and weight distribution per CTU Code.",
+      "label_i18n": {
+        "en": "Load Securing Method"
+      },
+      "businessContext_i18n": {
+        "en": "Method used to secure cargo. Affects usable volume and weight distribution per CTU Code."
+      }
     },
     {
       "id": "use_pallet",
@@ -116,7 +158,13 @@
       "type": "boolean",
       "unit": "",
       "default": true,
-      "businessContext": "Indicates if cargo is palletized. Pallet dimensions add to base footprint and reduce usable height."
+      "businessContext": "Indicates if cargo is palletized. Pallet dimensions add to base footprint and reduce usable height.",
+      "label_i18n": {
+        "en": "Use Pallet"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if cargo is palletized. Pallet dimensions add to base footprint and reduce usable height."
+      }
     },
     {
       "id": "pallet_height_cm",
@@ -126,7 +174,13 @@
       "default": 15,
       "min": 0,
       "max": 30,
-      "businessContext": "Height of the pallet (if used). Added to cargo height for total unit height."
+      "businessContext": "Height of the pallet (if used). Added to cargo height for total unit height.",
+      "label_i18n": {
+        "en": "Pallet Height (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Height of the pallet (if used). Added to cargo height for total unit height."
+      }
     }
   ],
   "validation": {

@@ -19,7 +19,13 @@
       "default": 150,
       "min": 10,
       "max": 500,
-      "businessContext": "Surface speed of the workpiece relative to the cutting tool, based on ISO 3685."
+      "businessContext": "Surface speed of the workpiece relative to the cutting tool, based on ISO 3685.",
+      "label_i18n": {
+        "en": "Cutting Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Surface speed of the workpiece relative to the cutting tool, based on ISO 3685."
+      }
     },
     {
       "id": "feed_rate",
@@ -29,7 +35,13 @@
       "default": 0.2,
       "min": 0.05,
       "max": 1,
-      "businessContext": "Linear distance the tool advances per revolution, affects chip load and tool wear."
+      "businessContext": "Linear distance the tool advances per revolution, affects chip load and tool wear.",
+      "label_i18n": {
+        "en": "Feed Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Linear distance the tool advances per revolution, affects chip load and tool wear."
+      }
     },
     {
       "id": "depth_of_cut",
@@ -39,7 +51,13 @@
       "default": 2,
       "min": 0.1,
       "max": 10,
-      "businessContext": "Radial or axial engagement of the tool, influences cutting forces and heat generation."
+      "businessContext": "Radial or axial engagement of the tool, influences cutting forces and heat generation.",
+      "label_i18n": {
+        "en": "Depth of Cut"
+      },
+      "businessContext_i18n": {
+        "en": "Radial or axial engagement of the tool, influences cutting forces and heat generation."
+      }
     },
     {
       "id": "tool_material",
@@ -56,7 +74,13 @@
         "ceramic",
         "cbn",
         "diamond"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Tool Material"
+      },
+      "businessContext_i18n": {
+        "en": "Material of the cutting tool, affects wear resistance and optimal cutting parameters."
+      }
     },
     {
       "id": "workpiece_material",
@@ -74,7 +98,13 @@
         "titanium",
         "cast_iron",
         "superalloy"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Workpiece Material"
+      },
+      "businessContext_i18n": {
+        "en": "Material being machined, determines machinability rating and recommended speeds."
+      }
     },
     {
       "id": "coolant_used",
@@ -84,7 +114,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "Indicates if coolant is applied, reduces thermal stress and extends tool life."
+      "businessContext": "Indicates if coolant is applied, reduces thermal stress and extends tool life.",
+      "label_i18n": {
+        "en": "Coolant Used"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if coolant is applied, reduces thermal stress and extends tool life."
+      }
     },
     {
       "id": "machine_stability_factor",
@@ -94,7 +130,13 @@
       "default": 1,
       "min": 0.5,
       "max": 1.5,
-      "businessContext": "Factor representing machine rigidity and vibration damping, based on condition monitoring data."
+      "businessContext": "Factor representing machine rigidity and vibration damping, based on condition monitoring data.",
+      "label_i18n": {
+        "en": "Machine Stability Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor representing machine rigidity and vibration damping, based on condition monitoring data."
+      }
     }
   ],
   "validation": {

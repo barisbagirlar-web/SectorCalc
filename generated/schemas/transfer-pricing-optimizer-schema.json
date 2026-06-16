@@ -19,7 +19,13 @@
       "default": 100,
       "min": 0,
       "max": 10000,
-      "businessContext": "Direct manufacturing cost per unit (materials, labor, overhead) at the producing entity."
+      "businessContext": "Direct manufacturing cost per unit (materials, labor, overhead) at the producing entity.",
+      "label_i18n": {
+        "en": "Production Cost per Unit (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Direct manufacturing cost per unit (materials, labor, overhead) at the producing entity."
+      }
     },
     {
       "id": "market_price_per_unit",
@@ -29,7 +35,13 @@
       "default": 150,
       "min": 0,
       "max": 50000,
-      "businessContext": "Arm's length market price for comparable uncontrolled transactions."
+      "businessContext": "Arm's length market price for comparable uncontrolled transactions.",
+      "label_i18n": {
+        "en": "Market Price per Unit (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Arm's length market price for comparable uncontrolled transactions."
+      }
     },
     {
       "id": "volume_units",
@@ -39,7 +51,13 @@
       "default": 10000,
       "min": 1,
       "max": 10000000,
-      "businessContext": "Total number of units transferred between entities in the period."
+      "businessContext": "Total number of units transferred between entities in the period.",
+      "label_i18n": {
+        "en": "Transaction Volume (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units transferred between entities in the period."
+      }
     },
     {
       "id": "tax_rate_producer",
@@ -49,7 +67,13 @@
       "default": 21,
       "min": 0,
       "max": 50,
-      "businessContext": "Effective corporate tax rate of the producing entity's jurisdiction."
+      "businessContext": "Effective corporate tax rate of the producing entity's jurisdiction.",
+      "label_i18n": {
+        "en": "Producer Entity Tax Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Effective corporate tax rate of the producing entity's jurisdiction."
+      }
     },
     {
       "id": "tax_rate_distributor",
@@ -59,7 +83,13 @@
       "default": 25,
       "min": 0,
       "max": 50,
-      "businessContext": "Effective corporate tax rate of the distributing entity's jurisdiction."
+      "businessContext": "Effective corporate tax rate of the distributing entity's jurisdiction.",
+      "label_i18n": {
+        "en": "Distributor Entity Tax Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Effective corporate tax rate of the distributing entity's jurisdiction."
+      }
     },
     {
       "id": "transfer_price_current",
@@ -69,7 +99,13 @@
       "default": 120,
       "min": 0,
       "max": 50000,
-      "businessContext": "Existing transfer price used for intercompany transactions."
+      "businessContext": "Existing transfer price used for intercompany transactions.",
+      "label_i18n": {
+        "en": "Current Transfer Price (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Existing transfer price used for intercompany transactions."
+      }
     },
     {
       "id": "compliance_risk_tolerance",
@@ -84,7 +120,13 @@
         "Medium",
         "High"
       ],
-      "businessContext": "Company's appetite for audit risk; Low = tight arm's length range, High = wider range."
+      "businessContext": "Company's appetite for audit risk; Low = tight arm's length range, High = wider range.",
+      "label_i18n": {
+        "en": "Compliance Risk Tolerance (Low/Medium/High)"
+      },
+      "businessContext_i18n": {
+        "en": "Company's appetite for audit risk; Low = tight arm's length range, High = wider range."
+      }
     },
     {
       "id": "include_lean_waste_factor",
@@ -94,7 +136,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "If true, applies a waste reduction factor (muda) to production cost based on Six Sigma process capability."
+      "businessContext": "If true, applies a waste reduction factor (muda) to production cost based on Six Sigma process capability.",
+      "label_i18n": {
+        "en": "Include Lean Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies a waste reduction factor (muda) to production cost based on Six Sigma process capability."
+      }
     }
   ],
   "validation": {

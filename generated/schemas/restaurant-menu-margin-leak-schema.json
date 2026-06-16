@@ -19,7 +19,13 @@
       "default": 18.5,
       "min": 0,
       "max": 500,
-      "businessContext": "Average price paid per guest for a main dish or complete meal as listed on the menu."
+      "businessContext": "Average price paid per guest for a main dish or complete meal as listed on the menu.",
+      "label_i18n": {
+        "en": "Average Cover Price (Menu Price)"
+      },
+      "businessContext_i18n": {
+        "en": "Average price paid per guest for a main dish or complete meal as listed on the menu."
+      }
     },
     {
       "id": "food_cost_per_cover",
@@ -29,7 +35,13 @@
       "default": 6.5,
       "min": 0,
       "max": 200,
-      "businessContext": "Direct ingredient cost allocated to each cover (plate cost)."
+      "businessContext": "Direct ingredient cost allocated to each cover (plate cost).",
+      "label_i18n": {
+        "en": "Food Cost per Cover"
+      },
+      "businessContext_i18n": {
+        "en": "Direct ingredient cost allocated to each cover (plate cost)."
+      }
     },
     {
       "id": "labor_cost_per_cover",
@@ -39,7 +51,13 @@
       "default": 4.2,
       "min": 0,
       "max": 100,
-      "businessContext": "Direct labor (kitchen + service) cost per guest."
+      "businessContext": "Direct labor (kitchen + service) cost per guest.",
+      "label_i18n": {
+        "en": "Labor Cost per Cover"
+      },
+      "businessContext_i18n": {
+        "en": "Direct labor (kitchen + service) cost per guest."
+      }
     },
     {
       "id": "overhead_per_cover",
@@ -49,7 +67,13 @@
       "default": 2.8,
       "min": 0,
       "max": 100,
-      "businessContext": "Rent, utilities, insurance, and other fixed costs allocated per cover."
+      "businessContext": "Rent, utilities, insurance, and other fixed costs allocated per cover.",
+      "label_i18n": {
+        "en": "Overhead per Cover"
+      },
+      "businessContext_i18n": {
+        "en": "Rent, utilities, insurance, and other fixed costs allocated per cover."
+      }
     },
     {
       "id": "waste_percentage",
@@ -59,7 +83,13 @@
       "default": 5,
       "min": 0,
       "max": 50,
-      "businessContext": "Percentage of food purchased that is discarded due to spoilage, overproduction, or plate waste."
+      "businessContext": "Percentage of food purchased that is discarded due to spoilage, overproduction, or plate waste.",
+      "label_i18n": {
+        "en": "Food Waste Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of food purchased that is discarded due to spoilage, overproduction, or plate waste."
+      }
     },
     {
       "id": "theft_shrinkage_percentage",
@@ -69,7 +99,13 @@
       "default": 1.5,
       "min": 0,
       "max": 20,
-      "businessContext": "Estimated loss of inventory due to theft, misreporting, or unrecorded consumption."
+      "businessContext": "Estimated loss of inventory due to theft, misreporting, or unrecorded consumption.",
+      "label_i18n": {
+        "en": "Theft & Shrinkage Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated loss of inventory due to theft, misreporting, or unrecorded consumption."
+      }
     },
     {
       "id": "discount_comp_percentage",
@@ -79,7 +115,13 @@
       "default": 3,
       "min": 0,
       "max": 30,
-      "businessContext": "Percentage of revenue lost due to employee meals, promotions, comps, and discounts."
+      "businessContext": "Percentage of revenue lost due to employee meals, promotions, comps, and discounts.",
+      "label_i18n": {
+        "en": "Discount & Comp Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of revenue lost due to employee meals, promotions, comps, and discounts."
+      }
     },
     {
       "id": "covers_per_period",
@@ -89,7 +131,13 @@
       "default": 3000,
       "min": 0,
       "max": 100000,
-      "businessContext": "Total number of guests served in the measurement period (month)."
+      "businessContext": "Total number of guests served in the measurement period (month).",
+      "label_i18n": {
+        "en": "Covers per Period (Monthly)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of guests served in the measurement period (month)."
+      }
     },
     {
       "id": "menu_engineering_score",
@@ -99,7 +147,13 @@
       "default": 6,
       "min": 1,
       "max": 10,
-      "businessContext": "Subjective score of menu layout, item placement, and upselling effectiveness (1=poor, 10=excellent)."
+      "businessContext": "Subjective score of menu layout, item placement, and upselling effectiveness (1=poor, 10=excellent).",
+      "label_i18n": {
+        "en": "Menu Engineering Score (1-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Subjective score of menu layout, item placement, and upselling effectiveness (1=poor, 10=excellent)."
+      }
     },
     {
       "id": "lean_kitchen_maturity",
@@ -114,7 +168,13 @@
         "Optimized",
         "World-Class"
       ],
-      "businessContext": "Maturity of Lean/Six Sigma practices in kitchen operations (ISO 9001 / Lean principles)."
+      "businessContext": "Maturity of Lean/Six Sigma practices in kitchen operations (ISO 9001 / Lean principles).",
+      "label_i18n": {
+        "en": "Lean Kitchen Maturity Level"
+      },
+      "businessContext_i18n": {
+        "en": "Maturity of Lean/Six Sigma practices in kitchen operations (ISO 9001 / Lean principles)."
+      }
     }
   ],
   "validation": {

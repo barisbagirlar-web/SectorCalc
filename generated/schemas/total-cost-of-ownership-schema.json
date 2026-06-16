@@ -17,7 +17,13 @@
       "default": 100000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Initial capital expenditure for acquiring the asset (ISO 15663 lifecycle costing)."
+      "businessContext": "Initial capital expenditure for acquiring the asset (ISO 15663 lifecycle costing).",
+      "label_i18n": {
+        "en": "Purchase Price"
+      },
+      "businessContext_i18n": {
+        "en": "Initial capital expenditure for acquiring the asset (ISO 15663 lifecycle costing)."
+      }
     },
     {
       "id": "annual_energy_cost",
@@ -27,7 +33,13 @@
       "default": 12000,
       "min": 0,
       "max": 500000,
-      "businessContext": "Yearly electricity, fuel, or other energy consumption costs (Lean energy efficiency)."
+      "businessContext": "Yearly electricity, fuel, or other energy consumption costs (Lean energy efficiency).",
+      "label_i18n": {
+        "en": "Annual Energy Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Yearly electricity, fuel, or other energy consumption costs (Lean energy efficiency)."
+      }
     },
     {
       "id": "annual_maintenance_cost",
@@ -37,7 +49,13 @@
       "default": 8000,
       "min": 0,
       "max": 500000,
-      "businessContext": "Planned and unplanned maintenance expenses (Six Sigma reliability)."
+      "businessContext": "Planned and unplanned maintenance expenses (Six Sigma reliability).",
+      "label_i18n": {
+        "en": "Annual Maintenance Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Planned and unplanned maintenance expenses (Six Sigma reliability)."
+      }
     },
     {
       "id": "annual_labor_cost",
@@ -47,7 +65,13 @@
       "default": 50000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Operator and technician wages directly attributable to the asset (WERC DC metrics)."
+      "businessContext": "Operator and technician wages directly attributable to the asset (WERC DC metrics).",
+      "label_i18n": {
+        "en": "Annual Labor Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Operator and technician wages directly attributable to the asset (WERC DC metrics)."
+      }
     },
     {
       "id": "annual_consumables_cost",
@@ -57,7 +81,13 @@
       "default": 3000,
       "min": 0,
       "max": 200000,
-      "businessContext": "Filters, lubricants, spare parts, and other recurring supplies."
+      "businessContext": "Filters, lubricants, spare parts, and other recurring supplies.",
+      "label_i18n": {
+        "en": "Annual Consumables Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Filters, lubricants, spare parts, and other recurring supplies."
+      }
     },
     {
       "id": "useful_life_years",
@@ -67,7 +97,13 @@
       "default": 10,
       "min": 1,
       "max": 50,
-      "businessContext": "Expected operational lifespan per ISO 15663 or manufacturer specification."
+      "businessContext": "Expected operational lifespan per ISO 15663 or manufacturer specification.",
+      "label_i18n": {
+        "en": "Useful Life (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected operational lifespan per ISO 15663 or manufacturer specification."
+      }
     },
     {
       "id": "salvage_value",
@@ -77,7 +113,13 @@
       "default": 10000,
       "min": 0,
       "max": 5000000,
-      "businessContext": "Residual value at end of useful life (accounting standard)."
+      "businessContext": "Residual value at end of useful life (accounting standard).",
+      "label_i18n": {
+        "en": "Salvage Value"
+      },
+      "businessContext_i18n": {
+        "en": "Residual value at end of useful life (accounting standard)."
+      }
     },
     {
       "id": "discount_rate",
@@ -87,7 +129,13 @@
       "default": 5,
       "min": 0,
       "max": 30,
-      "businessContext": "Weighted average cost of capital or hurdle rate for NPV calculation."
+      "businessContext": "Weighted average cost of capital or hurdle rate for NPV calculation.",
+      "label_i18n": {
+        "en": "Discount Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted average cost of capital or hurdle rate for NPV calculation."
+      }
     },
     {
       "id": "inflation_rate",
@@ -97,7 +145,13 @@
       "default": 2,
       "min": 0,
       "max": 20,
-      "businessContext": "Expected annual inflation for future cost escalation."
+      "businessContext": "Expected annual inflation for future cost escalation.",
+      "label_i18n": {
+        "en": "Inflation Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual inflation for future cost escalation."
+      }
     },
     {
       "id": "utilization_hours_per_year",
@@ -107,7 +161,13 @@
       "default": 2000,
       "min": 0,
       "max": 8760,
-      "businessContext": "Actual operating hours per year (OEE availability)."
+      "businessContext": "Actual operating hours per year (OEE availability).",
+      "label_i18n": {
+        "en": "Utilization Hours per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Actual operating hours per year (OEE availability)."
+      }
     },
     {
       "id": "downtime_cost_per_hour",
@@ -117,7 +177,13 @@
       "default": 500,
       "min": 0,
       "max": 100000,
-      "businessContext": "Lost revenue or penalty cost per hour of unplanned downtime."
+      "businessContext": "Lost revenue or penalty cost per hour of unplanned downtime.",
+      "label_i18n": {
+        "en": "Downtime Cost per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Lost revenue or penalty cost per hour of unplanned downtime."
+      }
     },
     {
       "id": "expected_downtime_hours_per_year",
@@ -127,7 +193,13 @@
       "default": 100,
       "min": 0,
       "max": 8760,
-      "businessContext": "Planned and unplanned downtime (MTBF/MTTR based)."
+      "businessContext": "Planned and unplanned downtime (MTBF/MTTR based).",
+      "label_i18n": {
+        "en": "Expected Downtime Hours per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Planned and unplanned downtime (MTBF/MTTR based)."
+      }
     },
     {
       "id": "training_cost_per_operator",
@@ -137,7 +209,13 @@
       "default": 2000,
       "min": 0,
       "max": 50000,
-      "businessContext": "Initial and recurring training cost per operator (Lean skill matrix)."
+      "businessContext": "Initial and recurring training cost per operator (Lean skill matrix).",
+      "label_i18n": {
+        "en": "Training Cost per Operator"
+      },
+      "businessContext_i18n": {
+        "en": "Initial and recurring training cost per operator (Lean skill matrix)."
+      }
     },
     {
       "id": "number_of_operators",
@@ -147,7 +225,13 @@
       "default": 2,
       "min": 1,
       "max": 100,
-      "businessContext": "Direct operators assigned to the asset."
+      "businessContext": "Direct operators assigned to the asset.",
+      "label_i18n": {
+        "en": "Number of Operators"
+      },
+      "businessContext_i18n": {
+        "en": "Direct operators assigned to the asset."
+      }
     },
     {
       "id": "environmental_compliance_cost_per_year",
@@ -157,7 +241,13 @@
       "default": 5000,
       "min": 0,
       "max": 500000,
-      "businessContext": "Permits, emissions monitoring, waste disposal (ISO 14001)."
+      "businessContext": "Permits, emissions monitoring, waste disposal (ISO 14001).",
+      "label_i18n": {
+        "en": "Environmental Compliance Cost per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Permits, emissions monitoring, waste disposal (ISO 14001)."
+      }
     },
     {
       "id": "asset_type",
@@ -171,7 +261,13 @@
         "energy",
         "construction"
       ],
-      "businessContext": "Category influences depreciation method and maintenance factors."
+      "businessContext": "Category influences depreciation method and maintenance factors.",
+      "label_i18n": {
+        "en": "Asset Type"
+      },
+      "businessContext_i18n": {
+        "en": "Category influences depreciation method and maintenance factors."
+      }
     },
     {
       "id": "depreciation_method",
@@ -184,7 +280,13 @@
         "declining_balance",
         "sum_of_years_digits"
       ],
-      "businessContext": "Accounting method for annual depreciation expense."
+      "businessContext": "Accounting method for annual depreciation expense.",
+      "label_i18n": {
+        "en": "Depreciation Method"
+      },
+      "businessContext_i18n": {
+        "en": "Accounting method for annual depreciation expense."
+      }
     },
     {
       "id": "include_downtime",
@@ -192,7 +294,13 @@
       "type": "boolean",
       "unit": "",
       "default": true,
-      "businessContext": "Toggle to include or exclude downtime-related costs in TCO."
+      "businessContext": "Toggle to include or exclude downtime-related costs in TCO.",
+      "label_i18n": {
+        "en": "Include Downtime Costs"
+      },
+      "businessContext_i18n": {
+        "en": "Toggle to include or exclude downtime-related costs in TCO."
+      }
     }
   ],
   "validation": {

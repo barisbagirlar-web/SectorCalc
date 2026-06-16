@@ -42,7 +42,13 @@
           "label": "Brass C360"
         }
       ],
-      "businessContext": "Material selection directly impacts tool wear, cutting speed, and cost per part."
+      "businessContext": "Material selection directly impacts tool wear, cutting speed, and cost per part.",
+      "label_i18n": {
+        "en": "Material Type"
+      },
+      "businessContext_i18n": {
+        "en": "Material selection directly impacts tool wear, cutting speed, and cost per part."
+      }
     },
     {
       "id": "part_weight_kg",
@@ -52,7 +58,13 @@
       "default": 0.5,
       "min": 0.001,
       "max": 500,
-      "businessContext": "Weight of the finished part, used to calculate raw material cost and scrap."
+      "businessContext": "Weight of the finished part, used to calculate raw material cost and scrap.",
+      "label_i18n": {
+        "en": "Part Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of the finished part, used to calculate raw material cost and scrap."
+      }
     },
     {
       "id": "stock_volume_cm3",
@@ -62,7 +74,13 @@
       "default": 200,
       "min": 1,
       "max": 100000,
-      "businessContext": "Volume of raw material block before machining, determines material usage."
+      "businessContext": "Volume of raw material block before machining, determines material usage.",
+      "label_i18n": {
+        "en": "Stock Volume (cm³)"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of raw material block before machining, determines material usage."
+      }
     },
     {
       "id": "machining_time_min",
@@ -72,7 +90,13 @@
       "default": 15,
       "min": 0.1,
       "max": 1440,
-      "businessContext": "Total cycle time per part including cutting, tool changes, and rapid moves."
+      "businessContext": "Total cycle time per part including cutting, tool changes, and rapid moves.",
+      "label_i18n": {
+        "en": "Machining Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Total cycle time per part including cutting, tool changes, and rapid moves."
+      }
     },
     {
       "id": "setup_time_min",
@@ -82,7 +106,13 @@
       "default": 60,
       "min": 0,
       "max": 480,
-      "businessContext": "Time to fixture, align, and program the machine for the batch."
+      "businessContext": "Time to fixture, align, and program the machine for the batch.",
+      "label_i18n": {
+        "en": "Setup Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Time to fixture, align, and program the machine for the batch."
+      }
     },
     {
       "id": "batch_size",
@@ -92,7 +122,13 @@
       "default": 100,
       "min": 1,
       "max": 100000,
-      "businessContext": "Number of identical parts produced in one production run."
+      "businessContext": "Number of identical parts produced in one production run.",
+      "label_i18n": {
+        "en": "Batch Size (parts)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical parts produced in one production run."
+      }
     },
     {
       "id": "machine_hourly_rate_usd",
@@ -102,7 +138,13 @@
       "default": 85,
       "min": 20,
       "max": 500,
-      "businessContext": "Fully burdened machine cost including depreciation, maintenance, and energy."
+      "businessContext": "Fully burdened machine cost including depreciation, maintenance, and energy.",
+      "label_i18n": {
+        "en": "Machine Hourly Rate ($/hr)"
+      },
+      "businessContext_i18n": {
+        "en": "Fully burdened machine cost including depreciation, maintenance, and energy."
+      }
     },
     {
       "id": "labor_hourly_rate_usd",
@@ -112,7 +154,13 @@
       "default": 35,
       "min": 10,
       "max": 150,
-      "businessContext": "Operator wage including overhead and benefits."
+      "businessContext": "Operator wage including overhead and benefits.",
+      "label_i18n": {
+        "en": "Labor Hourly Rate ($/hr)"
+      },
+      "businessContext_i18n": {
+        "en": "Operator wage including overhead and benefits."
+      }
     },
     {
       "id": "tooling_cost_per_part_usd",
@@ -122,7 +170,13 @@
       "default": 2.5,
       "min": 0,
       "max": 100,
-      "businessContext": "Consumable tooling cost allocated per part (inserts, drills, end mills)."
+      "businessContext": "Consumable tooling cost allocated per part (inserts, drills, end mills).",
+      "label_i18n": {
+        "en": "Tooling Cost per Part ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Consumable tooling cost allocated per part (inserts, drills, end mills)."
+      }
     },
     {
       "id": "overhead_percentage",
@@ -132,7 +186,13 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Facility, quality, and administrative overhead as a percentage of direct costs."
+      "businessContext": "Facility, quality, and administrative overhead as a percentage of direct costs.",
+      "label_i18n": {
+        "en": "Overhead Percentage (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Facility, quality, and administrative overhead as a percentage of direct costs."
+      }
     },
     {
       "id": "scrap_rate_percent",
@@ -142,7 +202,13 @@
       "default": 3,
       "min": 0,
       "max": 50,
-      "businessContext": "Percentage of parts that fail inspection and are scrapped."
+      "businessContext": "Percentage of parts that fail inspection and are scrapped.",
+      "label_i18n": {
+        "en": "Scrap Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of parts that fail inspection and are scrapped."
+      }
     },
     {
       "id": "material_cost_per_kg_usd",
@@ -152,7 +218,13 @@
       "default": 5,
       "min": 0.5,
       "max": 200,
-      "businessContext": "Price of raw material per kilogram, varies by material type."
+      "businessContext": "Price of raw material per kilogram, varies by material type.",
+      "label_i18n": {
+        "en": "Material Cost per kg ($/kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Price of raw material per kilogram, varies by material type."
+      }
     },
     {
       "id": "density_g_per_cm3",
@@ -162,7 +234,13 @@
       "default": 2.7,
       "min": 0.5,
       "max": 20,
-      "businessContext": "Material density used to convert volume to weight."
+      "businessContext": "Material density used to convert volume to weight.",
+      "label_i18n": {
+        "en": "Density (g/cm³)"
+      },
+      "businessContext_i18n": {
+        "en": "Material density used to convert volume to weight."
+      }
     }
   ],
   "validation": {

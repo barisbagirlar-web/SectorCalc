@@ -19,7 +19,13 @@
       "default": 120,
       "min": 50,
       "max": 250,
-      "businessContext": "Standard hourly labor rate billed to customer. Typical range for auto shops."
+      "businessContext": "Standard hourly labor rate billed to customer. Typical range for auto shops.",
+      "label_i18n": {
+        "en": "Labor Rate Charged to Customer"
+      },
+      "businessContext_i18n": {
+        "en": "Standard hourly labor rate billed to customer. Typical range for auto shops."
+      }
     },
     {
       "id": "labor_rate_effective",
@@ -29,7 +35,13 @@
       "default": 95,
       "min": 30,
       "max": 200,
-      "businessContext": "Actual average labor rate realized after discounts, warranty adjustments, or internal write-offs."
+      "businessContext": "Actual average labor rate realized after discounts, warranty adjustments, or internal write-offs.",
+      "label_i18n": {
+        "en": "Effective Labor Rate (After Discounts/Write-offs)"
+      },
+      "businessContext_i18n": {
+        "en": "Actual average labor rate realized after discounts, warranty adjustments, or internal write-offs."
+      }
     },
     {
       "id": "total_labor_hours_sold",
@@ -39,7 +51,13 @@
       "default": 1600,
       "min": 0,
       "max": 10000,
-      "businessContext": "Total billable labor hours sold in the period (monthly or annually)."
+      "businessContext": "Total billable labor hours sold in the period (monthly or annually).",
+      "label_i18n": {
+        "en": "Total Labor Hours Sold"
+      },
+      "businessContext_i18n": {
+        "en": "Total billable labor hours sold in the period (monthly or annually)."
+      }
     },
     {
       "id": "parts_markup_percent",
@@ -49,7 +67,13 @@
       "default": 40,
       "min": 0,
       "max": 200,
-      "businessContext": "Standard markup on parts cost before any discounts."
+      "businessContext": "Standard markup on parts cost before any discounts.",
+      "label_i18n": {
+        "en": "Parts Markup Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Standard markup on parts cost before any discounts."
+      }
     },
     {
       "id": "parts_markup_realized",
@@ -59,7 +83,13 @@
       "default": 28,
       "min": 0,
       "max": 200,
-      "businessContext": "Actual markup realized after discounts, promotions, or supplier constraints."
+      "businessContext": "Actual markup realized after discounts, promotions, or supplier constraints.",
+      "label_i18n": {
+        "en": "Realized Parts Markup Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Actual markup realized after discounts, promotions, or supplier constraints."
+      }
     },
     {
       "id": "total_parts_cost",
@@ -69,7 +99,13 @@
       "default": 240000,
       "min": 0,
       "max": 5000000,
-      "businessContext": "Total cost of parts sold in the period."
+      "businessContext": "Total cost of parts sold in the period.",
+      "label_i18n": {
+        "en": "Total Parts Cost (COGS)"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost of parts sold in the period."
+      }
     },
     {
       "id": "shop_supply_charge_per_ro",
@@ -79,7 +115,13 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Standard shop supply fee charged per repair order."
+      "businessContext": "Standard shop supply fee charged per repair order.",
+      "label_i18n": {
+        "en": "Shop Supply Charge per Repair Order"
+      },
+      "businessContext_i18n": {
+        "en": "Standard shop supply fee charged per repair order."
+      }
     },
     {
       "id": "shop_supply_cost_per_ro",
@@ -89,7 +131,13 @@
       "default": 22,
       "min": 0,
       "max": 150,
-      "businessContext": "Actual cost incurred for shop supplies per repair order."
+      "businessContext": "Actual cost incurred for shop supplies per repair order.",
+      "label_i18n": {
+        "en": "Actual Shop Supply Cost per Repair Order"
+      },
+      "businessContext_i18n": {
+        "en": "Actual cost incurred for shop supplies per repair order."
+      }
     },
     {
       "id": "number_of_repair_orders",
@@ -99,7 +147,13 @@
       "default": 1200,
       "min": 0,
       "max": 50000,
-      "businessContext": "Total repair orders completed in the period."
+      "businessContext": "Total repair orders completed in the period.",
+      "label_i18n": {
+        "en": "Number of Repair Orders"
+      },
+      "businessContext_i18n": {
+        "en": "Total repair orders completed in the period."
+      }
     },
     {
       "id": "warranty_labor_hours",
@@ -109,7 +163,13 @@
       "default": 80,
       "min": 0,
       "max": 2000,
-      "businessContext": "Labor hours written off due to warranty claims (typically reimbursed at lower rate)."
+      "businessContext": "Labor hours written off due to warranty claims (typically reimbursed at lower rate).",
+      "label_i18n": {
+        "en": "Warranty Labor Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Labor hours written off due to warranty claims (typically reimbursed at lower rate)."
+      }
     },
     {
       "id": "warranty_labor_rate_reimbursed",
@@ -119,7 +179,13 @@
       "default": 70,
       "min": 0,
       "max": 200,
-      "businessContext": "Rate at which warranty labor is reimbursed by manufacturer or third party."
+      "businessContext": "Rate at which warranty labor is reimbursed by manufacturer or third party.",
+      "label_i18n": {
+        "en": "Warranty Labor Rate Reimbursed"
+      },
+      "businessContext_i18n": {
+        "en": "Rate at which warranty labor is reimbursed by manufacturer or third party."
+      }
     },
     {
       "id": "employee_utilization_rate",
@@ -129,7 +195,13 @@
       "default": 75,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of paid technician hours that are billable. Lean KPI."
+      "businessContext": "Percentage of paid technician hours that are billable. Lean KPI.",
+      "label_i18n": {
+        "en": "Employee Utilization Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of paid technician hours that are billable. Lean KPI."
+      }
     },
     {
       "id": "target_utilization_rate",
@@ -139,7 +211,13 @@
       "default": 85,
       "min": 50,
       "max": 100,
-      "businessContext": "Benchmark utilization rate from industry standards (e.g., WERC, ASA)."
+      "businessContext": "Benchmark utilization rate from industry standards (e.g., WERC, ASA).",
+      "label_i18n": {
+        "en": "Target Utilization Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Benchmark utilization rate from industry standards (e.g., WERC, ASA)."
+      }
     },
     {
       "id": "include_hidden_loss_drivers",
@@ -149,7 +227,13 @@
       "default": true,
       "min": 0,
       "max": 1,
-      "businessContext": "Toggle to include secondary loss drivers such as rework, idle time, and inventory shrinkage."
+      "businessContext": "Toggle to include secondary loss drivers such as rework, idle time, and inventory shrinkage.",
+      "label_i18n": {
+        "en": "Include Hidden Loss Drivers in Calculation"
+      },
+      "businessContext_i18n": {
+        "en": "Toggle to include secondary loss drivers such as rework, idle time, and inventory shrinkage."
+      }
     }
   ],
   "validation": {

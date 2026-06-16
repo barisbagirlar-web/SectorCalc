@@ -17,7 +17,13 @@
       "default": 500,
       "min": 1,
       "max": 100000,
-      "businessContext": "Total number of full-time equivalent employees in the organization."
+      "businessContext": "Total number of full-time equivalent employees in the organization.",
+      "label_i18n": {
+        "en": "Total Employees"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of full-time equivalent employees in the organization."
+      }
     },
     {
       "id": "absenteeism_rate",
@@ -27,7 +33,13 @@
       "default": 3.5,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of scheduled work hours lost due to unplanned absences (ISO 30400)."
+      "businessContext": "Percentage of scheduled work hours lost due to unplanned absences (ISO 30400).",
+      "label_i18n": {
+        "en": "Absenteeism Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of scheduled work hours lost due to unplanned absences (ISO 30400)."
+      }
     },
     {
       "id": "avg_hourly_wage",
@@ -37,7 +49,13 @@
       "default": 25,
       "min": 7.25,
       "max": 200,
-      "businessContext": "Weighted average hourly wage including benefits and payroll taxes."
+      "businessContext": "Weighted average hourly wage including benefits and payroll taxes.",
+      "label_i18n": {
+        "en": "Average Hourly Wage (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted average hourly wage including benefits and payroll taxes."
+      }
     },
     {
       "id": "avg_hours_per_day",
@@ -47,7 +65,13 @@
       "default": 8,
       "min": 1,
       "max": 16,
-      "businessContext": "Standard scheduled hours per employee per day."
+      "businessContext": "Standard scheduled hours per employee per day.",
+      "label_i18n": {
+        "en": "Average Hours per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Standard scheduled hours per employee per day."
+      }
     },
     {
       "id": "working_days_per_year",
@@ -57,7 +81,13 @@
       "default": 250,
       "min": 1,
       "max": 365,
-      "businessContext": "Number of scheduled working days per year (excluding weekends and holidays)."
+      "businessContext": "Number of scheduled working days per year (excluding weekends and holidays).",
+      "label_i18n": {
+        "en": "Working Days per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of scheduled working days per year (excluding weekends and holidays)."
+      }
     },
     {
       "id": "replacement_cost_per_hour",
@@ -67,7 +97,13 @@
       "default": 35,
       "min": 0,
       "max": 500,
-      "businessContext": "Average cost of overtime, temporary staff, or cross-training to cover absent employees."
+      "businessContext": "Average cost of overtime, temporary staff, or cross-training to cover absent employees.",
+      "label_i18n": {
+        "en": "Replacement Cost per Hour (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost of overtime, temporary staff, or cross-training to cover absent employees."
+      }
     },
     {
       "id": "overhead_multiplier",
@@ -77,7 +113,13 @@
       "default": 1.3,
       "min": 1,
       "max": 5,
-      "businessContext": "Multiplier to account for indirect costs (supervision, facilities, HR) per direct labor hour."
+      "businessContext": "Multiplier to account for indirect costs (supervision, facilities, HR) per direct labor hour.",
+      "label_i18n": {
+        "en": "Overhead Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to account for indirect costs (supervision, facilities, HR) per direct labor hour."
+      }
     },
     {
       "id": "industry_type",
@@ -95,7 +137,13 @@
         "Professional Services",
         "Construction"
       ],
-      "businessContext": "Industry sector for benchmarking and adjusting cost factors."
+      "businessContext": "Industry sector for benchmarking and adjusting cost factors.",
+      "label_i18n": {
+        "en": "Industry Type"
+      },
+      "businessContext_i18n": {
+        "en": "Industry sector for benchmarking and adjusting cost factors."
+      }
     },
     {
       "id": "include_overtime_penalty",
@@ -105,7 +153,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "If true, applies a 1.5x multiplier to replacement costs for overtime hours."
+      "businessContext": "If true, applies a 1.5x multiplier to replacement costs for overtime hours.",
+      "label_i18n": {
+        "en": "Include Overtime Penalty"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies a 1.5x multiplier to replacement costs for overtime hours."
+      }
     }
   ],
   "validation": {

@@ -19,7 +19,13 @@
       "default": 5,
       "min": 0.01,
       "max": 1000,
-      "businessContext": "Purchase price of the primary ingredient per kilogram, sourced from supplier invoice or ERP."
+      "businessContext": "Purchase price of the primary ingredient per kilogram, sourced from supplier invoice or ERP.",
+      "label_i18n": {
+        "en": "Raw Material Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase price of the primary ingredient per kilogram, sourced from supplier invoice or ERP."
+      }
     },
     {
       "id": "portion_weight",
@@ -29,7 +35,13 @@
       "default": 250,
       "min": 1,
       "max": 5000,
-      "businessContext": "Target weight of one finished portion as specified in the recipe or product spec."
+      "businessContext": "Target weight of one finished portion as specified in the recipe or product spec.",
+      "label_i18n": {
+        "en": "Portion Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Target weight of one finished portion as specified in the recipe or product spec."
+      }
     },
     {
       "id": "yield_percentage",
@@ -39,7 +51,13 @@
       "default": 85,
       "min": 0,
       "max": 100,
-      "businessContext": "Usable output after processing (trimming, cooking, etc.). Measured via Six Sigma process capability studies."
+      "businessContext": "Usable output after processing (trimming, cooking, etc.). Measured via Six Sigma process capability studies.",
+      "label_i18n": {
+        "en": "Yield Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Usable output after processing (trimming, cooking, etc.). Measured via Six Sigma process capability studies."
+      }
     },
     {
       "id": "labor_cost_per_hour",
@@ -49,7 +67,13 @@
       "default": 18,
       "min": 7.25,
       "max": 150,
-      "businessContext": "Fully burdened labor rate including wages, benefits, and payroll taxes."
+      "businessContext": "Fully burdened labor rate including wages, benefits, and payroll taxes.",
+      "label_i18n": {
+        "en": "Labor Cost per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Fully burdened labor rate including wages, benefits, and payroll taxes."
+      }
     },
     {
       "id": "labor_hours_per_batch",
@@ -59,7 +83,13 @@
       "default": 0.5,
       "min": 0.01,
       "max": 24,
-      "businessContext": "Direct labor time to produce one batch of the product."
+      "businessContext": "Direct labor time to produce one batch of the product.",
+      "label_i18n": {
+        "en": "Labor Hours per Batch"
+      },
+      "businessContext_i18n": {
+        "en": "Direct labor time to produce one batch of the product."
+      }
     },
     {
       "id": "batch_size",
@@ -69,7 +99,13 @@
       "default": 100,
       "min": 1,
       "max": 100000,
-      "businessContext": "Number of portions produced per batch."
+      "businessContext": "Number of portions produced per batch.",
+      "label_i18n": {
+        "en": "Batch Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of portions produced per batch."
+      }
     },
     {
       "id": "overhead_rate",
@@ -79,7 +115,13 @@
       "default": 25,
       "min": 0,
       "max": 200,
-      "businessContext": "Allocated overhead (utilities, rent, equipment depreciation) as a percentage of direct material and labor costs. Based on WERC cost-to-serve model."
+      "businessContext": "Allocated overhead (utilities, rent, equipment depreciation) as a percentage of direct material and labor costs. Based on WERC cost-to-serve model.",
+      "label_i18n": {
+        "en": "Overhead Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Allocated overhead (utilities, rent, equipment depreciation) as a percentage of direct material and labor costs. Based on WERC cost-to-serve model."
+      }
     },
     {
       "id": "waste_disposal_cost_per_kg",
@@ -89,7 +131,13 @@
       "default": 0.15,
       "min": 0,
       "max": 10,
-      "businessContext": "Cost to dispose of trimmings and waste, including hauling and landfill fees."
+      "businessContext": "Cost to dispose of trimmings and waste, including hauling and landfill fees.",
+      "label_i18n": {
+        "en": "Waste Disposal Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Cost to dispose of trimmings and waste, including hauling and landfill fees."
+      }
     },
     {
       "id": "trim_loss_percentage",
@@ -99,7 +147,13 @@
       "default": 10,
       "min": 0,
       "max": 50,
-      "businessContext": "Percentage of raw material lost during trimming or preparation."
+      "businessContext": "Percentage of raw material lost during trimming or preparation.",
+      "label_i18n": {
+        "en": "Trim Loss Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of raw material lost during trimming or preparation."
+      }
     },
     {
       "id": "currency",
@@ -116,7 +170,13 @@
         "CAD",
         "AUD"
       ],
-      "businessContext": "Currency for all monetary inputs and outputs."
+      "businessContext": "Currency for all monetary inputs and outputs.",
+      "label_i18n": {
+        "en": "Currency"
+      },
+      "businessContext_i18n": {
+        "en": "Currency for all monetary inputs and outputs."
+      }
     }
   ],
   "validation": {

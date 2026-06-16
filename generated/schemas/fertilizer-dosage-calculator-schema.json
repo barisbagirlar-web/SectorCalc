@@ -24,7 +24,13 @@
         "rice",
         "cotton"
       ],
-      "businessContext": "Determines the nitrogen (N), phosphorus (P), and potassium (K) uptake coefficients from agronomic tables."
+      "businessContext": "Determines the nitrogen (N), phosphorus (P), and potassium (K) uptake coefficients from agronomic tables.",
+      "label_i18n": {
+        "en": "Crop Type"
+      },
+      "businessContext_i18n": {
+        "en": "Determines the nitrogen (N), phosphorus (P), and potassium (K) uptake coefficients from agronomic tables."
+      }
     },
     {
       "id": "target_yield",
@@ -34,7 +40,13 @@
       "default": 8000,
       "min": 1000,
       "max": 20000,
-      "businessContext": "Expected harvest per hectare, used to calculate total nutrient demand."
+      "businessContext": "Expected harvest per hectare, used to calculate total nutrient demand.",
+      "label_i18n": {
+        "en": "Target Yield"
+      },
+      "businessContext_i18n": {
+        "en": "Expected harvest per hectare, used to calculate total nutrient demand."
+      }
     },
     {
       "id": "soil_nitrogen",
@@ -44,7 +56,13 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Measured from soil test; influences the amount of N fertilizer needed."
+      "businessContext": "Measured from soil test; influences the amount of N fertilizer needed.",
+      "label_i18n": {
+        "en": "Soil Nitrogen (N) Content"
+      },
+      "businessContext_i18n": {
+        "en": "Measured from soil test; influences the amount of N fertilizer needed."
+      }
     },
     {
       "id": "soil_phosphorus",
@@ -54,7 +72,13 @@
       "default": 10,
       "min": 0,
       "max": 80,
-      "businessContext": "Measured from soil test; influences the amount of P fertilizer needed."
+      "businessContext": "Measured from soil test; influences the amount of P fertilizer needed.",
+      "label_i18n": {
+        "en": "Soil Phosphorus (P) Content"
+      },
+      "businessContext_i18n": {
+        "en": "Measured from soil test; influences the amount of P fertilizer needed."
+      }
     },
     {
       "id": "soil_potassium",
@@ -64,7 +88,13 @@
       "default": 120,
       "min": 0,
       "max": 400,
-      "businessContext": "Measured from soil test; influences the amount of K fertilizer needed."
+      "businessContext": "Measured from soil test; influences the amount of K fertilizer needed.",
+      "label_i18n": {
+        "en": "Soil Potassium (K) Content"
+      },
+      "businessContext_i18n": {
+        "en": "Measured from soil test; influences the amount of K fertilizer needed."
+      }
     },
     {
       "id": "application_efficiency",
@@ -74,7 +104,13 @@
       "default": 70,
       "min": 30,
       "max": 95,
-      "businessContext": "Percentage of applied fertilizer that is actually taken up by the crop; affected by method, timing, and weather."
+      "businessContext": "Percentage of applied fertilizer that is actually taken up by the crop; affected by method, timing, and weather.",
+      "label_i18n": {
+        "en": "Application Efficiency Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of applied fertilizer that is actually taken up by the crop; affected by method, timing, and weather."
+      }
     },
     {
       "id": "fertilizer_type_n",
@@ -88,7 +124,13 @@
         "ammonium_sulfate",
         "anhydrous_ammonia"
       ],
-      "businessContext": "Different sources have different N concentration and loss characteristics."
+      "businessContext": "Different sources have different N concentration and loss characteristics.",
+      "label_i18n": {
+        "en": "Nitrogen Fertilizer Type"
+      },
+      "businessContext_i18n": {
+        "en": "Different sources have different N concentration and loss characteristics."
+      }
     },
     {
       "id": "fertilizer_type_p",
@@ -102,7 +144,13 @@
         "superphosphate",
         "tsp"
       ],
-      "businessContext": "Different sources have different P concentration and solubility."
+      "businessContext": "Different sources have different P concentration and solubility.",
+      "label_i18n": {
+        "en": "Phosphorus Fertilizer Type"
+      },
+      "businessContext_i18n": {
+        "en": "Different sources have different P concentration and solubility."
+      }
     },
     {
       "id": "fertilizer_type_k",
@@ -115,7 +163,13 @@
         "sop",
         "k_magnesia"
       ],
-      "businessContext": "Different sources have different K concentration and salt index."
+      "businessContext": "Different sources have different K concentration and salt index.",
+      "label_i18n": {
+        "en": "Potassium Fertilizer Type"
+      },
+      "businessContext_i18n": {
+        "en": "Different sources have different K concentration and salt index."
+      }
     },
     {
       "id": "soil_moisture",
@@ -125,7 +179,13 @@
       "default": 20,
       "min": 5,
       "max": 50,
-      "businessContext": "Affects nutrient availability and leaching risk; used in loss adjustment."
+      "businessContext": "Affects nutrient availability and leaching risk; used in loss adjustment.",
+      "label_i18n": {
+        "en": "Soil Moisture Content"
+      },
+      "businessContext_i18n": {
+        "en": "Affects nutrient availability and leaching risk; used in loss adjustment."
+      }
     },
     {
       "id": "rainfall_forecast",
@@ -135,7 +195,13 @@
       "default": 25,
       "min": 0,
       "max": 200,
-      "businessContext": "Expected precipitation; high rainfall increases N loss via leaching and denitrification."
+      "businessContext": "Expected precipitation; high rainfall increases N loss via leaching and denitrification.",
+      "label_i18n": {
+        "en": "Rainfall Forecast (next 7 days)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected precipitation; high rainfall increases N loss via leaching and denitrification."
+      }
     },
     {
       "id": "organic_matter",
@@ -145,7 +211,13 @@
       "default": 2.5,
       "min": 0.5,
       "max": 10,
-      "businessContext": "Contributes to nutrient supply; higher OM reduces fertilizer requirement."
+      "businessContext": "Contributes to nutrient supply; higher OM reduces fertilizer requirement.",
+      "label_i18n": {
+        "en": "Soil Organic Matter"
+      },
+      "businessContext_i18n": {
+        "en": "Contributes to nutrient supply; higher OM reduces fertilizer requirement."
+      }
     }
   ],
   "validation": {

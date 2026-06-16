@@ -19,7 +19,13 @@
       "default": 6,
       "min": 2,
       "max": 50,
-      "businessContext": "Total distinct production or storage areas in the facility."
+      "businessContext": "Total distinct production or storage areas in the facility.",
+      "label_i18n": {
+        "en": "Number of Departments"
+      },
+      "businessContext_i18n": {
+        "en": "Total distinct production or storage areas in the facility."
+      }
     },
     {
       "id": "flow_intensity_matrix",
@@ -29,7 +35,13 @@
       "default": "0,10,5,0,0,0;10,0,8,3,0,0;5,8,0,12,0,0;0,3,12,0,6,0;0,0,0,6,0,4;0,0,0,0,4,0",
       "min": 0,
       "max": 10000,
-      "businessContext": "Number of material movements between each pair of departments per day."
+      "businessContext": "Number of material movements between each pair of departments per day.",
+      "label_i18n": {
+        "en": "Flow Intensity Matrix (triangular, comma-separated per row)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of material movements between each pair of departments per day."
+      }
     },
     {
       "id": "distance_matrix",
@@ -39,7 +51,13 @@
       "default": "0,20,30,0,0,0;20,0,15,25,0,0;30,15,0,10,0,0;0,25,10,0,18,0;0,0,0,18,0,12;0,0,0,0,12,0",
       "min": 0,
       "max": 1000,
-      "businessContext": "Current or proposed travel distances between department centroids."
+      "businessContext": "Current or proposed travel distances between department centroids.",
+      "label_i18n": {
+        "en": "Distance Matrix (triangular, comma-separated per row)"
+      },
+      "businessContext_i18n": {
+        "en": "Current or proposed travel distances between department centroids."
+      }
     },
     {
       "id": "path_efficiency_factor",
@@ -49,7 +67,13 @@
       "default": 0.85,
       "min": 0.1,
       "max": 1,
-      "businessContext": "Ratio of straight-line distance to actual travel path (1.0 = perfect straight line)."
+      "businessContext": "Ratio of straight-line distance to actual travel path (1.0 = perfect straight line).",
+      "label_i18n": {
+        "en": "Path Efficiency Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of straight-line distance to actual travel path (1.0 = perfect straight line)."
+      }
     },
     {
       "id": "layout_type",
@@ -63,7 +87,13 @@
         "cellular",
         "fixed-position"
       ],
-      "businessContext": "Classification of the facility layout according to standard industrial engineering taxonomy."
+      "businessContext": "Classification of the facility layout according to standard industrial engineering taxonomy.",
+      "label_i18n": {
+        "en": "Layout Type"
+      },
+      "businessContext_i18n": {
+        "en": "Classification of the facility layout according to standard industrial engineering taxonomy."
+      }
     },
     {
       "id": "use_weighted_distance",
@@ -71,7 +101,13 @@
       "type": "boolean",
       "unit": "",
       "default": true,
-      "businessContext": "If true, the primary result is the sum of flow × distance; otherwise raw distance sum."
+      "businessContext": "If true, the primary result is the sum of flow × distance; otherwise raw distance sum.",
+      "label_i18n": {
+        "en": "Use Weighted Distance (Flow × Distance)"
+      },
+      "businessContext_i18n": {
+        "en": "If true, the primary result is the sum of flow × distance; otherwise raw distance sum."
+      }
     }
   ],
   "validation": {

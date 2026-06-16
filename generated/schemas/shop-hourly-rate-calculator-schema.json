@@ -19,7 +19,13 @@
       "default": 25,
       "min": 7.25,
       "max": 150,
-      "businessContext": "Average hourly wage paid to direct production workers, including base pay and shift differentials."
+      "businessContext": "Average hourly wage paid to direct production workers, including base pay and shift differentials.",
+      "label_i18n": {
+        "en": "Direct Labor Hourly Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Average hourly wage paid to direct production workers, including base pay and shift differentials."
+      }
     },
     {
       "id": "num_direct_labor_employees",
@@ -29,7 +35,13 @@
       "default": 10,
       "min": 1,
       "max": 500,
-      "businessContext": "Total headcount of workers directly involved in production."
+      "businessContext": "Total headcount of workers directly involved in production.",
+      "label_i18n": {
+        "en": "Number of Direct Labor Employees"
+      },
+      "businessContext_i18n": {
+        "en": "Total headcount of workers directly involved in production."
+      }
     },
     {
       "id": "annual_operating_hours_per_employee",
@@ -39,7 +51,13 @@
       "default": 2080,
       "min": 1000,
       "max": 3000,
-      "businessContext": "Standard annual hours per employee (e.g., 52 weeks * 40 hours). Adjust for overtime or part-time."
+      "businessContext": "Standard annual hours per employee (e.g., 52 weeks * 40 hours). Adjust for overtime or part-time.",
+      "label_i18n": {
+        "en": "Annual Operating Hours per Employee"
+      },
+      "businessContext_i18n": {
+        "en": "Standard annual hours per employee (e.g., 52 weeks * 40 hours). Adjust for overtime or part-time."
+      }
     },
     {
       "id": "total_annual_overhead_costs",
@@ -49,7 +67,13 @@
       "default": 500000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "All indirect costs: rent, utilities, management salaries, insurance, taxes, maintenance, IT, etc."
+      "businessContext": "All indirect costs: rent, utilities, management salaries, insurance, taxes, maintenance, IT, etc.",
+      "label_i18n": {
+        "en": "Total Annual Overhead Costs"
+      },
+      "businessContext_i18n": {
+        "en": "All indirect costs: rent, utilities, management salaries, insurance, taxes, maintenance, IT, etc."
+      }
     },
     {
       "id": "total_annual_machine_costs",
@@ -59,7 +83,13 @@
       "default": 200000,
       "min": 0,
       "max": 5000000,
-      "businessContext": "Depreciation, lease payments, repairs, tooling, and energy costs for all production equipment."
+      "businessContext": "Depreciation, lease payments, repairs, tooling, and energy costs for all production equipment.",
+      "label_i18n": {
+        "en": "Total Annual Machine Costs"
+      },
+      "businessContext_i18n": {
+        "en": "Depreciation, lease payments, repairs, tooling, and energy costs for all production equipment."
+      }
     },
     {
       "id": "average_shop_efficiency_percent",
@@ -69,7 +99,13 @@
       "default": 85,
       "min": 10,
       "max": 100,
-      "businessContext": "Overall equipment effectiveness (OEE) or labor efficiency, accounting for downtime, setup, and speed loss."
+      "businessContext": "Overall equipment effectiveness (OEE) or labor efficiency, accounting for downtime, setup, and speed loss.",
+      "label_i18n": {
+        "en": "Average Shop Efficiency (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Overall equipment effectiveness (OEE) or labor efficiency, accounting for downtime, setup, and speed loss."
+      }
     },
     {
       "id": "quality_yield_percent",
@@ -79,7 +115,13 @@
       "default": 95,
       "min": 50,
       "max": 100,
-      "businessContext": "First-pass yield or overall yield; rework and scrap increase effective hourly cost."
+      "businessContext": "First-pass yield or overall yield; rework and scrap increase effective hourly cost.",
+      "label_i18n": {
+        "en": "Quality Yield (%)"
+      },
+      "businessContext_i18n": {
+        "en": "First-pass yield or overall yield; rework and scrap increase effective hourly cost."
+      }
     },
     {
       "id": "shift_premium_factor",
@@ -89,7 +131,13 @@
       "default": 1,
       "min": 1,
       "max": 2,
-      "businessContext": "1.0 for single shift, 1.1 for two-shift, 1.2 for three-shift operations (accounts for shift differentials)."
+      "businessContext": "1.0 for single shift, 1.1 for two-shift, 1.2 for three-shift operations (accounts for shift differentials).",
+      "label_i18n": {
+        "en": "Shift Premium Factor"
+      },
+      "businessContext_i18n": {
+        "en": "1.0 for single shift, 1.1 for two-shift, 1.2 for three-shift operations (accounts for shift differentials)."
+      }
     },
     {
       "id": "include_benefits",
@@ -99,7 +147,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "If true, adds 30% burden to direct labor rate for benefits, FICA, workers' comp, etc."
+      "businessContext": "If true, adds 30% burden to direct labor rate for benefits, FICA, workers' comp, etc.",
+      "label_i18n": {
+        "en": "Include Benefits & Payroll Taxes"
+      },
+      "businessContext_i18n": {
+        "en": "If true, adds 30% burden to direct labor rate for benefits, FICA, workers' comp, etc."
+      }
     },
     {
       "id": "overhead_allocation_method",
@@ -114,7 +168,13 @@
         "machine_hours",
         "total_labor_cost"
       ],
-      "businessContext": "Basis for distributing overhead to hourly rate. Direct labor hours is most common in job shops."
+      "businessContext": "Basis for distributing overhead to hourly rate. Direct labor hours is most common in job shops.",
+      "label_i18n": {
+        "en": "Overhead Allocation Method"
+      },
+      "businessContext_i18n": {
+        "en": "Basis for distributing overhead to hourly rate. Direct labor hours is most common in job shops."
+      }
     }
   ],
   "validation": {

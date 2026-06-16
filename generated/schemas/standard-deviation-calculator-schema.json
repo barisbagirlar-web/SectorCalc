@@ -19,7 +19,13 @@
       "default": "",
       "min": null,
       "max": null,
-      "businessContext": "Raw measurements from process output, e.g., dimensions, weights, cycle times."
+      "businessContext": "Raw measurements from process output, e.g., dimensions, weights, cycle times.",
+      "label_i18n": {
+        "en": "Data Points (comma or space separated)"
+      },
+      "businessContext_i18n": {
+        "en": "Raw measurements from process output, e.g., dimensions, weights, cycle times."
+      }
     },
     {
       "id": "sample_size",
@@ -29,7 +35,13 @@
       "default": 10,
       "min": 2,
       "max": 10000,
-      "businessContext": "Number of observations in the sample. Must be at least 2 for standard deviation calculation."
+      "businessContext": "Number of observations in the sample. Must be at least 2 for standard deviation calculation.",
+      "label_i18n": {
+        "en": "Sample Size (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of observations in the sample. Must be at least 2 for standard deviation calculation."
+      }
     },
     {
       "id": "data_type",
@@ -41,7 +53,13 @@
         "continuous",
         "discrete"
       ],
-      "businessContext": "Continuous data (e.g., length, time) vs discrete (e.g., count of defects). Affects interpretation."
+      "businessContext": "Continuous data (e.g., length, time) vs discrete (e.g., count of defects). Affects interpretation.",
+      "label_i18n": {
+        "en": "Data Type"
+      },
+      "businessContext_i18n": {
+        "en": "Continuous data (e.g., length, time) vs discrete (e.g., count of defects). Affects interpretation."
+      }
     },
     {
       "id": "population_flag",
@@ -53,7 +71,13 @@
         "population",
         "sample"
       ],
-      "businessContext": "Select 'population' if data covers entire population (n=N), else 'sample' for Bessel's correction."
+      "businessContext": "Select 'population' if data covers entire population (n=N), else 'sample' for Bessel's correction.",
+      "label_i18n": {
+        "en": "Population or Sample?"
+      },
+      "businessContext_i18n": {
+        "en": "Select 'population' if data covers entire population (n=N), else 'sample' for Bessel's correction."
+      }
     },
     {
       "id": "unit_of_measure",
@@ -63,7 +87,13 @@
       "default": "mm",
       "min": null,
       "max": null,
-      "businessContext": "Physical unit of the data points (e.g., mm, sec, kg). Used for output labeling."
+      "businessContext": "Physical unit of the data points (e.g., mm, sec, kg). Used for output labeling.",
+      "label_i18n": {
+        "en": "Unit of Measure"
+      },
+      "businessContext_i18n": {
+        "en": "Physical unit of the data points (e.g., mm, sec, kg). Used for output labeling."
+      }
     },
     {
       "id": "specification_limit_lower",
@@ -73,7 +103,13 @@
       "default": null,
       "min": null,
       "max": null,
-      "businessContext": "Lower bound of acceptable process output per engineering specifications."
+      "businessContext": "Lower bound of acceptable process output per engineering specifications.",
+      "label_i18n": {
+        "en": "Lower Specification Limit (LSL)"
+      },
+      "businessContext_i18n": {
+        "en": "Lower bound of acceptable process output per engineering specifications."
+      }
     },
     {
       "id": "specification_limit_upper",
@@ -83,7 +119,13 @@
       "default": null,
       "min": null,
       "max": null,
-      "businessContext": "Upper bound of acceptable process output per engineering specifications."
+      "businessContext": "Upper bound of acceptable process output per engineering specifications.",
+      "label_i18n": {
+        "en": "Upper Specification Limit (USL)"
+      },
+      "businessContext_i18n": {
+        "en": "Upper bound of acceptable process output per engineering specifications."
+      }
     },
     {
       "id": "target_value",
@@ -93,7 +135,13 @@
       "default": null,
       "min": null,
       "max": null,
-      "businessContext": "Ideal process target, often the midpoint of specification limits."
+      "businessContext": "Ideal process target, often the midpoint of specification limits.",
+      "label_i18n": {
+        "en": "Target Value (Nominal)"
+      },
+      "businessContext_i18n": {
+        "en": "Ideal process target, often the midpoint of specification limits."
+      }
     }
   ],
   "validation": {

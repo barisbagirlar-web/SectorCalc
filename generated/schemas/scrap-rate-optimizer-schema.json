@@ -20,7 +20,13 @@
       "default": 10000,
       "min": 1,
       "max": 10000000,
-      "businessContext": "Total number of units produced in the reporting period (e.g., shift, day, week)."
+      "businessContext": "Total number of units produced in the reporting period (e.g., shift, day, week).",
+      "label_i18n": {
+        "en": "Total Units Produced"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units produced in the reporting period (e.g., shift, day, week)."
+      }
     },
     {
       "id": "defective_units",
@@ -30,7 +36,13 @@
       "default": 500,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Number of units that failed quality inspection or are non-conforming."
+      "businessContext": "Number of units that failed quality inspection or are non-conforming.",
+      "label_i18n": {
+        "en": "Defective Units"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units that failed quality inspection or are non-conforming."
+      }
     },
     {
       "id": "rework_units",
@@ -40,7 +52,13 @@
       "default": 200,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Units that were reworked to meet specifications (counted separately from scrap)."
+      "businessContext": "Units that were reworked to meet specifications (counted separately from scrap).",
+      "label_i18n": {
+        "en": "Rework Units"
+      },
+      "businessContext_i18n": {
+        "en": "Units that were reworked to meet specifications (counted separately from scrap)."
+      }
     },
     {
       "id": "material_cost_per_unit",
@@ -50,7 +68,13 @@
       "default": 5.5,
       "min": 0.01,
       "max": 10000,
-      "businessContext": "Direct material cost per unit in USD."
+      "businessContext": "Direct material cost per unit in USD.",
+      "label_i18n": {
+        "en": "Material Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Direct material cost per unit in USD."
+      }
     },
     {
       "id": "labor_cost_per_unit",
@@ -60,7 +84,13 @@
       "default": 2.75,
       "min": 0.01,
       "max": 10000,
-      "businessContext": "Direct labor cost per unit in USD."
+      "businessContext": "Direct labor cost per unit in USD.",
+      "label_i18n": {
+        "en": "Labor Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Direct labor cost per unit in USD."
+      }
     },
     {
       "id": "overhead_cost_per_unit",
@@ -70,7 +100,13 @@
       "default": 1.25,
       "min": 0.01,
       "max": 10000,
-      "businessContext": "Allocated overhead cost per unit in USD."
+      "businessContext": "Allocated overhead cost per unit in USD.",
+      "label_i18n": {
+        "en": "Overhead Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Allocated overhead cost per unit in USD."
+      }
     },
     {
       "id": "process_stage",
@@ -87,7 +123,13 @@
         "final_assembly",
         "packaging"
       ],
-      "businessContext": "Stage in the production process where scrap is measured."
+      "businessContext": "Stage in the production process where scrap is measured.",
+      "label_i18n": {
+        "en": "Process Stage"
+      },
+      "businessContext_i18n": {
+        "en": "Stage in the production process where scrap is measured."
+      }
     },
     {
       "id": "defect_type",
@@ -105,7 +147,13 @@
         "functional",
         "cosmetic"
       ],
-      "businessContext": "Most common defect category observed."
+      "businessContext": "Most common defect category observed.",
+      "label_i18n": {
+        "en": "Primary Defect Type"
+      },
+      "businessContext_i18n": {
+        "en": "Most common defect category observed."
+      }
     },
     {
       "id": "include_rework_in_scrap",
@@ -115,7 +163,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If true, rework units are treated as scrap for cost calculations (conservative approach)."
+      "businessContext": "If true, rework units are treated as scrap for cost calculations (conservative approach).",
+      "label_i18n": {
+        "en": "Include Rework in Scrap Calculation"
+      },
+      "businessContext_i18n": {
+        "en": "If true, rework units are treated as scrap for cost calculations (conservative approach)."
+      }
     }
   ],
   "validation": {

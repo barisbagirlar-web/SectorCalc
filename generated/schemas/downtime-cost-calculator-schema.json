@@ -19,7 +19,13 @@
       "default": 100,
       "min": 0,
       "max": 10000,
-      "businessContext": "The standard output rate per hour under normal operating conditions (ISO 22400)."
+      "businessContext": "The standard output rate per hour under normal operating conditions (ISO 22400).",
+      "label_i18n": {
+        "en": "Planned Production Rate"
+      },
+      "businessContext_i18n": {
+        "en": "The standard output rate per hour under normal operating conditions (ISO 22400)."
+      }
     },
     {
       "id": "downtime_duration",
@@ -29,7 +35,13 @@
       "default": 2,
       "min": 0,
       "max": 168,
-      "businessContext": "Total duration of the unplanned downtime event."
+      "businessContext": "Total duration of the unplanned downtime event.",
+      "label_i18n": {
+        "en": "Downtime Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Total duration of the unplanned downtime event."
+      }
     },
     {
       "id": "revenue_per_unit",
@@ -39,7 +51,13 @@
       "default": 50,
       "min": 0,
       "max": 100000,
-      "businessContext": "Selling price or standard cost per unit of output."
+      "businessContext": "Selling price or standard cost per unit of output.",
+      "label_i18n": {
+        "en": "Revenue per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Selling price or standard cost per unit of output."
+      }
     },
     {
       "id": "direct_labor_cost_per_hour",
@@ -49,7 +67,13 @@
       "default": 30,
       "min": 0,
       "max": 500,
-      "businessContext": "Average hourly wage including benefits for operators affected by downtime."
+      "businessContext": "Average hourly wage including benefits for operators affected by downtime.",
+      "label_i18n": {
+        "en": "Direct Labor Cost per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Average hourly wage including benefits for operators affected by downtime."
+      }
     },
     {
       "id": "energy_cost_per_hour",
@@ -59,7 +83,13 @@
       "default": 15,
       "min": 0,
       "max": 1000,
-      "businessContext": "Average cost of electricity, gas, or other energy consumed during production."
+      "businessContext": "Average cost of electricity, gas, or other energy consumed during production.",
+      "label_i18n": {
+        "en": "Energy Cost per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost of electricity, gas, or other energy consumed during production."
+      }
     },
     {
       "id": "scrap_rate_during_downtime",
@@ -69,7 +99,13 @@
       "default": 5,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of material wasted due to restart or instability after downtime (Six Sigma defect rate)."
+      "businessContext": "Percentage of material wasted due to restart or instability after downtime (Six Sigma defect rate).",
+      "label_i18n": {
+        "en": "Scrap Rate During Downtime"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of material wasted due to restart or instability after downtime (Six Sigma defect rate)."
+      }
     },
     {
       "id": "recovery_time_factor",
@@ -79,7 +115,13 @@
       "default": 0.3,
       "min": 0,
       "max": 2,
-      "businessContext": "Multiplier for additional time needed to return to steady-state production (Lean Takt time recovery)."
+      "businessContext": "Multiplier for additional time needed to return to steady-state production (Lean Takt time recovery).",
+      "label_i18n": {
+        "en": "Recovery Time Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for additional time needed to return to steady-state production (Lean Takt time recovery)."
+      }
     },
     {
       "id": "shift_type",
@@ -92,7 +134,13 @@
         "night",
         "weekend"
       ],
-      "businessContext": "Shift during which downtime occurred; affects labor cost multipliers (night/weekend premiums)."
+      "businessContext": "Shift during which downtime occurred; affects labor cost multipliers (night/weekend premiums).",
+      "label_i18n": {
+        "en": "Shift Type"
+      },
+      "businessContext_i18n": {
+        "en": "Shift during which downtime occurred; affects labor cost multipliers (night/weekend premiums)."
+      }
     },
     {
       "id": "include_quality_loss",
@@ -100,7 +148,13 @@
       "type": "boolean",
       "unit": "",
       "default": true,
-      "businessContext": "If true, adds cost of scrap and rework caused by the downtime event."
+      "businessContext": "If true, adds cost of scrap and rework caused by the downtime event.",
+      "label_i18n": {
+        "en": "Include Quality Loss"
+      },
+      "businessContext_i18n": {
+        "en": "If true, adds cost of scrap and rework caused by the downtime event."
+      }
     }
   ],
   "validation": {

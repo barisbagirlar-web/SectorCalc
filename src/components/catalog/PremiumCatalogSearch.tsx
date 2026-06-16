@@ -3,7 +3,8 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { Link, usePathname, useRouter } from "@/i18n/routing";
+import { Link, usePathname } from "@/i18n/routing";
+import { buildCatalogFilterHref } from "@/lib/navigation/catalog-filter-href";
 import { FormulaGateCatalogMeta } from "@/components/formula/FormulaGateCatalogMeta";
 import {
   buildPremiumCatalogSearchEntries,
@@ -74,7 +75,6 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
   const tSearch = useTranslations("catalogExplorer.search");
   const locale = useLocale();
   const searchParams = useSearchParams();
-  const router = useRouter();
   const pathname = usePathname();
 
   const validCategorySlugs = useMemo(
@@ -98,21 +98,6 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
       scrollToToolsList();
     }
   }, [selectedCategory]);
-
-  const handleCategorySelect = useCallback(
-    (slug: string) => {
-      const params = new URLSearchParams(searchParams?.toString() ?? "");
-      if (slug === "all") {
-        params.delete("category");
-      } else {
-        params.set("category", slug);
-      }
-      const qs = params.toString();
-      router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
-      scrollToToolsList();
-    },
-    [pathname, router, searchParams],
-  );
 
   const categoryCards = useMemo(
     () => [
@@ -294,22 +279,30 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
               const active = item.isActive ?? false;
 
               return (
-                <button
+                <Link
                   key={item.slug}
-                  type="button"
-                  aria-pressed={active}
+                  href={buildCatalogFilterHref(pathname, "category", item.slug, "all")}
+                  scroll={false}
                   aria-current={active ? "true" : undefined}
-                  onClick={() => handleCategorySelect(item.slug)}
+                  onClick={() => {
+                    if (!active) {
+                      scrollToToolsList();
+                    }
+                  }}
                   className={[
                     "group rounded-2xl border p-8 text-center transition-all duration-200",
                     active
-                      ? "border-gray-300 bg-gray-50"
+                      ? "border-[#d4af37] bg-gray-50 ring-1 ring-[#d4af37]"
                       : "border-gray-100 hover:border-gray-300",
                   ].join(" ")}
                 >
                   <div className="flex justify-center mb-4">
                     <Icon
-                      className={`w-14 h-14 ${iconColorClass} group-hover:text-[#d4af37] transition-colors`}
+                      className={[
+                        "w-14 h-14 transition-colors",
+                        active ? "text-[#d4af37]" : iconColorClass,
+                        !active ? "group-hover:text-[#d4af37]" : "",
+                      ].join(" ")}
                       strokeWidth={1.5}
                       aria-hidden="true"
                     />
@@ -319,7 +312,12 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
                   <p className="text-sm text-gray-400 mt-1">
                     {t("premiumCount", { count: item.count })}
                   </p>
-                </button>
+                  {active ? (
+                    <span className="mt-2 inline-block text-xs font-medium text-[#d4af37]">
+                      {t("selectedCategory")}
+                    </span>
+                  ) : null}
+                </Link>
               );
             })}
           </div>

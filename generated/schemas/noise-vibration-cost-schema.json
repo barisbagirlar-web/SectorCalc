@@ -19,7 +19,13 @@
       "default": 10,
       "min": 1,
       "max": 10000,
-      "businessContext": "Total headcount in the noise/vibration zone (e.g., assembly line, press shop)."
+      "businessContext": "Total headcount in the noise/vibration zone (e.g., assembly line, press shop).",
+      "label_i18n": {
+        "en": "Number of workers exposed"
+      },
+      "businessContext_i18n": {
+        "en": "Total headcount in the noise/vibration zone (e.g., assembly line, press shop)."
+      }
     },
     {
       "id": "avg_daily_exposure_hours",
@@ -29,7 +35,13 @@
       "default": 8,
       "min": 0.5,
       "max": 16,
-      "businessContext": "Per worker, typical shift duration in the affected area."
+      "businessContext": "Per worker, typical shift duration in the affected area.",
+      "label_i18n": {
+        "en": "Average daily exposure hours"
+      },
+      "businessContext_i18n": {
+        "en": "Per worker, typical shift duration in the affected area."
+      }
     },
     {
       "id": "noise_level_dba",
@@ -39,7 +51,13 @@
       "default": 85,
       "min": 60,
       "max": 130,
-      "businessContext": "Measured at operator position per ISO 9612. 85 dB(A) is typical action level."
+      "businessContext": "Measured at operator position per ISO 9612. 85 dB(A) is typical action level.",
+      "label_i18n": {
+        "en": "Noise level (A-weighted)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured at operator position per ISO 9612. 85 dB(A) is typical action level."
+      }
     },
     {
       "id": "vibration_level_ms2",
@@ -49,7 +67,13 @@
       "default": 0.5,
       "min": 0.1,
       "max": 20,
-      "businessContext": "Weighted acceleration per ISO 2631-1. Hand-arm or whole-body."
+      "businessContext": "Weighted acceleration per ISO 2631-1. Hand-arm or whole-body.",
+      "label_i18n": {
+        "en": "Vibration level (RMS acceleration)"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted acceleration per ISO 2631-1. Hand-arm or whole-body."
+      }
     },
     {
       "id": "machine_runtime_hours_per_day",
@@ -59,7 +83,13 @@
       "default": 16,
       "min": 1,
       "max": 24,
-      "businessContext": "Total operating hours of the primary noise/vibration source."
+      "businessContext": "Total operating hours of the primary noise/vibration source.",
+      "label_i18n": {
+        "en": "Machine runtime per day"
+      },
+      "businessContext_i18n": {
+        "en": "Total operating hours of the primary noise/vibration source."
+      }
     },
     {
       "id": "maintenance_cost_per_machine_per_year",
@@ -69,7 +99,13 @@
       "default": 5000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Current average spend on repairs and parts for each affected machine."
+      "businessContext": "Current average spend on repairs and parts for each affected machine.",
+      "label_i18n": {
+        "en": "Annual maintenance cost per machine"
+      },
+      "businessContext_i18n": {
+        "en": "Current average spend on repairs and parts for each affected machine."
+      }
     },
     {
       "id": "number_of_machines",
@@ -79,7 +115,13 @@
       "default": 5,
       "min": 1,
       "max": 500,
-      "businessContext": "Count of equipment generating noise/vibration in the assessed area."
+      "businessContext": "Count of equipment generating noise/vibration in the assessed area.",
+      "label_i18n": {
+        "en": "Number of machines in zone"
+      },
+      "businessContext_i18n": {
+        "en": "Count of equipment generating noise/vibration in the assessed area."
+      }
     },
     {
       "id": "avg_worker_annual_salary",
@@ -89,7 +131,13 @@
       "default": 45000,
       "min": 15000,
       "max": 200000,
-      "businessContext": "Includes wages, benefits, overhead. Used to estimate productivity loss."
+      "businessContext": "Includes wages, benefits, overhead. Used to estimate productivity loss.",
+      "label_i18n": {
+        "en": "Average worker annual salary (fully loaded)"
+      },
+      "businessContext_i18n": {
+        "en": "Includes wages, benefits, overhead. Used to estimate productivity loss."
+      }
     },
     {
       "id": "hearing_protection_cost_per_worker_per_year",
@@ -99,7 +147,13 @@
       "default": 150,
       "min": 0,
       "max": 2000,
-      "businessContext": "PPE (earplugs, muffs) and audiometric testing."
+      "businessContext": "PPE (earplugs, muffs) and audiometric testing.",
+      "label_i18n": {
+        "en": "Hearing protection cost per worker per year"
+      },
+      "businessContext_i18n": {
+        "en": "PPE (earplugs, muffs) and audiometric testing."
+      }
     },
     {
       "id": "quality_defect_rate_percent",
@@ -109,7 +163,13 @@
       "default": 2.5,
       "min": 0,
       "max": 50,
-      "businessContext": "Estimated percentage of parts affected by vibration-induced quality issues (e.g., surface finish, tolerances)."
+      "businessContext": "Estimated percentage of parts affected by vibration-induced quality issues (e.g., surface finish, tolerances).",
+      "label_i18n": {
+        "en": "Current defect rate due to vibration"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated percentage of parts affected by vibration-induced quality issues (e.g., surface finish, tolerances)."
+      }
     },
     {
       "id": "annual_production_volume",
@@ -119,7 +179,13 @@
       "default": 100000,
       "min": 100,
       "max": 100000000,
-      "businessContext": "Total units produced per year in the assessed line."
+      "businessContext": "Total units produced per year in the assessed line.",
+      "label_i18n": {
+        "en": "Annual production volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total units produced per year in the assessed line."
+      }
     },
     {
       "id": "cost_per_defect",
@@ -129,7 +195,13 @@
       "default": 25,
       "min": 0.1,
       "max": 10000,
-      "businessContext": "Average cost to rework or scrap a defective unit."
+      "businessContext": "Average cost to rework or scrap a defective unit.",
+      "label_i18n": {
+        "en": "Cost per defect (rework + scrap)"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost to rework or scrap a defective unit."
+      }
     },
     {
       "id": "energy_cost_per_kwh",
@@ -139,7 +211,13 @@
       "default": 0.12,
       "min": 0.01,
       "max": 1,
-      "businessContext": "Industrial electricity rate."
+      "businessContext": "Industrial electricity rate.",
+      "label_i18n": {
+        "en": "Energy cost per kWh"
+      },
+      "businessContext_i18n": {
+        "en": "Industrial electricity rate."
+      }
     },
     {
       "id": "machine_power_kw",
@@ -149,7 +227,13 @@
       "default": 50,
       "min": 1,
       "max": 5000,
-      "businessContext": "Average power draw per machine during operation."
+      "businessContext": "Average power draw per machine during operation.",
+      "label_i18n": {
+        "en": "Machine power consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Average power draw per machine during operation."
+      }
     },
     {
       "id": "vibration_reduction_investment",
@@ -159,7 +243,13 @@
       "default": 50000,
       "min": 0,
       "max": 5000000,
-      "businessContext": "Budget for dampers, isolators, foundations, or redesign."
+      "businessContext": "Budget for dampers, isolators, foundations, or redesign.",
+      "label_i18n": {
+        "en": "Vibration reduction investment (one-time)"
+      },
+      "businessContext_i18n": {
+        "en": "Budget for dampers, isolators, foundations, or redesign."
+      }
     },
     {
       "id": "noise_reduction_investment",
@@ -169,7 +259,13 @@
       "default": 30000,
       "min": 0,
       "max": 5000000,
-      "businessContext": "Budget for enclosures, silencers, acoustic panels."
+      "businessContext": "Budget for enclosures, silencers, acoustic panels.",
+      "label_i18n": {
+        "en": "Noise reduction investment (one-time)"
+      },
+      "businessContext_i18n": {
+        "en": "Budget for enclosures, silencers, acoustic panels."
+      }
     },
     {
       "id": "iso_standard_compliance",
@@ -183,7 +279,13 @@
         "ISO 9612 (Noise)"
       ],
       "default": "None",
-      "businessContext": "Select the most relevant standard for threshold evaluation."
+      "businessContext": "Select the most relevant standard for threshold evaluation.",
+      "label_i18n": {
+        "en": "ISO standard compliance level"
+      },
+      "businessContext_i18n": {
+        "en": "Select the most relevant standard for threshold evaluation."
+      }
     }
   ],
   "validation": {

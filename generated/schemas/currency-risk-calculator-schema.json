@@ -19,7 +19,13 @@
       "default": 1000000,
       "min": 1000,
       "max": 1000000000,
-      "businessContext": "Total value of foreign currency receivables or payables subject to exchange rate fluctuation."
+      "businessContext": "Total value of foreign currency receivables or payables subject to exchange rate fluctuation.",
+      "label_i18n": {
+        "en": "Exposure Amount (in base currency)"
+      },
+      "businessContext_i18n": {
+        "en": "Total value of foreign currency receivables or payables subject to exchange rate fluctuation."
+      }
     },
     {
       "id": "volatility_annual",
@@ -29,7 +35,13 @@
       "default": 8.5,
       "min": 0.5,
       "max": 50,
-      "businessContext": "Historical or implied standard deviation of daily log returns annualized (ISO 31000 risk metric)."
+      "businessContext": "Historical or implied standard deviation of daily log returns annualized (ISO 31000 risk metric).",
+      "label_i18n": {
+        "en": "Annualized Volatility of Exchange Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Historical or implied standard deviation of daily log returns annualized (ISO 31000 risk metric)."
+      }
     },
     {
       "id": "confidence_level",
@@ -44,7 +56,13 @@
         "90",
         "95",
         "99"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Confidence Level for VaR Calculation"
+      },
+      "businessContext_i18n": {
+        "en": "Statistical confidence level used in Value at Risk (VaR) estimation, typical values 90%, 95%, 99%."
+      }
     },
     {
       "id": "hedge_ratio",
@@ -54,7 +72,13 @@
       "default": 50,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of exposure covered by hedging instruments (forwards, options). Lean metric for waste reduction."
+      "businessContext": "Percentage of exposure covered by hedging instruments (forwards, options). Lean metric for waste reduction.",
+      "label_i18n": {
+        "en": "Hedge Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of exposure covered by hedging instruments (forwards, options). Lean metric for waste reduction."
+      }
     },
     {
       "id": "time_horizon_days",
@@ -64,7 +88,13 @@
       "default": 30,
       "min": 1,
       "max": 365,
-      "businessContext": "Risk assessment period aligned with business planning cycles (WERC supply chain standard)."
+      "businessContext": "Risk assessment period aligned with business planning cycles (WERC supply chain standard).",
+      "label_i18n": {
+        "en": "Time Horizon (days)"
+      },
+      "businessContext_i18n": {
+        "en": "Risk assessment period aligned with business planning cycles (WERC supply chain standard)."
+      }
     },
     {
       "id": "enable_lean_adjustment",
@@ -74,7 +104,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "Applies a Six Sigma-based correction factor to account for process variation in hedging execution."
+      "businessContext": "Applies a Six Sigma-based correction factor to account for process variation in hedging execution.",
+      "label_i18n": {
+        "en": "Enable Lean Volatility Adjustment"
+      },
+      "businessContext_i18n": {
+        "en": "Applies a Six Sigma-based correction factor to account for process variation in hedging execution."
+      }
     }
   ],
   "validation": {

@@ -19,7 +19,13 @@
       "default": 100000,
       "min": 1000,
       "max": 10000000,
-      "businessContext": "Total number of units produced per year for the process line where the poka-yoke will be applied."
+      "businessContext": "Total number of units produced per year for the process line where the poka-yoke will be applied.",
+      "label_i18n": {
+        "en": "Annual Units Produced"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units produced per year for the process line where the poka-yoke will be applied."
+      }
     },
     {
       "id": "current_defect_rate",
@@ -29,7 +35,13 @@
       "default": 5000,
       "min": 10,
       "max": 100000,
-      "businessContext": "Current defect rate in parts per million (ppm) for the process step targeted by the poka-yoke."
+      "businessContext": "Current defect rate in parts per million (ppm) for the process step targeted by the poka-yoke.",
+      "label_i18n": {
+        "en": "Current Defect Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Current defect rate in parts per million (ppm) for the process step targeted by the poka-yoke."
+      }
     },
     {
       "id": "defect_cost_per_unit",
@@ -39,7 +51,13 @@
       "default": 25,
       "min": 0.5,
       "max": 5000,
-      "businessContext": "Average total cost incurred per defective unit, including scrap, rework, warranty, and lost customer goodwill."
+      "businessContext": "Average total cost incurred per defective unit, including scrap, rework, warranty, and lost customer goodwill.",
+      "label_i18n": {
+        "en": "Defect Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Average total cost incurred per defective unit, including scrap, rework, warranty, and lost customer goodwill."
+      }
     },
     {
       "id": "poka_yoke_effectiveness",
@@ -65,7 +83,13 @@
           "label": "99% (Very High)"
         }
       ],
-      "businessContext": "Expected percentage of defects that will be prevented by the poka-yoke device or process."
+      "businessContext": "Expected percentage of defects that will be prevented by the poka-yoke device or process.",
+      "label_i18n": {
+        "en": "Poka-Yoke Effectiveness"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage of defects that will be prevented by the poka-yoke device or process."
+      }
     },
     {
       "id": "implementation_cost",
@@ -75,7 +99,13 @@
       "default": 15000,
       "min": 500,
       "max": 500000,
-      "businessContext": "Total one-time cost to design, purchase, install, and validate the poka-yoke solution."
+      "businessContext": "Total one-time cost to design, purchase, install, and validate the poka-yoke solution.",
+      "label_i18n": {
+        "en": "Implementation Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total one-time cost to design, purchase, install, and validate the poka-yoke solution."
+      }
     },
     {
       "id": "annual_maintenance_cost",
@@ -85,7 +115,13 @@
       "default": 2000,
       "min": 0,
       "max": 50000,
-      "businessContext": "Recurring yearly cost for calibration, spare parts, and upkeep of the poka-yoke system."
+      "businessContext": "Recurring yearly cost for calibration, spare parts, and upkeep of the poka-yoke system.",
+      "label_i18n": {
+        "en": "Annual Maintenance Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Recurring yearly cost for calibration, spare parts, and upkeep of the poka-yoke system."
+      }
     },
     {
       "id": "labor_hours_saved_per_year",
@@ -95,7 +131,13 @@
       "default": 500,
       "min": 0,
       "max": 10000,
-      "businessContext": "Estimated reduction in inspection and rework labor hours per year due to the poka-yoke."
+      "businessContext": "Estimated reduction in inspection and rework labor hours per year due to the poka-yoke.",
+      "label_i18n": {
+        "en": "Labor Hours Saved per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated reduction in inspection and rework labor hours per year due to the poka-yoke."
+      }
     },
     {
       "id": "labor_rate",
@@ -105,7 +147,13 @@
       "default": 35,
       "min": 10,
       "max": 150,
-      "businessContext": "Fully burdened hourly labor cost for operators and inspectors."
+      "businessContext": "Fully burdened hourly labor cost for operators and inspectors.",
+      "label_i18n": {
+        "en": "Labor Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Fully burdened hourly labor cost for operators and inspectors."
+      }
     },
     {
       "id": "discount_rate",
@@ -115,7 +163,13 @@
       "default": 10,
       "min": 0,
       "max": 30,
-      "businessContext": "Annual discount rate used for net present value (NPV) calculation, reflecting the cost of capital."
+      "businessContext": "Annual discount rate used for net present value (NPV) calculation, reflecting the cost of capital.",
+      "label_i18n": {
+        "en": "Discount Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual discount rate used for net present value (NPV) calculation, reflecting the cost of capital."
+      }
     },
     {
       "id": "project_life_years",
@@ -125,7 +179,13 @@
       "default": 5,
       "min": 1,
       "max": 20,
-      "businessContext": "Expected useful life of the poka-yoke solution before major redesign or replacement."
+      "businessContext": "Expected useful life of the poka-yoke solution before major redesign or replacement.",
+      "label_i18n": {
+        "en": "Project Life (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected useful life of the poka-yoke solution before major redesign or replacement."
+      }
     }
   ],
   "validation": {

@@ -17,7 +17,13 @@
       "default": 10,
       "min": 1,
       "max": 200,
-      "businessContext": "Total delivery or service stops on the route."
+      "businessContext": "Total delivery or service stops on the route.",
+      "label_i18n": {
+        "en": "Number of Stops"
+      },
+      "businessContext_i18n": {
+        "en": "Total delivery or service stops on the route."
+      }
     },
     {
       "id": "total_distance",
@@ -27,7 +33,13 @@
       "default": 150,
       "min": 0,
       "max": 5000,
-      "businessContext": "Total distance traveled for the route in kilometers."
+      "businessContext": "Total distance traveled for the route in kilometers.",
+      "label_i18n": {
+        "en": "Total Route Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance traveled for the route in kilometers."
+      }
     },
     {
       "id": "avg_speed",
@@ -37,7 +49,13 @@
       "default": 40,
       "min": 5,
       "max": 120,
-      "businessContext": "Average vehicle speed including traffic and stops."
+      "businessContext": "Average vehicle speed including traffic and stops.",
+      "label_i18n": {
+        "en": "Average Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Average vehicle speed including traffic and stops."
+      }
     },
     {
       "id": "dwell_time_per_stop",
@@ -47,7 +65,13 @@
       "default": 10,
       "min": 0,
       "max": 120,
-      "businessContext": "Average time spent at each stop for loading/unloading."
+      "businessContext": "Average time spent at each stop for loading/unloading.",
+      "label_i18n": {
+        "en": "Dwell Time per Stop"
+      },
+      "businessContext_i18n": {
+        "en": "Average time spent at each stop for loading/unloading."
+      }
     },
     {
       "id": "fuel_cost_per_km",
@@ -57,7 +81,13 @@
       "default": 1.2,
       "min": 0,
       "max": 10,
-      "businessContext": "Fuel cost per kilometer driven."
+      "businessContext": "Fuel cost per kilometer driven.",
+      "label_i18n": {
+        "en": "Fuel Cost per km"
+      },
+      "businessContext_i18n": {
+        "en": "Fuel cost per kilometer driven."
+      }
     },
     {
       "id": "driver_hourly_rate",
@@ -67,7 +97,13 @@
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Hourly wage cost for the driver."
+      "businessContext": "Hourly wage cost for the driver.",
+      "label_i18n": {
+        "en": "Driver Hourly Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly wage cost for the driver."
+      }
     },
     {
       "id": "vehicle_type",
@@ -83,7 +119,13 @@
         "truck_light",
         "truck_heavy",
         "refrigerated"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Vehicle Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of vehicle used for the route."
+      }
     },
     {
       "id": "traffic_condition",
@@ -98,7 +140,13 @@
         "light",
         "moderate",
         "heavy"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Traffic Condition"
+      },
+      "businessContext_i18n": {
+        "en": "Expected traffic condition along the route."
+      }
     },
     {
       "id": "use_optimization",
@@ -108,7 +156,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "Toggle to apply route optimization logic."
+      "businessContext": "Toggle to apply route optimization logic.",
+      "label_i18n": {
+        "en": "Use Optimization Algorithm"
+      },
+      "businessContext_i18n": {
+        "en": "Toggle to apply route optimization logic."
+      }
     }
   ],
   "validation": {

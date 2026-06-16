@@ -14,7 +14,8 @@ import {
   submitToolFeedback,
 } from "@/lib/feedback/feedback-service";
 import { resolveToolDisplayChrome } from "@/lib/tools/resolve-tool-display-chrome";
-import { resolveGeneratedSelectOptions } from "@/lib/generated-tools/select-options";
+import { resolveLocalizedGeneratedSelectOptions } from "@/lib/generated-tools/select-options";
+import { resolveGeneratedBreakdownLabel } from "@/lib/generated-tools/resolve-generated-display-text";
 import { buildGeneratedInputGroups } from "@/lib/generated-tools/input-groups";
 import {
   buildInitialSelectedUnits,
@@ -223,7 +224,7 @@ function FreeToolFormField({
   }
 
   if (input.type === "select" && input.options) {
-    const selectOptions = resolveGeneratedSelectOptions(input);
+    const selectOptions = resolveLocalizedGeneratedSelectOptions(input, locale);
     return (
       <Controller
         name={input.id}
@@ -527,7 +528,11 @@ export function FreeToolForm({
                         if (typeof value !== "number" || !Number.isFinite(value)) {
                           return null;
                         }
-                        const label = schema.outputs.breakdown[key] ?? key.replace(/_/g, " ");
+                        const label = resolveGeneratedBreakdownLabel(
+                          key,
+                          schema.outputs.breakdown,
+                          locale,
+                        );
                         return (
                           <div key={key}>
                             <span>{label}</span>

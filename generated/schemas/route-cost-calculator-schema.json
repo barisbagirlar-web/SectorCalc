@@ -19,7 +19,13 @@
       "default": 100,
       "min": 0,
       "max": 5000,
-      "businessContext": "Total one-way distance of the route. Used as primary driver for fuel, labor, and maintenance costs."
+      "businessContext": "Total one-way distance of the route. Used as primary driver for fuel, labor, and maintenance costs.",
+      "label_i18n": {
+        "en": "Route Distance (km)"
+      },
+      "businessContext_i18n": {
+        "en": "Total one-way distance of the route. Used as primary driver for fuel, labor, and maintenance costs."
+      }
     },
     {
       "id": "fuel_consumption_l_per_100km",
@@ -29,7 +35,13 @@
       "default": 30,
       "min": 5,
       "max": 80,
-      "businessContext": "Average fuel consumption of the vehicle. Based on manufacturer data or telematics."
+      "businessContext": "Average fuel consumption of the vehicle. Based on manufacturer data or telematics.",
+      "label_i18n": {
+        "en": "Fuel Consumption (L/100km)"
+      },
+      "businessContext_i18n": {
+        "en": "Average fuel consumption of the vehicle. Based on manufacturer data or telematics."
+      }
     },
     {
       "id": "fuel_price_per_l",
@@ -39,7 +51,13 @@
       "default": 1.5,
       "min": 0.5,
       "max": 3,
-      "businessContext": "Current market price of diesel or gasoline. Updated weekly."
+      "businessContext": "Current market price of diesel or gasoline. Updated weekly.",
+      "label_i18n": {
+        "en": "Fuel Price (per liter)"
+      },
+      "businessContext_i18n": {
+        "en": "Current market price of diesel or gasoline. Updated weekly."
+      }
     },
     {
       "id": "driver_wage_per_hour",
@@ -49,7 +67,13 @@
       "default": 25,
       "min": 10,
       "max": 60,
-      "businessContext": "Gross hourly wage including social charges. Based on collective labor agreements."
+      "businessContext": "Gross hourly wage including social charges. Based on collective labor agreements.",
+      "label_i18n": {
+        "en": "Driver Wage (€/hour)"
+      },
+      "businessContext_i18n": {
+        "en": "Gross hourly wage including social charges. Based on collective labor agreements."
+      }
     },
     {
       "id": "average_speed_kmh",
@@ -59,7 +83,13 @@
       "default": 60,
       "min": 10,
       "max": 120,
-      "businessContext": "Expected average speed including traffic and stops. Used to calculate travel time."
+      "businessContext": "Expected average speed including traffic and stops. Used to calculate travel time.",
+      "label_i18n": {
+        "en": "Average Speed (km/h)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected average speed including traffic and stops. Used to calculate travel time."
+      }
     },
     {
       "id": "maintenance_cost_per_km",
@@ -69,7 +99,13 @@
       "default": 0.12,
       "min": 0.02,
       "max": 0.5,
-      "businessContext": "Average maintenance cost per kilometer including tires, oil, and repairs. Based on fleet data."
+      "businessContext": "Average maintenance cost per kilometer including tires, oil, and repairs. Based on fleet data.",
+      "label_i18n": {
+        "en": "Maintenance Cost (€/km)"
+      },
+      "businessContext_i18n": {
+        "en": "Average maintenance cost per kilometer including tires, oil, and repairs. Based on fleet data."
+      }
     },
     {
       "id": "toll_cost_total",
@@ -79,7 +115,13 @@
       "default": 15,
       "min": 0,
       "max": 500,
-      "businessContext": "Sum of all tolls on the route. Can be obtained from route planning software."
+      "businessContext": "Sum of all tolls on the route. Can be obtained from route planning software.",
+      "label_i18n": {
+        "en": "Total Toll Cost (€)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of all tolls on the route. Can be obtained from route planning software."
+      }
     },
     {
       "id": "load_weight_tonnes",
@@ -89,7 +131,13 @@
       "default": 20,
       "min": 0,
       "max": 40,
-      "businessContext": "Total weight of cargo. Affects fuel consumption and wear."
+      "businessContext": "Total weight of cargo. Affects fuel consumption and wear.",
+      "label_i18n": {
+        "en": "Load Weight (tonnes)"
+      },
+      "businessContext_i18n": {
+        "en": "Total weight of cargo. Affects fuel consumption and wear."
+      }
     },
     {
       "id": "route_type",
@@ -105,7 +153,13 @@
         "mixed",
         "mountain"
       ],
-      "businessContext": "Characterizes the terrain and traffic conditions. Influences fuel consumption and speed."
+      "businessContext": "Characterizes the terrain and traffic conditions. Influences fuel consumption and speed.",
+      "label_i18n": {
+        "en": "Route Type"
+      },
+      "businessContext_i18n": {
+        "en": "Characterizes the terrain and traffic conditions. Influences fuel consumption and speed."
+      }
     },
     {
       "id": "is_return_trip",
@@ -115,7 +169,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If true, distance and costs are doubled (round trip)."
+      "businessContext": "If true, distance and costs are doubled (round trip).",
+      "label_i18n": {
+        "en": "Return Trip Included"
+      },
+      "businessContext_i18n": {
+        "en": "If true, distance and costs are doubled (round trip)."
+      }
     }
   ],
   "validation": {

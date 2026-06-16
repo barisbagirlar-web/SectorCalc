@@ -19,7 +19,13 @@
       "default": 1000,
       "min": 2,
       "max": 1000000,
-      "businessContext": "Total number of items in the inspection lot per ISO 2859-1."
+      "businessContext": "Total number of items in the inspection lot per ISO 2859-1.",
+      "label_i18n": {
+        "en": "Lot Size (N)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of items in the inspection lot per ISO 2859-1."
+      }
     },
     {
       "id": "aql_percent",
@@ -29,7 +35,13 @@
       "default": 1,
       "min": 0.01,
       "max": 10,
-      "businessContext": "Acceptable Quality Level – maximum percent defective that is considered acceptable as a process average."
+      "businessContext": "Acceptable Quality Level – maximum percent defective that is considered acceptable as a process average.",
+      "label_i18n": {
+        "en": "AQL (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Acceptable Quality Level – maximum percent defective that is considered acceptable as a process average."
+      }
     },
     {
       "id": "inspection_level",
@@ -48,7 +60,13 @@
         "S-3",
         "S-4"
       ],
-      "businessContext": "General or special inspection level per ISO 2859-1. Level II is normal."
+      "businessContext": "General or special inspection level per ISO 2859-1. Level II is normal.",
+      "label_i18n": {
+        "en": "Inspection Level"
+      },
+      "businessContext_i18n": {
+        "en": "General or special inspection level per ISO 2859-1. Level II is normal."
+      }
     },
     {
       "id": "sampling_plan_type",
@@ -63,7 +81,13 @@
         "tightened",
         "reduced"
       ],
-      "businessContext": "Switching rules for severity of sampling per ISO 2859-1."
+      "businessContext": "Switching rules for severity of sampling per ISO 2859-1.",
+      "label_i18n": {
+        "en": "Sampling Plan Type"
+      },
+      "businessContext_i18n": {
+        "en": "Switching rules for severity of sampling per ISO 2859-1."
+      }
     },
     {
       "id": "unit_cost",
@@ -73,7 +97,13 @@
       "default": 10,
       "min": 0.01,
       "max": 100000,
-      "businessContext": "Cost per unit item (production or purchase cost)."
+      "businessContext": "Cost per unit item (production or purchase cost).",
+      "label_i18n": {
+        "en": "Unit Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per unit item (production or purchase cost)."
+      }
     },
     {
       "id": "defect_cost_per_unit",
@@ -83,7 +113,13 @@
       "default": 50,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Cost incurred if a defective unit reaches the customer (rework, warranty, loss of goodwill)."
+      "businessContext": "Cost incurred if a defective unit reaches the customer (rework, warranty, loss of goodwill).",
+      "label_i18n": {
+        "en": "Defect Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Cost incurred if a defective unit reaches the customer (rework, warranty, loss of goodwill)."
+      }
     },
     {
       "id": "inspection_cost_per_unit",
@@ -93,7 +129,13 @@
       "default": 2,
       "min": 0,
       "max": 1000,
-      "businessContext": "Cost to inspect one unit (labor, equipment, overhead)."
+      "businessContext": "Cost to inspect one unit (labor, equipment, overhead).",
+      "label_i18n": {
+        "en": "Inspection Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Cost to inspect one unit (labor, equipment, overhead)."
+      }
     },
     {
       "id": "defect_rate_actual",
@@ -103,7 +145,13 @@
       "default": 2,
       "min": 0,
       "max": 100,
-      "businessContext": "Estimated true defect rate in the lot (from historical data or process capability)."
+      "businessContext": "Estimated true defect rate in the lot (from historical data or process capability).",
+      "label_i18n": {
+        "en": "Actual Defect Rate (p)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated true defect rate in the lot (from historical data or process capability)."
+      }
     },
     {
       "id": "confidence_level",
@@ -118,7 +166,13 @@
         "95",
         "99"
       ],
-      "businessContext": "Statistical confidence level for risk calculations."
+      "businessContext": "Statistical confidence level for risk calculations.",
+      "label_i18n": {
+        "en": "Confidence Level"
+      },
+      "businessContext_i18n": {
+        "en": "Statistical confidence level for risk calculations."
+      }
     }
   ],
   "validation": {

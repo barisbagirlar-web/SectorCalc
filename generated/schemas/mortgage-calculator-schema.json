@@ -28,7 +28,13 @@
       "default": 300000,
       "min": 10000,
       "max": 10000000,
-      "businessContext": "Total principal borrowed, typically 80% of property value."
+      "businessContext": "Total principal borrowed, typically 80% of property value.",
+      "label_i18n": {
+        "en": "Loan Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Total principal borrowed, typically 80% of property value."
+      }
     },
     {
       "id": "down_payment_percent",
@@ -38,7 +44,13 @@
       "default": 20,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of property price paid upfront. Affects PMI and LTV ratio."
+      "businessContext": "Percentage of property price paid upfront. Affects PMI and LTV ratio.",
+      "label_i18n": {
+        "en": "Down Payment Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of property price paid upfront. Affects PMI and LTV ratio."
+      }
     },
     {
       "id": "annual_interest_rate",
@@ -48,7 +60,13 @@
       "default": 6.5,
       "min": 0.1,
       "max": 30,
-      "businessContext": "Nominal annual rate, fixed or variable. Used for monthly compounding."
+      "businessContext": "Nominal annual rate, fixed or variable. Used for monthly compounding.",
+      "label_i18n": {
+        "en": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal annual rate, fixed or variable. Used for monthly compounding."
+      }
     },
     {
       "id": "loan_term_years",
@@ -58,7 +76,13 @@
       "default": 30,
       "min": 1,
       "max": 40,
-      "businessContext": "Duration of the mortgage in years. Standard terms: 15, 20, 30."
+      "businessContext": "Duration of the mortgage in years. Standard terms: 15, 20, 30.",
+      "label_i18n": {
+        "en": "Loan Term (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the mortgage in years. Standard terms: 15, 20, 30."
+      }
     },
     {
       "id": "property_tax_rate",
@@ -68,7 +92,13 @@
       "default": 1.2,
       "min": 0,
       "max": 5,
-      "businessContext": "Annual property tax as percentage of property value. Varies by jurisdiction."
+      "businessContext": "Annual property tax as percentage of property value. Varies by jurisdiction.",
+      "label_i18n": {
+        "en": "Property Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual property tax as percentage of property value. Varies by jurisdiction."
+      }
     },
     {
       "id": "insurance_rate",
@@ -78,7 +108,13 @@
       "default": 0.5,
       "min": 0.1,
       "max": 3,
-      "businessContext": "Annual homeowner's insurance as percentage of property value."
+      "businessContext": "Annual homeowner's insurance as percentage of property value.",
+      "label_i18n": {
+        "en": "Home Insurance Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual homeowner's insurance as percentage of property value."
+      }
     },
     {
       "id": "monthly_hoa",
@@ -88,7 +124,13 @@
       "default": 0,
       "min": 0,
       "max": 5000,
-      "businessContext": "Monthly homeowners association fees, if applicable."
+      "businessContext": "Monthly homeowners association fees, if applicable.",
+      "label_i18n": {
+        "en": "Monthly HOA Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly homeowners association fees, if applicable."
+      }
     },
     {
       "id": "annual_income",
@@ -98,7 +140,13 @@
       "default": 120000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Total annual household income before taxes. Used for DTI calculation."
+      "businessContext": "Total annual household income before taxes. Used for DTI calculation.",
+      "label_i18n": {
+        "en": "Annual Gross Income"
+      },
+      "businessContext_i18n": {
+        "en": "Total annual household income before taxes. Used for DTI calculation."
+      }
     },
     {
       "id": "monthly_debt",
@@ -108,7 +156,13 @@
       "default": 500,
       "min": 0,
       "max": 100000,
-      "businessContext": "Recurring monthly debt obligations (car loans, student loans, credit cards)."
+      "businessContext": "Recurring monthly debt obligations (car loans, student loans, credit cards).",
+      "label_i18n": {
+        "en": "Monthly Existing Debt Payments"
+      },
+      "businessContext_i18n": {
+        "en": "Recurring monthly debt obligations (car loans, student loans, credit cards)."
+      }
     },
     {
       "id": "payment_frequency",
@@ -123,7 +177,13 @@
         "biweekly",
         "accelerated_biweekly"
       ],
-      "businessContext": "How often payments are made. Accelerated biweekly results in 13 full payments per year."
+      "businessContext": "How often payments are made. Accelerated biweekly results in 13 full payments per year.",
+      "label_i18n": {
+        "en": "Payment Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "How often payments are made. Accelerated biweekly results in 13 full payments per year."
+      }
     }
   ],
   "validation": {

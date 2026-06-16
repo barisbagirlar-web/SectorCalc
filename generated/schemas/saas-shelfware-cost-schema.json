@@ -19,7 +19,13 @@
       "default": 100,
       "min": 1,
       "max": 100000,
-      "businessContext": "Total number of SaaS licenses paid for in the current period."
+      "businessContext": "Total number of SaaS licenses paid for in the current period.",
+      "label_i18n": {
+        "en": "Total Licenses Purchased"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of SaaS licenses paid for in the current period."
+      }
     },
     {
       "id": "active_users",
@@ -29,7 +35,13 @@
       "default": 60,
       "min": 0,
       "max": 100000,
-      "businessContext": "Number of distinct users who logged in at least once in the last 30 days."
+      "businessContext": "Number of distinct users who logged in at least once in the last 30 days.",
+      "label_i18n": {
+        "en": "Active Users (Monthly)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of distinct users who logged in at least once in the last 30 days."
+      }
     },
     {
       "id": "license_cost_per_month",
@@ -39,7 +51,13 @@
       "default": 50,
       "min": 0,
       "max": 10000,
-      "businessContext": "Monthly recurring cost per license, including any fixed fees divided by license count."
+      "businessContext": "Monthly recurring cost per license, including any fixed fees divided by license count.",
+      "label_i18n": {
+        "en": "License Cost per Month"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly recurring cost per license, including any fixed fees divided by license count."
+      }
     },
     {
       "id": "implementation_cost",
@@ -49,7 +67,13 @@
       "default": 5000,
       "min": 0,
       "max": 500000,
-      "businessContext": "Total cost of onboarding, training, and integration for the SaaS tool."
+      "businessContext": "Total cost of onboarding, training, and integration for the SaaS tool.",
+      "label_i18n": {
+        "en": "One-Time Implementation Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost of onboarding, training, and integration for the SaaS tool."
+      }
     },
     {
       "id": "monthly_support_cost",
@@ -59,7 +83,13 @@
       "default": 2000,
       "min": 0,
       "max": 50000,
-      "businessContext": "Recurring internal labor and third-party support costs to maintain the tool."
+      "businessContext": "Recurring internal labor and third-party support costs to maintain the tool.",
+      "label_i18n": {
+        "en": "Monthly Support & Admin Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Recurring internal labor and third-party support costs to maintain the tool."
+      }
     },
     {
       "id": "contract_months_remaining",
@@ -69,7 +99,13 @@
       "default": 12,
       "min": 1,
       "max": 60,
-      "businessContext": "Number of months left in the current contract or commitment period."
+      "businessContext": "Number of months left in the current contract or commitment period.",
+      "label_i18n": {
+        "en": "Contract Months Remaining"
+      },
+      "businessContext_i18n": {
+        "en": "Number of months left in the current contract or commitment period."
+      }
     },
     {
       "id": "utilization_threshold",
@@ -79,7 +115,13 @@
       "default": 80,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of active users vs total licenses below which licenses are considered shelfware (Lean waste)."
+      "businessContext": "Percentage of active users vs total licenses below which licenses are considered shelfware (Lean waste).",
+      "label_i18n": {
+        "en": "Utilization Threshold for Waste"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of active users vs total licenses below which licenses are considered shelfware (Lean waste)."
+      }
     }
   ],
   "validation": {

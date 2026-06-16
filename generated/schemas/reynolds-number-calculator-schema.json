@@ -19,7 +19,13 @@
       "default": "water",
       "min": null,
       "max": null,
-      "businessContext": "Select the working fluid to auto-populate density and viscosity. Options include water, air, oil, and custom."
+      "businessContext": "Select the working fluid to auto-populate density and viscosity. Options include water, air, oil, and custom.",
+      "label_i18n": {
+        "en": "Fluid Type"
+      },
+      "businessContext_i18n": {
+        "en": "Select the working fluid to auto-populate density and viscosity. Options include water, air, oil, and custom."
+      }
     },
     {
       "id": "density",
@@ -29,7 +35,13 @@
       "default": 998.2,
       "min": 0.1,
       "max": 20000,
-      "businessContext": "Mass density of the fluid at operating temperature. For water at 20°C: 998.2 kg/m³."
+      "businessContext": "Mass density of the fluid at operating temperature. For water at 20°C: 998.2 kg/m³.",
+      "label_i18n": {
+        "en": "Fluid Density"
+      },
+      "businessContext_i18n": {
+        "en": "Mass density of the fluid at operating temperature. For water at 20°C: 998.2 kg/m³."
+      }
     },
     {
       "id": "dynamic_viscosity",
@@ -39,7 +51,13 @@
       "default": 0.001002,
       "min": 0.000001,
       "max": 100,
-      "businessContext": "Absolute viscosity of the fluid. For water at 20°C: 0.001002 Pa·s."
+      "businessContext": "Absolute viscosity of the fluid. For water at 20°C: 0.001002 Pa·s.",
+      "label_i18n": {
+        "en": "Dynamic Viscosity"
+      },
+      "businessContext_i18n": {
+        "en": "Absolute viscosity of the fluid. For water at 20°C: 0.001002 Pa·s."
+      }
     },
     {
       "id": "velocity",
@@ -49,7 +67,13 @@
       "default": 1.5,
       "min": 0.001,
       "max": 100,
-      "businessContext": "Average velocity of the fluid in the pipe cross-section."
+      "businessContext": "Average velocity of the fluid in the pipe cross-section.",
+      "label_i18n": {
+        "en": "Flow Velocity"
+      },
+      "businessContext_i18n": {
+        "en": "Average velocity of the fluid in the pipe cross-section."
+      }
     },
     {
       "id": "pipe_diameter",
@@ -59,7 +83,13 @@
       "default": 0.05,
       "min": 0.001,
       "max": 10,
-      "businessContext": "Internal diameter of the pipe or conduit."
+      "businessContext": "Internal diameter of the pipe or conduit.",
+      "label_i18n": {
+        "en": "Pipe Inner Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Internal diameter of the pipe or conduit."
+      }
     },
     {
       "id": "pipe_roughness",
@@ -69,7 +99,13 @@
       "default": 0.000045,
       "min": 0,
       "max": 0.1,
-      "businessContext": "Average height of surface irregularities inside the pipe. For commercial steel: 0.000045 m."
+      "businessContext": "Average height of surface irregularities inside the pipe. For commercial steel: 0.000045 m.",
+      "label_i18n": {
+        "en": "Pipe Roughness"
+      },
+      "businessContext_i18n": {
+        "en": "Average height of surface irregularities inside the pipe. For commercial steel: 0.000045 m."
+      }
     },
     {
       "id": "temperature",
@@ -79,7 +115,13 @@
       "default": 20,
       "min": -50,
       "max": 500,
-      "businessContext": "Fluid temperature used for viscosity and density corrections if applicable."
+      "businessContext": "Fluid temperature used for viscosity and density corrections if applicable.",
+      "label_i18n": {
+        "en": "Operating Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Fluid temperature used for viscosity and density corrections if applicable."
+      }
     },
     {
       "id": "flow_regime_threshold",
@@ -89,7 +131,13 @@
       "default": "standard",
       "min": null,
       "max": null,
-      "businessContext": "Select threshold standard: 'standard' (Re<2300 laminar, 2300-4000 transitional, >4000 turbulent) or 'conservative' (Re<2000 laminar, 2000-3000 transitional, >3000 turbulent)."
+      "businessContext": "Select threshold standard: 'standard' (Re<2300 laminar, 2300-4000 transitional, >4000 turbulent) or 'conservative' (Re<2000 laminar, 2000-3000 transitional, >3000 turbulent).",
+      "label_i18n": {
+        "en": "Flow Regime Threshold"
+      },
+      "businessContext_i18n": {
+        "en": "Select threshold standard: 'standard' (Re<2300 laminar, 2300-4000 transitional, >4000 turbulent) or 'conservative' (Re<2000 laminar, 2000-3000 transitional, >3000 turbulent)."
+      }
     }
   ],
   "validation": {

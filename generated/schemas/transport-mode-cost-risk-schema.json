@@ -18,7 +18,13 @@
       "default": 10000,
       "min": 100,
       "max": 10000000,
-      "businessContext": "Total number of units shipped per year across all modes."
+      "businessContext": "Total number of units shipped per year across all modes.",
+      "label_i18n": {
+        "en": "Annual Shipping Volume (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units shipped per year across all modes."
+      }
     },
     {
       "id": "avg_shipment_weight",
@@ -28,7 +34,13 @@
       "default": 500,
       "min": 1,
       "max": 50000,
-      "businessContext": "Average weight per shipment, used to compute freight cost and risk exposure."
+      "businessContext": "Average weight per shipment, used to compute freight cost and risk exposure.",
+      "label_i18n": {
+        "en": "Average Shipment Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Average weight per shipment, used to compute freight cost and risk exposure."
+      }
     },
     {
       "id": "distance_km",
@@ -38,7 +50,13 @@
       "default": 800,
       "min": 10,
       "max": 20000,
-      "businessContext": "Average haul distance for each shipment, influences fuel cost and transit risk."
+      "businessContext": "Average haul distance for each shipment, influences fuel cost and transit risk.",
+      "label_i18n": {
+        "en": "Average Distance per Shipment (km)"
+      },
+      "businessContext_i18n": {
+        "en": "Average haul distance for each shipment, influences fuel cost and transit risk."
+      }
     },
     {
       "id": "mode",
@@ -54,7 +72,13 @@
         "rail",
         "ocean",
         "air"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Transport Mode"
+      },
+      "businessContext_i18n": {
+        "en": "Primary mode of transport: truck, rail, ocean, air."
+      }
     },
     {
       "id": "fuel_price_per_liter",
@@ -64,7 +88,13 @@
       "default": 1.2,
       "min": 0.5,
       "max": 3,
-      "businessContext": "Current diesel or bunker fuel price, used for variable cost estimation."
+      "businessContext": "Current diesel or bunker fuel price, used for variable cost estimation.",
+      "label_i18n": {
+        "en": "Fuel Price (USD per liter)"
+      },
+      "businessContext_i18n": {
+        "en": "Current diesel or bunker fuel price, used for variable cost estimation."
+      }
     },
     {
       "id": "labor_rate_per_hour",
@@ -74,7 +104,13 @@
       "default": 25,
       "min": 10,
       "max": 80,
-      "businessContext": "Average hourly wage for drivers/operators, used in labor cost calculation."
+      "businessContext": "Average hourly wage for drivers/operators, used in labor cost calculation.",
+      "label_i18n": {
+        "en": "Labor Rate (USD per hour)"
+      },
+      "businessContext_i18n": {
+        "en": "Average hourly wage for drivers/operators, used in labor cost calculation."
+      }
     },
     {
       "id": "transit_time_days",
@@ -84,7 +120,13 @@
       "default": 3,
       "min": 0.1,
       "max": 60,
-      "businessContext": "Expected door-to-door transit time, affects inventory carrying cost and risk."
+      "businessContext": "Expected door-to-door transit time, affects inventory carrying cost and risk.",
+      "label_i18n": {
+        "en": "Transit Time (days)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected door-to-door transit time, affects inventory carrying cost and risk."
+      }
     },
     {
       "id": "damage_rate_percent",
@@ -94,7 +136,13 @@
       "default": 1.5,
       "min": 0,
       "max": 20,
-      "businessContext": "Percentage of shipments damaged in transit, based on historical data."
+      "businessContext": "Percentage of shipments damaged in transit, based on historical data.",
+      "label_i18n": {
+        "en": "Historical Damage Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of shipments damaged in transit, based on historical data."
+      }
     },
     {
       "id": "insurance_rate_per_1000",
@@ -104,7 +152,13 @@
       "default": 5,
       "min": 0.5,
       "max": 50,
-      "businessContext": "Premium per $1000 of declared cargo value, used for insurance cost."
+      "businessContext": "Premium per $1000 of declared cargo value, used for insurance cost.",
+      "label_i18n": {
+        "en": "Insurance Rate (per $1000 value)"
+      },
+      "businessContext_i18n": {
+        "en": "Premium per $1000 of declared cargo value, used for insurance cost."
+      }
     },
     {
       "id": "cargo_value_per_unit",
@@ -114,7 +168,13 @@
       "default": 200,
       "min": 1,
       "max": 100000,
-      "businessContext": "Average value of each shipped unit, used for risk exposure and insurance."
+      "businessContext": "Average value of each shipped unit, used for risk exposure and insurance.",
+      "label_i18n": {
+        "en": "Cargo Value per Unit (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Average value of each shipped unit, used for risk exposure and insurance."
+      }
     },
     {
       "id": "inventory_holding_cost_percent",
@@ -124,7 +184,13 @@
       "default": 20,
       "min": 5,
       "max": 50,
-      "businessContext": "Annual cost to hold inventory as a percentage of cargo value, includes warehousing, capital cost."
+      "businessContext": "Annual cost to hold inventory as a percentage of cargo value, includes warehousing, capital cost.",
+      "label_i18n": {
+        "en": "Inventory Holding Cost (% of value per year)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual cost to hold inventory as a percentage of cargo value, includes warehousing, capital cost."
+      }
     },
     {
       "id": "carbon_tax_per_ton_co2",
@@ -134,7 +200,13 @@
       "default": 50,
       "min": 0,
       "max": 200,
-      "businessContext": "Regulatory cost per metric ton of CO2 emitted, used for environmental cost."
+      "businessContext": "Regulatory cost per metric ton of CO2 emitted, used for environmental cost.",
+      "label_i18n": {
+        "en": "Carbon Tax (USD per ton CO2)"
+      },
+      "businessContext_i18n": {
+        "en": "Regulatory cost per metric ton of CO2 emitted, used for environmental cost."
+      }
     },
     {
       "id": "use_lean_metrics",
@@ -144,7 +216,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If enabled, includes lean waste factors (overprocessing, waiting) in cost and risk."
+      "businessContext": "If enabled, includes lean waste factors (overprocessing, waiting) in cost and risk.",
+      "label_i18n": {
+        "en": "Apply Lean Metrics (takt time, waste)"
+      },
+      "businessContext_i18n": {
+        "en": "If enabled, includes lean waste factors (overprocessing, waiting) in cost and risk."
+      }
     }
   ],
   "validation": {

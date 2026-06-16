@@ -19,7 +19,13 @@
       "default": 5,
       "min": 2,
       "max": 25,
-      "businessContext": "Number of samples per subgroup for X-bar and R charts. Typical values: 3-10."
+      "businessContext": "Number of samples per subgroup for X-bar and R charts. Typical values: 3-10.",
+      "label_i18n": {
+        "en": "Subgroup Size (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of samples per subgroup for X-bar and R charts. Typical values: 3-10."
+      }
     },
     {
       "id": "num_subgroups",
@@ -29,7 +35,13 @@
       "default": 20,
       "min": 10,
       "max": 100,
-      "businessContext": "Total subgroups used to estimate process variation. Minimum 10 for reliable limits."
+      "businessContext": "Total subgroups used to estimate process variation. Minimum 10 for reliable limits.",
+      "label_i18n": {
+        "en": "Number of Subgroups (k)"
+      },
+      "businessContext_i18n": {
+        "en": "Total subgroups used to estimate process variation. Minimum 10 for reliable limits."
+      }
     },
     {
       "id": "overall_mean",
@@ -39,7 +51,13 @@
       "default": 50,
       "min": 0,
       "max": 1000,
-      "businessContext": "Average of subgroup means. Central line for X-bar chart."
+      "businessContext": "Average of subgroup means. Central line for X-bar chart.",
+      "label_i18n": {
+        "en": "Overall Mean (X-double-bar)"
+      },
+      "businessContext_i18n": {
+        "en": "Average of subgroup means. Central line for X-bar chart."
+      }
     },
     {
       "id": "average_range",
@@ -49,7 +67,13 @@
       "default": 5,
       "min": 0.1,
       "max": 100,
-      "businessContext": "Mean of subgroup ranges. Used to estimate process sigma."
+      "businessContext": "Mean of subgroup ranges. Used to estimate process sigma.",
+      "label_i18n": {
+        "en": "Average Range (R-bar)"
+      },
+      "businessContext_i18n": {
+        "en": "Mean of subgroup ranges. Used to estimate process sigma."
+      }
     },
     {
       "id": "usl",
@@ -59,7 +83,13 @@
       "default": 60,
       "min": 0,
       "max": 1000,
-      "businessContext": "Maximum acceptable value per customer or design requirement."
+      "businessContext": "Maximum acceptable value per customer or design requirement.",
+      "label_i18n": {
+        "en": "Upper Specification Limit (USL)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum acceptable value per customer or design requirement."
+      }
     },
     {
       "id": "lsl",
@@ -69,7 +99,13 @@
       "default": 40,
       "min": 0,
       "max": 1000,
-      "businessContext": "Minimum acceptable value per customer or design requirement."
+      "businessContext": "Minimum acceptable value per customer or design requirement.",
+      "label_i18n": {
+        "en": "Lower Specification Limit (LSL)"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum acceptable value per customer or design requirement."
+      }
     },
     {
       "id": "chart_type",
@@ -82,7 +118,13 @@
         "Xbar-s",
         "I-MR"
       ],
-      "businessContext": "Select control chart type. Xbar-R for small subgroups, Xbar-s for larger, I-MR for individual measurements."
+      "businessContext": "Select control chart type. Xbar-R for small subgroups, Xbar-s for larger, I-MR for individual measurements.",
+      "label_i18n": {
+        "en": "Chart Type"
+      },
+      "businessContext_i18n": {
+        "en": "Select control chart type. Xbar-R for small subgroups, Xbar-s for larger, I-MR for individual measurements."
+      }
     },
     {
       "id": "use_estimated_sigma",
@@ -90,7 +132,13 @@
       "type": "boolean",
       "unit": "",
       "default": true,
-      "businessContext": "If true, sigma is estimated from R-bar/d2. If false, use pooled standard deviation."
+      "businessContext": "If true, sigma is estimated from R-bar/d2. If false, use pooled standard deviation.",
+      "label_i18n": {
+        "en": "Use Estimated Sigma from R-bar"
+      },
+      "businessContext_i18n": {
+        "en": "If true, sigma is estimated from R-bar/d2. If false, use pooled standard deviation."
+      }
     }
   ],
   "validation": {

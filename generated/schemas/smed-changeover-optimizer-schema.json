@@ -19,7 +19,13 @@
       "default": 45,
       "min": 1,
       "max": 480,
-      "businessContext": "Total time from last good piece of previous run to first good piece of next run. Measured per SMED standard."
+      "businessContext": "Total time from last good piece of previous run to first good piece of next run. Measured per SMED standard.",
+      "label_i18n": {
+        "en": "Current Changeover Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Total time from last good piece of previous run to first good piece of next run. Measured per SMED standard."
+      }
     },
     {
       "id": "internal_operations_percentage",
@@ -29,7 +35,13 @@
       "default": 60,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of changeover time where machine is stopped. Target is to convert internal to external."
+      "businessContext": "Percentage of changeover time where machine is stopped. Target is to convert internal to external.",
+      "label_i18n": {
+        "en": "Internal Operations (% of total time)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of changeover time where machine is stopped. Target is to convert internal to external."
+      }
     },
     {
       "id": "setup_team_size",
@@ -39,7 +51,13 @@
       "default": 2,
       "min": 1,
       "max": 10,
-      "businessContext": "Number of operators directly involved in the changeover process."
+      "businessContext": "Number of operators directly involved in the changeover process.",
+      "label_i18n": {
+        "en": "Setup Team Size (operators)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of operators directly involved in the changeover process."
+      }
     },
     {
       "id": "parallel_work_possible",
@@ -49,7 +67,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "Indicates if tasks can be performed simultaneously by multiple operators (SMED principle)."
+      "businessContext": "Indicates if tasks can be performed simultaneously by multiple operators (SMED principle).",
+      "label_i18n": {
+        "en": "Parallel Work Possible"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if tasks can be performed simultaneously by multiple operators (SMED principle)."
+      }
     },
     {
       "id": "standardization_level",
@@ -64,7 +88,13 @@
         "medium",
         "high"
       ],
-      "businessContext": "Degree of standardized work instructions, tooling, and die design. High = minimal adjustments."
+      "businessContext": "Degree of standardized work instructions, tooling, and die design. High = minimal adjustments.",
+      "label_i18n": {
+        "en": "Standardization Level"
+      },
+      "businessContext_i18n": {
+        "en": "Degree of standardized work instructions, tooling, and die design. High = minimal adjustments."
+      }
     },
     {
       "id": "waste_motion_score",
@@ -74,7 +104,13 @@
       "default": 6,
       "min": 1,
       "max": 10,
-      "businessContext": "Subjective assessment of unnecessary movement, searching, and walking during changeover. 1 = optimal, 10 = extreme waste."
+      "businessContext": "Subjective assessment of unnecessary movement, searching, and walking during changeover. 1 = optimal, 10 = extreme waste.",
+      "label_i18n": {
+        "en": "Waste Motion Score (1-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Subjective assessment of unnecessary movement, searching, and walking during changeover. 1 = optimal, 10 = extreme waste."
+      }
     }
   ],
   "validation": {

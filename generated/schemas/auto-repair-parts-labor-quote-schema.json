@@ -20,7 +20,13 @@
       "default": 0,
       "min": 0,
       "max": 100000,
-      "businessContext": "Total cost of replacement parts from supplier invoice."
+      "businessContext": "Total cost of replacement parts from supplier invoice.",
+      "label_i18n": {
+        "en": "Parts Cost (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost of replacement parts from supplier invoice."
+      }
     },
     {
       "id": "labor_hours",
@@ -30,7 +36,13 @@
       "default": 1,
       "min": 0.1,
       "max": 100,
-      "businessContext": "Estimated technician hours based on standard repair times (e.g., Mitchell, ALLDATA)."
+      "businessContext": "Estimated technician hours based on standard repair times (e.g., Mitchell, ALLDATA).",
+      "label_i18n": {
+        "en": "Labor Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated technician hours based on standard repair times (e.g., Mitchell, ALLDATA)."
+      }
     },
     {
       "id": "labor_rate",
@@ -40,7 +52,13 @@
       "default": 85,
       "min": 20,
       "max": 300,
-      "businessContext": "Shop's hourly labor charge, typically includes overhead and profit."
+      "businessContext": "Shop's hourly labor charge, typically includes overhead and profit.",
+      "label_i18n": {
+        "en": "Labor Rate (USD/hour)"
+      },
+      "businessContext_i18n": {
+        "en": "Shop's hourly labor charge, typically includes overhead and profit."
+      }
     },
     {
       "id": "overhead_percent",
@@ -50,7 +68,13 @@
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of direct costs allocated to shop overhead (rent, utilities, admin)."
+      "businessContext": "Percentage of direct costs allocated to shop overhead (rent, utilities, admin).",
+      "label_i18n": {
+        "en": "Overhead Percentage (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of direct costs allocated to shop overhead (rent, utilities, admin)."
+      }
     },
     {
       "id": "profit_margin",
@@ -60,7 +84,13 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Desired profit margin on total job cost."
+      "businessContext": "Desired profit margin on total job cost.",
+      "label_i18n": {
+        "en": "Target Profit Margin (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Desired profit margin on total job cost."
+      }
     },
     {
       "id": "tax_rate",
@@ -70,7 +100,13 @@
       "default": 8,
       "min": 0,
       "max": 20,
-      "businessContext": "Applicable sales tax percentage for the region."
+      "businessContext": "Applicable sales tax percentage for the region.",
+      "label_i18n": {
+        "en": "Sales Tax Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Applicable sales tax percentage for the region."
+      }
     },
     {
       "id": "discount_percent",
@@ -80,7 +116,13 @@
       "default": 0,
       "min": 0,
       "max": 100,
-      "businessContext": "Optional discount offered to customer (e.g., loyalty, promotion)."
+      "businessContext": "Optional discount offered to customer (e.g., loyalty, promotion).",
+      "label_i18n": {
+        "en": "Customer Discount (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Optional discount offered to customer (e.g., loyalty, promotion)."
+      }
     },
     {
       "id": "parts_markup",
@@ -90,7 +132,13 @@
       "default": 30,
       "min": 0,
       "max": 200,
-      "businessContext": "Markup applied to parts cost to cover handling and profit."
+      "businessContext": "Markup applied to parts cost to cover handling and profit.",
+      "label_i18n": {
+        "en": "Parts Markup (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Markup applied to parts cost to cover handling and profit."
+      }
     },
     {
       "id": "complexity_factor",
@@ -111,14 +159,26 @@
         }
       ],
       "default": 1,
-      "businessContext": "Adjusts labor time for job difficulty (e.g., engine rebuild vs. oil change)."
+      "businessContext": "Adjusts labor time for job difficulty (e.g., engine rebuild vs. oil change).",
+      "label_i18n": {
+        "en": "Job Complexity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Adjusts labor time for job difficulty (e.g., engine rebuild vs. oil change)."
+      }
     },
     {
       "id": "warranty_included",
       "label": "Include Extended Warranty?",
       "type": "boolean",
       "default": false,
-      "businessContext": "Adds a fixed warranty fee to the quote."
+      "businessContext": "Adds a fixed warranty fee to the quote.",
+      "label_i18n": {
+        "en": "Include Extended Warranty?"
+      },
+      "businessContext_i18n": {
+        "en": "Adds a fixed warranty fee to the quote."
+      }
     }
   ],
   "validation": {

@@ -17,7 +17,13 @@
       "default": 500000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Sum of all fixed expenses (rent, salaries, insurance) per period."
+      "businessContext": "Sum of all fixed expenses (rent, salaries, insurance) per period.",
+      "label_i18n": {
+        "en": "Total Fixed Costs"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of all fixed expenses (rent, salaries, insurance) per period."
+      }
     },
     {
       "id": "variableCostPerUnit",
@@ -27,7 +33,13 @@
       "default": 15,
       "min": 0,
       "max": 10000,
-      "businessContext": "Direct material, labor, and overhead per unit."
+      "businessContext": "Direct material, labor, and overhead per unit.",
+      "label_i18n": {
+        "en": "Variable Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Direct material, labor, and overhead per unit."
+      }
     },
     {
       "id": "sellingPricePerUnit",
@@ -37,7 +49,13 @@
       "default": 25,
       "min": 0,
       "max": 100000,
-      "businessContext": "Revenue per unit sold."
+      "businessContext": "Revenue per unit sold.",
+      "label_i18n": {
+        "en": "Selling Price per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Revenue per unit sold."
+      }
     },
     {
       "id": "actualSalesVolume",
@@ -47,7 +65,13 @@
       "default": 80000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Number of units actually sold in the period."
+      "businessContext": "Number of units actually sold in the period.",
+      "label_i18n": {
+        "en": "Actual Sales Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units actually sold in the period."
+      }
     },
     {
       "id": "capacityVolume",
@@ -57,7 +81,13 @@
       "default": 120000,
       "min": 0,
       "max": 20000000,
-      "businessContext": "Theoretical maximum output under normal operating conditions."
+      "businessContext": "Theoretical maximum output under normal operating conditions.",
+      "label_i18n": {
+        "en": "Maximum Capacity Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Theoretical maximum output under normal operating conditions."
+      }
     },
     {
       "id": "demandUncertainty",
@@ -67,7 +97,13 @@
       "default": 10,
       "min": 0,
       "max": 100,
-      "businessContext": "Expected percentage variation in demand (coefficient of variation)."
+      "businessContext": "Expected percentage variation in demand (coefficient of variation).",
+      "label_i18n": {
+        "en": "Demand Uncertainty Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage variation in demand (coefficient of variation)."
+      }
     },
     {
       "id": "costEscalationRate",
@@ -77,7 +113,13 @@
       "default": 3,
       "min": 0,
       "max": 50,
-      "businessContext": "Annual expected increase in variable costs (inflation, supplier pricing)."
+      "businessContext": "Annual expected increase in variable costs (inflation, supplier pricing).",
+      "label_i18n": {
+        "en": "Cost Escalation Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual expected increase in variable costs (inflation, supplier pricing)."
+      }
     },
     {
       "id": "includeTax",
@@ -87,7 +129,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If true, tax rate input is required and after-tax break-even is calculated."
+      "businessContext": "If true, tax rate input is required and after-tax break-even is calculated.",
+      "label_i18n": {
+        "en": "Include Tax Effect"
+      },
+      "businessContext_i18n": {
+        "en": "If true, tax rate input is required and after-tax break-even is calculated."
+      }
     },
     {
       "id": "taxRate",
@@ -97,7 +145,13 @@
       "default": 25,
       "min": 0,
       "max": 60,
-      "businessContext": "Effective corporate tax rate, used only when includeTax is true."
+      "businessContext": "Effective corporate tax rate, used only when includeTax is true.",
+      "label_i18n": {
+        "en": "Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Effective corporate tax rate, used only when includeTax is true."
+      }
     }
   ],
   "validation": {

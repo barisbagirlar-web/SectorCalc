@@ -18,7 +18,13 @@
       "default": 100000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Total initial cost of acquiring the asset (purchase, installation, commissioning)."
+      "businessContext": "Total initial cost of acquiring the asset (purchase, installation, commissioning).",
+      "label_i18n": {
+        "en": "Acquisition Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total initial cost of acquiring the asset (purchase, installation, commissioning)."
+      }
     },
     {
       "id": "expected_life_years",
@@ -28,7 +34,13 @@
       "default": 10,
       "min": 1,
       "max": 50,
-      "businessContext": "Planned useful life of the asset per ISO 15686."
+      "businessContext": "Planned useful life of the asset per ISO 15686.",
+      "label_i18n": {
+        "en": "Expected Life (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Planned useful life of the asset per ISO 15686."
+      }
     },
     {
       "id": "annual_operating_hours",
@@ -38,7 +50,13 @@
       "default": 2000,
       "min": 0,
       "max": 8760,
-      "businessContext": "Expected annual usage hours."
+      "businessContext": "Expected annual usage hours.",
+      "label_i18n": {
+        "en": "Annual Operating Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual usage hours."
+      }
     },
     {
       "id": "maintenance_strategy",
@@ -62,7 +80,13 @@
           "value": "reactive",
           "label": "Reactive"
         }
-      ]
+      ],
+      "label_i18n": {
+        "en": "Maintenance Strategy"
+      },
+      "businessContext_i18n": {
+        "en": "Type of maintenance approach (preventive, predictive, reactive)."
+      }
     },
     {
       "id": "labor_rate",
@@ -72,7 +96,13 @@
       "default": 50,
       "min": 0,
       "max": 500,
-      "businessContext": "Average hourly cost of maintenance labor."
+      "businessContext": "Average hourly cost of maintenance labor.",
+      "label_i18n": {
+        "en": "Labor Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Average hourly cost of maintenance labor."
+      }
     },
     {
       "id": "parts_cost_per_incident",
@@ -82,7 +112,13 @@
       "default": 500,
       "min": 0,
       "max": 100000,
-      "businessContext": "Average cost of spare parts per maintenance event."
+      "businessContext": "Average cost of spare parts per maintenance event.",
+      "label_i18n": {
+        "en": "Parts Cost per Incident"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost of spare parts per maintenance event."
+      }
     },
     {
       "id": "downtime_cost_per_hour",
@@ -92,7 +128,13 @@
       "default": 1000,
       "min": 0,
       "max": 100000,
-      "businessContext": "Lost revenue or cost per hour of unplanned downtime."
+      "businessContext": "Lost revenue or cost per hour of unplanned downtime.",
+      "label_i18n": {
+        "en": "Downtime Cost per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Lost revenue or cost per hour of unplanned downtime."
+      }
     },
     {
       "id": "energy_cost_per_kwh",
@@ -102,7 +144,13 @@
       "default": 0.12,
       "min": 0,
       "max": 1,
-      "businessContext": "Cost of electricity per kilowatt-hour."
+      "businessContext": "Cost of electricity per kilowatt-hour.",
+      "label_i18n": {
+        "en": "Energy Cost per kWh"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of electricity per kilowatt-hour."
+      }
     },
     {
       "id": "power_rating_kw",
@@ -112,7 +160,13 @@
       "default": 50,
       "min": 0,
       "max": 10000,
-      "businessContext": "Rated power consumption of the asset."
+      "businessContext": "Rated power consumption of the asset.",
+      "label_i18n": {
+        "en": "Power Rating (kW)"
+      },
+      "businessContext_i18n": {
+        "en": "Rated power consumption of the asset."
+      }
     },
     {
       "id": "inflation_rate",
@@ -122,7 +176,13 @@
       "default": 2.5,
       "min": 0,
       "max": 20,
-      "businessContext": "Annual inflation rate for future cost adjustments."
+      "businessContext": "Annual inflation rate for future cost adjustments.",
+      "label_i18n": {
+        "en": "Inflation Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual inflation rate for future cost adjustments."
+      }
     },
     {
       "id": "discount_rate",
@@ -132,7 +192,13 @@
       "default": 5,
       "min": 0,
       "max": 20,
-      "businessContext": "Discount rate for net present value calculations."
+      "businessContext": "Discount rate for net present value calculations.",
+      "label_i18n": {
+        "en": "Discount Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Discount rate for net present value calculations."
+      }
     },
     {
       "id": "data_confidence",
@@ -142,7 +208,13 @@
       "default": 80,
       "min": 0,
       "max": 100,
-      "businessContext": "Confidence level in input data accuracy (0-100%)."
+      "businessContext": "Confidence level in input data accuracy (0-100%).",
+      "label_i18n": {
+        "en": "Data Confidence"
+      },
+      "businessContext_i18n": {
+        "en": "Confidence level in input data accuracy (0-100%)."
+      }
     }
   ],
   "validation": {

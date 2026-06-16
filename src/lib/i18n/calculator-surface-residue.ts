@@ -34,6 +34,7 @@ const TR_SURFACE_RESIDUE: Record<string, string> = {
   after: "sonrasında",
   expected: "beklenen",
   influences: "etkiler",
+  affects: "etkiler",
   assumed: "varsayılan",
   reporting: "raporlama",
   machinability: "işlenebilirlik",
@@ -119,6 +120,7 @@ const DE_SURFACE_RESIDUE: Record<string, string> = {
   Input: "Eingabe",
   Amount: "Betrag",
   Time: "Zeit",
+  affects: "beeinflusst",
 };
 
 const FR_SURFACE_RESIDUE: Record<string, string> = {
@@ -128,6 +130,7 @@ const FR_SURFACE_RESIDUE: Record<string, string> = {
   Input: "Entrée",
   Amount: "Montant",
   Time: "Temps",
+  affects: "affecte",
 };
 
 const ES_SURFACE_RESIDUE: Record<string, string> = {
@@ -137,6 +140,7 @@ const ES_SURFACE_RESIDUE: Record<string, string> = {
   Input: "Entrada",
   Amount: "Importe",
   Time: "Tiempo",
+  affects: "afecta",
 };
 
 const AR_SURFACE_RESIDUE: Record<string, string> = {
@@ -146,6 +150,7 @@ const AR_SURFACE_RESIDUE: Record<string, string> = {
   Input: "إدخال",
   Amount: "المبلغ",
   Time: "الوقت",
+  affects: "يؤثر",
 };
 
 const RESIDUE_BY_LOCALE: Partial<Record<SupportedLocale, Record<string, string>>> = {

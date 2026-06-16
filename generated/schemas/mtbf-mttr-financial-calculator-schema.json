@@ -20,7 +20,13 @@
       "default": 8760,
       "min": 1,
       "max": 8760,
-      "businessContext": "Total planned operating hours of the equipment per year. Used to calculate failure frequency and downtime."
+      "businessContext": "Total planned operating hours of the equipment per year. Used to calculate failure frequency and downtime.",
+      "label_i18n": {
+        "en": "Operating Hours per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Total planned operating hours of the equipment per year. Used to calculate failure frequency and downtime."
+      }
     },
     {
       "id": "number_of_units",
@@ -30,7 +36,13 @@
       "default": 10,
       "min": 1,
       "max": 10000,
-      "businessContext": "Total number of identical or similar assets in the fleet."
+      "businessContext": "Total number of identical or similar assets in the fleet.",
+      "label_i18n": {
+        "en": "Number of Units"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of identical or similar assets in the fleet."
+      }
     },
     {
       "id": "mtbf",
@@ -40,7 +52,13 @@
       "default": 500,
       "min": 1,
       "max": 100000,
-      "businessContext": "Average time between failures for a repairable system. Higher is better. ISO 14224."
+      "businessContext": "Average time between failures for a repairable system. Higher is better. ISO 14224.",
+      "label_i18n": {
+        "en": "Mean Time Between Failures (MTBF)"
+      },
+      "businessContext_i18n": {
+        "en": "Average time between failures for a repairable system. Higher is better. ISO 14224."
+      }
     },
     {
       "id": "mttr",
@@ -50,7 +68,13 @@
       "default": 4,
       "min": 0.1,
       "max": 1000,
-      "businessContext": "Average time to restore a failed system to operational state. Lower is better. Includes diagnosis, repair, testing."
+      "businessContext": "Average time to restore a failed system to operational state. Lower is better. Includes diagnosis, repair, testing.",
+      "label_i18n": {
+        "en": "Mean Time To Repair (MTTR)"
+      },
+      "businessContext_i18n": {
+        "en": "Average time to restore a failed system to operational state. Lower is better. Includes diagnosis, repair, testing."
+      }
     },
     {
       "id": "cost_per_downtime_hour",
@@ -60,7 +84,13 @@
       "default": 1000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Lost profit or cost incurred per hour of equipment downtime (lost production, labor, penalties)."
+      "businessContext": "Lost profit or cost incurred per hour of equipment downtime (lost production, labor, penalties).",
+      "label_i18n": {
+        "en": "Cost per Downtime Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Lost profit or cost incurred per hour of equipment downtime (lost production, labor, penalties)."
+      }
     },
     {
       "id": "cost_per_failure_event",
@@ -70,7 +100,13 @@
       "default": 500,
       "min": 0,
       "max": 100000,
-      "businessContext": "Fixed costs per failure: spare parts, logistics, contractor fees, administrative overhead."
+      "businessContext": "Fixed costs per failure: spare parts, logistics, contractor fees, administrative overhead.",
+      "label_i18n": {
+        "en": "Cost per Failure Event (excluding downtime)"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed costs per failure: spare parts, logistics, contractor fees, administrative overhead."
+      }
     },
     {
       "id": "maintenance_labor_rate",
@@ -80,7 +116,13 @@
       "default": 75,
       "min": 0,
       "max": 500,
-      "businessContext": "Hourly cost of maintenance personnel (including overhead)."
+      "businessContext": "Hourly cost of maintenance personnel (including overhead).",
+      "label_i18n": {
+        "en": "Maintenance Labor Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly cost of maintenance personnel (including overhead)."
+      }
     },
     {
       "id": "reliability_improvement_investment",
@@ -90,7 +132,13 @@
       "default": 0,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Annual budget allocated to reliability improvement projects (training, redesign, predictive maintenance)."
+      "businessContext": "Annual budget allocated to reliability improvement projects (training, redesign, predictive maintenance).",
+      "label_i18n": {
+        "en": "Reliability Improvement Investment (annual)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual budget allocated to reliability improvement projects (training, redesign, predictive maintenance)."
+      }
     },
     {
       "id": "availability_target",
@@ -100,7 +148,13 @@
       "default": 95,
       "min": 0,
       "max": 100,
-      "businessContext": "Target operational availability (uptime / total time). Used for gap analysis."
+      "businessContext": "Target operational availability (uptime / total time). Used for gap analysis.",
+      "label_i18n": {
+        "en": "Availability Target"
+      },
+      "businessContext_i18n": {
+        "en": "Target operational availability (uptime / total time). Used for gap analysis."
+      }
     },
     {
       "id": "industry_benchmark_mtbf",
@@ -110,7 +164,13 @@
       "default": 1000,
       "min": 1,
       "max": 100000,
-      "businessContext": "Reference MTBF from industry standards (e.g., WERC, ISO) for comparison."
+      "businessContext": "Reference MTBF from industry standards (e.g., WERC, ISO) for comparison.",
+      "label_i18n": {
+        "en": "Industry Benchmark MTBF"
+      },
+      "businessContext_i18n": {
+        "en": "Reference MTBF from industry standards (e.g., WERC, ISO) for comparison."
+      }
     }
   ],
   "validation": {

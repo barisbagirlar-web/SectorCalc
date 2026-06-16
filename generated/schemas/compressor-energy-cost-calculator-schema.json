@@ -21,7 +21,13 @@
       "default": 75,
       "min": 1,
       "max": 5000,
-      "businessContext": "Nameplate power of the compressor motor. Typically from 5 kW to 5000 kW for industrial units."
+      "businessContext": "Nameplate power of the compressor motor. Typically from 5 kW to 5000 kW for industrial units.",
+      "label_i18n": {
+        "en": "Compressor Motor Power Rating"
+      },
+      "businessContext_i18n": {
+        "en": "Nameplate power of the compressor motor. Typically from 5 kW to 5000 kW for industrial units."
+      }
     },
     {
       "id": "motor_efficiency",
@@ -31,7 +37,13 @@
       "default": 92,
       "min": 70,
       "max": 99,
-      "businessContext": "Efficiency of the electric motor driving the compressor. Premium efficiency motors (IE3/IE4) are >90%."
+      "businessContext": "Efficiency of the electric motor driving the compressor. Premium efficiency motors (IE3/IE4) are >90%.",
+      "label_i18n": {
+        "en": "Motor Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency of the electric motor driving the compressor. Premium efficiency motors (IE3/IE4) are >90%."
+      }
     },
     {
       "id": "compressor_type",
@@ -57,7 +69,13 @@
           "label": "Scroll"
         }
       ],
-      "businessContext": "Different compressor types have different specific power curves and maintenance profiles."
+      "businessContext": "Different compressor types have different specific power curves and maintenance profiles.",
+      "label_i18n": {
+        "en": "Compressor Type"
+      },
+      "businessContext_i18n": {
+        "en": "Different compressor types have different specific power curves and maintenance profiles."
+      }
     },
     {
       "id": "operating_hours_per_year",
@@ -67,7 +85,13 @@
       "default": 8000,
       "min": 100,
       "max": 8760,
-      "businessContext": "Total annual operating hours. Typical industrial: 8000 hours (2 shifts, 5 days)."
+      "businessContext": "Total annual operating hours. Typical industrial: 8000 hours (2 shifts, 5 days).",
+      "label_i18n": {
+        "en": "Operating Hours per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Total annual operating hours. Typical industrial: 8000 hours (2 shifts, 5 days)."
+      }
     },
     {
       "id": "load_factor",
@@ -77,7 +101,13 @@
       "default": 70,
       "min": 10,
       "max": 100,
-      "businessContext": "Average percentage of full load capacity at which the compressor operates. Includes part-load and unloaded periods."
+      "businessContext": "Average percentage of full load capacity at which the compressor operates. Includes part-load and unloaded periods.",
+      "label_i18n": {
+        "en": "Load Factor (Average % of Full Load)"
+      },
+      "businessContext_i18n": {
+        "en": "Average percentage of full load capacity at which the compressor operates. Includes part-load and unloaded periods."
+      }
     },
     {
       "id": "electricity_cost_per_kwh",
@@ -87,7 +117,13 @@
       "default": 0.12,
       "min": 0.01,
       "max": 0.5,
-      "businessContext": "Blended average cost per kWh including demand charges. Typical range $0.05-$0.30."
+      "businessContext": "Blended average cost per kWh including demand charges. Typical range $0.05-$0.30.",
+      "label_i18n": {
+        "en": "Electricity Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Blended average cost per kWh including demand charges. Typical range $0.05-$0.30."
+      }
     },
     {
       "id": "leakage_percentage",
@@ -97,7 +133,13 @@
       "default": 20,
       "min": 0,
       "max": 50,
-      "businessContext": "Percentage of compressed air lost through leaks. Typical industrial systems: 20-30%."
+      "businessContext": "Percentage of compressed air lost through leaks. Typical industrial systems: 20-30%.",
+      "label_i18n": {
+        "en": "Estimated System Leakage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of compressed air lost through leaks. Typical industrial systems: 20-30%."
+      }
     },
     {
       "id": "pressure_setpoint",
@@ -107,7 +149,13 @@
       "default": 7,
       "min": 2,
       "max": 15,
-      "businessContext": "Operating pressure at the compressor discharge. Higher pressure increases energy consumption by ~1% per 0.1 bar."
+      "businessContext": "Operating pressure at the compressor discharge. Higher pressure increases energy consumption by ~1% per 0.1 bar.",
+      "label_i18n": {
+        "en": "System Pressure Setpoint"
+      },
+      "businessContext_i18n": {
+        "en": "Operating pressure at the compressor discharge. Higher pressure increases energy consumption by ~1% per 0.1 bar."
+      }
     },
     {
       "id": "ambient_temperature",
@@ -117,7 +165,13 @@
       "default": 25,
       "min": -10,
       "max": 50,
-      "businessContext": "Average ambient temperature at compressor intake. Higher temperature reduces air density and increases power."
+      "businessContext": "Average ambient temperature at compressor intake. Higher temperature reduces air density and increases power.",
+      "label_i18n": {
+        "en": "Average Ambient Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Average ambient temperature at compressor intake. Higher temperature reduces air density and increases power."
+      }
     },
     {
       "id": "has_vsd",
@@ -125,7 +179,13 @@
       "type": "boolean",
       "unit": "",
       "default": false,
-      "businessContext": "VSD can reduce energy consumption by 15-35% under part-load conditions."
+      "businessContext": "VSD can reduce energy consumption by 15-35% under part-load conditions.",
+      "label_i18n": {
+        "en": "Variable Speed Drive (VSD) Installed"
+      },
+      "businessContext_i18n": {
+        "en": "VSD can reduce energy consumption by 15-35% under part-load conditions."
+      }
     },
     {
       "id": "maintenance_quality",
@@ -147,7 +207,13 @@
           "label": "Excellent (predictive + IoT)"
         }
       ],
-      "businessContext": "Maintenance quality affects efficiency, leakage, and pressure drop. Poor maintenance can increase energy use by 10-20%."
+      "businessContext": "Maintenance quality affects efficiency, leakage, and pressure drop. Poor maintenance can increase energy use by 10-20%.",
+      "label_i18n": {
+        "en": "Maintenance Quality Level"
+      },
+      "businessContext_i18n": {
+        "en": "Maintenance quality affects efficiency, leakage, and pressure drop. Poor maintenance can increase energy use by 10-20%."
+      }
     }
   ],
   "validation": {

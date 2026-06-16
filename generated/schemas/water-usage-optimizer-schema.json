@@ -19,7 +19,13 @@
       "default": 10000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Total volume of water entering the facility from all sources (municipal, well, recycled)."
+      "businessContext": "Total volume of water entering the facility from all sources (municipal, well, recycled).",
+      "label_i18n": {
+        "en": "Total Water Input (m³)"
+      },
+      "businessContext_i18n": {
+        "en": "Total volume of water entering the facility from all sources (municipal, well, recycled)."
+      }
     },
     {
       "id": "productionOutput",
@@ -29,7 +35,13 @@
       "default": 50000,
       "min": 1,
       "max": 10000000,
-      "businessContext": "Total number of units produced in the reporting period."
+      "businessContext": "Total number of units produced in the reporting period.",
+      "label_i18n": {
+        "en": "Production Output (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units produced in the reporting period."
+      }
     },
     {
       "id": "processWater",
@@ -39,7 +51,13 @@
       "default": 7000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Water directly used in manufacturing processes (e.g., cooling, rinsing, chemical mixing)."
+      "businessContext": "Water directly used in manufacturing processes (e.g., cooling, rinsing, chemical mixing).",
+      "label_i18n": {
+        "en": "Process Water Used (m³)"
+      },
+      "businessContext_i18n": {
+        "en": "Water directly used in manufacturing processes (e.g., cooling, rinsing, chemical mixing)."
+      }
     },
     {
       "id": "coolingWater",
@@ -49,7 +67,13 @@
       "default": 2000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Water added to cooling towers or closed-loop systems to compensate for evaporation and blowdown."
+      "businessContext": "Water added to cooling towers or closed-loop systems to compensate for evaporation and blowdown.",
+      "label_i18n": {
+        "en": "Cooling Water Makeup (m³)"
+      },
+      "businessContext_i18n": {
+        "en": "Water added to cooling towers or closed-loop systems to compensate for evaporation and blowdown."
+      }
     },
     {
       "id": "wastewaterDischarge",
@@ -59,7 +83,13 @@
       "default": 6000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Volume of wastewater discharged to sewer or treatment facility."
+      "businessContext": "Volume of wastewater discharged to sewer or treatment facility.",
+      "label_i18n": {
+        "en": "Wastewater Discharge (m³)"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of wastewater discharged to sewer or treatment facility."
+      }
     },
     {
       "id": "recycledWater",
@@ -69,7 +99,13 @@
       "default": 1500,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Volume of water treated and reused within the facility."
+      "businessContext": "Volume of water treated and reused within the facility.",
+      "label_i18n": {
+        "en": "Recycled Water (m³)"
+      },
+      "businessContext_i18n": {
+        "en": "Volume of water treated and reused within the facility."
+      }
     },
     {
       "id": "leakageLosses",
@@ -79,7 +115,13 @@
       "default": 500,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Estimated water lost through leaks in pipes, valves, and fixtures."
+      "businessContext": "Estimated water lost through leaks in pipes, valves, and fixtures.",
+      "label_i18n": {
+        "en": "Leakage Losses (m³)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated water lost through leaks in pipes, valves, and fixtures."
+      }
     },
     {
       "id": "industryType",
@@ -97,7 +139,13 @@
         "metal_fabrication",
         "general_manufacturing"
       ],
-      "businessContext": "Industry classification used for benchmarking and normalization."
+      "businessContext": "Industry classification used for benchmarking and normalization.",
+      "label_i18n": {
+        "en": "Industry Type"
+      },
+      "businessContext_i18n": {
+        "en": "Industry classification used for benchmarking and normalization."
+      }
     },
     {
       "id": "waterCostPerM3",
@@ -107,7 +155,13 @@
       "default": 2.5,
       "min": 0,
       "max": 100,
-      "businessContext": "Average cost per cubic meter of water including supply and wastewater treatment."
+      "businessContext": "Average cost per cubic meter of water including supply and wastewater treatment.",
+      "label_i18n": {
+        "en": "Water Cost (currency/m³)"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost per cubic meter of water including supply and wastewater treatment."
+      }
     },
     {
       "id": "enableAdvancedAnalysis",
@@ -117,7 +171,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If true, enables hidden loss driver detection and suggested actions."
+      "businessContext": "If true, enables hidden loss driver detection and suggested actions.",
+      "label_i18n": {
+        "en": "Enable Advanced Analysis"
+      },
+      "businessContext_i18n": {
+        "en": "If true, enables hidden loss driver detection and suggested actions."
+      }
     }
   ],
   "validation": {

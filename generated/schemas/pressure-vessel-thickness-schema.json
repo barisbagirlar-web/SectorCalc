@@ -32,7 +32,13 @@
       "default": 1,
       "min": 0.1,
       "max": 50,
-      "businessContext": "Maximum allowable working pressure per ASME UG-21"
+      "businessContext": "Maximum allowable working pressure per ASME UG-21",
+      "label_i18n": {
+        "en": "Design Pressure (P)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum allowable working pressure per ASME UG-21"
+      }
     },
     {
       "id": "vessel_diameter",
@@ -42,7 +48,13 @@
       "default": 1000,
       "min": 100,
       "max": 10000,
-      "businessContext": "Inside diameter of cylindrical shell"
+      "businessContext": "Inside diameter of cylindrical shell",
+      "label_i18n": {
+        "en": "Vessel Inner Diameter (D)"
+      },
+      "businessContext_i18n": {
+        "en": "Inside diameter of cylindrical shell"
+      }
     },
     {
       "id": "allowable_stress",
@@ -52,7 +64,13 @@
       "default": 138,
       "min": 50,
       "max": 500,
-      "businessContext": "Material allowable stress at design temperature per ASME II Part D"
+      "businessContext": "Material allowable stress at design temperature per ASME II Part D",
+      "label_i18n": {
+        "en": "Allowable Stress (S)"
+      },
+      "businessContext_i18n": {
+        "en": "Material allowable stress at design temperature per ASME II Part D"
+      }
     },
     {
       "id": "joint_efficiency",
@@ -73,7 +91,13 @@
         }
       ],
       "default": 1,
-      "businessContext": "Welded joint efficiency factor per ASME UW-12"
+      "businessContext": "Welded joint efficiency factor per ASME UW-12",
+      "label_i18n": {
+        "en": "Joint Efficiency (E)"
+      },
+      "businessContext_i18n": {
+        "en": "Welded joint efficiency factor per ASME UW-12"
+      }
     },
     {
       "id": "corrosion_allowance",
@@ -83,7 +107,13 @@
       "default": 3,
       "min": 0,
       "max": 25,
-      "businessContext": "Additional thickness for corrosion/erosion per UG-25"
+      "businessContext": "Additional thickness for corrosion/erosion per UG-25",
+      "label_i18n": {
+        "en": "Corrosion Allowance (CA)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional thickness for corrosion/erosion per UG-25"
+      }
     },
     {
       "id": "material_utilization",
@@ -93,14 +123,26 @@
       "default": 85,
       "min": 50,
       "max": 100,
-      "businessContext": "Lean manufacturing metric for material waste reduction"
+      "businessContext": "Lean manufacturing metric for material waste reduction",
+      "label_i18n": {
+        "en": "Material Utilization Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Lean manufacturing metric for material waste reduction"
+      }
     },
     {
       "id": "safety_factor_override",
       "label": "Override Safety Factor",
       "type": "boolean",
       "default": false,
-      "businessContext": "Enable to use custom safety factor instead of ASME default 3.5"
+      "businessContext": "Enable to use custom safety factor instead of ASME default 3.5",
+      "label_i18n": {
+        "en": "Override Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Enable to use custom safety factor instead of ASME default 3.5"
+      }
     },
     {
       "id": "custom_safety_factor",
@@ -110,7 +152,13 @@
       "default": 3.5,
       "min": 2,
       "max": 6,
-      "businessContext": "Only used if override is enabled; typical range per ISO 16528"
+      "businessContext": "Only used if override is enabled; typical range per ISO 16528",
+      "label_i18n": {
+        "en": "Custom Safety Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Only used if override is enabled; typical range per ISO 16528"
+      }
     }
   ],
   "validation": {

@@ -14,6 +14,8 @@ import type {
   GeneratedToolSchema,
 } from "@/lib/generated-tools/types";
 import type { FeedbackSnapshotValue } from "@/lib/feedback/types";
+import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
+import { resolveGeneratedBreakdownLabel } from "@/lib/generated-tools/resolve-generated-display-text";
 import { resolveToolDisplayChrome } from "@/lib/tools/resolve-tool-display-chrome";
 
 type PremiumDynamicToolFormLayoutProps = {
@@ -65,23 +67,8 @@ function resolvePrimaryNumericValue(
   return null;
 }
 
-function formatPremiumPrimaryValue(value: number, locale: string): string {
-  if (value >= 0 && value <= 1) {
-    return new Intl.NumberFormat(locale, {
-      style: "percent",
-      maximumFractionDigits: 1,
-    }).format(value);
-  }
-
-  if (Math.abs(value) >= 1000) {
-    return new Intl.NumberFormat(locale, {
-      maximumFractionDigits: 0,
-    }).format(value);
-  }
-
-  return new Intl.NumberFormat(locale, {
-    maximumFractionDigits: 2,
-  }).format(value);
+function formatPremiumPrimaryValue(value: number, key: string, locale: string): string {
+  return formatGeneratedNumericValue(value, key, locale);
 }
 
 function buildFeedbackSnapshot(
@@ -153,7 +140,9 @@ export function PremiumDynamicToolFormLayout({
 
   const primaryValue = result ? resolvePrimaryNumericValue(result, primaryOutputKey) : null;
   const formattedPrimary =
-    primaryValue !== null ? formatPremiumPrimaryValue(primaryValue, locale) : "—";
+    primaryValue !== null
+      ? formatPremiumPrimaryValue(primaryValue, primaryOutputKey, locale)
+      : "—";
 
   const breakdown = result?.breakdown;
   const inputSnapshot = buildFeedbackSnapshot(formValues);
@@ -233,10 +222,16 @@ export function PremiumDynamicToolFormLayout({
                     <div className="sc-premium-dtf-result__breakdown">
                       {Object.entries(breakdown).map(([key, value]) => (
                         <div key={key}>
-                          <span>{schema.outputs.breakdown[key] ?? key.replace(/_/g, " ")}</span>
+                          <span>
+                            {resolveGeneratedBreakdownLabel(
+                              key,
+                              schema.outputs.breakdown,
+                              locale,
+                            )}
+                          </span>
                           <span>
                             {typeof value === "number"
-                              ? formatPremiumPrimaryValue(value, locale)
+                              ? formatPremiumPrimaryValue(value, key, locale)
                               : String(value ?? "—")}
                           </span>
                         </div>

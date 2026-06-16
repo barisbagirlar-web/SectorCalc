@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
@@ -70,11 +71,13 @@ export default async function IndustriesPage({ params }: PageProps) {
 
       <section className="sc-pro-section sc-pro-section--border">
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
-          <SectorCatalogExplorer
-            groups={industryGroups}
-            variant="industries"
-            defaultGroupId={DEFAULT_INDUSTRY_CATEGORY}
-          />
+          <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
+            <SectorCatalogExplorer
+              groups={industryGroups}
+              variant="industries"
+              defaultGroupId={DEFAULT_INDUSTRY_CATEGORY}
+            />
+          </Suspense>
         </Container>
       </section>
 

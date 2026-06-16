@@ -17,7 +17,13 @@
       "default": 28800,
       "min": 0,
       "max": 86400,
-      "businessContext": "Total planned production time per shift excluding breaks and planned downtime."
+      "businessContext": "Total planned production time per shift excluding breaks and planned downtime.",
+      "label_i18n": {
+        "en": "Available Work Time per Shift (seconds)"
+      },
+      "businessContext_i18n": {
+        "en": "Total planned production time per shift excluding breaks and planned downtime."
+      }
     },
     {
       "id": "customer_demand_per_shift",
@@ -27,7 +33,13 @@
       "default": 1000,
       "min": 1,
       "max": 100000,
-      "businessContext": "Number of units required by the customer per shift."
+      "businessContext": "Number of units required by the customer per shift.",
+      "label_i18n": {
+        "en": "Customer Demand per Shift (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units required by the customer per shift."
+      }
     },
     {
       "id": "cycle_time_seconds",
@@ -37,7 +49,13 @@
       "default": 30,
       "min": 0.1,
       "max": 3600,
-      "businessContext": "Measured average time to complete one unit of product at the bottleneck operation."
+      "businessContext": "Measured average time to complete one unit of product at the bottleneck operation.",
+      "label_i18n": {
+        "en": "Actual Cycle Time (seconds)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured average time to complete one unit of product at the bottleneck operation."
+      }
     },
     {
       "id": "changeover_time_minutes",
@@ -47,7 +65,13 @@
       "default": 15,
       "min": 0,
       "max": 480,
-      "businessContext": "Time required to switch from one product variant to another, including setup and adjustments."
+      "businessContext": "Time required to switch from one product variant to another, including setup and adjustments.",
+      "label_i18n": {
+        "en": "Average Changeover Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Time required to switch from one product variant to another, including setup and adjustments."
+      }
     },
     {
       "id": "batch_size",
@@ -57,7 +81,13 @@
       "default": 100,
       "min": 1,
       "max": 100000,
-      "businessContext": "Number of units produced consecutively before a changeover."
+      "businessContext": "Number of units produced consecutively before a changeover.",
+      "label_i18n": {
+        "en": "Average Batch Size (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units produced consecutively before a changeover."
+      }
     },
     {
       "id": "labor_cost_per_hour",
@@ -67,7 +97,13 @@
       "default": 25,
       "min": 0,
       "max": 200,
-      "businessContext": "Fully loaded hourly wage including benefits for direct production operators."
+      "businessContext": "Fully loaded hourly wage including benefits for direct production operators.",
+      "label_i18n": {
+        "en": "Direct Labor Cost per Hour ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Fully loaded hourly wage including benefits for direct production operators."
+      }
     },
     {
       "id": "overhead_rate_percent",
@@ -77,7 +113,13 @@
       "default": 150,
       "min": 0,
       "max": 500,
-      "businessContext": "Percentage of direct labor cost allocated to manufacturing overhead (e.g., supervision, utilities, maintenance)."
+      "businessContext": "Percentage of direct labor cost allocated to manufacturing overhead (e.g., supervision, utilities, maintenance).",
+      "label_i18n": {
+        "en": "Overhead Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of direct labor cost allocated to manufacturing overhead (e.g., supervision, utilities, maintenance)."
+      }
     },
     {
       "id": "demand_variability_coefficient",
@@ -87,7 +129,13 @@
       "default": 0.3,
       "min": 0,
       "max": 2,
-      "businessContext": "Coefficient of variation of daily customer demand; used to quantify demand uncertainty."
+      "businessContext": "Coefficient of variation of daily customer demand; used to quantify demand uncertainty.",
+      "label_i18n": {
+        "en": "Demand Variability Coefficient (CV)"
+      },
+      "businessContext_i18n": {
+        "en": "Coefficient of variation of daily customer demand; used to quantify demand uncertainty."
+      }
     },
     {
       "id": "flexibility_strategy",
@@ -101,7 +149,13 @@
         "chase_demand",
         "level_schedule"
       ],
-      "businessContext": "Production strategy to handle demand variability: mixed-model (quick changeovers), dedicated lines (fixed product lines), chase demand (vary capacity), or level schedule (stable production with inventory)."
+      "businessContext": "Production strategy to handle demand variability: mixed-model (quick changeovers), dedicated lines (fixed product lines), chase demand (vary capacity), or level schedule (stable production with inventory).",
+      "label_i18n": {
+        "en": "Flexibility Strategy"
+      },
+      "businessContext_i18n": {
+        "en": "Production strategy to handle demand variability: mixed-model (quick changeovers), dedicated lines (fixed product lines), chase demand (vary capacity), or level schedule (stable production with inventory)."
+      }
     }
   ],
   "validation": {

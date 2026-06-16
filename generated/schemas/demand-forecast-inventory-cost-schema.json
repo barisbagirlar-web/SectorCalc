@@ -19,7 +19,13 @@
       "default": 1000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Average demand observed over the past 12 periods (ISO 9001:2015 data collection)."
+      "businessContext": "Average demand observed over the past 12 periods (ISO 9001:2015 data collection).",
+      "label_i18n": {
+        "en": "Historical Demand Mean (units/period)"
+      },
+      "businessContext_i18n": {
+        "en": "Average demand observed over the past 12 periods (ISO 9001:2015 data collection)."
+      }
     },
     {
       "id": "demand_std_dev",
@@ -29,7 +35,13 @@
       "default": 200,
       "min": 0,
       "max": 500000,
-      "businessContext": "Standard deviation of demand, used for safety stock calculation (Lean Six Sigma DMAIC)."
+      "businessContext": "Standard deviation of demand, used for safety stock calculation (Lean Six Sigma DMAIC).",
+      "label_i18n": {
+        "en": "Demand Standard Deviation (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of demand, used for safety stock calculation (Lean Six Sigma DMAIC)."
+      }
     },
     {
       "id": "lead_time_days",
@@ -39,7 +51,13 @@
       "default": 14,
       "min": 1,
       "max": 365,
-      "businessContext": "Average replenishment lead time from supplier (WERC DC Metrics)."
+      "businessContext": "Average replenishment lead time from supplier (WERC DC Metrics).",
+      "label_i18n": {
+        "en": "Lead Time (days)"
+      },
+      "businessContext_i18n": {
+        "en": "Average replenishment lead time from supplier (WERC DC Metrics)."
+      }
     },
     {
       "id": "service_level",
@@ -67,7 +85,13 @@
       "default": 0.95,
       "min": 0.9,
       "max": 0.99,
-      "businessContext": "Probability of not stocking out during lead time (Six Sigma DPMO target)."
+      "businessContext": "Probability of not stocking out during lead time (Six Sigma DPMO target).",
+      "label_i18n": {
+        "en": "Target Service Level"
+      },
+      "businessContext_i18n": {
+        "en": "Probability of not stocking out during lead time (Six Sigma DPMO target)."
+      }
     },
     {
       "id": "unit_cost",
@@ -77,7 +101,13 @@
       "default": 50,
       "min": 0.01,
       "max": 100000,
-      "businessContext": "Purchase cost per unit (ISO 14051 material flow cost accounting)."
+      "businessContext": "Purchase cost per unit (ISO 14051 material flow cost accounting).",
+      "label_i18n": {
+        "en": "Unit Cost ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase cost per unit (ISO 14051 material flow cost accounting)."
+      }
     },
     {
       "id": "holding_cost_rate",
@@ -87,7 +117,13 @@
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of unit cost per year (WERC DC Measures, typical 20-30%)."
+      "businessContext": "Percentage of unit cost per year (WERC DC Measures, typical 20-30%).",
+      "label_i18n": {
+        "en": "Annual Holding Cost Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of unit cost per year (WERC DC Measures, typical 20-30%)."
+      }
     },
     {
       "id": "ordering_cost",
@@ -97,7 +133,13 @@
       "default": 150,
       "min": 0,
       "max": 10000,
-      "businessContext": "Fixed cost per purchase order (Lean transactional cost reduction)."
+      "businessContext": "Fixed cost per purchase order (Lean transactional cost reduction).",
+      "label_i18n": {
+        "en": "Ordering Cost ($/order)"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed cost per purchase order (Lean transactional cost reduction)."
+      }
     },
     {
       "id": "stockout_cost_per_unit",
@@ -107,7 +149,13 @@
       "default": 200,
       "min": 0,
       "max": 100000,
-      "businessContext": "Lost profit + penalty per unit of unmet demand (Six Sigma cost of poor quality)."
+      "businessContext": "Lost profit + penalty per unit of unmet demand (Six Sigma cost of poor quality).",
+      "label_i18n": {
+        "en": "Stockout Cost per Unit ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Lost profit + penalty per unit of unmet demand (Six Sigma cost of poor quality)."
+      }
     },
     {
       "id": "periods_per_year",
@@ -117,7 +165,13 @@
       "default": 12,
       "min": 1,
       "max": 365,
-      "businessContext": "Number of demand periods in a year (e.g., 12 for monthly, 52 for weekly)."
+      "businessContext": "Number of demand periods in a year (e.g., 12 for monthly, 52 for weekly).",
+      "label_i18n": {
+        "en": "Periods per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of demand periods in a year (e.g., 12 for monthly, 52 for weekly)."
+      }
     },
     {
       "id": "use_abc_classification",
@@ -127,7 +181,13 @@
       "default": false,
       "min": 0,
       "max": 1,
-      "businessContext": "If true, applies ABC analysis to adjust service level (Pareto principle in inventory management)."
+      "businessContext": "If true, applies ABC analysis to adjust service level (Pareto principle in inventory management).",
+      "label_i18n": {
+        "en": "Use ABC Classification"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies ABC analysis to adjust service level (Pareto principle in inventory management)."
+      }
     }
   ],
   "validation": {

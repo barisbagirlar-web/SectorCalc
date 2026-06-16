@@ -20,7 +20,13 @@
       "default": 50,
       "min": 1,
       "max": 100000,
-      "businessContext": "Mean revenue per transaction. Used in CLV calculation. Typical range: $20-$200 for B2C, $500-$5000 for B2B."
+      "businessContext": "Mean revenue per transaction. Used in CLV calculation. Typical range: $20-$200 for B2C, $500-$5000 for B2B.",
+      "label_i18n": {
+        "en": "Average Order Value (AOV)"
+      },
+      "businessContext_i18n": {
+        "en": "Mean revenue per transaction. Used in CLV calculation. Typical range: $20-$200 for B2C, $500-$5000 for B2B."
+      }
     },
     {
       "id": "purchase_frequency",
@@ -30,7 +36,13 @@
       "default": 4,
       "min": 0.5,
       "max": 365,
-      "businessContext": "Number of purchases per customer per year. Derived from historical data or cohort analysis."
+      "businessContext": "Number of purchases per customer per year. Derived from historical data or cohort analysis.",
+      "label_i18n": {
+        "en": "Purchase Frequency per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of purchases per customer per year. Derived from historical data or cohort analysis."
+      }
     },
     {
       "id": "customer_lifetime_years",
@@ -40,7 +52,13 @@
       "default": 3,
       "min": 0.5,
       "max": 50,
-      "businessContext": "Average retention period. For subscription models, use 1/churn rate."
+      "businessContext": "Average retention period. For subscription models, use 1/churn rate.",
+      "label_i18n": {
+        "en": "Customer Lifetime (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Average retention period. For subscription models, use 1/churn rate."
+      }
     },
     {
       "id": "gross_margin_pct",
@@ -50,7 +68,13 @@
       "default": 40,
       "min": 0,
       "max": 100,
-      "businessContext": "Profit margin after COGS. Typical range: 30-70% for product businesses, 60-90% for SaaS."
+      "businessContext": "Profit margin after COGS. Typical range: 30-70% for product businesses, 60-90% for SaaS.",
+      "label_i18n": {
+        "en": "Gross Margin (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Profit margin after COGS. Typical range: 30-70% for product businesses, 60-90% for SaaS."
+      }
     },
     {
       "id": "cac_total",
@@ -60,7 +84,13 @@
       "default": 200,
       "min": 1,
       "max": 100000,
-      "businessContext": "Sum of all marketing and sales costs divided by number of new customers. Includes ad spend, salaries, tools."
+      "businessContext": "Sum of all marketing and sales costs divided by number of new customers. Includes ad spend, salaries, tools.",
+      "label_i18n": {
+        "en": "Total Customer Acquisition Cost (CAC)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of all marketing and sales costs divided by number of new customers. Includes ad spend, salaries, tools."
+      }
     },
     {
       "id": "retention_rate",
@@ -70,7 +100,13 @@
       "default": 70,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of customers retained year over year. Used for churn adjustment. Industry benchmark: 60-90%."
+      "businessContext": "Percentage of customers retained year over year. Used for churn adjustment. Industry benchmark: 60-90%.",
+      "label_i18n": {
+        "en": "Annual Retention Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of customers retained year over year. Used for churn adjustment. Industry benchmark: 60-90%."
+      }
     },
     {
       "id": "discount_rate",
@@ -80,7 +116,13 @@
       "default": 10,
       "min": 0,
       "max": 50,
-      "businessContext": "Cost of capital or required rate of return. Typical range: 8-15%."
+      "businessContext": "Cost of capital or required rate of return. Typical range: 8-15%.",
+      "label_i18n": {
+        "en": "Discount Rate (Annual)"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of capital or required rate of return. Typical range: 8-15%."
+      }
     },
     {
       "id": "data_confidence",
@@ -92,14 +134,26 @@
         "high"
       ],
       "default": "medium",
-      "businessContext": "Subjective assessment of input data reliability. Low = estimates, High = audited data."
+      "businessContext": "Subjective assessment of input data reliability. Low = estimates, High = audited data.",
+      "label_i18n": {
+        "en": "Data Confidence Level"
+      },
+      "businessContext_i18n": {
+        "en": "Subjective assessment of input data reliability. Low = estimates, High = audited data."
+      }
     },
     {
       "id": "include_churn_adjustment",
       "label": "Include Churn Adjustment",
       "type": "boolean",
       "default": true,
-      "businessContext": "If true, uses retention rate to adjust CLV for churn. Recommended for subscription models."
+      "businessContext": "If true, uses retention rate to adjust CLV for churn. Recommended for subscription models.",
+      "label_i18n": {
+        "en": "Include Churn Adjustment"
+      },
+      "businessContext_i18n": {
+        "en": "If true, uses retention rate to adjust CLV for churn. Recommended for subscription models."
+      }
     }
   ],
   "validation": {

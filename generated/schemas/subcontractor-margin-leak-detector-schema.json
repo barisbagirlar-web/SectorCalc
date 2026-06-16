@@ -19,7 +19,13 @@
       "default": 1000000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Total agreed subcontractor contract amount."
+      "businessContext": "Total agreed subcontractor contract amount.",
+      "label_i18n": {
+        "en": "Total Contract Value (TCV)"
+      },
+      "businessContext_i18n": {
+        "en": "Total agreed subcontractor contract amount."
+      }
     },
     {
       "id": "actual_labor_cost",
@@ -29,7 +35,13 @@
       "default": 350000,
       "min": 0,
       "max": 50000000,
-      "businessContext": "Total labor cost incurred by subcontractor."
+      "businessContext": "Total labor cost incurred by subcontractor.",
+      "label_i18n": {
+        "en": "Actual Labor Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total labor cost incurred by subcontractor."
+      }
     },
     {
       "id": "actual_material_cost",
@@ -39,7 +51,13 @@
       "default": 250000,
       "min": 0,
       "max": 50000000,
-      "businessContext": "Total material cost incurred by subcontractor."
+      "businessContext": "Total material cost incurred by subcontractor.",
+      "label_i18n": {
+        "en": "Actual Material Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total material cost incurred by subcontractor."
+      }
     },
     {
       "id": "actual_equipment_cost",
@@ -49,7 +67,13 @@
       "default": 100000,
       "min": 0,
       "max": 20000000,
-      "businessContext": "Total equipment and machinery cost."
+      "businessContext": "Total equipment and machinery cost.",
+      "label_i18n": {
+        "en": "Actual Equipment Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total equipment and machinery cost."
+      }
     },
     {
       "id": "overhead_percentage",
@@ -59,7 +83,13 @@
       "default": 15,
       "min": 0,
       "max": 50,
-      "businessContext": "Overhead as percentage of direct costs (ISO 9001 cost accounting)."
+      "businessContext": "Overhead as percentage of direct costs (ISO 9001 cost accounting).",
+      "label_i18n": {
+        "en": "Overhead Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Overhead as percentage of direct costs (ISO 9001 cost accounting)."
+      }
     },
     {
       "id": "quality_rework_cost",
@@ -69,7 +99,13 @@
       "default": 50000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Cost of rework due to non-conformance (Six Sigma DMAIC)."
+      "businessContext": "Cost of rework due to non-conformance (Six Sigma DMAIC).",
+      "label_i18n": {
+        "en": "Quality Rework Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of rework due to non-conformance (Six Sigma DMAIC)."
+      }
     },
     {
       "id": "schedule_delay_penalty",
@@ -79,7 +115,13 @@
       "default": 20000,
       "min": 0,
       "max": 5000000,
-      "businessContext": "Penalties incurred due to late delivery (Lean just-in-time)."
+      "businessContext": "Penalties incurred due to late delivery (Lean just-in-time).",
+      "label_i18n": {
+        "en": "Schedule Delay Penalty"
+      },
+      "businessContext_i18n": {
+        "en": "Penalties incurred due to late delivery (Lean just-in-time)."
+      }
     },
     {
       "id": "waste_factor",
@@ -89,7 +131,13 @@
       "default": 8,
       "min": 0,
       "max": 30,
-      "businessContext": "Estimated waste as percentage of total direct costs (Lean manufacturing)."
+      "businessContext": "Estimated waste as percentage of total direct costs (Lean manufacturing).",
+      "label_i18n": {
+        "en": "Waste Factor (Lean Muda)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated waste as percentage of total direct costs (Lean manufacturing)."
+      }
     },
     {
       "id": "labor_efficiency_index",
@@ -99,7 +147,13 @@
       "default": 0.85,
       "min": 0.5,
       "max": 1.2,
-      "businessContext": "Ratio of standard labor hours to actual labor hours (WERC DC metrics)."
+      "businessContext": "Ratio of standard labor hours to actual labor hours (WERC DC metrics).",
+      "label_i18n": {
+        "en": "Labor Efficiency Index (LEI)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of standard labor hours to actual labor hours (WERC DC metrics)."
+      }
     },
     {
       "id": "material_price_variance",
@@ -109,7 +163,13 @@
       "default": 15000,
       "min": -100000,
       "max": 100000,
-      "businessContext": "Difference between standard and actual material prices."
+      "businessContext": "Difference between standard and actual material prices.",
+      "label_i18n": {
+        "en": "Material Price Variance"
+      },
+      "businessContext_i18n": {
+        "en": "Difference between standard and actual material prices."
+      }
     },
     {
       "id": "scope_change_cost",
@@ -119,7 +179,13 @@
       "default": 30000,
       "min": 0,
       "max": 5000000,
-      "businessContext": "Additional costs from unapproved scope changes."
+      "businessContext": "Additional costs from unapproved scope changes.",
+      "label_i18n": {
+        "en": "Scope Change Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Additional costs from unapproved scope changes."
+      }
     },
     {
       "id": "inventory_holding_cost",
@@ -129,7 +195,13 @@
       "default": 10000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Cost of carrying excess inventory (WERC warehousing)."
+      "businessContext": "Cost of carrying excess inventory (WERC warehousing).",
+      "label_i18n": {
+        "en": "Inventory Holding Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of carrying excess inventory (WERC warehousing)."
+      }
     },
     {
       "id": "currency_exchange_loss",
@@ -139,7 +211,13 @@
       "default": 5000,
       "min": 0,
       "max": 500000,
-      "businessContext": "Loss due to unfavorable exchange rate fluctuations."
+      "businessContext": "Loss due to unfavorable exchange rate fluctuations.",
+      "label_i18n": {
+        "en": "Currency Exchange Loss"
+      },
+      "businessContext_i18n": {
+        "en": "Loss due to unfavorable exchange rate fluctuations."
+      }
     },
     {
       "id": "contract_type",
@@ -151,14 +229,26 @@
         "Time and Materials"
       ],
       "default": "Fixed Price",
-      "businessContext": "Type of subcontractor contract influences margin risk."
+      "businessContext": "Type of subcontractor contract influences margin risk.",
+      "label_i18n": {
+        "en": "Contract Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of subcontractor contract influences margin risk."
+      }
     },
     {
       "id": "use_lean_accounting",
       "label": "Use Lean Accounting Adjustments",
       "type": "boolean",
       "default": true,
-      "businessContext": "Apply Lean accounting principles to value stream costing."
+      "businessContext": "Apply Lean accounting principles to value stream costing.",
+      "label_i18n": {
+        "en": "Use Lean Accounting Adjustments"
+      },
+      "businessContext_i18n": {
+        "en": "Apply Lean accounting principles to value stream costing."
+      }
     }
   ],
   "validation": {

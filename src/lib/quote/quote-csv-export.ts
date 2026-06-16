@@ -28,32 +28,39 @@ export function buildQuoteCsvRows(input: {
   readonly adjustedTotal: number;
   readonly hiddenLossDrivers: readonly string[];
   readonly suggestedActions: readonly string[];
+  readonly quoteNumberFieldLabel?: string;
+  readonly companyFieldLabel?: string;
+  readonly toolFieldLabel?: string;
+  readonly baseTotalFieldLabel?: string;
+  readonly fireRateFieldLabel?: string;
+  readonly hiddenLossDriversFieldLabel?: string;
+  readonly suggestedActionsFieldLabel?: string;
 }): readonly QuoteCsvRow[] {
   const rows: QuoteCsvRow[] = [
-    { field: "Quote number", value: input.quoteNumber },
-    { field: "Company", value: input.companyName },
-    { field: "Tool", value: input.toolName },
+    { field: input.quoteNumberFieldLabel ?? "Quote number", value: input.quoteNumber },
+    { field: input.companyFieldLabel ?? "Company", value: input.companyName },
+    { field: input.toolFieldLabel ?? "Tool", value: input.toolName },
     ...input.inputRows,
-    { field: `Base total (${input.currency})`, value: String(input.baseTotal) },
+    { field: input.baseTotalFieldLabel ?? `Base total (${input.currency})`, value: String(input.baseTotal) },
   ];
 
   if (input.includeFireRate) {
     rows.push({
-      field: `Fire rate (${input.fireRatePercent}%)`,
+      field: input.fireRateFieldLabel ?? `Fire rate (${input.fireRatePercent}%)`,
       value: String(input.adjustedTotal),
     });
   }
 
   if (input.hiddenLossDrivers.length > 0) {
     rows.push({
-      field: "Hidden loss drivers",
+      field: input.hiddenLossDriversFieldLabel ?? "Hidden loss drivers",
       value: input.hiddenLossDrivers.join("; "),
     });
   }
 
   if (input.suggestedActions.length > 0) {
     rows.push({
-      field: "Suggested actions",
+      field: input.suggestedActionsFieldLabel ?? "Suggested actions",
       value: input.suggestedActions.join("; "),
     });
   }

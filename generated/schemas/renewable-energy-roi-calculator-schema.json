@@ -21,7 +21,13 @@
       "default": 100,
       "min": 1,
       "max": 10000,
-      "businessContext": "Total installed capacity of the renewable energy system (solar, wind, etc.)"
+      "businessContext": "Total installed capacity of the renewable energy system (solar, wind, etc.)",
+      "label_i18n": {
+        "en": "System Capacity (kW)"
+      },
+      "businessContext_i18n": {
+        "en": "Total installed capacity of the renewable energy system (solar, wind, etc.)"
+      }
     },
     {
       "id": "annual_energy_output_kwh",
@@ -31,7 +37,13 @@
       "default": 150000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Expected annual electricity generation based on location, technology, and degradation factors"
+      "businessContext": "Expected annual electricity generation based on location, technology, and degradation factors",
+      "label_i18n": {
+        "en": "Annual Energy Output (kWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual electricity generation based on location, technology, and degradation factors"
+      }
     },
     {
       "id": "capital_cost_usd",
@@ -41,7 +53,13 @@
       "default": 250000,
       "min": 1000,
       "max": 50000000,
-      "businessContext": "Total upfront investment including equipment, installation, permits, and commissioning"
+      "businessContext": "Total upfront investment including equipment, installation, permits, and commissioning",
+      "label_i18n": {
+        "en": "Total Capital Cost (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Total upfront investment including equipment, installation, permits, and commissioning"
+      }
     },
     {
       "id": "annual_operating_cost_usd",
@@ -51,7 +69,13 @@
       "default": 5000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Recurring costs for maintenance, insurance, monitoring, and repairs"
+      "businessContext": "Recurring costs for maintenance, insurance, monitoring, and repairs",
+      "label_i18n": {
+        "en": "Annual Operating & Maintenance Cost (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Recurring costs for maintenance, insurance, monitoring, and repairs"
+      }
     },
     {
       "id": "electricity_price_usd_per_kwh",
@@ -61,7 +85,13 @@
       "default": 0.12,
       "min": 0.01,
       "max": 0.5,
-      "businessContext": "Current or projected price of grid electricity, used to calculate savings"
+      "businessContext": "Current or projected price of grid electricity, used to calculate savings",
+      "label_i18n": {
+        "en": "Grid Electricity Price (USD/kWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Current or projected price of grid electricity, used to calculate savings"
+      }
     },
     {
       "id": "inflation_rate_percent",
@@ -71,7 +101,13 @@
       "default": 2.5,
       "min": 0,
       "max": 20,
-      "businessContext": "Expected annual inflation rate affecting future electricity prices and costs"
+      "businessContext": "Expected annual inflation rate affecting future electricity prices and costs",
+      "label_i18n": {
+        "en": "Annual Inflation Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual inflation rate affecting future electricity prices and costs"
+      }
     },
     {
       "id": "discount_rate_percent",
@@ -81,7 +117,13 @@
       "default": 8,
       "min": 0,
       "max": 30,
-      "businessContext": "Weighted average cost of capital (WACC) or required rate of return"
+      "businessContext": "Weighted average cost of capital (WACC) or required rate of return",
+      "label_i18n": {
+        "en": "Discount Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted average cost of capital (WACC) or required rate of return"
+      }
     },
     {
       "id": "system_lifetime_years",
@@ -91,7 +133,13 @@
       "default": 25,
       "min": 1,
       "max": 50,
-      "businessContext": "Expected operational life of the renewable energy system"
+      "businessContext": "Expected operational life of the renewable energy system",
+      "label_i18n": {
+        "en": "System Lifetime (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected operational life of the renewable energy system"
+      }
     },
     {
       "id": "degradation_rate_percent",
@@ -101,7 +149,13 @@
       "default": 0.5,
       "min": 0,
       "max": 5,
-      "businessContext": "Annual reduction in energy output due to aging (e.g., solar panel degradation)"
+      "businessContext": "Annual reduction in energy output due to aging (e.g., solar panel degradation)",
+      "label_i18n": {
+        "en": "Annual Degradation Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual reduction in energy output due to aging (e.g., solar panel degradation)"
+      }
     },
     {
       "id": "incentive_tax_credit_percent",
@@ -111,7 +165,13 @@
       "default": 26,
       "min": 0,
       "max": 100,
-      "businessContext": "One-time incentive or tax credit as percentage of capital cost (e.g., ITC)"
+      "businessContext": "One-time incentive or tax credit as percentage of capital cost (e.g., ITC)",
+      "label_i18n": {
+        "en": "Tax Credit / Incentive (%)"
+      },
+      "businessContext_i18n": {
+        "en": "One-time incentive or tax credit as percentage of capital cost (e.g., ITC)"
+      }
     },
     {
       "id": "carbon_credit_usd_per_ton",
@@ -121,7 +181,13 @@
       "default": 50,
       "min": 0,
       "max": 200,
-      "businessContext": "Monetary value per ton of CO2 avoided, if applicable"
+      "businessContext": "Monetary value per ton of CO2 avoided, if applicable",
+      "label_i18n": {
+        "en": "Carbon Credit Value (USD/ton CO2)"
+      },
+      "businessContext_i18n": {
+        "en": "Monetary value per ton of CO2 avoided, if applicable"
+      }
     },
     {
       "id": "energy_source",
@@ -136,7 +202,13 @@
         "biomass",
         "geothermal"
       ],
-      "businessContext": "Type of renewable energy technology for benchmarking and degradation curves"
+      "businessContext": "Type of renewable energy technology for benchmarking and degradation curves",
+      "label_i18n": {
+        "en": "Energy Source Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of renewable energy technology for benchmarking and degradation curves"
+      }
     },
     {
       "id": "include_carbon_benefits",
@@ -144,7 +216,13 @@
       "type": "boolean",
       "unit": "",
       "default": true,
-      "businessContext": "Toggle to include or exclude carbon credit revenue in financial calculations"
+      "businessContext": "Toggle to include or exclude carbon credit revenue in financial calculations",
+      "label_i18n": {
+        "en": "Include Carbon Benefits in ROI?"
+      },
+      "businessContext_i18n": {
+        "en": "Toggle to include or exclude carbon credit revenue in financial calculations"
+      }
     }
   ],
   "validation": {

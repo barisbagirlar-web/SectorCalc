@@ -20,7 +20,13 @@
       "default": 100,
       "min": 1,
       "max": 10000,
-      "businessContext": "Total length of the weld joint to be deposited."
+      "businessContext": "Total length of the weld joint to be deposited.",
+      "label_i18n": {
+        "en": "Weld Length (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of the weld joint to be deposited."
+      }
     },
     {
       "id": "weld_throat_mm",
@@ -30,7 +36,13 @@
       "default": 5,
       "min": 1,
       "max": 50,
-      "businessContext": "Effective throat thickness of the fillet or groove weld."
+      "businessContext": "Effective throat thickness of the fillet or groove weld.",
+      "label_i18n": {
+        "en": "Weld Throat Thickness (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Effective throat thickness of the fillet or groove weld."
+      }
     },
     {
       "id": "material_density_g_per_cm3",
@@ -40,7 +52,13 @@
       "default": 7.85,
       "min": 2,
       "max": 20,
-      "businessContext": "Density of the base and filler material (typical steel ~7.85)."
+      "businessContext": "Density of the base and filler material (typical steel ~7.85).",
+      "label_i18n": {
+        "en": "Material Density (g/cm³)"
+      },
+      "businessContext_i18n": {
+        "en": "Density of the base and filler material (typical steel ~7.85)."
+      }
     },
     {
       "id": "deposition_efficiency",
@@ -50,7 +68,13 @@
       "default": 85,
       "min": 50,
       "max": 100,
-      "businessContext": "Ratio of deposited weld metal to total filler metal consumed (includes spatter and losses)."
+      "businessContext": "Ratio of deposited weld metal to total filler metal consumed (includes spatter and losses).",
+      "label_i18n": {
+        "en": "Deposition Efficiency (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of deposited weld metal to total filler metal consumed (includes spatter and losses)."
+      }
     },
     {
       "id": "labor_rate_per_hour",
@@ -60,7 +84,13 @@
       "default": 45,
       "min": 10,
       "max": 200,
-      "businessContext": "Fully burdened hourly labor cost for welder."
+      "businessContext": "Fully burdened hourly labor cost for welder.",
+      "label_i18n": {
+        "en": "Labor Rate (USD/hour)"
+      },
+      "businessContext_i18n": {
+        "en": "Fully burdened hourly labor cost for welder."
+      }
     },
     {
       "id": "welding_speed_mm_per_min",
@@ -70,7 +100,13 @@
       "default": 300,
       "min": 10,
       "max": 2000,
-      "businessContext": "Travel speed of the welding torch along the joint."
+      "businessContext": "Travel speed of the welding torch along the joint.",
+      "label_i18n": {
+        "en": "Welding Speed (mm/min)"
+      },
+      "businessContext_i18n": {
+        "en": "Travel speed of the welding torch along the joint."
+      }
     },
     {
       "id": "filler_wire_cost_per_kg",
@@ -80,7 +116,13 @@
       "default": 3.5,
       "min": 0.5,
       "max": 50,
-      "businessContext": "Cost per kilogram of filler wire or electrode."
+      "businessContext": "Cost per kilogram of filler wire or electrode.",
+      "label_i18n": {
+        "en": "Filler Wire Cost (USD/kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per kilogram of filler wire or electrode."
+      }
     },
     {
       "id": "gas_cost_per_liter",
@@ -90,7 +132,13 @@
       "default": 0.08,
       "min": 0.01,
       "max": 1,
-      "businessContext": "Cost per liter of shielding gas (e.g., Argon/CO2 mix)."
+      "businessContext": "Cost per liter of shielding gas (e.g., Argon/CO2 mix).",
+      "label_i18n": {
+        "en": "Shielding Gas Cost (USD/L)"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per liter of shielding gas (e.g., Argon/CO2 mix)."
+      }
     },
     {
       "id": "gas_flow_rate_l_per_min",
@@ -100,7 +148,13 @@
       "default": 18,
       "min": 5,
       "max": 50,
-      "businessContext": "Flow rate of shielding gas during welding."
+      "businessContext": "Flow rate of shielding gas during welding.",
+      "label_i18n": {
+        "en": "Gas Flow Rate (L/min)"
+      },
+      "businessContext_i18n": {
+        "en": "Flow rate of shielding gas during welding."
+      }
     },
     {
       "id": "energy_cost_per_kwh",
@@ -110,7 +164,13 @@
       "default": 0.12,
       "min": 0.02,
       "max": 0.5,
-      "businessContext": "Industrial electricity rate per kilowatt-hour."
+      "businessContext": "Industrial electricity rate per kilowatt-hour.",
+      "label_i18n": {
+        "en": "Energy Cost (USD/kWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Industrial electricity rate per kilowatt-hour."
+      }
     },
     {
       "id": "welding_power_kw",
@@ -120,7 +180,13 @@
       "default": 8,
       "min": 1,
       "max": 50,
-      "businessContext": "Average power consumption of the welding machine during operation."
+      "businessContext": "Average power consumption of the welding machine during operation.",
+      "label_i18n": {
+        "en": "Welding Power (kW)"
+      },
+      "businessContext_i18n": {
+        "en": "Average power consumption of the welding machine during operation."
+      }
     },
     {
       "id": "overhead_rate_per_hour",
@@ -130,7 +196,13 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Facility and equipment overhead allocated per hour of welding."
+      "businessContext": "Facility and equipment overhead allocated per hour of welding.",
+      "label_i18n": {
+        "en": "Overhead Rate (USD/hour)"
+      },
+      "businessContext_i18n": {
+        "en": "Facility and equipment overhead allocated per hour of welding."
+      }
     },
     {
       "id": "rework_rate_percent",
@@ -140,7 +212,13 @@
       "default": 5,
       "min": 0,
       "max": 50,
-      "businessContext": "Percentage of welds requiring rework (defect rate)."
+      "businessContext": "Percentage of welds requiring rework (defect rate).",
+      "label_i18n": {
+        "en": "Rework Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of welds requiring rework (defect rate)."
+      }
     },
     {
       "id": "rework_cost_factor",
@@ -150,7 +228,13 @@
       "default": 2,
       "min": 1,
       "max": 5,
-      "businessContext": "Multiplier on original cost to account for rework (cutting, re-welding, inspection)."
+      "businessContext": "Multiplier on original cost to account for rework (cutting, re-welding, inspection).",
+      "label_i18n": {
+        "en": "Rework Cost Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier on original cost to account for rework (cutting, re-welding, inspection)."
+      }
     },
     {
       "id": "weld_process_type",
@@ -164,14 +248,26 @@
         "SAW"
       ],
       "default": "GMAW",
-      "businessContext": "Standard arc welding process per AWS A3.0."
+      "businessContext": "Standard arc welding process per AWS A3.0.",
+      "label_i18n": {
+        "en": "Welding Process Type"
+      },
+      "businessContext_i18n": {
+        "en": "Standard arc welding process per AWS A3.0."
+      }
     },
     {
       "id": "use_premium_material",
       "label": "Use Premium Filler Material",
       "type": "boolean",
       "default": false,
-      "businessContext": "Toggle to apply a 20% cost premium for high-performance filler wire."
+      "businessContext": "Toggle to apply a 20% cost premium for high-performance filler wire.",
+      "label_i18n": {
+        "en": "Use Premium Filler Material"
+      },
+      "businessContext_i18n": {
+        "en": "Toggle to apply a 20% cost premium for high-performance filler wire."
+      }
     }
   ],
   "validation": {

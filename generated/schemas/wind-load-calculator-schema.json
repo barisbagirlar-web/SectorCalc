@@ -17,7 +17,13 @@
       "default": 40,
       "min": 10,
       "max": 100,
-      "businessContext": "Design wind speed at 10m height for the location, typically from local building codes."
+      "businessContext": "Design wind speed at 10m height for the location, typically from local building codes.",
+      "label_i18n": {
+        "en": "Basic Wind Speed (V)"
+      },
+      "businessContext_i18n": {
+        "en": "Design wind speed at 10m height for the location, typically from local building codes."
+      }
     },
     {
       "id": "terrain_category",
@@ -33,7 +39,13 @@
         "C",
         "D"
       ],
-      "businessContext": "Terrain roughness per ISO 4354: A=open sea, B=open country, C=suburban, D=urban."
+      "businessContext": "Terrain roughness per ISO 4354: A=open sea, B=open country, C=suburban, D=urban.",
+      "label_i18n": {
+        "en": "Terrain Category"
+      },
+      "businessContext_i18n": {
+        "en": "Terrain roughness per ISO 4354: A=open sea, B=open country, C=suburban, D=urban."
+      }
     },
     {
       "id": "building_height",
@@ -43,7 +55,13 @@
       "default": 30,
       "min": 1,
       "max": 500,
-      "businessContext": "Height above ground to the top of the structure."
+      "businessContext": "Height above ground to the top of the structure.",
+      "label_i18n": {
+        "en": "Building Height (z)"
+      },
+      "businessContext_i18n": {
+        "en": "Height above ground to the top of the structure."
+      }
     },
     {
       "id": "exposure_factor",
@@ -53,7 +71,13 @@
       "default": 1,
       "min": 0.5,
       "max": 2,
-      "businessContext": "Adjustment for local topography and shielding, per ASCE 7."
+      "businessContext": "Adjustment for local topography and shielding, per ASCE 7.",
+      "label_i18n": {
+        "en": "Exposure Factor (Ce)"
+      },
+      "businessContext_i18n": {
+        "en": "Adjustment for local topography and shielding, per ASCE 7."
+      }
     },
     {
       "id": "gust_factor",
@@ -63,7 +87,13 @@
       "default": 0.85,
       "min": 0.7,
       "max": 1.2,
-      "businessContext": "Dynamic response factor for wind gusts, typically 0.85 for rigid structures."
+      "businessContext": "Dynamic response factor for wind gusts, typically 0.85 for rigid structures.",
+      "label_i18n": {
+        "en": "Gust Effect Factor (G)"
+      },
+      "businessContext_i18n": {
+        "en": "Dynamic response factor for wind gusts, typically 0.85 for rigid structures."
+      }
     },
     {
       "id": "pressure_coefficient",
@@ -73,7 +103,13 @@
       "default": 0.8,
       "min": -1.5,
       "max": 1.5,
-      "businessContext": "Aerodynamic shape factor for the building surface (positive for windward, negative for leeward)."
+      "businessContext": "Aerodynamic shape factor for the building surface (positive for windward, negative for leeward).",
+      "label_i18n": {
+        "en": "Pressure Coefficient (Cp)"
+      },
+      "businessContext_i18n": {
+        "en": "Aerodynamic shape factor for the building surface (positive for windward, negative for leeward)."
+      }
     },
     {
       "id": "air_density",
@@ -83,7 +119,13 @@
       "default": 1.225,
       "min": 1,
       "max": 1.5,
-      "businessContext": "Standard air density at sea level, adjust for altitude if needed."
+      "businessContext": "Standard air density at sea level, adjust for altitude if needed.",
+      "label_i18n": {
+        "en": "Air Density (ρ)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard air density at sea level, adjust for altitude if needed."
+      }
     },
     {
       "id": "is_cyclic_loading",
@@ -93,7 +135,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If true, applies fatigue reduction factor per ISO 4354 for dynamic wind events."
+      "businessContext": "If true, applies fatigue reduction factor per ISO 4354 for dynamic wind events.",
+      "label_i18n": {
+        "en": "Cyclic Loading Consideration"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies fatigue reduction factor per ISO 4354 for dynamic wind events."
+      }
     }
   ],
   "validation": {

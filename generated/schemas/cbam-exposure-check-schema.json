@@ -19,7 +19,13 @@
       "default": 100000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Total output of the primary product (e.g., steel, cement, aluminum) in metric tons per year."
+      "businessContext": "Total output of the primary product (e.g., steel, cement, aluminum) in metric tons per year.",
+      "label_i18n": {
+        "en": "Annual Production Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total output of the primary product (e.g., steel, cement, aluminum) in metric tons per year."
+      }
     },
     {
       "id": "carbon_intensity",
@@ -29,7 +35,13 @@
       "default": 1.8,
       "min": 0,
       "max": 10,
-      "businessContext": "Direct and indirect greenhouse gas emissions per ton of product, based on ISO 14064 or GHG Protocol."
+      "businessContext": "Direct and indirect greenhouse gas emissions per ton of product, based on ISO 14064 or GHG Protocol.",
+      "label_i18n": {
+        "en": "Carbon Intensity"
+      },
+      "businessContext_i18n": {
+        "en": "Direct and indirect greenhouse gas emissions per ton of product, based on ISO 14064 or GHG Protocol."
+      }
     },
     {
       "id": "cbam_carbon_price",
@@ -39,7 +51,13 @@
       "default": 90,
       "min": 0,
       "max": 500,
-      "businessContext": "Expected or current EU ETS allowance price used for CBAM certificate calculation."
+      "businessContext": "Expected or current EU ETS allowance price used for CBAM certificate calculation.",
+      "label_i18n": {
+        "en": "CBAM Carbon Price"
+      },
+      "businessContext_i18n": {
+        "en": "Expected or current EU ETS allowance price used for CBAM certificate calculation."
+      }
     },
     {
       "id": "free_allocation_percentage",
@@ -49,7 +67,13 @@
       "default": 20,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of emissions covered by free allowances under CBAM transitional rules."
+      "businessContext": "Percentage of emissions covered by free allowances under CBAM transitional rules.",
+      "label_i18n": {
+        "en": "Free Allocation Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of emissions covered by free allowances under CBAM transitional rules."
+      }
     },
     {
       "id": "production_efficiency_index",
@@ -59,7 +83,13 @@
       "default": 0.85,
       "min": 0,
       "max": 1,
-      "businessContext": "Overall equipment effectiveness (OEE) or similar lean metric; higher values reduce waste and emissions."
+      "businessContext": "Overall equipment effectiveness (OEE) or similar lean metric; higher values reduce waste and emissions.",
+      "label_i18n": {
+        "en": "Production Efficiency Index"
+      },
+      "businessContext_i18n": {
+        "en": "Overall equipment effectiveness (OEE) or similar lean metric; higher values reduce waste and emissions."
+      }
     },
     {
       "id": "compliance_readiness_score",
@@ -69,7 +99,13 @@
       "default": 60,
       "min": 0,
       "max": 100,
-      "businessContext": "Assessment of data collection, reporting systems, and verification readiness per CBAM requirements."
+      "businessContext": "Assessment of data collection, reporting systems, and verification readiness per CBAM requirements.",
+      "label_i18n": {
+        "en": "Compliance Readiness Score"
+      },
+      "businessContext_i18n": {
+        "en": "Assessment of data collection, reporting systems, and verification readiness per CBAM requirements."
+      }
     },
     {
       "id": "industry_benchmark_intensity",
@@ -79,7 +115,13 @@
       "default": 1.2,
       "min": 0,
       "max": 10,
-      "businessContext": "Best available technology (BAT) or sector average carbon intensity for benchmarking (ISO 50001)."
+      "businessContext": "Best available technology (BAT) or sector average carbon intensity for benchmarking (ISO 50001).",
+      "label_i18n": {
+        "en": "Industry Benchmark Intensity"
+      },
+      "businessContext_i18n": {
+        "en": "Best available technology (BAT) or sector average carbon intensity for benchmarking (ISO 50001)."
+      }
     },
     {
       "id": "emission_scope",
@@ -91,14 +133,26 @@
         "Scope 1, 2 & 3"
       ],
       "default": "Scope 1 & 2",
-      "businessContext": "Defines which emission scopes are included in the carbon intensity calculation."
+      "businessContext": "Defines which emission scopes are included in the carbon intensity calculation.",
+      "label_i18n": {
+        "en": "Emission Scope"
+      },
+      "businessContext_i18n": {
+        "en": "Defines which emission scopes are included in the carbon intensity calculation."
+      }
     },
     {
       "id": "use_verified_data",
       "label": "Use Verified Data Only",
       "type": "boolean",
       "default": false,
-      "businessContext": "If true, only data from verified sources (e.g., accredited verifier) is used; otherwise estimated data may be included."
+      "businessContext": "If true, only data from verified sources (e.g., accredited verifier) is used; otherwise estimated data may be included.",
+      "label_i18n": {
+        "en": "Use Verified Data Only"
+      },
+      "businessContext_i18n": {
+        "en": "If true, only data from verified sources (e.g., accredited verifier) is used; otherwise estimated data may be included."
+      }
     }
   ],
   "validation": {

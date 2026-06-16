@@ -20,7 +20,13 @@
       "default": 10000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Total weight of finished goods produced in the reporting period (ISO 14051 material flow)."
+      "businessContext": "Total weight of finished goods produced in the reporting period (ISO 14051 material flow).",
+      "label_i18n": {
+        "en": "Total Production (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Total weight of finished goods produced in the reporting period (ISO 14051 material flow)."
+      }
     },
     {
       "id": "waste_kg",
@@ -30,7 +36,13 @@
       "default": 500,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Total weight of food waste generated (including trim, spoilage, overproduction, and expired product)."
+      "businessContext": "Total weight of food waste generated (including trim, spoilage, overproduction, and expired product).",
+      "label_i18n": {
+        "en": "Waste (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Total weight of food waste generated (including trim, spoilage, overproduction, and expired product)."
+      }
     },
     {
       "id": "selling_price_per_kg",
@@ -40,7 +52,13 @@
       "default": 5,
       "min": 0.01,
       "max": 1000,
-      "businessContext": "Average revenue per kg of finished product sold (net of discounts)."
+      "businessContext": "Average revenue per kg of finished product sold (net of discounts).",
+      "label_i18n": {
+        "en": "Selling Price per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Average revenue per kg of finished product sold (net of discounts)."
+      }
     },
     {
       "id": "cost_per_kg",
@@ -50,7 +68,13 @@
       "default": 3.5,
       "min": 0.01,
       "max": 1000,
-      "businessContext": "Total variable cost per kg (raw materials, labor, energy, packaging)."
+      "businessContext": "Total variable cost per kg (raw materials, labor, energy, packaging).",
+      "label_i18n": {
+        "en": "Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Total variable cost per kg (raw materials, labor, energy, packaging)."
+      }
     },
     {
       "id": "waste_disposal_cost_per_kg",
@@ -60,7 +84,13 @@
       "default": 0.15,
       "min": 0,
       "max": 10,
-      "businessContext": "Cost to dispose of waste (landfill, composting, incineration)."
+      "businessContext": "Cost to dispose of waste (landfill, composting, incineration).",
+      "label_i18n": {
+        "en": "Waste Disposal Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Cost to dispose of waste (landfill, composting, incineration)."
+      }
     },
     {
       "id": "rework_percentage",
@@ -70,7 +100,13 @@
       "default": 2,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of production that requires rework (Lean Six Sigma defect rate)."
+      "businessContext": "Percentage of production that requires rework (Lean Six Sigma defect rate).",
+      "label_i18n": {
+        "en": "Rework Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of production that requires rework (Lean Six Sigma defect rate)."
+      }
     },
     {
       "id": "labor_hourly_rate",
@@ -80,7 +116,13 @@
       "default": 25,
       "min": 0,
       "max": 200,
-      "businessContext": "Average fully loaded labor cost per hour (including benefits)."
+      "businessContext": "Average fully loaded labor cost per hour (including benefits).",
+      "label_i18n": {
+        "en": "Labor Hourly Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Average fully loaded labor cost per hour (including benefits)."
+      }
     },
     {
       "id": "rework_hours_per_kg",
@@ -90,7 +132,13 @@
       "default": 0.05,
       "min": 0,
       "max": 10,
-      "businessContext": "Average labor hours required to rework one kg of product."
+      "businessContext": "Average labor hours required to rework one kg of product.",
+      "label_i18n": {
+        "en": "Rework Hours per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Average labor hours required to rework one kg of product."
+      }
     },
     {
       "id": "storage_cost_per_kg_per_day",
@@ -100,7 +148,13 @@
       "default": 0.02,
       "min": 0,
       "max": 1,
-      "businessContext": "Cost to store one kg of product per day (WERC warehousing metrics)."
+      "businessContext": "Cost to store one kg of product per day (WERC warehousing metrics).",
+      "label_i18n": {
+        "en": "Storage Cost per kg per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Cost to store one kg of product per day (WERC warehousing metrics)."
+      }
     },
     {
       "id": "average_storage_days",
@@ -110,7 +164,13 @@
       "default": 3,
       "min": 0,
       "max": 365,
-      "businessContext": "Average number of days waste is held before disposal or rework."
+      "businessContext": "Average number of days waste is held before disposal or rework.",
+      "label_i18n": {
+        "en": "Average Storage Days"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of days waste is held before disposal or rework."
+      }
     },
     {
       "id": "waste_type",
@@ -124,14 +184,26 @@
         "other"
       ],
       "default": "spoilage",
-      "businessContext": "Primary category of waste (ISO 14051 waste classification)."
+      "businessContext": "Primary category of waste (ISO 14051 waste classification).",
+      "label_i18n": {
+        "en": "Waste Type"
+      },
+      "businessContext_i18n": {
+        "en": "Primary category of waste (ISO 14051 waste classification)."
+      }
     },
     {
       "id": "include_hidden_costs",
       "label": "Include Hidden Costs (Energy, Water, Overhead)",
       "type": "boolean",
       "default": true,
-      "businessContext": "If true, allocates a portion of fixed overhead to waste (activity-based costing)."
+      "businessContext": "If true, allocates a portion of fixed overhead to waste (activity-based costing).",
+      "label_i18n": {
+        "en": "Include Hidden Costs (Energy, Water, Overhead)"
+      },
+      "businessContext_i18n": {
+        "en": "If true, allocates a portion of fixed overhead to waste (activity-based costing)."
+      }
     }
   ],
   "validation": {

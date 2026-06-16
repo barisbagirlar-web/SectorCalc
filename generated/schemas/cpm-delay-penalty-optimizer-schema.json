@@ -20,7 +20,13 @@
       "default": 100,
       "min": 1,
       "max": 3650,
-      "businessContext": "Total planned duration of the project from start to finish, as per CPM schedule baseline."
+      "businessContext": "Total planned duration of the project from start to finish, as per CPM schedule baseline.",
+      "label_i18n": {
+        "en": "Planned Duration (Days)"
+      },
+      "businessContext_i18n": {
+        "en": "Total planned duration of the project from start to finish, as per CPM schedule baseline."
+      }
     },
     {
       "id": "actual_duration_days",
@@ -30,7 +36,13 @@
       "default": 110,
       "min": 1,
       "max": 3650,
-      "businessContext": "Actual elapsed duration from project start to current date or completion."
+      "businessContext": "Actual elapsed duration from project start to current date or completion.",
+      "label_i18n": {
+        "en": "Actual Duration (Days)"
+      },
+      "businessContext_i18n": {
+        "en": "Actual elapsed duration from project start to current date or completion."
+      }
     },
     {
       "id": "daily_penalty_rate",
@@ -40,7 +52,13 @@
       "default": 5000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Contractual liquidated damages or penalty per day of delay beyond the planned duration."
+      "businessContext": "Contractual liquidated damages or penalty per day of delay beyond the planned duration.",
+      "label_i18n": {
+        "en": "Daily Penalty Rate (Currency)"
+      },
+      "businessContext_i18n": {
+        "en": "Contractual liquidated damages or penalty per day of delay beyond the planned duration."
+      }
     },
     {
       "id": "critical_path_float_total",
@@ -50,7 +68,13 @@
       "default": 5,
       "min": 0,
       "max": 365,
-      "businessContext": "Sum of total float for all activities on the critical path. Zero or negative indicates schedule compression."
+      "businessContext": "Sum of total float for all activities on the critical path. Zero or negative indicates schedule compression.",
+      "label_i18n": {
+        "en": "Total Float on Critical Path (Days)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of total float for all activities on the critical path. Zero or negative indicates schedule compression."
+      }
     },
     {
       "id": "productivity_factor",
@@ -60,7 +84,13 @@
       "default": 0.85,
       "min": 0.1,
       "max": 1,
-      "businessContext": "Lean metric: ratio of actual output to standard output. Values below 0.8 indicate significant waste."
+      "businessContext": "Lean metric: ratio of actual output to standard output. Values below 0.8 indicate significant waste.",
+      "label_i18n": {
+        "en": "Productivity Factor (0-1)"
+      },
+      "businessContext_i18n": {
+        "en": "Lean metric: ratio of actual output to standard output. Values below 0.8 indicate significant waste."
+      }
     },
     {
       "id": "rework_percentage",
@@ -70,7 +100,13 @@
       "default": 12,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of completed work requiring rework, a key Six Sigma quality metric."
+      "businessContext": "Percentage of completed work requiring rework, a key Six Sigma quality metric.",
+      "label_i18n": {
+        "en": "Rework Percentage (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of completed work requiring rework, a key Six Sigma quality metric."
+      }
     },
     {
       "id": "delay_type",
@@ -84,7 +120,13 @@
         "non_excusable",
         "concurrent"
       ],
-      "businessContext": "Classification per standard construction delay analysis (AACE, SCL protocols)."
+      "businessContext": "Classification per standard construction delay analysis (AACE, SCL protocols).",
+      "label_i18n": {
+        "en": "Delay Type"
+      },
+      "businessContext_i18n": {
+        "en": "Classification per standard construction delay analysis (AACE, SCL protocols)."
+      }
     },
     {
       "id": "use_earned_schedule",
@@ -92,7 +134,13 @@
       "type": "boolean",
       "unit": "none",
       "default": true,
-      "businessContext": "If true, applies earned schedule (ES) metrics for more accurate delay impact assessment."
+      "businessContext": "If true, applies earned schedule (ES) metrics for more accurate delay impact assessment.",
+      "label_i18n": {
+        "en": "Use Earned Schedule Method"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies earned schedule (ES) metrics for more accurate delay impact assessment."
+      }
     }
   ],
   "validation": {

@@ -20,7 +20,13 @@
       "default": 85,
       "min": 0,
       "max": 100,
-      "businessContext": "Historical on-time delivery and quality performance of key suppliers. Higher score indicates better reliability."
+      "businessContext": "Historical on-time delivery and quality performance of key suppliers. Higher score indicates better reliability.",
+      "label_i18n": {
+        "en": "Supplier Reliability Score (0-100)"
+      },
+      "businessContext_i18n": {
+        "en": "Historical on-time delivery and quality performance of key suppliers. Higher score indicates better reliability."
+      }
     },
     {
       "id": "inventory_buffer_days",
@@ -30,7 +36,13 @@
       "default": 30,
       "min": 0,
       "max": 365,
-      "businessContext": "Average days of inventory held to absorb demand or supply shocks. Based on lean inventory principles."
+      "businessContext": "Average days of inventory held to absorb demand or supply shocks. Based on lean inventory principles.",
+      "label_i18n": {
+        "en": "Inventory Buffer (Days of Cover)"
+      },
+      "businessContext_i18n": {
+        "en": "Average days of inventory held to absorb demand or supply shocks. Based on lean inventory principles."
+      }
     },
     {
       "id": "lead_time_variability",
@@ -40,7 +52,13 @@
       "default": 0.25,
       "min": 0,
       "max": 2,
-      "businessContext": "Standard deviation of lead time divided by mean lead time. Higher values indicate unpredictable supply."
+      "businessContext": "Standard deviation of lead time divided by mean lead time. Higher values indicate unpredictable supply.",
+      "label_i18n": {
+        "en": "Lead Time Variability (Coefficient of Variation)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of lead time divided by mean lead time. Higher values indicate unpredictable supply."
+      }
     },
     {
       "id": "single_source_dependency",
@@ -50,7 +68,13 @@
       "default": 40,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of critical components sourced from a single supplier. High dependency increases risk."
+      "businessContext": "Percentage of critical components sourced from a single supplier. High dependency increases risk.",
+      "label_i18n": {
+        "en": "Single Source Dependency (0-100%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of critical components sourced from a single supplier. High dependency increases risk."
+      }
     },
     {
       "id": "geopolitical_risk_index",
@@ -60,7 +84,13 @@
       "default": 20,
       "min": 0,
       "max": 100,
-      "businessContext": "Composite index of political instability, trade restrictions, and regional conflicts affecting supply chain."
+      "businessContext": "Composite index of political instability, trade restrictions, and regional conflicts affecting supply chain.",
+      "label_i18n": {
+        "en": "Geopolitical Risk Index (0-100)"
+      },
+      "businessContext_i18n": {
+        "en": "Composite index of political instability, trade restrictions, and regional conflicts affecting supply chain."
+      }
     },
     {
       "id": "demand_volatility",
@@ -70,7 +100,13 @@
       "default": 0.3,
       "min": 0,
       "max": 3,
-      "businessContext": "Variability in customer demand over time. High volatility strains capacity and inventory."
+      "businessContext": "Variability in customer demand over time. High volatility strains capacity and inventory.",
+      "label_i18n": {
+        "en": "Demand Volatility (Coefficient of Variation)"
+      },
+      "businessContext_i18n": {
+        "en": "Variability in customer demand over time. High volatility strains capacity and inventory."
+      }
     },
     {
       "id": "transportation_disruption_probability",
@@ -80,7 +116,13 @@
       "default": 0.05,
       "min": 0,
       "max": 1,
-      "businessContext": "Estimated likelihood of a major transportation disruption (port closure, strike, etc.) in the next quarter."
+      "businessContext": "Estimated likelihood of a major transportation disruption (port closure, strike, etc.) in the next quarter.",
+      "label_i18n": {
+        "en": "Transportation Disruption Probability (0-1)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated likelihood of a major transportation disruption (port closure, strike, etc.) in the next quarter."
+      }
     },
     {
       "id": "quality_defect_rate",
@@ -90,7 +132,13 @@
       "default": 500,
       "min": 0,
       "max": 100000,
-      "businessContext": "Parts per million defective from incoming inspection. Six Sigma target is < 3.4 ppm."
+      "businessContext": "Parts per million defective from incoming inspection. Six Sigma target is < 3.4 ppm.",
+      "label_i18n": {
+        "en": "Quality Defect Rate (ppm)"
+      },
+      "businessContext_i18n": {
+        "en": "Parts per million defective from incoming inspection. Six Sigma target is < 3.4 ppm."
+      }
     },
     {
       "id": "cyber_risk_score",
@@ -100,7 +148,13 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Assessment of cybersecurity vulnerabilities in supply chain IT systems. Higher score indicates higher risk."
+      "businessContext": "Assessment of cybersecurity vulnerabilities in supply chain IT systems. Higher score indicates higher risk.",
+      "label_i18n": {
+        "en": "Cyber Risk Score (0-100)"
+      },
+      "businessContext_i18n": {
+        "en": "Assessment of cybersecurity vulnerabilities in supply chain IT systems. Higher score indicates higher risk."
+      }
     },
     {
       "id": "use_advanced_hedging",
@@ -110,7 +164,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If true, applies financial and operational hedging models to mitigate currency and commodity risks."
+      "businessContext": "If true, applies financial and operational hedging models to mitigate currency and commodity risks.",
+      "label_i18n": {
+        "en": "Enable Advanced Hedging Strategies"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies financial and operational hedging models to mitigate currency and commodity risks."
+      }
     }
   ],
   "validation": {

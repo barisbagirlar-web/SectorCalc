@@ -17,7 +17,13 @@
       "default": 10000,
       "min": 100,
       "max": 10000000,
-      "businessContext": "Average monetary value of a single invoice issued to customers."
+      "businessContext": "Average monetary value of a single invoice issued to customers.",
+      "label_i18n": {
+        "en": "Average Invoice Value"
+      },
+      "businessContext_i18n": {
+        "en": "Average monetary value of a single invoice issued to customers."
+      }
     },
     {
       "id": "annual_invoice_count",
@@ -27,7 +33,13 @@
       "default": 1200,
       "min": 12,
       "max": 1000000,
-      "businessContext": "Total number of invoices issued per year."
+      "businessContext": "Total number of invoices issued per year.",
+      "label_i18n": {
+        "en": "Annual Invoice Count"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of invoices issued per year."
+      }
     },
     {
       "id": "current_terms_days",
@@ -37,7 +49,13 @@
       "default": 30,
       "min": 0,
       "max": 180,
-      "businessContext": "Current net payment term offered to customers (e.g., Net 30)."
+      "businessContext": "Current net payment term offered to customers (e.g., Net 30).",
+      "label_i18n": {
+        "en": "Current Payment Terms (Days)"
+      },
+      "businessContext_i18n": {
+        "en": "Current net payment term offered to customers (e.g., Net 30)."
+      }
     },
     {
       "id": "proposed_terms_days",
@@ -47,7 +65,13 @@
       "default": 15,
       "min": 0,
       "max": 180,
-      "businessContext": "New net payment term to be evaluated (e.g., Net 15)."
+      "businessContext": "New net payment term to be evaluated (e.g., Net 15).",
+      "label_i18n": {
+        "en": "Proposed Payment Terms (Days)"
+      },
+      "businessContext_i18n": {
+        "en": "New net payment term to be evaluated (e.g., Net 15)."
+      }
     },
     {
       "id": "early_payment_discount_pct",
@@ -57,7 +81,13 @@
       "default": 2,
       "min": 0,
       "max": 10,
-      "businessContext": "Percentage discount offered for early payment (e.g., 2/10 Net 30)."
+      "businessContext": "Percentage discount offered for early payment (e.g., 2/10 Net 30).",
+      "label_i18n": {
+        "en": "Early Payment Discount (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage discount offered for early payment (e.g., 2/10 Net 30)."
+      }
     },
     {
       "id": "discount_window_days",
@@ -67,7 +97,13 @@
       "default": 10,
       "min": 0,
       "max": 60,
-      "businessContext": "Number of days within which the discount can be taken (e.g., 10 days for 2/10)."
+      "businessContext": "Number of days within which the discount can be taken (e.g., 10 days for 2/10).",
+      "label_i18n": {
+        "en": "Discount Window (Days)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days within which the discount can be taken (e.g., 10 days for 2/10)."
+      }
     },
     {
       "id": "cost_of_capital_pct",
@@ -77,7 +113,13 @@
       "default": 8,
       "min": 0,
       "max": 30,
-      "businessContext": "Annual weighted average cost of capital (WACC) for the company."
+      "businessContext": "Annual weighted average cost of capital (WACC) for the company.",
+      "label_i18n": {
+        "en": "Cost of Capital (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual weighted average cost of capital (WACC) for the company."
+      }
     },
     {
       "id": "customer_acceptance_rate_pct",
@@ -87,7 +129,13 @@
       "default": 40,
       "min": 0,
       "max": 100,
-      "businessContext": "Estimated percentage of customers who will take the early payment discount."
+      "businessContext": "Estimated percentage of customers who will take the early payment discount.",
+      "label_i18n": {
+        "en": "Customer Acceptance Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated percentage of customers who will take the early payment discount."
+      }
     },
     {
       "id": "industry_benchmark_dso",
@@ -97,7 +145,13 @@
       "default": 45,
       "min": 0,
       "max": 180,
-      "businessContext": "Average Days Sales Outstanding for the industry (WERC/CFO benchmarks)."
+      "businessContext": "Average Days Sales Outstanding for the industry (WERC/CFO benchmarks).",
+      "label_i18n": {
+        "en": "Industry Benchmark DSO (Days)"
+      },
+      "businessContext_i18n": {
+        "en": "Average Days Sales Outstanding for the industry (WERC/CFO benchmarks)."
+      }
     },
     {
       "id": "payment_behavior",
@@ -110,7 +164,13 @@
         "Very late (>15 days)"
       ],
       "default": "On-time",
-      "businessContext": "Typical payment behavior of the customer base, used to adjust effective DSO."
+      "businessContext": "Typical payment behavior of the customer base, used to adjust effective DSO.",
+      "label_i18n": {
+        "en": "Customer Payment Behavior"
+      },
+      "businessContext_i18n": {
+        "en": "Typical payment behavior of the customer base, used to adjust effective DSO."
+      }
     }
   ],
   "validation": {

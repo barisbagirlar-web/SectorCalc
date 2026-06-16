@@ -21,7 +21,13 @@
       "default": 10000,
       "min": 1,
       "max": 100000000,
-      "businessContext": "Total forecasted demand for the item over one year. Used to calculate order frequency and total cycle stock."
+      "businessContext": "Total forecasted demand for the item over one year. Used to calculate order frequency and total cycle stock.",
+      "label_i18n": {
+        "en": "Annual Demand (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Total forecasted demand for the item over one year. Used to calculate order frequency and total cycle stock."
+      }
     },
     {
       "id": "ordering_cost",
@@ -31,7 +37,13 @@
       "default": 50,
       "min": 0.01,
       "max": 10000,
-      "businessContext": "Fixed cost incurred per purchase order (e.g., administrative, inspection, transportation setup)."
+      "businessContext": "Fixed cost incurred per purchase order (e.g., administrative, inspection, transportation setup).",
+      "label_i18n": {
+        "en": "Ordering Cost per Order"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed cost incurred per purchase order (e.g., administrative, inspection, transportation setup)."
+      }
     },
     {
       "id": "holding_cost_per_unit",
@@ -41,7 +53,13 @@
       "default": 2,
       "min": 0.001,
       "max": 1000,
-      "businessContext": "Cost to hold one unit in inventory for one year, including storage, insurance, obsolescence, and capital cost."
+      "businessContext": "Cost to hold one unit in inventory for one year, including storage, insurance, obsolescence, and capital cost.",
+      "label_i18n": {
+        "en": "Holding Cost per Unit per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Cost to hold one unit in inventory for one year, including storage, insurance, obsolescence, and capital cost."
+      }
     },
     {
       "id": "unit_cost",
@@ -51,7 +69,13 @@
       "default": 10,
       "min": 0.01,
       "max": 100000,
-      "businessContext": "Purchase price per unit from supplier. Used to calculate total annual purchase cost and capital tied up."
+      "businessContext": "Purchase price per unit from supplier. Used to calculate total annual purchase cost and capital tied up.",
+      "label_i18n": {
+        "en": "Unit Cost (Purchase Price)"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase price per unit from supplier. Used to calculate total annual purchase cost and capital tied up."
+      }
     },
     {
       "id": "lead_time_days",
@@ -61,7 +85,13 @@
       "default": 7,
       "min": 0,
       "max": 365,
-      "businessContext": "Average time from order placement to receipt. Critical for safety stock and reorder point calculations."
+      "businessContext": "Average time from order placement to receipt. Critical for safety stock and reorder point calculations.",
+      "label_i18n": {
+        "en": "Lead Time (days)"
+      },
+      "businessContext_i18n": {
+        "en": "Average time from order placement to receipt. Critical for safety stock and reorder point calculations."
+      }
     },
     {
       "id": "demand_variability",
@@ -71,7 +101,13 @@
       "default": 10,
       "min": 0,
       "max": 100000,
-      "businessContext": "Standard deviation of daily demand. Used to calculate safety stock under uncertainty (Six Sigma approach)."
+      "businessContext": "Standard deviation of daily demand. Used to calculate safety stock under uncertainty (Six Sigma approach).",
+      "label_i18n": {
+        "en": "Demand Variability (Std Dev of Daily Demand)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of daily demand. Used to calculate safety stock under uncertainty (Six Sigma approach)."
+      }
     },
     {
       "id": "service_level",
@@ -97,7 +133,13 @@
           "label": "99.9% (Z=3.09)"
         }
       ],
-      "businessContext": "Target probability of not stocking out during lead time. Higher service levels increase safety stock."
+      "businessContext": "Target probability of not stocking out during lead time. Higher service levels increase safety stock.",
+      "label_i18n": {
+        "en": "Desired Service Level"
+      },
+      "businessContext_i18n": {
+        "en": "Target probability of not stocking out during lead time. Higher service levels increase safety stock."
+      }
     },
     {
       "id": "backorder_cost",
@@ -107,7 +149,13 @@
       "default": 5,
       "min": 0,
       "max": 10000,
-      "businessContext": "Cost incurred per unit when demand cannot be met from stock (lost sales, penalty, expediting)."
+      "businessContext": "Cost incurred per unit when demand cannot be met from stock (lost sales, penalty, expediting).",
+      "label_i18n": {
+        "en": "Backorder Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Cost incurred per unit when demand cannot be met from stock (lost sales, penalty, expediting)."
+      }
     },
     {
       "id": "warehouse_capacity",
@@ -117,7 +165,13 @@
       "default": 5000,
       "min": 1,
       "max": 10000000,
-      "businessContext": "Maximum storage capacity available for this item. Used to constrain order quantity if EOQ exceeds capacity."
+      "businessContext": "Maximum storage capacity available for this item. Used to constrain order quantity if EOQ exceeds capacity.",
+      "label_i18n": {
+        "en": "Warehouse Capacity (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum storage capacity available for this item. Used to constrain order quantity if EOQ exceeds capacity."
+      }
     },
     {
       "id": "storage_cost_per_sqft",
@@ -127,7 +181,13 @@
       "default": 15,
       "min": 0,
       "max": 500,
-      "businessContext": "Cost per square foot of warehouse space per year. Used for space-based holding cost adjustments."
+      "businessContext": "Cost per square foot of warehouse space per year. Used for space-based holding cost adjustments.",
+      "label_i18n": {
+        "en": "Storage Cost per sq ft per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per square foot of warehouse space per year. Used for space-based holding cost adjustments."
+      }
     },
     {
       "id": "item_footprint",
@@ -137,7 +197,13 @@
       "default": 0.5,
       "min": 0.001,
       "max": 100,
-      "businessContext": "Average floor space required per unit of inventory. Used to compute space cost component."
+      "businessContext": "Average floor space required per unit of inventory. Used to compute space cost component.",
+      "label_i18n": {
+        "en": "Item Footprint (sq ft per unit)"
+      },
+      "businessContext_i18n": {
+        "en": "Average floor space required per unit of inventory. Used to compute space cost component."
+      }
     }
   ],
   "validation": {

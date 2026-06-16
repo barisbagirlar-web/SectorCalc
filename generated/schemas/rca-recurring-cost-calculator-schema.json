@@ -19,7 +19,13 @@
       "default": 25,
       "min": 7.25,
       "max": 150,
-      "businessContext": "Average hourly wage including burden for direct labor operators."
+      "businessContext": "Average hourly wage including burden for direct labor operators.",
+      "label_i18n": {
+        "en": "Labor Rate (per hour)"
+      },
+      "businessContext_i18n": {
+        "en": "Average hourly wage including burden for direct labor operators."
+      }
     },
     {
       "id": "labor_hours_per_cycle",
@@ -29,7 +35,13 @@
       "default": 0.5,
       "min": 0.01,
       "max": 8,
-      "businessContext": "Standard time per production cycle (e.g., per unit or batch)."
+      "businessContext": "Standard time per production cycle (e.g., per unit or batch).",
+      "label_i18n": {
+        "en": "Labor Hours per Cycle"
+      },
+      "businessContext_i18n": {
+        "en": "Standard time per production cycle (e.g., per unit or batch)."
+      }
     },
     {
       "id": "material_cost_per_unit",
@@ -39,7 +51,13 @@
       "default": 12,
       "min": 0,
       "max": 10000,
-      "businessContext": "Direct material cost per unit of output."
+      "businessContext": "Direct material cost per unit of output.",
+      "label_i18n": {
+        "en": "Material Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Direct material cost per unit of output."
+      }
     },
     {
       "id": "energy_cost_per_cycle",
@@ -49,7 +67,13 @@
       "default": 1.5,
       "min": 0,
       "max": 500,
-      "businessContext": "Electricity, gas, or other energy costs per production cycle."
+      "businessContext": "Electricity, gas, or other energy costs per production cycle.",
+      "label_i18n": {
+        "en": "Energy Cost per Cycle"
+      },
+      "businessContext_i18n": {
+        "en": "Electricity, gas, or other energy costs per production cycle."
+      }
     },
     {
       "id": "maintenance_cost_per_cycle",
@@ -59,7 +83,13 @@
       "default": 0.75,
       "min": 0,
       "max": 200,
-      "businessContext": "Average preventive and corrective maintenance cost allocated per cycle."
+      "businessContext": "Average preventive and corrective maintenance cost allocated per cycle.",
+      "label_i18n": {
+        "en": "Maintenance Cost per Cycle"
+      },
+      "businessContext_i18n": {
+        "en": "Average preventive and corrective maintenance cost allocated per cycle."
+      }
     },
     {
       "id": "overhead_rate",
@@ -69,7 +99,13 @@
       "default": 20,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage applied to direct costs to cover indirect expenses (ISO 14051)."
+      "businessContext": "Percentage applied to direct costs to cover indirect expenses (ISO 14051).",
+      "label_i18n": {
+        "en": "Overhead Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage applied to direct costs to cover indirect expenses (ISO 14051)."
+      }
     },
     {
       "id": "cycle_time_minutes",
@@ -79,7 +115,13 @@
       "default": 30,
       "min": 0.1,
       "max": 480,
-      "businessContext": "Actual cycle time per unit; used for throughput and efficiency calculations."
+      "businessContext": "Actual cycle time per unit; used for throughput and efficiency calculations.",
+      "label_i18n": {
+        "en": "Cycle Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Actual cycle time per unit; used for throughput and efficiency calculations."
+      }
     },
     {
       "id": "defect_rate",
@@ -89,7 +131,13 @@
       "default": 2,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of units that fail quality inspection (Six Sigma metric)."
+      "businessContext": "Percentage of units that fail quality inspection (Six Sigma metric).",
+      "label_i18n": {
+        "en": "Defect Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of units that fail quality inspection (Six Sigma metric)."
+      }
     },
     {
       "id": "rework_cost_per_defect",
@@ -99,7 +147,13 @@
       "default": 5,
       "min": 0,
       "max": 1000,
-      "businessContext": "Additional cost to rework or scrap a defective unit."
+      "businessContext": "Additional cost to rework or scrap a defective unit.",
+      "label_i18n": {
+        "en": "Rework Cost per Defect"
+      },
+      "businessContext_i18n": {
+        "en": "Additional cost to rework or scrap a defective unit."
+      }
     },
     {
       "id": "production_volume",
@@ -109,7 +163,13 @@
       "default": 10000,
       "min": 1,
       "max": 1000000,
-      "businessContext": "Monthly production quantity used to scale recurring costs."
+      "businessContext": "Monthly production quantity used to scale recurring costs.",
+      "label_i18n": {
+        "en": "Production Volume (units/month)"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly production quantity used to scale recurring costs."
+      }
     },
     {
       "id": "shift_pattern",
@@ -122,7 +182,13 @@
         "double",
         "continuous"
       ],
-      "businessContext": "Determines labor multiplier and overhead allocation (Lean standard)."
+      "businessContext": "Determines labor multiplier and overhead allocation (Lean standard).",
+      "label_i18n": {
+        "en": "Shift Pattern"
+      },
+      "businessContext_i18n": {
+        "en": "Determines labor multiplier and overhead allocation (Lean standard)."
+      }
     },
     {
       "id": "include_environmental_cost",
@@ -130,7 +196,13 @@
       "type": "boolean",
       "unit": "",
       "default": false,
-      "businessContext": "If true, adds estimated environmental compliance and waste disposal costs."
+      "businessContext": "If true, adds estimated environmental compliance and waste disposal costs.",
+      "label_i18n": {
+        "en": "Include Environmental Cost (ISO 14000)"
+      },
+      "businessContext_i18n": {
+        "en": "If true, adds estimated environmental compliance and waste disposal costs."
+      }
     }
   ],
   "validation": {

@@ -20,7 +20,13 @@
       "default": 100,
       "min": 0.1,
       "max": 10000,
-      "businessContext": "Total length of the tool path in contact with the workpiece. Derived from CAM or drawing."
+      "businessContext": "Total length of the tool path in contact with the workpiece. Derived from CAM or drawing.",
+      "label_i18n": {
+        "en": "Cutting Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of the tool path in contact with the workpiece. Derived from CAM or drawing."
+      }
     },
     {
       "id": "feed_rate",
@@ -30,7 +36,13 @@
       "default": 500,
       "min": 1,
       "max": 10000,
-      "businessContext": "Linear feed speed of the cutting tool. Based on material and tool specifications."
+      "businessContext": "Linear feed speed of the cutting tool. Based on material and tool specifications.",
+      "label_i18n": {
+        "en": "Feed Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Linear feed speed of the cutting tool. Based on material and tool specifications."
+      }
     },
     {
       "id": "spindle_speed",
@@ -40,7 +52,13 @@
       "default": 3000,
       "min": 100,
       "max": 30000,
-      "businessContext": "Rotational speed of the spindle. Affects cutting speed and surface finish."
+      "businessContext": "Rotational speed of the spindle. Affects cutting speed and surface finish.",
+      "label_i18n": {
+        "en": "Spindle Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Rotational speed of the spindle. Affects cutting speed and surface finish."
+      }
     },
     {
       "id": "number_of_passes",
@@ -50,7 +68,13 @@
       "default": 1,
       "min": 1,
       "max": 100,
-      "businessContext": "Number of cutting passes required to achieve final geometry."
+      "businessContext": "Number of cutting passes required to achieve final geometry.",
+      "label_i18n": {
+        "en": "Number of Passes"
+      },
+      "businessContext_i18n": {
+        "en": "Number of cutting passes required to achieve final geometry."
+      }
     },
     {
       "id": "rapid_traverse_distance",
@@ -60,7 +84,13 @@
       "default": 50,
       "min": 0,
       "max": 5000,
-      "businessContext": "Total distance traveled at rapid traverse (non-cutting moves)."
+      "businessContext": "Total distance traveled at rapid traverse (non-cutting moves).",
+      "label_i18n": {
+        "en": "Rapid Traverse Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance traveled at rapid traverse (non-cutting moves)."
+      }
     },
     {
       "id": "rapid_traverse_rate",
@@ -70,7 +100,13 @@
       "default": 15000,
       "min": 1000,
       "max": 60000,
-      "businessContext": "Maximum speed of the machine during rapid moves."
+      "businessContext": "Maximum speed of the machine during rapid moves.",
+      "label_i18n": {
+        "en": "Rapid Traverse Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum speed of the machine during rapid moves."
+      }
     },
     {
       "id": "tool_change_time",
@@ -80,7 +116,13 @@
       "default": 5,
       "min": 0.5,
       "max": 120,
-      "businessContext": "Average time to change a tool, including turret indexing."
+      "businessContext": "Average time to change a tool, including turret indexing.",
+      "label_i18n": {
+        "en": "Tool Change Time"
+      },
+      "businessContext_i18n": {
+        "en": "Average time to change a tool, including turret indexing."
+      }
     },
     {
       "id": "number_of_tool_changes",
@@ -90,7 +132,13 @@
       "default": 2,
       "min": 0,
       "max": 50,
-      "businessContext": "Total tool changes required for the operation."
+      "businessContext": "Total tool changes required for the operation.",
+      "label_i18n": {
+        "en": "Number of Tool Changes"
+      },
+      "businessContext_i18n": {
+        "en": "Total tool changes required for the operation."
+      }
     },
     {
       "id": "material_hardness_factor",
@@ -120,7 +168,13 @@
           "factor": 1.6
         }
       ],
-      "businessContext": "Adjusts cutting time based on material machinability. Refer to ISO 3685."
+      "businessContext": "Adjusts cutting time based on material machinability. Refer to ISO 3685.",
+      "label_i18n": {
+        "en": "Material Hardness Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Adjusts cutting time based on material machinability. Refer to ISO 3685."
+      }
     },
     {
       "id": "tool_wear_factor",
@@ -130,7 +184,13 @@
       "default": 1,
       "min": 0.8,
       "max": 2,
-      "businessContext": "Multiplier for tool wear. 1.0 = new tool, >1.0 = worn tool. Based on tool life data."
+      "businessContext": "Multiplier for tool wear. 1.0 = new tool, >1.0 = worn tool. Based on tool life data.",
+      "label_i18n": {
+        "en": "Tool Wear Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for tool wear. 1.0 = new tool, >1.0 = worn tool. Based on tool life data."
+      }
     },
     {
       "id": "machine_efficiency",
@@ -140,7 +200,13 @@
       "default": 85,
       "min": 50,
       "max": 100,
-      "businessContext": "Overall equipment effectiveness (OEE) factor. Accounts for downtime, speed loss, and quality loss."
+      "businessContext": "Overall equipment effectiveness (OEE) factor. Accounts for downtime, speed loss, and quality loss.",
+      "label_i18n": {
+        "en": "Machine Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Overall equipment effectiveness (OEE) factor. Accounts for downtime, speed loss, and quality loss."
+      }
     },
     {
       "id": "part_loading_time",
@@ -150,7 +216,13 @@
       "default": 10,
       "min": 1,
       "max": 300,
-      "businessContext": "Time to load and unload the workpiece from the machine."
+      "businessContext": "Time to load and unload the workpiece from the machine.",
+      "label_i18n": {
+        "en": "Part Loading/Unloading Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time to load and unload the workpiece from the machine."
+      }
     },
     {
       "id": "coolant_on_time",
@@ -160,7 +232,13 @@
       "default": 2,
       "min": 0,
       "max": 60,
-      "businessContext": "Time for coolant to activate and stabilize before cutting."
+      "businessContext": "Time for coolant to activate and stabilize before cutting.",
+      "label_i18n": {
+        "en": "Coolant On Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time for coolant to activate and stabilize before cutting."
+      }
     },
     {
       "id": "measurement_time",
@@ -170,7 +248,13 @@
       "default": 0,
       "min": 0,
       "max": 300,
-      "businessContext": "Time for probing or manual measurement during the cycle."
+      "businessContext": "Time for probing or manual measurement during the cycle.",
+      "label_i18n": {
+        "en": "In-Process Measurement Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time for probing or manual measurement during the cycle."
+      }
     }
   ],
   "validation": {

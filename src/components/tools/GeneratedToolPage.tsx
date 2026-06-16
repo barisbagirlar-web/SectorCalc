@@ -17,7 +17,11 @@ import {
   resolveGeneratedToolTitle,
   resolvePrimaryOutputKey,
 } from "@/lib/generated-tools/resolve-tool-display";
-import { formatSelectOptionLabel } from "@/lib/generated-tools/select-options";
+import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
+import {
+  resolveGeneratedPrimaryOutputCaption,
+} from "@/lib/generated-tools/resolve-generated-display-text";
+import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
 import {
   runGeneratedToolCalculation,
   useToolSchema,
@@ -30,15 +34,11 @@ export type GeneratedToolPageProps = {
   readonly diagramSrc?: string | null;
 };
 
-function formatPrimaryValue(value: unknown, locale: string): string {
+function formatPrimaryValue(value: unknown, key: string, locale: string): string {
   if (typeof value !== "number" || !Number.isFinite(value)) {
     return "—";
   }
-  return new Intl.NumberFormat(locale, {
-    style: "currency",
-    currency: "TRY",
-    maximumFractionDigits: 0,
-  }).format(value);
+  return formatGeneratedNumericValue(value, key, locale);
 }
 
 function resolveHiddenDrivers(
@@ -82,20 +82,33 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
       return null;
     }
     const raw = result[primaryKey];
-    if (typeof raw === "number") {
+    if (typeof raw === "number" && Number.isFinite(raw)) {
       return raw;
     }
-    return result.dataConfidenceAdjusted;
+    if (typeof result.totalWasteCost === "number" && Number.isFinite(result.totalWasteCost)) {
+      return result.totalWasteCost;
+    }
+    return null;
   }, [primaryKey, result]);
 
   const hiddenDrivers = useMemo(
-    () => (result ? resolveHiddenDrivers(result, schema) : []),
-    [result, schema],
+    () =>
+      result
+        ? resolveHiddenDrivers(result, schema).map((driver) =>
+            translateCalculatorPhrase(driver, locale),
+          )
+        : [],
+    [locale, result, schema],
   );
 
   const suggestedActions = useMemo(
-    () => (result ? resolveSuggestedActions(result, schema) : []),
-    [result, schema],
+    () =>
+      result
+        ? resolveSuggestedActions(result, schema).map((action) =>
+            translateCalculatorPhrase(action, locale),
+          )
+        : [],
+    [locale, result, schema],
   );
 
   const eoqInitialInputs = useMemo(
@@ -166,11 +179,14 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
                 {t("primaryResult")}
               </p>
               <p className="font-mono text-3xl font-semibold text-premium-velvet">
-                {formatPrimaryValue(primaryValue, locale)}
+                {formatPrimaryValue(primaryValue, primaryKey, locale)}
               </p>
               <p className="text-sm text-body-charcoal">
-                {schema.outputs.breakdown[resolvePrimaryOutputKey(schema)]?.trim() ||
-                  formatSelectOptionLabel(resolvePrimaryOutputKey(schema))}
+                {resolveGeneratedPrimaryOutputCaption(
+                  primaryKey,
+                  schema.outputs.breakdown,
+                  locale,
+                )}
               </p>
             </div>
           ) : (
@@ -208,7 +224,7 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
             {hiddenDrivers.length > 0 ? (
               <ul className="list-disc space-y-1 pl-5 text-sm text-red-800">
                 {hiddenDrivers.map((driver) => (
-                  <li key={driver}>{driver}</li>
+                    <li key={driver}>{translateCalculatorPhrase(driver, locale)}</li>
                 ))}
               </ul>
             ) : (
@@ -221,7 +237,7 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
             {suggestedActions.length > 0 ? (
               <ul className="list-disc space-y-1 pl-5 text-sm text-green-900">
                 {suggestedActions.map((action) => (
-                  <li key={action}>{action}</li>
+                      <li key={action}>{translateCalculatorPhrase(action, locale)}</li>
                 ))}
               </ul>
             ) : (

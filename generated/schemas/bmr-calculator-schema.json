@@ -21,7 +21,13 @@
         "male",
         "female"
       ],
-      "businessContext": "Required for Mifflin-St Jeor equation coefficient selection."
+      "businessContext": "Required for Mifflin-St Jeor equation coefficient selection.",
+      "label_i18n": {
+        "en": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "Required for Mifflin-St Jeor equation coefficient selection."
+      }
     },
     {
       "id": "weight_kg",
@@ -31,7 +37,13 @@
       "default": 70,
       "min": 20,
       "max": 300,
-      "businessContext": "Total body mass measured on calibrated scale (ISO 9001:2015 calibration traceability)."
+      "businessContext": "Total body mass measured on calibrated scale (ISO 9001:2015 calibration traceability).",
+      "label_i18n": {
+        "en": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Total body mass measured on calibrated scale (ISO 9001:2015 calibration traceability)."
+      }
     },
     {
       "id": "height_cm",
@@ -41,7 +53,13 @@
       "default": 175,
       "min": 100,
       "max": 250,
-      "businessContext": "Stature measured per ISO 7250-1:2017 basic human body measurements."
+      "businessContext": "Stature measured per ISO 7250-1:2017 basic human body measurements.",
+      "label_i18n": {
+        "en": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Stature measured per ISO 7250-1:2017 basic human body measurements."
+      }
     },
     {
       "id": "age_years",
@@ -51,7 +69,13 @@
       "default": 30,
       "min": 18,
       "max": 100,
-      "businessContext": "Chronological age used in metabolic rate decay modeling."
+      "businessContext": "Chronological age used in metabolic rate decay modeling.",
+      "label_i18n": {
+        "en": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Chronological age used in metabolic rate decay modeling."
+      }
     },
     {
       "id": "body_fat_percent",
@@ -61,7 +85,13 @@
       "default": null,
       "min": 3,
       "max": 60,
-      "businessContext": "Used for lean body mass estimation (DEXA or skinfold per ISAK standards). If null, default estimation is applied."
+      "businessContext": "Used for lean body mass estimation (DEXA or skinfold per ISAK standards). If null, default estimation is applied.",
+      "label_i18n": {
+        "en": "Body Fat Percentage (optional)"
+      },
+      "businessContext_i18n": {
+        "en": "Used for lean body mass estimation (DEXA or skinfold per ISAK standards). If null, default estimation is applied."
+      }
     },
     {
       "id": "activity_factor",
@@ -76,7 +106,13 @@
         "very active",
         "extra active"
       ],
-      "businessContext": "Physical Activity Level per WHO/FAO/UNU expert consultation (2004). Used for total energy expenditure estimation."
+      "businessContext": "Physical Activity Level per WHO/FAO/UNU expert consultation (2004). Used for total energy expenditure estimation.",
+      "label_i18n": {
+        "en": "Activity Factor (PAL)"
+      },
+      "businessContext_i18n": {
+        "en": "Physical Activity Level per WHO/FAO/UNU expert consultation (2004). Used for total energy expenditure estimation."
+      }
     },
     {
       "id": "measurement_confidence",
@@ -89,7 +125,13 @@
         "medium",
         "high"
       ],
-      "businessContext": "Subjective assessment of input data quality (e.g., calibrated equipment, self-reported vs. lab). Influences dataConfidenceAdjusted output."
+      "businessContext": "Subjective assessment of input data quality (e.g., calibrated equipment, self-reported vs. lab). Influences dataConfidenceAdjusted output.",
+      "label_i18n": {
+        "en": "Measurement Confidence Level"
+      },
+      "businessContext_i18n": {
+        "en": "Subjective assessment of input data quality (e.g., calibrated equipment, self-reported vs. lab). Influences dataConfidenceAdjusted output."
+      }
     }
   ],
   "validation": {

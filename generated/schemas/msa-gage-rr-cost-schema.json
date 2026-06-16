@@ -19,7 +19,13 @@
       "default": 10,
       "min": 2,
       "max": 100,
-      "businessContext": "Number of distinct parts selected for the Gage R&R study, typically 5-20 per AIAG MSA guidelines."
+      "businessContext": "Number of distinct parts selected for the Gage R&R study, typically 5-20 per AIAG MSA guidelines.",
+      "label_i18n": {
+        "en": "Number of Parts in Study"
+      },
+      "businessContext_i18n": {
+        "en": "Number of distinct parts selected for the Gage R&R study, typically 5-20 per AIAG MSA guidelines."
+      }
     },
     {
       "id": "num_appraisers",
@@ -29,7 +35,13 @@
       "default": 3,
       "min": 2,
       "max": 10,
-      "businessContext": "Number of operators or appraisers performing measurements, minimum 2 for reproducibility estimation."
+      "businessContext": "Number of operators or appraisers performing measurements, minimum 2 for reproducibility estimation.",
+      "label_i18n": {
+        "en": "Number of Appraisers"
+      },
+      "businessContext_i18n": {
+        "en": "Number of operators or appraisers performing measurements, minimum 2 for reproducibility estimation."
+      }
     },
     {
       "id": "num_trials",
@@ -39,7 +51,13 @@
       "default": 3,
       "min": 2,
       "max": 10,
-      "businessContext": "Number of repeated measurements per part per appraiser, typically 2-3."
+      "businessContext": "Number of repeated measurements per part per appraiser, typically 2-3.",
+      "label_i18n": {
+        "en": "Number of Trials per Part"
+      },
+      "businessContext_i18n": {
+        "en": "Number of repeated measurements per part per appraiser, typically 2-3."
+      }
     },
     {
       "id": "total_variation",
@@ -49,7 +67,13 @@
       "default": 0.5,
       "min": 0.001,
       "max": 100,
-      "businessContext": "Standard deviation of all measurements in the study, representing total process variation."
+      "businessContext": "Standard deviation of all measurements in the study, representing total process variation.",
+      "label_i18n": {
+        "en": "Total Observed Variation (Std Dev)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of all measurements in the study, representing total process variation."
+      }
     },
     {
       "id": "repeatability_variation",
@@ -59,7 +83,13 @@
       "default": 0.15,
       "min": 0,
       "max": 100,
-      "businessContext": "Variation due to equipment (same operator, same part, repeated measurements)."
+      "businessContext": "Variation due to equipment (same operator, same part, repeated measurements).",
+      "label_i18n": {
+        "en": "Repeatability Variation (Std Dev)"
+      },
+      "businessContext_i18n": {
+        "en": "Variation due to equipment (same operator, same part, repeated measurements)."
+      }
     },
     {
       "id": "reproducibility_variation",
@@ -69,7 +99,13 @@
       "default": 0.1,
       "min": 0,
       "max": 100,
-      "businessContext": "Variation due to different operators measuring the same part."
+      "businessContext": "Variation due to different operators measuring the same part.",
+      "label_i18n": {
+        "en": "Reproducibility Variation (Std Dev)"
+      },
+      "businessContext_i18n": {
+        "en": "Variation due to different operators measuring the same part."
+      }
     },
     {
       "id": "cost_per_defect",
@@ -79,7 +115,13 @@
       "default": 50,
       "min": 0,
       "max": 100000,
-      "businessContext": "Average cost incurred when a non-conforming unit is detected internally (scrap, rework, inspection)."
+      "businessContext": "Average cost incurred when a non-conforming unit is detected internally (scrap, rework, inspection).",
+      "label_i18n": {
+        "en": "Cost per Defect (Internal)"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost incurred when a non-conforming unit is detected internally (scrap, rework, inspection)."
+      }
     },
     {
       "id": "cost_per_escaped_defect",
@@ -89,7 +131,13 @@
       "default": 500,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Average cost when a defect reaches the customer (warranty, liability, lost sales)."
+      "businessContext": "Average cost when a defect reaches the customer (warranty, liability, lost sales).",
+      "label_i18n": {
+        "en": "Cost per Escaped Defect (External)"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost when a defect reaches the customer (warranty, liability, lost sales)."
+      }
     },
     {
       "id": "annual_production_volume",
@@ -99,7 +147,13 @@
       "default": 100000,
       "min": 1,
       "max": 100000000,
-      "businessContext": "Total number of units produced per year for the measured characteristic."
+      "businessContext": "Total number of units produced per year for the measured characteristic.",
+      "label_i18n": {
+        "en": "Annual Production Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units produced per year for the measured characteristic."
+      }
     },
     {
       "id": "defect_rate",
@@ -109,7 +163,13 @@
       "default": 5000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Parts per million non-conforming based on current measurement system."
+      "businessContext": "Parts per million non-conforming based on current measurement system.",
+      "label_i18n": {
+        "en": "Current Defect Rate (ppm)"
+      },
+      "businessContext_i18n": {
+        "en": "Parts per million non-conforming based on current measurement system."
+      }
     },
     {
       "id": "measurement_system_type",
@@ -121,7 +181,13 @@
         "variable",
         "attribute"
       ],
-      "businessContext": "Variable (continuous) or attribute (pass/fail) measurement system."
+      "businessContext": "Variable (continuous) or attribute (pass/fail) measurement system.",
+      "label_i18n": {
+        "en": "Measurement System Type"
+      },
+      "businessContext_i18n": {
+        "en": "Variable (continuous) or attribute (pass/fail) measurement system."
+      }
     },
     {
       "id": "include_hidden_losses",
@@ -129,7 +195,13 @@
       "type": "boolean",
       "unit": "",
       "default": true,
-      "businessContext": "If true, calculates costs from misclassifications due to measurement error."
+      "businessContext": "If true, calculates costs from misclassifications due to measurement error.",
+      "label_i18n": {
+        "en": "Include Hidden Losses (False Positives/Negatives)"
+      },
+      "businessContext_i18n": {
+        "en": "If true, calculates costs from misclassifications due to measurement error."
+      }
     }
   ],
   "validation": {

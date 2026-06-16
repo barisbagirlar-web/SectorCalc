@@ -19,7 +19,13 @@
       "default": 10000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Total volume of water withdrawn for irrigation per year."
+      "businessContext": "Total volume of water withdrawn for irrigation per year.",
+      "label_i18n": {
+        "en": "Annual water volume used"
+      },
+      "businessContext_i18n": {
+        "en": "Total volume of water withdrawn for irrigation per year."
+      }
     },
     {
       "id": "water_cost_per_m3",
@@ -29,7 +35,13 @@
       "default": 0.5,
       "min": 0,
       "max": 10,
-      "businessContext": "Unit cost of water including extraction, treatment, and delivery."
+      "businessContext": "Unit cost of water including extraction, treatment, and delivery.",
+      "label_i18n": {
+        "en": "Water cost per m³"
+      },
+      "businessContext_i18n": {
+        "en": "Unit cost of water including extraction, treatment, and delivery."
+      }
     },
     {
       "id": "energy_cost_per_kwh",
@@ -39,7 +51,13 @@
       "default": 0.12,
       "min": 0,
       "max": 1,
-      "businessContext": "Average electricity cost for pumping and distribution."
+      "businessContext": "Average electricity cost for pumping and distribution.",
+      "label_i18n": {
+        "en": "Energy cost per kWh"
+      },
+      "businessContext_i18n": {
+        "en": "Average electricity cost for pumping and distribution."
+      }
     },
     {
       "id": "pump_efficiency",
@@ -49,7 +67,13 @@
       "default": 70,
       "min": 10,
       "max": 100,
-      "businessContext": "Overall efficiency of pump and motor system (ISO 9906)."
+      "businessContext": "Overall efficiency of pump and motor system (ISO 9906).",
+      "label_i18n": {
+        "en": "Pump system efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Overall efficiency of pump and motor system (ISO 9906)."
+      }
     },
     {
       "id": "distribution_losses",
@@ -59,7 +83,13 @@
       "default": 15,
       "min": 0,
       "max": 50,
-      "businessContext": "Percentage of water lost due to leaks, evaporation, and runoff."
+      "businessContext": "Percentage of water lost due to leaks, evaporation, and runoff.",
+      "label_i18n": {
+        "en": "Distribution losses"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of water lost due to leaks, evaporation, and runoff."
+      }
     },
     {
       "id": "labor_hours_per_year",
@@ -69,7 +99,13 @@
       "default": 500,
       "min": 0,
       "max": 10000,
-      "businessContext": "Total labor hours dedicated to irrigation operation and maintenance."
+      "businessContext": "Total labor hours dedicated to irrigation operation and maintenance.",
+      "label_i18n": {
+        "en": "Annual labor hours for irrigation"
+      },
+      "businessContext_i18n": {
+        "en": "Total labor hours dedicated to irrigation operation and maintenance."
+      }
     },
     {
       "id": "labor_rate",
@@ -79,7 +115,13 @@
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Average hourly wage including benefits."
+      "businessContext": "Average hourly wage including benefits.",
+      "label_i18n": {
+        "en": "Labor rate per hour"
+      },
+      "businessContext_i18n": {
+        "en": "Average hourly wage including benefits."
+      }
     },
     {
       "id": "maintenance_cost",
@@ -89,7 +131,13 @@
       "default": 2000,
       "min": 0,
       "max": 100000,
-      "businessContext": "Total annual cost for repairs, parts, and servicing."
+      "businessContext": "Total annual cost for repairs, parts, and servicing.",
+      "label_i18n": {
+        "en": "Annual maintenance cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total annual cost for repairs, parts, and servicing."
+      }
     },
     {
       "id": "irrigated_area",
@@ -99,7 +147,13 @@
       "default": 50,
       "min": 0.1,
       "max": 10000,
-      "businessContext": "Total area under irrigation."
+      "businessContext": "Total area under irrigation.",
+      "label_i18n": {
+        "en": "Irrigated area"
+      },
+      "businessContext_i18n": {
+        "en": "Total area under irrigation."
+      }
     },
     {
       "id": "crop_value_per_ha",
@@ -109,7 +163,13 @@
       "default": 3000,
       "min": 0,
       "max": 50000,
-      "businessContext": "Average revenue generated per hectare from irrigated crops."
+      "businessContext": "Average revenue generated per hectare from irrigated crops.",
+      "label_i18n": {
+        "en": "Crop value per hectare"
+      },
+      "businessContext_i18n": {
+        "en": "Average revenue generated per hectare from irrigated crops."
+      }
     },
     {
       "id": "system_type",
@@ -123,7 +183,13 @@
         "Subsurface drip"
       ],
       "default": "Sprinkler",
-      "businessContext": "Type of irrigation system affecting efficiency and cost structure."
+      "businessContext": "Type of irrigation system affecting efficiency and cost structure.",
+      "label_i18n": {
+        "en": "Irrigation system type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of irrigation system affecting efficiency and cost structure."
+      }
     },
     {
       "id": "water_source",
@@ -136,14 +202,26 @@
         "Recycled water"
       ],
       "default": "Groundwater",
-      "businessContext": "Source of water influencing cost and sustainability."
+      "businessContext": "Source of water influencing cost and sustainability.",
+      "label_i18n": {
+        "en": "Water source"
+      },
+      "businessContext_i18n": {
+        "en": "Source of water influencing cost and sustainability."
+      }
     },
     {
       "id": "has_automation",
       "label": "Automation system installed",
       "type": "boolean",
       "default": false,
-      "businessContext": "Indicates presence of automated scheduling or sensor-based control."
+      "businessContext": "Indicates presence of automated scheduling or sensor-based control.",
+      "label_i18n": {
+        "en": "Automation system installed"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates presence of automated scheduling or sensor-based control."
+      }
     }
   ],
   "validation": {

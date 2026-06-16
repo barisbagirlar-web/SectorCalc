@@ -19,7 +19,13 @@
       "default": 0.1,
       "min": 0.01,
       "max": 2,
-      "businessContext": "Nominal pipe diameter per ISO 6708. Affects cross-sectional area and velocity."
+      "businessContext": "Nominal pipe diameter per ISO 6708. Affects cross-sectional area and velocity.",
+      "label_i18n": {
+        "en": "Pipe Inner Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal pipe diameter per ISO 6708. Affects cross-sectional area and velocity."
+      }
     },
     {
       "id": "pipe_length",
@@ -29,7 +35,13 @@
       "default": 100,
       "min": 1,
       "max": 10000,
-      "businessContext": "Total straight pipe length. Used for friction loss calculation."
+      "businessContext": "Total straight pipe length. Used for friction loss calculation.",
+      "label_i18n": {
+        "en": "Pipe Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total straight pipe length. Used for friction loss calculation."
+      }
     },
     {
       "id": "flow_rate",
@@ -39,7 +51,13 @@
       "default": 0.01,
       "min": 0.0001,
       "max": 10,
-      "businessContext": "Design flow rate. Must be within pump capacity and pipe rating."
+      "businessContext": "Design flow rate. Must be within pump capacity and pipe rating.",
+      "label_i18n": {
+        "en": "Volumetric Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Design flow rate. Must be within pump capacity and pipe rating."
+      }
     },
     {
       "id": "fluid_density",
@@ -49,7 +67,13 @@
       "default": 1000,
       "min": 600,
       "max": 2000,
-      "businessContext": "Density at operating temperature. Water = 1000, oil ≈ 850."
+      "businessContext": "Density at operating temperature. Water = 1000, oil ≈ 850.",
+      "label_i18n": {
+        "en": "Fluid Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density at operating temperature. Water = 1000, oil ≈ 850."
+      }
     },
     {
       "id": "fluid_viscosity",
@@ -59,7 +83,13 @@
       "default": 0.001,
       "min": 0.0001,
       "max": 10,
-      "businessContext": "Dynamic viscosity at operating temperature. Water = 0.001, heavy oil up to 1."
+      "businessContext": "Dynamic viscosity at operating temperature. Water = 0.001, heavy oil up to 1.",
+      "label_i18n": {
+        "en": "Dynamic Viscosity"
+      },
+      "businessContext_i18n": {
+        "en": "Dynamic viscosity at operating temperature. Water = 0.001, heavy oil up to 1."
+      }
     },
     {
       "id": "roughness",
@@ -69,7 +99,13 @@
       "default": 0.000045,
       "min": 0.000001,
       "max": 0.01,
-      "businessContext": "Absolute roughness height. Steel = 0.000045, concrete = 0.001. Per ISO 9906."
+      "businessContext": "Absolute roughness height. Steel = 0.000045, concrete = 0.001. Per ISO 9906.",
+      "label_i18n": {
+        "en": "Pipe Roughness"
+      },
+      "businessContext_i18n": {
+        "en": "Absolute roughness height. Steel = 0.000045, concrete = 0.001. Per ISO 9906."
+      }
     },
     {
       "id": "elevation_change",
@@ -79,7 +115,13 @@
       "default": 0,
       "min": -100,
       "max": 100,
-      "businessContext": "Positive if outlet is higher than inlet. Affects gravitational head."
+      "businessContext": "Positive if outlet is higher than inlet. Affects gravitational head.",
+      "label_i18n": {
+        "en": "Elevation Change"
+      },
+      "businessContext_i18n": {
+        "en": "Positive if outlet is higher than inlet. Affects gravitational head."
+      }
     },
     {
       "id": "minor_loss_coefficient",
@@ -89,7 +131,13 @@
       "default": 0.5,
       "min": 0,
       "max": 100,
-      "businessContext": "Sum of K factors for fittings, valves, bends. Per Crane Technical Paper No. 410."
+      "businessContext": "Sum of K factors for fittings, valves, bends. Per Crane Technical Paper No. 410.",
+      "label_i18n": {
+        "en": "Minor Loss Coefficient (K)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of K factors for fittings, valves, bends. Per Crane Technical Paper No. 410."
+      }
     },
     {
       "id": "flow_regime",
@@ -101,14 +149,26 @@
         "turbulent"
       ],
       "default": "auto",
-      "businessContext": "Select 'auto' for Reynolds-based determination. Override for sensitivity analysis."
+      "businessContext": "Select 'auto' for Reynolds-based determination. Override for sensitivity analysis.",
+      "label_i18n": {
+        "en": "Flow Regime Assumption"
+      },
+      "businessContext_i18n": {
+        "en": "Select 'auto' for Reynolds-based determination. Override for sensitivity analysis."
+      }
     },
     {
       "id": "include_measurement_uncertainty",
       "label": "Include Measurement Uncertainty",
       "type": "boolean",
       "default": true,
-      "businessContext": "When true, applies GUM (Guide to the Expression of Uncertainty in Measurement) propagation to final result."
+      "businessContext": "When true, applies GUM (Guide to the Expression of Uncertainty in Measurement) propagation to final result.",
+      "label_i18n": {
+        "en": "Include Measurement Uncertainty"
+      },
+      "businessContext_i18n": {
+        "en": "When true, applies GUM (Guide to the Expression of Uncertainty in Measurement) propagation to final result."
+      }
     }
   ],
   "validation": {

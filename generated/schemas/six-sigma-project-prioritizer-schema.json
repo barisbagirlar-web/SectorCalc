@@ -17,7 +17,13 @@
       "default": 50000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Current defects per million opportunities for the process under evaluation."
+      "businessContext": "Current defects per million opportunities for the process under evaluation.",
+      "label_i18n": {
+        "en": "Defect Rate (DPMO)"
+      },
+      "businessContext_i18n": {
+        "en": "Current defects per million opportunities for the process under evaluation."
+      }
     },
     {
       "id": "process_sigma",
@@ -27,7 +33,13 @@
       "default": 3,
       "min": 0.5,
       "max": 6,
-      "businessContext": "Current sigma level of the process, typically derived from DPMO using standard conversion tables."
+      "businessContext": "Current sigma level of the process, typically derived from DPMO using standard conversion tables.",
+      "label_i18n": {
+        "en": "Current Process Sigma Level"
+      },
+      "businessContext_i18n": {
+        "en": "Current sigma level of the process, typically derived from DPMO using standard conversion tables."
+      }
     },
     {
       "id": "annual_volume",
@@ -37,7 +49,13 @@
       "default": 100000,
       "min": 100,
       "max": 1000000000,
-      "businessContext": "Total number of units produced or transactions processed per year."
+      "businessContext": "Total number of units produced or transactions processed per year.",
+      "label_i18n": {
+        "en": "Annual Unit Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units produced or transactions processed per year."
+      }
     },
     {
       "id": "cost_per_defect",
@@ -47,7 +65,13 @@
       "default": 50,
       "min": 0.01,
       "max": 100000,
-      "businessContext": "Average cost incurred per defect, including rework, scrap, warranty, and customer impact."
+      "businessContext": "Average cost incurred per defect, including rework, scrap, warranty, and customer impact.",
+      "label_i18n": {
+        "en": "Cost per Defect"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost incurred per defect, including rework, scrap, warranty, and customer impact."
+      }
     },
     {
       "id": "implementation_cost",
@@ -57,7 +81,13 @@
       "default": 50000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Total cost to implement the Six Sigma improvement project (training, equipment, downtime, etc.)."
+      "businessContext": "Total cost to implement the Six Sigma improvement project (training, equipment, downtime, etc.).",
+      "label_i18n": {
+        "en": "Estimated Implementation Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost to implement the Six Sigma improvement project (training, equipment, downtime, etc.)."
+      }
     },
     {
       "id": "project_risk",
@@ -72,7 +102,13 @@
         "medium",
         "high"
       ],
-      "businessContext": "Qualitative assessment of risk associated with the project (technical complexity, resource availability, stakeholder buy-in)."
+      "businessContext": "Qualitative assessment of risk associated with the project (technical complexity, resource availability, stakeholder buy-in).",
+      "label_i18n": {
+        "en": "Project Risk Level"
+      },
+      "businessContext_i18n": {
+        "en": "Qualitative assessment of risk associated with the project (technical complexity, resource availability, stakeholder buy-in)."
+      }
     },
     {
       "id": "strategic_alignment",
@@ -82,7 +118,13 @@
       "default": 7,
       "min": 1,
       "max": 10,
-      "businessContext": "How well the project aligns with organizational strategic goals (1 = low, 10 = high)."
+      "businessContext": "How well the project aligns with organizational strategic goals (1 = low, 10 = high).",
+      "label_i18n": {
+        "en": "Strategic Alignment Score"
+      },
+      "businessContext_i18n": {
+        "en": "How well the project aligns with organizational strategic goals (1 = low, 10 = high)."
+      }
     },
     {
       "id": "customer_impact",
@@ -92,7 +134,13 @@
       "default": 8,
       "min": 1,
       "max": 10,
-      "businessContext": "Degree of positive impact on customer satisfaction (1 = minimal, 10 = transformative)."
+      "businessContext": "Degree of positive impact on customer satisfaction (1 = minimal, 10 = transformative).",
+      "label_i18n": {
+        "en": "Customer Impact Score"
+      },
+      "businessContext_i18n": {
+        "en": "Degree of positive impact on customer satisfaction (1 = minimal, 10 = transformative)."
+      }
     },
     {
       "id": "data_confidence",
@@ -102,7 +150,13 @@
       "default": 80,
       "min": 0,
       "max": 100,
-      "businessContext": "Confidence in the accuracy and reliability of the input data (0% = guess, 100% = verified)."
+      "businessContext": "Confidence in the accuracy and reliability of the input data (0% = guess, 100% = verified).",
+      "label_i18n": {
+        "en": "Data Confidence Level"
+      },
+      "businessContext_i18n": {
+        "en": "Confidence in the accuracy and reliability of the input data (0% = guess, 100% = verified)."
+      }
     }
   ],
   "validation": {

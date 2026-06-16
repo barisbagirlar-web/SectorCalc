@@ -15,7 +15,13 @@
       "default": 30,
       "min": 10,
       "max": 120,
-      "businessContext": "Age affects basal metabolic rate (BMR) due to changes in lean body mass and hormonal factors."
+      "businessContext": "Age affects basal metabolic rate (BMR) due to changes in lean body mass and hormonal factors.",
+      "label_i18n": {
+        "en": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age affects basal metabolic rate (BMR) due to changes in lean body mass and hormonal factors."
+      }
     },
     {
       "id": "gender",
@@ -29,7 +35,13 @@
         "male",
         "female"
       ],
-      "businessContext": "Gender influences BMR through differences in body composition and hormonal profiles."
+      "businessContext": "Gender influences BMR through differences in body composition and hormonal profiles.",
+      "label_i18n": {
+        "en": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "Gender influences BMR through differences in body composition and hormonal profiles."
+      }
     },
     {
       "id": "weight",
@@ -39,7 +51,13 @@
       "default": 70,
       "min": 20,
       "max": 500,
-      "businessContext": "Body weight is a primary driver of energy expenditure and calorie needs."
+      "businessContext": "Body weight is a primary driver of energy expenditure and calorie needs.",
+      "label_i18n": {
+        "en": "Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight is a primary driver of energy expenditure and calorie needs."
+      }
     },
     {
       "id": "height",
@@ -49,7 +67,13 @@
       "default": 170,
       "min": 50,
       "max": 300,
-      "businessContext": "Height is used in BMR equations to estimate lean body mass and metabolic rate."
+      "businessContext": "Height is used in BMR equations to estimate lean body mass and metabolic rate.",
+      "label_i18n": {
+        "en": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height is used in BMR equations to estimate lean body mass and metabolic rate."
+      }
     },
     {
       "id": "activityLevel",
@@ -66,7 +90,13 @@
         "active",
         "very active"
       ],
-      "businessContext": "Physical activity multiplier adjusts TDEE based on occupational and exercise habits."
+      "businessContext": "Physical activity multiplier adjusts TDEE based on occupational and exercise habits.",
+      "label_i18n": {
+        "en": "Activity Level"
+      },
+      "businessContext_i18n": {
+        "en": "Physical activity multiplier adjusts TDEE based on occupational and exercise habits."
+      }
     },
     {
       "id": "goalRate",
@@ -81,7 +111,13 @@
         "moderate",
         "aggressive"
       ],
-      "businessContext": "Desired weekly weight loss rate determines the daily calorie deficit target."
+      "businessContext": "Desired weekly weight loss rate determines the daily calorie deficit target.",
+      "label_i18n": {
+        "en": "Weight Loss Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Desired weekly weight loss rate determines the daily calorie deficit target."
+      }
     },
     {
       "id": "bodyFatPercent",
@@ -91,7 +127,13 @@
       "default": 20,
       "min": 3,
       "max": 70,
-      "businessContext": "Optional input for more accurate BMR estimation using the Katch-McArdle formula."
+      "businessContext": "Optional input for more accurate BMR estimation using the Katch-McArdle formula.",
+      "label_i18n": {
+        "en": "Body Fat Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Optional input for more accurate BMR estimation using the Katch-McArdle formula."
+      }
     },
     {
       "id": "isPregnant",
@@ -101,7 +143,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "Pregnancy increases energy requirements; deficit is not recommended during pregnancy."
+      "businessContext": "Pregnancy increases energy requirements; deficit is not recommended during pregnancy.",
+      "label_i18n": {
+        "en": "Pregnant"
+      },
+      "businessContext_i18n": {
+        "en": "Pregnancy increases energy requirements; deficit is not recommended during pregnancy."
+      }
     },
     {
       "id": "isLactating",
@@ -111,7 +159,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "Lactation adds ~500 kcal/day to energy needs; deficit must be adjusted."
+      "businessContext": "Lactation adds ~500 kcal/day to energy needs; deficit must be adjusted.",
+      "label_i18n": {
+        "en": "Lactating"
+      },
+      "businessContext_i18n": {
+        "en": "Lactation adds ~500 kcal/day to energy needs; deficit must be adjusted."
+      }
     }
   ],
   "validation": {

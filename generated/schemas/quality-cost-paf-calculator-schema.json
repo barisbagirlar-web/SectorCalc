@@ -20,7 +20,13 @@
       "default": 1000000,
       "min": 0,
       "max": 1000000000,
-      "businessContext": "Annual total sales revenue used as a baseline for cost ratio calculations."
+      "businessContext": "Annual total sales revenue used as a baseline for cost ratio calculations.",
+      "label_i18n": {
+        "en": "Total Sales Revenue"
+      },
+      "businessContext_i18n": {
+        "en": "Annual total sales revenue used as a baseline for cost ratio calculations."
+      }
     },
     {
       "id": "prevention_training_cost",
@@ -30,7 +36,13 @@
       "default": 15000,
       "min": 0,
       "max": 500000,
-      "businessContext": "Costs for quality training, process planning, and preventive maintenance."
+      "businessContext": "Costs for quality training, process planning, and preventive maintenance.",
+      "label_i18n": {
+        "en": "Prevention Training Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Costs for quality training, process planning, and preventive maintenance."
+      }
     },
     {
       "id": "prevention_design_cost",
@@ -40,7 +52,13 @@
       "default": 25000,
       "min": 0,
       "max": 500000,
-      "businessContext": "Costs for FMEA, design reviews, and process control implementation."
+      "businessContext": "Costs for FMEA, design reviews, and process control implementation.",
+      "label_i18n": {
+        "en": "Prevention Design/Process Control Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Costs for FMEA, design reviews, and process control implementation."
+      }
     },
     {
       "id": "appraisal_inspection_cost",
@@ -50,7 +68,13 @@
       "default": 40000,
       "min": 0,
       "max": 500000,
-      "businessContext": "Costs for incoming, in-process, and final inspection and testing."
+      "businessContext": "Costs for incoming, in-process, and final inspection and testing.",
+      "label_i18n": {
+        "en": "Appraisal Inspection & Testing Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Costs for incoming, in-process, and final inspection and testing."
+      }
     },
     {
       "id": "appraisal_audit_cost",
@@ -60,7 +84,13 @@
       "default": 10000,
       "min": 0,
       "max": 200000,
-      "businessContext": "Costs for internal/external audits and equipment calibration."
+      "businessContext": "Costs for internal/external audits and equipment calibration.",
+      "label_i18n": {
+        "en": "Appraisal Audit & Calibration Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Costs for internal/external audits and equipment calibration."
+      }
     },
     {
       "id": "internal_failure_scrap_cost",
@@ -70,7 +100,13 @@
       "default": 60000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Costs of scrap, rework, and downtime due to defects before delivery."
+      "businessContext": "Costs of scrap, rework, and downtime due to defects before delivery.",
+      "label_i18n": {
+        "en": "Internal Failure Scrap & Rework Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Costs of scrap, rework, and downtime due to defects before delivery."
+      }
     },
     {
       "id": "internal_failure_downtime_cost",
@@ -80,7 +116,13 @@
       "default": 20000,
       "min": 0,
       "max": 500000,
-      "businessContext": "Lost production time due to quality issues."
+      "businessContext": "Lost production time due to quality issues.",
+      "label_i18n": {
+        "en": "Internal Failure Downtime Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Lost production time due to quality issues."
+      }
     },
     {
       "id": "external_failure_warranty_cost",
@@ -90,7 +132,13 @@
       "default": 80000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Costs for warranty claims, returns, and replacements after delivery."
+      "businessContext": "Costs for warranty claims, returns, and replacements after delivery.",
+      "label_i18n": {
+        "en": "External Failure Warranty & Returns Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Costs for warranty claims, returns, and replacements after delivery."
+      }
     },
     {
       "id": "external_failure_liability_cost",
@@ -100,7 +148,13 @@
       "default": 30000,
       "min": 0,
       "max": 500000,
-      "businessContext": "Costs from lawsuits, penalties, and lost future sales due to poor quality."
+      "businessContext": "Costs from lawsuits, penalties, and lost future sales due to poor quality.",
+      "label_i18n": {
+        "en": "External Failure Liability & Lost Sales Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Costs from lawsuits, penalties, and lost future sales due to poor quality."
+      }
     },
     {
       "id": "quality_improvement_investment",
@@ -110,7 +164,13 @@
       "default": 0,
       "min": 0,
       "max": 500000,
-      "businessContext": "Additional investment in quality improvement initiatives (e.g., Six Sigma projects)."
+      "businessContext": "Additional investment in quality improvement initiatives (e.g., Six Sigma projects).",
+      "label_i18n": {
+        "en": "Quality Improvement Investment (Optional)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional investment in quality improvement initiatives (e.g., Six Sigma projects)."
+      }
     },
     {
       "id": "industry_type",
@@ -126,14 +186,26 @@
         "Other"
       ],
       "default": "General Manufacturing",
-      "businessContext": "Industry context for benchmarking and threshold adjustments."
+      "businessContext": "Industry context for benchmarking and threshold adjustments.",
+      "label_i18n": {
+        "en": "Industry Type"
+      },
+      "businessContext_i18n": {
+        "en": "Industry context for benchmarking and threshold adjustments."
+      }
     },
     {
       "id": "include_hidden_drivers",
       "label": "Include Hidden Loss Drivers",
       "type": "boolean",
       "default": true,
-      "businessContext": "Toggle to include intangible costs like lost customer goodwill and overtime."
+      "businessContext": "Toggle to include intangible costs like lost customer goodwill and overtime.",
+      "label_i18n": {
+        "en": "Include Hidden Loss Drivers"
+      },
+      "businessContext_i18n": {
+        "en": "Toggle to include intangible costs like lost customer goodwill and overtime."
+      }
     }
   ],
   "validation": {

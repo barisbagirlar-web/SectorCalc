@@ -19,7 +19,13 @@
       "default": 10000,
       "min": 1,
       "max": 10000000,
-      "businessContext": "Total forecasted demand for the SKU over one year. Used to calculate order frequency and cycle stock."
+      "businessContext": "Total forecasted demand for the SKU over one year. Used to calculate order frequency and cycle stock.",
+      "label_i18n": {
+        "en": "Annual Demand (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Total forecasted demand for the SKU over one year. Used to calculate order frequency and cycle stock."
+      }
     },
     {
       "id": "ordering_cost",
@@ -29,7 +35,13 @@
       "default": 50,
       "min": 0,
       "max": 10000,
-      "businessContext": "Fixed cost per purchase order (setup, administrative, freight). Influences EOQ and total logistics cost."
+      "businessContext": "Fixed cost per purchase order (setup, administrative, freight). Influences EOQ and total logistics cost.",
+      "label_i18n": {
+        "en": "Ordering Cost per Order ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed cost per purchase order (setup, administrative, freight). Influences EOQ and total logistics cost."
+      }
     },
     {
       "id": "holding_cost_per_unit",
@@ -39,7 +51,13 @@
       "default": 2.5,
       "min": 0,
       "max": 1000,
-      "businessContext": "Cost to hold one unit in inventory for one year (storage, insurance, obsolescence). Key for inventory carrying cost."
+      "businessContext": "Cost to hold one unit in inventory for one year (storage, insurance, obsolescence). Key for inventory carrying cost.",
+      "label_i18n": {
+        "en": "Holding Cost per Unit per Year ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Cost to hold one unit in inventory for one year (storage, insurance, obsolescence). Key for inventory carrying cost."
+      }
     },
     {
       "id": "unit_cost",
@@ -49,7 +67,13 @@
       "default": 15,
       "min": 0.01,
       "max": 100000,
-      "businessContext": "Purchase cost per unit from supplier. Used in total cost calculations and MOQ financial impact."
+      "businessContext": "Purchase cost per unit from supplier. Used in total cost calculations and MOQ financial impact.",
+      "label_i18n": {
+        "en": "Unit Cost ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase cost per unit from supplier. Used in total cost calculations and MOQ financial impact."
+      }
     },
     {
       "id": "moq",
@@ -59,7 +83,13 @@
       "default": 500,
       "min": 1,
       "max": 1000000,
-      "businessContext": "Supplier-imposed minimum batch size. If EOQ < MOQ, order quantity must be adjusted upward, increasing holding cost."
+      "businessContext": "Supplier-imposed minimum batch size. If EOQ < MOQ, order quantity must be adjusted upward, increasing holding cost.",
+      "label_i18n": {
+        "en": "Minimum Order Quantity (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Supplier-imposed minimum batch size. If EOQ < MOQ, order quantity must be adjusted upward, increasing holding cost."
+      }
     },
     {
       "id": "lead_time_days",
@@ -69,7 +99,13 @@
       "default": 30,
       "min": 1,
       "max": 365,
-      "businessContext": "Time from order placement to receipt. Used for safety stock calculation and reorder point."
+      "businessContext": "Time from order placement to receipt. Used for safety stock calculation and reorder point.",
+      "label_i18n": {
+        "en": "Lead Time (days)"
+      },
+      "businessContext_i18n": {
+        "en": "Time from order placement to receipt. Used for safety stock calculation and reorder point."
+      }
     },
     {
       "id": "demand_std_dev",
@@ -79,7 +115,13 @@
       "default": 10,
       "min": 0,
       "max": 10000,
-      "businessContext": "Daily demand variability. Critical for safety stock under Six Sigma service levels."
+      "businessContext": "Daily demand variability. Critical for safety stock under Six Sigma service levels.",
+      "label_i18n": {
+        "en": "Demand Standard Deviation (units/day)"
+      },
+      "businessContext_i18n": {
+        "en": "Daily demand variability. Critical for safety stock under Six Sigma service levels."
+      }
     },
     {
       "id": "service_level",
@@ -89,7 +131,13 @@
       "default": 95,
       "min": 50,
       "max": 99.99,
-      "businessContext": "Desired probability of not stocking out during lead time. Used to derive z-score for safety stock."
+      "businessContext": "Desired probability of not stocking out during lead time. Used to derive z-score for safety stock.",
+      "label_i18n": {
+        "en": "Service Level (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Desired probability of not stocking out during lead time. Used to derive z-score for safety stock."
+      }
     },
     {
       "id": "days_per_year",
@@ -99,7 +147,13 @@
       "default": 365,
       "min": 1,
       "max": 365,
-      "businessContext": "Number of days the facility operates. Converts annual demand to daily demand."
+      "businessContext": "Number of days the facility operates. Converts annual demand to daily demand.",
+      "label_i18n": {
+        "en": "Operating Days per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days the facility operates. Converts annual demand to daily demand."
+      }
     },
     {
       "id": "storage_capacity",
@@ -109,7 +163,13 @@
       "default": 2000,
       "min": 1,
       "max": 10000000,
-      "businessContext": "Maximum inventory the warehouse can physically hold. Constraint for feasible order quantity."
+      "businessContext": "Maximum inventory the warehouse can physically hold. Constraint for feasible order quantity.",
+      "label_i18n": {
+        "en": "Storage Capacity (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum inventory the warehouse can physically hold. Constraint for feasible order quantity."
+      }
     },
     {
       "id": "backorder_cost_per_unit",
@@ -119,7 +179,13 @@
       "default": 5,
       "min": 0,
       "max": 10000,
-      "businessContext": "Cost per unit of unmet demand (lost sales, penalty, expediting). Used in total cost trade-off."
+      "businessContext": "Cost per unit of unmet demand (lost sales, penalty, expediting). Used in total cost trade-off.",
+      "label_i18n": {
+        "en": "Backorder Cost per Unit ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per unit of unmet demand (lost sales, penalty, expediting). Used in total cost trade-off."
+      }
     },
     {
       "id": "supplier_reliability",
@@ -129,7 +195,13 @@
       "default": 0.95,
       "min": 0.5,
       "max": 1,
-      "businessContext": "Probability that supplier delivers on time. Adjusts safety stock for lead time variability (Lean JIT)."
+      "businessContext": "Probability that supplier delivers on time. Adjusts safety stock for lead time variability (Lean JIT).",
+      "label_i18n": {
+        "en": "Supplier Reliability Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Probability that supplier delivers on time. Adjusts safety stock for lead time variability (Lean JIT)."
+      }
     },
     {
       "id": "inventory_policy",
@@ -140,14 +212,26 @@
         "periodic_review"
       ],
       "default": "continuous_review",
-      "businessContext": "Review method: continuous (Q,R) or periodic (P,T). Affects safety stock formula."
+      "businessContext": "Review method: continuous (Q,R) or periodic (P,T). Affects safety stock formula.",
+      "label_i18n": {
+        "en": "Inventory Policy"
+      },
+      "businessContext_i18n": {
+        "en": "Review method: continuous (Q,R) or periodic (P,T). Affects safety stock formula."
+      }
     },
     {
       "id": "use_moq_override",
       "label": "Force MOQ Compliance",
       "type": "boolean",
       "default": true,
-      "businessContext": "If true, order quantity is rounded up to MOQ when EOQ < MOQ. If false, EOQ is used even if below MOQ (may violate supplier terms)."
+      "businessContext": "If true, order quantity is rounded up to MOQ when EOQ < MOQ. If false, EOQ is used even if below MOQ (may violate supplier terms).",
+      "label_i18n": {
+        "en": "Force MOQ Compliance"
+      },
+      "businessContext_i18n": {
+        "en": "If true, order quantity is rounded up to MOQ when EOQ < MOQ. If false, EOQ is used even if below MOQ (may violate supplier terms)."
+      }
     }
   ],
   "validation": {

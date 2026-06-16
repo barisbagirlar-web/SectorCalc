@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Link } from "@/i18n/routing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
@@ -82,11 +83,13 @@ export default async function FreeToolsPage({ params }: PageProps) {
 
       <section className="sc-pro-section sc-pro-section--border">
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
-          <SectorCatalogExplorer
-            groups={groups}
-            variant="free-tools"
-            defaultGroupId={DEFAULT_FREE_TRAFFIC_CATEGORY}
-          />
+          <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
+            <SectorCatalogExplorer
+              groups={groups}
+              variant="free-tools"
+              defaultGroupId={DEFAULT_FREE_TRAFFIC_CATEGORY}
+            />
+          </Suspense>
           <div className="sc-discovery-footer">
             <p className="sc-discovery-footer__lead">{tCatalog("discoveryFooter.freeToolsLead")}</p>
             <Link href={getPremiumToolsHref()} prefetch={false} className="sc-discovery-footer__link">

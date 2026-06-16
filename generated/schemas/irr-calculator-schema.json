@@ -20,7 +20,13 @@
       "default": 100000,
       "min": 0,
       "max": 1000000000,
-      "businessContext": "Total upfront capital expenditure (CapEx) for the project or asset."
+      "businessContext": "Total upfront capital expenditure (CapEx) for the project or asset.",
+      "label_i18n": {
+        "en": "Initial Investment"
+      },
+      "businessContext_i18n": {
+        "en": "Total upfront capital expenditure (CapEx) for the project or asset."
+      }
     },
     {
       "id": "annual_cash_inflow",
@@ -30,7 +36,13 @@
       "default": 25000,
       "min": 0,
       "max": 1000000000,
-      "businessContext": "Expected net cash inflow per year (revenue minus operating costs)."
+      "businessContext": "Expected net cash inflow per year (revenue minus operating costs).",
+      "label_i18n": {
+        "en": "Annual Cash Inflow"
+      },
+      "businessContext_i18n": {
+        "en": "Expected net cash inflow per year (revenue minus operating costs)."
+      }
     },
     {
       "id": "project_life_years",
@@ -40,7 +52,13 @@
       "default": 5,
       "min": 1,
       "max": 50,
-      "businessContext": "Duration over which cash flows are projected."
+      "businessContext": "Duration over which cash flows are projected.",
+      "label_i18n": {
+        "en": "Project Life (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Duration over which cash flows are projected."
+      }
     },
     {
       "id": "discount_rate",
@@ -50,7 +68,13 @@
       "default": 10,
       "min": 0,
       "max": 100,
-      "businessContext": "Weighted average cost of capital or required rate of return."
+      "businessContext": "Weighted average cost of capital or required rate of return.",
+      "label_i18n": {
+        "en": "Discount Rate (WACC)"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted average cost of capital or required rate of return."
+      }
     },
     {
       "id": "terminal_value",
@@ -60,7 +84,13 @@
       "default": 0,
       "min": 0,
       "max": 1000000000,
-      "businessContext": "Residual value at end of project life (e.g., salvage, resale)."
+      "businessContext": "Residual value at end of project life (e.g., salvage, resale).",
+      "label_i18n": {
+        "en": "Terminal Value"
+      },
+      "businessContext_i18n": {
+        "en": "Residual value at end of project life (e.g., salvage, resale)."
+      }
     },
     {
       "id": "cash_flow_variability",
@@ -73,7 +103,13 @@
       ],
       "default": "medium",
       "unit": "",
-      "businessContext": "Risk level affecting confidence in cash flow estimates (low = ±5%, medium = ±15%, high = ±30%)."
+      "businessContext": "Risk level affecting confidence in cash flow estimates (low = ±5%, medium = ±15%, high = ±30%).",
+      "label_i18n": {
+        "en": "Cash Flow Variability"
+      },
+      "businessContext_i18n": {
+        "en": "Risk level affecting confidence in cash flow estimates (low = ±5%, medium = ±15%, high = ±30%)."
+      }
     },
     {
       "id": "lean_six_sigma_adjustment",
@@ -81,7 +117,13 @@
       "type": "boolean",
       "default": false,
       "unit": "",
-      "businessContext": "If enabled, applies a 2% reduction to cash flows to account for process waste and variation (Lean Six Sigma standard)."
+      "businessContext": "If enabled, applies a 2% reduction to cash flows to account for process waste and variation (Lean Six Sigma standard).",
+      "label_i18n": {
+        "en": "Lean Six Sigma Adjustment"
+      },
+      "businessContext_i18n": {
+        "en": "If enabled, applies a 2% reduction to cash flows to account for process waste and variation (Lean Six Sigma standard)."
+      }
     }
   ],
   "validation": {

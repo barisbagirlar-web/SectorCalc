@@ -18,6 +18,9 @@ function formatBreakdownKey(key: string): string {
 }
 
 function isRatioLikeKey(key: string): boolean {
+  if (/time|downtime|cycle|duration|spindle_speed|rpm|frequency|passes|count/i.test(key)) {
+    return false;
+  }
   return /ratio|rate|percent|multiplier|availability|performance|quality|share/i.test(key);
 }
 

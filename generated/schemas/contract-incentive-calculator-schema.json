@@ -19,7 +19,13 @@
       "default": 1000,
       "min": 0,
       "max": 100000,
-      "businessContext": "Total units produced or delivered in the measurement period."
+      "businessContext": "Total units produced or delivered in the measurement period.",
+      "label_i18n": {
+        "en": "Actual Throughput (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Total units produced or delivered in the measurement period."
+      }
     },
     {
       "id": "target_throughput",
@@ -29,7 +35,13 @@
       "default": 1200,
       "min": 1,
       "max": 100000,
-      "businessContext": "Contractually agreed throughput target."
+      "businessContext": "Contractually agreed throughput target.",
+      "label_i18n": {
+        "en": "Target Throughput (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Contractually agreed throughput target."
+      }
     },
     {
       "id": "defect_rate",
@@ -39,7 +51,13 @@
       "default": 5000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Parts per million defective, measured per Six Sigma standards."
+      "businessContext": "Parts per million defective, measured per Six Sigma standards.",
+      "label_i18n": {
+        "en": "Defect Rate (ppm)"
+      },
+      "businessContext_i18n": {
+        "en": "Parts per million defective, measured per Six Sigma standards."
+      }
     },
     {
       "id": "on_time_delivery_percent",
@@ -49,7 +67,13 @@
       "default": 95,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of orders delivered on or before the promised date."
+      "businessContext": "Percentage of orders delivered on or before the promised date.",
+      "label_i18n": {
+        "en": "On-Time Delivery (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of orders delivered on or before the promised date."
+      }
     },
     {
       "id": "cost_per_unit",
@@ -59,7 +83,13 @@
       "default": 50,
       "min": 0,
       "max": 10000,
-      "businessContext": "Total manufacturing cost per unit, including materials, labor, overhead."
+      "businessContext": "Total manufacturing cost per unit, including materials, labor, overhead.",
+      "label_i18n": {
+        "en": "Cost per Unit ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Total manufacturing cost per unit, including materials, labor, overhead."
+      }
     },
     {
       "id": "target_cost_per_unit",
@@ -69,7 +99,13 @@
       "default": 45,
       "min": 0,
       "max": 10000,
-      "businessContext": "Contractually agreed cost target per unit."
+      "businessContext": "Contractually agreed cost target per unit.",
+      "label_i18n": {
+        "en": "Target Cost per Unit ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Contractually agreed cost target per unit."
+      }
     },
     {
       "id": "incentive_base_rate",
@@ -79,7 +115,13 @@
       "default": 2.5,
       "min": 0,
       "max": 100,
-      "businessContext": "Base incentive amount per unit, subject to performance multipliers."
+      "businessContext": "Base incentive amount per unit, subject to performance multipliers.",
+      "label_i18n": {
+        "en": "Incentive Base Rate ($/unit)"
+      },
+      "businessContext_i18n": {
+        "en": "Base incentive amount per unit, subject to performance multipliers."
+      }
     },
     {
       "id": "quality_threshold_ppm",
@@ -89,7 +131,13 @@
       "default": 10000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Maximum defect rate to qualify for any incentive."
+      "businessContext": "Maximum defect rate to qualify for any incentive.",
+      "label_i18n": {
+        "en": "Quality Threshold (ppm)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum defect rate to qualify for any incentive."
+      }
     },
     {
       "id": "delivery_threshold_percent",
@@ -99,7 +147,13 @@
       "default": 90,
       "min": 0,
       "max": 100,
-      "businessContext": "Minimum on-time delivery percentage to qualify for incentive."
+      "businessContext": "Minimum on-time delivery percentage to qualify for incentive.",
+      "label_i18n": {
+        "en": "Delivery Threshold (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum on-time delivery percentage to qualify for incentive."
+      }
     },
     {
       "id": "cost_reduction_sharing_percent",
@@ -109,7 +163,13 @@
       "default": 50,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of cost savings shared as additional incentive."
+      "businessContext": "Percentage of cost savings shared as additional incentive.",
+      "label_i18n": {
+        "en": "Cost Reduction Sharing (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of cost savings shared as additional incentive."
+      }
     },
     {
       "id": "contract_type",
@@ -122,7 +182,13 @@
         "cost_plus",
         "time_and_materials"
       ],
-      "businessContext": "Type of contract governing the incentive structure."
+      "businessContext": "Type of contract governing the incentive structure.",
+      "label_i18n": {
+        "en": "Contract Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of contract governing the incentive structure."
+      }
     },
     {
       "id": "lean_certification_active",
@@ -130,7 +196,13 @@
       "type": "boolean",
       "unit": "",
       "default": false,
-      "businessContext": "Indicates if the supplier holds an active Lean certification (e.g., ISO 18404)."
+      "businessContext": "Indicates if the supplier holds an active Lean certification (e.g., ISO 18404).",
+      "label_i18n": {
+        "en": "Lean Certification Active"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if the supplier holds an active Lean certification (e.g., ISO 18404)."
+      }
     }
   ],
   "validation": {

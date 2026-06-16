@@ -17,7 +17,13 @@
       "default": 100,
       "min": 1,
       "max": 100000,
-      "businessContext": "Total distinct product variants offered."
+      "businessContext": "Total distinct product variants offered.",
+      "label_i18n": {
+        "en": "Number of SKUs"
+      },
+      "businessContext_i18n": {
+        "en": "Total distinct product variants offered."
+      }
     },
     {
       "id": "avg_volume_per_sku",
@@ -27,7 +33,13 @@
       "default": 5000,
       "min": 1,
       "max": 10000000,
-      "businessContext": "Average annual production quantity per SKU."
+      "businessContext": "Average annual production quantity per SKU.",
+      "label_i18n": {
+        "en": "Average Volume per SKU"
+      },
+      "businessContext_i18n": {
+        "en": "Average annual production quantity per SKU."
+      }
     },
     {
       "id": "num_components",
@@ -37,7 +49,13 @@
       "default": 500,
       "min": 1,
       "max": 50000,
-      "businessContext": "Total distinct raw materials or parts used across all SKUs."
+      "businessContext": "Total distinct raw materials or parts used across all SKUs.",
+      "label_i18n": {
+        "en": "Number of Unique Components"
+      },
+      "businessContext_i18n": {
+        "en": "Total distinct raw materials or parts used across all SKUs."
+      }
     },
     {
       "id": "avg_bom_levels",
@@ -47,7 +65,13 @@
       "default": 3,
       "min": 1,
       "max": 20,
-      "businessContext": "Average depth of the bill of materials (number of subassembly tiers)."
+      "businessContext": "Average depth of the bill of materials (number of subassembly tiers).",
+      "label_i18n": {
+        "en": "Average BOM Levels"
+      },
+      "businessContext_i18n": {
+        "en": "Average depth of the bill of materials (number of subassembly tiers)."
+      }
     },
     {
       "id": "setup_time_minutes",
@@ -57,7 +81,13 @@
       "default": 45,
       "min": 0,
       "max": 480,
-      "businessContext": "Average time to change a production line from one SKU to another."
+      "businessContext": "Average time to change a production line from one SKU to another.",
+      "label_i18n": {
+        "en": "Average Setup Time per Changeover"
+      },
+      "businessContext_i18n": {
+        "en": "Average time to change a production line from one SKU to another."
+      }
     },
     {
       "id": "labor_rate",
@@ -67,7 +97,13 @@
       "default": 25,
       "min": 5,
       "max": 150,
-      "businessContext": "Fully burdened hourly labor cost."
+      "businessContext": "Fully burdened hourly labor cost.",
+      "label_i18n": {
+        "en": "Labor Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Fully burdened hourly labor cost."
+      }
     },
     {
       "id": "overhead_rate",
@@ -77,7 +113,13 @@
       "default": 150,
       "min": 0,
       "max": 500,
-      "businessContext": "Manufacturing overhead as percentage of direct labor and material."
+      "businessContext": "Manufacturing overhead as percentage of direct labor and material.",
+      "label_i18n": {
+        "en": "Overhead Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Manufacturing overhead as percentage of direct labor and material."
+      }
     },
     {
       "id": "complexity_type",
@@ -92,7 +134,13 @@
         "product",
         "process",
         "mixed"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Complexity Type"
+      },
+      "businessContext_i18n": {
+        "en": "Category of complexity: 'product' (high SKU count), 'process' (high setup time), 'mixed' (both)."
+      }
     },
     {
       "id": "use_lean_metrics",
@@ -102,7 +150,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "If true, applies SMED-based setup reduction and OEE factors."
+      "businessContext": "If true, applies SMED-based setup reduction and OEE factors.",
+      "label_i18n": {
+        "en": "Use Lean Metrics (SMED, OEE)"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies SMED-based setup reduction and OEE factors."
+      }
     }
   ],
   "validation": {

@@ -17,7 +17,13 @@
       "default": 0,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Input mass value in kilograms for conversion to pounds. Used in logistics, manufacturing, and trade."
+      "businessContext": "Input mass value in kilograms for conversion to pounds. Used in logistics, manufacturing, and trade.",
+      "label_i18n": {
+        "en": "Mass in Kilograms"
+      },
+      "businessContext_i18n": {
+        "en": "Input mass value in kilograms for conversion to pounds. Used in logistics, manufacturing, and trade."
+      }
     },
     {
       "id": "precision_level",
@@ -36,7 +42,13 @@
         "5",
         "6"
       ],
-      "businessContext": "Select number of decimal places for output rounding, per ISO 80000-1 rounding rules."
+      "businessContext": "Select number of decimal places for output rounding, per ISO 80000-1 rounding rules.",
+      "label_i18n": {
+        "en": "Precision Level"
+      },
+      "businessContext_i18n": {
+        "en": "Select number of decimal places for output rounding, per ISO 80000-1 rounding rules."
+      }
     },
     {
       "id": "use_industry_rounding",
@@ -46,7 +58,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "Apply WERC standard rounding (0.5 up) for trade compliance."
+      "businessContext": "Apply WERC standard rounding (0.5 up) for trade compliance.",
+      "label_i18n": {
+        "en": "Use Industry Rounding (WERC)"
+      },
+      "businessContext_i18n": {
+        "en": "Apply WERC standard rounding (0.5 up) for trade compliance."
+      }
     },
     {
       "id": "measurement_uncertainty",
@@ -56,7 +74,13 @@
       "default": 0.5,
       "min": 0,
       "max": 10,
-      "businessContext": "Estimated uncertainty in the input measurement, used for confidence adjustment (ISO/IEC Guide 98-3)."
+      "businessContext": "Estimated uncertainty in the input measurement, used for confidence adjustment (ISO/IEC Guide 98-3).",
+      "label_i18n": {
+        "en": "Measurement Uncertainty (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated uncertainty in the input measurement, used for confidence adjustment (ISO/IEC Guide 98-3)."
+      }
     }
   ],
   "validation": {

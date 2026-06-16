@@ -20,7 +20,13 @@
       "default": 100000,
       "min": 1000,
       "max": 10000000,
-      "businessContext": "Initial capital investment for the machine, including installation and commissioning."
+      "businessContext": "Initial capital investment for the machine, including installation and commissioning.",
+      "label_i18n": {
+        "en": "Purchase Price"
+      },
+      "businessContext_i18n": {
+        "en": "Initial capital investment for the machine, including installation and commissioning."
+      }
     },
     {
       "id": "salvage_value",
@@ -30,7 +36,13 @@
       "default": 10000,
       "min": 0,
       "max": 5000000,
-      "businessContext": "Estimated resale or scrap value at the end of the machine's useful life."
+      "businessContext": "Estimated resale or scrap value at the end of the machine's useful life.",
+      "label_i18n": {
+        "en": "Salvage Value at End of Life"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated resale or scrap value at the end of the machine's useful life."
+      }
     },
     {
       "id": "useful_life_years",
@@ -40,7 +52,13 @@
       "default": 10,
       "min": 1,
       "max": 50,
-      "businessContext": "Expected number of years the machine will be operational before major overhaul or replacement."
+      "businessContext": "Expected number of years the machine will be operational before major overhaul or replacement.",
+      "label_i18n": {
+        "en": "Estimated Useful Life"
+      },
+      "businessContext_i18n": {
+        "en": "Expected number of years the machine will be operational before major overhaul or replacement."
+      }
     },
     {
       "id": "annual_operating_cost",
@@ -50,7 +68,13 @@
       "default": 15000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Includes energy, consumables, labor, and routine maintenance in the first year."
+      "businessContext": "Includes energy, consumables, labor, and routine maintenance in the first year.",
+      "label_i18n": {
+        "en": "Annual Operating Cost (Year 1)"
+      },
+      "businessContext_i18n": {
+        "en": "Includes energy, consumables, labor, and routine maintenance in the first year."
+      }
     },
     {
       "id": "operating_cost_escalation_rate",
@@ -60,7 +84,13 @@
       "default": 3,
       "min": 0,
       "max": 20,
-      "businessContext": "Annual increase in operating costs due to aging, inflation, and wear."
+      "businessContext": "Annual increase in operating costs due to aging, inflation, and wear.",
+      "label_i18n": {
+        "en": "Operating Cost Escalation Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual increase in operating costs due to aging, inflation, and wear."
+      }
     },
     {
       "id": "discount_rate",
@@ -70,7 +100,13 @@
       "default": 8,
       "min": 0,
       "max": 30,
-      "businessContext": "Weighted average cost of capital used for net present value calculations."
+      "businessContext": "Weighted average cost of capital used for net present value calculations.",
+      "label_i18n": {
+        "en": "Discount Rate (WACC)"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted average cost of capital used for net present value calculations."
+      }
     },
     {
       "id": "annual_production_units",
@@ -80,7 +116,13 @@
       "default": 50000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Number of units produced per year at full capacity."
+      "businessContext": "Number of units produced per year at full capacity.",
+      "label_i18n": {
+        "en": "Annual Production Units"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units produced per year at full capacity."
+      }
     },
     {
       "id": "revenue_per_unit",
@@ -90,7 +132,13 @@
       "default": 5,
       "min": 0,
       "max": 1000,
-      "businessContext": "Selling price per unit produced by the machine."
+      "businessContext": "Selling price per unit produced by the machine.",
+      "label_i18n": {
+        "en": "Revenue per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Selling price per unit produced by the machine."
+      }
     },
     {
       "id": "quality_defect_rate",
@@ -100,7 +148,13 @@
       "default": 1,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of defective units in the first year, used to model quality degradation over time."
+      "businessContext": "Percentage of defective units in the first year, used to model quality degradation over time.",
+      "label_i18n": {
+        "en": "Initial Defect Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of defective units in the first year, used to model quality degradation over time."
+      }
     },
     {
       "id": "defect_rate_annual_increase",
@@ -110,7 +164,13 @@
       "default": 0.5,
       "min": 0,
       "max": 10,
-      "businessContext": "Yearly increase in defect rate due to machine wear, impacting rework and scrap costs."
+      "businessContext": "Yearly increase in defect rate due to machine wear, impacting rework and scrap costs.",
+      "label_i18n": {
+        "en": "Defect Rate Annual Increase"
+      },
+      "businessContext_i18n": {
+        "en": "Yearly increase in defect rate due to machine wear, impacting rework and scrap costs."
+      }
     },
     {
       "id": "maintenance_strategy",
@@ -122,7 +182,13 @@
         "Reactive"
       ],
       "default": "Preventive",
-      "businessContext": "Type of maintenance program in place, affecting downtime and cost patterns."
+      "businessContext": "Type of maintenance program in place, affecting downtime and cost patterns.",
+      "label_i18n": {
+        "en": "Maintenance Strategy"
+      },
+      "businessContext_i18n": {
+        "en": "Type of maintenance program in place, affecting downtime and cost patterns."
+      }
     },
     {
       "id": "utilization_rate",
@@ -132,7 +198,13 @@
       "default": 85,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of available time the machine is actually producing."
+      "businessContext": "Percentage of available time the machine is actually producing.",
+      "label_i18n": {
+        "en": "Utilization Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of available time the machine is actually producing."
+      }
     },
     {
       "id": "energy_cost_per_kwh",
@@ -142,7 +214,13 @@
       "default": 0.12,
       "min": 0,
       "max": 1,
-      "businessContext": "Cost of electricity per kilowatt-hour, used for energy consumption modeling."
+      "businessContext": "Cost of electricity per kilowatt-hour, used for energy consumption modeling.",
+      "label_i18n": {
+        "en": "Energy Cost per kWh"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of electricity per kilowatt-hour, used for energy consumption modeling."
+      }
     },
     {
       "id": "power_consumption_kw",
@@ -152,7 +230,13 @@
       "default": 50,
       "min": 0,
       "max": 10000,
-      "businessContext": "Rated power consumption of the machine during operation."
+      "businessContext": "Rated power consumption of the machine during operation.",
+      "label_i18n": {
+        "en": "Power Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Rated power consumption of the machine during operation."
+      }
     }
   ],
   "validation": {

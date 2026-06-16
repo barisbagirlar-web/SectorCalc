@@ -17,7 +17,13 @@
       "default": 100,
       "min": 0,
       "max": 100000,
-      "businessContext": "Total weight of raw materials used in the product, including all components and packaging."
+      "businessContext": "Total weight of raw materials used in the product, including all components and packaging.",
+      "label_i18n": {
+        "en": "Material Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Total weight of raw materials used in the product, including all components and packaging."
+      }
     },
     {
       "id": "material_type",
@@ -35,7 +41,13 @@
         "glass",
         "wood",
         "composite"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Material Type"
+      },
+      "businessContext_i18n": {
+        "en": "Primary material category to determine emission factors per ISO 14067."
+      }
     },
     {
       "id": "energy_consumption",
@@ -45,7 +57,13 @@
       "default": 500,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Total electrical energy used during production processes (machining, assembly, etc.)."
+      "businessContext": "Total electrical energy used during production processes (machining, assembly, etc.).",
+      "label_i18n": {
+        "en": "Energy Consumption in Manufacturing"
+      },
+      "businessContext_i18n": {
+        "en": "Total electrical energy used during production processes (machining, assembly, etc.)."
+      }
     },
     {
       "id": "transport_distance",
@@ -55,7 +73,13 @@
       "default": 1000,
       "min": 0,
       "max": 50000,
-      "businessContext": "Average distance from raw material source to manufacturing facility, and from facility to customer."
+      "businessContext": "Average distance from raw material source to manufacturing facility, and from facility to customer.",
+      "label_i18n": {
+        "en": "Transport Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Average distance from raw material source to manufacturing facility, and from facility to customer."
+      }
     },
     {
       "id": "transport_mode",
@@ -71,7 +95,13 @@
         "rail",
         "ship",
         "air"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Transport Mode"
+      },
+      "businessContext_i18n": {
+        "en": "Mode of transport affecting emission factors per ton-km (WERC guidelines)."
+      }
     },
     {
       "id": "recycled_content",
@@ -81,7 +111,13 @@
       "default": 20,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of recycled material in the product, reducing virgin material emissions."
+      "businessContext": "Percentage of recycled material in the product, reducing virgin material emissions.",
+      "label_i18n": {
+        "en": "Recycled Content"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of recycled material in the product, reducing virgin material emissions."
+      }
     },
     {
       "id": "use_phase_efficiency",
@@ -91,7 +127,13 @@
       "default": 50,
       "min": 0,
       "max": 10000,
-      "businessContext": "Annual energy consumption of the product during its use phase (e.g., for appliances)."
+      "businessContext": "Annual energy consumption of the product during its use phase (e.g., for appliances).",
+      "label_i18n": {
+        "en": "Use Phase Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Annual energy consumption of the product during its use phase (e.g., for appliances)."
+      }
     },
     {
       "id": "lifespan",
@@ -101,7 +143,13 @@
       "default": 10,
       "min": 1,
       "max": 50,
-      "businessContext": "Expected useful life of the product, used to allocate use-phase emissions."
+      "businessContext": "Expected useful life of the product, used to allocate use-phase emissions.",
+      "label_i18n": {
+        "en": "Product Lifespan"
+      },
+      "businessContext_i18n": {
+        "en": "Expected useful life of the product, used to allocate use-phase emissions."
+      }
     },
     {
       "id": "end_of_life_recycling_rate",
@@ -111,7 +159,13 @@
       "default": 50,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of product mass that is recycled at end of life, reducing disposal emissions."
+      "businessContext": "Percentage of product mass that is recycled at end of life, reducing disposal emissions.",
+      "label_i18n": {
+        "en": "End-of-Life Recycling Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of product mass that is recycled at end of life, reducing disposal emissions."
+      }
     },
     {
       "id": "energy_source",
@@ -129,7 +183,13 @@
         "hydro",
         "natural_gas",
         "coal"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Energy Source"
+      },
+      "businessContext_i18n": {
+        "en": "Type of energy used in manufacturing, affecting emission factor per kWh."
+      }
     }
   ],
   "validation": {

@@ -20,7 +20,13 @@
       "default": 100,
       "min": 0.01,
       "max": 100000,
-      "businessContext": "Standard selling price before any discount, as defined in ISO 9001 cost accounting procedures."
+      "businessContext": "Standard selling price before any discount, as defined in ISO 9001 cost accounting procedures.",
+      "label_i18n": {
+        "en": "List Price (per unit)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard selling price before any discount, as defined in ISO 9001 cost accounting procedures."
+      }
     },
     {
       "id": "discount_percent",
@@ -30,7 +36,13 @@
       "default": 10,
       "min": 0,
       "max": 100,
-      "businessContext": "Negotiated or promotional discount off list price, typical in Lean pricing strategies."
+      "businessContext": "Negotiated or promotional discount off list price, typical in Lean pricing strategies.",
+      "label_i18n": {
+        "en": "Discount Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Negotiated or promotional discount off list price, typical in Lean pricing strategies."
+      }
     },
     {
       "id": "quantity",
@@ -40,7 +52,13 @@
       "default": 100,
       "min": 1,
       "max": 1000000,
-      "businessContext": "Number of units in the transaction, used for volume-based discount analysis per WERC DC metrics."
+      "businessContext": "Number of units in the transaction, used for volume-based discount analysis per WERC DC metrics.",
+      "label_i18n": {
+        "en": "Order Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units in the transaction, used for volume-based discount analysis per WERC DC metrics."
+      }
     },
     {
       "id": "variable_cost_per_unit",
@@ -50,7 +68,13 @@
       "default": 40,
       "min": 0,
       "max": 100000,
-      "businessContext": "Direct material, labor, and variable overhead per unit (ISO 14051 MFCA standard)."
+      "businessContext": "Direct material, labor, and variable overhead per unit (ISO 14051 MFCA standard).",
+      "label_i18n": {
+        "en": "Variable Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Direct material, labor, and variable overhead per unit (ISO 14051 MFCA standard)."
+      }
     },
     {
       "id": "fixed_cost_allocation",
@@ -60,7 +84,13 @@
       "default": 5000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Allocated fixed costs for the order batch (e.g., setup, engineering, admin) per Lean cost deployment."
+      "businessContext": "Allocated fixed costs for the order batch (e.g., setup, engineering, admin) per Lean cost deployment.",
+      "label_i18n": {
+        "en": "Fixed Cost Allocation (total)"
+      },
+      "businessContext_i18n": {
+        "en": "Allocated fixed costs for the order batch (e.g., setup, engineering, admin) per Lean cost deployment."
+      }
     },
     {
       "id": "discount_type",
@@ -71,14 +101,26 @@
         "fixed_amount"
       ],
       "default": "percentage",
-      "businessContext": "Method of discount application: percentage off list or fixed dollar amount per unit."
+      "businessContext": "Method of discount application: percentage off list or fixed dollar amount per unit.",
+      "label_i18n": {
+        "en": "Discount Type"
+      },
+      "businessContext_i18n": {
+        "en": "Method of discount application: percentage off list or fixed dollar amount per unit."
+      }
     },
     {
       "id": "apply_to_all_units",
       "label": "Apply Discount to All Units",
       "type": "boolean",
       "default": true,
-      "businessContext": "If true, discount applies to entire quantity; if false, only to incremental units (tiered pricing)."
+      "businessContext": "If true, discount applies to entire quantity; if false, only to incremental units (tiered pricing).",
+      "label_i18n": {
+        "en": "Apply Discount to All Units"
+      },
+      "businessContext_i18n": {
+        "en": "If true, discount applies to entire quantity; if false, only to incremental units (tiered pricing)."
+      }
     }
   ],
   "validation": {

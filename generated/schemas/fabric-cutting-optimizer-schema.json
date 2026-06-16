@@ -17,7 +17,13 @@
       "default": 150,
       "min": 50,
       "max": 320,
-      "businessContext": "Standard industrial fabric roll width, typically 150-320 cm for apparel and upholstery."
+      "businessContext": "Standard industrial fabric roll width, typically 150-320 cm for apparel and upholstery.",
+      "label_i18n": {
+        "en": "Fabric Width (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard industrial fabric roll width, typically 150-320 cm for apparel and upholstery."
+      }
     },
     {
       "id": "fabric_length",
@@ -27,7 +33,13 @@
       "default": 100,
       "min": 10,
       "max": 500,
-      "businessContext": "Total length of fabric roll or batch, used to compute total area."
+      "businessContext": "Total length of fabric roll or batch, used to compute total area.",
+      "label_i18n": {
+        "en": "Fabric Length (m)"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of fabric roll or batch, used to compute total area."
+      }
     },
     {
       "id": "pattern_length",
@@ -37,7 +49,13 @@
       "default": 120,
       "min": 10,
       "max": 200,
-      "businessContext": "Length of one garment or component pattern piece along the grain."
+      "businessContext": "Length of one garment or component pattern piece along the grain.",
+      "label_i18n": {
+        "en": "Pattern Length (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Length of one garment or component pattern piece along the grain."
+      }
     },
     {
       "id": "pattern_width",
@@ -47,7 +65,13 @@
       "default": 60,
       "min": 5,
       "max": 150,
-      "businessContext": "Width of one pattern piece perpendicular to the grain."
+      "businessContext": "Width of one pattern piece perpendicular to the grain.",
+      "label_i18n": {
+        "en": "Pattern Width (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Width of one pattern piece perpendicular to the grain."
+      }
     },
     {
       "id": "quantity",
@@ -57,7 +81,13 @@
       "default": 500,
       "min": 1,
       "max": 100000,
-      "businessContext": "Number of identical pieces to be cut from the fabric."
+      "businessContext": "Number of identical pieces to be cut from the fabric.",
+      "label_i18n": {
+        "en": "Quantity to Cut"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical pieces to be cut from the fabric."
+      }
     },
     {
       "id": "cutting_method",
@@ -72,7 +102,13 @@
         "single_ply",
         "multi_ply",
         "laser"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Cutting Method"
+      },
+      "businessContext_i18n": {
+        "en": "Method affects material utilization and labor cost. Single-ply is manual; multi-ply is automated."
+      }
     },
     {
       "id": "material_cost_per_m2",
@@ -82,7 +118,13 @@
       "default": 12.5,
       "min": 0.5,
       "max": 200,
-      "businessContext": "Cost of fabric per square meter, used for financial loss calculations."
+      "businessContext": "Cost of fabric per square meter, used for financial loss calculations.",
+      "label_i18n": {
+        "en": "Material Cost per m²"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of fabric per square meter, used for financial loss calculations."
+      }
     },
     {
       "id": "labor_rate_per_hour",
@@ -92,7 +134,13 @@
       "default": 25,
       "min": 5,
       "max": 100,
-      "businessContext": "Hourly wage of cutting operator, used for labor cost estimation."
+      "businessContext": "Hourly wage of cutting operator, used for labor cost estimation.",
+      "label_i18n": {
+        "en": "Labor Rate per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly wage of cutting operator, used for labor cost estimation."
+      }
     },
     {
       "id": "allowance_percentage",
@@ -102,7 +150,13 @@
       "default": 3,
       "min": 0,
       "max": 15,
-      "businessContext": "Extra fabric allowance for seam, shrinkage, or alignment tolerances per ISO 4915."
+      "businessContext": "Extra fabric allowance for seam, shrinkage, or alignment tolerances per ISO 4915.",
+      "label_i18n": {
+        "en": "Allowance Percentage (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Extra fabric allowance for seam, shrinkage, or alignment tolerances per ISO 4915."
+      }
     },
     {
       "id": "use_nesting",
@@ -112,7 +166,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "If true, the optimizer will attempt to nest patterns to reduce waste."
+      "businessContext": "If true, the optimizer will attempt to nest patterns to reduce waste.",
+      "label_i18n": {
+        "en": "Enable Nesting Optimization"
+      },
+      "businessContext_i18n": {
+        "en": "If true, the optimizer will attempt to nest patterns to reduce waste."
+      }
     }
   ],
   "validation": {

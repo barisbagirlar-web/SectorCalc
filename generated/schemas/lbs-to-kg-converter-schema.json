@@ -17,7 +17,13 @@
       "default": 0,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Input mass value in pounds for conversion to kilograms. Used in logistics, manufacturing, and material handling."
+      "businessContext": "Input mass value in pounds for conversion to kilograms. Used in logistics, manufacturing, and material handling.",
+      "label_i18n": {
+        "en": "Mass in Pounds (lb)"
+      },
+      "businessContext_i18n": {
+        "en": "Input mass value in pounds for conversion to kilograms. Used in logistics, manufacturing, and material handling."
+      }
     },
     {
       "id": "precision_level",
@@ -36,7 +42,13 @@
         5,
         6
       ],
-      "businessContext": "Select the number of decimal places for the output. Higher precision for laboratory or quality control (ISO 17025)."
+      "businessContext": "Select the number of decimal places for the output. Higher precision for laboratory or quality control (ISO 17025).",
+      "label_i18n": {
+        "en": "Precision Level (Decimal Places)"
+      },
+      "businessContext_i18n": {
+        "en": "Select the number of decimal places for the output. Higher precision for laboratory or quality control (ISO 17025)."
+      }
     },
     {
       "id": "rounding_method",
@@ -50,7 +62,13 @@
         "ceiling",
         "truncate"
       ],
-      "businessContext": "Rounding method per ASTM E29 or ISO 80000-1. Standard rounding (half up) is default for most industrial applications."
+      "businessContext": "Rounding method per ASTM E29 or ISO 80000-1. Standard rounding (half up) is default for most industrial applications.",
+      "label_i18n": {
+        "en": "Rounding Method"
+      },
+      "businessContext_i18n": {
+        "en": "Rounding method per ASTM E29 or ISO 80000-1. Standard rounding (half up) is default for most industrial applications."
+      }
     },
     {
       "id": "include_loss_analysis",
@@ -58,7 +76,13 @@
       "type": "boolean",
       "unit": "flag",
       "default": false,
-      "businessContext": "Enable to calculate potential mass loss due to moisture, measurement error, or material handling (Lean Six Sigma waste analysis)."
+      "businessContext": "Enable to calculate potential mass loss due to moisture, measurement error, or material handling (Lean Six Sigma waste analysis).",
+      "label_i18n": {
+        "en": "Include Hidden Loss Analysis"
+      },
+      "businessContext_i18n": {
+        "en": "Enable to calculate potential mass loss due to moisture, measurement error, or material handling (Lean Six Sigma waste analysis)."
+      }
     },
     {
       "id": "measurement_uncertainty_pct",
@@ -68,7 +92,13 @@
       "default": 0.5,
       "min": 0,
       "max": 10,
-      "businessContext": "Estimated measurement uncertainty as a percentage of the mass value. Based on calibration data (ISO 17025, GUM)."
+      "businessContext": "Estimated measurement uncertainty as a percentage of the mass value. Based on calibration data (ISO 17025, GUM).",
+      "label_i18n": {
+        "en": "Measurement Uncertainty (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated measurement uncertainty as a percentage of the mass value. Based on calibration data (ISO 17025, GUM)."
+      }
     },
     {
       "id": "material_type",
@@ -83,7 +113,13 @@
         "powder",
         "metal"
       ],
-      "businessContext": "Material type influences hidden loss factors (e.g., moisture absorption for hygroscopic materials, spillage for powders)."
+      "businessContext": "Material type influences hidden loss factors (e.g., moisture absorption for hygroscopic materials, spillage for powders).",
+      "label_i18n": {
+        "en": "Material Type (for loss factor)"
+      },
+      "businessContext_i18n": {
+        "en": "Material type influences hidden loss factors (e.g., moisture absorption for hygroscopic materials, spillage for powders)."
+      }
     }
   ],
   "validation": {

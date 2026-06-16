@@ -19,7 +19,13 @@
       "default": 100,
       "min": 0,
       "max": 10000,
-      "businessContext": "Total sensible and latent heat load from building, equipment, and occupants (ISO 52000)."
+      "businessContext": "Total sensible and latent heat load from building, equipment, and occupants (ISO 52000).",
+      "label_i18n": {
+        "en": "Cooling Load"
+      },
+      "businessContext_i18n": {
+        "en": "Total sensible and latent heat load from building, equipment, and occupants (ISO 52000)."
+      }
     },
     {
       "id": "heating_load",
@@ -29,7 +35,13 @@
       "default": 80,
       "min": 0,
       "max": 10000,
-      "businessContext": "Total heat loss from building envelope and ventilation (ASHRAE Handbook)."
+      "businessContext": "Total heat loss from building envelope and ventilation (ASHRAE Handbook).",
+      "label_i18n": {
+        "en": "Heating Load"
+      },
+      "businessContext_i18n": {
+        "en": "Total heat loss from building envelope and ventilation (ASHRAE Handbook)."
+      }
     },
     {
       "id": "system_type",
@@ -44,7 +56,13 @@
         "Chilled Beam",
         "Heat Pump"
       ],
-      "businessContext": "HVAC system configuration affecting capacity and efficiency curves."
+      "businessContext": "HVAC system configuration affecting capacity and efficiency curves.",
+      "label_i18n": {
+        "en": "System Type"
+      },
+      "businessContext_i18n": {
+        "en": "HVAC system configuration affecting capacity and efficiency curves."
+      }
     },
     {
       "id": "ambient_temperature",
@@ -54,7 +72,13 @@
       "default": 35,
       "min": -20,
       "max": 55,
-      "businessContext": "Outdoor dry-bulb temperature for design conditions (ISO 15927)."
+      "businessContext": "Outdoor dry-bulb temperature for design conditions (ISO 15927).",
+      "label_i18n": {
+        "en": "Ambient Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Outdoor dry-bulb temperature for design conditions (ISO 15927)."
+      }
     },
     {
       "id": "relative_humidity",
@@ -64,7 +88,13 @@
       "default": 50,
       "min": 0,
       "max": 100,
-      "businessContext": "Indoor relative humidity setpoint, impacts latent load and coil performance."
+      "businessContext": "Indoor relative humidity setpoint, impacts latent load and coil performance.",
+      "label_i18n": {
+        "en": "Relative Humidity"
+      },
+      "businessContext_i18n": {
+        "en": "Indoor relative humidity setpoint, impacts latent load and coil performance."
+      }
     },
     {
       "id": "efficiency_ratio",
@@ -74,7 +104,13 @@
       "default": 3.5,
       "min": 1,
       "max": 7,
-      "businessContext": "Current system efficiency; baseline for improvement (ANSI/AHRI 210/240)."
+      "businessContext": "Current system efficiency; baseline for improvement (ANSI/AHRI 210/240).",
+      "label_i18n": {
+        "en": "Efficiency Ratio (EER/COP)"
+      },
+      "businessContext_i18n": {
+        "en": "Current system efficiency; baseline for improvement (ANSI/AHRI 210/240)."
+      }
     },
     {
       "id": "airflow_rate",
@@ -84,7 +120,13 @@
       "default": 2.5,
       "min": 0.1,
       "max": 50,
-      "businessContext": "Supply air volume, critical for capacity and distribution (WERC DC guidelines)."
+      "businessContext": "Supply air volume, critical for capacity and distribution (WERC DC guidelines).",
+      "label_i18n": {
+        "en": "Airflow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Supply air volume, critical for capacity and distribution (WERC DC guidelines)."
+      }
     },
     {
       "id": "duct_leakage_factor",
@@ -94,7 +136,13 @@
       "default": 10,
       "min": 0,
       "max": 30,
-      "businessContext": "Estimated leakage as percentage of total airflow; affects effective capacity."
+      "businessContext": "Estimated leakage as percentage of total airflow; affects effective capacity.",
+      "label_i18n": {
+        "en": "Duct Leakage Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated leakage as percentage of total airflow; affects effective capacity."
+      }
     },
     {
       "id": "occupancy_density",
@@ -104,7 +152,13 @@
       "default": 0.05,
       "min": 0.01,
       "max": 0.5,
-      "businessContext": "People per square meter, impacts internal heat gain (ASHRAE 62.1)."
+      "businessContext": "People per square meter, impacts internal heat gain (ASHRAE 62.1).",
+      "label_i18n": {
+        "en": "Occupancy Density"
+      },
+      "businessContext_i18n": {
+        "en": "People per square meter, impacts internal heat gain (ASHRAE 62.1)."
+      }
     },
     {
       "id": "is_preventive_maintenance_active",
@@ -112,7 +166,13 @@
       "type": "boolean",
       "unit": "",
       "default": true,
-      "businessContext": "Indicates if PM schedule is followed; affects degradation factor."
+      "businessContext": "Indicates if PM schedule is followed; affects degradation factor.",
+      "label_i18n": {
+        "en": "Preventive Maintenance Active"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if PM schedule is followed; affects degradation factor."
+      }
     }
   ],
   "validation": {

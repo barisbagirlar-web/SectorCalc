@@ -19,7 +19,13 @@
       "default": 25,
       "min": 1,
       "max": 300,
-      "businessContext": "Thickness of the base metal to be welded, measured in millimeters."
+      "businessContext": "Thickness of the base metal to be welded, measured in millimeters.",
+      "label_i18n": {
+        "en": "Material Thickness (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the base metal to be welded, measured in millimeters."
+      }
     },
     {
       "id": "carbon_equivalent",
@@ -29,7 +35,13 @@
       "default": 0.45,
       "min": 0.1,
       "max": 1.2,
-      "businessContext": "Carbon equivalent value calculated from material composition (IIW formula)."
+      "businessContext": "Carbon equivalent value calculated from material composition (IIW formula).",
+      "label_i18n": {
+        "en": "Carbon Equivalent (CE)"
+      },
+      "businessContext_i18n": {
+        "en": "Carbon equivalent value calculated from material composition (IIW formula)."
+      }
     },
     {
       "id": "hydrogen_level",
@@ -51,7 +63,13 @@
           "label": "High (>10)"
         }
       ],
-      "businessContext": "Diffusible hydrogen content of the welding consumable, per ISO 3690."
+      "businessContext": "Diffusible hydrogen content of the welding consumable, per ISO 3690.",
+      "label_i18n": {
+        "en": "Hydrogen Level (ml/100g weld metal)"
+      },
+      "businessContext_i18n": {
+        "en": "Diffusible hydrogen content of the welding consumable, per ISO 3690."
+      }
     },
     {
       "id": "heat_input",
@@ -61,7 +79,13 @@
       "default": 1.5,
       "min": 0.5,
       "max": 5,
-      "businessContext": "Arc energy per unit length of weld, calculated from voltage, current, and travel speed."
+      "businessContext": "Arc energy per unit length of weld, calculated from voltage, current, and travel speed.",
+      "label_i18n": {
+        "en": "Heat Input (kJ/mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Arc energy per unit length of weld, calculated from voltage, current, and travel speed."
+      }
     },
     {
       "id": "joint_restraint",
@@ -83,7 +107,13 @@
           "label": "High (rigid fixture)"
         }
       ],
-      "businessContext": "Degree of mechanical restraint on the weld joint, affecting crack susceptibility."
+      "businessContext": "Degree of mechanical restraint on the weld joint, affecting crack susceptibility.",
+      "label_i18n": {
+        "en": "Joint Restraint Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Degree of mechanical restraint on the weld joint, affecting crack susceptibility."
+      }
     },
     {
       "id": "preheat_method",
@@ -105,7 +135,13 @@
           "label": "Induction"
         }
       ],
-      "businessContext": "Method used to apply preheat, influences heating rate and uniformity."
+      "businessContext": "Method used to apply preheat, influences heating rate and uniformity.",
+      "label_i18n": {
+        "en": "Preheat Method"
+      },
+      "businessContext_i18n": {
+        "en": "Method used to apply preheat, influences heating rate and uniformity."
+      }
     }
   ],
   "validation": {

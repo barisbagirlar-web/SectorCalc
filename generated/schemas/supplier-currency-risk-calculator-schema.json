@@ -19,7 +19,13 @@
       "default": 1000000,
       "min": 10000,
       "max": 1000000000,
-      "businessContext": "Total value of the supplier contract denominated in the base currency (e.g., USD)."
+      "businessContext": "Total value of the supplier contract denominated in the base currency (e.g., USD).",
+      "label_i18n": {
+        "en": "Contract Value (in base currency)"
+      },
+      "businessContext_i18n": {
+        "en": "Total value of the supplier contract denominated in the base currency (e.g., USD)."
+      }
     },
     {
       "id": "foreign_exposure_pct",
@@ -29,7 +35,13 @@
       "default": 50,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of contract value exposed to foreign currency fluctuations."
+      "businessContext": "Percentage of contract value exposed to foreign currency fluctuations.",
+      "label_i18n": {
+        "en": "Foreign Currency Exposure (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of contract value exposed to foreign currency fluctuations."
+      }
     },
     {
       "id": "volatility_annual",
@@ -39,7 +51,13 @@
       "default": 10,
       "min": 1,
       "max": 50,
-      "businessContext": "Expected annualized standard deviation of the foreign exchange rate, based on historical data or market consensus."
+      "businessContext": "Expected annualized standard deviation of the foreign exchange rate, based on historical data or market consensus.",
+      "label_i18n": {
+        "en": "Annual FX Volatility"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annualized standard deviation of the foreign exchange rate, based on historical data or market consensus."
+      }
     },
     {
       "id": "hedge_ratio",
@@ -49,7 +67,13 @@
       "default": 70,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of the foreign exposure that is hedged via forward contracts, options, or other instruments."
+      "businessContext": "Percentage of the foreign exposure that is hedged via forward contracts, options, or other instruments.",
+      "label_i18n": {
+        "en": "Hedge Ratio (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of the foreign exposure that is hedged via forward contracts, options, or other instruments."
+      }
     },
     {
       "id": "time_horizon_months",
@@ -59,7 +83,13 @@
       "default": 12,
       "min": 1,
       "max": 60,
-      "businessContext": "Duration over which the currency risk is assessed, typically matching the contract payment schedule."
+      "businessContext": "Duration over which the currency risk is assessed, typically matching the contract payment schedule.",
+      "label_i18n": {
+        "en": "Time Horizon (months)"
+      },
+      "businessContext_i18n": {
+        "en": "Duration over which the currency risk is assessed, typically matching the contract payment schedule."
+      }
     },
     {
       "id": "confidence_level",
@@ -83,7 +113,13 @@
           "label": "99%"
         }
       ],
-      "businessContext": "Statistical confidence level for Value-at-Risk (VaR) calculation. Higher levels indicate more conservative risk estimates."
+      "businessContext": "Statistical confidence level for Value-at-Risk (VaR) calculation. Higher levels indicate more conservative risk estimates.",
+      "label_i18n": {
+        "en": "Confidence Level"
+      },
+      "businessContext_i18n": {
+        "en": "Statistical confidence level for Value-at-Risk (VaR) calculation. Higher levels indicate more conservative risk estimates."
+      }
     },
     {
       "id": "supplier_credit_rating",
@@ -123,7 +159,13 @@
           "label": "CCC"
         }
       ],
-      "businessContext": "Credit rating of the supplier, used to adjust default probability and overall risk premium."
+      "businessContext": "Credit rating of the supplier, used to adjust default probability and overall risk premium.",
+      "label_i18n": {
+        "en": "Supplier Credit Rating (S&P equivalent)"
+      },
+      "businessContext_i18n": {
+        "en": "Credit rating of the supplier, used to adjust default probability and overall risk premium."
+      }
     },
     {
       "id": "use_iso_31000",
@@ -133,7 +175,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "If enabled, the calculation incorporates ISO 31000 principles for risk identification, analysis, and evaluation."
+      "businessContext": "If enabled, the calculation incorporates ISO 31000 principles for risk identification, analysis, and evaluation.",
+      "label_i18n": {
+        "en": "Apply ISO 31000 Risk Management Framework"
+      },
+      "businessContext_i18n": {
+        "en": "If enabled, the calculation incorporates ISO 31000 principles for risk identification, analysis, and evaluation."
+      }
     }
   ],
   "validation": {

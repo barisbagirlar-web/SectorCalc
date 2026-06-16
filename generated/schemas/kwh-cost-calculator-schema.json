@@ -20,7 +20,13 @@
       "default": 10000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Total metered kilowatt-hours for the billing period. Used as primary driver for energy cost."
+      "businessContext": "Total metered kilowatt-hours for the billing period. Used as primary driver for energy cost.",
+      "label_i18n": {
+        "en": "Energy Consumption (kWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Total metered kilowatt-hours for the billing period. Used as primary driver for energy cost."
+      }
     },
     {
       "id": "peak_demand_kw",
@@ -30,7 +36,13 @@
       "default": 500,
       "min": 0,
       "max": 100000,
-      "businessContext": "Highest 15-minute average demand in the period. Drives demand charges per utility tariff."
+      "businessContext": "Highest 15-minute average demand in the period. Drives demand charges per utility tariff.",
+      "label_i18n": {
+        "en": "Peak Demand (kW)"
+      },
+      "businessContext_i18n": {
+        "en": "Highest 15-minute average demand in the period. Drives demand charges per utility tariff."
+      }
     },
     {
       "id": "energy_rate_per_kwh",
@@ -40,7 +52,13 @@
       "default": 0.12,
       "min": 0.01,
       "max": 1,
-      "businessContext": "Blended energy charge from utility bill, including generation and transmission."
+      "businessContext": "Blended energy charge from utility bill, including generation and transmission.",
+      "label_i18n": {
+        "en": "Energy Rate ($/kWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Blended energy charge from utility bill, including generation and transmission."
+      }
     },
     {
       "id": "demand_rate_per_kw",
@@ -50,7 +68,13 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Monthly demand charge per kW of peak demand, varies by utility and region."
+      "businessContext": "Monthly demand charge per kW of peak demand, varies by utility and region.",
+      "label_i18n": {
+        "en": "Demand Rate ($/kW)"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly demand charge per kW of peak demand, varies by utility and region."
+      }
     },
     {
       "id": "power_factor",
@@ -60,7 +84,13 @@
       "default": 0.85,
       "min": 0.5,
       "max": 1,
-      "businessContext": "Ratio of real power to apparent power. Low PF incurs penalties per utility tariff."
+      "businessContext": "Ratio of real power to apparent power. Low PF incurs penalties per utility tariff.",
+      "label_i18n": {
+        "en": "Power Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of real power to apparent power. Low PF incurs penalties per utility tariff."
+      }
     },
     {
       "id": "pf_penalty_threshold",
@@ -70,7 +100,13 @@
       "default": 0.9,
       "min": 0.8,
       "max": 1,
-      "businessContext": "Minimum power factor before penalty applies, typically 0.9 per utility standards."
+      "businessContext": "Minimum power factor before penalty applies, typically 0.9 per utility standards.",
+      "label_i18n": {
+        "en": "PF Penalty Threshold"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum power factor before penalty applies, typically 0.9 per utility standards."
+      }
     },
     {
       "id": "pf_penalty_rate",
@@ -80,7 +116,13 @@
       "default": 0.5,
       "min": 0,
       "max": 10,
-      "businessContext": "Cost per reactive power (kvar) when PF below threshold."
+      "businessContext": "Cost per reactive power (kvar) when PF below threshold.",
+      "label_i18n": {
+        "en": "PF Penalty Rate ($/kvar)"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per reactive power (kvar) when PF below threshold."
+      }
     },
     {
       "id": "system_efficiency",
@@ -90,7 +132,13 @@
       "default": 95,
       "min": 50,
       "max": 100,
-      "businessContext": "Overall electrical system efficiency including transformers, cables, and motors. Used for loss adjustment."
+      "businessContext": "Overall electrical system efficiency including transformers, cables, and motors. Used for loss adjustment.",
+      "label_i18n": {
+        "en": "System Efficiency (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Overall electrical system efficiency including transformers, cables, and motors. Used for loss adjustment."
+      }
     },
     {
       "id": "operating_hours",
@@ -100,7 +148,13 @@
       "default": 720,
       "min": 0,
       "max": 744,
-      "businessContext": "Total hours the facility operates in the billing period. Used for load factor calculation."
+      "businessContext": "Total hours the facility operates in the billing period. Used for load factor calculation.",
+      "label_i18n": {
+        "en": "Operating Hours per Month"
+      },
+      "businessContext_i18n": {
+        "en": "Total hours the facility operates in the billing period. Used for load factor calculation."
+      }
     },
     {
       "id": "tariff_type",
@@ -113,14 +167,26 @@
         "Real-Time Pricing"
       ],
       "default": "Flat Rate",
-      "businessContext": "Utility rate structure. Affects how energy and demand charges are calculated."
+      "businessContext": "Utility rate structure. Affects how energy and demand charges are calculated.",
+      "label_i18n": {
+        "en": "Tariff Type"
+      },
+      "businessContext_i18n": {
+        "en": "Utility rate structure. Affects how energy and demand charges are calculated."
+      }
     },
     {
       "id": "include_demand_charge",
       "label": "Include Demand Charge",
       "type": "boolean",
       "default": true,
-      "businessContext": "Toggle to include or exclude demand charges from total cost."
+      "businessContext": "Toggle to include or exclude demand charges from total cost.",
+      "label_i18n": {
+        "en": "Include Demand Charge"
+      },
+      "businessContext_i18n": {
+        "en": "Toggle to include or exclude demand charges from total cost."
+      }
     }
   ],
   "validation": {

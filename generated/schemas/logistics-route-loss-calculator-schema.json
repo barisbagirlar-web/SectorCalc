@@ -19,7 +19,13 @@
       "default": 100,
       "min": 0,
       "max": 5000,
-      "businessContext": "Total distance of the route from origin to destination."
+      "businessContext": "Total distance of the route from origin to destination.",
+      "label_i18n": {
+        "en": "Route Distance (km)"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance of the route from origin to destination."
+      }
     },
     {
       "id": "average_speed_kmh",
@@ -29,7 +35,13 @@
       "default": 60,
       "min": 1,
       "max": 120,
-      "businessContext": "Expected average speed under normal conditions."
+      "businessContext": "Expected average speed under normal conditions.",
+      "label_i18n": {
+        "en": "Average Speed (km/h)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected average speed under normal conditions."
+      }
     },
     {
       "id": "planned_stops",
@@ -39,7 +51,13 @@
       "default": 3,
       "min": 0,
       "max": 50,
-      "businessContext": "Number of planned stops along the route (e.g., for pickup/delivery)."
+      "businessContext": "Number of planned stops along the route (e.g., for pickup/delivery).",
+      "label_i18n": {
+        "en": "Planned Stops"
+      },
+      "businessContext_i18n": {
+        "en": "Number of planned stops along the route (e.g., for pickup/delivery)."
+      }
     },
     {
       "id": "average_stop_time_min",
@@ -49,7 +67,13 @@
       "default": 30,
       "min": 0,
       "max": 240,
-      "businessContext": "Average time spent per stop, including waiting and handling."
+      "businessContext": "Average time spent per stop, including waiting and handling.",
+      "label_i18n": {
+        "en": "Average Stop Time (min)"
+      },
+      "businessContext_i18n": {
+        "en": "Average time spent per stop, including waiting and handling."
+      }
     },
     {
       "id": "traffic_delay_factor",
@@ -59,7 +83,13 @@
       "default": 0.15,
       "min": 0,
       "max": 1,
-      "businessContext": "Fraction of driving time lost due to traffic congestion (0 = none, 1 = 100% delay)."
+      "businessContext": "Fraction of driving time lost due to traffic congestion (0 = none, 1 = 100% delay).",
+      "label_i18n": {
+        "en": "Traffic Delay Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Fraction of driving time lost due to traffic congestion (0 = none, 1 = 100% delay)."
+      }
     },
     {
       "id": "fuel_cost_per_km",
@@ -69,7 +99,13 @@
       "default": 0.35,
       "min": 0,
       "max": 10,
-      "businessContext": "Average fuel cost per kilometer for the vehicle type."
+      "businessContext": "Average fuel cost per kilometer for the vehicle type.",
+      "label_i18n": {
+        "en": "Fuel Cost per km"
+      },
+      "businessContext_i18n": {
+        "en": "Average fuel cost per kilometer for the vehicle type."
+      }
     },
     {
       "id": "driver_wage_per_hour",
@@ -79,7 +115,13 @@
       "default": 25,
       "min": 0,
       "max": 200,
-      "businessContext": "Hourly wage of the driver (including benefits)."
+      "businessContext": "Hourly wage of the driver (including benefits).",
+      "label_i18n": {
+        "en": "Driver Wage per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly wage of the driver (including benefits)."
+      }
     },
     {
       "id": "vehicle_operating_cost_per_km",
@@ -89,7 +131,13 @@
       "default": 0.15,
       "min": 0,
       "max": 5,
-      "businessContext": "Non-fuel operating costs per km (maintenance, tires, depreciation)."
+      "businessContext": "Non-fuel operating costs per km (maintenance, tires, depreciation).",
+      "label_i18n": {
+        "en": "Vehicle Operating Cost per km"
+      },
+      "businessContext_i18n": {
+        "en": "Non-fuel operating costs per km (maintenance, tires, depreciation)."
+      }
     },
     {
       "id": "load_value_currency",
@@ -99,7 +147,13 @@
       "default": 50000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Total monetary value of the cargo being transported."
+      "businessContext": "Total monetary value of the cargo being transported.",
+      "label_i18n": {
+        "en": "Load Value (currency)"
+      },
+      "businessContext_i18n": {
+        "en": "Total monetary value of the cargo being transported."
+      }
     },
     {
       "id": "transit_time_target_hours",
@@ -109,7 +163,13 @@
       "default": 4,
       "min": 0.1,
       "max": 168,
-      "businessContext": "Target transit time for the route (used to compute time-based penalties)."
+      "businessContext": "Target transit time for the route (used to compute time-based penalties).",
+      "label_i18n": {
+        "en": "Transit Time Target (hours)"
+      },
+      "businessContext_i18n": {
+        "en": "Target transit time for the route (used to compute time-based penalties)."
+      }
     },
     {
       "id": "route_type",
@@ -121,14 +181,26 @@
         "mixed"
       ],
       "default": "mixed",
-      "businessContext": "Type of route affecting speed and delay assumptions."
+      "businessContext": "Type of route affecting speed and delay assumptions.",
+      "label_i18n": {
+        "en": "Route Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of route affecting speed and delay assumptions."
+      }
     },
     {
       "id": "use_real_time_traffic",
       "label": "Use Real-Time Traffic Data",
       "type": "boolean",
       "default": false,
-      "businessContext": "If true, the calculator will adjust traffic delay factor based on real-time data (premium feature)."
+      "businessContext": "If true, the calculator will adjust traffic delay factor based on real-time data (premium feature).",
+      "label_i18n": {
+        "en": "Use Real-Time Traffic Data"
+      },
+      "businessContext_i18n": {
+        "en": "If true, the calculator will adjust traffic delay factor based on real-time data (premium feature)."
+      }
     }
   ],
   "validation": {

@@ -17,7 +17,13 @@
       "default": 230,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Nominal voltage per IEC 60038. Typical industrial values: 230V single-phase, 400V three-phase."
+      "businessContext": "Nominal voltage per IEC 60038. Typical industrial values: 230V single-phase, 400V three-phase.",
+      "label_i18n": {
+        "en": "Voltage (V)"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal voltage per IEC 60038. Typical industrial values: 230V single-phase, 400V three-phase."
+      }
     },
     {
       "id": "current",
@@ -27,7 +33,13 @@
       "default": 10,
       "min": 0,
       "max": 100000,
-      "businessContext": "Load current in amperes. Used for conductor sizing and protection coordination."
+      "businessContext": "Load current in amperes. Used for conductor sizing and protection coordination.",
+      "label_i18n": {
+        "en": "Current (I)"
+      },
+      "businessContext_i18n": {
+        "en": "Load current in amperes. Used for conductor sizing and protection coordination."
+      }
     },
     {
       "id": "resistance",
@@ -37,7 +49,13 @@
       "default": 23,
       "min": 0,
       "max": 1000000000,
-      "businessContext": "DC resistance or AC impedance at power frequency. Includes conductor, contact, and load resistance."
+      "businessContext": "DC resistance or AC impedance at power frequency. Includes conductor, contact, and load resistance.",
+      "label_i18n": {
+        "en": "Resistance (R)"
+      },
+      "businessContext_i18n": {
+        "en": "DC resistance or AC impedance at power frequency. Includes conductor, contact, and load resistance."
+      }
     },
     {
       "id": "powerFactor",
@@ -47,7 +65,13 @@
       "default": 1,
       "min": 0,
       "max": 1,
-      "businessContext": "Ratio of real power to apparent power. Typical industrial loads: 0.8-1.0. Used for AC power calculations."
+      "businessContext": "Ratio of real power to apparent power. Typical industrial loads: 0.8-1.0. Used for AC power calculations.",
+      "label_i18n": {
+        "en": "Power Factor (cos φ)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of real power to apparent power. Typical industrial loads: 0.8-1.0. Used for AC power calculations."
+      }
     },
     {
       "id": "phaseType",
@@ -61,7 +85,13 @@
       "options": [
         "single",
         "three"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Phase Type"
+      },
+      "businessContext_i18n": {
+        "en": "Single-phase or three-phase system. Affects power calculation formulas per IEC 60364."
+      }
     },
     {
       "id": "temperature",
@@ -71,7 +101,13 @@
       "default": 25,
       "min": -40,
       "max": 85,
-      "businessContext": "Ambient temperature for resistance temperature correction. Copper conductor TCR = 0.00393 /°C."
+      "businessContext": "Ambient temperature for resistance temperature correction. Copper conductor TCR = 0.00393 /°C.",
+      "label_i18n": {
+        "en": "Ambient Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Ambient temperature for resistance temperature correction. Copper conductor TCR = 0.00393 /°C."
+      }
     }
   ],
   "validation": {

@@ -17,7 +17,13 @@
       "default": 100000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Annual electrical energy used by the facility (ISO 50001)."
+      "businessContext": "Annual electrical energy used by the facility (ISO 50001).",
+      "label_i18n": {
+        "en": "Total Energy Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Annual electrical energy used by the facility (ISO 50001)."
+      }
     },
     {
       "id": "energy_source",
@@ -34,7 +40,13 @@
         "wind",
         "natural_gas",
         "coal"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Primary Energy Source"
+      },
+      "businessContext_i18n": {
+        "en": "The dominant source of electricity (grid mix, solar, wind, natural gas)."
+      }
     },
     {
       "id": "fuel_consumption",
@@ -44,7 +56,13 @@
       "default": 50000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Total diesel, gasoline, or heating oil used annually (Scope 1 emissions)."
+      "businessContext": "Total diesel, gasoline, or heating oil used annually (Scope 1 emissions).",
+      "label_i18n": {
+        "en": "Fossil Fuel Consumption (Fleet & Heating)"
+      },
+      "businessContext_i18n": {
+        "en": "Total diesel, gasoline, or heating oil used annually (Scope 1 emissions)."
+      }
     },
     {
       "id": "waste_generated",
@@ -54,7 +72,13 @@
       "default": 200,
       "min": 0,
       "max": 100000,
-      "businessContext": "Annual waste sent to landfill or incineration (WERC guidelines)."
+      "businessContext": "Annual waste sent to landfill or incineration (WERC guidelines).",
+      "label_i18n": {
+        "en": "Total Waste Generated"
+      },
+      "businessContext_i18n": {
+        "en": "Annual waste sent to landfill or incineration (WERC guidelines)."
+      }
     },
     {
       "id": "recycling_rate",
@@ -64,7 +88,13 @@
       "default": 30,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of waste that is recycled or composted (Lean green metrics)."
+      "businessContext": "Percentage of waste that is recycled or composted (Lean green metrics).",
+      "label_i18n": {
+        "en": "Recycling Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of waste that is recycled or composted (Lean green metrics)."
+      }
     },
     {
       "id": "production_volume",
@@ -74,7 +104,13 @@
       "default": 50000,
       "min": 1,
       "max": 100000000,
-      "businessContext": "Total units produced per year (for intensity-based benchmarking)."
+      "businessContext": "Total units produced per year (for intensity-based benchmarking).",
+      "label_i18n": {
+        "en": "Annual Production Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total units produced per year (for intensity-based benchmarking)."
+      }
     },
     {
       "id": "transport_distance",
@@ -84,7 +120,13 @@
       "default": 500,
       "min": 0,
       "max": 50000,
-      "businessContext": "Average distance raw materials or finished goods travel (logistics carbon)."
+      "businessContext": "Average distance raw materials or finished goods travel (logistics carbon).",
+      "label_i18n": {
+        "en": "Average Transport Distance per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Average distance raw materials or finished goods travel (logistics carbon)."
+      }
     },
     {
       "id": "has_carbon_offset_program",
@@ -94,7 +136,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "Indicates if the organization purchases verified carbon credits."
+      "businessContext": "Indicates if the organization purchases verified carbon credits.",
+      "label_i18n": {
+        "en": "Active Carbon Offset Program"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if the organization purchases verified carbon credits."
+      }
     }
   ],
   "validation": {

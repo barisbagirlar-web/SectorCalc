@@ -17,7 +17,13 @@
       "default": 1,
       "min": -1e+308,
       "max": 1e+308,
-      "businessContext": "The numeric value to be converted. Accepts any real number within double-precision floating-point range."
+      "businessContext": "The numeric value to be converted. Accepts any real number within double-precision floating-point range.",
+      "label_i18n": {
+        "en": "Input Number"
+      },
+      "businessContext_i18n": {
+        "en": "The numeric value to be converted. Accepts any real number within double-precision floating-point range."
+      }
     },
     {
       "id": "conversionDirection",
@@ -31,7 +37,13 @@
         "toScientific",
         "toDecimal"
       ],
-      "businessContext": "Select whether to convert from decimal to scientific notation or from scientific notation to decimal."
+      "businessContext": "Select whether to convert from decimal to scientific notation or from scientific notation to decimal.",
+      "label_i18n": {
+        "en": "Conversion Direction"
+      },
+      "businessContext_i18n": {
+        "en": "Select whether to convert from decimal to scientific notation or from scientific notation to decimal."
+      }
     },
     {
       "id": "significantDigits",
@@ -41,7 +53,13 @@
       "default": 4,
       "min": 1,
       "max": 15,
-      "businessContext": "Number of significant digits in the scientific notation output. Follows ISO 80000-1 rounding rules."
+      "businessContext": "Number of significant digits in the scientific notation output. Follows ISO 80000-1 rounding rules.",
+      "label_i18n": {
+        "en": "Significant Digits"
+      },
+      "businessContext_i18n": {
+        "en": "Number of significant digits in the scientific notation output. Follows ISO 80000-1 rounding rules."
+      }
     },
     {
       "id": "decimalPlaces",
@@ -51,7 +69,13 @@
       "default": 4,
       "min": 0,
       "max": 15,
-      "businessContext": "Number of decimal places for the decimal output. Used when converting from scientific to decimal."
+      "businessContext": "Number of decimal places for the decimal output. Used when converting from scientific to decimal.",
+      "label_i18n": {
+        "en": "Decimal Places"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the decimal output. Used when converting from scientific to decimal."
+      }
     },
     {
       "id": "engineeringNotation",
@@ -61,7 +85,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If true, exponent is forced to a multiple of 3 for engineering applications (IEC 60027)."
+      "businessContext": "If true, exponent is forced to a multiple of 3 for engineering applications (IEC 60027).",
+      "label_i18n": {
+        "en": "Engineering Notation"
+      },
+      "businessContext_i18n": {
+        "en": "If true, exponent is forced to a multiple of 3 for engineering applications (IEC 60027)."
+      }
     },
     {
       "id": "useEpsilon",
@@ -71,7 +101,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "If true, numbers below machine epsilon (2.22e-16) are flagged as potential underflow."
+      "businessContext": "If true, numbers below machine epsilon (2.22e-16) are flagged as potential underflow.",
+      "label_i18n": {
+        "en": "Use Epsilon Threshold"
+      },
+      "businessContext_i18n": {
+        "en": "If true, numbers below machine epsilon (2.22e-16) are flagged as potential underflow."
+      }
     }
   ],
   "validation": {

@@ -19,7 +19,13 @@
       "default": 1000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Total number of office supply units (e.g., reams of paper, pens) consumed per year."
+      "businessContext": "Total number of office supply units (e.g., reams of paper, pens) consumed per year.",
+      "label_i18n": {
+        "en": "Annual Usage (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of office supply units (e.g., reams of paper, pens) consumed per year."
+      }
     },
     {
       "id": "unit_cost",
@@ -29,7 +35,13 @@
       "default": 5,
       "min": 0.01,
       "max": 1000,
-      "businessContext": "Average purchase cost per unit of the office supply item."
+      "businessContext": "Average purchase cost per unit of the office supply item.",
+      "label_i18n": {
+        "en": "Unit Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Average purchase cost per unit of the office supply item."
+      }
     },
     {
       "id": "order_cost",
@@ -39,7 +51,13 @@
       "default": 25,
       "min": 0,
       "max": 500,
-      "businessContext": "Fixed cost associated with placing a single purchase order (labor, processing, etc.)."
+      "businessContext": "Fixed cost associated with placing a single purchase order (labor, processing, etc.).",
+      "label_i18n": {
+        "en": "Order Cost per Purchase Order"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed cost associated with placing a single purchase order (labor, processing, etc.)."
+      }
     },
     {
       "id": "holding_cost_rate",
@@ -49,7 +67,13 @@
       "default": 20,
       "min": 0,
       "max": 100,
-      "businessContext": "Annual inventory holding cost as a percentage of unit cost (storage, insurance, obsolescence)."
+      "businessContext": "Annual inventory holding cost as a percentage of unit cost (storage, insurance, obsolescence).",
+      "label_i18n": {
+        "en": "Holding Cost Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual inventory holding cost as a percentage of unit cost (storage, insurance, obsolescence)."
+      }
     },
     {
       "id": "waste_percentage",
@@ -59,7 +83,13 @@
       "default": 5,
       "min": 0,
       "max": 50,
-      "businessContext": "Estimated percentage of supplies wasted due to over-ordering, expiration, or damage."
+      "businessContext": "Estimated percentage of supplies wasted due to over-ordering, expiration, or damage.",
+      "label_i18n": {
+        "en": "Waste Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated percentage of supplies wasted due to over-ordering, expiration, or damage."
+      }
     },
     {
       "id": "order_frequency",
@@ -74,7 +104,13 @@
         "quarterly",
         "annually"
       ],
-      "businessContext": "How often orders are placed, affecting order size and inventory levels."
+      "businessContext": "How often orders are placed, affecting order size and inventory levels.",
+      "label_i18n": {
+        "en": "Order Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "How often orders are placed, affecting order size and inventory levels."
+      }
     },
     {
       "id": "use_lean_inventory",
@@ -82,7 +118,13 @@
       "type": "boolean",
       "unit": "",
       "default": false,
-      "businessContext": "If enabled, applies just-in-time ordering to reduce holding costs and waste."
+      "businessContext": "If enabled, applies just-in-time ordering to reduce holding costs and waste.",
+      "label_i18n": {
+        "en": "Use Lean Inventory Principles"
+      },
+      "businessContext_i18n": {
+        "en": "If enabled, applies just-in-time ordering to reduce holding costs and waste."
+      }
     }
   ],
   "validation": {

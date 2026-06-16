@@ -20,7 +20,13 @@
       "default": 100,
       "min": 0,
       "max": 5000,
-      "businessContext": "Total distance of the planned route as per logistics plan."
+      "businessContext": "Total distance of the planned route as per logistics plan.",
+      "label_i18n": {
+        "en": "Planned Route Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance of the planned route as per logistics plan."
+      }
     },
     {
       "id": "actual_distance_km",
@@ -30,7 +36,13 @@
       "default": 110,
       "min": 0,
       "max": 5000,
-      "businessContext": "Total distance actually driven, including deviations."
+      "businessContext": "Total distance actually driven, including deviations.",
+      "label_i18n": {
+        "en": "Actual Route Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Total distance actually driven, including deviations."
+      }
     },
     {
       "id": "fuel_consumption_rate",
@@ -40,7 +52,13 @@
       "default": 35,
       "min": 0,
       "max": 100,
-      "businessContext": "Vehicle fuel consumption rate under standard conditions (ISO 14040)."
+      "businessContext": "Vehicle fuel consumption rate under standard conditions (ISO 14040).",
+      "label_i18n": {
+        "en": "Average Fuel Consumption Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Vehicle fuel consumption rate under standard conditions (ISO 14040)."
+      }
     },
     {
       "id": "fuel_price_per_liter",
@@ -50,7 +68,13 @@
       "default": 1.5,
       "min": 0,
       "max": 10,
-      "businessContext": "Current market price of diesel or gasoline per liter."
+      "businessContext": "Current market price of diesel or gasoline per liter.",
+      "label_i18n": {
+        "en": "Fuel Price per Liter"
+      },
+      "businessContext_i18n": {
+        "en": "Current market price of diesel or gasoline per liter."
+      }
     },
     {
       "id": "load_weight_tonnes",
@@ -60,7 +84,13 @@
       "default": 20,
       "min": 0,
       "max": 50,
-      "businessContext": "Total weight of cargo carried, affects fuel consumption."
+      "businessContext": "Total weight of cargo carried, affects fuel consumption.",
+      "label_i18n": {
+        "en": "Load Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Total weight of cargo carried, affects fuel consumption."
+      }
     },
     {
       "id": "terrain_factor",
@@ -81,7 +111,13 @@
         }
       ],
       "default": "flat",
-      "businessContext": "Terrain classification affecting fuel efficiency (WERC guidelines)."
+      "businessContext": "Terrain classification affecting fuel efficiency (WERC guidelines).",
+      "label_i18n": {
+        "en": "Terrain Type"
+      },
+      "businessContext_i18n": {
+        "en": "Terrain classification affecting fuel efficiency (WERC guidelines)."
+      }
     },
     {
       "id": "traffic_condition",
@@ -102,7 +138,13 @@
         }
       ],
       "default": "low",
-      "businessContext": "Traffic density impact on fuel consumption and route drift."
+      "businessContext": "Traffic density impact on fuel consumption and route drift.",
+      "label_i18n": {
+        "en": "Traffic Condition"
+      },
+      "businessContext_i18n": {
+        "en": "Traffic density impact on fuel consumption and route drift."
+      }
     },
     {
       "id": "driver_behavior_score",
@@ -112,7 +154,13 @@
       "default": 80,
       "min": 0,
       "max": 100,
-      "businessContext": "Eco-driving score based on acceleration, braking, idling (Lean Six Sigma metric)."
+      "businessContext": "Eco-driving score based on acceleration, braking, idling (Lean Six Sigma metric).",
+      "label_i18n": {
+        "en": "Driver Behavior Score"
+      },
+      "businessContext_i18n": {
+        "en": "Eco-driving score based on acceleration, braking, idling (Lean Six Sigma metric)."
+      }
     },
     {
       "id": "vehicle_age_years",
@@ -122,14 +170,26 @@
       "default": 3,
       "min": 0,
       "max": 20,
-      "businessContext": "Age of the vehicle, used for efficiency degradation factor."
+      "businessContext": "Age of the vehicle, used for efficiency degradation factor.",
+      "label_i18n": {
+        "en": "Vehicle Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age of the vehicle, used for efficiency degradation factor."
+      }
     },
     {
       "id": "include_hidden_losses",
       "label": "Include Hidden Loss Drivers",
       "type": "boolean",
       "default": true,
-      "businessContext": "Toggle to include secondary loss factors like tire pressure, engine wear, etc."
+      "businessContext": "Toggle to include secondary loss factors like tire pressure, engine wear, etc.",
+      "label_i18n": {
+        "en": "Include Hidden Loss Drivers"
+      },
+      "businessContext_i18n": {
+        "en": "Toggle to include secondary loss factors like tire pressure, engine wear, etc."
+      }
     }
   ],
   "validation": {

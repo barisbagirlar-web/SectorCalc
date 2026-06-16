@@ -17,7 +17,13 @@
       "default": 150,
       "min": 20,
       "max": 500,
-      "businessContext": "ISO 8688-1: Surface speed of the cutting tool relative to workpiece."
+      "businessContext": "ISO 8688-1: Surface speed of the cutting tool relative to workpiece.",
+      "label_i18n": {
+        "en": "Cutting Speed (Vc)"
+      },
+      "businessContext_i18n": {
+        "en": "ISO 8688-1: Surface speed of the cutting tool relative to workpiece."
+      }
     },
     {
       "id": "feed_rate",
@@ -27,7 +33,13 @@
       "default": 0.15,
       "min": 0.02,
       "max": 0.8,
-      "businessContext": "ISO 8688-1: Axial advance per revolution."
+      "businessContext": "ISO 8688-1: Axial advance per revolution.",
+      "label_i18n": {
+        "en": "Feed Rate (f)"
+      },
+      "businessContext_i18n": {
+        "en": "ISO 8688-1: Axial advance per revolution."
+      }
     },
     {
       "id": "depth_of_cut",
@@ -37,7 +49,13 @@
       "default": 2,
       "min": 0.1,
       "max": 10,
-      "businessContext": "ISO 8688-1: Radial engagement of the tool."
+      "businessContext": "ISO 8688-1: Radial engagement of the tool.",
+      "label_i18n": {
+        "en": "Depth of Cut (ap)"
+      },
+      "businessContext_i18n": {
+        "en": "ISO 8688-1: Radial engagement of the tool."
+      }
     },
     {
       "id": "tool_overhang",
@@ -47,7 +65,13 @@
       "default": 80,
       "min": 20,
       "max": 200,
-      "businessContext": "ISO 3685: Free length of tool holder; affects stiffness."
+      "businessContext": "ISO 3685: Free length of tool holder; affects stiffness.",
+      "label_i18n": {
+        "en": "Tool Overhang (L)"
+      },
+      "businessContext_i18n": {
+        "en": "ISO 3685: Free length of tool holder; affects stiffness."
+      }
     },
     {
       "id": "tool_diameter",
@@ -57,7 +81,13 @@
       "default": 20,
       "min": 5,
       "max": 100,
-      "businessContext": "ISO 3685: Cutter diameter for milling or turning insert diameter."
+      "businessContext": "ISO 3685: Cutter diameter for milling or turning insert diameter.",
+      "label_i18n": {
+        "en": "Tool Diameter (D)"
+      },
+      "businessContext_i18n": {
+        "en": "ISO 3685: Cutter diameter for milling or turning insert diameter."
+      }
     },
     {
       "id": "workpiece_material_hardness",
@@ -85,7 +115,13 @@
           "value": "450",
           "label": "Very Hard (450 HB)"
         }
-      ]
+      ],
+      "label_i18n": {
+        "en": "Workpiece Material Hardness"
+      },
+      "businessContext_i18n": {
+        "en": "ISO 18265: Brinell hardness; affects cutting force and chatter."
+      }
     },
     {
       "id": "machine_spindle_power",
@@ -95,7 +131,13 @@
       "default": 15,
       "min": 2,
       "max": 100,
-      "businessContext": "ISO 841: Rated power of the spindle motor."
+      "businessContext": "ISO 841: Rated power of the spindle motor.",
+      "label_i18n": {
+        "en": "Machine Spindle Power (P_m)"
+      },
+      "businessContext_i18n": {
+        "en": "ISO 841: Rated power of the spindle motor."
+      }
     },
     {
       "id": "machine_damping_ratio",
@@ -105,7 +147,13 @@
       "default": 0.05,
       "min": 0.01,
       "max": 0.2,
-      "businessContext": "ISO 10816: Structural damping; 0.02-0.08 typical for machine tools."
+      "businessContext": "ISO 10816: Structural damping; 0.02-0.08 typical for machine tools.",
+      "label_i18n": {
+        "en": "Machine Damping Ratio (ζ)"
+      },
+      "businessContext_i18n": {
+        "en": "ISO 10816: Structural damping; 0.02-0.08 typical for machine tools."
+      }
     },
     {
       "id": "tool_material",
@@ -133,7 +181,13 @@
           "value": "cbn",
           "label": "CBN"
         }
-      ]
+      ],
+      "label_i18n": {
+        "en": "Tool Material"
+      },
+      "businessContext_i18n": {
+        "en": "ISO 513: Tool substrate affects wear and stiffness."
+      }
     },
     {
       "id": "coolant_application",
@@ -143,7 +197,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "ISO 13743: Flood coolant reduces thermal effects and can alter chatter."
+      "businessContext": "ISO 13743: Flood coolant reduces thermal effects and can alter chatter.",
+      "label_i18n": {
+        "en": "Coolant Application"
+      },
+      "businessContext_i18n": {
+        "en": "ISO 13743: Flood coolant reduces thermal effects and can alter chatter."
+      }
     }
   ],
   "validation": {

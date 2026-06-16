@@ -20,7 +20,13 @@
       "default": 3,
       "min": 0.1,
       "max": 50,
-      "businessContext": "Span length between supports, typical for structural steel beams in industrial racks (WERC standard)."
+      "businessContext": "Span length between supports, typical for structural steel beams in industrial racks (WERC standard).",
+      "label_i18n": {
+        "en": "Beam Length (L)"
+      },
+      "businessContext_i18n": {
+        "en": "Span length between supports, typical for structural steel beams in industrial racks (WERC standard)."
+      }
     },
     {
       "id": "load_type",
@@ -46,7 +52,13 @@
           "label": "Triangular Distributed Load"
         }
       ],
-      "businessContext": "Common load configurations in material handling and structural analysis per ISO 9001 design control."
+      "businessContext": "Common load configurations in material handling and structural analysis per ISO 9001 design control.",
+      "label_i18n": {
+        "en": "Load Type"
+      },
+      "businessContext_i18n": {
+        "en": "Common load configurations in material handling and structural analysis per ISO 9001 design control."
+      }
     },
     {
       "id": "point_load",
@@ -56,7 +68,13 @@
       "default": 10,
       "min": 0,
       "max": 500,
-      "businessContext": "Concentrated force applied at a specific point, typical for forklift impact or equipment loads."
+      "businessContext": "Concentrated force applied at a specific point, typical for forklift impact or equipment loads.",
+      "label_i18n": {
+        "en": "Point Load (P)"
+      },
+      "businessContext_i18n": {
+        "en": "Concentrated force applied at a specific point, typical for forklift impact or equipment loads."
+      }
     },
     {
       "id": "udl_load",
@@ -66,7 +84,13 @@
       "default": 5,
       "min": 0,
       "max": 100,
-      "businessContext": "Load per unit length, e.g., conveyor belt or storage rack loading per linear meter."
+      "businessContext": "Load per unit length, e.g., conveyor belt or storage rack loading per linear meter.",
+      "label_i18n": {
+        "en": "Uniformly Distributed Load (w)"
+      },
+      "businessContext_i18n": {
+        "en": "Load per unit length, e.g., conveyor belt or storage rack loading per linear meter."
+      }
     },
     {
       "id": "load_position",
@@ -76,7 +100,13 @@
       "default": 1.5,
       "min": 0,
       "max": 50,
-      "businessContext": "Distance from left support to point load application, used for asymmetric loading analysis."
+      "businessContext": "Distance from left support to point load application, used for asymmetric loading analysis.",
+      "label_i18n": {
+        "en": "Load Position from Left Support (a)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from left support to point load application, used for asymmetric loading analysis."
+      }
     },
     {
       "id": "young_modulus",
@@ -86,7 +116,13 @@
       "default": 200,
       "min": 10,
       "max": 400,
-      "businessContext": "Material stiffness property, typical for steel (200 GPa) or aluminum (70 GPa) per ISO 6892-1."
+      "businessContext": "Material stiffness property, typical for steel (200 GPa) or aluminum (70 GPa) per ISO 6892-1.",
+      "label_i18n": {
+        "en": "Young's Modulus (E)"
+      },
+      "businessContext_i18n": {
+        "en": "Material stiffness property, typical for steel (200 GPa) or aluminum (70 GPa) per ISO 6892-1."
+      }
     },
     {
       "id": "moment_of_inertia",
@@ -96,7 +132,13 @@
       "default": 500,
       "min": 1,
       "max": 100000,
-      "businessContext": "Cross-sectional property resisting bending, calculated from beam profile (e.g., I-beam, rectangular)."
+      "businessContext": "Cross-sectional property resisting bending, calculated from beam profile (e.g., I-beam, rectangular).",
+      "label_i18n": {
+        "en": "Moment of Inertia (I)"
+      },
+      "businessContext_i18n": {
+        "en": "Cross-sectional property resisting bending, calculated from beam profile (e.g., I-beam, rectangular)."
+      }
     },
     {
       "id": "yield_strength",
@@ -106,7 +148,13 @@
       "default": 250,
       "min": 50,
       "max": 1000,
-      "businessContext": "Material yield stress, typical for structural steel S235 (235 MPa) or S355 (355 MPa) per EN 10025."
+      "businessContext": "Material yield stress, typical for structural steel S235 (235 MPa) or S355 (355 MPa) per EN 10025.",
+      "label_i18n": {
+        "en": "Yield Strength (σ_y)"
+      },
+      "businessContext_i18n": {
+        "en": "Material yield stress, typical for structural steel S235 (235 MPa) or S355 (355 MPa) per EN 10025."
+      }
     },
     {
       "id": "safety_factor_target",
@@ -116,7 +164,13 @@
       "default": 1.5,
       "min": 1,
       "max": 5,
-      "businessContext": "Minimum acceptable safety factor per ISO 13822 for structural integrity."
+      "businessContext": "Minimum acceptable safety factor per ISO 13822 for structural integrity.",
+      "label_i18n": {
+        "en": "Target Safety Factor (SF)"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum acceptable safety factor per ISO 13822 for structural integrity."
+      }
     },
     {
       "id": "support_condition",
@@ -138,7 +192,13 @@
           "label": "Cantilever"
         }
       ],
-      "businessContext": "Boundary conditions affecting deflection and moment distribution per Euler-Bernoulli theory."
+      "businessContext": "Boundary conditions affecting deflection and moment distribution per Euler-Bernoulli theory.",
+      "label_i18n": {
+        "en": "Support Condition"
+      },
+      "businessContext_i18n": {
+        "en": "Boundary conditions affecting deflection and moment distribution per Euler-Bernoulli theory."
+      }
     },
     {
       "id": "use_lean_optimization",
@@ -146,7 +206,13 @@
       "type": "boolean",
       "unit": "",
       "default": false,
-      "businessContext": "If true, applies Lean Six Sigma principles to minimize material waste while meeting deflection limits."
+      "businessContext": "If true, applies Lean Six Sigma principles to minimize material waste while meeting deflection limits.",
+      "label_i18n": {
+        "en": "Enable Lean Optimization"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies Lean Six Sigma principles to minimize material waste while meeting deflection limits."
+      }
     }
   ],
   "validation": {

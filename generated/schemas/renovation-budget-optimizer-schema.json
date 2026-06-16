@@ -17,7 +17,13 @@
       "default": 2000,
       "min": 100,
       "max": 100000,
-      "businessContext": "Total floor area to be renovated, including all rooms and corridors."
+      "businessContext": "Total floor area to be renovated, including all rooms and corridors.",
+      "label_i18n": {
+        "en": "Total Renovation Area (sq ft)"
+      },
+      "businessContext_i18n": {
+        "en": "Total floor area to be renovated, including all rooms and corridors."
+      }
     },
     {
       "id": "scope_complexity",
@@ -32,7 +38,13 @@
         "medium",
         "high"
       ],
-      "businessContext": "Low: cosmetic only; Medium: structural and MEP changes; High: full gut renovation with new systems."
+      "businessContext": "Low: cosmetic only; Medium: structural and MEP changes; High: full gut renovation with new systems.",
+      "label_i18n": {
+        "en": "Scope Complexity"
+      },
+      "businessContext_i18n": {
+        "en": "Low: cosmetic only; Medium: structural and MEP changes; High: full gut renovation with new systems."
+      }
     },
     {
       "id": "material_quality",
@@ -47,7 +59,13 @@
         "standard",
         "premium"
       ],
-      "businessContext": "Economy: budget finishes; Standard: mid-range; Premium: high-end, sustainable materials."
+      "businessContext": "Economy: budget finishes; Standard: mid-range; Premium: high-end, sustainable materials.",
+      "label_i18n": {
+        "en": "Material Quality Tier"
+      },
+      "businessContext_i18n": {
+        "en": "Economy: budget finishes; Standard: mid-range; Premium: high-end, sustainable materials."
+      }
     },
     {
       "id": "labor_efficiency_factor",
@@ -57,7 +75,13 @@
       "default": 0.15,
       "min": 0.05,
       "max": 0.5,
-      "businessContext": "Average labor hours per square foot based on historical data and crew productivity."
+      "businessContext": "Average labor hours per square foot based on historical data and crew productivity.",
+      "label_i18n": {
+        "en": "Labor Efficiency Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Average labor hours per square foot based on historical data and crew productivity."
+      }
     },
     {
       "id": "waste_factor_pct",
@@ -67,7 +91,13 @@
       "default": 10,
       "min": 0,
       "max": 30,
-      "businessContext": "Expected material waste percentage due to cutting, errors, and over-ordering."
+      "businessContext": "Expected material waste percentage due to cutting, errors, and over-ordering.",
+      "label_i18n": {
+        "en": "Waste Factor (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected material waste percentage due to cutting, errors, and over-ordering."
+      }
     },
     {
       "id": "contingency_pct",
@@ -77,7 +107,13 @@
       "default": 15,
       "min": 5,
       "max": 30,
-      "businessContext": "Budget reserve for unforeseen issues (e.g., hidden damage, code upgrades)."
+      "businessContext": "Budget reserve for unforeseen issues (e.g., hidden damage, code upgrades).",
+      "label_i18n": {
+        "en": "Contingency (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Budget reserve for unforeseen issues (e.g., hidden damage, code upgrades)."
+      }
     },
     {
       "id": "region_cost_index",
@@ -87,7 +123,13 @@
       "default": 1,
       "min": 0.7,
       "max": 1.5,
-      "businessContext": "Multiplier for local labor and material cost variations (1.0 = national average)."
+      "businessContext": "Multiplier for local labor and material cost variations (1.0 = national average).",
+      "label_i18n": {
+        "en": "Regional Cost Index"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier for local labor and material cost variations (1.0 = national average)."
+      }
     },
     {
       "id": "sustainability_target",
@@ -103,7 +145,13 @@
         "WELL",
         "BREEAM"
       ],
-      "businessContext": "If pursuing certification, additional costs for documentation, commissioning, and materials."
+      "businessContext": "If pursuing certification, additional costs for documentation, commissioning, and materials.",
+      "label_i18n": {
+        "en": "Sustainability Target"
+      },
+      "businessContext_i18n": {
+        "en": "If pursuing certification, additional costs for documentation, commissioning, and materials."
+      }
     },
     {
       "id": "phased_renovation",
@@ -113,7 +161,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "True if renovation is done in phases (e.g., floor by floor) to reduce disruption."
+      "businessContext": "True if renovation is done in phases (e.g., floor by floor) to reduce disruption.",
+      "label_i18n": {
+        "en": "Phased Renovation"
+      },
+      "businessContext_i18n": {
+        "en": "True if renovation is done in phases (e.g., floor by floor) to reduce disruption."
+      }
     }
   ],
   "validation": {

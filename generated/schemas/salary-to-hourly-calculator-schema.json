@@ -17,7 +17,13 @@
       "default": 50000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Total gross annual compensation before taxes and deductions."
+      "businessContext": "Total gross annual compensation before taxes and deductions.",
+      "label_i18n": {
+        "en": "Annual Salary (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Total gross annual compensation before taxes and deductions."
+      }
     },
     {
       "id": "work_hours_per_week",
@@ -27,7 +33,13 @@
       "default": 40,
       "min": 1,
       "max": 168,
-      "businessContext": "Standard contractual weekly working hours, excluding unpaid breaks."
+      "businessContext": "Standard contractual weekly working hours, excluding unpaid breaks.",
+      "label_i18n": {
+        "en": "Work Hours per Week"
+      },
+      "businessContext_i18n": {
+        "en": "Standard contractual weekly working hours, excluding unpaid breaks."
+      }
     },
     {
       "id": "paid_weeks_per_year",
@@ -37,7 +49,13 @@
       "default": 52,
       "min": 1,
       "max": 52,
-      "businessContext": "Total weeks compensated including vacation, sick leave, and holidays."
+      "businessContext": "Total weeks compensated including vacation, sick leave, and holidays.",
+      "label_i18n": {
+        "en": "Paid Weeks per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Total weeks compensated including vacation, sick leave, and holidays."
+      }
     },
     {
       "id": "overtime_multiplier",
@@ -47,7 +65,13 @@
       "default": 1.5,
       "min": 1,
       "max": 3,
-      "businessContext": "Standard overtime pay factor per FLSA or local labor law (e.g., 1.5x for >40 hrs/week)."
+      "businessContext": "Standard overtime pay factor per FLSA or local labor law (e.g., 1.5x for >40 hrs/week).",
+      "label_i18n": {
+        "en": "Overtime Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Standard overtime pay factor per FLSA or local labor law (e.g., 1.5x for >40 hrs/week)."
+      }
     },
     {
       "id": "benefits_percentage",
@@ -57,7 +81,13 @@
       "default": 30,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of salary allocated to benefits (health, retirement, payroll taxes, training)."
+      "businessContext": "Percentage of salary allocated to benefits (health, retirement, payroll taxes, training).",
+      "label_i18n": {
+        "en": "Benefits & Overhead (% of Salary)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of salary allocated to benefits (health, retirement, payroll taxes, training)."
+      }
     },
     {
       "id": "shift_type",
@@ -70,7 +100,13 @@
         "night",
         "rotating"
       ],
-      "businessContext": "Shift differentials affect effective hourly cost; night/rotating shifts may require premium pay."
+      "businessContext": "Shift differentials affect effective hourly cost; night/rotating shifts may require premium pay.",
+      "label_i18n": {
+        "en": "Shift Type"
+      },
+      "businessContext_i18n": {
+        "en": "Shift differentials affect effective hourly cost; night/rotating shifts may require premium pay."
+      }
     },
     {
       "id": "include_productivity_factor",
@@ -78,7 +114,13 @@
       "type": "boolean",
       "unit": "",
       "default": true,
-      "businessContext": "If true, applies a productivity loss factor (e.g., 85%) based on typical industrial engineering allowances."
+      "businessContext": "If true, applies a productivity loss factor (e.g., 85%) based on typical industrial engineering allowances.",
+      "label_i18n": {
+        "en": "Include Productivity Factor (Lean)"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies a productivity loss factor (e.g., 85%) based on typical industrial engineering allowances."
+      }
     }
   ],
   "validation": {

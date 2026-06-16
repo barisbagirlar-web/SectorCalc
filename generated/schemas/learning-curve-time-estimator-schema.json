@@ -17,7 +17,13 @@
       "default": 100,
       "min": 0.1,
       "max": 10000,
-      "businessContext": "Standard time to produce the first unit, typically from historical data or pilot run."
+      "businessContext": "Standard time to produce the first unit, typically from historical data or pilot run.",
+      "label_i18n": {
+        "en": "First Unit Time (hours)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard time to produce the first unit, typically from historical data or pilot run."
+      }
     },
     {
       "id": "learning_rate",
@@ -27,7 +33,13 @@
       "default": 85,
       "min": 50,
       "max": 100,
-      "businessContext": "Percentage reduction in time per doubling of cumulative units. Typical range 70-95% for manual tasks."
+      "businessContext": "Percentage reduction in time per doubling of cumulative units. Typical range 70-95% for manual tasks.",
+      "label_i18n": {
+        "en": "Learning Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage reduction in time per doubling of cumulative units. Typical range 70-95% for manual tasks."
+      }
     },
     {
       "id": "cumulative_units",
@@ -37,7 +49,13 @@
       "default": 100,
       "min": 1,
       "max": 1000000,
-      "businessContext": "Total number of units produced to date, used to estimate current and future unit times."
+      "businessContext": "Total number of units produced to date, used to estimate current and future unit times.",
+      "label_i18n": {
+        "en": "Cumulative Units Produced"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units produced to date, used to estimate current and future unit times."
+      }
     },
     {
       "id": "target_units",
@@ -47,7 +65,13 @@
       "default": 200,
       "min": 1,
       "max": 1000000,
-      "businessContext": "The specific unit number for which the time estimate is required."
+      "businessContext": "The specific unit number for which the time estimate is required.",
+      "label_i18n": {
+        "en": "Target Units for Estimate"
+      },
+      "businessContext_i18n": {
+        "en": "The specific unit number for which the time estimate is required."
+      }
     },
     {
       "id": "shift_length",
@@ -57,7 +81,13 @@
       "default": 8,
       "min": 1,
       "max": 24,
-      "businessContext": "Standard working shift duration for converting time to calendar days."
+      "businessContext": "Standard working shift duration for converting time to calendar days.",
+      "label_i18n": {
+        "en": "Shift Length (hours)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard working shift duration for converting time to calendar days."
+      }
     },
     {
       "id": "learning_model",
@@ -72,7 +102,13 @@
         "wright",
         "crawford",
         "dejong"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Learning Curve Model"
+      },
+      "businessContext_i18n": {
+        "en": "Select the theoretical model: Wright (standard), Crawford (unit), or DeJong (plateau)."
+      }
     },
     {
       "id": "include_break_in",
@@ -82,7 +118,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If true, applies a penalty factor for production interruptions (e.g., after holidays or retooling)."
+      "businessContext": "If true, applies a penalty factor for production interruptions (e.g., after holidays or retooling).",
+      "label_i18n": {
+        "en": "Include Break-In Effect"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies a penalty factor for production interruptions (e.g., after holidays or retooling)."
+      }
     },
     {
       "id": "break_in_penalty",
@@ -92,7 +134,13 @@
       "default": 10,
       "min": 0,
       "max": 50,
-      "businessContext": "Percentage increase in time for the first unit after a break, applied only if break-in is enabled."
+      "businessContext": "Percentage increase in time for the first unit after a break, applied only if break-in is enabled.",
+      "label_i18n": {
+        "en": "Break-In Penalty (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage increase in time for the first unit after a break, applied only if break-in is enabled."
+      }
     }
   ],
   "validation": {

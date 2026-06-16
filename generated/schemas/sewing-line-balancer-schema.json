@@ -17,7 +17,13 @@
       "default": 3600,
       "min": 60,
       "max": 36000,
-      "businessContext": "Sum of all standard times for operations in the sewing line (ISO 9001 time measurement)."
+      "businessContext": "Sum of all standard times for operations in the sewing line (ISO 9001 time measurement).",
+      "label_i18n": {
+        "en": "Total Work Content (TWC)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of all standard times for operations in the sewing line (ISO 9001 time measurement)."
+      }
     },
     {
       "id": "number_of_operators",
@@ -27,7 +33,13 @@
       "default": 20,
       "min": 1,
       "max": 200,
-      "businessContext": "Total direct labor assigned to the line."
+      "businessContext": "Total direct labor assigned to the line.",
+      "label_i18n": {
+        "en": "Number of Operators"
+      },
+      "businessContext_i18n": {
+        "en": "Total direct labor assigned to the line."
+      }
     },
     {
       "id": "takt_time",
@@ -37,7 +49,13 @@
       "default": 180,
       "min": 10,
       "max": 600,
-      "businessContext": "Customer demand rate: available production time divided by required output (Lean manufacturing)."
+      "businessContext": "Customer demand rate: available production time divided by required output (Lean manufacturing).",
+      "label_i18n": {
+        "en": "Takt Time"
+      },
+      "businessContext_i18n": {
+        "en": "Customer demand rate: available production time divided by required output (Lean manufacturing)."
+      }
     },
     {
       "id": "bottleneck_time",
@@ -47,7 +65,13 @@
       "default": 200,
       "min": 10,
       "max": 600,
-      "businessContext": "Longest operation time among all stations (Theory of Constraints)."
+      "businessContext": "Longest operation time among all stations (Theory of Constraints).",
+      "label_i18n": {
+        "en": "Bottleneck Station Time"
+      },
+      "businessContext_i18n": {
+        "en": "Longest operation time among all stations (Theory of Constraints)."
+      }
     },
     {
       "id": "line_balance_type",
@@ -62,7 +86,13 @@
         "straight",
         "u_shape",
         "modular"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Line Balance Type"
+      },
+      "businessContext_i18n": {
+        "en": "Configuration of the sewing line: straight, U-shape, or modular (Lean layout principles)."
+      }
     },
     {
       "id": "allow_rebalancing",
@@ -72,7 +102,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "If true, the tool will suggest operator reassignment to improve balance."
+      "businessContext": "If true, the tool will suggest operator reassignment to improve balance.",
+      "label_i18n": {
+        "en": "Allow Rebalancing"
+      },
+      "businessContext_i18n": {
+        "en": "If true, the tool will suggest operator reassignment to improve balance."
+      }
     }
   ],
   "validation": {

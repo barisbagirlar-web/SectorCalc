@@ -19,7 +19,13 @@
       "default": 0,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Annual electricity usage from utility bills or submeters. Scope 2 emission source."
+      "businessContext": "Annual electricity usage from utility bills or submeters. Scope 2 emission source.",
+      "label_i18n": {
+        "en": "Electricity Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Annual electricity usage from utility bills or submeters. Scope 2 emission source."
+      }
     },
     {
       "id": "natural_gas_therms",
@@ -29,7 +35,13 @@
       "default": 0,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Annual natural gas usage from utility bills. Scope 1 emission source."
+      "businessContext": "Annual natural gas usage from utility bills. Scope 1 emission source.",
+      "label_i18n": {
+        "en": "Natural Gas Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Annual natural gas usage from utility bills. Scope 1 emission source."
+      }
     },
     {
       "id": "fuel_diesel_liters",
@@ -39,7 +51,13 @@
       "default": 0,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Annual diesel consumption for owned fleet vehicles. Scope 1 emission source."
+      "businessContext": "Annual diesel consumption for owned fleet vehicles. Scope 1 emission source.",
+      "label_i18n": {
+        "en": "Diesel Fuel Consumption (Fleet)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual diesel consumption for owned fleet vehicles. Scope 1 emission source."
+      }
     },
     {
       "id": "fuel_gasoline_liters",
@@ -49,7 +67,13 @@
       "default": 0,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Annual gasoline consumption for owned fleet vehicles. Scope 1 emission source."
+      "businessContext": "Annual gasoline consumption for owned fleet vehicles. Scope 1 emission source.",
+      "label_i18n": {
+        "en": "Gasoline Fuel Consumption (Fleet)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual gasoline consumption for owned fleet vehicles. Scope 1 emission source."
+      }
     },
     {
       "id": "waste_tonnes",
@@ -59,7 +83,13 @@
       "default": 0,
       "min": 0,
       "max": 100000,
-      "businessContext": "Total waste sent to landfill or incineration. Scope 3 emission source."
+      "businessContext": "Total waste sent to landfill or incineration. Scope 3 emission source.",
+      "label_i18n": {
+        "en": "Waste Generated"
+      },
+      "businessContext_i18n": {
+        "en": "Total waste sent to landfill or incineration. Scope 3 emission source."
+      }
     },
     {
       "id": "business_travel_km",
@@ -69,7 +99,13 @@
       "default": 0,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Annual distance traveled by employees for business purposes (air, rail). Scope 3 emission source."
+      "businessContext": "Annual distance traveled by employees for business purposes (air, rail). Scope 3 emission source.",
+      "label_i18n": {
+        "en": "Business Travel (Air & Rail)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual distance traveled by employees for business purposes (air, rail). Scope 3 emission source."
+      }
     },
     {
       "id": "region",
@@ -87,7 +123,13 @@
         "China",
         "India",
         "Global Average"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Operational Region"
+      },
+      "businessContext_i18n": {
+        "en": "Geographic region determines emission factors for electricity grid and fuel standards."
+      }
     },
     {
       "id": "data_quality_score",
@@ -97,7 +139,13 @@
       "default": 3,
       "min": 1,
       "max": 5,
-      "businessContext": "Subjective score of input data reliability: 1=estimated, 3=measured, 5=audited. Used for confidence adjustment."
+      "businessContext": "Subjective score of input data reliability: 1=estimated, 3=measured, 5=audited. Used for confidence adjustment.",
+      "label_i18n": {
+        "en": "Data Quality Score (1-5)"
+      },
+      "businessContext_i18n": {
+        "en": "Subjective score of input data reliability: 1=estimated, 3=measured, 5=audited. Used for confidence adjustment."
+      }
     }
   ],
   "validation": {

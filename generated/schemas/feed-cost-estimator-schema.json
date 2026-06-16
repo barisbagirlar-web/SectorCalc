@@ -19,7 +19,13 @@
       "default": 10,
       "min": 0.1,
       "max": 50,
-      "businessContext": "Average daily feed consumption per animal, based on species and growth stage."
+      "businessContext": "Average daily feed consumption per animal, based on species and growth stage.",
+      "label_i18n": {
+        "en": "Daily feed intake per animal (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Average daily feed consumption per animal, based on species and growth stage."
+      }
     },
     {
       "id": "raw_material_cost_per_kg",
@@ -29,7 +35,13 @@
       "default": 0.35,
       "min": 0.01,
       "max": 5,
-      "businessContext": "Cost of primary feed ingredients (corn, soybean meal, etc.) per kilogram."
+      "businessContext": "Cost of primary feed ingredients (corn, soybean meal, etc.) per kilogram.",
+      "label_i18n": {
+        "en": "Raw material cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of primary feed ingredients (corn, soybean meal, etc.) per kilogram."
+      }
     },
     {
       "id": "processing_loss_percent",
@@ -39,7 +51,13 @@
       "default": 3,
       "min": 0,
       "max": 15,
-      "businessContext": "Percentage of raw material lost during milling, mixing, pelleting, or storage."
+      "businessContext": "Percentage of raw material lost during milling, mixing, pelleting, or storage.",
+      "label_i18n": {
+        "en": "Processing loss (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of raw material lost during milling, mixing, pelleting, or storage."
+      }
     },
     {
       "id": "moisture_adjustment_factor",
@@ -49,7 +67,13 @@
       "default": 1,
       "min": 0.85,
       "max": 1.15,
-      "businessContext": "Correction factor for moisture content variation in raw materials (1.0 = standard)."
+      "businessContext": "Correction factor for moisture content variation in raw materials (1.0 = standard).",
+      "label_i18n": {
+        "en": "Moisture adjustment factor"
+      },
+      "businessContext_i18n": {
+        "en": "Correction factor for moisture content variation in raw materials (1.0 = standard)."
+      }
     },
     {
       "id": "quality_grade",
@@ -64,7 +88,13 @@
         "premium",
         "standard",
         "economy"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Quality grade"
+      },
+      "businessContext_i18n": {
+        "en": "Grade of feed based on nutrient density and consistency (premium, standard, economy)."
+      }
     },
     {
       "id": "include_transport_cost",
@@ -74,7 +104,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If true, adds a fixed transport surcharge per kg of feed."
+      "businessContext": "If true, adds a fixed transport surcharge per kg of feed.",
+      "label_i18n": {
+        "en": "Include transport cost?"
+      },
+      "businessContext_i18n": {
+        "en": "If true, adds a fixed transport surcharge per kg of feed."
+      }
     }
   ],
   "validation": {

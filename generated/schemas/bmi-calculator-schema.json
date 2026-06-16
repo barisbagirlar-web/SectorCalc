@@ -20,7 +20,13 @@
       "default": 70,
       "min": 20,
       "max": 300,
-      "businessContext": "Body weight measured in kilograms, per ISO 8996 anthropometric standards."
+      "businessContext": "Body weight measured in kilograms, per ISO 8996 anthropometric standards.",
+      "label_i18n": {
+        "en": "Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Body weight measured in kilograms, per ISO 8996 anthropometric standards."
+      }
     },
     {
       "id": "height_cm",
@@ -30,7 +36,13 @@
       "default": 170,
       "min": 50,
       "max": 250,
-      "businessContext": "Standing height in centimeters, measured per ISO 7250 ergonomic guidelines."
+      "businessContext": "Standing height in centimeters, measured per ISO 7250 ergonomic guidelines.",
+      "label_i18n": {
+        "en": "Height (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Standing height in centimeters, measured per ISO 7250 ergonomic guidelines."
+      }
     },
     {
       "id": "age_years",
@@ -40,7 +52,13 @@
       "default": 30,
       "min": 18,
       "max": 120,
-      "businessContext": "Chronological age used for metabolic risk adjustment, per Six Sigma health screening protocols."
+      "businessContext": "Chronological age used for metabolic risk adjustment, per Six Sigma health screening protocols.",
+      "label_i18n": {
+        "en": "Age (years)"
+      },
+      "businessContext_i18n": {
+        "en": "Chronological age used for metabolic risk adjustment, per Six Sigma health screening protocols."
+      }
     },
     {
       "id": "gender",
@@ -54,7 +72,13 @@
       "options": [
         "male",
         "female"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "Biological sex for lean body mass and risk stratification, per WHO standards."
+      }
     },
     {
       "id": "activity_level",
@@ -71,7 +95,13 @@
         "moderate",
         "active",
         "very active"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Physical Activity Level"
+      },
+      "businessContext_i18n": {
+        "en": "Self-reported activity level for energy expenditure estimation, per ISO 8996 metabolic rate classification."
+      }
     },
     {
       "id": "waist_circumference_cm",
@@ -81,7 +111,13 @@
       "default": 80,
       "min": 40,
       "max": 200,
-      "businessContext": "Waist measurement for central obesity risk assessment, per IDF and Lean Six Sigma health metrics."
+      "businessContext": "Waist measurement for central obesity risk assessment, per IDF and Lean Six Sigma health metrics.",
+      "label_i18n": {
+        "en": "Waist Circumference (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Waist measurement for central obesity risk assessment, per IDF and Lean Six Sigma health metrics."
+      }
     }
   ],
   "validation": {

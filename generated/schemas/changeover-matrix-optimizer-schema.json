@@ -20,7 +20,13 @@
       "default": 45,
       "min": 0,
       "max": 480,
-      "businessContext": "Average time to switch from one product to another within the same production line. Based on SMED (Single-Minute Exchange of Die) standards."
+      "businessContext": "Average time to switch from one product to another within the same production line. Based on SMED (Single-Minute Exchange of Die) standards.",
+      "label_i18n": {
+        "en": "Changeover Time Matrix (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Average time to switch from one product to another within the same production line. Based on SMED (Single-Minute Exchange of Die) standards."
+      }
     },
     {
       "id": "number_of_changeovers_per_month",
@@ -30,7 +36,13 @@
       "default": 120,
       "min": 1,
       "max": 1000,
-      "businessContext": "Total changeovers performed monthly across all shifts. Used to calculate total changeover downtime."
+      "businessContext": "Total changeovers performed monthly across all shifts. Used to calculate total changeover downtime.",
+      "label_i18n": {
+        "en": "Number of Changeovers per Month"
+      },
+      "businessContext_i18n": {
+        "en": "Total changeovers performed monthly across all shifts. Used to calculate total changeover downtime."
+      }
     },
     {
       "id": "setup_external_time",
@@ -40,7 +52,13 @@
       "default": 15,
       "min": 0,
       "max": 240,
-      "businessContext": "Setup activities that can be performed while the machine is running (e.g., tool preparation). Target for SMED optimization."
+      "businessContext": "Setup activities that can be performed while the machine is running (e.g., tool preparation). Target for SMED optimization.",
+      "label_i18n": {
+        "en": "External Setup Time per Changeover (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Setup activities that can be performed while the machine is running (e.g., tool preparation). Target for SMED optimization."
+      }
     },
     {
       "id": "setup_internal_time",
@@ -50,7 +68,13 @@
       "default": 30,
       "min": 0,
       "max": 480,
-      "businessContext": "Setup activities that require the machine to be stopped. Primary target for reduction via SMED."
+      "businessContext": "Setup activities that require the machine to be stopped. Primary target for reduction via SMED.",
+      "label_i18n": {
+        "en": "Internal Setup Time per Changeover (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Setup activities that require the machine to be stopped. Primary target for reduction via SMED."
+      }
     },
     {
       "id": "product_family_count",
@@ -60,7 +84,13 @@
       "default": 5,
       "min": 2,
       "max": 50,
-      "businessContext": "Distinct product groups processed on the line. Higher counts increase changeover complexity."
+      "businessContext": "Distinct product groups processed on the line. Higher counts increase changeover complexity.",
+      "label_i18n": {
+        "en": "Number of Product Families"
+      },
+      "businessContext_i18n": {
+        "en": "Distinct product groups processed on the line. Higher counts increase changeover complexity."
+      }
     },
     {
       "id": "standard_deviation_changeover_time",
@@ -70,7 +100,13 @@
       "default": 8,
       "min": 0,
       "max": 120,
-      "businessContext": "Measure of variability in changeover times. Used for Six Sigma process capability analysis."
+      "businessContext": "Measure of variability in changeover times. Used for Six Sigma process capability analysis.",
+      "label_i18n": {
+        "en": "Standard Deviation of Changeover Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Measure of variability in changeover times. Used for Six Sigma process capability analysis."
+      }
     },
     {
       "id": "shift_pattern",
@@ -84,7 +120,13 @@
         "3-shift",
         "continuous"
       ],
-      "businessContext": "Operating schedule affecting available production time and changeover frequency."
+      "businessContext": "Operating schedule affecting available production time and changeover frequency.",
+      "label_i18n": {
+        "en": "Shift Pattern"
+      },
+      "businessContext_i18n": {
+        "en": "Operating schedule affecting available production time and changeover frequency."
+      }
     },
     {
       "id": "lean_smed_implemented",
@@ -92,7 +134,13 @@
       "type": "boolean",
       "unit": "",
       "default": false,
-      "businessContext": "Indicates whether Single-Minute Exchange of Die principles have been formally applied."
+      "businessContext": "Indicates whether Single-Minute Exchange of Die principles have been formally applied.",
+      "label_i18n": {
+        "en": "SMED Implementation Status"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates whether Single-Minute Exchange of Die principles have been formally applied."
+      }
     },
     {
       "id": "target_changeover_time",
@@ -102,7 +150,13 @@
       "default": 10,
       "min": 0,
       "max": 120,
-      "businessContext": "SMED target for changeover time reduction. Typically <10 minutes for world-class performance."
+      "businessContext": "SMED target for changeover time reduction. Typically <10 minutes for world-class performance.",
+      "label_i18n": {
+        "en": "Target Changeover Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "SMED target for changeover time reduction. Typically <10 minutes for world-class performance."
+      }
     }
   ],
   "validation": {

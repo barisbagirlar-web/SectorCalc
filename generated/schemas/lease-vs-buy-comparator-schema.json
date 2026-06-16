@@ -28,7 +28,13 @@
       "default": 100000,
       "min": 1000,
       "max": 10000000,
-      "businessContext": "Total upfront cost to acquire the asset if buying."
+      "businessContext": "Total upfront cost to acquire the asset if buying.",
+      "label_i18n": {
+        "en": "Equipment Purchase Price"
+      },
+      "businessContext_i18n": {
+        "en": "Total upfront cost to acquire the asset if buying."
+      }
     },
     {
       "id": "leaseTermMonths",
@@ -38,7 +44,13 @@
       "default": 36,
       "min": 12,
       "max": 120,
-      "businessContext": "Duration of the lease agreement in months."
+      "businessContext": "Duration of the lease agreement in months.",
+      "label_i18n": {
+        "en": "Lease Term"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the lease agreement in months."
+      }
     },
     {
       "id": "monthlyLeasePayment",
@@ -48,7 +60,13 @@
       "default": 2800,
       "min": 100,
       "max": 500000,
-      "businessContext": "Fixed monthly payment under the lease contract."
+      "businessContext": "Fixed monthly payment under the lease contract.",
+      "label_i18n": {
+        "en": "Monthly Lease Payment"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed monthly payment under the lease contract."
+      }
     },
     {
       "id": "residualValue",
@@ -58,7 +76,13 @@
       "default": 20000,
       "min": 0,
       "max": 5000000,
-      "businessContext": "Estimated market value of the equipment at lease end (if buying, this is salvage value)."
+      "businessContext": "Estimated market value of the equipment at lease end (if buying, this is salvage value).",
+      "label_i18n": {
+        "en": "Residual Value at End of Lease"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated market value of the equipment at lease end (if buying, this is salvage value)."
+      }
     },
     {
       "id": "annualMaintenanceCost",
@@ -68,7 +92,13 @@
       "default": 5000,
       "min": 0,
       "max": 500000,
-      "businessContext": "Expected yearly maintenance expense when owning the equipment."
+      "businessContext": "Expected yearly maintenance expense when owning the equipment.",
+      "label_i18n": {
+        "en": "Annual Maintenance Cost (Buy)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected yearly maintenance expense when owning the equipment."
+      }
     },
     {
       "id": "leaseMaintenanceIncluded",
@@ -76,7 +106,13 @@
       "type": "boolean",
       "unit": "",
       "default": true,
-      "businessContext": "Indicates whether the lease contract covers routine maintenance."
+      "businessContext": "Indicates whether the lease contract covers routine maintenance.",
+      "label_i18n": {
+        "en": "Maintenance Included in Lease?"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates whether the lease contract covers routine maintenance."
+      }
     },
     {
       "id": "discountRate",
@@ -86,7 +122,13 @@
       "default": 8,
       "min": 0,
       "max": 30,
-      "businessContext": "Weighted average cost of capital used to discount future cash flows."
+      "businessContext": "Weighted average cost of capital used to discount future cash flows.",
+      "label_i18n": {
+        "en": "Discount Rate (WACC)"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted average cost of capital used to discount future cash flows."
+      }
     },
     {
       "id": "utilizationRate",
@@ -96,7 +138,13 @@
       "default": 85,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of time the equipment is expected to be productive."
+      "businessContext": "Percentage of time the equipment is expected to be productive.",
+      "label_i18n": {
+        "en": "Expected Utilization Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of time the equipment is expected to be productive."
+      }
     },
     {
       "id": "taxRate",
@@ -106,7 +154,13 @@
       "default": 25,
       "min": 0,
       "max": 50,
-      "businessContext": "Corporate tax rate applied to depreciation and lease payment deductions."
+      "businessContext": "Corporate tax rate applied to depreciation and lease payment deductions.",
+      "label_i18n": {
+        "en": "Effective Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Corporate tax rate applied to depreciation and lease payment deductions."
+      }
     },
     {
       "id": "depreciationMethod",
@@ -119,7 +173,13 @@
         "MACRS-5yr",
         "MACRS-7yr"
       ],
-      "businessContext": "Method used to calculate annual depreciation for tax shield."
+      "businessContext": "Method used to calculate annual depreciation for tax shield.",
+      "label_i18n": {
+        "en": "Depreciation Method"
+      },
+      "businessContext_i18n": {
+        "en": "Method used to calculate annual depreciation for tax shield."
+      }
     },
     {
       "id": "leaseType",
@@ -131,7 +191,13 @@
         "operating",
         "capital"
       ],
-      "businessContext": "Operating lease is off-balance-sheet; capital lease is treated as ownership."
+      "businessContext": "Operating lease is off-balance-sheet; capital lease is treated as ownership.",
+      "label_i18n": {
+        "en": "Lease Type"
+      },
+      "businessContext_i18n": {
+        "en": "Operating lease is off-balance-sheet; capital lease is treated as ownership."
+      }
     }
   ],
   "validation": {

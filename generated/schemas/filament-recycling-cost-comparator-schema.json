@@ -19,7 +19,13 @@
       "default": 50000,
       "min": 10000,
       "max": 500000,
-      "businessContext": "Capital expenditure for the recycling extruder/pelletizer system."
+      "businessContext": "Capital expenditure for the recycling extruder/pelletizer system.",
+      "label_i18n": {
+        "en": "Recycling Machine Purchase Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Capital expenditure for the recycling extruder/pelletizer system."
+      }
     },
     {
       "id": "machine_life_years",
@@ -29,7 +35,13 @@
       "default": 10,
       "min": 3,
       "max": 20,
-      "businessContext": "Expected operational life before major overhaul or replacement."
+      "businessContext": "Expected operational life before major overhaul or replacement.",
+      "label_i18n": {
+        "en": "Machine Useful Life"
+      },
+      "businessContext_i18n": {
+        "en": "Expected operational life before major overhaul or replacement."
+      }
     },
     {
       "id": "annual_maintenance_cost",
@@ -39,7 +51,13 @@
       "default": 5000,
       "min": 1000,
       "max": 50000,
-      "businessContext": "Routine maintenance, spare parts, and service contracts."
+      "businessContext": "Routine maintenance, spare parts, and service contracts.",
+      "label_i18n": {
+        "en": "Annual Maintenance Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Routine maintenance, spare parts, and service contracts."
+      }
     },
     {
       "id": "electricity_price",
@@ -49,7 +67,13 @@
       "default": 0.12,
       "min": 0.05,
       "max": 0.4,
-      "businessContext": "Average industrial electricity rate."
+      "businessContext": "Average industrial electricity rate.",
+      "label_i18n": {
+        "en": "Electricity Price"
+      },
+      "businessContext_i18n": {
+        "en": "Average industrial electricity rate."
+      }
     },
     {
       "id": "recycling_energy_consumption",
@@ -59,7 +83,13 @@
       "default": 2.5,
       "min": 0.5,
       "max": 10,
-      "businessContext": "Energy required per kg of recycled filament produced."
+      "businessContext": "Energy required per kg of recycled filament produced.",
+      "label_i18n": {
+        "en": "Recycling Energy Consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Energy required per kg of recycled filament produced."
+      }
     },
     {
       "id": "labor_rate",
@@ -69,7 +99,13 @@
       "default": 25,
       "min": 10,
       "max": 80,
-      "businessContext": "Hourly wage including benefits for operator."
+      "businessContext": "Hourly wage including benefits for operator.",
+      "label_i18n": {
+        "en": "Labor Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly wage including benefits for operator."
+      }
     },
     {
       "id": "labor_hours_per_kg",
@@ -79,7 +115,13 @@
       "default": 0.05,
       "min": 0.01,
       "max": 0.5,
-      "businessContext": "Direct labor time to process one kg of recycled filament."
+      "businessContext": "Direct labor time to process one kg of recycled filament.",
+      "label_i18n": {
+        "en": "Labor Hours per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Direct labor time to process one kg of recycled filament."
+      }
     },
     {
       "id": "waste_collection_cost",
@@ -89,7 +131,13 @@
       "default": 0.3,
       "min": 0.05,
       "max": 2,
-      "businessContext": "Cost to collect and transport scrap plastic to recycling facility."
+      "businessContext": "Cost to collect and transport scrap plastic to recycling facility.",
+      "label_i18n": {
+        "en": "Waste Collection Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost to collect and transport scrap plastic to recycling facility."
+      }
     },
     {
       "id": "virgin_filament_price",
@@ -99,7 +147,13 @@
       "default": 25,
       "min": 10,
       "max": 100,
-      "businessContext": "Current market price for virgin PLA/ABS/PETG filament."
+      "businessContext": "Current market price for virgin PLA/ABS/PETG filament.",
+      "label_i18n": {
+        "en": "Virgin Filament Market Price"
+      },
+      "businessContext_i18n": {
+        "en": "Current market price for virgin PLA/ABS/PETG filament."
+      }
     },
     {
       "id": "recycling_yield",
@@ -109,7 +163,13 @@
       "default": 85,
       "min": 50,
       "max": 100,
-      "businessContext": "Percentage of input waste that becomes usable filament (losses due to contamination, degradation)."
+      "businessContext": "Percentage of input waste that becomes usable filament (losses due to contamination, degradation).",
+      "label_i18n": {
+        "en": "Recycling Yield"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of input waste that becomes usable filament (losses due to contamination, degradation)."
+      }
     },
     {
       "id": "quality_factor",
@@ -119,7 +179,13 @@
       "default": 90,
       "min": 60,
       "max": 100,
-      "businessContext": "Relative mechanical/print quality of recycled filament compared to virgin (e.g., 90% means 10% more material needed for same strength)."
+      "businessContext": "Relative mechanical/print quality of recycled filament compared to virgin (e.g., 90% means 10% more material needed for same strength).",
+      "label_i18n": {
+        "en": "Quality Factor (vs Virgin)"
+      },
+      "businessContext_i18n": {
+        "en": "Relative mechanical/print quality of recycled filament compared to virgin (e.g., 90% means 10% more material needed for same strength)."
+      }
     },
     {
       "id": "annual_production_volume",
@@ -129,7 +195,13 @@
       "default": 10000,
       "min": 1000,
       "max": 1000000,
-      "businessContext": "Total kg of recycled filament produced per year."
+      "businessContext": "Total kg of recycled filament produced per year.",
+      "label_i18n": {
+        "en": "Annual Production Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total kg of recycled filament produced per year."
+      }
     },
     {
       "id": "waste_type",
@@ -142,14 +214,26 @@
         "Mixed"
       ],
       "default": "PLA",
-      "businessContext": "Type of plastic waste being recycled; affects processing parameters and yield."
+      "businessContext": "Type of plastic waste being recycled; affects processing parameters and yield.",
+      "label_i18n": {
+        "en": "Waste Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of plastic waste being recycled; affects processing parameters and yield."
+      }
     },
     {
       "id": "include_carbon_cost",
       "label": "Include Carbon Cost",
       "type": "boolean",
       "default": true,
-      "businessContext": "If true, adds a carbon penalty cost based on estimated emissions."
+      "businessContext": "If true, adds a carbon penalty cost based on estimated emissions.",
+      "label_i18n": {
+        "en": "Include Carbon Cost"
+      },
+      "businessContext_i18n": {
+        "en": "If true, adds a carbon penalty cost based on estimated emissions."
+      }
     },
     {
       "id": "carbon_price",
@@ -159,7 +243,13 @@
       "default": 50,
       "min": 0,
       "max": 200,
-      "businessContext": "Social cost of carbon or carbon tax per metric ton of CO2 equivalent."
+      "businessContext": "Social cost of carbon or carbon tax per metric ton of CO2 equivalent.",
+      "label_i18n": {
+        "en": "Carbon Price"
+      },
+      "businessContext_i18n": {
+        "en": "Social cost of carbon or carbon tax per metric ton of CO2 equivalent."
+      }
     }
   ],
   "validation": {

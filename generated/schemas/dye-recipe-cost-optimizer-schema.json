@@ -19,7 +19,13 @@
       "default": 1000,
       "min": 10,
       "max": 100000,
-      "businessContext": "Total volume of dye liquor in the batch."
+      "businessContext": "Total volume of dye liquor in the batch.",
+      "label_i18n": {
+        "en": "Dye bath volume (liters)"
+      },
+      "businessContext_i18n": {
+        "en": "Total volume of dye liquor in the batch."
+      }
     },
     {
       "id": "dye_concentration_gpl",
@@ -29,7 +35,13 @@
       "default": 5,
       "min": 0.1,
       "max": 100,
-      "businessContext": "Grams of dye powder per liter of bath."
+      "businessContext": "Grams of dye powder per liter of bath.",
+      "label_i18n": {
+        "en": "Dye concentration (g/L)"
+      },
+      "businessContext_i18n": {
+        "en": "Grams of dye powder per liter of bath."
+      }
     },
     {
       "id": "dye_price_per_kg",
@@ -39,7 +51,13 @@
       "default": 25,
       "min": 1,
       "max": 500,
-      "businessContext": "Purchase price of dye powder."
+      "businessContext": "Purchase price of dye powder.",
+      "label_i18n": {
+        "en": "Dye price (USD/kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase price of dye powder."
+      }
     },
     {
       "id": "chemicals_per_liter",
@@ -49,7 +67,13 @@
       "default": 0.15,
       "min": 0,
       "max": 10,
-      "businessContext": "Cost of salts, acids, bases, etc., per liter of bath."
+      "businessContext": "Cost of salts, acids, bases, etc., per liter of bath.",
+      "label_i18n": {
+        "en": "Auxiliary chemicals cost (USD/L)"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of salts, acids, bases, etc., per liter of bath."
+      }
     },
     {
       "id": "energy_cost_per_batch",
@@ -59,7 +83,13 @@
       "default": 50,
       "min": 0,
       "max": 10000,
-      "businessContext": "Electricity, steam, or gas cost for heating and running the dyeing machine."
+      "businessContext": "Electricity, steam, or gas cost for heating and running the dyeing machine.",
+      "label_i18n": {
+        "en": "Energy cost per batch (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Electricity, steam, or gas cost for heating and running the dyeing machine."
+      }
     },
     {
       "id": "labor_cost_per_hour",
@@ -69,7 +99,13 @@
       "default": 25,
       "min": 0,
       "max": 200,
-      "businessContext": "Hourly wage including overhead."
+      "businessContext": "Hourly wage including overhead.",
+      "label_i18n": {
+        "en": "Labor cost (USD/hour)"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly wage including overhead."
+      }
     },
     {
       "id": "batch_time_hours",
@@ -79,7 +115,13 @@
       "default": 4,
       "min": 0.5,
       "max": 48,
-      "businessContext": "Total time from loading to unloading."
+      "businessContext": "Total time from loading to unloading.",
+      "label_i18n": {
+        "en": "Batch cycle time (hours)"
+      },
+      "businessContext_i18n": {
+        "en": "Total time from loading to unloading."
+      }
     },
     {
       "id": "waste_percentage",
@@ -89,7 +131,13 @@
       "default": 3,
       "min": 0,
       "max": 50,
-      "businessContext": "Percentage of batches that require re-dyeing or are scrapped."
+      "businessContext": "Percentage of batches that require re-dyeing or are scrapped.",
+      "label_i18n": {
+        "en": "Waste / rework rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of batches that require re-dyeing or are scrapped."
+      }
     },
     {
       "id": "water_cost_per_m3",
@@ -99,7 +147,13 @@
       "default": 2.5,
       "min": 0,
       "max": 20,
-      "businessContext": "Cost of fresh water and wastewater treatment."
+      "businessContext": "Cost of fresh water and wastewater treatment.",
+      "label_i18n": {
+        "en": "Water cost (USD/m³)"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of fresh water and wastewater treatment."
+      }
     },
     {
       "id": "water_usage_l_per_kg",
@@ -109,7 +163,13 @@
       "default": 100,
       "min": 10,
       "max": 500,
-      "businessContext": "Typical water consumption per kg of fabric processed."
+      "businessContext": "Typical water consumption per kg of fabric processed.",
+      "label_i18n": {
+        "en": "Water usage (L/kg fabric)"
+      },
+      "businessContext_i18n": {
+        "en": "Typical water consumption per kg of fabric processed."
+      }
     },
     {
       "id": "fabric_weight_kg",
@@ -119,7 +179,13 @@
       "default": 200,
       "min": 1,
       "max": 50000,
-      "businessContext": "Weight of fabric in the batch."
+      "businessContext": "Weight of fabric in the batch.",
+      "label_i18n": {
+        "en": "Fabric weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Weight of fabric in the batch."
+      }
     },
     {
       "id": "dye_type",
@@ -148,14 +214,26 @@
         }
       ],
       "default": "reactive",
-      "businessContext": "Chemical class of dye, affects fixation efficiency and cost."
+      "businessContext": "Chemical class of dye, affects fixation efficiency and cost.",
+      "label_i18n": {
+        "en": "Dye class"
+      },
+      "businessContext_i18n": {
+        "en": "Chemical class of dye, affects fixation efficiency and cost."
+      }
     },
     {
       "id": "use_lean_optimization",
       "label": "Enable Lean optimization (reduce waste)",
       "type": "boolean",
       "default": false,
-      "businessContext": "If true, applies lean principles to reduce waste and rework."
+      "businessContext": "If true, applies lean principles to reduce waste and rework.",
+      "label_i18n": {
+        "en": "Enable Lean optimization (reduce waste)"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies lean principles to reduce waste and rework."
+      }
     }
   ],
   "validation": {

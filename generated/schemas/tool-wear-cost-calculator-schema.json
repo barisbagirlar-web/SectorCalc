@@ -19,7 +19,13 @@
       "default": 150,
       "min": 0,
       "max": 10000,
-      "businessContext": "Purchase price of a single cutting tool or insert."
+      "businessContext": "Purchase price of a single cutting tool or insert.",
+      "label_i18n": {
+        "en": "Tool Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase price of a single cutting tool or insert."
+      }
     },
     {
       "id": "tool_life_parts",
@@ -29,7 +35,13 @@
       "default": 500,
       "min": 1,
       "max": 100000,
-      "businessContext": "Average number of parts produced before tool replacement is required."
+      "businessContext": "Average number of parts produced before tool replacement is required.",
+      "label_i18n": {
+        "en": "Tool Life (Parts per Tool)"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of parts produced before tool replacement is required."
+      }
     },
     {
       "id": "replacement_time_min",
@@ -39,7 +51,13 @@
       "default": 10,
       "min": 0,
       "max": 120,
-      "businessContext": "Time required to replace or index the tool."
+      "businessContext": "Time required to replace or index the tool.",
+      "label_i18n": {
+        "en": "Replacement Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time required to replace or index the tool."
+      }
     },
     {
       "id": "machine_hourly_rate",
@@ -49,7 +67,13 @@
       "default": 85,
       "min": 0,
       "max": 500,
-      "businessContext": "Fully burdened cost per hour of machine operation (including labor, overhead, depreciation)."
+      "businessContext": "Fully burdened cost per hour of machine operation (including labor, overhead, depreciation).",
+      "label_i18n": {
+        "en": "Machine Hourly Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Fully burdened cost per hour of machine operation (including labor, overhead, depreciation)."
+      }
     },
     {
       "id": "rework_rate",
@@ -59,7 +83,13 @@
       "default": 2,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of parts requiring rework due to tool wear, based on Six Sigma defect tracking."
+      "businessContext": "Percentage of parts requiring rework due to tool wear, based on Six Sigma defect tracking.",
+      "label_i18n": {
+        "en": "Rework Rate due to Wear"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of parts requiring rework due to tool wear, based on Six Sigma defect tracking."
+      }
     },
     {
       "id": "rework_cost_per_part",
@@ -69,7 +99,13 @@
       "default": 5,
       "min": 0,
       "max": 500,
-      "businessContext": "Average cost to rework a defective part (material, labor, overhead)."
+      "businessContext": "Average cost to rework a defective part (material, labor, overhead).",
+      "label_i18n": {
+        "en": "Rework Cost per Part"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost to rework a defective part (material, labor, overhead)."
+      }
     },
     {
       "id": "scrap_rate",
@@ -79,7 +115,13 @@
       "default": 0.5,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of parts scrapped due to tool wear beyond tolerance."
+      "businessContext": "Percentage of parts scrapped due to tool wear beyond tolerance.",
+      "label_i18n": {
+        "en": "Scrap Rate due to Wear"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of parts scrapped due to tool wear beyond tolerance."
+      }
     },
     {
       "id": "scrap_material_cost",
@@ -89,7 +131,13 @@
       "default": 12,
       "min": 0,
       "max": 1000,
-      "businessContext": "Cost of raw material lost per scrapped part."
+      "businessContext": "Cost of raw material lost per scrapped part.",
+      "label_i18n": {
+        "en": "Scrap Material Cost per Part"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of raw material lost per scrapped part."
+      }
     },
     {
       "id": "tool_type",
@@ -104,7 +152,13 @@
         "diamond",
         "hss"
       ],
-      "businessContext": "Material of the cutting tool, affects wear rate and cost multipliers."
+      "businessContext": "Material of the cutting tool, affects wear rate and cost multipliers.",
+      "label_i18n": {
+        "en": "Tool Type"
+      },
+      "businessContext_i18n": {
+        "en": "Material of the cutting tool, affects wear rate and cost multipliers."
+      }
     },
     {
       "id": "coolant_used",
@@ -112,7 +166,13 @@
       "type": "boolean",
       "unit": "",
       "default": true,
-      "businessContext": "Indicates if coolant is used; affects tool life and wear rate."
+      "businessContext": "Indicates if coolant is used; affects tool life and wear rate.",
+      "label_i18n": {
+        "en": "Coolant Used"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if coolant is used; affects tool life and wear rate."
+      }
     }
   ],
   "validation": {

@@ -19,7 +19,13 @@
       "default": 100000,
       "min": 0,
       "max": 1000000000,
-      "businessContext": "Total cost of goods or services at the start of the analysis period."
+      "businessContext": "Total cost of goods or services at the start of the analysis period.",
+      "label_i18n": {
+        "en": "Base Cost (Current Period)"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost of goods or services at the start of the analysis period."
+      }
     },
     {
       "id": "inflation_rate",
@@ -29,7 +35,13 @@
       "default": 3,
       "min": 0,
       "max": 100,
-      "businessContext": "Expected annual inflation rate for the cost category (e.g., CPI, PPI)."
+      "businessContext": "Expected annual inflation rate for the cost category (e.g., CPI, PPI).",
+      "label_i18n": {
+        "en": "Annual Inflation Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual inflation rate for the cost category (e.g., CPI, PPI)."
+      }
     },
     {
       "id": "period_years",
@@ -39,7 +51,13 @@
       "default": 5,
       "min": 1,
       "max": 50,
-      "businessContext": "Number of years over which inflation escalation is calculated."
+      "businessContext": "Number of years over which inflation escalation is calculated.",
+      "label_i18n": {
+        "en": "Analysis Period (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of years over which inflation escalation is calculated."
+      }
     },
     {
       "id": "escalation_method",
@@ -51,14 +69,26 @@
         "stepwise"
       ],
       "default": "compound",
-      "businessContext": "Method to apply inflation: compound (annual compounding), simple (linear), or stepwise (discrete annual steps)."
+      "businessContext": "Method to apply inflation: compound (annual compounding), simple (linear), or stepwise (discrete annual steps).",
+      "label_i18n": {
+        "en": "Escalation Method"
+      },
+      "businessContext_i18n": {
+        "en": "Method to apply inflation: compound (annual compounding), simple (linear), or stepwise (discrete annual steps)."
+      }
     },
     {
       "id": "include_energy",
       "label": "Include Energy Cost Escalation",
       "type": "boolean",
       "default": true,
-      "businessContext": "If true, applies a separate energy escalation factor (typically higher than general inflation)."
+      "businessContext": "If true, applies a separate energy escalation factor (typically higher than general inflation).",
+      "label_i18n": {
+        "en": "Include Energy Cost Escalation"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies a separate energy escalation factor (typically higher than general inflation)."
+      }
     },
     {
       "id": "energy_escalation_rate",
@@ -68,7 +98,13 @@
       "default": 5,
       "min": 0,
       "max": 100,
-      "businessContext": "Annual escalation rate for energy costs, often based on EIA forecasts."
+      "businessContext": "Annual escalation rate for energy costs, often based on EIA forecasts.",
+      "label_i18n": {
+        "en": "Energy Escalation Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual escalation rate for energy costs, often based on EIA forecasts."
+      }
     },
     {
       "id": "labor_productivity_gain",
@@ -78,7 +114,13 @@
       "default": 1,
       "min": -10,
       "max": 20,
-      "businessContext": "Annual productivity improvement that offsets labor cost inflation (Lean / Six Sigma metric)."
+      "businessContext": "Annual productivity improvement that offsets labor cost inflation (Lean / Six Sigma metric).",
+      "label_i18n": {
+        "en": "Labor Productivity Gain"
+      },
+      "businessContext_i18n": {
+        "en": "Annual productivity improvement that offsets labor cost inflation (Lean / Six Sigma metric)."
+      }
     },
     {
       "id": "material_volatility_index",
@@ -88,7 +130,13 @@
       "default": 1,
       "min": 0.5,
       "max": 3,
-      "businessContext": "Multiplier to adjust material inflation based on commodity volatility (e.g., copper, steel)."
+      "businessContext": "Multiplier to adjust material inflation based on commodity volatility (e.g., copper, steel).",
+      "label_i18n": {
+        "en": "Material Volatility Index"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to adjust material inflation based on commodity volatility (e.g., copper, steel)."
+      }
     }
   ],
   "validation": {

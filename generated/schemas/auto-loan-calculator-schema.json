@@ -22,7 +22,13 @@
       "default": 35000,
       "min": 1000,
       "max": 200000,
-      "businessContext": "Total negotiated price including destination, dealer fees, and taxes before down payment."
+      "businessContext": "Total negotiated price including destination, dealer fees, and taxes before down payment.",
+      "label_i18n": {
+        "en": "Vehicle Price (MSRP + Fees)"
+      },
+      "businessContext_i18n": {
+        "en": "Total negotiated price including destination, dealer fees, and taxes before down payment."
+      }
     },
     {
       "id": "down_payment",
@@ -32,7 +38,13 @@
       "default": 5000,
       "min": 0,
       "max": 100000,
-      "businessContext": "Initial cash payment reducing loan principal."
+      "businessContext": "Initial cash payment reducing loan principal.",
+      "label_i18n": {
+        "en": "Down Payment"
+      },
+      "businessContext_i18n": {
+        "en": "Initial cash payment reducing loan principal."
+      }
     },
     {
       "id": "trade_in_value",
@@ -42,7 +54,13 @@
       "default": 0,
       "min": 0,
       "max": 100000,
-      "businessContext": "Value of vehicle traded in, applied to reduce principal."
+      "businessContext": "Value of vehicle traded in, applied to reduce principal.",
+      "label_i18n": {
+        "en": "Trade-In Value"
+      },
+      "businessContext_i18n": {
+        "en": "Value of vehicle traded in, applied to reduce principal."
+      }
     },
     {
       "id": "annual_interest_rate",
@@ -52,7 +70,13 @@
       "default": 6.5,
       "min": 0.5,
       "max": 25,
-      "businessContext": "Nominal annual percentage rate (APR) offered by lender."
+      "businessContext": "Nominal annual percentage rate (APR) offered by lender.",
+      "label_i18n": {
+        "en": "Annual Interest Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal annual percentage rate (APR) offered by lender."
+      }
     },
     {
       "id": "loan_term_months",
@@ -62,7 +86,13 @@
       "default": 60,
       "min": 12,
       "max": 84,
-      "businessContext": "Duration of loan in months. Standard terms: 36, 48, 60, 72, 84."
+      "businessContext": "Duration of loan in months. Standard terms: 36, 48, 60, 72, 84.",
+      "label_i18n": {
+        "en": "Loan Term"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of loan in months. Standard terms: 36, 48, 60, 72, 84."
+      }
     },
     {
       "id": "credit_score",
@@ -72,7 +102,13 @@
       "default": 700,
       "min": 300,
       "max": 850,
-      "businessContext": "FICO score used to adjust risk premium and interest rate."
+      "businessContext": "FICO score used to adjust risk premium and interest rate.",
+      "label_i18n": {
+        "en": "Credit Score"
+      },
+      "businessContext_i18n": {
+        "en": "FICO score used to adjust risk premium and interest rate."
+      }
     },
     {
       "id": "monthly_income",
@@ -82,7 +118,13 @@
       "default": 5000,
       "min": 1000,
       "max": 50000,
-      "businessContext": "Pre-tax monthly income for debt-to-income ratio calculation."
+      "businessContext": "Pre-tax monthly income for debt-to-income ratio calculation.",
+      "label_i18n": {
+        "en": "Monthly Gross Income"
+      },
+      "businessContext_i18n": {
+        "en": "Pre-tax monthly income for debt-to-income ratio calculation."
+      }
     },
     {
       "id": "existing_monthly_debt",
@@ -92,7 +134,13 @@
       "default": 500,
       "min": 0,
       "max": 20000,
-      "businessContext": "Sum of all other monthly debt obligations (credit cards, student loans, etc.)."
+      "businessContext": "Sum of all other monthly debt obligations (credit cards, student loans, etc.).",
+      "label_i18n": {
+        "en": "Existing Monthly Debt Payments"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of all other monthly debt obligations (credit cards, student loans, etc.)."
+      }
     },
     {
       "id": "insurance_cost_monthly",
@@ -102,7 +150,13 @@
       "default": 120,
       "min": 30,
       "max": 500,
-      "businessContext": "Estimated monthly auto insurance cost for the vehicle."
+      "businessContext": "Estimated monthly auto insurance cost for the vehicle.",
+      "label_i18n": {
+        "en": "Monthly Insurance Premium"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated monthly auto insurance cost for the vehicle."
+      }
     },
     {
       "id": "fuel_cost_monthly",
@@ -112,7 +166,13 @@
       "default": 150,
       "min": 0,
       "max": 1000,
-      "businessContext": "Estimated monthly fuel expense based on mileage and fuel efficiency."
+      "businessContext": "Estimated monthly fuel expense based on mileage and fuel efficiency.",
+      "label_i18n": {
+        "en": "Monthly Fuel Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated monthly fuel expense based on mileage and fuel efficiency."
+      }
     },
     {
       "id": "maintenance_cost_monthly",
@@ -122,7 +182,13 @@
       "default": 80,
       "min": 0,
       "max": 500,
-      "businessContext": "Average monthly cost for routine maintenance, tires, and unexpected repairs."
+      "businessContext": "Average monthly cost for routine maintenance, tires, and unexpected repairs.",
+      "label_i18n": {
+        "en": "Monthly Maintenance & Repairs"
+      },
+      "businessContext_i18n": {
+        "en": "Average monthly cost for routine maintenance, tires, and unexpected repairs."
+      }
     },
     {
       "id": "depreciation_rate_annual",
@@ -132,7 +198,13 @@
       "default": 15,
       "min": 5,
       "max": 40,
-      "businessContext": "Expected annual depreciation as percentage of vehicle value. Industry average 15-20%."
+      "businessContext": "Expected annual depreciation as percentage of vehicle value. Industry average 15-20%.",
+      "label_i18n": {
+        "en": "Annual Depreciation Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual depreciation as percentage of vehicle value. Industry average 15-20%."
+      }
     },
     {
       "id": "sales_tax_rate",
@@ -142,7 +214,13 @@
       "default": 7,
       "min": 0,
       "max": 15,
-      "businessContext": "State and local sales tax applied to vehicle purchase price."
+      "businessContext": "State and local sales tax applied to vehicle purchase price.",
+      "label_i18n": {
+        "en": "Sales Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "State and local sales tax applied to vehicle purchase price."
+      }
     },
     {
       "id": "registration_fee_annual",
@@ -152,7 +230,13 @@
       "default": 200,
       "min": 0,
       "max": 2000,
-      "businessContext": "Yearly vehicle registration and license plate fees."
+      "businessContext": "Yearly vehicle registration and license plate fees.",
+      "label_i18n": {
+        "en": "Annual Registration Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Yearly vehicle registration and license plate fees."
+      }
     }
   ],
   "validation": {

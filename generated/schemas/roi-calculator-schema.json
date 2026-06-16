@@ -19,7 +19,13 @@
       "default": 10000000,
       "min": 100000,
       "max": 10000000000,
-      "businessContext": "Total annual revenue of the facility or business unit."
+      "businessContext": "Total annual revenue of the facility or business unit.",
+      "label_i18n": {
+        "en": "Annual Revenue (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Total annual revenue of the facility or business unit."
+      }
     },
     {
       "id": "operating_margin",
@@ -29,7 +35,13 @@
       "default": 10,
       "min": 0,
       "max": 100,
-      "businessContext": "Current operating profit margin as a percentage of revenue."
+      "businessContext": "Current operating profit margin as a percentage of revenue.",
+      "label_i18n": {
+        "en": "Operating Margin (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Current operating profit margin as a percentage of revenue."
+      }
     },
     {
       "id": "total_inventory_value",
@@ -39,7 +51,13 @@
       "default": 2000000,
       "min": 0,
       "max": 1000000000,
-      "businessContext": "Current value of all inventory held (raw materials, WIP, finished goods)."
+      "businessContext": "Current value of all inventory held (raw materials, WIP, finished goods).",
+      "label_i18n": {
+        "en": "Total Inventory Value (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Current value of all inventory held (raw materials, WIP, finished goods)."
+      }
     },
     {
       "id": "inventory_carrying_cost_percent",
@@ -49,7 +67,13 @@
       "default": 25,
       "min": 0,
       "max": 50,
-      "businessContext": "Annual cost to hold inventory (storage, insurance, obsolescence, capital cost). Typical range 20-30%."
+      "businessContext": "Annual cost to hold inventory (storage, insurance, obsolescence, capital cost). Typical range 20-30%.",
+      "label_i18n": {
+        "en": "Inventory Carrying Cost (% of inventory value)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual cost to hold inventory (storage, insurance, obsolescence, capital cost). Typical range 20-30%."
+      }
     },
     {
       "id": "annual_labor_cost",
@@ -59,7 +83,13 @@
       "default": 3000000,
       "min": 0,
       "max": 1000000000,
-      "businessContext": "Total annual cost of direct labor in the operation."
+      "businessContext": "Total annual cost of direct labor in the operation.",
+      "label_i18n": {
+        "en": "Annual Direct Labor Cost (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Total annual cost of direct labor in the operation."
+      }
     },
     {
       "id": "defect_rate_percent",
@@ -69,7 +99,13 @@
       "default": 5,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of products that do not meet quality standards (Six Sigma metric)."
+      "businessContext": "Percentage of products that do not meet quality standards (Six Sigma metric).",
+      "label_i18n": {
+        "en": "Defect Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of products that do not meet quality standards (Six Sigma metric)."
+      }
     },
     {
       "id": "cost_per_defect",
@@ -79,7 +115,13 @@
       "default": 500,
       "min": 0,
       "max": 100000,
-      "businessContext": "Average cost incurred per defective unit (rework, scrap, warranty)."
+      "businessContext": "Average cost incurred per defective unit (rework, scrap, warranty).",
+      "label_i18n": {
+        "en": "Cost per Defect (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost incurred per defective unit (rework, scrap, warranty)."
+      }
     },
     {
       "id": "annual_energy_cost",
@@ -89,7 +131,13 @@
       "default": 500000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Total annual energy expenditure for the facility."
+      "businessContext": "Total annual energy expenditure for the facility.",
+      "label_i18n": {
+        "en": "Annual Energy Cost (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Total annual energy expenditure for the facility."
+      }
     },
     {
       "id": "lean_implementation_cost",
@@ -99,7 +147,13 @@
       "default": 200000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "One-time cost for implementing Lean/Six Sigma improvements (training, tools, consulting)."
+      "businessContext": "One-time cost for implementing Lean/Six Sigma improvements (training, tools, consulting).",
+      "label_i18n": {
+        "en": "Lean Implementation Cost (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "One-time cost for implementing Lean/Six Sigma improvements (training, tools, consulting)."
+      }
     },
     {
       "id": "expected_improvement_factor",
@@ -109,7 +163,13 @@
       "default": 0.15,
       "min": 0,
       "max": 1,
-      "businessContext": "Expected fractional improvement from Lean initiatives (e.g., 0.15 = 15% reduction in waste)."
+      "businessContext": "Expected fractional improvement from Lean initiatives (e.g., 0.15 = 15% reduction in waste).",
+      "label_i18n": {
+        "en": "Expected Improvement Factor (0-1)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected fractional improvement from Lean initiatives (e.g., 0.15 = 15% reduction in waste)."
+      }
     },
     {
       "id": "industry_type",
@@ -124,7 +184,13 @@
         "assembly",
         "process"
       ],
-      "businessContext": "Type of industrial operation for benchmarking and standard adjustments."
+      "businessContext": "Type of industrial operation for benchmarking and standard adjustments.",
+      "label_i18n": {
+        "en": "Industry Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of industrial operation for benchmarking and standard adjustments."
+      }
     },
     {
       "id": "iso_certified",
@@ -132,7 +198,13 @@
       "type": "boolean",
       "unit": "none",
       "default": false,
-      "businessContext": "Indicates if the facility is ISO 9001 certified, affecting quality cost baselines."
+      "businessContext": "Indicates if the facility is ISO 9001 certified, affecting quality cost baselines.",
+      "label_i18n": {
+        "en": "ISO 9001 Certified"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if the facility is ISO 9001 certified, affecting quality cost baselines."
+      }
     }
   ],
   "validation": {

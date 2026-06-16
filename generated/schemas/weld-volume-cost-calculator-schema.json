@@ -46,7 +46,13 @@
           "value": "double_bevel",
           "label": "Double Bevel"
         }
-      ]
+      ],
+      "label_i18n": {
+        "en": "Joint Type"
+      },
+      "businessContext_i18n": {
+        "en": "Select the weld joint geometry per ISO 9692. Affects volume calculation formula."
+      }
     },
     {
       "id": "plate_thickness",
@@ -56,7 +62,13 @@
       "default": 10,
       "min": 1,
       "max": 200,
-      "businessContext": "Thickness of the base metal. Critical for groove volume calculation."
+      "businessContext": "Thickness of the base metal. Critical for groove volume calculation.",
+      "label_i18n": {
+        "en": "Plate Thickness (t)"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the base metal. Critical for groove volume calculation."
+      }
     },
     {
       "id": "root_face",
@@ -66,7 +78,13 @@
       "default": 2,
       "min": 0,
       "max": 10,
-      "businessContext": "Land at the root of the groove. Affects effective depth."
+      "businessContext": "Land at the root of the groove. Affects effective depth.",
+      "label_i18n": {
+        "en": "Root Face (f)"
+      },
+      "businessContext_i18n": {
+        "en": "Land at the root of the groove. Affects effective depth."
+      }
     },
     {
       "id": "root_gap",
@@ -76,7 +94,13 @@
       "default": 3,
       "min": 0,
       "max": 10,
-      "businessContext": "Gap between plates at root. Increases weld volume."
+      "businessContext": "Gap between plates at root. Increases weld volume.",
+      "label_i18n": {
+        "en": "Root Gap (g)"
+      },
+      "businessContext_i18n": {
+        "en": "Gap between plates at root. Increases weld volume."
+      }
     },
     {
       "id": "groove_angle",
@@ -86,7 +110,13 @@
       "default": 60,
       "min": 20,
       "max": 90,
-      "businessContext": "Included angle of V-groove. Standard range per AWS D1.1."
+      "businessContext": "Included angle of V-groove. Standard range per AWS D1.1.",
+      "label_i18n": {
+        "en": "Groove Angle (α)"
+      },
+      "businessContext_i18n": {
+        "en": "Included angle of V-groove. Standard range per AWS D1.1."
+      }
     },
     {
       "id": "weld_length",
@@ -96,7 +126,13 @@
       "default": 1000,
       "min": 10,
       "max": 100000,
-      "businessContext": "Total length of the weld seam."
+      "businessContext": "Total length of the weld seam.",
+      "label_i18n": {
+        "en": "Weld Length (L)"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of the weld seam."
+      }
     },
     {
       "id": "leg_length",
@@ -106,7 +142,13 @@
       "default": 6,
       "min": 2,
       "max": 50,
-      "businessContext": "Fillet weld leg size. Only used when joint_type = fillet."
+      "businessContext": "Fillet weld leg size. Only used when joint_type = fillet.",
+      "label_i18n": {
+        "en": "Leg Length (for fillet)"
+      },
+      "businessContext_i18n": {
+        "en": "Fillet weld leg size. Only used when joint_type = fillet."
+      }
     },
     {
       "id": "weld_process",
@@ -138,7 +180,13 @@
           "value": "GTAW",
           "label": "Gas Tungsten Arc (GTAW/TIG)"
         }
-      ]
+      ],
+      "label_i18n": {
+        "en": "Welding Process"
+      },
+      "businessContext_i18n": {
+        "en": "Select the welding process. Affects deposition efficiency and labor rate."
+      }
     },
     {
       "id": "material_density",
@@ -148,7 +196,13 @@
       "default": 7.85,
       "min": 2.7,
       "max": 19.3,
-      "businessContext": "Density of weld metal. Steel ~7.85, Aluminum ~2.7, Stainless ~8.0."
+      "businessContext": "Density of weld metal. Steel ~7.85, Aluminum ~2.7, Stainless ~8.0.",
+      "label_i18n": {
+        "en": "Material Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of weld metal. Steel ~7.85, Aluminum ~2.7, Stainless ~8.0."
+      }
     },
     {
       "id": "labor_rate",
@@ -158,7 +212,13 @@
       "default": 45,
       "min": 10,
       "max": 200,
-      "businessContext": "Hourly cost of welder including overhead."
+      "businessContext": "Hourly cost of welder including overhead.",
+      "label_i18n": {
+        "en": "Labor Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly cost of welder including overhead."
+      }
     },
     {
       "id": "overhead_rate",
@@ -168,7 +228,13 @@
       "default": 30,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage added to direct labor for indirect costs."
+      "businessContext": "Percentage added to direct labor for indirect costs.",
+      "label_i18n": {
+        "en": "Overhead Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage added to direct labor for indirect costs."
+      }
     },
     {
       "id": "consumable_cost_per_kg",
@@ -178,7 +244,13 @@
       "default": 5.5,
       "min": 1,
       "max": 50,
-      "businessContext": "Cost of filler metal per kilogram."
+      "businessContext": "Cost of filler metal per kilogram.",
+      "label_i18n": {
+        "en": "Consumable Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of filler metal per kilogram."
+      }
     },
     {
       "id": "deposition_efficiency",
@@ -188,7 +260,13 @@
       "default": 65,
       "min": 30,
       "max": 99,
-      "businessContext": "Ratio of deposited metal to consumed filler. Varies by process: SMAW~65%, GMAW~90%, FCAW~85%, SAW~99%, GTAW~95%."
+      "businessContext": "Ratio of deposited metal to consumed filler. Varies by process: SMAW~65%, GMAW~90%, FCAW~85%, SAW~99%, GTAW~95%.",
+      "label_i18n": {
+        "en": "Deposition Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of deposited metal to consumed filler. Varies by process: SMAW~65%, GMAW~90%, FCAW~85%, SAW~99%, GTAW~95%."
+      }
     },
     {
       "id": "operator_factor",
@@ -198,7 +276,13 @@
       "default": 40,
       "min": 10,
       "max": 80,
-      "businessContext": "Percentage of total time that the welder is actually depositing metal. Typical range 20-50%."
+      "businessContext": "Percentage of total time that the welder is actually depositing metal. Typical range 20-50%.",
+      "label_i18n": {
+        "en": "Operator Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of total time that the welder is actually depositing metal. Typical range 20-50%."
+      }
     },
     {
       "id": "weld_speed",
@@ -208,7 +292,13 @@
       "default": 300,
       "min": 50,
       "max": 2000,
-      "businessContext": "Travel speed of the welding arc. Affects deposition rate and time."
+      "businessContext": "Travel speed of the welding arc. Affects deposition rate and time.",
+      "label_i18n": {
+        "en": "Weld Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Travel speed of the welding arc. Affects deposition rate and time."
+      }
     },
     {
       "id": "wire_feed_speed",
@@ -218,7 +308,13 @@
       "default": 8,
       "min": 1,
       "max": 30,
-      "businessContext": "Only for GMAW/FCAW processes. Used to calculate deposition rate."
+      "businessContext": "Only for GMAW/FCAW processes. Used to calculate deposition rate.",
+      "label_i18n": {
+        "en": "Wire Feed Speed (if applicable)"
+      },
+      "businessContext_i18n": {
+        "en": "Only for GMAW/FCAW processes. Used to calculate deposition rate."
+      }
     },
     {
       "id": "wire_diameter",
@@ -228,7 +324,13 @@
       "default": 1.2,
       "min": 0.8,
       "max": 4,
-      "businessContext": "Diameter of filler wire. Affects cross-sectional area and deposition rate."
+      "businessContext": "Diameter of filler wire. Affects cross-sectional area and deposition rate.",
+      "label_i18n": {
+        "en": "Wire Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of filler wire. Affects cross-sectional area and deposition rate."
+      }
     },
     {
       "id": "use_premium_data",
@@ -238,7 +340,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If true, adjusts deposition efficiency and operator factor based on historical data from premium database."
+      "businessContext": "If true, adjusts deposition efficiency and operator factor based on historical data from premium database.",
+      "label_i18n": {
+        "en": "Use Premium Data (historical trends)"
+      },
+      "businessContext_i18n": {
+        "en": "If true, adjusts deposition efficiency and operator factor based on historical data from premium database."
+      }
     }
   ],
   "validation": {

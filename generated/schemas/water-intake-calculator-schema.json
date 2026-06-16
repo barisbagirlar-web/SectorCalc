@@ -17,7 +17,13 @@
       "default": 100,
       "min": 1,
       "max": 100000,
-      "businessContext": "Total full-time equivalent employees on site."
+      "businessContext": "Total full-time equivalent employees on site.",
+      "label_i18n": {
+        "en": "Number of Employees"
+      },
+      "businessContext_i18n": {
+        "en": "Total full-time equivalent employees on site."
+      }
     },
     {
       "id": "workDaysPerYear",
@@ -27,7 +33,13 @@
       "default": 250,
       "min": 1,
       "max": 365,
-      "businessContext": "Number of operating days per year."
+      "businessContext": "Number of operating days per year.",
+      "label_i18n": {
+        "en": "Work Days per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of operating days per year."
+      }
     },
     {
       "id": "avgWaterUsePerPersonPerDay",
@@ -37,7 +49,13 @@
       "default": 50,
       "min": 0,
       "max": 500,
-      "businessContext": "Estimated daily water consumption per employee (drinking, sanitation, cleaning)."
+      "businessContext": "Estimated daily water consumption per employee (drinking, sanitation, cleaning).",
+      "label_i18n": {
+        "en": "Average Water Use per Person per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated daily water consumption per employee (drinking, sanitation, cleaning)."
+      }
     },
     {
       "id": "processWaterIntensity",
@@ -47,7 +65,13 @@
       "default": 10,
       "min": 0,
       "max": 1000,
-      "businessContext": "Water used per unit of production output (e.g., liters per product)."
+      "businessContext": "Water used per unit of production output (e.g., liters per product).",
+      "label_i18n": {
+        "en": "Process Water Intensity"
+      },
+      "businessContext_i18n": {
+        "en": "Water used per unit of production output (e.g., liters per product)."
+      }
     },
     {
       "id": "annualProductionUnits",
@@ -57,7 +81,13 @@
       "default": 50000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Total units produced per year."
+      "businessContext": "Total units produced per year.",
+      "label_i18n": {
+        "en": "Annual Production Units"
+      },
+      "businessContext_i18n": {
+        "en": "Total units produced per year."
+      }
     },
     {
       "id": "leakageFactor",
@@ -67,7 +97,13 @@
       "default": 5,
       "min": 0,
       "max": 50,
-      "businessContext": "Estimated percentage of water lost due to leaks in the distribution system."
+      "businessContext": "Estimated percentage of water lost due to leaks in the distribution system.",
+      "label_i18n": {
+        "en": "Leakage Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated percentage of water lost due to leaks in the distribution system."
+      }
     },
     {
       "id": "recyclingRate",
@@ -77,7 +113,13 @@
       "default": 20,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of process water that is treated and reused."
+      "businessContext": "Percentage of process water that is treated and reused.",
+      "label_i18n": {
+        "en": "Water Recycling Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of process water that is treated and reused."
+      }
     },
     {
       "id": "seasonalFactor",
@@ -87,7 +129,13 @@
       "default": 1,
       "min": 0.5,
       "max": 2,
-      "businessContext": "Multiplier to account for seasonal variations (e.g., summer peak)."
+      "businessContext": "Multiplier to account for seasonal variations (e.g., summer peak).",
+      "label_i18n": {
+        "en": "Seasonal Adjustment Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to account for seasonal variations (e.g., summer peak)."
+      }
     },
     {
       "id": "industryType",
@@ -105,7 +153,13 @@
         "textile",
         "electronics",
         "other"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Industry Type"
+      },
+      "businessContext_i18n": {
+        "en": "Select the industry sector to apply appropriate benchmarks."
+      }
     }
   ],
   "validation": {

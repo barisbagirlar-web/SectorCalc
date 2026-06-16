@@ -20,7 +20,13 @@
       "default": 100,
       "min": 0,
       "max": 100000,
-      "businessContext": "Negotiated unit price from supplier contract."
+      "businessContext": "Negotiated unit price from supplier contract.",
+      "label_i18n": {
+        "en": "Purchase Price per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Negotiated unit price from supplier contract."
+      }
     },
     {
       "id": "annual_quantity",
@@ -30,7 +36,13 @@
       "default": 10000,
       "min": 1,
       "max": 10000000,
-      "businessContext": "Total units purchased per year."
+      "businessContext": "Total units purchased per year.",
+      "label_i18n": {
+        "en": "Annual Order Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Total units purchased per year."
+      }
     },
     {
       "id": "defect_rate",
@@ -40,7 +52,13 @@
       "default": 500,
       "min": 0,
       "max": 100000,
-      "businessContext": "Parts per million defective, Six Sigma metric."
+      "businessContext": "Parts per million defective, Six Sigma metric.",
+      "label_i18n": {
+        "en": "Defect Rate (ppm)"
+      },
+      "businessContext_i18n": {
+        "en": "Parts per million defective, Six Sigma metric."
+      }
     },
     {
       "id": "inspection_cost_per_unit",
@@ -50,7 +68,13 @@
       "default": 2,
       "min": 0,
       "max": 100,
-      "businessContext": "Cost of incoming quality inspection per unit."
+      "businessContext": "Cost of incoming quality inspection per unit.",
+      "label_i18n": {
+        "en": "Inspection Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of incoming quality inspection per unit."
+      }
     },
     {
       "id": "freight_cost_per_unit",
@@ -60,7 +84,13 @@
       "default": 5,
       "min": 0,
       "max": 500,
-      "businessContext": "Average shipping cost per unit from supplier."
+      "businessContext": "Average shipping cost per unit from supplier.",
+      "label_i18n": {
+        "en": "Freight Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Average shipping cost per unit from supplier."
+      }
     },
     {
       "id": "lead_time_days",
@@ -70,7 +100,13 @@
       "default": 30,
       "min": 1,
       "max": 365,
-      "businessContext": "Supplier lead time from order to delivery."
+      "businessContext": "Supplier lead time from order to delivery.",
+      "label_i18n": {
+        "en": "Lead Time (days)"
+      },
+      "businessContext_i18n": {
+        "en": "Supplier lead time from order to delivery."
+      }
     },
     {
       "id": "carrying_cost_rate",
@@ -80,7 +116,13 @@
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Annual inventory holding cost as percentage of unit cost (Lean metric)."
+      "businessContext": "Annual inventory holding cost as percentage of unit cost (Lean metric).",
+      "label_i18n": {
+        "en": "Inventory Carrying Cost Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual inventory holding cost as percentage of unit cost (Lean metric)."
+      }
     },
     {
       "id": "warranty_claim_rate",
@@ -90,7 +132,13 @@
       "default": 2,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of units that result in warranty claims."
+      "businessContext": "Percentage of units that result in warranty claims.",
+      "label_i18n": {
+        "en": "Warranty Claim Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of units that result in warranty claims."
+      }
     },
     {
       "id": "average_claim_cost",
@@ -100,7 +148,13 @@
       "default": 50,
       "min": 0,
       "max": 10000,
-      "businessContext": "Average cost per warranty claim (labor, parts, logistics)."
+      "businessContext": "Average cost per warranty claim (labor, parts, logistics).",
+      "label_i18n": {
+        "en": "Average Warranty Claim Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost per warranty claim (labor, parts, logistics)."
+      }
     },
     {
       "id": "supplier_quality_level",
@@ -112,14 +166,26 @@
         "Economy"
       ],
       "default": "Standard",
-      "businessContext": "Qualitative assessment of supplier quality management system (ISO 9001)."
+      "businessContext": "Qualitative assessment of supplier quality management system (ISO 9001).",
+      "label_i18n": {
+        "en": "Supplier Quality Level"
+      },
+      "businessContext_i18n": {
+        "en": "Qualitative assessment of supplier quality management system (ISO 9001)."
+      }
     },
     {
       "id": "use_eco_cost",
       "label": "Include Environmental Cost",
       "type": "boolean",
       "default": false,
-      "businessContext": "Toggle to include estimated carbon and waste disposal costs (ISO 14040)."
+      "businessContext": "Toggle to include estimated carbon and waste disposal costs (ISO 14040).",
+      "label_i18n": {
+        "en": "Include Environmental Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Toggle to include estimated carbon and waste disposal costs (ISO 14040)."
+      }
     },
     {
       "id": "co2_per_unit",
@@ -129,7 +195,13 @@
       "default": 10,
       "min": 0,
       "max": 1000,
-      "businessContext": "Estimated carbon footprint per unit from supplier operations."
+      "businessContext": "Estimated carbon footprint per unit from supplier operations.",
+      "label_i18n": {
+        "en": "CO2 Emissions per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated carbon footprint per unit from supplier operations."
+      }
     },
     {
       "id": "carbon_tax_rate",
@@ -139,7 +211,13 @@
       "default": 0.05,
       "min": 0,
       "max": 1,
-      "businessContext": "Applicable carbon tax or internal carbon price."
+      "businessContext": "Applicable carbon tax or internal carbon price.",
+      "label_i18n": {
+        "en": "Carbon Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Applicable carbon tax or internal carbon price."
+      }
     }
   ],
   "validation": {

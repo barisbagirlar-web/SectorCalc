@@ -19,7 +19,13 @@
       "default": 5000,
       "min": 0,
       "max": 100000,
-      "businessContext": "Parts per million defective – Six Sigma quality metric. Lower is better."
+      "businessContext": "Parts per million defective – Six Sigma quality metric. Lower is better.",
+      "label_i18n": {
+        "en": "Defect Rate (ppm)"
+      },
+      "businessContext_i18n": {
+        "en": "Parts per million defective – Six Sigma quality metric. Lower is better."
+      }
     },
     {
       "id": "throughput",
@@ -29,7 +35,13 @@
       "default": 100,
       "min": 0,
       "max": 10000,
-      "businessContext": "Actual production rate per hour. Used to calculate OEE and capacity utilization."
+      "businessContext": "Actual production rate per hour. Used to calculate OEE and capacity utilization.",
+      "label_i18n": {
+        "en": "Throughput (units/hour)"
+      },
+      "businessContext_i18n": {
+        "en": "Actual production rate per hour. Used to calculate OEE and capacity utilization."
+      }
     },
     {
       "id": "planned_throughput",
@@ -39,7 +51,13 @@
       "default": 120,
       "min": 1,
       "max": 10000,
-      "businessContext": "Target production rate per hour. Must be >0 to avoid division by zero."
+      "businessContext": "Target production rate per hour. Must be >0 to avoid division by zero.",
+      "label_i18n": {
+        "en": "Planned Throughput (units/hour)"
+      },
+      "businessContext_i18n": {
+        "en": "Target production rate per hour. Must be >0 to avoid division by zero."
+      }
     },
     {
       "id": "cost_per_unit",
@@ -49,7 +67,13 @@
       "default": 50,
       "min": 0,
       "max": 10000,
-      "businessContext": "Direct manufacturing cost per unit. Includes material, labor, overhead."
+      "businessContext": "Direct manufacturing cost per unit. Includes material, labor, overhead.",
+      "label_i18n": {
+        "en": "Cost per Unit ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Direct manufacturing cost per unit. Includes material, labor, overhead."
+      }
     },
     {
       "id": "target_cost_per_unit",
@@ -59,7 +83,13 @@
       "default": 45,
       "min": 0.01,
       "max": 10000,
-      "businessContext": "Budgeted or standard cost per unit. Must be >0."
+      "businessContext": "Budgeted or standard cost per unit. Must be >0.",
+      "label_i18n": {
+        "en": "Target Cost per Unit ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Budgeted or standard cost per unit. Must be >0."
+      }
     },
     {
       "id": "safety_incidents",
@@ -69,7 +99,13 @@
       "default": 2,
       "min": 0,
       "max": 1000,
-      "businessContext": "Total recordable incidents per year. Lower is better (ISO 45001)."
+      "businessContext": "Total recordable incidents per year. Lower is better (ISO 45001).",
+      "label_i18n": {
+        "en": "Safety Incidents (last 12 months)"
+      },
+      "businessContext_i18n": {
+        "en": "Total recordable incidents per year. Lower is better (ISO 45001)."
+      }
     },
     {
       "id": "on_time_delivery_pct",
@@ -79,7 +115,13 @@
       "default": 95,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of orders delivered on or before promised date. WERC metric."
+      "businessContext": "Percentage of orders delivered on or before promised date. WERC metric.",
+      "label_i18n": {
+        "en": "On-Time Delivery (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of orders delivered on or before promised date. WERC metric."
+      }
     },
     {
       "id": "shift_type",
@@ -94,7 +136,13 @@
         "night",
         "rotating"
       ],
-      "businessContext": "Shift pattern affects fatigue and error rates. Used in safety adjustment."
+      "businessContext": "Shift pattern affects fatigue and error rates. Used in safety adjustment.",
+      "label_i18n": {
+        "en": "Shift Type"
+      },
+      "businessContext_i18n": {
+        "en": "Shift pattern affects fatigue and error rates. Used in safety adjustment."
+      }
     },
     {
       "id": "oee_override",
@@ -104,7 +152,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If true, user can manually enter OEE instead of computing from throughput."
+      "businessContext": "If true, user can manually enter OEE instead of computing from throughput.",
+      "label_i18n": {
+        "en": "Override OEE Calculation?"
+      },
+      "businessContext_i18n": {
+        "en": "If true, user can manually enter OEE instead of computing from throughput."
+      }
     },
     {
       "id": "manual_oee",
@@ -114,7 +168,13 @@
       "default": 85,
       "min": 0,
       "max": 100,
-      "businessContext": "Overall Equipment Effectiveness if override is enabled."
+      "businessContext": "Overall Equipment Effectiveness if override is enabled.",
+      "label_i18n": {
+        "en": "Manual OEE (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Overall Equipment Effectiveness if override is enabled."
+      }
     }
   ],
   "validation": {

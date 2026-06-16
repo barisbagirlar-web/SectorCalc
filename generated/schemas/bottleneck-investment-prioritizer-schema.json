@@ -17,7 +17,13 @@
       "default": 85,
       "min": 0,
       "max": 100,
-      "businessContext": "Current utilization rate of the primary bottleneck resource, measured over a representative period (e.g., last 4 weeks)."
+      "businessContext": "Current utilization rate of the primary bottleneck resource, measured over a representative period (e.g., last 4 weeks).",
+      "label_i18n": {
+        "en": "Bottleneck Utilization (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Current utilization rate of the primary bottleneck resource, measured over a representative period (e.g., last 4 weeks)."
+      }
     },
     {
       "id": "demand_rate",
@@ -27,7 +33,13 @@
       "default": 100,
       "min": 0,
       "max": 10000,
-      "businessContext": "Average customer demand rate for the product family flowing through the bottleneck."
+      "businessContext": "Average customer demand rate for the product family flowing through the bottleneck.",
+      "label_i18n": {
+        "en": "Average Demand Rate (units/hour)"
+      },
+      "businessContext_i18n": {
+        "en": "Average customer demand rate for the product family flowing through the bottleneck."
+      }
     },
     {
       "id": "bottleneck_capacity",
@@ -37,7 +49,13 @@
       "default": 120,
       "min": 0,
       "max": 10000,
-      "businessContext": "Maximum theoretical output rate of the bottleneck resource under ideal conditions."
+      "businessContext": "Maximum theoretical output rate of the bottleneck resource under ideal conditions.",
+      "label_i18n": {
+        "en": "Bottleneck Capacity (units/hour)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum theoretical output rate of the bottleneck resource under ideal conditions."
+      }
     },
     {
       "id": "investment_cost",
@@ -47,7 +65,13 @@
       "default": 50000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Total capital expenditure required for the bottleneck improvement (e.g., new equipment, tooling, automation)."
+      "businessContext": "Total capital expenditure required for the bottleneck improvement (e.g., new equipment, tooling, automation).",
+      "label_i18n": {
+        "en": "Proposed Investment Cost ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Total capital expenditure required for the bottleneck improvement (e.g., new equipment, tooling, automation)."
+      }
     },
     {
       "id": "expected_capacity_increase",
@@ -57,7 +81,13 @@
       "default": 20,
       "min": 0,
       "max": 200,
-      "businessContext": "Expected percentage increase in bottleneck capacity after the investment."
+      "businessContext": "Expected percentage increase in bottleneck capacity after the investment.",
+      "label_i18n": {
+        "en": "Expected Capacity Increase (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage increase in bottleneck capacity after the investment."
+      }
     },
     {
       "id": "operating_hours_per_year",
@@ -67,7 +97,13 @@
       "default": 4000,
       "min": 0,
       "max": 8760,
-      "businessContext": "Total planned operating hours of the bottleneck resource per year."
+      "businessContext": "Total planned operating hours of the bottleneck resource per year.",
+      "label_i18n": {
+        "en": "Operating Hours per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Total planned operating hours of the bottleneck resource per year."
+      }
     },
     {
       "id": "profit_margin_per_unit",
@@ -77,7 +113,13 @@
       "default": 5,
       "min": 0,
       "max": 10000,
-      "businessContext": "Contribution margin (revenue minus variable cost) per unit of product flowing through the bottleneck."
+      "businessContext": "Contribution margin (revenue minus variable cost) per unit of product flowing through the bottleneck.",
+      "label_i18n": {
+        "en": "Profit Margin per Unit ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Contribution margin (revenue minus variable cost) per unit of product flowing through the bottleneck."
+      }
     },
     {
       "id": "quality_yield",
@@ -87,7 +129,13 @@
       "default": 95,
       "min": 0,
       "max": 100,
-      "businessContext": "First-pass yield (percentage of good units) at the bottleneck operation."
+      "businessContext": "First-pass yield (percentage of good units) at the bottleneck operation.",
+      "label_i18n": {
+        "en": "Quality Yield at Bottleneck (%)"
+      },
+      "businessContext_i18n": {
+        "en": "First-pass yield (percentage of good units) at the bottleneck operation."
+      }
     },
     {
       "id": "maintenance_downtime_percent",
@@ -97,7 +145,13 @@
       "default": 5,
       "min": 0,
       "max": 50,
-      "businessContext": "Percentage of total operating time allocated to planned maintenance for the bottleneck."
+      "businessContext": "Percentage of total operating time allocated to planned maintenance for the bottleneck.",
+      "label_i18n": {
+        "en": "Planned Maintenance Downtime (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of total operating time allocated to planned maintenance for the bottleneck."
+      }
     },
     {
       "id": "risk_factor",
@@ -112,7 +166,13 @@
         "low",
         "medium",
         "high"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Implementation Risk Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Qualitative assessment of the risk that the investment will not achieve the expected capacity increase."
+      }
     }
   ],
   "validation": {

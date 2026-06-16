@@ -19,7 +19,13 @@
       "default": 100,
       "min": 0.01,
       "max": 100000,
-      "businessContext": "The current selling price of the product in USD."
+      "businessContext": "The current selling price of the product in USD.",
+      "label_i18n": {
+        "en": "Current Price per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "The current selling price of the product in USD."
+      }
     },
     {
       "id": "current_quantity",
@@ -29,7 +35,13 @@
       "default": 1000,
       "min": 1,
       "max": 100000000,
-      "businessContext": "Monthly sales volume at current price."
+      "businessContext": "Monthly sales volume at current price.",
+      "label_i18n": {
+        "en": "Current Quantity Sold (units/month)"
+      },
+      "businessContext_i18n": {
+        "en": "Monthly sales volume at current price."
+      }
     },
     {
       "id": "price_change_percent",
@@ -39,7 +51,13 @@
       "default": -10,
       "min": -100,
       "max": 1000,
-      "businessContext": "Percentage change in price (negative for decrease, positive for increase)."
+      "businessContext": "Percentage change in price (negative for decrease, positive for increase).",
+      "label_i18n": {
+        "en": "Proposed Price Change (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage change in price (negative for decrease, positive for increase)."
+      }
     },
     {
       "id": "elasticity_coefficient",
@@ -49,7 +67,13 @@
       "default": -1.5,
       "min": -10,
       "max": 0,
-      "businessContext": "Estimated elasticity coefficient (typically negative). Absolute value >1 indicates elastic demand."
+      "businessContext": "Estimated elasticity coefficient (typically negative). Absolute value >1 indicates elastic demand.",
+      "label_i18n": {
+        "en": "Price Elasticity of Demand (PED)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated elasticity coefficient (typically negative). Absolute value >1 indicates elastic demand."
+      }
     },
     {
       "id": "variable_cost_per_unit",
@@ -59,7 +83,13 @@
       "default": 60,
       "min": 0,
       "max": 100000,
-      "businessContext": "Direct variable cost per unit (materials, labor, etc.)."
+      "businessContext": "Direct variable cost per unit (materials, labor, etc.).",
+      "label_i18n": {
+        "en": "Variable Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Direct variable cost per unit (materials, labor, etc.)."
+      }
     },
     {
       "id": "fixed_cost_monthly",
@@ -69,7 +99,13 @@
       "default": 20000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Total fixed costs allocated per month."
+      "businessContext": "Total fixed costs allocated per month.",
+      "label_i18n": {
+        "en": "Fixed Cost per Month"
+      },
+      "businessContext_i18n": {
+        "en": "Total fixed costs allocated per month."
+      }
     },
     {
       "id": "demand_shift_factor",
@@ -79,7 +115,13 @@
       "default": 1,
       "min": 0.1,
       "max": 10,
-      "businessContext": "Multiplier to adjust baseline demand (e.g., 1.2 for 20% market growth)."
+      "businessContext": "Multiplier to adjust baseline demand (e.g., 1.2 for 20% market growth).",
+      "label_i18n": {
+        "en": "Demand Shift Factor (seasonality/market)"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to adjust baseline demand (e.g., 1.2 for 20% market growth)."
+      }
     },
     {
       "id": "confidence_level",
@@ -92,7 +134,13 @@
         "medium",
         "high"
       ],
-      "businessContext": "Quality of input data: low = ±20% error, medium = ±10%, high = ±5%."
+      "businessContext": "Quality of input data: low = ±20% error, medium = ±10%, high = ±5%.",
+      "label_i18n": {
+        "en": "Data Confidence Level"
+      },
+      "businessContext_i18n": {
+        "en": "Quality of input data: low = ±20% error, medium = ±10%, high = ±5%."
+      }
     },
     {
       "id": "apply_six_sigma_adjustment",
@@ -100,7 +148,13 @@
       "type": "boolean",
       "unit": "",
       "default": false,
-      "businessContext": "If true, applies a 1.5 sigma shift to account for process variation (DMAIC)."
+      "businessContext": "If true, applies a 1.5 sigma shift to account for process variation (DMAIC).",
+      "label_i18n": {
+        "en": "Apply Six Sigma Process Adjustment"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies a 1.5 sigma shift to account for process variation (DMAIC)."
+      }
     }
   ],
   "validation": {

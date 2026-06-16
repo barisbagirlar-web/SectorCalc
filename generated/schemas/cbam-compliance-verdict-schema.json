@@ -17,7 +17,13 @@
       "default": 1000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Total mass of CBAM-covered goods imported in the reporting period."
+      "businessContext": "Total mass of CBAM-covered goods imported in the reporting period.",
+      "label_i18n": {
+        "en": "Total Imported Tonnes (steel/aluminum/cement/fertilizer/hydrogen)"
+      },
+      "businessContext_i18n": {
+        "en": "Total mass of CBAM-covered goods imported in the reporting period."
+      }
     },
     {
       "id": "embedded_emissions_per_tonne",
@@ -27,7 +33,13 @@
       "default": 1.5,
       "min": 0,
       "max": 20,
-      "businessContext": "Direct and indirect GHG emissions embedded in the imported goods (scope 1+2)."
+      "businessContext": "Direct and indirect GHG emissions embedded in the imported goods (scope 1+2).",
+      "label_i18n": {
+        "en": "Embedded Emissions per Tonne"
+      },
+      "businessContext_i18n": {
+        "en": "Direct and indirect GHG emissions embedded in the imported goods (scope 1+2)."
+      }
     },
     {
       "id": "carbon_price_origin",
@@ -37,7 +49,13 @@
       "default": 0,
       "min": 0,
       "max": 200,
-      "businessContext": "Effective carbon price already paid in the exporting country (e.g., EU ETS equivalent)."
+      "businessContext": "Effective carbon price already paid in the exporting country (e.g., EU ETS equivalent).",
+      "label_i18n": {
+        "en": "Carbon Price Paid in Country of Origin"
+      },
+      "businessContext_i18n": {
+        "en": "Effective carbon price already paid in the exporting country (e.g., EU ETS equivalent)."
+      }
     },
     {
       "id": "cbam_certificate_price",
@@ -47,7 +65,13 @@
       "default": 85,
       "min": 0,
       "max": 300,
-      "businessContext": "Latest weekly average auction price of CBAM certificates."
+      "businessContext": "Latest weekly average auction price of CBAM certificates.",
+      "label_i18n": {
+        "en": "CBAM Certificate Price (current auction)"
+      },
+      "businessContext_i18n": {
+        "en": "Latest weekly average auction price of CBAM certificates."
+      }
     },
     {
       "id": "free_allocation_factor",
@@ -57,7 +81,13 @@
       "default": 0.9,
       "min": 0,
       "max": 1,
-      "businessContext": "Proportion of emissions covered by free allowances in the EU ETS for the product sector."
+      "businessContext": "Proportion of emissions covered by free allowances in the EU ETS for the product sector.",
+      "label_i18n": {
+        "en": "Free Allocation Factor for Sector"
+      },
+      "businessContext_i18n": {
+        "en": "Proportion of emissions covered by free allowances in the EU ETS for the product sector."
+      }
     },
     {
       "id": "verification_status",
@@ -72,7 +102,13 @@
         "verified",
         "self-declared",
         "default_values"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Verification Status of Embedded Emissions"
+      },
+      "businessContext_i18n": {
+        "en": "Whether the embedded emissions data has been independently verified by an accredited body."
+      }
     },
     {
       "id": "compliance_deadline_met",
@@ -82,7 +118,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "Indicates if the importer submitted the required CBAM report before the quarterly deadline."
+      "businessContext": "Indicates if the importer submitted the required CBAM report before the quarterly deadline.",
+      "label_i18n": {
+        "en": "Compliance Deadline Met (quarterly report submitted)"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if the importer submitted the required CBAM report before the quarterly deadline."
+      }
     }
   ],
   "validation": {

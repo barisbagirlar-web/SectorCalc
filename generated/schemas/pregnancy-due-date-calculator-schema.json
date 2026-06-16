@@ -19,7 +19,13 @@
       "default": null,
       "min": 946684800,
       "max": 1893456000,
-      "businessContext": "Date of the first day of the last menstrual period, used as the baseline for gestational age calculation."
+      "businessContext": "Date of the first day of the last menstrual period, used as the baseline for gestational age calculation.",
+      "label_i18n": {
+        "en": "Last Menstrual Period (LMP) Date"
+      },
+      "businessContext_i18n": {
+        "en": "Date of the first day of the last menstrual period, used as the baseline for gestational age calculation."
+      }
     },
     {
       "id": "cycle_length",
@@ -29,7 +35,13 @@
       "default": 28,
       "min": 21,
       "max": 45,
-      "businessContext": "Average length of the woman's menstrual cycle in days. Deviations from 28 days adjust the due date estimate."
+      "businessContext": "Average length of the woman's menstrual cycle in days. Deviations from 28 days adjust the due date estimate.",
+      "label_i18n": {
+        "en": "Average Cycle Length"
+      },
+      "businessContext_i18n": {
+        "en": "Average length of the woman's menstrual cycle in days. Deviations from 28 days adjust the due date estimate."
+      }
     },
     {
       "id": "luteal_phase_length",
@@ -39,7 +51,13 @@
       "default": 14,
       "min": 10,
       "max": 17,
-      "businessContext": "Length of the luteal phase (post-ovulation). Typically 14 days, but can vary. Used to refine ovulation date."
+      "businessContext": "Length of the luteal phase (post-ovulation). Typically 14 days, but can vary. Used to refine ovulation date.",
+      "label_i18n": {
+        "en": "Luteal Phase Length"
+      },
+      "businessContext_i18n": {
+        "en": "Length of the luteal phase (post-ovulation). Typically 14 days, but can vary. Used to refine ovulation date."
+      }
     },
     {
       "id": "ultrasound_ga_weeks",
@@ -49,7 +67,13 @@
       "default": null,
       "min": 5,
       "max": 42,
-      "businessContext": "Gestational age measured by ultrasound (crown-rump length). If provided, overrides LMP-based estimate."
+      "businessContext": "Gestational age measured by ultrasound (crown-rump length). If provided, overrides LMP-based estimate.",
+      "label_i18n": {
+        "en": "Ultrasound Gestational Age (weeks)"
+      },
+      "businessContext_i18n": {
+        "en": "Gestational age measured by ultrasound (crown-rump length). If provided, overrides LMP-based estimate."
+      }
     },
     {
       "id": "ultrasound_ga_days",
@@ -59,7 +83,13 @@
       "default": 0,
       "min": 0,
       "max": 6,
-      "businessContext": "Remaining days beyond weeks for ultrasound gestational age."
+      "businessContext": "Remaining days beyond weeks for ultrasound gestational age.",
+      "label_i18n": {
+        "en": "Ultrasound Gestational Age (additional days)"
+      },
+      "businessContext_i18n": {
+        "en": "Remaining days beyond weeks for ultrasound gestational age."
+      }
     },
     {
       "id": "cycle_variability",
@@ -69,7 +99,13 @@
       "default": 2,
       "min": 0,
       "max": 10,
-      "businessContext": "Standard deviation of cycle length, used to compute confidence intervals and data confidence adjustment."
+      "businessContext": "Standard deviation of cycle length, used to compute confidence intervals and data confidence adjustment.",
+      "label_i18n": {
+        "en": "Cycle Variability (standard deviation)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard deviation of cycle length, used to compute confidence intervals and data confidence adjustment."
+      }
     },
     {
       "id": "parity",
@@ -79,7 +115,13 @@
       "default": 0,
       "min": 0,
       "max": 10,
-      "businessContext": "Number of previous live births. Used in risk stratification (e.g., grand multiparity)."
+      "businessContext": "Number of previous live births. Used in risk stratification (e.g., grand multiparity).",
+      "label_i18n": {
+        "en": "Parity (number of previous births)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of previous live births. Used in risk stratification (e.g., grand multiparity)."
+      }
     },
     {
       "id": "risk_factors",
@@ -95,7 +137,13 @@
         "previous_preterm",
         "other"
       ],
-      "businessContext": "Presence of known risk factors that may affect due date reliability or require additional monitoring."
+      "businessContext": "Presence of known risk factors that may affect due date reliability or require additional monitoring.",
+      "label_i18n": {
+        "en": "Risk Factors Present"
+      },
+      "businessContext_i18n": {
+        "en": "Presence of known risk factors that may affect due date reliability or require additional monitoring."
+      }
     }
   ],
   "validation": {

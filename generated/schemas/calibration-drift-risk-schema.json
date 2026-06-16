@@ -17,7 +17,13 @@
       "default": 90,
       "min": 1,
       "max": 365,
-      "businessContext": "Standard calibration frequency per ISO 17025 or manufacturer recommendation."
+      "businessContext": "Standard calibration frequency per ISO 17025 or manufacturer recommendation.",
+      "label_i18n": {
+        "en": "Calibration Interval (days)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard calibration frequency per ISO 17025 or manufacturer recommendation."
+      }
     },
     {
       "id": "days_since_last_calibration",
@@ -27,7 +33,13 @@
       "default": 45,
       "min": 0,
       "max": 730,
-      "businessContext": "Actual elapsed time since the most recent calibration event."
+      "businessContext": "Actual elapsed time since the most recent calibration event.",
+      "label_i18n": {
+        "en": "Days Since Last Calibration"
+      },
+      "businessContext_i18n": {
+        "en": "Actual elapsed time since the most recent calibration event."
+      }
     },
     {
       "id": "measurement_tolerance_pct",
@@ -37,7 +49,13 @@
       "default": 5,
       "min": 0.1,
       "max": 20,
-      "businessContext": "Maximum allowable deviation from nominal value, typically defined by process specs or Six Sigma limits."
+      "businessContext": "Maximum allowable deviation from nominal value, typically defined by process specs or Six Sigma limits.",
+      "label_i18n": {
+        "en": "Measurement Tolerance (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum allowable deviation from nominal value, typically defined by process specs or Six Sigma limits."
+      }
     },
     {
       "id": "observed_drift_pct",
@@ -47,7 +65,13 @@
       "default": 2.3,
       "min": 0,
       "max": 25,
-      "businessContext": "Measured deviation from nominal at last verification, expressed as percentage of full scale."
+      "businessContext": "Measured deviation from nominal at last verification, expressed as percentage of full scale.",
+      "label_i18n": {
+        "en": "Observed Drift (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured deviation from nominal at last verification, expressed as percentage of full scale."
+      }
     },
     {
       "id": "environmental_stress_factor",
@@ -63,7 +87,13 @@
         "high",
         "extreme"
       ],
-      "businessContext": "Qualitative assessment of temperature, humidity, vibration, and contamination effects on drift rate."
+      "businessContext": "Qualitative assessment of temperature, humidity, vibration, and contamination effects on drift rate.",
+      "label_i18n": {
+        "en": "Environmental Stress Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Qualitative assessment of temperature, humidity, vibration, and contamination effects on drift rate."
+      }
     },
     {
       "id": "criticality_level",
@@ -79,7 +109,13 @@
         "high",
         "critical"
       ],
-      "businessContext": "Impact of measurement error on product quality, safety, or regulatory compliance (per ISO 9001 risk-based thinking)."
+      "businessContext": "Impact of measurement error on product quality, safety, or regulatory compliance (per ISO 9001 risk-based thinking).",
+      "label_i18n": {
+        "en": "Criticality Level"
+      },
+      "businessContext_i18n": {
+        "en": "Impact of measurement error on product quality, safety, or regulatory compliance (per ISO 9001 risk-based thinking)."
+      }
     },
     {
       "id": "historical_failure_rate",
@@ -89,7 +125,13 @@
       "default": 3,
       "min": 0,
       "max": 50,
-      "businessContext": "Number of times the instrument exceeded tolerance in the last 100 calibration events, used for reliability trending."
+      "businessContext": "Number of times the instrument exceeded tolerance in the last 100 calibration events, used for reliability trending.",
+      "label_i18n": {
+        "en": "Historical Failure Rate (per 100 calibrations)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of times the instrument exceeded tolerance in the last 100 calibration events, used for reliability trending."
+      }
     },
     {
       "id": "data_confidence_score",
@@ -99,7 +141,13 @@
       "default": 85,
       "min": 0,
       "max": 100,
-      "businessContext": "Subjective or calculated measure of data quality based on measurement system analysis (MSA) per AIAG MSA manual."
+      "businessContext": "Subjective or calculated measure of data quality based on measurement system analysis (MSA) per AIAG MSA manual.",
+      "label_i18n": {
+        "en": "Data Confidence Score (0-100)"
+      },
+      "businessContext_i18n": {
+        "en": "Subjective or calculated measure of data quality based on measurement system analysis (MSA) per AIAG MSA manual."
+      }
     }
   ],
   "validation": {

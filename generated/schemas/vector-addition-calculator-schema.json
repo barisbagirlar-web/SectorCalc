@@ -19,7 +19,13 @@
       "default": 10,
       "min": 0,
       "max": 100000,
-      "businessContext": "Magnitude of the first force/velocity vector in Newtons (N) or m/s. Typical range for industrial applications: 0.1–100,000 N."
+      "businessContext": "Magnitude of the first force/velocity vector in Newtons (N) or m/s. Typical range for industrial applications: 0.1–100,000 N.",
+      "label_i18n": {
+        "en": "Vector 1 Magnitude"
+      },
+      "businessContext_i18n": {
+        "en": "Magnitude of the first force/velocity vector in Newtons (N) or m/s. Typical range for industrial applications: 0.1–100,000 N."
+      }
     },
     {
       "id": "vector1_angle",
@@ -29,7 +35,13 @@
       "default": 0,
       "min": 0,
       "max": 360,
-      "businessContext": "Direction of the first vector measured from positive x-axis (0° to 360°). Used in force analysis per ISO 80000-2."
+      "businessContext": "Direction of the first vector measured from positive x-axis (0° to 360°). Used in force analysis per ISO 80000-2.",
+      "label_i18n": {
+        "en": "Vector 1 Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Direction of the first vector measured from positive x-axis (0° to 360°). Used in force analysis per ISO 80000-2."
+      }
     },
     {
       "id": "vector2_magnitude",
@@ -39,7 +51,13 @@
       "default": 15,
       "min": 0,
       "max": 100000,
-      "businessContext": "Magnitude of the second vector. Common in multi-force systems (e.g., conveyor belt tensions, robotic arm loads)."
+      "businessContext": "Magnitude of the second vector. Common in multi-force systems (e.g., conveyor belt tensions, robotic arm loads).",
+      "label_i18n": {
+        "en": "Vector 2 Magnitude"
+      },
+      "businessContext_i18n": {
+        "en": "Magnitude of the second vector. Common in multi-force systems (e.g., conveyor belt tensions, robotic arm loads)."
+      }
     },
     {
       "id": "vector2_angle",
@@ -49,7 +67,13 @@
       "default": 90,
       "min": 0,
       "max": 360,
-      "businessContext": "Direction of the second vector. Typical angles: 0° (horizontal), 90° (vertical), 180° (opposite)."
+      "businessContext": "Direction of the second vector. Typical angles: 0° (horizontal), 90° (vertical), 180° (opposite).",
+      "label_i18n": {
+        "en": "Vector 2 Angle"
+      },
+      "businessContext_i18n": {
+        "en": "Direction of the second vector. Typical angles: 0° (horizontal), 90° (vertical), 180° (opposite)."
+      }
     },
     {
       "id": "unit_system",
@@ -63,7 +87,13 @@
       "options": [
         "SI",
         "Imperial"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Unit System"
+      },
+      "businessContext_i18n": {
+        "en": "Select SI (metric) or Imperial (lb, ft/s) for output consistency. ISO 1000 recommends SI for engineering calculations."
+      }
     },
     {
       "id": "confidence_level",
@@ -73,7 +103,13 @@
       "default": 95,
       "min": 50,
       "max": 100,
-      "businessContext": "Confidence in input measurement accuracy (e.g., from sensor calibration). Used for Six Sigma risk adjustment."
+      "businessContext": "Confidence in input measurement accuracy (e.g., from sensor calibration). Used for Six Sigma risk adjustment.",
+      "label_i18n": {
+        "en": "Data Confidence Level"
+      },
+      "businessContext_i18n": {
+        "en": "Confidence in input measurement accuracy (e.g., from sensor calibration). Used for Six Sigma risk adjustment."
+      }
     }
   ],
   "validation": {

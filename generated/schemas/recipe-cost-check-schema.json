@@ -17,7 +17,13 @@
       "default": 0,
       "min": 0,
       "max": 10000,
-      "businessContext": "Direct material cost per kilogram of the primary ingredient, sourced from supplier contracts or market index."
+      "businessContext": "Direct material cost per kilogram of the primary ingredient, sourced from supplier contracts or market index.",
+      "label_i18n": {
+        "en": "Material Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Direct material cost per kilogram of the primary ingredient, sourced from supplier contracts or market index."
+      }
     },
     {
       "id": "recipe_yield_percent",
@@ -27,7 +33,13 @@
       "default": 95,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of usable output after processing losses (e.g., evaporation, trimming). Based on historical process data."
+      "businessContext": "Percentage of usable output after processing losses (e.g., evaporation, trimming). Based on historical process data.",
+      "label_i18n": {
+        "en": "Recipe Yield (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of usable output after processing losses (e.g., evaporation, trimming). Based on historical process data."
+      }
     },
     {
       "id": "labor_rate_per_hour",
@@ -37,7 +49,13 @@
       "default": 25,
       "min": 0,
       "max": 500,
-      "businessContext": "Fully burdened labor cost per operator hour, including wages, benefits, and overhead."
+      "businessContext": "Fully burdened labor cost per operator hour, including wages, benefits, and overhead.",
+      "label_i18n": {
+        "en": "Labor Rate per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Fully burdened labor cost per operator hour, including wages, benefits, and overhead."
+      }
     },
     {
       "id": "batch_size_kg",
@@ -47,7 +65,13 @@
       "default": 100,
       "min": 1,
       "max": 100000,
-      "businessContext": "Total input weight of the recipe batch before processing."
+      "businessContext": "Total input weight of the recipe batch before processing.",
+      "label_i18n": {
+        "en": "Batch Size (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Total input weight of the recipe batch before processing."
+      }
     },
     {
       "id": "processing_time_minutes",
@@ -57,7 +81,13 @@
       "default": 60,
       "min": 1,
       "max": 1440,
-      "businessContext": "Total cycle time from start to finish for one batch, including mixing, heating, cooling, and packaging."
+      "businessContext": "Total cycle time from start to finish for one batch, including mixing, heating, cooling, and packaging.",
+      "label_i18n": {
+        "en": "Processing Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Total cycle time from start to finish for one batch, including mixing, heating, cooling, and packaging."
+      }
     },
     {
       "id": "energy_cost_per_kwh",
@@ -67,7 +97,13 @@
       "default": 0.12,
       "min": 0,
       "max": 10,
-      "businessContext": "Average cost of electricity or thermal energy per kilowatt-hour, based on utility rates."
+      "businessContext": "Average cost of electricity or thermal energy per kilowatt-hour, based on utility rates.",
+      "label_i18n": {
+        "en": "Energy Cost per kWh"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost of electricity or thermal energy per kilowatt-hour, based on utility rates."
+      }
     },
     {
       "id": "energy_consumption_kwh",
@@ -77,7 +113,13 @@
       "default": 50,
       "min": 0,
       "max": 10000,
-      "businessContext": "Total energy used per batch, measured by submeters or equipment nameplate ratings."
+      "businessContext": "Total energy used per batch, measured by submeters or equipment nameplate ratings.",
+      "label_i18n": {
+        "en": "Energy Consumption (kWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Total energy used per batch, measured by submeters or equipment nameplate ratings."
+      }
     },
     {
       "id": "overhead_rate_percent",
@@ -87,7 +129,13 @@
       "default": 20,
       "min": 0,
       "max": 200,
-      "businessContext": "Allocated manufacturing overhead as a percentage of direct labor and material costs, following standard cost accounting."
+      "businessContext": "Allocated manufacturing overhead as a percentage of direct labor and material costs, following standard cost accounting.",
+      "label_i18n": {
+        "en": "Overhead Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Allocated manufacturing overhead as a percentage of direct labor and material costs, following standard cost accounting."
+      }
     },
     {
       "id": "waste_disposal_cost_per_kg",
@@ -97,7 +145,13 @@
       "default": 0.05,
       "min": 0,
       "max": 100,
-      "businessContext": "Cost to dispose of non-recyclable waste per kilogram, including landfill fees or incineration."
+      "businessContext": "Cost to dispose of non-recyclable waste per kilogram, including landfill fees or incineration.",
+      "label_i18n": {
+        "en": "Waste Disposal Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Cost to dispose of non-recyclable waste per kilogram, including landfill fees or incineration."
+      }
     },
     {
       "id": "quality_rework_rate",
@@ -107,7 +161,13 @@
       "default": 2,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of batches requiring rework due to quality deviations, tracked via Six Sigma metrics."
+      "businessContext": "Percentage of batches requiring rework due to quality deviations, tracked via Six Sigma metrics.",
+      "label_i18n": {
+        "en": "Quality Rework Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of batches requiring rework due to quality deviations, tracked via Six Sigma metrics."
+      }
     },
     {
       "id": "currency",
@@ -117,7 +177,13 @@
       "default": "USD",
       "min": null,
       "max": null,
-      "businessContext": "ISO 4217 currency code for cost reporting. All input costs are assumed in this currency."
+      "businessContext": "ISO 4217 currency code for cost reporting. All input costs are assumed in this currency.",
+      "label_i18n": {
+        "en": "Currency"
+      },
+      "businessContext_i18n": {
+        "en": "ISO 4217 currency code for cost reporting. All input costs are assumed in this currency."
+      }
     },
     {
       "id": "include_environmental_cost",
@@ -127,7 +193,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "Toggle to include estimated carbon tax or environmental compliance costs in the total cost."
+      "businessContext": "Toggle to include estimated carbon tax or environmental compliance costs in the total cost.",
+      "label_i18n": {
+        "en": "Include Environmental Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Toggle to include estimated carbon tax or environmental compliance costs in the total cost."
+      }
     }
   ],
   "validation": {

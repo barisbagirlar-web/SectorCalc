@@ -19,7 +19,13 @@
       "default": 100,
       "min": 0,
       "max": 10000,
-      "businessContext": "Volumetric flow rate of hydraulic fluid through the system. Typical range for industrial systems: 10-500 L/min."
+      "businessContext": "Volumetric flow rate of hydraulic fluid through the system. Typical range for industrial systems: 10-500 L/min.",
+      "label_i18n": {
+        "en": "Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric flow rate of hydraulic fluid through the system. Typical range for industrial systems: 10-500 L/min."
+      }
     },
     {
       "id": "pressure_drop_total",
@@ -29,7 +35,13 @@
       "default": 50,
       "min": 0,
       "max": 500,
-      "businessContext": "Sum of all pressure losses across components (pipes, valves, fittings). ISO 4409 recommends measurement at steady state."
+      "businessContext": "Sum of all pressure losses across components (pipes, valves, fittings). ISO 4409 recommends measurement at steady state.",
+      "label_i18n": {
+        "en": "Total Pressure Drop"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of all pressure losses across components (pipes, valves, fittings). ISO 4409 recommends measurement at steady state."
+      }
     },
     {
       "id": "fluid_density",
@@ -39,7 +51,13 @@
       "default": 870,
       "min": 700,
       "max": 1200,
-      "businessContext": "Density of hydraulic fluid at operating temperature. Typical mineral oil: 850-900 kg/m³."
+      "businessContext": "Density of hydraulic fluid at operating temperature. Typical mineral oil: 850-900 kg/m³.",
+      "label_i18n": {
+        "en": "Fluid Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of hydraulic fluid at operating temperature. Typical mineral oil: 850-900 kg/m³."
+      }
     },
     {
       "id": "kinematic_viscosity",
@@ -49,7 +67,13 @@
       "default": 46,
       "min": 10,
       "max": 500,
-      "businessContext": "Fluid viscosity at operating temperature. ISO VG 46 is common for industrial hydraulics."
+      "businessContext": "Fluid viscosity at operating temperature. ISO VG 46 is common for industrial hydraulics.",
+      "label_i18n": {
+        "en": "Kinematic Viscosity"
+      },
+      "businessContext_i18n": {
+        "en": "Fluid viscosity at operating temperature. ISO VG 46 is common for industrial hydraulics."
+      }
     },
     {
       "id": "pipe_length",
@@ -59,7 +83,13 @@
       "default": 50,
       "min": 0,
       "max": 1000,
-      "businessContext": "Total length of hydraulic piping in the system. Longer runs increase friction losses."
+      "businessContext": "Total length of hydraulic piping in the system. Longer runs increase friction losses.",
+      "label_i18n": {
+        "en": "Total Pipe Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of hydraulic piping in the system. Longer runs increase friction losses."
+      }
     },
     {
       "id": "pipe_diameter",
@@ -69,7 +99,13 @@
       "default": 25,
       "min": 5,
       "max": 200,
-      "businessContext": "Inner diameter of the main hydraulic pipe. Affects flow velocity and Reynolds number."
+      "businessContext": "Inner diameter of the main hydraulic pipe. Affects flow velocity and Reynolds number.",
+      "label_i18n": {
+        "en": "Pipe Inner Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Inner diameter of the main hydraulic pipe. Affects flow velocity and Reynolds number."
+      }
     },
     {
       "id": "valve_count",
@@ -79,7 +115,13 @@
       "default": 5,
       "min": 0,
       "max": 50,
-      "businessContext": "Total number of directional, pressure, and flow control valves in the system."
+      "businessContext": "Total number of directional, pressure, and flow control valves in the system.",
+      "label_i18n": {
+        "en": "Number of Valves"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of directional, pressure, and flow control valves in the system."
+      }
     },
     {
       "id": "fitting_count",
@@ -89,7 +131,13 @@
       "default": 20,
       "min": 0,
       "max": 200,
-      "businessContext": "Total number of elbows, tees, reducers, and other fittings."
+      "businessContext": "Total number of elbows, tees, reducers, and other fittings.",
+      "label_i18n": {
+        "en": "Number of Fittings"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of elbows, tees, reducers, and other fittings."
+      }
     },
     {
       "id": "system_type",
@@ -105,7 +153,13 @@
         "marine",
         "aerospace"
       ],
-      "businessContext": "Application type influences typical loss factors and maintenance intervals."
+      "businessContext": "Application type influences typical loss factors and maintenance intervals.",
+      "label_i18n": {
+        "en": "System Type"
+      },
+      "businessContext_i18n": {
+        "en": "Application type influences typical loss factors and maintenance intervals."
+      }
     },
     {
       "id": "is_new_system",
@@ -115,7 +169,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "New systems may have different loss characteristics due to break-in period."
+      "businessContext": "New systems may have different loss characteristics due to break-in period.",
+      "label_i18n": {
+        "en": "New System (less than 1 year in service)"
+      },
+      "businessContext_i18n": {
+        "en": "New systems may have different loss characteristics due to break-in period."
+      }
     }
   ],
   "validation": {

@@ -19,7 +19,13 @@
       "default": null,
       "min": null,
       "max": null,
-      "businessContext": "Raw sample measurements from the process. At least 2 values required for calculation."
+      "businessContext": "Raw sample measurements from the process. At least 2 values required for calculation.",
+      "label_i18n": {
+        "en": "Data Points (comma-separated)"
+      },
+      "businessContext_i18n": {
+        "en": "Raw sample measurements from the process. At least 2 values required for calculation."
+      }
     },
     {
       "id": "population_mean",
@@ -29,7 +35,13 @@
       "default": null,
       "min": null,
       "max": null,
-      "businessContext": "Target or historical mean of the process. If unknown, leave blank to use sample mean."
+      "businessContext": "Target or historical mean of the process. If unknown, leave blank to use sample mean.",
+      "label_i18n": {
+        "en": "Population Mean (μ)"
+      },
+      "businessContext_i18n": {
+        "en": "Target or historical mean of the process. If unknown, leave blank to use sample mean."
+      }
     },
     {
       "id": "population_stddev",
@@ -39,7 +51,13 @@
       "default": null,
       "min": 0,
       "max": null,
-      "businessContext": "Known process standard deviation. If unknown, leave blank to use sample standard deviation."
+      "businessContext": "Known process standard deviation. If unknown, leave blank to use sample standard deviation.",
+      "label_i18n": {
+        "en": "Population Standard Deviation (σ)"
+      },
+      "businessContext_i18n": {
+        "en": "Known process standard deviation. If unknown, leave blank to use sample standard deviation."
+      }
     },
     {
       "id": "confidence_level",
@@ -63,7 +81,13 @@
           "value": "99",
           "label": "99%"
         }
-      ]
+      ],
+      "label_i18n": {
+        "en": "Confidence Level"
+      },
+      "businessContext_i18n": {
+        "en": "Desired confidence level for interval estimation. Common values: 90%, 95%, 99%."
+      }
     },
     {
       "id": "tail_type",
@@ -87,7 +111,13 @@
           "value": "one-tailed-lower",
           "label": "One-tailed (lower)"
         }
-      ]
+      ],
+      "label_i18n": {
+        "en": "Tail Type"
+      },
+      "businessContext_i18n": {
+        "en": "Specifies whether the test is one-tailed (upper/lower) or two-tailed."
+      }
     },
     {
       "id": "use_sample_std",
@@ -97,7 +127,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "When true, the calculator will estimate σ from the sample data using Bessel's correction."
+      "businessContext": "When true, the calculator will estimate σ from the sample data using Bessel's correction.",
+      "label_i18n": {
+        "en": "Use Sample Standard Deviation (if σ unknown)"
+      },
+      "businessContext_i18n": {
+        "en": "When true, the calculator will estimate σ from the sample data using Bessel's correction."
+      }
     }
   ],
   "validation": {

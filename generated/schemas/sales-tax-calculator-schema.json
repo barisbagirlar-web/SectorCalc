@@ -15,7 +15,13 @@
       "default": 10000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Total revenue from taxable sales before any tax or discounts."
+      "businessContext": "Total revenue from taxable sales before any tax or discounts.",
+      "label_i18n": {
+        "en": "Net Sales Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Total revenue from taxable sales before any tax or discounts."
+      }
     },
     {
       "id": "tax_rate",
@@ -25,7 +31,13 @@
       "default": 8.25,
       "min": 0,
       "max": 50,
-      "businessContext": "Combined state and local sales tax rate as a percentage."
+      "businessContext": "Combined state and local sales tax rate as a percentage.",
+      "label_i18n": {
+        "en": "Sales Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Combined state and local sales tax rate as a percentage."
+      }
     },
     {
       "id": "exempt_ratio",
@@ -35,7 +47,13 @@
       "default": 0,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of net sales that are tax-exempt (e.g., resale, non-profit)."
+      "businessContext": "Percentage of net sales that are tax-exempt (e.g., resale, non-profit).",
+      "label_i18n": {
+        "en": "Exempt Sales Ratio"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of net sales that are tax-exempt (e.g., resale, non-profit)."
+      }
     },
     {
       "id": "tax_jurisdiction",
@@ -50,7 +68,13 @@
         "state_only",
         "state_county",
         "state_county_city"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Tax Jurisdiction"
+      },
+      "businessContext_i18n": {
+        "en": "Level of tax authority: state only, state+county, or state+county+city."
+      }
     },
     {
       "id": "use_sourcing",
@@ -64,7 +88,13 @@
       "options": [
         "origin",
         "destination"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Sourcing Method"
+      },
+      "businessContext_i18n": {
+        "en": "Origin-based (seller's location) or destination-based (buyer's location) tax sourcing."
+      }
     },
     {
       "id": "include_shipping",
@@ -74,7 +104,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "Whether shipping and handling charges are subject to sales tax."
+      "businessContext": "Whether shipping and handling charges are subject to sales tax.",
+      "label_i18n": {
+        "en": "Include Shipping in Taxable Base"
+      },
+      "businessContext_i18n": {
+        "en": "Whether shipping and handling charges are subject to sales tax."
+      }
     },
     {
       "id": "shipping_charge",
@@ -84,7 +120,13 @@
       "default": 500,
       "min": 0,
       "max": 100000,
-      "businessContext": "Total shipping and handling fees charged to customers."
+      "businessContext": "Total shipping and handling fees charged to customers.",
+      "label_i18n": {
+        "en": "Shipping & Handling Charge"
+      },
+      "businessContext_i18n": {
+        "en": "Total shipping and handling fees charged to customers."
+      }
     }
   ],
   "validation": {

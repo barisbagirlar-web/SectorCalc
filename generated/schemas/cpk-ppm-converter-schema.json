@@ -20,7 +20,13 @@
       "min": 0,
       "max": 3,
       "step": 0.01,
-      "businessContext": "Cpk is a standard Six Sigma metric indicating how well a process meets specification limits, accounting for centering. Typical targets: 1.33 (minimum acceptable), 1.67 (good), 2.0 (excellent)."
+      "businessContext": "Cpk is a standard Six Sigma metric indicating how well a process meets specification limits, accounting for centering. Typical targets: 1.33 (minimum acceptable), 1.67 (good), 2.0 (excellent).",
+      "label_i18n": {
+        "en": "Process Capability Index (Cpk)"
+      },
+      "businessContext_i18n": {
+        "en": "Cpk is a standard Six Sigma metric indicating how well a process meets specification limits, accounting for centering. Typical targets: 1.33 (minimum acceptable), 1.67 (good), 2.0 (excellent)."
+      }
     },
     {
       "id": "sigmaShift",
@@ -31,7 +37,13 @@
       "min": 0,
       "max": 2,
       "step": 0.1,
-      "businessContext": "Accounts for long-term process drift. Standard Six Sigma assumption is 1.5 sigma shift. Adjust based on historical data or industry norms (e.g., automotive often uses 1.5)."
+      "businessContext": "Accounts for long-term process drift. Standard Six Sigma assumption is 1.5 sigma shift. Adjust based on historical data or industry norms (e.g., automotive often uses 1.5).",
+      "label_i18n": {
+        "en": "Sigma Shift (long-term drift)"
+      },
+      "businessContext_i18n": {
+        "en": "Accounts for long-term process drift. Standard Six Sigma assumption is 1.5 sigma shift. Adjust based on historical data or industry norms (e.g., automotive often uses 1.5)."
+      }
     },
     {
       "id": "distributionType",
@@ -48,7 +60,13 @@
         }
       ],
       "default": "normal",
-      "businessContext": "Select distribution based on sample size and data characteristics. Normal for large samples (n>30), t-distribution for small samples (n<30) to account for uncertainty."
+      "businessContext": "Select distribution based on sample size and data characteristics. Normal for large samples (n>30), t-distribution for small samples (n<30) to account for uncertainty.",
+      "label_i18n": {
+        "en": "Distribution Type"
+      },
+      "businessContext_i18n": {
+        "en": "Select distribution based on sample size and data characteristics. Normal for large samples (n>30), t-distribution for small samples (n<30) to account for uncertainty."
+      }
     },
     {
       "id": "sampleSize",
@@ -59,7 +77,13 @@
       "min": 2,
       "max": 100000,
       "step": 1,
-      "businessContext": "Number of observations used to estimate Cpk. Larger samples improve confidence. Required for t-distribution adjustment."
+      "businessContext": "Number of observations used to estimate Cpk. Larger samples improve confidence. Required for t-distribution adjustment.",
+      "label_i18n": {
+        "en": "Sample Size (n)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of observations used to estimate Cpk. Larger samples improve confidence. Required for t-distribution adjustment."
+      }
     },
     {
       "id": "confidenceLevel",
@@ -80,14 +104,26 @@
         }
       ],
       "default": 0.95,
-      "businessContext": "Confidence level for the confidence interval of the PPM estimate. Higher levels provide more conservative (wider) intervals."
+      "businessContext": "Confidence level for the confidence interval of the PPM estimate. Higher levels provide more conservative (wider) intervals.",
+      "label_i18n": {
+        "en": "Confidence Level"
+      },
+      "businessContext_i18n": {
+        "en": "Confidence level for the confidence interval of the PPM estimate. Higher levels provide more conservative (wider) intervals."
+      }
     },
     {
       "id": "useConfidenceInterval",
       "label": "Use Confidence Interval",
       "type": "boolean",
       "default": false,
-      "businessContext": "If enabled, the tool calculates lower and upper bounds for PPM based on the confidence level. Useful for risk assessment."
+      "businessContext": "If enabled, the tool calculates lower and upper bounds for PPM based on the confidence level. Useful for risk assessment.",
+      "label_i18n": {
+        "en": "Use Confidence Interval"
+      },
+      "businessContext_i18n": {
+        "en": "If enabled, the tool calculates lower and upper bounds for PPM based on the confidence level. Useful for risk assessment."
+      }
     }
   ],
   "validation": {

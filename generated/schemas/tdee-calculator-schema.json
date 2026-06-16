@@ -20,7 +20,13 @@
       "default": 30,
       "min": 10,
       "max": 120,
-      "businessContext": "Age affects basal metabolic rate; used in Mifflin-St Jeor and Harris-Benedict equations."
+      "businessContext": "Age affects basal metabolic rate; used in Mifflin-St Jeor and Harris-Benedict equations.",
+      "label_i18n": {
+        "en": "Age"
+      },
+      "businessContext_i18n": {
+        "en": "Age affects basal metabolic rate; used in Mifflin-St Jeor and Harris-Benedict equations."
+      }
     },
     {
       "id": "gender",
@@ -34,7 +40,13 @@
         "male",
         "female"
       ],
-      "businessContext": "Gender-specific coefficients for BMR estimation per ISO 8996 and clinical standards."
+      "businessContext": "Gender-specific coefficients for BMR estimation per ISO 8996 and clinical standards.",
+      "label_i18n": {
+        "en": "Gender"
+      },
+      "businessContext_i18n": {
+        "en": "Gender-specific coefficients for BMR estimation per ISO 8996 and clinical standards."
+      }
     },
     {
       "id": "weight",
@@ -44,7 +56,13 @@
       "default": 70,
       "min": 20,
       "max": 300,
-      "businessContext": "Primary driver of energy expenditure; used in all BMR formulas."
+      "businessContext": "Primary driver of energy expenditure; used in all BMR formulas.",
+      "label_i18n": {
+        "en": "Body Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Primary driver of energy expenditure; used in all BMR formulas."
+      }
     },
     {
       "id": "height",
@@ -54,7 +72,13 @@
       "default": 170,
       "min": 50,
       "max": 250,
-      "businessContext": "Height influences lean body mass and BMR; used in Mifflin-St Jeor and Harris-Benedict."
+      "businessContext": "Height influences lean body mass and BMR; used in Mifflin-St Jeor and Harris-Benedict.",
+      "label_i18n": {
+        "en": "Height"
+      },
+      "businessContext_i18n": {
+        "en": "Height influences lean body mass and BMR; used in Mifflin-St Jeor and Harris-Benedict."
+      }
     },
     {
       "id": "activityLevel",
@@ -71,7 +95,13 @@
         "active",
         "veryActive"
       ],
-      "businessContext": "Physical activity level (PAL) multiplier per WHO/FAO and ISO 8996 metabolic rate classification."
+      "businessContext": "Physical activity level (PAL) multiplier per WHO/FAO and ISO 8996 metabolic rate classification.",
+      "label_i18n": {
+        "en": "Activity Level"
+      },
+      "businessContext_i18n": {
+        "en": "Physical activity level (PAL) multiplier per WHO/FAO and ISO 8996 metabolic rate classification."
+      }
     },
     {
       "id": "bodyFatPercent",
@@ -81,7 +111,13 @@
       "default": 20,
       "min": 3,
       "max": 60,
-      "businessContext": "Optional input for Katch-McArdle formula; improves accuracy for lean mass estimation."
+      "businessContext": "Optional input for Katch-McArdle formula; improves accuracy for lean mass estimation.",
+      "label_i18n": {
+        "en": "Body Fat Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Optional input for Katch-McArdle formula; improves accuracy for lean mass estimation."
+      }
     },
     {
       "id": "isAthlete",
@@ -91,7 +127,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "Activates adjusted activity multipliers for high-frequency training (6+ sessions/week)."
+      "businessContext": "Activates adjusted activity multipliers for high-frequency training (6+ sessions/week).",
+      "label_i18n": {
+        "en": "Athlete Mode"
+      },
+      "businessContext_i18n": {
+        "en": "Activates adjusted activity multipliers for high-frequency training (6+ sessions/week)."
+      }
     }
   ],
   "validation": {

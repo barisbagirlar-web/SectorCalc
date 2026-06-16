@@ -19,7 +19,13 @@
       "default": 28,
       "min": 20,
       "max": 45,
-      "businessContext": "Typical range for healthy adult women; used as baseline for ovulation estimation."
+      "businessContext": "Typical range for healthy adult women; used as baseline for ovulation estimation.",
+      "label_i18n": {
+        "en": "Average cycle length (days)"
+      },
+      "businessContext_i18n": {
+        "en": "Typical range for healthy adult women; used as baseline for ovulation estimation."
+      }
     },
     {
       "id": "luteal_phase_length",
@@ -29,7 +35,13 @@
       "default": 14,
       "min": 10,
       "max": 16,
-      "businessContext": "Fixed post-ovulation phase; variation indicates potential luteal phase defect."
+      "businessContext": "Fixed post-ovulation phase; variation indicates potential luteal phase defect.",
+      "label_i18n": {
+        "en": "Luteal phase length (days)"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed post-ovulation phase; variation indicates potential luteal phase defect."
+      }
     },
     {
       "id": "last_period_start",
@@ -39,7 +51,13 @@
       "default": 0,
       "min": 0,
       "max": 2000000000,
-      "businessContext": "Reference point for calculating next ovulation and fertile window."
+      "businessContext": "Reference point for calculating next ovulation and fertile window.",
+      "label_i18n": {
+        "en": "Start date of last menstrual period"
+      },
+      "businessContext_i18n": {
+        "en": "Reference point for calculating next ovulation and fertile window."
+      }
     },
     {
       "id": "cycle_variability",
@@ -49,7 +67,13 @@
       "default": 2,
       "min": 0,
       "max": 10,
-      "businessContext": "Used to compute confidence intervals and adjust fertile window width per SPC rules."
+      "businessContext": "Used to compute confidence intervals and adjust fertile window width per SPC rules.",
+      "label_i18n": {
+        "en": "Cycle length variability (standard deviation, days)"
+      },
+      "businessContext_i18n": {
+        "en": "Used to compute confidence intervals and adjust fertile window width per SPC rules."
+      }
     },
     {
       "id": "age_group",
@@ -65,7 +89,13 @@
         "31-40",
         ">40"
       ],
-      "businessContext": "Age affects cycle regularity and fertility; used for risk adjustment."
+      "businessContext": "Age affects cycle regularity and fertility; used for risk adjustment.",
+      "label_i18n": {
+        "en": "Age group"
+      },
+      "businessContext_i18n": {
+        "en": "Age affects cycle regularity and fertility; used for risk adjustment."
+      }
     },
     {
       "id": "has_irregular_cycles",
@@ -75,7 +105,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "Triggers alternative calculation method and alerts for medical consultation."
+      "businessContext": "Triggers alternative calculation method and alerts for medical consultation.",
+      "label_i18n": {
+        "en": "Irregular cycles (variation > 7 days)"
+      },
+      "businessContext_i18n": {
+        "en": "Triggers alternative calculation method and alerts for medical consultation."
+      }
     }
   ],
   "validation": {

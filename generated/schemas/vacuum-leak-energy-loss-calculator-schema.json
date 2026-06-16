@@ -19,7 +19,13 @@
       "default": 2,
       "min": 0.1,
       "max": 50,
-      "businessContext": "Estimated diameter of the leak orifice, typically measured via ultrasonic leak detector or flow test."
+      "businessContext": "Estimated diameter of the leak orifice, typically measured via ultrasonic leak detector or flow test.",
+      "label_i18n": {
+        "en": "Equivalent Leak Diameter (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated diameter of the leak orifice, typically measured via ultrasonic leak detector or flow test."
+      }
     },
     {
       "id": "system_pressure_bar",
@@ -29,7 +35,13 @@
       "default": 7,
       "min": 1,
       "max": 15,
-      "businessContext": "Operating pressure of the compressed air system at the point of leak."
+      "businessContext": "Operating pressure of the compressed air system at the point of leak.",
+      "label_i18n": {
+        "en": "System Pressure (bar gauge)"
+      },
+      "businessContext_i18n": {
+        "en": "Operating pressure of the compressed air system at the point of leak."
+      }
     },
     {
       "id": "operating_hours_per_year",
@@ -39,7 +51,13 @@
       "default": 8000,
       "min": 1000,
       "max": 8760,
-      "businessContext": "Total annual hours the vacuum/compressed air system is in operation."
+      "businessContext": "Total annual hours the vacuum/compressed air system is in operation.",
+      "label_i18n": {
+        "en": "Operating Hours per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Total annual hours the vacuum/compressed air system is in operation."
+      }
     },
     {
       "id": "electricity_cost_per_kwh",
@@ -49,7 +67,13 @@
       "default": 0.12,
       "min": 0.01,
       "max": 0.5,
-      "businessContext": "Average cost of electricity per kilowatt-hour, including demand charges if applicable."
+      "businessContext": "Average cost of electricity per kilowatt-hour, including demand charges if applicable.",
+      "label_i18n": {
+        "en": "Electricity Cost ($/kWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost of electricity per kilowatt-hour, including demand charges if applicable."
+      }
     },
     {
       "id": "compressor_specific_power",
@@ -59,7 +83,13 @@
       "default": 18,
       "min": 10,
       "max": 30,
-      "businessContext": "Power consumption of the compressor per 100 cfm of free air delivered. Typical range 16-22 kW/100 cfm for rotary screw compressors."
+      "businessContext": "Power consumption of the compressor per 100 cfm of free air delivered. Typical range 16-22 kW/100 cfm for rotary screw compressors.",
+      "label_i18n": {
+        "en": "Compressor Specific Power (kW per 100 cfm)"
+      },
+      "businessContext_i18n": {
+        "en": "Power consumption of the compressor per 100 cfm of free air delivered. Typical range 16-22 kW/100 cfm for rotary screw compressors."
+      }
     },
     {
       "id": "ambient_temperature_c",
@@ -69,7 +99,13 @@
       "default": 25,
       "min": -10,
       "max": 50,
-      "businessContext": "Average ambient temperature at compressor intake, affects air density and mass flow."
+      "businessContext": "Average ambient temperature at compressor intake, affects air density and mass flow.",
+      "label_i18n": {
+        "en": "Ambient Temperature (°C)"
+      },
+      "businessContext_i18n": {
+        "en": "Average ambient temperature at compressor intake, affects air density and mass flow."
+      }
     },
     {
       "id": "leak_type",
@@ -91,7 +127,13 @@
           "label": "Long Orifice (Cd=0.50)"
         }
       ],
-      "businessContext": "Shape factor affects discharge coefficient. Round is typical for drilled holes; sharp for cracks; long for pipes."
+      "businessContext": "Shape factor affects discharge coefficient. Round is typical for drilled holes; sharp for cracks; long for pipes.",
+      "label_i18n": {
+        "en": "Leak Type (Orifice Shape Factor)"
+      },
+      "businessContext_i18n": {
+        "en": "Shape factor affects discharge coefficient. Round is typical for drilled holes; sharp for cracks; long for pipes."
+      }
     },
     {
       "id": "include_carbon_cost",
@@ -99,7 +141,13 @@
       "type": "boolean",
       "unit": "",
       "default": true,
-      "businessContext": "If enabled, calculates CO2 emissions and associated cost based on grid emission factor."
+      "businessContext": "If enabled, calculates CO2 emissions and associated cost based on grid emission factor.",
+      "label_i18n": {
+        "en": "Include Carbon Cost Calculation"
+      },
+      "businessContext_i18n": {
+        "en": "If enabled, calculates CO2 emissions and associated cost based on grid emission factor."
+      }
     },
     {
       "id": "emission_factor_kg_co2_per_kwh",
@@ -109,7 +157,13 @@
       "default": 0.5,
       "min": 0.1,
       "max": 1.5,
-      "businessContext": "Average CO2 emissions per kWh of electricity consumed. Varies by region (e.g., US average ~0.4, China ~0.6)."
+      "businessContext": "Average CO2 emissions per kWh of electricity consumed. Varies by region (e.g., US average ~0.4, China ~0.6).",
+      "label_i18n": {
+        "en": "Grid Emission Factor (kg CO2/kWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Average CO2 emissions per kWh of electricity consumed. Varies by region (e.g., US average ~0.4, China ~0.6)."
+      }
     }
   ],
   "validation": {

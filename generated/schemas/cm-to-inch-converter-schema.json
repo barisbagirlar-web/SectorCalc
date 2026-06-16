@@ -17,7 +17,13 @@
       "default": 0,
       "min": 0,
       "max": 100000,
-      "businessContext": "Measured length in centimeters, typically from calipers, rulers, or CAD models."
+      "businessContext": "Measured length in centimeters, typically from calipers, rulers, or CAD models.",
+      "label_i18n": {
+        "en": "Length in Centimeters"
+      },
+      "businessContext_i18n": {
+        "en": "Measured length in centimeters, typically from calipers, rulers, or CAD models."
+      }
     },
     {
       "id": "measurement_uncertainty",
@@ -27,7 +33,13 @@
       "default": 0.05,
       "min": 0,
       "max": 10,
-      "businessContext": "Estimated uncertainty of the measurement (e.g., ±0.05 cm for standard calipers)."
+      "businessContext": "Estimated uncertainty of the measurement (e.g., ±0.05 cm for standard calipers).",
+      "label_i18n": {
+        "en": "Measurement Uncertainty"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated uncertainty of the measurement (e.g., ±0.05 cm for standard calipers)."
+      }
     },
     {
       "id": "conversion_precision",
@@ -49,7 +61,13 @@
           "label": "Survey (1 in = 2.54000508 cm)"
         }
       ],
-      "businessContext": "Select the conversion factor precision based on industry standard (ISO 80000-1, NIST)."
+      "businessContext": "Select the conversion factor precision based on industry standard (ISO 80000-1, NIST).",
+      "label_i18n": {
+        "en": "Conversion Precision"
+      },
+      "businessContext_i18n": {
+        "en": "Select the conversion factor precision based on industry standard (ISO 80000-1, NIST)."
+      }
     },
     {
       "id": "tolerance_class",
@@ -71,7 +89,13 @@
           "label": "Very Fine (ISO 2768-v)"
         }
       ],
-      "businessContext": "Tolerance class for dimensional inspection per ISO 2768. Affects alert thresholds."
+      "businessContext": "Tolerance class for dimensional inspection per ISO 2768. Affects alert thresholds.",
+      "label_i18n": {
+        "en": "Tolerance Class"
+      },
+      "businessContext_i18n": {
+        "en": "Tolerance class for dimensional inspection per ISO 2768. Affects alert thresholds."
+      }
     },
     {
       "id": "unit_cost_per_inch",
@@ -81,7 +105,13 @@
       "default": 0.5,
       "min": 0,
       "max": 1000,
-      "businessContext": "Cost per inch of material or product, used for cost estimation in Lean/Six Sigma projects."
+      "businessContext": "Cost per inch of material or product, used for cost estimation in Lean/Six Sigma projects.",
+      "label_i18n": {
+        "en": "Unit Cost per Inch"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per inch of material or product, used for cost estimation in Lean/Six Sigma projects."
+      }
     },
     {
       "id": "batch_quantity",
@@ -91,7 +121,13 @@
       "default": 1,
       "min": 1,
       "max": 1000000,
-      "businessContext": "Number of units in the batch for total cost and waste calculations."
+      "businessContext": "Number of units in the batch for total cost and waste calculations.",
+      "label_i18n": {
+        "en": "Batch Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units in the batch for total cost and waste calculations."
+      }
     }
   ],
   "validation": {

@@ -25,7 +25,13 @@
         "Angle",
         "T-beam"
       ],
-      "businessContext": "Standard structural steel profiles per ASTM A6/A6M."
+      "businessContext": "Standard structural steel profiles per ASTM A6/A6M.",
+      "label_i18n": {
+        "en": "Beam Type"
+      },
+      "businessContext_i18n": {
+        "en": "Standard structural steel profiles per ASTM A6/A6M."
+      }
     },
     {
       "id": "material_density",
@@ -35,7 +41,13 @@
       "default": 7850,
       "min": 7000,
       "max": 9000,
-      "businessContext": "Typical steel density 7850 kg/m³; adjust for alloys (e.g., stainless ~8000)."
+      "businessContext": "Typical steel density 7850 kg/m³; adjust for alloys (e.g., stainless ~8000).",
+      "label_i18n": {
+        "en": "Material Density"
+      },
+      "businessContext_i18n": {
+        "en": "Typical steel density 7850 kg/m³; adjust for alloys (e.g., stainless ~8000)."
+      }
     },
     {
       "id": "length",
@@ -45,7 +57,13 @@
       "default": 6,
       "min": 0.5,
       "max": 30,
-      "businessContext": "Standard stock lengths: 6m, 12m; custom up to 30m."
+      "businessContext": "Standard stock lengths: 6m, 12m; custom up to 30m.",
+      "label_i18n": {
+        "en": "Beam Length"
+      },
+      "businessContext_i18n": {
+        "en": "Standard stock lengths: 6m, 12m; custom up to 30m."
+      }
     },
     {
       "id": "flange_width",
@@ -55,7 +73,13 @@
       "default": 200,
       "min": 50,
       "max": 1000,
-      "businessContext": "Width of top/bottom flange for I/H-beams."
+      "businessContext": "Width of top/bottom flange for I/H-beams.",
+      "label_i18n": {
+        "en": "Flange Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of top/bottom flange for I/H-beams."
+      }
     },
     {
       "id": "flange_thickness",
@@ -65,7 +89,13 @@
       "default": 12,
       "min": 4,
       "max": 100,
-      "businessContext": "Thickness of flange plates."
+      "businessContext": "Thickness of flange plates.",
+      "label_i18n": {
+        "en": "Flange Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of flange plates."
+      }
     },
     {
       "id": "web_height",
@@ -75,7 +105,13 @@
       "default": 300,
       "min": 100,
       "max": 1200,
-      "businessContext": "Clear height between flanges (web depth)."
+      "businessContext": "Clear height between flanges (web depth).",
+      "label_i18n": {
+        "en": "Web Height"
+      },
+      "businessContext_i18n": {
+        "en": "Clear height between flanges (web depth)."
+      }
     },
     {
       "id": "web_thickness",
@@ -85,7 +121,13 @@
       "default": 8,
       "min": 3,
       "max": 50,
-      "businessContext": "Thickness of the vertical web."
+      "businessContext": "Thickness of the vertical web.",
+      "label_i18n": {
+        "en": "Web Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Thickness of the vertical web."
+      }
     },
     {
       "id": "quantity",
@@ -95,7 +137,13 @@
       "default": 1,
       "min": 1,
       "max": 10000,
-      "businessContext": "Number of identical beams."
+      "businessContext": "Number of identical beams.",
+      "label_i18n": {
+        "en": "Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of identical beams."
+      }
     },
     {
       "id": "material_cost_per_kg",
@@ -105,7 +153,13 @@
       "default": 1.2,
       "min": 0.5,
       "max": 5,
-      "businessContext": "Current market price for structural steel."
+      "businessContext": "Current market price for structural steel.",
+      "label_i18n": {
+        "en": "Material Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Current market price for structural steel."
+      }
     },
     {
       "id": "cutting_loss_factor",
@@ -115,7 +169,13 @@
       "default": 3,
       "min": 0,
       "max": 10,
-      "businessContext": "Lean allowance for saw kerf and scrap."
+      "businessContext": "Lean allowance for saw kerf and scrap.",
+      "label_i18n": {
+        "en": "Cutting Loss Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Lean allowance for saw kerf and scrap."
+      }
     },
     {
       "id": "surface_condition",
@@ -129,7 +189,13 @@
         "painted",
         "galvanized"
       ],
-      "businessContext": "Affects handling and coating weight adjustments."
+      "businessContext": "Affects handling and coating weight adjustments.",
+      "label_i18n": {
+        "en": "Surface Condition"
+      },
+      "businessContext_i18n": {
+        "en": "Affects handling and coating weight adjustments."
+      }
     },
     {
       "id": "include_coating_weight",
@@ -137,7 +203,13 @@
       "type": "boolean",
       "unit": "",
       "default": false,
-      "businessContext": "Adds estimated paint/galvanizing weight."
+      "businessContext": "Adds estimated paint/galvanizing weight.",
+      "label_i18n": {
+        "en": "Include Coating Weight"
+      },
+      "businessContext_i18n": {
+        "en": "Adds estimated paint/galvanizing weight."
+      }
     }
   ],
   "validation": {

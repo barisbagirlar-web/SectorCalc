@@ -22,7 +22,13 @@
       "default": 100,
       "min": 0,
       "max": 100000,
-      "businessContext": "Direct cost of raw materials per signage unit, including substrate, ink, and laminates."
+      "businessContext": "Direct cost of raw materials per signage unit, including substrate, ink, and laminates.",
+      "label_i18n": {
+        "en": "Material Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Direct cost of raw materials per signage unit, including substrate, ink, and laminates."
+      }
     },
     {
       "id": "labor_hours",
@@ -32,7 +38,13 @@
       "default": 2.5,
       "min": 0.1,
       "max": 100,
-      "businessContext": "Standard direct labor hours required to produce one signage unit, based on time studies."
+      "businessContext": "Standard direct labor hours required to produce one signage unit, based on time studies.",
+      "label_i18n": {
+        "en": "Labor Hours per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Standard direct labor hours required to produce one signage unit, based on time studies."
+      }
     },
     {
       "id": "labor_rate",
@@ -42,7 +54,13 @@
       "default": 35,
       "min": 0,
       "max": 200,
-      "businessContext": "Fully burdened hourly wage including benefits, taxes, and overhead allocation."
+      "businessContext": "Fully burdened hourly wage including benefits, taxes, and overhead allocation.",
+      "label_i18n": {
+        "en": "Labor Rate per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Fully burdened hourly wage including benefits, taxes, and overhead allocation."
+      }
     },
     {
       "id": "overhead_rate",
@@ -52,7 +70,13 @@
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage applied to direct costs to cover facility, equipment, and administrative overhead."
+      "businessContext": "Percentage applied to direct costs to cover facility, equipment, and administrative overhead.",
+      "label_i18n": {
+        "en": "Overhead Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage applied to direct costs to cover facility, equipment, and administrative overhead."
+      }
     },
     {
       "id": "complexity_factor",
@@ -76,7 +100,13 @@
           "label": "High (intricate designs, special finishes)"
         }
       ],
-      "businessContext": "Adjusts labor and waste factors based on design complexity per ISO 9001 process variation guidelines."
+      "businessContext": "Adjusts labor and waste factors based on design complexity per ISO 9001 process variation guidelines.",
+      "label_i18n": {
+        "en": "Complexity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Adjusts labor and waste factors based on design complexity per ISO 9001 process variation guidelines."
+      }
     },
     {
       "id": "quality_level",
@@ -100,7 +130,13 @@
           "label": "Premium (Six Sigma, near zero defects)"
         }
       ],
-      "businessContext": "Defines inspection rigor and rework allowance based on Six Sigma quality levels."
+      "businessContext": "Defines inspection rigor and rework allowance based on Six Sigma quality levels.",
+      "label_i18n": {
+        "en": "Quality Level"
+      },
+      "businessContext_i18n": {
+        "en": "Defines inspection rigor and rework allowance based on Six Sigma quality levels."
+      }
     },
     {
       "id": "quantity",
@@ -110,7 +146,13 @@
       "default": 100,
       "min": 1,
       "max": 100000,
-      "businessContext": "Total number of signage units in the order, affecting volume discounts and setup amortization."
+      "businessContext": "Total number of signage units in the order, affecting volume discounts and setup amortization.",
+      "label_i18n": {
+        "en": "Order Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of signage units in the order, affecting volume discounts and setup amortization."
+      }
     },
     {
       "id": "waste_factor",
@@ -120,7 +162,13 @@
       "default": 5,
       "min": 0,
       "max": 50,
-      "businessContext": "Expected material waste percentage due to setup, trimming, and defects, aligned with Lean manufacturing targets."
+      "businessContext": "Expected material waste percentage due to setup, trimming, and defects, aligned with Lean manufacturing targets.",
+      "label_i18n": {
+        "en": "Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Expected material waste percentage due to setup, trimming, and defects, aligned with Lean manufacturing targets."
+      }
     },
     {
       "id": "risk_margin",
@@ -130,7 +178,13 @@
       "default": 10,
       "min": 0,
       "max": 50,
-      "businessContext": "Additional margin to cover market volatility, material price fluctuations, and unforeseen delays."
+      "businessContext": "Additional margin to cover market volatility, material price fluctuations, and unforeseen delays.",
+      "label_i18n": {
+        "en": "Risk Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Additional margin to cover market volatility, material price fluctuations, and unforeseen delays."
+      }
     },
     {
       "id": "shipping_cost_per_unit",
@@ -140,7 +194,13 @@
       "default": 5,
       "min": 0,
       "max": 500,
-      "businessContext": "Average freight cost per unit based on distance, weight, and packaging."
+      "businessContext": "Average freight cost per unit based on distance, weight, and packaging.",
+      "label_i18n": {
+        "en": "Shipping Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Average freight cost per unit based on distance, weight, and packaging."
+      }
     }
   ],
   "validation": {

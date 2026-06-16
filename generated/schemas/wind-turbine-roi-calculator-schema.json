@@ -17,7 +17,13 @@
       "default": 2,
       "min": 0.5,
       "max": 15,
-      "businessContext": "Nameplate capacity of the wind turbine model under evaluation."
+      "businessContext": "Nameplate capacity of the wind turbine model under evaluation.",
+      "label_i18n": {
+        "en": "Turbine Rated Capacity (MW)"
+      },
+      "businessContext_i18n": {
+        "en": "Nameplate capacity of the wind turbine model under evaluation."
+      }
     },
     {
       "id": "capacity_factor",
@@ -27,7 +33,13 @@
       "default": 35,
       "min": 10,
       "max": 60,
-      "businessContext": "Expected annual capacity factor based on site wind resource assessment (IEC 61400-1)."
+      "businessContext": "Expected annual capacity factor based on site wind resource assessment (IEC 61400-1).",
+      "label_i18n": {
+        "en": "Capacity Factor (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual capacity factor based on site wind resource assessment (IEC 61400-1)."
+      }
     },
     {
       "id": "capital_cost_per_mw",
@@ -37,7 +49,13 @@
       "default": 1300000,
       "min": 800000,
       "max": 2500000,
-      "businessContext": "Total installed cost per MW, including turbine, foundation, grid connection, and logistics."
+      "businessContext": "Total installed cost per MW, including turbine, foundation, grid connection, and logistics.",
+      "label_i18n": {
+        "en": "Capital Cost per MW (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Total installed cost per MW, including turbine, foundation, grid connection, and logistics."
+      }
     },
     {
       "id": "opex_per_mwh",
@@ -47,7 +65,13 @@
       "default": 12,
       "min": 5,
       "max": 30,
-      "businessContext": "Annual operations and maintenance cost per MWh generated (includes scheduled and unscheduled maintenance)."
+      "businessContext": "Annual operations and maintenance cost per MWh generated (includes scheduled and unscheduled maintenance).",
+      "label_i18n": {
+        "en": "Operating Expenditure (USD/MWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual operations and maintenance cost per MWh generated (includes scheduled and unscheduled maintenance)."
+      }
     },
     {
       "id": "electricity_price",
@@ -57,7 +81,13 @@
       "default": 50,
       "min": 20,
       "max": 150,
-      "businessContext": "Power purchase agreement price or wholesale market price per MWh."
+      "businessContext": "Power purchase agreement price or wholesale market price per MWh.",
+      "label_i18n": {
+        "en": "Electricity Selling Price (USD/MWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Power purchase agreement price or wholesale market price per MWh."
+      }
     },
     {
       "id": "discount_rate",
@@ -67,7 +97,13 @@
       "default": 8,
       "min": 3,
       "max": 20,
-      "businessContext": "Weighted average cost of capital (WACC) used for net present value calculation."
+      "businessContext": "Weighted average cost of capital (WACC) used for net present value calculation.",
+      "label_i18n": {
+        "en": "Discount Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted average cost of capital (WACC) used for net present value calculation."
+      }
     },
     {
       "id": "project_lifetime",
@@ -77,7 +113,13 @@
       "default": 20,
       "min": 10,
       "max": 30,
-      "businessContext": "Expected operational life of the wind farm (typically 20-25 years)."
+      "businessContext": "Expected operational life of the wind farm (typically 20-25 years).",
+      "label_i18n": {
+        "en": "Project Lifetime (years)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected operational life of the wind farm (typically 20-25 years)."
+      }
     },
     {
       "id": "degradation_rate",
@@ -87,7 +129,13 @@
       "default": 0.5,
       "min": 0,
       "max": 2,
-      "businessContext": "Expected annual reduction in energy production due to blade wear, gearbox aging, and other factors."
+      "businessContext": "Expected annual reduction in energy production due to blade wear, gearbox aging, and other factors.",
+      "label_i18n": {
+        "en": "Annual Degradation Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual reduction in energy production due to blade wear, gearbox aging, and other factors."
+      }
     },
     {
       "id": "incentive_tax_credit",
@@ -97,7 +145,13 @@
       "default": 0,
       "min": 0,
       "max": 30,
-      "businessContext": "Government incentive per MWh generated (e.g., US PTC)."
+      "businessContext": "Government incentive per MWh generated (e.g., US PTC).",
+      "label_i18n": {
+        "en": "Production Tax Credit (USD/MWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Government incentive per MWh generated (e.g., US PTC)."
+      }
     },
     {
       "id": "grid_availability",
@@ -107,7 +161,13 @@
       "default": 97,
       "min": 85,
       "max": 100,
-      "businessContext": "Percentage of time the grid is available to accept power (curtailment factor)."
+      "businessContext": "Percentage of time the grid is available to accept power (curtailment factor).",
+      "label_i18n": {
+        "en": "Grid Availability (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of time the grid is available to accept power (curtailment factor)."
+      }
     },
     {
       "id": "turbine_type",
@@ -120,7 +180,13 @@
         "Offshore - Floating"
       ],
       "default": "Onshore - Geared",
-      "businessContext": "Technology classification affecting O&M cost profiles and reliability (ISO 61400-4)."
+      "businessContext": "Technology classification affecting O&M cost profiles and reliability (ISO 61400-4).",
+      "label_i18n": {
+        "en": "Turbine Type"
+      },
+      "businessContext_i18n": {
+        "en": "Technology classification affecting O&M cost profiles and reliability (ISO 61400-4)."
+      }
     },
     {
       "id": "maintenance_strategy",
@@ -133,7 +199,13 @@
         "Predictive"
       ],
       "default": "Preventive",
-      "businessContext": "Maintenance approach aligned with Lean/Six Sigma principles to minimize downtime and cost."
+      "businessContext": "Maintenance approach aligned with Lean/Six Sigma principles to minimize downtime and cost.",
+      "label_i18n": {
+        "en": "Maintenance Strategy"
+      },
+      "businessContext_i18n": {
+        "en": "Maintenance approach aligned with Lean/Six Sigma principles to minimize downtime and cost."
+      }
     }
   ],
   "validation": {

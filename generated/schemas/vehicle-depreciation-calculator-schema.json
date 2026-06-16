@@ -17,7 +17,13 @@
       "default": 30000,
       "min": 1000,
       "max": 500000,
-      "businessContext": "Initial acquisition cost of the vehicle, including taxes and fees."
+      "businessContext": "Initial acquisition cost of the vehicle, including taxes and fees.",
+      "label_i18n": {
+        "en": "Purchase Price (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Initial acquisition cost of the vehicle, including taxes and fees."
+      }
     },
     {
       "id": "residual_value",
@@ -27,7 +33,13 @@
       "default": 12000,
       "min": 0,
       "max": 500000,
-      "businessContext": "Estimated market value of the vehicle at the end of the holding period."
+      "businessContext": "Estimated market value of the vehicle at the end of the holding period.",
+      "label_i18n": {
+        "en": "Residual Value (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated market value of the vehicle at the end of the holding period."
+      }
     },
     {
       "id": "holding_period_years",
@@ -37,7 +49,13 @@
       "default": 5,
       "min": 1,
       "max": 20,
-      "businessContext": "Expected number of years the vehicle will be owned and used."
+      "businessContext": "Expected number of years the vehicle will be owned and used.",
+      "label_i18n": {
+        "en": "Holding Period (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected number of years the vehicle will be owned and used."
+      }
     },
     {
       "id": "annual_mileage",
@@ -47,7 +65,13 @@
       "default": 12000,
       "min": 0,
       "max": 100000,
-      "businessContext": "Average miles driven per year, directly impacts wear and depreciation."
+      "businessContext": "Average miles driven per year, directly impacts wear and depreciation.",
+      "label_i18n": {
+        "en": "Annual Mileage (miles)"
+      },
+      "businessContext_i18n": {
+        "en": "Average miles driven per year, directly impacts wear and depreciation."
+      }
     },
     {
       "id": "depreciation_method",
@@ -62,7 +86,13 @@
         "straight_line",
         "declining_balance",
         "sum_of_years_digits"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Depreciation Method"
+      },
+      "businessContext_i18n": {
+        "en": "Accounting method used to allocate depreciation expense over the holding period."
+      }
     },
     {
       "id": "maintenance_cost_per_year",
@@ -72,7 +102,13 @@
       "default": 800,
       "min": 0,
       "max": 50000,
-      "businessContext": "Average yearly expenditure on repairs, tires, and routine servicing."
+      "businessContext": "Average yearly expenditure on repairs, tires, and routine servicing.",
+      "label_i18n": {
+        "en": "Annual Maintenance Cost (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Average yearly expenditure on repairs, tires, and routine servicing."
+      }
     },
     {
       "id": "fuel_efficiency_mpg",
@@ -82,7 +118,13 @@
       "default": 25,
       "min": 5,
       "max": 100,
-      "businessContext": "Miles per gallon, used to estimate fuel cost and total cost of ownership."
+      "businessContext": "Miles per gallon, used to estimate fuel cost and total cost of ownership.",
+      "label_i18n": {
+        "en": "Fuel Efficiency (MPG)"
+      },
+      "businessContext_i18n": {
+        "en": "Miles per gallon, used to estimate fuel cost and total cost of ownership."
+      }
     },
     {
       "id": "fuel_price_per_gallon",
@@ -92,7 +134,13 @@
       "default": 3.5,
       "min": 0.5,
       "max": 10,
-      "businessContext": "Current or projected average fuel price for the vehicle's fuel type."
+      "businessContext": "Current or projected average fuel price for the vehicle's fuel type.",
+      "label_i18n": {
+        "en": "Fuel Price per Gallon (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Current or projected average fuel price for the vehicle's fuel type."
+      }
     },
     {
       "id": "insurance_cost_per_year",
@@ -102,7 +150,13 @@
       "default": 1200,
       "min": 0,
       "max": 10000,
-      "businessContext": "Yearly premium for comprehensive and liability coverage."
+      "businessContext": "Yearly premium for comprehensive and liability coverage.",
+      "label_i18n": {
+        "en": "Annual Insurance Cost (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Yearly premium for comprehensive and liability coverage."
+      }
     },
     {
       "id": "discount_rate",
@@ -112,7 +166,13 @@
       "default": 5,
       "min": 0,
       "max": 30,
-      "businessContext": "Annual discount rate used for net present value calculations (cost of capital)."
+      "businessContext": "Annual discount rate used for net present value calculations (cost of capital).",
+      "label_i18n": {
+        "en": "Discount Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual discount rate used for net present value calculations (cost of capital)."
+      }
     },
     {
       "id": "vehicle_type",
@@ -129,7 +189,13 @@
         "truck",
         "van",
         "luxury"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Vehicle Type"
+      },
+      "businessContext_i18n": {
+        "en": "Category of vehicle, influences depreciation curves and maintenance patterns."
+      }
     }
   ],
   "validation": {

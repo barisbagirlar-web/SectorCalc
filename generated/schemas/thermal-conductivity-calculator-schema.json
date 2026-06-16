@@ -27,7 +27,13 @@
         "fluid_gas",
         "fluid_liquid"
       ],
-      "businessContext": "Select the material category to apply appropriate thermal conductivity ranges and correction factors per ISO 8301."
+      "businessContext": "Select the material category to apply appropriate thermal conductivity ranges and correction factors per ISO 8301.",
+      "label_i18n": {
+        "en": "Material Type"
+      },
+      "businessContext_i18n": {
+        "en": "Select the material category to apply appropriate thermal conductivity ranges and correction factors per ISO 8301."
+      }
     },
     {
       "id": "temperature_k",
@@ -37,7 +43,13 @@
       "default": 300,
       "min": 100,
       "max": 2000,
-      "businessContext": "Mean temperature of the material during operation. Affects phonon scattering and electron transport in solids."
+      "businessContext": "Mean temperature of the material during operation. Affects phonon scattering and electron transport in solids.",
+      "label_i18n": {
+        "en": "Operating Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Mean temperature of the material during operation. Affects phonon scattering and electron transport in solids."
+      }
     },
     {
       "id": "thickness_m",
@@ -47,7 +59,13 @@
       "default": 0.05,
       "min": 0.001,
       "max": 1,
-      "businessContext": "Material thickness in the direction of heat flow. Used for thermal resistance calculation."
+      "businessContext": "Material thickness in the direction of heat flow. Used for thermal resistance calculation.",
+      "label_i18n": {
+        "en": "Thickness"
+      },
+      "businessContext_i18n": {
+        "en": "Material thickness in the direction of heat flow. Used for thermal resistance calculation."
+      }
     },
     {
       "id": "cross_section_area_m2",
@@ -57,7 +75,13 @@
       "default": 1,
       "min": 0.0001,
       "max": 100,
-      "businessContext": "Area perpendicular to heat flow. Critical for heat flux density calculations."
+      "businessContext": "Area perpendicular to heat flow. Critical for heat flux density calculations.",
+      "label_i18n": {
+        "en": "Cross-Sectional Area"
+      },
+      "businessContext_i18n": {
+        "en": "Area perpendicular to heat flow. Critical for heat flux density calculations."
+      }
     },
     {
       "id": "heat_flow_w",
@@ -67,7 +91,13 @@
       "default": 100,
       "min": 0.1,
       "max": 100000,
-      "businessContext": "Steady-state heat transfer rate through the material. Measured via calorimeter or heat flux sensor."
+      "businessContext": "Steady-state heat transfer rate through the material. Measured via calorimeter or heat flux sensor.",
+      "label_i18n": {
+        "en": "Heat Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Steady-state heat transfer rate through the material. Measured via calorimeter or heat flux sensor."
+      }
     },
     {
       "id": "temperature_delta_k",
@@ -77,7 +107,13 @@
       "default": 50,
       "min": 0.1,
       "max": 500,
-      "businessContext": "Temperature gradient across the material thickness. Drives conductive heat transfer."
+      "businessContext": "Temperature gradient across the material thickness. Drives conductive heat transfer.",
+      "label_i18n": {
+        "en": "Temperature Difference"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature gradient across the material thickness. Drives conductive heat transfer."
+      }
     },
     {
       "id": "moisture_content_pct",
@@ -87,7 +123,13 @@
       "default": 0,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of moisture by volume. Increases effective thermal conductivity in porous materials (WERC guidelines)."
+      "businessContext": "Percentage of moisture by volume. Increases effective thermal conductivity in porous materials (WERC guidelines).",
+      "label_i18n": {
+        "en": "Moisture Content"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of moisture by volume. Increases effective thermal conductivity in porous materials (WERC guidelines)."
+      }
     },
     {
       "id": "aging_factor",
@@ -97,7 +139,13 @@
       "default": 1,
       "min": 0.5,
       "max": 2,
-      "businessContext": "Multiplier accounting for material degradation over time. Based on Six Sigma aging studies."
+      "businessContext": "Multiplier accounting for material degradation over time. Based on Six Sigma aging studies.",
+      "label_i18n": {
+        "en": "Aging Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier accounting for material degradation over time. Based on Six Sigma aging studies."
+      }
     },
     {
       "id": "measurement_confidence",
@@ -110,7 +158,13 @@
         "medium",
         "high"
       ],
-      "businessContext": "Confidence level in input data quality. Affects data confidence adjustment in outputs."
+      "businessContext": "Confidence level in input data quality. Affects data confidence adjustment in outputs.",
+      "label_i18n": {
+        "en": "Measurement Confidence"
+      },
+      "businessContext_i18n": {
+        "en": "Confidence level in input data quality. Affects data confidence adjustment in outputs."
+      }
     }
   ],
   "validation": {

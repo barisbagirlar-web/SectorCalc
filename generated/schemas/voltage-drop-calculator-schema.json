@@ -27,7 +27,13 @@
           "value": "aluminum",
           "label": "Aluminum"
         }
-      ]
+      ],
+      "label_i18n": {
+        "en": "Conductor Material"
+      },
+      "businessContext_i18n": {
+        "en": "Material affects resistivity; copper and aluminum are common in industrial installations."
+      }
     },
     {
       "id": "conductor_size",
@@ -103,7 +109,13 @@
           "value": "500",
           "label": "500 kcmil"
         }
-      ]
+      ],
+      "label_i18n": {
+        "en": "Conductor Size (AWG or kcmil)"
+      },
+      "businessContext_i18n": {
+        "en": "Cross-sectional area determines resistance per unit length."
+      }
     },
     {
       "id": "circuit_length",
@@ -113,7 +125,13 @@
       "default": 100,
       "min": 1,
       "max": 10000,
-      "businessContext": "Distance from source to load; longer runs increase voltage drop."
+      "businessContext": "Distance from source to load; longer runs increase voltage drop.",
+      "label_i18n": {
+        "en": "One-Way Circuit Length"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from source to load; longer runs increase voltage drop."
+      }
     },
     {
       "id": "load_current",
@@ -123,7 +141,13 @@
       "default": 20,
       "min": 0.1,
       "max": 5000,
-      "businessContext": "Current drawn by the load; higher current increases drop."
+      "businessContext": "Current drawn by the load; higher current increases drop.",
+      "label_i18n": {
+        "en": "Load Current (Amperes)"
+      },
+      "businessContext_i18n": {
+        "en": "Current drawn by the load; higher current increases drop."
+      }
     },
     {
       "id": "system_voltage",
@@ -133,7 +157,13 @@
       "default": 480,
       "min": 12,
       "max": 35000,
-      "businessContext": "Nominal voltage of the system; used to compute percentage drop."
+      "businessContext": "Nominal voltage of the system; used to compute percentage drop.",
+      "label_i18n": {
+        "en": "System Voltage (Line-to-Line)"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal voltage of the system; used to compute percentage drop."
+      }
     },
     {
       "id": "phase_type",
@@ -153,7 +183,13 @@
           "value": "three_phase",
           "label": "Three-Phase"
         }
-      ]
+      ],
+      "label_i18n": {
+        "en": "Phase Type"
+      },
+      "businessContext_i18n": {
+        "en": "Single-phase or three-phase affects the voltage drop formula (factor sqrt(3) for three-phase)."
+      }
     },
     {
       "id": "power_factor",
@@ -163,7 +199,13 @@
       "default": 0.85,
       "min": 0.5,
       "max": 1,
-      "businessContext": "Reactive component increases effective current; typical industrial PF is 0.8-0.95."
+      "businessContext": "Reactive component increases effective current; typical industrial PF is 0.8-0.95.",
+      "label_i18n": {
+        "en": "Power Factor (cos φ)"
+      },
+      "businessContext_i18n": {
+        "en": "Reactive component increases effective current; typical industrial PF is 0.8-0.95."
+      }
     },
     {
       "id": "ambient_temperature",
@@ -173,7 +215,13 @@
       "default": 30,
       "min": -10,
       "max": 60,
-      "businessContext": "Temperature affects conductor resistance; higher temperature increases resistance."
+      "businessContext": "Temperature affects conductor resistance; higher temperature increases resistance.",
+      "label_i18n": {
+        "en": "Ambient Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature affects conductor resistance; higher temperature increases resistance."
+      }
     }
   ],
   "validation": {

@@ -17,7 +17,13 @@
       "default": 30,
       "min": 1,
       "max": 500,
-      "businessContext": "Overall length of the building footprint along the ridge direction."
+      "businessContext": "Overall length of the building footprint along the ridge direction.",
+      "label_i18n": {
+        "en": "Building Length"
+      },
+      "businessContext_i18n": {
+        "en": "Overall length of the building footprint along the ridge direction."
+      }
     },
     {
       "id": "building_width",
@@ -27,7 +33,13 @@
       "default": 20,
       "min": 1,
       "max": 200,
-      "businessContext": "Overall width of the building footprint perpendicular to the ridge."
+      "businessContext": "Overall width of the building footprint perpendicular to the ridge.",
+      "label_i18n": {
+        "en": "Building Width"
+      },
+      "businessContext_i18n": {
+        "en": "Overall width of the building footprint perpendicular to the ridge."
+      }
     },
     {
       "id": "roof_pitch",
@@ -37,7 +49,13 @@
       "default": 0.5,
       "min": 0.1,
       "max": 2,
-      "businessContext": "Ratio of vertical rise to horizontal run (e.g., 0.5 = 6:12 pitch)."
+      "businessContext": "Ratio of vertical rise to horizontal run (e.g., 0.5 = 6:12 pitch).",
+      "label_i18n": {
+        "en": "Roof Pitch (rise/run ratio)"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of vertical rise to horizontal run (e.g., 0.5 = 6:12 pitch)."
+      }
     },
     {
       "id": "overhang_length",
@@ -47,7 +65,13 @@
       "default": 0.6,
       "min": 0,
       "max": 3,
-      "businessContext": "Horizontal projection of the roof beyond the exterior wall."
+      "businessContext": "Horizontal projection of the roof beyond the exterior wall.",
+      "label_i18n": {
+        "en": "Eave Overhang Length"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal projection of the roof beyond the exterior wall."
+      }
     },
     {
       "id": "roof_type",
@@ -63,7 +87,13 @@
         "hip",
         "flat",
         "shed"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Roof Type"
+      },
+      "businessContext_i18n": {
+        "en": "Geometric configuration of the roof structure."
+      }
     },
     {
       "id": "number_of_floors",
@@ -73,7 +103,13 @@
       "default": 1,
       "min": 1,
       "max": 10,
-      "businessContext": "Number of stories; affects complexity and potential waste factors."
+      "businessContext": "Number of stories; affects complexity and potential waste factors.",
+      "label_i18n": {
+        "en": "Number of Floors"
+      },
+      "businessContext_i18n": {
+        "en": "Number of stories; affects complexity and potential waste factors."
+      }
     },
     {
       "id": "waste_factor_percent",
@@ -83,7 +119,13 @@
       "default": 10,
       "min": 0,
       "max": 30,
-      "businessContext": "Percentage allowance for cutting, overlap, and installation losses (ISO 9001 waste reduction)."
+      "businessContext": "Percentage allowance for cutting, overlap, and installation losses (ISO 9001 waste reduction).",
+      "label_i18n": {
+        "en": "Material Waste Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage allowance for cutting, overlap, and installation losses (ISO 9001 waste reduction)."
+      }
     }
   ],
   "validation": {

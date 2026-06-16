@@ -19,7 +19,13 @@
       "default": 1,
       "min": 0.1,
       "max": 100,
-      "businessContext": "Standard time per unit from time studies (ISO 9001 clause 7.1.4)."
+      "businessContext": "Standard time per unit from time studies (ISO 9001 clause 7.1.4).",
+      "label_i18n": {
+        "en": "Direct Labor Hours per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Standard time per unit from time studies (ISO 9001 clause 7.1.4)."
+      }
     },
     {
       "id": "hourly_wage",
@@ -29,7 +35,13 @@
       "default": 25,
       "min": 7.25,
       "max": 200,
-      "businessContext": "Weighted average of direct labor wages including shift differentials."
+      "businessContext": "Weighted average of direct labor wages including shift differentials.",
+      "label_i18n": {
+        "en": "Average Hourly Wage"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted average of direct labor wages including shift differentials."
+      }
     },
     {
       "id": "overhead_rate",
@@ -39,7 +51,13 @@
       "default": 150,
       "min": 0,
       "max": 500,
-      "businessContext": "Includes facility, utilities, indirect labor, and depreciation (WERC DC Measures)."
+      "businessContext": "Includes facility, utilities, indirect labor, and depreciation (WERC DC Measures).",
+      "label_i18n": {
+        "en": "Overhead Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Includes facility, utilities, indirect labor, and depreciation (WERC DC Measures)."
+      }
     },
     {
       "id": "tooling_cost_per_unit",
@@ -49,7 +67,13 @@
       "default": 2.5,
       "min": 0,
       "max": 1000,
-      "businessContext": "Amortized cost of jigs, fixtures, and perishable tools (Lean TPM)."
+      "businessContext": "Amortized cost of jigs, fixtures, and perishable tools (Lean TPM).",
+      "label_i18n": {
+        "en": "Tooling Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Amortized cost of jigs, fixtures, and perishable tools (Lean TPM)."
+      }
     },
     {
       "id": "quality_cost_per_unit",
@@ -59,7 +83,13 @@
       "default": 1.2,
       "min": 0,
       "max": 500,
-      "businessContext": "Cost of inspection, rework, scrap, and warranty (Six Sigma COPQ)."
+      "businessContext": "Cost of inspection, rework, scrap, and warranty (Six Sigma COPQ).",
+      "label_i18n": {
+        "en": "Quality Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of inspection, rework, scrap, and warranty (Six Sigma COPQ)."
+      }
     },
     {
       "id": "batch_size",
@@ -69,7 +99,13 @@
       "default": 100,
       "min": 1,
       "max": 100000,
-      "businessContext": "Number of units produced per setup (Lean SMED)."
+      "businessContext": "Number of units produced per setup (Lean SMED).",
+      "label_i18n": {
+        "en": "Batch Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units produced per setup (Lean SMED)."
+      }
     },
     {
       "id": "setup_time_hours",
@@ -79,7 +115,13 @@
       "default": 2,
       "min": 0,
       "max": 48,
-      "businessContext": "Time to change over equipment between batches (Lean SMED)."
+      "businessContext": "Time to change over equipment between batches (Lean SMED).",
+      "label_i18n": {
+        "en": "Setup Time per Batch"
+      },
+      "businessContext_i18n": {
+        "en": "Time to change over equipment between batches (Lean SMED)."
+      }
     },
     {
       "id": "machine_rate",
@@ -89,7 +131,13 @@
       "default": 50,
       "min": 0,
       "max": 1000,
-      "businessContext": "Includes maintenance, power, and depreciation (ISO 14224)."
+      "businessContext": "Includes maintenance, power, and depreciation (ISO 14224).",
+      "label_i18n": {
+        "en": "Machine Hourly Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Includes maintenance, power, and depreciation (ISO 14224)."
+      }
     },
     {
       "id": "profit_margin",
@@ -99,7 +147,13 @@
       "default": 20,
       "min": 0,
       "max": 100,
-      "businessContext": "Desired markup over total cost (strategic pricing)."
+      "businessContext": "Desired markup over total cost (strategic pricing).",
+      "label_i18n": {
+        "en": "Target Profit Margin"
+      },
+      "businessContext_i18n": {
+        "en": "Desired markup over total cost (strategic pricing)."
+      }
     },
     {
       "id": "currency",
@@ -116,7 +170,13 @@
         "JPY",
         "CNY"
       ],
-      "businessContext": "ISO 4217 currency code for financial reporting."
+      "businessContext": "ISO 4217 currency code for financial reporting.",
+      "label_i18n": {
+        "en": "Currency"
+      },
+      "businessContext_i18n": {
+        "en": "ISO 4217 currency code for financial reporting."
+      }
     },
     {
       "id": "include_setup",
@@ -126,7 +186,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "If true, setup time is amortized across batch size."
+      "businessContext": "If true, setup time is amortized across batch size.",
+      "label_i18n": {
+        "en": "Include Setup Cost in Rate"
+      },
+      "businessContext_i18n": {
+        "en": "If true, setup time is amortized across batch size."
+      }
     }
   ],
   "validation": {

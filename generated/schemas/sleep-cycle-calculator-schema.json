@@ -17,7 +17,13 @@
       "default": 7,
       "min": 0,
       "max": 24,
-      "businessContext": "Target end of sleep cycle; used to back-calculate optimal bedtimes."
+      "businessContext": "Target end of sleep cycle; used to back-calculate optimal bedtimes.",
+      "label_i18n": {
+        "en": "Desired wake-up time (24h)"
+      },
+      "businessContext_i18n": {
+        "en": "Target end of sleep cycle; used to back-calculate optimal bedtimes."
+      }
     },
     {
       "id": "sleep_debt_hours",
@@ -27,7 +33,13 @@
       "default": 2,
       "min": 0,
       "max": 24,
-      "businessContext": "Cumulative deficit from prior nights; drives recovery need per sleep science."
+      "businessContext": "Cumulative deficit from prior nights; drives recovery need per sleep science.",
+      "label_i18n": {
+        "en": "Accumulated sleep debt (hours)"
+      },
+      "businessContext_i18n": {
+        "en": "Cumulative deficit from prior nights; drives recovery need per sleep science."
+      }
     },
     {
       "id": "cycle_length_minutes",
@@ -37,7 +49,13 @@
       "default": 90,
       "min": 60,
       "max": 120,
-      "businessContext": "Typical NREM/REM cycle duration; 90 min is standard, adjustable per individual."
+      "businessContext": "Typical NREM/REM cycle duration; 90 min is standard, adjustable per individual.",
+      "label_i18n": {
+        "en": "Average sleep cycle length"
+      },
+      "businessContext_i18n": {
+        "en": "Typical NREM/REM cycle duration; 90 min is standard, adjustable per individual."
+      }
     },
     {
       "id": "fall_asleep_minutes",
@@ -47,7 +65,13 @@
       "default": 15,
       "min": 0,
       "max": 60,
-      "businessContext": "Sleep onset latency; affects actual sleep start time."
+      "businessContext": "Sleep onset latency; affects actual sleep start time.",
+      "label_i18n": {
+        "en": "Estimated time to fall asleep"
+      },
+      "businessContext_i18n": {
+        "en": "Sleep onset latency; affects actual sleep start time."
+      }
     },
     {
       "id": "recovery_efficiency",
@@ -57,7 +81,13 @@
       "default": 1,
       "min": 0.5,
       "max": 1.5,
-      "businessContext": "Adjusts sleep debt repayment rate (1.0 = normal, <1.0 = impaired recovery, >1.0 = enhanced)."
+      "businessContext": "Adjusts sleep debt repayment rate (1.0 = normal, <1.0 = impaired recovery, >1.0 = enhanced).",
+      "label_i18n": {
+        "en": "Recovery efficiency factor"
+      },
+      "businessContext_i18n": {
+        "en": "Adjusts sleep debt repayment rate (1.0 = normal, <1.0 = impaired recovery, >1.0 = enhanced)."
+      }
     },
     {
       "id": "shift_worker",
@@ -67,7 +97,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "Flag to apply circadian disruption penalty per ISO 10075-2."
+      "businessContext": "Flag to apply circadian disruption penalty per ISO 10075-2.",
+      "label_i18n": {
+        "en": "Shift worker?"
+      },
+      "businessContext_i18n": {
+        "en": "Flag to apply circadian disruption penalty per ISO 10075-2."
+      }
     }
   ],
   "validation": {

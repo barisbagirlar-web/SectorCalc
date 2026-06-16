@@ -21,7 +21,13 @@
       "default": 60000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Annual gross salary before any deductions or benefits."
+      "businessContext": "Annual gross salary before any deductions or benefits.",
+      "label_i18n": {
+        "en": "Base Annual Salary"
+      },
+      "businessContext_i18n": {
+        "en": "Annual gross salary before any deductions or benefits."
+      }
     },
     {
       "id": "bonus_percent",
@@ -31,7 +37,13 @@
       "default": 10,
       "min": 0,
       "max": 100,
-      "businessContext": "Typical annual bonus as a percentage of base salary."
+      "businessContext": "Typical annual bonus as a percentage of base salary.",
+      "label_i18n": {
+        "en": "Target Bonus (% of base salary)"
+      },
+      "businessContext_i18n": {
+        "en": "Typical annual bonus as a percentage of base salary."
+      }
     },
     {
       "id": "benefits_percent",
@@ -41,7 +53,13 @@
       "default": 30,
       "min": 0,
       "max": 100,
-      "businessContext": "Includes health insurance, retirement contributions, paid leave, etc. Typical range 25-40%."
+      "businessContext": "Includes health insurance, retirement contributions, paid leave, etc. Typical range 25-40%.",
+      "label_i18n": {
+        "en": "Benefits Cost (% of base salary)"
+      },
+      "businessContext_i18n": {
+        "en": "Includes health insurance, retirement contributions, paid leave, etc. Typical range 25-40%."
+      }
     },
     {
       "id": "payroll_tax_percent",
@@ -51,7 +69,13 @@
       "default": 7.65,
       "min": 0,
       "max": 20,
-      "businessContext": "Employer portion of Social Security and Medicare (FICA) in the US."
+      "businessContext": "Employer portion of Social Security and Medicare (FICA) in the US.",
+      "label_i18n": {
+        "en": "Payroll Tax (% of base salary)"
+      },
+      "businessContext_i18n": {
+        "en": "Employer portion of Social Security and Medicare (FICA) in the US."
+      }
     },
     {
       "id": "overhead_percent",
@@ -61,7 +85,13 @@
       "default": 20,
       "min": 0,
       "max": 100,
-      "businessContext": "Facilities, equipment, IT, admin support allocated per employee."
+      "businessContext": "Facilities, equipment, IT, admin support allocated per employee.",
+      "label_i18n": {
+        "en": "Overhead Allocation (% of direct cost)"
+      },
+      "businessContext_i18n": {
+        "en": "Facilities, equipment, IT, admin support allocated per employee."
+      }
     },
     {
       "id": "training_cost",
@@ -71,7 +101,13 @@
       "default": 1500,
       "min": 0,
       "max": 100000,
-      "businessContext": "Direct cost of training programs, certifications, and development."
+      "businessContext": "Direct cost of training programs, certifications, and development.",
+      "label_i18n": {
+        "en": "Annual Training Cost per Employee"
+      },
+      "businessContext_i18n": {
+        "en": "Direct cost of training programs, certifications, and development."
+      }
     },
     {
       "id": "productivity_factor",
@@ -81,7 +117,13 @@
       "default": 0.85,
       "min": 0,
       "max": 1,
-      "businessContext": "Lean metric: actual productive time vs. available time. 1 = full productivity."
+      "businessContext": "Lean metric: actual productive time vs. available time. 1 = full productivity.",
+      "label_i18n": {
+        "en": "Productivity Factor (0-1)"
+      },
+      "businessContext_i18n": {
+        "en": "Lean metric: actual productive time vs. available time. 1 = full productivity."
+      }
     },
     {
       "id": "turnover_rate",
@@ -91,7 +133,13 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of employees leaving per year. Drives replacement and ramp-up costs."
+      "businessContext": "Percentage of employees leaving per year. Drives replacement and ramp-up costs.",
+      "label_i18n": {
+        "en": "Annual Turnover Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of employees leaving per year. Drives replacement and ramp-up costs."
+      }
     },
     {
       "id": "replacement_cost_percent",
@@ -101,7 +149,13 @@
       "default": 20,
       "min": 0,
       "max": 200,
-      "businessContext": "Cost of recruiting, hiring, and onboarding a replacement."
+      "businessContext": "Cost of recruiting, hiring, and onboarding a replacement.",
+      "label_i18n": {
+        "en": "Replacement Cost (% of base salary)"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of recruiting, hiring, and onboarding a replacement."
+      }
     },
     {
       "id": "overtime_hours_per_week",
@@ -111,7 +165,13 @@
       "default": 2,
       "min": 0,
       "max": 40,
-      "businessContext": "Average weekly overtime hours per employee."
+      "businessContext": "Average weekly overtime hours per employee.",
+      "label_i18n": {
+        "en": "Average Overtime Hours per Week"
+      },
+      "businessContext_i18n": {
+        "en": "Average weekly overtime hours per employee."
+      }
     },
     {
       "id": "overtime_premium",
@@ -121,7 +181,13 @@
       "default": 1.5,
       "min": 1,
       "max": 3,
-      "businessContext": "Typically 1.5x for time-and-a-half, 2x for double time."
+      "businessContext": "Typically 1.5x for time-and-a-half, 2x for double time.",
+      "label_i18n": {
+        "en": "Overtime Premium (multiplier)"
+      },
+      "businessContext_i18n": {
+        "en": "Typically 1.5x for time-and-a-half, 2x for double time."
+      }
     },
     {
       "id": "currency",
@@ -138,7 +204,13 @@
         "JPY",
         "CHF"
       ],
-      "businessContext": "Currency for all monetary values."
+      "businessContext": "Currency for all monetary values.",
+      "label_i18n": {
+        "en": "Currency"
+      },
+      "businessContext_i18n": {
+        "en": "Currency for all monetary values."
+      }
     },
     {
       "id": "include_hidden_costs",
@@ -148,7 +220,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "Toggle to include absenteeism, engagement loss, and quality costs."
+      "businessContext": "Toggle to include absenteeism, engagement loss, and quality costs.",
+      "label_i18n": {
+        "en": "Include Hidden Cost Drivers"
+      },
+      "businessContext_i18n": {
+        "en": "Toggle to include absenteeism, engagement loss, and quality costs."
+      }
     }
   ],
   "validation": {

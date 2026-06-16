@@ -19,7 +19,13 @@
       "default": 100,
       "min": 1,
       "max": 100000,
-      "businessContext": "Total headcount at the start of the period."
+      "businessContext": "Total headcount at the start of the period.",
+      "label_i18n": {
+        "en": "Number of Employees"
+      },
+      "businessContext_i18n": {
+        "en": "Total headcount at the start of the period."
+      }
     },
     {
       "id": "annual_turnover_rate",
@@ -29,7 +35,13 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of employees leaving per year (voluntary + involuntary)."
+      "businessContext": "Percentage of employees leaving per year (voluntary + involuntary).",
+      "label_i18n": {
+        "en": "Annual Turnover Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of employees leaving per year (voluntary + involuntary)."
+      }
     },
     {
       "id": "avg_salary",
@@ -39,7 +51,13 @@
       "default": 50000,
       "min": 0,
       "max": 500000,
-      "businessContext": "Average total compensation (base + benefits) per employee."
+      "businessContext": "Average total compensation (base + benefits) per employee.",
+      "label_i18n": {
+        "en": "Average Annual Salary per Employee"
+      },
+      "businessContext_i18n": {
+        "en": "Average total compensation (base + benefits) per employee."
+      }
     },
     {
       "id": "recruitment_cost_per_hire",
@@ -49,7 +67,13 @@
       "default": 4000,
       "min": 0,
       "max": 100000,
-      "businessContext": "Advertising, agency fees, screening, interviewing."
+      "businessContext": "Advertising, agency fees, screening, interviewing.",
+      "label_i18n": {
+        "en": "Recruitment Cost per Hire"
+      },
+      "businessContext_i18n": {
+        "en": "Advertising, agency fees, screening, interviewing."
+      }
     },
     {
       "id": "onboarding_cost_per_hire",
@@ -59,7 +83,13 @@
       "default": 3000,
       "min": 0,
       "max": 50000,
-      "businessContext": "Training materials, orientation, IT setup, mentor time."
+      "businessContext": "Training materials, orientation, IT setup, mentor time.",
+      "label_i18n": {
+        "en": "Onboarding Cost per Hire"
+      },
+      "businessContext_i18n": {
+        "en": "Training materials, orientation, IT setup, mentor time."
+      }
     },
     {
       "id": "training_cost_per_hire",
@@ -69,7 +99,13 @@
       "default": 5000,
       "min": 0,
       "max": 100000,
-      "businessContext": "Formal training, certifications, on-the-job learning."
+      "businessContext": "Formal training, certifications, on-the-job learning.",
+      "label_i18n": {
+        "en": "Training Cost per Hire (first year)"
+      },
+      "businessContext_i18n": {
+        "en": "Formal training, certifications, on-the-job learning."
+      }
     },
     {
       "id": "lost_productivity_months",
@@ -79,7 +115,13 @@
       "default": 3,
       "min": 0,
       "max": 12,
-      "businessContext": "Average months of reduced output per new hire (ramp-up period)."
+      "businessContext": "Average months of reduced output per new hire (ramp-up period).",
+      "label_i18n": {
+        "en": "Lost Productivity Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Average months of reduced output per new hire (ramp-up period)."
+      }
     },
     {
       "id": "productivity_factor",
@@ -89,7 +131,13 @@
       "default": 50,
       "min": 0,
       "max": 100,
-      "businessContext": "Average productivity level during ramp-up (e.g., 50% means half output)."
+      "businessContext": "Average productivity level during ramp-up (e.g., 50% means half output).",
+      "label_i18n": {
+        "en": "Productivity Factor during Ramp-up"
+      },
+      "businessContext_i18n": {
+        "en": "Average productivity level during ramp-up (e.g., 50% means half output)."
+      }
     },
     {
       "id": "severance_cost_per_leaver",
@@ -99,7 +147,13 @@
       "default": 2000,
       "min": 0,
       "max": 100000,
-      "businessContext": "Payouts, accrued vacation, legal fees."
+      "businessContext": "Payouts, accrued vacation, legal fees.",
+      "label_i18n": {
+        "en": "Severance Cost per Leaver"
+      },
+      "businessContext_i18n": {
+        "en": "Payouts, accrued vacation, legal fees."
+      }
     },
     {
       "id": "exit_interview_cost_per_leaver",
@@ -109,7 +163,13 @@
       "default": 200,
       "min": 0,
       "max": 5000,
-      "businessContext": "HR time, administrative overhead."
+      "businessContext": "HR time, administrative overhead.",
+      "label_i18n": {
+        "en": "Exit Interview Cost per Leaver"
+      },
+      "businessContext_i18n": {
+        "en": "HR time, administrative overhead."
+      }
     },
     {
       "id": "overtime_cover_cost_per_leaver",
@@ -119,7 +179,13 @@
       "default": 1500,
       "min": 0,
       "max": 50000,
-      "businessContext": "Extra pay for remaining staff covering duties."
+      "businessContext": "Extra pay for remaining staff covering duties.",
+      "label_i18n": {
+        "en": "Overtime Cover Cost per Leaver"
+      },
+      "businessContext_i18n": {
+        "en": "Extra pay for remaining staff covering duties."
+      }
     },
     {
       "id": "quality_defect_cost_per_leaver",
@@ -129,7 +195,13 @@
       "default": 1000,
       "min": 0,
       "max": 50000,
-      "businessContext": "Rework, scrap, customer complaints due to inexperience."
+      "businessContext": "Rework, scrap, customer complaints due to inexperience.",
+      "label_i18n": {
+        "en": "Quality Defect Cost per Leaver"
+      },
+      "businessContext_i18n": {
+        "en": "Rework, scrap, customer complaints due to inexperience."
+      }
     },
     {
       "id": "customer_impact_cost_per_leaver",
@@ -139,7 +211,13 @@
       "default": 2000,
       "min": 0,
       "max": 100000,
-      "businessContext": "Lost sales, churn, relationship damage."
+      "businessContext": "Lost sales, churn, relationship damage.",
+      "label_i18n": {
+        "en": "Customer Impact Cost per Leaver"
+      },
+      "businessContext_i18n": {
+        "en": "Lost sales, churn, relationship damage."
+      }
     },
     {
       "id": "knowledge_loss_cost_per_leaver",
@@ -149,7 +227,13 @@
       "default": 3000,
       "min": 0,
       "max": 100000,
-      "businessContext": "Loss of institutional knowledge, intellectual property."
+      "businessContext": "Loss of institutional knowledge, intellectual property.",
+      "label_i18n": {
+        "en": "Knowledge Loss Cost per Leaver"
+      },
+      "businessContext_i18n": {
+        "en": "Loss of institutional knowledge, intellectual property."
+      }
     },
     {
       "id": "include_indirect_costs",
@@ -159,7 +243,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "Toggle to include quality, customer, and knowledge loss costs."
+      "businessContext": "Toggle to include quality, customer, and knowledge loss costs.",
+      "label_i18n": {
+        "en": "Include Indirect Costs"
+      },
+      "businessContext_i18n": {
+        "en": "Toggle to include quality, customer, and knowledge loss costs."
+      }
     }
   ],
   "validation": {

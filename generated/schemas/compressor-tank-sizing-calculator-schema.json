@@ -19,7 +19,13 @@
       "default": 100,
       "min": 10,
       "max": 10000,
-      "businessContext": "Rated free air delivery of the compressor at standard conditions."
+      "businessContext": "Rated free air delivery of the compressor at standard conditions.",
+      "label_i18n": {
+        "en": "Compressor Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Rated free air delivery of the compressor at standard conditions."
+      }
     },
     {
       "id": "demandFlowRate",
@@ -29,7 +35,13 @@
       "default": 80,
       "min": 5,
       "max": 9500,
-      "businessContext": "Average compressed air consumption of the system."
+      "businessContext": "Average compressed air consumption of the system.",
+      "label_i18n": {
+        "en": "Average Demand Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Average compressed air consumption of the system."
+      }
     },
     {
       "id": "peakDemandFlowRate",
@@ -39,7 +51,13 @@
       "default": 150,
       "min": 10,
       "max": 15000,
-      "businessContext": "Maximum instantaneous demand during operation."
+      "businessContext": "Maximum instantaneous demand during operation.",
+      "label_i18n": {
+        "en": "Peak Demand Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum instantaneous demand during operation."
+      }
     },
     {
       "id": "peakDuration",
@@ -49,7 +67,13 @@
       "default": 30,
       "min": 1,
       "max": 600,
-      "businessContext": "Duration of the peak demand event."
+      "businessContext": "Duration of the peak demand event.",
+      "label_i18n": {
+        "en": "Peak Demand Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the peak demand event."
+      }
     },
     {
       "id": "systemPressure",
@@ -59,7 +83,13 @@
       "default": 100,
       "min": 30,
       "max": 250,
-      "businessContext": "Nominal pressure at which the system operates."
+      "businessContext": "Nominal pressure at which the system operates.",
+      "label_i18n": {
+        "en": "System Operating Pressure"
+      },
+      "businessContext_i18n": {
+        "en": "Nominal pressure at which the system operates."
+      }
     },
     {
       "id": "pressureDifferential",
@@ -69,7 +99,13 @@
       "default": 10,
       "min": 1,
       "max": 50,
-      "businessContext": "Maximum acceptable pressure drop during peak event."
+      "businessContext": "Maximum acceptable pressure drop during peak event.",
+      "label_i18n": {
+        "en": "Allowable Pressure Differential"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum acceptable pressure drop during peak event."
+      }
     },
     {
       "id": "compressorControlType",
@@ -82,7 +118,13 @@
         "Start/Stop"
       ],
       "default": "Load/Unload",
-      "businessContext": "Type of compressor capacity control, affects tank sizing factor."
+      "businessContext": "Type of compressor capacity control, affects tank sizing factor.",
+      "label_i18n": {
+        "en": "Compressor Control Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of compressor capacity control, affects tank sizing factor."
+      }
     },
     {
       "id": "ambientTemperature",
@@ -92,7 +134,13 @@
       "default": 80,
       "min": -20,
       "max": 130,
-      "businessContext": "Average ambient temperature at compressor location."
+      "businessContext": "Average ambient temperature at compressor location.",
+      "label_i18n": {
+        "en": "Ambient Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Average ambient temperature at compressor location."
+      }
     },
     {
       "id": "altitude",
@@ -102,7 +150,13 @@
       "default": 0,
       "min": 0,
       "max": 10000,
-      "businessContext": "Site elevation for air density correction."
+      "businessContext": "Site elevation for air density correction.",
+      "label_i18n": {
+        "en": "Altitude Above Sea Level"
+      },
+      "businessContext_i18n": {
+        "en": "Site elevation for air density correction."
+      }
     },
     {
       "id": "systemLeakagePercent",
@@ -112,7 +166,13 @@
       "default": 10,
       "min": 0,
       "max": 50,
-      "businessContext": "Estimated percentage of compressed air lost to leaks."
+      "businessContext": "Estimated percentage of compressed air lost to leaks.",
+      "label_i18n": {
+        "en": "System Leakage Estimate"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated percentage of compressed air lost to leaks."
+      }
     },
     {
       "id": "applicationType",
@@ -126,7 +186,13 @@
         "HVAC Control"
       ],
       "default": "General Manufacturing",
-      "businessContext": "Primary use case, influences safety factor."
+      "businessContext": "Primary use case, influences safety factor.",
+      "label_i18n": {
+        "en": "Application Type"
+      },
+      "businessContext_i18n": {
+        "en": "Primary use case, influences safety factor."
+      }
     }
   ],
   "validation": {

@@ -22,7 +22,13 @@
         "recyclable",
         "e_waste"
       ],
-      "businessContext": "Select the category of waste to apply appropriate cost factors and regulatory thresholds."
+      "businessContext": "Select the category of waste to apply appropriate cost factors and regulatory thresholds.",
+      "label_i18n": {
+        "en": "Waste Type"
+      },
+      "businessContext_i18n": {
+        "en": "Select the category of waste to apply appropriate cost factors and regulatory thresholds."
+      }
     },
     {
       "id": "waste_volume_kg",
@@ -32,7 +38,13 @@
       "default": 1000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Total mass of waste generated in the reporting period."
+      "businessContext": "Total mass of waste generated in the reporting period.",
+      "label_i18n": {
+        "en": "Waste Volume (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Total mass of waste generated in the reporting period."
+      }
     },
     {
       "id": "disposal_cost_per_kg",
@@ -42,7 +54,13 @@
       "default": 0.15,
       "min": 0,
       "max": 10,
-      "businessContext": "Average cost paid to waste management vendor per kilogram."
+      "businessContext": "Average cost paid to waste management vendor per kilogram.",
+      "label_i18n": {
+        "en": "Disposal Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost paid to waste management vendor per kilogram."
+      }
     },
     {
       "id": "transport_distance_km",
@@ -52,7 +70,13 @@
       "default": 50,
       "min": 0,
       "max": 5000,
-      "businessContext": "One-way distance from facility to disposal or recycling site."
+      "businessContext": "One-way distance from facility to disposal or recycling site.",
+      "label_i18n": {
+        "en": "Transport Distance (km)"
+      },
+      "businessContext_i18n": {
+        "en": "One-way distance from facility to disposal or recycling site."
+      }
     },
     {
       "id": "transport_cost_per_km",
@@ -62,7 +86,13 @@
       "default": 2.5,
       "min": 0,
       "max": 100,
-      "businessContext": "Cost per kilometer for waste transport, including fuel and labor."
+      "businessContext": "Cost per kilometer for waste transport, including fuel and labor.",
+      "label_i18n": {
+        "en": "Transport Cost per km"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per kilometer for waste transport, including fuel and labor."
+      }
     },
     {
       "id": "labor_hours_per_ton",
@@ -72,7 +102,13 @@
       "default": 2,
       "min": 0,
       "max": 50,
-      "businessContext": "Direct labor hours required to handle, sort, and prepare one ton of waste."
+      "businessContext": "Direct labor hours required to handle, sort, and prepare one ton of waste.",
+      "label_i18n": {
+        "en": "Labor Hours per Ton"
+      },
+      "businessContext_i18n": {
+        "en": "Direct labor hours required to handle, sort, and prepare one ton of waste."
+      }
     },
     {
       "id": "labor_rate_per_hour",
@@ -82,7 +118,13 @@
       "default": 25,
       "min": 0,
       "max": 200,
-      "businessContext": "Hourly wage including overhead for waste handling personnel."
+      "businessContext": "Hourly wage including overhead for waste handling personnel.",
+      "label_i18n": {
+        "en": "Labor Rate per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly wage including overhead for waste handling personnel."
+      }
     },
     {
       "id": "recycling_revenue_per_kg",
@@ -92,7 +134,13 @@
       "default": 0.05,
       "min": 0,
       "max": 5,
-      "businessContext": "Revenue received from selling recyclable materials per kilogram."
+      "businessContext": "Revenue received from selling recyclable materials per kilogram.",
+      "label_i18n": {
+        "en": "Recycling Revenue per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Revenue received from selling recyclable materials per kilogram."
+      }
     },
     {
       "id": "recycling_rate",
@@ -102,7 +150,13 @@
       "default": 30,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of total waste that is diverted to recycling."
+      "businessContext": "Percentage of total waste that is diverted to recycling.",
+      "label_i18n": {
+        "en": "Recycling Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of total waste that is diverted to recycling."
+      }
     },
     {
       "id": "carbon_cost_per_kg_co2",
@@ -112,7 +166,13 @@
       "default": 0.05,
       "min": 0,
       "max": 1,
-      "businessContext": "Internal or regulatory cost assigned to each kg of CO2 equivalent emissions."
+      "businessContext": "Internal or regulatory cost assigned to each kg of CO2 equivalent emissions.",
+      "label_i18n": {
+        "en": "Carbon Cost per kg CO2e"
+      },
+      "businessContext_i18n": {
+        "en": "Internal or regulatory cost assigned to each kg of CO2 equivalent emissions."
+      }
     },
     {
       "id": "emission_factor_kg_co2_per_kg_waste",
@@ -122,7 +182,13 @@
       "default": 0.5,
       "min": 0,
       "max": 10,
-      "businessContext": "Average greenhouse gas emissions per kilogram of waste based on waste type and disposal method."
+      "businessContext": "Average greenhouse gas emissions per kilogram of waste based on waste type and disposal method.",
+      "label_i18n": {
+        "en": "Emission Factor (kg CO2e/kg waste)"
+      },
+      "businessContext_i18n": {
+        "en": "Average greenhouse gas emissions per kilogram of waste based on waste type and disposal method."
+      }
     },
     {
       "id": "compliance_penalty_per_kg",
@@ -132,7 +198,13 @@
       "default": 0.1,
       "min": 0,
       "max": 50,
-      "businessContext": "Potential regulatory fines or penalties per kilogram if waste exceeds permitted limits."
+      "businessContext": "Potential regulatory fines or penalties per kilogram if waste exceeds permitted limits.",
+      "label_i18n": {
+        "en": "Compliance Penalty per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Potential regulatory fines or penalties per kilogram if waste exceeds permitted limits."
+      }
     },
     {
       "id": "waste_volume_limit_kg",
@@ -142,7 +214,13 @@
       "default": 5000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Regulatory or internal threshold for waste volume before penalties apply."
+      "businessContext": "Regulatory or internal threshold for waste volume before penalties apply.",
+      "label_i18n": {
+        "en": "Waste Volume Limit (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Regulatory or internal threshold for waste volume before penalties apply."
+      }
     }
   ],
   "validation": {

@@ -19,7 +19,13 @@
       "default": 8000,
       "min": 0,
       "max": 20000,
-      "businessContext": "Theoretical maximum yield based on seed genetics and local potential."
+      "businessContext": "Theoretical maximum yield based on seed genetics and local potential.",
+      "label_i18n": {
+        "en": "Expected Yield (kg/ha)"
+      },
+      "businessContext_i18n": {
+        "en": "Theoretical maximum yield based on seed genetics and local potential."
+      }
     },
     {
       "id": "actual_yield",
@@ -29,7 +35,13 @@
       "default": 6500,
       "min": 0,
       "max": 20000,
-      "businessContext": "Measured yield at harvest, used as baseline for loss calculation."
+      "businessContext": "Measured yield at harvest, used as baseline for loss calculation.",
+      "label_i18n": {
+        "en": "Actual Yield (kg/ha)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured yield at harvest, used as baseline for loss calculation."
+      }
     },
     {
       "id": "harvest_loss_pct",
@@ -39,7 +51,13 @@
       "default": 5,
       "min": 0,
       "max": 30,
-      "businessContext": "Percentage of crop lost during harvesting operations (shattering, header loss, etc.)."
+      "businessContext": "Percentage of crop lost during harvesting operations (shattering, header loss, etc.).",
+      "label_i18n": {
+        "en": "Harvest Loss (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of crop lost during harvesting operations (shattering, header loss, etc.)."
+      }
     },
     {
       "id": "post_harvest_loss_pct",
@@ -49,7 +67,13 @@
       "default": 3,
       "min": 0,
       "max": 20,
-      "businessContext": "Losses during handling, storage, and transport after harvest."
+      "businessContext": "Losses during handling, storage, and transport after harvest.",
+      "label_i18n": {
+        "en": "Post-Harvest Loss (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Losses during handling, storage, and transport after harvest."
+      }
     },
     {
       "id": "field_condition",
@@ -65,7 +89,13 @@
         "fair",
         "poor"
       ],
-      "businessContext": "Overall field condition affecting crop uniformity and loss potential."
+      "businessContext": "Overall field condition affecting crop uniformity and loss potential.",
+      "label_i18n": {
+        "en": "Field Condition"
+      },
+      "businessContext_i18n": {
+        "en": "Overall field condition affecting crop uniformity and loss potential."
+      }
     },
     {
       "id": "irrigation_type",
@@ -81,7 +111,13 @@
         "flood",
         "rainfed"
       ],
-      "businessContext": "Irrigation method influences water stress and yield consistency."
+      "businessContext": "Irrigation method influences water stress and yield consistency.",
+      "label_i18n": {
+        "en": "Irrigation Type"
+      },
+      "businessContext_i18n": {
+        "en": "Irrigation method influences water stress and yield consistency."
+      }
     },
     {
       "id": "pest_pressure",
@@ -91,7 +127,13 @@
       "default": 3,
       "min": 0,
       "max": 10,
-      "businessContext": "Subjective rating of pest infestation level (0 = none, 10 = severe)."
+      "businessContext": "Subjective rating of pest infestation level (0 = none, 10 = severe).",
+      "label_i18n": {
+        "en": "Pest Pressure (0-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Subjective rating of pest infestation level (0 = none, 10 = severe)."
+      }
     },
     {
       "id": "disease_index",
@@ -101,7 +143,13 @@
       "default": 2,
       "min": 0,
       "max": 10,
-      "businessContext": "Subjective rating of disease severity (0 = none, 10 = total loss)."
+      "businessContext": "Subjective rating of disease severity (0 = none, 10 = total loss).",
+      "label_i18n": {
+        "en": "Disease Index (0-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Subjective rating of disease severity (0 = none, 10 = total loss)."
+      }
     },
     {
       "id": "weed_cover_pct",
@@ -111,7 +159,13 @@
       "default": 5,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of field area covered by weeds, competing for resources."
+      "businessContext": "Percentage of field area covered by weeds, competing for resources.",
+      "label_i18n": {
+        "en": "Weed Cover (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of field area covered by weeds, competing for resources."
+      }
     },
     {
       "id": "soil_quality_score",
@@ -121,7 +175,13 @@
       "default": 75,
       "min": 0,
       "max": 100,
-      "businessContext": "Aggregate soil health metric (organic matter, pH, structure, etc.)."
+      "businessContext": "Aggregate soil health metric (organic matter, pH, structure, etc.).",
+      "label_i18n": {
+        "en": "Soil Quality Score (0-100)"
+      },
+      "businessContext_i18n": {
+        "en": "Aggregate soil health metric (organic matter, pH, structure, etc.)."
+      }
     },
     {
       "id": "labor_efficiency",
@@ -131,7 +191,13 @@
       "default": 80,
       "min": 0,
       "max": 100,
-      "businessContext": "Rating of labor productivity and skill level in field operations."
+      "businessContext": "Rating of labor productivity and skill level in field operations.",
+      "label_i18n": {
+        "en": "Labor Efficiency (0-100)"
+      },
+      "businessContext_i18n": {
+        "en": "Rating of labor productivity and skill level in field operations."
+      }
     },
     {
       "id": "equipment_reliability",
@@ -141,7 +207,13 @@
       "default": 85,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of time equipment operates without breakdown during critical periods."
+      "businessContext": "Percentage of time equipment operates without breakdown during critical periods.",
+      "label_i18n": {
+        "en": "Equipment Reliability (0-100)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of time equipment operates without breakdown during critical periods."
+      }
     }
   ],
   "validation": {

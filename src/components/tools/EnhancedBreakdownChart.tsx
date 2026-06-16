@@ -22,6 +22,7 @@ import {
   shouldUseCurrencyAxis,
   type BreakdownChartItem,
 } from "@/lib/chart-helpers/breakdown-chart-data";
+import { resolveGeneratedBreakdownLabel } from "@/lib/generated-tools/resolve-generated-display-text";
 import type { GeneratedToolBreakdown } from "@/lib/generated-tools/types";
 
 type ChartType = "bar" | "pie";
@@ -63,16 +64,9 @@ export function EnhancedBreakdownChart({
       if (wasteT.has(wasteKey)) {
         return wasteT(wasteKey);
       }
-      const schemaLabel = labelMap?.[key];
-      if (schemaLabel && schemaLabel !== key) {
-        return schemaLabel;
-      }
-      return key
-        .replace(/([A-Z])/g, " $1")
-        .replace(/^./, (str) => str.toUpperCase())
-        .trim();
+      return resolveGeneratedBreakdownLabel(key, labelMap, locale);
     };
-  }, [labelMap, wasteT]);
+  }, [labelMap, locale, wasteT]);
 
   const chartData = useMemo(
     () => buildBreakdownChartData(breakdown, locale, currency, resolveBreakdownLabel),

@@ -17,7 +17,13 @@
       "default": 12,
       "min": 1,
       "max": 120,
-      "businessContext": "Original planned project duration in months as per baseline schedule."
+      "businessContext": "Original planned project duration in months as per baseline schedule.",
+      "label_i18n": {
+        "en": "Planned Duration (months)"
+      },
+      "businessContext_i18n": {
+        "en": "Original planned project duration in months as per baseline schedule."
+      }
     },
     {
       "id": "actualDuration",
@@ -27,7 +33,13 @@
       "default": 6,
       "min": 0,
       "max": 120,
-      "businessContext": "Elapsed time since project start, used to compute schedule performance."
+      "businessContext": "Elapsed time since project start, used to compute schedule performance.",
+      "label_i18n": {
+        "en": "Actual Duration to Date (months)"
+      },
+      "businessContext_i18n": {
+        "en": "Elapsed time since project start, used to compute schedule performance."
+      }
     },
     {
       "id": "plannedCost",
@@ -37,7 +49,13 @@
       "default": 1000000,
       "min": 1000,
       "max": 1000000000,
-      "businessContext": "Total budgeted cost for the project at completion."
+      "businessContext": "Total budgeted cost for the project at completion.",
+      "label_i18n": {
+        "en": "Planned Total Cost (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Total budgeted cost for the project at completion."
+      }
     },
     {
       "id": "actualCost",
@@ -47,7 +65,13 @@
       "default": 600000,
       "min": 0,
       "max": 1000000000,
-      "businessContext": "Total costs actually incurred up to the current reporting period."
+      "businessContext": "Total costs actually incurred up to the current reporting period.",
+      "label_i18n": {
+        "en": "Actual Cost Incurred (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Total costs actually incurred up to the current reporting period."
+      }
     },
     {
       "id": "percentComplete",
@@ -57,7 +81,13 @@
       "default": 50,
       "min": 0,
       "max": 100,
-      "businessContext": "Estimated percentage of work completed based on earned value or physical progress."
+      "businessContext": "Estimated percentage of work completed based on earned value or physical progress.",
+      "label_i18n": {
+        "en": "Percent Complete (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated percentage of work completed based on earned value or physical progress."
+      }
     },
     {
       "id": "scopeChangeFrequency",
@@ -72,7 +102,13 @@
         "moderate",
         "high"
       ],
-      "businessContext": "Frequency of scope changes affecting project baseline. Low = 0-1 changes, Moderate = 2-4, High = 5+."
+      "businessContext": "Frequency of scope changes affecting project baseline. Low = 0-1 changes, Moderate = 2-4, High = 5+.",
+      "label_i18n": {
+        "en": "Scope Change Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Frequency of scope changes affecting project baseline. Low = 0-1 changes, Moderate = 2-4, High = 5+."
+      }
     },
     {
       "id": "teamExperience",
@@ -87,7 +123,13 @@
         "intermediate",
         "senior"
       ],
-      "businessContext": "Average experience level of the core project team."
+      "businessContext": "Average experience level of the core project team.",
+      "label_i18n": {
+        "en": "Team Experience Level"
+      },
+      "businessContext_i18n": {
+        "en": "Average experience level of the core project team."
+      }
     },
     {
       "id": "qualityDefectRate",
@@ -97,7 +139,13 @@
       "default": 0.05,
       "min": 0,
       "max": 1,
-      "businessContext": "Number of defects per unit of output (e.g., per 1000 lines of code, per 100 parts)."
+      "businessContext": "Number of defects per unit of output (e.g., per 1000 lines of code, per 100 parts).",
+      "label_i18n": {
+        "en": "Quality Defect Rate (defects per unit)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of defects per unit of output (e.g., per 1000 lines of code, per 100 parts)."
+      }
     },
     {
       "id": "supplierReliability",
@@ -107,7 +155,13 @@
       "default": 0.9,
       "min": 0,
       "max": 1,
-      "businessContext": "Probability that critical suppliers deliver on time and within spec (0 = unreliable, 1 = fully reliable)."
+      "businessContext": "Probability that critical suppliers deliver on time and within spec (0 = unreliable, 1 = fully reliable).",
+      "label_i18n": {
+        "en": "Supplier Reliability Index"
+      },
+      "businessContext_i18n": {
+        "en": "Probability that critical suppliers deliver on time and within spec (0 = unreliable, 1 = fully reliable)."
+      }
     },
     {
       "id": "riskExposure",
@@ -117,7 +171,13 @@
       "default": 200000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Monetary value of identified risks (probability * impact) not yet mitigated."
+      "businessContext": "Monetary value of identified risks (probability * impact) not yet mitigated.",
+      "label_i18n": {
+        "en": "Risk Exposure (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Monetary value of identified risks (probability * impact) not yet mitigated."
+      }
     }
   ],
   "validation": {

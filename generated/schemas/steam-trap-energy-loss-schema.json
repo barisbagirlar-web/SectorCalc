@@ -19,7 +19,13 @@
       "default": 3,
       "min": 0.5,
       "max": 25,
-      "businessContext": "Diameter of the trap orifice; typical failed traps have orifices from 1 mm to 20 mm."
+      "businessContext": "Diameter of the trap orifice; typical failed traps have orifices from 1 mm to 20 mm.",
+      "label_i18n": {
+        "en": "Orifice Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Diameter of the trap orifice; typical failed traps have orifices from 1 mm to 20 mm."
+      }
     },
     {
       "id": "steam_pressure",
@@ -29,7 +35,13 @@
       "default": 7,
       "min": 0.5,
       "max": 30,
-      "businessContext": "Gauge pressure of steam upstream of the trap. Common industrial range 3–15 bar_g."
+      "businessContext": "Gauge pressure of steam upstream of the trap. Common industrial range 3–15 bar_g.",
+      "label_i18n": {
+        "en": "Steam Pressure (gauge)"
+      },
+      "businessContext_i18n": {
+        "en": "Gauge pressure of steam upstream of the trap. Common industrial range 3–15 bar_g."
+      }
     },
     {
       "id": "operating_hours_per_year",
@@ -39,7 +51,13 @@
       "default": 8000,
       "min": 1000,
       "max": 8760,
-      "businessContext": "Annual operating hours of the steam system. Typical continuous process: 8000 h/yr."
+      "businessContext": "Annual operating hours of the steam system. Typical continuous process: 8000 h/yr.",
+      "label_i18n": {
+        "en": "Operating Hours per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Annual operating hours of the steam system. Typical continuous process: 8000 h/yr."
+      }
     },
     {
       "id": "steam_cost",
@@ -49,7 +67,13 @@
       "default": 25,
       "min": 5,
       "max": 100,
-      "businessContext": "Cost to generate one metric tonne of steam, including fuel, water treatment, and maintenance."
+      "businessContext": "Cost to generate one metric tonne of steam, including fuel, water treatment, and maintenance.",
+      "label_i18n": {
+        "en": "Steam Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost to generate one metric tonne of steam, including fuel, water treatment, and maintenance."
+      }
     },
     {
       "id": "trap_type",
@@ -63,7 +87,13 @@
         "Orifice"
       ],
       "default": "Float & Thermostatic",
-      "businessContext": "Type of steam trap influences discharge coefficient and failure mode."
+      "businessContext": "Type of steam trap influences discharge coefficient and failure mode.",
+      "label_i18n": {
+        "en": "Trap Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of steam trap influences discharge coefficient and failure mode."
+      }
     },
     {
       "id": "failure_mode",
@@ -75,14 +105,26 @@
         "Blow-through (fully open)"
       ],
       "default": "Blow-through (fully open)",
-      "businessContext": "Failure mode determines effective orifice area and discharge coefficient."
+      "businessContext": "Failure mode determines effective orifice area and discharge coefficient.",
+      "label_i18n": {
+        "en": "Failure Mode"
+      },
+      "businessContext_i18n": {
+        "en": "Failure mode determines effective orifice area and discharge coefficient."
+      }
     },
     {
       "id": "condensate_recovery",
       "label": "Condensate Recovery",
       "type": "boolean",
       "default": true,
-      "businessContext": "Whether condensate is recovered; affects net energy loss calculation."
+      "businessContext": "Whether condensate is recovered; affects net energy loss calculation.",
+      "label_i18n": {
+        "en": "Condensate Recovery"
+      },
+      "businessContext_i18n": {
+        "en": "Whether condensate is recovered; affects net energy loss calculation."
+      }
     }
   ],
   "validation": {

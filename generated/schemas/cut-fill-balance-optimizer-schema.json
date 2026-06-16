@@ -19,7 +19,13 @@
       "default": 10000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Total volume of material to be excavated from cut areas, measured in bank cubic meters (BCM)."
+      "businessContext": "Total volume of material to be excavated from cut areas, measured in bank cubic meters (BCM).",
+      "label_i18n": {
+        "en": "Cut Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total volume of material to be excavated from cut areas, measured in bank cubic meters (BCM)."
+      }
     },
     {
       "id": "fillVolume",
@@ -29,7 +35,13 @@
       "default": 8000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Total volume of material required for fill/embankment areas, measured in compacted cubic meters (CCM)."
+      "businessContext": "Total volume of material required for fill/embankment areas, measured in compacted cubic meters (CCM).",
+      "label_i18n": {
+        "en": "Fill Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total volume of material required for fill/embankment areas, measured in compacted cubic meters (CCM)."
+      }
     },
     {
       "id": "swellFactor",
@@ -39,7 +51,13 @@
       "default": 1.25,
       "min": 1,
       "max": 1.5,
-      "businessContext": "Factor accounting for volume increase when material is excavated (loose state vs. bank state). Typical range 1.1–1.4."
+      "businessContext": "Factor accounting for volume increase when material is excavated (loose state vs. bank state). Typical range 1.1–1.4.",
+      "label_i18n": {
+        "en": "Swell Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor accounting for volume increase when material is excavated (loose state vs. bank state). Typical range 1.1–1.4."
+      }
     },
     {
       "id": "shrinkageFactor",
@@ -49,7 +67,13 @@
       "default": 0.85,
       "min": 0.7,
       "max": 1,
-      "businessContext": "Factor accounting for volume decrease when material is compacted (compacted state vs. bank state). Typical range 0.75–0.95."
+      "businessContext": "Factor accounting for volume decrease when material is compacted (compacted state vs. bank state). Typical range 0.75–0.95.",
+      "label_i18n": {
+        "en": "Shrinkage Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor accounting for volume decrease when material is compacted (compacted state vs. bank state). Typical range 0.75–0.95."
+      }
     },
     {
       "id": "haulDistance",
@@ -59,7 +83,13 @@
       "default": 5,
       "min": 0.1,
       "max": 100,
-      "businessContext": "Average one-way distance from cut to fill areas, used for cost and fuel calculations."
+      "businessContext": "Average one-way distance from cut to fill areas, used for cost and fuel calculations.",
+      "label_i18n": {
+        "en": "Average Haul Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Average one-way distance from cut to fill areas, used for cost and fuel calculations."
+      }
     },
     {
       "id": "unitHaulCost",
@@ -69,7 +99,13 @@
       "default": 0.5,
       "min": 0.1,
       "max": 10,
-      "businessContext": "Cost per cubic meter per kilometer of hauling material, including fuel, labor, and equipment depreciation."
+      "businessContext": "Cost per cubic meter per kilometer of hauling material, including fuel, labor, and equipment depreciation.",
+      "label_i18n": {
+        "en": "Unit Haul Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per cubic meter per kilometer of hauling material, including fuel, labor, and equipment depreciation."
+      }
     },
     {
       "id": "wasteDisposalCost",
@@ -79,7 +115,13 @@
       "default": 3,
       "min": 0,
       "max": 50,
-      "businessContext": "Cost per cubic meter for disposing excess material at a designated waste site."
+      "businessContext": "Cost per cubic meter for disposing excess material at a designated waste site.",
+      "label_i18n": {
+        "en": "Waste Disposal Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per cubic meter for disposing excess material at a designated waste site."
+      }
     },
     {
       "id": "borrowCost",
@@ -89,7 +131,13 @@
       "default": 5,
       "min": 0,
       "max": 100,
-      "businessContext": "Cost per cubic meter to import material from a borrow pit to meet fill deficit."
+      "businessContext": "Cost per cubic meter to import material from a borrow pit to meet fill deficit.",
+      "label_i18n": {
+        "en": "Borrow Material Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per cubic meter to import material from a borrow pit to meet fill deficit."
+      }
     },
     {
       "id": "materialType",
@@ -102,14 +150,26 @@
         "Clay"
       ],
       "default": "Common Earth",
-      "businessContext": "Type of material being moved, affects swell/shrinkage factors and handling difficulty."
+      "businessContext": "Type of material being moved, affects swell/shrinkage factors and handling difficulty.",
+      "label_i18n": {
+        "en": "Material Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of material being moved, affects swell/shrinkage factors and handling difficulty."
+      }
     },
     {
       "id": "useOptimizedHaulRoutes",
       "label": "Use Optimized Haul Routes",
       "type": "boolean",
       "default": true,
-      "businessContext": "If enabled, the tool applies lean logistics principles to minimize haul distance and idle time."
+      "businessContext": "If enabled, the tool applies lean logistics principles to minimize haul distance and idle time.",
+      "label_i18n": {
+        "en": "Use Optimized Haul Routes"
+      },
+      "businessContext_i18n": {
+        "en": "If enabled, the tool applies lean logistics principles to minimize haul distance and idle time."
+      }
     }
   ],
   "validation": {

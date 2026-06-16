@@ -19,7 +19,13 @@
       "default": 25,
       "min": 1,
       "max": 100,
-      "businessContext": "Primary input: miles per gallon (US gallon). Typical range for passenger vehicles: 10–60 mpg. Used in North American fleet reporting."
+      "businessContext": "Primary input: miles per gallon (US gallon). Typical range for passenger vehicles: 10–60 mpg. Used in North American fleet reporting.",
+      "label_i18n": {
+        "en": "Fuel Economy (MPG)"
+      },
+      "businessContext_i18n": {
+        "en": "Primary input: miles per gallon (US gallon). Typical range for passenger vehicles: 10–60 mpg. Used in North American fleet reporting."
+      }
     },
     {
       "id": "fuel_type",
@@ -35,7 +41,13 @@
         "ethanol",
         "biodiesel"
       ],
-      "businessContext": "Determines carbon intensity and energy content. Required for environmental loss calculations per ISO 14067."
+      "businessContext": "Determines carbon intensity and energy content. Required for environmental loss calculations per ISO 14067.",
+      "label_i18n": {
+        "en": "Fuel Type"
+      },
+      "businessContext_i18n": {
+        "en": "Determines carbon intensity and energy content. Required for environmental loss calculations per ISO 14067."
+      }
     },
     {
       "id": "driving_cycle",
@@ -50,7 +62,13 @@
         "highway",
         "combined"
       ],
-      "businessContext": "Affects real-world efficiency deviation. Used in Six Sigma process capability analysis for fleet variance."
+      "businessContext": "Affects real-world efficiency deviation. Used in Six Sigma process capability analysis for fleet variance.",
+      "label_i18n": {
+        "en": "Driving Cycle"
+      },
+      "businessContext_i18n": {
+        "en": "Affects real-world efficiency deviation. Used in Six Sigma process capability analysis for fleet variance."
+      }
     },
     {
       "id": "annual_mileage",
@@ -60,7 +78,13 @@
       "default": 12000,
       "min": 0,
       "max": 200000,
-      "businessContext": "Used to compute total fuel consumption, cost, and emissions. Typical fleet vehicle: 10k–30k miles/year."
+      "businessContext": "Used to compute total fuel consumption, cost, and emissions. Typical fleet vehicle: 10k–30k miles/year.",
+      "label_i18n": {
+        "en": "Annual Mileage"
+      },
+      "businessContext_i18n": {
+        "en": "Used to compute total fuel consumption, cost, and emissions. Typical fleet vehicle: 10k–30k miles/year."
+      }
     },
     {
       "id": "fuel_price_per_gallon",
@@ -70,7 +94,13 @@
       "default": 3.5,
       "min": 0.5,
       "max": 10,
-      "businessContext": "Local fuel cost for total cost of ownership (TCO) analysis. Input for Lean cost reduction projects."
+      "businessContext": "Local fuel cost for total cost of ownership (TCO) analysis. Input for Lean cost reduction projects.",
+      "label_i18n": {
+        "en": "Fuel Price per Gallon"
+      },
+      "businessContext_i18n": {
+        "en": "Local fuel cost for total cost of ownership (TCO) analysis. Input for Lean cost reduction projects."
+      }
     },
     {
       "id": "co2_per_gallon",
@@ -80,7 +110,13 @@
       "default": 8.887,
       "min": 0,
       "max": 15,
-      "businessContext": "Default for gasoline: 8.887 kg CO₂/gallon (EPA). Used for environmental impact assessment per ISO 14064."
+      "businessContext": "Default for gasoline: 8.887 kg CO₂/gallon (EPA). Used for environmental impact assessment per ISO 14064.",
+      "label_i18n": {
+        "en": "CO₂ per Gallon"
+      },
+      "businessContext_i18n": {
+        "en": "Default for gasoline: 8.887 kg CO₂/gallon (EPA). Used for environmental impact assessment per ISO 14064."
+      }
     }
   ],
   "validation": {

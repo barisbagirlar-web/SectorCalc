@@ -19,7 +19,13 @@
       "default": 1,
       "min": -999999,
       "max": 999999,
-      "businessContext": "The top part of the fraction (dividend). For mixed numbers, use the fractional part only."
+      "businessContext": "The top part of the fraction (dividend). For mixed numbers, use the fractional part only.",
+      "label_i18n": {
+        "en": "Numerator"
+      },
+      "businessContext_i18n": {
+        "en": "The top part of the fraction (dividend). For mixed numbers, use the fractional part only."
+      }
     },
     {
       "id": "denominator",
@@ -29,7 +35,13 @@
       "default": 4,
       "min": 1,
       "max": 999999,
-      "businessContext": "The bottom part of the fraction (divisor). Must be non-zero."
+      "businessContext": "The bottom part of the fraction (divisor). Must be non-zero.",
+      "label_i18n": {
+        "en": "Denominator"
+      },
+      "businessContext_i18n": {
+        "en": "The bottom part of the fraction (divisor). Must be non-zero."
+      }
     },
     {
       "id": "wholeNumber",
@@ -39,7 +51,13 @@
       "default": 0,
       "min": -999999,
       "max": 999999,
-      "businessContext": "Integer part of a mixed number (e.g., 3 in 3 1/4). Set to 0 for proper fractions."
+      "businessContext": "Integer part of a mixed number (e.g., 3 in 3 1/4). Set to 0 for proper fractions.",
+      "label_i18n": {
+        "en": "Whole Number (for mixed fractions)"
+      },
+      "businessContext_i18n": {
+        "en": "Integer part of a mixed number (e.g., 3 in 3 1/4). Set to 0 for proper fractions."
+      }
     },
     {
       "id": "decimalPlaces",
@@ -49,7 +67,13 @@
       "default": 6,
       "min": 0,
       "max": 15,
-      "businessContext": "Number of decimal places for the result. Follows ISO 80000-1 rounding rules."
+      "businessContext": "Number of decimal places for the result. Follows ISO 80000-1 rounding rules.",
+      "label_i18n": {
+        "en": "Decimal Places (precision)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of decimal places for the result. Follows ISO 80000-1 rounding rules."
+      }
     },
     {
       "id": "roundingMethod",
@@ -65,7 +89,13 @@
         "ceiling",
         "truncate"
       ],
-      "businessContext": "Rounding rule per ISO 80000-1 (half_even recommended for statistical work)."
+      "businessContext": "Rounding rule per ISO 80000-1 (half_even recommended for statistical work).",
+      "label_i18n": {
+        "en": "Rounding Method"
+      },
+      "businessContext_i18n": {
+        "en": "Rounding rule per ISO 80000-1 (half_even recommended for statistical work)."
+      }
     },
     {
       "id": "uncertaintyInput",
@@ -75,7 +105,13 @@
       "default": 0,
       "min": 0,
       "max": 999999,
-      "businessContext": "Absolute uncertainty in the numerator (e.g., from measurement tolerance). Used for Six Sigma uncertainty propagation."
+      "businessContext": "Absolute uncertainty in the numerator (e.g., from measurement tolerance). Used for Six Sigma uncertainty propagation.",
+      "label_i18n": {
+        "en": "Measurement Uncertainty (±)"
+      },
+      "businessContext_i18n": {
+        "en": "Absolute uncertainty in the numerator (e.g., from measurement tolerance). Used for Six Sigma uncertainty propagation."
+      }
     }
   ],
   "validation": {

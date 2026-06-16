@@ -19,7 +19,13 @@
       "default": 50,
       "min": 1,
       "max": 10000,
-      "businessContext": "Number of full-time equivalent employees currently working in the department or line."
+      "businessContext": "Number of full-time equivalent employees currently working in the department or line.",
+      "label_i18n": {
+        "en": "Current Headcount (FTEs)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of full-time equivalent employees currently working in the department or line."
+      }
     },
     {
       "id": "avg_hourly_wage",
@@ -29,7 +35,13 @@
       "default": 25,
       "min": 7.25,
       "max": 200,
-      "businessContext": "Average base hourly wage for the role, excluding overtime premium."
+      "businessContext": "Average base hourly wage for the role, excluding overtime premium.",
+      "label_i18n": {
+        "en": "Average Hourly Wage (Base)"
+      },
+      "businessContext_i18n": {
+        "en": "Average base hourly wage for the role, excluding overtime premium."
+      }
     },
     {
       "id": "overtime_premium",
@@ -39,7 +51,13 @@
       "default": 1.5,
       "min": 1,
       "max": 3,
-      "businessContext": "Standard overtime pay multiplier (e.g., 1.5 for time-and-a-half, 2.0 for double time)."
+      "businessContext": "Standard overtime pay multiplier (e.g., 1.5 for time-and-a-half, 2.0 for double time).",
+      "label_i18n": {
+        "en": "Overtime Premium Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Standard overtime pay multiplier (e.g., 1.5 for time-and-a-half, 2.0 for double time)."
+      }
     },
     {
       "id": "overtime_hours_per_week",
@@ -49,7 +67,13 @@
       "default": 10,
       "min": 0,
       "max": 60,
-      "businessContext": "Average overtime hours worked per full-time employee per week."
+      "businessContext": "Average overtime hours worked per full-time employee per week.",
+      "label_i18n": {
+        "en": "Overtime Hours per Week (per FTE)"
+      },
+      "businessContext_i18n": {
+        "en": "Average overtime hours worked per full-time employee per week."
+      }
     },
     {
       "id": "hiring_cost_per_fte",
@@ -59,7 +83,13 @@
       "default": 5000,
       "min": 0,
       "max": 100000,
-      "businessContext": "Total cost to recruit, interview, onboard, and train a new employee (including agency fees, training materials, lost productivity)."
+      "businessContext": "Total cost to recruit, interview, onboard, and train a new employee (including agency fees, training materials, lost productivity).",
+      "label_i18n": {
+        "en": "Hiring Cost per FTE"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost to recruit, interview, onboard, and train a new employee (including agency fees, training materials, lost productivity)."
+      }
     },
     {
       "id": "annual_benefits_cost_per_fte",
@@ -69,7 +99,13 @@
       "default": 12000,
       "min": 0,
       "max": 100000,
-      "businessContext": "Annual cost of benefits (health insurance, retirement, paid leave, etc.) per full-time employee."
+      "businessContext": "Annual cost of benefits (health insurance, retirement, paid leave, etc.) per full-time employee.",
+      "label_i18n": {
+        "en": "Annual Benefits Cost per FTE"
+      },
+      "businessContext_i18n": {
+        "en": "Annual cost of benefits (health insurance, retirement, paid leave, etc.) per full-time employee."
+      }
     },
     {
       "id": "productivity_factor_overtime",
@@ -79,7 +115,13 @@
       "default": 85,
       "min": 50,
       "max": 100,
-      "businessContext": "Productivity during overtime as a percentage of normal shift productivity (e.g., 85% due to fatigue)."
+      "businessContext": "Productivity during overtime as a percentage of normal shift productivity (e.g., 85% due to fatigue).",
+      "label_i18n": {
+        "en": "Overtime Productivity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Productivity during overtime as a percentage of normal shift productivity (e.g., 85% due to fatigue)."
+      }
     },
     {
       "id": "productivity_factor_new_hire",
@@ -89,7 +131,13 @@
       "default": 70,
       "min": 10,
       "max": 100,
-      "businessContext": "Average productivity of a new hire during the first 3 months as a percentage of an experienced employee."
+      "businessContext": "Average productivity of a new hire during the first 3 months as a percentage of an experienced employee.",
+      "label_i18n": {
+        "en": "New Hire Ramp-Up Productivity"
+      },
+      "businessContext_i18n": {
+        "en": "Average productivity of a new hire during the first 3 months as a percentage of an experienced employee."
+      }
     },
     {
       "id": "quality_defect_rate_overtime",
@@ -99,7 +147,13 @@
       "default": 2,
       "min": 0,
       "max": 20,
-      "businessContext": "Additional defect rate (in percentage points) observed during overtime shifts due to fatigue."
+      "businessContext": "Additional defect rate (in percentage points) observed during overtime shifts due to fatigue.",
+      "label_i18n": {
+        "en": "Overtime Defect Rate Increase"
+      },
+      "businessContext_i18n": {
+        "en": "Additional defect rate (in percentage points) observed during overtime shifts due to fatigue."
+      }
     },
     {
       "id": "quality_defect_rate_normal",
@@ -109,7 +163,13 @@
       "default": 1,
       "min": 0,
       "max": 20,
-      "businessContext": "Baseline defect rate during regular shifts."
+      "businessContext": "Baseline defect rate during regular shifts.",
+      "label_i18n": {
+        "en": "Normal Defect Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Baseline defect rate during regular shifts."
+      }
     },
     {
       "id": "cost_per_defect",
@@ -119,7 +179,13 @@
       "default": 100,
       "min": 0,
       "max": 10000,
-      "businessContext": "Average cost to rework or scrap a defective unit (labor, materials, disposal)."
+      "businessContext": "Average cost to rework or scrap a defective unit (labor, materials, disposal).",
+      "label_i18n": {
+        "en": "Cost per Defect (rework/scrap)"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost to rework or scrap a defective unit (labor, materials, disposal)."
+      }
     },
     {
       "id": "weekly_productive_hours_needed",
@@ -129,7 +195,13 @@
       "default": 2000,
       "min": 1,
       "max": 100000,
-      "businessContext": "Total productive hours required per week to meet demand (adjusted for normal productivity)."
+      "businessContext": "Total productive hours required per week to meet demand (adjusted for normal productivity).",
+      "label_i18n": {
+        "en": "Weekly Productive Hours Needed"
+      },
+      "businessContext_i18n": {
+        "en": "Total productive hours required per week to meet demand (adjusted for normal productivity)."
+      }
     },
     {
       "id": "weeks_per_year",
@@ -139,7 +211,13 @@
       "default": 52,
       "min": 1,
       "max": 52,
-      "businessContext": "Number of weeks per year the operation runs (typically 52 for continuous, 50 for seasonal)."
+      "businessContext": "Number of weeks per year the operation runs (typically 52 for continuous, 50 for seasonal).",
+      "label_i18n": {
+        "en": "Weeks per Year (operating)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of weeks per year the operation runs (typically 52 for continuous, 50 for seasonal)."
+      }
     },
     {
       "id": "include_risk_adjustment",
@@ -149,7 +227,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "If enabled, applies a risk multiplier to overtime costs to account for burnout, turnover, and safety incidents."
+      "businessContext": "If enabled, applies a risk multiplier to overtime costs to account for burnout, turnover, and safety incidents.",
+      "label_i18n": {
+        "en": "Include Risk Adjustment"
+      },
+      "businessContext_i18n": {
+        "en": "If enabled, applies a risk multiplier to overtime costs to account for burnout, turnover, and safety incidents."
+      }
     },
     {
       "id": "risk_multiplier",
@@ -159,7 +243,13 @@
       "default": 1.2,
       "min": 1,
       "max": 3,
-      "businessContext": "Multiplier applied to overtime costs when risk adjustment is enabled (based on historical incident data)."
+      "businessContext": "Multiplier applied to overtime costs when risk adjustment is enabled (based on historical incident data).",
+      "label_i18n": {
+        "en": "Overtime Risk Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier applied to overtime costs when risk adjustment is enabled (based on historical incident data)."
+      }
     }
   ],
   "validation": {

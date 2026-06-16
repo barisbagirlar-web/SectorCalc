@@ -17,7 +17,13 @@
       "default": 1000,
       "min": 0,
       "max": 100000,
-      "businessContext": "Total planned direct labor hours for the project, based on work breakdown structure (WBS)."
+      "businessContext": "Total planned direct labor hours for the project, based on work breakdown structure (WBS).",
+      "label_i18n": {
+        "en": "Direct Labor Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Total planned direct labor hours for the project, based on work breakdown structure (WBS)."
+      }
     },
     {
       "id": "labor_rate",
@@ -27,7 +33,13 @@
       "default": 45,
       "min": 0,
       "max": 500,
-      "businessContext": "Weighted average hourly rate including wages, benefits, and overhead per ISO 15686-5."
+      "businessContext": "Weighted average hourly rate including wages, benefits, and overhead per ISO 15686-5.",
+      "label_i18n": {
+        "en": "Average Labor Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted average hourly rate including wages, benefits, and overhead per ISO 15686-5."
+      }
     },
     {
       "id": "material_cost",
@@ -37,7 +49,13 @@
       "default": 50000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Total cost of raw materials and purchased components, including procurement and logistics."
+      "businessContext": "Total cost of raw materials and purchased components, including procurement and logistics.",
+      "label_i18n": {
+        "en": "Material Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost of raw materials and purchased components, including procurement and logistics."
+      }
     },
     {
       "id": "equipment_cost",
@@ -47,7 +65,13 @@
       "default": 15000,
       "min": 0,
       "max": 5000000,
-      "businessContext": "Cost of specialized machinery, tooling, and equipment depreciation or rental."
+      "businessContext": "Cost of specialized machinery, tooling, and equipment depreciation or rental.",
+      "label_i18n": {
+        "en": "Equipment & Tooling Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of specialized machinery, tooling, and equipment depreciation or rental."
+      }
     },
     {
       "id": "overhead_percentage",
@@ -57,7 +81,13 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Indirect cost rate (facilities, utilities, management) as a percentage of direct costs, per standard cost accounting."
+      "businessContext": "Indirect cost rate (facilities, utilities, management) as a percentage of direct costs, per standard cost accounting.",
+      "label_i18n": {
+        "en": "Overhead Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Indirect cost rate (facilities, utilities, management) as a percentage of direct costs, per standard cost accounting."
+      }
     },
     {
       "id": "complexity_factor",
@@ -81,7 +111,13 @@
           "value": "high",
           "label": "High (novel, high uncertainty)"
         }
-      ]
+      ],
+      "label_i18n": {
+        "en": "Project Complexity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Adjusts cost based on project complexity (low/medium/high) per PMI and Lean principles."
+      }
     },
     {
       "id": "quality_level",
@@ -109,7 +145,13 @@
           "value": "6",
           "label": "6 Sigma (99.99966% yield)"
         }
-      ]
+      ],
+      "label_i18n": {
+        "en": "Quality Level (Sigma)"
+      },
+      "businessContext_i18n": {
+        "en": "Target quality level based on Six Sigma; higher sigma reduces rework and hidden costs."
+      }
     },
     {
       "id": "use_lean_standardization",
@@ -119,7 +161,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If true, applies lean waste reduction factor (e.g., 5% reduction in labor and material)."
+      "businessContext": "If true, applies lean waste reduction factor (e.g., 5% reduction in labor and material).",
+      "label_i18n": {
+        "en": "Apply Lean Standardization"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies lean waste reduction factor (e.g., 5% reduction in labor and material)."
+      }
     }
   ],
   "validation": {

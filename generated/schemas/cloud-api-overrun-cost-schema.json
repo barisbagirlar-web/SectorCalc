@@ -19,7 +19,13 @@
       "default": 1000000,
       "min": 1000,
       "max": 1000000000,
-      "businessContext": "Total number of API calls made per month, including successful and overrun calls."
+      "businessContext": "Total number of API calls made per month, including successful and overrun calls.",
+      "label_i18n": {
+        "en": "Monthly API Call Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of API calls made per month, including successful and overrun calls."
+      }
     },
     {
       "id": "overrun_rate",
@@ -29,7 +35,13 @@
       "default": 5,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of API calls that exceed the agreed response time threshold (e.g., >200ms)."
+      "businessContext": "Percentage of API calls that exceed the agreed response time threshold (e.g., >200ms).",
+      "label_i18n": {
+        "en": "Overrun Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of API calls that exceed the agreed response time threshold (e.g., >200ms)."
+      }
     },
     {
       "id": "avg_overrun_duration",
@@ -39,7 +51,13 @@
       "default": 500,
       "min": 1,
       "max": 30000,
-      "businessContext": "Average extra time beyond the SLA threshold for overrun calls."
+      "businessContext": "Average extra time beyond the SLA threshold for overrun calls.",
+      "label_i18n": {
+        "en": "Average Overrun Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Average extra time beyond the SLA threshold for overrun calls."
+      }
     },
     {
       "id": "cost_per_call",
@@ -49,7 +67,13 @@
       "default": 0.0002,
       "min": 0.00001,
       "max": 1,
-      "businessContext": "Direct cost per API call (compute, network, storage)."
+      "businessContext": "Direct cost per API call (compute, network, storage).",
+      "label_i18n": {
+        "en": "Cost per API Call"
+      },
+      "businessContext_i18n": {
+        "en": "Direct cost per API call (compute, network, storage)."
+      }
     },
     {
       "id": "retry_cost_per_call",
@@ -59,7 +83,13 @@
       "default": 0.0005,
       "min": 0.00001,
       "max": 2,
-      "businessContext": "Additional cost incurred when a call is retried due to timeout or error."
+      "businessContext": "Additional cost incurred when a call is retried due to timeout or error.",
+      "label_i18n": {
+        "en": "Retry Cost per Call"
+      },
+      "businessContext_i18n": {
+        "en": "Additional cost incurred when a call is retried due to timeout or error."
+      }
     },
     {
       "id": "retry_rate",
@@ -69,7 +99,13 @@
       "default": 10,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of overrun calls that trigger a retry."
+      "businessContext": "Percentage of overrun calls that trigger a retry.",
+      "label_i18n": {
+        "en": "Retry Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of overrun calls that trigger a retry."
+      }
     },
     {
       "id": "data_egress_gb",
@@ -79,7 +115,13 @@
       "default": 500,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Total data transferred out of the cloud per month."
+      "businessContext": "Total data transferred out of the cloud per month.",
+      "label_i18n": {
+        "en": "Monthly Data Egress"
+      },
+      "businessContext_i18n": {
+        "en": "Total data transferred out of the cloud per month."
+      }
     },
     {
       "id": "egress_cost_per_gb",
@@ -89,7 +131,13 @@
       "default": 0.09,
       "min": 0.01,
       "max": 0.5,
-      "businessContext": "Cost per GB of data egress (varies by provider and region)."
+      "businessContext": "Cost per GB of data egress (varies by provider and region).",
+      "label_i18n": {
+        "en": "Egress Cost per GB"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per GB of data egress (varies by provider and region)."
+      }
     },
     {
       "id": "sla_penalty_percentage",
@@ -99,7 +147,13 @@
       "default": 10,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of monthly service fee credited as penalty if SLA is breached."
+      "businessContext": "Percentage of monthly service fee credited as penalty if SLA is breached.",
+      "label_i18n": {
+        "en": "SLA Penalty Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of monthly service fee credited as penalty if SLA is breached."
+      }
     },
     {
       "id": "monthly_service_fee",
@@ -109,7 +163,13 @@
       "default": 5000,
       "min": 100,
       "max": 1000000,
-      "businessContext": "Base monthly fee paid to the cloud provider."
+      "businessContext": "Base monthly fee paid to the cloud provider.",
+      "label_i18n": {
+        "en": "Monthly Service Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Base monthly fee paid to the cloud provider."
+      }
     },
     {
       "id": "overrun_threshold_ms",
@@ -119,7 +179,13 @@
       "default": 200,
       "min": 10,
       "max": 5000,
-      "businessContext": "Maximum acceptable response time per the SLA."
+      "businessContext": "Maximum acceptable response time per the SLA.",
+      "label_i18n": {
+        "en": "Overrun Threshold (SLA)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum acceptable response time per the SLA."
+      }
     },
     {
       "id": "region",
@@ -135,7 +201,13 @@
         "eu-west-1",
         "ap-southeast-1"
       ],
-      "businessContext": "Geographic region of the cloud service, affects egress costs and latency."
+      "businessContext": "Geographic region of the cloud service, affects egress costs and latency.",
+      "label_i18n": {
+        "en": "Cloud Region"
+      },
+      "businessContext_i18n": {
+        "en": "Geographic region of the cloud service, affects egress costs and latency."
+      }
     },
     {
       "id": "include_hidden_costs",
@@ -145,7 +217,13 @@
       "default": true,
       "min": null,
       "max": null,
-      "businessContext": "If true, adds estimated hidden costs like customer churn and brand impact."
+      "businessContext": "If true, adds estimated hidden costs like customer churn and brand impact.",
+      "label_i18n": {
+        "en": "Include Hidden Costs (e.g., opportunity loss)"
+      },
+      "businessContext_i18n": {
+        "en": "If true, adds estimated hidden costs like customer churn and brand impact."
+      }
     }
   ],
   "validation": {

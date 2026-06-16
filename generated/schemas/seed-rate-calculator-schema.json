@@ -20,7 +20,13 @@
       "default": 75000,
       "min": 10000,
       "max": 200000,
-      "businessContext": "Desired final stand count per hectare based on agronomic recommendations and yield goals."
+      "businessContext": "Desired final stand count per hectare based on agronomic recommendations and yield goals.",
+      "label_i18n": {
+        "en": "Target Plant Population (plants/ha)"
+      },
+      "businessContext_i18n": {
+        "en": "Desired final stand count per hectare based on agronomic recommendations and yield goals."
+      }
     },
     {
       "id": "germination_rate",
@@ -30,7 +36,13 @@
       "default": 95,
       "min": 50,
       "max": 100,
-      "businessContext": "Percentage of seeds expected to germinate under optimal conditions, typically from seed lot analysis."
+      "businessContext": "Percentage of seeds expected to germinate under optimal conditions, typically from seed lot analysis.",
+      "label_i18n": {
+        "en": "Germination Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of seeds expected to germinate under optimal conditions, typically from seed lot analysis."
+      }
     },
     {
       "id": "field_emergence_factor",
@@ -40,7 +52,13 @@
       "default": 90,
       "min": 50,
       "max": 100,
-      "businessContext": "Expected percentage of germinated seeds that emerge as healthy seedlings, accounting for soil conditions, pests, and weather."
+      "businessContext": "Expected percentage of germinated seeds that emerge as healthy seedlings, accounting for soil conditions, pests, and weather.",
+      "label_i18n": {
+        "en": "Field Emergence Factor (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage of germinated seeds that emerge as healthy seedlings, accounting for soil conditions, pests, and weather."
+      }
     },
     {
       "id": "seed_weight",
@@ -50,7 +68,13 @@
       "default": 250,
       "min": 100,
       "max": 600,
-      "businessContext": "Thousand kernel weight (TKW) from seed supplier or lab test, used to convert seed count to mass."
+      "businessContext": "Thousand kernel weight (TKW) from seed supplier or lab test, used to convert seed count to mass.",
+      "label_i18n": {
+        "en": "Seed Weight (g per 1000 seeds)"
+      },
+      "businessContext_i18n": {
+        "en": "Thousand kernel weight (TKW) from seed supplier or lab test, used to convert seed count to mass."
+      }
     },
     {
       "id": "row_spacing",
@@ -60,7 +84,13 @@
       "default": 50,
       "min": 15,
       "max": 100,
-      "businessContext": "Distance between planting rows, typically set by planter configuration and crop type."
+      "businessContext": "Distance between planting rows, typically set by planter configuration and crop type.",
+      "label_i18n": {
+        "en": "Row Spacing (cm)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance between planting rows, typically set by planter configuration and crop type."
+      }
     },
     {
       "id": "planter_efficiency",
@@ -70,7 +100,13 @@
       "default": 95,
       "min": 70,
       "max": 100,
-      "businessContext": "Operational efficiency of the planter accounting for skips, doubles, and mechanical losses (Lean OEE metric)."
+      "businessContext": "Operational efficiency of the planter accounting for skips, doubles, and mechanical losses (Lean OEE metric).",
+      "label_i18n": {
+        "en": "Planter Efficiency (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Operational efficiency of the planter accounting for skips, doubles, and mechanical losses (Lean OEE metric)."
+      }
     },
     {
       "id": "seed_cost_per_unit",
@@ -80,7 +116,13 @@
       "default": 5,
       "min": 0.5,
       "max": 50,
-      "businessContext": "Purchase price of seed per kilogram, used for economic analysis."
+      "businessContext": "Purchase price of seed per kilogram, used for economic analysis.",
+      "label_i18n": {
+        "en": "Seed Cost per Unit ($/kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase price of seed per kilogram, used for economic analysis."
+      }
     },
     {
       "id": "expected_yield_value",
@@ -90,7 +132,13 @@
       "default": 200,
       "min": 50,
       "max": 1000,
-      "businessContext": "Market price per tonne of harvested crop, used for ROI calculations."
+      "businessContext": "Market price per tonne of harvested crop, used for ROI calculations.",
+      "label_i18n": {
+        "en": "Expected Yield Value ($/tonne)"
+      },
+      "businessContext_i18n": {
+        "en": "Market price per tonne of harvested crop, used for ROI calculations."
+      }
     },
     {
       "id": "soil_type",
@@ -105,7 +153,13 @@
         "silt",
         "peat"
       ],
-      "businessContext": "Soil texture classification affecting emergence factor and recommended seeding depth."
+      "businessContext": "Soil texture classification affecting emergence factor and recommended seeding depth.",
+      "label_i18n": {
+        "en": "Soil Type"
+      },
+      "businessContext_i18n": {
+        "en": "Soil texture classification affecting emergence factor and recommended seeding depth."
+      }
     },
     {
       "id": "irrigation_available",
@@ -113,7 +167,13 @@
       "type": "boolean",
       "unit": "",
       "default": false,
-      "businessContext": "Indicates if supplemental irrigation is used, influencing emergence and target population."
+      "businessContext": "Indicates if supplemental irrigation is used, influencing emergence and target population.",
+      "label_i18n": {
+        "en": "Irrigation Available"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if supplemental irrigation is used, influencing emergence and target population."
+      }
     }
   ],
   "validation": {

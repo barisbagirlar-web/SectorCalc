@@ -19,7 +19,13 @@
       "default": 10,
       "min": 0,
       "max": 1000,
-      "businessContext": "The ideal nominal specification for the product characteristic (e.g., length, weight, voltage)."
+      "businessContext": "The ideal nominal specification for the product characteristic (e.g., length, weight, voltage).",
+      "label_i18n": {
+        "en": "Target Value (T)"
+      },
+      "businessContext_i18n": {
+        "en": "The ideal nominal specification for the product characteristic (e.g., length, weight, voltage)."
+      }
     },
     {
       "id": "lower_spec_limit",
@@ -29,7 +35,13 @@
       "default": 9.5,
       "min": 0,
       "max": 1000,
-      "businessContext": "Minimum acceptable value per engineering or customer requirement."
+      "businessContext": "Minimum acceptable value per engineering or customer requirement.",
+      "label_i18n": {
+        "en": "Lower Specification Limit (LSL)"
+      },
+      "businessContext_i18n": {
+        "en": "Minimum acceptable value per engineering or customer requirement."
+      }
     },
     {
       "id": "upper_spec_limit",
@@ -39,7 +51,13 @@
       "default": 10.5,
       "min": 0,
       "max": 1000,
-      "businessContext": "Maximum acceptable value per engineering or customer requirement."
+      "businessContext": "Maximum acceptable value per engineering or customer requirement.",
+      "label_i18n": {
+        "en": "Upper Specification Limit (USL)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum acceptable value per engineering or customer requirement."
+      }
     },
     {
       "id": "process_mean",
@@ -49,7 +67,13 @@
       "default": 10.2,
       "min": 0,
       "max": 1000,
-      "businessContext": "Current average of the process output."
+      "businessContext": "Current average of the process output.",
+      "label_i18n": {
+        "en": "Process Mean (μ)"
+      },
+      "businessContext_i18n": {
+        "en": "Current average of the process output."
+      }
     },
     {
       "id": "process_std_dev",
@@ -59,7 +83,13 @@
       "default": 0.15,
       "min": 0.001,
       "max": 100,
-      "businessContext": "Measure of process variation."
+      "businessContext": "Measure of process variation.",
+      "label_i18n": {
+        "en": "Process Standard Deviation (σ)"
+      },
+      "businessContext_i18n": {
+        "en": "Measure of process variation."
+      }
     },
     {
       "id": "cost_at_limit",
@@ -69,7 +99,13 @@
       "default": 50,
       "min": 0,
       "max": 100000,
-      "businessContext": "Estimated financial loss (rework, scrap, warranty) when a unit is exactly at the specification limit."
+      "businessContext": "Estimated financial loss (rework, scrap, warranty) when a unit is exactly at the specification limit.",
+      "label_i18n": {
+        "en": "Cost at Specification Limit (A₀)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated financial loss (rework, scrap, warranty) when a unit is exactly at the specification limit."
+      }
     },
     {
       "id": "deviation_at_limit",
@@ -79,7 +115,13 @@
       "default": 0.5,
       "min": 0.001,
       "max": 100,
-      "businessContext": "Distance from target to the nearest specification limit (Δ = min(T-LSL, USL-T))."
+      "businessContext": "Distance from target to the nearest specification limit (Δ = min(T-LSL, USL-T)).",
+      "label_i18n": {
+        "en": "Deviation at Limit (Δ)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance from target to the nearest specification limit (Δ = min(T-LSL, USL-T))."
+      }
     },
     {
       "id": "production_volume",
@@ -89,7 +131,13 @@
       "default": 10000,
       "min": 1,
       "max": 100000000,
-      "businessContext": "Total number of units produced in the period."
+      "businessContext": "Total number of units produced in the period.",
+      "label_i18n": {
+        "en": "Production Volume (N)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units produced in the period."
+      }
     },
     {
       "id": "inspection_rate",
@@ -99,7 +147,13 @@
       "default": 100,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of units inspected. Used to adjust hidden loss estimates."
+      "businessContext": "Percentage of units inspected. Used to adjust hidden loss estimates.",
+      "label_i18n": {
+        "en": "Inspection Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of units inspected. Used to adjust hidden loss estimates."
+      }
     },
     {
       "id": "loss_function_type",
@@ -111,14 +165,26 @@
         "larger-is-better"
       ],
       "default": "nominal-is-best",
-      "businessContext": "Type of quality characteristic: nominal-is-best (target), smaller-is-better (e.g., impurities), larger-is-better (e.g., strength)."
+      "businessContext": "Type of quality characteristic: nominal-is-best (target), smaller-is-better (e.g., impurities), larger-is-better (e.g., strength).",
+      "label_i18n": {
+        "en": "Loss Function Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of quality characteristic: nominal-is-best (target), smaller-is-better (e.g., impurities), larger-is-better (e.g., strength)."
+      }
     },
     {
       "id": "include_hidden_factory",
       "label": "Include Hidden Factory Losses",
       "type": "boolean",
       "default": true,
-      "businessContext": "If true, adds estimated losses from rework, inspection, and scrap that are not captured by the basic loss function."
+      "businessContext": "If true, adds estimated losses from rework, inspection, and scrap that are not captured by the basic loss function.",
+      "label_i18n": {
+        "en": "Include Hidden Factory Losses"
+      },
+      "businessContext_i18n": {
+        "en": "If true, adds estimated losses from rework, inspection, and scrap that are not captured by the basic loss function."
+      }
     }
   ],
   "validation": {

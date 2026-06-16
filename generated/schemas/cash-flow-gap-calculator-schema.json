@@ -19,7 +19,13 @@
       "default": 45,
       "min": 0,
       "max": 365,
-      "businessContext": "Average number of days to collect payment after a sale. High DSO indicates potential cash flow issues."
+      "businessContext": "Average number of days to collect payment after a sale. High DSO indicates potential cash flow issues.",
+      "label_i18n": {
+        "en": "Average Days Receivable (DSO)"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of days to collect payment after a sale. High DSO indicates potential cash flow issues."
+      }
     },
     {
       "id": "avg_days_payable",
@@ -29,7 +35,13 @@
       "default": 30,
       "min": 0,
       "max": 365,
-      "businessContext": "Average number of days to pay suppliers. Higher DPO can improve cash flow but may strain supplier relationships."
+      "businessContext": "Average number of days to pay suppliers. Higher DPO can improve cash flow but may strain supplier relationships.",
+      "label_i18n": {
+        "en": "Average Days Payable (DPO)"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of days to pay suppliers. Higher DPO can improve cash flow but may strain supplier relationships."
+      }
     },
     {
       "id": "inventory_days",
@@ -39,7 +51,13 @@
       "default": 60,
       "min": 0,
       "max": 365,
-      "businessContext": "Average number of days inventory is held before sale. High DII ties up cash and increases holding costs."
+      "businessContext": "Average number of days inventory is held before sale. High DII ties up cash and increases holding costs.",
+      "label_i18n": {
+        "en": "Inventory Days (DII)"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of days inventory is held before sale. High DII ties up cash and increases holding costs."
+      }
     },
     {
       "id": "operating_expenses_daily",
@@ -49,7 +67,13 @@
       "default": 10000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Total daily operating costs including labor, materials, overhead. Used to compute cash gap in monetary terms."
+      "businessContext": "Total daily operating costs including labor, materials, overhead. Used to compute cash gap in monetary terms.",
+      "label_i18n": {
+        "en": "Daily Operating Expenses"
+      },
+      "businessContext_i18n": {
+        "en": "Total daily operating costs including labor, materials, overhead. Used to compute cash gap in monetary terms."
+      }
     },
     {
       "id": "revenue_daily",
@@ -59,7 +83,13 @@
       "default": 15000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Average daily revenue from sales. Used to compute cash conversion cycle and gap."
+      "businessContext": "Average daily revenue from sales. Used to compute cash conversion cycle and gap.",
+      "label_i18n": {
+        "en": "Daily Revenue"
+      },
+      "businessContext_i18n": {
+        "en": "Average daily revenue from sales. Used to compute cash conversion cycle and gap."
+      }
     },
     {
       "id": "payment_terms_suppliers",
@@ -85,7 +115,13 @@
           "label": "Net 60"
         }
       ],
-      "businessContext": "Standard payment terms offered by suppliers. Affects DPO and cash gap."
+      "businessContext": "Standard payment terms offered by suppliers. Affects DPO and cash gap.",
+      "label_i18n": {
+        "en": "Supplier Payment Terms"
+      },
+      "businessContext_i18n": {
+        "en": "Standard payment terms offered by suppliers. Affects DPO and cash gap."
+      }
     },
     {
       "id": "customer_payment_behavior",
@@ -107,7 +143,13 @@
           "label": "Slow (late payments)"
         }
       ],
-      "businessContext": "Historical customer payment behavior. Adjusts effective DSO."
+      "businessContext": "Historical customer payment behavior. Adjusts effective DSO.",
+      "label_i18n": {
+        "en": "Customer Payment Behavior"
+      },
+      "businessContext_i18n": {
+        "en": "Historical customer payment behavior. Adjusts effective DSO."
+      }
     },
     {
       "id": "lean_inventory_flag",
@@ -115,7 +157,13 @@
       "type": "boolean",
       "unit": "",
       "default": false,
-      "businessContext": "Indicates if Lean inventory methods (e.g., JIT) are in place to reduce inventory days."
+      "businessContext": "Indicates if Lean inventory methods (e.g., JIT) are in place to reduce inventory days.",
+      "label_i18n": {
+        "en": "Lean Inventory Practices Active"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if Lean inventory methods (e.g., JIT) are in place to reduce inventory days."
+      }
     },
     {
       "id": "six_sigma_quality_level",
@@ -126,7 +174,13 @@
       "min": 1,
       "max": 6,
       "step": 0.1,
-      "businessContext": "Current process sigma level. Higher sigma indicates fewer defects and less cash tied up in rework/scrap."
+      "businessContext": "Current process sigma level. Higher sigma indicates fewer defects and less cash tied up in rework/scrap.",
+      "label_i18n": {
+        "en": "Six Sigma Quality Level (Sigma)"
+      },
+      "businessContext_i18n": {
+        "en": "Current process sigma level. Higher sigma indicates fewer defects and less cash tied up in rework/scrap."
+      }
     }
   ],
   "validation": {

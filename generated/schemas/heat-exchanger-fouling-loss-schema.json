@@ -19,7 +19,13 @@
       "default": 500,
       "min": 10,
       "max": 10000,
-      "businessContext": "Clean design UA from manufacturer datasheet or initial commissioning test (ISO 50001:2018, Annex B)."
+      "businessContext": "Clean design UA from manufacturer datasheet or initial commissioning test (ISO 50001:2018, Annex B).",
+      "label_i18n": {
+        "en": "Design Overall Heat Transfer Coefficient × Area (UA_design)"
+      },
+      "businessContext_i18n": {
+        "en": "Clean design UA from manufacturer datasheet or initial commissioning test (ISO 50001:2018, Annex B)."
+      }
     },
     {
       "id": "actual_ua",
@@ -29,7 +35,13 @@
       "default": 350,
       "min": 5,
       "max": 10000,
-      "businessContext": "Current measured UA from process data (temperature, flow) using heat balance. Indicates fouling severity."
+      "businessContext": "Current measured UA from process data (temperature, flow) using heat balance. Indicates fouling severity.",
+      "label_i18n": {
+        "en": "Actual Overall Heat Transfer Coefficient × Area (UA_actual)"
+      },
+      "businessContext_i18n": {
+        "en": "Current measured UA from process data (temperature, flow) using heat balance. Indicates fouling severity."
+      }
     },
     {
       "id": "hot_inlet_temp",
@@ -39,7 +51,13 @@
       "default": 120,
       "min": 0,
       "max": 500,
-      "businessContext": "Temperature of hot process stream entering the heat exchanger."
+      "businessContext": "Temperature of hot process stream entering the heat exchanger.",
+      "label_i18n": {
+        "en": "Hot Fluid Inlet Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of hot process stream entering the heat exchanger."
+      }
     },
     {
       "id": "cold_inlet_temp",
@@ -49,7 +67,13 @@
       "default": 30,
       "min": -20,
       "max": 200,
-      "businessContext": "Temperature of cooling or heating utility entering the exchanger."
+      "businessContext": "Temperature of cooling or heating utility entering the exchanger.",
+      "label_i18n": {
+        "en": "Cold Fluid Inlet Temperature"
+      },
+      "businessContext_i18n": {
+        "en": "Temperature of cooling or heating utility entering the exchanger."
+      }
     },
     {
       "id": "hot_flow_rate",
@@ -59,7 +83,13 @@
       "default": 50,
       "min": 0.1,
       "max": 1000,
-      "businessContext": "Mass flow rate of the hot process stream."
+      "businessContext": "Mass flow rate of the hot process stream.",
+      "label_i18n": {
+        "en": "Hot Fluid Mass Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Mass flow rate of the hot process stream."
+      }
     },
     {
       "id": "hot_specific_heat",
@@ -69,7 +99,13 @@
       "default": 2.5,
       "min": 0.5,
       "max": 5,
-      "businessContext": "Average specific heat of hot fluid over operating temperature range."
+      "businessContext": "Average specific heat of hot fluid over operating temperature range.",
+      "label_i18n": {
+        "en": "Hot Fluid Specific Heat Capacity"
+      },
+      "businessContext_i18n": {
+        "en": "Average specific heat of hot fluid over operating temperature range."
+      }
     },
     {
       "id": "energy_cost",
@@ -79,7 +115,13 @@
       "default": 0.08,
       "min": 0.01,
       "max": 1,
-      "businessContext": "Cost of thermal energy (steam, hot water, or electricity for pumping)."
+      "businessContext": "Cost of thermal energy (steam, hot water, or electricity for pumping).",
+      "label_i18n": {
+        "en": "Energy Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of thermal energy (steam, hot water, or electricity for pumping)."
+      }
     },
     {
       "id": "operating_hours_per_year",
@@ -89,7 +131,13 @@
       "default": 8000,
       "min": 100,
       "max": 8760,
-      "businessContext": "Annual operating hours of the heat exchanger."
+      "businessContext": "Annual operating hours of the heat exchanger.",
+      "label_i18n": {
+        "en": "Operating Hours per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Annual operating hours of the heat exchanger."
+      }
     },
     {
       "id": "production_loss_factor",
@@ -99,7 +147,13 @@
       "default": 5,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of production capacity lost due to reduced heat transfer (e.g., slower throughput)."
+      "businessContext": "Percentage of production capacity lost due to reduced heat transfer (e.g., slower throughput).",
+      "label_i18n": {
+        "en": "Production Loss Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of production capacity lost due to reduced heat transfer (e.g., slower throughput)."
+      }
     },
     {
       "id": "revenue_per_unit_product",
@@ -109,7 +163,13 @@
       "default": 0.5,
       "min": 0,
       "max": 100,
-      "businessContext": "Revenue generated per kg of product processed through the exchanger."
+      "businessContext": "Revenue generated per kg of product processed through the exchanger.",
+      "label_i18n": {
+        "en": "Revenue per Unit Product"
+      },
+      "businessContext_i18n": {
+        "en": "Revenue generated per kg of product processed through the exchanger."
+      }
     },
     {
       "id": "exchanger_type",
@@ -122,14 +182,26 @@
         "Spiral"
       ],
       "default": "Shell-and-Tube",
-      "businessContext": "Type of heat exchanger; affects fouling factors and cleaning intervals."
+      "businessContext": "Type of heat exchanger; affects fouling factors and cleaning intervals.",
+      "label_i18n": {
+        "en": "Heat Exchanger Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of heat exchanger; affects fouling factors and cleaning intervals."
+      }
     },
     {
       "id": "fouling_factor_known",
       "label": "Fouling Factor Known?",
       "type": "boolean",
       "default": false,
-      "businessContext": "If true, user provides measured fouling factor directly; otherwise calculated from UA ratio."
+      "businessContext": "If true, user provides measured fouling factor directly; otherwise calculated from UA ratio.",
+      "label_i18n": {
+        "en": "Fouling Factor Known?"
+      },
+      "businessContext_i18n": {
+        "en": "If true, user provides measured fouling factor directly; otherwise calculated from UA ratio."
+      }
     },
     {
       "id": "measured_fouling_factor",
@@ -139,7 +211,13 @@
       "default": 0.0005,
       "min": 0,
       "max": 0.01,
-      "businessContext": "Directly measured fouling resistance from test or literature (TEMA standards)."
+      "businessContext": "Directly measured fouling resistance from test or literature (TEMA standards).",
+      "label_i18n": {
+        "en": "Measured Fouling Factor (R_f)"
+      },
+      "businessContext_i18n": {
+        "en": "Directly measured fouling resistance from test or literature (TEMA standards)."
+      }
     }
   ],
   "validation": {

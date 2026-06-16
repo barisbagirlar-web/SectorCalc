@@ -20,7 +20,13 @@
       "default": 100000,
       "min": 1000,
       "max": 10000000,
-      "businessContext": "Total number of units produced per year across all product variants."
+      "businessContext": "Total number of units produced per year across all product variants.",
+      "label_i18n": {
+        "en": "Annual Production Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units produced per year across all product variants."
+      }
     },
     {
       "id": "avg_batch_size",
@@ -30,7 +36,13 @@
       "default": 500,
       "min": 10,
       "max": 100000,
-      "businessContext": "Average number of units produced per production run before changeover."
+      "businessContext": "Average number of units produced per production run before changeover.",
+      "label_i18n": {
+        "en": "Average Batch Size"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of units produced per production run before changeover."
+      }
     },
     {
       "id": "current_setup_time",
@@ -40,7 +52,13 @@
       "default": 120,
       "min": 1,
       "max": 1440,
-      "businessContext": "Time required to change from one product to another in the current system."
+      "businessContext": "Time required to change from one product to another in the current system.",
+      "label_i18n": {
+        "en": "Current Setup Time per Changeover"
+      },
+      "businessContext_i18n": {
+        "en": "Time required to change from one product to another in the current system."
+      }
     },
     {
       "id": "target_setup_time",
@@ -50,7 +68,13 @@
       "default": 15,
       "min": 1,
       "max": 1440,
-      "businessContext": "Expected setup time after implementing flexible manufacturing system (e.g., SMED)."
+      "businessContext": "Expected setup time after implementing flexible manufacturing system (e.g., SMED).",
+      "label_i18n": {
+        "en": "Target Setup Time per Changeover (after FMS)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected setup time after implementing flexible manufacturing system (e.g., SMED)."
+      }
     },
     {
       "id": "hourly_operating_cost",
@@ -60,7 +84,13 @@
       "default": 85,
       "min": 10,
       "max": 500,
-      "businessContext": "Fully burdened hourly cost of production labor and overhead."
+      "businessContext": "Fully burdened hourly cost of production labor and overhead.",
+      "label_i18n": {
+        "en": "Hourly Operating Cost (labor + overhead)"
+      },
+      "businessContext_i18n": {
+        "en": "Fully burdened hourly cost of production labor and overhead."
+      }
     },
     {
       "id": "changeover_cost_per_hour",
@@ -70,7 +100,13 @@
       "default": 150,
       "min": 20,
       "max": 1000,
-      "businessContext": "Total cost incurred per hour of changeover, including lost production and labor."
+      "businessContext": "Total cost incurred per hour of changeover, including lost production and labor.",
+      "label_i18n": {
+        "en": "Changeover Cost per Hour (downtime + labor)"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost incurred per hour of changeover, including lost production and labor."
+      }
     },
     {
       "id": "inventory_holding_cost_rate",
@@ -80,7 +116,13 @@
       "default": 25,
       "min": 5,
       "max": 50,
-      "businessContext": "Annual cost to hold inventory as a percentage of inventory value (includes storage, insurance, obsolescence)."
+      "businessContext": "Annual cost to hold inventory as a percentage of inventory value (includes storage, insurance, obsolescence).",
+      "label_i18n": {
+        "en": "Inventory Holding Cost Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual cost to hold inventory as a percentage of inventory value (includes storage, insurance, obsolescence)."
+      }
     },
     {
       "id": "avg_inventory_value",
@@ -90,7 +132,13 @@
       "default": 2000000,
       "min": 10000,
       "max": 100000000,
-      "businessContext": "Current average value of raw materials, WIP, and finished goods inventory."
+      "businessContext": "Current average value of raw materials, WIP, and finished goods inventory.",
+      "label_i18n": {
+        "en": "Average Inventory Value (current)"
+      },
+      "businessContext_i18n": {
+        "en": "Current average value of raw materials, WIP, and finished goods inventory."
+      }
     },
     {
       "id": "fms_investment",
@@ -100,7 +148,13 @@
       "default": 500000,
       "min": 10000,
       "max": 10000000,
-      "businessContext": "Total capital expenditure for flexible manufacturing system (equipment, software, training, integration)."
+      "businessContext": "Total capital expenditure for flexible manufacturing system (equipment, software, training, integration).",
+      "label_i18n": {
+        "en": "Total FMS Investment"
+      },
+      "businessContext_i18n": {
+        "en": "Total capital expenditure for flexible manufacturing system (equipment, software, training, integration)."
+      }
     },
     {
       "id": "fms_useful_life",
@@ -110,7 +164,13 @@
       "default": 10,
       "min": 3,
       "max": 20,
-      "businessContext": "Expected operational life of the flexible manufacturing system for depreciation purposes."
+      "businessContext": "Expected operational life of the flexible manufacturing system for depreciation purposes.",
+      "label_i18n": {
+        "en": "FMS Useful Life"
+      },
+      "businessContext_i18n": {
+        "en": "Expected operational life of the flexible manufacturing system for depreciation purposes."
+      }
     },
     {
       "id": "discount_rate",
@@ -120,7 +180,13 @@
       "default": 8,
       "min": 0,
       "max": 30,
-      "businessContext": "Weighted average cost of capital used for net present value calculation."
+      "businessContext": "Weighted average cost of capital used for net present value calculation.",
+      "label_i18n": {
+        "en": "Discount Rate (WACC)"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted average cost of capital used for net present value calculation."
+      }
     },
     {
       "id": "product_variants",
@@ -130,7 +196,13 @@
       "default": 20,
       "min": 1,
       "max": 1000,
-      "businessContext": "Total number of distinct product variants produced annually."
+      "businessContext": "Total number of distinct product variants produced annually.",
+      "label_i18n": {
+        "en": "Number of Product Variants"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of distinct product variants produced annually."
+      }
     },
     {
       "id": "quality_defect_rate",
@@ -140,7 +212,13 @@
       "default": 2.5,
       "min": 0,
       "max": 20,
-      "businessContext": "Percentage of units that are defective and require rework or scrap."
+      "businessContext": "Percentage of units that are defective and require rework or scrap.",
+      "label_i18n": {
+        "en": "Current Quality Defect Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of units that are defective and require rework or scrap."
+      }
     },
     {
       "id": "fms_quality_improvement",
@@ -150,7 +228,13 @@
       "default": 40,
       "min": 0,
       "max": 100,
-      "businessContext": "Expected percentage reduction in defect rate after implementing FMS."
+      "businessContext": "Expected percentage reduction in defect rate after implementing FMS.",
+      "label_i18n": {
+        "en": "Expected Quality Improvement from FMS"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage reduction in defect rate after implementing FMS."
+      }
     },
     {
       "id": "cost_per_defect",
@@ -160,7 +244,13 @@
       "default": 50,
       "min": 1,
       "max": 1000,
-      "businessContext": "Average cost to rework or scrap a defective unit."
+      "businessContext": "Average cost to rework or scrap a defective unit.",
+      "label_i18n": {
+        "en": "Cost per Defect (rework + scrap)"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost to rework or scrap a defective unit."
+      }
     },
     {
       "id": "labor_productivity_gain",
@@ -170,7 +260,13 @@
       "default": 15,
       "min": 0,
       "max": 50,
-      "businessContext": "Expected percentage increase in labor productivity due to automation and reduced manual handling."
+      "businessContext": "Expected percentage increase in labor productivity due to automation and reduced manual handling.",
+      "label_i18n": {
+        "en": "Labor Productivity Gain from FMS"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage increase in labor productivity due to automation and reduced manual handling."
+      }
     },
     {
       "id": "floor_space_reduction",
@@ -180,7 +276,13 @@
       "default": 20,
       "min": 0,
       "max": 60,
-      "businessContext": "Expected percentage reduction in manufacturing floor space due to compact FMS layout."
+      "businessContext": "Expected percentage reduction in manufacturing floor space due to compact FMS layout.",
+      "label_i18n": {
+        "en": "Floor Space Reduction"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage reduction in manufacturing floor space due to compact FMS layout."
+      }
     },
     {
       "id": "annual_floor_space_cost",
@@ -190,7 +292,13 @@
       "default": 12,
       "min": 1,
       "max": 100,
-      "businessContext": "Annual cost per square foot of manufacturing space (rent, utilities, maintenance)."
+      "businessContext": "Annual cost per square foot of manufacturing space (rent, utilities, maintenance).",
+      "label_i18n": {
+        "en": "Annual Floor Space Cost per sq ft"
+      },
+      "businessContext_i18n": {
+        "en": "Annual cost per square foot of manufacturing space (rent, utilities, maintenance)."
+      }
     },
     {
       "id": "current_floor_space",
@@ -200,7 +308,13 @@
       "default": 50000,
       "min": 1000,
       "max": 1000000,
-      "businessContext": "Total manufacturing floor space currently occupied."
+      "businessContext": "Total manufacturing floor space currently occupied.",
+      "label_i18n": {
+        "en": "Current Floor Space"
+      },
+      "businessContext_i18n": {
+        "en": "Total manufacturing floor space currently occupied."
+      }
     },
     {
       "id": "energy_cost_reduction",
@@ -210,7 +324,13 @@
       "default": 10,
       "min": 0,
       "max": 40,
-      "businessContext": "Expected percentage reduction in energy costs due to more efficient equipment and reduced idle time."
+      "businessContext": "Expected percentage reduction in energy costs due to more efficient equipment and reduced idle time.",
+      "label_i18n": {
+        "en": "Energy Cost Reduction from FMS"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage reduction in energy costs due to more efficient equipment and reduced idle time."
+      }
     },
     {
       "id": "annual_energy_cost",
@@ -220,7 +340,13 @@
       "default": 200000,
       "min": 10000,
       "max": 5000000,
-      "businessContext": "Total annual energy cost for the manufacturing facility."
+      "businessContext": "Total annual energy cost for the manufacturing facility.",
+      "label_i18n": {
+        "en": "Annual Energy Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total annual energy cost for the manufacturing facility."
+      }
     },
     {
       "id": "maintenance_cost_increase",
@@ -230,7 +356,13 @@
       "default": 5,
       "min": 0,
       "max": 30,
-      "businessContext": "Expected percentage increase in maintenance costs due to more complex equipment."
+      "businessContext": "Expected percentage increase in maintenance costs due to more complex equipment.",
+      "label_i18n": {
+        "en": "Maintenance Cost Increase from FMS"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage increase in maintenance costs due to more complex equipment."
+      }
     },
     {
       "id": "annual_maintenance_cost",
@@ -240,7 +372,13 @@
       "default": 150000,
       "min": 10000,
       "max": 2000000,
-      "businessContext": "Current annual maintenance cost for existing equipment."
+      "businessContext": "Current annual maintenance cost for existing equipment.",
+      "label_i18n": {
+        "en": "Annual Maintenance Cost (current)"
+      },
+      "businessContext_i18n": {
+        "en": "Current annual maintenance cost for existing equipment."
+      }
     },
     {
       "id": "training_cost",
@@ -250,7 +388,13 @@
       "default": 50000,
       "min": 0,
       "max": 500000,
-      "businessContext": "One-time cost for training operators and maintenance staff on the new FMS."
+      "businessContext": "One-time cost for training operators and maintenance staff on the new FMS.",
+      "label_i18n": {
+        "en": "Training Cost for FMS"
+      },
+      "businessContext_i18n": {
+        "en": "One-time cost for training operators and maintenance staff on the new FMS."
+      }
     },
     {
       "id": "implementation_time",
@@ -260,7 +404,13 @@
       "default": 6,
       "min": 1,
       "max": 24,
-      "businessContext": "Time required to fully implement the flexible manufacturing system."
+      "businessContext": "Time required to fully implement the flexible manufacturing system.",
+      "label_i18n": {
+        "en": "Implementation Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time required to fully implement the flexible manufacturing system."
+      }
     },
     {
       "id": "production_days_per_year",
@@ -270,7 +420,13 @@
       "default": 250,
       "min": 100,
       "max": 365,
-      "businessContext": "Number of days the facility operates per year."
+      "businessContext": "Number of days the facility operates per year.",
+      "label_i18n": {
+        "en": "Production Days per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days the facility operates per year."
+      }
     },
     {
       "id": "shifts_per_day",
@@ -280,7 +436,13 @@
       "default": 2,
       "min": 1,
       "max": 3,
-      "businessContext": "Number of production shifts per day."
+      "businessContext": "Number of production shifts per day.",
+      "label_i18n": {
+        "en": "Shifts per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Number of production shifts per day."
+      }
     },
     {
       "id": "hours_per_shift",
@@ -290,7 +452,13 @@
       "default": 8,
       "min": 6,
       "max": 12,
-      "businessContext": "Duration of each production shift."
+      "businessContext": "Duration of each production shift.",
+      "label_i18n": {
+        "en": "Hours per Shift"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of each production shift."
+      }
     }
   ],
   "validation": {

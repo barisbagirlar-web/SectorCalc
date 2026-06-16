@@ -22,7 +22,13 @@
       "default": 100000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Total upfront capital expenditure including equipment, installation, and training costs."
+      "businessContext": "Total upfront capital expenditure including equipment, installation, and training costs.",
+      "label_i18n": {
+        "en": "Initial Investment"
+      },
+      "businessContext_i18n": {
+        "en": "Total upfront capital expenditure including equipment, installation, and training costs."
+      }
     },
     {
       "id": "annual_cash_inflow",
@@ -32,7 +38,13 @@
       "default": 30000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Expected annual net cash inflow from the investment (revenue increase or cost savings)."
+      "businessContext": "Expected annual net cash inflow from the investment (revenue increase or cost savings).",
+      "label_i18n": {
+        "en": "Annual Cash Inflow"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual net cash inflow from the investment (revenue increase or cost savings)."
+      }
     },
     {
       "id": "annual_cash_outflow",
@@ -42,7 +54,13 @@
       "default": 5000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Annual operating and maintenance costs associated with the investment."
+      "businessContext": "Annual operating and maintenance costs associated with the investment.",
+      "label_i18n": {
+        "en": "Annual Cash Outflow"
+      },
+      "businessContext_i18n": {
+        "en": "Annual operating and maintenance costs associated with the investment."
+      }
     },
     {
       "id": "discount_rate",
@@ -52,7 +70,13 @@
       "default": 10,
       "min": 0,
       "max": 100,
-      "businessContext": "Weighted average cost of capital (WACC) or required rate of return per ISO 15663."
+      "businessContext": "Weighted average cost of capital (WACC) or required rate of return per ISO 15663.",
+      "label_i18n": {
+        "en": "Discount Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted average cost of capital (WACC) or required rate of return per ISO 15663."
+      }
     },
     {
       "id": "project_life_years",
@@ -62,7 +86,13 @@
       "default": 5,
       "min": 1,
       "max": 50,
-      "businessContext": "Expected useful life of the investment per ISO 15686."
+      "businessContext": "Expected useful life of the investment per ISO 15686.",
+      "label_i18n": {
+        "en": "Project Life (Years)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected useful life of the investment per ISO 15686."
+      }
     },
     {
       "id": "salvage_value",
@@ -72,7 +102,13 @@
       "default": 10000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Estimated residual value at end of project life."
+      "businessContext": "Estimated residual value at end of project life.",
+      "label_i18n": {
+        "en": "Salvage Value"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated residual value at end of project life."
+      }
     },
     {
       "id": "inflation_rate",
@@ -82,7 +118,13 @@
       "default": 2,
       "min": 0,
       "max": 100,
-      "businessContext": "Expected annual inflation rate for adjusting future cash flows."
+      "businessContext": "Expected annual inflation rate for adjusting future cash flows.",
+      "label_i18n": {
+        "en": "Inflation Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual inflation rate for adjusting future cash flows."
+      }
     },
     {
       "id": "tax_rate",
@@ -92,7 +134,13 @@
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Effective corporate tax rate for after-tax cash flow calculations."
+      "businessContext": "Effective corporate tax rate for after-tax cash flow calculations.",
+      "label_i18n": {
+        "en": "Tax Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Effective corporate tax rate for after-tax cash flow calculations."
+      }
     },
     {
       "id": "depreciation_method",
@@ -107,7 +155,13 @@
         "double_declining",
         "sum_of_years_digits"
       ],
-      "businessContext": "Depreciation method per GAAP/IFRS standards."
+      "businessContext": "Depreciation method per GAAP/IFRS standards.",
+      "label_i18n": {
+        "en": "Depreciation Method"
+      },
+      "businessContext_i18n": {
+        "en": "Depreciation method per GAAP/IFRS standards."
+      }
     },
     {
       "id": "risk_adjustment",
@@ -117,7 +171,13 @@
       "default": 1,
       "min": 0.5,
       "max": 2,
-      "businessContext": "Multiplier to discount rate for project risk (1.0 = baseline)."
+      "businessContext": "Multiplier to discount rate for project risk (1.0 = baseline).",
+      "label_i18n": {
+        "en": "Risk Adjustment Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier to discount rate for project risk (1.0 = baseline)."
+      }
     },
     {
       "id": "lean_six_sigma_savings",
@@ -127,7 +187,13 @@
       "default": 0,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Additional annual savings from Lean/Six Sigma improvements (DMAIC)."
+      "businessContext": "Additional annual savings from Lean/Six Sigma improvements (DMAIC).",
+      "label_i18n": {
+        "en": "Lean Six Sigma Annual Savings"
+      },
+      "businessContext_i18n": {
+        "en": "Additional annual savings from Lean/Six Sigma improvements (DMAIC)."
+      }
     },
     {
       "id": "werc_throughput",
@@ -137,7 +203,13 @@
       "default": 10000,
       "min": 0,
       "max": 100000000,
-      "businessContext": "Annual throughput per WERC warehouse metrics."
+      "businessContext": "Annual throughput per WERC warehouse metrics.",
+      "label_i18n": {
+        "en": "WERC Throughput (units/year)"
+      },
+      "businessContext_i18n": {
+        "en": "Annual throughput per WERC warehouse metrics."
+      }
     },
     {
       "id": "quality_defect_rate",
@@ -147,7 +219,13 @@
       "default": 1.5,
       "min": 0,
       "max": 100,
-      "businessContext": "Defect rate per Six Sigma DPMO target (default 1.5% = 4 sigma)."
+      "businessContext": "Defect rate per Six Sigma DPMO target (default 1.5% = 4 sigma).",
+      "label_i18n": {
+        "en": "Quality Defect Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Defect rate per Six Sigma DPMO target (default 1.5% = 4 sigma)."
+      }
     },
     {
       "id": "energy_cost_per_unit",
@@ -157,7 +235,13 @@
       "default": 0.05,
       "min": 0,
       "max": 100,
-      "businessContext": "Energy cost per unit produced (ISO 50001)."
+      "businessContext": "Energy cost per unit produced (ISO 50001).",
+      "label_i18n": {
+        "en": "Energy Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Energy cost per unit produced (ISO 50001)."
+      }
     }
   ],
   "validation": {

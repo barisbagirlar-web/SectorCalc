@@ -19,7 +19,13 @@
       "default": 0.5,
       "min": 0,
       "max": 10000,
-      "businessContext": "Direct material cost per unit of product, including raw materials and purchased components."
+      "businessContext": "Direct material cost per unit of product, including raw materials and purchased components.",
+      "label_i18n": {
+        "en": "Material Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Direct material cost per unit of product, including raw materials and purchased components."
+      }
     },
     {
       "id": "labor_cost_per_hour",
@@ -29,7 +35,13 @@
       "default": 25,
       "min": 0,
       "max": 500,
-      "businessContext": "Average fully burdened labor cost per hour for direct operators."
+      "businessContext": "Average fully burdened labor cost per hour for direct operators.",
+      "label_i18n": {
+        "en": "Labor Cost per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Average fully burdened labor cost per hour for direct operators."
+      }
     },
     {
       "id": "overhead_rate",
@@ -39,7 +51,13 @@
       "default": 150,
       "min": 0,
       "max": 500,
-      "businessContext": "Percentage of direct labor cost allocated to manufacturing overhead (ISO 9001 cost accounting)."
+      "businessContext": "Percentage of direct labor cost allocated to manufacturing overhead (ISO 9001 cost accounting).",
+      "label_i18n": {
+        "en": "Overhead Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of direct labor cost allocated to manufacturing overhead (ISO 9001 cost accounting)."
+      }
     },
     {
       "id": "defect_rate",
@@ -49,7 +67,13 @@
       "default": 5,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of units produced that are defective and require rework or scrap (Six Sigma DPMO metric)."
+      "businessContext": "Percentage of units produced that are defective and require rework or scrap (Six Sigma DPMO metric).",
+      "label_i18n": {
+        "en": "Defect Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of units produced that are defective and require rework or scrap (Six Sigma DPMO metric)."
+      }
     },
     {
       "id": "rework_time_per_unit",
@@ -59,7 +83,13 @@
       "default": 0.25,
       "min": 0,
       "max": 10,
-      "businessContext": "Average time spent reworking a defective unit."
+      "businessContext": "Average time spent reworking a defective unit.",
+      "label_i18n": {
+        "en": "Rework Time per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Average time spent reworking a defective unit."
+      }
     },
     {
       "id": "scrap_rate",
@@ -69,7 +99,13 @@
       "default": 2,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of defective units that are scrapped (cannot be reworked)."
+      "businessContext": "Percentage of defective units that are scrapped (cannot be reworked).",
+      "label_i18n": {
+        "en": "Scrap Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of defective units that are scrapped (cannot be reworked)."
+      }
     },
     {
       "id": "waiting_time_per_unit",
@@ -79,7 +115,13 @@
       "default": 0.1,
       "min": 0,
       "max": 10,
-      "businessContext": "Average idle time per unit due to bottlenecks, material shortages, or equipment downtime (Lean Takt time analysis)."
+      "businessContext": "Average idle time per unit due to bottlenecks, material shortages, or equipment downtime (Lean Takt time analysis).",
+      "label_i18n": {
+        "en": "Waiting Time per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Average idle time per unit due to bottlenecks, material shortages, or equipment downtime (Lean Takt time analysis)."
+      }
     },
     {
       "id": "excess_motion_cost_per_unit",
@@ -89,7 +131,13 @@
       "default": 0.05,
       "min": 0,
       "max": 100,
-      "businessContext": "Cost of unnecessary worker movement (walking, reaching) per unit, based on time-motion studies."
+      "businessContext": "Cost of unnecessary worker movement (walking, reaching) per unit, based on time-motion studies.",
+      "label_i18n": {
+        "en": "Excess Motion Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of unnecessary worker movement (walking, reaching) per unit, based on time-motion studies."
+      }
     },
     {
       "id": "inventory_holding_cost_per_unit",
@@ -99,7 +147,13 @@
       "default": 0.2,
       "min": 0,
       "max": 1000,
-      "businessContext": "Cost of holding one unit in inventory per year (WERC DC Metrics)."
+      "businessContext": "Cost of holding one unit in inventory per year (WERC DC Metrics).",
+      "label_i18n": {
+        "en": "Inventory Holding Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of holding one unit in inventory per year (WERC DC Metrics)."
+      }
     },
     {
       "id": "overproduction_quantity",
@@ -109,7 +163,13 @@
       "default": 100,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Number of units produced beyond customer demand (Muda of overproduction)."
+      "businessContext": "Number of units produced beyond customer demand (Muda of overproduction).",
+      "label_i18n": {
+        "en": "Overproduction Quantity"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units produced beyond customer demand (Muda of overproduction)."
+      }
     },
     {
       "id": "transportation_cost_per_unit",
@@ -119,7 +179,13 @@
       "default": 0.1,
       "min": 0,
       "max": 100,
-      "businessContext": "Cost of moving materials or products between processes (Lean waste of transportation)."
+      "businessContext": "Cost of moving materials or products between processes (Lean waste of transportation).",
+      "label_i18n": {
+        "en": "Transportation Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of moving materials or products between processes (Lean waste of transportation)."
+      }
     },
     {
       "id": "processing_waste_per_unit",
@@ -129,7 +195,13 @@
       "default": 0.15,
       "min": 0,
       "max": 100,
-      "businessContext": "Cost of unnecessary processing steps or non-value-added operations."
+      "businessContext": "Cost of unnecessary processing steps or non-value-added operations.",
+      "label_i18n": {
+        "en": "Processing Waste per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of unnecessary processing steps or non-value-added operations."
+      }
     },
     {
       "id": "production_volume",
@@ -139,7 +211,13 @@
       "default": 10000,
       "min": 1,
       "max": 100000000,
-      "businessContext": "Total number of units produced in the analysis period."
+      "businessContext": "Total number of units produced in the analysis period.",
+      "label_i18n": {
+        "en": "Production Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units produced in the analysis period."
+      }
     },
     {
       "id": "shift_hours_per_day",
@@ -149,7 +227,13 @@
       "default": 8,
       "min": 1,
       "max": 24,
-      "businessContext": "Number of operating hours per shift."
+      "businessContext": "Number of operating hours per shift.",
+      "label_i18n": {
+        "en": "Shift Hours per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Number of operating hours per shift."
+      }
     },
     {
       "id": "working_days_per_year",
@@ -159,7 +243,13 @@
       "default": 250,
       "min": 1,
       "max": 365,
-      "businessContext": "Number of working days per year."
+      "businessContext": "Number of working days per year.",
+      "label_i18n": {
+        "en": "Working Days per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of working days per year."
+      }
     },
     {
       "id": "industry_type",
@@ -174,14 +264,26 @@
         "General Manufacturing"
       ],
       "default": "General Manufacturing",
-      "businessContext": "Industry sector for benchmarking and threshold adjustment."
+      "businessContext": "Industry sector for benchmarking and threshold adjustment.",
+      "label_i18n": {
+        "en": "Industry Type"
+      },
+      "businessContext_i18n": {
+        "en": "Industry sector for benchmarking and threshold adjustment."
+      }
     },
     {
       "id": "include_hidden_losses",
       "label": "Include Hidden Losses",
       "type": "boolean",
       "default": true,
-      "businessContext": "If true, includes intangible losses such as lost opportunity cost and brand damage."
+      "businessContext": "If true, includes intangible losses such as lost opportunity cost and brand damage.",
+      "label_i18n": {
+        "en": "Include Hidden Losses"
+      },
+      "businessContext_i18n": {
+        "en": "If true, includes intangible losses such as lost opportunity cost and brand damage."
+      }
     }
   ],
   "validation": {

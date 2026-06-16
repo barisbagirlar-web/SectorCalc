@@ -17,7 +17,13 @@
       "default": 50,
       "min": 0.01,
       "max": 100000,
-      "businessContext": "Total pre-tax bill amount for the service transaction."
+      "businessContext": "Total pre-tax bill amount for the service transaction.",
+      "label_i18n": {
+        "en": "Bill Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Total pre-tax bill amount for the service transaction."
+      }
     },
     {
       "id": "service_quality",
@@ -33,7 +39,13 @@
         "average",
         "good",
         "excellent"
-      ]
+      ],
+      "label_i18n": {
+        "en": "Service Quality Rating"
+      },
+      "businessContext_i18n": {
+        "en": "Customer's perception of service quality, used to determine base tip percentage."
+      }
     },
     {
       "id": "party_size",
@@ -43,7 +55,13 @@
       "default": 2,
       "min": 1,
       "max": 100,
-      "businessContext": "Number of people in the dining party, affects automatic gratuity thresholds."
+      "businessContext": "Number of people in the dining party, affects automatic gratuity thresholds.",
+      "label_i18n": {
+        "en": "Party Size"
+      },
+      "businessContext_i18n": {
+        "en": "Number of people in the dining party, affects automatic gratuity thresholds."
+      }
     },
     {
       "id": "include_tax_in_tip",
@@ -53,7 +71,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If true, tip is calculated on bill amount including tax; otherwise on pre-tax amount."
+      "businessContext": "If true, tip is calculated on bill amount including tax; otherwise on pre-tax amount.",
+      "label_i18n": {
+        "en": "Include Tax in Tip Calculation"
+      },
+      "businessContext_i18n": {
+        "en": "If true, tip is calculated on bill amount including tax; otherwise on pre-tax amount."
+      }
     },
     {
       "id": "tax_amount",
@@ -63,7 +87,13 @@
       "default": 5,
       "min": 0,
       "max": 10000,
-      "businessContext": "Applicable sales tax or VAT on the bill, used when include_tax_in_tip is true."
+      "businessContext": "Applicable sales tax or VAT on the bill, used when include_tax_in_tip is true.",
+      "label_i18n": {
+        "en": "Tax Amount"
+      },
+      "businessContext_i18n": {
+        "en": "Applicable sales tax or VAT on the bill, used when include_tax_in_tip is true."
+      }
     },
     {
       "id": "round_up",
@@ -73,7 +103,13 @@
       "default": false,
       "min": null,
       "max": null,
-      "businessContext": "If true, the final tip amount is rounded up to the next whole dollar."
+      "businessContext": "If true, the final tip amount is rounded up to the next whole dollar.",
+      "label_i18n": {
+        "en": "Round Up Tip to Nearest Dollar"
+      },
+      "businessContext_i18n": {
+        "en": "If true, the final tip amount is rounded up to the next whole dollar."
+      }
     }
   ],
   "validation": {

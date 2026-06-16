@@ -19,7 +19,13 @@
       "default": 100,
       "min": 0,
       "max": 100000,
-      "businessContext": "Direct material cost per unit for the current material."
+      "businessContext": "Direct material cost per unit for the current material.",
+      "label_i18n": {
+        "en": "Current Material Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Direct material cost per unit for the current material."
+      }
     },
     {
       "id": "alternative_material_cost",
@@ -29,7 +35,13 @@
       "default": 85,
       "min": 0,
       "max": 100000,
-      "businessContext": "Direct material cost per unit for the alternative material."
+      "businessContext": "Direct material cost per unit for the alternative material.",
+      "label_i18n": {
+        "en": "Alternative Material Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Direct material cost per unit for the alternative material."
+      }
     },
     {
       "id": "annual_volume",
@@ -39,7 +51,13 @@
       "default": 10000,
       "min": 1,
       "max": 100000000,
-      "businessContext": "Total number of units produced or purchased per year."
+      "businessContext": "Total number of units produced or purchased per year.",
+      "label_i18n": {
+        "en": "Annual Volume (units)"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units produced or purchased per year."
+      }
     },
     {
       "id": "scrap_rate_current",
@@ -49,7 +67,13 @@
       "default": 5,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of units scrapped due to defects with current material."
+      "businessContext": "Percentage of units scrapped due to defects with current material.",
+      "label_i18n": {
+        "en": "Current Scrap Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of units scrapped due to defects with current material."
+      }
     },
     {
       "id": "scrap_rate_alternative",
@@ -59,7 +83,13 @@
       "default": 3,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of units scrapped due to defects with alternative material."
+      "businessContext": "Percentage of units scrapped due to defects with alternative material.",
+      "label_i18n": {
+        "en": "Alternative Scrap Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of units scrapped due to defects with alternative material."
+      }
     },
     {
       "id": "logistics_cost_current",
@@ -69,7 +99,13 @@
       "default": 10,
       "min": 0,
       "max": 10000,
-      "businessContext": "Transportation, handling, and warehousing cost per unit for current material."
+      "businessContext": "Transportation, handling, and warehousing cost per unit for current material.",
+      "label_i18n": {
+        "en": "Current Logistics Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Transportation, handling, and warehousing cost per unit for current material."
+      }
     },
     {
       "id": "logistics_cost_alternative",
@@ -79,7 +115,13 @@
       "default": 12,
       "min": 0,
       "max": 10000,
-      "businessContext": "Transportation, handling, and warehousing cost per unit for alternative material."
+      "businessContext": "Transportation, handling, and warehousing cost per unit for alternative material.",
+      "label_i18n": {
+        "en": "Alternative Logistics Cost per Unit"
+      },
+      "businessContext_i18n": {
+        "en": "Transportation, handling, and warehousing cost per unit for alternative material."
+      }
     },
     {
       "id": "changeover_cost",
@@ -89,7 +131,13 @@
       "default": 5000,
       "min": 0,
       "max": 10000000,
-      "businessContext": "Cost to retool, test, and qualify the alternative material."
+      "businessContext": "Cost to retool, test, and qualify the alternative material.",
+      "label_i18n": {
+        "en": "One-time Changeover Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost to retool, test, and qualify the alternative material."
+      }
     },
     {
       "id": "quality_impact",
@@ -114,7 +162,13 @@
         }
       ],
       "default": "none",
-      "businessContext": "Expected impact of material change on downstream rework or quality issues."
+      "businessContext": "Expected impact of material change on downstream rework or quality issues.",
+      "label_i18n": {
+        "en": "Quality Impact on Downstream"
+      },
+      "businessContext_i18n": {
+        "en": "Expected impact of material change on downstream rework or quality issues."
+      }
     },
     {
       "id": "supplier_reliability",
@@ -139,7 +193,13 @@
         }
       ],
       "default": "good",
-      "businessContext": "Historical on-time delivery performance of the alternative supplier."
+      "businessContext": "Historical on-time delivery performance of the alternative supplier.",
+      "label_i18n": {
+        "en": "Alternative Supplier Reliability"
+      },
+      "businessContext_i18n": {
+        "en": "Historical on-time delivery performance of the alternative supplier."
+      }
     },
     {
       "id": "currency_risk",
@@ -149,7 +209,13 @@
       "default": 0,
       "min": 0,
       "max": 20,
-      "businessContext": "Expected annual currency fluctuation risk if sourcing from different region."
+      "businessContext": "Expected annual currency fluctuation risk if sourcing from different region.",
+      "label_i18n": {
+        "en": "Currency Risk Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Expected annual currency fluctuation risk if sourcing from different region."
+      }
     },
     {
       "id": "inventory_holding_cost",
@@ -159,7 +225,13 @@
       "default": 20,
       "min": 0,
       "max": 100,
-      "businessContext": "Annual cost to hold inventory as a percentage of unit cost (WERC standard)."
+      "businessContext": "Annual cost to hold inventory as a percentage of unit cost (WERC standard).",
+      "label_i18n": {
+        "en": "Inventory Holding Cost Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual cost to hold inventory as a percentage of unit cost (WERC standard)."
+      }
     },
     {
       "id": "lead_time_current",
@@ -169,7 +241,13 @@
       "default": 14,
       "min": 0,
       "max": 365,
-      "businessContext": "Average lead time for current material."
+      "businessContext": "Average lead time for current material.",
+      "label_i18n": {
+        "en": "Current Lead Time (days)"
+      },
+      "businessContext_i18n": {
+        "en": "Average lead time for current material."
+      }
     },
     {
       "id": "lead_time_alternative",
@@ -179,7 +257,13 @@
       "default": 21,
       "min": 0,
       "max": 365,
-      "businessContext": "Average lead time for alternative material."
+      "businessContext": "Average lead time for alternative material.",
+      "label_i18n": {
+        "en": "Alternative Lead Time (days)"
+      },
+      "businessContext_i18n": {
+        "en": "Average lead time for alternative material."
+      }
     }
   ],
   "validation": {

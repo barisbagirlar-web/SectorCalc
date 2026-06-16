@@ -22,7 +22,13 @@
       "default": 100,
       "min": 0,
       "max": 50000,
-      "businessContext": "Total weight of the shipment, including packaging. Used for rate base and dimensional weight calculations."
+      "businessContext": "Total weight of the shipment, including packaging. Used for rate base and dimensional weight calculations.",
+      "label_i18n": {
+        "en": "Shipment Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Total weight of the shipment, including packaging. Used for rate base and dimensional weight calculations."
+      }
     },
     {
       "id": "shipment_volume_cbm",
@@ -32,7 +38,13 @@
       "default": 1,
       "min": 0,
       "max": 200,
-      "businessContext": "Total cubic meters of the shipment. Used for dimensional weight factor and space utilization analysis."
+      "businessContext": "Total cubic meters of the shipment. Used for dimensional weight factor and space utilization analysis.",
+      "label_i18n": {
+        "en": "Shipment Volume (cbm)"
+      },
+      "businessContext_i18n": {
+        "en": "Total cubic meters of the shipment. Used for dimensional weight factor and space utilization analysis."
+      }
     },
     {
       "id": "distance_km",
@@ -42,7 +54,13 @@
       "default": 500,
       "min": 0,
       "max": 20000,
-      "businessContext": "Total transport distance from origin to destination. Influences fuel surcharge and time-based costs."
+      "businessContext": "Total transport distance from origin to destination. Influences fuel surcharge and time-based costs.",
+      "label_i18n": {
+        "en": "Distance (km)"
+      },
+      "businessContext_i18n": {
+        "en": "Total transport distance from origin to destination. Influences fuel surcharge and time-based costs."
+      }
     },
     {
       "id": "transport_mode",
@@ -57,7 +75,13 @@
         "Rail",
         "Ocean"
       ],
-      "businessContext": "Mode of transport. Each mode has distinct cost structures, risk profiles, and carbon impact."
+      "businessContext": "Mode of transport. Each mode has distinct cost structures, risk profiles, and carbon impact.",
+      "label_i18n": {
+        "en": "Transport Mode"
+      },
+      "businessContext_i18n": {
+        "en": "Mode of transport. Each mode has distinct cost structures, risk profiles, and carbon impact."
+      }
     },
     {
       "id": "fuel_surcharge_percent",
@@ -67,7 +91,13 @@
       "default": 15,
       "min": 0,
       "max": 50,
-      "businessContext": "Percentage applied to base freight rate to account for fuel price variability. Typically indexed to DOE or IATA."
+      "businessContext": "Percentage applied to base freight rate to account for fuel price variability. Typically indexed to DOE or IATA.",
+      "label_i18n": {
+        "en": "Fuel Surcharge (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage applied to base freight rate to account for fuel price variability. Typically indexed to DOE or IATA."
+      }
     },
     {
       "id": "accessorial_charges_usd",
@@ -77,7 +107,13 @@
       "default": 50,
       "min": 0,
       "max": 5000,
-      "businessContext": "Additional fees for liftgate, residential delivery, inside delivery, detention, etc."
+      "businessContext": "Additional fees for liftgate, residential delivery, inside delivery, detention, etc.",
+      "label_i18n": {
+        "en": "Accessorial Charges (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Additional fees for liftgate, residential delivery, inside delivery, detention, etc."
+      }
     },
     {
       "id": "density_factor",
@@ -87,7 +123,13 @@
       "default": 100,
       "min": 10,
       "max": 5000,
-      "businessContext": "Actual density of the shipment. Used to compare against breakpoints for LTL class or airfreight chargeable weight."
+      "businessContext": "Actual density of the shipment. Used to compare against breakpoints for LTL class or airfreight chargeable weight.",
+      "label_i18n": {
+        "en": "Density Factor (kg/cbm)"
+      },
+      "businessContext_i18n": {
+        "en": "Actual density of the shipment. Used to compare against breakpoints for LTL class or airfreight chargeable weight."
+      }
     },
     {
       "id": "is_hazardous",
@@ -95,7 +137,13 @@
       "type": "boolean",
       "unit": "",
       "default": false,
-      "businessContext": "Indicates if shipment contains dangerous goods. Triggers additional compliance and handling fees."
+      "businessContext": "Indicates if shipment contains dangerous goods. Triggers additional compliance and handling fees.",
+      "label_i18n": {
+        "en": "Hazardous Material"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if shipment contains dangerous goods. Triggers additional compliance and handling fees."
+      }
     },
     {
       "id": "is_expedited",
@@ -103,7 +151,13 @@
       "type": "boolean",
       "unit": "",
       "default": false,
-      "businessContext": "If true, applies a premium multiplier for time-definite delivery."
+      "businessContext": "If true, applies a premium multiplier for time-definite delivery.",
+      "label_i18n": {
+        "en": "Expedited Service"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies a premium multiplier for time-definite delivery."
+      }
     }
   ],
   "validation": {

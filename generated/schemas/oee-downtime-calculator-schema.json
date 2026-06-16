@@ -20,7 +20,13 @@
       "default": 480,
       "min": 0,
       "max": 1440,
-      "businessContext": "Total scheduled time for production in a shift/day (e.g., 8 hours = 480 minutes)."
+      "businessContext": "Total scheduled time for production in a shift/day (e.g., 8 hours = 480 minutes).",
+      "label_i18n": {
+        "en": "Planned Production Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Total scheduled time for production in a shift/day (e.g., 8 hours = 480 minutes)."
+      }
     },
     {
       "id": "downtime_minutes",
@@ -30,7 +36,13 @@
       "default": 60,
       "min": 0,
       "max": 1440,
-      "businessContext": "Sum of all unplanned and planned stops (breakdowns, setup, maintenance)."
+      "businessContext": "Sum of all unplanned and planned stops (breakdowns, setup, maintenance).",
+      "label_i18n": {
+        "en": "Total Downtime (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of all unplanned and planned stops (breakdowns, setup, maintenance)."
+      }
     },
     {
       "id": "ideal_cycle_time",
@@ -40,7 +52,13 @@
       "default": 0.5,
       "min": 0.001,
       "max": 100,
-      "businessContext": "Theoretical fastest time to produce one unit under optimal conditions."
+      "businessContext": "Theoretical fastest time to produce one unit under optimal conditions.",
+      "label_i18n": {
+        "en": "Ideal Cycle Time (minutes per unit)"
+      },
+      "businessContext_i18n": {
+        "en": "Theoretical fastest time to produce one unit under optimal conditions."
+      }
     },
     {
       "id": "total_parts_produced",
@@ -50,7 +68,13 @@
       "default": 800,
       "min": 0,
       "max": 100000,
-      "businessContext": "Total count of units produced during the planned production time."
+      "businessContext": "Total count of units produced during the planned production time.",
+      "label_i18n": {
+        "en": "Total Parts Produced"
+      },
+      "businessContext_i18n": {
+        "en": "Total count of units produced during the planned production time."
+      }
     },
     {
       "id": "defective_parts",
@@ -60,7 +84,13 @@
       "default": 20,
       "min": 0,
       "max": 100000,
-      "businessContext": "Number of units that do not meet quality standards (scrap, rework)."
+      "businessContext": "Number of units that do not meet quality standards (scrap, rework).",
+      "label_i18n": {
+        "en": "Defective Parts"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units that do not meet quality standards (scrap, rework)."
+      }
     },
     {
       "id": "shift_type",
@@ -73,7 +103,13 @@
         "night",
         "rotating"
       ],
-      "businessContext": "Type of shift to adjust for fatigue or environmental factors."
+      "businessContext": "Type of shift to adjust for fatigue or environmental factors.",
+      "label_i18n": {
+        "en": "Shift Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of shift to adjust for fatigue or environmental factors."
+      }
     },
     {
       "id": "include_micro_stops",
@@ -81,7 +117,13 @@
       "type": "boolean",
       "unit": "",
       "default": true,
-      "businessContext": "If true, small stops are counted as downtime per Six Sigma guidelines."
+      "businessContext": "If true, small stops are counted as downtime per Six Sigma guidelines.",
+      "label_i18n": {
+        "en": "Include Micro-Stops (< 2 min) in Downtime"
+      },
+      "businessContext_i18n": {
+        "en": "If true, small stops are counted as downtime per Six Sigma guidelines."
+      }
     }
   ],
   "validation": {
