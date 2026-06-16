@@ -149,7 +149,7 @@
       },
       {
         "id": "efficiency_drop",
-        "condition": "thermal_efficiency < 0.6",
+        "condition": "eta_thermal < 60",
         "message": "Thermal efficiency below 60%. Consider material replacement or design review (Lean Six Sigma).",
         "severity": "critical"
       }
@@ -157,10 +157,10 @@
   },
   "formulas": [
     {
-      "id": "base_conductivity",
+      "id": "k_base",
       "name": "Base Thermal Conductivity",
       "description": "Calculates base conductivity from material type and temperature using empirical correlations.",
-      "formula": "k_base = f(material_type, temperature_k)",
+      "formula": "material_type === 'insulation_foam' ? 0.04 : material_type === 'metal_alloy' ? 50 * (temperature_k / 300) ** 0.5 : material_type === 'ceramic' ? 3 : material_type === 'composite' ? 0.5 : material_type === 'fluid_gas' ? 0.025 : material_type === 'fluid_liquid' ? 0.6 : 1.0",
       "dependencies": [
         "material_type",
         "temperature_k"
@@ -168,69 +168,69 @@
       "intermediate": true
     },
     {
-      "id": "moisture_correction",
+      "id": "f_moisture",
       "name": "Moisture Correction Factor",
       "description": "Adjusts conductivity for moisture content using WERC standard porous media model.",
-      "formula": "f_moisture = 1 + 0.02 * moisture_content_pct + 0.0005 * moisture_content_pct^2",
+      "formula": "1 + 0.02 * moisture_content_pct + 0.0005 * moisture_content_pct ** 2",
       "dependencies": [
         "moisture_content_pct"
       ],
       "intermediate": true
     },
     {
-      "id": "aging_correction",
+      "id": "f_aging",
       "name": "Aging Correction Factor",
       "description": "Applies aging factor to account for material degradation over time.",
-      "formula": "f_aging = aging_factor",
+      "formula": "aging_factor",
       "dependencies": [
         "aging_factor"
       ],
       "intermediate": true
     },
     {
-      "id": "effective_conductivity",
+      "id": "k_effective",
       "name": "Effective Thermal Conductivity",
       "description": "Combines base conductivity with moisture and aging corrections.",
-      "formula": "k_effective = k_base * f_moisture * f_aging",
+      "formula": "k_base * f_moisture * f_aging",
       "dependencies": [
-        "base_conductivity",
-        "moisture_correction",
-        "aging_correction"
+        "k_base",
+        "f_moisture",
+        "f_aging"
       ],
       "intermediate": true
     },
     {
-      "id": "thermal_resistance",
+      "id": "r_value",
       "name": "Thermal Resistance (R-value)",
       "description": "Calculates R-value from thickness and effective conductivity per ISO 6946.",
-      "formula": "r_value = thickness_m / k_effective",
+      "formula": "thickness_m / k_effective",
       "dependencies": [
         "thickness_m",
-        "effective_conductivity"
+        "k_effective"
       ],
       "intermediate": true
     },
     {
-      "id": "heat_flux",
+      "id": "q",
       "name": "Heat Flux Density",
       "description": "Calculates heat flux per unit area from Fourier's law.",
-      "formula": "q = k_effective * temperature_delta_k / thickness_m",
+      "formula": "k_effective * temperature_delta_k / thickness_m",
       "dependencies": [
-        "effective_conductivity",
+        "k_effective",
         "temperature_delta_k",
         "thickness_m"
       ],
       "intermediate": true
     },
     {
-      "id": "thermal_efficiency",
+      "id": "eta_thermal",
       "name": "Thermal Efficiency",
       "description": "Ratio of actual heat transfer to ideal (no-loss) scenario. Used in Six Sigma process capability analysis.",
-      "formula": "eta_thermal = (heat_flow_w / (cross_section_area_m2 * q)) * 100",
+      "formula": "(heat_flow_w / (cross_section_area_m2 * q)) * 100",
       "dependencies": [
         "heat_flow_w",
         "cross_section_area_m2",
-        "heat_flux"
+        "q"
       ],
       "intermediate": false,
       "primary": true

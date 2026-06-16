@@ -27,13 +27,13 @@ export const Thermal_conductivity_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Thermal_conductivity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["base_conductivity"] = f(input.material_type, input.temperature_k); } catch { results["base_conductivity"] = 0; }
-  try { results["moisture_correction"] = 1 + 0.02 * input.moisture_content_pct + 0.0005 * input.moisture_content_pct**2; } catch { results["moisture_correction"] = 0; }
-  try { results["aging_correction"] = input.aging_factor; } catch { results["aging_correction"] = 0; }
-  try { results["effective_conductivity"] = k_base * f_moisture * f_aging; } catch { results["effective_conductivity"] = 0; }
-  try { results["thermal_resistance"] = input.thickness_m / k_effective; } catch { results["thermal_resistance"] = 0; }
-  try { results["heat_flux"] = k_effective * input.temperature_delta_k / input.thickness_m; } catch { results["heat_flux"] = 0; }
-  try { results["thermal_efficiency"] = (input.heat_flow_w / (input.cross_section_area_m2 * q)) * 100; } catch { results["thermal_efficiency"] = 0; }
+  try { results["k_base"] = input.material_type === 'insulation_foam' ? 0.04 : input.material_type === 'metal_alloy' ? 50 * (input.temperature_k / 300) ** 0.5 : input.material_type === 'ceramic' ? 3 : input.material_type === 'composite' ? 0.5 : input.material_type === 'fluid_gas' ? 0.025 : input.material_type === 'fluid_liquid' ? 0.6 : 1.0; } catch { results["k_base"] = 0; }
+  try { results["f_moisture"] = 1 + 0.02 * input.moisture_content_pct + 0.0005 * input.moisture_content_pct ** 2; } catch { results["f_moisture"] = 0; }
+  try { results["f_aging"] = input.aging_factor; } catch { results["f_aging"] = 0; }
+  try { results["k_effective"] = (results["k_base"] ?? 0) * (results["f_moisture"] ?? 0) * (results["f_aging"] ?? 0); } catch { results["k_effective"] = 0; }
+  try { results["r_value"] = input.thickness_m / (results["k_effective"] ?? 0); } catch { results["r_value"] = 0; }
+  try { results["q"] = (results["k_effective"] ?? 0) * input.temperature_delta_k / input.thickness_m; } catch { results["q"] = 0; }
+  try { results["eta_thermal"] = (input.heat_flow_w / (input.cross_section_area_m2 * (results["q"] ?? 0))) * 100; } catch { results["eta_thermal"] = 0; }
   return results;
 }
 

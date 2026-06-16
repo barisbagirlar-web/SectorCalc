@@ -23,7 +23,7 @@ function transformMathFunctions(expression: string): string {
 }
 
 function stripAssignmentPrefix(expression: string): string {
-  return expression.replace(/^[A-Za-z_][A-Za-z0-9_]*\s*=\s*/, "").trim();
+  return expression.replace(/^[A-Za-z_][A-Za-z0-9_]*\s*=(?!=)\s*/, "").trim();
 }
 
 function transformPowerNotation(expression: string): string {
