@@ -1,3 +1,4 @@
+import { AcademicAdvisoryBoardSection } from "@/components/about/AcademicAdvisoryBoardSection";
 import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
 import { Container } from "@/components/ui/Container";
 import { PageLayout } from "@/components/layout/PageLayout";
@@ -142,7 +143,7 @@ type ManifestoPageContentProps = {
   readonly lead: string;
 };
 
-export function ManifestoPageContent({ variant, headline, lead }: ManifestoPageContentProps) {
+export async function ManifestoPageContent({ variant, headline, lead }: ManifestoPageContentProps) {
   const sectionIds = new Set(VARIANT_SECTION_IDS[variant]);
   const sections = ALL_SECTIONS.filter((section) => sectionIds.has(section.id));
 
@@ -197,6 +198,8 @@ export function ManifestoPageContent({ variant, headline, lead }: ManifestoPageC
           <DecisionToolLegalDisclaimer />
         </Container>
       </section>
+
+      {variant === "about" ? <AcademicAdvisoryBoardSection /> : null}
     </PageLayout>
   );
 }
