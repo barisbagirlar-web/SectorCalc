@@ -88,4 +88,17 @@ describe("compileFormulaExpression", () => {
     expect(compiled).toContain("input.n");
     expect(compiled).not.toBeNull();
   });
+
+  it("compiles python-style if/else conditionals without dotAll regex", () => {
+    const compiled = compileFormulaExpression(
+      "if design_pressure > 1: 3.5; else: 2.5",
+      {
+        inputIds: ["design_pressure"],
+        inputToAccess: (id: string) => `input.${id}`,
+        formulaKeys: ["primary_result"],
+        selfKey: "primary_result",
+      },
+    );
+    expect(compiled).toBe("((input.design_pressure > 1) ? (3.5) : (2.5))");
+  });
 });

@@ -77,6 +77,7 @@ function looksLikeScript(expression: string): boolean {
     /\bcase\s+[a-zA-Z_][\w]*\s+when\b/i.test(trimmed) ||
     /\bswitch\s*\(/i.test(trimmed) ||
     /\bif\s+[a-zA-Z_][\w]*\s*==/i.test(trimmed) ||
+    /\bif\s+.+\s*:\s*.+;\s*else\s*:/i.test(trimmed) ||
     /\bIF\s+.+\s+THEN\b/.test(trimmed) ||
     /^\[/.test(trimmed) ||
     /\bsum_\{/i.test(trimmed)
