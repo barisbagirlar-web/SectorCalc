@@ -3,8 +3,6 @@
 import { useState, useMemo, useCallback, useEffect } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { CategoryCardGrid } from "@/components/catalog/CategoryCardGrid";
-import type { CategoryCardItem } from "@/components/catalog/CategoryCardGrid";
 import { FormulaGateCatalogMeta } from "@/components/formula/FormulaGateCatalogMeta";
 import {
   buildPremiumCatalogSearchEntries,
@@ -13,6 +11,7 @@ import {
   CATALOG_SEARCH_MAX_RESULTS,
   filterCatalogSearchEntries,
 } from "@/lib/catalog/catalog-search";
+import { getCategoryCardIcon } from "@/lib/catalog/category-card-icons";
 
 export type SearchablePremiumTool = {
   readonly slug: string;
@@ -30,6 +29,7 @@ export type SearchablePremiumTool = {
 export type SearchablePremiumCategory = {
   readonly slug: string;
   readonly title: string;
+  readonly iconKey: string;
   readonly count: number;
 };
 
@@ -72,7 +72,7 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
     scrollToToolsList();
   }, []);
 
-  const categoryCards: CategoryCardItem[] = useMemo(
+  const categoryCards = useMemo(
     () => [
       {
         slug: "all",
@@ -219,7 +219,68 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
       <div className="min-w-0">
         <h2 className="text-sm font-semibold text-premium-velvet">{t("browseByCategory")}</h2>
         <div className="mt-3">
-          <CategoryCardGrid items={categoryCards} onSelect={handleCategorySelect} />
+          <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+            {categoryCards.map((item) => {
+              const iconMeta = getCategoryCardIcon(item.slug);
+              const Icon = iconMeta.icon;
+
+              const iconKey = categories.find((c) => c.slug === item.slug)?.iconKey ?? "flow";
+              const colorMap: Record<string, string> = {
+                flow: "text-blue-600",
+                quality: "text-green-600",
+                flask: "text-orange-600",
+                cnc: "text-slate-600",
+                metal: "text-gray-500",
+                build: "text-amber-600",
+                automation: "text-cyan-600",
+                maintenance: "text-lime-600",
+                shield: "text-orange-500",
+                truck: "text-purple-600",
+                people: "text-teal-600",
+                finance: "text-[#d4af37]",
+                chip: "text-indigo-600",
+                leaf: "text-emerald-600",
+                food: "text-emerald-700",
+                lab: "text-fuchsia-600",
+                electric: "text-yellow-500",
+                energy: "text-sky-600",
+                box: "text-stone-600",
+                globe: "text-blue-400",
+              };
+
+              const iconColorClass = colorMap[iconKey] ?? "text-body-charcoal";
+              const active = item.isActive ?? false;
+
+              return (
+                <button
+                  key={item.slug}
+                  type="button"
+                  aria-pressed={active}
+                  aria-current={active ? "true" : undefined}
+                  onClick={() => handleCategorySelect(item.slug)}
+                  className={[
+                    "group rounded-2xl border p-8 text-center transition-all duration-200",
+                    active
+                      ? "border-gray-300 bg-gray-50"
+                      : "border-gray-100 hover:border-gray-300",
+                  ].join(" ")}
+                >
+                  <div className="flex justify-center mb-4">
+                    <Icon
+                      className={`w-14 h-14 ${iconColorClass} group-hover:text-[#d4af37] transition-colors`}
+                      strokeWidth={1.5}
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <h3 className="font-semibold text-gray-800 text-base">{item.label}</h3>
+                  <p className="text-sm text-gray-400 mt-1">
+                    {t("premiumCount", { count: item.count })}
+                  </p>
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 

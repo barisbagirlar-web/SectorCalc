@@ -58,6 +58,7 @@ export default async function PremiumToolsPage({ params }: PageProps) {
     .map((c) => ({
       slug: c.slug,
       title: c.title,
+      iconKey: c.iconKey,
       count: c.premiumToolCount,
     }));
 

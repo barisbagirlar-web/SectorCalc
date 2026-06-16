@@ -18,8 +18,49 @@ function transformMathFunctions(expression: string): string {
     .replace(/\bABS\s*\(/gi, "Math.abs(")
     .replace(/\bSQRT\s*\(/gi, "Math.sqrt(")
     .replace(/\bPOW\s*\(/gi, "Math.pow(")
+    .replace(/\bCEILING\s*\(/gi, "Math.ceil(")
+    .replace(/\bCEIL\s*\(/gi, "Math.ceil(")
+    .replace(/\bFLOOR\s*\(/gi, "Math.floor(")
+    .replace(/\bEXP\s*\(/gi, "Math.exp(")
+    .replace(/\bLN\s*\(/gi, "Math.log(")
+    .replace(/\bLOG\s*\(/gi, "Math.log(")
     .replace(/\bROUND\s*\(\s*([^,]+?)\s*,\s*(\d+)\s*\)/gi, "(Math.round(($1) * 10**($2)) / 10**($2))")
     .replace(/\bROUND\s*\(\s*([^)]+?)\s*\)/gi, "Math.round($1)");
+}
+
+function splitTopLevelArgs(rawArgs: string): readonly string[] {
+  const args: string[] = [];
+  let current = "";
+  let depth = 0;
+  for (let i = 0; i < rawArgs.length; i += 1) {
+    const ch = rawArgs[i];
+    if (ch === "(") depth += 1;
+    if (ch === ")") depth = Math.max(0, depth - 1);
+    if (ch === "," && depth === 0) {
+      args.push(current.trim());
+      current = "";
+      continue;
+    }
+    current += ch;
+  }
+  if (current.trim().length > 0) {
+    args.push(current.trim());
+  }
+  return args;
+}
+
+function transformIfFunction(expression: string): string {
+  // Excel/Sheets-style IF(cond, then, else) → (cond ? then : else)
+  // This is conservative: only rewrites well-formed top-level IF calls.
+  return expression.replace(/\bIF\s*\(([^()]|\([^)]*\))*\)/gi, (match) => {
+    const inner = match.replace(/^\s*IF\s*\(/i, "").replace(/\)\s*$/, "");
+    const parts = splitTopLevelArgs(inner);
+    if (parts.length !== 3) {
+      return match;
+    }
+    const [cond, thenVal, elseVal] = parts;
+    return `((${cond}) ? (${thenVal}) : (${elseVal}))`;
+  });
 }
 
 function stripAssignmentPrefix(expression: string): string {
@@ -115,8 +156,10 @@ export function compileFormulaExpression(
   }
 
   expression = transformCaseWhenExpression(expression);
+  expression = transformIfFunction(expression);
   expression = transformMathFunctions(expression);
   expression = transformPowerNotation(expression);
+  expression = replaceIdentifierExpression(expression, "PI", "Math.PI");
 
   for (const inputId of options.inputIds) {
     expression = replaceIdentifierExpression(
