@@ -1,5 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 import {
+  BarChart3,
   Building2,
   Calculator,
   Clock,
@@ -60,4 +61,13 @@ export const HOMEPAGE_EXCEL_ICON_MAP: Record<HomepageExcelId, LucideIcon> = {
   formula: FileText,
   sector: Target,
   decision: Timer,
+};
+
+export const HOMEPAGE_POPULAR_TOOL_ICON_MAP: Record<string, LucideIcon> = {
+  shopRate: Clock,
+  oee: BarChart3,
+  quoteMargin: Coins,
+  boltTorque: Wrench,
+  concreteVolume: Ruler,
+  compressorLeak: Zap,
 };

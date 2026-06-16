@@ -2,14 +2,8 @@ import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
 import { HomepageStrokeIcon } from "@/components/home/HomepageStrokeIcon";
 import { HOMEPAGE_COVERAGE_ICON_MAP } from "@/lib/home/homepage-icon-map";
+import { readHomepageStringArray } from "@/lib/home/homepage-component-utils";
 import { HOMEPAGE_COVERAGE_IDS } from "@/lib/home/homepage-positioning-data";
-
-function readStringArray(raw: unknown): string[] {
-  if (!Array.isArray(raw)) {
-    return [];
-  }
-  return raw.filter((item): item is string => typeof item === "string");
-}
 
 export async function CategoryGrid() {
   const t = await getTranslations("homepageHybrid");
@@ -29,7 +23,7 @@ export async function CategoryGrid() {
         </header>
         <ul className="sc-home-omni__category-grid">
           {HOMEPAGE_COVERAGE_IDS.map((id) => {
-            const tags = readStringArray(t.raw(`coverage.items.${id}.tags`));
+            const tags = readHomepageStringArray(t.raw(`coverage.items.${id}.tags`));
             const Icon = HOMEPAGE_COVERAGE_ICON_MAP[id];
 
             return (

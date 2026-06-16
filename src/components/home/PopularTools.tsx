@@ -1,6 +1,9 @@
 import { Link } from "@/i18n/routing";
+import { Gauge } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
+import { HomepageStrokeIcon } from "@/components/home/HomepageStrokeIcon";
+import { HOMEPAGE_POPULAR_TOOL_ICON_MAP } from "@/lib/home/homepage-icon-map";
 import {
   HOMEPAGE_POPULAR_TOOLS,
   isHomepageCriticalToolLive,
@@ -24,9 +27,11 @@ export async function PopularTools() {
             const live = isHomepageCriticalToolLive(entry.tool);
             const name = t(`criticalTools.groups.${entry.groupId}.items.${entry.tool.id}.title`);
             const category = t(`criticalTools.popularCategories.${entry.categoryKey}`);
+            const Icon = HOMEPAGE_POPULAR_TOOL_ICON_MAP[entry.tool.id] ?? Gauge;
 
             const card = (
               <>
+                <HomepageStrokeIcon icon={Icon} className="sc-home-omni__popular-icon" size={32} />
                 <span className="sc-home-omni__popular-badge">{category}</span>
                 <span className="sc-home-omni__popular-title">{name}</span>
               </>

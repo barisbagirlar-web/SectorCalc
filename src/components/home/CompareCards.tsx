@@ -1,18 +1,14 @@
 import { Link } from "@/i18n/routing";
+import { Play, Sparkles } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
-
-function readStringArray(raw: unknown): string[] {
-  if (!Array.isArray(raw)) {
-    return [];
-  }
-  return raw.filter((item): item is string => typeof item === "string");
-}
+import { HomepageStrokeIcon } from "@/components/home/HomepageStrokeIcon";
+import { readHomepageStringArray } from "@/lib/home/homepage-component-utils";
 
 export async function CompareCards() {
   const t = await getTranslations("homepageHybrid");
-  const freeHighlights = readStringArray(t.raw("freePremium.freeHighlights"));
-  const premiumHighlights = readStringArray(t.raw("freePremium.premiumHighlights"));
+  const freeHighlights = readHomepageStringArray(t.raw("freePremium.freeHighlights"));
+  const premiumHighlights = readHomepageStringArray(t.raw("freePremium.premiumHighlights"));
 
   return (
     <section
@@ -25,6 +21,7 @@ export async function CompareCards() {
         </h2>
         <div className="sc-home-omni__split">
           <article className="sc-home-omni__split-card">
+            <HomepageStrokeIcon icon={Play} className="sc-home-omni__split-icon" size={40} />
             <h3 className="sc-home-omni__split-title">{t("freePremium.freeTitle")}</h3>
             <ul className="sc-home-omni__split-list">
               {freeHighlights.map((item) => (
@@ -36,6 +33,11 @@ export async function CompareCards() {
             </Link>
           </article>
           <article className="sc-home-omni__split-card sc-home-omni__split-card--premium">
+            <HomepageStrokeIcon
+              icon={Sparkles}
+              className="sc-home-omni__split-icon sc-home-omni__split-icon--premium"
+              size={40}
+            />
             <h3 className="sc-home-omni__split-title">{t("freePremium.premiumTitle")}</h3>
             <ul className="sc-home-omni__split-list">
               {premiumHighlights.map((item) => (

@@ -5260,6 +5260,18 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   background: #fff;
 }
 
+.sc-home-omni__split-icon {
+  color: var(--sc-text);
+}
+
+.sc-home-omni__split-icon--premium {
+  color: var(--sc-copper);
+}
+
+.sc-home-omni__popular-icon {
+  color: var(--sc-text);
+}
+
 .sc-home-omni__split-card--premium {
   border-color: rgb(180 83 9 / 0.2);
   background: #fff;
