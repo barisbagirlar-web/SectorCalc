@@ -1,0 +1,94 @@
+{
+  "toolName": "symmetrical-components",
+  "inputs": [
+    {
+      "id": "va",
+      "label": "Phase A Voltage (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 100,
+      "businessContext": "Measured line-to-neutral voltage of phase A"
+    },
+    {
+      "id": "vb",
+      "label": "Phase B Voltage (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 100,
+      "businessContext": "Measured line-to-neutral voltage of phase B"
+    },
+    {
+      "id": "vc",
+      "label": "Phase C Voltage (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 100,
+      "businessContext": "Measured line-to-neutral voltage of phase C"
+    },
+    {
+      "id": "angle_a",
+      "label": "Phase A Angle (deg)",
+      "type": "number",
+      "unit": "deg",
+      "default": 0,
+      "businessContext": "Phase angle of phase A voltage"
+    },
+    {
+      "id": "angle_b",
+      "label": "Phase B Angle (deg)",
+      "type": "number",
+      "unit": "deg",
+      "default": -120,
+      "businessContext": "Phase angle of phase B voltage"
+    },
+    {
+      "id": "angle_c",
+      "label": "Phase C Angle (deg)",
+      "type": "number",
+      "unit": "deg",
+      "default": 120,
+      "businessContext": "Phase angle of phase C voltage"
+    }
+  ],
+  "formulas": {
+    "a_rad": "angle_a * Math.PI / 180",
+    "b_rad": "angle_b * Math.PI / 180",
+    "c_rad": "angle_c * Math.PI / 180",
+    "va_complex_real": "va * Math.cos(a_rad)",
+    "va_complex_imag": "va * Math.sin(a_rad)",
+    "vb_complex_real": "vb * Math.cos(b_rad)",
+    "vb_complex_imag": "vb * Math.sin(b_rad)",
+    "vc_complex_real": "vc * Math.cos(c_rad)",
+    "vc_complex_imag": "vc * Math.sin(c_rad)",
+    "v0_real": "(va_complex_real + vb_complex_real + vc_complex_real) / 3",
+    "v0_imag": "(va_complex_imag + vb_complex_imag + vc_complex_imag) / 3",
+    "v0_mag": "Math.sqrt(v0_real**2 + v0_imag**2)",
+    "v0_angle_deg": "Math.atan2(v0_imag, v0_real) * 180 / Math.PI",
+    "v1_real": "(va_complex_real + vb_complex_real * Math.cos(2*Math.PI/3) - vb_complex_imag * Math.sin(2*Math.PI/3) + vc_complex_real * Math.cos(-2*Math.PI/3) - vc_complex_imag * Math.sin(-2*Math.PI/3)) / 3",
+    "v1_imag": "(va_complex_imag + vb_complex_real * Math.sin(2*Math.PI/3) + vb_complex_imag * Math.cos(2*Math.PI/3) + vc_complex_real * Math.sin(-2*Math.PI/3) + vc_complex_imag * Math.cos(-2*Math.PI/3)) / 3",
+    "v1_mag": "Math.sqrt(v1_real**2 + v1_imag**2)",
+    "v1_angle_deg": "Math.atan2(v1_imag, v1_real) * 180 / Math.PI",
+    "v2_real": "(va_complex_real + vb_complex_real * Math.cos(-2*Math.PI/3) - vb_complex_imag * Math.sin(-2*Math.PI/3) + vc_complex_real * Math.cos(2*Math.PI/3) - vc_complex_imag * Math.sin(2*Math.PI/3)) / 3",
+    "v2_imag": "(va_complex_imag + vb_complex_real * Math.sin(-2*Math.PI/3) + vb_complex_imag * Math.cos(-2*Math.PI/3) + vc_complex_real * Math.sin(2*Math.PI/3) + vc_complex_imag * Math.cos(2*Math.PI/3)) / 3",
+    "v2_mag": "Math.sqrt(v2_real**2 + v2_imag**2)",
+    "v2_angle_deg": "Math.atan2(v2_imag, v2_real) * 180 / Math.PI",
+    "unbalance_percent": "v2_mag / v1_mag * 100"
+  },
+  "outputs": {
+    "primary": "unbalance_percent",
+    "breakdown": [
+      "v0_mag",
+      "v0_angle_deg",
+      "v1_mag",
+      "v1_angle_deg",
+      "v2_mag",
+      "v2_angle_deg"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

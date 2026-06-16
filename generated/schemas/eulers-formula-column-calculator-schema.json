@@ -1,0 +1,64 @@
+{
+  "toolName": "eulers-formula-column-calculator",
+  "inputs": [
+    {
+      "id": "E",
+      "label": "Young's Modulus (E)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 200000,
+      "businessContext": "Material modulus of elasticity, e.g., 200000 MPa for steel."
+    },
+    {
+      "id": "I",
+      "label": "Area Moment of Inertia (I)",
+      "type": "number",
+      "unit": "mm⁴",
+      "default": 1000000,
+      "businessContext": "Second moment of area of the column cross-section."
+    },
+    {
+      "id": "K",
+      "label": "Effective Length Factor (K)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Depends on end conditions: 1.0 for pinned-pinned, 0.5 for fixed-fixed, etc."
+    },
+    {
+      "id": "L",
+      "label": "Column Length (L)",
+      "type": "number",
+      "unit": "mm",
+      "default": 3000,
+      "businessContext": "Unsupported length of the column."
+    },
+    {
+      "id": "A",
+      "label": "Cross-sectional Area (A)",
+      "type": "number",
+      "unit": "mm²",
+      "default": 1000,
+      "businessContext": "Cross-sectional area of the column for stress calculation."
+    }
+  ],
+  "formulas": {
+    "r": "Math.sqrt(I / A)",
+    "P_cr": "(Math.PI**2 * E * I) / Math.pow((K * L), 2)",
+    "criticalStress": "P_cr / A",
+    "slenderness": "(K * L) / r"
+  },
+  "outputs": {
+    "primary": "P_cr",
+    "breakdown": [
+      "criticalStress",
+      "slenderness"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

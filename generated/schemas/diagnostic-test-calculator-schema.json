@@ -1,0 +1,59 @@
+{
+  "toolName": "diagnostic-test-calculator",
+  "inputs": [
+    {
+      "id": "truePositives",
+      "label": "True Positives (TP)",
+      "type": "number",
+      "unit": "count",
+      "default": 80,
+      "businessContext": "Number of correctly identified positive cases (e.g., defective products correctly flagged)"
+    },
+    {
+      "id": "falsePositives",
+      "label": "False Positives (FP)",
+      "type": "number",
+      "unit": "count",
+      "default": 20,
+      "businessContext": "Number of incorrectly identified positive cases (e.g., good products flagged as defective)"
+    },
+    {
+      "id": "trueNegatives",
+      "label": "True Negatives (TN)",
+      "type": "number",
+      "unit": "count",
+      "default": 100,
+      "businessContext": "Number of correctly identified negative cases (e.g., good products correctly passed)"
+    },
+    {
+      "id": "falseNegatives",
+      "label": "False Negatives (FN)",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "businessContext": "Number of incorrectly identified negative cases (e.g., defective products missed)"
+    }
+  ],
+  "formulas": {
+    "sensitivity": "truePositives / (truePositives + falseNegatives)",
+    "specificity": "trueNegatives / (trueNegatives + falsePositives)",
+    "accuracy": "(truePositives + trueNegatives) / (truePositives + falsePositives + trueNegatives + falseNegatives)",
+    "ppv": "truePositives / (truePositives + falsePositives)",
+    "npv": "trueNegatives / (trueNegatives + falseNegatives)"
+  },
+  "outputs": {
+    "primary": "accuracy",
+    "breakdown": [
+      "sensitivity",
+      "specificity",
+      "ppv",
+      "npv"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

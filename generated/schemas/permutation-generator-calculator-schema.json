@@ -1,0 +1,63 @@
+{
+  "toolName": "permutation-generator-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Total Items (n)",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Total number of distinct items in the set."
+    },
+    {
+      "id": "r",
+      "label": "Items to Arrange (r)",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Number of items to select and arrange."
+    },
+    {
+      "id": "orderMatters",
+      "label": "Order Matters (1=Yes, 0=No)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Whether the order of selection matters (permutation vs combination)."
+    },
+    {
+      "id": "repetitionAllowed",
+      "label": "Repetition Allowed (1=Yes, 0=No)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Whether the same item can be selected more than once."
+    }
+  ],
+  "formulas": {
+    "factorial": "function factorial(num) { if (num <= 1) return 1; return num * factorial(num - 1); }",
+    "factorialN": "factorial(n)",
+    "factorialR": "factorial(r)",
+    "factorialNminusR": "factorial(n - r)",
+    "totalArrangements": "orderMatters == 1 && repetitionAllowed == 0 ? factorialN / factorialNminusR : (orderMatters == 0 && repetitionAllowed == 0 ? factorialN / (factorialR * factorialNminusR) : (orderMatters == 1 && repetitionAllowed == 1 ? Math.pow(n, r) : factorial(n + r - 1) / (factorial(r) * factorial(n - 1))))",
+    "factorial_of_n": "factorialN",
+    "factorial_of_r": "factorialR",
+    "factorial_of_n_minus_r": "factorialNminusR",
+    "method": "orderMatters == 1 && repetitionAllowed == 0 ? 1 : (orderMatters == 0 && repetitionAllowed == 0 ? 2 : (orderMatters == 1 && repetitionAllowed == 1 ? 3 : 4))"
+  },
+  "outputs": {
+    "primary": "totalArrangements",
+    "breakdown": [
+      "factorial_of_n",
+      "factorial_of_r",
+      "factorial_of_n_minus_r",
+      "method"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

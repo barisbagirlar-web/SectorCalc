@@ -1,0 +1,63 @@
+{
+  "toolName": "acid-base-titration-calculator",
+  "inputs": [
+    {
+      "id": "titrantVolume",
+      "label": "Titrant Volume (mL)",
+      "type": "number",
+      "unit": "mL",
+      "default": 25,
+      "businessContext": "Volume of titrant used to reach the equivalence point"
+    },
+    {
+      "id": "titrantConcentration",
+      "label": "Titrant Concentration (mol/L)",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.1,
+      "businessContext": "Concentration of the standard titrant solution"
+    },
+    {
+      "id": "titrantProticity",
+      "label": "Titrant Proticity",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of reactive H+ or OH- per titrant molecule"
+    },
+    {
+      "id": "analyteVolume",
+      "label": "Analyte Volume (mL)",
+      "type": "number",
+      "unit": "mL",
+      "default": 50,
+      "businessContext": "Volume of the analyte sample taken for titration"
+    },
+    {
+      "id": "analyteProticity",
+      "label": "Analyte Proticity",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of reactive H+ or OH- per analyte molecule"
+    }
+  ],
+  "formulas": {
+    "analyteConcentration": "(titrantConcentration * titrantVolume * titrantProticity) / (analyteVolume * analyteProticity)",
+    "molesTitrant": "(titrantVolume / 1000) * titrantConcentration * titrantProticity",
+    "molesAnalyteEquivalent": "(titrantVolume / 1000) * titrantConcentration * titrantProticity"
+  },
+  "outputs": {
+    "primary": "analyteConcentration",
+    "breakdown": [
+      "molesTitrant",
+      "molesAnalyteEquivalent"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

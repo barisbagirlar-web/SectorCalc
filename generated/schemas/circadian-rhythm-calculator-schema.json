@@ -1,0 +1,64 @@
+{
+  "toolName": "circadian-rhythm-calculator",
+  "inputs": [
+    {
+      "id": "wakeTime",
+      "label": "Wake Time",
+      "type": "number",
+      "unit": "hour (0-24)",
+      "default": 7,
+      "businessContext": "The hour of day when the worker typically wakes up (24-hour format)"
+    },
+    {
+      "id": "currentTime",
+      "label": "Current Time",
+      "type": "number",
+      "unit": "hour (0-24)",
+      "default": 12,
+      "businessContext": "The hour of day for which alertness is to be predicted"
+    },
+    {
+      "id": "sleepDuration",
+      "label": "Sleep Duration",
+      "type": "number",
+      "unit": "hours",
+      "default": 7.5,
+      "businessContext": "Duration of prior sleep, affecting baseline alertness (optional use)"
+    },
+    {
+      "id": "circadianAmplitude",
+      "label": "Circadian Amplitude",
+      "type": "number",
+      "unit": "unitless",
+      "default": 30,
+      "businessContext": "Typical amplitude of circadian alertness fluctuation (deviation from baseline)"
+    },
+    {
+      "id": "baselineAlertness",
+      "label": "Baseline Alertness",
+      "type": "number",
+      "unit": "unitless",
+      "default": 70,
+      "businessContext": "Baseline alertness level after adequate sleep, typically 70 (scale 0-100)"
+    }
+  ],
+  "formulas": {
+    "hoursSinceWake": "((currentTime - wakeTime + 24) % 24)",
+    "circadianFactor": "Math.cos(2 * Math.PI * (hoursSinceWake - 8) / 24)",
+    "alertness": "Math.min(100, Math.max(0, baselineAlertness + circadianAmplitude * circadianFactor))"
+  },
+  "outputs": {
+    "primary": "alertness",
+    "breakdown": [
+      "hoursSinceWake",
+      "circadianFactor",
+      "alertness"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

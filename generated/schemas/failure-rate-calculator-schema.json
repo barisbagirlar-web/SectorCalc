@@ -1,0 +1,59 @@
+{
+  "toolName": "failure-rate-calculator",
+  "inputs": [
+    {
+      "id": "numFailures",
+      "label": "Number of Failures",
+      "type": "number",
+      "unit": "failures",
+      "default": 5,
+      "businessContext": "Total observed failures during monitoring period"
+    },
+    {
+      "id": "totalTime",
+      "label": "Total Calendar Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 8760,
+      "businessContext": "Total elapsed time in hours (e.g., 8760 h/year)"
+    },
+    {
+      "id": "numUnits",
+      "label": "Number of Units",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "businessContext": "Number of units under test or in operation"
+    },
+    {
+      "id": "dutyCycle",
+      "label": "Duty Cycle",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Percentage of time units are actually operating"
+    }
+  ],
+  "formulas": {
+    "effectiveOperatingHours": "totalTime * numUnits * (dutyCycle / 100)",
+    "failureRatePerHour": "numFailures / effectiveOperatingHours",
+    "mtbfHours": "effectiveOperatingHours / numFailures",
+    "failureRateFPMH": "failureRatePerHour * 1000000",
+    "failureRateFIT": "failureRatePerHour * 1000000000"
+  },
+  "outputs": {
+    "primary": "Failure Rate: ${failureRateFPMH.toFixed(2)} failures per million hours",
+    "breakdown": [
+      "Effective Operating Hours: ${effectiveOperatingHours.toFixed(2)} hours",
+      "Failure Rate (λ): ${failureRatePerHour.toExponential(4)} per hour",
+      "MTBF: ${mtbfHours.toFixed(2)} hours",
+      "FIT Rate: ${failureRateFIT.toFixed(2)} failures per billion hours"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

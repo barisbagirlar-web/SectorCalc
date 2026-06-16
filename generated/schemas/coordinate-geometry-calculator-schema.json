@@ -1,0 +1,63 @@
+{
+  "toolName": "coordinate-geometry-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "X1 Koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "İlk noktanın X koordinatı"
+    },
+    {
+      "id": "y1",
+      "label": "Y1 Koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "İlk noktanın Y koordinatı"
+    },
+    {
+      "id": "x2",
+      "label": "X2 Koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "İkinci noktanın X koordinatı"
+    },
+    {
+      "id": "y2",
+      "label": "Y2 Koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "İkinci noktanın Y koordinatı"
+    }
+  ],
+  "formulas": {
+    "distance": "Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)",
+    "midpointX": "(x1 + x2) / 2",
+    "midpointY": "(y1 + y2) / 2",
+    "slope": "(y2 - y1) / (x2 - x1)",
+    "lineA": "y1 - y2",
+    "lineB": "x2 - x1",
+    "lineC": "x1 * y2 - x2 * y1"
+  },
+  "outputs": {
+    "primary": "distance",
+    "breakdown": [
+      "midpointX",
+      "midpointY",
+      "slope",
+      "lineA",
+      "lineB",
+      "lineC"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

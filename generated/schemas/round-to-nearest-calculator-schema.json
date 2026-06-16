@@ -1,0 +1,55 @@
+{
+  "toolName": "round-to-nearest-calculator",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "Value to Round",
+      "type": "number",
+      "unit": "",
+      "default": 123.456,
+      "businessContext": "The input value that needs to be rounded to a specified multiple."
+    },
+    {
+      "id": "nearest",
+      "label": "Round to Nearest",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "The multiple to round to, e.g., 0.5 for half-unit rounding, 5 for nearest 5, etc."
+    },
+    {
+      "id": "offset",
+      "label": "Offset",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Optional offset applied before rounding. The value is shifted by this amount, rounded, then shifted back."
+    },
+    {
+      "id": "decimals",
+      "label": "Decimal Places in Output",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the rounded output. Ensures precision and readability."
+    }
+  ],
+  "formulas": {
+    "adjustedValue": "(value - offset) / nearest",
+    "roundedMultiple": "Math.round(adjustedValue)",
+    "roundedValue": "parseFloat((roundedMultiple * nearest + offset).toFixed(decimals))"
+  },
+  "outputs": {
+    "primary": "roundedValue",
+    "breakdown": [
+      "adjustedValue",
+      "roundedMultiple"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

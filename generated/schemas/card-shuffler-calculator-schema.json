@@ -1,0 +1,93 @@
+{
+  "toolName": "card-shuffler-calculator",
+  "inputs": [
+    {
+      "id": "cardsPerDeck",
+      "label": "Cards per Deck",
+      "type": "number",
+      "unit": "cards",
+      "default": 52,
+      "businessContext": "Number of cards in a standard deck."
+    },
+    {
+      "id": "shuffleCycles",
+      "label": "Shuffle Cycles per Deck",
+      "type": "number",
+      "unit": "cycles",
+      "default": 7,
+      "businessContext": "Number of shuffles needed for adequate randomness."
+    },
+    {
+      "id": "machineSpeed",
+      "label": "Machine Speed",
+      "type": "number",
+      "unit": "cards/min",
+      "default": 100,
+      "businessContext": "Processing rate of the card shuffler."
+    },
+    {
+      "id": "powerRating",
+      "label": "Power Rating",
+      "type": "number",
+      "unit": "kW",
+      "default": 0.5,
+      "businessContext": "Electrical power consumed during operation."
+    },
+    {
+      "id": "operatingHours",
+      "label": "Operating Hours per Day",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Scheduled active time including maintenance."
+    },
+    {
+      "id": "maintenanceHours",
+      "label": "Maintenance Hours per Day",
+      "type": "number",
+      "unit": "hours",
+      "default": 0.5,
+      "businessContext": "Downtime for cleaning and maintenance."
+    },
+    {
+      "id": "laborCost",
+      "label": "Labor Cost",
+      "type": "number",
+      "unit": "$/hour",
+      "default": 20,
+      "businessContext": "Operator wage per hour."
+    },
+    {
+      "id": "electricityCost",
+      "label": "Electricity Cost",
+      "type": "number",
+      "unit": "$/kWh",
+      "default": 0.12,
+      "businessContext": "Utility rate per kilowatt-hour."
+    }
+  ],
+  "formulas": {
+    "effectiveMinutes": "(operatingHours - maintenanceHours) * 60",
+    "totalCardsPerDay": "machineSpeed * effectiveMinutes",
+    "packsPerDay": "totalCardsPerDay / (cardsPerDeck * shuffleCycles)",
+    "energyConsumption": "powerRating * (operatingHours - maintenanceHours)",
+    "energyCostPerDay": "energyConsumption * electricityCost",
+    "laborCostPerDay": "laborCost * operatingHours",
+    "totalDailyCost": "energyCostPerDay + laborCostPerDay",
+    "costPerPack": "totalDailyCost / packsPerDay",
+    "machineUtilization": "((operatingHours - maintenanceHours) / operatingHours) * 100"
+  },
+  "outputs": {
+    "primary": "packsPerDay",
+    "breakdown": [
+      "costPerPack",
+      "machineUtilization"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

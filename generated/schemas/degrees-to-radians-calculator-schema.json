@@ -1,0 +1,57 @@
+{
+  "toolName": "degrees-to-radians-calculator",
+  "inputs": [
+    {
+      "id": "degrees",
+      "label": "Degrees",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Whole degrees component of the angle in DMS format."
+    },
+    {
+      "id": "minutes",
+      "label": "Minutes",
+      "type": "number",
+      "unit": "'",
+      "default": 0,
+      "businessContext": "Minutes component (0-59)."
+    },
+    {
+      "id": "seconds",
+      "label": "Seconds",
+      "type": "number",
+      "unit": "\"",
+      "default": 0,
+      "businessContext": "Seconds component (0-59.999...)."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 6,
+      "businessContext": "Number of decimal places to round the output radian value for precision control."
+    }
+  ],
+  "formulas": {
+    "decimalDegrees": "degrees + minutes/60 + seconds/3600",
+    "rawRadians": "decimalDegrees * Math.PI / 180",
+    "roundedRadians": "Math.round(rawRadians * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "conversionFactor": "Math.PI / 180"
+  },
+  "outputs": {
+    "primary": "roundedRadians",
+    "breakdown": [
+      "decimalDegrees",
+      "rawRadians",
+      "conversionFactor"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

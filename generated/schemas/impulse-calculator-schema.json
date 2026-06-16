@@ -1,0 +1,71 @@
+{
+  "toolName": "impulse-calculator",
+  "inputs": [
+    {
+      "id": "force",
+      "label": "Force",
+      "type": "number",
+      "unit": "N",
+      "default": 100,
+      "businessContext": "Constant force applied"
+    },
+    {
+      "id": "time",
+      "label": "Time",
+      "type": "number",
+      "unit": "s",
+      "default": 0.5,
+      "businessContext": "Time duration of force application"
+    },
+    {
+      "id": "mass",
+      "label": "Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Mass of the object"
+    },
+    {
+      "id": "initialVelocity",
+      "label": "Initial Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Velocity before impulse"
+    },
+    {
+      "id": "finalVelocity",
+      "label": "Final Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 5,
+      "businessContext": "Velocity after impulse"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Design safety factor for impulse load"
+    }
+  ],
+  "formulas": {
+    "impulse": "force * time",
+    "momentumChange": "mass * (finalVelocity - initialVelocity)",
+    "designImpulse": "force * time * safetyFactor"
+  },
+  "outputs": {
+    "primary": "impulse",
+    "breakdown": [
+      "momentumChange",
+      "designImpulse"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

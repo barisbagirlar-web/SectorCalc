@@ -1,0 +1,78 @@
+{
+  "toolName": "real-estate-commission-calculator",
+  "inputs": [
+    {
+      "id": "salePrice",
+      "label": "Sale Price",
+      "type": "number",
+      "unit": "€",
+      "default": 300000,
+      "businessContext": "The final agreed sale price of the property."
+    },
+    {
+      "id": "totalCommissionRate",
+      "label": "Total Commission Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "The combined commission percentage for both buyer and seller agents."
+    },
+    {
+      "id": "buyerAgentSplit",
+      "label": "Buyer Agent Split",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "The percentage of the total commission that goes to the buyer's agent."
+    },
+    {
+      "id": "additionalFlatFee",
+      "label": "Additional Flat Fee",
+      "type": "number",
+      "unit": "€",
+      "default": 0,
+      "businessContext": "Any additional fixed fees (e.g., administrative charges) beyond the commission."
+    },
+    {
+      "id": "vatRate",
+      "label": "VAT Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "The Value Added Tax rate applied to the commission, if applicable."
+    },
+    {
+      "id": "isVatApplicable",
+      "label": "VAT Applicable",
+      "type": "number",
+      "unit": "(0/1)",
+      "default": 1,
+      "businessContext": "Indicates whether VAT is applied (1 = yes, 0 = no)."
+    }
+  ],
+  "formulas": {
+    "totalCommission": "salePrice * totalCommissionRate / 100",
+    "buyerCommission": "totalCommission * buyerAgentSplit / 100",
+    "sellerCommission": "totalCommission - buyerCommission",
+    "vatAmount": "isVatApplicable * totalCommission * vatRate / 100",
+    "totalCost": "totalCommission + vatAmount + additionalFlatFee",
+    "netProceeds": "salePrice - totalCost"
+  },
+  "outputs": {
+    "primary": "netProceeds",
+    "breakdown": [
+      "totalCommission",
+      "buyerCommission",
+      "sellerCommission",
+      "vatAmount",
+      "additionalFlatFee",
+      "totalCost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

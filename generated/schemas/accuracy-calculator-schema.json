@@ -1,0 +1,88 @@
+{
+  "toolName": "accuracy-calculator",
+  "inputs": [
+    {
+      "id": "true_value",
+      "label": "True Value",
+      "type": "number",
+      "unit": "unit",
+      "default": 100,
+      "businessContext": "Reference or standard value for comparison."
+    },
+    {
+      "id": "measured_value",
+      "label": "Measured Value",
+      "type": "number",
+      "unit": "unit",
+      "default": 98,
+      "businessContext": "Value obtained from the measurement."
+    },
+    {
+      "id": "full_scale",
+      "label": "Full Scale",
+      "type": "number",
+      "unit": "unit",
+      "default": 200,
+      "businessContext": "Full scale range of the instrument."
+    },
+    {
+      "id": "tolerance_limit",
+      "label": "Tolerance Limit",
+      "type": "number",
+      "unit": "unit",
+      "default": 2,
+      "businessContext": "Maximum permissible absolute error for pass/fail."
+    },
+    {
+      "id": "calibration_offset",
+      "label": "Calibration Offset",
+      "type": "number",
+      "unit": "unit",
+      "default": 0,
+      "businessContext": "Known systematic error to correct the measured value."
+    }
+  ],
+  "formulas": {
+    "absolute_error": "measured_value - calibration_offset - true_value",
+    "relative_error_percent": "((measured_value - calibration_offset - true_value) / true_value) * 100",
+    "accuracy_percent": "100 - Math.abs(((measured_value - calibration_offset - true_value) / true_value) * 100)",
+    "full_scale_error_percent": "(Math.abs(measured_value - calibration_offset - true_value) / full_scale) * 100",
+    "within_tolerance": "Math.abs(measured_value - calibration_offset - true_value) <= tolerance_limit ? 'Yes' : 'No'"
+  },
+  "outputs": {
+    "primary": {
+      "label": "Accuracy (%)",
+      "id": "accuracy_percent",
+      "unit": "%",
+      "description": "Measurement accuracy as a percentage of true value"
+    },
+    "breakdown": [
+      {
+        "label": "Absolute Error",
+        "id": "absolute_error",
+        "unit": "unit"
+      },
+      {
+        "label": "Relative Error (%)",
+        "id": "relative_error_percent",
+        "unit": "%"
+      },
+      {
+        "label": "Full Scale Error (%)",
+        "id": "full_scale_error_percent",
+        "unit": "%"
+      },
+      {
+        "label": "Within Tolerance",
+        "id": "within_tolerance",
+        "unit": ""
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

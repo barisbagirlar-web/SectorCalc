@@ -1,0 +1,84 @@
+{
+  "toolName": "baseboard-calculator",
+  "inputs": [
+    {
+      "id": "roomLength",
+      "label": "Oda Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Odanın bir kenarının uzunluğu"
+    },
+    {
+      "id": "roomWidth",
+      "label": "Oda Genişliği",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Odanın diğer kenarının genişliği"
+    },
+    {
+      "id": "numberOfDoors",
+      "label": "Kapı Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Süpürgelikten düşülecek kapı boşluğu sayısı"
+    },
+    {
+      "id": "doorWidth",
+      "label": "Kapı Genişliği",
+      "type": "number",
+      "unit": "m",
+      "default": 0.9,
+      "businessContext": "Bir kapı boşluğunun genişliği"
+    },
+    {
+      "id": "baseboardLengthPerPiece",
+      "label": "Parça Boyu",
+      "type": "number",
+      "unit": "m",
+      "default": 2.4,
+      "businessContext": "Bir süpürgelik parçasının uzunluğu"
+    },
+    {
+      "id": "pricePerPiece",
+      "label": "Parça Fiyatı",
+      "type": "number",
+      "unit": "TL",
+      "default": 10,
+      "businessContext": "Bir süpürgelik parçasının birim fiyatı"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Kesme ve hatalardan kaynaklanan ek malzeme yüzdesi"
+    }
+  ],
+  "formulas": {
+    "perimeter": "2 * (roomLength + roomWidth)",
+    "doorTotalWidth": "numberOfDoors * doorWidth",
+    "netLength": "perimeter - doorTotalWidth",
+    "withWaste": "netLength * (1 + wasteFactor/100)",
+    "piecesNeeded": "Math.ceil(withWaste / baseboardLengthPerPiece)",
+    "totalCost": "piecesNeeded * pricePerPiece",
+    "wasteLength": "withWaste - netLength"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "netLength",
+      "piecesNeeded",
+      "wasteLength"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

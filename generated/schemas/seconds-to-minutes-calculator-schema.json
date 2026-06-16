@@ -1,0 +1,87 @@
+{
+  "toolName": "seconds-to-minutes-calculator",
+  "inputs": [
+    {
+      "id": "seconds",
+      "label": "Saniye",
+      "type": "number",
+      "unit": "s",
+      "default": 60,
+      "businessContext": "Ölçülen saniye cinsinden süre"
+    },
+    {
+      "id": "scaleFactor",
+      "label": "Ölçek Faktörü",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 1,
+      "businessContext": "Çarpımsal kalibrasyon faktörü (ör. saat kayması için 1.0002)"
+    },
+    {
+      "id": "offsetSeconds",
+      "label": "Ofset (Saniye)",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Toplamsal kalibrasyon ofseti (sıfır hatası)"
+    },
+    {
+      "id": "roundingPrecision",
+      "label": "Yuvarlama Hassasiyeti",
+      "type": "number",
+      "unit": "ondalık basamak",
+      "default": 2,
+      "businessContext": "Çıktı dakika için ondalık basamak sayısı"
+    },
+    {
+      "id": "roundingMethod",
+      "label": "Yuvarlama Yöntemi",
+      "type": "number",
+      "unit": "kod",
+      "default": 1,
+      "businessContext": "Yuvarlama yöntemi: 0=tabana, 1=yuvarla, 2=tavana"
+    },
+    {
+      "id": "temperatureCelsius",
+      "label": "Sıcaklık",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Termal kompanzasyon için ortam sıcaklığı"
+    },
+    {
+      "id": "tempCoefficient",
+      "label": "Sıcaklık Katsayısı",
+      "type": "number",
+      "unit": "1/°C",
+      "default": 0,
+      "businessContext": "°C başına zamanlama hatası sıcaklık katsayısı"
+    },
+    {
+      "id": "humidityPercent",
+      "label": "Nem",
+      "type": "number",
+      "unit": "%RH",
+      "default": 50,
+      "businessContext": "Bağıl nem (tamlama için dahil edilmiştir, genelde ihmal edilir)"
+    }
+  ],
+  "formulas": {
+    "effectiveSeconds": "seconds * scaleFactor + offsetSeconds + temperatureCelsius * tempCoefficient",
+    "rawMinutes": "effectiveSeconds / 60",
+    "roundedMinutes": "(roundingMethod === 0 ? Math.floor(rawMinutes * Math.pow(10, roundingPrecision)) / Math.pow(10, roundingPrecision) : roundingMethod === 2 ? Math.ceil(rawMinutes * Math.pow(10, roundingPrecision)) / Math.pow(10, roundingPrecision) : Math.round(rawMinutes * Math.pow(10, roundingPrecision)) / Math.pow(10, roundingPrecision))"
+  },
+  "outputs": {
+    "primary": "roundedMinutes",
+    "breakdown": [
+      "effectiveSeconds",
+      "rawMinutes"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

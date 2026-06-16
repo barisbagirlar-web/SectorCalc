@@ -1,0 +1,57 @@
+{
+  "toolName": "porosity-calculator",
+  "inputs": [
+    {
+      "id": "bulkDensity",
+      "label": "Bulk Density",
+      "type": "number",
+      "unit": "g/cm³",
+      "default": 2.5,
+      "businessContext": "Density of the material including void spaces (mass/total volume)."
+    },
+    {
+      "id": "particleDensity",
+      "label": "Particle Density",
+      "type": "number",
+      "unit": "g/cm³",
+      "default": 2.65,
+      "businessContext": "Density of the solid particles only, excluding voids."
+    },
+    {
+      "id": "totalVolume",
+      "label": "Total Volume",
+      "type": "number",
+      "unit": "cm³",
+      "default": 100,
+      "businessContext": "Total volume of the sample, including pore spaces."
+    },
+    {
+      "id": "poreVolume",
+      "label": "Pore Volume",
+      "type": "number",
+      "unit": "cm³",
+      "default": 30,
+      "businessContext": "Volume of void spaces within the sample."
+    }
+  ],
+  "formulas": {
+    "porosityFraction": "(particleDensity - bulkDensity) / particleDensity",
+    "porosityPercentage": "porosityFraction * 100",
+    "volumetricPorosityFraction": "poreVolume / totalVolume",
+    "volumetricPorosityPercentage": "volumetricPorosityFraction * 100"
+  },
+  "outputs": {
+    "primary": "porosityPercentage",
+    "breakdown": [
+      "porosityFraction",
+      "volumetricPorosityPercentage",
+      "volumetricPorosityFraction"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,72 @@
+{
+  "toolName": "hours-to-days-calculator",
+  "inputs": [
+    {
+      "id": "total_hours",
+      "label": "Total Work Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 100,
+      "businessContext": "Toplam iş yükü (saat cinsinden)."
+    },
+    {
+      "id": "daily_shift_hours",
+      "label": "Daily Shift Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 8,
+      "businessContext": "Bir vardiyadaki planlanmış çalışma saati."
+    },
+    {
+      "id": "break_hours_per_shift",
+      "label": "Break Hours per Shift",
+      "type": "number",
+      "unit": "h",
+      "default": 0.5,
+      "businessContext": "Vardiya başına mola süresi (efektif çalışma süresini azaltır)."
+    },
+    {
+      "id": "shifts_per_day",
+      "label": "Shifts per Day",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Günlük vardiya sayısı (ör. 1, 2 veya 3)."
+    },
+    {
+      "id": "efficiency_factor",
+      "label": "Efficiency Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Üretim verimlilik faktörü (0-1 arası). 1 = %100 verim."
+    },
+    {
+      "id": "setup_time",
+      "label": "Setup Time",
+      "type": "number",
+      "unit": "h",
+      "default": 0,
+      "businessContext": "Bir defaya mahsus kurulum süresi (iş yüküne eklenir)."
+    }
+  ],
+  "formulas": {
+    "required_hours": "(total_hours / efficiency_factor) + setup_time",
+    "effective_hours_per_shift": "daily_shift_hours - break_hours_per_shift",
+    "effective_hours_per_day": "effective_hours_per_shift * shifts_per_day",
+    "days": "required_hours / effective_hours_per_day"
+  },
+  "outputs": {
+    "primary": "days",
+    "breakdown": [
+      "required_hours",
+      "effective_hours_per_day"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

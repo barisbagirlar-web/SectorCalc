@@ -1,0 +1,66 @@
+{
+  "toolName": "transition-fit-calculator",
+  "inputs": [
+    {
+      "id": "basic-size",
+      "label": "Nominal Size",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Nominal diameter of the cylindrical parts"
+    },
+    {
+      "id": "hole-upper-dev",
+      "label": "Hole Upper Deviation",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.025,
+      "businessContext": "Upper deviation of the hole from nominal size (positive for larger hole)"
+    },
+    {
+      "id": "hole-lower-dev",
+      "label": "Hole Lower Deviation",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Lower deviation of the hole from nominal size (negative for smaller hole)"
+    },
+    {
+      "id": "shaft-upper-dev",
+      "label": "Shaft Upper Deviation",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.018,
+      "businessContext": "Upper deviation of the shaft from nominal size (positive for larger shaft)"
+    },
+    {
+      "id": "shaft-lower-dev",
+      "label": "Shaft Lower Deviation",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.002,
+      "businessContext": "Lower deviation of the shaft from nominal size (negative for smaller shaft)"
+    }
+  ],
+  "formulas": {
+    "holeMax": "basic-size + hole-upper-dev",
+    "holeMin": "basic-size + hole-lower-dev",
+    "shaftMax": "basic-size + shaft-upper-dev",
+    "shaftMin": "basic-size + shaft-lower-dev",
+    "maxClearance": "holeMax - shaftMin",
+    "minClearance": "holeMin - shaftMax"
+  },
+  "outputs": {
+    "primary": "(maxClearance > 0 && minClearance > 0) ? 'Clearance' : (maxClearance < 0 && minClearance < 0) ? 'Interference' : 'Transition'",
+    "breakdown": [
+      "maxClearance",
+      "minClearance"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

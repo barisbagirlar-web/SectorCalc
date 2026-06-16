@@ -1,0 +1,56 @@
+{
+  "toolName": "indefinite-integral",
+  "inputs": [
+    {
+      "id": "functionType",
+      "label": "Function Type",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1: polynomial, 2: exponential, 3: trigonometric"
+    },
+    {
+      "id": "coefficient",
+      "label": "Coefficient (a)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient of the function"
+    },
+    {
+      "id": "exponent",
+      "label": "Exponent (n)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Exponent for polynomial (n != -1)"
+    },
+    {
+      "id": "constant",
+      "label": "Constant (C)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Integration constant"
+    }
+  ],
+  "formulas": {
+    "integralResult": "functionType === 1 ? (coefficient * (x ** (exponent + 1)) / (exponent + 1)) + constant : functionType === 2 ? (coefficient * Math.exp(x)) + constant : functionType === 3 ? (-coefficient * Math.cos(x)) + constant : 0",
+    "x": "1"
+  },
+  "outputs": {
+    "primary": "∫ f(x) dx = (a * x^(n+1))/(n+1) + C",
+    "breakdown": [
+      "Coefficient: a = {coefficient}",
+      "Exponent: n = {exponent}",
+      "Constant: C = {constant}",
+      "Result: {integralResult}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

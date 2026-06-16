@@ -1,0 +1,59 @@
+{
+  "toolName": "pixel-calculator",
+  "inputs": [
+    {
+      "id": "widthPx",
+      "label": "Horizontal Resolution",
+      "type": "number",
+      "unit": "px",
+      "default": 1920,
+      "businessContext": "resolution"
+    },
+    {
+      "id": "heightPx",
+      "label": "Vertical Resolution",
+      "type": "number",
+      "unit": "px",
+      "default": 1080,
+      "businessContext": "resolution"
+    },
+    {
+      "id": "diagInches",
+      "label": "Diagonal Size",
+      "type": "number",
+      "unit": "inch",
+      "default": 24,
+      "businessContext": "display size"
+    },
+    {
+      "id": "pixelAspect",
+      "label": "Pixel Aspect Ratio",
+      "type": "number",
+      "unit": "ratio",
+      "default": 1,
+      "businessContext": "pixel geometry"
+    }
+  ],
+  "formulas": {
+    "ppi": "Math.sqrt(Math.pow(widthPx * pixelAspect, 2) + Math.pow(heightPx, 2)) / diagInches",
+    "pixelPitch": "25.4 * diagInches / Math.sqrt(Math.pow(widthPx * pixelAspect, 2) + Math.pow(heightPx, 2))",
+    "screenWidthInches": "diagInches * (widthPx * pixelAspect) / Math.sqrt(Math.pow(widthPx * pixelAspect, 2) + Math.pow(heightPx, 2))",
+    "screenHeightInches": "diagInches * heightPx / Math.sqrt(Math.pow(widthPx * pixelAspect, 2) + Math.pow(heightPx, 2))",
+    "megapixels": "(widthPx * heightPx) / 1000000"
+  },
+  "outputs": {
+    "primary": "ppi",
+    "breakdown": [
+      "pixelPitch",
+      "screenWidthInches",
+      "screenHeightInches",
+      "megapixels"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

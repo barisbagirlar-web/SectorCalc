@@ -1,0 +1,63 @@
+{
+  "toolName": "exposure-calculator",
+  "inputs": [
+    {
+      "id": "duration",
+      "label": "Measurement Duration",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Duration over which the noise level was measured"
+    },
+    {
+      "id": "spl",
+      "label": "Sound Pressure Level",
+      "type": "number",
+      "unit": "dB(A)",
+      "default": 85,
+      "businessContext": "Measured average A-weighted noise level during the measurement period"
+    },
+    {
+      "id": "exchangeRate",
+      "label": "Exchange Rate",
+      "type": "number",
+      "unit": "dB",
+      "default": 3,
+      "businessContext": "Time-intensity doubling rate (3 dB for ISO, 5 dB for OSHA)"
+    },
+    {
+      "id": "criterionLevel",
+      "label": "Criterion Level",
+      "type": "number",
+      "unit": "dB(A)",
+      "default": 85,
+      "businessContext": "Allowable noise level for an 8-hour exposure"
+    },
+    {
+      "id": "criterionTime",
+      "label": "Criterion Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Reference duration for the criterion level (typically 8 hours)"
+    }
+  ],
+  "formulas": {
+    "dailyExposure": "spl + exchangeRate * Math.log(duration / criterionTime) / Math.log(2)",
+    "dose": "(duration / criterionTime) * Math.pow(2, (spl - criterionLevel) / exchangeRate) * 100",
+    "exceedance": "(spl + exchangeRate * Math.log(duration / criterionTime) / Math.log(2) > criterionLevel) ? (spl + exchangeRate * Math.log(duration / criterionTime) / Math.log(2) - criterionLevel) : 0"
+  },
+  "outputs": {
+    "primary": "Daily Noise Exposure Level (L_EX,8h)",
+    "breakdown": [
+      "Noise Dose (%)",
+      "Limit Exceedance (dB)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

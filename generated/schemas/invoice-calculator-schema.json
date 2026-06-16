@@ -1,0 +1,57 @@
+{
+  "toolName": "invoice-calculator",
+  "inputs": [
+    {
+      "id": "subtotal",
+      "label": "Subtotal",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "The total amount of all items before any deductions or additions."
+    },
+    {
+      "id": "discountPercent",
+      "label": "Discount Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Discount rate applied to the subtotal."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Tax rate applied after discount, e.g., VAT."
+    },
+    {
+      "id": "shippingCost",
+      "label": "Shipping Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Flat shipping charge added to the invoice."
+    }
+  ],
+  "formulas": {
+    "Final Invoice Total": "subtotal * (1 - discountPercent / 100) * (1 + taxRate / 100) + shippingCost",
+    "Discount Amount": "subtotal * discountPercent / 100",
+    "Tax Amount": "subtotal * (1 - discountPercent / 100) * taxRate / 100",
+    "Subtotal After Discount": "subtotal * (1 - discountPercent / 100)"
+  },
+  "outputs": {
+    "primary": "Final Invoice Total",
+    "breakdown": [
+      "Discount Amount",
+      "Tax Amount",
+      "Subtotal After Discount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

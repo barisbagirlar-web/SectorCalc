@@ -1,0 +1,54 @@
+{
+  "toolName": "teaspoons-to-ml-calculator",
+  "inputs": [
+    {
+      "id": "teaspoons",
+      "label": "Teaspoons",
+      "type": "number",
+      "unit": "tsp",
+      "default": 1,
+      "businessContext": "Amount of substance in teaspoons"
+    },
+    {
+      "id": "mlPerTeaspoon",
+      "label": "Milliliters per Teaspoon",
+      "type": "number",
+      "unit": "mL/tsp",
+      "default": 5,
+      "businessContext": "Conversion factor; 5 for metric, 4.92892 for US customary, 5.91939 for UK imperial"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding the result"
+    },
+    {
+      "id": "numberOfConversions",
+      "label": "Number of Conversions",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for batch scaling (e.g., number of identical portions)"
+    }
+  ],
+  "formulas": {
+    "primary": "Math.round(teaspoons * mlPerTeaspoon * numberOfConversions * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "milliliters",
+    "breakdown": [
+      "Step 1: Convert teaspoons to base milliliters (teaspoons × milliliters per teaspoon).",
+      "Step 2: Scale by the number of conversions (batch factor).",
+      "Step 3: Round the result to the specified decimal places."
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

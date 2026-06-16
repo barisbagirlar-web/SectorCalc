@@ -1,0 +1,58 @@
+{
+  "toolName": "metric-imperial-converter-calculator",
+  "inputs": [
+    {
+      "id": "meters",
+      "label": "Meters (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Length in meters to convert to feet"
+    },
+    {
+      "id": "kilograms",
+      "label": "Kilograms (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Mass in kilograms to convert to pounds"
+    },
+    {
+      "id": "liters",
+      "label": "Liters (L)",
+      "type": "number",
+      "unit": "L",
+      "default": 0,
+      "businessContext": "Volume in liters to convert to US gallons"
+    },
+    {
+      "id": "celsius",
+      "label": "Celsius (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 0,
+      "businessContext": "Temperature in Celsius to convert to Fahrenheit"
+    }
+  ],
+  "formulas": {
+    "feet": "meters * 3.28084",
+    "pounds": "kilograms * 2.20462",
+    "gallons": "liters * 0.264172",
+    "fahrenheit": "(celsius * 9/5) + 32"
+  },
+  "outputs": {
+    "primary": "'Conversions: ' + meters + 'm => ' + feet.toFixed(2) + 'ft, ' + kilograms + 'kg => ' + pounds.toFixed(2) + 'lbs, ' + liters + 'L => ' + gallons.toFixed(2) + 'gal, ' + celsius + '°C => ' + fahrenheit.toFixed(2) + '°F'",
+    "breakdown": [
+      "'Feet: ' + feet.toFixed(2) + ' ft'",
+      "'Pounds: ' + pounds.toFixed(2) + ' lbs'",
+      "'US Gallons: ' + gallons.toFixed(2) + ' gal'",
+      "'Fahrenheit: ' + fahrenheit.toFixed(2) + ' °F'"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

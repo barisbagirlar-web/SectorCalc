@@ -1,0 +1,55 @@
+{
+  "toolName": "medicare-irmaa-calculator",
+  "inputs": [
+    {
+      "id": "magi",
+      "label": "Modified Adjusted Gross Income (MAGI)",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "Your MAGI from 2 years ago"
+    },
+    {
+      "id": "filingStatus",
+      "label": "Filing Status",
+      "type": "number",
+      "unit": "code",
+      "default": 1,
+      "businessContext": "1=Single/HoH/QW, 2=Married Joint, 3=Married Separate"
+    },
+    {
+      "id": "partBBase",
+      "label": "Monthly Part B Base Premium",
+      "type": "number",
+      "unit": "$",
+      "default": 174.7,
+      "businessContext": "Standard Part B premium (2024: $174.70)"
+    },
+    {
+      "id": "partDBase",
+      "label": "Monthly Part D Base Premium",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Your Part D plan premium before IRMAA"
+    }
+  ],
+  "formulas": {
+    "partBSurcharge": "filingStatus===1 ? (magi<=103000 ? 0 : magi<=129000 ? 69.90 : magi<=161000 ? 174.70 : magi<=193000 ? 279.50 : magi<=500000 ? 384.30 : 419.30) : filingStatus===2 ? (magi<=206000 ? 0 : magi<=258000 ? 69.90 : magi<=322000 ? 174.70 : magi<=386000 ? 279.50 : magi<=750000 ? 384.30 : 419.30) : (magi<=103000 ? 0 : magi<=397000 ? 384.30 : 419.30)",
+    "partDSurcharge": "filingStatus===1 ? (magi<=103000 ? 0 : magi<=129000 ? 12.90 : magi<=161000 ? 33.30 : magi<=193000 ? 53.80 : magi<=500000 ? 74.20 : 81.00) : filingStatus===2 ? (magi<=206000 ? 0 : magi<=258000 ? 12.90 : magi<=322000 ? 33.30 : magi<=386000 ? 53.80 : magi<=750000 ? 74.20 : 81.00) : (magi<=103000 ? 0 : magi<=397000 ? 74.20 : 81.00)",
+    "totalSurcharge": "partBSurcharge + partDSurcharge"
+  },
+  "outputs": {
+    "primary": "totalSurcharge",
+    "breakdown": [
+      "partBSurcharge",
+      "partDSurcharge"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

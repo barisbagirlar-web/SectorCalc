@@ -1,0 +1,75 @@
+{
+  "toolName": "student-aid-index-calculator",
+  "inputs": [
+    {
+      "id": "parentAGI",
+      "label": "Parent AGI",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Parents' Adjusted Gross Income from tax return"
+    },
+    {
+      "id": "parentAssets",
+      "label": "Parent Assets",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total net worth of parent assets (excluding home and retirement)"
+    },
+    {
+      "id": "studentIncome",
+      "label": "Student Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Student's income from all sources"
+    },
+    {
+      "id": "studentAssets",
+      "label": "Student Assets",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total net worth of student assets"
+    },
+    {
+      "id": "familySize",
+      "label": "Family Size",
+      "type": "number",
+      "unit": "count",
+      "default": 4,
+      "businessContext": "Number of people in the household"
+    },
+    {
+      "id": "numberInCollege",
+      "label": "Number in College",
+      "type": "number",
+      "unit": "count",
+      "default": 1,
+      "businessContext": "Number of household members attending college"
+    }
+  ],
+  "formulas": {
+    "parentIncomeContrib": "Math.max(0, parentAGI - (10000 + familySize * 5000 + numberInCollege * 3000)) * 0.22",
+    "parentAssetContrib": "Math.max(0, parentAssets - (2000 * familySize)) * 0.12",
+    "studentIncomeContrib": "Math.max(0, studentIncome - 7000) * 0.50",
+    "studentAssetContrib": "studentAssets * 0.20",
+    "sai": "Math.round(parentIncomeContrib + parentAssetContrib + studentIncomeContrib + studentAssetContrib)"
+  },
+  "outputs": {
+    "primary": "sai",
+    "breakdown": [
+      "parentIncomeContrib",
+      "parentAssetContrib",
+      "studentIncomeContrib",
+      "studentAssetContrib"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

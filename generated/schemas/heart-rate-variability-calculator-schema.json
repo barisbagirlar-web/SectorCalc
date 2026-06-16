@@ -1,0 +1,65 @@
+{
+  "toolName": "heart-rate-variability-calculator",
+  "inputs": [
+    {
+      "id": "numIntervals",
+      "label": "Number of RR intervals (N)",
+      "type": "number",
+      "unit": "count",
+      "default": 100,
+      "businessContext": "Total number of consecutive RR intervals recorded"
+    },
+    {
+      "id": "sumRR",
+      "label": "Sum of RR intervals",
+      "type": "number",
+      "unit": "ms",
+      "default": 80000,
+      "businessContext": "Sum of all RR interval durations in milliseconds"
+    },
+    {
+      "id": "sumSquaredRR",
+      "label": "Sum of squared RR intervals",
+      "type": "number",
+      "unit": "ms²",
+      "default": 64250000,
+      "businessContext": "Sum of the squares of each RR interval for variance calculation"
+    },
+    {
+      "id": "sumSuccessiveDiffsSq",
+      "label": "Sum of squared successive differences",
+      "type": "number",
+      "unit": "ms²",
+      "default": 89100,
+      "businessContext": "Sum of squared differences between consecutive RR intervals"
+    },
+    {
+      "id": "countNN50",
+      "label": "Count of NN50",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "businessContext": "Number of interval differences greater than 50 ms"
+    }
+  ],
+  "formulas": {
+    "RMSSD": "Math.sqrt(sumSuccessiveDiffsSq / (numIntervals - 1))",
+    "SDNN": "Math.sqrt(sumSquaredRR / numIntervals - Math.pow(sumRR / numIntervals, 2))",
+    "pNN50": "(countNN50 / (numIntervals - 1)) * 100",
+    "meanRR": "sumRR / numIntervals"
+  },
+  "outputs": {
+    "primary": "RMSSD",
+    "breakdown": [
+      "SDNN",
+      "pNN50",
+      "meanRR"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

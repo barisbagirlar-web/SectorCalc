@@ -1,0 +1,63 @@
+{
+  "toolName": "drying-rate-calculator",
+  "inputs": [
+    {
+      "id": "initial_moisture",
+      "label": "Initial Moisture Content",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Wet basis moisture content of the material before drying"
+    },
+    {
+      "id": "final_moisture",
+      "label": "Final Moisture Content",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Target moisture content after drying (wet basis)"
+    },
+    {
+      "id": "solid_mass",
+      "label": "Wet Material Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Total mass of wet material to be dried"
+    },
+    {
+      "id": "drying_rate",
+      "label": "Drying Rate",
+      "type": "number",
+      "unit": "kg/h",
+      "default": 50,
+      "businessContext": "Moisture removal capacity of the dryer"
+    },
+    {
+      "id": "specific_energy",
+      "label": "Specific Energy Consumption",
+      "type": "number",
+      "unit": "kWh/kg",
+      "default": 1.2,
+      "businessContext": "Energy required to evaporate 1 kg of water"
+    }
+  ],
+  "formulas": {
+    "water_removed_kg": "solid_mass * (initial_moisture - final_moisture) / 100",
+    "drying_time_h": "water_removed_kg / drying_rate",
+    "energy_consumption_kWh": "water_removed_kg * specific_energy"
+  },
+  "outputs": {
+    "primary": "water_removed_kg",
+    "breakdown": [
+      "drying_time_h",
+      "energy_consumption_kWh"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

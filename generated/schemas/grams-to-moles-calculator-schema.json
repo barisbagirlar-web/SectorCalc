@@ -1,0 +1,56 @@
+{
+  "toolName": "grams-to-moles-calculator",
+  "inputs": [
+    {
+      "id": "mass_in_grams",
+      "label": "Mass (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Mass of the substance in grams. Ensure unit consistency; if using kg or mg, convert to g first."
+    },
+    {
+      "id": "molecular_weight",
+      "label": "Molecular Weight",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 18.015,
+      "businessContext": "Molar mass in grams per mole. Obtain from periodic table or material datasheet. Default: water (18.015 g/mol)."
+    },
+    {
+      "id": "purity_percent",
+      "label": "Purity (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Substance purity as percentage. Adjust for impure samples; 100% ideal. Used to calculate effective mass."
+    },
+    {
+      "id": "yield_percent",
+      "label": "Process Yield (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Process yield efficiency (actual output / theoretical). 100% means no loss. Affects final mole quantity."
+    }
+  ],
+  "formulas": {
+    "effectiveMass": "mass_in_grams * (purity_percent / 100)",
+    "theoreticalMoles": "effectiveMass / molecular_weight",
+    "actualMoles": "theoreticalMoles * (yield_percent / 100)"
+  },
+  "outputs": {
+    "primary": "actualMoles",
+    "breakdown": [
+      "effectiveMass",
+      "theoreticalMoles",
+      "actualMoles"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

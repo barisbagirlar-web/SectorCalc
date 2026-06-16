@@ -1,0 +1,63 @@
+{
+  "toolName": "drill-depth-diameter-calculator",
+  "inputs": [
+    {
+      "id": "drillDiameter",
+      "label": "Drill Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Diameter of the drill bit"
+    },
+    {
+      "id": "drillDepth",
+      "label": "Drill Depth",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Hole depth to be drilled"
+    },
+    {
+      "id": "rotationSpeed",
+      "label": "Rotation Speed",
+      "type": "number",
+      "unit": "RPM",
+      "default": 1000,
+      "businessContext": "Spindle rotation speed"
+    },
+    {
+      "id": "feedRate",
+      "label": "Feed Rate",
+      "type": "number",
+      "unit": "mm/rev",
+      "default": 0.1,
+      "businessContext": "Feed per revolution"
+    },
+    {
+      "id": "materialFactor",
+      "label": "Material Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Material-specific power coefficient"
+    }
+  ],
+  "formulas": {
+    "drillingTime": "drillDepth / (feedRate * rotationSpeed)",
+    "materialRemovalRate": "Math.PI * (drillDiameter / 2) ** 2 * feedRate * rotationSpeed",
+    "powerRequired": "materialFactor * (Math.PI * (drillDiameter / 2) ** 2 * feedRate * rotationSpeed) * 0.05"
+  },
+  "outputs": {
+    "primary": "drillingTime",
+    "breakdown": [
+      "materialRemovalRate",
+      "powerRequired"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

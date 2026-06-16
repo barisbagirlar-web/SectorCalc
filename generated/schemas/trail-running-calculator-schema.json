@@ -1,0 +1,73 @@
+{
+  "toolName": "trail-running-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Mesafe",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "Kilometre cinsinden parkur uzunluğu"
+    },
+    {
+      "id": "elevation_gain",
+      "label": "Tırmanış",
+      "type": "number",
+      "unit": "m",
+      "default": 500,
+      "businessContext": "Metre cinsinden toplam tırmanış (pozitif irtifa kazancı)"
+    },
+    {
+      "id": "elevation_loss",
+      "label": "İniş",
+      "type": "number",
+      "unit": "m",
+      "default": 500,
+      "businessContext": "Metre cinsinden toplam iniş (negatif irtifa kaybı)"
+    },
+    {
+      "id": "base_pace",
+      "label": "Düz Tempo",
+      "type": "number",
+      "unit": "min/km",
+      "default": 6,
+      "businessContext": "Düz zeminde koşu temposu (dakika:km)"
+    },
+    {
+      "id": "ascent_factor",
+      "label": "Tırmanış Faktörü",
+      "type": "number",
+      "unit": "min/m",
+      "default": 0.1,
+      "businessContext": "Her bir metre tırmanış için eklenen süre (dakika)"
+    },
+    {
+      "id": "descent_factor",
+      "label": "İniş Faktörü",
+      "type": "number",
+      "unit": "min/m",
+      "default": 0.05,
+      "businessContext": "Her bir metre iniş için eklenen süre (dakika)"
+    }
+  ],
+  "formulas": {
+    "flatTime": "distance * base_pace",
+    "ascentTime": "elevation_gain * ascent_factor",
+    "descentTime": "elevation_loss * descent_factor",
+    "totalTime": "flatTime + ascentTime + descentTime"
+  },
+  "outputs": {
+    "primary": "totalTime",
+    "breakdown": [
+      "flatTime",
+      "ascentTime",
+      "descentTime"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "annuity-income-calculator",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Principal Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Initial lump sum investment"
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Expected annual return rate"
+    },
+    {
+      "id": "periods",
+      "label": "Number of Periods",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "Total annuity duration"
+    },
+    {
+      "id": "paymentFrequency",
+      "label": "Payments Per Year",
+      "type": "number",
+      "unit": "times/year",
+      "default": 12,
+      "businessContext": "Frequency of payments (e.g., 12 for monthly)"
+    }
+  ],
+  "formulas": {
+    "ratePerPeriod": "annualInterestRate / 100 / paymentFrequency",
+    "totalPeriods": "periods * paymentFrequency",
+    "periodicPayment": "principal * ratePerPeriod / (1 - Math.pow(1 + ratePerPeriod, -totalPeriods))",
+    "totalReceived": "periodicPayment * totalPeriods",
+    "netInterest": "totalReceived - principal"
+  },
+  "outputs": {
+    "primary": "periodicPayment",
+    "breakdown": [
+      "totalReceived",
+      "netInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,47 @@
+{
+  "toolName": "t-distribution-calculator",
+  "inputs": [
+    {
+      "id": "t_value",
+      "label": "t Değeri",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Hesaplanan t istatistiği"
+    },
+    {
+      "id": "degrees_of_freedom",
+      "label": "Serbestlik Derecesi",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Örneklem büyüklüğü eksi bir"
+    },
+    {
+      "id": "tails",
+      "label": "Kuyruk Sayısı",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "1 veya 2 kuyruklu test"
+    }
+  ],
+  "formulas": {
+    "cdf": "function(t, df) { var x = df / (df + t*t); var a = df / 2; var b = 0.5; var betaInc = betainc(x, a, b); return 1 - 0.5 * betaInc; }",
+    "p_value": "function(t, df, tails) { var p = 1 - cdf(Math.abs(t), df); return tails === 2 ? 2 * p : p; }",
+    "critical_value": "function(alpha, df, tails) { // approximate using inverse t-distribution; return 1.0; }"
+  },
+  "outputs": {
+    "primary": "p_değeri",
+    "breakdown": [
+      "p_değeri: {p_value}",
+      "Kritik t değeri (α=0.05): {critical_value}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

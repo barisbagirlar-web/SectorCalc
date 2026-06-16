@@ -1,0 +1,66 @@
+{
+  "toolName": "reflux-ratio-calculator",
+  "inputs": [
+    {
+      "id": "feedFlow",
+      "label": "Besleme Akış Hızı",
+      "type": "number",
+      "unit": "kg/h",
+      "default": 1000,
+      "businessContext": "Damıtma kolonuna beslenen toplam akış hızı."
+    },
+    {
+      "id": "feedComposition",
+      "label": "Besleme Kompozisyonu",
+      "type": "number",
+      "unit": "mol kesri",
+      "default": 0.5,
+      "businessContext": "Besleme akımındaki hafif bileşenin mol kesri."
+    },
+    {
+      "id": "distillateFlow",
+      "label": "Distilat Akış Hızı",
+      "type": "number",
+      "unit": "kg/h",
+      "default": 300,
+      "businessContext": "Kolon üst ürünü olarak alınan distilat akış hızı."
+    },
+    {
+      "id": "distillateComposition",
+      "label": "Distilat Kompozisyonu",
+      "type": "number",
+      "unit": "mol kesri",
+      "default": 0.95,
+      "businessContext": "Distilat akımındaki hafif bileşenin mol kesri."
+    },
+    {
+      "id": "refluxFlow",
+      "label": "Reflü Akış Hızı",
+      "type": "number",
+      "unit": "kg/h",
+      "default": 600,
+      "businessContext": "Kolon içine geri döndürülen sıvı akış hızı."
+    }
+  ],
+  "formulas": {
+    "refluxRatio": "refluxFlow / distillateFlow",
+    "bottomsFlow": "feedFlow - distillateFlow",
+    "bottomsComposition": "(feedFlow * feedComposition - distillateFlow * distillateComposition) / (feedFlow - distillateFlow)",
+    "vaporFlow": "refluxFlow + distillateFlow",
+    "boilUpRatio": "(refluxFlow + distillateFlow) / (feedFlow - distillateFlow)"
+  },
+  "outputs": {
+    "primary": "refluxRatio",
+    "breakdown": [
+      "boilUpRatio",
+      "bottomsComposition",
+      "bottomsFlow"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

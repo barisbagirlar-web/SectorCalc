@@ -1,0 +1,31 @@
+{
+  "toolName": "kgf-per-cm2-to-psi",
+  "inputs": [
+    {
+      "id": "pressure_kgfcm2",
+      "label": "Basınç (kgf/cm²)",
+      "type": "number",
+      "unit": "kgf/cm²",
+      "default": 1,
+      "businessContext": "Manometre veya basınç göstergesinden okunan değer"
+    }
+  ],
+  "formulas": {
+    "primary": "pressure_kgfcm2 * 14.2233433071",
+    "breakdown": [
+      "pressure_kgfcm2 * 14.2233433071"
+    ]
+  },
+  "outputs": {
+    "primary": "Basınç (psi)",
+    "breakdown": [
+      "Dönüşüm faktörü: 1 kgf/cm² = 14.2233433071 psi"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

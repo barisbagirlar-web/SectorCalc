@@ -1,0 +1,55 @@
+{
+  "toolName": "short-term-savings-calculator",
+  "inputs": [
+    {
+      "id": "initialSavings",
+      "label": "Initial Savings",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Initial lump sum amount saved."
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Monthly Contribution",
+      "type": "number",
+      "unit": "currency/month",
+      "default": 0,
+      "businessContext": "Amount added to savings each month."
+    },
+    {
+      "id": "annualRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual interest rate."
+    },
+    {
+      "id": "years",
+      "label": "Number of Years",
+      "type": "number",
+      "unit": "years",
+      "default": 1,
+      "businessContext": "Number of years."
+    }
+  ],
+  "formulas": {
+    "futureValue": "initialSavings * (1 + annualRate/100/12) ** (12 * years) + monthlyContribution * (((1 + annualRate/100/12) ** (12 * years) - 1) / (annualRate/100/12))",
+    "totalContributions": "initialSavings + monthlyContribution * 12 * years",
+    "totalInterest": "initialSavings * (1 + annualRate/100/12) ** (12 * years) + monthlyContribution * (((1 + annualRate/100/12) ** (12 * years) - 1) / (annualRate/100/12)) - (initialSavings + monthlyContribution * 12 * years)"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": [
+      "totalContributions",
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

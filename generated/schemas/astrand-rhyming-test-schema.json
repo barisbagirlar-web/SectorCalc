@@ -1,0 +1,63 @@
+{
+  "toolName": "astrand-rhyming-test",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the subject in years."
+    },
+    {
+      "id": "weight",
+      "label": "Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight of the subject in kilograms."
+    },
+    {
+      "id": "heartRate",
+      "label": "Heart Rate (bpm)",
+      "type": "number",
+      "unit": "bpm",
+      "default": 130,
+      "businessContext": "Steady-state heart rate during submaximal exercise in beats per minute."
+    },
+    {
+      "id": "workload",
+      "label": "Workload (W)",
+      "type": "number",
+      "unit": "W",
+      "default": 100,
+      "businessContext": "Workload in watts during the test."
+    },
+    {
+      "id": "gender",
+      "label": "Gender (0=female, 1=male)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Gender of the subject: 0 for female, 1 for male."
+    }
+  ],
+  "formulas": {
+    "vo2max": "workload * 10.8 / (heartRate - 60) + (gender === 1 ? 7.0 : 0.0)",
+    "vo2maxRelative": "vo2max / weight",
+    "classification": "vo2maxRelative >= 40 ? 'Good' : 'Below Average'"
+  },
+  "outputs": {
+    "primary": "vo2maxRelative",
+    "breakdown": [
+      "vo2max",
+      "classification"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

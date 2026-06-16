@@ -1,0 +1,87 @@
+{
+  "toolName": "reaction-quotient-calculator",
+  "inputs": [
+    {
+      "id": "concA",
+      "label": "Concentration of Reactant A",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 1,
+      "businessContext": "Molar concentration of reactant A"
+    },
+    {
+      "id": "coeffA",
+      "label": "Stoichiometric Coefficient of A",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient a in reaction aA + bB ⇌ cC + dD"
+    },
+    {
+      "id": "concB",
+      "label": "Concentration of Reactant B",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 1,
+      "businessContext": "Molar concentration of reactant B"
+    },
+    {
+      "id": "coeffB",
+      "label": "Stoichiometric Coefficient of B",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient b"
+    },
+    {
+      "id": "concC",
+      "label": "Concentration of Product C",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 1,
+      "businessContext": "Molar concentration of product C"
+    },
+    {
+      "id": "coeffC",
+      "label": "Stoichiometric Coefficient of C",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient c"
+    },
+    {
+      "id": "concD",
+      "label": "Concentration of Product D",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 1,
+      "businessContext": "Molar concentration of product D"
+    },
+    {
+      "id": "coeffD",
+      "label": "Stoichiometric Coefficient of D",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient d"
+    }
+  ],
+  "formulas": {
+    "Q": "Math.pow(concC, coeffC) * Math.pow(concD, coeffD) / (Math.pow(concA, coeffA) * Math.pow(concB, coeffB))",
+    "Numerator": "Math.pow(concC, coeffC) * Math.pow(concD, coeffD)",
+    "Denominator": "Math.pow(concA, coeffA) * Math.pow(concB, coeffB)"
+  },
+  "outputs": {
+    "primary": "Q",
+    "breakdown": [
+      "Numerator",
+      "Denominator"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

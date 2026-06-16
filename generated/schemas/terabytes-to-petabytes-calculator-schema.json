@@ -1,0 +1,55 @@
+{
+  "toolName": "terabytes-to-petabytes-calculator",
+  "inputs": [
+    {
+      "id": "totalRawTerabytes",
+      "label": "Toplam Ham Kapasite (TB)",
+      "type": "number",
+      "unit": "TB",
+      "default": 1,
+      "businessContext": "Tüm disklerin toplam ham depolama kapasitesi."
+    },
+    {
+      "id": "raidUsableMultiplier",
+      "label": "RAID Kullanılabilirlik Oranı",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "RAID yapılandırmasına bağlı olarak kullanılabilir kapasitenin ham kapasiteye oranı. Örn: RAID 5 (n-1)/n, RAID 10 = 0.5."
+    },
+    {
+      "id": "formatOverheadPercent",
+      "label": "Formatlama Kaybı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Dosya sistemi biçimlendirme ve metaveri için ayrılan alan yüzdesi."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "PB Dönüşüm Katsayısı",
+      "type": "number",
+      "unit": "TB/PB",
+      "default": 1000,
+      "businessContext": "1 petabaytın kaç terabayt olduğu. SI: 1000, İkili: 1024."
+    }
+  ],
+  "formulas": {
+    "usableTB": "totalRawTerabytes * raidUsableMultiplier * (1 - formatOverheadPercent / 100)",
+    "petabytes": "(totalRawTerabytes * raidUsableMultiplier * (1 - formatOverheadPercent / 100)) / conversionFactor",
+    "rawPB": "totalRawTerabytes / conversionFactor"
+  },
+  "outputs": {
+    "primary": "petabytes",
+    "breakdown": [
+      "usableTB",
+      "rawPB"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

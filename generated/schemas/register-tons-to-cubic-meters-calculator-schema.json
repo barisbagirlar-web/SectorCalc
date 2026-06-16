@@ -1,0 +1,71 @@
+{
+  "toolName": "register-tons-to-cubic-meters-calculator",
+  "inputs": [
+    {
+      "id": "registerTons",
+      "label": "Register Tons",
+      "type": "number",
+      "unit": "RT",
+      "default": 1,
+      "businessContext": "Volume in register tons (1 RT = 100 cubic feet)"
+    },
+    {
+      "id": "cubicMeters",
+      "label": "Cubic Meters",
+      "type": "number",
+      "unit": "m³",
+      "default": 0,
+      "businessContext": "Volume in cubic meters (for reverse conversion)"
+    },
+    {
+      "id": "direction",
+      "label": "Conversion Direction",
+      "type": "number",
+      "unit": "0→RT to m³, 1→m³ to RT",
+      "default": 0,
+      "businessContext": "Select direction: 0 for register tons to cubic meters, 1 for cubic meters to register tons"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "decimals",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding result"
+    },
+    {
+      "id": "useStandardConversion",
+      "label": "Use Standard Factor",
+      "type": "number",
+      "unit": "boolean (1=yes,0=no)",
+      "default": 1,
+      "businessContext": "Use standard conversion factor (2.8316846592 m³/RT) if 1, else custom"
+    },
+    {
+      "id": "customFactor",
+      "label": "Custom Factor",
+      "type": "number",
+      "unit": "m³/RT",
+      "default": 2.8316846592,
+      "businessContext": "Custom conversion factor when not using standard. Default is standard factor."
+    }
+  ],
+  "formulas": {
+    "factor": "inputs.useStandardConversion === 1 ? 2.8316846592 : inputs.customFactor",
+    "rawResult": "inputs.direction === 0 ? inputs.registerTons * factor : inputs.cubicMeters / factor",
+    "result": "Math.round(rawResult * Math.pow(10, inputs.decimalPlaces)) / Math.pow(10, inputs.decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": [
+      "factor",
+      "rawResult"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

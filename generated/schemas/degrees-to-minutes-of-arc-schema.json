@@ -1,0 +1,57 @@
+{
+  "toolName": "degrees-to-minutes-of-arc",
+  "inputs": [
+    {
+      "id": "degrees",
+      "label": "Derece",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Açı değeri (derece cinsinden)"
+    },
+    {
+      "id": "minutes",
+      "label": "Dakika",
+      "type": "number",
+      "unit": "'",
+      "default": 0,
+      "businessContext": "Açı değeri (dakika cinsinden)"
+    },
+    {
+      "id": "seconds",
+      "label": "Saniye",
+      "type": "number",
+      "unit": "\"",
+      "default": 0,
+      "businessContext": "Açı değeri (saniye cinsinden)"
+    },
+    {
+      "id": "decimalDegrees",
+      "label": "Ondalık Derece",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Ondalık derece cinsinden açı değeri"
+    }
+  ],
+  "formulas": {
+    "totalMinutes": "(degrees * 60) + minutes + (seconds / 60)",
+    "totalDecimalDegrees": "decimalDegrees",
+    "minutesFromDecimal": "decimalDegrees * 60"
+  },
+  "outputs": {
+    "primary": "totalMinutes",
+    "breakdown": [
+      "Derece → Dakika: degrees * 60",
+      "Saniye → Dakika: seconds / 60",
+      "Toplam Dakika: (degrees * 60) + minutes + (seconds / 60)",
+      "Ondalık Derece → Dakika: decimalDegrees * 60"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

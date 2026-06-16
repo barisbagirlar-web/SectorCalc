@@ -1,0 +1,71 @@
+{
+  "toolName": "a-b-test-calculator",
+  "inputs": [
+    {
+      "id": "sampleSizeA",
+      "label": "Örneklem Boyutu A",
+      "type": "number",
+      "unit": "adet",
+      "default": 1000,
+      "businessContext": "A varyantı için testteki toplam örnek sayısı"
+    },
+    {
+      "id": "conversionsA",
+      "label": "Dönüşüm A",
+      "type": "number",
+      "unit": "adet",
+      "default": 120,
+      "businessContext": "A varyantı için başarılı dönüşüm sayısı (örneğin tıklama, satın alma)"
+    },
+    {
+      "id": "sampleSizeB",
+      "label": "Örneklem Boyutu B",
+      "type": "number",
+      "unit": "adet",
+      "default": 1000,
+      "businessContext": "B varyantı için testteki toplam örnek sayısı"
+    },
+    {
+      "id": "conversionsB",
+      "label": "Dönüşüm B",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "businessContext": "B varyantı için başarılı dönüşüm sayısı"
+    },
+    {
+      "id": "confidence",
+      "label": "Güven Düzeyi",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "İstatistiksel anlamlılık için hedef güven seviyesi (genellikle 95)"
+    }
+  ],
+  "formulas": {
+    "pA": "conversionsA / sampleSizeA",
+    "pB": "conversionsB / sampleSizeB",
+    "pPool": "(conversionsA + conversionsB) / (sampleSizeA + sampleSizeB)",
+    "SE": "Math.sqrt(pPool * (1 - pPool) * (1/sampleSizeA + 1/sampleSizeB))",
+    "z": "(pA - pB) / SE",
+    "pValue": "2 * (1 / (1 + Math.exp(1.8138 * Math.sqrt(z * z))))",
+    "significant": "pValue < (1 - confidence / 100)",
+    "conversionRateA": "conversionsA / sampleSizeA",
+    "conversionRateB": "conversionsB / sampleSizeB"
+  },
+  "outputs": {
+    "primary": "significant",
+    "breakdown": [
+      "pValue",
+      "z",
+      "conversionRateA",
+      "conversionRateB"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

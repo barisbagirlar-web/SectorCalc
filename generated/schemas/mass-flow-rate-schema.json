@@ -1,0 +1,73 @@
+{
+  "toolName": "mass-flow-rate",
+  "inputs": [
+    {
+      "id": "density",
+      "label": "Density (kg/m³)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Fluid density at operating conditions"
+    },
+    {
+      "id": "velocity",
+      "label": "Flow Velocity (m/s)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 2,
+      "businessContext": "Average fluid velocity in pipe"
+    },
+    {
+      "id": "diameter",
+      "label": "Pipe Inner Diameter (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Internal diameter of the pipe"
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Fluid temperature for density correction if needed"
+    },
+    {
+      "id": "pressure",
+      "label": "Pressure (bar)",
+      "type": "number",
+      "unit": "bar",
+      "default": 1,
+      "businessContext": "Operating pressure for compressible fluids"
+    },
+    {
+      "id": "compressibility",
+      "label": "Compressibility Factor (Z)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "For gases, typically 1 for ideal gas"
+    }
+  ],
+  "formulas": {
+    "crossSectionArea": "Math.PI * (diameter / 2) ** 2",
+    "massFlowRate": "density * velocity * crossSectionArea",
+    "volumetricFlowRate": "velocity * crossSectionArea",
+    "correctedDensity": "density * (pressure / 1.01325) * (273.15 / (273.15 + temperature)) * compressibility"
+  },
+  "outputs": {
+    "primary": "massFlowRate",
+    "breakdown": [
+      "crossSectionArea",
+      "volumetricFlowRate",
+      "correctedDensity"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

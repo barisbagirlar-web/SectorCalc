@@ -1,0 +1,57 @@
+{
+  "toolName": "burn-rate-calculator",
+  "inputs": [
+    {
+      "id": "cashReserves",
+      "label": "Nakit Rezervi",
+      "type": "number",
+      "unit": "TRY",
+      "default": 100000,
+      "businessContext": "Mevcut toplam nakit rezervi miktarı."
+    },
+    {
+      "id": "monthlyFixedExpenses",
+      "label": "Aylık Sabit Giderler",
+      "type": "number",
+      "unit": "TRY",
+      "default": 20000,
+      "businessContext": "Kira, maaşlar, sabit abonelikler gibi her ay düzenli ödenen giderler."
+    },
+    {
+      "id": "monthlyVariableExpenses",
+      "label": "Aylık Değişken Giderler",
+      "type": "number",
+      "unit": "TRY",
+      "default": 10000,
+      "businessContext": "Pazarlama, hammadde, seyahat gibi aydan aya değişen giderler."
+    },
+    {
+      "id": "monthlyRevenue",
+      "label": "Aylık Gelir",
+      "type": "number",
+      "unit": "TRY",
+      "default": 5000,
+      "businessContext": "Satışlardan veya diğer kaynaklardan elde edilen aylık toplam gelir."
+    }
+  ],
+  "formulas": {
+    "totalExpenses": "monthlyFixedExpenses + monthlyVariableExpenses",
+    "grossBurnRate": "monthlyFixedExpenses + monthlyVariableExpenses",
+    "netBurnRate": "monthlyFixedExpenses + monthlyVariableExpenses - monthlyRevenue",
+    "runway": "netBurnRate > 0 ? cashReserves / netBurnRate : null"
+  },
+  "outputs": {
+    "primary": "runway",
+    "breakdown": [
+      "totalExpenses",
+      "grossBurnRate",
+      "netBurnRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

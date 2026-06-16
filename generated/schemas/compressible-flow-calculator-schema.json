@@ -1,0 +1,83 @@
+{
+  "toolName": "compressible-flow-calculator",
+  "inputs": [
+    {
+      "id": "upstreamPressure",
+      "label": "Upstream Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 5,
+      "businessContext": "Absolute pressure before the restriction"
+    },
+    {
+      "id": "downstreamPressure",
+      "label": "Downstream Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 1,
+      "businessContext": "Absolute pressure after the restriction"
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 293.15,
+      "businessContext": "Absolute temperature of the gas"
+    },
+    {
+      "id": "gasConstant",
+      "label": "Specific Gas Constant",
+      "type": "number",
+      "unit": "J/(kg·K)",
+      "default": 287,
+      "businessContext": "Gas constant for the specific gas (e.g., air)"
+    },
+    {
+      "id": "specificHeatRatio",
+      "label": "Specific Heat Ratio (γ)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.4,
+      "businessContext": "Ratio of specific heats (Cp/Cv)"
+    },
+    {
+      "id": "orificeDiameter",
+      "label": "Orifice Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Diameter of the orifice or restriction"
+    },
+    {
+      "id": "dischargeCoefficient",
+      "label": "Discharge Coefficient",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.85,
+      "businessContext": "Empirical coefficient accounting for losses"
+    }
+  ],
+  "formulas": {
+    "pressureRatio": "downstreamPressure / upstreamPressure",
+    "criticalPressureRatio": "(2 / (specificHeatRatio + 1)) ** (specificHeatRatio / (specificHeatRatio - 1))",
+    "flowType": "pressureRatio <= criticalPressureRatio ? 'choked' : 'subsonic'",
+    "massFlowRate": "dischargeCoefficient * (Math.PI / 4) * (orificeDiameter / 1000) ** 2 * upstreamPressure * 1e5 * Math.sqrt(specificHeatRatio / (gasConstant * temperature)) * (pressureRatio <= criticalPressureRatio ? Math.sqrt((2 / (specificHeatRatio + 1)) ** ((specificHeatRatio + 1) / (specificHeatRatio - 1))) : Math.sqrt((2 * specificHeatRatio / (specificHeatRatio - 1)) * (pressureRatio ** (2 / specificHeatRatio) - pressureRatio ** ((specificHeatRatio + 1) / specificHeatRatio))))",
+    "velocity": "massFlowRate / ( (Math.PI / 4) * (orificeDiameter / 1000) ** 2 * (downstreamPressure * 1e5) / (gasConstant * temperature) )"
+  },
+  "outputs": {
+    "primary": "massFlowRate",
+    "breakdown": [
+      "pressureRatio",
+      "criticalPressureRatio",
+      "flowType",
+      "velocity"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

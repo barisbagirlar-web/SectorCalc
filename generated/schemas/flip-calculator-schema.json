@@ -1,0 +1,74 @@
+{
+  "toolName": "flip-calculator",
+  "inputs": [
+    {
+      "id": "purchasePrice",
+      "label": "Alış Fiyatı",
+      "type": "number",
+      "unit": "€",
+      "default": 100000,
+      "businessContext": "Gayrimenkulün satın alma bedeli"
+    },
+    {
+      "id": "renovationCost",
+      "label": "Yenileme Maliyeti",
+      "type": "number",
+      "unit": "€",
+      "default": 20000,
+      "businessContext": "Tadilat ve yenileme giderleri"
+    },
+    {
+      "id": "holdingCosts",
+      "label": "Elde Etme Maliyetleri",
+      "type": "number",
+      "unit": "€",
+      "default": 5000,
+      "businessContext": "Emlak vergisi, sigorta, faiz gibi sahip olma süresindeki maliyetler"
+    },
+    {
+      "id": "sellingPrice",
+      "label": "Satış Fiyatı",
+      "type": "number",
+      "unit": "€",
+      "default": 150000,
+      "businessContext": "Gayrimenkulün satış fiyatı"
+    },
+    {
+      "id": "sellingCosts",
+      "label": "Satış Giderleri",
+      "type": "number",
+      "unit": "€",
+      "default": 10000,
+      "businessContext": "Emlakçı komisyonu, tapu harçları, pazarlama giderleri"
+    },
+    {
+      "id": "financingCosts",
+      "label": "Finansman Maliyeti",
+      "type": "number",
+      "unit": "€",
+      "default": 3000,
+      "businessContext": "Kredi faizi, dosya masrafları gibi finansman giderleri"
+    }
+  ],
+  "formulas": {
+    "totalInvestment": "purchasePrice + renovationCost + holdingCosts",
+    "grossProfit": "sellingPrice - totalInvestment - sellingCosts - financingCosts",
+    "netProfit": "grossProfit",
+    "roi": "totalInvestment !== 0 ? (netProfit / totalInvestment) * 100 : 0"
+  },
+  "outputs": {
+    "primary": "netProfit",
+    "breakdown": [
+      "totalInvestment",
+      "grossProfit",
+      "netProfit",
+      "roi"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

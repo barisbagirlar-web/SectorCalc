@@ -1,0 +1,75 @@
+{
+  "toolName": "function-calculator",
+  "inputs": [
+    {
+      "id": "x",
+      "label": "Değişken x",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 0,
+      "businessContext": "Hesaplanacak değişken değeri"
+    },
+    {
+      "id": "a",
+      "label": "Sinüs katsayısı (a)",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 1,
+      "businessContext": "Sinüs fonksiyonunun çarpanı"
+    },
+    {
+      "id": "b",
+      "label": "Sinüs frekansı (b)",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 1,
+      "businessContext": "Sinüs içindeki çarpan"
+    },
+    {
+      "id": "c",
+      "label": "Kosinüs katsayısı (c)",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 1,
+      "businessContext": "Kosinüs fonksiyonunun çarpanı"
+    },
+    {
+      "id": "d",
+      "label": "Kosinüs frekansı (d)",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 1,
+      "businessContext": "Kosinüs içindeki çarpan"
+    },
+    {
+      "id": "e",
+      "label": "Üstel katsayısı (e)",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 0,
+      "businessContext": "e^x teriminin katsayısı"
+    }
+  ],
+  "formulas": {
+    "primary": "a * Math.sin(b * x) + c * Math.cos(d * x) + e * Math.exp(x)",
+    "breakdown": [
+      "a * Math.sin(b * x)",
+      "c * Math.cos(d * x)",
+      "e * Math.exp(x)"
+    ]
+  },
+  "outputs": {
+    "primary": "Sonuç (y) = a * sin(b * x) + c * cos(d * x) + e * e^x",
+    "breakdown": [
+      "Sinüs terimi: a * sin(b * x)",
+      "Kosinüs terimi: c * cos(d * x)",
+      "Üstel terim: e * e^x"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

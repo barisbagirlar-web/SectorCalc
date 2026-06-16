@@ -1,0 +1,55 @@
+{
+  "toolName": "straight-line-depreciation-calculator",
+  "inputs": [
+    {
+      "id": "assetCost",
+      "label": "Asset Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Initial cost of the asset, including purchase price, installation, and delivery."
+    },
+    {
+      "id": "salvageValue",
+      "label": "Salvage Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000,
+      "businessContext": "Estimated residual value of the asset at the end of its useful life."
+    },
+    {
+      "id": "usefulLife",
+      "label": "Useful Life",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Expected duration the asset will be productive, in years."
+    },
+    {
+      "id": "yearsElapsed",
+      "label": "Years Elapsed",
+      "type": "number",
+      "unit": "years",
+      "default": 3,
+      "businessContext": "Number of years the asset has been in use, used to compute accumulated depreciation and book value."
+    }
+  ],
+  "formulas": {
+    "annualDepreciation": "(assetCost - salvageValue) / usefulLife",
+    "accumulatedDepreciation": "Math.min(yearsElapsed * (assetCost - salvageValue) / usefulLife, assetCost - salvageValue)",
+    "bookValue": "assetCost - Math.min(yearsElapsed * (assetCost - salvageValue) / usefulLife, assetCost - salvageValue)"
+  },
+  "outputs": {
+    "primary": "annualDepreciation",
+    "breakdown": [
+      "accumulatedDepreciation",
+      "bookValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

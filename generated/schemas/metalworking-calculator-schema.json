@@ -1,0 +1,71 @@
+{
+  "toolName": "metalworking-calculator",
+  "inputs": [
+    {
+      "id": "spindleSpeed",
+      "label": "Spindle Speed",
+      "type": "number",
+      "unit": "rpm",
+      "default": 1500,
+      "businessContext": "Rotational speed of the spindle"
+    },
+    {
+      "id": "toolDiameter",
+      "label": "Tool Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Diameter of the cutting tool"
+    },
+    {
+      "id": "numberFlutes",
+      "label": "Number of Flutes",
+      "type": "number",
+      "unit": "flutes",
+      "default": 4,
+      "businessContext": "Number of cutting flutes on the tool"
+    },
+    {
+      "id": "chipLoad",
+      "label": "Chip Load",
+      "type": "number",
+      "unit": "mm/tooth",
+      "default": 0.1,
+      "businessContext": "Thickness of material removed per tooth per revolution"
+    },
+    {
+      "id": "axialDepthOfCut",
+      "label": "Axial Depth of Cut",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Depth of material removal along the tool axis"
+    },
+    {
+      "id": "radialWidthOfCut",
+      "label": "Radial Width of Cut",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Width of material engagement perpendicular to tool axis"
+    }
+  ],
+  "formulas": {
+    "cuttingSpeed": "Math.PI * toolDiameter * spindleSpeed / 1000",
+    "feedRate": "numberFlutes * chipLoad * spindleSpeed",
+    "materialRemovalRate": "numberFlutes * chipLoad * spindleSpeed * axialDepthOfCut * radialWidthOfCut"
+  },
+  "outputs": {
+    "primary": "materialRemovalRate",
+    "breakdown": [
+      "cuttingSpeed",
+      "feedRate"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

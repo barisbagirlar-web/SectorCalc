@@ -1,0 +1,71 @@
+{
+  "toolName": "toll-calculator",
+  "inputs": [
+    {
+      "id": "distance_km",
+      "label": "Yol Mesafesi (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 500,
+      "businessContext": "Kat edilen mesafe"
+    },
+    {
+      "id": "base_toll_rate",
+      "label": "Temel Geçiş Ücreti (TL/km)",
+      "type": "number",
+      "unit": "TL/km",
+      "default": 0.25,
+      "businessContext": "Araç sınıfına göre km başına temel ücret"
+    },
+    {
+      "id": "axle_multiplier",
+      "label": "Aks/Köprü Çarpanı",
+      "type": "number",
+      "unit": "çarpan",
+      "default": 1,
+      "businessContext": "Aks sayısı veya sınıfına göre çarpan (örn. 2 aks:1.0, 3 aks:1.5, 4 aks:2.0)"
+    },
+    {
+      "id": "fixed_toll_fee",
+      "label": "Sabit Geçiş Ücreti (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Varsa sabit köprü/otoyol giriş ücreti"
+    },
+    {
+      "id": "weight_factor",
+      "label": "Ağırlık Faktörü",
+      "type": "number",
+      "unit": "çarpan",
+      "default": 1,
+      "businessContext": "Araç ağırlığına bağlı çevresel veya altyapı katkı çarpanı (örn. >10 ton)"
+    },
+    {
+      "id": "vat_rate",
+      "label": "KDV Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "businessContext": "Uygulanan katma değer vergisi oranı"
+    }
+  ],
+  "formulas": {
+    "total_toll_excl_vat": "distance_km * base_toll_rate * (axle_multiplier + weight_factor) + fixed_toll_fee",
+    "vat_amount": "total_toll_excl_vat * vat_rate / 100",
+    "total_toll_incl_vat": "total_toll_excl_vat + vat_amount"
+  },
+  "outputs": {
+    "primary": "total_toll_incl_vat",
+    "breakdown": [
+      "total_toll_excl_vat",
+      "vat_amount"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

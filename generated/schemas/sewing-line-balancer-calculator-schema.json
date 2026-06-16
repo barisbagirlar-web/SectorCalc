@@ -1,0 +1,295 @@
+{
+  "slug": "sewing-line-balancer",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "What-if simulation",
+    "Multi-line comparison"
+  ],
+  "inputs": [
+    {
+      "id": "total_work_content",
+      "label": "Total Work Content (TWC)",
+      "type": "number",
+      "unit": "seconds",
+      "default": 3600,
+      "min": 60,
+      "max": 36000,
+      "businessContext": "Sum of all standard times for operations in the sewing line (ISO 9001 time measurement).",
+      "label_i18n": {
+        "en": "Total Work Content (TWC)"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of all standard times for operations in the sewing line (ISO 9001 time measurement)."
+      }
+    },
+    {
+      "id": "number_of_operators",
+      "label": "Number of Operators",
+      "type": "number",
+      "unit": "persons",
+      "default": 20,
+      "min": 1,
+      "max": 200,
+      "businessContext": "Total direct labor assigned to the line.",
+      "label_i18n": {
+        "en": "Number of Operators"
+      },
+      "businessContext_i18n": {
+        "en": "Total direct labor assigned to the line."
+      }
+    },
+    {
+      "id": "takt_time",
+      "label": "Takt Time",
+      "type": "number",
+      "unit": "seconds",
+      "default": 180,
+      "min": 10,
+      "max": 600,
+      "businessContext": "Customer demand rate: available production time divided by required output (Lean manufacturing).",
+      "label_i18n": {
+        "en": "Takt Time"
+      },
+      "businessContext_i18n": {
+        "en": "Customer demand rate: available production time divided by required output (Lean manufacturing)."
+      }
+    },
+    {
+      "id": "bottleneck_time",
+      "label": "Bottleneck Station Time",
+      "type": "number",
+      "unit": "seconds",
+      "default": 200,
+      "min": 10,
+      "max": 600,
+      "businessContext": "Longest operation time among all stations (Theory of Constraints).",
+      "label_i18n": {
+        "en": "Bottleneck Station Time"
+      },
+      "businessContext_i18n": {
+        "en": "Longest operation time among all stations (Theory of Constraints)."
+      }
+    },
+    {
+      "id": "line_balance_type",
+      "label": "Line Balance Type",
+      "type": "select",
+      "unit": "",
+      "default": "straight",
+      "min": null,
+      "max": null,
+      "businessContext": "Configuration of the sewing line: straight, U-shape, or modular (Lean layout principles).",
+      "options": [
+        "straight",
+        "u_shape",
+        "modular"
+      ],
+      "label_i18n": {
+        "en": "Line Balance Type"
+      },
+      "businessContext_i18n": {
+        "en": "Configuration of the sewing line: straight, U-shape, or modular (Lean layout principles)."
+      }
+    },
+    {
+      "id": "allow_rebalancing",
+      "label": "Allow Rebalancing",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "min": null,
+      "max": null,
+      "businessContext": "If true, the tool will suggest operator reassignment to improve balance.",
+      "label_i18n": {
+        "en": "Allow Rebalancing"
+      },
+      "businessContext_i18n": {
+        "en": "If true, the tool will suggest operator reassignment to improve balance."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "twc_positive",
+        "condition": "total_work_content > 0",
+        "message": "Total Work Content must be greater than zero."
+      },
+      {
+        "id": "operators_positive",
+        "condition": "number_of_operators > 0",
+        "message": "Number of Operators must be at least 1."
+      },
+      {
+        "id": "takt_vs_bottleneck",
+        "condition": "bottleneck_time <= takt_time",
+        "message": "Bottleneck time must not exceed takt time to meet demand."
+      },
+      {
+        "id": "twc_vs_operators",
+        "condition": "total_work_content / number_of_operators <= takt_time",
+        "message": "Average work per operator exceeds takt time; line cannot meet demand."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "balance_efficiency_low",
+        "condition": "balance_efficiency < 0.80",
+        "level": "warning",
+        "message": "Balance efficiency below 80% – significant idle time or overload."
+      },
+      {
+        "id": "balance_efficiency_critical",
+        "condition": "balance_efficiency < 0.60",
+        "level": "critical",
+        "message": "Balance efficiency below 60% – line is severely unbalanced."
+      },
+      {
+        "id": "bottleneck_exceeds_takt",
+        "condition": "bottleneck_time > takt_time",
+        "level": "critical",
+        "message": "Bottleneck exceeds takt time – demand cannot be met without overtime or rebalancing."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "theoretical_min_operators",
+      "name": "Theoretical Minimum Operators",
+      "expression": "ceil(total_work_content / takt_time)",
+      "unit": "persons",
+      "description": "Minimum number of operators needed to meet takt time (Lean ideal)."
+    },
+    {
+      "id": "balance_efficiency",
+      "name": "Balance Efficiency",
+      "expression": "(total_work_content / (number_of_operators * bottleneck_time)) * 100",
+      "unit": "%",
+      "description": "Percentage of time the line is effectively utilized (Six Sigma metric)."
+    },
+    {
+      "id": "idle_time_per_cycle",
+      "name": "Idle Time per Cycle",
+      "expression": "(number_of_operators * bottleneck_time) - total_work_content",
+      "unit": "seconds",
+      "description": "Total idle time across all operators per cycle (waste identification)."
+    },
+    {
+      "id": "line_capacity",
+      "name": "Line Capacity",
+      "expression": "3600 / bottleneck_time",
+      "unit": "units/hour",
+      "description": "Maximum output per hour based on bottleneck (Theory of Constraints)."
+    },
+    {
+      "id": "demand_fulfillment_rate",
+      "name": "Demand Fulfillment Rate",
+      "expression": "min(1, takt_time / bottleneck_time) * 100",
+      "unit": "%",
+      "description": "Percentage of demand that can be met with current bottleneck (WERC logistics metric)."
+    },
+    {
+      "id": "labor_productivity",
+      "name": "Labor Productivity",
+      "expression": "total_work_content / (number_of_operators * 3600)",
+      "unit": "units/operator-hour",
+      "description": "Output per operator per hour (ISO 22400 productivity KPI)."
+    },
+    {
+      "id": "primary_result",
+      "name": "Overall Line Balance Score",
+      "expression": "balance_efficiency * (demand_fulfillment_rate / 100) * (1 - (idle_time_per_cycle / (number_of_operators * bottleneck_time)))",
+      "unit": "index",
+      "description": "Composite index combining efficiency, demand fulfillment, and waste reduction (0-100 scale)."
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "overall_line_balance_score",
+      "label": "Overall Line Balance Score",
+      "value": null,
+      "unit": "index",
+      "description": "Composite performance index (0-100) for the sewing line."
+    },
+    "breakdown": {
+      "theoretical_min_operators": {
+        "value": null,
+        "unit": "persons"
+      },
+      "balance_efficiency": {
+        "value": null,
+        "unit": "%"
+      },
+      "idle_time_per_cycle": {
+        "value": null,
+        "unit": "seconds"
+      },
+      "line_capacity": {
+        "value": null,
+        "unit": "units/hour"
+      },
+      "demand_fulfillment_rate": {
+        "value": null,
+        "unit": "%"
+      },
+      "labor_productivity": {
+        "value": null,
+        "unit": "units/operator-hour"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excess_motion",
+        "label": "Excess Motion Waste",
+        "description": "Operators walking or reaching beyond standard work area (Lean 7 wastes).",
+        "impact": "Increases bottleneck time by up to 15%."
+      },
+      {
+        "id": "quality_defects",
+        "label": "Quality Defects Rework",
+        "description": "Time spent reworking defective garments (Six Sigma DPMO).",
+        "impact": "Reduces effective total work content by 5-20%."
+      },
+      {
+        "id": "machine_downtime",
+        "label": "Machine Downtime",
+        "description": "Unplanned stops due to maintenance or setup (OEE metric).",
+        "impact": "Reduces line capacity proportionally."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "rebalance_operators",
+        "label": "Rebalance Operators",
+        "description": "Reassign work content to reduce bottleneck time to ≤ takt time.",
+        "expectedImprovement": "Balance efficiency increase of 10-30%."
+      },
+      {
+        "id": "reduce_bottleneck",
+        "label": "Reduce Bottleneck Time",
+        "description": "Apply Kaizen to the bottleneck station (method improvement, tooling, or automation).",
+        "expectedImprovement": "Bottleneck reduction of 10-25%."
+      },
+      {
+        "id": "cross_train_operators",
+        "label": "Cross-Train Operators",
+        "description": "Train operators on multiple stations to enable flexible rebalancing.",
+        "expectedImprovement": "Reduces idle time by 15%."
+      },
+      {
+        "id": "implement_andon",
+        "label": "Implement Andon System",
+        "description": "Real-time visual alerts for line stoppages to reduce downtime.",
+        "expectedImprovement": "Downtime reduction of 20%."
+      }
+    ],
+    "dataConfidenceAdjusted": 0.85
+  },
+  "toolName": "sewing-line-balancer-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

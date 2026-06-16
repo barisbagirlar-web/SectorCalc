@@ -1,0 +1,63 @@
+{
+  "toolName": "pilates-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight of the person in kilograms"
+    },
+    {
+      "id": "warmupDuration",
+      "label": "Warm-up Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 5,
+      "businessContext": "Duration of warm-up phase in minutes"
+    },
+    {
+      "id": "mainDuration",
+      "label": "Main Workout Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Duration of main Pilates exercises in minutes"
+    },
+    {
+      "id": "cooldownDuration",
+      "label": "Cool-down Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 5,
+      "businessContext": "Duration of cool-down stretching in minutes"
+    },
+    {
+      "id": "difficultyFactor",
+      "label": "Difficulty Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for overall intensity (e.g. 1.0 = normal, 1.2 = advanced)"
+    }
+  ],
+  "formulas": {
+    "caloriesBurned": "weight * (2.5 * warmupDuration / 60 + 3.5 * mainDuration / 60 + 2.0 * cooldownDuration / 60) * difficultyFactor",
+    "caloriesPerMinute": "caloriesBurned / (warmupDuration + mainDuration + cooldownDuration)",
+    "totalDuration": "warmupDuration + mainDuration + cooldownDuration"
+  },
+  "outputs": {
+    "primary": "caloriesBurned",
+    "breakdown": [
+      "caloriesPerMinute",
+      "totalDuration"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,29 @@
+{
+  "toolName": "torque-converter",
+  "inputs": [
+    {
+      "id": "torqueNm",
+      "label": "Torque (Nm)",
+      "type": "number",
+      "unit": "Nm",
+      "default": 100,
+      "businessContext": "Input torque in Newton-meters"
+    }
+  ],
+  "formulas": {
+    "torqueFtLb": "torqueNm * 0.7375621492772655"
+  },
+  "outputs": {
+    "primary": "Torque in ft-lb: {torqueFtLb}",
+    "breakdown": [
+      "Conversion factor: 1 Nm = 0.7375621492772655 ft-lb",
+      "Result: {torqueNm} Nm × 0.7375621492772655 = {torqueFtLb} ft-lb"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,74 @@
+{
+  "toolName": "aquarium-volume-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Tank Length (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 60,
+      "businessContext": "External length of the aquarium in centimeters."
+    },
+    {
+      "id": "width",
+      "label": "Tank Width (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "External width of the aquarium in centimeters."
+    },
+    {
+      "id": "height",
+      "label": "Tank Height (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 36,
+      "businessContext": "External height of the aquarium in centimeters."
+    },
+    {
+      "id": "waterFillDepth",
+      "label": "Water Fill Depth (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "Depth of water from the inside bottom glass to the water surface, in centimeters."
+    },
+    {
+      "id": "substrateDepth",
+      "label": "Substrate Depth (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 5,
+      "businessContext": "Average depth of substrate (sand, gravel) inside the aquarium, in centimeters."
+    },
+    {
+      "id": "glassThickness",
+      "label": "Glass Thickness (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Thickness of the glass panels used for the aquarium, in millimeters."
+    }
+  ],
+  "formulas": {
+    "interiorLength": "length - 2 * (glassThickness / 10)",
+    "interiorWidth": "width - 2 * (glassThickness / 10)",
+    "effectiveWaterDepth": "waterFillDepth - substrateDepth",
+    "volume_cm3": "interiorLength * interiorWidth * effectiveWaterDepth",
+    "waterVolume_L": "volume_cm3 / 1000",
+    "waterVolume_gal": "waterVolume_L * 0.264172"
+  },
+  "outputs": {
+    "primary": "waterVolume_L.toFixed(2) + ' L'",
+    "breakdown": [
+      "interiorLength.toFixed(1) + ' × ' + interiorWidth.toFixed(1) + ' × ' + effectiveWaterDepth.toFixed(1) + ' cm (internal volume: ' + volume_cm3.toFixed(0) + ' cm³)'",
+      "waterVolume_gal.toFixed(2) + ' US gallons'"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

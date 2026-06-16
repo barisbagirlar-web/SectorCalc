@@ -1,0 +1,62 @@
+// Auto-generated from ring-size-calculator-schema.json
+import * as z from 'zod';
+
+export interface Ring_size_calculatorInput {
+  diameter_mm: number;
+  circumference_mm: number;
+  diameter_inches: number;
+  circumference_inches: number;
+  calibration_factor: number;
+}
+
+export const Ring_size_calculatorInputSchema = z.object({
+  diameter_mm: z.number().default(0),
+  circumference_mm: z.number().default(0),
+  diameter_inches: z.number().default(0),
+  circumference_inches: z.number().default(0),
+  calibration_factor: z.number().default(1),
+});
+
+function evaluateAllFormulas(input: Ring_size_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.diameter_inches > 0 ? input.diameter_inches : (input.circumference_inches > 0 ? input.circumference_inches / Math.PI : (input.diameter_mm > 0 ? input.diameter_mm / 25.4 : (input.circumference_mm > 0 ? (input.circumference_mm / 25.4) / Math.PI : 0))); results["diameter_inches_used"] = Number.isFinite(v) ? v : 0; } catch { results["diameter_inches_used"] = 0; }
+  try { const v = ((results["diameter_inches_used"] ?? 0) - 0.562) / 0.087; results["us_size"] = Number.isFinite(v) ? v : 0; } catch { results["us_size"] = 0; }
+  try { const v = ((results["diameter_inches_used"] ?? 0) * Math.PI * 25.4) - 40; results["eu_size"] = Number.isFinite(v) ? v : 0; } catch { results["eu_size"] = 0; }
+  try { const v = (results["diameter_inches_used"] ?? 0) * Math.PI * 25.4; results["circumference_mm_used"] = Number.isFinite(v) ? v : 0; } catch { results["circumference_mm_used"] = 0; }
+  return results;
+}
+
+
+export function calculateRing_size_calculator(input: Ring_size_calculatorInput): Ring_size_calculatorOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values["us_size"] ?? 0;
+  const breakdown = {
+    
+  };
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    premiumRequired: false,
+    premiumFeatures: [],
+  };
+}
+
+
+export interface Ring_size_calculatorOutput {
+  totalWasteCost: number;
+  breakdown: {  };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+}

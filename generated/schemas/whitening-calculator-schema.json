@@ -1,0 +1,73 @@
+{
+  "toolName": "whitening-calculator",
+  "inputs": [
+    {
+      "id": "initialL",
+      "label": "Başlangıç L*",
+      "type": "number",
+      "unit": "",
+      "default": 90,
+      "businessContext": "Ilk L* değeri (açıklık-koyuluk)"
+    },
+    {
+      "id": "initiala",
+      "label": "Başlangıç a*",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Ilk a* değeri (kırmızı-yeşil)"
+    },
+    {
+      "id": "initialb",
+      "label": "Başlangıç b*",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Ilk b* değeri (sarı-mavi)"
+    },
+    {
+      "id": "finalL",
+      "label": "Sonuç L*",
+      "type": "number",
+      "unit": "",
+      "default": 95,
+      "businessContext": "Sonuç L* değeri"
+    },
+    {
+      "id": "finala",
+      "label": "Sonuç a*",
+      "type": "number",
+      "unit": "",
+      "default": -0.5,
+      "businessContext": "Sonuç a* değeri"
+    },
+    {
+      "id": "finalb",
+      "label": "Sonuç b*",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Sonuç b* değeri"
+    }
+  ],
+  "formulas": {
+    "colorDifference": "Math.sqrt((finalL - initialL)**2 + (finala - initiala)**2 + (finalb - initialb)**2)",
+    "lightnessShift": "finalL - initialL",
+    "redGreenShift": "finala - initiala",
+    "yellowBlueShift": "finalb - initialb"
+  },
+  "outputs": {
+    "primary": "colorDifference",
+    "breakdown": [
+      "lightnessShift",
+      "redGreenShift",
+      "yellowBlueShift"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

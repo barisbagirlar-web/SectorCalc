@@ -1,0 +1,63 @@
+{
+  "toolName": "healthy-life-years-calculator",
+  "inputs": [
+    {
+      "id": "life_expectancy",
+      "label": "Life Expectancy at Birth (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 73,
+      "businessContext": "Total expected years of life from birth based on current mortality rates."
+    },
+    {
+      "id": "severe_prevalence",
+      "label": "Prevalence of Severe Activity Limitation",
+      "type": "number",
+      "unit": "proportion",
+      "default": 0.1,
+      "businessContext": "Proportion of population with severe long-standing activity limitation, expressed as a decimal (0-1)."
+    },
+    {
+      "id": "moderate_prevalence",
+      "label": "Prevalence of Moderate Activity Limitation",
+      "type": "number",
+      "unit": "proportion",
+      "default": 0.15,
+      "businessContext": "Proportion of population with moderate activity limitation, expressed as a decimal (0-1)."
+    },
+    {
+      "id": "severe_weight",
+      "label": "Disability Weight for Severe Limitation",
+      "type": "number",
+      "unit": "factor",
+      "default": 0.7,
+      "businessContext": "Health loss weight for severe state (0 = full health, 1 = worst possible health)."
+    },
+    {
+      "id": "moderate_weight",
+      "label": "Disability Weight for Moderate Limitation",
+      "type": "number",
+      "unit": "factor",
+      "default": 0.3,
+      "businessContext": "Health loss weight for moderate state (0 = full health, 1 = worst possible health)."
+    }
+  ],
+  "formulas": {
+    "healthy_life_years": "life_expectancy * (1 - (severe_prevalence * severe_weight + moderate_prevalence * moderate_weight))",
+    "total_life_expectancy": "life_expectancy",
+    "unhealthy_years": "life_expectancy * (severe_prevalence * severe_weight + moderate_prevalence * moderate_weight)"
+  },
+  "outputs": {
+    "primary": "healthy_life_years",
+    "breakdown": [
+      "total_life_expectancy",
+      "unhealthy_years"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

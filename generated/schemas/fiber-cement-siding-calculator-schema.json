@@ -1,0 +1,88 @@
+{
+  "toolName": "fiber-cement-siding-calculator",
+  "inputs": [
+    {
+      "id": "wall_length",
+      "label": "Wall Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Total length of the wall to be covered"
+    },
+    {
+      "id": "wall_height",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Height of the wall from foundation to eaves"
+    },
+    {
+      "id": "siding_width",
+      "label": "Siding Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.2,
+      "businessContext": "Width of one fiber cement siding plank"
+    },
+    {
+      "id": "siding_overlap",
+      "label": "Siding Overlap",
+      "type": "number",
+      "unit": "m",
+      "default": 0.025,
+      "businessContext": "Vertical overlap between siding courses"
+    },
+    {
+      "id": "waste_factor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage allowance for cutting waste and breakage"
+    },
+    {
+      "id": "labor_rate",
+      "label": "Labor Rate",
+      "type": "number",
+      "unit": "USD/m²",
+      "default": 15,
+      "businessContext": "Cost of labor per square meter installed"
+    },
+    {
+      "id": "material_cost",
+      "label": "Material Cost",
+      "type": "number",
+      "unit": "USD/m²",
+      "default": 25,
+      "businessContext": "Cost of fiber cement siding per square meter"
+    }
+  ],
+  "formulas": {
+    "net_area": "wall_length * wall_height",
+    "exposed_width": "siding_width - siding_overlap",
+    "courses": "Math.ceil(wall_height / exposed_width)",
+    "total_siding_length": "courses * wall_length",
+    "gross_area": "total_siding_length * siding_width",
+    "waste_multiplier": "1 + waste_factor / 100",
+    "material_needed": "gross_area * waste_multiplier",
+    "material_cost_total": "material_needed * material_cost",
+    "labor_cost_total": "net_area * labor_rate",
+    "total_cost": "material_cost_total + labor_cost_total"
+  },
+  "outputs": {
+    "primary": "total_cost",
+    "breakdown": [
+      "net_area",
+      "material_needed",
+      "material_cost_total",
+      "labor_cost_total"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

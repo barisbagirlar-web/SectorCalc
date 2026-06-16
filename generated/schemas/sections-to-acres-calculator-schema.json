@@ -1,0 +1,54 @@
+{
+  "toolName": "sections-to-acres-calculator",
+  "inputs": [
+    {
+      "id": "fullSections",
+      "label": "Full Sections",
+      "type": "number",
+      "unit": "section",
+      "default": 0,
+      "businessContext": "Number of complete survey sections"
+    },
+    {
+      "id": "halfSections",
+      "label": "Half Sections",
+      "type": "number",
+      "unit": "half-section",
+      "default": 0,
+      "businessContext": "Number of half sections (320 acres each)"
+    },
+    {
+      "id": "quarterSections",
+      "label": "Quarter Sections",
+      "type": "number",
+      "unit": "quarter-section",
+      "default": 0,
+      "businessContext": "Number of quarter sections (160 acres each)"
+    },
+    {
+      "id": "quarterQuarterSections",
+      "label": "Quarter-Quarter Sections",
+      "type": "number",
+      "unit": "quarter-quarter-section",
+      "default": 0,
+      "businessContext": "Number of quarter-quarter sections (40 acres each)"
+    }
+  ],
+  "formulas": {
+    "totalSections": "fullSections + 0.5 * halfSections + 0.25 * quarterSections + 0.0625 * quarterQuarterSections",
+    "acres": "totalSections * 640"
+  },
+  "outputs": {
+    "primary": "acres",
+    "breakdown": [
+      "totalSections",
+      "acres"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

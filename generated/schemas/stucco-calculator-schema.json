@@ -1,0 +1,63 @@
+{
+  "toolName": "stucco-calculator",
+  "inputs": [
+    {
+      "id": "wallArea",
+      "label": "Duvar Alanı",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "businessContext": "Sıvanacak toplam duvar alanı (m² cinsinden)."
+    },
+    {
+      "id": "thickness",
+      "label": "Sıva Kalınlığı",
+      "type": "number",
+      "unit": "mm",
+      "default": 20,
+      "businessContext": "Uygulanacak toplam sıva kalınlığı (mm cinsinden)."
+    },
+    {
+      "id": "kgPerSqmPerMm",
+      "label": "Karışım Yoğunluğu",
+      "type": "number",
+      "unit": "kg/(m²·mm)",
+      "default": 1,
+      "businessContext": "1 m² alanda 1 mm kalınlık için gereken kuru sıva karışımı ağırlığı (kg). Tipik değer 1.0 kg/(m²·mm)."
+    },
+    {
+      "id": "bagWeight",
+      "label": "Torba Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 25,
+      "businessContext": "Bir torba sıva karışımının net ağırlığı (kg)."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Uygulama sırasında oluşacak fire oranı (% cinsinden)."
+    }
+  ],
+  "formulas": {
+    "totalDryMix": "wallArea * thickness * kgPerSqmPerMm * (1 + wasteFactor / 100)",
+    "totalBags": "Math.ceil(totalDryMix / bagWeight)"
+  },
+  "outputs": {
+    "primary": "Gerekli Torba Sayısı: {{totalBags}}",
+    "breakdown": [
+      "Toplam kuru karışım (fire dahil): {{totalDryMix.toFixed(2)}} kg",
+      "Fire oranı: %{{wasteFactor}}",
+      "Torba ağırlığı: {{bagWeight}} kg"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "bit-depth-calculator",
+  "inputs": [
+    {
+      "id": "bitDepth",
+      "label": "Bit Depth",
+      "type": "number",
+      "unit": "bit",
+      "default": 16,
+      "businessContext": "Number of bits used to represent each sample. Determines dynamic range and number of possible values."
+    },
+    {
+      "id": "sampleRate",
+      "label": "Sample Rate",
+      "type": "number",
+      "unit": "Hz",
+      "default": 44100,
+      "businessContext": "Samples per second. Common values: 44.1 kHz for CD, 48 kHz for video, 96 kHz for high‑res."
+    },
+    {
+      "id": "numChannels",
+      "label": "Number of Channels",
+      "type": "number",
+      "unit": "channels",
+      "default": 2,
+      "businessContext": "1 for mono, 2 for stereo, 5.1 for surround, etc."
+    },
+    {
+      "id": "duration",
+      "label": "Duration",
+      "type": "number",
+      "unit": "seconds",
+      "default": 300,
+      "businessContext": "Duration of the audio stream in seconds."
+    }
+  ],
+  "formulas": {
+    "dynamicRange": "20 * Math.log(Math.pow(2, bitDepth)) / Math.LN10",
+    "numberOfLevels": "Math.pow(2, bitDepth)",
+    "bitRate": "bitDepth * sampleRate * numChannels",
+    "fileSize": "bitDepth * sampleRate * numChannels * duration / 8"
+  },
+  "outputs": {
+    "primary": "dynamicRange",
+    "breakdown": [
+      "numberOfLevels",
+      "bitRate",
+      "fileSize"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

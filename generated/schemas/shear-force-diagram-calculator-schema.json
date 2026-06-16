@@ -1,0 +1,57 @@
+{
+  "toolName": "shear-force-diagram-calculator",
+  "inputs": [
+    {
+      "id": "beamLength",
+      "label": "Beam Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of the beam between supports"
+    },
+    {
+      "id": "loadMagnitude",
+      "label": "Point Load",
+      "type": "number",
+      "unit": "kN",
+      "default": 100,
+      "businessContext": "Magnitude of the concentrated load"
+    },
+    {
+      "id": "loadDistanceFromLeft",
+      "label": "Load Distance from Left",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Distance from left support to the load application point"
+    },
+    {
+      "id": "calculationPoint",
+      "label": "Shear Force Location",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Distance from left support at which shear force is evaluated"
+    }
+  ],
+  "formulas": {
+    "leftReaction": "(loadMagnitude * (beamLength - loadDistanceFromLeft)) / beamLength",
+    "rightReaction": "(loadMagnitude * loadDistanceFromLeft) / beamLength",
+    "shearForce": "calculationPoint <= loadDistanceFromLeft ? (loadMagnitude * (beamLength - loadDistanceFromLeft)) / beamLength : -(loadMagnitude * loadDistanceFromLeft) / beamLength",
+    "maxShearForce": "Math.max((loadMagnitude * (beamLength - loadDistanceFromLeft)) / beamLength, (loadMagnitude * loadDistanceFromLeft) / beamLength)"
+  },
+  "outputs": {
+    "primary": "shearForce",
+    "breakdown": [
+      "leftReaction",
+      "rightReaction",
+      "maxShearForce"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

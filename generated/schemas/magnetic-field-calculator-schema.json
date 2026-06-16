@@ -1,0 +1,53 @@
+{
+  "toolName": "magnetic-field-calculator",
+  "inputs": [
+    {
+      "id": "current",
+      "label": "Current (I)",
+      "type": "number",
+      "unit": "A",
+      "default": 1,
+      "businessContext": "Elektrik akımı (Amper)"
+    },
+    {
+      "id": "turns",
+      "label": "Number of Turns (N)",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "Bobindeki sarım sayısı"
+    },
+    {
+      "id": "length",
+      "label": "Length (L)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Bobin uzunluğu (metre)"
+    },
+    {
+      "id": "permeability",
+      "label": "Relative Permeability (μᵣ)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Çekirdek malzemenin bağıl manyetik geçirgenliği"
+    }
+  ],
+  "formulas": {
+    "B": "1.2566370614359172e-6 * permeability * (turns / length) * current"
+  },
+  "outputs": {
+    "primary": "Magnetic Field (B) in Tesla",
+    "breakdown": [
+      "B = μ₀ * μᵣ * (N / L) * I",
+      "μ₀ = 4π × 10⁻⁷ T·m/A ≈ 1.2566370614359172e-6"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

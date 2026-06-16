@@ -1,0 +1,55 @@
+{
+  "toolName": "three-phase-calculator",
+  "inputs": [
+    {
+      "id": "voltage",
+      "label": "Voltage (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 400,
+      "businessContext": "Enter the phase-to-phase voltage if Voltage Type is 1, or phase-to-neutral if 0."
+    },
+    {
+      "id": "current",
+      "label": "Current (A)",
+      "type": "number",
+      "unit": "A",
+      "default": 10,
+      "businessContext": "Line current in amperes."
+    },
+    {
+      "id": "powerFactor",
+      "label": "Power Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.85,
+      "businessContext": "Power factor (0 to 1)."
+    },
+    {
+      "id": "voltageType",
+      "label": "Voltage Type",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for line-to-line, 0 for line-to-neutral."
+    }
+  ],
+  "formulas": {
+    "realPower": "voltageType == 1 ? (Math.sqrt(3) * voltage * current * powerFactor / 1000) : (3 * voltage * current * powerFactor / 1000)",
+    "apparentPower": "voltageType == 1 ? (Math.sqrt(3) * voltage * current / 1000) : (3 * voltage * current / 1000)",
+    "reactivePower": "apparentPower * Math.sin(Math.acos(powerFactor))"
+  },
+  "outputs": {
+    "primary": "realPower",
+    "breakdown": [
+      "apparentPower",
+      "reactivePower"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

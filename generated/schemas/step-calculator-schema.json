@@ -1,0 +1,67 @@
+{
+  "toolName": "step-calculator",
+  "inputs": [
+    {
+      "id": "totalHeight",
+      "label": "Total Height (floor-to-floor)",
+      "type": "number",
+      "unit": "cm",
+      "default": 280,
+      "businessContext": "Floor-to-floor vertical distance in centimeters"
+    },
+    {
+      "id": "stepHeight",
+      "label": "Desired Step Height (Riser)",
+      "type": "number",
+      "unit": "cm",
+      "default": 18,
+      "businessContext": "Preferred riser height, typically 15-20 cm"
+    },
+    {
+      "id": "stepDepth",
+      "label": "Step Depth (Tread)",
+      "type": "number",
+      "unit": "cm",
+      "default": 28,
+      "businessContext": "Horizontal depth of each step, typically 25-30 cm"
+    },
+    {
+      "id": "landingWidth",
+      "label": "Landing Width",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Width of any intermediate landing, or 0 if none"
+    },
+    {
+      "id": "headroom",
+      "label": "Headroom Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 210,
+      "businessContext": "Vertical clearance above stairs for safety compliance"
+    }
+  ],
+  "formulas": {
+    "numberOfSteps": "Math.ceil(totalHeight / stepHeight)",
+    "actualStepHeight": "totalHeight / numberOfSteps",
+    "totalRun": "(numberOfSteps - 1) * stepDepth",
+    "totalLength": "totalRun + landingWidth",
+    "headroomCompliant": "headroom >= 210 ? 'Compliant' : 'Non-compliant'"
+  },
+  "outputs": {
+    "primary": "numberOfSteps",
+    "breakdown": [
+      "actualStepHeight",
+      "totalRun",
+      "totalLength",
+      "headroomCompliant"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

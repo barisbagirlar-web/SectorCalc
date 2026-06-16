@@ -1,0 +1,75 @@
+{
+  "toolName": "gratitude-calculator",
+  "inputs": [
+    {
+      "id": "daily_acts",
+      "label": "Daily Acts of Gratitude",
+      "type": "number",
+      "unit": "acts",
+      "default": 3,
+      "businessContext": "Number of gratitude practices performed per day"
+    },
+    {
+      "id": "days_practiced",
+      "label": "Days Practiced",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Total days gratitude practice has been maintained"
+    },
+    {
+      "id": "intensity_factor",
+      "label": "Intensity Factor",
+      "type": "number",
+      "unit": "1-10",
+      "default": 7,
+      "businessContext": "Self-rated intensity of gratitude experience (1=low, 10=high)"
+    },
+    {
+      "id": "social_shares",
+      "label": "Social Shares",
+      "type": "number",
+      "unit": "shares",
+      "default": 2,
+      "businessContext": "Number of times gratitude is expressed to others per day"
+    },
+    {
+      "id": "journal_entries",
+      "label": "Journal Entries",
+      "type": "number",
+      "unit": "entries",
+      "default": 1,
+      "businessContext": "Number of gratitude journal entries per day"
+    },
+    {
+      "id": "baseline_happiness",
+      "label": "Baseline Happiness",
+      "type": "number",
+      "unit": "1-10",
+      "default": 5,
+      "businessContext": "Self-rated happiness level before starting practice"
+    }
+  ],
+  "formulas": {
+    "gratitude_score": "daily_acts * days_practiced * (intensity_factor / 10)",
+    "social_impact": "social_shares * days_practiced * 0.5",
+    "reflection_depth": "journal_entries * days_practiced * Math.log(intensity_factor + 1)",
+    "happiness_gain": "(gratitude_score + social_impact + reflection_depth) / 100 + (baseline_happiness * 0.1)",
+    "overall_gratitude_index": "Math.sqrt(gratitude_score * social_impact * reflection_depth) + happiness_gain"
+  },
+  "outputs": {
+    "primary": "overall_gratitude_index",
+    "breakdown": [
+      "gratitude_score: Total gratitude actions weighted by intensity",
+      "social_impact: Effect of sharing gratitude with others",
+      "reflection_depth: Depth of gratitude reflection through journaling",
+      "happiness_gain: Estimated increase in happiness level"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

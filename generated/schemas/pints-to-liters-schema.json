@@ -1,0 +1,36 @@
+{
+  "toolName": "pints-to-liters",
+  "inputs": [
+    {
+      "id": "pints",
+      "label": "Pints (US liquid)",
+      "type": "number",
+      "unit": "pt",
+      "default": 1,
+      "businessContext": "Volume of liquid in US pints"
+    },
+    {
+      "id": "pintType",
+      "label": "Pint type",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for US liquid pint, 2 for US dry pint, 3 for Imperial pint"
+    }
+  ],
+  "formulas": {
+    "liters": "pintType === 1 ? pints * 0.473176473 : pintType === 2 ? pints * 0.550610471 : pints * 0.56826125"
+  },
+  "outputs": {
+    "primary": "liters",
+    "breakdown": [
+      "pints * conversionFactor"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

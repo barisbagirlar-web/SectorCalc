@@ -1,0 +1,57 @@
+{
+  "toolName": "cross-validation-calculator",
+  "inputs": [
+    {
+      "id": "k",
+      "label": "Number of Folds (k)",
+      "type": "number",
+      "unit": "folds",
+      "default": 5,
+      "businessContext": "Number of folds used in k-fold cross-validation."
+    },
+    {
+      "id": "mean_score",
+      "label": "Mean Performance Score",
+      "type": "number",
+      "unit": "score",
+      "default": 0.85,
+      "businessContext": "Average of the performance metric (e.g., accuracy, F1) across all folds."
+    },
+    {
+      "id": "std_score",
+      "label": "Standard Deviation of Performance Scores",
+      "type": "number",
+      "unit": "score",
+      "default": 0.05,
+      "businessContext": "Standard deviation of the performance metric across folds."
+    },
+    {
+      "id": "sample_size",
+      "label": "Total Sample Size",
+      "type": "number",
+      "unit": "samples",
+      "default": 1000,
+      "businessContext": "Total number of samples in the dataset (for context, not used in formulas)."
+    }
+  ],
+  "formulas": {
+    "standard_error": "std_score / Math.sqrt(k)",
+    "margin_of_error_95": "1.96 * standard_error",
+    "lower_ci_95": "mean_score - margin_of_error_95",
+    "upper_ci_95": "mean_score + margin_of_error_95"
+  },
+  "outputs": {
+    "primary": "standard_error",
+    "breakdown": [
+      "margin_of_error_95",
+      "lower_ci_95",
+      "upper_ci_95"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

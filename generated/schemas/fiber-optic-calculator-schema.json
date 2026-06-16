@@ -1,0 +1,78 @@
+{
+  "toolName": "fiber-optic-calculator",
+  "inputs": [
+    {
+      "id": "fiberLength",
+      "label": "Fiber Length",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "Total cable length of the fiber optic link."
+    },
+    {
+      "id": "attenuationCoeff",
+      "label": "Attenuation Coefficient",
+      "type": "number",
+      "unit": "dB/km",
+      "default": 0.2,
+      "businessContext": "Attenuation per kilometer at the operating wavelength (e.g., 1550 nm for single-mode)."
+    },
+    {
+      "id": "inputPower",
+      "label": "Input Power",
+      "type": "number",
+      "unit": "dBm",
+      "default": 0,
+      "businessContext": "Transmitter output power in dBm."
+    },
+    {
+      "id": "numSplices",
+      "label": "Number of Splices",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Count of fusion splices along the fiber path."
+    },
+    {
+      "id": "spliceLoss",
+      "label": "Splice Loss",
+      "type": "number",
+      "unit": "dB",
+      "default": 0.05,
+      "businessContext": "Average loss per fusion splice."
+    },
+    {
+      "id": "numConnectors",
+      "label": "Number of Connectors",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of connector pairs (e.g., at patch panels, equipment interfaces)."
+    },
+    {
+      "id": "connectorLoss",
+      "label": "Connector Loss",
+      "type": "number",
+      "unit": "dB",
+      "default": 0.5,
+      "businessContext": "Loss per connector pair."
+    }
+  ],
+  "formulas": {
+    "totalLoss": "fiberLength * attenuationCoeff + numSplices * spliceLoss + numConnectors * connectorLoss",
+    "receivedPower": "inputPower - totalLoss"
+  },
+  "outputs": {
+    "primary": "${receivedPower} dBm",
+    "breakdown": [
+      "Total Link Loss: ${totalLoss} dB",
+      "Received Power: ${receivedPower} dBm"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

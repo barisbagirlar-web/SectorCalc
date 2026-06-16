@@ -1,0 +1,86 @@
+{
+  "toolName": "orchard-calculator",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "Orchard Area",
+      "type": "number",
+      "unit": "ha",
+      "default": 10,
+      "businessContext": "Total orchard area in hectares"
+    },
+    {
+      "id": "rowSpacing",
+      "label": "Row Spacing",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Distance between tree rows"
+    },
+    {
+      "id": "treeSpacing",
+      "label": "Tree Spacing",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Distance between trees within a row"
+    },
+    {
+      "id": "yieldPerTree",
+      "label": "Yield Per Tree",
+      "type": "number",
+      "unit": "kg/tree/year",
+      "default": 50,
+      "businessContext": "Average fruit yield per mature tree per year"
+    },
+    {
+      "id": "pricePerKg",
+      "label": "Selling Price",
+      "type": "number",
+      "unit": "$/kg",
+      "default": 2,
+      "businessContext": "Farmgate price per kilogram"
+    },
+    {
+      "id": "annualCostPerTree",
+      "label": "Maintenance Cost",
+      "type": "number",
+      "unit": "$/tree/year",
+      "default": 15,
+      "businessContext": "Annual cost for pruning, spraying, fertilizing per tree"
+    },
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "$",
+      "default": 50000,
+      "businessContext": "Total one-time cost for land prep, seedlings, infrastructure"
+    }
+  ],
+  "formulas": {
+    "treesPerHa": "10000 / (rowSpacing * treeSpacing)",
+    "totalTrees": "area * treesPerHa",
+    "totalYield": "totalTrees * yieldPerTree",
+    "totalRevenue": "totalYield * pricePerKg",
+    "annualCost": "totalTrees * annualCostPerTree",
+    "annualProfit": "totalRevenue - annualCost",
+    "paybackPeriod": "initialInvestment / annualProfit"
+  },
+  "outputs": {
+    "primary": "annualProfit",
+    "breakdown": [
+      "totalTrees",
+      "totalYield",
+      "totalRevenue",
+      "annualCost",
+      "paybackPeriod"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

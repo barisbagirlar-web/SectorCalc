@@ -1,0 +1,72 @@
+{
+  "toolName": "freight-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Shipping Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "businessContext": "The total distance the freight will travel from origin to destination."
+    },
+    {
+      "id": "weight",
+      "label": "Shipment Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Total weight of the goods being shipped."
+    },
+    {
+      "id": "fuelCostPerLiter",
+      "label": "Fuel Cost per Liter",
+      "type": "number",
+      "unit": "$/L",
+      "default": 1.5,
+      "businessContext": "Current cost of diesel or fuel per liter."
+    },
+    {
+      "id": "fuelEfficiency",
+      "label": "Fuel Efficiency",
+      "type": "number",
+      "unit": "km/L",
+      "default": 5,
+      "businessContext": "Average kilometers the transport vehicle travels per liter of fuel."
+    },
+    {
+      "id": "ratePerKg",
+      "label": "Handling Rate per Kg",
+      "type": "number",
+      "unit": "$/kg",
+      "default": 0.1,
+      "businessContext": "Cost of handling, loading, and unloading per kilogram."
+    },
+    {
+      "id": "otherCharges",
+      "label": "Additional Charges",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Any tolls, surcharges, or fixed costs not included elsewhere."
+    }
+  ],
+  "formulas": {
+    "fuelCost": "distance / fuelEfficiency * fuelCostPerLiter",
+    "weightCost": "weight * ratePerKg",
+    "totalCost": "fuelCost + weightCost + otherCharges"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "fuelCost",
+      "weightCost",
+      "otherCharges"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

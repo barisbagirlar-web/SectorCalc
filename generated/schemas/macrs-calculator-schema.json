@@ -1,0 +1,71 @@
+{
+  "toolName": "macrs-calculator",
+  "inputs": [
+    {
+      "id": "assetCost",
+      "label": "Asset Cost ($)",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "The total capitalized cost of the asset."
+    },
+    {
+      "id": "bonusPercentage",
+      "label": "Bonus Depreciation (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Additional first-year bonus depreciation percentage."
+    },
+    {
+      "id": "section179",
+      "label": "Section 179 Expensing ($)",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Immediate expense deduction under Section 179."
+    },
+    {
+      "id": "macrsRateYear1",
+      "label": "Year 1 MACRS Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "MACRS depreciation rate for the first year based on asset class and convention."
+    },
+    {
+      "id": "recoveryPeriod",
+      "label": "Recovery Period (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "The MACRS recovery period of the asset (3,5,7,10,15,20)."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 21,
+      "businessContext": "Corporate income tax rate for calculating tax savings from depreciation."
+    }
+  ],
+  "formulas": {
+    "depreciableBasis": "assetCost - section179 - (assetCost * bonusPercentage / 100)",
+    "firstYearDepreciation": "depreciableBasis * macrsRateYear1 / 100",
+    "taxSavings": "firstYearDepreciation * taxRate / 100"
+  },
+  "outputs": {
+    "primary": "firstYearDepreciation",
+    "breakdown": [
+      "depreciableBasis",
+      "taxSavings"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

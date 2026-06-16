@@ -1,0 +1,86 @@
+{
+  "toolName": "plagiarism-calculator",
+  "inputs": [
+    {
+      "id": "matchingWords",
+      "label": "Eşleşen Kelime Sayısı",
+      "type": "number",
+      "unit": "kelime",
+      "default": 0,
+      "businessContext": "Her iki belgede bulunan aynı kelimelerin sayısı"
+    },
+    {
+      "id": "totalWordsDocA",
+      "label": "Belge A Toplam Kelime",
+      "type": "number",
+      "unit": "kelime",
+      "default": 0,
+      "businessContext": "Belge A'nın toplam kelime sayısı"
+    },
+    {
+      "id": "totalWordsDocB",
+      "label": "Belge B Toplam Kelime",
+      "type": "number",
+      "unit": "kelime",
+      "default": 0,
+      "businessContext": "Belge B'nin toplam kelime sayısı"
+    },
+    {
+      "id": "matchingCitations",
+      "label": "Eşleşen Atıf Sayısı",
+      "type": "number",
+      "unit": "atıf",
+      "default": 0,
+      "businessContext": "İki belge arasındaki ortak atıf sayısı"
+    },
+    {
+      "id": "totalCitationsA",
+      "label": "Belge A Toplam Atıf",
+      "type": "number",
+      "unit": "atıf",
+      "default": 0,
+      "businessContext": "Belge A'daki toplam atıf sayısı"
+    },
+    {
+      "id": "totalCitationsB",
+      "label": "Belge B Toplam Atıf",
+      "type": "number",
+      "unit": "atıf",
+      "default": 0,
+      "businessContext": "Belge B'deki toplam atıf sayısı"
+    }
+  ],
+  "formulas": {
+    "wordSimilarity": "(matchingWords / Math.max(totalWordsDocA || totalWordsDocB || 1, 1)) * 100",
+    "citationOverlap": "(matchingCitations / Math.max(totalCitationsA || totalCitationsB || 1, 1)) * 100",
+    "overallSimilarity": "(wordSimilarity * 0.7 + citationOverlap * 0.3)"
+  },
+  "outputs": {
+    "primary": {
+      "id": "overallSimilarity",
+      "label": "Genel Benzerlik Oranı",
+      "unit": "%",
+      "formula": "overallSimilarity"
+    },
+    "breakdown": [
+      {
+        "id": "wordSimilarity",
+        "label": "Kelime Benzerliği",
+        "unit": "%",
+        "formula": "wordSimilarity"
+      },
+      {
+        "id": "citationOverlap",
+        "label": "Atıf Örtüşmesi",
+        "unit": "%",
+        "formula": "citationOverlap"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

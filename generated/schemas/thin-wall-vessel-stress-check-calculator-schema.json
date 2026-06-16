@@ -1,0 +1,63 @@
+{
+  "toolName": "thin-wall-vessel-stress-check-calculator",
+  "inputs": [
+    {
+      "id": "P",
+      "label": "Internal Pressure (P)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 1,
+      "businessContext": "Internal design pressure of the vessel"
+    },
+    {
+      "id": "D",
+      "label": "Inside Diameter (D)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "businessContext": "Nominal inner diameter of the shell"
+    },
+    {
+      "id": "t",
+      "label": "Wall Thickness (t)",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Minimum required wall thickness after corrosion allowance"
+    },
+    {
+      "id": "S",
+      "label": "Allowable Stress (S)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 150,
+      "businessContext": "Maximum allowable stress of material at design temperature"
+    },
+    {
+      "id": "E",
+      "label": "Weld Joint Efficiency (E)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Joint efficiency factor per design code (e.g., ASME UW-12)"
+    }
+  ],
+  "formulas": {
+    "hoopStress": "(P * D) / (2 * t * E)",
+    "longStress": "(P * D) / (4 * t * E)",
+    "safetyFactor": "(S * 2 * t * E) / (P * D)"
+  },
+  "outputs": {
+    "primary": "safetyFactor",
+    "breakdown": [
+      "hoopStress",
+      "longStress"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

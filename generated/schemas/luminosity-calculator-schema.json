@@ -1,0 +1,65 @@
+{
+  "toolName": "luminosity-calculator",
+  "inputs": [
+    {
+      "id": "luminousFlux",
+      "label": "Luminous Flux",
+      "type": "number",
+      "unit": "lm",
+      "default": 1000,
+      "businessContext": "Total light output of the light source in lumens."
+    },
+    {
+      "id": "beamAngle",
+      "label": "Beam Angle",
+      "type": "number",
+      "unit": "°",
+      "default": 120,
+      "businessContext": "Full angle at which 50% of the peak luminous intensity is maintained."
+    },
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Distance from the light source to the target surface."
+    },
+    {
+      "id": "efficiency",
+      "label": "Luminaire Efficiency",
+      "type": "number",
+      "unit": "",
+      "default": 0.9,
+      "businessContext": "Factor accounting for dirt accumulation, lamp aging, and optical losses (0-1)."
+    },
+    {
+      "id": "ambientLight",
+      "label": "Ambient Light",
+      "type": "number",
+      "unit": "lux",
+      "default": 0,
+      "businessContext": "Existing ambient light level at the target surface in lux."
+    }
+  ],
+  "formulas": {
+    "solidAngle": "2 * Math.PI * (1 - Math.cos((beamAngle / 2) * Math.PI / 180))",
+    "luminousIntensity": "luminousFlux * efficiency / solidAngle",
+    "illuminance": "luminousIntensity / (distance * distance)",
+    "totalIlluminance": "illuminance + ambientLight"
+  },
+  "outputs": {
+    "primary": "totalIlluminance",
+    "breakdown": [
+      "luminousIntensity",
+      "solidAngle",
+      "illuminance"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

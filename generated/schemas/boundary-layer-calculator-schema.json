@@ -1,0 +1,55 @@
+{
+  "toolName": "boundary-layer-calculator",
+  "inputs": [
+    {
+      "id": "velocity",
+      "label": "Free-stream Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 10,
+      "businessContext": "The velocity of the fluid far from the boundary."
+    },
+    {
+      "id": "kinematicViscosity",
+      "label": "Kinematic Viscosity",
+      "type": "number",
+      "unit": "m²/s",
+      "default": 0.000015,
+      "businessContext": "Kinematic viscosity of the fluid (ν = μ/ρ)."
+    },
+    {
+      "id": "distance",
+      "label": "Distance from Leading Edge",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Distance along the surface from the leading edge."
+    },
+    {
+      "id": "flowRegime",
+      "label": "Flow Regime (0=Laminar, 1=Turbulent)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Select 0 for laminar boundary layer, 1 for turbulent (using 1/7th power law)."
+    }
+  ],
+  "formulas": {
+    "re": "velocity * distance / kinematicViscosity",
+    "delta": "flowRegime === 0 ? 5.0 * distance / Math.sqrt(velocity * distance / kinematicViscosity) : 0.37 * distance / Math.pow(velocity * distance / kinematicViscosity, 0.2)",
+    "cf": "flowRegime === 0 ? 0.664 / Math.sqrt(velocity * distance / kinematicViscosity) : 0.0592 / Math.pow(velocity * distance / kinematicViscosity, 0.2)"
+  },
+  "outputs": {
+    "primary": "delta",
+    "breakdown": [
+      "re",
+      "cf"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

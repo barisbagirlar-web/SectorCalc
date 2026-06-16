@@ -1,0 +1,85 @@
+{
+  "toolName": "relativistic-momentum-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Kütle (m)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Cismin durgun kütlesi"
+    },
+    {
+      "id": "vx",
+      "label": "Hız X bileşeni",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "X yönü hız"
+    },
+    {
+      "id": "vy",
+      "label": "Hız Y bileşeni",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Y yönü hız"
+    },
+    {
+      "id": "vz",
+      "label": "Hız Z bileşeni",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Z yönü hız"
+    },
+    {
+      "id": "c",
+      "label": "Işık Hızı (c)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 299792458,
+      "businessContext": "Vakumdaki ışık hızı, genellikle sabit"
+    }
+  ],
+  "formulas": {
+    "v_sq": "vx*vx + vy*vy + vz*vz",
+    "v": "Math.sqrt(v_sq)",
+    "gamma": "1 / Math.sqrt(1 - v_sq/(c*c))",
+    "p": "gamma * mass * v"
+  },
+  "outputs": {
+    "primary": {
+      "id": "p",
+      "label": "Relativistik Momentum (p)",
+      "unit": "kg·m/s",
+      "formula": "p"
+    },
+    "breakdown": [
+      {
+        "id": "gamma",
+        "label": "Lorentz Faktörü (γ)",
+        "unit": "boyutsuz",
+        "formula": "gamma"
+      },
+      {
+        "id": "v",
+        "label": "Toplam Hız (v)",
+        "unit": "m/s",
+        "formula": "v"
+      },
+      {
+        "id": "classic_p",
+        "label": "Klasik Momentum (m·v)",
+        "unit": "kg·m/s",
+        "formula": "mass * v"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

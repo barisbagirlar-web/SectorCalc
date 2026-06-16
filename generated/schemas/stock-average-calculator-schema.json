@@ -1,0 +1,55 @@
+{
+  "toolName": "stock-average-calculator",
+  "inputs": [
+    {
+      "id": "currentQuantity",
+      "label": "Current Shares Owned",
+      "type": "number",
+      "unit": "shares",
+      "default": 0,
+      "businessContext": "Number of shares currently held"
+    },
+    {
+      "id": "currentAvgPrice",
+      "label": "Current Average Price",
+      "type": "number",
+      "unit": "price/share",
+      "default": 0,
+      "businessContext": "Average price per share of current holdings"
+    },
+    {
+      "id": "purchaseQuantity",
+      "label": "New Purchase Quantity",
+      "type": "number",
+      "unit": "shares",
+      "default": 0,
+      "businessContext": "Number of shares in new purchase"
+    },
+    {
+      "id": "purchasePrice",
+      "label": "New Purchase Price per Share",
+      "type": "number",
+      "unit": "price/share",
+      "default": 0,
+      "businessContext": "Price per share of new purchase"
+    }
+  ],
+  "formulas": {
+    "newAvgPrice": "(currentQuantity * currentAvgPrice + purchaseQuantity * purchasePrice) / (currentQuantity + purchaseQuantity)",
+    "totalCost": "currentQuantity * currentAvgPrice + purchaseQuantity * purchasePrice",
+    "totalShares": "currentQuantity + purchaseQuantity"
+  },
+  "outputs": {
+    "primary": "newAvgPrice",
+    "breakdown": [
+      "totalCost",
+      "totalShares"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

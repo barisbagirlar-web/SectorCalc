@@ -1,0 +1,58 @@
+{
+  "toolName": "personal-loan-calculator",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Loan Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 50000,
+      "businessContext": "Total loan amount"
+    },
+    {
+      "id": "annualRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual percentage rate (APR)"
+    },
+    {
+      "id": "termMonths",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "months",
+      "default": 60,
+      "businessContext": "Loan duration in months"
+    },
+    {
+      "id": "originationFee",
+      "label": "Origination Fee",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Upfront fee as percentage of principal"
+    }
+  ],
+  "formulas": {
+    "monthlyRate": "(annualRate / 100) / 12",
+    "monthlyPayment": "principal * (monthlyRate * Math.pow(1 + monthlyRate, termMonths)) / (Math.pow(1 + monthlyRate, termMonths) - 1)",
+    "totalPayment": "monthlyPayment * termMonths",
+    "totalInterest": "totalPayment - principal",
+    "originationFeeAmount": "principal * (originationFee / 100)",
+    "totalCostWithFees": "totalPayment + originationFeeAmount"
+  },
+  "outputs": {
+    "primary": "monthlyPayment",
+    "breakdown": [
+      "totalInterest",
+      "totalCostWithFees"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "potential-energy-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Kütle",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Cismin kütlesi"
+    },
+    {
+      "id": "gravity",
+      "label": "Yerçekimi İvmesi",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Yerçekimi ivmesi, varsayılan 9.81 m/s²"
+    },
+    {
+      "id": "initialHeight",
+      "label": "Başlangıç Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Referans seviyesinden başlangıç yüksekliği"
+    },
+    {
+      "id": "finalHeight",
+      "label": "Bitiş Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Referans seviyesinden bitiş yüksekliği"
+    }
+  ],
+  "formulas": {
+    "primary": "mass * gravity * (finalHeight - initialHeight)",
+    "breakdown": [
+      "mass * gravity * (finalHeight - initialHeight)",
+      "(mass * gravity * (finalHeight - initialHeight)) / 1000"
+    ]
+  },
+  "outputs": {
+    "primary": "potentialEnergy",
+    "breakdown": [
+      "joules",
+      "kilojoules"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

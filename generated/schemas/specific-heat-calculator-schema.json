@@ -1,0 +1,54 @@
+{
+  "toolName": "specific-heat-calculator",
+  "inputs": [
+    {
+      "id": "heat",
+      "label": "Heat Added (Q)",
+      "type": "number",
+      "unit": "J",
+      "default": 0,
+      "businessContext": "Total heat energy added to the substance"
+    },
+    {
+      "id": "mass",
+      "label": "Mass (m)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Mass of the substance being heated"
+    },
+    {
+      "id": "temp_initial",
+      "label": "Initial Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 0,
+      "businessContext": "Temperature of the substance before heating"
+    },
+    {
+      "id": "temp_final",
+      "label": "Final Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 0,
+      "businessContext": "Temperature of the substance after heating"
+    }
+  ],
+  "formulas": {
+    "deltaT": "temp_final - temp_initial",
+    "specificHeat": "heat / (mass * deltaT)"
+  },
+  "outputs": {
+    "primary": "specificHeat",
+    "breakdown": [
+      "deltaT",
+      "specificHeat"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

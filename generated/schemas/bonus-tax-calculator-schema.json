@@ -1,0 +1,69 @@
+{
+  "toolName": "bonus-tax-calculator",
+  "inputs": [
+    {
+      "id": "bonusAmount",
+      "label": "Bonus Amount",
+      "type": "number",
+      "unit": "EUR",
+      "default": 1000,
+      "businessContext": "The gross bonus amount before any tax deductions."
+    },
+    {
+      "id": "federalTaxRate",
+      "label": "Federal Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 22,
+      "businessContext": "Federal income tax withholding rate applied to bonuses (percent)."
+    },
+    {
+      "id": "socialSecurityRate",
+      "label": "Social Security Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 6.2,
+      "businessContext": "Social Security tax rate on bonuses (percent)."
+    },
+    {
+      "id": "medicareRate",
+      "label": "Medicare Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 1.45,
+      "businessContext": "Medicare tax rate on bonuses (percent)."
+    },
+    {
+      "id": "stateTaxRate",
+      "label": "State Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "State income tax withholding rate on bonuses (percent)."
+    }
+  ],
+  "formulas": {
+    "federalTax": "bonusAmount * federalTaxRate / 100",
+    "socialSecurityTax": "bonusAmount * socialSecurityRate / 100",
+    "medicareTax": "bonusAmount * medicareRate / 100",
+    "stateTax": "bonusAmount * stateTaxRate / 100",
+    "totalTax": "federalTax + socialSecurityTax + medicareTax + stateTax",
+    "netBonus": "bonusAmount - totalTax"
+  },
+  "outputs": {
+    "primary": "netBonus",
+    "breakdown": [
+      "totalTax",
+      "federalTax",
+      "socialSecurityTax",
+      "medicareTax",
+      "stateTax"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

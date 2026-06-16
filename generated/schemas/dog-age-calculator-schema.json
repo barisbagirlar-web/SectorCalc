@@ -1,0 +1,58 @@
+{
+  "toolName": "dog-age-calculator",
+  "inputs": [
+    {
+      "id": "dogAgeYears",
+      "label": "Dog Age Years",
+      "type": "number",
+      "unit": "years",
+      "default": 1,
+      "businessContext": "The whole number of years the dog has lived."
+    },
+    {
+      "id": "dogAgeMonths",
+      "label": "Dog Age Months",
+      "type": "number",
+      "unit": "months",
+      "default": 0,
+      "businessContext": "Additional months beyond last full year."
+    },
+    {
+      "id": "sizeCategory",
+      "label": "Breed Size Category",
+      "type": "number",
+      "unit": "1=Small, 2=Medium, 3=Large",
+      "default": 2,
+      "businessContext": "Size category of the dog breed, impacting age conversion factor."
+    },
+    {
+      "id": "conversionModel",
+      "label": "Conversion Model",
+      "type": "number",
+      "unit": "1=Traditional (7:1), 2=Adjusted (Breed-size)",
+      "default": 2,
+      "businessContext": "Select the mathematical model for age conversion."
+    }
+  ],
+  "formulas": {
+    "totalHumanAge": "dogAgeYears + dogAgeMonths / 12",
+    "sizeMultiplier": "sizeCategory == 1 ? 4 : (sizeCategory == 2 ? 5 : 6)",
+    "dogYearsTraditional": "totalHumanAge * 7",
+    "dogYearsAdjusted": "totalHumanAge <= 1 ? totalHumanAge * 15 : (totalHumanAge <= 2 ? 15 + (totalHumanAge - 1) * 9 : 24 + (totalHumanAge - 2) * sizeMultiplier)",
+    "dogYears": "conversionModel == 1 ? dogYearsTraditional : dogYearsAdjusted"
+  },
+  "outputs": {
+    "primary": "dogYears",
+    "breakdown": [
+      "totalHumanAge",
+      "sizeMultiplier",
+      "conversionModel"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

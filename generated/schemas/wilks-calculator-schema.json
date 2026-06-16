@@ -1,0 +1,67 @@
+{
+  "toolName": "wilks-calculator",
+  "inputs": [
+    {
+      "id": "bodyWeight",
+      "label": "Vücut Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "Sporcunun kilogram cinsinden vücut ağırlığı"
+    },
+    {
+      "id": "weightLifted",
+      "label": "Kaldırılan Ağırlık",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Kaldırılan toplam ağırlık (kg)"
+    },
+    {
+      "id": "gender",
+      "label": "Cinsiyet",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1: Erkek, 0: Kadın"
+    },
+    {
+      "id": "adjustmentFactor",
+      "label": "Düzeltme Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Ekipman veya diğer düzeltmeler için çarpan (1 = düzeltme yok)"
+    }
+  ],
+  "formulas": {
+    "wilksCoefficient": "(inputs.gender === 1) ? 500 / (-216.0475144 + 16.2606339 * inputs.bodyWeight - 0.002388645 * inputs.bodyWeight ** 2 - 0.00113732 * inputs.bodyWeight ** 3 + 7.01863e-6 * inputs.bodyWeight ** 4 - 1.291e-8 * inputs.bodyWeight ** 5) : 500 / (594.31747775582 - 27.23842536447 * inputs.bodyWeight + 0.82112226871 * inputs.bodyWeight ** 2 - 0.00930733913 * inputs.bodyWeight ** 3 + 4.731582e-5 * inputs.bodyWeight ** 4 - 9.054e-8 * inputs.bodyWeight ** 5)",
+    "wilksScore": "inputs.weightLifted * wilksCoefficient * (inputs.adjustmentFactor || 1)",
+    "adjustedWeight": "inputs.weightLifted * wilksCoefficient"
+  },
+  "outputs": {
+    "primary": {
+      "label": "Wilks Puanı",
+      "value": "wilksScore",
+      "unit": "puan"
+    },
+    "breakdown": [
+      {
+        "label": "Wilks Katsayısı",
+        "value": "wilksCoefficient",
+        "unit": ""
+      },
+      {
+        "label": "Düzeltilmiş Ağırlık",
+        "value": "adjustedWeight",
+        "unit": "kg"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

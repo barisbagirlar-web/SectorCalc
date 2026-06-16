@@ -1,0 +1,57 @@
+{
+  "toolName": "ear-calculator",
+  "inputs": [
+    {
+      "id": "nominalRate",
+      "label": "Nominal Annual Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "The stated annual interest rate before compounding."
+    },
+    {
+      "id": "compoundingPeriods",
+      "label": "Compounding Periods per Year",
+      "type": "number",
+      "unit": "per year",
+      "default": 12,
+      "businessContext": "Number of times interest is compounded annually."
+    },
+    {
+      "id": "years",
+      "label": "Time Period",
+      "type": "number",
+      "unit": "years",
+      "default": 1,
+      "businessContext": "Investment duration in years for growth factor computation."
+    },
+    {
+      "id": "principal",
+      "label": "Principal Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 1,
+      "businessContext": "Initial investment amount (use 1 for factor-only calculations)."
+    }
+  ],
+  "formulas": {
+    "periodicRate": "nominalRate / 100 / compoundingPeriods",
+    "effectiveAnnualRate": "((1 + periodicRate) ** compoundingPeriods - 1) * 100",
+    "growthFactor": "((1 + periodicRate) ** (compoundingPeriods * years))",
+    "futureValue": "principal * growthFactor"
+  },
+  "outputs": {
+    "primary": "effectiveAnnualRate",
+    "breakdown": [
+      "periodicRate",
+      "growthFactor",
+      "futureValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

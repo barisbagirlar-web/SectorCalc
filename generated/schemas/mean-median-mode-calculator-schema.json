@@ -1,0 +1,88 @@
+{
+  "toolName": "mean-median-mode-calculator",
+  "inputs": [
+    {
+      "id": "value1",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)"
+    },
+    {
+      "id": "value2",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)"
+    },
+    {
+      "id": "value3",
+      "label": "Value 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)"
+    },
+    {
+      "id": "value4",
+      "label": "Value 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)"
+    },
+    {
+      "id": "value5",
+      "label": "Value 5",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)"
+    },
+    {
+      "id": "value6",
+      "label": "Value 6",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)"
+    },
+    {
+      "id": "value7",
+      "label": "Value 7",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)"
+    },
+    {
+      "id": "value8",
+      "label": "Value 8",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Data point value for statistical calculation (e.g., measurement, score, quantity)"
+    }
+  ],
+  "formulas": {
+    "mean": "(value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8) / 8",
+    "median": "(sorted => (sorted[3] + sorted[4]) / 2)([value1, value2, value3, value4, value5, value6, value7, value8].sort((a, b) => a - b))",
+    "mode": "(arr => { let freq = {}, maxFreq = 0, modes = []; arr.forEach(v => { freq[v] = (freq[v] || 0) + 1; if (freq[v] > maxFreq) maxFreq = freq[v]; }); if (maxFreq === 1) return 'No mode'; for (let k in freq) if (freq[k] === maxFreq) modes.push(k); return 'Mode: ' + modes.join(', '); })([value1, value2, value3, value4, value5, value6, value7, value8])"
+  },
+  "outputs": {
+    "primary": "Mean: ${mean}, Median: ${median}, Mode: ${mode}",
+    "breakdown": [
+      "Mean (average) is the sum of all values divided by the count (8).",
+      "Median is the middle value: for 8 numbers, it is the average of the 4th and 5th sorted values.",
+      "Mode is the most frequently occurring value(s)."
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

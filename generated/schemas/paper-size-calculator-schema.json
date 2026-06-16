@@ -1,0 +1,65 @@
+{
+  "toolName": "paper-size-calculator",
+  "inputs": [
+    {
+      "id": "width",
+      "label": "Genişlik",
+      "type": "number",
+      "unit": "mm",
+      "default": 210,
+      "businessContext": "Kağıt genişliği (mm cinsinden)"
+    },
+    {
+      "id": "height",
+      "label": "Yükseklik",
+      "type": "number",
+      "unit": "mm",
+      "default": 297,
+      "businessContext": "Kağıt yüksekliği (mm cinsinden)"
+    },
+    {
+      "id": "scalingPercent",
+      "label": "Ölçek",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Ölçeklendirme yüzdesi (%)"
+    },
+    {
+      "id": "gsm",
+      "label": "Gramaj",
+      "type": "number",
+      "unit": "g/m²",
+      "default": 80,
+      "businessContext": "Kağıt gramajı (g/m²)"
+    },
+    {
+      "id": "quantity",
+      "label": "Adet",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Kağıt adedi"
+    }
+  ],
+  "formulas": {
+    "newWidth": "width * (scalingPercent / 100)",
+    "newHeight": "height * (scalingPercent / 100)",
+    "area": "(newWidth * newHeight) / 1000000",
+    "weight": "area * gsm * quantity"
+  },
+  "outputs": {
+    "primary": "weight",
+    "breakdown": [
+      "newWidth",
+      "newHeight",
+      "area"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

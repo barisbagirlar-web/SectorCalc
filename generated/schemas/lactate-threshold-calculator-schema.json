@@ -1,0 +1,65 @@
+{
+  "toolName": "lactate-threshold-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Athlete's age in years."
+    },
+    {
+      "id": "restingHeartRate",
+      "label": "Resting Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 60,
+      "businessContext": "Resting heart rate measured in beats per minute."
+    },
+    {
+      "id": "maxHeartRate",
+      "label": "Maximum Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 0,
+      "businessContext": "Maximum heart rate. Enter 0 to estimate from age (220 - age)."
+    },
+    {
+      "id": "intensityFactor",
+      "label": "Intensity Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.85,
+      "businessContext": "Fraction of heart rate reserve representing lactate threshold (typically 0.85-0.90)."
+    },
+    {
+      "id": "thirtyMinTrialHeartRate",
+      "label": "30-min Trial Average HR",
+      "type": "number",
+      "unit": "bpm",
+      "default": 0,
+      "businessContext": "Average heart rate during a 30-minute all-out effort. If >0, used directly as LTHR."
+    }
+  ],
+  "formulas": {
+    "maxHR": "maxHeartRate > 0 ? maxHeartRate : 220 - age",
+    "heartRateReserve": "maxHR - restingHeartRate",
+    "estimatedLTHR": "restingHeartRate + heartRateReserve * intensityFactor",
+    "lactateThresholdHeartRate": "thirtyMinTrialHeartRate > 0 ? thirtyMinTrialHeartRate : estimatedLTHR"
+  },
+  "outputs": {
+    "primary": "lactateThresholdHeartRate",
+    "breakdown": [
+      "maxHR",
+      "heartRateReserve",
+      "estimatedLTHR"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

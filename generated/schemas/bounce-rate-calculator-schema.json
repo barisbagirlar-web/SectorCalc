@@ -1,0 +1,57 @@
+{
+  "toolName": "bounce-rate-calculator",
+  "inputs": [
+    {
+      "id": "totalVisitors",
+      "label": "Total Visitors",
+      "type": "number",
+      "unit": "visitors",
+      "default": 1000,
+      "businessContext": "Total number of visitors to the website or page during the period."
+    },
+    {
+      "id": "singlePageVisitors",
+      "label": "Single-Page Visitors",
+      "type": "number",
+      "unit": "visitors",
+      "default": 400,
+      "businessContext": "Visitors who left after viewing only one page (bounces)."
+    },
+    {
+      "id": "targetBounceRate",
+      "label": "Target Bounce Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Industry benchmark or desired maximum bounce rate."
+    },
+    {
+      "id": "days",
+      "label": "Analysis Period",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Number of days over which the data is collected, used for daily averages."
+    }
+  ],
+  "formulas": {
+    "bounceRate": "(singlePageVisitors / totalVisitors) * 100",
+    "dailyBounces": "singlePageVisitors / days",
+    "dailyVisitors": "totalVisitors / days",
+    "bounceRateGap": "targetBounceRate - ((singlePageVisitors / totalVisitors) * 100)"
+  },
+  "outputs": {
+    "primary": "bounceRate",
+    "breakdown": [
+      "dailyBounces",
+      "dailyVisitors",
+      "bounceRateGap"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

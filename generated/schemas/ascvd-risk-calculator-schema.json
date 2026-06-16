@@ -1,0 +1,87 @@
+{
+  "toolName": "ascvd-risk-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 50,
+      "businessContext": "Patient age in years"
+    },
+    {
+      "id": "totalCholesterol",
+      "label": "Total Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 200,
+      "businessContext": "Total serum cholesterol level"
+    },
+    {
+      "id": "hdlCholesterol",
+      "label": "HDL Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 50,
+      "businessContext": "High-density lipoprotein cholesterol level"
+    },
+    {
+      "id": "systolicBP",
+      "label": "Systolic Blood Pressure",
+      "type": "number",
+      "unit": "mm Hg",
+      "default": 120,
+      "businessContext": "Systolic blood pressure reading"
+    },
+    {
+      "id": "treatedHypertension",
+      "label": "Treated for Hypertension",
+      "type": "number",
+      "unit": "0/1",
+      "default": 0,
+      "businessContext": "1 if patient is on hypertension medication, else 0"
+    },
+    {
+      "id": "diabetes",
+      "label": "Diabetes",
+      "type": "number",
+      "unit": "0/1",
+      "default": 0,
+      "businessContext": "1 if patient has diabetes, else 0"
+    },
+    {
+      "id": "smoker",
+      "label": "Current Smoker",
+      "type": "number",
+      "unit": "0/1",
+      "default": 0,
+      "businessContext": "1 if patient is a current smoker, else 0"
+    },
+    {
+      "id": "male",
+      "label": "Male Sex",
+      "type": "number",
+      "unit": "0/1",
+      "default": 0,
+      "businessContext": "1 if male, 0 if female"
+    }
+  ],
+  "formulas": {
+    "calcLogOdds": "(-5) + 0.05*age + 0.01*totalCholesterol - 0.02*hdlCholesterol + 0.01*systolicBP + 0.5*treatedHypertension + 0.5*diabetes + 0.5*smoker + 0.3*male",
+    "calcRisk": "1 / (1 + Math.exp(-calcLogOdds)) * 100",
+    "riskCategory": "calcRisk < 5 ? 'Low' : (calcRisk < 7.5 ? 'Moderate' : 'High')"
+  },
+  "outputs": {
+    "primary": "calcRisk",
+    "breakdown": [
+      "calcLogOdds",
+      "riskCategory"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "sales-commission-calculator",
+  "inputs": [
+    {
+      "id": "totalSales",
+      "label": "Total Sales",
+      "type": "number",
+      "unit": "currency",
+      "default": 5000,
+      "businessContext": "Total monetary value of sales closed in the commission period."
+    },
+    {
+      "id": "commissionRate",
+      "label": "Commission Rate",
+      "type": "number",
+      "unit": "percentage",
+      "default": 5,
+      "businessContext": "Standard commission rate applied to total sales."
+    },
+    {
+      "id": "targetSales",
+      "label": "Target Sales",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "Sales threshold above which a bonus is earned."
+    },
+    {
+      "id": "bonusRate",
+      "label": "Bonus Rate",
+      "type": "number",
+      "unit": "percentage",
+      "default": 2,
+      "businessContext": "Additional commission rate applied to sales above target."
+    },
+    {
+      "id": "baseSalary",
+      "label": "Base Salary",
+      "type": "number",
+      "unit": "currency",
+      "default": 2000,
+      "businessContext": "Fixed base salary regardless of sales."
+    }
+  ],
+  "formulas": {
+    "baseSalaryOutput": "baseSalary",
+    "commission": "totalSales * (commissionRate / 100)",
+    "bonus": "(totalSales > targetSales) * (totalSales - targetSales) * (bonusRate / 100)",
+    "totalCompensation": "baseSalary + totalSales * (commissionRate / 100) + (totalSales > targetSales) * (totalSales - targetSales) * (bonusRate / 100)"
+  },
+  "outputs": {
+    "primary": "totalCompensation",
+    "breakdown": [
+      "baseSalaryOutput",
+      "commission",
+      "bonus"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

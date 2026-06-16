@@ -1,0 +1,80 @@
+{
+  "toolName": "grace-score-calculator",
+  "inputs": [
+    {
+      "id": "equipment_age",
+      "label": "Equipment Age",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Age of the equipment in years"
+    },
+    {
+      "id": "utilization",
+      "label": "Daily Utilization",
+      "type": "number",
+      "unit": "hours/day",
+      "default": 8,
+      "businessContext": "Average daily operating hours"
+    },
+    {
+      "id": "maintenance_interval",
+      "label": "Maintenance Interval",
+      "type": "number",
+      "unit": "days",
+      "default": 90,
+      "businessContext": "Scheduled maintenance interval in days"
+    },
+    {
+      "id": "environment_severity",
+      "label": "Environment Severity",
+      "type": "number",
+      "unit": "scale 1-5",
+      "default": 3,
+      "businessContext": "Environmental condition severity (1=clean, 5=harsh)"
+    },
+    {
+      "id": "last_inspection_score",
+      "label": "Last Inspection Score",
+      "type": "number",
+      "unit": "0-100",
+      "default": 80,
+      "businessContext": "Score from the last inspection (0-100)"
+    },
+    {
+      "id": "operator_experience",
+      "label": "Operator Experience",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Operator experience in years"
+    }
+  ],
+  "formulas": {
+    "age_factor": "Math.exp(-equipment_age / 30)",
+    "util_factor": "1 - (utilization / 24) * 0.4",
+    "maint_factor": "1 + (1 - (maintenance_interval / 365)) * 0.3",
+    "env_factor": "1 - (environment_severity - 1) * 0.1",
+    "insp_factor": "last_inspection_score / 100",
+    "exp_factor": "1 - Math.exp(-operator_experience / 10)",
+    "raw_score": "100 * age_factor * util_factor * maint_factor * env_factor * insp_factor * exp_factor",
+    "grace_score": "Math.min(100, Math.max(0, raw_score))"
+  },
+  "outputs": {
+    "primary": "grace_score",
+    "breakdown": [
+      "age_factor",
+      "util_factor",
+      "maint_factor",
+      "env_factor",
+      "insp_factor",
+      "exp_factor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

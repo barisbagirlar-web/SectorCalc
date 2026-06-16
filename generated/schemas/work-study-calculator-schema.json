@@ -1,0 +1,82 @@
+{
+  "toolName": "work-study-calculator",
+  "inputs": [
+    {
+      "id": "observedTime",
+      "label": "Observed Time (OT)",
+      "type": "number",
+      "unit": "minute",
+      "default": 1,
+      "businessContext": "Average observed time per cycle from time study"
+    },
+    {
+      "id": "ratingFactor",
+      "label": "Rating Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Performance rating to adjust pace (100% = normal)"
+    },
+    {
+      "id": "allowanceFactor",
+      "label": "Allowance Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Allowance for personal, fatigue, delays (percentage of normal time)"
+    },
+    {
+      "id": "cycleCount",
+      "label": "Number of Cycles Observed",
+      "type": "number",
+      "unit": "cycles",
+      "default": 5,
+      "businessContext": "Number of cycles timed to compute average; used for standard deviation"
+    },
+    {
+      "id": "standardDeviation",
+      "label": "Standard Deviation of Observed Times",
+      "type": "number",
+      "unit": "minute",
+      "default": 0.1,
+      "businessContext": "Standard deviation of the observed cycle times (minutes)"
+    },
+    {
+      "id": "precision",
+      "label": "Precision",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Desired precision (accuracy) as percentage (e.g., 5 for ±5%)"
+    },
+    {
+      "id": "zScore",
+      "label": "Z-score for Confidence Level",
+      "type": "number",
+      "unit": "",
+      "default": 1.96,
+      "businessContext": "Standard normal deviate for desired confidence (e.g., 1.96 for 95%)"
+    }
+  ],
+  "formulas": {
+    "normalTime": "observedTime * (ratingFactor / 100)",
+    "standardTime": "normalTime * (1 + allowanceFactor / 100)",
+    "requiredSamples": "Math.pow((zScore * standardDeviation) / ((precision / 100) * observedTime), 2)",
+    "actualPrecision": "(zScore * standardDeviation) / (Math.sqrt(cycleCount) * observedTime) * 100"
+  },
+  "outputs": {
+    "primary": "standardTime",
+    "breakdown": [
+      "normalTime",
+      "standardTime",
+      "requiredSamples",
+      "actualPrecision"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

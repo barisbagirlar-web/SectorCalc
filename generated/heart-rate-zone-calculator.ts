@@ -1,0 +1,61 @@
+// Auto-generated from heart-rate-zone-calculator-schema.json
+import * as z from 'zod';
+
+export interface Heart_rate_zone_calculatorInput {
+  age: number;
+  restingHeartRate: number;
+  lowerIntensity: number;
+  upperIntensity: number;
+}
+
+export const Heart_rate_zone_calculatorInputSchema = z.object({
+  age: z.number().default(30),
+  restingHeartRate: z.number().default(60),
+  lowerIntensity: z.number().default(60),
+  upperIntensity: z.number().default(70),
+});
+
+function evaluateAllFormulas(input: Heart_rate_zone_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 220 - input.age; results["maxHR"] = Number.isFinite(v) ? v : 0; } catch { results["maxHR"] = 0; }
+  try { const v = (results["maxHR"] ?? 0) - input.restingHeartRate; results["heartRateReserve"] = Number.isFinite(v) ? v : 0; } catch { results["heartRateReserve"] = 0; }
+  try { const v = input.restingHeartRate + ((results["heartRateReserve"] ?? 0) * (input.lowerIntensity / 100)); results["lowerTarget"] = Number.isFinite(v) ? v : 0; } catch { results["lowerTarget"] = 0; }
+  try { const v = input.restingHeartRate + ((results["heartRateReserve"] ?? 0) * (input.upperIntensity / 100)); results["upperTarget"] = Number.isFinite(v) ? v : 0; } catch { results["upperTarget"] = 0; }
+  try { const v = ((results["lowerTarget"] ?? 0) + (results["upperTarget"] ?? 0)) / 2; results["midTarget"] = Number.isFinite(v) ? v : 0; } catch { results["midTarget"] = 0; }
+  return results;
+}
+
+
+export function calculateHeart_rate_zone_calculator(input: Heart_rate_zone_calculatorInput): Heart_rate_zone_calculatorOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values["midTarget"] ?? 0;
+  const breakdown = {
+    
+  };
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    premiumRequired: false,
+    premiumFeatures: [],
+  };
+}
+
+
+export interface Heart_rate_zone_calculatorOutput {
+  totalWasteCost: number;
+  breakdown: {  };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+}

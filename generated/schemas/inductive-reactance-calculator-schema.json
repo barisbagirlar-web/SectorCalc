@@ -1,0 +1,56 @@
+{
+  "toolName": "inductive-reactance-calculator",
+  "inputs": [
+    {
+      "id": "frequency",
+      "label": "Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 50,
+      "businessContext": "AC supply frequency or operating frequency"
+    },
+    {
+      "id": "inductance",
+      "label": "Inductance",
+      "type": "number",
+      "unit": "H",
+      "default": 0.01,
+      "businessContext": "Inductance of the coil or inductor"
+    },
+    {
+      "id": "measuredVoltage",
+      "label": "Measured Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 0,
+      "businessContext": "RMS voltage measured across the inductor (optional for experimental verification)"
+    },
+    {
+      "id": "measuredCurrent",
+      "label": "Measured Current",
+      "type": "number",
+      "unit": "A",
+      "default": 0,
+      "businessContext": "RMS current through the inductor (optional for experimental verification)"
+    }
+  ],
+  "formulas": {
+    "angularFrequency": "2 * Math.PI * frequency",
+    "inductiveReactance": "2 * Math.PI * frequency * inductance",
+    "measuredReactance": "measuredCurrent !== 0 ? measuredVoltage / measuredCurrent : null"
+  },
+  "outputs": {
+    "primary": "inductiveReactance",
+    "breakdown": [
+      "Angular Frequency (ω): {angularFrequency} rad/s",
+      "Theoretical Inductive Reactance (X_L): {inductiveReactance} Ω",
+      "Measured Reactance (X_L_meas): {measuredReactance} Ω (if provided, otherwise N/A)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "skateboard-impact-calculator",
+  "inputs": [
+    {
+      "id": "riderMass",
+      "label": "Sürücü Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 75,
+      "businessContext": "Kaykayı kullanan kişinin kütlesi"
+    },
+    {
+      "id": "boardMass",
+      "label": "Kaykay Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 2.5,
+      "businessContext": "Kaykay tahtasının kütlesi"
+    },
+    {
+      "id": "dropHeight",
+      "label": "Düşüş Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 1.5,
+      "businessContext": "Rampa veya engelden serbest düşüş yapılan dikey mesafe"
+    },
+    {
+      "id": "stoppingDistance",
+      "label": "Durma Mesafesi",
+      "type": "number",
+      "unit": "m",
+      "default": 0.05,
+      "businessContext": "İniş anında kaykayın esneme ve tekerlek sıkışma mesafesi (enerji emilim uzaklığı)"
+    }
+  ],
+  "formulas": {
+    "impactForce": "((riderMass + boardMass) * 9.81 * dropHeight) / stoppingDistance",
+    "velocity": "Math.sqrt(2 * 9.81 * dropHeight)",
+    "kineticEnergy": "(riderMass + boardMass) * 9.81 * dropHeight"
+  },
+  "outputs": {
+    "primary": "impactForce",
+    "breakdown": [
+      "velocity",
+      "kineticEnergy"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

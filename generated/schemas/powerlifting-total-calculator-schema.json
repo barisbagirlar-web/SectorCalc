@@ -1,0 +1,59 @@
+{
+  "toolName": "powerlifting-total-calculator",
+  "inputs": [
+    {
+      "id": "squat",
+      "label": "Squat (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Lifter's heaviest successful squat attempt in competition"
+    },
+    {
+      "id": "benchPress",
+      "label": "Bench Press (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Lifter's heaviest successful bench press attempt in competition"
+    },
+    {
+      "id": "deadlift",
+      "label": "Deadlift (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Lifter's heaviest successful deadlift attempt in competition"
+    },
+    {
+      "id": "bodyWeight",
+      "label": "Body Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Lifter's official body weight at weigh-in"
+    }
+  ],
+  "formulas": {
+    "primary": "squat + benchPress + deadlift",
+    "breakdown": {
+      "total": "squat + benchPress + deadlift",
+      "relativeTotal": "bodyWeight > 0 ? (squat + benchPress + deadlift) / bodyWeight : 0"
+    }
+  },
+  "outputs": {
+    "primary": "total",
+    "breakdown": [
+      "squat",
+      "benchPress",
+      "deadlift",
+      "relativeTotal"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Atölye & Tamir",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

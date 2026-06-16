@@ -1,0 +1,81 @@
+{
+  "toolName": "gear-calculator",
+  "inputs": [
+    {
+      "id": "module",
+      "label": "Module (m)",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "businessContext": "The module of the gear, typically in mm."
+    },
+    {
+      "id": "z1",
+      "label": "Number of Teeth (Pinion)",
+      "type": "number",
+      "unit": "",
+      "default": 20,
+      "businessContext": "Number of teeth on the driving gear."
+    },
+    {
+      "id": "z2",
+      "label": "Number of Teeth (Gear)",
+      "type": "number",
+      "unit": "",
+      "default": 40,
+      "businessContext": "Number of teeth on the driven gear."
+    },
+    {
+      "id": "pressureAngle",
+      "label": "Pressure Angle (α)",
+      "type": "number",
+      "unit": "deg",
+      "default": 20,
+      "businessContext": "Standard pressure angle, typically 20 degrees."
+    },
+    {
+      "id": "ha",
+      "label": "Addendum Coefficient (ha*)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Addendum coefficient, typically 1.0 for standard gears."
+    },
+    {
+      "id": "hf",
+      "label": "Dedendum Coefficient (hf*)",
+      "type": "number",
+      "unit": "",
+      "default": 1.25,
+      "businessContext": "Dedendum coefficient, typically 1.25 for standard gears."
+    }
+  ],
+  "formulas": {
+    "pitchDiameter1": "module * z1",
+    "pitchDiameter2": "module * z2",
+    "gearRatio": "z2 / z1",
+    "centerDistance": "(module * z1 + module * z2) / 2",
+    "addendum": "ha * module",
+    "dedendum": "hf * module",
+    "baseDiameter1": "module * z1 * Math.cos(pressureAngle * Math.PI / 180)",
+    "baseDiameter2": "module * z2 * Math.cos(pressureAngle * Math.PI / 180)"
+  },
+  "outputs": {
+    "primary": "gearRatio",
+    "breakdown": [
+      "centerDistance",
+      "pitchDiameter1",
+      "pitchDiameter2",
+      "addendum",
+      "dedendum",
+      "baseDiameter1",
+      "baseDiameter2"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

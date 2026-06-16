@@ -1,0 +1,71 @@
+{
+  "toolName": "turns-to-degrees-calculator",
+  "inputs": [
+    {
+      "id": "turns",
+      "label": "Number of Turns",
+      "type": "number",
+      "unit": "turns",
+      "default": 1,
+      "businessContext": "The angle measured in full rotations."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Precision of output for quality control documentation."
+    },
+    {
+      "id": "operatorId",
+      "label": "Operator ID",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Identifier of the operator performing the measurement for traceability."
+    },
+    {
+      "id": "measurementDate",
+      "label": "Measurement Date (YYYYMMDD)",
+      "type": "number",
+      "unit": "YYYYMMDD",
+      "default": 20230101,
+      "businessContext": "Date of measurement for ISO 9001 records."
+    },
+    {
+      "id": "machineId",
+      "label": "Machine ID",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Machine used for measurement if automated."
+    },
+    {
+      "id": "batchNumber",
+      "label": "Batch Number",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Production batch for traceability."
+    }
+  ],
+  "formulas": {
+    "rawDegrees": "turns * 360",
+    "roundedDegrees": "Math.round(rawDegrees * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "roundedDegrees",
+    "breakdown": [
+      "turns",
+      "rawDegrees",
+      "decimalPlaces"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

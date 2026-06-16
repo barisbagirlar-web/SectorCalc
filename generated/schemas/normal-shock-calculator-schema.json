@@ -1,0 +1,63 @@
+{
+  "toolName": "normal-shock-calculator",
+  "inputs": [
+    {
+      "id": "upstreamMach",
+      "label": "Upstream Mach Number",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 2,
+      "businessContext": "Enter the Mach number before the shock (M1 > 1 for normal shock)."
+    },
+    {
+      "id": "gamma",
+      "label": "Specific Heat Ratio",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.4,
+      "businessContext": "Ratio of specific heats (Cp/Cv), typically 1.4 for air."
+    },
+    {
+      "id": "upstreamPressure",
+      "label": "Upstream Static Pressure",
+      "type": "number",
+      "unit": "Pa",
+      "default": 101325,
+      "businessContext": "Absolute static pressure before shock (optional for absolute values)."
+    },
+    {
+      "id": "upstreamTemperature",
+      "label": "Upstream Static Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 300,
+      "businessContext": "Absolute static temperature before shock (optional for absolute values)."
+    }
+  ],
+  "formulas": {
+    "downstreamMach": "Math.sqrt((1 + (gamma - 1)/2 * upstreamMach**2) / (gamma * upstreamMach**2 - (gamma - 1)/2))",
+    "pressureRatio": "1 + (2*gamma/(gamma+1))*(upstreamMach**2 - 1)",
+    "temperatureRatio": "(1 + (2*gamma/(gamma+1))*(upstreamMach**2 - 1)) * ((2 + (gamma-1)*upstreamMach**2)/((gamma+1)*upstreamMach**2))",
+    "densityRatio": "(gamma+1)*upstreamMach**2 / (2 + (gamma-1)*upstreamMach**2)",
+    "stagnationPressureRatio": "(( (gamma+1)*upstreamMach**2 )/(2 + (gamma-1)*upstreamMach**2))**(gamma/(gamma-1)) * ((gamma+1)/(2*gamma*upstreamMach**2 - (gamma-1)))**(1/(gamma-1))",
+    "downstreamPressure": "pressureRatio * upstreamPressure",
+    "downstreamTemperature": "temperatureRatio * upstreamTemperature"
+  },
+  "outputs": {
+    "primary": "downstreamMach",
+    "breakdown": [
+      "pressureRatio",
+      "temperatureRatio",
+      "densityRatio",
+      "stagnationPressureRatio",
+      "downstreamPressure",
+      "downstreamTemperature"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

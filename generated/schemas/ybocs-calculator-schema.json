@@ -1,0 +1,84 @@
+{
+  "toolName": "ybocs-calculator",
+  "inputs": [
+    {
+      "id": "rawMaterialCostPerUnit",
+      "label": "Raw Material Cost per Unit",
+      "type": "number",
+      "unit": "currency",
+      "default": 10,
+      "businessContext": "Cost of raw materials per unit of production input."
+    },
+    {
+      "id": "yieldPercent",
+      "label": "Yield Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Percentage of good units out of total input."
+    },
+    {
+      "id": "energyCostPerUnit",
+      "label": "Energy Cost per Unit",
+      "type": "number",
+      "unit": "currency",
+      "default": 2,
+      "businessContext": "Energy cost per unit produced."
+    },
+    {
+      "id": "laborCostPerUnit",
+      "label": "Labor Cost per Unit",
+      "type": "number",
+      "unit": "currency",
+      "default": 5,
+      "businessContext": "Direct labor cost per unit produced."
+    },
+    {
+      "id": "overheadCostPerUnit",
+      "label": "Overhead Cost per Unit",
+      "type": "number",
+      "unit": "currency",
+      "default": 3,
+      "businessContext": "Allocated overhead cost per unit produced."
+    },
+    {
+      "id": "productionVolume",
+      "label": "Production Volume",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "businessContext": "Total number of units produced (good + defective)."
+    },
+    {
+      "id": "defectRate",
+      "label": "Defect Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of defective units from total production."
+    }
+  ],
+  "formulas": {
+    "goodUnits": "productionVolume * (1 - defectRate / 100)",
+    "totalMaterialCost": "rawMaterialCostPerUnit * productionVolume",
+    "totalEnergyCost": "energyCostPerUnit * goodUnits",
+    "totalLaborCost": "laborCostPerUnit * goodUnits",
+    "totalOverheadCost": "overheadCostPerUnit * goodUnits",
+    "totalCost": "totalMaterialCost + totalEnergyCost + totalLaborCost + totalOverheadCost",
+    "totalCostPerUnit": "totalCost / goodUnits",
+    "yieldAdjustedCostPerUnit": "totalMaterialCost / (productionVolume * (yieldPercent / 100)) + (energyCostPerUnit + laborCostPerUnit + overheadCostPerUnit)"
+  },
+  "outputs": {
+    "primary": "totalCostPerUnit",
+    "breakdown": [
+      "totalMaterialCost",
+      "totalCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

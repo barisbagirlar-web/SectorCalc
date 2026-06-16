@@ -1,0 +1,68 @@
+{
+  "toolName": "ironman-70-3-calculator",
+  "inputs": [
+    {
+      "id": "swim_pace",
+      "label": "Yüzme Temposu (dk/100m)",
+      "type": "number",
+      "unit": "dk/100m",
+      "default": 2,
+      "businessContext": "1.9 km yüzme için ortalama tempo."
+    },
+    {
+      "id": "bike_speed",
+      "label": "Bisiklet Hızı (km/sa)",
+      "type": "number",
+      "unit": "km/sa",
+      "default": 30,
+      "businessContext": "90 km bisiklet için ortalama hız."
+    },
+    {
+      "id": "run_pace",
+      "label": "Koşu Temposu (dk/km)",
+      "type": "number",
+      "unit": "dk/km",
+      "default": 5.5,
+      "businessContext": "21.1 km koşu için ortalama tempo."
+    },
+    {
+      "id": "t1",
+      "label": "T1 Süresi (dk)",
+      "type": "number",
+      "unit": "dk",
+      "default": 3,
+      "businessContext": "Yüzmeden bisiklete geçiş süresi."
+    },
+    {
+      "id": "t2",
+      "label": "T2 Süresi (dk)",
+      "type": "number",
+      "unit": "dk",
+      "default": 2,
+      "businessContext": "Bisikletten koşuya geçiş süresi."
+    }
+  ],
+  "formulas": {
+    "swim_time": "19 * swim_pace",
+    "bike_time": "(90 / bike_speed) * 60",
+    "run_time": "21.1 * run_pace",
+    "transition_time": "t1 + t2",
+    "total_time_minutes": "swim_time + bike_time + run_time + transition_time",
+    "total_time_hours": "total_time_minutes / 60"
+  },
+  "outputs": {
+    "primary": "total_time_hours",
+    "breakdown": [
+      "swim_time",
+      "bike_time",
+      "run_time",
+      "transition_time"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "grains-to-grams-calculator",
+  "inputs": [
+    {
+      "id": "grains",
+      "label": "Grains",
+      "type": "number",
+      "unit": "gr",
+      "default": 0,
+      "businessContext": "Enter the mass in grains to be converted to grams."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "g/gr",
+      "default": 0.06479891,
+      "businessContext": "Standard conversion factor from grains to grams. Change for custom conversions."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output; ensures adherence to quality tolerances."
+    },
+    {
+      "id": "batchCount",
+      "label": "Number of Batches",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "If converting for multiple batches, enter the batch quantity for total mass."
+    }
+  ],
+  "formulas": {
+    "primary": "Math.round(grains * conversionFactor * batchCount * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "gramsPerGrain": "conversionFactor",
+    "totalGrains": "grains * batchCount",
+    "unroundedGrams": "grains * conversionFactor * batchCount"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "gramsPerGrain",
+      "totalGrains",
+      "unroundedGrams"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "win-rate-calculator",
+  "inputs": [
+    {
+      "id": "totalOpportunities",
+      "label": "Total Opportunities",
+      "type": "number",
+      "unit": "count",
+      "default": 100,
+      "businessContext": "Toplam satış fırsatı sayısı (kazanılan, kaybedilen, beklemede)"
+    },
+    {
+      "id": "wonOpportunities",
+      "label": "Won Opportunities",
+      "type": "number",
+      "unit": "count",
+      "default": 25,
+      "businessContext": "Kazanılan fırsat sayısı"
+    },
+    {
+      "id": "pendingOpportunities",
+      "label": "Pending Opportunities",
+      "type": "number",
+      "unit": "count",
+      "default": 20,
+      "businessContext": "Beklemedeki fırsat sayısı"
+    },
+    {
+      "id": "targetWinRate",
+      "label": "Target Win Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Hedeflenen kazanma oranı (%)"
+    }
+  ],
+  "formulas": {
+    "winRate": "(wonOpportunities / (totalOpportunities - pendingOpportunities)) * 100",
+    "winCount": "wonOpportunities",
+    "lossCount": "totalOpportunities - pendingOpportunities - wonOpportunities",
+    "gap": "winRate - targetWinRate"
+  },
+  "outputs": {
+    "primary": "winRate",
+    "breakdown": [
+      "winCount",
+      "lossCount",
+      "gap"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

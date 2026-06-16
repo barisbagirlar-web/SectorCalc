@@ -1,0 +1,64 @@
+{
+  "toolName": "day-length-calculator",
+  "inputs": [
+    {
+      "id": "latitude",
+      "label": "Enlem",
+      "type": "number",
+      "unit": "derece",
+      "default": 41,
+      "businessContext": "Gözlem noktasının enlemi (-90 ile 90 arası)"
+    },
+    {
+      "id": "year",
+      "label": "Yıl",
+      "type": "number",
+      "unit": "",
+      "default": 2024,
+      "businessContext": "Gözlem yılı"
+    },
+    {
+      "id": "month",
+      "label": "Ay",
+      "type": "number",
+      "unit": "",
+      "default": 6,
+      "businessContext": "Gözlem ayı (1–12)"
+    },
+    {
+      "id": "day",
+      "label": "Gün",
+      "type": "number",
+      "unit": "",
+      "default": 21,
+      "businessContext": "Gözlem günü (1–31)"
+    },
+    {
+      "id": "utcOffset",
+      "label": "UTC Sapması",
+      "type": "number",
+      "unit": "saat",
+      "default": 3,
+      "businessContext": "Zaman dilimi UTC farkı (Türkiye için +3)"
+    }
+  ],
+  "formulas": {
+    "dayOfYear": "Math.floor((275 * month) / 9) - Math.floor((month + 9) / 12) * Math.floor((1 + Math.floor((year - 4 * Math.floor(year / 4) + 2) / 3)) / 30) + day - 30",
+    "declination": "23.45 * Math.sin((360 / 365) * (284 + dayOfYear) * Math.PI / 180)",
+    "hourAngle": "Math.acos(-Math.tan(latitude * Math.PI / 180) * Math.tan(declination * Math.PI / 180)) * 180 / Math.PI",
+    "dayLength": "2 * hourAngle / 15"
+  },
+  "outputs": {
+    "primary": "dayLength",
+    "breakdown": [
+      "declination",
+      "hourAngle"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

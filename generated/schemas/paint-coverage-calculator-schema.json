@@ -1,0 +1,69 @@
+{
+  "toolName": "paint-coverage-calculator",
+  "inputs": [
+    {
+      "id": "area_sqm",
+      "label": "Area to Paint",
+      "type": "number",
+      "unit": "m²",
+      "default": 50,
+      "businessContext": "Total area to be painted in square meters."
+    },
+    {
+      "id": "coats",
+      "label": "Number of Coats",
+      "type": "number",
+      "unit": "coats",
+      "default": 2,
+      "businessContext": "Number of paint coats to apply."
+    },
+    {
+      "id": "coverage_per_liter",
+      "label": "Coverage per Liter",
+      "type": "number",
+      "unit": "m²/L",
+      "default": 12,
+      "businessContext": "Manufacturer's stated coverage in m² per liter."
+    },
+    {
+      "id": "waste_factor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Expected paint wastage as percentage (e.g., overspray, spillage)."
+    },
+    {
+      "id": "roughness_factor",
+      "label": "Surface Roughness Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "businessContext": "Multiplier for rough surfaces (1.0=smooth, 1.5=rough)."
+    },
+    {
+      "id": "paint_price_per_liter",
+      "label": "Paint Price per Liter",
+      "type": "number",
+      "unit": "currency/L",
+      "default": 30,
+      "businessContext": "Cost of paint per liter in local currency."
+    }
+  ],
+  "formulas": {
+    "paint_liters": "(area_sqm * coats) / (coverage_per_liter / roughness_factor) * (1 + waste_factor / 100)",
+    "total_cost": "(area_sqm * coats) / (coverage_per_liter / roughness_factor) * (1 + waste_factor / 100) * paint_price_per_liter"
+  },
+  "outputs": {
+    "primary": "paint_liters",
+    "breakdown": [
+      "total_cost"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

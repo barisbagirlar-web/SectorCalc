@@ -1,0 +1,84 @@
+{
+  "toolName": "college-roi-calculator",
+  "inputs": [
+    {
+      "id": "tuitionCost",
+      "label": "Annual Tuition & Fees",
+      "type": "number",
+      "unit": "$",
+      "default": 20000,
+      "businessContext": "Average annual cost of college including tuition, fees, and materials."
+    },
+    {
+      "id": "yearsCollege",
+      "label": "Years in College",
+      "type": "number",
+      "unit": "years",
+      "default": 4,
+      "businessContext": "Expected duration of college education."
+    },
+    {
+      "id": "alternativeSalary",
+      "label": "Alternative Salary Without College",
+      "type": "number",
+      "unit": "$",
+      "default": 30000,
+      "businessContext": "Estimated annual salary if not attending college, assumed constant over working years."
+    },
+    {
+      "id": "startingSalary",
+      "label": "Starting Salary After College",
+      "type": "number",
+      "unit": "$",
+      "default": 50000,
+      "businessContext": "Expected annual salary in the first year after graduation."
+    },
+    {
+      "id": "salaryGrowth",
+      "label": "Annual Salary Growth Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "Expected annual percentage increase in college graduate salary."
+    },
+    {
+      "id": "workingYears",
+      "label": "Working Years After College",
+      "type": "number",
+      "unit": "years",
+      "default": 40,
+      "businessContext": "Expected number of years working after graduation until retirement."
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual rate used to discount future cash flows to present value (opportunity cost of capital)."
+    }
+  ],
+  "formulas": {
+    "totalInvestment": "(tuitionCost + alternativeSalary) * yearsCollege",
+    "pvCollegeEarnings": "startingSalary * (1 - Math.pow((1 + salaryGrowth / 100) * Math.pow(1 + discountRate / 100, -1), workingYears)) / ((discountRate - salaryGrowth) / 100)",
+    "pvAlternativeEarnings": "alternativeSalary * (1 - Math.pow(1 + discountRate / 100, -workingYears)) / (discountRate / 100)",
+    "pvIncrementalEarnings": "pvCollegeEarnings - pvAlternativeEarnings",
+    "npv": "pvIncrementalEarnings - totalInvestment",
+    "roiPercentage": "(npv / totalInvestment) * 100"
+  },
+  "outputs": {
+    "primary": "roiPercentage",
+    "breakdown": [
+      "totalInvestment",
+      "pvIncrementalEarnings",
+      "npv",
+      "roiPercentage"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

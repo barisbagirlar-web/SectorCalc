@@ -1,0 +1,57 @@
+{
+  "toolName": "retention-factor-calculator",
+  "inputs": [
+    {
+      "id": "feedConc",
+      "label": "Feed Concentration",
+      "type": "number",
+      "unit": "mg/L",
+      "default": 100,
+      "businessContext": "Concentration of the solute in the incoming feed stream."
+    },
+    {
+      "id": "permeateConc",
+      "label": "Permeate Concentration",
+      "type": "number",
+      "unit": "mg/L",
+      "default": 10,
+      "businessContext": "Concentration of the solute in the permeate (filtered) stream."
+    },
+    {
+      "id": "feedFlow",
+      "label": "Feed Flow Rate",
+      "type": "number",
+      "unit": "m³/h",
+      "default": 10,
+      "businessContext": "Volumetric flow rate of the feed stream."
+    },
+    {
+      "id": "permeateFlow",
+      "label": "Permeate Flow Rate",
+      "type": "number",
+      "unit": "m³/h",
+      "default": 5,
+      "businessContext": "Volumetric flow rate of the permeate stream."
+    }
+  ],
+  "formulas": {
+    "retentionFactor": "1 - (inputs.permeateConc / inputs.feedConc)",
+    "recoveryRate": "(inputs.permeateFlow / inputs.feedFlow) * 100",
+    "concentrateConc": "((inputs.feedConc * inputs.feedFlow) - (inputs.permeateConc * inputs.permeateFlow)) / (inputs.feedFlow - inputs.permeateFlow)",
+    "concentrateFlow": "inputs.feedFlow - inputs.permeateFlow"
+  },
+  "outputs": {
+    "primary": "retentionFactor",
+    "breakdown": [
+      "recoveryRate",
+      "concentrateConc",
+      "concentrateFlow"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

@@ -1,0 +1,78 @@
+{
+  "toolName": "treadmill-incline-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "miles",
+      "default": 1,
+      "businessContext": "Total distance covered on treadmill"
+    },
+    {
+      "id": "inclinePercent",
+      "label": "Incline (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Treadmill incline setting in percent grade (e.g., 5 for 5%)"
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "lbs",
+      "default": 150,
+      "businessContext": "User body weight for calorie calculation"
+    },
+    {
+      "id": "speed",
+      "label": "Speed",
+      "type": "number",
+      "unit": "mph",
+      "default": 3,
+      "businessContext": "Treadmill belt speed in miles per hour"
+    },
+    {
+      "id": "time",
+      "label": "Time",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Duration of exercise"
+    }
+  ],
+  "formulas": {
+    "elevationGain": "distance * 5280 * (inclinePercent / 100)",
+    "caloriesBurned": "( (0.2 * (speed * 26.8224) + 0.9 * (speed * 26.8224) * (inclinePercent / 100) + 3.5) * (weight / 2.20462) * time * 5 ) / 1000",
+    "equivalentFlatDistance": "(( (0.2 * (speed * 26.8224) + 0.9 * (speed * 26.8224) * (inclinePercent / 100) + 3.5) * (weight / 2.20462) * time * 5 ) / 1000) / (((0.2 * (speed * 26.8224) + 3.5) * (weight / 2.20462) * 5 ) / 1000 * (60 / speed))"
+  },
+  "outputs": {
+    "primary": {
+      "id": "elevationGain",
+      "label": "Elevation Gain",
+      "unit": "ft",
+      "decimals": 2
+    },
+    "breakdown": [
+      {
+        "id": "caloriesBurned",
+        "label": "Calories Burned",
+        "unit": "kcal",
+        "decimals": 0
+      },
+      {
+        "id": "equivalentFlatDistance",
+        "label": "Equivalent Flat Distance",
+        "unit": "miles",
+        "decimals": 2
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

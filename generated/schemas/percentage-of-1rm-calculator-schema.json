@@ -1,0 +1,55 @@
+{
+  "toolName": "percentage-of-1rm-calculator",
+  "inputs": [
+    {
+      "id": "oneRepMax",
+      "label": "One Rep Max (1RM)",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Maximum weight you can lift for one repetition"
+    },
+    {
+      "id": "targetPercentage",
+      "label": "Target Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Percentage of 1RM to calculate"
+    },
+    {
+      "id": "roundingIncrement",
+      "label": "Rounding Increment",
+      "type": "number",
+      "unit": "kg",
+      "default": 2.5,
+      "businessContext": "Increment to round the result to (0 for no rounding)"
+    },
+    {
+      "id": "bodyWeight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "Your body weight for relative strength reference"
+    }
+  ],
+  "formulas": {
+    "targetWeight": "inputs.roundingIncrement > 0 ? Math.round((inputs.oneRepMax * inputs.targetPercentage / 100) / inputs.roundingIncrement) * inputs.roundingIncrement : (inputs.oneRepMax * inputs.targetPercentage / 100)",
+    "rawWeight": "inputs.oneRepMax * inputs.targetPercentage / 100",
+    "bodyWeightPercentage": "((inputs.roundingIncrement > 0 ? Math.round((inputs.oneRepMax * inputs.targetPercentage / 100) / inputs.roundingIncrement) * inputs.roundingIncrement : (inputs.oneRepMax * inputs.targetPercentage / 100)) / inputs.bodyWeight) * 100"
+  },
+  "outputs": {
+    "primary": "targetWeight",
+    "breakdown": [
+      "rawWeight",
+      "bodyWeightPercentage"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

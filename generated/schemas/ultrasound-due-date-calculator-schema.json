@@ -1,0 +1,56 @@
+{
+  "toolName": "ultrasound-due-date-calculator",
+  "inputs": [
+    {
+      "id": "currentThicknessMm",
+      "label": "Current Thickness (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Measured actual wall thickness from ultrasonic testing (UT) gauge."
+    },
+    {
+      "id": "minThicknessMm",
+      "label": "Minimum Allowable Thickness (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Minimum thickness required by design code (e.g., ASME B31.3) before replacement."
+    },
+    {
+      "id": "corrosionRateMmPerYear",
+      "label": "Corrosion Rate (mm/year)",
+      "type": "number",
+      "unit": "mm/year",
+      "default": 0.2,
+      "businessContext": "Estimated uniform corrosion rate based on historical UT data or industry standards."
+    },
+    {
+      "id": "measurementConfidenceFactor",
+      "label": "Measurement Confidence Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Safety factor to account for UT measurement uncertainty (≥1.0)."
+    }
+  ],
+  "formulas": {
+    "remainingThickness": "Math.max(0, currentThicknessMm - minThicknessMm)",
+    "effectiveCorrosionRate": "corrosionRateMmPerYear * measurementConfidenceFactor",
+    "remainingLifeYears": "(effectiveCorrosionRate <= 0) ? 999999 : remainingThickness / effectiveCorrosionRate",
+    "daysUntilReplacement": "remainingLifeYears * 365.25"
+  },
+  "outputs": {
+    "primary": "daysUntilReplacement",
+    "breakdown": [
+      "remainingThickness",
+      "remainingLifeYears"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

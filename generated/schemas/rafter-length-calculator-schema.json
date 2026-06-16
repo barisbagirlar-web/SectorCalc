@@ -1,0 +1,58 @@
+{
+  "toolName": "rafter-length-calculator",
+  "inputs": [
+    {
+      "id": "buildingWidth",
+      "label": "Building Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 6000,
+      "businessContext": "Total width of the building from outer wall to outer wall (center to center of wall plates)"
+    },
+    {
+      "id": "ridgeThickness",
+      "label": "Ridge Board Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 38,
+      "businessContext": "Thickness of the ridge board at the apex"
+    },
+    {
+      "id": "overhang",
+      "label": "Eaves Overhang",
+      "type": "number",
+      "unit": "mm",
+      "default": 300,
+      "businessContext": "Horizontal projection of the rafter tail beyond the outer wall"
+    },
+    {
+      "id": "roofPitch",
+      "label": "Roof Pitch Angle",
+      "type": "number",
+      "unit": "deg",
+      "default": 30,
+      "businessContext": "Angle of the roof slope from horizontal, in degrees"
+    }
+  ],
+  "formulas": {
+    "horizontalRun": "buildingWidth / 2 - ridgeThickness / 2",
+    "totalRun": "horizontalRun + overhang",
+    "rafterLength": "totalRun / Math.cos(roofPitch * Math.PI / 180)",
+    "verticalRise": "totalRun * Math.sin(roofPitch * Math.PI / 180) / Math.cos(roofPitch * Math.PI / 180)",
+    "plumbCutAngle": "roofPitch"
+  },
+  "outputs": {
+    "primary": "rafterLength",
+    "breakdown": [
+      "verticalRise",
+      "plumbCutAngle",
+      "horizontalRun"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

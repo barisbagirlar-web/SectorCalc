@@ -1,0 +1,76 @@
+{
+  "toolName": "life-expectancy-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "User's age in years"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "0 for male, 1 for female"
+    },
+    {
+      "id": "smokingStatus",
+      "label": "Smoking Status",
+      "type": "number",
+      "unit": "pack-years",
+      "default": 0,
+      "businessContext": "Smoking pack-years (0 for non-smoker)"
+    },
+    {
+      "id": "alcoholConsumption",
+      "label": "Alcohol Consumption",
+      "type": "number",
+      "unit": "drinks per week",
+      "default": 3,
+      "businessContext": "Average number of alcoholic drinks per week"
+    },
+    {
+      "id": "bmi",
+      "label": "BMI",
+      "type": "number",
+      "unit": "kg/m²",
+      "default": 25,
+      "businessContext": "Body Mass Index"
+    },
+    {
+      "id": "exerciseHours",
+      "label": "Weekly Exercise",
+      "type": "number",
+      "unit": "hours",
+      "default": 2,
+      "businessContext": "Hours of moderate exercise per week"
+    }
+  ],
+  "formulas": {
+    "baseExpectancy": "75",
+    "genderBonus": "inputs.gender * 5",
+    "smokingEffect": "- inputs.smokingStatus * 0.5",
+    "alcoholEffect": "(inputs.alcoholConsumption - 7) * 0.2",
+    "exerciseBonus": "inputs.exerciseHours * 0.5",
+    "bmiPenalty": "- (inputs.bmi - 23) ** 2 * 0.02",
+    "lifeExpectancy": "75 + inputs.gender * 5 - inputs.smokingStatus * 0.5 + (inputs.alcoholConsumption - 7) * 0.2 + inputs.exerciseHours * 0.5 - (inputs.bmi - 23) ** 2 * 0.02"
+  },
+  "outputs": {
+    "primary": "lifeExpectancy",
+    "breakdown": [
+      "baseExpectancy",
+      "genderBonus",
+      "smokingEffect",
+      "alcoholEffect",
+      "exerciseBonus",
+      "bmiPenalty"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false
+}

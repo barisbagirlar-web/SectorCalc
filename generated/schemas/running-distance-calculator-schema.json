@@ -1,0 +1,57 @@
+{
+  "toolName": "running-distance-calculator",
+  "inputs": [
+    {
+      "id": "speed",
+      "label": "Average Running Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 10,
+      "businessContext": "Runner's average speed in kilometers per hour"
+    },
+    {
+      "id": "hours",
+      "label": "Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 0,
+      "businessContext": "Running time in hours"
+    },
+    {
+      "id": "minutes",
+      "label": "Minutes",
+      "type": "number",
+      "unit": "minutes",
+      "default": 30,
+      "businessContext": "Running time in minutes"
+    },
+    {
+      "id": "seconds",
+      "label": "Seconds",
+      "type": "number",
+      "unit": "seconds",
+      "default": 0,
+      "businessContext": "Running time in seconds"
+    }
+  ],
+  "formulas": {
+    "totalTimeHours": "hours + minutes/60 + seconds/3600",
+    "totalTimeMinutes": "hours*60 + minutes + seconds/60",
+    "distance_km": "speed * totalTimeHours",
+    "distance_miles": "distance_km * 0.621371",
+    "pace_per_km": "distance_km > 0 ? totalTimeMinutes / distance_km : 0"
+  },
+  "outputs": {
+    "primary": "distance_km",
+    "breakdown": [
+      "distance_miles",
+      "pace_per_km"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

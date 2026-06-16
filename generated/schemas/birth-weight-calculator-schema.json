@@ -1,0 +1,57 @@
+{
+  "toolName": "birth-weight-calculator",
+  "inputs": [
+    {
+      "id": "hc",
+      "label": "Head Circumference (HC)",
+      "type": "number",
+      "unit": "cm",
+      "default": 33,
+      "businessContext": "Fetal head circumference measured via ultrasound in centimeters."
+    },
+    {
+      "id": "ac",
+      "label": "Abdominal Circumference (AC)",
+      "type": "number",
+      "unit": "cm",
+      "default": 33,
+      "businessContext": "Fetal abdominal circumference measured via ultrasound in centimeters."
+    },
+    {
+      "id": "fl",
+      "label": "Femur Length (FL)",
+      "type": "number",
+      "unit": "cm",
+      "default": 7,
+      "businessContext": "Fetal femur length measured via ultrasound in centimeters."
+    },
+    {
+      "id": "bpd",
+      "label": "Biparietal Diameter (BPD)",
+      "type": "number",
+      "unit": "cm",
+      "default": 9.5,
+      "businessContext": "Fetal biparietal diameter measured via ultrasound in centimeters."
+    }
+  ],
+  "formulas": {
+    "estimatedWeightGrams": "10 ** (1.3596 + 0.0064 * hc + 0.0424 * ac + 0.174 * fl + 0.00061 * bpd * ac - 0.00386 * ac * fl)",
+    "estimatedWeightPounds": "estimatedWeightGrams * 0.00220462",
+    "confidenceRangeLow": "estimatedWeightGrams * 0.85",
+    "confidenceRangeHigh": "estimatedWeightGrams * 1.15"
+  },
+  "outputs": {
+    "primary": "estimatedWeightGrams",
+    "breakdown": [
+      "estimatedWeightPounds",
+      "confidenceRangeLow",
+      "confidenceRangeHigh"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,91 @@
+{
+  "toolName": "packing-list-calculator",
+  "inputs": [
+    {
+      "id": "quantityOrdered",
+      "label": "Order Quantity",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1000,
+      "businessContext": "Total number of items ordered by customer"
+    },
+    {
+      "id": "unitsPerCarton",
+      "label": "Units per Carton",
+      "type": "number",
+      "unit": "pcs/carton",
+      "default": 50,
+      "businessContext": "How many items fit into one standard carton"
+    },
+    {
+      "id": "cartonLength",
+      "label": "Carton Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 40,
+      "businessContext": "Length dimension of a carton"
+    },
+    {
+      "id": "cartonWidth",
+      "label": "Carton Width",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "Width dimension of a carton"
+    },
+    {
+      "id": "cartonHeight",
+      "label": "Carton Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 20,
+      "businessContext": "Height dimension of a carton"
+    },
+    {
+      "id": "cartonWeight",
+      "label": "Carton Weight (full)",
+      "type": "number",
+      "unit": "kg",
+      "default": 12,
+      "businessContext": "Weight of one full carton including items and packaging"
+    },
+    {
+      "id": "maxCartonsPerPallet",
+      "label": "Max Cartons per Pallet",
+      "type": "number",
+      "unit": "cartons/pallet",
+      "default": 24,
+      "businessContext": "Maximum number of cartons that can be stacked on a pallet (based on dimensions)"
+    },
+    {
+      "id": "maxWeightPerPallet",
+      "label": "Max Weight per Pallet",
+      "type": "number",
+      "unit": "kg",
+      "default": 500,
+      "businessContext": "Maximum weight a pallet can safely carry"
+    }
+  ],
+  "formulas": {
+    "totalVolume": "(quantityOrdered / unitsPerCarton) * (cartonLength * cartonWidth * cartonHeight) / 1000000",
+    "totalWeight": "(quantityOrdered / unitsPerCarton) * cartonWeight",
+    "totalCartons": "quantityOrdered / unitsPerCarton",
+    "palletsByVolume": "(quantityOrdered / unitsPerCarton) / maxCartonsPerPallet",
+    "palletsByWeight": "(quantityOrdered / unitsPerCarton) * cartonWeight / maxWeightPerPallet"
+  },
+  "outputs": {
+    "primary": "totalVolume",
+    "breakdown": [
+      "totalWeight",
+      "totalCartons",
+      "palletsByVolume",
+      "palletsByWeight"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

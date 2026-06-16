@@ -1,0 +1,65 @@
+{
+  "toolName": "pressure-altitude-calculator",
+  "inputs": [
+    {
+      "id": "fieldElevation",
+      "label": "Field Elevation (ft)",
+      "type": "number",
+      "unit": "ft",
+      "default": 0,
+      "businessContext": "Elevation of the location above mean sea level in feet. Use either this or the meters input."
+    },
+    {
+      "id": "fieldElevationMeters",
+      "label": "Field Elevation (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Elevation of the location above mean sea level in meters. Used only if fieldElevation is 0."
+    },
+    {
+      "id": "altimeterSetting",
+      "label": "Altimeter Setting (inHg)",
+      "type": "number",
+      "unit": "inHg",
+      "default": 29.92,
+      "businessContext": "Current altimeter setting or QNH in inches of mercury. Use either this or QNH hPa."
+    },
+    {
+      "id": "qnhHpa",
+      "label": "QNH (hPa)",
+      "type": "number",
+      "unit": "hPa",
+      "default": 1013.25,
+      "businessContext": "Current altimeter setting or QNH in hectopascals. Used only if altimeterSetting is 0."
+    },
+    {
+      "id": "standardPressure",
+      "label": "Standard Pressure (inHg)",
+      "type": "number",
+      "unit": "inHg",
+      "default": 29.92,
+      "businessContext": "Standard pressure at sea level in inches of mercury. Normally 29.92 inHg."
+    }
+  ],
+  "formulas": {
+    "eleFt": "fieldElevation > 0 ? fieldElevation : (fieldElevationMeters > 0 ? fieldElevationMeters * 3.28084 : 0)",
+    "pressInHg": "altimeterSetting > 0 ? altimeterSetting : (qnhHpa > 0 ? qnhHpa * 0.02953 : 29.92)",
+    "pressureAltitudeFt": "eleFt + (standardPressure - pressInHg) * 1000",
+    "pressureAltitudeM": "pressureAltitudeFt * 0.3048"
+  },
+  "outputs": {
+    "primary": "pressureAltitudeFt",
+    "breakdown": [
+      "pressureAltitudeM",
+      "eleFt",
+      "pressInHg"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

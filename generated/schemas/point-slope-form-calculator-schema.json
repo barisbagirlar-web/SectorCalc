@@ -1,0 +1,59 @@
+{
+  "toolName": "point-slope-form-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "x₁ Koordinatı",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Bilinen noktanın x koordinatı"
+    },
+    {
+      "id": "y1",
+      "label": "y₁ Koordinatı",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Bilinen noktanın y koordinatı"
+    },
+    {
+      "id": "m",
+      "label": "Eğim (m)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Doğrunun eğimi"
+    },
+    {
+      "id": "x",
+      "label": "Hedef x Değeri",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Üzerinde y hesaplanacak x değeri (varsayılan 0, y kesişimini verir)"
+    }
+  ],
+  "formulas": {
+    "yComponent": "m * (x - x1) + y1",
+    "intercept": "y1 - m * x1",
+    "slopeValue": "m",
+    "pointX": "x1",
+    "pointY": "y1"
+  },
+  "outputs": {
+    "primary": "yComponent",
+    "breakdown": [
+      "intercept",
+      "slopeValue",
+      "pointX",
+      "pointY"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

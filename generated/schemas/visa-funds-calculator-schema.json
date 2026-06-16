@@ -1,0 +1,69 @@
+{
+  "toolName": "visa-funds-calculator",
+  "inputs": [
+    {
+      "id": "dailyExpenseEUR",
+      "label": "Daily Expense Requirement (EUR)",
+      "type": "number",
+      "unit": "EUR/day",
+      "default": 100,
+      "businessContext": "Minimum daily funds required by the embassy per person."
+    },
+    {
+      "id": "numberOfDays",
+      "label": "Number of Days of Stay",
+      "type": "number",
+      "unit": "days",
+      "default": 7,
+      "businessContext": "Total days of intended stay."
+    },
+    {
+      "id": "exchangeRate",
+      "label": "Exchange Rate (Local to EUR)",
+      "type": "number",
+      "unit": "LC/EUR",
+      "default": 1.1,
+      "businessContext": "Current exchange rate from local currency to EUR."
+    },
+    {
+      "id": "bufferPercent",
+      "label": "Buffer (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Additional percentage to ensure sufficient funds."
+    },
+    {
+      "id": "applicationFee",
+      "label": "Visa Application Fee (Local)",
+      "type": "number",
+      "unit": "LC",
+      "default": 800,
+      "businessContext": "Non-refundable visa processing fee in local currency."
+    }
+  ],
+  "formulas": {
+    "baseRequiredEUR": "dailyExpenseEUR * numberOfDays",
+    "bufferEUR": "baseRequiredEUR * (bufferPercent / 100)",
+    "totalRequiredEUR": "baseRequiredEUR + bufferEUR",
+    "totalRequiredLocal": "totalRequiredEUR * exchangeRate",
+    "totalCostLocal": "totalRequiredLocal + applicationFee"
+  },
+  "outputs": {
+    "primary": "totalCostLocal",
+    "breakdown": [
+      "baseRequiredEUR",
+      "bufferEUR",
+      "totalRequiredEUR",
+      "totalRequiredLocal",
+      "applicationFee",
+      "totalCostLocal"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "cylinder-force-calculator",
+  "inputs": [
+    {
+      "id": "boreDiameter",
+      "label": "Bore Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Inner diameter of the cylinder bore"
+    },
+    {
+      "id": "rodDiameter",
+      "label": "Rod Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 20,
+      "businessContext": "Diameter of the piston rod (set to 0 for single-acting cylinder)"
+    },
+    {
+      "id": "pressure",
+      "label": "Operating Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 100,
+      "businessContext": "Fluid pressure supplied to the cylinder"
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Mechanical efficiency of the cylinder (typical range 85-95%)"
+    }
+  ],
+  "formulas": {
+    "areaBore": "Math.PI * (boreDiameter / 2) ** 2",
+    "areaRod": "Math.PI * (rodDiameter / 2) ** 2",
+    "areaAnnulus": "areaBore - areaRod",
+    "pressureNmm2": "pressure * 0.1",
+    "efficiencyFraction": "efficiency / 100",
+    "forceExtension_N": "pressureNmm2 * areaBore * efficiencyFraction",
+    "forceRetraction_N": "pressureNmm2 * areaAnnulus * efficiencyFraction",
+    "forceExtension_kN": "forceExtension_N / 1000",
+    "forceRetraction_kN": "forceRetraction_N / 1000"
+  },
+  "outputs": {
+    "primary": "forceExtension_kN",
+    "breakdown": [
+      "forceRetraction_kN",
+      "areaBore",
+      "areaAnnulus",
+      "efficiencyFraction"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

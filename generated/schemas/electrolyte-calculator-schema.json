@@ -1,0 +1,60 @@
+{
+  "toolName": "electrolyte-calculator",
+  "inputs": [
+    {
+      "id": "desiredMolarity",
+      "label": "Desired Molarity",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 1,
+      "businessContext": "Target concentration of the electrolyte solution in moles per liter"
+    },
+    {
+      "id": "solutionVolume",
+      "label": "Solution Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 1,
+      "businessContext": "Final volume of the solution to prepare"
+    },
+    {
+      "id": "solutePurity",
+      "label": "Solute Purity",
+      "type": "number",
+      "unit": "%",
+      "default": 99.5,
+      "businessContext": "Purity percentage of the solid solute (e.g., 99.5 means 99.5% pure)"
+    },
+    {
+      "id": "molecularWeight",
+      "label": "Molecular Weight (Anhydrous)",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 58.44,
+      "businessContext": "Molar mass of the anhydrous solute"
+    },
+    {
+      "id": "hydrationNumber",
+      "label": "Water of Hydration",
+      "type": "number",
+      "unit": "mol/mol",
+      "default": 0,
+      "businessContext": "Number of water molecules per formula unit (e.g., 5 for CuSO4·5H2O; 0 for anhydrous)"
+    }
+  ],
+  "formulas": {
+    "effectiveMolecularWeight": "molecularWeight + hydrationNumber * 18.015",
+    "pureMass": "desiredMolarity * solutionVolume * effectiveMolecularWeight",
+    "rawMass": "pureMass / (solutePurity / 100)"
+  },
+  "outputs": {
+    "primary": "rawMass",
+    "breakdown": [
+      "effectiveMolecularWeight",
+      "pureMass"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false
+}

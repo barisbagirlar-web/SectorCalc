@@ -1,0 +1,59 @@
+{
+  "toolName": "chebyshev-filter-calculator",
+  "inputs": [
+    {
+      "id": "passbandRipple",
+      "label": "Passband Ripple (dB)",
+      "type": "number",
+      "unit": "dB",
+      "default": 1,
+      "businessContext": "Maximum ripple in the passband (Ap). Must be >0."
+    },
+    {
+      "id": "stopbandAttenuation",
+      "label": "Stopband Attenuation (dB)",
+      "type": "number",
+      "unit": "dB",
+      "default": 40,
+      "businessContext": "Minimum attenuation required in the stopband (As). Must be > passbandRipple."
+    },
+    {
+      "id": "cutoffFrequency",
+      "label": "Cutoff Frequency (Hz)",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1000,
+      "businessContext": "Passband edge frequency (wp). For low-pass prototype, must be < stopbandFrequency."
+    },
+    {
+      "id": "stopbandFrequency",
+      "label": "Stopband Frequency (Hz)",
+      "type": "number",
+      "unit": "Hz",
+      "default": 2000,
+      "businessContext": "Stopband edge frequency (ws). Must be > cutoffFrequency."
+    }
+  ],
+  "formulas": {
+    "epsilon": "Math.sqrt(Math.pow(10, 0.1 * passbandRipple) - 1)",
+    "delta": "Math.sqrt((Math.pow(10, 0.1 * stopbandAttenuation) - 1) / (Math.pow(10, 0.1 * passbandRipple) - 1))",
+    "selectivity": "stopbandFrequency / cutoffFrequency",
+    "n_raw": "Math.acosh(delta) / Math.acosh(selectivity)",
+    "order": "Math.ceil(n_raw)"
+  },
+  "outputs": {
+    "primary": "order",
+    "breakdown": [
+      "epsilon",
+      "delta",
+      "selectivity",
+      "n_raw"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

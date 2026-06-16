@@ -1,0 +1,54 @@
+{
+  "toolName": "sloan-ratio-calculator",
+  "inputs": [
+    {
+      "id": "netIncome",
+      "label": "Net Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "The company's net income from the income statement."
+    },
+    {
+      "id": "cashFlowOperations",
+      "label": "Cash Flow from Operations",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Net cash provided by operating activities from the cash flow statement."
+    },
+    {
+      "id": "cashFlowInvesting",
+      "label": "Cash Flow from Investing",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Net cash used in investing activities from the cash flow statement."
+    },
+    {
+      "id": "totalAssets",
+      "label": "Total Assets",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total assets from the balance sheet."
+    }
+  ],
+  "formulas": {
+    "netAccruals": "netIncome - cashFlowOperations - cashFlowInvesting",
+    "sloanRatio": "(netAccruals / totalAssets) * 100"
+  },
+  "outputs": {
+    "primary": "sloanRatio",
+    "breakdown": [
+      "netAccruals",
+      "sloanRatio"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

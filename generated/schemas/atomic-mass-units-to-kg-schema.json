@@ -1,0 +1,28 @@
+{
+  "toolName": "atomic-mass-units-to-kg",
+  "inputs": [
+    {
+      "id": "amu",
+      "label": "Atomic Mass Units",
+      "type": "number",
+      "unit": "u",
+      "default": 1,
+      "businessContext": "Mass of atoms or molecules in atomic mass units"
+    }
+  ],
+  "formulas": {
+    "kg": "amu * 1.66053906660e-27"
+  },
+  "outputs": {
+    "primary": "kg",
+    "breakdown": [
+      "kg"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

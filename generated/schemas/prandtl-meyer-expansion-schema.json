@@ -1,0 +1,50 @@
+{
+  "toolName": "prandtl-meyer-expansion",
+  "inputs": [
+    {
+      "id": "mach1",
+      "label": "Upstream Mach Number (M1)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 2,
+      "businessContext": "Mach number before the expansion fan"
+    },
+    {
+      "id": "gamma",
+      "label": "Specific Heat Ratio (γ)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.4,
+      "businessContext": "Ratio of specific heats for the gas (e.g., 1.4 for air)"
+    },
+    {
+      "id": "deflectionAngle",
+      "label": "Flow Deflection Angle (θ)",
+      "type": "number",
+      "unit": "degrees",
+      "default": 10,
+      "businessContext": "Angle through which the flow is turned (positive for expansion)"
+    }
+  ],
+  "formulas": {
+    "prandtlMeyerFunction": "Math.sqrt((gamma+1)/(gamma-1))*Math.atan(Math.sqrt((gamma-1)/(gamma+1)*(mach1**2-1)))-Math.atan(Math.sqrt(mach1**2-1))",
+    "mach2": "let f = (mach) => Math.sqrt((gamma+1)/(gamma-1))*Math.atan(Math.sqrt((gamma-1)/(gamma+1)*(mach**2-1)))-Math.atan(Math.sqrt(mach**2-1)); let target = f(mach1) + deflectionAngle * Math.PI / 180; let low = 1.001, high = 100, mid; for(let i=0;i<100;i++){ mid=(low+high)/2; if(f(mid)<target) low=mid; else high=mid; } return mid;",
+    "pressureRatio": "( (1+(gamma-1)/2*mach1**2) / (1+(gamma-1)/2*mach2**2) )**(gamma/(gamma-1))",
+    "temperatureRatio": "(1+(gamma-1)/2*mach1**2)/(1+(gamma-1)/2*mach2**2)",
+    "densityRatio": "( (1+(gamma-1)/2*mach1**2) / (1+(gamma-1)/2*mach2**2) )**(1/(gamma-1))"
+  },
+  "outputs": {
+    "primary": "Downstream Mach Number (M2)",
+    "breakdown": [
+      "Pressure Ratio (P2/P1)",
+      "Temperature Ratio (T2/T1)",
+      "Density Ratio (ρ2/ρ1)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

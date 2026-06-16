@@ -1,0 +1,109 @@
+{
+  "toolName": "recipe-nutrition-calculator",
+  "inputs": [
+    {
+      "id": "servings",
+      "label": "Number of Servings",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "How many portions the recipe makes."
+    },
+    {
+      "id": "flour_g",
+      "label": "Flour (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 250,
+      "businessContext": "All-purpose flour weight."
+    },
+    {
+      "id": "sugar_g",
+      "label": "Sugar (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 200,
+      "businessContext": "Granulated sugar weight."
+    },
+    {
+      "id": "butter_g",
+      "label": "Butter (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 100,
+      "businessContext": "Unsalted butter weight."
+    },
+    {
+      "id": "eggs",
+      "label": "Eggs",
+      "type": "number",
+      "unit": "pieces",
+      "default": 2,
+      "businessContext": "Large eggs, count."
+    },
+    {
+      "id": "milk_ml",
+      "label": "Milk (ml)",
+      "type": "number",
+      "unit": "ml",
+      "default": 120,
+      "businessContext": "Whole milk volume."
+    },
+    {
+      "id": "chocolate_g",
+      "label": "Chocolate (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 50,
+      "businessContext": "Dark chocolate weight."
+    },
+    {
+      "id": "oil_ml",
+      "label": "Oil (ml)",
+      "type": "number",
+      "unit": "ml",
+      "default": 30,
+      "businessContext": "Vegetable oil volume."
+    }
+  ],
+  "formulas": {
+    "caloriesPerServing": "(flour_g * 3.64 + sugar_g * 3.87 + butter_g * 7.17 + eggs * 78 + milk_ml * 0.42 + chocolate_g * 5.46 + oil_ml * 8.84) / servings",
+    "fatPerServing": "(butter_g * 0.81 + oil_ml * 0.92 + milk_ml * 0.0325 + eggs * 5 + chocolate_g * 0.42) / servings",
+    "carbsPerServing": "(flour_g * 0.76 + sugar_g * 1 + milk_ml * 0.048 + chocolate_g * 0.45) / servings",
+    "proteinPerServing": "(flour_g * 0.1 + eggs * 6.3 + milk_ml * 0.032 + chocolate_g * 0.08) / servings"
+  },
+  "outputs": {
+    "primary": {
+      "id": "caloriesPerServing",
+      "label": "Calories per Serving",
+      "unit": "kcal",
+      "description": "Energy per serving in kilocalories"
+    },
+    "breakdown": [
+      {
+        "id": "fatPerServing",
+        "label": "Fat per Serving",
+        "unit": "g",
+        "description": "Total fat per serving in grams"
+      },
+      {
+        "id": "carbsPerServing",
+        "label": "Carbohydrates per Serving",
+        "unit": "g",
+        "description": "Total carbohydrates per serving in grams"
+      },
+      {
+        "id": "proteinPerServing",
+        "label": "Protein per Serving",
+        "unit": "g",
+        "description": "Total protein per serving in grams"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "kp-calculator",
+  "inputs": [
+    {
+      "id": "processGain",
+      "label": "Process Gain (K)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Steady-state gain of the process, ratio of output change to input change."
+    },
+    {
+      "id": "timeConstant",
+      "label": "Time Constant (T)",
+      "type": "number",
+      "unit": "s",
+      "default": 10,
+      "businessContext": "Time taken for the process response to reach 63.2% of its final value."
+    },
+    {
+      "id": "deadTime",
+      "label": "Dead Time (L)",
+      "type": "number",
+      "unit": "s",
+      "default": 1,
+      "businessContext": "Delay between input change and process response."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Multiplier to derate the calculated gain for robustness."
+    },
+    {
+      "id": "controllerType",
+      "label": "Controller Type (1=P, 2=PI, 3=PID)",
+      "type": "number",
+      "unit": "option",
+      "default": 2,
+      "businessContext": "Selects the tuning rule: 1 for P-only, 2 for PI, 3 for PID based on Ziegler-Nichols open-loop method."
+    }
+  ],
+  "formulas": {
+    "primary": "Kp_raw * safetyFactor",
+    "Kp_raw": "(controllerType === 1 ? (timeConstant / (processGain * deadTime)) : (controllerType === 2 ? (0.9 * timeConstant / (processGain * deadTime)) : (1.2 * timeConstant / (processGain * deadTime))))",
+    "Ki": "(controllerType === 1 ? 0 : (controllerType === 2 ? (0.3 * timeConstant / (processGain * Math.pow(deadTime, 2))) : (0.6 * timeConstant / (processGain * Math.pow(deadTime, 2)))))",
+    "Kd": "(controllerType === 3 ? (0.6 * timeConstant / processGain) : 0)"
+  },
+  "outputs": {
+    "primary": "Kp_final",
+    "breakdown": [
+      "Kp_raw",
+      "Ki",
+      "Kd"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

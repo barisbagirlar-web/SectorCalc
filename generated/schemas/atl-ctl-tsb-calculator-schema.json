@@ -1,0 +1,63 @@
+{
+  "toolName": "atl-ctl-tsb-calculator",
+  "inputs": [
+    {
+      "id": "t1",
+      "label": "Tolerance 1",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.1,
+      "businessContext": "Tolerance of component 1 in the tolerance stack"
+    },
+    {
+      "id": "t2",
+      "label": "Tolerance 2",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.1,
+      "businessContext": "Tolerance of component 2 in the tolerance stack"
+    },
+    {
+      "id": "t3",
+      "label": "Tolerance 3",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.1,
+      "businessContext": "Tolerance of component 3 in the tolerance stack"
+    },
+    {
+      "id": "t4",
+      "label": "Tolerance 4",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.1,
+      "businessContext": "Tolerance of component 4 in the tolerance stack"
+    },
+    {
+      "id": "nominal",
+      "label": "Nominal Dimension",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Nominal dimension of the assembly for reference"
+    }
+  ],
+  "formulas": {
+    "atl": "t1 + t2 + t3 + t4",
+    "ctl": "Math.sqrt(Math.pow(t1,2) + Math.pow(t2,2) + Math.pow(t3,2) + Math.pow(t4,2))",
+    "tsb": "(t1 + t2 + t3 + t4) / Math.sqrt(Math.pow(t1,2) + Math.pow(t2,2) + Math.pow(t3,2) + Math.pow(t4,2))"
+  },
+  "outputs": {
+    "primary": "`Statistical Tolerance (CTL): ${ctl.toFixed(3)} mm`",
+    "breakdown": [
+      "`Worst-Case Tolerance (ATL): ${atl.toFixed(3)} mm`",
+      "`Safety Factor (TSB): ${tsb.toFixed(2)}`"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

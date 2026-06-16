@@ -1,0 +1,57 @@
+{
+  "toolName": "reverb-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Oda Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Odanın uzunluğu (metre)"
+    },
+    {
+      "id": "width",
+      "label": "Oda Genişliği",
+      "type": "number",
+      "unit": "m",
+      "default": 8,
+      "businessContext": "Odanın genişliği (metre)"
+    },
+    {
+      "id": "height",
+      "label": "Oda Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Odanın yüksekliği (metre)"
+    },
+    {
+      "id": "alpha",
+      "label": "Ortalama Emilim Katsayısı (α)",
+      "type": "number",
+      "unit": "",
+      "default": 0.3,
+      "businessContext": "Yüzeylerin ortalama ses emilim katsayısı (0–1 arası, boyutsuz)"
+    }
+  ],
+  "formulas": {
+    "volume": "length * width * height",
+    "surfaceArea": "2 * (length*width + length*height + width*height)",
+    "totalAbsorption": "surfaceArea * alpha",
+    "rt60": "totalAbsorption ? 0.161 * volume / totalAbsorption : 0"
+  },
+  "outputs": {
+    "primary": "rt60",
+    "breakdown": [
+      "volume",
+      "surfaceArea",
+      "totalAbsorption"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

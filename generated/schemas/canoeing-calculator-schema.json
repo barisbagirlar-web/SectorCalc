@@ -1,0 +1,71 @@
+{
+  "toolName": "canoeing-calculator",
+  "inputs": [
+    {
+      "id": "paddlePower",
+      "label": "Paddle Power",
+      "type": "number",
+      "unit": "W",
+      "default": 100,
+      "businessContext": "Power applied by the paddler in watts."
+    },
+    {
+      "id": "dragCoefficient",
+      "label": "Drag Coefficient",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.04,
+      "businessContext": "Drag coefficient of the canoe."
+    },
+    {
+      "id": "waterDensity",
+      "label": "Water Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of water, typically 1000 kg/m³ for freshwater."
+    },
+    {
+      "id": "frontalArea",
+      "label": "Frontal Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 0.5,
+      "businessContext": "Effective frontal area of canoe in water."
+    },
+    {
+      "id": "canoeWeight",
+      "label": "Canoe Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 20,
+      "businessContext": "Weight of the canoe."
+    },
+    {
+      "id": "paddlerWeight",
+      "label": "Paddler Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 75,
+      "businessContext": "Weight of the paddler."
+    }
+  ],
+  "formulas": {
+    "speed": "Math.pow((2 * paddlePower) / (dragCoefficient * waterDensity * frontalArea), 1/3)",
+    "dragForce": "0.5 * dragCoefficient * waterDensity * frontalArea * Math.pow(speed, 2)",
+    "totalWeight": "canoeWeight + paddlerWeight"
+  },
+  "outputs": {
+    "primary": "speed",
+    "breakdown": [
+      "dragForce",
+      "totalWeight"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,72 @@
+{
+  "toolName": "pneumatic-force-calculator",
+  "inputs": [
+    {
+      "id": "systemPressure",
+      "label": "System Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 6,
+      "businessContext": "Working pressure supplied to the cylinder"
+    },
+    {
+      "id": "boreDiameter",
+      "label": "Bore Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Inner diameter of the cylinder barrel"
+    },
+    {
+      "id": "rodDiameter",
+      "label": "Rod Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 25,
+      "businessContext": "Diameter of the piston rod (0 for rodless cylinder)"
+    },
+    {
+      "id": "cylinderCount",
+      "label": "Number of Cylinders",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of identical cylinders operating together"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Design safety margin (≥1.5 per ISO 4414)"
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency",
+      "type": "number",
+      "unit": "",
+      "default": 0.9,
+      "businessContext": "Cylinder efficiency (0.85–0.95 typical)"
+    }
+  ],
+  "formulas": {
+    "pushForce": "systemPressure * Math.PI * Math.pow(boreDiameter, 2) / 40 * efficiency * cylinderCount",
+    "pullForce": "systemPressure * Math.PI * (Math.pow(boreDiameter, 2) - Math.pow(rodDiameter, 2)) / 40 * efficiency * cylinderCount",
+    "effectivePushForce": "pushForce / safetyFactor"
+  },
+  "outputs": {
+    "primary": "effectivePushForce",
+    "breakdown": [
+      "pushForce",
+      "pullForce",
+      "effectivePushForce"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

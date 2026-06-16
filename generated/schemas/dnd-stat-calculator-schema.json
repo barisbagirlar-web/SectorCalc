@@ -1,0 +1,81 @@
+{
+  "toolName": "dnd-stat-calculator",
+  "inputs": [
+    {
+      "id": "strength",
+      "label": "Strength",
+      "type": "number",
+      "unit": "score",
+      "default": 10,
+      "businessContext": "Raw Strength score (3-18 typical)"
+    },
+    {
+      "id": "dexterity",
+      "label": "Dexterity",
+      "type": "number",
+      "unit": "score",
+      "default": 10,
+      "businessContext": "Raw Dexterity score (3-18 typical)"
+    },
+    {
+      "id": "constitution",
+      "label": "Constitution",
+      "type": "number",
+      "unit": "score",
+      "default": 10,
+      "businessContext": "Raw Constitution score (3-18 typical)"
+    },
+    {
+      "id": "intelligence",
+      "label": "Intelligence",
+      "type": "number",
+      "unit": "score",
+      "default": 10,
+      "businessContext": "Raw Intelligence score (3-18 typical)"
+    },
+    {
+      "id": "wisdom",
+      "label": "Wisdom",
+      "type": "number",
+      "unit": "score",
+      "default": 10,
+      "businessContext": "Raw Wisdom score (3-18 typical)"
+    },
+    {
+      "id": "charisma",
+      "label": "Charisma",
+      "type": "number",
+      "unit": "score",
+      "default": 10,
+      "businessContext": "Raw Charisma score (3-18 typical)"
+    }
+  ],
+  "formulas": {
+    "modifier": "Math.floor((score - 10) / 2)",
+    "strengthMod": "Math.floor((strength - 10) / 2)",
+    "dexterityMod": "Math.floor((dexterity - 10) / 2)",
+    "constitutionMod": "Math.floor((constitution - 10) / 2)",
+    "intelligenceMod": "Math.floor((intelligence - 10) / 2)",
+    "wisdomMod": "Math.floor((wisdom - 10) / 2)",
+    "charismaMod": "Math.floor((charisma - 10) / 2)",
+    "pointBuyCost": "strength + dexterity + constitution + intelligence + wisdom + charisma - 60"
+  },
+  "outputs": {
+    "primary": "Strength Modifier: {strengthMod}",
+    "breakdown": [
+      "Strength Modifier: {strengthMod}",
+      "Dexterity Modifier: {dexterityMod}",
+      "Constitution Modifier: {constitutionMod}",
+      "Intelligence Modifier: {intelligenceMod}",
+      "Wisdom Modifier: {wisdomMod}",
+      "Charisma Modifier: {charismaMod}",
+      "Point Buy Cost (above 60): {pointBuyCost}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,56 @@
+{
+  "toolName": "circular-mils-to-sqmm-calculator",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "Value",
+      "type": "number",
+      "unit": "cmil",
+      "default": 1,
+      "businessContext": "The numerical value in circular mils (or kcmil if scale factor is 1000)."
+    },
+    {
+      "id": "scale",
+      "label": "Unit Scale",
+      "type": "number",
+      "unit": "1",
+      "default": 1,
+      "businessContext": "Set to 1 for cmil, 1000 for kcmil."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "sqmm/cmil",
+      "default": 0.000506707479,
+      "businessContext": "Physical constant: 1 cmil = 0.000506707479 sqmm. Do not change unless for verification."
+    },
+    {
+      "id": "decimals",
+      "label": "Precision (Decimals)",
+      "type": "number",
+      "unit": "decimals",
+      "default": 6,
+      "businessContext": "Number of decimal places for output."
+    }
+  ],
+  "formulas": {
+    "cmilValue": "value * scale",
+    "sqmmExact": "cmilValue * conversionFactor",
+    "sqmm": "Math.round(sqmmExact * Math.pow(10, decimals)) / Math.pow(10, decimals)"
+  },
+  "outputs": {
+    "primary": "sqmm",
+    "breakdown": [
+      "cmilValue",
+      "conversionFactor",
+      "sqmmExact"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

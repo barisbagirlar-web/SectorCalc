@@ -1,0 +1,55 @@
+{
+  "toolName": "high-pass-filter-calculator",
+  "inputs": [
+    {
+      "id": "resistance",
+      "label": "Resistance (R)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 1000,
+      "businessContext": "Direnç değeri"
+    },
+    {
+      "id": "capacitance",
+      "label": "Capacitance (C)",
+      "type": "number",
+      "unit": "F",
+      "default": 0.000001,
+      "businessContext": "Kapasitör değeri (Farad cinsinden)"
+    },
+    {
+      "id": "frequency",
+      "label": "Frequency (f)",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1000,
+      "businessContext": "Giriş sinyali frekansı"
+    },
+    {
+      "id": "inputVoltage",
+      "label": "Input Voltage (Vin)",
+      "type": "number",
+      "unit": "V",
+      "default": 1,
+      "businessContext": "Giriş voltajı (tepe değeri)"
+    }
+  ],
+  "formulas": {
+    "cutoffFrequency": "1 / (2 * Math.PI * resistance * capacitance)",
+    "gain": "frequency / cutoffFrequency / Math.sqrt(1 + (frequency / cutoffFrequency) ** 2)",
+    "outputVoltage": "inputVoltage * gain"
+  },
+  "outputs": {
+    "primary": "outputVoltage",
+    "breakdown": [
+      "cutoffFrequency",
+      "gain"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

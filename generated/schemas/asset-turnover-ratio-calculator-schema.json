@@ -1,0 +1,54 @@
+{
+  "toolName": "asset-turnover-ratio-calculator",
+  "inputs": [
+    {
+      "id": "netSales",
+      "label": "Net Sales (Revenue)",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "businessContext": "Total revenue from sales after returns and discounts"
+    },
+    {
+      "id": "totalAssetsBeginning",
+      "label": "Total Assets (Beginning of Period)",
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "businessContext": "Total assets at the start of the measurement period"
+    },
+    {
+      "id": "totalAssetsEnding",
+      "label": "Total Assets (End of Period)",
+      "type": "number",
+      "unit": "USD",
+      "default": 600000,
+      "businessContext": "Total assets at the end of the measurement period"
+    },
+    {
+      "id": "industryAverage",
+      "label": "Industry Average Turnover Ratio",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Average asset turnover ratio for benchmarking (optional)"
+    }
+  ],
+  "formulas": {
+    "averageTotalAssets": "(totalAssetsBeginning + totalAssetsEnding) / 2",
+    "assetTurnoverRatio": "netSales / ((totalAssetsBeginning + totalAssetsEnding) / 2)"
+  },
+  "outputs": {
+    "primary": "assetTurnoverRatio",
+    "breakdown": [
+      "netSales",
+      "averageTotalAssets"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

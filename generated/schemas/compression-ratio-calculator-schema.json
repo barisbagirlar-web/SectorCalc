@@ -1,0 +1,81 @@
+{
+  "toolName": "compression-ratio-calculator",
+  "inputs": [
+    {
+      "id": "bore",
+      "label": "Bore (Cylinder Diameter)",
+      "type": "number",
+      "unit": "mm",
+      "default": 86,
+      "businessContext": "Diameter of the engine cylinder bore."
+    },
+    {
+      "id": "stroke",
+      "label": "Stroke Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 86,
+      "businessContext": "Piston stroke length from BDC to TDC."
+    },
+    {
+      "id": "combustionChamberVolume",
+      "label": "Combustion Chamber Volume",
+      "type": "number",
+      "unit": "cc",
+      "default": 60,
+      "businessContext": "Volume of combustion chamber in the cylinder head."
+    },
+    {
+      "id": "gasketThickness",
+      "label": "Gasket Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 1.2,
+      "businessContext": "Compressed thickness of the head gasket."
+    },
+    {
+      "id": "gasketBore",
+      "label": "Gasket Bore Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 87,
+      "businessContext": "Diameter of the gasket's bore opening."
+    },
+    {
+      "id": "deckClearance",
+      "label": "Deck Clearance",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.5,
+      "businessContext": "Distance from piston crown to deck at TDC."
+    },
+    {
+      "id": "pistonDishVolume",
+      "label": "Piston Dish Volume",
+      "type": "number",
+      "unit": "cc",
+      "default": 0,
+      "businessContext": "Volume of dish in piston top (positive for dish, negative for dome)."
+    }
+  ],
+  "formulas": {
+    "displacement": "(Math.PI/4) * Math.pow(bore, 2) * stroke / 1000",
+    "gasketVolume": "(Math.PI/4) * Math.pow(gasketBore, 2) * gasketThickness / 1000",
+    "deckVolume": "(Math.PI/4) * Math.pow(bore, 2) * deckClearance / 1000",
+    "clearanceVolume": "combustionChamberVolume + gasketVolume + deckVolume + pistonDishVolume",
+    "compressionRatio": "(displacement + clearanceVolume) / clearanceVolume"
+  },
+  "outputs": {
+    "primary": "compressionRatio",
+    "breakdown": [
+      "displacement",
+      "clearanceVolume"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

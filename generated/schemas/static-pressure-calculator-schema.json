@@ -1,0 +1,54 @@
+{
+  "toolName": "static-pressure-calculator",
+  "inputs": [
+    {
+      "id": "density",
+      "label": "Akışkan Yoğunluğu",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Akışkanın yoğunluğu (kg/m³). Su için 1000, hava için yaklaşık 1.225."
+    },
+    {
+      "id": "gravity",
+      "label": "Yerçekimi İvmesi",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Yerçekimi ivmesi (m/s²). Dünya yüzeyinde ortalama ~9.81."
+    },
+    {
+      "id": "height",
+      "label": "Yükseklik / Derinlik",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Sıvı sütununun yüksekliği veya derinlik (m)."
+    },
+    {
+      "id": "atmPressure",
+      "label": "Atmosfer Basıncı",
+      "type": "number",
+      "unit": "Pa",
+      "default": 101325,
+      "businessContext": "Yüzeydeki atmosfer basıncı (Pa). Deniz seviyesinde standart 101325."
+    }
+  ],
+  "formulas": {
+    "pressure": "density * gravity * height",
+    "absolutePressure": "atmPressure + pressure"
+  },
+  "outputs": {
+    "primary": "pressure",
+    "breakdown": [
+      "pressure",
+      "absolutePressure"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

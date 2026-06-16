@@ -1,0 +1,65 @@
+{
+  "toolName": "vitamin-d-from-sun-calculator",
+  "inputs": [
+    {
+      "id": "uv_index",
+      "label": "UV Index",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "UV Index at the location (0-11+, typically from weather service)"
+    },
+    {
+      "id": "exposure_time_minutes",
+      "label": "Exposure Time",
+      "type": "number",
+      "unit": "minutes",
+      "default": 15,
+      "businessContext": "Duration of sun exposure in minutes"
+    },
+    {
+      "id": "body_area_percent",
+      "label": "Body Area Exposed",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage of body surface area exposed (e.g., face and hands ~10%, full body ~100%)"
+    },
+    {
+      "id": "skin_type",
+      "label": "Skin Type (Fitzpatrick)",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Fitzpatrick skin type (1=very fair, 6=very dark)"
+    },
+    {
+      "id": "cloud_cover_percent",
+      "label": "Cloud Cover",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage of sky covered by clouds (0=clear, 100=overcast)"
+    }
+  ],
+  "formulas": {
+    "skin_factor": "2.2 - 0.3 * skin_type",
+    "cloud_factor": "1 - (cloud_cover_percent / 100) * 0.5",
+    "effective_uv_index": "uv_index * cloud_factor",
+    "estimated_vitamin_d_iu": "effective_uv_index * exposure_time_minutes * 50 * body_area_percent / 100 * skin_factor"
+  },
+  "outputs": {
+    "primary": "estimated_vitamin_d_iu",
+    "breakdown": [
+      "skin_factor",
+      "cloud_factor",
+      "effective_uv_index"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

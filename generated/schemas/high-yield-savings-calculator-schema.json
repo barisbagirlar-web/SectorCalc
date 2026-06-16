@@ -1,0 +1,65 @@
+{
+  "toolName": "high-yield-savings-calculator",
+  "inputs": [
+    {
+      "id": "initialDeposit",
+      "label": "Initial Deposit",
+      "type": "number",
+      "unit": "$",
+      "default": 1000,
+      "businessContext": "The starting balance of the savings account."
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Monthly Contribution",
+      "type": "number",
+      "unit": "$",
+      "default": 200,
+      "businessContext": "The amount deposited at the end of each month."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate (APY)",
+      "type": "number",
+      "unit": "%",
+      "default": 2.5,
+      "businessContext": "The annual percentage yield, representing the effective annual rate of return taking compounding into account."
+    },
+    {
+      "id": "years",
+      "label": "Investment Period",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "The total number of years the money is invested."
+    },
+    {
+      "id": "compoundFrequency",
+      "label": "Compounding Frequency",
+      "type": "number",
+      "unit": "times/year",
+      "default": 12,
+      "businessContext": "Number of times interest is compounded per year. Typically 12 for monthly, 4 for quarterly, 1 for annually."
+    }
+  ],
+  "formulas": {
+    "monthlyRate": "annualInterestRate / 100 / compoundFrequency",
+    "totalPeriods": "years * compoundFrequency",
+    "futureValue": "monthlyRate === 0 ? (initialDeposit + monthlyContribution * totalPeriods) : (initialDeposit * Math.pow(1 + monthlyRate, totalPeriods) + monthlyContribution * ((Math.pow(1 + monthlyRate, totalPeriods) - 1) / monthlyRate))",
+    "totalDeposits": "initialDeposit + monthlyContribution * totalPeriods",
+    "totalInterest": "futureValue - totalDeposits"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": [
+      "totalDeposits",
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

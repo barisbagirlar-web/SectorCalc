@@ -1,0 +1,55 @@
+{
+  "toolName": "rule-of-144-calculator",
+  "inputs": [
+    {
+      "id": "interestRate",
+      "label": "Yıllık Faiz Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Yatırımın yıllık bileşik faiz oranı."
+    },
+    {
+      "id": "compoundingPeriods",
+      "label": "Yıllık Bileşik Dönem Sayısı",
+      "type": "number",
+      "unit": "kez",
+      "default": 1,
+      "businessContext": "Faizin yılda kaç kez bileşiklendiği."
+    },
+    {
+      "id": "initialInvestment",
+      "label": "Başlangıç Yatırımı",
+      "type": "number",
+      "unit": "birim",
+      "default": 1000,
+      "businessContext": "Başlangıçta yatırılan ana para."
+    },
+    {
+      "id": "targetMultiplier",
+      "label": "Hedef Çarpan",
+      "type": "number",
+      "unit": "kat",
+      "default": 2,
+      "businessContext": "Yatırımın kaç katına çıkmasının hedeflendiği."
+    }
+  ],
+  "formulas": {
+    "rule144Estimate": "144 / interestRate",
+    "exactYears": "Math.log(targetMultiplier) / (compoundingPeriods * Math.log(1 + interestRate / (100 * compoundingPeriods)))",
+    "difference": "exactYears - rule144Estimate"
+  },
+  "outputs": {
+    "primary": "rule144Estimate",
+    "breakdown": [
+      "exactYears",
+      "difference"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

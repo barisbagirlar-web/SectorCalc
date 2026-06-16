@@ -1,0 +1,55 @@
+{
+  "toolName": "tea-caffeine-calculator",
+  "inputs": [
+    {
+      "id": "teaCaffeinePerGram",
+      "label": "Tea Caffeine Content (mg/g)",
+      "type": "number",
+      "unit": "mg/g",
+      "default": 25,
+      "businessContext": "Amount of caffeine in milligrams per gram of dry tea leaves."
+    },
+    {
+      "id": "teaAmount",
+      "label": "Amount of Tea (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 2.5,
+      "businessContext": "Grams of dry tea leaves used."
+    },
+    {
+      "id": "steepingTime",
+      "label": "Steeping Time (min)",
+      "type": "number",
+      "unit": "min",
+      "default": 3,
+      "businessContext": "Time the tea is steeped in minutes."
+    },
+    {
+      "id": "waterTemperature",
+      "label": "Water Temperature (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 90,
+      "businessContext": "Temperature of water used for steeping."
+    }
+  ],
+  "formulas": {
+    "efficiency": "Math.min(1, (steepingTime / 5) * (waterTemperature / 100))",
+    "totalCaffeine": "teaCaffeinePerGram * teaAmount * efficiency"
+  },
+  "outputs": {
+    "primary": "totalCaffeine",
+    "breakdown": [
+      "efficiency",
+      "teaCaffeinePerGram",
+      "teaAmount"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

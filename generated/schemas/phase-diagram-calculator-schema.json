@@ -1,0 +1,55 @@
+{
+  "toolName": "phase-diagram-calculator",
+  "inputs": [
+    {
+      "id": "alloyComposition",
+      "label": "Alaşım Bileşimi (C₀)",
+      "type": "number",
+      "unit": "% ağ.",
+      "default": 30,
+      "businessContext": "The overall composition of the alloy in weight percent of element B."
+    },
+    {
+      "id": "solidComposition",
+      "label": "Katı Bileşimi (Cs)",
+      "type": "number",
+      "unit": "% ağ.",
+      "default": 10,
+      "businessContext": "Composition of the solid phase in equilibrium at the given temperature."
+    },
+    {
+      "id": "liquidComposition",
+      "label": "Sıvı Bileşimi (Cl)",
+      "type": "number",
+      "unit": "% ağ.",
+      "default": 60,
+      "businessContext": "Composition of the liquid phase in equilibrium at the given temperature."
+    },
+    {
+      "id": "temperature",
+      "label": "Sıcaklık",
+      "type": "number",
+      "unit": "°C",
+      "default": 300,
+      "businessContext": "The temperature of the alloy (for reference, not used in lever rule)."
+    }
+  ],
+  "formulas": {
+    "primary": "100 * (liquidComposition - alloyComposition) / (liquidComposition - solidComposition)",
+    "breakdown": [
+      "100 * (alloyComposition - solidComposition) / (liquidComposition - solidComposition)"
+    ]
+  },
+  "outputs": {
+    "primary": "Katı Faz Oranı (%)",
+    "breakdown": [
+      "Sıvı Faz Oranı (%)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

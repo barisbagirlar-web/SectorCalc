@@ -1,0 +1,82 @@
+{
+  "toolName": "multivariate-test-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Sample Size per Group",
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "businessContext": "Number of observations in each group (assumed equal across groups)"
+    },
+    {
+      "id": "mean1",
+      "label": "Mean Group 1",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Sample mean of group 1"
+    },
+    {
+      "id": "mean2",
+      "label": "Mean Group 2",
+      "type": "number",
+      "unit": "",
+      "default": 12,
+      "businessContext": "Sample mean of group 2"
+    },
+    {
+      "id": "mean3",
+      "label": "Mean Group 3",
+      "type": "number",
+      "unit": "",
+      "default": 11,
+      "businessContext": "Sample mean of group 3"
+    },
+    {
+      "id": "sd1",
+      "label": "Standard Deviation Group 1",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Sample standard deviation of group 1"
+    },
+    {
+      "id": "sd2",
+      "label": "Standard Deviation Group 2",
+      "type": "number",
+      "unit": "",
+      "default": 2.5,
+      "businessContext": "Sample standard deviation of group 2"
+    },
+    {
+      "id": "sd3",
+      "label": "Standard Deviation Group 3",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Sample standard deviation of group 3"
+    }
+  ],
+  "formulas": {
+    "grandMean": "(mean1 + mean2 + mean3) / 3",
+    "ssb": "n * ((mean1 - grandMean) ** 2 + (mean2 - grandMean) ** 2 + (mean3 - grandMean) ** 2)",
+    "ssw": "(n - 1) * sd1 ** 2 + (n - 1) * sd2 ** 2 + (n - 1) * sd3 ** 2",
+    "msb": "ssb / 2",
+    "msw": "ssw / (3 * (n - 1))",
+    "f": "msb / msw"
+  },
+  "outputs": {
+    "primary": "f",
+    "breakdown": [
+      "msb",
+      "msw"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

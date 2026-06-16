@@ -1,0 +1,73 @@
+{
+  "toolName": "friction-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Mass of the object resting on the surface."
+    },
+    {
+      "id": "angle",
+      "label": "Angle of Incline",
+      "type": "number",
+      "unit": "deg",
+      "default": 0,
+      "businessContext": "Inclination angle of the surface measured from horizontal. Use 0 for flat surfaces."
+    },
+    {
+      "id": "coeffStatic",
+      "label": "Coefficient of Static Friction",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.5,
+      "businessContext": "μ_s – used when the object is stationary to determine the maximum static friction before motion starts."
+    },
+    {
+      "id": "coeffKinetic",
+      "label": "Coefficient of Kinetic Friction",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.3,
+      "businessContext": "μ_k – used when the object is sliding to determine the kinetic friction force."
+    },
+    {
+      "id": "gravity",
+      "label": "Gravitational Acceleration",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Standard acceleration due to gravity on Earth. Adjust for different planets if needed."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.5,
+      "businessContext": "Design safety multiplier applied to the maximum static friction for engineering calculations."
+    }
+  ],
+  "formulas": {
+    "normalForce": "mass * gravity * Math.cos(angle * Math.PI / 180)",
+    "maxStaticFriction": "coeffStatic * (mass * gravity * Math.cos(angle * Math.PI / 180))",
+    "kineticFriction": "coeffKinetic * (mass * gravity * Math.cos(angle * Math.PI / 180))",
+    "designStaticFriction": "(coeffStatic * (mass * gravity * Math.cos(angle * Math.PI / 180))) * safetyFactor"
+  },
+  "outputs": {
+    "primary": "kineticFriction",
+    "breakdown": [
+      "normalForce",
+      "maxStaticFriction",
+      "designStaticFriction"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

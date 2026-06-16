@@ -1,0 +1,55 @@
+{
+  "toolName": "total-cholesterol-calculator",
+  "inputs": [
+    {
+      "id": "hdl",
+      "label": "HDL Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 50,
+      "businessContext": "High-density lipoprotein, 'good' cholesterol"
+    },
+    {
+      "id": "ldl",
+      "label": "LDL Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 100,
+      "businessContext": "Low-density lipoprotein, 'bad' cholesterol"
+    },
+    {
+      "id": "triglycerides",
+      "label": "Triglycerides",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 150,
+      "businessContext": "Fats in blood; converted to VLDL for total cholesterol"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Triglycerides to VLDL Conversion Factor",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Factor 5 for mg/dL; 2.2 for mmol/L. Adjust based on units."
+    }
+  ],
+  "formulas": {
+    "vldl": "triglycerides / conversionFactor",
+    "totalCholesterol": "hdl + ldl + vldl"
+  },
+  "outputs": {
+    "primary": "totalCholesterol",
+    "breakdown": [
+      "hdl",
+      "ldl",
+      "vldl"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

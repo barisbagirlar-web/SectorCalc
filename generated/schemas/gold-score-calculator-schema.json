@@ -1,0 +1,67 @@
+{
+  "toolName": "gold-score-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 10,
+      "businessContext": "Weight of the gold item in grams"
+    },
+    {
+      "id": "purity",
+      "label": "Purity",
+      "type": "number",
+      "unit": "karat",
+      "default": 24,
+      "businessContext": "Karat value indicating purity (24 = pure gold)"
+    },
+    {
+      "id": "marketPrice",
+      "label": "Market Price",
+      "type": "number",
+      "unit": "€/g",
+      "default": 50,
+      "businessContext": "Current market price of gold per gram"
+    },
+    {
+      "id": "makingChargePercent",
+      "label": "Making Charge",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage charged for craftsmanship"
+    },
+    {
+      "id": "taxRatePercent",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Applicable tax rate (e.g., VAT) as a percentage"
+    }
+  ],
+  "formulas": {
+    "goldContentValue": "weight * (purity / 24) * marketPrice",
+    "makingCharges": "goldContentValue * (makingChargePercent / 100)",
+    "taxAmount": "(goldContentValue + makingCharges) * (taxRatePercent / 100)",
+    "totalCost": "goldContentValue + makingCharges + taxAmount",
+    "goldScore": "(goldContentValue / totalCost) * 100"
+  },
+  "outputs": {
+    "primary": "goldScore",
+    "breakdown": [
+      "goldContentValue",
+      "makingCharges",
+      "taxAmount",
+      "totalCost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

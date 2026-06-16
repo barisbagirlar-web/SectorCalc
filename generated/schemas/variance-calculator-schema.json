@@ -1,0 +1,57 @@
+{
+  "toolName": "variance-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Gözlem Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Veri setindeki gözlem sayısı (örn. 10)"
+    },
+    {
+      "id": "sumX",
+      "label": "Toplam (∑x)",
+      "type": "number",
+      "unit": "birim",
+      "default": 0,
+      "businessContext": "Tüm gözlem değerlerinin toplamı"
+    },
+    {
+      "id": "sumX2",
+      "label": "Kareler Toplamı (∑x²)",
+      "type": "number",
+      "unit": "birim²",
+      "default": 0,
+      "businessContext": "Her bir gözlem değerinin karesinin toplamı"
+    },
+    {
+      "id": "isPopulation",
+      "label": "Popülasyon mu?",
+      "type": "number",
+      "unit": "yok",
+      "default": 1,
+      "businessContext": "1: Popülasyon varyansı, 0: Örneklem varyansı"
+    }
+  ],
+  "formulas": {
+    "variance": "(n > 1) ? ( (isPopulation == 1) ? (sumX2 - (sumX * sumX) / n) / n : (sumX2 - (sumX * sumX) / n) / (n - 1) ) : 0",
+    "mean": "(n > 0) ? sumX / n : 0",
+    "standardDeviation": "Math.sqrt( Math.max(0, (n > 1) ? ( (isPopulation == 1) ? (sumX2 - (sumX * sumX) / n) / n : (sumX2 - (sumX * sumX) / n) / (n - 1) ) : 0 ) )",
+    "sumOfSquaredDeviations": "(n > 1) ? (sumX2 - (sumX * sumX) / n) : 0"
+  },
+  "outputs": {
+    "primary": "variance",
+    "breakdown": [
+      "mean",
+      "standardDeviation",
+      "sumOfSquaredDeviations"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "paint-calculator",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "Surface Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "businessContext": "Total paintable surface area in square meters"
+    },
+    {
+      "id": "coverage",
+      "label": "Coverage Rate",
+      "type": "number",
+      "unit": "m²/L",
+      "default": 10,
+      "businessContext": "Paint coverage rate from manufacturer data sheet (m² per liter)"
+    },
+    {
+      "id": "coats",
+      "label": "Number of Coats",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of paint coats to apply"
+    },
+    {
+      "id": "wastage",
+      "label": "Wastage Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of extra paint needed for spillage, uneven surfaces, etc."
+    }
+  ],
+  "formulas": {
+    "netPaint": "(area * coats) / coverage",
+    "wastagePaint": "netPaint * (wastage / 100)",
+    "totalPaint": "netPaint + wastagePaint"
+  },
+  "outputs": {
+    "primary": "totalPaint",
+    "breakdown": [
+      "netPaint",
+      "wastagePaint"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

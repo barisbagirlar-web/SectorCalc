@@ -1,0 +1,65 @@
+{
+  "toolName": "scholarship-calculator",
+  "inputs": [
+    {
+      "id": "academicScore",
+      "label": "Academic Score",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Student's academic performance score (0-100)."
+    },
+    {
+      "id": "familyIncome",
+      "label": "Family Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Annual family income in USD."
+    },
+    {
+      "id": "dependents",
+      "label": "Number of Dependents",
+      "type": "number",
+      "unit": "count",
+      "default": 2,
+      "businessContext": "Number of dependents in the family (used to adjust need)."
+    },
+    {
+      "id": "extracurricularScore",
+      "label": "Extracurricular Score",
+      "type": "number",
+      "unit": "points",
+      "default": 50,
+      "businessContext": "Score based on extracurricular activities (0-100)."
+    },
+    {
+      "id": "communityServiceHours",
+      "label": "Community Service Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 50,
+      "businessContext": "Total community service hours."
+    }
+  ],
+  "formulas": {
+    "scholarshipAmount": "Math.max(0, (academicScore/100)*20000 - (familyIncome / Math.max(dependents,1))*0.1) + (extracurricularScore + communityServiceHours)*10",
+    "meritBased": "(academicScore/100)*20000",
+    "needAdjustment": "-(familyIncome / Math.max(dependents,1))*0.1",
+    "extraBonus": "(extracurricularScore + communityServiceHours)*10"
+  },
+  "outputs": {
+    "primary": "scholarshipAmount",
+    "breakdown": [
+      "meritBased",
+      "needAdjustment",
+      "extraBonus"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

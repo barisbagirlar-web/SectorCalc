@@ -1,0 +1,67 @@
+{
+  "toolName": "boxing-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User body weight in kilograms"
+    },
+    {
+      "id": "duration",
+      "label": "Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Duration of boxing activity in minutes"
+    },
+    {
+      "id": "met",
+      "label": "Activity MET Value",
+      "type": "number",
+      "unit": "",
+      "default": 7.8,
+      "businessContext": "Metabolic Equivalent of Task for boxing (e.g., sparring=7.8, bag work=5.5)"
+    },
+    {
+      "id": "intensity",
+      "label": "Intensity",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Intensity adjustment percentage (100% = standard effort)"
+    }
+  ],
+  "formulas": {
+    "duration_hours": "duration / 60",
+    "calories_burned": "met * weight * duration_hours * (intensity / 100)",
+    "calories_per_minute": "calories_burned / duration"
+  },
+  "outputs": {
+    "primary": {
+      "id": "calories_burned",
+      "label": "Calories Burned",
+      "unit": "kcal"
+    },
+    "breakdown": [
+      {
+        "id": "duration_hours",
+        "label": "Duration in Hours",
+        "unit": "hours"
+      },
+      {
+        "id": "calories_per_minute",
+        "label": "Calories per Minute",
+        "unit": "kcal/min"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

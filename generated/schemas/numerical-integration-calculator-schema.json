@@ -1,0 +1,71 @@
+{
+  "toolName": "numerical-integration-calculator",
+  "inputs": [
+    {
+      "id": "lowerLimit",
+      "label": "Lower Limit",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Lower bound of integration"
+    },
+    {
+      "id": "upperLimit",
+      "label": "Upper Limit",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Upper bound of integration"
+    },
+    {
+      "id": "numIntervals",
+      "label": "Number of Intervals",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Number of subintervals (will be rounded to nearest even number for Simpson's rule)"
+    },
+    {
+      "id": "coeffA",
+      "label": "Coefficient a (quadratic)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient for x² term in f(x) = a·x² + b·x + c"
+    },
+    {
+      "id": "coeffB",
+      "label": "Coefficient b (linear)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient for x term in f(x) = a·x² + b·x + c"
+    },
+    {
+      "id": "coeffC",
+      "label": "Coefficient c (constant)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Constant term in f(x) = a·x² + b·x + c"
+    }
+  ],
+  "formulas": {
+    "simpsonIntegral": "((lower, upper, n, a, b, c) => { if (n <= 0) return 0; const m = 2 * Math.round(n / 2); const h = (upper - lower) / m; const f = (x) => a*x*x + b*x + c; let sum = f(lower) + f(upper); for (let i = 1; i < m; i++) { const x = lower + i * h; sum += (i % 2 === 0 ? 2 : 4) * f(x); } return (h / 3) * sum; })(lowerLimit, upperLimit, numIntervals, coeffA, coeffB, coeffC)",
+    "trapezoidalIntegral": "((lower, upper, n, a, b, c) => { if (n <= 0) return 0; const h = (upper - lower) / n; const f = (x) => a*x*x + b*x + c; let sum = f(lower) + f(upper); for (let i = 1; i < n; i++) { sum += 2 * f(lower + i * h); } return (h / 2) * sum; })(lowerLimit, upperLimit, numIntervals, coeffA, coeffB, coeffC)",
+    "difference": "Math.abs( ((lower, upper, n, a, b, c) => { if (n <= 0) return 0; const m = 2 * Math.round(n / 2); const h = (upper - lower) / m; const f = (x) => a*x*x + b*x + c; let sum = f(lower) + f(upper); for (let i = 1; i < m; i++) { const x = lower + i * h; sum += (i % 2 === 0 ? 2 : 4) * f(x); } return (h / 3) * sum; })(lowerLimit, upperLimit, numIntervals, coeffA, coeffB, coeffC) - ((lower, upper, n, a, b, c) => { if (n <= 0) return 0; const h = (upper - lower) / n; const f = (x) => a*x*x + b*x + c; let sum = f(lower) + f(upper); for (let i = 1; i < n; i++) { sum += 2 * f(lower + i * h); } return (h / 2) * sum; })(lowerLimit, upperLimit, numIntervals, coeffA, coeffB, coeffC) )"
+  },
+  "outputs": {
+    "primary": "simpsonIntegral",
+    "breakdown": [
+      "trapezoidalIntegral",
+      "difference"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

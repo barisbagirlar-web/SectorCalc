@@ -1,0 +1,62 @@
+{
+  "toolName": "training-max-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Kaldırılan Ağırlık (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Kaldırılan ağırlık, kilogram cinsinden."
+    },
+    {
+      "id": "reps",
+      "label": "Tekrar Sayısı",
+      "type": "number",
+      "unit": "tekrar",
+      "default": 5,
+      "businessContext": "Yapılan tekrar sayısı."
+    },
+    {
+      "id": "trainingMaxPercentage",
+      "label": "Training Max Yüzdesi (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "1RM'nin yüzdesi olarak training max değeri. Wendler 5/3/1 programında genellikle %90 kullanılır."
+    },
+    {
+      "id": "coefficientA",
+      "label": "Katsayı A",
+      "type": "number",
+      "unit": "",
+      "default": 1.0278,
+      "businessContext": "Brzycki formülünde kullanılan A katsayısı."
+    },
+    {
+      "id": "coefficientB",
+      "label": "Katsayı B",
+      "type": "number",
+      "unit": "",
+      "default": 0.0278,
+      "businessContext": "Brzycki formülünde kullanılan B katsayısı."
+    }
+  ],
+  "formulas": {
+    "oneRepMax": "weight / (coefficientA - coefficientB * reps)",
+    "trainingMax": "(oneRepMax * trainingMaxPercentage) / 100"
+  },
+  "outputs": {
+    "primary": "trainingMax",
+    "breakdown": [
+      "oneRepMax",
+      "trainingMax"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

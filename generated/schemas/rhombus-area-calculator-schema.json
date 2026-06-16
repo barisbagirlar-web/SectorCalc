@@ -1,0 +1,63 @@
+{
+  "toolName": "rhombus-area-calculator",
+  "inputs": [
+    {
+      "id": "diagonal1",
+      "label": "Diagonal 1 (d1)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Length of the first diagonal of the rhombus"
+    },
+    {
+      "id": "diagonal2",
+      "label": "Diagonal 2 (d2)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Length of the second diagonal of the rhombus"
+    },
+    {
+      "id": "sideLength",
+      "label": "Side Length (a)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Length of one side of the rhombus"
+    },
+    {
+      "id": "height",
+      "label": "Height (h)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Perpendicular height between two sides"
+    },
+    {
+      "id": "angle",
+      "label": "Angle (θ)",
+      "type": "number",
+      "unit": "deg",
+      "default": 0,
+      "businessContext": "Angle between two adjacent sides (in degrees)"
+    }
+  ],
+  "formulas": {
+    "area": "((diagonal1 && diagonal2) ? (diagonal1 * diagonal2 / 2) : (sideLength && height) ? (sideLength * height) : (sideLength && angle) ? (sideLength ** 2 * Math.sin(angle * Math.PI / 180)) : 0)",
+    "perimeter": "sideLength ? 4 * sideLength : 0",
+    "diagonalProduct": "diagonal1 && diagonal2 ? diagonal1 * diagonal2 : 0"
+  },
+  "outputs": {
+    "primary": "area",
+    "breakdown": [
+      "perimeter",
+      "diagonalProduct"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

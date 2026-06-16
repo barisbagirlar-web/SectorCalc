@@ -1,0 +1,71 @@
+{
+  "toolName": "basketball-shooting-percentage-calculator",
+  "inputs": [
+    {
+      "id": "fieldGoalsMade",
+      "label": "Field Goals Made",
+      "type": "number",
+      "unit": "shots",
+      "default": 0,
+      "businessContext": "Number of successful field goal attempts (2-point and 3-point baskets made)."
+    },
+    {
+      "id": "fieldGoalsAttempted",
+      "label": "Field Goals Attempted",
+      "type": "number",
+      "unit": "shots",
+      "default": 0,
+      "businessContext": "Total number of field goal attempts."
+    },
+    {
+      "id": "threePointersMade",
+      "label": "Three-Pointers Made",
+      "type": "number",
+      "unit": "shots",
+      "default": 0,
+      "businessContext": "Number of successful three-point field goal attempts."
+    },
+    {
+      "id": "threePointersAttempted",
+      "label": "Three-Pointers Attempted",
+      "type": "number",
+      "unit": "shots",
+      "default": 0,
+      "businessContext": "Total number of three-point field goal attempts."
+    },
+    {
+      "id": "freeThrowsMade",
+      "label": "Free Throws Made",
+      "type": "number",
+      "unit": "shots",
+      "default": 0,
+      "businessContext": "Number of successful free throw attempts."
+    },
+    {
+      "id": "freeThrowsAttempted",
+      "label": "Free Throws Attempted",
+      "type": "number",
+      "unit": "shots",
+      "default": 0,
+      "businessContext": "Total number of free throw attempts."
+    }
+  ],
+  "formulas": {
+    "shootingPercentage": "fieldGoalsAttempted > 0 ? (fieldGoalsMade / fieldGoalsAttempted) * 100 : 0",
+    "threePointPercentage": "threePointersAttempted > 0 ? (threePointersMade / threePointersAttempted) * 100 : 0",
+    "freeThrowPercentage": "freeThrowsAttempted > 0 ? (freeThrowsMade / freeThrowsAttempted) * 100 : 0"
+  },
+  "outputs": {
+    "primary": "shootingPercentage",
+    "breakdown": [
+      "threePointPercentage",
+      "freeThrowPercentage"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

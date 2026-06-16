@@ -1,0 +1,63 @@
+{
+  "toolName": "training-load-calculator",
+  "inputs": [
+    {
+      "id": "duration",
+      "label": "Session Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 60,
+      "businessContext": "Total time of training session in minutes."
+    },
+    {
+      "id": "avgHeartRate",
+      "label": "Average Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 140,
+      "businessContext": "Average heart rate during the session."
+    },
+    {
+      "id": "restingHeartRate",
+      "label": "Resting Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 60,
+      "businessContext": "Resting heart rate measured in the morning."
+    },
+    {
+      "id": "maxHeartRate",
+      "label": "Maximum Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 190,
+      "businessContext": "Maximum heart rate from a stress test or age-predicted (220-age)."
+    },
+    {
+      "id": "kFactor",
+      "label": "Gender-Specific Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.64,
+      "businessContext": "Exponential factor: 0.64 for males, 0.86 for females per Banister TRIMP."
+    }
+  ],
+  "formulas": {
+    "trimp": "duration * ((avgHeartRate - restingHeartRate) / (maxHeartRate - restingHeartRate)) * Math.exp(kFactor * ((avgHeartRate - restingHeartRate) / (maxHeartRate - restingHeartRate)))",
+    "hrRatio": "(avgHeartRate - restingHeartRate) / (maxHeartRate - restingHeartRate)",
+    "expFactor": "Math.exp(kFactor * ((avgHeartRate - restingHeartRate) / (maxHeartRate - restingHeartRate)))"
+  },
+  "outputs": {
+    "primary": "trimp",
+    "breakdown": [
+      "hrRatio",
+      "expFactor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

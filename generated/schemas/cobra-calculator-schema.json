@@ -1,0 +1,67 @@
+{
+  "toolName": "cobra-calculator",
+  "inputs": [
+    {
+      "id": "monthlyPremium",
+      "label": "Aylık Prim",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "businessContext": "Sağlık planının aylık brüt prim tutarı"
+    },
+    {
+      "id": "beneficiaries",
+      "label": "Yararlanıcı Sayısı",
+      "type": "number",
+      "unit": "kişi",
+      "default": 1,
+      "businessContext": "COBRA kapsamındaki kişi sayısı"
+    },
+    {
+      "id": "adminFeeRate",
+      "label": "Yönetim Ücreti Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Yasal COBRA yönetim ücreti oranı"
+    },
+    {
+      "id": "coverageMonths",
+      "label": "Kapsam Süresi",
+      "type": "number",
+      "unit": "ay",
+      "default": 18,
+      "businessContext": "COBRA kapsamının devam edeceği ay sayısı"
+    },
+    {
+      "id": "employerContributionRate",
+      "label": "İşveren Katkı Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "İşverenin COBRA maliyetine katkı yüzdesi (varsa)"
+    }
+  ],
+  "formulas": {
+    "totalPremium": "monthlyPremium * beneficiaries * coverageMonths",
+    "adminFeeAmount": "totalPremium * adminFeeRate / 100",
+    "totalCostWithoutContribution": "totalPremium + adminFeeAmount",
+    "employerContributionAmount": "totalCostWithoutContribution * employerContributionRate / 100",
+    "totalEmployeeCost": "totalCostWithoutContribution - employerContributionAmount"
+  },
+  "outputs": {
+    "primary": "totalEmployeeCost",
+    "breakdown": [
+      "totalPremium",
+      "adminFeeAmount",
+      "employerContributionAmount",
+      "totalEmployeeCost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

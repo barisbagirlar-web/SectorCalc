@@ -1,0 +1,63 @@
+{
+  "toolName": "pump-calculator",
+  "inputs": [
+    {
+      "id": "flowRate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "m³/h",
+      "default": 100,
+      "businessContext": "The volumetric flow rate of the fluid through the pump."
+    },
+    {
+      "id": "head",
+      "label": "Total Head",
+      "type": "number",
+      "unit": "m",
+      "default": 20,
+      "businessContext": "The total dynamic head, i.e., the height to which the fluid is pumped."
+    },
+    {
+      "id": "density",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "The mass density of the fluid. Default value is for water at 20°C."
+    },
+    {
+      "id": "pumpEfficiency",
+      "label": "Pump Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 75,
+      "businessContext": "The hydraulic efficiency of the pump (from manufacturer curve). Enter as percentage."
+    },
+    {
+      "id": "motorEfficiency",
+      "label": "Motor Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "The efficiency of the electric motor driving the pump. Enter as percentage."
+    }
+  ],
+  "formulas": {
+    "hydraulicPower": "flowRate / 3600 * head * density * 9.81 / 1000",
+    "shaftPower": "flowRate / 3600 * head * density * 9.81 / 1000 / (pumpEfficiency / 100)",
+    "motorPower": "flowRate / 3600 * head * density * 9.81 / 1000 / (pumpEfficiency / 100) / (motorEfficiency / 100)"
+  },
+  "outputs": {
+    "primary": "motorPower",
+    "breakdown": [
+      "hydraulicPower",
+      "shaftPower"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

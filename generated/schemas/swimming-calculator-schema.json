@@ -1,0 +1,67 @@
+{
+  "toolName": "swimming-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance (meters)",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "businessContext": "Total swimming distance in meters."
+    },
+    {
+      "id": "time",
+      "label": "Time (seconds)",
+      "type": "number",
+      "unit": "s",
+      "default": 60,
+      "businessContext": "Total time taken to swim the distance."
+    },
+    {
+      "id": "restTime",
+      "label": "Rest Time (seconds)",
+      "type": "number",
+      "unit": "s",
+      "default": 30,
+      "businessContext": "Rest time between laps or intervals."
+    },
+    {
+      "id": "laps",
+      "label": "Number of Laps",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of laps or intervals."
+    },
+    {
+      "id": "poolLength",
+      "label": "Pool Length (meters)",
+      "type": "number",
+      "unit": "m",
+      "default": 25,
+      "businessContext": "Length of the swimming pool."
+    }
+  ],
+  "formulas": {
+    "averagePacePer100m": "time / (distance / 100)",
+    "totalTimeWithRest": "time * laps + restTime * (laps - 1)",
+    "totalDistance": "distance * laps",
+    "lapsPerPool": "distance / poolLength",
+    "speedMetersPerSecond": "distance / time"
+  },
+  "outputs": {
+    "primary": "averagePacePer100m",
+    "breakdown": [
+      "totalTimeWithRest",
+      "totalDistance",
+      "lapsPerPool",
+      "speedMetersPerSecond"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,77 @@
+{
+  "toolName": "power-series-calculator",
+  "inputs": [
+    {
+      "id": "x",
+      "label": "x",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Value of x for power series evaluation"
+    },
+    {
+      "id": "a0",
+      "label": "a₀",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient of x^0 (constant term)"
+    },
+    {
+      "id": "a1",
+      "label": "a₁",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of x^1"
+    },
+    {
+      "id": "a2",
+      "label": "a₂",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of x^2"
+    },
+    {
+      "id": "a3",
+      "label": "a₃",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of x^3"
+    },
+    {
+      "id": "a4",
+      "label": "a₄",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of x^4"
+    }
+  ],
+  "formulas": {
+    "term0": "a0",
+    "term1": "a1 * x",
+    "term2": "a2 * Math.pow(x, 2)",
+    "term3": "a3 * Math.pow(x, 3)",
+    "term4": "a4 * Math.pow(x, 4)",
+    "sum": "a0 + a1 * x + a2 * Math.pow(x, 2) + a3 * Math.pow(x, 3) + a4 * Math.pow(x, 4)"
+  },
+  "outputs": {
+    "primary": "sum",
+    "breakdown": [
+      "term0",
+      "term1",
+      "term2",
+      "term3",
+      "term4"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

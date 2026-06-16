@@ -1,0 +1,71 @@
+{
+  "toolName": "integral-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "Kübik katsayı (a)",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "Polinomun x³ terimi katsayısı"
+    },
+    {
+      "id": "b",
+      "label": "Kare katsayı (b)",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "Polinomun x² terimi katsayısı"
+    },
+    {
+      "id": "c",
+      "label": "Doğrusal katsayı (c)",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "Polinomun x terimi katsayısı"
+    },
+    {
+      "id": "d",
+      "label": "Sabit terim (d)",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "Polinomun sabit terimi"
+    },
+    {
+      "id": "x1",
+      "label": "Alt sınır (x₁)",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "İntegral alt sınırı"
+    },
+    {
+      "id": "x2",
+      "label": "Üst sınır (x₂)",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "İntegral üst sınırı"
+    }
+  ],
+  "formulas": {
+    "F_x2": "(a/4)*Math.pow(x2,4) + (b/3)*Math.pow(x2,3) + (c/2)*Math.pow(x2,2) + d*x2",
+    "F_x1": "(a/4)*Math.pow(x1,4) + (b/3)*Math.pow(x1,3) + (c/2)*Math.pow(x1,2) + d*x1",
+    "integral": "(a/4)*(Math.pow(x2,4)-Math.pow(x1,4)) + (b/3)*(Math.pow(x2,3)-Math.pow(x1,3)) + (c/2)*(Math.pow(x2,2)-Math.pow(x1,2)) + d*(x2-x1)"
+  },
+  "outputs": {
+    "primary": "integral",
+    "breakdown": [
+      "F(x₂)",
+      "F(x₁)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

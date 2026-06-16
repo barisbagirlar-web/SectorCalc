@@ -1,0 +1,415 @@
+{
+  "slug": "hydraulic-system-energy-loss",
+  "title": "Hydraulic System Energy Loss Calculator",
+  "description": "Industrial-grade tool to calculate total energy loss in hydraulic systems, identify loss drivers, and suggest improvement actions based on ISO 4409, Lean, and Six Sigma principles.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-system comparison",
+    "Custom threshold configuration"
+  ],
+  "inputs": [
+    {
+      "id": "flow_rate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "L/min",
+      "default": 100,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Volumetric flow rate of hydraulic fluid through the system. Typical range for industrial systems: 10-500 L/min.",
+      "label_i18n": {
+        "en": "Flow Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Volumetric flow rate of hydraulic fluid through the system. Typical range for industrial systems: 10-500 L/min."
+      }
+    },
+    {
+      "id": "pressure_drop_total",
+      "label": "Total Pressure Drop",
+      "type": "number",
+      "unit": "bar",
+      "default": 50,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Sum of all pressure losses across components (pipes, valves, fittings). ISO 4409 recommends measurement at steady state.",
+      "label_i18n": {
+        "en": "Total Pressure Drop"
+      },
+      "businessContext_i18n": {
+        "en": "Sum of all pressure losses across components (pipes, valves, fittings). ISO 4409 recommends measurement at steady state."
+      }
+    },
+    {
+      "id": "fluid_density",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 870,
+      "min": 700,
+      "max": 1200,
+      "businessContext": "Density of hydraulic fluid at operating temperature. Typical mineral oil: 850-900 kg/m³.",
+      "label_i18n": {
+        "en": "Fluid Density"
+      },
+      "businessContext_i18n": {
+        "en": "Density of hydraulic fluid at operating temperature. Typical mineral oil: 850-900 kg/m³."
+      }
+    },
+    {
+      "id": "kinematic_viscosity",
+      "label": "Kinematic Viscosity",
+      "type": "number",
+      "unit": "cSt",
+      "default": 46,
+      "min": 10,
+      "max": 500,
+      "businessContext": "Fluid viscosity at operating temperature. ISO VG 46 is common for industrial hydraulics.",
+      "label_i18n": {
+        "en": "Kinematic Viscosity"
+      },
+      "businessContext_i18n": {
+        "en": "Fluid viscosity at operating temperature. ISO VG 46 is common for industrial hydraulics."
+      }
+    },
+    {
+      "id": "pipe_length",
+      "label": "Total Pipe Length",
+      "type": "number",
+      "unit": "m",
+      "default": 50,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Total length of hydraulic piping in the system. Longer runs increase friction losses.",
+      "label_i18n": {
+        "en": "Total Pipe Length"
+      },
+      "businessContext_i18n": {
+        "en": "Total length of hydraulic piping in the system. Longer runs increase friction losses."
+      }
+    },
+    {
+      "id": "pipe_diameter",
+      "label": "Pipe Inner Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 25,
+      "min": 5,
+      "max": 200,
+      "businessContext": "Inner diameter of the main hydraulic pipe. Affects flow velocity and Reynolds number.",
+      "label_i18n": {
+        "en": "Pipe Inner Diameter"
+      },
+      "businessContext_i18n": {
+        "en": "Inner diameter of the main hydraulic pipe. Affects flow velocity and Reynolds number."
+      }
+    },
+    {
+      "id": "valve_count",
+      "label": "Number of Valves",
+      "type": "number",
+      "unit": "count",
+      "default": 5,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Total number of directional, pressure, and flow control valves in the system.",
+      "label_i18n": {
+        "en": "Number of Valves"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of directional, pressure, and flow control valves in the system."
+      }
+    },
+    {
+      "id": "fitting_count",
+      "label": "Number of Fittings",
+      "type": "number",
+      "unit": "count",
+      "default": 20,
+      "min": 0,
+      "max": 200,
+      "businessContext": "Total number of elbows, tees, reducers, and other fittings.",
+      "label_i18n": {
+        "en": "Number of Fittings"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of elbows, tees, reducers, and other fittings."
+      }
+    },
+    {
+      "id": "system_type",
+      "label": "System Type",
+      "type": "select",
+      "unit": "",
+      "default": "industrial",
+      "min": null,
+      "max": null,
+      "options": [
+        "industrial",
+        "mobile",
+        "marine",
+        "aerospace"
+      ],
+      "businessContext": "Application type influences typical loss factors and maintenance intervals.",
+      "label_i18n": {
+        "en": "System Type"
+      },
+      "businessContext_i18n": {
+        "en": "Application type influences typical loss factors and maintenance intervals."
+      }
+    },
+    {
+      "id": "is_new_system",
+      "label": "New System (less than 1 year in service)",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "New systems may have different loss characteristics due to break-in period.",
+      "label_i18n": {
+        "en": "New System (less than 1 year in service)"
+      },
+      "businessContext_i18n": {
+        "en": "New systems may have different loss characteristics due to break-in period."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "flow_pressure_consistency",
+        "condition": "flow_rate > 0 AND pressure_drop_total > 0",
+        "message": "Flow rate and pressure drop must both be positive for energy loss calculation."
+      },
+      {
+        "id": "reynolds_check",
+        "condition": "kinematic_viscosity > 0 AND pipe_diameter > 0",
+        "message": "Kinematic viscosity and pipe diameter must be positive to compute Reynolds number."
+      },
+      {
+        "id": "pipe_geometry",
+        "condition": "pipe_length >= 0 AND pipe_diameter > 0",
+        "message": "Pipe length must be non-negative and diameter positive."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_energy_loss",
+        "condition": "primaryResult > 5000",
+        "severity": "critical",
+        "message": "Total energy loss exceeds 5000 W. Immediate system audit recommended."
+      },
+      {
+        "id": "low_reynolds",
+        "condition": "reynolds_number < 2000",
+        "severity": "warning",
+        "message": "Flow is laminar (Re < 2000). Consider increasing flow or reducing viscosity to improve efficiency."
+      },
+      {
+        "id": "high_friction_factor",
+        "condition": "darcy_friction_factor > 0.04",
+        "severity": "warning",
+        "message": "Darcy friction factor exceeds 0.04. Check for pipe roughness or undersized diameter."
+      },
+      {
+        "id": "valve_loss_ratio",
+        "condition": "valve_loss_percentage > 30",
+        "severity": "warning",
+        "message": "Valve losses account for more than 30% of total loss. Review valve sizing and type."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "flow_velocity",
+      "label": "Flow Velocity",
+      "description": "Mean fluid velocity in the pipe.",
+      "formula": "v = (4 * Q) / (π * D²)",
+      "variables": {
+        "Q": "flow_rate (converted to m³/s)",
+        "D": "pipe_diameter (converted to m)"
+      },
+      "unit": "m/s"
+    },
+    {
+      "id": "reynolds_number",
+      "label": "Reynolds Number",
+      "description": "Dimensionless number indicating flow regime.",
+      "formula": "Re = (v * D) / ν",
+      "variables": {
+        "v": "flow_velocity (m/s)",
+        "D": "pipe_diameter (m)",
+        "ν": "kinematic_viscosity (m²/s)"
+      },
+      "unit": "dimensionless"
+    },
+    {
+      "id": "darcy_friction_factor",
+      "label": "Darcy Friction Factor",
+      "description": "Friction factor using Swamee-Jain approximation for turbulent flow (Re > 4000), else Poiseuille for laminar.",
+      "formula": "f = (if Re < 2000) 64/Re else 0.25 / [log10(ε/(3.7*D) + 5.74/Re^0.9)]²",
+      "variables": {
+        "Re": "reynolds_number",
+        "ε": "0.000046 (m, typical steel pipe roughness)",
+        "D": "pipe_diameter (m)"
+      },
+      "unit": "dimensionless"
+    },
+    {
+      "id": "pipe_friction_loss",
+      "label": "Pipe Friction Loss",
+      "description": "Pressure loss due to pipe friction (Darcy-Weisbach).",
+      "formula": "ΔP_pipe = f * (L/D) * (ρ * v² / 2)",
+      "variables": {
+        "f": "darcy_friction_factor",
+        "L": "pipe_length (m)",
+        "D": "pipe_diameter (m)",
+        "ρ": "fluid_density (kg/m³)",
+        "v": "flow_velocity (m/s)"
+      },
+      "unit": "Pa"
+    },
+    {
+      "id": "minor_losses",
+      "label": "Minor Losses (Valves & Fittings)",
+      "description": "Pressure loss through valves and fittings using equivalent length method.",
+      "formula": "ΔP_minor = (K_valve * n_valve + K_fitting * n_fitting) * (ρ * v² / 2)",
+      "variables": {
+        "K_valve": "0.5 (typical loss coefficient per valve)",
+        "n_valve": "valve_count",
+        "K_fitting": "0.3 (typical loss coefficient per fitting)",
+        "n_fitting": "fitting_count",
+        "ρ": "fluid_density (kg/m³)",
+        "v": "flow_velocity (m/s)"
+      },
+      "unit": "Pa"
+    },
+    {
+      "id": "total_pressure_loss",
+      "label": "Total Pressure Loss",
+      "description": "Sum of pipe friction and minor losses.",
+      "formula": "ΔP_total = ΔP_pipe + ΔP_minor",
+      "variables": {
+        "ΔP_pipe": "pipe_friction_loss",
+        "ΔP_minor": "minor_losses"
+      },
+      "unit": "Pa"
+    },
+    {
+      "id": "primary_energy_loss",
+      "label": "Total Energy Loss (Primary Result)",
+      "description": "Hydraulic power loss in watts.",
+      "formula": "E_loss = ΔP_total * Q",
+      "variables": {
+        "ΔP_total": "total_pressure_loss (Pa)",
+        "Q": "flow_rate (m³/s)"
+      },
+      "unit": "W"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_energy_loss",
+      "label": "Total Energy Loss",
+      "value": null,
+      "unit": "W",
+      "description": "Total hydraulic power dissipated as heat due to friction and minor losses."
+    },
+    "breakdown": {
+      "pipe_friction_loss_watts": {
+        "id": "pipe_friction_loss_watts",
+        "label": "Pipe Friction Loss",
+        "value": null,
+        "unit": "W",
+        "description": "Energy loss due to pipe wall friction."
+      },
+      "minor_losses_watts": {
+        "id": "minor_losses_watts",
+        "label": "Minor Losses (Valves & Fittings)",
+        "value": null,
+        "unit": "W",
+        "description": "Energy loss due to valves and fittings."
+      },
+      "flow_velocity": {
+        "id": "flow_velocity",
+        "label": "Flow Velocity",
+        "value": null,
+        "unit": "m/s"
+      },
+      "reynolds_number": {
+        "id": "reynolds_number",
+        "label": "Reynolds Number",
+        "value": null,
+        "unit": "dimensionless"
+      },
+      "darcy_friction_factor": {
+        "id": "darcy_friction_factor",
+        "label": "Darcy Friction Factor",
+        "value": null,
+        "unit": "dimensionless"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "high_friction_factor_driver",
+        "label": "High Friction Factor",
+        "description": "Friction factor above 0.04 indicates potential pipe roughness or undersized diameter.",
+        "condition": "darcy_friction_factor > 0.04"
+      },
+      {
+        "id": "laminar_flow_driver",
+        "label": "Laminar Flow Regime",
+        "description": "Reynolds number below 2000 indicates laminar flow, which may be less efficient for heat transfer but can increase viscous losses.",
+        "condition": "reynolds_number < 2000"
+      },
+      {
+        "id": "excessive_valve_loss",
+        "label": "Excessive Valve Loss",
+        "description": "Valve losses contribute more than 30% of total loss.",
+        "condition": "valve_loss_percentage > 30"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "increase_pipe_diameter",
+        "label": "Increase Pipe Diameter",
+        "description": "Larger diameter reduces flow velocity and friction losses. Consider upsizing if velocity > 5 m/s.",
+        "condition": "flow_velocity > 5"
+      },
+      {
+        "id": "reduce_valve_count",
+        "label": "Reduce Valve Count or Use Low-Loss Valves",
+        "description": "Minimize number of valves or replace with low-pressure-drop designs.",
+        "condition": "valve_loss_percentage > 30"
+      },
+      {
+        "id": "optimize_viscosity",
+        "label": "Optimize Fluid Viscosity",
+        "description": "Use lower viscosity fluid if operating temperature allows, to reduce friction losses.",
+        "condition": "reynolds_number < 2000"
+      },
+      {
+        "id": "pipe_cleaning_or_replacement",
+        "label": "Clean or Replace Pipes",
+        "description": "High friction factor may indicate internal roughness or deposits. Inspect and clean.",
+        "condition": "darcy_friction_factor > 0.04"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_adjusted",
+      "label": "Data Confidence Adjusted Energy Loss",
+      "value": null,
+      "unit": "W",
+      "description": "Energy loss adjusted for input data confidence (e.g., using typical uncertainty of ±5% for flow and pressure).",
+      "adjustmentFactor": 0.95
+    }
+  },
+  "toolName": "hydraulic-system-energy-loss-calculator",
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

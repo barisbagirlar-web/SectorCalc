@@ -1,0 +1,57 @@
+{
+  "toolName": "phq-2-calculator",
+  "inputs": [
+    {
+      "id": "worker_id",
+      "label": "Worker ID",
+      "type": "number",
+      "unit": "none",
+      "default": 0,
+      "businessContext": "Unique identifier of the assessed worker."
+    },
+    {
+      "id": "shift_id",
+      "label": "Shift Number",
+      "type": "number",
+      "unit": "shift",
+      "default": 1,
+      "businessContext": "Shift during which assessment occurs."
+    },
+    {
+      "id": "q1",
+      "label": "Little interest or pleasure in doing things (last 2 weeks)",
+      "type": "number",
+      "unit": "score",
+      "default": 0,
+      "businessContext": "Response to PHQ-2 question 1: 0=Not at all, 1=Several days, 2=More than half the days, 3=Nearly every day."
+    },
+    {
+      "id": "q2",
+      "label": "Feeling down, depressed, or hopeless (last 2 weeks)",
+      "type": "number",
+      "unit": "score",
+      "default": 0,
+      "businessContext": "Response to PHQ-2 question 2: 0=Not at all, 1=Several days, 2=More than half the days, 3=Nearly every day."
+    }
+  ],
+  "formulas": {
+    "total_score": "q1 + q2",
+    "interpretation": "(q1 + q2) >= 3 ? 'Positive' : 'Negative'",
+    "q1_detail": "'Q1: ' + q1",
+    "q2_detail": "'Q2: ' + q2"
+  },
+  "outputs": {
+    "primary": "total_score",
+    "breakdown": [
+      "q1_detail",
+      "q2_detail",
+      "interpretation"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

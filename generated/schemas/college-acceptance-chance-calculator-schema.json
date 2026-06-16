@@ -1,0 +1,70 @@
+{
+  "toolName": "college-acceptance-chance-calculator",
+  "inputs": [
+    {
+      "id": "gpa",
+      "label": "GPA",
+      "type": "number",
+      "unit": "scale 0-4",
+      "default": 3,
+      "businessContext": "Cumulative high school GPA on a 4.0 scale"
+    },
+    {
+      "id": "sat",
+      "label": "SAT Score",
+      "type": "number",
+      "unit": "points",
+      "default": 1200,
+      "businessContext": "Total SAT score (out of 1600)"
+    },
+    {
+      "id": "extracurriculars",
+      "label": "Extracurriculars",
+      "type": "number",
+      "unit": "count",
+      "default": 5,
+      "businessContext": "Number of significant extracurricular activities"
+    },
+    {
+      "id": "essay",
+      "label": "Essay Rating",
+      "type": "number",
+      "unit": "scale 1-5",
+      "default": 3,
+      "businessContext": "Quality rating of application essay on a 1-5 scale"
+    },
+    {
+      "id": "interview",
+      "label": "Interview Score",
+      "type": "number",
+      "unit": "scale 1-5",
+      "default": 3,
+      "businessContext": "Performance score in alumni/interview"
+    }
+  ],
+  "formulas": {
+    "baseScore": "0.2*(gpa/4)*100 + 0.3*(sat/1600)*100 + 0.15*(essay/5)*100 + 0.1*(interview/5)*100 + 0.25*Math.min(1, extracurriculars/10)*100",
+    "gpaContribution": "0.2*(gpa/4)*100",
+    "satContribution": "0.3*(sat/1600)*100",
+    "essayContribution": "0.15*(essay/5)*100",
+    "interviewContribution": "0.1*(interview/5)*100",
+    "extracurricularContribution": "0.25*Math.min(1, extracurriculars/10)*100",
+    "probability": "1/(1+Math.exp(-(baseScore-65)/12))*100"
+  },
+  "outputs": {
+    "primary": "probability",
+    "breakdown": [
+      "gpaContribution",
+      "satContribution",
+      "essayContribution",
+      "interviewContribution",
+      "extracurricularContribution"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

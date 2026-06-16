@@ -1,0 +1,43 @@
+{
+  "toolName": "squat-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Kaldırılan Ağırlık",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Barbell ve plakaların toplam ağırlığı (kg)"
+    },
+    {
+      "id": "reps",
+      "label": "Tekrar Sayısı",
+      "type": "number",
+      "unit": "tekrar",
+      "default": 5,
+      "businessContext": "Tükenişe kadar yapılan tekrar sayısı"
+    }
+  ],
+  "formulas": {
+    "estimated1RM": "weight * (1 + reps / 30)",
+    "speedWeight": "weight * (1 + reps / 30) * 0.95",
+    "heavyTriple": "weight * (1 + reps / 30) * 0.90",
+    "workSetWeight": "weight * (1 + reps / 30) * 0.80",
+    "deloadWeight": "weight * (1 + reps / 30) * 0.70"
+  },
+  "outputs": {
+    "primary": "estimated1RM",
+    "breakdown": [
+      "speedWeight",
+      "heavyTriple",
+      "workSetWeight",
+      "deloadWeight"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

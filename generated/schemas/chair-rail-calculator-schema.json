@@ -1,0 +1,91 @@
+{
+  "toolName": "chair-rail-calculator",
+  "inputs": [
+    {
+      "id": "roomLength",
+      "label": "Room Length",
+      "type": "number",
+      "unit": "ft",
+      "default": 0,
+      "businessContext": "Total length of the room in feet"
+    },
+    {
+      "id": "roomWidth",
+      "label": "Room Width",
+      "type": "number",
+      "unit": "ft",
+      "default": 0,
+      "businessContext": "Total width of the room in feet"
+    },
+    {
+      "id": "doorCount",
+      "label": "Number of Doors",
+      "type": "number",
+      "unit": "ea",
+      "default": 0,
+      "businessContext": "Count of door openings where chair rail will not be installed"
+    },
+    {
+      "id": "doorWidth",
+      "label": "Standard Door Width",
+      "type": "number",
+      "unit": "ft",
+      "default": 3,
+      "businessContext": "Width of each door opening to be subtracted, in feet (typical interior door: 3 ft)"
+    },
+    {
+      "id": "windowCount",
+      "label": "Number of Windows",
+      "type": "number",
+      "unit": "ea",
+      "default": 0,
+      "businessContext": "Count of window openings where chair rail will not be installed"
+    },
+    {
+      "id": "windowWidth",
+      "label": "Standard Window Width",
+      "type": "number",
+      "unit": "ft",
+      "default": 4,
+      "businessContext": "Width of each window opening to be subtracted, in feet (typical window: 4 ft)"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Additional material percentage to account for cutting waste and miter errors"
+    },
+    {
+      "id": "pricePerFoot",
+      "label": "Price per Linear Foot",
+      "type": "number",
+      "unit": "USD/ft",
+      "default": 0,
+      "businessContext": "Cost of chair rail material per linear foot"
+    }
+  ],
+  "formulas": {
+    "perimeter": "2 * (roomLength + roomWidth)",
+    "openings": "doorCount * doorWidth + windowCount * windowWidth",
+    "netLength": "perimeter - openings",
+    "wasteAmount": "netLength * (wasteFactor / 100)",
+    "totalLength": "netLength + wasteAmount",
+    "totalCost": "totalLength * pricePerFoot"
+  },
+  "outputs": {
+    "primary": "totalLength",
+    "breakdown": [
+      "netLength",
+      "wasteAmount",
+      "totalCost"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

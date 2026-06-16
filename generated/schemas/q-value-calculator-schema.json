@@ -1,0 +1,65 @@
+{
+  "toolName": "q-value-calculator",
+  "inputs": [
+    {
+      "id": "inductance",
+      "label": "Inductance (L)",
+      "type": "number",
+      "unit": "H",
+      "default": 0,
+      "businessContext": "Inductance of the circuit coil or inductor in Henries."
+    },
+    {
+      "id": "capacitance",
+      "label": "Capacitance (C)",
+      "type": "number",
+      "unit": "F",
+      "default": 0,
+      "businessContext": "Capacitance of the circuit capacitor in Farads."
+    },
+    {
+      "id": "resistance",
+      "label": "Resistance (R)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 0,
+      "businessContext": "Series resistance in Ohms (for series RLC circuit). For parallel, use appropriate conversion."
+    },
+    {
+      "id": "frequency",
+      "label": "Resonant Frequency (f₀)",
+      "type": "number",
+      "unit": "Hz",
+      "default": 0,
+      "businessContext": "Measured or known resonant frequency in Hertz."
+    },
+    {
+      "id": "bandwidth",
+      "label": "Bandwidth (BW)",
+      "type": "number",
+      "unit": "Hz",
+      "default": 0,
+      "businessContext": "Half-power bandwidth of the resonance in Hertz."
+    }
+  ],
+  "formulas": {
+    "primary_Q": "((inductance>0 && capacitance>0 && resistance>0) ? (1/resistance)*Math.sqrt(inductance/capacitance) : (frequency>0 && bandwidth>0 ? frequency/bandwidth : 0))",
+    "resonant_frequency_calc": "(inductance>0 && capacitance>0) ? 1/(2*Math.PI*Math.sqrt(inductance*capacitance)) : 0",
+    "q_from_components": "(inductance>0 && capacitance>0 && resistance>0) ? (1/resistance)*Math.sqrt(inductance/capacitance) : 0",
+    "q_from_bandwidth": "(frequency>0 && bandwidth>0) ? frequency/bandwidth : 0"
+  },
+  "outputs": {
+    "primary": "primary_Q",
+    "breakdown": [
+      "resonant_frequency_calc",
+      "q_from_components",
+      "q_from_bandwidth"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

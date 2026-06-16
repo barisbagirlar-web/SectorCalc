@@ -47,8 +47,8 @@ functions-debug.log
 .vscode/
 .idea/
 
-# DeepSeek scan output (regenerated locally; do not commit)
-generated/
+# DeepSeek scan output — committed for Vercel (schemas + generated/*.ts)
+# generated/
 
 # TypeScript cache
 *.tsbuildinfo

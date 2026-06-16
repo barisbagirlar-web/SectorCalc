@@ -1,0 +1,54 @@
+{
+  "toolName": "interest-coverage-ratio-calculator",
+  "inputs": [
+    {
+      "id": "ebit",
+      "label": "EBIT",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Earnings Before Interest and Taxes"
+    },
+    {
+      "id": "interestExpense",
+      "label": "Interest Expense",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "businessContext": "Total interest payments on debt"
+    },
+    {
+      "id": "ebitda",
+      "label": "EBITDA",
+      "type": "number",
+      "unit": "USD",
+      "default": 120000,
+      "businessContext": "Earnings Before Interest, Taxes, Depreciation and Amortization"
+    },
+    {
+      "id": "depreciation",
+      "label": "Depreciation & Amortization",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "businessContext": "Depreciation and amortization expenses"
+    }
+  ],
+  "formulas": {
+    "interestCoverageRatio": "ebit / interestExpense",
+    "ebitdaCoverageRatio": "ebitda / interestExpense"
+  },
+  "outputs": {
+    "primary": "interestCoverageRatio",
+    "breakdown": [
+      "ebit",
+      "interestExpense"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

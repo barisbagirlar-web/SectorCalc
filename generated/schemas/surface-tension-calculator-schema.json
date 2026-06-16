@@ -1,0 +1,65 @@
+{
+  "toolName": "surface-tension-calculator",
+  "inputs": [
+    {
+      "id": "density",
+      "label": "Liquid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of the liquid at measurement temperature"
+    },
+    {
+      "id": "gravity",
+      "label": "Acceleration due to Gravity",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Standard gravity or local gravity value"
+    },
+    {
+      "id": "height",
+      "label": "Capillary Rise Height",
+      "type": "number",
+      "unit": "m",
+      "default": 0.01,
+      "businessContext": "Measured height difference between liquid in capillary and free surface"
+    },
+    {
+      "id": "radius",
+      "label": "Capillary Radius",
+      "type": "number",
+      "unit": "m",
+      "default": 0.001,
+      "businessContext": "Inner radius of the capillary tube"
+    },
+    {
+      "id": "contactAngle",
+      "label": "Contact Angle",
+      "type": "number",
+      "unit": "degree",
+      "default": 0,
+      "businessContext": "Contact angle between liquid and capillary wall, 0° for completely wetting liquids"
+    }
+  ],
+  "formulas": {
+    "surfaceTension": "(density * gravity * height * radius) / (2 * Math.cos(contactAngle * Math.PI / 180))"
+  },
+  "outputs": {
+    "primary": "Surface Tension: {{surfaceTension}} N/m",
+    "breakdown": [
+      "Capillary Rise Height: {{height}} m",
+      "Capillary Radius: {{radius}} m",
+      "Density: {{density}} kg/m³",
+      "Gravity: {{gravity}} m/s²",
+      "Contact Angle: {{contactAngle}}°",
+      "Calculated Surface Tension: {{surfaceTension}} N/m (×1000 => {{surfaceTension * 1000}} mN/m)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

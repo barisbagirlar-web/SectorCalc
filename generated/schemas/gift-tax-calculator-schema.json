@@ -1,0 +1,65 @@
+{
+  "toolName": "gift-tax-calculator",
+  "inputs": [
+    {
+      "id": "giftAmount",
+      "label": "Gift Amount",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "Total value of the gift given to the recipient."
+    },
+    {
+      "id": "annualExclusion",
+      "label": "Annual Exclusion",
+      "type": "number",
+      "unit": "$",
+      "default": 16000,
+      "businessContext": "Maximum amount that can be gifted per person per year without using lifetime exemption."
+    },
+    {
+      "id": "totalLifetimeExemption",
+      "label": "Total Lifetime Exemption",
+      "type": "number",
+      "unit": "$",
+      "default": 12060000,
+      "businessContext": "Total amount that can be gifted over a lifetime without incurring gift tax, as per current law."
+    },
+    {
+      "id": "lifetimeExemptionUsed",
+      "label": "Lifetime Exemption Used",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Portion of the lifetime exemption already utilized from previous gifts."
+    },
+    {
+      "id": "taxRate",
+      "label": "Gift Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "businessContext": "Flat tax rate applied on taxable amount exceeding exemptions."
+    }
+  ],
+  "formulas": {
+    "totalTax": "Math.max(0, (Math.max(0, giftAmount - annualExclusion) - Math.max(0, totalLifetimeExemption - lifetimeExemptionUsed))) * (taxRate / 100)",
+    "taxableAmount": "Math.max(0, (Math.max(0, giftAmount - annualExclusion) - Math.max(0, totalLifetimeExemption - lifetimeExemptionUsed)))",
+    "taxableBeforeLifetime": "Math.max(0, giftAmount - annualExclusion)",
+    "remainingLifetimeExemption": "Math.max(0, totalLifetimeExemption - lifetimeExemptionUsed)"
+  },
+  "outputs": {
+    "primary": "totalTax",
+    "breakdown": [
+      "taxableAmount",
+      "taxableBeforeLifetime",
+      "remainingLifetimeExemption"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

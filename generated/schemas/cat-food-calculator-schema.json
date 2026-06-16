@@ -1,0 +1,63 @@
+{
+  "toolName": "cat-food-calculator",
+  "inputs": [
+    {
+      "id": "catWeight",
+      "label": "Cat Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 4,
+      "businessContext": "Cat's weight in kilograms"
+    },
+    {
+      "id": "dailyFoodPerKg",
+      "label": "Daily Food per kg",
+      "type": "number",
+      "unit": "g/kg",
+      "default": 15,
+      "businessContext": "Recommended daily food amount per kilogram of body weight"
+    },
+    {
+      "id": "foodPackageWeight",
+      "label": "Package Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 2,
+      "businessContext": "Weight of the food package"
+    },
+    {
+      "id": "foodPackagePrice",
+      "label": "Package Price",
+      "type": "number",
+      "unit": "TRY",
+      "default": 150,
+      "businessContext": "Price of the food package in Turkish Lira"
+    },
+    {
+      "id": "numCats",
+      "label": "Number of Cats",
+      "type": "number",
+      "unit": "cats",
+      "default": 1,
+      "businessContext": "Number of cats to be fed"
+    }
+  ],
+  "formulas": {
+    "dailyFoodAmount": "catWeight * dailyFoodPerKg * numCats",
+    "dailyCost": "(catWeight * dailyFoodPerKg * numCats / 1000) / foodPackageWeight * foodPackagePrice",
+    "monthlyCost": "(catWeight * dailyFoodPerKg * numCats / 1000) / foodPackageWeight * foodPackagePrice * 30"
+  },
+  "outputs": {
+    "primary": "monthlyCost",
+    "breakdown": [
+      "dailyFoodAmount",
+      "dailyCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

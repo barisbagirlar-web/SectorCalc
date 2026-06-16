@@ -1,0 +1,54 @@
+{
+  "toolName": "debt-service-coverage-ratio-calculator",
+  "inputs": [
+    {
+      "id": "netOperatingIncome",
+      "label": "Net Operating Income",
+      "type": "number",
+      "unit": "currency",
+      "default": 120000,
+      "businessContext": "Annual net operating income before debt service"
+    },
+    {
+      "id": "loanAmount",
+      "label": "Loan Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 500000,
+      "businessContext": "Total principal amount of the loan"
+    },
+    {
+      "id": "interestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Nominal annual interest rate"
+    },
+    {
+      "id": "loanTerm",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Total amortization period in years"
+    }
+  ],
+  "formulas": {
+    "annualDebtService": "(loanAmount * (interestRate/100)) / (1 - Math.pow(1 + (interestRate/100), -loanTerm))",
+    "dscr": "netOperatingIncome / annualDebtService"
+  },
+  "outputs": {
+    "primary": "dscr",
+    "breakdown": [
+      "annualDebtService",
+      "dscr"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

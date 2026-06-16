@@ -1,0 +1,93 @@
+{
+  "toolName": "covariance-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "X Value 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First observation for variable X"
+    },
+    {
+      "id": "y1",
+      "label": "Y Value 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First observation for variable Y"
+    },
+    {
+      "id": "x2",
+      "label": "X Value 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second observation for variable X"
+    },
+    {
+      "id": "y2",
+      "label": "Y Value 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second observation for variable Y"
+    },
+    {
+      "id": "x3",
+      "label": "X Value 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Third observation for variable X"
+    },
+    {
+      "id": "y3",
+      "label": "Y Value 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Third observation for variable Y"
+    },
+    {
+      "id": "x4",
+      "label": "X Value 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fourth observation for variable X"
+    },
+    {
+      "id": "y4",
+      "label": "Y Value 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fourth observation for variable Y"
+    }
+  ],
+  "formulas": {
+    "mean_x": "(x1 + x2 + x3 + x4) / 4",
+    "mean_y": "(y1 + y2 + y3 + y4) / 4",
+    "diff_prod_1": "(x1 - mean_x) * (y1 - mean_y)",
+    "diff_prod_2": "(x2 - mean_x) * (y2 - mean_y)",
+    "diff_prod_3": "(x3 - mean_x) * (y3 - mean_y)",
+    "diff_prod_4": "(x4 - mean_x) * (y4 - mean_y)",
+    "sum_diff_prod": "diff_prod_1 + diff_prod_2 + diff_prod_3 + diff_prod_4",
+    "covariance": "sum_diff_prod / 3"
+  },
+  "outputs": {
+    "primary": "covariance",
+    "breakdown": [
+      "mean_x",
+      "mean_y",
+      "sum_diff_prod"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

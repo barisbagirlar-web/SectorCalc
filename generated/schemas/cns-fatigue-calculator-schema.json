@@ -1,0 +1,81 @@
+{
+  "toolName": "cns-fatigue-calculator",
+  "inputs": [
+    {
+      "id": "bodyWeight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User's body weight in kilograms."
+    },
+    {
+      "id": "weightLifted",
+      "label": "Weight Lifted",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Weight lifted during the exercise."
+    },
+    {
+      "id": "reps",
+      "label": "Repetitions per Set",
+      "type": "number",
+      "unit": "reps",
+      "default": 10,
+      "businessContext": "Number of repetitions per set."
+    },
+    {
+      "id": "sets",
+      "label": "Number of Sets",
+      "type": "number",
+      "unit": "sets",
+      "default": 5,
+      "businessContext": "Number of sets performed."
+    },
+    {
+      "id": "restBetweenSets",
+      "label": "Rest Between Sets",
+      "type": "number",
+      "unit": "min",
+      "default": 2,
+      "businessContext": "Rest period between sets in minutes."
+    },
+    {
+      "id": "daysSinceLastSession",
+      "label": "Days Since Last Session",
+      "type": "number",
+      "unit": "days",
+      "default": 1,
+      "businessContext": "Number of days since the previous training session."
+    },
+    {
+      "id": "trainingExperience",
+      "label": "Training Experience",
+      "type": "number",
+      "unit": "years",
+      "default": 2,
+      "businessContext": "Years of consistent training experience."
+    }
+  ],
+  "formulas": {
+    "totalLoad": "weightLifted * reps * sets",
+    "intensity": "weightLifted / bodyWeight",
+    "fatigueResistance": "1 - Math.exp(-trainingExperience / 5)",
+    "fatigueIndex": "(totalLoad / 1000) * intensity * (1 / restBetweenSets) * (1 / daysSinceLastSession) * (1 - fatigueResistance)"
+  },
+  "outputs": {
+    "primary": "fatigueIndex",
+    "breakdown": [
+      "totalLoad",
+      "intensity",
+      "fatigueResistance"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

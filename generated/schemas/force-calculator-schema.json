@@ -1,0 +1,57 @@
+{
+  "toolName": "force-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "The mass of the object being subjected to force."
+    },
+    {
+      "id": "initialVelocity",
+      "label": "Initial Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "The initial velocity of the object before the force is applied."
+    },
+    {
+      "id": "finalVelocity",
+      "label": "Final Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 10,
+      "businessContext": "The final velocity of the object after the force is applied."
+    },
+    {
+      "id": "time",
+      "label": "Time",
+      "type": "number",
+      "unit": "s",
+      "default": 1,
+      "businessContext": "The duration over which the force is applied to change the velocity."
+    }
+  ],
+  "formulas": {
+    "acceleration": "(time !== 0) ? ((finalVelocity - initialVelocity) / time) : 0",
+    "force": "mass * ((time !== 0) ? ((finalVelocity - initialVelocity) / time) : 0)",
+    "momentumChange": "mass * (finalVelocity - initialVelocity)",
+    "impulse": "mass * (finalVelocity - initialVelocity)"
+  },
+  "outputs": {
+    "primary": "force",
+    "breakdown": [
+      "acceleration",
+      "momentumChange",
+      "impulse"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

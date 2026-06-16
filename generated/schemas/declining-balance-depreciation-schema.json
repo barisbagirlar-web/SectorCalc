@@ -1,0 +1,67 @@
+{
+  "toolName": "declining-balance-depreciation",
+  "inputs": [
+    {
+      "id": "cost",
+      "label": "Asset Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Initial purchase cost of the asset"
+    },
+    {
+      "id": "salvage",
+      "label": "Salvage Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000,
+      "businessContext": "Estimated residual value at the end of useful life"
+    },
+    {
+      "id": "usefulLife",
+      "label": "Useful Life",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Expected useful life of the asset in years"
+    },
+    {
+      "id": "rateMultiplier",
+      "label": "Declining Rate Multiplier",
+      "type": "number",
+      "unit": "x",
+      "default": 2,
+      "businessContext": "Multiplier for the straight-line rate (e.g., 2 for double declining balance)"
+    },
+    {
+      "id": "year",
+      "label": "Year",
+      "type": "number",
+      "unit": "year",
+      "default": 1,
+      "businessContext": "Year for which to compute depreciation (1 to useful life)"
+    }
+  ],
+  "formulas": {
+    "depreciationAmount": "year > usefulLife ? 0 : (() => { const rate = (1 / usefulLife) * rateMultiplier; const bvStart = Math.max(cost * Math.pow(1 - rate, year - 1), salvage); return bvStart === salvage ? 0 : Math.min(rate * bvStart, bvStart - salvage); })()",
+    "bookValueStart": "year > usefulLife ? salvage : Math.max(cost * Math.pow(1 - (1 / usefulLife) * rateMultiplier, year - 1), salvage)",
+    "depreciationRateApplied": "(1 / usefulLife) * rateMultiplier",
+    "accumulatedDepreciation": "year > usefulLife ? cost - salvage : cost - Math.max(cost * Math.pow(1 - (1 / usefulLife) * rateMultiplier, year), salvage)",
+    "bookValueEnd": "year > usefulLife ? salvage : Math.max(cost * Math.pow(1 - (1 / usefulLife) * rateMultiplier, year), salvage)"
+  },
+  "outputs": {
+    "primary": "depreciationAmount",
+    "breakdown": [
+      "bookValueStart",
+      "depreciationRateApplied",
+      "accumulatedDepreciation",
+      "bookValueEnd"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

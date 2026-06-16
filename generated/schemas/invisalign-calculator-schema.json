@@ -1,0 +1,68 @@
+{
+  "toolName": "invisalign-calculator",
+  "inputs": [
+    {
+      "id": "numberOfAligners",
+      "label": "Number of Aligners",
+      "type": "number",
+      "unit": "pcs",
+      "default": 20,
+      "businessContext": "Total number of aligners in the treatment plan."
+    },
+    {
+      "id": "materialCostPerAligner",
+      "label": "Material Cost per Aligner",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "businessContext": "Cost of raw material for one aligner."
+    },
+    {
+      "id": "laborCostPerAligner",
+      "label": "Labor Cost per Aligner",
+      "type": "number",
+      "unit": "USD",
+      "default": 30,
+      "businessContext": "Direct labor cost to produce one aligner."
+    },
+    {
+      "id": "overheadRate",
+      "label": "Overhead Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Overhead percentage applied to direct costs (e.g., utilities, admin)."
+    },
+    {
+      "id": "sellingPricePerAligner",
+      "label": "Selling Price per Aligner",
+      "type": "number",
+      "unit": "USD",
+      "default": 150,
+      "businessContext": "Price charged to the customer per aligner."
+    }
+  ],
+  "formulas": {
+    "totalDirectCost": "(materialCostPerAligner + laborCostPerAligner) * numberOfAligners",
+    "totalOverhead": "totalDirectCost * (overheadRate / 100)",
+    "totalCost": "totalDirectCost + totalOverhead",
+    "totalRevenue": "sellingPricePerAligner * numberOfAligners",
+    "profit": "totalRevenue - totalCost",
+    "marginPercentage": "(profit / totalRevenue) * 100"
+  },
+  "outputs": {
+    "primary": "Net Profit: $${profit} (Margin: ${marginPercentage}%)",
+    "breakdown": [
+      "Total Cost: $${totalCost}",
+      "Total Revenue: $${totalRevenue}",
+      "Profit: $${profit}",
+      "Margin: ${marginPercentage}%"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

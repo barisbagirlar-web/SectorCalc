@@ -1,0 +1,66 @@
+{
+  "toolName": "guitar-scale-length-calculator",
+  "inputs": [
+    {
+      "id": "scaleLength",
+      "label": "Scale Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 648,
+      "businessContext": "Distance from nut to bridge saddle in millimeters."
+    },
+    {
+      "id": "numberOfFrets",
+      "label": "Number of Frets",
+      "type": "number",
+      "unit": "",
+      "default": 22,
+      "businessContext": "Total number of frets on the fretboard (used for context)."
+    },
+    {
+      "id": "fretNumber",
+      "label": "Target Fret Number",
+      "type": "number",
+      "unit": "",
+      "default": 12,
+      "businessContext": "The fret number for which to calculate the distance from the nut."
+    },
+    {
+      "id": "stringGauge",
+      "label": "String Gauge",
+      "type": "number",
+      "unit": "inch",
+      "default": 0.01,
+      "businessContext": "Diameter of the string in inches (e.g., .010 for high E)."
+    },
+    {
+      "id": "tuningFrequency",
+      "label": "Tuning Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 329.63,
+      "businessContext": "Target frequency for the string (e.g., E4 = 329.63 Hz)."
+    }
+  ],
+  "formulas": {
+    "fretDistance": "scaleLength * (1 - Math.pow(2, -fretNumber / 12))",
+    "scaleLengthInches": "scaleLength / 25.4",
+    "stringUnitWeight": "0.283 * Math.PI * Math.pow(stringGauge / 2, 2)",
+    "tensionLbs": "(stringUnitWeight * Math.pow(2 * scaleLengthInches * tuningFrequency, 2)) / 386.4",
+    "tensionKg": "tensionLbs * 0.453592"
+  },
+  "outputs": {
+    "primary": "Distance from nut to fret ${fretNumber}: ${fretDistance.toFixed(2)} mm",
+    "breakdown": [
+      "String tension (lbs): ${tensionLbs.toFixed(2)} lbs",
+      "String tension (kg): ${tensionKg.toFixed(2)} kg",
+      "Scale length in inches: ${scaleLengthInches.toFixed(2)} in"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Atölye & Tamir",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

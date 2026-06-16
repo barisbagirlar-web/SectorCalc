@@ -1,0 +1,57 @@
+{
+  "toolName": "single-phase-calculator",
+  "inputs": [
+    {
+      "id": "voltage",
+      "label": "Voltage (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 230,
+      "businessContext": "Supply voltage in volts"
+    },
+    {
+      "id": "current",
+      "label": "Current (A)",
+      "type": "number",
+      "unit": "A",
+      "default": 10,
+      "businessContext": "Load current in amperes"
+    },
+    {
+      "id": "powerFactor",
+      "label": "Power Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.9,
+      "businessContext": "Power factor (cos φ) of the load, between 0 and 1"
+    },
+    {
+      "id": "time",
+      "label": "Time (h)",
+      "type": "number",
+      "unit": "h",
+      "default": 1,
+      "businessContext": "Operating time in hours for energy calculation"
+    }
+  ],
+  "formulas": {
+    "power": "voltage * current * powerFactor",
+    "apparentPower": "voltage * current",
+    "reactivePower": "voltage * current * Math.sin(Math.acos(powerFactor))",
+    "energy": "voltage * current * powerFactor * time / 1000"
+  },
+  "outputs": {
+    "primary": "power",
+    "breakdown": [
+      "apparentPower",
+      "reactivePower",
+      "energy"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

@@ -1,0 +1,67 @@
+{
+  "toolName": "martial-arts-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Your body weight in kilograms."
+    },
+    {
+      "id": "duration",
+      "label": "Exercise Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 60,
+      "businessContext": "Total duration of the martial arts session."
+    },
+    {
+      "id": "met",
+      "label": "MET Value",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Metabolic Equivalent of Task for the specific martial art (e.g., judo=10, karate=10, kickboxing=10, tai chi=4)."
+    },
+    {
+      "id": "adjustmentFactor",
+      "label": "Adjustment Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Personal multiplier to fine-tune calorie estimate based on individual variance."
+    }
+  ],
+  "formulas": {
+    "totalCalories": "(met * weight * duration / 60) * adjustmentFactor",
+    "caloriesPerMinute": "met * weight / 60",
+    "caloriesPerHour": "met * weight"
+  },
+  "outputs": {
+    "primary": {
+      "id": "totalCalories",
+      "label": "Total Calories Burned",
+      "unit": "kcal"
+    },
+    "breakdown": [
+      {
+        "id": "caloriesPerMinute",
+        "label": "Calories per Minute",
+        "unit": "kcal/min"
+      },
+      {
+        "id": "caloriesPerHour",
+        "label": "Calories per Hour",
+        "unit": "kcal/h"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

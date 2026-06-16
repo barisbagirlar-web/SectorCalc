@@ -1,0 +1,58 @@
+{
+  "toolName": "atm-to-psi-calculator",
+  "inputs": [
+    {
+      "id": "atm",
+      "label": "Pressure (atm)",
+      "type": "number",
+      "unit": "atm",
+      "default": 1,
+      "businessContext": "Input pressure value in standard atmospheres"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "psi/atm",
+      "default": 14.6959,
+      "businessContext": "Conversion factor from atm to psi (industry standard 14.6959)"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding the result"
+    },
+    {
+      "id": "offset",
+      "label": "Offset (psi)",
+      "type": "number",
+      "unit": "psi",
+      "default": 0,
+      "businessContext": "Optional additive offset in psi for calibration or correction"
+    }
+  ],
+  "formulas": {
+    "rawPsi": "atm * conversionFactor",
+    "psiWithOffset": "rawPsi + offset",
+    "psi": "Math.round(psiWithOffset * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "psi",
+    "breakdown": [
+      "atm",
+      "conversionFactor",
+      "rawPsi",
+      "offset",
+      "psiWithOffset"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,86 @@
+{
+  "toolName": "traveling-salesman",
+  "inputs": [
+    {
+      "id": "numCities",
+      "label": "Number of Cities",
+      "type": "number",
+      "unit": "adet",
+      "default": 5,
+      "businessContext": "Total number of cities to visit in the tour."
+    },
+    {
+      "id": "avgDistance",
+      "label": "Average Distance Between Cities",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "businessContext": "Average straight-line distance between any two cities."
+    },
+    {
+      "id": "distanceStdDev",
+      "label": "Distance Standard Deviation",
+      "type": "number",
+      "unit": "km",
+      "default": 20,
+      "businessContext": "Standard deviation of distances to model variability."
+    },
+    {
+      "id": "speed",
+      "label": "Travel Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 60,
+      "businessContext": "Average speed of the vehicle."
+    },
+    {
+      "id": "costPerKm",
+      "label": "Cost per Kilometer",
+      "type": "number",
+      "unit": "€/km",
+      "default": 0.5,
+      "businessContext": "Operational cost per kilometer including fuel, maintenance, etc."
+    },
+    {
+      "id": "fixedCostPerStop",
+      "label": "Fixed Cost per Stop",
+      "type": "number",
+      "unit": "€",
+      "default": 10,
+      "businessContext": "Fixed cost incurred each time the vehicle stops at a city."
+    },
+    {
+      "id": "numVehicles",
+      "label": "Number of Vehicles",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Number of vehicles available for the tour."
+    }
+  ],
+  "formulas": {
+    "estimatedTourDistance": "numCities * avgDistance",
+    "distanceVariability": "distanceStdDev * Math.sqrt(numCities)",
+    "totalDistance": "estimatedTourDistance + distanceVariability",
+    "travelTimeHours": "totalDistance / speed",
+    "totalCost": "totalDistance * costPerKm + numCities * fixedCostPerStop",
+    "costPerCity": "totalCost / numCities"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "estimatedTourDistance",
+      "distanceVariability",
+      "totalDistance",
+      "travelTimeHours",
+      "totalCost",
+      "costPerCity"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

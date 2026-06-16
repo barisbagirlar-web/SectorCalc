@@ -1,0 +1,58 @@
+{
+  "toolName": "card-probability-calculator",
+  "inputs": [
+    {
+      "id": "deckSize",
+      "label": "Deck Size",
+      "type": "number",
+      "unit": "cards",
+      "default": 52,
+      "businessContext": "Total number of cards in the deck."
+    },
+    {
+      "id": "successesInDeck",
+      "label": "Successes in Deck",
+      "type": "number",
+      "unit": "cards",
+      "default": 4,
+      "businessContext": "Number of cards in the deck that are considered favorable outcomes."
+    },
+    {
+      "id": "draws",
+      "label": "Number of Draws",
+      "type": "number",
+      "unit": "cards",
+      "default": 5,
+      "businessContext": "Number of cards drawn from the deck without replacement."
+    },
+    {
+      "id": "successesWanted",
+      "label": "Wanted Successes",
+      "type": "number",
+      "unit": "cards",
+      "default": 1,
+      "businessContext": "Number of successful cards you want to appear in the draw."
+    }
+  ],
+  "formulas": {
+    "combination": "function combination(n, k) { if (k < 0 || k > n) return 0; if (k === 0 || k === n) return 1; if (k > n - k) k = n - k; let result = 1; for (let i = 1; i <= k; i++) { result *= (n - k + i) / i; } return result; }",
+    "numerator": "combination(successesInDeck, successesWanted) * combination(deckSize - successesInDeck, draws - successesWanted)",
+    "denominator": "combination(deckSize, draws)",
+    "probability": "numerator / denominator",
+    "probabilityPercentage": "probability * 100"
+  },
+  "outputs": {
+    "primary": "probability",
+    "breakdown": [
+      "numerator",
+      "denominator",
+      "probabilityPercentage"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

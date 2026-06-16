@@ -1,0 +1,73 @@
+{
+  "toolName": "motor-efficiency-calculator",
+  "inputs": [
+    {
+      "id": "voltage",
+      "label": "Supply Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 400,
+      "businessContext": "Nominal line-to-line voltage (RMS) for AC motor supply"
+    },
+    {
+      "id": "current",
+      "label": "Line Current",
+      "type": "number",
+      "unit": "A",
+      "default": 10,
+      "businessContext": "Measured RMS current per phase"
+    },
+    {
+      "id": "powerFactor",
+      "label": "Power Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.85,
+      "businessContext": "Motor operating power factor (cos φ), typical 0.8–0.95"
+    },
+    {
+      "id": "phases",
+      "label": "Number of Phases",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "1 for single-phase, 3 for three-phase motor"
+    },
+    {
+      "id": "torque",
+      "label": "Output Torque",
+      "type": "number",
+      "unit": "Nm",
+      "default": 50,
+      "businessContext": "Mechanical torque at motor shaft"
+    },
+    {
+      "id": "speed",
+      "label": "Rotational Speed",
+      "type": "number",
+      "unit": "RPM",
+      "default": 1450,
+      "businessContext": "Shaft rotational speed in revolutions per minute"
+    }
+  ],
+  "formulas": {
+    "inputPower": "voltage * current * powerFactor * (phases === 3 ? Math.sqrt(3) : 1) / 1000",
+    "outputPower": "torque * speed * Math.PI * 2 / 60000",
+    "efficiency": "outputPower / inputPower * 100",
+    "losses": "inputPower - outputPower"
+  },
+  "outputs": {
+    "primary": "efficiency",
+    "breakdown": [
+      "inputPower",
+      "outputPower",
+      "losses"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

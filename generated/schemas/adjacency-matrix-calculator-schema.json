@@ -1,0 +1,60 @@
+{
+  "toolName": "adjacency-matrix-calculator",
+  "inputs": [
+    {
+      "id": "a11",
+      "label": "A[1,1] (self-loop)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Self-loop on node 1"
+    },
+    {
+      "id": "a12",
+      "label": "A[1,2] (edge 1->2)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Edge from node 1 to node 2"
+    },
+    {
+      "id": "a21",
+      "label": "A[2,1] (edge 2->1)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Edge from node 2 to node 1"
+    },
+    {
+      "id": "a22",
+      "label": "A[2,2] (self-loop)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Self-loop on node 2"
+    }
+  ],
+  "formulas": {
+    "trace": "a11 + a22",
+    "determinant": "a11 * a22 - a12 * a21",
+    "discriminant": "(a11 + a22) * (a11 + a22) - 4 * (a11 * a22 - a12 * a21)",
+    "eigenvalue1": "((a11 + a22) + Math.sqrt((a11 + a22) * (a11 + a22) - 4 * (a11 * a22 - a12 * a21))) / 2",
+    "eigenvalue2": "((a11 + a22) - Math.sqrt((a11 + a22) * (a11 + a22) - 4 * (a11 * a22 - a12 * a21))) / 2",
+    "spectralRadius": "Math.max(Math.abs(((a11 + a22) + Math.sqrt((a11 + a22) * (a11 + a22) - 4 * (a11 * a22 - a12 * a21))) / 2), Math.abs(((a11 + a22) - Math.sqrt((a11 + a22) * (a11 + a22) - 4 * (a11 * a22 - a12 * a21))) / 2))"
+  },
+  "outputs": {
+    "primary": "spectralRadius",
+    "breakdown": [
+      "eigenvalue1",
+      "eigenvalue2",
+      "trace",
+      "determinant"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

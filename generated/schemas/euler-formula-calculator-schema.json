@@ -1,0 +1,59 @@
+{
+  "toolName": "euler-formula-calculator",
+  "inputs": [
+    {
+      "id": "realPart",
+      "label": "Real Part (a)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Real component of the complex number"
+    },
+    {
+      "id": "imagPart",
+      "label": "Imaginary Part (b)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Imaginary component of the complex number"
+    },
+    {
+      "id": "angleDeg",
+      "label": "Angle (degrees)",
+      "type": "number",
+      "unit": "°",
+      "default": 90,
+      "businessContext": "Angle in degrees for Euler's formula"
+    },
+    {
+      "id": "modulus",
+      "label": "Modulus (r)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Magnitude of the complex number"
+    }
+  ],
+  "formulas": {
+    "eulerExponential": "modulus * (Math.cos(angleDeg * Math.PI / 180) + Math.sin(angleDeg * Math.PI / 180) * 1i)",
+    "realFromPolar": "modulus * Math.cos(angleDeg * Math.PI / 180)",
+    "imagFromPolar": "modulus * Math.sin(angleDeg * Math.PI / 180)",
+    "modulusFromRect": "Math.sqrt(realPart * realPart + imagPart * imagPart)",
+    "angleFromRect": "Math.atan2(imagPart, realPart) * 180 / Math.PI"
+  },
+  "outputs": {
+    "primary": "e^(iθ) = cos(θ) + i sin(θ)",
+    "breakdown": [
+      "Real part: realFromPolar",
+      "Imaginary part: imagFromPolar",
+      "Modulus: modulusFromRect",
+      "Angle (deg): angleFromRect"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

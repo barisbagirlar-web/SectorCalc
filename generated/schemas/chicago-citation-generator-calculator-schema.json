@@ -1,0 +1,67 @@
+{
+  "toolName": "chicago-citation-generator-calculator",
+  "inputs": [
+    {
+      "id": "numAuthors",
+      "label": "Number of Authors",
+      "type": "number",
+      "unit": "authors",
+      "default": 1,
+      "businessContext": "Total number of authors in the cited work"
+    },
+    {
+      "id": "pubYear",
+      "label": "Publication Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2024,
+      "businessContext": "Year the work was published"
+    },
+    {
+      "id": "pageCount",
+      "label": "Page Count",
+      "type": "number",
+      "unit": "pages",
+      "default": 100,
+      "businessContext": "Total number of pages in the cited work"
+    },
+    {
+      "id": "citationFreq",
+      "label": "Citation Frequency",
+      "type": "number",
+      "unit": "citations/year",
+      "default": 5,
+      "businessContext": "Average citations per year for this work"
+    },
+    {
+      "id": "relevance",
+      "label": "Relevance Factor",
+      "type": "number",
+      "unit": "score",
+      "default": 0.8,
+      "businessContext": "Relevance score from 0 to 1"
+    }
+  ],
+  "formulas": {
+    "authorContrib": "numAuthors * 2.5",
+    "yearContrib": "Math.log(pubYear) * 10",
+    "pageContrib": "Math.sqrt(pageCount) * 1.5",
+    "citationContrib": "citationFreq * relevance * 3",
+    "primary": "authorContrib + yearContrib + pageContrib + citationContrib"
+  },
+  "outputs": {
+    "primary": "Citation Complexity Score",
+    "breakdown": [
+      "Author Contribution: numAuthors * 2.5",
+      "Year Contribution: log(pubYear) * 10",
+      "Page Contribution: sqrt(pageCount) * 1.5",
+      "Frequency & Relevance: citationFreq * relevance * 3"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

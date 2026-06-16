@@ -1,0 +1,66 @@
+{
+  "toolName": "cubic-meters-to-cubic-feet-calculator",
+  "inputs": [
+    {
+      "id": "cubicMeters",
+      "label": "Volume (m³)",
+      "type": "number",
+      "unit": "m³",
+      "default": 1,
+      "businessContext": "The volume in cubic meters to be converted."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor (ft³ per m³)",
+      "type": "number",
+      "unit": "ft³/m³",
+      "default": 35.314667,
+      "businessContext": "The number of cubic feet per cubic meter. Based on 1 m = 3.28084 ft."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Desired number of decimal places for the rounded result."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for safety or conversion margin, typically 1 for exact conversion."
+    },
+    {
+      "id": "measurementUncertainty",
+      "label": "Measurement Uncertainty (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage uncertainty in the input measurement, affecting output uncertainty."
+    }
+  ],
+  "formulas": {
+    "cubicFeet": "cubicMeters * conversionFactor * safetyFactor",
+    "uncertainty": "cubicFeet * (measurementUncertainty / 100)",
+    "lowerBound": "cubicFeet - uncertainty",
+    "upperBound": "cubicFeet + uncertainty",
+    "cubicFeetRounded": "Math.round(cubicFeet * 10**decimalPlaces) / 10**decimalPlaces"
+  },
+  "outputs": {
+    "primary": "cubicFeetRounded",
+    "breakdown": [
+      "cubicFeet",
+      "lowerBound",
+      "upperBound"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

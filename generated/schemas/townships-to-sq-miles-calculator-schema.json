@@ -1,0 +1,63 @@
+{
+  "toolName": "townships-to-sq-miles-calculator",
+  "inputs": [
+    {
+      "id": "township_a",
+      "label": "Township A",
+      "type": "number",
+      "unit": "townships",
+      "default": 0,
+      "businessContext": "Area in townships for first parcel"
+    },
+    {
+      "id": "township_b",
+      "label": "Township B",
+      "type": "number",
+      "unit": "townships",
+      "default": 0,
+      "businessContext": "Area in townships for second parcel"
+    },
+    {
+      "id": "township_c",
+      "label": "Township C",
+      "type": "number",
+      "unit": "townships",
+      "default": 0,
+      "businessContext": "Area in townships for third parcel"
+    },
+    {
+      "id": "township_d",
+      "label": "Township D",
+      "type": "number",
+      "unit": "townships",
+      "default": 0,
+      "businessContext": "Area in townships for fourth parcel"
+    },
+    {
+      "id": "decimal_places",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for output"
+    }
+  ],
+  "formulas": {
+    "total_townships": "township_a + township_b + township_c + township_d",
+    "total_sq_miles": "total_townships * 36",
+    "rounded_sq_miles": "Math.round(total_sq_miles * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)"
+  },
+  "outputs": {
+    "primary": "rounded_sq_miles",
+    "breakdown": [
+      "total_townships",
+      "total_sq_miles"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

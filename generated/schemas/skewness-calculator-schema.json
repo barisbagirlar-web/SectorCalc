@@ -1,0 +1,93 @@
+{
+  "toolName": "skewness-calculator",
+  "inputs": [
+    {
+      "id": "dataPoint1",
+      "label": "Data Point 1",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Individual observation value"
+    },
+    {
+      "id": "dataPoint2",
+      "label": "Data Point 2",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Individual observation value"
+    },
+    {
+      "id": "dataPoint3",
+      "label": "Data Point 3",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Individual observation value"
+    },
+    {
+      "id": "dataPoint4",
+      "label": "Data Point 4",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Individual observation value"
+    },
+    {
+      "id": "dataPoint5",
+      "label": "Data Point 5",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Individual observation value"
+    },
+    {
+      "id": "dataPoint6",
+      "label": "Data Point 6",
+      "type": "number",
+      "unit": "",
+      "default": 6,
+      "businessContext": "Individual observation value"
+    },
+    {
+      "id": "dataPoint7",
+      "label": "Data Point 7",
+      "type": "number",
+      "unit": "",
+      "default": 7,
+      "businessContext": "Individual observation value"
+    },
+    {
+      "id": "dataPoint8",
+      "label": "Data Point 8",
+      "type": "number",
+      "unit": "",
+      "default": 8,
+      "businessContext": "Individual observation value"
+    }
+  ],
+  "formulas": {
+    "n": 8,
+    "mean": "(inputs.dataPoint1 + inputs.dataPoint2 + inputs.dataPoint3 + inputs.dataPoint4 + inputs.dataPoint5 + inputs.dataPoint6 + inputs.dataPoint7 + inputs.dataPoint8) / 8",
+    "ss": "Math.pow(inputs.dataPoint1 - mean, 2) + Math.pow(inputs.dataPoint2 - mean, 2) + Math.pow(inputs.dataPoint3 - mean, 2) + Math.pow(inputs.dataPoint4 - mean, 2) + Math.pow(inputs.dataPoint5 - mean, 2) + Math.pow(inputs.dataPoint6 - mean, 2) + Math.pow(inputs.dataPoint7 - mean, 2) + Math.pow(inputs.dataPoint8 - mean, 2)",
+    "variance": "ss / (n - 1)",
+    "stdDev": "Math.sqrt(variance)",
+    "sumCubedDev": "Math.pow((inputs.dataPoint1 - mean) / stdDev, 3) + Math.pow((inputs.dataPoint2 - mean) / stdDev, 3) + Math.pow((inputs.dataPoint3 - mean) / stdDev, 3) + Math.pow((inputs.dataPoint4 - mean) / stdDev, 3) + Math.pow((inputs.dataPoint5 - mean) / stdDev, 3) + Math.pow((inputs.dataPoint6 - mean) / stdDev, 3) + Math.pow((inputs.dataPoint7 - mean) / stdDev, 3) + Math.pow((inputs.dataPoint8 - mean) / stdDev, 3)",
+    "skewness": "(n / ((n - 1) * (n - 2))) * sumCubedDev"
+  },
+  "outputs": {
+    "primary": "skewness",
+    "breakdown": [
+      "mean",
+      "stdDev",
+      "variance",
+      "sumCubedDev"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

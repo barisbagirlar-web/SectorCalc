@@ -1,0 +1,56 @@
+{
+  "toolName": "cat-weight-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Vücut Uzunluğu",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "Omuzdan kuyruk sokumuna kadar ölçülen uzunluk"
+    },
+    {
+      "id": "girth",
+      "label": "Göğüs Çevresi",
+      "type": "number",
+      "unit": "cm",
+      "default": 35,
+      "businessContext": "Ön bacakların hemen arkasından alınan göğüs çevresi ölçüsü"
+    },
+    {
+      "id": "breedFactor",
+      "label": "Irk Faktörü",
+      "type": "number",
+      "unit": "faktor",
+      "default": 1,
+      "businessContext": "Irk büyüklüğüne göre düzeltme faktörü (Örn: Maine Coon 1.2, Siyam 0.9)"
+    },
+    {
+      "id": "sexFactor",
+      "label": "Cinsiyet Faktörü",
+      "type": "number",
+      "unit": "faktor",
+      "default": 1,
+      "businessContext": "Erkek: 1.0, Dişi: 0.9"
+    }
+  ],
+  "formulas": {
+    "girthSquared": "girth * girth",
+    "volume": "girthSquared * length",
+    "baseWeight": "volume / 11800",
+    "adjustedWeight": "baseWeight * breedFactor * sexFactor"
+  },
+  "outputs": {
+    "primary": "adjustedWeight",
+    "breakdown": [
+      "baseWeight",
+      "volume"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

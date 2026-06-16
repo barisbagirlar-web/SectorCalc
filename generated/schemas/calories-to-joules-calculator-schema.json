@@ -1,0 +1,59 @@
+{
+  "toolName": "calories-to-joules-calculator",
+  "inputs": [
+    {
+      "id": "calorieAmount",
+      "label": "Calorie Amount",
+      "type": "number",
+      "unit": "cal",
+      "default": 0,
+      "businessContext": "The amount of energy in calories to convert."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor (J/cal)",
+      "type": "number",
+      "unit": "J/cal",
+      "default": 4.184,
+      "businessContext": "Standard thermochemical conversion factor. Adjust for specific calorie definitions."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output."
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of identical items to convert total energy."
+    }
+  ],
+  "formulas": {
+    "joules": "calorieAmount * conversionFactor",
+    "totalJoules": "joules * batchSize",
+    "roundedJoules": "Math.round(joules * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "roundedTotalJoules": "Math.round(totalJoules * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "kilojoules": "joules / 1000"
+  },
+  "outputs": {
+    "primary": "roundedJoules",
+    "breakdown": [
+      "joules",
+      "totalJoules",
+      "roundedTotalJoules",
+      "kilojoules"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

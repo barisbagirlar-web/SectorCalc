@@ -1,0 +1,76 @@
+{
+  "toolName": "drake-equation-calculator",
+  "inputs": [
+    {
+      "id": "R",
+      "label": "Star Formation Rate (R*)",
+      "type": "number",
+      "unit": "stars/year",
+      "default": 1,
+      "businessContext": "Average rate of star formation in our galaxy"
+    },
+    {
+      "id": "fp",
+      "label": "Fraction with Planets (fp)",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Fraction of stars that have planetary systems"
+    },
+    {
+      "id": "ne",
+      "label": "Habitable Planets per Star (ne)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Average number of planets that can support life per star with planets"
+    },
+    {
+      "id": "fl",
+      "label": "Fraction where Life Appears (fl)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Fraction of habitable planets where life actually emerges"
+    },
+    {
+      "id": "fi",
+      "label": "Fraction where Intelligence Evolves (fi)",
+      "type": "number",
+      "unit": "",
+      "default": 0.01,
+      "businessContext": "Fraction of life-bearing planets where intelligent life develops"
+    },
+    {
+      "id": "fc",
+      "label": "Fraction that Develop Technology (fc)",
+      "type": "number",
+      "unit": "",
+      "default": 0.01,
+      "businessContext": "Fraction of civilizations that develop detectable technology"
+    },
+    {
+      "id": "L",
+      "label": "Lifetime of Civilization (L)",
+      "type": "number",
+      "unit": "years",
+      "default": 10000,
+      "businessContext": "Length of time such civilizations release detectable signals"
+    }
+  ],
+  "formulas": {
+    "N": "R * fp * ne * fl * fi * fc * L"
+  },
+  "outputs": {
+    "primary": "N",
+    "breakdown": [
+      "N = R * fp * ne * fl * fi * fc * L"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

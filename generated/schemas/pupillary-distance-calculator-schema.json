@@ -1,0 +1,67 @@
+{
+  "toolName": "pupillary-distance-calculator",
+  "inputs": [
+    {
+      "id": "rightPd",
+      "label": "Sağ Göz PD (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 30,
+      "businessContext": "Sağ göz için merkezden pupile olan monoküler PD mesafesi (burun köprüsü merkezinden ölçülür)."
+    },
+    {
+      "id": "leftPd",
+      "label": "Sol Göz PD (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 30,
+      "businessContext": "Sol göz için merkezden pupile olan monoküler PD mesafesi (burun köprüsü merkezinden ölçülür)."
+    },
+    {
+      "id": "workingDistance",
+      "label": "Yakın Çalışma Mesafesi (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 40,
+      "businessContext": "Tipik okuma veya yakın çalışma mesafesi (santimetre cinsinden)."
+    },
+    {
+      "id": "vertexDistance",
+      "label": "Tepe Mesafesi (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 12,
+      "businessContext": "Göz yüzeyi ile gözlük camı arasındaki mesafe (genellikle 12 mm)."
+    },
+    {
+      "id": "centerRotationDistance",
+      "label": "Dönme Merkezi Mesafesi (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 15,
+      "businessContext": "Korneadan gözün dönme merkezine olan mesafe (tipik 15 mm)."
+    }
+  ],
+  "formulas": {
+    "totalFarPd": "rightPd + leftPd",
+    "workingDistMm": "workingDistance * 10",
+    "effectiveDistance": "workingDistMm + vertexDistance + centerRotationDistance",
+    "rightNearPd": "rightPd * workingDistMm / effectiveDistance",
+    "leftNearPd": "leftPd * workingDistMm / effectiveDistance",
+    "totalNearPd": "rightNearPd + leftNearPd"
+  },
+  "outputs": {
+    "primary": "totalNearPd",
+    "breakdown": [
+      "totalFarPd",
+      "rightNearPd",
+      "leftNearPd"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

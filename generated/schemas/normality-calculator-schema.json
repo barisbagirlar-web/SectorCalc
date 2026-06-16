@@ -1,0 +1,51 @@
+{
+  "toolName": "normality-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Solute Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 5,
+      "businessContext": "Mass of solute used in the solution, measured in grams."
+    },
+    {
+      "id": "molecularWeight",
+      "label": "Molecular Weight",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 40,
+      "businessContext": "Molecular weight of the solute substance, in grams per mole."
+    },
+    {
+      "id": "valency",
+      "label": "Valency (n-factor)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of reactive units (equivalents) per mole; for acids, it is the number of H⁺ ions; for bases, OH⁻ ions; for redox reactions, electrons transferred."
+    },
+    {
+      "id": "volume",
+      "label": "Solution Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 0.5,
+      "businessContext": "Total volume of the prepared solution, in liters."
+    }
+  ],
+  "formulas": "const eqWt = molecularWeight / valency; const normality = weight / (eqWt * volume); return { primary: normality, breakdown: [eqWt, normality] };",
+  "outputs": {
+    "primary": "Normality (N)",
+    "breakdown": [
+      "Equivalent Weight (g/eq)",
+      "Normality (N)"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

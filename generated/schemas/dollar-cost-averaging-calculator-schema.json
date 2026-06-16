@@ -1,0 +1,65 @@
+{
+  "toolName": "dollar-cost-averaging-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Başlangıç Yatırımı",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Toplu olarak yatırılan başlangıç tutarı"
+    },
+    {
+      "id": "periodicInvestment",
+      "label": "Periyodik Yatırım",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "Her dönem yatırılan sabit tutar"
+    },
+    {
+      "id": "years",
+      "label": "Yatırım Süresi (Yıl)",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Toplam yatırım süresi, yıl cinsinden"
+    },
+    {
+      "id": "periodsPerYear",
+      "label": "Yıllık Dönem Sayısı",
+      "type": "number",
+      "unit": "per year",
+      "default": 12,
+      "businessContext": "Yatırım sıklığı (ör: aylık için 12)"
+    },
+    {
+      "id": "annualReturnRate",
+      "label": "Beklenen Yıllık Getiri",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Yıllık beklenen getiri oranı (yüzde)"
+    }
+  ],
+  "formulas": {
+    "n": "years * periodsPerYear",
+    "r": "annualReturnRate / 100 / periodsPerYear",
+    "totalInvested": "initialInvestment + periodicInvestment * n",
+    "finalValue": "initialInvestment * Math.pow(1 + r, n) + periodicInvestment * ((Math.pow(1 + r, n) - 1) / r)",
+    "totalReturn": "finalValue - totalInvested"
+  },
+  "outputs": {
+    "primary": "finalValue",
+    "breakdown": [
+      "totalInvested",
+      "totalReturn"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

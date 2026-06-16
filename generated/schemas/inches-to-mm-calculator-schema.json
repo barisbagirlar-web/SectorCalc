@@ -1,0 +1,70 @@
+{
+  "toolName": "inches-to-mm-calculator",
+  "inputs": [
+    {
+      "id": "inches",
+      "label": "Inches",
+      "type": "number",
+      "unit": "in",
+      "default": 0,
+      "businessContext": "Length in inches to convert to millimeters"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "mm/in",
+      "default": 25.4,
+      "businessContext": "Standard conversion factor (1 inch = 25.4 mm). Modify only for non-standard applications."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "dp",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output."
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.01,
+      "businessContext": "Manufacturing tolerance for conversion accuracy."
+    },
+    {
+      "id": "scaleFactor",
+      "label": "Scale Factor",
+      "type": "number",
+      "unit": "none",
+      "default": 1,
+      "businessContext": "Optional scaling factor for batch conversions or scaling."
+    },
+    {
+      "id": "offset",
+      "label": "Offset",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Offset to add after conversion (e.g., for calibration)."
+    }
+  ],
+  "formulas": {
+    "rawMM": "inches * conversionFactor * scaleFactor + offset",
+    "roundedMM": "Math.round(rawMM * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "roundedMM",
+    "breakdown": [
+      "rawMM",
+      "roundedMM"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

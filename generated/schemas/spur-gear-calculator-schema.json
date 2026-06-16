@@ -1,0 +1,69 @@
+{
+  "toolName": "spur-gear-calculator",
+  "inputs": [
+    {
+      "id": "module",
+      "label": "Module (m)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1,
+      "businessContext": "The module is the ratio of the pitch diameter to the number of teeth. It defines the size of the gear tooth per DIN 780."
+    },
+    {
+      "id": "teeth",
+      "label": "Number of Teeth (z)",
+      "type": "number",
+      "unit": "",
+      "default": 20,
+      "businessContext": "The count of teeth on the gear. Together with module determines the pitch diameter."
+    },
+    {
+      "id": "pressureAngle",
+      "label": "Pressure Angle (α)",
+      "type": "number",
+      "unit": "°",
+      "default": 20,
+      "businessContext": "The angle between the tooth profile and a radial line at the pitch circle. Standard values are 14.5°, 20°, or 25°."
+    },
+    {
+      "id": "addendumCoeff",
+      "label": "Addendum Coefficient",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for module to determine the addendum height. Standard is 1 for full-depth teeth."
+    },
+    {
+      "id": "dedendumCoeff",
+      "label": "Dedendum Coefficient",
+      "type": "number",
+      "unit": "",
+      "default": 1.25,
+      "businessContext": "Multiplier for module to determine the dedendum depth. Standard is 1.25 for clearance."
+    }
+  ],
+  "formulas": {
+    "pitchDiameter": "module * teeth",
+    "outsideDiameter": "module * (teeth + 2 * addendumCoeff)",
+    "rootDiameter": "module * (teeth - 2 * dedendumCoeff)",
+    "baseCircleDiameter": "module * teeth * Math.cos(pressureAngle * Math.PI / 180)",
+    "circularPitch": "Math.PI * module",
+    "toothThickness": "(Math.PI * module) / 2"
+  },
+  "outputs": {
+    "primary": "pitchDiameter",
+    "breakdown": [
+      "outsideDiameter",
+      "rootDiameter",
+      "baseCircleDiameter",
+      "circularPitch",
+      "toothThickness"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

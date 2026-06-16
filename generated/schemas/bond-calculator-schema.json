@@ -1,0 +1,70 @@
+{
+  "toolName": "bond-calculator",
+  "inputs": [
+    {
+      "id": "faceValue",
+      "label": "Face Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "businessContext": "Par value of the bond paid at maturity"
+    },
+    {
+      "id": "couponRate",
+      "label": "Coupon Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual coupon payment as a percentage of face value"
+    },
+    {
+      "id": "marketRate",
+      "label": "Market Interest Rate (YTM)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Yield to maturity required by investors"
+    },
+    {
+      "id": "yearsToMaturity",
+      "label": "Years to Maturity",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Time until bond matures"
+    },
+    {
+      "id": "frequency",
+      "label": "Coupon Frequency",
+      "type": "number",
+      "unit": "per year",
+      "default": 2,
+      "businessContext": "Number of coupon payments per year (e.g., 2 for semi-annual)"
+    }
+  ],
+  "formulas": {
+    "couponPayment": "faceValue * couponRate / 100 / frequency",
+    "discountRate": "marketRate / 100 / frequency",
+    "totalPeriods": "yearsToMaturity * frequency",
+    "pvCoupons": "couponPayment * (1 - (1 + discountRate) ** (-totalPeriods)) / discountRate",
+    "pvFace": "faceValue * (1 + discountRate) ** (-totalPeriods)",
+    "bondPrice": "discountRate === 0 ? faceValue + couponPayment * totalPeriods : pvCoupons + pvFace"
+  },
+  "outputs": {
+    "primary": "Bond Price",
+    "breakdown": [
+      "Coupon Payment",
+      "Discount Rate per Period",
+      "Total Periods",
+      "Present Value of Coupons",
+      "Present Value of Face Value",
+      "Bond Price"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

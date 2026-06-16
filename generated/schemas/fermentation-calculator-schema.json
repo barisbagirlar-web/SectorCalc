@@ -1,0 +1,65 @@
+{
+  "toolName": "fermentation-calculator",
+  "inputs": [
+    {
+      "id": "initialSugar",
+      "label": "Initial Sugar Concentration",
+      "type": "number",
+      "unit": "g/L",
+      "default": 200,
+      "businessContext": "Sugar content of wort/must before fermentation"
+    },
+    {
+      "id": "fermentationTime",
+      "label": "Fermentation Time",
+      "type": "number",
+      "unit": "h",
+      "default": 48,
+      "businessContext": "Duration of active fermentation"
+    },
+    {
+      "id": "temperature",
+      "label": "Fermentation Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Average temperature during fermentation"
+    },
+    {
+      "id": "yeastPitchRate",
+      "label": "Yeast Pitch Rate",
+      "type": "number",
+      "unit": "cells/mL",
+      "default": 1000000,
+      "businessContext": "Initial viable yeast cell density"
+    },
+    {
+      "id": "batchVolume",
+      "label": "Batch Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 1000,
+      "businessContext": "Total liquid volume"
+    }
+  ],
+  "formulas": {
+    "potentialABV": "initialSugar / 17",
+    "efficiency": "(1 / (1 + Math.exp(-(yeastPitchRate - 1000000)/1000000))) * Math.exp(-0.05 * (temperature - 20) ** 2) * (1 - Math.exp(-0.1 * fermentationTime))",
+    "actualABV": "potentialABV * efficiency",
+    "co2Mass": "initialSugar * 0.5 * batchVolume"
+  },
+  "outputs": {
+    "primary": "actualABV",
+    "breakdown": [
+      "potentialABV",
+      "efficiency",
+      "co2Mass"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

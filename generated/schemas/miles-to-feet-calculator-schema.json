@@ -1,0 +1,55 @@
+{
+  "toolName": "miles-to-feet-calculator",
+  "inputs": [
+    {
+      "id": "miles",
+      "label": "Mil",
+      "type": "number",
+      "unit": "mi",
+      "default": 1,
+      "businessContext": "Dönüştürülecek mil değeri"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Ondalık Basamak",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Sonuç gösterim hassasiyeti"
+    },
+    {
+      "id": "showYards",
+      "label": "Yard Gösterimi",
+      "type": "number",
+      "unit": "flag",
+      "default": 1,
+      "businessContext": "Yard cinsinden eşdeğeri göster"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Dönüşüm Katsayısı",
+      "type": "number",
+      "unit": "ft/mi",
+      "default": 5280,
+      "businessContext": "Özel dönüşüm faktörü (standart: 5280)"
+    }
+  ],
+  "formulas": {
+    "feet": "miles * conversionFactor",
+    "exactFeet": "miles * conversionFactor",
+    "yards": "(miles * conversionFactor) / 3"
+  },
+  "outputs": {
+    "primary": "feet",
+    "breakdown": [
+      "exactFeet",
+      "yards"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

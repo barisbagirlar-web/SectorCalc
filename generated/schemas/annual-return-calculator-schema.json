@@ -1,0 +1,55 @@
+{
+  "toolName": "annual-return-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "The amount of money initially invested."
+    },
+    {
+      "id": "finalValue",
+      "label": "Final Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 15000,
+      "businessContext": "The total value of the investment at the end of the period."
+    },
+    {
+      "id": "years",
+      "label": "Investment Period",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "The duration of the investment in years."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "The annual inflation rate to adjust for real return."
+    }
+  ],
+  "formulas": {
+    "nominalAnnualReturn": "(finalValue / initialInvestment) ** (1 / years) - 1",
+    "realAnnualReturn": "(1 + ((finalValue / initialInvestment) ** (1 / years) - 1)) / (1 + inflationRate / 100) - 1",
+    "totalReturnMultiple": "finalValue / initialInvestment"
+  },
+  "outputs": {
+    "primary": "nominalAnnualReturn",
+    "breakdown": [
+      "realAnnualReturn",
+      "totalReturnMultiple"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

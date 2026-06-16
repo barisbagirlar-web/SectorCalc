@@ -1,0 +1,85 @@
+{
+  "toolName": "banjo-calculator",
+  "inputs": [
+    {
+      "id": "boltInnerDiameter",
+      "label": "Bolt Inner Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Inner diameter of the banjo bolt bore"
+    },
+    {
+      "id": "holeDiameter",
+      "label": "Hole Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Diameter of each cross-drilled hole"
+    },
+    {
+      "id": "numberOfHoles",
+      "label": "Number of Holes",
+      "type": "number",
+      "unit": "count",
+      "default": 2,
+      "businessContext": "Number of flow holes in the banjo fitting"
+    },
+    {
+      "id": "fluidDensity",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 870,
+      "businessContext": "Density of the hydraulic fluid"
+    },
+    {
+      "id": "fluidViscosity",
+      "label": "Fluid Dynamic Viscosity",
+      "type": "number",
+      "unit": "Pa·s",
+      "default": 0.028,
+      "businessContext": "Dynamic viscosity of the fluid"
+    },
+    {
+      "id": "pressureDifference",
+      "label": "Pressure Difference",
+      "type": "number",
+      "unit": "Pa",
+      "default": 100000,
+      "businessContext": "Pressure drop across the banjo fitting"
+    },
+    {
+      "id": "dischargeCoefficient",
+      "label": "Discharge Coefficient",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0.62,
+      "businessContext": "Orifice discharge coefficient"
+    }
+  ],
+  "formulas": {
+    "boreArea": "Math.PI * Math.pow(boltInnerDiameter / 2000, 2)",
+    "holeArea": "Math.PI * Math.pow(holeDiameter / 2000, 2) * numberOfHoles",
+    "effectiveArea": "Math.min(boreArea, holeArea)",
+    "flowRate": "dischargeCoefficient * effectiveArea * Math.sqrt(2 * pressureDifference / fluidDensity)",
+    "flowRateLpm": "flowRate * 60000",
+    "velocity": "flowRate / effectiveArea",
+    "characteristicDiameter": "(boreArea <= holeArea) ? boltInnerDiameter : holeDiameter",
+    "reynoldsNumber": "fluidDensity * velocity * (characteristicDiameter / 1000) / fluidViscosity"
+  },
+  "outputs": {
+    "primary": "flowRateLpm",
+    "breakdown": [
+      "effectiveArea",
+      "velocity",
+      "reynoldsNumber"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,59 @@
+{
+  "toolName": "arccosine-calculator",
+  "inputs": [
+    {
+      "id": "adjacent",
+      "label": "Adjacent Side",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Length of the adjacent side in the right triangle. Must be non-negative."
+    },
+    {
+      "id": "hypotenuse",
+      "label": "Hypotenuse",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Length of the hypotenuse. Must be greater than zero and greater than or equal to the adjacent side to ensure a valid arccosine input (ratio ≤ 1)."
+    },
+    {
+      "id": "outputUnit",
+      "label": "Output Unit",
+      "type": "number",
+      "unit": "mode",
+      "default": 1,
+      "businessContext": "0 = Radians, 1 = Degrees. Select the unit for the computed angle."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "count",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding the result."
+    }
+  ],
+  "formulas": {
+    "primary": "parseFloat((inputs.outputUnit == 1 ? (Math.acos(inputs.adjacent / inputs.hypotenuse) * (180 / Math.PI)) : Math.acos(inputs.adjacent / inputs.hypotenuse)).toFixed(inputs.precision))",
+    "breakdown": [
+      "`Ratio (adjacent/hypotenuse): ${(inputs.adjacent / inputs.hypotenuse).toFixed(inputs.precision)}`",
+      "`Angle in Radians: ${Math.acos(inputs.adjacent / inputs.hypotenuse).toFixed(inputs.precision)}`",
+      "`Angle in Degrees: ${(Math.acos(inputs.adjacent / inputs.hypotenuse) * (180 / Math.PI)).toFixed(inputs.precision)}`"
+    ]
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "breakdown[0]",
+      "breakdown[1]",
+      "breakdown[2]"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

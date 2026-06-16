@@ -1,0 +1,66 @@
+{
+  "toolName": "astrand-rhyming-test-calculator",
+  "inputs": [
+    {
+      "id": "sex",
+      "label": "Sex",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "0 for female, 1 for male"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 25,
+      "businessContext": "Age in years (typically 20–65)"
+    },
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms"
+    },
+    {
+      "id": "workRate",
+      "label": "Work Rate",
+      "type": "number",
+      "unit": "W",
+      "default": 100,
+      "businessContext": "Work rate in watts during steady-state cycling at 50 rpm"
+    },
+    {
+      "id": "heartRate",
+      "label": "Steady-State Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 140,
+      "businessContext": "Average heart rate during the last minute of the 6-minute test (range 125–170 bpm)"
+    }
+  ],
+  "formulas": {
+    "workRateKgm": "workRate * 6.118",
+    "genderFactor": "sex == 1 ? 1 : 0.85",
+    "ageFactor": "age <= 25 ? 1 : Math.max(0.5, 1 - 0.008 * (age - 25))",
+    "baseVO2": "(1.8 * workRateKgm) / (heartRate - 60)",
+    "absoluteVO2": "baseVO2 * genderFactor * ageFactor",
+    "relativeVO2": "absoluteVO2 * 1000 / weight"
+  },
+  "outputs": {
+    "primary": "relativeVO2",
+    "breakdown": [
+      "absoluteVO2",
+      "relativeVO2"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

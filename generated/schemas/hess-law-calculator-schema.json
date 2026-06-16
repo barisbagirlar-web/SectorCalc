@@ -1,0 +1,73 @@
+{
+  "toolName": "hess-law-calculator",
+  "inputs": [
+    {
+      "id": "deltaH1",
+      "label": "ΔH₁ (kJ/mol)",
+      "type": "number",
+      "unit": "kJ/mol",
+      "default": 0,
+      "businessContext": "Enthalpy change of first reaction step"
+    },
+    {
+      "id": "deltaH2",
+      "label": "ΔH₂ (kJ/mol)",
+      "type": "number",
+      "unit": "kJ/mol",
+      "default": 0,
+      "businessContext": "Enthalpy change of second reaction step"
+    },
+    {
+      "id": "deltaH3",
+      "label": "ΔH₃ (kJ/mol)",
+      "type": "number",
+      "unit": "kJ/mol",
+      "default": 0,
+      "businessContext": "Enthalpy change of third reaction step"
+    },
+    {
+      "id": "deltaH4",
+      "label": "ΔH₄ (kJ/mol)",
+      "type": "number",
+      "unit": "kJ/mol",
+      "default": 0,
+      "businessContext": "Enthalpy change of fourth reaction step"
+    },
+    {
+      "id": "deltaH5",
+      "label": "ΔH₅ (kJ/mol)",
+      "type": "number",
+      "unit": "kJ/mol",
+      "default": 0,
+      "businessContext": "Enthalpy change of fifth reaction step"
+    },
+    {
+      "id": "deltaH6",
+      "label": "ΔH₆ (kJ/mol)",
+      "type": "number",
+      "unit": "kJ/mol",
+      "default": 0,
+      "businessContext": "Enthalpy change of sixth reaction step"
+    }
+  ],
+  "formulas": {
+    "totalDeltaH": "deltaH1 + deltaH2 + deltaH3 + deltaH4 + deltaH5 + deltaH6"
+  },
+  "outputs": {
+    "primary": "Total ΔH = deltaH1 + deltaH2 + deltaH3 + deltaH4 + deltaH5 + deltaH6 kJ/mol",
+    "breakdown": [
+      "ΔH₁ = deltaH1 kJ/mol",
+      "ΔH₂ = deltaH2 kJ/mol",
+      "ΔH₃ = deltaH3 kJ/mol",
+      "ΔH₄ = deltaH4 kJ/mol",
+      "ΔH₅ = deltaH5 kJ/mol",
+      "ΔH₆ = deltaH6 kJ/mol"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

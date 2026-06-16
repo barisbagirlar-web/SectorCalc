@@ -1,0 +1,63 @@
+{
+  "toolName": "shell-method-calculator",
+  "inputs": [
+    {
+      "id": "lower",
+      "label": "Lower Bound",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "Lower limit of integration (x = a)"
+    },
+    {
+      "id": "upper",
+      "label": "Upper Bound",
+      "type": "number",
+      "unit": "units",
+      "default": 2,
+      "businessContext": "Upper limit of integration (x = b)"
+    },
+    {
+      "id": "a",
+      "label": "Coefficient a",
+      "type": "number",
+      "unit": "1/units",
+      "default": 0,
+      "businessContext": "Coefficient of x² in f(x)"
+    },
+    {
+      "id": "b",
+      "label": "Coefficient b",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Coefficient of x in f(x)"
+    },
+    {
+      "id": "c",
+      "label": "Coefficient c",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "Constant term in f(x)"
+    }
+  ],
+  "formulas": {
+    "volume": "2 * Math.PI * ((a/4)*(Math.pow(upper,4)-Math.pow(lower,4)) + (b/3)*(Math.pow(upper,3)-Math.pow(lower,3)) + (c/2)*(Math.pow(upper,2)-Math.pow(lower,2)))",
+    "integral": "(a/4)*(Math.pow(upper,4)-Math.pow(lower,4)) + (b/3)*(Math.pow(upper,3)-Math.pow(lower,3)) + (c/2)*(Math.pow(upper,2)-Math.pow(lower,2))",
+    "shellFactor": "2 * Math.PI"
+  },
+  "outputs": {
+    "primary": "volume",
+    "breakdown": [
+      "integral",
+      "shellFactor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

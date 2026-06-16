@@ -1,0 +1,58 @@
+{
+  "toolName": "loan-amortization-schedule-calculator",
+  "inputs": [
+    {
+      "id": "loanAmount",
+      "label": "Loan Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 100000,
+      "businessContext": "Principal amount borrowed"
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Nominal annual interest rate"
+    },
+    {
+      "id": "loanTermYears",
+      "label": "Loan Term (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Total duration of the loan in years"
+    },
+    {
+      "id": "paymentsPerYear",
+      "label": "Payments Per Year",
+      "type": "number",
+      "unit": "count",
+      "default": 12,
+      "businessContext": "Number of payment periods per year (e.g., 12 for monthly, 4 for quarterly)"
+    }
+  ],
+  "formulas": {
+    "periodicInterestRate": "(annualInterestRate / 100) / paymentsPerYear",
+    "totalPayments": "loanTermYears * paymentsPerYear",
+    "monthlyPayment": "(periodicInterestRate * loanAmount) / (1 - Math.pow(1 + periodicInterestRate, -totalPayments))",
+    "totalCost": "monthlyPayment * totalPayments",
+    "totalInterest": "totalCost - loanAmount"
+  },
+  "outputs": {
+    "primary": "monthlyPayment",
+    "breakdown": [
+      "totalPayments",
+      "totalInterest",
+      "totalCost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,75 @@
+{
+  "toolName": "taxi-fare-calculator",
+  "inputs": [
+    {
+      "id": "baseFare",
+      "label": "Base Fare",
+      "type": "number",
+      "unit": "currency",
+      "default": 3,
+      "businessContext": "Initial flag-drop or starting fee for taxi."
+    },
+    {
+      "id": "costPerKm",
+      "label": "Cost per Kilometer",
+      "type": "number",
+      "unit": "currency per km",
+      "default": 1.5,
+      "businessContext": "Rate charged per kilometer traveled."
+    },
+    {
+      "id": "costPerMinute",
+      "label": "Cost per Minute",
+      "type": "number",
+      "unit": "currency per min",
+      "default": 0.25,
+      "businessContext": "Rate charged per minute for waiting or slow traffic."
+    },
+    {
+      "id": "distance",
+      "label": "Trip Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "Total distance of the trip in kilometers."
+    },
+    {
+      "id": "time",
+      "label": "Trip Time",
+      "type": "number",
+      "unit": "min",
+      "default": 15,
+      "businessContext": "Total duration of the trip in minutes."
+    },
+    {
+      "id": "surcharge",
+      "label": "Additional Surcharge",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Any extra fees such as airport toll, night charge, etc."
+    }
+  ],
+  "formulas": {
+    "distanceCost": "distance * costPerKm",
+    "timeCost": "time * costPerMinute",
+    "baseFare": "baseFare",
+    "surcharge": "surcharge",
+    "totalFare": "baseFare + distance * costPerKm + time * costPerMinute + surcharge"
+  },
+  "outputs": {
+    "primary": "totalFare",
+    "breakdown": [
+      "distanceCost",
+      "timeCost",
+      "baseFare",
+      "surcharge"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

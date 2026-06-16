@@ -1,0 +1,55 @@
+{
+  "toolName": "pond-liner-calculator",
+  "inputs": [
+    {
+      "id": "pondLength",
+      "label": "Pond Length",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "The maximum length of the pond at its longest point."
+    },
+    {
+      "id": "pondWidth",
+      "label": "Pond Width",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "The maximum width of the pond at its widest point."
+    },
+    {
+      "id": "pondDepth",
+      "label": "Pond Depth",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "The average or maximum depth of the pond."
+    },
+    {
+      "id": "overlap",
+      "label": "Edge Overlap",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Extra material beyond the pond edge for securing the liner (overhang on each side)."
+    }
+  ],
+  "formulas": {
+    "linerLength": "pondLength + 2 * pondDepth + 2 * overlap",
+    "linerWidth": "pondWidth + 2 * pondDepth + 2 * overlap",
+    "linerArea": "linerLength * linerWidth"
+  },
+  "outputs": {
+    "primary": "linerArea",
+    "breakdown": [
+      "linerLength",
+      "linerWidth"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

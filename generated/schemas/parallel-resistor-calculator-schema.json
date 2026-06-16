@@ -1,0 +1,53 @@
+{
+  "toolName": "parallel-resistor-calculator",
+  "inputs": [
+    {
+      "id": "resistor1",
+      "label": "Resistor 1 (R1)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 1000,
+      "businessContext": "Resistance of first resistor in ohms"
+    },
+    {
+      "id": "resistor2",
+      "label": "Resistor 2 (R2)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 2000,
+      "businessContext": "Resistance of second resistor in ohms"
+    },
+    {
+      "id": "resistor3",
+      "label": "Resistor 3 (R3)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 3000,
+      "businessContext": "Resistance of third resistor in ohms"
+    },
+    {
+      "id": "resistor4",
+      "label": "Resistor 4 (R4)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 4000,
+      "businessContext": "Resistance of fourth resistor in ohms"
+    }
+  ],
+  "formulas": {
+    "totalResistance": "1 / (1/resistor1 + 1/resistor2 + 1/resistor3 + 1/resistor4)",
+    "conductanceSum": "1/resistor1 + 1/resistor2 + 1/resistor3 + 1/resistor4"
+  },
+  "outputs": {
+    "primary": "totalResistance",
+    "breakdown": [
+      "conductanceSum"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

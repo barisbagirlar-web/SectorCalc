@@ -1,0 +1,55 @@
+{
+  "toolName": "heart-rate-recovery-calculator",
+  "inputs": [
+    {
+      "id": "peakHR",
+      "label": "Peak Heart Rate (bpm)",
+      "type": "number",
+      "unit": "bpm",
+      "default": 160,
+      "businessContext": "Maximum heart rate achieved during exercise"
+    },
+    {
+      "id": "hr1min",
+      "label": "Heart Rate after 1 minute (bpm)",
+      "type": "number",
+      "unit": "bpm",
+      "default": 140,
+      "businessContext": "Heart rate measured 1 minute after cessation of exercise"
+    },
+    {
+      "id": "hr2min",
+      "label": "Heart Rate after 2 minutes (bpm)",
+      "type": "number",
+      "unit": "bpm",
+      "default": 120,
+      "businessContext": "Heart rate measured 2 minutes after cessation of exercise"
+    },
+    {
+      "id": "restingHR",
+      "label": "Resting Heart Rate (bpm)",
+      "type": "number",
+      "unit": "bpm",
+      "default": 70,
+      "businessContext": "Resting heart rate for reference"
+    }
+  ],
+  "formulas": {
+    "recovery1min": "peakHR - hr1min",
+    "recovery2min": "peakHR - hr2min",
+    "averageRecovery": "(recovery1min + recovery2min) / 2"
+  },
+  "outputs": {
+    "primary": "recovery1min",
+    "breakdown": [
+      "recovery1min",
+      "recovery2min"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

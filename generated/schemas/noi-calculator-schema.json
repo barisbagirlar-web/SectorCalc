@@ -1,0 +1,87 @@
+{
+  "toolName": "noi-calculator",
+  "inputs": [
+    {
+      "id": "grossRentalIncome",
+      "label": "Gross Rental Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Total rental income from property before any expenses."
+    },
+    {
+      "id": "vacancyLoss",
+      "label": "Vacancy Loss",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "businessContext": "Income lost due to vacant units or non-payment."
+    },
+    {
+      "id": "propertyManagementFees",
+      "label": "Property Management Fees",
+      "type": "number",
+      "unit": "USD",
+      "default": 8000,
+      "businessContext": "Fees paid to property management company."
+    },
+    {
+      "id": "repairsMaintenance",
+      "label": "Repairs & Maintenance",
+      "type": "number",
+      "unit": "USD",
+      "default": 6000,
+      "businessContext": "Costs for routine repairs and maintenance."
+    },
+    {
+      "id": "propertyTaxes",
+      "label": "Property Taxes",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Annual property tax expense."
+    },
+    {
+      "id": "insurance",
+      "label": "Insurance",
+      "type": "number",
+      "unit": "USD",
+      "default": 4000,
+      "businessContext": "Annual property insurance premium."
+    },
+    {
+      "id": "utilities",
+      "label": "Utilities",
+      "type": "number",
+      "unit": "USD",
+      "default": 3000,
+      "businessContext": "Utility costs not paid by tenants."
+    },
+    {
+      "id": "otherOperatingExpenses",
+      "label": "Other Operating Expenses",
+      "type": "number",
+      "unit": "USD",
+      "default": 2000,
+      "businessContext": "Miscellaneous operating expenses."
+    }
+  ],
+  "formulas": {
+    "effectiveGrossIncome": "grossRentalIncome - vacancyLoss",
+    "totalOperatingExpenses": "propertyManagementFees + repairsMaintenance + propertyTaxes + insurance + utilities + otherOperatingExpenses",
+    "netOperatingIncome": "effectiveGrossIncome - totalOperatingExpenses"
+  },
+  "outputs": {
+    "primary": "netOperatingIncome",
+    "breakdown": [
+      "effectiveGrossIncome",
+      "totalOperatingExpenses"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

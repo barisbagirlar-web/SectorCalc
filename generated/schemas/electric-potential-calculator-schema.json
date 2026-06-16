@@ -1,0 +1,81 @@
+{
+  "toolName": "electric-potential-calculator",
+  "inputs": [
+    {
+      "id": "k",
+      "label": "Coulomb Constant (k)",
+      "type": "number",
+      "unit": "N·m²/C²",
+      "default": 8990000000,
+      "businessContext": "Coulomb's constant (8.99×10⁹ N·m²/C² for vacuum, adjust for medium)"
+    },
+    {
+      "id": "q1",
+      "label": "Charge 1 (q₁)",
+      "type": "number",
+      "unit": "C",
+      "default": 0,
+      "businessContext": "Electric charge of first point charge in Coulombs"
+    },
+    {
+      "id": "r1",
+      "label": "Distance 1 (r₁)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Distance from charge 1 to the point of interest in meters"
+    },
+    {
+      "id": "q2",
+      "label": "Charge 2 (q₂)",
+      "type": "number",
+      "unit": "C",
+      "default": 0,
+      "businessContext": "Electric charge of second point charge"
+    },
+    {
+      "id": "r2",
+      "label": "Distance 2 (r₂)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Distance from charge 2 to the point"
+    },
+    {
+      "id": "q3",
+      "label": "Charge 3 (q₃)",
+      "type": "number",
+      "unit": "C",
+      "default": 0,
+      "businessContext": "Electric charge of third point charge"
+    },
+    {
+      "id": "r3",
+      "label": "Distance 3 (r₃)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Distance from charge 3 to the point"
+    }
+  ],
+  "formulas": {
+    "totalPotential": "k * (q1 / r1 + q2 / r2 + q3 / r3)",
+    "potential1": "k * q1 / r1",
+    "potential2": "k * q2 / r2",
+    "potential3": "k * q3 / r3"
+  },
+  "outputs": {
+    "primary": "totalPotential",
+    "breakdown": [
+      "potential1",
+      "potential2",
+      "potential3"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

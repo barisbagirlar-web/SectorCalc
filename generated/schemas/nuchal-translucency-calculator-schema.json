@@ -1,0 +1,55 @@
+{
+  "toolName": "nuchal-translucency-calculator",
+  "inputs": [
+    {
+      "id": "maternalAge",
+      "label": "Maternal Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the mother in years"
+    },
+    {
+      "id": "ntMeasurement",
+      "label": "NT Measurement",
+      "type": "number",
+      "unit": "mm",
+      "default": 1.5,
+      "businessContext": "Nuchal translucency thickness in millimeters"
+    },
+    {
+      "id": "crl",
+      "label": "CRL",
+      "type": "number",
+      "unit": "mm",
+      "default": 45,
+      "businessContext": "Crown-rump length in millimeters for gestational age"
+    },
+    {
+      "id": "priorRisk",
+      "label": "Prior Risk",
+      "type": "number",
+      "unit": "probability",
+      "default": 0.004,
+      "businessContext": "Baseline risk from maternal age (e.g., 0.004 for 1 in 250)"
+    }
+  ],
+  "formulas": {
+    "baseRiskPercent": "(1 / (1 + Math.exp(-(-10 + 0.1 * maternalAge + 0.05 * crl)))) * 100",
+    "adjustedRiskPercent": "(1 / (1 + Math.exp(-(-10 + 0.1 * maternalAge + 0.05 * crl + 2 * (ntMeasurement - 1.5))))) * 100",
+    "riskPercent": "adjustedRiskPercent"
+  },
+  "outputs": {
+    "primary": "riskPercent",
+    "breakdown": [
+      "baseRiskPercent",
+      "adjustedRiskPercent"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

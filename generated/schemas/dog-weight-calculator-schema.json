@@ -1,0 +1,55 @@
+{
+  "toolName": "dog-weight-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "months",
+      "default": 6,
+      "businessContext": "Current age of the dog in complete months."
+    },
+    {
+      "id": "currentWeight",
+      "label": "Current Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Current body weight of the dog in kilograms."
+    },
+    {
+      "id": "growthRate",
+      "label": "Growth Rate Factor",
+      "type": "number",
+      "unit": "1/month",
+      "default": 0.2,
+      "businessContext": "Breed-specific exponential growth rate (k). Small breeds ≈ 0.3, Medium ≈ 0.2, Large ≈ 0.15, Giant ≈ 0.1."
+    },
+    {
+      "id": "bcs",
+      "label": "Body Condition Score",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Veterinary body condition score on a 9-point scale (1 = emaciated, 5 = ideal, 9 = obese)."
+    }
+  ],
+  "formulas": {
+    "predictedAdultWeight": "currentWeight / (1 - Math.exp(-growthRate * age))",
+    "idealWeightBasedOnBCS": "currentWeight * (1 - (bcs - 5) * 0.1)",
+    "weightProjectionAt12Months": "currentWeight / (1 - Math.exp(-growthRate * age)) * (1 - Math.exp(-growthRate * 12))"
+  },
+  "outputs": {
+    "primary": "predictedAdultWeight",
+    "breakdown": [
+      "idealWeightBasedOnBCS",
+      "weightProjectionAt12Months"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

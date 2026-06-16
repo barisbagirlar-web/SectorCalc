@@ -1,0 +1,61 @@
+{
+  "toolName": "vat-calculator-eu",
+  "inputs": [
+    {
+      "id": "netAmount",
+      "label": "Net Amount (EUR)",
+      "type": "number",
+      "unit": "EUR",
+      "default": 100,
+      "businessContext": "The net price before VAT"
+    },
+    {
+      "id": "vatRate",
+      "label": "VAT Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Standard VAT rate in the EU country (e.g., 20 for Germany)"
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of units"
+    },
+    {
+      "id": "discountPercent",
+      "label": "Discount (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Discount applied before VAT"
+    }
+  ],
+  "formulas": {
+    "discountedNet": "netAmount * (1 - discountPercent / 100)",
+    "vatAmount": "discountedNet * (vatRate / 100)",
+    "grossAmount": "discountedNet + vatAmount",
+    "totalNet": "discountedNet * quantity",
+    "totalVat": "vatAmount * quantity",
+    "totalGross": "grossAmount * quantity"
+  },
+  "outputs": {
+    "primary": "totalGross",
+    "breakdown": [
+      "discountedNet",
+      "vatAmount",
+      "grossAmount",
+      "totalNet",
+      "totalVat"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

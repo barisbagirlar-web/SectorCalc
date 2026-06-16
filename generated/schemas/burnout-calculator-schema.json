@@ -1,0 +1,84 @@
+{
+  "toolName": "burnout-calculator",
+  "inputs": [
+    {
+      "id": "motorRatedPower",
+      "label": "Motor Rated Power",
+      "type": "number",
+      "unit": "kW",
+      "default": 10,
+      "businessContext": "Nominal power of the motor at full load"
+    },
+    {
+      "id": "actualLoad",
+      "label": "Actual Load",
+      "type": "number",
+      "unit": "kW",
+      "default": 12,
+      "businessContext": "Actual mechanical power drawn by the driven equipment"
+    },
+    {
+      "id": "ambientTemperature",
+      "label": "Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "Temperature of the surrounding environment"
+    },
+    {
+      "id": "maxInsulationTemp",
+      "label": "Insulation Max Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 130,
+      "businessContext": "Maximum allowable winding temperature (insulation class limit)"
+    },
+    {
+      "id": "ratedAmbient",
+      "label": "Rated Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 40,
+      "businessContext": "Standard ambient temperature for motor design (typically 40°C)"
+    },
+    {
+      "id": "thermalTimeConstant",
+      "label": "Thermal Time Constant",
+      "type": "number",
+      "unit": "minutes",
+      "default": 30,
+      "businessContext": "Time for the motor temperature to reach 63.2% of its steady-state rise"
+    },
+    {
+      "id": "dutyCycle",
+      "label": "Duty Cycle",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Fraction of time motor runs under load (0-1, 1 = continuous)"
+    }
+  ],
+  "formulas": {
+    "loadFactor": "actualLoad / motorRatedPower",
+    "deltaTRated": "maxInsulationTemp - ratedAmbient",
+    "ultimateTempRise": "deltaTRated * Math.pow(loadFactor, 2) * dutyCycle",
+    "motorTemperature": "ambientTemperature + ultimateTempRise",
+    "temperatureMargin": "maxInsulationTemp - motorTemperature",
+    "timeToBurnout": "motorTemperature > maxInsulationTemp ? 0 : (ultimateTempRise > (maxInsulationTemp - ambientTemperature) ? -thermalTimeConstant * Math.log(1 - (maxInsulationTemp - ambientTemperature) / ultimateTempRise) : Infinity)"
+  },
+  "outputs": {
+    "primary": "timeToBurnout === Infinity ? 'Motor Safe' : timeToBurnout.toFixed(1) + ' minutes'",
+    "breakdown": [
+      "loadFactor.toFixed(3)",
+      "ultimateTempRise.toFixed(1) + ' °C'",
+      "motorTemperature.toFixed(1) + ' °C'",
+      "temperatureMargin.toFixed(1) + ' °C'"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

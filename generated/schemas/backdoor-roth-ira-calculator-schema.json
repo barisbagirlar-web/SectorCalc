@@ -1,0 +1,55 @@
+{
+  "toolName": "backdoor-roth-ira-calculator",
+  "inputs": [
+    {
+      "id": "traditionalIraBalance",
+      "label": "Total Traditional IRA Balance",
+      "type": "number",
+      "unit": "$",
+      "default": 1000,
+      "businessContext": "Total value of all your traditional IRA accounts before conversion."
+    },
+    {
+      "id": "afterTaxBasis",
+      "label": "After-Tax Basis",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Total non-deductible contributions (already taxed)."
+    },
+    {
+      "id": "conversionAmount",
+      "label": "Conversion Amount",
+      "type": "number",
+      "unit": "$",
+      "default": 6000,
+      "businessContext": "Amount you wish to convert to Roth IRA."
+    },
+    {
+      "id": "marginalTaxRate",
+      "label": "Marginal Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 24,
+      "businessContext": "Your current federal marginal income tax rate."
+    }
+  ],
+  "formulas": {
+    "taxableAmount": "conversionAmount * (1 - afterTaxBasis / traditionalIraBalance)",
+    "taxDue": "taxableAmount * marginalTaxRate / 100",
+    "afterTaxBasisPct": "afterTaxBasis / traditionalIraBalance * 100"
+  },
+  "outputs": {
+    "primary": "taxDue",
+    "breakdown": [
+      "taxableAmount",
+      "afterTaxBasisPct"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

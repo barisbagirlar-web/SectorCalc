@@ -1,0 +1,65 @@
+{
+  "toolName": "calorie-to-watts-calculator",
+  "inputs": [
+    {
+      "id": "energy_cal",
+      "label": "Energy (calories)",
+      "type": "number",
+      "unit": "cal",
+      "default": 100,
+      "businessContext": "Amount of energy in calories."
+    },
+    {
+      "id": "time_hours",
+      "label": "Time (hours)",
+      "type": "number",
+      "unit": "h",
+      "default": 0,
+      "businessContext": "Time in hours (0-23)."
+    },
+    {
+      "id": "time_minutes",
+      "label": "Time (minutes)",
+      "type": "number",
+      "unit": "min",
+      "default": 0,
+      "businessContext": "Time in minutes (0-59)."
+    },
+    {
+      "id": "time_seconds",
+      "label": "Time (seconds)",
+      "type": "number",
+      "unit": "s",
+      "default": 1,
+      "businessContext": "Time in seconds (0-59)."
+    },
+    {
+      "id": "joules_per_cal",
+      "label": "Joules per Calorie",
+      "type": "number",
+      "unit": "J/cal",
+      "default": 4.184,
+      "businessContext": "Conversion factor from calories to joules. Standard value is 4.184 J/cal."
+    }
+  ],
+  "formulas": {
+    "total_sec": "time_hours * 3600 + time_minutes * 60 + time_seconds",
+    "energy_J": "energy_cal * joules_per_cal",
+    "power_W": "energy_J / total_sec",
+    "power_kW": "power_W / 1000"
+  },
+  "outputs": {
+    "primary": "power_W",
+    "breakdown": [
+      "power_kW",
+      "energy_J",
+      "total_sec"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

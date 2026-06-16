@@ -1,0 +1,57 @@
+{
+  "toolName": "bode-plot-calculator",
+  "inputs": [
+    {
+      "id": "gain",
+      "label": "DC Gain",
+      "type": "number",
+      "unit": "V/V",
+      "default": 1,
+      "businessContext": "System static gain (K)"
+    },
+    {
+      "id": "poleFreq",
+      "label": "Pole Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1000,
+      "businessContext": "Cut-off frequency of dominant pole (>0 Hz)"
+    },
+    {
+      "id": "zeroFreq",
+      "label": "Zero Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 10000,
+      "businessContext": "Frequency of zero (>0 Hz)"
+    },
+    {
+      "id": "freq",
+      "label": "Test Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1000,
+      "businessContext": "Frequency at which to evaluate magnitude"
+    }
+  ],
+  "formulas": {
+    "gain_dB": "20 * Math.log(gain) / Math.log(10)",
+    "zeroContrib": "10 * Math.log(1 + (freq/zeroFreq)**2) / Math.log(10)",
+    "poleContrib": "-10 * Math.log(1 + (freq/poleFreq)**2) / Math.log(10)",
+    "magnitude_dB": "gain_dB + zeroContrib + poleContrib"
+  },
+  "outputs": {
+    "primary": "magnitude_dB",
+    "breakdown": [
+      "gain_dB",
+      "zeroContrib",
+      "poleContrib"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

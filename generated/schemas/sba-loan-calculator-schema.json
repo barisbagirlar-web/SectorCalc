@@ -1,0 +1,59 @@
+{
+  "toolName": "sba-loan-calculator",
+  "inputs": [
+    {
+      "id": "loanAmount",
+      "label": "Loan Amount",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "Net loan amount requested before SBA guarantee fee"
+    },
+    {
+      "id": "interestRate",
+      "label": "Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 6,
+      "businessContext": "Annual interest rate"
+    },
+    {
+      "id": "loanTerm",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Repayment period in years"
+    },
+    {
+      "id": "sbaGuaranteeFee",
+      "label": "SBA Guarantee Fee",
+      "type": "number",
+      "unit": "%",
+      "default": 3.5,
+      "businessContext": "SBA guarantee fee percentage (added to total financed amount)"
+    }
+  ],
+  "formulas": {
+    "totalPrincipal": "loanAmount * (1 + sbaGuaranteeFee / 100)",
+    "monthlyRate": "interestRate / 1200",
+    "numPayments": "loanTerm * 12",
+    "monthlyPayment": "(totalPrincipal * monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1)",
+    "totalPayment": "monthlyPayment * numPayments",
+    "totalInterest": "totalPayment - totalPrincipal"
+  },
+  "outputs": {
+    "primary": "monthlyPayment",
+    "breakdown": [
+      "totalPayment",
+      "totalInterest",
+      "totalPrincipal"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

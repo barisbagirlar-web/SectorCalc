@@ -1,0 +1,63 @@
+{
+  "toolName": "unit-price-calculator",
+  "inputs": [
+    {
+      "id": "totalCost",
+      "label": "Total Cost",
+      "type": "number",
+      "unit": "$",
+      "default": 1000,
+      "businessContext": "Total cost of goods or services before additional costs and discounts."
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "pcs",
+      "default": 100,
+      "businessContext": "Number of units purchased."
+    },
+    {
+      "id": "additionalCosts",
+      "label": "Additional Costs",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Extra costs such as shipping, handling, or setup fees."
+    },
+    {
+      "id": "discountPercent",
+      "label": "Discount (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Discount percentage applied to the total cost."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Sales tax or VAT percentage applied after discount."
+    }
+  ],
+  "formulas": {
+    "discountAmount": "totalCost * discountPercent / 100",
+    "netUnitPrice": "(totalCost + additionalCosts - (totalCost * discountPercent / 100)) / quantity",
+    "unitPrice": "((totalCost + additionalCosts - (totalCost * discountPercent / 100)) / quantity) * (1 + taxRate / 100)"
+  },
+  "outputs": {
+    "primary": "unitPrice",
+    "breakdown": [
+      "netUnitPrice",
+      "discountAmount"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

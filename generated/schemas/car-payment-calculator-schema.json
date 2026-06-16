@@ -1,0 +1,74 @@
+{
+  "toolName": "car-payment-calculator",
+  "inputs": [
+    {
+      "id": "carPrice",
+      "label": "Car Price",
+      "type": "number",
+      "unit": "currency",
+      "default": 20000,
+      "businessContext": "The total purchase price of the car before taxes and fees"
+    },
+    {
+      "id": "downPayment",
+      "label": "Down Payment",
+      "type": "number",
+      "unit": "currency",
+      "default": 2000,
+      "businessContext": "Amount paid upfront, reducing the loan principal"
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 4.5,
+      "businessContext": "Yearly interest rate on the loan"
+    },
+    {
+      "id": "loanTermMonths",
+      "label": "Loan Term (Months)",
+      "type": "number",
+      "unit": "months",
+      "default": 60,
+      "businessContext": "Duration of the loan in months"
+    },
+    {
+      "id": "salesTaxRate",
+      "label": "Sales Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 6,
+      "businessContext": "Sales tax applied to the car price"
+    },
+    {
+      "id": "additionalFees",
+      "label": "Additional Fees",
+      "type": "number",
+      "unit": "currency",
+      "default": 500,
+      "businessContext": "Extra charges like registration, documentation, etc."
+    }
+  ],
+  "formulas": {
+    "salesTax": "carPrice * salesTaxRate / 100",
+    "principal": "carPrice + salesTax + additionalFees - downPayment",
+    "monthlyRate": "annualInterestRate / 12 / 100",
+    "monthlyPayment": "principal * monthlyRate * Math.pow(1 + monthlyRate, loanTermMonths) / (Math.pow(1 + monthlyRate, loanTermMonths) - 1)",
+    "totalPayment": "monthlyPayment * loanTermMonths",
+    "totalInterest": "totalPayment - principal"
+  },
+  "outputs": {
+    "primary": "monthlyPayment",
+    "breakdown": [
+      "totalPayment",
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

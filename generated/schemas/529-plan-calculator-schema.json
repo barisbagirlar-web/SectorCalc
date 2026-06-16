@@ -1,0 +1,74 @@
+{
+  "toolName": "529-plan-calculator",
+  "inputs": [
+    {
+      "id": "childAge",
+      "label": "Child's Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Age of the beneficiary"
+    },
+    {
+      "id": "annualContribution",
+      "label": "Annual Contribution",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "businessContext": "Amount contributed each year"
+    },
+    {
+      "id": "existingBalance",
+      "label": "Existing Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Current balance in the 529 plan"
+    },
+    {
+      "id": "yearsUntilCollege",
+      "label": "Years Until College",
+      "type": "number",
+      "unit": "years",
+      "default": 13,
+      "businessContext": "Number of years until college begins"
+    },
+    {
+      "id": "annualReturn",
+      "label": "Expected Annual Return",
+      "type": "number",
+      "unit": "%",
+      "default": 6,
+      "businessContext": "Expected annual investment return"
+    },
+    {
+      "id": "inflationRate",
+      "label": "Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Expected annual inflation rate"
+    }
+  ],
+  "formulas": {
+    "rate": "inputs.annualReturn / 100",
+    "fvExisting": "inputs.existingBalance * (1 + rate) ** inputs.yearsUntilCollege",
+    "fvContributions": "inputs.annualContribution * (((1 + rate) ** inputs.yearsUntilCollege - 1) / rate)",
+    "projectedBalance": "fvExisting + fvContributions",
+    "totalContributions": "inputs.existingBalance + inputs.annualContribution * inputs.yearsUntilCollege",
+    "totalEarnings": "projectedBalance - totalContributions"
+  },
+  "outputs": {
+    "primary": "projectedBalance",
+    "breakdown": [
+      "totalContributions",
+      "totalEarnings"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

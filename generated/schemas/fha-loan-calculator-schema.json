@@ -1,0 +1,75 @@
+{
+  "toolName": "fha-loan-calculator",
+  "inputs": [
+    {
+      "id": "loanAmount",
+      "label": "Loan Amount",
+      "type": "number",
+      "unit": "$",
+      "default": 200000,
+      "businessContext": "The initial principal balance of the FHA loan, excluding upfront MIP if financed separately."
+    },
+    {
+      "id": "interestRate",
+      "label": "Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 3.5,
+      "businessContext": "Annual nominal interest rate for the loan."
+    },
+    {
+      "id": "loanTerm",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Total duration of the loan in years."
+    },
+    {
+      "id": "propertyTaxAnnual",
+      "label": "Annual Property Tax",
+      "type": "number",
+      "unit": "$",
+      "default": 2400,
+      "businessContext": "Total annual property tax amount for the home."
+    },
+    {
+      "id": "hazardInsuranceAnnual",
+      "label": "Annual Hazard Insurance",
+      "type": "number",
+      "unit": "$",
+      "default": 1000,
+      "businessContext": "Total annual premium for hazard/homeowners insurance."
+    },
+    {
+      "id": "mipAnnualRate",
+      "label": "Annual MIP Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0.85,
+      "businessContext": "Annual FHA Mortgage Insurance Premium rate as a percentage of the loan amount (e.g., 0.85 for 30-year, >95% LTV)."
+    }
+  ],
+  "formulas": {
+    "principalAndInterest": "(loanAmount * ((interestRate/100/12) * Math.pow(1 + (interestRate/100/12), loanTerm*12)) / (Math.pow(1 + (interestRate/100/12), loanTerm*12) - 1))",
+    "propertyTaxMonthly": "propertyTaxAnnual / 12",
+    "hazardInsuranceMonthly": "hazardInsuranceAnnual / 12",
+    "mipMonthly": "(loanAmount * mipAnnualRate / 100) / 12",
+    "totalMonthlyPayment": "principalAndInterest + propertyTaxMonthly + hazardInsuranceMonthly + mipMonthly"
+  },
+  "outputs": {
+    "primary": "totalMonthlyPayment",
+    "breakdown": [
+      "principalAndInterest",
+      "propertyTaxMonthly",
+      "hazardInsuranceMonthly",
+      "mipMonthly"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

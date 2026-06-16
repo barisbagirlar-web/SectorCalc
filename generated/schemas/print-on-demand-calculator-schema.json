@@ -1,0 +1,75 @@
+{
+  "toolName": "print-on-demand-calculator",
+  "inputs": [
+    {
+      "id": "productCost",
+      "label": "Ürün Maliyeti (Adet)",
+      "type": "number",
+      "unit": "TL",
+      "default": 50,
+      "businessContext": "Print-on-demand ürün başına üretim maliyeti"
+    },
+    {
+      "id": "sellingPrice",
+      "label": "Satış Fiyatı (Adet)",
+      "type": "number",
+      "unit": "TL",
+      "default": 100,
+      "businessContext": "Müşteriye satılan birim fiyat"
+    },
+    {
+      "id": "quantity",
+      "label": "Sipariş Adedi",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "businessContext": "Satılan toplam ürün adedi"
+    },
+    {
+      "id": "shippingCost",
+      "label": "Kargo Maliyeti (Adet)",
+      "type": "number",
+      "unit": "TL",
+      "default": 20,
+      "businessContext": "Ürün başına ortalama kargo maliyeti"
+    },
+    {
+      "id": "platformFee",
+      "label": "Platform Komisyon Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Satış platformunun aldığı yüzdesel komisyon"
+    },
+    {
+      "id": "additionalCosts",
+      "label": "Diğer Sabit Giderler",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Tasarım, listeleme gibi toplam ek sabit maliyetler"
+    }
+  ],
+  "formulas": {
+    "totalRevenue": "sellingPrice * quantity",
+    "totalCost": "(productCost + shippingCost) * quantity + (platformFee / 100) * (sellingPrice * quantity) + additionalCosts",
+    "profit": "totalRevenue - totalCost",
+    "margin": "(profit / totalRevenue) * 100",
+    "breakEvenUnits": "totalCost / sellingPrice"
+  },
+  "outputs": {
+    "primary": "profit",
+    "breakdown": [
+      "totalRevenue",
+      "totalCost",
+      "margin",
+      "breakEvenUnits"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

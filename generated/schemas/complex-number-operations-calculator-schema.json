@@ -1,0 +1,73 @@
+{
+  "toolName": "complex-number-operations-calculator",
+  "inputs": [
+    {
+      "id": "real1",
+      "label": "Real Part (Z1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Real part of the first complex number"
+    },
+    {
+      "id": "imag1",
+      "label": "Imaginary Part (Z1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Imaginary part of the first complex number"
+    },
+    {
+      "id": "real2",
+      "label": "Real Part (Z2)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Real part of the second complex number"
+    },
+    {
+      "id": "imag2",
+      "label": "Imaginary Part (Z2)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Imaginary part of the second complex number"
+    }
+  ],
+  "formulas": {
+    "sum_real": "real1 + real2",
+    "sum_imag": "imag1 + imag2",
+    "diff_real": "real1 - real2",
+    "diff_imag": "imag1 - imag2",
+    "prod_real": "real1 * real2 - imag1 * imag2",
+    "prod_imag": "real1 * imag2 + imag1 * real2",
+    "denom": "real2**2 + imag2**2",
+    "quot_real": "(real1 * real2 + imag1 * imag2) / denom",
+    "quot_imag": "(imag1 * real2 - real1 * imag2) / denom",
+    "mag1": "Math.sqrt(real1**2 + imag1**2)",
+    "mag2": "Math.sqrt(real2**2 + imag2**2)",
+    "conj1_real": "real1",
+    "conj1_imag": "-imag1",
+    "conj2_real": "real2",
+    "conj2_imag": "-imag2"
+  },
+  "outputs": {
+    "primary": "\"Complex Operations: Z1=\" + real1 + \"+\" + imag1 + \"i, Z2=\" + real2 + \"+\" + imag2 + \"i\"",
+    "breakdown": [
+      "\"Sum: \" + sum_real + \"+\" + sum_imag + \"i\"",
+      "\"Difference: \" + diff_real + \"+\" + diff_imag + \"i\"",
+      "\"Product: \" + prod_real + \"+\" + prod_imag + \"i\"",
+      "\"Quotient: \" + quot_real + \"+\" + quot_imag + \"i\"",
+      "\"|Z1|: \" + mag1",
+      "\"|Z2|: \" + mag2",
+      "\"Conj Z1: \" + conj1_real + \"+\" + conj1_imag + \"i\"",
+      "\"Conj Z2: \" + conj2_real + \"+\" + conj2_imag + \"i\""
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

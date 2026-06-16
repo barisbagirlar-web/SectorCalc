@@ -1,0 +1,73 @@
+{
+  "toolName": "dividend-reinvestment-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Total amount initially invested in the stock."
+    },
+    {
+      "id": "annualDividendYield",
+      "label": "Annual Dividend Yield (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "businessContext": "Annual dividend yield as a percentage of stock price."
+    },
+    {
+      "id": "dividendGrowthRate",
+      "label": "Dividend Growth Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Expected annual growth rate of dividends."
+    },
+    {
+      "id": "stockPriceGrowthRate",
+      "label": "Stock Price Growth Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected annual growth rate of stock price."
+    },
+    {
+      "id": "years",
+      "label": "Investment Period (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Number of years the investment is held."
+    },
+    {
+      "id": "taxRate",
+      "label": "Dividend Tax Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Tax rate applied to dividends."
+    }
+  ],
+  "formulas": {
+    "totalValue": "initialInvestment * (1 + stockPriceGrowthRate/100)**years + (initialInvestment * annualDividendYield/100 * (1 - taxRate/100) * ((1 + dividendGrowthRate/100)**years - 1) / (dividendGrowthRate/100))",
+    "totalDividends": "initialInvestment * annualDividendYield/100 * (1 - taxRate/100) * ((1 + dividendGrowthRate/100)**years - 1) / (dividendGrowthRate/100)",
+    "capitalGains": "initialInvestment * ((1 + stockPriceGrowthRate/100)**years - 1)",
+    "effectiveYield": "((totalValue / initialInvestment)**(1/years) - 1) * 100"
+  },
+  "outputs": {
+    "primary": "totalValue",
+    "breakdown": [
+      "totalDividends",
+      "capitalGains",
+      "effectiveYield"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

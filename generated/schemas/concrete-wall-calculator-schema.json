@@ -1,0 +1,73 @@
+{
+  "toolName": "concrete-wall-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Wall Length",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Horizontal dimension of the wall"
+    },
+    {
+      "id": "height",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 2.5,
+      "businessContext": "Vertical dimension of the wall"
+    },
+    {
+      "id": "thickness",
+      "label": "Wall Thickness",
+      "type": "number",
+      "unit": "m",
+      "default": 0.2,
+      "businessContext": "Cross-sectional thickness of the wall"
+    },
+    {
+      "id": "quantity",
+      "label": "Number of Walls",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "How many identical walls to cast"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Additional concrete to account for spillage, over-excavation, etc."
+    },
+    {
+      "id": "costPerCubicMeter",
+      "label": "Concrete Cost per m³",
+      "type": "number",
+      "unit": "EUR/m³",
+      "default": 100,
+      "businessContext": "Unit price of ready-mix concrete"
+    }
+  ],
+  "formulas": {
+    "netVolume": "length * height * thickness * quantity",
+    "totalVolume": "netVolume * (1 + wasteFactor / 100)",
+    "wasteVolume": "totalVolume - netVolume",
+    "totalCost": "totalVolume * costPerCubicMeter"
+  },
+  "outputs": {
+    "primary": "Total Concrete Volume (m³)",
+    "breakdown": [
+      "Net Volume (m³)",
+      "Waste Volume (m³)",
+      "Total Cost"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

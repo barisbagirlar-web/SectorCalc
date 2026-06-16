@@ -1,0 +1,84 @@
+{
+  "toolName": "5k-calculator",
+  "inputs": [
+    {
+      "id": "fixedCosts",
+      "label": "Sabit Maliyetler",
+      "type": "number",
+      "unit": "TL",
+      "default": 10000,
+      "businessContext": "Toplam sabit maliyetler (kira, amortisman vb.)"
+    },
+    {
+      "id": "materialCostPerUnit",
+      "label": "Birim Malzeme Maliyeti",
+      "type": "number",
+      "unit": "TL/adet",
+      "default": 5,
+      "businessContext": "Birim başına malzeme maliyeti"
+    },
+    {
+      "id": "laborCostPerUnit",
+      "label": "Birim İşçilik Maliyeti",
+      "type": "number",
+      "unit": "TL/adet",
+      "default": 3,
+      "businessContext": "Birim başına işçilik maliyeti"
+    },
+    {
+      "id": "machineCostPerHour",
+      "label": "Makine Saat Maliyeti",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 100,
+      "businessContext": "Makine saat başına maliyet"
+    },
+    {
+      "id": "machineHoursPerUnit",
+      "label": "Birim Makine Süresi",
+      "type": "number",
+      "unit": "saat/adet",
+      "default": 0.1,
+      "businessContext": "Birim başına makine süresi"
+    },
+    {
+      "id": "productionQuantity",
+      "label": "Üretim Miktarı",
+      "type": "number",
+      "unit": "adet",
+      "default": 5000,
+      "businessContext": "Üretim miktarı (varsayılan 5K)"
+    },
+    {
+      "id": "sellingPricePerUnit",
+      "label": "Birim Satış Fiyatı",
+      "type": "number",
+      "unit": "TL/adet",
+      "default": 20,
+      "businessContext": "Birim başına satış fiyatı"
+    }
+  ],
+  "formulas": {
+    "totalMachineCost": "machineCostPerHour * machineHoursPerUnit * productionQuantity",
+    "totalVariableCost": "(materialCostPerUnit + laborCostPerUnit) * productionQuantity",
+    "totalCost": "fixedCosts + totalVariableCost + totalMachineCost",
+    "totalRevenue": "sellingPricePerUnit * productionQuantity",
+    "profit": "totalRevenue - totalCost",
+    "profitMargin": "profit / totalRevenue"
+  },
+  "outputs": {
+    "primary": "profitMargin",
+    "breakdown": [
+      "totalCost",
+      "totalRevenue",
+      "profit",
+      "profitMargin"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

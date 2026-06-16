@@ -1,0 +1,73 @@
+{
+  "toolName": "shingle-calculator",
+  "inputs": [
+    {
+      "id": "roofFootprintArea",
+      "label": "Roof Footprint Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "businessContext": "Total horizontal area covered by the roof (length × width) in square meters."
+    },
+    {
+      "id": "roofPitchAngle",
+      "label": "Roof Pitch Angle",
+      "type": "number",
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Inclination angle of the roof from horizontal, in degrees."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Additional material percentage for cutting, overlap, and handling losses."
+    },
+    {
+      "id": "shingleCoveragePerBundle",
+      "label": "Shingle Coverage per Bundle",
+      "type": "number",
+      "unit": "m²",
+      "default": 3.1,
+      "businessContext": "Area covered by one bundle of field shingles, typically 3.1 m² for standard 3-tab."
+    },
+    {
+      "id": "ridgeLength",
+      "label": "Ridge Length",
+      "type": "number",
+      "unit": "m",
+      "default": 15,
+      "businessContext": "Total length of ridges and hips requiring cap shingles, in meters."
+    },
+    {
+      "id": "capCoveragePerBundle",
+      "label": "Cap Coverage per Bundle",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Linear ridge coverage provided by one bundle of cap shingles, typically 10 m for 3-tab caps."
+    }
+  ],
+  "formulas": {
+    "actualRoofArea": "roofFootprintArea / Math.cos(roofPitchAngle * Math.PI / 180)",
+    "totalFieldArea": "actualRoofArea * (1 + wasteFactor / 100)",
+    "fieldBundles": "Math.ceil(totalFieldArea / shingleCoveragePerBundle)",
+    "ridgeBundles": "Math.ceil(ridgeLength / capCoveragePerBundle)",
+    "totalBundles": "fieldBundles + ridgeBundles"
+  },
+  "outputs": {
+    "primary": "totalBundles",
+    "breakdown": [
+      "fieldBundles",
+      "ridgeBundles"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

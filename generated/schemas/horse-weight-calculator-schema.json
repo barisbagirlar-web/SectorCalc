@@ -1,0 +1,53 @@
+{
+  "toolName": "horse-weight-calculator",
+  "inputs": [
+    {
+      "id": "heartGirthCm",
+      "label": "Heart Girth (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 180,
+      "businessContext": "Measure the circumference of the horse's chest just behind the elbows and withers."
+    },
+    {
+      "id": "bodyLengthCm",
+      "label": "Body Length (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Measure from the point of shoulder to the point of buttock in a straight line."
+    },
+    {
+      "id": "heightCm",
+      "label": "Height at Withers (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 155,
+      "businessContext": "Measure from the ground to the highest point of the withers (optional)."
+    },
+    {
+      "id": "ageYears",
+      "label": "Age (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 7,
+      "businessContext": "Age of the horse in years (optional)."
+    }
+  ],
+  "formulas": {
+    "weightKg": "(heartGirthCm ** 2 * bodyLengthCm) / 11877",
+    "weightLbs": "weightKg * 2.20462"
+  },
+  "outputs": {
+    "primary": "weightKg",
+    "breakdown": [
+      "weightLbs"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

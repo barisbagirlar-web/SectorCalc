@@ -1,0 +1,67 @@
+{
+  "toolName": "sign-test-calculator",
+  "inputs": [
+    {
+      "id": "sampleSize",
+      "label": "Sample Size (n)",
+      "type": "number",
+      "unit": "",
+      "default": 20,
+      "businessContext": "Total number of paired observations with non-zero differences."
+    },
+    {
+      "id": "posCount",
+      "label": "Number of Positive Signs",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Count of observations where the difference is positive."
+    },
+    {
+      "id": "p0",
+      "label": "Hypothesized Probability",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Under null hypothesis, probability of a positive sign (typically 0.5 for median test)."
+    },
+    {
+      "id": "alpha",
+      "label": "Significance Level (α)",
+      "type": "number",
+      "unit": "",
+      "default": 0.05,
+      "businessContext": "Type I error probability threshold."
+    },
+    {
+      "id": "testType",
+      "label": "Alternative Hypothesis",
+      "type": "number",
+      "unit": "1=two-sided, 2=greater, 3=less",
+      "default": 1,
+      "businessContext": "Specifies the direction of the test: 1 for two-tailed, 2 for upper-tailed, 3 for lower-tailed."
+    }
+  ],
+  "formulas": {
+    "expected": "sampleSize * p0",
+    "stdDev": "Math.sqrt(sampleSize * p0 * (1 - p0))",
+    "zStatistic": "(posCount > sampleSize*p0) ? (posCount - 0.5 - sampleSize*p0) / Math.sqrt(sampleSize*p0*(1-p0)) : (posCount < sampleSize*p0) ? (posCount + 0.5 - sampleSize*p0) / Math.sqrt(sampleSize*p0*(1-p0)) : 0",
+    "pValue": "testType == 1 ? 2 * (1 - 0.5 * (1 + Math.erf(Math.abs(zStatistic) / Math.sqrt(2)))) : testType == 2 ? 1 - 0.5 * (1 + Math.erf(zStatistic / Math.sqrt(2))) : 0.5 * (1 + Math.erf(zStatistic / Math.sqrt(2)))",
+    "conclusion": "pValue < alpha ? 'Reject H0' : 'Fail to reject H0'"
+  },
+  "outputs": {
+    "primary": "pValue",
+    "breakdown": [
+      "zStatistic",
+      "expected",
+      "stdDev",
+      "conclusion"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

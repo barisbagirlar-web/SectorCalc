@@ -1,0 +1,55 @@
+{
+  "toolName": "kilograms-to-grams-calculator",
+  "inputs": [
+    {
+      "id": "kg",
+      "label": "Weight in Kilograms",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "The weight of a single item or total weight in kilograms."
+    },
+    {
+      "id": "items",
+      "label": "Number of Items",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of items with the given weight."
+    },
+    {
+      "id": "packagingKg",
+      "label": "Packaging Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Additional packaging weight per batch in kilograms."
+    },
+    {
+      "id": "factor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "g/kg",
+      "default": 1000,
+      "businessContext": "Standard conversion factor from kilograms to grams (1 kg = 1000 g). Typically 1000, but can be adjusted for specific density/materials."
+    }
+  ],
+  "formulas": {
+    "totalGrams": "(kg * items + packagingKg) * factor",
+    "itemGrams": "kg * items * factor",
+    "packagingGrams": "packagingKg * factor"
+  },
+  "outputs": {
+    "primary": "totalGrams",
+    "breakdown": [
+      "itemGrams",
+      "packagingGrams"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

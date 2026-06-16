@@ -1,0 +1,81 @@
+{
+  "toolName": "deck-footing-calculator",
+  "inputs": [
+    {
+      "id": "span",
+      "label": "Joist Span",
+      "type": "number",
+      "unit": "ft",
+      "default": 12,
+      "businessContext": "Distance from ledger to beam"
+    },
+    {
+      "id": "spacing",
+      "label": "Joist Spacing",
+      "type": "number",
+      "unit": "in",
+      "default": 16,
+      "businessContext": "Center-to-center spacing of joists"
+    },
+    {
+      "id": "beamLength",
+      "label": "Beam Span between Posts",
+      "type": "number",
+      "unit": "ft",
+      "default": 8,
+      "businessContext": "Distance between support posts"
+    },
+    {
+      "id": "liveLoad",
+      "label": "Live Load",
+      "type": "number",
+      "unit": "psf",
+      "default": 40,
+      "businessContext": "Occupancy load per square foot"
+    },
+    {
+      "id": "deadLoad",
+      "label": "Dead Load",
+      "type": "number",
+      "unit": "psf",
+      "default": 10,
+      "businessContext": "Weight of deck materials"
+    },
+    {
+      "id": "soilBearing",
+      "label": "Soil Bearing Capacity",
+      "type": "number",
+      "unit": "psf",
+      "default": 2000,
+      "businessContext": "Allowable soil pressure"
+    },
+    {
+      "id": "footingThickness",
+      "label": "Footing Thickness",
+      "type": "number",
+      "unit": "in",
+      "default": 8,
+      "businessContext": "Depth of concrete footing"
+    }
+  ],
+  "formulas": {
+    "loadPerFooting": "(liveLoad + deadLoad) * span * beamLength * 0.25",
+    "requiredArea": "loadPerFooting / soilBearing",
+    "sideLength": "Math.sqrt(requiredArea) * 12",
+    "volume": "requiredArea * (footingThickness / 12)"
+  },
+  "outputs": {
+    "primary": "sideLength",
+    "breakdown": [
+      "loadPerFooting",
+      "requiredArea",
+      "volume"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

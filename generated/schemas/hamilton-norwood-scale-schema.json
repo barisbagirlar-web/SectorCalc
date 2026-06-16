@@ -1,0 +1,83 @@
+{
+  "toolName": "hamilton-norwood-scale",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Patient age for risk assessment"
+    },
+    {
+      "id": "frontal_recession_mm",
+      "label": "Frontal Recession",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Measured from original hairline"
+    },
+    {
+      "id": "vertex_thinning_percent",
+      "label": "Vertex Thinning",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Percentage of visible scalp on crown"
+    },
+    {
+      "id": "temporal_thinning_percent",
+      "label": "Temporal Thinning",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage thinning at temples"
+    },
+    {
+      "id": "family_history_score",
+      "label": "Family History Score",
+      "type": "number",
+      "unit": "0-3",
+      "default": 1,
+      "businessContext": "0=none, 1=mild, 2=moderate, 3=strong"
+    },
+    {
+      "id": "duration_years",
+      "label": "Duration of Hair Loss",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Years since onset"
+    }
+  ],
+  "formulas": {
+    "frontal_score": "Math.min(3, Math.floor(frontal_recession_mm / 10))",
+    "vertex_score": "Math.min(3, Math.floor(vertex_thinning_percent / 25))",
+    "temporal_score": "Math.min(2, Math.floor(temporal_thinning_percent / 20))",
+    "family_score": "family_history_score",
+    "duration_score": "Math.min(2, Math.floor(duration_years / 5))",
+    "age_score": "Math.min(2, Math.floor((age - 20) / 10))",
+    "raw_score": "frontal_score + vertex_score + temporal_score + family_score + duration_score + age_score",
+    "norwood_stage": "Math.min(7, Math.max(1, Math.round(raw_score / 2)))",
+    "progression_risk": "raw_score > 10 ? 'High' : (raw_score > 6 ? 'Moderate' : 'Low')"
+  },
+  "outputs": {
+    "primary": "Norwood Stage: {norwood_stage}",
+    "breakdown": [
+      "Frontal Score: {frontal_score}",
+      "Vertex Score: {vertex_score}",
+      "Temporal Score: {temporal_score}",
+      "Family History Score: {family_score}",
+      "Duration Score: {duration_score}",
+      "Age Score: {age_score}",
+      "Raw Score: {raw_score}",
+      "Progression Risk: {progression_risk}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

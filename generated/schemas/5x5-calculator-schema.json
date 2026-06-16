@@ -1,0 +1,71 @@
+{
+  "toolName": "5x5-calculator",
+  "inputs": [
+    {
+      "id": "sortScore",
+      "label": "Sort (Seiri)",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Score 1-5 for workplace organization with necessary items only"
+    },
+    {
+      "id": "setOrderScore",
+      "label": "Set in Order (Seiton)",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Score 1-5 for efficient arrangement of tools and materials"
+    },
+    {
+      "id": "shineScore",
+      "label": "Shine (Seiso)",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Score 1-5 for cleanliness and inspection"
+    },
+    {
+      "id": "standardizeScore",
+      "label": "Standardize (Seiketsu)",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Score 1-5 for standardized processes and visual controls"
+    },
+    {
+      "id": "sustainScore",
+      "label": "Sustain (Shitsuke)",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Score 1-5 for discipline and continuous improvement"
+    }
+  ],
+  "formulas": {
+    "total": "sortScore + setOrderScore + shineScore + standardizeScore + sustainScore",
+    "average": "(sortScore + setOrderScore + shineScore + standardizeScore + sustainScore) / 5",
+    "percentage": "(sortScore + setOrderScore + shineScore + standardizeScore + sustainScore) / 25 * 100",
+    "sortStr": "`Sort: ${sortScore}`",
+    "setOrderStr": "`Set in Order: ${setOrderScore}`",
+    "shineStr": "`Shine: ${shineScore}`",
+    "standardizeStr": "`Standardize: ${standardizeScore}`",
+    "sustainStr": "`Sustain: ${sustainScore}`"
+  },
+  "outputs": {
+    "primary": "Total 5S Score: {total} / 25 ({percentage}%)",
+    "breakdown": [
+      "{sortStr}",
+      "{setOrderStr}",
+      "{shineStr}",
+      "{standardizeStr}",
+      "{sustainStr}"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

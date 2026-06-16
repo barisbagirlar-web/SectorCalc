@@ -1,0 +1,57 @@
+{
+  "toolName": "angle-calculator",
+  "inputs": [
+    {
+      "id": "angle",
+      "label": "Angle",
+      "type": "number",
+      "unit": "degrees or radians",
+      "default": 0,
+      "businessContext": "Angle value for trigonometric function"
+    },
+    {
+      "id": "mode",
+      "label": "Angle Mode",
+      "type": "number",
+      "unit": "code",
+      "default": 0,
+      "businessContext": "0: Degrees, 1: Radians"
+    },
+    {
+      "id": "funcCode",
+      "label": "Function",
+      "type": "number",
+      "unit": "code",
+      "default": 0,
+      "businessContext": "0: sin, 1: cos, 2: tan, 3: arcsin, 4: arccos, 5: arctan"
+    },
+    {
+      "id": "precision",
+      "label": "Precision",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 4,
+      "businessContext": "Number of decimal places for rounding (0 or positive integer)"
+    }
+  ],
+  "formulas": {
+    "radianAngle": "angle * (mode === 0 ? Math.PI/180 : 1)",
+    "rawResult": "[Math.sin, Math.cos, Math.tan, Math.asin, Math.acos, Math.atan][funcCode](radianAngle)",
+    "primary": "Math.round(rawResult * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "breakdown1": "radianAngle",
+    "breakdown2": "rawResult"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "radianAngle",
+      "rawResult"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

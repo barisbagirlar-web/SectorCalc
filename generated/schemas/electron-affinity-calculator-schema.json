@@ -1,0 +1,65 @@
+{
+  "toolName": "electron-affinity-calculator",
+  "inputs": [
+    {
+      "id": "formationEnthalpy",
+      "label": "Formation Enthalpy (ΔH_f)",
+      "type": "number",
+      "unit": "kJ/mol",
+      "default": 0,
+      "businessContext": "Standard enthalpy of formation of the ionic compound from its elements."
+    },
+    {
+      "id": "sublimationEnergy",
+      "label": "Sublimation Energy (S)",
+      "type": "number",
+      "unit": "kJ/mol",
+      "default": 0,
+      "businessContext": "Energy required to vaporize one mole of the metal (cation precursor)."
+    },
+    {
+      "id": "atomizationEnthalpyPerX",
+      "label": "Atomization Enthalpy per X atom",
+      "type": "number",
+      "unit": "kJ/mol",
+      "default": 0,
+      "businessContext": "Energy required to form one mole of isolated gaseous X atoms from the standard state of element X (e.g., ½ bond dissociation energy for diatomic X₂)."
+    },
+    {
+      "id": "ionizationEnergy",
+      "label": "Ionization Energy (IP)",
+      "type": "number",
+      "unit": "kJ/mol",
+      "default": 0,
+      "businessContext": "Energy required to remove the most loosely held electron from one mole of gaseous metal atoms to form cations."
+    },
+    {
+      "id": "latticeEnergy",
+      "label": "Lattice Energy (U)",
+      "type": "number",
+      "unit": "kJ/mol",
+      "default": 0,
+      "businessContext": "Energy released when gaseous ions combine to form one mole of the ionic solid (exothermic, input as positive magnitude)."
+    }
+  ],
+  "formulas": {
+    "electronAffinity": "sublimationEnergy + atomizationEnthalpyPerX + ionizationEnergy + latticeEnergy - formationEnthalpy"
+  },
+  "outputs": {
+    "primary": "electronAffinity",
+    "breakdown": [
+      "formationEnthalpy",
+      "sublimationEnergy",
+      "atomizationEnthalpyPerX",
+      "ionizationEnergy",
+      "latticeEnergy",
+      "electronAffinity"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

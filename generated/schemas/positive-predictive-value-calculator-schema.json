@@ -1,0 +1,59 @@
+{
+  "toolName": "positive-predictive-value-calculator",
+  "inputs": [
+    {
+      "id": "truePositives",
+      "label": "True Positives (TP)",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Testin doğru pozitif olarak işaretlediği gerçek pozitiflerin sayısı."
+    },
+    {
+      "id": "falsePositives",
+      "label": "False Positives (FP)",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Testin yanlışlıkla pozitif işaretlediği negatiflerin sayısı."
+    },
+    {
+      "id": "trueNegatives",
+      "label": "True Negatives (TN)",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Testin doğru negatif olarak işaretlediği gerçek negatiflerin sayısı."
+    },
+    {
+      "id": "falseNegatives",
+      "label": "False Negatives (FN)",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Testin yanlışlıkla negatif işaretlediği pozitiflerin sayısı."
+    }
+  ],
+  "formulas": {
+    "positive_predictive_value": "truePositives / (truePositives + falsePositives)",
+    "sensitivity": "truePositives / (truePositives + falseNegatives)",
+    "specificity": "trueNegatives / (trueNegatives + falsePositives)",
+    "negative_predictive_value": "trueNegatives / (trueNegatives + falseNegatives)",
+    "accuracy": "(truePositives + trueNegatives) / (truePositives + falsePositives + trueNegatives + falseNegatives)"
+  },
+  "outputs": {
+    "primary": "positive_predictive_value",
+    "breakdown": [
+      "sensitivity",
+      "specificity",
+      "negative_predictive_value",
+      "accuracy"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

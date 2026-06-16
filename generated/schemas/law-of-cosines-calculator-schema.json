@@ -1,0 +1,59 @@
+{
+  "toolName": "law-of-cosines-calculator",
+  "inputs": [
+    {
+      "id": "sideA",
+      "label": "Side a",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "Length of first side"
+    },
+    {
+      "id": "sideB",
+      "label": "Side b",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "Length of second side"
+    },
+    {
+      "id": "angleC",
+      "label": "Angle C",
+      "type": "number",
+      "unit": "degrees",
+      "default": 0,
+      "businessContext": "Included angle between sides a and b"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for output rounding"
+    }
+  ],
+  "formulas": {
+    "sideC": "Math.sqrt(sideA**2 + sideB**2 - 2 * sideA * sideB * Math.cos(angleC * Math.PI / 180))",
+    "sideC_rounded": "Math.round(sideC * 10**decimalPlaces) / 10**decimalPlaces",
+    "angleA": "Math.acos((sideB**2 + sideC**2 - sideA**2) / (2 * sideB * sideC)) * 180 / Math.PI",
+    "angleB": "Math.acos((sideA**2 + sideC**2 - sideB**2) / (2 * sideA * sideC)) * 180 / Math.PI",
+    "angleA_rounded": "Math.round(angleA * 10**decimalPlaces) / 10**decimalPlaces",
+    "angleB_rounded": "Math.round(angleB * 10**decimalPlaces) / 10**decimalPlaces"
+  },
+  "outputs": {
+    "primary": "sideC_rounded",
+    "breakdown": [
+      "sideC",
+      "angleA_rounded",
+      "angleB_rounded"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

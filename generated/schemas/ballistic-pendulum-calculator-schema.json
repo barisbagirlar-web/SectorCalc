@@ -1,0 +1,62 @@
+{
+  "toolName": "ballistic-pendulum-calculator",
+  "inputs": [
+    {
+      "id": "projectile_mass",
+      "label": "Projectile Mass (m)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0.01,
+      "businessContext": "Mass of the projectile (e.g., bullet) in kilograms"
+    },
+    {
+      "id": "pendulum_mass",
+      "label": "Pendulum Mass (M)",
+      "type": "number",
+      "unit": "kg",
+      "default": 2,
+      "businessContext": "Mass of the pendulum bob in kilograms"
+    },
+    {
+      "id": "pendulum_length",
+      "label": "Pendulum Length (L)",
+      "type": "number",
+      "unit": "m",
+      "default": 1.5,
+      "businessContext": "Length of the pendulum arm from pivot to center of mass in meters"
+    },
+    {
+      "id": "angle",
+      "label": "Maximum Swing Angle (θ)",
+      "type": "number",
+      "unit": "deg",
+      "default": 30,
+      "businessContext": "Maximum angle of swing from the vertical, in degrees"
+    },
+    {
+      "id": "gravity",
+      "label": "Gravity (g)",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Acceleration due to gravity, typically 9.81 m/s²"
+    }
+  ],
+  "formulas": {
+    "angle_rad": "angle * Math.PI / 180",
+    "height_rise": "pendulum_length * (1 - Math.cos(angle_rad))",
+    "velocity": "((projectile_mass + pendulum_mass) / projectile_mass) * Math.sqrt(2 * gravity * height_rise)"
+  },
+  "outputs": {
+    "primary": "velocity",
+    "breakdown": [
+      "height_rise"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

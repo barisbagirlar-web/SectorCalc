@@ -1,0 +1,75 @@
+{
+  "toolName": "vector-calculator",
+  "inputs": [
+    {
+      "id": "v1x",
+      "label": "Vector 1 X",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Component of first vector along X-axis"
+    },
+    {
+      "id": "v1y",
+      "label": "Vector 1 Y",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Component of first vector along Y-axis"
+    },
+    {
+      "id": "v1z",
+      "label": "Vector 1 Z",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Component of first vector along Z-axis"
+    },
+    {
+      "id": "v2x",
+      "label": "Vector 2 X",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Component of second vector along X-axis"
+    },
+    {
+      "id": "v2y",
+      "label": "Vector 2 Y",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Component of second vector along Y-axis"
+    },
+    {
+      "id": "v2z",
+      "label": "Vector 2 Z",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Component of second vector along Z-axis"
+    }
+  ],
+  "formulas": {
+    "angleBetween": "Math.acos((v1x*v2x + v1y*v2y + v1z*v2z) / (Math.sqrt(v1x**2 + v1y**2 + v1z**2) * Math.sqrt(v2x**2 + v2y**2 + v2z**2))) * (180 / Math.PI)",
+    "magnitudeV1": "Math.sqrt(v1x**2 + v1y**2 + v1z**2)",
+    "magnitudeV2": "Math.sqrt(v2x**2 + v2y**2 + v2z**2)",
+    "dotProduct": "v1x*v2x + v1y*v2y + v1z*v2z",
+    "crossProductMagnitude": "Math.sqrt((v1y*v2z - v1z*v2y)**2 + (v1z*v2x - v1x*v2z)**2 + (v1x*v2y - v1y*v2x)**2)"
+  },
+  "outputs": {
+    "primary": "angleBetween",
+    "breakdown": [
+      "magnitudeV1",
+      "magnitudeV2",
+      "dotProduct",
+      "crossProductMagnitude"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

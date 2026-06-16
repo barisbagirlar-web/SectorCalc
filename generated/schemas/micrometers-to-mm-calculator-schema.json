@@ -1,0 +1,54 @@
+{
+  "toolName": "micrometers-to-mm-calculator",
+  "inputs": [
+    {
+      "id": "micrometerValue",
+      "label": "Micrometer Value",
+      "type": "number",
+      "unit": "µm",
+      "default": 0,
+      "businessContext": "Measured length in micrometers"
+    },
+    {
+      "id": "calibrationFactor",
+      "label": "Calibration Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Instrument calibration correction as percentage"
+    },
+    {
+      "id": "temperatureCoeff",
+      "label": "Temperature Coefficient",
+      "type": "number",
+      "unit": "µm/°C",
+      "default": 0,
+      "businessContext": "Material linear thermal expansion coefficient"
+    },
+    {
+      "id": "ambientTemperature",
+      "label": "Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Temperature during measurement in Celsius"
+    }
+  ],
+  "formulas": {
+    "correctedMicrometers": "micrometerValue + (calibrationFactor/100 * micrometerValue) + temperatureCoeff * (ambientTemperature - 20)",
+    "mm": "correctedMicrometers / 1000"
+  },
+  "outputs": {
+    "primary": "mm",
+    "breakdown": [
+      "correctedMicrometers",
+      "mm"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

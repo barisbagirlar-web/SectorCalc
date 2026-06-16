@@ -1,0 +1,63 @@
+{
+  "toolName": "body-surface-area-pediatric-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Patient weight in kilograms"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Patient height in centimeters"
+    },
+    {
+      "id": "formula",
+      "label": "Formula Selection",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1=Mosteller, 2=DuBois, 3=Haycock, 4=Gehan & George"
+    },
+    {
+      "id": "adjustment",
+      "label": "Adjustment Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplicative clinical adjustment (e.g., 1 for standard, 0.85 for reduced dose)"
+    }
+  ],
+  "formulas": {
+    "mosteller_bsa": "Math.sqrt((height * weight) / 3600)",
+    "dubois_bsa": "0.007184 * Math.pow(weight, 0.425) * Math.pow(height, 0.725)",
+    "haycock_bsa": "0.024265 * Math.pow(weight, 0.5378) * Math.pow(height, 0.3964)",
+    "gehan_bsa": "0.0235 * Math.pow(weight, 0.51456) * Math.pow(height, 0.42246)",
+    "bsa": "(formula == 1 ? mosteller_bsa : formula == 2 ? dubois_bsa : formula == 3 ? haycock_bsa : gehan_bsa) * adjustment",
+    "breakdown1": "`Mosteller: ${mosteller_bsa.toFixed(3)} m²`",
+    "breakdown2": "`DuBois: ${dubois_bsa.toFixed(3)} m²`",
+    "breakdown3": "`Haycock: ${haycock_bsa.toFixed(3)} m²`",
+    "breakdown4": "`Gehan & George: ${gehan_bsa.toFixed(3)} m²`"
+  },
+  "outputs": {
+    "primary": "bsa",
+    "breakdown": [
+      "breakdown1",
+      "breakdown2",
+      "breakdown3",
+      "breakdown4"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

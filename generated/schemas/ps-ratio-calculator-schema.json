@@ -1,0 +1,53 @@
+{
+  "toolName": "ps-ratio-calculator",
+  "inputs": [
+    {
+      "id": "marketCap",
+      "label": "Piyasa Değeri",
+      "type": "number",
+      "unit": "₺",
+      "default": 0,
+      "businessContext": "Şirketin toplam piyasa değeri"
+    },
+    {
+      "id": "totalSales",
+      "label": "Toplam Satışlar",
+      "type": "number",
+      "unit": "₺",
+      "default": 0,
+      "businessContext": "Şirketin yıllık toplam satış geliri"
+    },
+    {
+      "id": "pricePerShare",
+      "label": "Hisse Fiyatı",
+      "type": "number",
+      "unit": "₺",
+      "default": 0,
+      "businessContext": "Bir hissenin güncel fiyatı"
+    },
+    {
+      "id": "salesPerShare",
+      "label": "Hisse Başına Satış",
+      "type": "number",
+      "unit": "₺",
+      "default": 0,
+      "businessContext": "Hisse başına yıllık satış geliri"
+    }
+  ],
+  "formulas": {
+    "primary": "marketCap / totalSales",
+    "psPerShare": "pricePerShare / salesPerShare"
+  },
+  "outputs": {
+    "primary": "P/S Oranı (Piyasa Değeri)",
+    "breakdown": [
+      "P/S Oranı (Hisse Başına)"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

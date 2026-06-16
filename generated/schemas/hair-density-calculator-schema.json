@@ -1,0 +1,55 @@
+{
+  "toolName": "hair-density-calculator",
+  "inputs": [
+    {
+      "id": "counted_hairs",
+      "label": "Counted Hairs",
+      "type": "number",
+      "unit": "count",
+      "default": 100,
+      "businessContext": "Number of hairs observed in the sample area."
+    },
+    {
+      "id": "sample_area_cm2",
+      "label": "Sample Area",
+      "type": "number",
+      "unit": "cm²",
+      "default": 1,
+      "businessContext": "Area of the sample region in square centimeters."
+    },
+    {
+      "id": "magnification",
+      "label": "Magnification",
+      "type": "number",
+      "unit": "x",
+      "default": 1,
+      "businessContext": "Magnification factor of the optical device (1 for no magnification)."
+    },
+    {
+      "id": "calibration_factor",
+      "label": "Calibration Factor",
+      "type": "number",
+      "unit": "unitless",
+      "default": 1,
+      "businessContext": "Device-specific calibration coefficient to correct the measurement."
+    }
+  ],
+  "formulas": {
+    "hair_density": "counted_hairs * magnification**2 * calibration_factor / sample_area_cm2",
+    "raw_density": "counted_hairs / sample_area_cm2",
+    "effective_area": "sample_area_cm2 / (magnification**2 * calibration_factor)"
+  },
+  "outputs": {
+    "primary": "hair_density",
+    "breakdown": [
+      "raw_density",
+      "effective_area"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

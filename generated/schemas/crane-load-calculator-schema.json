@@ -1,0 +1,55 @@
+{
+  "toolName": "crane-load-calculator",
+  "inputs": [
+    {
+      "id": "liftedLoad",
+      "label": "Lifted Load",
+      "type": "number",
+      "unit": "ton",
+      "default": 10,
+      "businessContext": "Kaldırılacak yükün ağırlığı (ton)"
+    },
+    {
+      "id": "riggingWeight",
+      "label": "Rigging Weight",
+      "type": "number",
+      "unit": "ton",
+      "default": 1,
+      "businessContext": "Donanım ağırlığı (ton)"
+    },
+    {
+      "id": "dynamicFactor",
+      "label": "Dynamic Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.2,
+      "businessContext": "Dinamik faktör (vinç hareketleri)"
+    },
+    {
+      "id": "windFactor",
+      "label": "Wind Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.1,
+      "businessContext": "Rüzgar faktörü"
+    }
+  ],
+  "formulas": {
+    "staticLoad": "liftedLoad + riggingWeight",
+    "dynamicLoad": "staticLoad * dynamicFactor",
+    "totalLoad": "dynamicLoad * windFactor"
+  },
+  "outputs": {
+    "primary": "totalLoad",
+    "breakdown": [
+      "staticLoad",
+      "dynamicLoad"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "ebitda-calculator",
+  "inputs": [
+    {
+      "id": "revenue",
+      "label": "Total Revenue",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Toplam gelir (satışlar)"
+    },
+    {
+      "id": "cogs",
+      "label": "Cost of Goods Sold (COGS)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Satılan malın maliyeti"
+    },
+    {
+      "id": "opex",
+      "label": "Operating Expenses (excl. D&A)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Faaliyet giderleri (amortisman hariç)"
+    },
+    {
+      "id": "depreciation",
+      "label": "Depreciation",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Amortisman gideri"
+    },
+    {
+      "id": "amortization",
+      "label": "Amortization",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "İtfa gideri"
+    }
+  ],
+  "formulas": {
+    "ebitda": "revenue - cogs - opex",
+    "grossProfit": "revenue - cogs",
+    "ebit": "revenue - cogs - opex - depreciation - amortization"
+  },
+  "outputs": {
+    "primary": "ebitda",
+    "breakdown": [
+      "grossProfit",
+      "ebit"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

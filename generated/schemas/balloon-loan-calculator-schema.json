@@ -1,0 +1,69 @@
+{
+  "toolName": "balloon-loan-calculator",
+  "inputs": [
+    {
+      "id": "loanAmount",
+      "label": "Loan Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 100000,
+      "businessContext": "Total borrowed amount"
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Nominal annual interest rate"
+    },
+    {
+      "id": "loanTermYears",
+      "label": "Loan Term (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Duration until balloon payment"
+    },
+    {
+      "id": "balloonPercent",
+      "label": "Balloon Payment (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Balloon payment amount as % of loan"
+    },
+    {
+      "id": "paymentsPerYear",
+      "label": "Payments per Year",
+      "type": "number",
+      "unit": "payments/year",
+      "default": 12,
+      "businessContext": "Compounding frequency"
+    }
+  ],
+  "formulas": {
+    "periodicRate": "(annualInterestRate/100) / paymentsPerYear",
+    "n": "loanTermYears * paymentsPerYear",
+    "balloonAmount": "loanAmount * (balloonPercent/100)",
+    "monthlyPayment": "(loanAmount * periodicRate * (1+periodicRate)**n - balloonAmount * periodicRate) / ((1+periodicRate)**n - 1)",
+    "totalPaymentWithoutBalloon": "monthlyPayment * n",
+    "totalInterest": "(monthlyPayment * n + balloonAmount) - loanAmount",
+    "totalCost": "monthlyPayment * n + balloonAmount"
+  },
+  "outputs": {
+    "primary": "monthlyPayment",
+    "breakdown": [
+      "balloonAmount",
+      "totalPaymentWithoutBalloon",
+      "totalInterest",
+      "totalCost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

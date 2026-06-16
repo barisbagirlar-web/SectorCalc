@@ -1,0 +1,59 @@
+{
+  "toolName": "absorbed-dose-converter-calculator",
+  "inputs": [
+    {
+      "id": "doseGray",
+      "label": "Absorbed Dose (Gy)",
+      "type": "number",
+      "unit": "Gy",
+      "default": 0,
+      "businessContext": "Measured or calculated absorbed dose in Gray"
+    },
+    {
+      "id": "calibrationFactor",
+      "label": "Calibration Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Multiplier for instrument calibration"
+    },
+    {
+      "id": "safetyMargin",
+      "label": "Safety Margin",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Safety factor to apply for regulatory limits"
+    },
+    {
+      "id": "minimalDetectionLimit",
+      "label": "Minimal Detection Limit",
+      "type": "number",
+      "unit": "Gy",
+      "default": 0.001,
+      "businessContext": "Smallest dose reliably measurable"
+    }
+  ],
+  "formulas": {
+    "adjustedDoseGy": "doseGray * calibrationFactor * safetyMargin",
+    "adjustedDoseRad": "doseGray * calibrationFactor * safetyMargin * 100",
+    "adjustedDose_mGy": "doseGray * calibrationFactor * safetyMargin * 1000",
+    "adjustedDose_µGy": "doseGray * calibrationFactor * safetyMargin * 1000000",
+    "signalToNoiseRatio": "doseGray / minimalDetectionLimit"
+  },
+  "outputs": {
+    "primary": "adjustedDoseGy",
+    "breakdown": [
+      "adjustedDoseRad",
+      "adjustedDose_mGy",
+      "adjustedDose_µGy",
+      "signalToNoiseRatio"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "ukulele-tuning-calculator",
+  "inputs": [
+    {
+      "id": "scaleLength",
+      "label": "Scale Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 345,
+      "businessContext": "Ukulele scale length (nut to saddle)"
+    },
+    {
+      "id": "stringDiameter",
+      "label": "String Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.5,
+      "businessContext": "Diameter of the ukulele string"
+    },
+    {
+      "id": "density",
+      "label": "Material Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1150,
+      "businessContext": "Density of the string material (e.g., nylon)"
+    },
+    {
+      "id": "frequency",
+      "label": "Target Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 440,
+      "businessContext": "Desired fundamental frequency of the string"
+    }
+  ],
+  "formulas": {
+    "Tension (N)": "Math.PI * density * Math.pow(stringDiameter/1000, 2) * Math.pow(scaleLength/1000, 2) * Math.pow(frequency, 2)",
+    "Tension (kgf)": "(Math.PI * density * Math.pow(stringDiameter/1000, 2) * Math.pow(scaleLength/1000, 2) * Math.pow(frequency, 2)) / 9.80665",
+    "Tension (lbf)": "(Math.PI * density * Math.pow(stringDiameter/1000, 2) * Math.pow(scaleLength/1000, 2) * Math.pow(frequency, 2)) * 0.224809"
+  },
+  "outputs": {
+    "primary": "Tension (N)",
+    "breakdown": [
+      "Tension (kgf)",
+      "Tension (lbf)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

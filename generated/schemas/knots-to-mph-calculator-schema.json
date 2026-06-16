@@ -1,0 +1,55 @@
+{
+  "toolName": "knots-to-mph-calculator",
+  "inputs": [
+    {
+      "id": "knots",
+      "label": "Speed in knots",
+      "type": "number",
+      "unit": "kn",
+      "default": 0,
+      "businessContext": "The speed value in knots to be converted to miles per hour."
+    },
+    {
+      "id": "calFactor",
+      "label": "Calibration factor",
+      "type": "number",
+      "unit": "factor",
+      "default": 1,
+      "businessContext": "Multiplier for instrument calibration (dimensionless)."
+    },
+    {
+      "id": "calOffset",
+      "label": "Calibration offset",
+      "type": "number",
+      "unit": "kn",
+      "default": 0,
+      "businessContext": "Additive offset in knots for instrument calibration."
+    },
+    {
+      "id": "precisionMode",
+      "label": "Precision mode",
+      "type": "number",
+      "unit": "mode",
+      "default": 1,
+      "businessContext": "1 = Standard (1.15078), 2 = High Precision (1.15077945)."
+    }
+  ],
+  "formulas": {
+    "mph": "(knots * calFactor + calOffset) * (1.15078 - (precisionMode - 1) * 0.00000055)",
+    "correctedKnots": "knots * calFactor + calOffset",
+    "conversionFactorUsed": "1.15078 - (precisionMode - 1) * 0.00000055"
+  },
+  "outputs": {
+    "primary": "mph",
+    "breakdown": [
+      "correctedKnots",
+      "conversionFactorUsed"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

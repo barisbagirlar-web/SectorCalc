@@ -1,0 +1,67 @@
+{
+  "toolName": "baby-shower-calculator",
+  "inputs": [
+    {
+      "id": "numParts",
+      "label": "Number of Parts per Batch",
+      "type": "number",
+      "unit": "pieces",
+      "default": 100,
+      "businessContext": "Number of small parts to be cleaned in one batch"
+    },
+    {
+      "id": "flowRate",
+      "label": "Water Flow Rate",
+      "type": "number",
+      "unit": "L/min",
+      "default": 10,
+      "businessContext": "Flow rate of the cleaning shower"
+    },
+    {
+      "id": "cycleTime",
+      "label": "Cycle Time",
+      "type": "number",
+      "unit": "min",
+      "default": 5,
+      "businessContext": "Duration of the cleaning cycle"
+    },
+    {
+      "id": "chemicalCostPerLiter",
+      "label": "Chemical Cost per Liter",
+      "type": "number",
+      "unit": "currency/L",
+      "default": 0.5,
+      "businessContext": "Cost of chemical agent per liter"
+    },
+    {
+      "id": "waterCostPerLiter",
+      "label": "Water Cost per Liter",
+      "type": "number",
+      "unit": "currency/L",
+      "default": 0.002,
+      "businessContext": "Cost of water per liter"
+    }
+  ],
+  "formulas": {
+    "totalWaterPerBatch": "flowRate * cycleTime",
+    "totalWaterCost": "totalWaterPerBatch * waterCostPerLiter",
+    "totalChemicalCost": "totalWaterPerBatch * chemicalCostPerLiter",
+    "totalCostPerBatch": "totalWaterCost + totalChemicalCost",
+    "costPerPiece": "totalCostPerBatch / numParts"
+  },
+  "outputs": {
+    "primary": "costPerPiece",
+    "breakdown": [
+      "totalWaterPerBatch",
+      "totalWaterCost",
+      "totalChemicalCost",
+      "totalCostPerBatch"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

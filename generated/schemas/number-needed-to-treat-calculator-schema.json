@@ -1,0 +1,57 @@
+{
+  "toolName": "number-needed-to-treat-calculator",
+  "inputs": [
+    {
+      "id": "controlEvents",
+      "label": "Control Group Events",
+      "type": "number",
+      "unit": "count",
+      "default": 20,
+      "businessContext": "Number of subjects in the control group who experienced the outcome"
+    },
+    {
+      "id": "controlTotal",
+      "label": "Control Group Total",
+      "type": "number",
+      "unit": "patients",
+      "default": 100,
+      "businessContext": "Total number of subjects in the control group"
+    },
+    {
+      "id": "treatmentEvents",
+      "label": "Treatment Group Events",
+      "type": "number",
+      "unit": "count",
+      "default": 15,
+      "businessContext": "Number of subjects in the treatment group who experienced the outcome"
+    },
+    {
+      "id": "treatmentTotal",
+      "label": "Treatment Group Total",
+      "type": "number",
+      "unit": "patients",
+      "default": 100,
+      "businessContext": "Total number of subjects in the treatment group"
+    }
+  ],
+  "formulas": {
+    "controlRate": "controlEvents / controlTotal * 100",
+    "treatmentRate": "treatmentEvents / treatmentTotal * 100",
+    "arr": "controlRate - treatmentRate",
+    "nnt": "arr > 0 ? Math.round(100 / arr) : 'N/A'"
+  },
+  "outputs": {
+    "primary": "nnt",
+    "breakdown": [
+      "controlRate",
+      "treatmentRate",
+      "arr"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

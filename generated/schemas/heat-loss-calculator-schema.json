@@ -1,0 +1,90 @@
+{
+  "toolName": "heat-loss-calculator",
+  "inputs": [
+    {
+      "id": "wallArea",
+      "label": "External Wall Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "businessContext": "Total external wall area excluding windows"
+    },
+    {
+      "id": "windowArea",
+      "label": "Window Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 20,
+      "businessContext": "Total window area"
+    },
+    {
+      "id": "roofArea",
+      "label": "Roof Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 60,
+      "businessContext": "Total roof or ceiling area exposed to exterior"
+    },
+    {
+      "id": "uWall",
+      "label": "U-Value Wall",
+      "type": "number",
+      "unit": "W/m²K",
+      "default": 0.25,
+      "businessContext": "Thermal transmittance of walls"
+    },
+    {
+      "id": "uWindow",
+      "label": "U-Value Window",
+      "type": "number",
+      "unit": "W/m²K",
+      "default": 1.8,
+      "businessContext": "Thermal transmittance of windows"
+    },
+    {
+      "id": "uRoof",
+      "label": "U-Value Roof",
+      "type": "number",
+      "unit": "W/m²K",
+      "default": 0.2,
+      "businessContext": "Thermal transmittance of roof/ceiling"
+    },
+    {
+      "id": "indoorTemp",
+      "label": "Indoor Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Design indoor air temperature"
+    },
+    {
+      "id": "outdoorTemp",
+      "label": "Outdoor Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": -5,
+      "businessContext": "Design outdoor air temperature"
+    }
+  ],
+  "formulas": {
+    "deltaT": "indoorTemp - outdoorTemp",
+    "wallLoss": "uWall * wallArea * deltaT",
+    "windowLoss": "uWindow * windowArea * deltaT",
+    "roofLoss": "uRoof * roofArea * deltaT",
+    "totalHeatLoss": "wallLoss + windowLoss + roofLoss"
+  },
+  "outputs": {
+    "primary": "totalHeatLoss",
+    "breakdown": [
+      "wallLoss",
+      "windowLoss",
+      "roofLoss"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

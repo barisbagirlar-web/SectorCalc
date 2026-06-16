@@ -1,0 +1,91 @@
+{
+  "toolName": "tankless-water-heater-calculator",
+  "inputs": [
+    {
+      "id": "flowRate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "L/min",
+      "default": 6,
+      "businessContext": "Volumetric flow rate of water through the heater"
+    },
+    {
+      "id": "inletTemp",
+      "label": "Inlet Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 10,
+      "businessContext": "Temperature of incoming cold water"
+    },
+    {
+      "id": "outletTemp",
+      "label": "Outlet Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 40,
+      "businessContext": "Desired temperature of hot water output"
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 98,
+      "businessContext": "Heater thermal efficiency (0-100%)"
+    },
+    {
+      "id": "energyCost",
+      "label": "Energy Cost",
+      "type": "number",
+      "unit": "per kWh",
+      "default": 0.15,
+      "businessContext": "Cost of energy (electricity or gas) per kilowatt-hour"
+    },
+    {
+      "id": "usageTime",
+      "label": "Daily Usage",
+      "type": "number",
+      "unit": "hours",
+      "default": 2,
+      "businessContext": "Average daily duration of water heater operation"
+    },
+    {
+      "id": "daysPerMonth",
+      "label": "Days per Month",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Number of days per month for cost estimation"
+    },
+    {
+      "id": "specificHeat",
+      "label": "Specific Heat",
+      "type": "number",
+      "unit": "kJ/(kg·°C)",
+      "default": 4.186,
+      "businessContext": "Specific heat capacity of water (4.186 kJ/(kg·°C) for water)"
+    }
+  ],
+  "formulas": {
+    "requiredPower": "(flowRate / 60) * specificHeat * (outletTemp - inletTemp) / (efficiency / 100)",
+    "dailyEnergy": "(flowRate / 60) * specificHeat * (outletTemp - inletTemp) / (efficiency / 100) * usageTime",
+    "dailyCost": "(flowRate / 60) * specificHeat * (outletTemp - inletTemp) / (efficiency / 100) * usageTime * energyCost",
+    "monthlyCost": "(flowRate / 60) * specificHeat * (outletTemp - inletTemp) / (efficiency / 100) * usageTime * energyCost * daysPerMonth",
+    "annualCost": "(flowRate / 60) * specificHeat * (outletTemp - inletTemp) / (efficiency / 100) * usageTime * energyCost * 365"
+  },
+  "outputs": {
+    "primary": "requiredPower",
+    "breakdown": [
+      "dailyEnergy",
+      "dailyCost",
+      "monthlyCost",
+      "annualCost"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

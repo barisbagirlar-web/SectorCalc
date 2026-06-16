@@ -1,0 +1,62 @@
+{
+  "toolName": "churn-rate-calculator",
+  "inputs": [
+    {
+      "id": "startingCustomers",
+      "label": "Dönem Başı Müşteri Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1000,
+      "businessContext": "Ölçüm döneminin başındaki aktif müşteri sayısı"
+    },
+    {
+      "id": "lostCustomers",
+      "label": "Kaybedilen Müşteri Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 50,
+      "businessContext": "Dönem içinde kaybedilen (churn eden) müşteri sayısı"
+    },
+    {
+      "id": "startingMRR",
+      "label": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
+      "type": "number",
+      "unit": "TL",
+      "default": 10000,
+      "businessContext": "Dönem başındaki toplam aylık yinelenen gelir"
+    },
+    {
+      "id": "lostMRR",
+      "label": "Kaybedilen MRR",
+      "type": "number",
+      "unit": "TL",
+      "default": 500,
+      "businessContext": "Kaybedilen müşterilerden gelen aylık yinelenen gelir kaybı"
+    },
+    {
+      "id": "periodMonths",
+      "label": "Ölçüm Dönemi (Ay)",
+      "type": "number",
+      "unit": "ay",
+      "default": 1,
+      "businessContext": "Kayıp oranının hesaplandığı dönem (genellikle aylık)"
+    }
+  ],
+  "formulas": {
+    "customerChurnRate": "(lostCustomers / startingCustomers) * 100",
+    "revenueChurnRate": "(lostMRR / startingMRR) * 100"
+  },
+  "outputs": {
+    "primary": "customerChurnRate",
+    "breakdown": [
+      "customerChurnRate",
+      "revenueChurnRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

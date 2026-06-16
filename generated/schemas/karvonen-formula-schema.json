@@ -1,0 +1,63 @@
+{
+  "toolName": "karvonen-formula",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "User's age in years"
+    },
+    {
+      "id": "resting_hr",
+      "label": "Resting Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 70,
+      "businessContext": "Heart rate at rest in beats per minute"
+    },
+    {
+      "id": "max_hr",
+      "label": "Maximum Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 190,
+      "businessContext": "Maximum heart rate (can be estimated as 220 - age)"
+    },
+    {
+      "id": "intensity_min",
+      "label": "Minimum Intensity",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "businessContext": "Lower bound of target heart rate zone as percentage of heart rate reserve"
+    },
+    {
+      "id": "intensity_max",
+      "label": "Maximum Intensity",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Upper bound of target heart rate zone as percentage of heart rate reserve"
+    }
+  ],
+  "formulas": {
+    "heartRateReserve": "max_hr - resting_hr",
+    "targetHRMin": "Math.round(resting_hr + heartRateReserve * (intensity_min / 100))",
+    "targetHRMax": "Math.round(resting_hr + heartRateReserve * (intensity_max / 100))"
+  },
+  "outputs": {
+    "primary": "targetHRMin - targetHRMax bpm",
+    "breakdown": [
+      "Heart Rate Reserve: heartRateReserve bpm",
+      "Target HR Zone: targetHRMin - targetHRMax bpm"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

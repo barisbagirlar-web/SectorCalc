@@ -1,0 +1,76 @@
+{
+  "toolName": "vertical-curve-calculator",
+  "inputs": [
+    {
+      "id": "g1",
+      "label": "Initial Grade (%)",
+      "type": "number",
+      "unit": "%",
+      "default": -2,
+      "businessContext": "Initial tangent grade in percent"
+    },
+    {
+      "id": "g2",
+      "label": "Final Grade (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "businessContext": "Final tangent grade in percent"
+    },
+    {
+      "id": "L",
+      "label": "Curve Length (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 200,
+      "businessContext": "Length of the vertical curve"
+    },
+    {
+      "id": "station_PVC",
+      "label": "Station of PVC (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Station of the point of vertical curvature"
+    },
+    {
+      "id": "elevation_PVC",
+      "label": "Elevation at PVC (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "businessContext": "Elevation at the point of vertical curvature"
+    },
+    {
+      "id": "target_station",
+      "label": "Target Station (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "businessContext": "Station at which to compute the elevation"
+    }
+  ],
+  "formulas": {
+    "r": "(inputs.g2 - inputs.g1) / (100 * inputs.L)",
+    "distance": "inputs.target_station - inputs.station_PVC",
+    "elevation_at_target": "inputs.elevation_PVC + (inputs.g1/100) * (inputs.target_station - inputs.station_PVC) + (r/2) * (inputs.target_station - inputs.station_PVC)**2",
+    "x_max": "(inputs.g2 - inputs.g1) === 0 ? 0 : - (inputs.g1/100) / r",
+    "high_point_station": "inputs.station_PVC + x_max",
+    "high_point_elevation": "inputs.elevation_PVC + (inputs.g1/100) * x_max + (r/2) * x_max**2",
+    "rate_change": "inputs.g2 - inputs.g1"
+  },
+  "outputs": {
+    "primary": "elevation_at_target",
+    "breakdown": [
+      "high_point_station",
+      "high_point_elevation",
+      "rate_change"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

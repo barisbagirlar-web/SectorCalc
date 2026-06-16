@@ -1,0 +1,53 @@
+{
+  "toolName": "series-resistor-calculator",
+  "inputs": [
+    {
+      "id": "R1",
+      "label": "Resistor 1",
+      "type": "number",
+      "unit": "Ω",
+      "default": 0,
+      "businessContext": "Value of the first resistor in series"
+    },
+    {
+      "id": "R2",
+      "label": "Resistor 2",
+      "type": "number",
+      "unit": "Ω",
+      "default": 0,
+      "businessContext": "Value of the second resistor in series"
+    },
+    {
+      "id": "R3",
+      "label": "Resistor 3",
+      "type": "number",
+      "unit": "Ω",
+      "default": 0,
+      "businessContext": "Value of the third resistor in series"
+    },
+    {
+      "id": "R4",
+      "label": "Resistor 4",
+      "type": "number",
+      "unit": "Ω",
+      "default": 0,
+      "businessContext": "Value of the fourth resistor in series"
+    }
+  ],
+  "formulas": {
+    "totalResistance": "R1 + R2 + R3 + R4",
+    "resistanceFormula": "'R1 + R2 + R3 + R4 = ' + (R1+R2+R3+R4) + ' Ω'"
+  },
+  "outputs": {
+    "primary": "totalResistance",
+    "breakdown": [
+      "resistanceFormula"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

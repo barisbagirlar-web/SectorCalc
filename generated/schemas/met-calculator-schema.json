@@ -1,0 +1,57 @@
+{
+  "toolName": "met-calculator",
+  "inputs": [
+    {
+      "id": "met",
+      "label": "MET Value",
+      "type": "number",
+      "unit": "MET",
+      "default": 8,
+      "businessContext": "Metabolic Equivalent of Task, e.g., running at 8 km/h ≈ 8 MET"
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms"
+    },
+    {
+      "id": "duration",
+      "label": "Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 30,
+      "businessContext": "Duration of the activity in minutes"
+    },
+    {
+      "id": "caloriesPerLiterO2",
+      "label": "Energy per Liter O₂",
+      "type": "number",
+      "unit": "kcal/L",
+      "default": 5,
+      "businessContext": "Energy released per liter of oxygen consumed (standard=5 kcal/L)"
+    }
+  ],
+  "formulas": {
+    "totalCalories": "met * 3.5 * weight * (caloriesPerLiterO2 / 1000) * duration",
+    "caloriesPerMinute": "met * 3.5 * weight * (caloriesPerLiterO2 / 1000)",
+    "vo2": "met * 3.5",
+    "metHours": "met * (duration / 60)"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "caloriesPerMinute",
+      "vo2",
+      "metHours"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

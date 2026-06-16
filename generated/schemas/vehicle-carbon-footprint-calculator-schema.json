@@ -1,0 +1,55 @@
+{
+  "toolName": "vehicle-carbon-footprint-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "businessContext": "Total distance traveled by the vehicle."
+    },
+    {
+      "id": "fuelConsumption",
+      "label": "Fuel Consumption Rate",
+      "type": "number",
+      "unit": "L/100km",
+      "default": 8,
+      "businessContext": "Average fuel consumption per 100 km (e.g., 8 L/100km for a mid-size car)."
+    },
+    {
+      "id": "emissionFactor",
+      "label": "Fuel Emission Factor",
+      "type": "number",
+      "unit": "kg CO₂/L",
+      "default": 2.31,
+      "businessContext": "CO₂ emissions per liter of fuel burned. For diesel ~2.68 kg/L, gasoline ~2.31 kg/L."
+    },
+    {
+      "id": "numberOfTrips",
+      "label": "Number of Trips or Vehicles",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of identical trips or vehicles to scale total emissions."
+    }
+  ],
+  "formulas": {
+    "totalCO2": "distance * fuelConsumption / 100 * emissionFactor * numberOfTrips",
+    "fuelUsed": "distance * fuelConsumption / 100 * numberOfTrips",
+    "perTripCO2": "distance * fuelConsumption / 100 * emissionFactor"
+  },
+  "outputs": {
+    "primary": "totalCO2",
+    "breakdown": [
+      "perTripCO2",
+      "fuelUsed"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

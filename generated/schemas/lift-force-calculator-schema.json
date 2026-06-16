@@ -1,0 +1,53 @@
+{
+  "toolName": "lift-force-calculator",
+  "inputs": [
+    {
+      "id": "density",
+      "label": "Fluid Density (ρ)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1.225,
+      "businessContext": "Air density at sea level; varies with altitude, temperature, and humidity. For aerodynamic lift, typical range 0.4–1.2 kg/m³."
+    },
+    {
+      "id": "velocity",
+      "label": "Flow Velocity (v)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 100,
+      "businessContext": "Relative speed between air and the lifting surface (e.g., aircraft true airspeed, wind tunnel flow speed)."
+    },
+    {
+      "id": "area",
+      "label": "Reference Area (A)",
+      "type": "number",
+      "unit": "m²",
+      "default": 20,
+      "businessContext": "Planform area of the wing or lifting surface used for aerodynamic analysis (e.g., gross wing area)."
+    },
+    {
+      "id": "liftCoefficient",
+      "label": "Lift Coefficient (CL)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Dimensionless coefficient capturing the effect of angle of attack, airfoil shape, and flow conditions. Typical range 0.2–1.5 for aircraft."
+    }
+  ],
+  "formulas": {
+    "dynamicPressure": "0.5 * density * Math.pow(velocity, 2)",
+    "liftForce": "0.5 * density * Math.pow(velocity, 2) * area * liftCoefficient"
+  },
+  "outputs": {
+    "primary": "liftForce",
+    "breakdown": [
+      "dynamicPressure"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,79 @@
+{
+  "toolName": "corpulence-index-calculator",
+  "inputs": [
+    {
+      "id": "unit_system",
+      "label": "Measurement System",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 = Metric (kg, cm), 1 = Imperial (stones, pounds, feet, inches)"
+    },
+    {
+      "id": "weight_kg",
+      "label": "Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms, used when Metric system selected"
+    },
+    {
+      "id": "height_cm",
+      "label": "Height (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Body height in centimeters, used when Metric system selected"
+    },
+    {
+      "id": "weight_stones",
+      "label": "Weight - Stones",
+      "type": "number",
+      "unit": "st",
+      "default": 0,
+      "businessContext": "Whole number of stones, used when Imperial system selected"
+    },
+    {
+      "id": "weight_pounds",
+      "label": "Weight - Pounds",
+      "type": "number",
+      "unit": "lbs",
+      "default": 0,
+      "businessContext": "Additional pounds beyond stones, used when Imperial system selected"
+    },
+    {
+      "id": "height_feet",
+      "label": "Height - Feet",
+      "type": "number",
+      "unit": "ft",
+      "default": 0,
+      "businessContext": "Whole number of feet, used when Imperial system selected"
+    },
+    {
+      "id": "height_inches",
+      "label": "Height - Inches",
+      "type": "number",
+      "unit": "in",
+      "default": 0,
+      "businessContext": "Additional inches beyond feet, used when Imperial system selected"
+    }
+  ],
+  "formulas": {
+    "weight_kg_total": "unit_system === 0 ? weight_kg : (weight_stones * 6.35029 + weight_pounds * 0.453592)",
+    "height_m": "unit_system === 0 ? (height_cm / 100) : (height_feet * 0.3048 + height_inches * 0.0254)",
+    "corpulence_index": "weight_kg_total / Math.pow(height_m, 3)"
+  },
+  "outputs": {
+    "primary": "corpulence_index",
+    "breakdown": [
+      "weight_kg_total",
+      "height_m"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

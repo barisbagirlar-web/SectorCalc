@@ -1,0 +1,65 @@
+{
+  "toolName": "subscription-calculator",
+  "inputs": [
+    {
+      "id": "numberOfUsers",
+      "label": "Number of Users",
+      "type": "number",
+      "unit": "users",
+      "default": 1,
+      "businessContext": "Total number of users or licenses under subscription"
+    },
+    {
+      "id": "pricePerUser",
+      "label": "Price per User (Monthly)",
+      "type": "number",
+      "unit": "currency",
+      "default": 10,
+      "businessContext": "Monthly subscription cost per user"
+    },
+    {
+      "id": "durationMonths",
+      "label": "Subscription Duration (Months)",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "businessContext": "Number of months for the subscription period"
+    },
+    {
+      "id": "discountPercent",
+      "label": "Discount Percentage",
+      "type": "number",
+      "unit": "percent",
+      "default": 0,
+      "businessContext": "Overall discount percentage applied to subtotal"
+    },
+    {
+      "id": "taxPercent",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "percent",
+      "default": 18,
+      "businessContext": "Tax rate (e.g., VAT) applied after discount"
+    }
+  ],
+  "formulas": {
+    "subtotalCost": "numberOfUsers * pricePerUser * durationMonths",
+    "discountAmount": "subtotalCost * (discountPercent / 100)",
+    "taxAmount": "(subtotalCost - discountAmount) * (taxPercent / 100)",
+    "totalCost": "subtotalCost - discountAmount + taxAmount"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "subtotalCost",
+      "discountAmount",
+      "taxAmount"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

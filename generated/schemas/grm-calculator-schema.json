@@ -1,0 +1,36 @@
+{
+  "toolName": "grm-calculator",
+  "inputs": [
+    {
+      "id": "propertyPrice",
+      "label": "Property Price",
+      "type": "number",
+      "unit": "currency",
+      "default": 500000,
+      "businessContext": "Total purchase price of the property"
+    },
+    {
+      "id": "annualRentalIncome",
+      "label": "Annual Rental Income",
+      "type": "number",
+      "unit": "currency",
+      "default": 60000,
+      "businessContext": "Total annual rental income from the property"
+    }
+  ],
+  "formulas": {
+    "grm": "propertyPrice / annualRentalIncome"
+  },
+  "outputs": {
+    "primary": "grm",
+    "breakdown": [
+      "propertyPrice / annualRentalIncome = grm"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

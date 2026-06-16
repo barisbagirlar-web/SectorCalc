@@ -1,0 +1,69 @@
+{
+  "toolName": "solar-roi-calculator",
+  "inputs": [
+    {
+      "id": "systemCost",
+      "label": "Sistem Maliyeti",
+      "type": "number",
+      "unit": "TL",
+      "default": 50000,
+      "businessContext": "Güneş paneli sisteminin toplam kurulum maliyeti (TL)"
+    },
+    {
+      "id": "yillikUretim",
+      "label": "Yıllık Enerji Üretimi",
+      "type": "number",
+      "unit": "kWh",
+      "default": 5000,
+      "businessContext": "Sistemin yıllık tahmini enerji üretimi (kWh)"
+    },
+    {
+      "id": "elektrikFiyati",
+      "label": "Elektrik Birim Fiyatı",
+      "type": "number",
+      "unit": "TL/kWh",
+      "default": 1.2,
+      "businessContext": "Elektrik birim fiyatı (TL/kWh)"
+    },
+    {
+      "id": "sistemOmru",
+      "label": "Sistem Ömrü",
+      "type": "number",
+      "unit": "yıl",
+      "default": 25,
+      "businessContext": "Sistemin beklenen kullanım ömrü (yıl)"
+    },
+    {
+      "id": "tesvikOrani",
+      "label": "Teşvik Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Devlet teşvik oranı (%)"
+    }
+  ],
+  "formulas": {
+    "netMaliyet": "systemCost * (1 - tesvikOrani / 100)",
+    "yillikTasarruf": "yillikUretim * elektrikFiyati",
+    "toplamTasarruf": "yillikTasarruf * sistemOmru",
+    "netKar": "toplamTasarruf - netMaliyet",
+    "geriOdemeSuresi": "netMaliyet / yillikTasarruf",
+    "roi": "(netKar / netMaliyet) * 100"
+  },
+  "outputs": {
+    "primary": "roi",
+    "breakdown": [
+      "geriOdemeSuresi",
+      "netMaliyet",
+      "yillikTasarruf",
+      "toplamTasarruf",
+      "netKar"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

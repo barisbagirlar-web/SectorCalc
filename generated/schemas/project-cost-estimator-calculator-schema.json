@@ -1,0 +1,376 @@
+{
+  "slug": "project-cost-estimator",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Monte Carlo simulation",
+    "Benchmarking against industry standards"
+  ],
+  "inputs": [
+    {
+      "id": "labor_hours",
+      "label": "Direct Labor Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 1000,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Total planned direct labor hours for the project, based on work breakdown structure (WBS).",
+      "label_i18n": {
+        "en": "Direct Labor Hours"
+      },
+      "businessContext_i18n": {
+        "en": "Total planned direct labor hours for the project, based on work breakdown structure (WBS)."
+      }
+    },
+    {
+      "id": "labor_rate",
+      "label": "Average Labor Rate",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 45,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Weighted average hourly rate including wages, benefits, and overhead per ISO 15686-5.",
+      "label_i18n": {
+        "en": "Average Labor Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted average hourly rate including wages, benefits, and overhead per ISO 15686-5."
+      }
+    },
+    {
+      "id": "material_cost",
+      "label": "Material Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "min": 0,
+      "max": 10000000,
+      "businessContext": "Total cost of raw materials and purchased components, including procurement and logistics.",
+      "label_i18n": {
+        "en": "Material Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost of raw materials and purchased components, including procurement and logistics."
+      }
+    },
+    {
+      "id": "equipment_cost",
+      "label": "Equipment & Tooling Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 15000,
+      "min": 0,
+      "max": 5000000,
+      "businessContext": "Cost of specialized machinery, tooling, and equipment depreciation or rental.",
+      "label_i18n": {
+        "en": "Equipment & Tooling Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of specialized machinery, tooling, and equipment depreciation or rental."
+      }
+    },
+    {
+      "id": "overhead_percentage",
+      "label": "Overhead Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Indirect cost rate (facilities, utilities, management) as a percentage of direct costs, per standard cost accounting.",
+      "label_i18n": {
+        "en": "Overhead Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Indirect cost rate (facilities, utilities, management) as a percentage of direct costs, per standard cost accounting."
+      }
+    },
+    {
+      "id": "complexity_factor",
+      "label": "Project Complexity Factor",
+      "type": "select",
+      "unit": "dimensionless",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "businessContext": "Adjusts cost based on project complexity (low/medium/high) per PMI and Lean principles.",
+      "options": [
+        {
+          "value": "low",
+          "label": "Low (simple, repetitive)"
+        },
+        {
+          "value": "medium",
+          "label": "Medium (moderate integration)"
+        },
+        {
+          "value": "high",
+          "label": "High (novel, high uncertainty)"
+        }
+      ],
+      "label_i18n": {
+        "en": "Project Complexity Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Adjusts cost based on project complexity (low/medium/high) per PMI and Lean principles."
+      }
+    },
+    {
+      "id": "quality_level",
+      "label": "Quality Level (Sigma)",
+      "type": "select",
+      "unit": "sigma",
+      "default": "3",
+      "min": null,
+      "max": null,
+      "businessContext": "Target quality level based on Six Sigma; higher sigma reduces rework and hidden costs.",
+      "options": [
+        {
+          "value": "3",
+          "label": "3 Sigma (93.3% yield)"
+        },
+        {
+          "value": "4",
+          "label": "4 Sigma (99.38% yield)"
+        },
+        {
+          "value": "5",
+          "label": "5 Sigma (99.977% yield)"
+        },
+        {
+          "value": "6",
+          "label": "6 Sigma (99.99966% yield)"
+        }
+      ],
+      "label_i18n": {
+        "en": "Quality Level (Sigma)"
+      },
+      "businessContext_i18n": {
+        "en": "Target quality level based on Six Sigma; higher sigma reduces rework and hidden costs."
+      }
+    },
+    {
+      "id": "use_lean_standardization",
+      "label": "Apply Lean Standardization",
+      "type": "boolean",
+      "unit": null,
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "If true, applies lean waste reduction factor (e.g., 5% reduction in labor and material).",
+      "label_i18n": {
+        "en": "Apply Lean Standardization"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies lean waste reduction factor (e.g., 5% reduction in labor and material)."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "labor_hours_positive",
+        "condition": "labor_hours > 0",
+        "message": "Direct labor hours must be greater than zero."
+      },
+      {
+        "id": "labor_rate_positive",
+        "condition": "labor_rate > 0",
+        "message": "Labor rate must be greater than zero."
+      },
+      {
+        "id": "material_cost_non_negative",
+        "condition": "material_cost >= 0",
+        "message": "Material cost cannot be negative."
+      },
+      {
+        "id": "overhead_range",
+        "condition": "overhead_percentage >= 0 AND overhead_percentage <= 100",
+        "message": "Overhead percentage must be between 0 and 100."
+      },
+      {
+        "id": "complexity_factor_valid",
+        "condition": "complexity_factor IN ['low','medium','high']",
+        "message": "Complexity factor must be low, medium, or high."
+      },
+      {
+        "id": "quality_level_valid",
+        "condition": "quality_level IN ['3','4','5','6']",
+        "message": "Quality level must be 3, 4, 5, or 6 sigma."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "cost_overrun_warning",
+        "condition": "primaryResult > 500000",
+        "message": "Projected cost exceeds $500,000. Consider value engineering review."
+      },
+      {
+        "id": "labor_intensity_alert",
+        "condition": "labor_hours > 5000",
+        "message": "High labor hours detected. Evaluate automation or lean improvements."
+      },
+      {
+        "id": "material_cost_alert",
+        "condition": "material_cost > 200000",
+        "message": "Material cost is high. Consider alternative sourcing or bulk discounts."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "direct_labor_cost",
+      "description": "Total direct labor cost",
+      "formula": "labor_hours * labor_rate",
+      "unit": "USD"
+    },
+    {
+      "id": "direct_material_cost",
+      "description": "Total direct material cost (with lean adjustment if applicable)",
+      "formula": "material_cost * (1 - IF(use_lean_standardization, 0.05, 0))",
+      "unit": "USD"
+    },
+    {
+      "id": "direct_equipment_cost",
+      "description": "Total equipment and tooling cost",
+      "formula": "equipment_cost",
+      "unit": "USD"
+    },
+    {
+      "id": "total_direct_cost",
+      "description": "Sum of all direct costs",
+      "formula": "direct_labor_cost + direct_material_cost + direct_equipment_cost",
+      "unit": "USD"
+    },
+    {
+      "id": "overhead_cost",
+      "description": "Overhead applied to direct costs",
+      "formula": "total_direct_cost * (overhead_percentage / 100)",
+      "unit": "USD"
+    },
+    {
+      "id": "complexity_multiplier",
+      "description": "Multiplier based on project complexity (low=1.0, medium=1.15, high=1.35)",
+      "formula": "CASE complexity_factor WHEN 'low' THEN 1.0 WHEN 'medium' THEN 1.15 WHEN 'high' THEN 1.35 END",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "quality_adjustment",
+      "description": "Quality cost factor based on sigma level (3=1.0, 4=0.95, 5=0.90, 6=0.85)",
+      "formula": "CASE quality_level WHEN '3' THEN 1.0 WHEN '4' THEN 0.95 WHEN '5' THEN 0.90 WHEN '6' THEN 0.85 END",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "primaryResult",
+      "description": "Final estimated project cost (primary output)",
+      "formula": "(total_direct_cost + overhead_cost) * complexity_multiplier * quality_adjustment",
+      "unit": "USD"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "primaryResult",
+      "label": "Estimated Project Cost",
+      "unit": "USD",
+      "description": "Final cost estimate after applying all adjustments."
+    },
+    "breakdown": {
+      "directLaborCost": {
+        "id": "direct_labor_cost",
+        "label": "Direct Labor Cost",
+        "unit": "USD"
+      },
+      "directMaterialCost": {
+        "id": "direct_material_cost",
+        "label": "Direct Material Cost",
+        "unit": "USD"
+      },
+      "directEquipmentCost": {
+        "id": "direct_equipment_cost",
+        "label": "Equipment & Tooling Cost",
+        "unit": "USD"
+      },
+      "totalDirectCost": {
+        "id": "total_direct_cost",
+        "label": "Total Direct Cost",
+        "unit": "USD"
+      },
+      "overheadCost": {
+        "id": "overhead_cost",
+        "label": "Overhead Cost",
+        "unit": "USD"
+      },
+      "complexityMultiplier": {
+        "id": "complexity_multiplier",
+        "label": "Complexity Multiplier",
+        "unit": "dimensionless"
+      },
+      "qualityAdjustment": {
+        "id": "quality_adjustment",
+        "label": "Quality Adjustment Factor",
+        "unit": "dimensionless"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "rework_cost_estimate",
+        "label": "Rework Cost Estimate",
+        "description": "Estimated cost of rework based on sigma level and direct costs. Lower sigma increases rework.",
+        "formula": "total_direct_cost * (1 - (CASE quality_level WHEN '3' THEN 0.933 WHEN '4' THEN 0.9938 WHEN '5' THEN 0.99977 WHEN '6' THEN 0.9999966 END)) * 2.5",
+        "unit": "USD"
+      },
+      {
+        "id": "waste_factor",
+        "label": "Lean Waste Factor",
+        "description": "Potential waste in labor and material if lean not applied (5% of direct labor + material).",
+        "formula": "IF(use_lean_standardization, 0, (direct_labor_cost + direct_material_cost) * 0.05)",
+        "unit": "USD"
+      },
+      {
+        "id": "schedule_risk_premium",
+        "label": "Schedule Risk Premium",
+        "description": "Additional cost due to schedule uncertainty for high complexity projects.",
+        "formula": "IF(complexity_factor = 'high', primaryResult * 0.1, 0)",
+        "unit": "USD"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_lean",
+        "condition": "use_lean_standardization == false",
+        "action": "Consider applying Lean standardization to reduce labor and material costs by up to 5%."
+      },
+      {
+        "id": "action_sigma",
+        "condition": "quality_level IN ['3','4']",
+        "action": "Improve quality level to 5 or 6 Sigma to reduce rework and hidden costs."
+      },
+      {
+        "id": "action_complexity",
+        "condition": "complexity_factor == 'high'",
+        "action": "Break down project into smaller phases to reduce complexity multiplier."
+      },
+      {
+        "id": "action_overhead",
+        "condition": "overhead_percentage > 20",
+        "action": "Review overhead allocation; consider activity-based costing for more accuracy."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "dataConfidenceAdjusted",
+      "label": "Data Confidence Adjusted Cost",
+      "description": "Cost adjusted for data confidence (e.g., ±10% for medium confidence). Based on input completeness and variability.",
+      "formula": "primaryResult * (1 + (0.1 * (1 - confidence_score)))",
+      "unit": "USD",
+      "confidence_score": 0.85
+    }
+  },
+  "toolName": "project-cost-estimator-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

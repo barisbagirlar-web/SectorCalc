@@ -1,0 +1,75 @@
+{
+  "toolName": "vector-projection-calculator",
+  "inputs": [
+    {
+      "id": "a_x",
+      "label": "A x-component",
+      "type": "number",
+      "unit": "unitless",
+      "default": 1,
+      "businessContext": "Vector A x-component"
+    },
+    {
+      "id": "a_y",
+      "label": "A y-component",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0,
+      "businessContext": "Vector A y-component"
+    },
+    {
+      "id": "a_z",
+      "label": "A z-component",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0,
+      "businessContext": "Vector A z-component"
+    },
+    {
+      "id": "b_x",
+      "label": "B x-component",
+      "type": "number",
+      "unit": "unitless",
+      "default": 1,
+      "businessContext": "Vector B x-component"
+    },
+    {
+      "id": "b_y",
+      "label": "B y-component",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0,
+      "businessContext": "Vector B y-component"
+    },
+    {
+      "id": "b_z",
+      "label": "B z-component",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0,
+      "businessContext": "Vector B z-component"
+    }
+  ],
+  "formulas": {
+    "dotProduct": "a_x * b_x + a_y * b_y + a_z * b_z",
+    "magnitudeB": "Math.sqrt(b_x * b_x + b_y * b_y + b_z * b_z)",
+    "scalarProjection": "dotProduct / magnitudeB",
+    "projectionX": "dotProduct * b_x / (magnitudeB * magnitudeB)",
+    "projectionY": "dotProduct * b_y / (magnitudeB * magnitudeB)",
+    "projectionZ": "dotProduct * b_z / (magnitudeB * magnitudeB)"
+  },
+  "outputs": {
+    "primary": "scalarProjection",
+    "breakdown": [
+      "projectionX",
+      "projectionY",
+      "projectionZ"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

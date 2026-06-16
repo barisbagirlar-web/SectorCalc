@@ -1,0 +1,55 @@
+{
+  "toolName": "simple-interest-calculator",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Principal",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "businessContext": "The initial amount of money invested or borrowed"
+    },
+    {
+      "id": "rate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "The annual interest rate as a percentage"
+    },
+    {
+      "id": "startYear",
+      "label": "Start Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2025,
+      "businessContext": "The starting year for the interest calculation"
+    },
+    {
+      "id": "endYear",
+      "label": "End Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2030,
+      "businessContext": "The ending year for the interest calculation"
+    }
+  ],
+  "formulas": {
+    "timeInYears": "endYear - startYear",
+    "simpleInterest": "principal * (rate / 100) * timeInYears",
+    "totalAmount": "principal + simpleInterest"
+  },
+  "outputs": {
+    "primary": "simpleInterest",
+    "breakdown": [
+      "totalAmount",
+      "principal"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

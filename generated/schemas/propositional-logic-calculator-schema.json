@@ -1,0 +1,57 @@
+{
+  "toolName": "propositional-logic-calculator",
+  "inputs": [
+    {
+      "id": "probA",
+      "label": "Probability of A",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Probability that proposition A is true"
+    },
+    {
+      "id": "probB",
+      "label": "Probability of B",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Probability that proposition B is true"
+    },
+    {
+      "id": "probC",
+      "label": "Probability of C",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Probability that proposition C is true"
+    },
+    {
+      "id": "probD",
+      "label": "Probability of D",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Probability that proposition D is true"
+    }
+  ],
+  "formulas": {
+    "compoundProbability": "probA * probB * probC * probD",
+    "andAB": "probA * probB",
+    "orAB": "1 - (1 - probA) * (1 - probB)",
+    "notA": "1 - probA"
+  },
+  "outputs": {
+    "primary": "compoundProbability",
+    "breakdown": [
+      "andAB",
+      "orAB",
+      "notA"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,70 @@
+{
+  "toolName": "framingham-risk-score-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Equipment Age",
+      "type": "number",
+      "unit": "years",
+      "default": 50,
+      "businessContext": "Age of the industrial system"
+    },
+    {
+      "id": "systolicPressure",
+      "label": "Operating Pressure",
+      "type": "number",
+      "unit": "psi",
+      "default": 120,
+      "businessContext": "Systolic pressure equivalent in system"
+    },
+    {
+      "id": "cholesterol",
+      "label": "Contamination Level",
+      "type": "number",
+      "unit": "ppm",
+      "default": 200,
+      "businessContext": "Total contamination in lubricant"
+    },
+    {
+      "id": "hdlCholesterol",
+      "label": "Additive Concentration",
+      "type": "number",
+      "unit": "ppm",
+      "default": 50,
+      "businessContext": "Protective additive concentration"
+    },
+    {
+      "id": "smokingStatus",
+      "label": "Corrosive Environment",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "0=No, 1=Yes"
+    },
+    {
+      "id": "bloodPressureTreatment",
+      "label": "Pressure Regulation",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "0=No, 1=Yes"
+    }
+  ],
+  "formulas": {
+    "points": "0.1 * age + 0.02 * systolicPressure + 0.01 * cholesterol - 0.02 * hdlCholesterol + 0.3 * smokingStatus + 0.2 * bloodPressureTreatment",
+    "risk": "Math.round((1 - 0.95 ** Math.exp(points - 20)) * 100 * 100) / 100"
+  },
+  "outputs": {
+    "primary": "risk",
+    "breakdown": [
+      "points",
+      "risk"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

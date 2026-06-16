@@ -1,0 +1,55 @@
+{
+  "toolName": "marathon-time-predictor-calculator",
+  "inputs": [
+    {
+      "id": "recentDistance",
+      "label": "Recent Race Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 21.1,
+      "businessContext": "Distance of a recent race used for prediction (e.g., half marathon)"
+    },
+    {
+      "id": "recentTime",
+      "label": "Recent Race Time",
+      "type": "number",
+      "unit": "minutes",
+      "default": 100,
+      "businessContext": "Finishing time of the recent race in minutes"
+    },
+    {
+      "id": "marathonDistance",
+      "label": "Marathon Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 42.195,
+      "businessContext": "Target marathon distance (standard 42.195 km)"
+    },
+    {
+      "id": "exponent",
+      "label": "Fatigue Exponent",
+      "type": "number",
+      "unit": "",
+      "default": 1.06,
+      "businessContext": "Empirical fatigue exponent for time prediction (Riegel formula uses 1.06)"
+    }
+  ],
+  "formulas": {
+    "predictedTime": "recentTime * Math.pow(marathonDistance / recentDistance, exponent)",
+    "predictedPace": "predictedTime / marathonDistance",
+    "predictedTimeHours": "predictedTime / 60"
+  },
+  "outputs": {
+    "primary": "predictedTime",
+    "breakdown": [
+      "predictedPace",
+      "predictedTimeHours"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

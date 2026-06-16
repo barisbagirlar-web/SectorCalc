@@ -1,0 +1,63 @@
+{
+  "toolName": "mole-fraction-calculator",
+  "inputs": [
+    {
+      "id": "moleA",
+      "label": "Component A Moles",
+      "type": "number",
+      "unit": "mol",
+      "default": 0,
+      "businessContext": "Amount of substance of component A in moles"
+    },
+    {
+      "id": "moleB",
+      "label": "Component B Moles",
+      "type": "number",
+      "unit": "mol",
+      "default": 0,
+      "businessContext": "Amount of substance of component B in moles"
+    },
+    {
+      "id": "moleC",
+      "label": "Component C Moles",
+      "type": "number",
+      "unit": "mol",
+      "default": 0,
+      "businessContext": "Amount of substance of component C in moles"
+    },
+    {
+      "id": "moleD",
+      "label": "Component D Moles",
+      "type": "number",
+      "unit": "mol",
+      "default": 0,
+      "businessContext": "Amount of substance of component D in moles"
+    },
+    {
+      "id": "selectedIndex",
+      "label": "Component Index",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Index of the component for mole fraction calculation (1–4)"
+    }
+  ],
+  "formulas": {
+    "totalMoles": "moleA + moleB + moleC + moleD",
+    "selectedMoles": "[moleA, moleB, moleC, moleD][selectedIndex - 1]",
+    "moleFraction": "totalMoles !== 0 ? selectedMoles / totalMoles : 0"
+  },
+  "outputs": {
+    "primary": "moleFraction",
+    "breakdown": [
+      "totalMoles",
+      "selectedMoles"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

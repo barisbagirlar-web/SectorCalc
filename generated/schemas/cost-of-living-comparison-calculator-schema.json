@@ -1,0 +1,71 @@
+{
+  "toolName": "cost-of-living-comparison-calculator",
+  "inputs": [
+    {
+      "id": "baseRent",
+      "label": "Base City Rent",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000,
+      "businessContext": "Average monthly rent for a 1-bedroom apartment in the base city."
+    },
+    {
+      "id": "baseUtilities",
+      "label": "Base City Utilities",
+      "type": "number",
+      "unit": "USD",
+      "default": 200,
+      "businessContext": "Monthly cost of basic utilities (electricity, water, heating, garbage) for a standard apartment."
+    },
+    {
+      "id": "baseGroceries",
+      "label": "Base City Groceries",
+      "type": "number",
+      "unit": "USD",
+      "default": 400,
+      "businessContext": "Monthly grocery bill for a single person in the base city."
+    },
+    {
+      "id": "baseTransport",
+      "label": "Base City Transportation",
+      "type": "number",
+      "unit": "USD",
+      "default": 150,
+      "businessContext": "Monthly public transport pass or equivalent fuel costs in the base city."
+    },
+    {
+      "id": "baseMisc",
+      "label": "Base City Misc. Expenses",
+      "type": "number",
+      "unit": "USD",
+      "default": 250,
+      "businessContext": "Other monthly living expenses (entertainment, clothing, personal care) in the base city."
+    },
+    {
+      "id": "targetIndex",
+      "label": "Target City Cost of Living Index",
+      "type": "number",
+      "unit": "index",
+      "default": 120,
+      "businessContext": "Cost of living index of the target city, relative to base city = 100. A value above 100 means it is more expensive."
+    }
+  ],
+  "formulas": {
+    "totalBaseCost": "baseRent + baseUtilities + baseGroceries + baseTransport + baseMisc",
+    "totalTargetCost": "totalBaseCost * targetIndex / 100"
+  },
+  "outputs": {
+    "primary": "Equivalent monthly cost in target city: $${totalTargetCost.toFixed(2)}",
+    "breakdown": [
+      "Total base city monthly cost: $${totalBaseCost.toFixed(2)}",
+      "Target city index: ${targetIndex}",
+      "Equivalent target city cost: $${totalTargetCost.toFixed(2)}"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

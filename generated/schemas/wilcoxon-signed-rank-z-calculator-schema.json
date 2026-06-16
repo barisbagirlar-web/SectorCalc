@@ -1,0 +1,57 @@
+{
+  "toolName": "wilcoxon-signed-rank-z-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Number of Non-Zero Differences (n)",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Sample size after excluding zero differences"
+    },
+    {
+      "id": "T",
+      "label": "Sum of Positive Ranks (T+)",
+      "type": "number",
+      "unit": "",
+      "default": 25,
+      "businessContext": "Wilcoxon signed-rank test statistic"
+    },
+    {
+      "id": "continuity",
+      "label": "Continuity Correction (1 = Yes, 0 = No)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Apply Yates' continuity correction for normal approximation"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places for Output",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Number of decimal places to round the z-score"
+    }
+  ],
+  "formulas": {
+    "expectedValue": "n * (n + 1) / 4",
+    "standardDeviation": "Math.sqrt(n * (n + 1) * (2 * n + 1) / 24)",
+    "zScore": "continuity ? (T - 0.5 - expectedValue) / standardDeviation : (T - expectedValue) / standardDeviation",
+    "roundedZScore": "Math.round(zScore * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "roundedZScore",
+    "breakdown": [
+      "expectedValue",
+      "standardDeviation",
+      "zScore"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "future-value-calculator",
+  "inputs": [
+    {
+      "id": "presentValue",
+      "label": "Initial Investment (PV)",
+      "type": "number",
+      "unit": "$",
+      "default": 1000,
+      "businessContext": "The amount of money you start with."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "The annual nominal interest rate."
+    },
+    {
+      "id": "periods",
+      "label": "Number of Years",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "The total number of years the money is invested for."
+    },
+    {
+      "id": "compoundingFrequency",
+      "label": "Compounding Frequency",
+      "type": "number",
+      "unit": "times per year",
+      "default": 12,
+      "businessContext": "How often interest is compounded per year (e.g., 1 for annual, 12 for monthly)."
+    },
+    {
+      "id": "periodicPayment",
+      "label": "Periodic Payment (PMT)",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "The amount added to the investment at each compounding period. Positive for contributions."
+    }
+  ],
+  "formulas": {
+    "futureValue": "(function(r,n,pv,pmt){return pv*Math.pow(1+r,n)+(r!==0?pmt*((Math.pow(1+r,n)-1)/r):pmt*n);})(annualInterestRate/100/compoundingFrequency,periods*compoundingFrequency,presentValue,periodicPayment)",
+    "totalContributions": "presentValue+periodicPayment*periods*compoundingFrequency",
+    "totalInterest": "(function(r,n,pv,pmt){return pv*(Math.pow(1+r,n)-1)+(r!==0?pmt*((Math.pow(1+r,n)-1)/r-n):0);})(annualInterestRate/100/compoundingFrequency,periods*compoundingFrequency,presentValue,periodicPayment)"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": [
+      "totalContributions",
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

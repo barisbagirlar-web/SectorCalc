@@ -1,0 +1,79 @@
+{
+  "toolName": "long-term-care-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 45,
+      "businessContext": "User's current age in years"
+    },
+    {
+      "id": "retirementAge",
+      "label": "Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 65,
+      "businessContext": "Expected retirement age"
+    },
+    {
+      "id": "expectedLongTermCareYears",
+      "label": "Expected Care Duration",
+      "type": "number",
+      "unit": "years",
+      "default": 3,
+      "businessContext": "Expected number of years requiring long-term care"
+    },
+    {
+      "id": "dailyCareCost",
+      "label": "Daily Care Cost Today",
+      "type": "number",
+      "unit": "currency",
+      "default": 150,
+      "businessContext": "Current daily cost of long-term care in local currency"
+    },
+    {
+      "id": "inflationRate",
+      "label": "Annual Inflation Rate",
+      "type": "number",
+      "unit": "percent",
+      "default": 2.5,
+      "businessContext": "Expected average annual inflation rate for healthcare costs"
+    },
+    {
+      "id": "savingsForCare",
+      "label": "Existing Savings Allocated",
+      "type": "number",
+      "unit": "currency",
+      "default": 50000,
+      "businessContext": "Amount already saved to cover future care"
+    },
+    {
+      "id": "otherIncome",
+      "label": "Other Retirement Income",
+      "type": "number",
+      "unit": "currency",
+      "default": 20000,
+      "businessContext": "Expected additional income during care period (e.g., pension, rental)"
+    }
+  ],
+  "formulas": {
+    "totalCareCost": "inputs.expectedLongTermCareYears * (inputs.dailyCareCost * 365 * Math.pow(1 + inputs.inflationRate / 100, inputs.retirementAge - inputs.currentAge))",
+    "totalRequiredAmount": "totalCareCost - inputs.savingsForCare - inputs.otherIncome",
+    "monthlySavingsNeeded": "totalRequiredAmount / ((inputs.retirementAge - inputs.currentAge) * 12)"
+  },
+  "outputs": {
+    "primary": "totalRequiredAmount",
+    "breakdown": [
+      "totalCareCost",
+      "monthlySavingsNeeded"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

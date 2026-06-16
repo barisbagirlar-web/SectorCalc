@@ -1,0 +1,53 @@
+{
+  "toolName": "pte-academic-calculator",
+  "inputs": [
+    {
+      "id": "listening",
+      "label": "Listening Score",
+      "type": "number",
+      "unit": "pts",
+      "default": 50,
+      "businessContext": "Enter your PTE Academic Listening score (10–90)"
+    },
+    {
+      "id": "reading",
+      "label": "Reading Score",
+      "type": "number",
+      "unit": "pts",
+      "default": 50,
+      "businessContext": "Enter your PTE Academic Reading score (10–90)"
+    },
+    {
+      "id": "speaking",
+      "label": "Speaking Score",
+      "type": "number",
+      "unit": "pts",
+      "default": 50,
+      "businessContext": "Enter your PTE Academic Speaking score (10–90)"
+    },
+    {
+      "id": "writing",
+      "label": "Writing Score",
+      "type": "number",
+      "unit": "pts",
+      "default": 50,
+      "businessContext": "Enter your PTE Academic Writing score (10–90)"
+    }
+  ],
+  "formulas": {
+    "overallScore": "Math.round((listening + reading + speaking + writing) / 4)"
+  },
+  "outputs": {
+    "primary": "overallScore",
+    "breakdown": [
+      "Average of four communicative skill scores (Listening, Reading, Speaking, Writing), each on 10–90 scale.",
+      "Overall score is rounded to the nearest integer."
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,71 @@
+{
+  "toolName": "breathing-exercise-calculator",
+  "inputs": [
+    {
+      "id": "breathingRate",
+      "label": "Breathing Rate",
+      "type": "number",
+      "unit": "breaths/min",
+      "default": 12,
+      "businessContext": "Average respiratory rate for a person at rest"
+    },
+    {
+      "id": "tidalVolume",
+      "label": "Tidal Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 0.5,
+      "businessContext": "Volume of air displaced per breath"
+    },
+    {
+      "id": "cylinderVolume",
+      "label": "Cylinder Water Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 6,
+      "businessContext": "Internal water volume of the SCBA cylinder"
+    },
+    {
+      "id": "cylinderPressure",
+      "label": "Cylinder Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 200,
+      "businessContext": "Filled pressure of the cylinder"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "businessContext": "Safety margin to ensure sufficient air reserve"
+    },
+    {
+      "id": "ambientPressure",
+      "label": "Ambient Pressure",
+      "type": "number",
+      "unit": "atm",
+      "default": 1,
+      "businessContext": "Atmospheric pressure at the working location (1 atm at sea level)"
+    }
+  ],
+  "formulas": {
+    "totalFreeAir_L": "cylinderVolume * cylinderPressure",
+    "minuteVentilation": "breathingRate * tidalVolume",
+    "estimatedTimeMin": "(cylinderVolume * cylinderPressure * safetyFactor) / (breathingRate * tidalVolume * ambientPressure)"
+  },
+  "outputs": {
+    "primary": "estimatedTimeMin",
+    "breakdown": [
+      "totalFreeAir_L",
+      "minuteVentilation"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "delisle-to-celsius-calculator",
+  "inputs": [
+    {
+      "id": "delisleTemp",
+      "label": "Delisle Temperature",
+      "type": "number",
+      "unit": "°De",
+      "default": 0,
+      "businessContext": "Temperature reading on the Delisle scale."
+    },
+    {
+      "id": "freezingDe",
+      "label": "Freezing Point (Delisle)",
+      "type": "number",
+      "unit": "°De",
+      "default": 150,
+      "businessContext": "Delisle value at the freezing point of water (0°C). Historically 150°De."
+    },
+    {
+      "id": "boilingDe",
+      "label": "Boiling Point (Delisle)",
+      "type": "number",
+      "unit": "°De",
+      "default": 0,
+      "businessContext": "Delisle value at the boiling point of water (100°C). Historically 0°De."
+    },
+    {
+      "id": "decimals",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output."
+    }
+  ],
+  "formulas": {
+    "celsiusRaw": "((inputs.delisleTemp - inputs.freezingDe) * (100 - 0) / (inputs.boilingDe - inputs.freezingDe)) + 0",
+    "celsiusRounded": "Math.round(formulas.celsiusRaw * Math.pow(10, inputs.decimals)) / Math.pow(10, inputs.decimals)",
+    "factor": "Math.abs((100 - 0) / (inputs.boilingDe - inputs.freezingDe))"
+  },
+  "outputs": {
+    "primary": "celsiusRounded",
+    "breakdown": [
+      "celsiusRaw",
+      "factor"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

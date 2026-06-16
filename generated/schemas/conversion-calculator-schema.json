@@ -1,0 +1,53 @@
+{
+  "toolName": "conversion-calculator",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "Değer",
+      "type": "number",
+      "unit": "birim",
+      "default": 1,
+      "businessContext": "Dönüştürülecek sayısal değer"
+    },
+    {
+      "id": "fromUnit",
+      "label": "Kaynak Birim",
+      "type": "number",
+      "unit": "birim",
+      "default": 0,
+      "businessContext": "Kaynak birim kodu (0: metre, 1: feet, 2: inch, 3: cm)"
+    },
+    {
+      "id": "toUnit",
+      "label": "Hedef Birim",
+      "type": "number",
+      "unit": "birim",
+      "default": 1,
+      "businessContext": "Hedef birim kodu (0: metre, 1: feet, 2: inch, 3: cm)"
+    },
+    {
+      "id": "precision",
+      "label": "Hassasiyet",
+      "type": "number",
+      "unit": "basamak",
+      "default": 2,
+      "businessContext": "Ondalık basamak sayısı"
+    }
+  ],
+  "formulas": {
+    "convertedValue": "(() => { const v = value; const from = fromUnit; const to = toUnit; const factors = [1, 0.3048, 0.0254, 0.01]; const vInMeters = v * factors[from]; const result = vInMeters / factors[to]; return Math.round(result * Math.pow(10, precision)) / Math.pow(10, precision); })()",
+    "breakdown": "(() => { const v = value; const from = fromUnit; const to = toUnit; const unitNames = ['metre', 'feet', 'inç', 'cm']; return [`${v} ${unitNames[from]} = ${convertedValue} ${unitNames[to]}`, `Dönüşüm faktörü: 1 ${unitNames[from]} = ${(1/factors[from]*factors[to]).toFixed(6)} ${unitNames[to]}`]; })()"
+  },
+  "outputs": {
+    "primary": "convertedValue",
+    "breakdown": [
+      "breakdown"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

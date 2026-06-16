@@ -1,0 +1,47 @@
+{
+  "toolName": "planarity-test-calculator",
+  "inputs": [
+    {
+      "id": "vertices",
+      "label": "Number of Vertices (V)",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Total number of nodes in the graph."
+    },
+    {
+      "id": "edges",
+      "label": "Number of Edges (E)",
+      "type": "number",
+      "unit": "",
+      "default": 8,
+      "businessContext": "Total number of connections between nodes."
+    },
+    {
+      "id": "isBipartite",
+      "label": "Is Bipartite? (0=No, 1=Yes)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Indicates whether the graph is bipartite. 1 if yes, 0 otherwise."
+    }
+  ],
+  "formulas": {
+    "planarityScore": "vertices < 3 ? 1 : (isBipartite ? (edges <= 2*vertices - 4 ? 1 : 0) : (edges <= 3*vertices - 6 ? 1 : 0))",
+    "conditionDetail": "'Condition: ' + (isBipartite ? 'Bipartite graph: E ≤ 2V - 4' : 'General graph: E ≤ 3V - 6') + ', V=' + vertices + ', E=' + edges",
+    "resultSummary": "'Result: ' + ( (vertices < 3 ? 1 : (isBipartite ? (edges <= 2*vertices - 4 ? 1 : 0) : (edges <= 3*vertices - 6 ? 1 : 0))) === 1 ? 'Possibly planar (necessary condition met)' : 'Non-planar (condition violated)')"
+  },
+  "outputs": {
+    "primary": "planarityScore",
+    "breakdown": [
+      "conditionDetail",
+      "resultSummary"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

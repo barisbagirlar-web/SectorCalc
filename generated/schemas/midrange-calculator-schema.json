@@ -1,0 +1,63 @@
+{
+  "toolName": "midrange-calculator",
+  "inputs": [
+    {
+      "id": "value1",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0,
+      "businessContext": "First data point"
+    },
+    {
+      "id": "value2",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0,
+      "businessContext": "Second data point"
+    },
+    {
+      "id": "value3",
+      "label": "Value 3",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0,
+      "businessContext": "Third data point"
+    },
+    {
+      "id": "value4",
+      "label": "Value 4",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0,
+      "businessContext": "Fourth data point"
+    },
+    {
+      "id": "value5",
+      "label": "Value 5",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0,
+      "businessContext": "Fifth data point"
+    }
+  ],
+  "formulas": {
+    "min": "Math.min(value1, value2, value3, value4, value5)",
+    "max": "Math.max(value1, value2, value3, value4, value5)",
+    "midrange": "(min + max) / 2"
+  },
+  "outputs": {
+    "primary": "midrange",
+    "breakdown": [
+      "min",
+      "max"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

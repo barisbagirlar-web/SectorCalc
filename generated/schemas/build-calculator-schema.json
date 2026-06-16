@@ -1,0 +1,85 @@
+{
+  "toolName": "build-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of the construction element"
+    },
+    {
+      "id": "width",
+      "label": "Width (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Width of the construction element"
+    },
+    {
+      "id": "height",
+      "label": "Height (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Height of the construction element"
+    },
+    {
+      "id": "density",
+      "label": "Material Density (kg/m³)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 2400,
+      "businessContext": "Density of the construction material"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of material waste"
+    },
+    {
+      "id": "laborRate",
+      "label": "Labor Rate (€/h)",
+      "type": "number",
+      "unit": "€/h",
+      "default": 25,
+      "businessContext": "Hourly labor cost"
+    },
+    {
+      "id": "laborHours",
+      "label": "Labor Hours (h)",
+      "type": "number",
+      "unit": "h",
+      "default": 40,
+      "businessContext": "Total labor hours required"
+    }
+  ],
+  "formulas": {
+    "volume": "length * width * height",
+    "materialMass": "volume * density",
+    "wasteMass": "materialMass * (wasteFactor / 100)",
+    "totalMaterialMass": "materialMass + wasteMass",
+    "laborCost": "laborRate * laborHours",
+    "totalCost": "totalMaterialMass * 0.5 + laborCost"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "volume",
+      "materialMass",
+      "wasteMass",
+      "totalMaterialMass",
+      "laborCost"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

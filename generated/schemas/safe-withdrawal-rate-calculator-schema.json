@@ -1,0 +1,55 @@
+{
+  "toolName": "safe-withdrawal-rate-calculator",
+  "inputs": [
+    {
+      "id": "initialPortfolio",
+      "label": "Initial Portfolio Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000000,
+      "businessContext": "The total value of your investment portfolio at the start of retirement."
+    },
+    {
+      "id": "expectedReturnRate",
+      "label": "Expected Annual Return",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Assumed average annual return of the portfolio. Typically 5-8% for a balanced portfolio."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Expected Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "Expected long-term average inflation rate. Used to adjust withdrawals for purchasing power."
+    },
+    {
+      "id": "retirementYears",
+      "label": "Retirement Period",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Number of years you expect to live in retirement (life expectancy)."
+    }
+  ],
+  "formulas": {
+    "realRate": "(1 + expectedReturnRate/100) / (1 + inflationRate/100) - 1",
+    "annualWithdrawalAmount": "initialPortfolio * realRate / (1 - Math.pow(1 + realRate, -retirementYears))",
+    "safeWithdrawalRate": "(annualWithdrawalAmount / initialPortfolio) * 100"
+  },
+  "outputs": {
+    "primary": "safeWithdrawalRate",
+    "breakdown": [
+      "annualWithdrawalAmount",
+      "realRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

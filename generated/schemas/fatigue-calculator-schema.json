@@ -1,0 +1,55 @@
+{
+  "toolName": "fatigue-calculator",
+  "inputs": [
+    {
+      "id": "alternatingStress",
+      "label": "Alternating Stress",
+      "type": "number",
+      "unit": "MPa",
+      "default": 100,
+      "businessContext": "Stress amplitude (sigma_a)"
+    },
+    {
+      "id": "meanStress",
+      "label": "Mean Stress",
+      "type": "number",
+      "unit": "MPa",
+      "default": 50,
+      "businessContext": "Mean stress (sigma_m)"
+    },
+    {
+      "id": "enduranceLimit",
+      "label": "Endurance Limit",
+      "type": "number",
+      "unit": "MPa",
+      "default": 200,
+      "businessContext": "Material endurance limit (S_e)"
+    },
+    {
+      "id": "ultimateTensileStrength",
+      "label": "Ultimate Tensile Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 400,
+      "businessContext": "Material ultimate tensile strength (S_ut)"
+    }
+  ],
+  "formulas": {
+    "safetyFactor": "1 / (alternatingStress / enduranceLimit + meanStress / ultimateTensileStrength)",
+    "maxAllowableAlternatingStress": "enduranceLimit * (1 - meanStress / ultimateTensileStrength)",
+    "alternatingStressRatio": "alternatingStress / enduranceLimit"
+  },
+  "outputs": {
+    "primary": "safetyFactor",
+    "breakdown": [
+      "maxAllowableAlternatingStress",
+      "alternatingStressRatio"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "wiens-displacement-law-calculator",
+  "inputs": [
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 5778,
+      "businessContext": "Absolute temperature of the black-body radiator in Kelvin. Typical values: 300 K (room temperature), 5778 K (Sun's photosphere)."
+    },
+    {
+      "id": "constant_b",
+      "label": "Wien's Displacement Constant (λmax)",
+      "type": "number",
+      "unit": "m·K",
+      "default": 0.002897771955,
+      "businessContext": "Wien's displacement constant for wavelength. The product of peak wavelength and temperature equals this constant. Standard value: 2.897771955E-3 m·K."
+    },
+    {
+      "id": "constant_b_freq",
+      "label": "Wien's Frequency Constant",
+      "type": "number",
+      "unit": "Hz/K",
+      "default": 58789257570,
+      "businessContext": "Wien's displacement constant for frequency. The ratio of peak frequency to temperature is approximately 5.879E10 Hz/K."
+    },
+    {
+      "id": "wavelength_scale",
+      "label": "Wavelength Scale Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1000000000,
+      "businessContext": "Scaling factor to convert wavelength from meters to desired output unit. For nanometers, set to 1E9; for micrometers, set to 1E6; for meters, set to 1."
+    }
+  ],
+  "formulas": {
+    "peakWavelength_m": "constant_b / temperature",
+    "peakWavelength_scaled": "peakWavelength_m * wavelength_scale",
+    "peakFrequency_Hz": "constant_b_freq * temperature"
+  },
+  "outputs": {
+    "primary": "peakWavelength_scaled",
+    "breakdown": [
+      "peakWavelength_m",
+      "peakFrequency_Hz"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

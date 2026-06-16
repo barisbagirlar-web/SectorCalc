@@ -1,0 +1,79 @@
+{
+  "toolName": "cost-of-living-calculator",
+  "inputs": [
+    {
+      "id": "housing",
+      "label": "Housing",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Monthly housing cost (rent/mortgage)"
+    },
+    {
+      "id": "food",
+      "label": "Food",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Monthly food and groceries expense"
+    },
+    {
+      "id": "transportation",
+      "label": "Transportation",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Monthly transportation cost (fuel, public transit, etc.)"
+    },
+    {
+      "id": "utilities",
+      "label": "Utilities",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Monthly utilities (electricity, water, internet, etc.)"
+    },
+    {
+      "id": "healthcare",
+      "label": "Healthcare",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Monthly healthcare expenses (insurance, medications, etc.)"
+    },
+    {
+      "id": "entertainment",
+      "label": "Entertainment",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Monthly entertainment and leisure expenses"
+    }
+  ],
+  "formulas": {
+    "totalCost": "housing + food + transportation + utilities + healthcare + entertainment",
+    "housingPercent": "(housing / totalCost) * 100",
+    "foodPercent": "(food / totalCost) * 100",
+    "transportationPercent": "(transportation / totalCost) * 100",
+    "utilitiesPercent": "(utilities / totalCost) * 100",
+    "healthcarePercent": "(healthcare / totalCost) * 100",
+    "entertainmentPercent": "(entertainment / totalCost) * 100"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "housingPercent",
+      "foodPercent",
+      "transportationPercent",
+      "utilitiesPercent",
+      "healthcarePercent",
+      "entertainmentPercent"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

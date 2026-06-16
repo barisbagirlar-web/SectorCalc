@@ -1,0 +1,67 @@
+{
+  "toolName": "water-bill-calculator",
+  "inputs": [
+    {
+      "id": "previousMeterReading",
+      "label": "Previous Meter Reading (m³)",
+      "type": "number",
+      "unit": "m³",
+      "default": 0,
+      "businessContext": "The meter reading at the start of the billing period, in cubic meters."
+    },
+    {
+      "id": "currentMeterReading",
+      "label": "Current Meter Reading (m³)",
+      "type": "number",
+      "unit": "m³",
+      "default": 0,
+      "businessContext": "The meter reading at the end of the billing period, in cubic meters."
+    },
+    {
+      "id": "fixedCharge",
+      "label": "Fixed Charge",
+      "type": "number",
+      "unit": "currency",
+      "default": 5,
+      "businessContext": "Monthly fixed service charge regardless of consumption."
+    },
+    {
+      "id": "ratePerCubicMeter",
+      "label": "Rate per Cubic Meter",
+      "type": "number",
+      "unit": "currency/m³",
+      "default": 1.5,
+      "businessContext": "Variable charge per cubic meter of water consumed."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Tax percentage applied to the subtotal (usage + fixed charge)."
+    }
+  ],
+  "formulas": {
+    "consumptionM3": "currentMeterReading - previousMeterReading",
+    "waterUsageCost": "consumptionM3 * ratePerCubicMeter",
+    "fixedCharge": "fixedCharge",
+    "taxAmount": "(waterUsageCost + fixedCharge) * taxRate / 100",
+    "totalBill": "waterUsageCost + fixedCharge + taxAmount"
+  },
+  "outputs": {
+    "primary": "totalBill",
+    "breakdown": [
+      "consumptionM3",
+      "waterUsageCost",
+      "fixedCharge",
+      "taxAmount"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,45 @@
+{
+  "toolName": "faradays-law-calculator",
+  "inputs": [
+    {
+      "id": "magnetic_flux_change",
+      "label": "Magnetic Flux Change",
+      "type": "number",
+      "unit": "Wb",
+      "default": 1,
+      "businessContext": "Change in magnetic flux through the coil"
+    },
+    {
+      "id": "time_interval",
+      "label": "Time Interval",
+      "type": "number",
+      "unit": "s",
+      "default": 1,
+      "businessContext": "Time over which the flux change occurs"
+    },
+    {
+      "id": "number_of_turns",
+      "label": "Number of Turns",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of turns in the coil"
+    }
+  ],
+  "formulas": {
+    "induced_emf": "-number_of_turns * (magnetic_flux_change / time_interval)"
+  },
+  "outputs": {
+    "primary": "induced_emf",
+    "breakdown": [
+      "Induced EMF = -N * (ΔΦ / Δt)",
+      "ΔΦ = magnetic_flux_change, Δt = time_interval, N = number_of_turns"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

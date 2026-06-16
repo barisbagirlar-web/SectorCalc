@@ -1,0 +1,75 @@
+{
+  "toolName": "recipe-converter-calculator",
+  "inputs": [
+    {
+      "id": "originalServings",
+      "label": "Original Servings",
+      "type": "number",
+      "unit": "servings",
+      "default": 4,
+      "businessContext": "The number of servings the original recipe is for."
+    },
+    {
+      "id": "newServings",
+      "label": "New Servings",
+      "type": "number",
+      "unit": "servings",
+      "default": 8,
+      "businessContext": "The desired number of servings."
+    },
+    {
+      "id": "ingredientOneAmount",
+      "label": "Ingredient 1 Amount",
+      "type": "number",
+      "unit": "g or ml",
+      "default": 200,
+      "businessContext": "Original amount for ingredient 1."
+    },
+    {
+      "id": "ingredientTwoAmount",
+      "label": "Ingredient 2 Amount",
+      "type": "number",
+      "unit": "g or ml",
+      "default": 100,
+      "businessContext": "Original amount for ingredient 2."
+    },
+    {
+      "id": "ingredientThreeAmount",
+      "label": "Ingredient 3 Amount",
+      "type": "number",
+      "unit": "g or ml",
+      "default": 50,
+      "businessContext": "Original amount for ingredient 3."
+    },
+    {
+      "id": "ingredientFourAmount",
+      "label": "Ingredient 4 Amount",
+      "type": "number",
+      "unit": "g or ml",
+      "default": 25,
+      "businessContext": "Original amount for ingredient 4."
+    }
+  ],
+  "formulas": {
+    "scalingFactor": "newServings / originalServings",
+    "newIngredientOneAmount": "ingredientOneAmount * (newServings / originalServings)",
+    "newIngredientTwoAmount": "ingredientTwoAmount * (newServings / originalServings)",
+    "newIngredientThreeAmount": "ingredientThreeAmount * (newServings / originalServings)",
+    "newIngredientFourAmount": "ingredientFourAmount * (newServings / originalServings)"
+  },
+  "outputs": {
+    "primary": "scalingFactor",
+    "breakdown": [
+      "newIngredientOneAmount",
+      "newIngredientTwoAmount",
+      "newIngredientThreeAmount",
+      "newIngredientFourAmount"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

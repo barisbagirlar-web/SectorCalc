@@ -1,0 +1,57 @@
+{
+  "toolName": "dimensionality-reduction-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Number of Original Dimensions",
+      "type": "number",
+      "unit": "count",
+      "default": 100,
+      "businessContext": "Total number of features or variables in the original dataset."
+    },
+    {
+      "id": "r",
+      "label": "Eigenvalue Decay Rate",
+      "type": "number",
+      "unit": "",
+      "default": 0.9,
+      "businessContext": "Rate at which eigenvalues decrease in a geometric progression model (0 < r < 1)."
+    },
+    {
+      "id": "a",
+      "label": "Initial Eigenvalue",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "Magnitude of the largest eigenvalue."
+    },
+    {
+      "id": "threshold",
+      "label": "Cumulative Variance Threshold",
+      "type": "number",
+      "unit": "",
+      "default": 0.95,
+      "businessContext": "Target proportion of total variance to be retained (0 to 1)."
+    }
+  ],
+  "formulas": {
+    "totalVariance": "a * (1 - Math.pow(r, n)) / (1 - r)",
+    "k_float": "Math.log(1 - threshold * (1 - Math.pow(r, n))) / Math.log(r)",
+    "cumulativeVariance": "threshold * totalVariance",
+    "reductionRatio": "(n - k_float) / n * 100"
+  },
+  "outputs": {
+    "primary": "k_float",
+    "breakdown": [
+      "totalVariance",
+      "cumulativeVariance",
+      "reductionRatio"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

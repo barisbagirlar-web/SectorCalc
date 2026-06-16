@@ -1,0 +1,75 @@
+{
+  "toolName": "asphalt-shingle-calculator",
+  "inputs": [
+    {
+      "id": "roofLength",
+      "label": "Roof Length",
+      "type": "number",
+      "unit": "ft",
+      "default": 40,
+      "businessContext": "Length of a single roof plane along the eave (horizontal)."
+    },
+    {
+      "id": "roofWidth",
+      "label": "Roof Width",
+      "type": "number",
+      "unit": "ft",
+      "default": 30,
+      "businessContext": "Horizontal span from eave to ridge of one roof plane."
+    },
+    {
+      "id": "pitch",
+      "label": "Pitch (rise per 12'')",
+      "type": "number",
+      "unit": "in/12in",
+      "default": 4,
+      "businessContext": "Roof pitch expressed as rise in inches per 12 inches of run (e.g., 4 for a 4/12 pitch)."
+    },
+    {
+      "id": "numberOfPlanes",
+      "label": "Number of Planes",
+      "type": "number",
+      "unit": "count",
+      "default": 2,
+      "businessContext": "Number of identical roof planes (e.g., 2 for a standard gable roof)."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage of extra material to account for cutting waste and errors."
+    },
+    {
+      "id": "bundleCoverage",
+      "label": "Bundle Coverage",
+      "type": "number",
+      "unit": "sq ft",
+      "default": 33.33,
+      "businessContext": "Area covered by one bundle of shingles (sq ft); typically 33.33 sq ft for 3-bundle squares."
+    }
+  ],
+  "formulas": {
+    "slopeFactor": "Math.sqrt(1 + Math.pow(pitch / 12, 2))",
+    "singlePlaneArea": "roofLength * roofWidth * slopeFactor",
+    "totalArea": "singlePlaneArea * numberOfPlanes",
+    "areaWithWaste": "totalArea * (1 + wasteFactor / 100)",
+    "bundlesNeeded": "Math.ceil(areaWithWaste / bundleCoverage)",
+    "squares": "areaWithWaste / 100"
+  },
+  "outputs": {
+    "primary": "bundlesNeeded",
+    "breakdown": [
+      "totalArea",
+      "areaWithWaste",
+      "squares"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

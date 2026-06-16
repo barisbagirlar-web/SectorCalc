@@ -1,0 +1,55 @@
+{
+  "toolName": "mswd-calculator",
+  "inputs": [
+    {
+      "id": "sumWeightedSquaredResiduals",
+      "label": "Sum of Weighted Squared Residuals (Σ w_i (y_i - ŷ_i)²)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 8,
+      "businessContext": "The total weighted sum of squared differences between observed and predicted values."
+    },
+    {
+      "id": "numberOfDataPoints",
+      "label": "Number of Data Points (n)",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "businessContext": "The number of measurements in the regression."
+    },
+    {
+      "id": "numberOfParameters",
+      "label": "Number of Parameters (p)",
+      "type": "number",
+      "unit": "count",
+      "default": 2,
+      "businessContext": "The number of fitted parameters in the regression model (e.g., slope and intercept)."
+    },
+    {
+      "id": "significanceLevel",
+      "label": "Significance Level (α)",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.05,
+      "businessContext": "The probability of rejecting a valid model when MSWD exceeds the critical value; used for testing if MSWD indicates overdispersion."
+    }
+  ],
+  "formulas": {
+    "mswd": "sumWeightedSquaredResiduals / (numberOfDataPoints - numberOfParameters)"
+  },
+  "outputs": {
+    "primary": "mswd",
+    "breakdown": [
+      "sumWeightedSquaredResiduals",
+      "numberOfDataPoints - numberOfParameters",
+      "1",
+      "Math.sqrt(2 / (numberOfDataPoints - numberOfParameters))"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,54 @@
+{
+  "toolName": "rng-calculator",
+  "inputs": [
+    {
+      "id": "min",
+      "label": "Minimum Değer",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Rastgele sayı aralığının alt sınırı"
+    },
+    {
+      "id": "max",
+      "label": "Maksimum Değer",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "Rastgele sayı aralığının üst sınırı"
+    },
+    {
+      "id": "count",
+      "label": "Adet",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Üretilecek rastgele sayı adedi"
+    },
+    {
+      "id": "seed",
+      "label": "Tohum (Seed)",
+      "type": "number",
+      "unit": "",
+      "default": 42,
+      "businessContext": "Rastgele sayı üretimi için başlangıç değeri"
+    }
+  ],
+  "formulas": {
+    "generate": "const x = Math.sin(seed + 1) * 10000; const r = x - Math.floor(x); const scaled = min + r * (max - min); return Math.round(scaled * 100) / 100;",
+    "generateMultiple": "const results = []; for (let i = 0; i < count; i++) { const x = Math.sin(seed + i + 1) * 10000; const r = x - Math.floor(x); const scaled = min + r * (max - min); results.push(Math.round(scaled * 100) / 100); } return results;"
+  },
+  "outputs": {
+    "primary": "Rastgele Sayı",
+    "breakdown": [
+      "Üretilen rastgele sayı",
+      "Tüm sayıların listesi"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

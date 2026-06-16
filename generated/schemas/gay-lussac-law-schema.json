@@ -1,0 +1,44 @@
+{
+  "toolName": "gay-lussac-law",
+  "inputs": [
+    {
+      "id": "p1",
+      "label": "Initial Pressure (P₁)",
+      "type": "number",
+      "unit": "atm",
+      "default": 1,
+      "businessContext": "Initial pressure of the gas in atmospheres."
+    },
+    {
+      "id": "t1",
+      "label": "Initial Temperature (T₁)",
+      "type": "number",
+      "unit": "K",
+      "default": 273.15,
+      "businessContext": "Initial absolute temperature in Kelvin."
+    },
+    {
+      "id": "t2",
+      "label": "Final Temperature (T₂)",
+      "type": "number",
+      "unit": "K",
+      "default": 373.15,
+      "businessContext": "Final absolute temperature in Kelvin."
+    }
+  ],
+  "formulas": {
+    "p2": "p1 * t2 / t1"
+  },
+  "outputs": {
+    "primary": "p2",
+    "breakdown": [
+      "p2 = p1 * t2 / t1"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

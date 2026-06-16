@@ -1,0 +1,67 @@
+{
+  "toolName": "availability-calculator",
+  "inputs": [
+    {
+      "id": "plannedAvailableTime",
+      "label": "Planned Available Time",
+      "type": "number",
+      "unit": "min",
+      "default": 480,
+      "businessContext": "Total planned production time for the period"
+    },
+    {
+      "id": "unplannedDowntime",
+      "label": "Unplanned Downtime",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Downtime due to unplanned failures"
+    },
+    {
+      "id": "plannedDowntime",
+      "label": "Planned Downtime",
+      "type": "number",
+      "unit": "min",
+      "default": 20,
+      "businessContext": "Downtime for planned maintenance or setups"
+    },
+    {
+      "id": "numberOfFailures",
+      "label": "Number of Failures",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of failure events during the period"
+    },
+    {
+      "id": "meanTimeToRepair",
+      "label": "Mean Time To Repair (MTTR)",
+      "type": "number",
+      "unit": "min",
+      "default": 15,
+      "businessContext": "Average repair time per failure"
+    }
+  ],
+  "formulas": {
+    "totalDowntime": "unplannedDowntime + plannedDowntime",
+    "uptime": "plannedAvailableTime - (unplannedDowntime + plannedDowntime)",
+    "availability": "(plannedAvailableTime - unplannedDowntime - plannedDowntime) / plannedAvailableTime * 100",
+    "mtbf": "(plannedAvailableTime - unplannedDowntime - plannedDowntime) / numberOfFailures",
+    "mttr": "meanTimeToRepair"
+  },
+  "outputs": {
+    "primary": "availability",
+    "breakdown": [
+      "uptime",
+      "totalDowntime",
+      "mtbf",
+      "mttr"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

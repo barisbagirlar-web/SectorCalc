@@ -1,0 +1,58 @@
+{
+  "toolName": "backdoor-roth-calculator",
+  "inputs": [
+    {
+      "id": "totalIraBalance",
+      "label": "Total Traditional IRA Balance",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "Total balance of all your traditional, SEP, and SIMPLE IRAs as of December 31 of the conversion year."
+    },
+    {
+      "id": "afterTaxBasis",
+      "label": "After-Tax Basis (Non-Deductible Contributions)",
+      "type": "number",
+      "unit": "$",
+      "default": 5000,
+      "businessContext": "Total amount of non-deductible (after-tax) contributions you have made to your IRAs over the years."
+    },
+    {
+      "id": "conversionAmount",
+      "label": "Amount to Convert to Roth",
+      "type": "number",
+      "unit": "$",
+      "default": 7000,
+      "businessContext": "The amount you plan to convert from your traditional IRA to a Roth IRA this year."
+    },
+    {
+      "id": "taxRate",
+      "label": "Marginal Tax Rate",
+      "type": "number",
+      "unit": "",
+      "default": 0.24,
+      "businessContext": "Your federal + state marginal tax rate as a decimal (e.g., 0.24 for 24%). This is used to calculate taxes on the taxable portion of the conversion."
+    }
+  ],
+  "formulas": {
+    "nonTaxableRatio": "totalIraBalance > 0 ? afterTaxBasis / totalIraBalance : 0",
+    "nonTaxableAmount": "conversionAmount * nonTaxableRatio",
+    "taxableAmount": "conversionAmount - nonTaxableAmount",
+    "taxDue": "taxableAmount * taxRate",
+    "rothAmount": "conversionAmount"
+  },
+  "outputs": {
+    "primary": "taxDue",
+    "breakdown": [
+      "taxableAmount",
+      "nonTaxableAmount",
+      "rothAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

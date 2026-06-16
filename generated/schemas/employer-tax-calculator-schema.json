@@ -1,0 +1,67 @@
+{
+  "toolName": "employer-tax-calculator",
+  "inputs": [
+    {
+      "id": "employeeGrossSalary",
+      "label": "Employee Gross Salary",
+      "type": "number",
+      "unit": "TRY",
+      "default": 10000,
+      "businessContext": "The gross monthly salary of the employee before any deductions."
+    },
+    {
+      "id": "employerSocialSecurityRate",
+      "label": "Employer Social Security Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20.5,
+      "businessContext": "Employer's contribution rate for social security (including disability, old age, etc.)."
+    },
+    {
+      "id": "employerHealthInsuranceRate",
+      "label": "Employer Health Insurance Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 12,
+      "businessContext": "Employer's contribution rate for health insurance."
+    },
+    {
+      "id": "employerUnemploymentRate",
+      "label": "Employer Unemployment Insurance Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Employer's contribution rate for unemployment insurance."
+    },
+    {
+      "id": "additionalCostRate",
+      "label": "Additional Employer Cost Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "businessContext": "Any other employer-specific costs like worker compensation, insurance, etc."
+    }
+  ],
+  "formulas": {
+    "employerSocialSecurityAmount": "employeeGrossSalary * employerSocialSecurityRate / 100",
+    "employerHealthInsuranceAmount": "employeeGrossSalary * employerHealthInsuranceRate / 100",
+    "employerUnemploymentAmount": "employeeGrossSalary * employerUnemploymentRate / 100",
+    "additionalCostAmount": "employeeGrossSalary * additionalCostRate / 100",
+    "totalEmployerCost": "employeeGrossSalary + employerSocialSecurityAmount + employerHealthInsuranceAmount + employerUnemploymentAmount + additionalCostAmount"
+  },
+  "outputs": {
+    "primary": "totalEmployerCost",
+    "breakdown": [
+      "employerSocialSecurityAmount",
+      "employerHealthInsuranceAmount",
+      "employerUnemploymentAmount",
+      "additionalCostAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

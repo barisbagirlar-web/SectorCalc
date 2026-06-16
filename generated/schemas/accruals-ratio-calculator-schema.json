@@ -1,0 +1,55 @@
+{
+  "toolName": "accruals-ratio-calculator",
+  "inputs": [
+    {
+      "id": "netIncome",
+      "label": "Net Kâr",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Şirketin net dönem karı"
+    },
+    {
+      "id": "operatingCashFlow",
+      "label": "Operasyonel Nakit Akışı",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Faaliyetlerden elde edilen nakit akışı"
+    },
+    {
+      "id": "totalAssetsStart",
+      "label": "Toplam Varlıklar (Dönem Başı)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Dönem başı toplam aktifler"
+    },
+    {
+      "id": "totalAssetsEnd",
+      "label": "Toplam Varlıklar (Dönem Sonu)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Dönem sonu toplam aktifler"
+    }
+  ],
+  "formulas": {
+    "numerator": "netIncome - operatingCashFlow",
+    "denominator": "(totalAssetsStart + totalAssetsEnd) / 2",
+    "accrualsRatio": "numerator / denominator"
+  },
+  "outputs": {
+    "primary": "accrualsRatio",
+    "breakdown": [
+      "numerator",
+      "denominator"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

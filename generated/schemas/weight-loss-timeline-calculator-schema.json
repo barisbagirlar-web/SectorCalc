@@ -1,0 +1,74 @@
+{
+  "toolName": "weight-loss-timeline-calculator",
+  "inputs": [
+    {
+      "id": "initialWeight",
+      "label": "Initial Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Weight of material at the start of the drying process"
+    },
+    {
+      "id": "dryWeight",
+      "label": "Dry Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 20,
+      "businessContext": "Asymptotic bone-dry weight of the material (lowest attainable weight)"
+    },
+    {
+      "id": "targetWeight",
+      "label": "Target Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 25,
+      "businessContext": "Desired final weight after drying (must be > dryWeight)"
+    },
+    {
+      "id": "dryingRateConstant",
+      "label": "Drying Rate Constant",
+      "type": "number",
+      "unit": "1/h",
+      "default": 0.1,
+      "businessContext": "Exponential drying constant (k) characterizing the speed of moisture removal"
+    },
+    {
+      "id": "processEfficiency",
+      "label": "Process Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Efficiency factor (0–100) scaling the effective drying rate"
+    },
+    {
+      "id": "setupTime",
+      "label": "Setup Time",
+      "type": "number",
+      "unit": "h",
+      "default": 0.5,
+      "businessContext": "Initial handling or delay time before active drying begins"
+    }
+  ],
+  "formulas": {
+    "dryingTimeHours": "- Math.log((targetWeight - dryWeight) / (initialWeight - dryWeight)) / (dryingRateConstant * (processEfficiency / 100))",
+    "weightLossAmount": "initialWeight - targetWeight",
+    "totalTimeHours": "setupTime + dryingTimeHours",
+    "totalTimeDays": "totalTimeHours / 24"
+  },
+  "outputs": {
+    "primary": "totalTimeHours",
+    "breakdown": [
+      "dryingTimeHours",
+      "setupTime",
+      "totalTimeDays",
+      "weightLossAmount"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

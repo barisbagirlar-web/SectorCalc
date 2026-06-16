@@ -1,0 +1,57 @@
+{
+  "toolName": "escrow-calculator",
+  "inputs": [
+    {
+      "id": "annualPropertyTax",
+      "label": "Annual Property Tax",
+      "type": "number",
+      "unit": "$",
+      "default": 5000,
+      "businessContext": "Yearly property tax amount as declared by local tax authority"
+    },
+    {
+      "id": "annualInsurancePremium",
+      "label": "Annual Homeowner's Insurance Premium",
+      "type": "number",
+      "unit": "$",
+      "default": 1200,
+      "businessContext": "Total yearly insurance premium for the property"
+    },
+    {
+      "id": "cushionMonths",
+      "label": "Cushion Months",
+      "type": "number",
+      "unit": "months",
+      "default": 2,
+      "businessContext": "Number of extra months’ payment held as reserve, typically 2 months"
+    },
+    {
+      "id": "monthsPerYear",
+      "label": "Months Per Year",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "businessContext": "Number of payment months in a year, normally 12"
+    }
+  ],
+  "formulas": {
+    "monthlyEscrowPayment": "(annualPropertyTax + annualInsurancePremium) / monthsPerYear",
+    "totalAnnualEscrow": "annualPropertyTax + annualInsurancePremium",
+    "cushionAmount": "(annualPropertyTax + annualInsurancePremium) / monthsPerYear * cushionMonths",
+    "initialDeposit": "(annualPropertyTax + annualInsurancePremium) / monthsPerYear * (1 + cushionMonths)"
+  },
+  "outputs": {
+    "primary": "monthlyEscrowPayment",
+    "breakdown": [
+      "totalAnnualEscrow",
+      "cushionAmount",
+      "initialDeposit"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

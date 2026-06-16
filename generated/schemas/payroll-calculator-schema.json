@@ -1,0 +1,83 @@
+{
+  "toolName": "payroll-calculator",
+  "inputs": [
+    {
+      "id": "hoursWorked",
+      "label": "Hours Worked",
+      "type": "number",
+      "unit": "hours",
+      "default": 160,
+      "businessContext": "Regular monthly working hours"
+    },
+    {
+      "id": "hourlyRate",
+      "label": "Hourly Rate",
+      "type": "number",
+      "unit": "EUR/h",
+      "default": 20,
+      "businessContext": "Regular hourly pay rate"
+    },
+    {
+      "id": "overtimeHours",
+      "label": "Overtime Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 0,
+      "businessContext": "Overtime hours worked"
+    },
+    {
+      "id": "overtimeMultiplier",
+      "label": "Overtime Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Multiplier for overtime pay"
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Income tax rate"
+    },
+    {
+      "id": "insuranceRate",
+      "label": "Insurance Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Social insurance contribution rate"
+    },
+    {
+      "id": "otherDeductions",
+      "label": "Other Deductions",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "Additional deductions (e.g., union fees, advances)"
+    }
+  ],
+  "formulas": {
+    "grossPay": "hoursWorked * hourlyRate + overtimeHours * hourlyRate * overtimeMultiplier",
+    "taxAmount": "grossPay * taxRate / 100",
+    "insuranceAmount": "grossPay * insuranceRate / 100",
+    "totalDeductions": "taxAmount + insuranceAmount + otherDeductions",
+    "netPay": "grossPay - totalDeductions"
+  },
+  "outputs": {
+    "primary": "netPay",
+    "breakdown": [
+      "grossPay",
+      "totalDeductions",
+      "taxAmount",
+      "insuranceAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,81 @@
+{
+  "toolName": "fire-maliyet-hesaplayici-calculator",
+  "inputs": [
+    {
+      "id": "totalMaterial",
+      "label": "Toplam Malzeme (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Üretime giren toplam hammadde miktarı"
+    },
+    {
+      "id": "goodProduct",
+      "label": "İyi Ürün (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 85,
+      "businessContext": "Kalite kontrolden geçen nihai ürün ağırlığı"
+    },
+    {
+      "id": "reworkMaterial",
+      "label": "Yeniden İşlenebilir (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Tamir edilebilir hurda miktarı"
+    },
+    {
+      "id": "scrapPrice",
+      "label": "Hurda Fiyatı (TL/kg)",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 2.5,
+      "businessContext": "Güncel hurda alım fiyatı"
+    },
+    {
+      "id": "materialCost",
+      "label": "Malzeme Maliyeti (TL/kg)",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 12,
+      "businessContext": "Hammadde birim maliyeti"
+    },
+    {
+      "id": "laborOverhead",
+      "label": "İşçilik ve Genel Gider (TL/kg)",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 5,
+      "businessContext": "İşçilik ve genel üretim giderlerinin kg başına dağıtımı"
+    }
+  ],
+  "formulas": {
+    "totalWasteMaterial": "totalMaterial - goodProduct - reworkMaterial",
+    "wastePercentage": "(totalWasteMaterial / totalMaterial) * 100",
+    "materialCostLoss": "totalWasteMaterial * materialCost",
+    "laborCostLoss": "totalWasteMaterial * laborOverhead",
+    "reworkLaborCost": "reworkMaterial * laborOverhead",
+    "totalCostLoss": "materialCostLoss + laborCostLoss + reworkLaborCost",
+    "scrapRevenue": "totalWasteMaterial * scrapPrice",
+    "netLoss": "totalCostLoss - scrapRevenue"
+  },
+  "outputs": {
+    "primary": "netLoss",
+    "breakdown": [
+      "totalWasteMaterial",
+      "wastePercentage",
+      "materialCostLoss",
+      "laborCostLoss",
+      "reworkLaborCost",
+      "totalCostLoss",
+      "scrapRevenue"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

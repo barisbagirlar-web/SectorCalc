@@ -1,0 +1,73 @@
+{
+  "toolName": "5-2-diet-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "User age in years for basal metabolic rate calculation."
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms."
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Height in centimeters."
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "0=female,1=male",
+      "default": 1,
+      "businessContext": "Biological gender (0 for female, 1 for male) to determine BMR formula."
+    },
+    {
+      "id": "activityLevel",
+      "label": "Activity Level Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.55,
+      "businessContext": "Physical activity factor (e.g., 1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 active, 1.9 athlete)."
+    },
+    {
+      "id": "fastingPercent",
+      "label": "Fasting Day Calorie Limit",
+      "type": "number",
+      "unit": "% of TDEE",
+      "default": 25,
+      "businessContext": "Percentage of total daily energy expenditure allowed on fasting days, typically 25%."
+    }
+  ],
+  "formulas": {
+    "BMR": "(gender === 1) ? (10 * weight + 6.25 * height - 5 * age + 5) : (10 * weight + 6.25 * height - 5 * age - 161)",
+    "TDEE": "BMR * activityLevel",
+    "fastingDayCalories": "TDEE * (fastingPercent / 100)",
+    "normalDayCalories": "TDEE"
+  },
+  "outputs": {
+    "primary": "fastingDayCalories",
+    "breakdown": [
+      "BMR",
+      "TDEE",
+      "normalDayCalories"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

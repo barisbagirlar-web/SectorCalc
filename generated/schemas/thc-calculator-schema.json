@@ -1,0 +1,62 @@
+{
+  "toolName": "thc-calculator",
+  "inputs": [
+    {
+      "id": "iFund",
+      "label": "Fundamental Current (A)",
+      "type": "number",
+      "unit": "A",
+      "default": 10,
+      "businessContext": "Rated fundamental current of the load"
+    },
+    {
+      "id": "i3",
+      "label": "3rd Harmonic (A)",
+      "type": "number",
+      "unit": "A",
+      "default": 1,
+      "businessContext": "Amplitude of 3rd harmonic current"
+    },
+    {
+      "id": "i5",
+      "label": "5th Harmonic (A)",
+      "type": "number",
+      "unit": "A",
+      "default": 0.5,
+      "businessContext": "Amplitude of 5th harmonic current"
+    },
+    {
+      "id": "i7",
+      "label": "7th Harmonic (A)",
+      "type": "number",
+      "unit": "A",
+      "default": 0.3,
+      "businessContext": "Amplitude of 7th harmonic current"
+    },
+    {
+      "id": "i9",
+      "label": "9th Harmonic (A)",
+      "type": "number",
+      "unit": "A",
+      "default": 0.2,
+      "businessContext": "Amplitude of 9th harmonic current"
+    }
+  ],
+  "formulas": {
+    "thc": "Math.sqrt(i3**2 + i5**2 + i7**2 + i9**2)",
+    "thd": "(thc / iFund) * 100"
+  },
+  "outputs": {
+    "primary": "thd",
+    "breakdown": [
+      "thc",
+      "iFund"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "letter-grade-to-percentage-calculator",
+  "inputs": [
+    {
+      "id": "gradePoint",
+      "label": "Grade Point (4.0 Scale)",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "The numeric grade point on a 4.0 scale, e.g., 4.0 for A, 3.0 for B, etc."
+    },
+    {
+      "id": "slope",
+      "label": "Slope",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Points per grade point."
+    },
+    {
+      "id": "intercept",
+      "label": "Intercept",
+      "type": "number",
+      "unit": "%",
+      "default": 55,
+      "businessContext": "Base percentage when grade point is 0."
+    },
+    {
+      "id": "clampMin",
+      "label": "Minimum Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Lower clamp limit for the output percentage."
+    },
+    {
+      "id": "clampMax",
+      "label": "Maximum Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Upper clamp limit for the output percentage."
+    }
+  ],
+  "formulas": {
+    "rawPercentage": "slope * gradePoint + intercept",
+    "percentage": "Math.min(clampMax, Math.max(clampMin, rawPercentage))",
+    "letterGradeNumeric": "Math.max(0, Math.min(4, Math.floor((percentage - 50) / 10)))"
+  },
+  "outputs": {
+    "primary": "percentage",
+    "breakdown": [
+      "rawPercentage",
+      "letterGradeNumeric"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

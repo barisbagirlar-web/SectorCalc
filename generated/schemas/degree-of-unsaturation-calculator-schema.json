@@ -1,0 +1,56 @@
+{
+  "toolName": "degree-of-unsaturation-calculator",
+  "inputs": [
+    {
+      "id": "carbonCount",
+      "label": "Number of Carbon Atoms",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The count of carbon atoms in the molecular formula."
+    },
+    {
+      "id": "hydrogenCount",
+      "label": "Number of Hydrogen Atoms",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The count of hydrogen atoms in the molecular formula."
+    },
+    {
+      "id": "nitrogenCount",
+      "label": "Number of Nitrogen Atoms",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Each nitrogen adds one to the degree of unsaturation count."
+    },
+    {
+      "id": "halogenCount",
+      "label": "Number of Halogen Atoms (F, Cl, Br, I)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Halogens behave like hydrogen in the unsaturation formula."
+    }
+  ],
+  "formulas": {
+    "sumC2N": "2 * carbonCount + 2 + nitrogenCount",
+    "sumHX": "hydrogenCount + halogenCount",
+    "du": "(2 * carbonCount + 2 + nitrogenCount - hydrogenCount - halogenCount) / 2"
+  },
+  "outputs": {
+    "primary": "du",
+    "breakdown": [
+      "2C + 2 + N = 2*{carbonCount} + 2 + {nitrogenCount} = {sumC2N}",
+      "H + X = {hydrogenCount} + {halogenCount} = {sumHX}",
+      "DU = (2C + 2 + N - (H + X)) / 2 = ({sumC2N} - {sumHX}) / 2 = {du}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

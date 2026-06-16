@@ -1,0 +1,55 @@
+{
+  "toolName": "days-to-hours-calculator",
+  "inputs": [
+    {
+      "id": "days",
+      "label": "Days",
+      "type": "number",
+      "unit": "days",
+      "default": 1,
+      "businessContext": "Number of days to convert."
+    },
+    {
+      "id": "hoursPerDay",
+      "label": "Hours per Day",
+      "type": "number",
+      "unit": "hours/day",
+      "default": 24,
+      "businessContext": "Conversion factor: hours in one day."
+    },
+    {
+      "id": "minutesPerHour",
+      "label": "Minutes per Hour",
+      "type": "number",
+      "unit": "minutes/hour",
+      "default": 60,
+      "businessContext": "Minutes in an hour for breakdown into minutes."
+    },
+    {
+      "id": "secondsPerMinute",
+      "label": "Seconds per Minute",
+      "type": "number",
+      "unit": "seconds/minute",
+      "default": 60,
+      "businessContext": "Seconds in a minute for breakdown into seconds."
+    }
+  ],
+  "formulas": {
+    "primary": "days * hoursPerDay",
+    "totalMinutes": "days * hoursPerDay * minutesPerHour",
+    "totalSeconds": "days * hoursPerDay * minutesPerHour * secondsPerMinute"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "totalMinutes",
+      "totalSeconds"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

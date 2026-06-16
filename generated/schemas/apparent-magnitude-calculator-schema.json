@@ -1,0 +1,55 @@
+{
+  "toolName": "apparent-magnitude-calculator",
+  "inputs": [
+    {
+      "id": "objectFlux",
+      "label": "Object Flux",
+      "type": "number",
+      "unit": "W/m²",
+      "default": 1e-10,
+      "businessContext": "Measured radiative flux of the celestial object"
+    },
+    {
+      "id": "referenceFlux",
+      "label": "Reference Flux",
+      "type": "number",
+      "unit": "W/m²",
+      "default": 1e-8,
+      "businessContext": "Flux corresponding to magnitude zero point"
+    },
+    {
+      "id": "magnitudeZeroPoint",
+      "label": "Zero Point Correction",
+      "type": "number",
+      "unit": "mag",
+      "default": 0,
+      "businessContext": "Offset to align with a specific magnitude system"
+    },
+    {
+      "id": "extinction",
+      "label": "Extinction",
+      "type": "number",
+      "unit": "mag",
+      "default": 0,
+      "businessContext": "Dimming due to interstellar dust (positive value reduces brightness)"
+    }
+  ],
+  "formulas": {
+    "fluxRatio": "objectFlux / referenceFlux",
+    "logRatio": "Math.log10(objectFlux / referenceFlux)",
+    "apparentMagnitude": "-2.5 * Math.log10(objectFlux / referenceFlux) + magnitudeZeroPoint - extinction"
+  },
+  "outputs": {
+    "primary": "apparentMagnitude",
+    "breakdown": [
+      "fluxRatio",
+      "logRatio"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

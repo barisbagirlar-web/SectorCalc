@@ -1,0 +1,57 @@
+{
+  "toolName": "fret-calculator",
+  "inputs": [
+    {
+      "id": "scaleLength",
+      "label": "Scale Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 648,
+      "businessContext": "The distance from the nut to the bridge saddle, typically measured in millimeters."
+    },
+    {
+      "id": "fretNumber",
+      "label": "Fret Number",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The fret position to calculate (1-indexed)."
+    },
+    {
+      "id": "totalFrets",
+      "label": "Total Frets",
+      "type": "number",
+      "unit": "",
+      "default": 24,
+      "businessContext": "The total number of frets on the instrument fingerboard."
+    },
+    {
+      "id": "compensation",
+      "label": "Compensation",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Additional length added to the scale length for intonation compensation at the bridge."
+    }
+  ],
+  "formulas": {
+    "distanceToFret": "((scaleLength + compensation) - ((scaleLength + compensation) / Math.pow(2, fretNumber / 12)))",
+    "distanceToNextFret": "fretNumber < totalFrets ? ((scaleLength + compensation) - ((scaleLength + compensation) / Math.pow(2, (fretNumber + 1) / 12))) : 0",
+    "distanceTo12thFret": "(scaleLength + compensation) / 2",
+    "fretSpacing": "fretNumber > 1 ? (((scaleLength + compensation) - ((scaleLength + compensation) / Math.pow(2, fretNumber / 12))) - ((scaleLength + compensation) - ((scaleLength + compensation) / Math.pow(2, (fretNumber - 1) / 12)))) : ((scaleLength + compensation) - ((scaleLength + compensation) / Math.pow(2, fretNumber / 12)))"
+  },
+  "outputs": {
+    "primary": "distanceToFret",
+    "breakdown": [
+      "distanceToNextFret",
+      "distanceTo12thFret",
+      "fretSpacing"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Atölye & Tamir",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

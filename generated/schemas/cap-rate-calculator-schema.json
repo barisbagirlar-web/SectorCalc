@@ -1,0 +1,64 @@
+{
+  "toolName": "cap-rate-calculator",
+  "inputs": [
+    {
+      "id": "propertyValue",
+      "label": "Property Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 500000,
+      "businessContext": "Current market value or purchase price of the property."
+    },
+    {
+      "id": "annualGrossIncome",
+      "label": "Annual Gross Income",
+      "type": "number",
+      "unit": "currency/year",
+      "default": 60000,
+      "businessContext": "Total projected rental income for one year before expenses."
+    },
+    {
+      "id": "annualOperatingExpenses",
+      "label": "Annual Operating Expenses",
+      "type": "number",
+      "unit": "currency/year",
+      "default": 15000,
+      "businessContext": "Total annual costs to operate the property (insurance, maintenance, taxes, etc.)."
+    },
+    {
+      "id": "vacancyRate",
+      "label": "Vacancy Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Estimated vacancy and collection loss as a percentage of gross income."
+    },
+    {
+      "id": "otherAnnualIncome",
+      "label": "Other Annual Income",
+      "type": "number",
+      "unit": "currency/year",
+      "default": 0,
+      "businessContext": "Additional income from sources like parking, laundry, storage, etc."
+    }
+  ],
+  "formulas": {
+    "effectiveGrossIncome": "annualGrossIncome * (1 - vacancyRate / 100) + otherAnnualIncome",
+    "netOperatingIncome": "effectiveGrossIncome - annualOperatingExpenses",
+    "capRate": "netOperatingIncome / propertyValue * 100"
+  },
+  "outputs": {
+    "primary": "capRate",
+    "breakdown": [
+      "netOperatingIncome",
+      "effectiveGrossIncome",
+      "annualGrossIncome"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

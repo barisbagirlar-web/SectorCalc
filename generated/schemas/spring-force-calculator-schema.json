@@ -1,0 +1,70 @@
+{
+  "toolName": "spring-force-calculator",
+  "inputs": [
+    {
+      "id": "springConstant",
+      "label": "Yay Sabiti (k)",
+      "type": "number",
+      "unit": "N/mm",
+      "default": 0,
+      "businessContext": "Doğrudan yay sabiti değeri. Sıfır bırakılırsa geometriden hesaplanır."
+    },
+    {
+      "id": "displacement",
+      "label": "Sıkıştırma Miktarı (x)",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Yayın sıkıştırma veya uzama miktarı."
+    },
+    {
+      "id": "wireDiameter",
+      "label": "Tel Çapı (d)",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "businessContext": "Yay telinin çapı."
+    },
+    {
+      "id": "coilDiameter",
+      "label": "Bobin Çapı (D)",
+      "type": "number",
+      "unit": "mm",
+      "default": 20,
+      "businessContext": "Yayın ortalama bobin çapı."
+    },
+    {
+      "id": "activeCoils",
+      "label": "Aktif Sarım Sayısı (n)",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Yaydaki aktif sarım sayısı."
+    },
+    {
+      "id": "shearModulus",
+      "label": "Kayma Modülü (G)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 80000,
+      "businessContext": "Malzemenin kayma modülü. Çelik için yaklaşık 80 GPa."
+    }
+  ],
+  "formulas": {
+    "force": "(springConstant > 0 ? springConstant : (shearModulus * Math.pow(wireDiameter, 4)) / (8 * Math.pow(coilDiameter, 3) * activeCoils)) * displacement",
+    "effectiveSpringConstant": "springConstant > 0 ? springConstant : (shearModulus * Math.pow(wireDiameter, 4)) / (8 * Math.pow(coilDiameter, 3) * activeCoils)"
+  },
+  "outputs": {
+    "primary": "force",
+    "breakdown": [
+      "effectiveSpringConstant",
+      "displacement"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

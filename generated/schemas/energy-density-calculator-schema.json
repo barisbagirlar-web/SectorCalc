@@ -1,0 +1,55 @@
+{
+  "toolName": "energy-density-calculator",
+  "inputs": [
+    {
+      "id": "capacity",
+      "label": "Battery Capacity",
+      "type": "number",
+      "unit": "Ah",
+      "default": 50,
+      "businessContext": "Nominal capacity of the battery in ampere-hours"
+    },
+    {
+      "id": "voltage",
+      "label": "Nominal Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 3.7,
+      "businessContext": "Average or nominal voltage of the battery cell or pack"
+    },
+    {
+      "id": "mass",
+      "label": "Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 0.5,
+      "businessContext": "Total mass of the battery including packaging"
+    },
+    {
+      "id": "volume",
+      "label": "Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 0.1,
+      "businessContext": "Total volume of the battery including packaging"
+    }
+  ],
+  "formulas": {
+    "totalEnergy": "capacity * voltage",
+    "gravimetricEnergyDensity": "totalEnergy / mass",
+    "volumetricEnergyDensity": "totalEnergy / volume"
+  },
+  "outputs": {
+    "primary": "gravimetricEnergyDensity",
+    "breakdown": [
+      "volumetricEnergyDensity",
+      "totalEnergy"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

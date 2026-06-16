@@ -1,0 +1,67 @@
+{
+  "toolName": "paypal-fee-calculator",
+  "inputs": [
+    {
+      "id": "transactionAmount",
+      "label": "Transaction Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "The amount to be sent or received"
+    },
+    {
+      "id": "feePercentage",
+      "label": "Domestic Fee Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 2.9,
+      "businessContext": "PayPal's domestic transaction fee percentage"
+    },
+    {
+      "id": "fixedFee",
+      "label": "Fixed Fee per Transaction",
+      "type": "number",
+      "unit": "USD",
+      "default": 0.3,
+      "businessContext": "Fixed fee added per domestic transaction"
+    },
+    {
+      "id": "isInternational",
+      "label": "International Transaction (0=No, 1=Yes)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Indicates if the transaction is cross-border"
+    },
+    {
+      "id": "internationalFeePercentage",
+      "label": "International Fee Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 1.5,
+      "businessContext": "Additional fee percentage for international transactions"
+    }
+  ],
+  "formulas": {
+    "totalFee": "(transactionAmount * feePercentage / 100 + fixedFee) + (isInternational === 1 ? transactionAmount * internationalFeePercentage / 100 : 0)",
+    "netAmount": "transactionAmount - ((transactionAmount * feePercentage / 100 + fixedFee) + (isInternational === 1 ? transactionAmount * internationalFeePercentage / 100 : 0))",
+    "percentageFee": "transactionAmount * feePercentage / 100",
+    "fixedFeeAmount": "fixedFee",
+    "internationalFeeAmount": "isInternational === 1 ? transactionAmount * internationalFeePercentage / 100 : 0"
+  },
+  "outputs": {
+    "primary": "netAmount",
+    "breakdown": [
+      "totalFee",
+      "percentageFee",
+      "fixedFeeAmount",
+      "internationalFeeAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "gradian-calculator",
+  "inputs": [
+    {
+      "id": "grad",
+      "label": "Gradians",
+      "type": "number",
+      "unit": "grad",
+      "default": 0,
+      "businessContext": "Enter the angle in gradians (gon). Leave 0 if not using this input. Only one input should be non-zero."
+    },
+    {
+      "id": "deg",
+      "label": "Degrees",
+      "type": "number",
+      "unit": "deg",
+      "default": 0,
+      "businessContext": "Enter the angle in degrees. Leave 0 if not using this input. Only one input should be non-zero."
+    },
+    {
+      "id": "rad",
+      "label": "Radians",
+      "type": "number",
+      "unit": "rad",
+      "default": 0,
+      "businessContext": "Enter the angle in radians. Leave 0 if not using this input. Only one input should be non-zero."
+    },
+    {
+      "id": "multiplier",
+      "label": "Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Optional multiplier for scaling the angle (e.g., multiple rotations). Default is 1."
+    }
+  ],
+  "formulas": {
+    "primary": "(grad * 0.9 + deg + rad * (180/Math.PI)) * multiplier",
+    "breakdown": [
+      "(grad + deg * (10/9) + rad * (200/Math.PI)) * multiplier",
+      "(grad * (Math.PI/200) + deg * (Math.PI/180) + rad) * multiplier"
+    ]
+  },
+  "outputs": {
+    "primary": "Converted Angle in Degrees",
+    "breakdown": [
+      "Converted Angle in Gradians",
+      "Converted Angle in Radians"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

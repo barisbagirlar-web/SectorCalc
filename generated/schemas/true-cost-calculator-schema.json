@@ -1,0 +1,66 @@
+{
+  "toolName": "true-cost-calculator",
+  "inputs": [
+    {
+      "id": "materialCost",
+      "label": "Hammadde Maliyeti (birim başına)",
+      "type": "number",
+      "unit": "TRY",
+      "default": 100,
+      "businessContext": "Üretim birim başına direkt malzeme maliyeti"
+    },
+    {
+      "id": "laborCost",
+      "label": "İşçilik Maliyeti (birim başına)",
+      "type": "number",
+      "unit": "TRY",
+      "default": 50,
+      "businessContext": "Birim başı direkt işçilik maliyeti"
+    },
+    {
+      "id": "energyCost",
+      "label": "Enerji Maliyeti (birim başına)",
+      "type": "number",
+      "unit": "TRY",
+      "default": 20,
+      "businessContext": "Üretim birim başı enerji tüketim maliyeti"
+    },
+    {
+      "id": "overheadRate",
+      "label": "Genel Üretim Gider Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Direkt maliyetler üzerinden uygulanan genel üretim gider yüzdesi"
+    },
+    {
+      "id": "wasteRate",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Üretim sürecindeki fire oranı; etkin maliyet hesaplamasında kayıp oranı olarak kullanılır"
+    }
+  ],
+  "formulas": {
+    "directCost": "materialCost + laborCost + energyCost",
+    "yieldMultiplier": "1 / (1 - wasteRate / 100)",
+    "wasteCost": "directCost * (yieldMultiplier - 1)",
+    "overheadCost": "(directCost + wasteCost) * (overheadRate / 100)",
+    "trueCostPerUnit": "directCost + wasteCost + overheadCost"
+  },
+  "outputs": {
+    "primary": "trueCostPerUnit",
+    "breakdown": [
+      "directCost",
+      "wasteCost",
+      "overheadCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

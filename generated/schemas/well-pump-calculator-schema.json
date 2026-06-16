@@ -1,0 +1,71 @@
+{
+  "toolName": "well-pump-calculator",
+  "inputs": [
+    {
+      "id": "staticWaterLevel",
+      "label": "Static Water Level",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Depth from ground surface to water level when not pumping."
+    },
+    {
+      "id": "drawdown",
+      "label": "Drawdown",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Additional drop in water level during pumping."
+    },
+    {
+      "id": "dischargeHead",
+      "label": "Discharge Head",
+      "type": "number",
+      "unit": "m",
+      "default": 20,
+      "businessContext": "Pressure head required at discharge point (1 bar ≈ 10.2 m)."
+    },
+    {
+      "id": "frictionLoss",
+      "label": "Friction Loss",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Estimated friction loss in piping and fittings."
+    },
+    {
+      "id": "flowRate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "m³/h",
+      "default": 10,
+      "businessContext": "Desired volumetric flow rate."
+    },
+    {
+      "id": "pumpEfficiency",
+      "label": "Pump Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Pump efficiency (typically 50–85%)."
+    }
+  ],
+  "formulas": {
+    "totalDynamicHead": "staticWaterLevel + drawdown + dischargeHead + frictionLoss",
+    "hydraulicPower": "(flowRate * totalDynamicHead * 9.81) / 3600",
+    "pumpPower": "hydraulicPower / (pumpEfficiency / 100)"
+  },
+  "outputs": {
+    "primary": "pumpPower",
+    "breakdown": [
+      "totalDynamicHead",
+      "hydraulicPower"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

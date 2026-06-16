@@ -1,0 +1,54 @@
+{
+  "toolName": "kb-calculator",
+  "inputs": [
+    {
+      "id": "wireDia",
+      "label": "Tel Çapı (d)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1,
+      "businessContext": "Yay teli çapı"
+    },
+    {
+      "id": "coilDia",
+      "label": "Ortalama Sarım Çapı (D)",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Yayın ortalama çapı"
+    },
+    {
+      "id": "activeCoils",
+      "label": "Aktif Sarım Sayısı (n)",
+      "type": "number",
+      "unit": "-",
+      "default": 10,
+      "businessContext": "Yayın aktif sarım sayısı"
+    },
+    {
+      "id": "shearModulus",
+      "label": "Kayma Modülü (G)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 80000,
+      "businessContext": "Malzemenin kayma modülü (çelik için 80000 MPa)"
+    }
+  ],
+  "formulas": {
+    "k": "(shearModulus * Math.pow(wireDia, 4)) / (8 * Math.pow(coilDia, 3) * activeCoils)"
+  },
+  "outputs": {
+    "primary": "k",
+    "breakdown": [
+      "Tel çapının 4. kuvveti",
+      "Sarım çapının 3. kuvveti",
+      "Payda çarpımı"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

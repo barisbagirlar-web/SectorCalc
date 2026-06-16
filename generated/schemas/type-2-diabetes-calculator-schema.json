@@ -1,0 +1,79 @@
+{
+  "toolName": "type-2-diabetes-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 45,
+      "businessContext": "Patient's age in years"
+    },
+    {
+      "id": "bmi",
+      "label": "BMI",
+      "type": "number",
+      "unit": "kg/m²",
+      "default": 25,
+      "businessContext": "Body Mass Index"
+    },
+    {
+      "id": "waist",
+      "label": "Waist Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 90,
+      "businessContext": "Waist measurement in centimeters"
+    },
+    {
+      "id": "fastingGlucose",
+      "label": "Fasting Glucose",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 100,
+      "businessContext": "Fasting blood glucose level"
+    },
+    {
+      "id": "hdl",
+      "label": "HDL Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 50,
+      "businessContext": "High-density lipoprotein cholesterol"
+    },
+    {
+      "id": "systolicBP",
+      "label": "Systolic BP",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 120,
+      "businessContext": "Systolic blood pressure"
+    }
+  ],
+  "formulas": {
+    "ageRisk": "age * 0.1",
+    "bmiRisk": "bmi * 0.5",
+    "waistRisk": "waist * 0.2",
+    "glucoseRisk": "fastingGlucose * 0.03",
+    "hdlRisk": "- hdl * 0.1",
+    "bpRisk": "systolicBP * 0.05",
+    "totalRiskScore": "age * 0.1 + bmi * 0.5 + waist * 0.2 + fastingGlucose * 0.03 - hdl * 0.1 + systolicBP * 0.05"
+  },
+  "outputs": {
+    "primary": "totalRiskScore",
+    "breakdown": [
+      "ageRisk",
+      "bmiRisk",
+      "waistRisk",
+      "glucoseRisk",
+      "hdlRisk",
+      "bpRisk"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

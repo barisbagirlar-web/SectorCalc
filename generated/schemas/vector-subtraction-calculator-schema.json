@@ -1,0 +1,74 @@
+{
+  "toolName": "vector-subtraction-calculator",
+  "inputs": [
+    {
+      "id": "a_x",
+      "label": "Vector A - X Component",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "X component of first vector"
+    },
+    {
+      "id": "a_y",
+      "label": "Vector A - Y Component",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y component of first vector"
+    },
+    {
+      "id": "a_z",
+      "label": "Vector A - Z Component",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Z component of first vector"
+    },
+    {
+      "id": "b_x",
+      "label": "Vector B - X Component",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "X component of second vector"
+    },
+    {
+      "id": "b_y",
+      "label": "Vector B - Y Component",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y component of second vector"
+    },
+    {
+      "id": "b_z",
+      "label": "Vector B - Z Component",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Z component of second vector"
+    }
+  ],
+  "formulas": {
+    "result_x": "a_x - b_x",
+    "result_y": "a_y - b_y",
+    "result_z": "a_z - b_z",
+    "magnitude": "Math.sqrt((a_x - b_x)**2 + (a_y - b_y)**2 + (a_z - b_z)**2)"
+  },
+  "outputs": {
+    "primary": "Vector Difference Magnitude: {magnitude} m",
+    "breakdown": [
+      "ΔX: ({a_x} - {b_x}) = {result_x} m",
+      "ΔY: ({a_y} - {b_y}) = {result_y} m",
+      "ΔZ: ({a_z} - {b_z}) = {result_z} m",
+      "Magnitude: √(ΔX² + ΔY² + ΔZ²) = {magnitude} m"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

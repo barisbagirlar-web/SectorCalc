@@ -1,0 +1,55 @@
+{
+  "toolName": "chromatic-number-calculator",
+  "inputs": [
+    {
+      "id": "n_d",
+      "label": "Refractive Index n_d",
+      "type": "number",
+      "unit": "",
+      "default": 1.523,
+      "businessContext": "Refractive index at the Fraunhofer D-line (589.3 nm), typically for yellow light."
+    },
+    {
+      "id": "n_F",
+      "label": "Refractive Index n_F",
+      "type": "number",
+      "unit": "",
+      "default": 1.529,
+      "businessContext": "Refractive index at the Fraunhofer F-line (486.1 nm), blue hydrogen line."
+    },
+    {
+      "id": "n_C",
+      "label": "Refractive Index n_C",
+      "type": "number",
+      "unit": "",
+      "default": 1.52,
+      "businessContext": "Refractive index at the Fraunhofer C-line (656.3 nm), red hydrogen line."
+    },
+    {
+      "id": "lambda_d",
+      "label": "Reference Wavelength",
+      "type": "number",
+      "unit": "nm",
+      "default": 589.3,
+      "businessContext": "Wavelength for n_d measurement, default is 589.3 nm."
+    }
+  ],
+  "formulas": {
+    "abbeNumber": "(n_d - 1) / (n_F - n_C)",
+    "dispersion": "n_F - n_C",
+    "refractivity": "n_d - 1"
+  },
+  "outputs": {
+    "primary": "abbeNumber",
+    "breakdown": [
+      "dispersion",
+      "refractivity"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

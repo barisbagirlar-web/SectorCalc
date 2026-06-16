@@ -1,0 +1,67 @@
+{
+  "toolName": "capacitor-calculator",
+  "inputs": [
+    {
+      "id": "capacitance",
+      "label": "Kapasitans (C)",
+      "type": "number",
+      "unit": "F",
+      "default": 0.001,
+      "businessContext": "Kapasitörün kapasitans değeri (Farad)"
+    },
+    {
+      "id": "voltage",
+      "label": "Gerilim (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 12,
+      "businessContext": "Kapasitöre uygulanan gerilim (Volt)"
+    },
+    {
+      "id": "resistance",
+      "label": "Direnç (R)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 1000,
+      "businessContext": "Seri devre direnci (Ohm)"
+    },
+    {
+      "id": "frequency",
+      "label": "Frekans (f)",
+      "type": "number",
+      "unit": "Hz",
+      "default": 50,
+      "businessContext": "AC sinyalin frekansı (Hertz)"
+    },
+    {
+      "id": "time",
+      "label": "Zaman (t)",
+      "type": "number",
+      "unit": "s",
+      "default": 0.001,
+      "businessContext": "Değerlendirilen zaman anı (saniye)"
+    }
+  ],
+  "formulas": {
+    "energy_stored": "0.5 * capacitance * voltage ** 2",
+    "charge": "capacitance * voltage",
+    "time_constant": "resistance * capacitance",
+    "reactance": "1 / (2 * Math.PI * frequency * capacitance)",
+    "discharge_voltage": "voltage * Math.exp(-time / (resistance * capacitance))"
+  },
+  "outputs": {
+    "primary": "energy_stored",
+    "breakdown": [
+      "charge",
+      "time_constant",
+      "reactance",
+      "discharge_voltage"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

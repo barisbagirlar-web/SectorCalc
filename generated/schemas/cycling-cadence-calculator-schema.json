@@ -1,0 +1,57 @@
+{
+  "toolName": "cycling-cadence-calculator",
+  "inputs": [
+    {
+      "id": "speed",
+      "label": "Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 25,
+      "businessContext": "Input riding speed in kilometers per hour"
+    },
+    {
+      "id": "frontTeeth",
+      "label": "Front Chainring Teeth",
+      "type": "number",
+      "unit": "teeth",
+      "default": 50,
+      "businessContext": "Number of teeth on the front chainring"
+    },
+    {
+      "id": "rearTeeth",
+      "label": "Rear Cog Teeth",
+      "type": "number",
+      "unit": "teeth",
+      "default": 15,
+      "businessContext": "Number of teeth on the rear cog"
+    },
+    {
+      "id": "wheelDiameter",
+      "label": "Wheel Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 700,
+      "businessContext": "Nominal wheel diameter in millimeters (e.g., 700 for road bikes)"
+    }
+  ],
+  "formulas": {
+    "cadence": "(speed * 1000000) / (60 * Math.PI * (frontTeeth / rearTeeth) * wheelDiameter)",
+    "gearRatio": "frontTeeth / rearTeeth",
+    "wheelCircumference": "Math.PI * wheelDiameter",
+    "distancePerRev": "(frontTeeth / rearTeeth) * Math.PI * wheelDiameter / 1000"
+  },
+  "outputs": {
+    "primary": "cadence",
+    "breakdown": [
+      "gearRatio",
+      "wheelCircumference",
+      "distancePerRev"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

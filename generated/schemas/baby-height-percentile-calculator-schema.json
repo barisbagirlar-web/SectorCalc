@@ -1,0 +1,70 @@
+{
+  "toolName": "baby-height-percentile-calculator",
+  "inputs": [
+    {
+      "id": "sex",
+      "label": "Sex (0=Male, 1=Female)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Enter 0 for male, 1 for female"
+    },
+    {
+      "id": "ageMonths",
+      "label": "Age (months)",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "businessContext": "Age in completed months"
+    },
+    {
+      "id": "heightCm",
+      "label": "Height (Length)",
+      "type": "number",
+      "unit": "cm",
+      "default": 76,
+      "businessContext": "Recumbent length for infants under 2 years"
+    },
+    {
+      "id": "L",
+      "label": "L (Box-Cox power)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Skewness parameter from WHO growth standards for given age and sex"
+    },
+    {
+      "id": "M",
+      "label": "M (Median)",
+      "type": "number",
+      "unit": "cm",
+      "default": 76,
+      "businessContext": "Median height for given age and sex from reference growth chart"
+    },
+    {
+      "id": "S",
+      "label": "S (Coefficient of variation)",
+      "type": "number",
+      "unit": "",
+      "default": 0.04,
+      "businessContext": "Coefficient of variation from WHO growth standards"
+    }
+  ],
+  "formulas": {
+    "zScore": "(Math.pow(heightCm / M, L) - 1) / (L * S)",
+    "erf": "(zScore > 0 ? 1 : -1) * Math.sqrt(1 - Math.exp(-zScore * zScore * (4 / Math.PI + 0.147 * zScore * zScore) / (1 + 0.147 * zScore * zScore)))",
+    "percentile": "0.5 * (1 + erf / Math.sqrt(2)) * 100"
+  },
+  "outputs": {
+    "primary": "percentile",
+    "breakdown": [
+      "zScore"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

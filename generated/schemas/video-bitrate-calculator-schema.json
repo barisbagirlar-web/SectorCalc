@@ -1,0 +1,91 @@
+{
+  "toolName": "video-bitrate-calculator",
+  "inputs": [
+    {
+      "id": "width",
+      "label": "Video Width",
+      "type": "number",
+      "unit": "px",
+      "default": 1920,
+      "businessContext": "Horizontal resolution of the video in pixels"
+    },
+    {
+      "id": "height",
+      "label": "Video Height",
+      "type": "number",
+      "unit": "px",
+      "default": 1080,
+      "businessContext": "Vertical resolution of the video in pixels"
+    },
+    {
+      "id": "frameRate",
+      "label": "Frame Rate",
+      "type": "number",
+      "unit": "fps",
+      "default": 30,
+      "businessContext": "Number of frames displayed per second"
+    },
+    {
+      "id": "colorDepth",
+      "label": "Color Depth",
+      "type": "number",
+      "unit": "bits/pixel",
+      "default": 24,
+      "businessContext": "Number of bits used to represent the color of a single pixel, e.g., 24 for True Color"
+    },
+    {
+      "id": "compressionRatio",
+      "label": "Compression Ratio",
+      "type": "number",
+      "unit": "",
+      "default": 0.1,
+      "businessContext": "Typical values: 0.1 for H.264, 0.05 for H.265. Determines the compression factor applied to the uncompressed bitrate."
+    },
+    {
+      "id": "duration",
+      "label": "Duration",
+      "type": "number",
+      "unit": "s",
+      "default": 60,
+      "businessContext": "Length of the video in seconds, used to calculate total file size"
+    }
+  ],
+  "formulas": {
+    "uncompressedBitrateBps": "width * height * frameRate * colorDepth",
+    "uncompressedBitrateMbps": "uncompressedBitrateBps / 1000000",
+    "compressedBitrateBps": "uncompressedBitrateBps * compressionRatio",
+    "compressedBitrateMbps": "compressedBitrateBps / 1000000",
+    "fileSizeMB": "compressedBitrateBps * duration / (8 * 1048576)",
+    "fileSizeGB": "fileSizeMB / 1024"
+  },
+  "outputs": {
+    "primary": {
+      "id": "compressedBitrateMbps",
+      "label": "Video Bitrate",
+      "unit": "Mbps"
+    },
+    "breakdown": [
+      {
+        "id": "uncompressedBitrateMbps",
+        "label": "Uncompressed Bitrate",
+        "unit": "Mbps"
+      },
+      {
+        "id": "compressedBitrateMbps",
+        "label": "Compressed Bitrate",
+        "unit": "Mbps"
+      },
+      {
+        "id": "fileSizeMB",
+        "label": "Estimated File Size",
+        "unit": "MB"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

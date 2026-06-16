@@ -1,0 +1,58 @@
+{
+  "toolName": "operating-cash-flow-calculator",
+  "inputs": [
+    {
+      "id": "revenue",
+      "label": "Revenue",
+      "type": "number",
+      "unit": "$",
+      "default": 1000000,
+      "businessContext": "Total sales revenue for the period"
+    },
+    {
+      "id": "operatingExpenses",
+      "label": "Operating Expenses",
+      "type": "number",
+      "unit": "$",
+      "default": 600000,
+      "businessContext": "Total operating expenses including COGS, SG&A, etc."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Effective tax rate percentage"
+    },
+    {
+      "id": "depreciation",
+      "label": "Depreciation",
+      "type": "number",
+      "unit": "$",
+      "default": 50000,
+      "businessContext": "Depreciation and amortization expense (non-cash)"
+    }
+  ],
+  "formulas": {
+    "operatingCashFlow": "(revenue - operatingExpenses) * (1 - taxRate / 100) + depreciation",
+    "ebit": "revenue - operatingExpenses",
+    "taxAmount": "(revenue - operatingExpenses) * taxRate / 100",
+    "afterTaxEBIT": "(revenue - operatingExpenses) * (1 - taxRate / 100)"
+  },
+  "outputs": {
+    "primary": "Operating Cash Flow",
+    "breakdown": [
+      "EBIT",
+      "Tax Amount",
+      "After-Tax EBIT",
+      "Depreciation Add-back"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

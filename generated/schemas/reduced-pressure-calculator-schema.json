@@ -1,0 +1,63 @@
+{
+  "toolName": "reduced-pressure-calculator",
+  "inputs": [
+    {
+      "id": "upstreamPressure",
+      "label": "Giriş Basıncı",
+      "type": "number",
+      "unit": "bar",
+      "default": 10,
+      "businessContext": "Vana girişindeki akışkan basıncı"
+    },
+    {
+      "id": "flowRate",
+      "label": "Akış Debisi",
+      "type": "number",
+      "unit": "L/dk",
+      "default": 100,
+      "businessContext": "Vana üzerinden geçen akışkan debisi"
+    },
+    {
+      "id": "specificGravity",
+      "label": "Özgül Ağırlık",
+      "type": "number",
+      "unit": "(su=1)",
+      "default": 1,
+      "businessContext": "Akışkanın suya göre özgül ağırlığı"
+    },
+    {
+      "id": "kvCoefficient",
+      "label": "Kv Katsayısı",
+      "type": "number",
+      "unit": "m³/h @ 1 bar",
+      "default": 10,
+      "businessContext": "Vana akış katsayısı (Kv)"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Emniyet Faktörü",
+      "type": "number",
+      "unit": "≥1",
+      "default": 1.2,
+      "businessContext": "Hesaplanan basınç düşümüne uygulanan emniyet çarpanı"
+    }
+  ],
+  "formulas": {
+    "pressureDrop": "specificGravity * Math.pow((flowRate * 0.06) / kvCoefficient, 2)",
+    "adjustedPressureDrop": "safetyFactor * specificGravity * Math.pow((flowRate * 0.06) / kvCoefficient, 2)",
+    "reducedPressure": "upstreamPressure - safetyFactor * specificGravity * Math.pow((flowRate * 0.06) / kvCoefficient, 2)"
+  },
+  "outputs": {
+    "primary": "reducedPressure",
+    "breakdown": [
+      "pressureDrop",
+      "adjustedPressureDrop"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

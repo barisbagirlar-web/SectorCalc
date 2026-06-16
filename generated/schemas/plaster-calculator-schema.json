@@ -1,0 +1,94 @@
+{
+  "toolName": "plaster-calculator",
+  "inputs": [
+    {
+      "id": "wallLength",
+      "label": "Duvar Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Sıvanacak duvarın yatay uzunluğu (metre). Tipik ev içi duvar: 3-6m."
+    },
+    {
+      "id": "wallHeight",
+      "label": "Duvar Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 2.5,
+      "businessContext": "Sıvanacak duvarın dikey yüksekliği (metre). Standart tavan yüksekliği: 2.4-2.7m."
+    },
+    {
+      "id": "plasterThickness",
+      "label": "Sıva Kalınlığı",
+      "type": "number",
+      "unit": "cm",
+      "default": 2,
+      "businessContext": "Uygulanacak sıva kalınlığı (cm). Tipik iç sıva: 1-2cm, dış sıva: 2-3cm."
+    },
+    {
+      "id": "mixRatioCement",
+      "label": "Çimento Oranı (Hacim)",
+      "type": "number",
+      "unit": "kısım",
+      "default": 1,
+      "businessContext": "Harç karışımında çimento miktarı (hacimce). Örn: 1:4 karışımda çimento=1, kum=4."
+    },
+    {
+      "id": "mixRatioSand",
+      "label": "Kum Oranı (Hacim)",
+      "type": "number",
+      "unit": "kısım",
+      "default": 4,
+      "businessContext": "Harç karışımında kum miktarı (hacimce). Örn: 1:4 karışımda kum=4."
+    },
+    {
+      "id": "cementBagWeight",
+      "label": "Çimento Torba Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 50,
+      "businessContext": "Bir torba çimentonun ağırlığı (kg). Tipik: 50 kg."
+    },
+    {
+      "id": "wastageFactor",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Uygulama sırasında oluşan fire (yüzde). Genelde %5-15."
+    }
+  ],
+  "formulas": {
+    "wallArea": "wallLength * wallHeight",
+    "wetVolume": "wallArea * (plasterThickness / 100)",
+    "dryVolumeIncreaseFactor": "0.3",
+    "dryVolume": "wetVolume * (1 + dryVolumeIncreaseFactor)",
+    "totalVolume": "dryVolume * (1 + wastageFactor / 100)",
+    "totalMixParts": "mixRatioCement + mixRatioSand",
+    "cementVolume": "totalVolume * (mixRatioCement / totalMixParts)",
+    "sandVolume": "totalVolume * (mixRatioSand / totalMixParts)",
+    "cementDensity": "1440",
+    "cementWeight": "cementVolume * cementDensity",
+    "requiredBags": "cementWeight / cementBagWeight",
+    "recommendedBags": "Math.ceil(requiredBags)"
+  },
+  "outputs": {
+    "primary": "recommendedBags",
+    "breakdown": [
+      "wallArea",
+      "wetVolume",
+      "dryVolume",
+      "totalVolume",
+      "cementVolume",
+      "sandVolume",
+      "cementWeight",
+      "requiredBags"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

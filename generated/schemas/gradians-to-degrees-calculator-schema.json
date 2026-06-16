@@ -1,0 +1,58 @@
+{
+  "toolName": "gradians-to-degrees-calculator",
+  "inputs": [
+    {
+      "id": "gradians",
+      "label": "Gradians",
+      "type": "number",
+      "unit": "grad",
+      "default": 100,
+      "businessContext": "Angle measured in gradians to be converted to degrees."
+    },
+    {
+      "id": "instrumentGain",
+      "label": "Instrument Gain",
+      "type": "number",
+      "unit": "factor",
+      "default": 0.9,
+      "businessContext": "Calibration gain (multiplicative factor) for the conversion. Default 0.9 represents the standard gradians-to-degrees ratio."
+    },
+    {
+      "id": "instrumentOffset",
+      "label": "Instrument Offset",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Calibration offset in degrees added after conversion to correct systematic error."
+    },
+    {
+      "id": "roundingDecimals",
+      "label": "Rounding Decimals",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places for the final degrees output. e.g., 2 results in two decimal places."
+    }
+  ],
+  "formulas": {
+    "standardConversion": "gradians * 0.9",
+    "appliedGain": "instrumentGain",
+    "appliedOffset": "instrumentOffset",
+    "rawDegrees": "gradians * instrumentGain + instrumentOffset",
+    "degrees": "Math.round(rawDegrees * 10**roundingDecimals) / 10**roundingDecimals"
+  },
+  "outputs": {
+    "primary": "degrees",
+    "breakdown": [
+      "standardConversion",
+      "appliedGain",
+      "appliedOffset"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

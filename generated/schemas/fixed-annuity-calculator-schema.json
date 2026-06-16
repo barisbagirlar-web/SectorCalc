@@ -1,0 +1,77 @@
+{
+  "toolName": "fixed-annuity-calculator",
+  "inputs": [
+    {
+      "id": "presentValue",
+      "label": "Present Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "The current amount of money to be financed or invested."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%/year",
+      "default": 5,
+      "businessContext": "The yearly interest rate as a percentage."
+    },
+    {
+      "id": "numberOfPeriods",
+      "label": "Number of Periods",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "The total number of payment periods (typically years)."
+    },
+    {
+      "id": "futureValue",
+      "label": "Future Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "The desired future value after the last payment; usually 0 for full repayment."
+    },
+    {
+      "id": "paymentType",
+      "label": "Payment Type",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "0 for payments at the end of each period, 1 for payments at the beginning."
+    }
+  ],
+  "formulas": {
+    "periodicRate": "annualInterestRate / 100",
+    "payment": "paymentType === 0 ? (periodicRate * (presentValue * Math.pow(1 + periodicRate, numberOfPeriods) + futureValue)) / (Math.pow(1 + periodicRate, numberOfPeriods) - 1) : (periodicRate * (presentValue * Math.pow(1 + periodicRate, numberOfPeriods) + futureValue)) / ((Math.pow(1 + periodicRate, numberOfPeriods) - 1) * (1 + periodicRate))",
+    "absPayment": "Math.abs(payment)",
+    "totalPaid": "absPayment * numberOfPeriods",
+    "totalInterest": "totalPaid - (presentValue - futureValue)"
+  },
+  "outputs": {
+    "primary": {
+      "id": "absPayment",
+      "label": "Periodic Payment",
+      "unit": "currency"
+    },
+    "breakdown": [
+      {
+        "id": "totalPaid",
+        "label": "Total Payment",
+        "unit": "currency"
+      },
+      {
+        "id": "totalInterest",
+        "label": "Total Interest",
+        "unit": "currency"
+      }
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

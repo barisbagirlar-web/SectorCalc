@@ -1,0 +1,65 @@
+{
+  "toolName": "title-insurance-calculator",
+  "inputs": [
+    {
+      "id": "propertyValue",
+      "label": "Property Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 300000,
+      "businessContext": "The market value or purchase price of the property."
+    },
+    {
+      "id": "coverageAmount",
+      "label": "Coverage Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 300000,
+      "businessContext": "The amount of title insurance coverage, typically equal to the property value. Can be higher if there is additional risk."
+    },
+    {
+      "id": "ratePerThousand",
+      "label": "Rate per $1000",
+      "type": "number",
+      "unit": "USD/1000",
+      "default": 5,
+      "businessContext": "The title insurance premium rate per $1000 of coverage. Varies by state and insurer."
+    },
+    {
+      "id": "policyFee",
+      "label": "Policy Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 150,
+      "businessContext": "Fixed administrative fee for issuing the title insurance policy."
+    },
+    {
+      "id": "stateTaxRate",
+      "label": "State Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "businessContext": "State tax rate applied to the premium, expressed as a percentage."
+    }
+  ],
+  "formulas": {
+    "basePremium": "coverageAmount * (ratePerThousand / 1000)",
+    "stateTax": "basePremium * stateTaxRate / 100",
+    "totalPremium": "basePremium + policyFee + stateTax"
+  },
+  "outputs": {
+    "primary": "totalPremium",
+    "breakdown": [
+      "basePremium",
+      "policyFee",
+      "stateTax",
+      "totalPremium"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

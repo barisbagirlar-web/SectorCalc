@@ -1,0 +1,83 @@
+{
+  "toolName": "fish-tank-calculator",
+  "inputs": [
+    {
+      "id": "tankLength",
+      "label": "Tank Length",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Length of the fish tank in meters."
+    },
+    {
+      "id": "tankWidth",
+      "label": "Tank Width",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Width of the fish tank in meters."
+    },
+    {
+      "id": "waterDepth",
+      "label": "Water Depth",
+      "type": "number",
+      "unit": "m",
+      "default": 0.8,
+      "businessContext": "Depth of water in the tank in meters."
+    },
+    {
+      "id": "fishLength",
+      "label": "Average Fish Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Average length of fish in centimeters."
+    },
+    {
+      "id": "conditionFactor",
+      "label": "Condition Factor (K)",
+      "type": "number",
+      "unit": "",
+      "default": 0.02,
+      "businessContext": "Condition factor for weight-length relationship. Typical range 0.01-0.03."
+    },
+    {
+      "id": "stockingDensity",
+      "label": "Stocking Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 10,
+      "businessContext": "Desired stocking density in kg per cubic meter."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "businessContext": "Safety factor to reduce stocking from theoretical maximum (0-1)."
+    }
+  ],
+  "formulas": {
+    "waterVolume": "tankLength * tankWidth * waterDepth",
+    "waterWeight": "waterVolume * 1000",
+    "singleFishWeightKg": "conditionFactor * Math.pow(fishLength, 3) / 1000",
+    "maxBiomass": "stockingDensity * waterVolume",
+    "recommendedFish": "Math.floor(safetyFactor * maxBiomass / singleFishWeightKg)"
+  },
+  "outputs": {
+    "primary": "recommendedFish",
+    "breakdown": [
+      "waterVolume",
+      "waterWeight",
+      "singleFishWeightKg",
+      "maxBiomass"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

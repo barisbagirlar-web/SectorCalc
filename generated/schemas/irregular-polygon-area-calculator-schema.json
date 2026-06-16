@@ -1,0 +1,90 @@
+{
+  "toolName": "irregular-polygon-area-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "Vertex 1 - X",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "X-coordinate of vertex 1 in meters"
+    },
+    {
+      "id": "y1",
+      "label": "Vertex 1 - Y",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y-coordinate of vertex 1 in meters"
+    },
+    {
+      "id": "x2",
+      "label": "Vertex 2 - X",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "X-coordinate of vertex 2 in meters"
+    },
+    {
+      "id": "y2",
+      "label": "Vertex 2 - Y",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y-coordinate of vertex 2 in meters"
+    },
+    {
+      "id": "x3",
+      "label": "Vertex 3 - X",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "X-coordinate of vertex 3 in meters"
+    },
+    {
+      "id": "y3",
+      "label": "Vertex 3 - Y",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y-coordinate of vertex 3 in meters"
+    },
+    {
+      "id": "x4",
+      "label": "Vertex 4 - X",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "X-coordinate of vertex 4 in meters"
+    },
+    {
+      "id": "y4",
+      "label": "Vertex 4 - Y",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y-coordinate of vertex 4 in meters"
+    }
+  ],
+  "formulas": {
+    "sum1": "x1*y2 + x2*y3 + x3*y4 + x4*y1",
+    "sum2": "y1*x2 + y2*x3 + y3*x4 + y4*x1",
+    "absDiff": "Math.abs(sum1 - sum2)",
+    "area": "absDiff / 2"
+  },
+  "outputs": {
+    "primary": "area",
+    "breakdown": [
+      "sum1",
+      "sum2",
+      "absDiff",
+      "area"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

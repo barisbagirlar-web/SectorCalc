@@ -1,0 +1,57 @@
+{
+  "toolName": "equity-dilution-calculator",
+  "inputs": [
+    {
+      "id": "totalOutstandingShares",
+      "label": "Total Outstanding Shares",
+      "type": "number",
+      "unit": "shares",
+      "default": 1000000,
+      "businessContext": "Current total number of shares issued and outstanding before the new issuance."
+    },
+    {
+      "id": "newSharesIssued",
+      "label": "New Shares Issued",
+      "type": "number",
+      "unit": "shares",
+      "default": 200000,
+      "businessContext": "Number of new shares to be created and issued in the funding round."
+    },
+    {
+      "id": "investorCurrentShares",
+      "label": "Investor's Current Shares",
+      "type": "number",
+      "unit": "shares",
+      "default": 100000,
+      "businessContext": "Number of shares currently owned by the investor before the round."
+    },
+    {
+      "id": "investorNewShares",
+      "label": "Investor's New Shares Purchased",
+      "type": "number",
+      "unit": "shares",
+      "default": 0,
+      "businessContext": "Number of new shares the investor purchases in this round (0 if not participating)."
+    }
+  ],
+  "formulas": {
+    "totalAfter": "totalOutstandingShares + newSharesIssued",
+    "investorTotalAfter": "investorCurrentShares + investorNewShares",
+    "ownershipBefore": "investorCurrentShares / totalOutstandingShares",
+    "ownershipAfter": "investorTotalAfter / totalAfter",
+    "dilutionPercent": "((ownershipBefore - ownershipAfter) / ownershipBefore) * 100"
+  },
+  "outputs": {
+    "primary": "dilutionPercent",
+    "breakdown": [
+      "ownershipBefore",
+      "ownershipAfter"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

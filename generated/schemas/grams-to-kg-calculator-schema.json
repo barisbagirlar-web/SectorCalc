@@ -1,0 +1,57 @@
+{
+  "toolName": "grams-to-kg-calculator",
+  "inputs": [
+    {
+      "id": "grossWeightGrams",
+      "label": "Gross Weight (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Total measured weight including container or packaging"
+    },
+    {
+      "id": "tareWeightGrams",
+      "label": "Tare Weight (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Weight of empty container or packaging"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Number of decimal places for the final net weight output"
+    },
+    {
+      "id": "roundingMode",
+      "label": "Rounding Mode",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 = standard rounding, 1 = floor, 2 = ceil"
+    }
+  ],
+  "formulas": {
+    "netGrams": "grossWeightGrams - tareWeightGrams",
+    "kgUnrounded": "netGrams / 1000",
+    "netWeightKg": "roundingMode === 0 ? Math.round(kgUnrounded * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : roundingMode === 1 ? Math.floor(kgUnrounded * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : Math.ceil(kgUnrounded * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "netWeightGrams": "netGrams",
+    "grossWeightKg": "grossWeightGrams / 1000"
+  },
+  "outputs": {
+    "primary": "netWeightKg",
+    "breakdown": [
+      "netWeightGrams",
+      "grossWeightKg"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

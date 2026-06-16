@@ -1,0 +1,61 @@
+{
+  "toolName": "combined-gas-law-calculator",
+  "inputs": [
+    {
+      "id": "P1",
+      "label": "Initial Pressure",
+      "type": "number",
+      "unit": "atm",
+      "default": 1,
+      "businessContext": "Pressure of the gas at the initial state"
+    },
+    {
+      "id": "V1",
+      "label": "Initial Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 1,
+      "businessContext": "Volume of the gas at the initial state"
+    },
+    {
+      "id": "T1",
+      "label": "Initial Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 273.15,
+      "businessContext": "Absolute temperature of the gas at the initial state"
+    },
+    {
+      "id": "V2",
+      "label": "Final Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 1,
+      "businessContext": "Volume of the gas at the final state"
+    },
+    {
+      "id": "T2",
+      "label": "Final Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 273.15,
+      "businessContext": "Absolute temperature of the gas at the final state"
+    }
+  ],
+  "formulas": {
+    "constantK": "P1 * V1 / T1",
+    "finalPressure": "(P1 * V1 * T2) / (T1 * V2)"
+  },
+  "outputs": {
+    "primary": "finalPressure",
+    "breakdown": [
+      "constantK"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

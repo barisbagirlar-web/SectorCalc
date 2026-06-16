@@ -1,0 +1,54 @@
+{
+  "toolName": "broca-index-calculator",
+  "inputs": [
+    {
+      "id": "heightCm",
+      "label": "Height (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "User's height in centimeters"
+    },
+    {
+      "id": "sex",
+      "label": "Sex (0=Male, 1=Female)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Biological sex: 0 for male, 1 for female"
+    },
+    {
+      "id": "frameSize",
+      "label": "Frame Size (0=Small, 1=Medium, 2=Large)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Body frame size category"
+    },
+    {
+      "id": "currentWeight",
+      "label": "Current Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User's current weight for comparison"
+    }
+  ],
+  "formulas": {
+    "idealWeight": "(heightCm - 100) * (sex == 0 ? 0.9 : 0.85) * (frameSize == 0 ? 0.9 : (frameSize == 2 ? 1.1 : 1))",
+    "difference": "currentWeight - idealWeight"
+  },
+  "outputs": {
+    "primary": "idealWeight",
+    "breakdown": [
+      "idealWeight",
+      "difference"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

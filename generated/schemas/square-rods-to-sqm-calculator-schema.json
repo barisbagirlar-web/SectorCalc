@@ -1,0 +1,55 @@
+{
+  "toolName": "square-rods-to-sqm-calculator",
+  "inputs": [
+    {
+      "id": "squareRods",
+      "label": "Square Rods",
+      "type": "number",
+      "unit": "sq rod",
+      "default": 1,
+      "businessContext": "Area in square rods to be converted to square meters"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "sqm/sq rod",
+      "default": 25.29285264,
+      "businessContext": "Standard conversion factor from square rods to square meters"
+    },
+    {
+      "id": "roundingDecimals",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places to round the final output"
+    },
+    {
+      "id": "areaAdjustment",
+      "label": "Area Adjustment",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Optional area adjustment percentage (e.g., for cut/fill factor)"
+    }
+  ],
+  "formulas": {
+    "baseSqm": "squareRods * conversionFactor",
+    "adjustedSqm": "baseSqm * (1 + areaAdjustment / 100)",
+    "primary": "Math.round(adjustedSqm * Math.pow(10, roundingDecimals)) / Math.pow(10, roundingDecimals)"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "baseSqm",
+      "adjustedSqm"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

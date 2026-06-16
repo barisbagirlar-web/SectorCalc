@@ -1,0 +1,57 @@
+{
+  "toolName": "harvest-calculator",
+  "inputs": [
+    {
+      "id": "fieldArea",
+      "label": "Field Area",
+      "type": "number",
+      "unit": "hectares",
+      "default": 1,
+      "businessContext": "Total land area used for the crop."
+    },
+    {
+      "id": "cropYieldPerHectare",
+      "label": "Crop Yield per Hectare",
+      "type": "number",
+      "unit": "tons/ha",
+      "default": 5,
+      "businessContext": "Expected yield of the crop per hectare."
+    },
+    {
+      "id": "fieldLossPercent",
+      "label": "Field Loss Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "Estimated percentage of harvest lost on the field due to factors like weather or pests."
+    },
+    {
+      "id": "storageLossPercent",
+      "label": "Storage Loss Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Estimated percentage of remaining harvest lost during storage and handling."
+    }
+  ],
+  "formulas": {
+    "grossHarvest": "fieldArea * cropYieldPerHectare",
+    "fieldLoss": "grossHarvest * (fieldLossPercent / 100)",
+    "storageLoss": "(grossHarvest - fieldLoss) * (storageLossPercent / 100)",
+    "netHarvest": "grossHarvest - fieldLoss - storageLoss"
+  },
+  "outputs": {
+    "primary": "netHarvest",
+    "breakdown": [
+      "grossHarvest",
+      "fieldLoss",
+      "storageLoss"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,84 @@
+{
+  "toolName": "stone-veneer-calculator",
+  "inputs": [
+    {
+      "id": "wallWidth",
+      "label": "Wall Width",
+      "type": "number",
+      "unit": "ft",
+      "default": 10,
+      "businessContext": "The total width of the wall to be covered"
+    },
+    {
+      "id": "wallHeight",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "ft",
+      "default": 8,
+      "businessContext": "The total height of the wall to be covered"
+    },
+    {
+      "id": "stoneLength",
+      "label": "Stone Length",
+      "type": "number",
+      "unit": "in",
+      "default": 6,
+      "businessContext": "Length of a single stone veneer piece"
+    },
+    {
+      "id": "stoneHeight",
+      "label": "Stone Height",
+      "type": "number",
+      "unit": "in",
+      "default": 4,
+      "businessContext": "Height of a single stone veneer piece"
+    },
+    {
+      "id": "jointGap",
+      "label": "Joint Gap",
+      "type": "number",
+      "unit": "in",
+      "default": 0.5,
+      "businessContext": "Gap between stones (grout joint)"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage of extra material for cuts and breakage"
+    },
+    {
+      "id": "costPerSqFt",
+      "label": "Cost per Square Foot",
+      "type": "number",
+      "unit": "USD/sqft",
+      "default": 10,
+      "businessContext": "Material cost per square foot of stone"
+    }
+  ],
+  "formulas": {
+    "wallAreaSqFt": "wallWidth * wallHeight",
+    "stoneAreaSqFt": "((stoneLength + jointGap) * (stoneHeight + jointGap)) / 144",
+    "stoneAreaNeeded": "wallAreaSqFt * (1 + wasteFactor / 100)",
+    "totalStones": "Math.ceil(stoneAreaNeeded / stoneAreaSqFt)",
+    "wasteStones": "totalStones - (wallAreaSqFt / stoneAreaSqFt)",
+    "totalCost": "stoneAreaNeeded * costPerSqFt"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "wallAreaSqFt",
+      "stoneAreaNeeded",
+      "totalStones",
+      "wasteStones"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

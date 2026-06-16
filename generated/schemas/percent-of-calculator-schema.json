@@ -1,0 +1,55 @@
+{
+  "toolName": "percent-of-calculator",
+  "inputs": [
+    {
+      "id": "baseAmount",
+      "label": "Temel Tutar",
+      "type": "number",
+      "unit": "birim",
+      "default": 100,
+      "businessContext": "Hesaplama yapılacak temel değer."
+    },
+    {
+      "id": "percent",
+      "label": "Yüzde",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Temel tutar üzerinden hesaplanacak yüzde oranı."
+    },
+    {
+      "id": "additionalFixed",
+      "label": "Sabit Ek Tutar",
+      "type": "number",
+      "unit": "birim",
+      "default": 0,
+      "businessContext": "Yüzde sonucuna eklenecek sabit miktar."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Ondalık Basamak",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Sonucun yuvarlanacağı ondalık basamak sayısı."
+    }
+  ],
+  "formulas": {
+    "rawPercentResult": "baseAmount * percent / 100",
+    "totalBeforeRounding": "rawPercentResult + additionalFixed",
+    "roundedResult": "Math.round(totalBeforeRounding * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "roundedResult",
+    "breakdown": [
+      "rawPercentResult",
+      "totalBeforeRounding"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

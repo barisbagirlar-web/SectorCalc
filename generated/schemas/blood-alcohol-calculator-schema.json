@@ -1,0 +1,77 @@
+{
+  "toolName": "blood-alcohol-calculator",
+  "inputs": [
+    {
+      "id": "drinks",
+      "label": "Number of Drinks",
+      "type": "number",
+      "unit": "drinks",
+      "default": 3,
+      "businessContext": "Number of standard alcoholic beverages consumed"
+    },
+    {
+      "id": "volumePerDrink",
+      "label": "Volume per Drink",
+      "type": "number",
+      "unit": "ml",
+      "default": 355,
+      "businessContext": "Volume of a single drink in milliliters"
+    },
+    {
+      "id": "alcoholPercentage",
+      "label": "Alcohol by Volume",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of alcohol in the beverage"
+    },
+    {
+      "id": "bodyWeight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight of the person in kilograms"
+    },
+    {
+      "id": "gender",
+      "label": "Gender (1=Male, 0=Female)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Biological sex: 1 for male, 0 for female"
+    },
+    {
+      "id": "hoursSinceFirstDrink",
+      "label": "Time Since First Drink",
+      "type": "number",
+      "unit": "hours",
+      "default": 2,
+      "businessContext": "Time elapsed since the first drink was consumed"
+    }
+  ],
+  "formulas": {
+    "alcoholGrams": "drinks * volumePerDrink * (alcoholPercentage / 100) * 0.789",
+    "widmarkFactorR": "gender === 1 ? 0.68 : 0.55",
+    "bacBeforeElimination": "(drinks * volumePerDrink * (alcoholPercentage / 100) * 0.789 / (bodyWeight * 1000 * (gender === 1 ? 0.68 : 0.55))) * 100",
+    "eliminationEffect": "0.015 * hoursSinceFirstDrink",
+    "bacPercent": "(drinks * volumePerDrink * (alcoholPercentage / 100) * 0.789 / (bodyWeight * 1000 * (gender === 1 ? 0.68 : 0.55))) * 100 - 0.015 * hoursSinceFirstDrink",
+    "bacPromille": "((drinks * volumePerDrink * (alcoholPercentage / 100) * 0.789 / (bodyWeight * 1000 * (gender === 1 ? 0.68 : 0.55))) * 100 - 0.015 * hoursSinceFirstDrink) * 10"
+  },
+  "outputs": {
+    "primary": "bacPercent",
+    "breakdown": [
+      "alcoholGrams",
+      "widmarkFactorR",
+      "bacBeforeElimination",
+      "eliminationEffect",
+      "bacPromille"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

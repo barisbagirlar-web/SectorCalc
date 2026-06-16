@@ -1,0 +1,79 @@
+{
+  "toolName": "menu-pricing-calculator",
+  "inputs": [
+    {
+      "id": "totalIngredientCost",
+      "label": "Total Ingredient Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "The total cost of all ingredients used to prepare the dish."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "Labor Cost per Hour",
+      "type": "number",
+      "unit": "currency/hour",
+      "default": 0,
+      "businessContext": "The hourly labor cost for the chef or staff preparing the dish."
+    },
+    {
+      "id": "preparationTimeMinutes",
+      "label": "Preparation Time",
+      "type": "number",
+      "unit": "minutes",
+      "default": 0,
+      "businessContext": "The total time in minutes required to prepare the dish."
+    },
+    {
+      "id": "overheadPercentage",
+      "label": "Overhead Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "The overhead costs as a percentage of the total direct costs (e.g., rent, utilities)."
+    },
+    {
+      "id": "desiredProfitMargin",
+      "label": "Desired Profit Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "The target profit margin on the selling price."
+    },
+    {
+      "id": "numberOfServings",
+      "label": "Number of Servings",
+      "type": "number",
+      "unit": "servings",
+      "default": 1,
+      "businessContext": "The number of servings the recipe yields."
+    }
+  ],
+  "formulas": {
+    "laborCostTotal": "laborCostPerHour * preparationTimeMinutes / 60",
+    "totalDirectCostPerServing": "(totalIngredientCost + laborCostPerHour * preparationTimeMinutes / 60) / numberOfServings",
+    "totalCostWithOverhead": "totalDirectCostPerServing * (1 + overheadPercentage / 100)",
+    "recommendedMenuPrice": "totalCostWithOverhead / (1 - desiredProfitMargin / 100)",
+    "overheadAmount": "totalDirectCostPerServing * overheadPercentage / 100",
+    "profitAmount": "recommendedMenuPrice - totalCostWithOverhead"
+  },
+  "outputs": {
+    "primary": "recommendedMenuPrice",
+    "breakdown": [
+      "totalIngredientCost",
+      "laborCostTotal",
+      "overheadAmount",
+      "profitAmount",
+      "totalDirectCostPerServing",
+      "totalCostWithOverhead",
+      "recommendedMenuPrice"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

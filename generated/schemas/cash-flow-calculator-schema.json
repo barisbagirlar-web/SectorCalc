@@ -1,0 +1,63 @@
+{
+  "toolName": "cash-flow-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "$",
+      "default": 10000,
+      "businessContext": "Initial cash outflow at time 0"
+    },
+    {
+      "id": "periodicCashFlow",
+      "label": "Periodic Cash Flow",
+      "type": "number",
+      "unit": "$",
+      "default": 2000,
+      "businessContext": "Net cash generated each period"
+    },
+    {
+      "id": "periods",
+      "label": "Number of Periods",
+      "type": "number",
+      "unit": "periods",
+      "default": 5,
+      "businessContext": "Number of time periods (e.g., years)"
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Cost of capital or required rate of return"
+    },
+    {
+      "id": "salvageValue",
+      "label": "Salvage Value",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Cash value at end of project"
+    }
+  ],
+  "formulas": {
+    "npv": "(inputs) => { const r = inputs.discountRate / 100; let npv = -inputs.initialInvestment; for (let t = 1; t <= inputs.periods; t++) { npv += inputs.periodicCashFlow / Math.pow(1 + r, t); } npv += inputs.salvageValue / Math.pow(1 + r, inputs.periods); return npv; }",
+    "payback": "(inputs) => inputs.periodicCashFlow !== 0 ? inputs.initialInvestment / inputs.periodicCashFlow : Infinity",
+    "profitabilityIndex": "(inputs) => { const r = inputs.discountRate / 100; let npv = -inputs.initialInvestment; for (let t = 1; t <= inputs.periods; t++) { npv += inputs.periodicCashFlow / Math.pow(1 + r, t); } npv += inputs.salvageValue / Math.pow(1 + r, inputs.periods); return (npv + inputs.initialInvestment) / inputs.initialInvestment; }"
+  },
+  "outputs": {
+    "primary": "npv",
+    "breakdown": [
+      "payback",
+      "profitabilityIndex"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,58 @@
+{
+  "toolName": "gross-to-net-calculator",
+  "inputs": [
+    {
+      "id": "grossSalary",
+      "label": "Gross Salary",
+      "type": "number",
+      "unit": "currency",
+      "default": 5000,
+      "businessContext": "The total gross salary before any deductions."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Income tax rate applied to gross salary."
+    },
+    {
+      "id": "socialSecurityRate",
+      "label": "Social Security Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Social security contribution rate."
+    },
+    {
+      "id": "otherDeductions",
+      "label": "Other Deductions",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Any other fixed deductions from the salary."
+    }
+  ],
+  "formulas": {
+    "taxAmount": "grossSalary * (taxRate / 100)",
+    "socialSecurityAmount": "grossSalary * (socialSecurityRate / 100)",
+    "totalDeductions": "taxAmount + socialSecurityAmount + otherDeductions",
+    "netSalary": "grossSalary - totalDeductions"
+  },
+  "outputs": {
+    "primary": "netSalary",
+    "breakdown": [
+      "taxAmount",
+      "socialSecurityAmount",
+      "totalDeductions",
+      "netSalary"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

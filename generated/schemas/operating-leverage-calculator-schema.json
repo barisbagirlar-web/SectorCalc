@@ -1,0 +1,55 @@
+{
+  "toolName": "operating-leverage-calculator",
+  "inputs": [
+    {
+      "id": "salesVolume",
+      "label": "Satış Hacmi (birim)",
+      "type": "number",
+      "unit": "birim",
+      "default": 1000,
+      "businessContext": "Satılan ürün adedi"
+    },
+    {
+      "id": "pricePerUnit",
+      "label": "Birim Satış Fiyatı",
+      "type": "number",
+      "unit": "TL/birim",
+      "default": 50,
+      "businessContext": "Ürün başına satış fiyatı"
+    },
+    {
+      "id": "variableCostPerUnit",
+      "label": "Birim Değişken Maliyet",
+      "type": "number",
+      "unit": "TL/birim",
+      "default": 30,
+      "businessContext": "Her birim için değişken maliyet"
+    },
+    {
+      "id": "fixedCosts",
+      "label": "Sabit Maliyetler",
+      "type": "number",
+      "unit": "TL",
+      "default": 10000,
+      "businessContext": "Dönemsel sabit maliyetler toplamı"
+    }
+  ],
+  "formulas": {
+    "contributionMargin": "salesVolume * (pricePerUnit - variableCostPerUnit)",
+    "netOperatingIncome": "salesVolume * (pricePerUnit - variableCostPerUnit) - fixedCosts",
+    "operatingLeverage": "(salesVolume * (pricePerUnit - variableCostPerUnit)) / (salesVolume * (pricePerUnit - variableCostPerUnit) - fixedCosts)"
+  },
+  "outputs": {
+    "primary": "operatingLeverage",
+    "breakdown": [
+      "contributionMargin",
+      "netOperatingIncome"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

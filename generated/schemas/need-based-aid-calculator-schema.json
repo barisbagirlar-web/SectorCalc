@@ -1,0 +1,63 @@
+{
+  "toolName": "need-based-aid-calculator",
+  "inputs": [
+    {
+      "id": "costOfAttendance",
+      "label": "Cost of Attendance",
+      "type": "number",
+      "unit": "currency",
+      "default": 20000,
+      "businessContext": "Total annual cost including tuition, fees, books, and living expenses."
+    },
+    {
+      "id": "annualIncome",
+      "label": "Annual Family Income",
+      "type": "number",
+      "unit": "currency",
+      "default": 50000,
+      "businessContext": "Total adjusted gross income of the family."
+    },
+    {
+      "id": "numberOfDependents",
+      "label": "Number of Dependents",
+      "type": "number",
+      "unit": "people",
+      "default": 1,
+      "businessContext": "Number of family members financially dependent (including the student)."
+    },
+    {
+      "id": "assets",
+      "label": "Total Assets",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Total value of cash, savings, investments, and other assets."
+    },
+    {
+      "id": "otherAid",
+      "label": "Other Financial Aid",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Other scholarships, grants, or aid already awarded."
+    }
+  ],
+  "formulas": {
+    "efc": "annualIncome * 0.47 + assets * 0.12 - (numberOfDependents - 1) * 5000",
+    "adjustedCost": "costOfAttendance - otherAid",
+    "need": "adjustedCost - efc"
+  },
+  "outputs": {
+    "primary": "need",
+    "breakdown": [
+      "efc",
+      "adjustedCost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

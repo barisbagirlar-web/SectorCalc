@@ -1,0 +1,91 @@
+{
+  "toolName": "anova-calculator",
+  "inputs": [
+    {
+      "id": "group1_n",
+      "label": "Sample Size Group 1",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "businessContext": "Number of observations in the first group"
+    },
+    {
+      "id": "group1_mean",
+      "label": "Mean Group 1",
+      "type": "number",
+      "unit": "unit",
+      "default": 50,
+      "businessContext": "Arithmetic mean of the first group"
+    },
+    {
+      "id": "group1_sd",
+      "label": "Standard Deviation Group 1",
+      "type": "number",
+      "unit": "unit",
+      "default": 10,
+      "businessContext": "Sample standard deviation of the first group"
+    },
+    {
+      "id": "group2_n",
+      "label": "Sample Size Group 2",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "businessContext": "Number of observations in the second group"
+    },
+    {
+      "id": "group2_mean",
+      "label": "Mean Group 2",
+      "type": "number",
+      "unit": "unit",
+      "default": 55,
+      "businessContext": "Arithmetic mean of the second group"
+    },
+    {
+      "id": "group2_sd",
+      "label": "Standard Deviation Group 2",
+      "type": "number",
+      "unit": "unit",
+      "default": 12,
+      "businessContext": "Sample standard deviation of the second group"
+    },
+    {
+      "id": "confidenceLevel",
+      "label": "Confidence Level",
+      "type": "number",
+      "unit": "probability",
+      "default": 0.95,
+      "businessContext": "Desired confidence level (e.g., 0.95 for 95%)"
+    }
+  ],
+  "formulas": {
+    "total_n": "group1_n + group2_n",
+    "grand_mean": "(group1_n * group1_mean + group2_n * group2_mean) / total_n",
+    "SSB": "group1_n * (group1_mean - grand_mean)**2 + group2_n * (group2_mean - grand_mean)**2",
+    "SSW": "(group1_n - 1) * group1_sd**2 + (group2_n - 1) * group2_sd**2",
+    "dfB": "1",
+    "dfW": "total_n - 2",
+    "MSB": "SSB / dfB",
+    "MSW": "SSW / dfW",
+    "F": "MSB / MSW"
+  },
+  "outputs": {
+    "primary": "F",
+    "breakdown": [
+      "grand_mean",
+      "SSB",
+      "SSW",
+      "dfB",
+      "dfW",
+      "MSB",
+      "MSW",
+      "total_n"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

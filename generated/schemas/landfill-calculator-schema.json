@@ -1,0 +1,73 @@
+{
+  "toolName": "landfill-calculator",
+  "inputs": [
+    {
+      "id": "dailyWaste",
+      "label": "Daily Waste Quantity",
+      "type": "number",
+      "unit": "ton/day",
+      "default": 1000,
+      "businessContext": "Average daily waste received at the landfill"
+    },
+    {
+      "id": "compactionDensity",
+      "label": "Compacted Density",
+      "type": "number",
+      "unit": "ton/m³",
+      "default": 0.8,
+      "businessContext": "In-place density of waste after compaction"
+    },
+    {
+      "id": "coverRatio",
+      "label": "Cover to Waste Ratio",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Additional volume for daily and intermediate cover as percentage of waste volume"
+    },
+    {
+      "id": "lifespanYears",
+      "label": "Landfill Lifespan",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "Design operational life of the landfill"
+    },
+    {
+      "id": "existingVolume",
+      "label": "Already Filled Volume",
+      "type": "number",
+      "unit": "m³",
+      "default": 500000,
+      "businessContext": "Airspace already consumed by waste and cover"
+    },
+    {
+      "id": "availableArea",
+      "label": "Available Footprint Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 200000,
+      "businessContext": "Plan area available for landfilling"
+    }
+  ],
+  "formulas": {
+    "wasteMass": "dailyWaste * 365 * lifespanYears",
+    "wasteVolume": "wasteMass / compactionDensity",
+    "totalVolume": "wasteVolume * (1 + coverRatio / 100)",
+    "remainingCapacity": "totalVolume - existingVolume",
+    "landfillHeight": "totalVolume / availableArea"
+  },
+  "outputs": {
+    "primary": "totalVolume",
+    "breakdown": [
+      "remainingCapacity",
+      "landfillHeight"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

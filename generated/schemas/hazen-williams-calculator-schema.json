@@ -1,0 +1,55 @@
+{
+  "toolName": "hazen-williams-calculator",
+  "inputs": [
+    {
+      "id": "flowRate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "m³/s",
+      "default": 0.01,
+      "businessContext": "Typical water flow rate in pipeline design."
+    },
+    {
+      "id": "pipeDiameter",
+      "label": "Pipe Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Inner diameter of the pipe."
+    },
+    {
+      "id": "pipeLength",
+      "label": "Pipe Length",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "businessContext": "Length of the pipe segment."
+    },
+    {
+      "id": "cFactor",
+      "label": "Hazen-Williams Coefficient",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 130,
+      "businessContext": "Roughness coefficient depending on pipe material (e.g., 130 for new steel, 140 for PVC)."
+    }
+  ],
+  "formulas": {
+    "velocity": "flowRate / (Math.PI * (pipeDiameter / 2) ** 2)",
+    "headLoss": "(10.67 * pipeLength * flowRate ** 1.852) / (cFactor ** 1.852 * pipeDiameter ** 4.87)",
+    "headLossPerUnitLength": "(10.67 * flowRate ** 1.852) / (cFactor ** 1.852 * pipeDiameter ** 4.87)"
+  },
+  "outputs": {
+    "primary": "headLoss",
+    "breakdown": [
+      "velocity",
+      "headLossPerUnitLength"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

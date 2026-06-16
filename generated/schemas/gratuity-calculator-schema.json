@@ -1,0 +1,55 @@
+{
+  "toolName": "gratuity-calculator",
+  "inputs": [
+    {
+      "id": "billAmount",
+      "label": "Bill Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "The total bill amount before tip and any additional charges."
+    },
+    {
+      "id": "tipPercentage",
+      "label": "Tip Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "The percentage of the bill to be given as tip."
+    },
+    {
+      "id": "numberOfPeople",
+      "label": "Number of People",
+      "type": "number",
+      "unit": "persons",
+      "default": 1,
+      "businessContext": "The number of people sharing the bill equally."
+    },
+    {
+      "id": "serviceChargePercent",
+      "label": "Service Charge Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Additional service charge percentage added to the bill, if any."
+    }
+  ],
+  "formulas": {
+    "gratuityAmount": "billAmount * tipPercentage / 100",
+    "totalBill": "billAmount + (billAmount * tipPercentage / 100) + (billAmount * serviceChargePercent / 100)",
+    "perPersonAmount": "(billAmount + (billAmount * tipPercentage / 100) + (billAmount * serviceChargePercent / 100)) / numberOfPeople"
+  },
+  "outputs": {
+    "primary": "gratuityAmount",
+    "breakdown": [
+      "totalBill",
+      "perPersonAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

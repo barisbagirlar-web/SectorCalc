@@ -1,0 +1,63 @@
+{
+  "toolName": "steps-to-kilometers-calculator",
+  "inputs": [
+    {
+      "id": "steps",
+      "label": "Number of Steps",
+      "type": "number",
+      "unit": "steps",
+      "default": 10000,
+      "businessContext": "Total step count recorded by a pedometer, fitness tracker, or manual counting."
+    },
+    {
+      "id": "stepLengthCm",
+      "label": "Step Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 76.2,
+      "businessContext": "Measured length of one step in centimeters. Average adult walking step is ~76.2 cm. Used when height-based estimation is disabled."
+    },
+    {
+      "id": "heightCm",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Body height in centimeters. Used as the basis for estimating step length (when height estimation is toggled on)."
+    },
+    {
+      "id": "useHeightEstimation",
+      "label": "Estimate from Height",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "Set to 1 to calculate step length automatically from height (stride ratio * height); set to 0 to use the manual step length."
+    },
+    {
+      "id": "strideRatio",
+      "label": "Stride-to-Height Ratio",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.46,
+      "businessContext": "Ratio of step length to height. Typical range: 0.40–0.50. 0.46 is a commonly accepted average for walking."
+    }
+  ],
+  "formulas": {
+    "distanceKm": "steps * (stepLengthCm * (1 - useHeightEstimation) + heightCm * strideRatio * useHeightEstimation) / 100000",
+    "distanceM": "steps * (stepLengthCm * (1 - useHeightEstimation) + heightCm * strideRatio * useHeightEstimation) / 100",
+    "distanceMi": "steps * (stepLengthCm * (1 - useHeightEstimation) + heightCm * strideRatio * useHeightEstimation) / 100000 * 0.621371"
+  },
+  "outputs": {
+    "primary": "distanceKm",
+    "breakdown": [
+      "distanceM",
+      "distanceMi"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

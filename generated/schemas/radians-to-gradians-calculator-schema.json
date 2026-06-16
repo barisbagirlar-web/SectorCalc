@@ -1,0 +1,54 @@
+{
+  "toolName": "radians-to-gradians-calculator",
+  "inputs": [
+    {
+      "id": "angleRadians",
+      "label": "Angle in Radians",
+      "type": "number",
+      "unit": "rad",
+      "default": 0,
+      "businessContext": "The angle measurement in radians to be converted."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "grad/rad",
+      "default": 63.66197723675813,
+      "businessContext": "Gradians per radian. Standard is 200/π. Adjust for custom units."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "digits",
+      "default": 4,
+      "businessContext": "Number of decimal places for the output."
+    },
+    {
+      "id": "offset",
+      "label": "Calibration Offset",
+      "type": "number",
+      "unit": "grad",
+      "default": 0,
+      "businessContext": "Additive offset in gradians for calibration purposes."
+    }
+  ],
+  "formulas": {
+    "converted": "Math.round((angleRadians * conversionFactor + offset) * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "convertedGradians",
+    "breakdown": [
+      "Multiply radians by conversion factor: angleRadians * conversionFactor",
+      "Add calibration offset: result + offset",
+      "Round to precision: Math.round(value * 10^precision) / 10^precision"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

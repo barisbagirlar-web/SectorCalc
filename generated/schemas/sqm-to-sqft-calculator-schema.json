@@ -1,0 +1,75 @@
+{
+  "toolName": "sqm-to-sqft-calculator",
+  "inputs": [
+    {
+      "id": "areaSqm",
+      "label": "Area (m²)",
+      "type": "number",
+      "unit": "m²",
+      "default": 1,
+      "businessContext": "The area in square meters to convert."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "ft²/m²",
+      "default": 10.7639104,
+      "businessContext": "Standard conversion factor from m² to ft². 1 m² = 10.7639104 ft²."
+    },
+    {
+      "id": "roundingPrecision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding the output."
+    },
+    {
+      "id": "areaUnitPrice",
+      "label": "Unit Price",
+      "type": "number",
+      "unit": "currency/ft²",
+      "default": 0,
+      "businessContext": "Optional: price per square foot for cost estimation."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Optional: percentage of additional area for material waste."
+    },
+    {
+      "id": "measurementTolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Measurement uncertainty percentage for tolerance band."
+    }
+  ],
+  "formulas": {
+    "areaSqft": "areaSqm * conversionFactor",
+    "roundedAreaSqft": "Math.round(areaSqm * conversionFactor * Math.pow(10, roundingPrecision)) / Math.pow(10, roundingPrecision)",
+    "areaWithWaste": "roundedAreaSqft * (1 + wasteFactor / 100)",
+    "totalCost": "areaWithWaste * areaUnitPrice",
+    "toleranceMin": "roundedAreaSqft * (1 - measurementTolerance / 100)",
+    "toleranceMax": "roundedAreaSqft * (1 + measurementTolerance / 100)"
+  },
+  "outputs": {
+    "primary": "roundedAreaSqft",
+    "breakdown": [
+      "areaSqft",
+      "areaWithWaste",
+      "totalCost"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

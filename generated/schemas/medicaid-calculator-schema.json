@@ -1,0 +1,65 @@
+{
+  "toolName": "medicaid-calculator",
+  "inputs": [
+    {
+      "id": "grossIncome",
+      "label": "Annual Gross Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total household income before taxes"
+    },
+    {
+      "id": "otherIncome",
+      "label": "Other Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Additional non-taxable income"
+    },
+    {
+      "id": "deductions",
+      "label": "Allowable Deductions",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total deductions (e.g., child care, alimony paid)"
+    },
+    {
+      "id": "dependents",
+      "label": "Household Size",
+      "type": "number",
+      "unit": "persons",
+      "default": 1,
+      "businessContext": "Number of people in household, including applicant"
+    },
+    {
+      "id": "thresholdPercent",
+      "label": "Income Eligibility Threshold",
+      "type": "number",
+      "unit": "%",
+      "default": 138,
+      "businessContext": "Maximum MAGI as percentage of Federal Poverty Level for eligibility (e.g., 138% for Medicaid expansion)"
+    }
+  ],
+  "formulas": {
+    "netIncome": "grossIncome + otherIncome - deductions",
+    "fpl": "15060 + (dependents - 1) * 5380",
+    "incomePercent": "(netIncome / fpl) * 100",
+    "eligible": "incomePercent <= thresholdPercent ? 1 : 0"
+  },
+  "outputs": {
+    "primary": "eligible",
+    "breakdown": [
+      "netIncome",
+      "fpl",
+      "incomePercent"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

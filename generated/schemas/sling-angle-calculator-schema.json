@@ -1,0 +1,73 @@
+{
+  "toolName": "sling-angle-calculator",
+  "inputs": [
+    {
+      "id": "loadWeight",
+      "label": "Yük Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Kaldırılacak toplam yük ağırlığı"
+    },
+    {
+      "id": "numberOfSlingLegs",
+      "label": "Sapan Kol Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 2,
+      "businessContext": "Yükü taşıyan sapan kollarının sayısı (genellikle 1,2,3 veya 4)"
+    },
+    {
+      "id": "slingAngle",
+      "label": "Sapan Açısı (Dikeyden)",
+      "type": "number",
+      "unit": "derece",
+      "default": 30,
+      "businessContext": "Dikey eksenle sapan kolu arasındaki açı (0° dikey sapan, 90° yatay sapan)"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Emniyet Katsayısı",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Uygulanacak emniyet faktörü (örn. 5:1)"
+    },
+    {
+      "id": "dynamicFactor",
+      "label": "Dinamik Katsayı",
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "businessContext": "Dinamik yükleme etkisi (statik yükün çarpılacağı faktör)"
+    },
+    {
+      "id": "efficiencyFactor",
+      "label": "Verimlilik Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "businessContext": "Sapanların ideal olmayan yük dağılımı için düzeltme faktörü (0-1 arası, 1 mükemmel dağılım)"
+    }
+  ],
+  "formulas": {
+    "slingAngleRad": "inputs.slingAngle * Math.PI / 180",
+    "baseLoadPerSling": "inputs.loadWeight / inputs.numberOfSlingLegs",
+    "actualLoadPerSling": "(inputs.loadWeight * inputs.dynamicFactor) / (inputs.numberOfSlingLegs * inputs.efficiencyFactor * Math.cos(slingAngleRad))",
+    "requiredBreakingStrength": "actualLoadPerSling * inputs.safetyFactor"
+  },
+  "outputs": {
+    "primary": "actualLoadPerSling",
+    "breakdown": [
+      "baseLoadPerSling",
+      "slingAngleRad",
+      "requiredBreakingStrength"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

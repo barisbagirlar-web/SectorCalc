@@ -1,0 +1,71 @@
+{
+  "toolName": "weekdays-calculator",
+  "inputs": [
+    {
+      "id": "startDay",
+      "label": "Start Day",
+      "type": "number",
+      "unit": "day",
+      "default": 1,
+      "businessContext": "The day component of the start date for calculating working days."
+    },
+    {
+      "id": "startMonth",
+      "label": "Start Month",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The month component (1-12) of the start date."
+    },
+    {
+      "id": "startYear",
+      "label": "Start Year",
+      "type": "number",
+      "unit": "",
+      "default": 2025,
+      "businessContext": "The year component of the start date."
+    },
+    {
+      "id": "endDay",
+      "label": "End Day",
+      "type": "number",
+      "unit": "day",
+      "default": 31,
+      "businessContext": "The day component of the end date."
+    },
+    {
+      "id": "endMonth",
+      "label": "End Month",
+      "type": "number",
+      "unit": "",
+      "default": 12,
+      "businessContext": "The month component (1-12) of the end date."
+    },
+    {
+      "id": "endYear",
+      "label": "End Year",
+      "type": "number",
+      "unit": "",
+      "default": 2025,
+      "businessContext": "The year component of the end date."
+    }
+  ],
+  "formulas": {
+    "weekdaysCount": "var start=new Date(startYear,startMonth-1,startDay);var end=new Date(endYear,endMonth-1,endDay);var count=0;var d=new Date(start);while(d<=end){if(d.getDay()!==0&&d.getDay()!==6)count++;d.setDate(d.getDate()+1);}return count;",
+    "totalDays": "var start=new Date(startYear,startMonth-1,startDay);var end=new Date(endYear,endMonth-1,endDay);return Math.floor((end-start)/(1000*60*60*24))+1;",
+    "weekendDays": "var start=new Date(startYear,startMonth-1,startDay);var end=new Date(endYear,endMonth-1,endDay);var total=Math.floor((end-start)/(1000*60*60*24))+1;var weekdays=0;var d=new Date(start);while(d<=end){if(d.getDay()!==0&&d.getDay()!==6)weekdays++;d.setDate(d.getDate()+1);}return total-weekdays;"
+  },
+  "outputs": {
+    "primary": "weekdaysCount",
+    "breakdown": [
+      "totalDays",
+      "weekendDays"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

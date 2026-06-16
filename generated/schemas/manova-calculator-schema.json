@@ -1,0 +1,73 @@
+{
+  "toolName": "manova-calculator",
+  "inputs": [
+    {
+      "id": "n1",
+      "label": "Grup 1 Örneklem Büyüklüğü",
+      "type": "number",
+      "unit": "adet",
+      "default": 30,
+      "businessContext": "Birinci grubun gözlem sayısı"
+    },
+    {
+      "id": "n2",
+      "label": "Grup 2 Örneklem Büyüklüğü",
+      "type": "number",
+      "unit": "adet",
+      "default": 30,
+      "businessContext": "İkinci grubun gözlem sayısı"
+    },
+    {
+      "id": "d1",
+      "label": "Ortalama Farkı DV1",
+      "type": "number",
+      "unit": "birim",
+      "default": 0.5,
+      "businessContext": "Birinci bağımlı değişkende iki grup arasındaki ortalama farkı"
+    },
+    {
+      "id": "d2",
+      "label": "Ortalama Farkı DV2",
+      "type": "number",
+      "unit": "birim",
+      "default": 0.3,
+      "businessContext": "İkinci bağımlı değişkende iki grup arasındaki ortalama farkı"
+    },
+    {
+      "id": "v1",
+      "label": "Havuzlanmış Varyans DV1",
+      "type": "number",
+      "unit": "birim^2",
+      "default": 1,
+      "businessContext": "Birinci bağımlı değişken için iki grubun havuzlanmış varyansı"
+    },
+    {
+      "id": "v2",
+      "label": "Havuzlanmış Varyans DV2",
+      "type": "number",
+      "unit": "birim^2",
+      "default": 1,
+      "businessContext": "İkinci bağımlı değişken için iki grubun havuzlanmış varyansı"
+    }
+  ],
+  "formulas": {
+    "T2": "(n1 * n2 / (n1 + n2)) * ( (d1 * d1) / v1 + (d2 * d2) / v2 )",
+    "F_stat": "T2 * (n1 + n2 - 3) / (2 * (n1 + n2 - 2))",
+    "df1": "2",
+    "df2": "n1 + n2 - 3"
+  },
+  "outputs": {
+    "primary": "T2",
+    "breakdown": [
+      "F_stat",
+      "df1",
+      "df2"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,53 @@
+{
+  "toolName": "drywall-mud-calculator",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "Drywall Area",
+      "type": "number",
+      "unit": "sq ft",
+      "default": 500,
+      "businessContext": "Total square footage of drywall to be finished"
+    },
+    {
+      "id": "coats",
+      "label": "Number of Coats",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of coats of joint compound applied (e.g., tape, fill, finish)"
+    },
+    {
+      "id": "coverage",
+      "label": "Coverage Rate",
+      "type": "number",
+      "unit": "sq ft per gallon",
+      "default": 150,
+      "businessContext": "Estimated coverage per gallon of ready-mix joint compound"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Additional percentage to account for spillage, over-application, and joint waste"
+    }
+  ],
+  "formulas": {
+    "totalMudGallons": "area * coats / coverage * (1 + wasteFactor / 100)",
+    "buckets": "Math.ceil(area * coats / coverage * (1 + wasteFactor / 100) / 4.5)"
+  },
+  "outputs": {
+    "primary": "totalMudGallons",
+    "breakdown": [
+      "buckets"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

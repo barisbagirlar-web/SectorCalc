@@ -1,0 +1,64 @@
+{
+  "toolName": "thrust-to-weight-ratio-calculator",
+  "inputs": [
+    {
+      "id": "emptyMass",
+      "label": "Empty Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 5000,
+      "businessContext": "Mass of vehicle structure and engines, excluding fuel and payload."
+    },
+    {
+      "id": "fuelMass",
+      "label": "Fuel Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 3000,
+      "businessContext": "Mass of fuel onboard."
+    },
+    {
+      "id": "payloadMass",
+      "label": "Payload Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 2000,
+      "businessContext": "Mass of payload."
+    },
+    {
+      "id": "thrust",
+      "label": "Thrust",
+      "type": "number",
+      "unit": "N",
+      "default": 120000,
+      "businessContext": "Total thrust produced by propulsion system."
+    },
+    {
+      "id": "gravity",
+      "label": "Gravitational Acceleration",
+      "type": "number",
+      "unit": "m/s^2",
+      "default": 9.81,
+      "businessContext": "Standard gravity; use 9.81 for Earth surface."
+    }
+  ],
+  "formulas": {
+    "totalMass": "emptyMass + fuelMass + payloadMass",
+    "weight": "totalMass * gravity",
+    "thrustToWeightRatio": "thrust / weight"
+  },
+  "outputs": {
+    "primary": "thrustToWeightRatio",
+    "breakdown": [
+      "totalMass",
+      "weight",
+      "thrustToWeightRatio"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

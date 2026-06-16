@@ -1,0 +1,63 @@
+{
+  "toolName": "grill-temperature-calculator",
+  "inputs": [
+    {
+      "id": "ambientTemp",
+      "label": "Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "Initial temperature of surroundings"
+    },
+    {
+      "id": "grillArea",
+      "label": "Grill Surface Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 0.5,
+      "businessContext": "Area of grill surface exposed to heat"
+    },
+    {
+      "id": "heatInput",
+      "label": "Heat Input Power",
+      "type": "number",
+      "unit": "W",
+      "default": 2000,
+      "businessContext": "Electrical or gas power input to grill"
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Percentage of heat transferred to grill surface (0-100)"
+    },
+    {
+      "id": "heatTransferCoeff",
+      "label": "Heat Transfer Coefficient",
+      "type": "number",
+      "unit": "W/(m²·°C)",
+      "default": 10,
+      "businessContext": "Combined convection and radiation coefficient"
+    }
+  ],
+  "formulas": {
+    "effectiveHeat": "heatInput * (efficiency / 100)",
+    "temperatureRise": "effectiveHeat / (grillArea * heatTransferCoeff)",
+    "grillTemperature": "ambientTemp + temperatureRise"
+  },
+  "outputs": {
+    "primary": "grillTemperature",
+    "breakdown": [
+      "temperatureRise",
+      "effectiveHeat"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

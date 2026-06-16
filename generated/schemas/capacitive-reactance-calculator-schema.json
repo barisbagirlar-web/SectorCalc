@@ -1,0 +1,74 @@
+{
+  "toolName": "capacitive-reactance-calculator",
+  "inputs": [
+    {
+      "id": "frequency",
+      "label": "Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1000,
+      "businessContext": "Operating frequency of the AC signal"
+    },
+    {
+      "id": "capacitance",
+      "label": "Nominal Capacitance",
+      "type": "number",
+      "unit": "F",
+      "default": 0.000001,
+      "businessContext": "Rated capacitance at 25°C"
+    },
+    {
+      "id": "tc",
+      "label": "Temperature Coefficient",
+      "type": "number",
+      "unit": "ppm/°C",
+      "default": 0,
+      "businessContext": "Capacitance change per degree Celsius (ppm)"
+    },
+    {
+      "id": "temperature",
+      "label": "Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "Operating temperature"
+    },
+    {
+      "id": "esr",
+      "label": "Equivalent Series Resistance",
+      "type": "number",
+      "unit": "Ω",
+      "default": 0.1,
+      "businessContext": "ESR of the capacitor"
+    },
+    {
+      "id": "safety_factor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Design margin multiplier for reactance"
+    }
+  ],
+  "formulas": {
+    "C_eff": "capacitance * (1 + (tc * 1e-6) * (temperature - 25))",
+    "Xc": "1 / (2 * Math.PI * frequency * C_eff)",
+    "Xc_safe": "Xc * safety_factor",
+    "Z_total": "Math.sqrt(esr ** 2 + Xc ** 2)",
+    "phase_angle": "Math.atan(-Xc / esr) * (180 / Math.PI)"
+  },
+  "outputs": {
+    "primary": "Xc_safe",
+    "breakdown": [
+      "C_eff",
+      "Z_total",
+      "phase_angle"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

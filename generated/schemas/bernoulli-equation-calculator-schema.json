@@ -1,0 +1,88 @@
+{
+  "toolName": "bernoulli-equation-calculator",
+  "inputs": [
+    {
+      "id": "density",
+      "label": "Akışkan Yoğunluğu (ρ)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Akışkanın yoğunluğu (örneğin su için 1000 kg/m³)"
+    },
+    {
+      "id": "g",
+      "label": "Yerçekimi İvmesi (g)",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Standart yerçekimi ivmesi; 9.81 m/s² alınır"
+    },
+    {
+      "id": "P1",
+      "label": "1 Noktası Basıncı (P₁)",
+      "type": "number",
+      "unit": "Pa",
+      "default": 101325,
+      "businessContext": "Giriş noktasındaki mutlak basınç (örneğin atmosfer basıncı 101325 Pa)"
+    },
+    {
+      "id": "v1",
+      "label": "1 Noktası Hızı (v₁)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 1,
+      "businessContext": "Giriş noktasındaki akış hızı"
+    },
+    {
+      "id": "z1",
+      "label": "1 Noktası Yüksekliği (z₁)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Giriş noktasının referans seviyeye göre yüksekliği"
+    },
+    {
+      "id": "P2",
+      "label": "2 Noktası Basıncı (P₂)",
+      "type": "number",
+      "unit": "Pa",
+      "default": 101325,
+      "businessContext": "Çıkış noktasındaki mutlak basınç"
+    },
+    {
+      "id": "z2",
+      "label": "2 Noktası Yüksekliği (z₂)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Çıkış noktasının referans seviyeye göre yüksekliği"
+    },
+    {
+      "id": "head_loss",
+      "label": "Yük Kaybı (hₗ)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "İki nokta arasındaki toplam yük kaybı (sürtünme vb.), 0 girilirse kayıpsız kabul edilir"
+    }
+  ],
+  "formulas": {
+    "v2": "Math.sqrt(2 * ((P1 - P2) / density + g * (z1 - z2) + v1 * v1 / 2 - g * head_loss))"
+  },
+  "outputs": {
+    "primary": "Hız (v₂)",
+    "breakdown": [
+      "Basınç enerjisi farkı yüksekliği: (P₁ - P₂) / (ρ·g) = {value} m",
+      "Potansiyel enerji farkı: z₁ - z₂ = {value} m",
+      "Kinetik enerji yüksekliği (giriş): v₁²/(2g) = {value} m",
+      "Toplam enerji farkı (kayıp dahil) yüksekliği: Δh = (P₁-P₂)/(ρg) + (z₁-z₂) + v₁²/(2g) - hₗ = {value} m",
+      "v₂ = √(2g·Δh) = {value} m/s"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

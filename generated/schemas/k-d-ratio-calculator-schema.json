@@ -1,0 +1,57 @@
+{
+  "toolName": "k-d-ratio-calculator",
+  "inputs": [
+    {
+      "id": "accepted_parts",
+      "label": "Accepted Parts",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "Number of accepted/quality parts produced."
+    },
+    {
+      "id": "defective_parts",
+      "label": "Defective Parts",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "Number of defective parts identified."
+    },
+    {
+      "id": "reworked_parts",
+      "label": "Reworked Parts",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "Number of parts that required rework."
+    },
+    {
+      "id": "total_inspected",
+      "label": "Total Inspected",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "Total number of parts inspected."
+    }
+  ],
+  "formulas": {
+    "kd_ratio": "defective_parts === 0 ? 0 : accepted_parts / defective_parts",
+    "defect_rate": "total_inspected === 0 ? 0 : defective_parts / total_inspected",
+    "quality_yield": "total_inspected === 0 ? 0 : accepted_parts / total_inspected",
+    "rework_rate": "total_inspected === 0 ? 0 : reworked_parts / total_inspected"
+  },
+  "outputs": {
+    "primary": "kd_ratio",
+    "breakdown": [
+      "defect_rate",
+      "quality_yield",
+      "rework_rate"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

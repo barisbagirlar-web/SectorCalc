@@ -1,0 +1,73 @@
+{
+  "toolName": "christmas-budget-calculator",
+  "inputs": [
+    {
+      "id": "numberOfGifts",
+      "label": "Number of Gifts",
+      "type": "number",
+      "unit": "pcs",
+      "default": 10,
+      "businessContext": "Total number of gifts to purchase"
+    },
+    {
+      "id": "giftBudgetPerPerson",
+      "label": "Gift Budget per Person",
+      "type": "number",
+      "unit": "EUR",
+      "default": 50,
+      "businessContext": "Average expenditure per gift"
+    },
+    {
+      "id": "foodBudget",
+      "label": "Food & Drink Budget",
+      "type": "number",
+      "unit": "EUR",
+      "default": 200,
+      "businessContext": "Total budget for food and beverages"
+    },
+    {
+      "id": "decorationBudget",
+      "label": "Decorations Budget",
+      "type": "number",
+      "unit": "EUR",
+      "default": 100,
+      "businessContext": "Budget for decorations"
+    },
+    {
+      "id": "travelBudget",
+      "label": "Travel Budget",
+      "type": "number",
+      "unit": "EUR",
+      "default": 150,
+      "businessContext": "Travel expenses for Christmas visits"
+    },
+    {
+      "id": "miscBudget",
+      "label": "Miscellaneous Budget",
+      "type": "number",
+      "unit": "EUR",
+      "default": 100,
+      "businessContext": "Other miscellaneous holiday expenses"
+    }
+  ],
+  "formulas": {
+    "totalGifts": "numberOfGifts * giftBudgetPerPerson",
+    "totalBudget": "totalGifts + foodBudget + decorationBudget + travelBudget + miscBudget"
+  },
+  "outputs": {
+    "primary": "totalBudget",
+    "breakdown": [
+      "totalGifts",
+      "foodBudget",
+      "decorationBudget",
+      "travelBudget",
+      "miscBudget"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "roe-calculator",
+  "inputs": [
+    {
+      "id": "netIncome",
+      "label": "Net Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "businessContext": "Net income after taxes and all expenses"
+    },
+    {
+      "id": "revenue",
+      "label": "Revenue",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000000,
+      "businessContext": "Total sales or revenue"
+    },
+    {
+      "id": "totalAssets",
+      "label": "Total Assets",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000000,
+      "businessContext": "Total assets on balance sheet"
+    },
+    {
+      "id": "shareholdersEquity",
+      "label": "Shareholders' Equity",
+      "type": "number",
+      "unit": "USD",
+      "default": 4000000,
+      "businessContext": "Total shareholders' equity"
+    }
+  ],
+  "formulas": {
+    "netProfitMargin": "(netIncome / revenue) * 100",
+    "assetTurnover": "revenue / totalAssets",
+    "equityMultiplier": "totalAssets / shareholdersEquity",
+    "roe": "(netIncome / shareholdersEquity) * 100"
+  },
+  "outputs": {
+    "primary": "roe",
+    "breakdown": [
+      "netProfitMargin",
+      "assetTurnover",
+      "equityMultiplier"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

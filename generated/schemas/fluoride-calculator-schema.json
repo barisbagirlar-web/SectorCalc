@@ -1,0 +1,76 @@
+{
+  "toolName": "fluoride-calculator",
+  "inputs": [
+    {
+      "id": "waterFlowRate",
+      "label": "Water Flow Rate",
+      "type": "number",
+      "unit": "m³/day",
+      "default": 1000,
+      "businessContext": "Daily volume of water to be fluoridated"
+    },
+    {
+      "id": "targetFluorideConc",
+      "label": "Target Fluoride Concentration",
+      "type": "number",
+      "unit": "mg/L",
+      "default": 1,
+      "businessContext": "Desired fluoride level in treated water"
+    },
+    {
+      "id": "rawFluorideConc",
+      "label": "Raw Water Fluoride Concentration",
+      "type": "number",
+      "unit": "mg/L",
+      "default": 0.2,
+      "businessContext": "Natural fluoride level in source water"
+    },
+    {
+      "id": "compoundPurity",
+      "label": "Compound Purity",
+      "type": "number",
+      "unit": "%",
+      "default": 98,
+      "businessContext": "Purity of the fluoride chemical"
+    },
+    {
+      "id": "fluorideIonPercent",
+      "label": "Available Fluoride Ion",
+      "type": "number",
+      "unit": "%",
+      "default": 45,
+      "businessContext": "Percentage of fluoride ion in the compound by weight"
+    }
+  ],
+  "formulas": {
+    "fluorideDemand_g_per_day": "waterFlowRate * (targetFluorideConc - rawFluorideConc)",
+    "compoundMass_g_per_day": "fluorideDemand_g_per_day / ((compoundPurity / 100) * (fluorideIonPercent / 100))",
+    "compoundFeedRate_kg_per_day": "compoundMass_g_per_day / 1000"
+  },
+  "outputs": {
+    "primary": {
+      "id": "compoundFeedRate_kg_per_day",
+      "label": "Required Compound Feed Rate",
+      "unit": "kg/day",
+      "description": "Mass of fluoride compound to dose per day"
+    },
+    "breakdown": [
+      {
+        "id": "fluorideDemand_g_per_day",
+        "label": "Fluoride Demand",
+        "unit": "g/day"
+      },
+      {
+        "id": "compoundMass_g_per_day",
+        "label": "Pure Compound Mass",
+        "unit": "g/day"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,56 @@
+{
+  "toolName": "dog-years-calculator",
+  "inputs": [
+    {
+      "id": "humanAge",
+      "label": "İnsan Yaşı",
+      "type": "number",
+      "unit": "yıl",
+      "default": 5,
+      "businessContext": "Köpeğin insan yaşı cinsinden yaşı"
+    },
+    {
+      "id": "breedSize",
+      "label": "Irk Boyutu",
+      "type": "number",
+      "unit": "indeks",
+      "default": 2,
+      "businessContext": "1: Küçük (ör. Chihuahua), 2: Orta (ör. Beagle), 3: Büyük (ör. Labrador), 4: Dev (ör. Danua)"
+    },
+    {
+      "id": "weight",
+      "label": "Köpeğin Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 15,
+      "businessContext": "Köpeğin yaklaşık ağırlığı (kg cinsinden)"
+    },
+    {
+      "id": "activityLevel",
+      "label": "Aktivite Seviyesi",
+      "type": "number",
+      "unit": "puan",
+      "default": 2,
+      "businessContext": "1: Düşük, 2: Orta, 3: Yüksek"
+    }
+  ],
+  "formulas": {
+    "dogYearsOld": "inputs.humanAge * 7",
+    "dogYearsNew": "16 * Math.log(inputs.humanAge) + 31",
+    "dogYearsAdjusted": "inputs.breedSize * (16 * Math.log(inputs.humanAge) + 31) / 2"
+  },
+  "outputs": {
+    "primary": "dogYearsAdjusted",
+    "breakdown": [
+      "dogYearsOld",
+      "dogYearsNew",
+      "dogYearsAdjusted"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "calorie-from-alcohol-calculator",
+  "inputs": [
+    {
+      "id": "volumePerDrink",
+      "label": "Drink Volume (mL)",
+      "type": "number",
+      "unit": "mL",
+      "default": 355,
+      "businessContext": "Volume of the alcoholic beverage per serving in milliliters."
+    },
+    {
+      "id": "abv",
+      "label": "Alcohol by Volume (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "ABV percentage shown on the beverage label."
+    },
+    {
+      "id": "numberOfDrinks",
+      "label": "Number of Drinks",
+      "type": "number",
+      "unit": "count",
+      "default": 1,
+      "businessContext": "How many servings or drinks consumed."
+    },
+    {
+      "id": "density",
+      "label": "Ethanol Density (g/mL)",
+      "type": "number",
+      "unit": "g/mL",
+      "default": 0.8,
+      "businessContext": "Standard density of pure ethanol (0.8 g/mL)."
+    },
+    {
+      "id": "kcalPerGram",
+      "label": "Energy per Gram of Alcohol (kcal/g)",
+      "type": "number",
+      "unit": "kcal/g",
+      "default": 7,
+      "businessContext": "Metabolizable energy per gram of alcohol (7 kcal/g)."
+    }
+  ],
+  "formulas": {
+    "alcoholVolumeTotal": "volumePerDrink * numberOfDrinks",
+    "alcoholGramsTotal": "alcoholVolumeTotal * abv * density / 100",
+    "caloriesFromAlcohol": "alcoholGramsTotal * kcalPerGram"
+  },
+  "outputs": {
+    "primary": "caloriesFromAlcohol",
+    "breakdown": [
+      "alcoholVolumeTotal",
+      "alcoholGramsTotal"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

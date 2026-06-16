@@ -1,0 +1,60 @@
+{
+  "toolName": "smoking-cost-calculator",
+  "inputs": [
+    {
+      "id": "cigarettesPerDay",
+      "label": "Cigarettes per Day",
+      "type": "number",
+      "unit": "cigarettes/day",
+      "default": 20,
+      "businessContext": "Average number of cigarettes smoked daily."
+    },
+    {
+      "id": "cigarettesPerPack",
+      "label": "Cigarettes per Pack",
+      "type": "number",
+      "unit": "cigarettes/pack",
+      "default": 20,
+      "businessContext": "Standard pack size in your region."
+    },
+    {
+      "id": "pricePerPack",
+      "label": "Price per Pack",
+      "type": "number",
+      "unit": "currency/pack",
+      "default": 10,
+      "businessContext": "Cost of a single pack in your local currency."
+    },
+    {
+      "id": "yearsSmoking",
+      "label": "Years Smoking",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Total number of years the habit has persisted."
+    }
+  ],
+  "formulas": {
+    "dailyCost": "(cigarettesPerDay / cigarettesPerPack) * pricePerPack",
+    "yearlyCost": "dailyCost * 365",
+    "weeklyCost": "yearlyCost / 52",
+    "monthlyCost": "yearlyCost / 12",
+    "totalCost": "dailyCost * 365 * yearsSmoking"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "dailyCost",
+      "weeklyCost",
+      "monthlyCost",
+      "yearlyCost",
+      "totalCost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

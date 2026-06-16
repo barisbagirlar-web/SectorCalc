@@ -1,0 +1,46 @@
+{
+  "toolName": "toplanma-zamani-calculator",
+  "inputs": [
+    {
+      "id": "flowLength",
+      "label": "Akış Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "businessContext": "Havzanın en uzak noktasından çıkışa kadar olan akış yolu uzunluğu (metre)"
+    },
+    {
+      "id": "slopePercent",
+      "label": "Eğim (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "businessContext": "Akış yolu boyunca ortalama eğim yüzdesi (%)"
+    }
+  ],
+  "formulas": {
+    "slopeDecimal": "slopePercent / 100",
+    "flowLengthPower": "flowLength ** 0.77",
+    "slopePower": "slopeDecimal ** -0.385",
+    "tcMinutes": "0.0195 * flowLengthPower * slopePower"
+  },
+  "outputs": {
+    "primary": {
+      "id": "tcMinutes",
+      "label": "Toplanma Zamanı",
+      "unit": "dakika",
+      "description": "Kirpich formülü ile hesaplanan toplanma zamanı"
+    },
+    "breakdown": [
+      "slopeDecimal",
+      "flowLengthPower",
+      "slopePower"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

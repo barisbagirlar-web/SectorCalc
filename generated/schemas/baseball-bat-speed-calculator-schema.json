@@ -1,0 +1,65 @@
+{
+  "toolName": "baseball-bat-speed-calculator",
+  "inputs": [
+    {
+      "id": "angularVelocity",
+      "label": "Angular Velocity",
+      "type": "number",
+      "unit": "deg/s",
+      "default": 1000,
+      "businessContext": "Measured swing rotational speed (high-speed camera), typical range 800–1200 deg/s."
+    },
+    {
+      "id": "batLength",
+      "label": "Bat Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 84,
+      "businessContext": "Total bat length from knob to barrel end, standard 84 cm (33 inches)."
+    },
+    {
+      "id": "pivotDistance",
+      "label": "Pivot Point Distance",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Distance from the knob end to the effective axis of rotation (hands), typically 10 cm."
+    },
+    {
+      "id": "sweetSpotOffset",
+      "label": "Sweet Spot Offset",
+      "type": "number",
+      "unit": "cm",
+      "default": 15,
+      "businessContext": "Distance from the barrel end to the sweet spot, commonly 15 cm."
+    },
+    {
+      "id": "batMass",
+      "label": "Bat Mass",
+      "type": "number",
+      "unit": "g",
+      "default": 900,
+      "businessContext": "Mass of the bat in grams, typical wood bat mass ≈ 900 g."
+    }
+  ],
+  "formulas": {
+    "angularVelocityRadPerS": "angularVelocity * Math.PI / 180",
+    "effectiveRadiusM": "(batLength - sweetSpotOffset - pivotDistance) / 100",
+    "batSpeed": "angularVelocity * Math.PI / 180 * (batLength - sweetSpotOffset - pivotDistance) / 100",
+    "kineticEnergy": "0.5 * (batMass / 1000) * Math.pow(angularVelocity * Math.PI / 180 * (batLength - sweetSpotOffset - pivotDistance) / 100, 2)"
+  },
+  "outputs": {
+    "primary": "batSpeed",
+    "breakdown": [
+      "angularVelocityRadPerS",
+      "effectiveRadiusM",
+      "kineticEnergy"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

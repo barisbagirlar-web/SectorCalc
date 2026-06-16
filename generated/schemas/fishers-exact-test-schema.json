@@ -1,0 +1,63 @@
+{
+  "toolName": "fishers-exact-test",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "Cell a (top-left)",
+      "type": "number",
+      "unit": "count",
+      "default": 5,
+      "businessContext": "Number of successes in group 1"
+    },
+    {
+      "id": "b",
+      "label": "Cell b (top-right)",
+      "type": "number",
+      "unit": "count",
+      "default": 1,
+      "businessContext": "Number of failures in group 1"
+    },
+    {
+      "id": "c",
+      "label": "Cell c (bottom-left)",
+      "type": "number",
+      "unit": "count",
+      "default": 2,
+      "businessContext": "Number of successes in group 2"
+    },
+    {
+      "id": "d",
+      "label": "Cell d (bottom-right)",
+      "type": "number",
+      "unit": "count",
+      "default": 6,
+      "businessContext": "Number of failures in group 2"
+    }
+  ],
+  "formulas": {
+    "n": "a + b + c + d",
+    "row1": "a + b",
+    "row2": "c + d",
+    "col1": "a + c",
+    "col2": "b + d",
+    "lnFactorial": "function(x) { if (x <= 1) return 0; var res = 0; for (var i = 2; i <= x; i++) res += Math.log(i); return res; }",
+    "lnP": "lnFactorial(row1) + lnFactorial(row2) + lnFactorial(col1) + lnFactorial(col2) - lnFactorial(n) - lnFactorial(a) - lnFactorial(b) - lnFactorial(c) - lnFactorial(d)",
+    "pValue": "Math.exp(lnP)"
+  },
+  "outputs": {
+    "primary": "pValue",
+    "breakdown": [
+      "n",
+      "row1",
+      "row2",
+      "col1",
+      "col2"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

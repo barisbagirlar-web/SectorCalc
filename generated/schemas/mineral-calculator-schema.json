@@ -1,0 +1,62 @@
+{
+  "toolName": "mineral-calculator",
+  "inputs": [
+    {
+      "id": "ore_tonnage",
+      "label": "Ore Tonnage",
+      "type": "number",
+      "unit": "tons",
+      "default": 1000,
+      "businessContext": "Total mass of ore mined or processed."
+    },
+    {
+      "id": "ore_grade",
+      "label": "Ore Grade",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of valuable mineral in the ore."
+    },
+    {
+      "id": "recovery_rate",
+      "label": "Recovery Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Percentage of the valuable mineral that can be recovered during processing."
+    },
+    {
+      "id": "metal_price",
+      "label": "Metal Price",
+      "type": "number",
+      "unit": "USD/ton",
+      "default": 2000,
+      "businessContext": "Market price of the recovered metal per ton."
+    },
+    {
+      "id": "processing_cost",
+      "label": "Processing Cost",
+      "type": "number",
+      "unit": "USD/ton",
+      "default": 10,
+      "businessContext": "Cost to process one ton of ore."
+    }
+  ],
+  "formulas": {
+    "metal_tonnage": "ore_tonnage * (ore_grade / 100) * (recovery_rate / 100)",
+    "revenue": "metal_tonnage * metal_price",
+    "total_processing_cost": "ore_tonnage * processing_cost",
+    "net_profit": "revenue - total_processing_cost"
+  },
+  "outputs": {
+    "primary": "net_profit",
+    "breakdown": [
+      "metal_tonnage",
+      "revenue",
+      "total_processing_cost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false
+}

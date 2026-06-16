@@ -1,0 +1,79 @@
+{
+  "toolName": "camping-calculator",
+  "inputs": [
+    {
+      "id": "numberOfCampers",
+      "label": "Number of Campers",
+      "type": "number",
+      "unit": "people",
+      "default": 1,
+      "businessContext": "Total number of people on the camping trip"
+    },
+    {
+      "id": "numberOfNights",
+      "label": "Number of Nights",
+      "type": "number",
+      "unit": "nights",
+      "default": 2,
+      "businessContext": "Duration of the camping trip in nights"
+    },
+    {
+      "id": "waterPerPerson",
+      "label": "Daily Water per Person",
+      "type": "number",
+      "unit": "liters/day",
+      "default": 5,
+      "businessContext": "Recommended water per person per day for drinking, cooking, and hygiene"
+    },
+    {
+      "id": "foodPerPerson",
+      "label": "Daily Food Energy per Person",
+      "type": "number",
+      "unit": "kcal/day",
+      "default": 2500,
+      "businessContext": "Average daily calorie intake per person"
+    },
+    {
+      "id": "firewoodPerNight",
+      "label": "Firewood per Night",
+      "type": "number",
+      "unit": "kg/night",
+      "default": 10,
+      "businessContext": "Estimated firewood needed per evening campfire"
+    },
+    {
+      "id": "temperatureAdjust",
+      "label": "Temperature Adjustment Factor",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0,
+      "businessContext": "Adjust water needs: 0 for normal, positive for hot (e.g., 0.2 for >30°C), negative for cold"
+    },
+    {
+      "id": "safetyMargin",
+      "label": "Safety Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage of extra supplies for unforeseen circumstances"
+    }
+  ],
+  "formulas": {
+    "totalWater": "numberOfCampers * waterPerPerson * numberOfNights * (1 + temperatureAdjust) * (1 + safetyMargin/100)",
+    "totalFood": "numberOfCampers * foodPerPerson * numberOfNights * (1 + safetyMargin/100)",
+    "totalFirewood": "firewoodPerNight * numberOfNights * (1 + safetyMargin/100)"
+  },
+  "outputs": {
+    "primary": "totalWater",
+    "breakdown": [
+      "totalFood",
+      "totalFirewood"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

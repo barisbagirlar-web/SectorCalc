@@ -1,0 +1,67 @@
+{
+  "toolName": "tennis-serve-speed-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance from contact to landing",
+      "type": "number",
+      "unit": "m",
+      "default": 18.29,
+      "businessContext": "Typical straight serve distance from baseline to service line"
+    },
+    {
+      "id": "timeOfFlight",
+      "label": "Time of flight",
+      "type": "number",
+      "unit": "s",
+      "default": 0.5,
+      "businessContext": "Measured time from ball contact to landing"
+    },
+    {
+      "id": "ballMass",
+      "label": "Ball mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 0.0577,
+      "businessContext": "Standard tennis ball mass"
+    },
+    {
+      "id": "launchHeight",
+      "label": "Height at contact",
+      "type": "number",
+      "unit": "m",
+      "default": 2.6,
+      "businessContext": "Height of ball at serve contact point"
+    },
+    {
+      "id": "landingHeight",
+      "label": "Height at landing",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Height of ball at landing, typically ground level"
+    }
+  ],
+  "formulas": {
+    "vx": "distance / timeOfFlight",
+    "vy": "(landingHeight - launchHeight + 0.5 * 9.81 * timeOfFlight**2) / timeOfFlight",
+    "speedMs": "Math.sqrt(vx**2 + vy**2)",
+    "speedKmh": "speedMs * 3.6",
+    "kineticEnergyJ": "0.5 * ballMass * speedMs**2",
+    "angleDeg": "Math.atan(vy/vx) * (180 / Math.PI)"
+  },
+  "outputs": {
+    "primary": "speedKmh",
+    "breakdown": [
+      "speedMs",
+      "kineticEnergyJ",
+      "angleDeg"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "waist-to-hip-ratio-calculator",
+  "inputs": [
+    {
+      "id": "waist",
+      "label": "Waist Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "Measured at the midpoint between the lower margin of the last palpable rib and the top of the iliac crest, according to WHO protocol"
+    },
+    {
+      "id": "hip",
+      "label": "Hip Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "Measured at the greatest circumference around the buttocks"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "Standing height without shoes, used for waist-to-height ratio and BMI"
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Body weight in kilograms, used for BMI calculation"
+    },
+    {
+      "id": "gender",
+      "label": "Gender (0=Female, 1=Male)",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "Biological sex for WHR risk threshold interpretation (0: female, 1: male)"
+    }
+  ],
+  "formulas": {
+    "waistToHipRatio": "waist / hip",
+    "waistToHeightRatio": "waist / height",
+    "bmi": "weight / ((height / 100) ** 2)",
+    "highRiskWHR": "gender === 0 ? ( (waist/hip) > 0.85 ? 1 : 0 ) : ( (waist/hip) > 0.90 ? 1 : 0 )"
+  },
+  "outputs": {
+    "primary": "waistToHipRatio",
+    "breakdown": [
+      "waistToHeightRatio",
+      "bmi",
+      "highRiskWHR"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

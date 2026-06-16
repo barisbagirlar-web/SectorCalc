@@ -1,0 +1,52 @@
+{
+  "toolName": "iron-intake-calculator",
+  "inputs": [
+    {
+      "id": "oreMass",
+      "label": "Ore Mass",
+      "type": "number",
+      "unit": "tons",
+      "default": 100,
+      "businessContext": "Total mass of iron ore fed into the process"
+    },
+    {
+      "id": "ironConcentration",
+      "label": "Iron Concentration",
+      "type": "number",
+      "unit": "%",
+      "default": 62,
+      "businessContext": "Mass percentage of iron in the ore"
+    },
+    {
+      "id": "moistureContent",
+      "label": "Moisture Content",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "businessContext": "Moisture mass percentage in the ore"
+    },
+    {
+      "id": "recoveryRate",
+      "label": "Recovery Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Expected percentage of iron recovered from ore after processing"
+    }
+  ],
+  "formulas": {
+    "dryMass": "oreMass * (1 - moistureContent / 100)",
+    "ironMass": "dryMass * (ironConcentration / 100)",
+    "netIron": "ironMass * (recoveryRate / 100)"
+  },
+  "outputs": {
+    "primary": "netIron",
+    "breakdown": [
+      "dryMass",
+      "ironMass"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false
+}

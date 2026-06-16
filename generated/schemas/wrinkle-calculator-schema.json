@@ -1,0 +1,73 @@
+{
+  "toolName": "wrinkle-calculator",
+  "inputs": [
+    {
+      "id": "thickness",
+      "label": "Kalınlık",
+      "type": "number",
+      "unit": "mm",
+      "default": 1.5,
+      "businessContext": "Sac malzemenin kalınlığı"
+    },
+    {
+      "id": "blankDiameter",
+      "label": "Blank Çapı",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "businessContext": "Başlangıç sac çapı (blanck çapı)"
+    },
+    {
+      "id": "punchDiameter",
+      "label": "Zımba Çapı",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Deep drawing zımba çapı"
+    },
+    {
+      "id": "drawDepth",
+      "label": "Çekme Derinliği",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Deep drawing derinliği"
+    },
+    {
+      "id": "yieldStrength",
+      "label": "Akma Dayanımı",
+      "type": "number",
+      "unit": "MPa",
+      "default": 250,
+      "businessContext": "Malzemenin akma dayanımı (Re)"
+    },
+    {
+      "id": "elasticModulus",
+      "label": "Elastisite Modülü",
+      "type": "number",
+      "unit": "GPa",
+      "default": 210,
+      "businessContext": "Malzemenin elastisite modülü (E)"
+    }
+  ],
+  "formulas": {
+    "drawAngle_rad": "Math.asin((blankDiameter - punchDiameter) / (2 * drawDepth))",
+    "drawAngle_deg": "drawAngle_rad * 180 / Math.PI",
+    "factor": "Math.sqrt(yieldStrength / (elasticModulus * 1000))",
+    "requiredThickness": "(blankDiameter - punchDiameter) / (2 * Math.sin(drawAngle_rad)) * factor",
+    "safetyMargin": "((thickness - requiredThickness) / requiredThickness) * 100"
+  },
+  "outputs": {
+    "primary": "safetyMargin",
+    "breakdown": [
+      "drawAngle_deg",
+      "requiredThickness"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

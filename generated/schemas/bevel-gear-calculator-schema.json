@@ -1,0 +1,88 @@
+{
+  "toolName": "bevel-gear-calculator",
+  "inputs": [
+    {
+      "id": "module",
+      "label": "Modül (m)",
+      "type": "number",
+      "unit": "mm",
+      "default": 4,
+      "businessContext": "Modül, dişli boyutlandırma için standart bir parametredir."
+    },
+    {
+      "id": "z1",
+      "label": "Pinyon Diş Sayısı (z₁)",
+      "type": "number",
+      "unit": "",
+      "default": 20,
+      "businessContext": "Küçük (pinyon) dişlinin diş sayısı."
+    },
+    {
+      "id": "z2",
+      "label": "Ayna Diş Sayısı (z₂)",
+      "type": "number",
+      "unit": "",
+      "default": 40,
+      "businessContext": "Büyük (ayna) dişlinin diş sayısı."
+    },
+    {
+      "id": "shaftAngle",
+      "label": "Mil Açısı (Σ)",
+      "type": "number",
+      "unit": "°",
+      "default": 90,
+      "businessContext": "Kesişen iki mil arasındaki açı (genellikle 90°)."
+    },
+    {
+      "id": "pressureAngle",
+      "label": "Kavrama Açısı (α)",
+      "type": "number",
+      "unit": "°",
+      "default": 20,
+      "businessContext": "Standart kavrama açısı; çoğunlukla 20° kullanılır."
+    },
+    {
+      "id": "faceWidthFactor",
+      "label": "Diş Genişliği Faktörü (k)",
+      "type": "number",
+      "unit": "",
+      "default": 0.3,
+      "businessContext": "Diş genişliğinin konik mesafeye oranı (genelde 0,2 – 0,3 aralığında)."
+    }
+  ],
+  "formulas": {
+    "gearRatio": "z2 / z1",
+    "d1": "module * z1",
+    "d2": "module * z2",
+    "shaftAngleRad": "shaftAngle * Math.PI / 180",
+    "delta1Rad": "Math.atan( Math.sin(shaftAngleRad) / ((z2/z1) + Math.cos(shaftAngleRad)) )",
+    "delta2Rad": "shaftAngleRad - delta1Rad",
+    "delta1Deg": "delta1Rad * 180 / Math.PI",
+    "delta2Deg": "delta2Rad * 180 / Math.PI",
+    "R": "d2 / (2 * Math.sin(delta2Rad))",
+    "b": "faceWidthFactor * R",
+    "ha": "module",
+    "hf": "1.25 * module",
+    "h": "ha + hf"
+  },
+  "outputs": {
+    "primary": "gearRatio",
+    "breakdown": [
+      "d1",
+      "d2",
+      "delta1Deg",
+      "delta2Deg",
+      "R",
+      "b",
+      "ha",
+      "hf",
+      "h"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

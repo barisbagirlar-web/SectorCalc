@@ -1,0 +1,59 @@
+{
+  "toolName": "sustainability-calculator",
+  "inputs": [
+    {
+      "id": "electricity",
+      "label": "Electricity consumption",
+      "type": "number",
+      "unit": "kWh",
+      "default": 3000,
+      "businessContext": "Annual electricity usage from grid"
+    },
+    {
+      "id": "gas",
+      "label": "Natural gas consumption",
+      "type": "number",
+      "unit": "m³",
+      "default": 1200,
+      "businessContext": "Annual natural gas usage"
+    },
+    {
+      "id": "fuel",
+      "label": "Vehicle fuel consumption",
+      "type": "number",
+      "unit": "L",
+      "default": 1000,
+      "businessContext": "Annual fuel usage for vehicles"
+    },
+    {
+      "id": "waste",
+      "label": "Waste generated",
+      "type": "number",
+      "unit": "kg",
+      "default": 500,
+      "businessContext": "Annual waste generated"
+    }
+  ],
+  "formulas": {
+    "totalCO2": "electricity * 0.233 + gas * 2.02 + fuel * 2.31 + waste * 0.5",
+    "electricityCO2": "electricity * 0.233",
+    "gasCO2": "gas * 2.02",
+    "fuelCO2": "fuel * 2.31",
+    "wasteCO2": "waste * 0.5"
+  },
+  "outputs": {
+    "primary": "totalCO2",
+    "breakdown": [
+      "electricityCO2",
+      "gasCO2",
+      "fuelCO2",
+      "wasteCO2"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

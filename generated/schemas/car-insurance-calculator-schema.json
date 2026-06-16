@@ -1,0 +1,99 @@
+{
+  "toolName": "car-insurance-calculator",
+  "inputs": [
+    {
+      "id": "carValue",
+      "label": "Car Value",
+      "type": "number",
+      "unit": "EUR",
+      "default": 20000,
+      "businessContext": "The current market value of the insured vehicle."
+    },
+    {
+      "id": "driverAge",
+      "label": "Driver Age",
+      "type": "number",
+      "unit": "years",
+      "default": 35,
+      "businessContext": "Age of the primary driver; younger drivers often have higher risk."
+    },
+    {
+      "id": "drivingExperience",
+      "label": "Driving Experience",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Number of years the driver has held a valid driving license."
+    },
+    {
+      "id": "noClaimsYears",
+      "label": "No-Claims Years",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Consecutive claim-free years; affects no-claims discount."
+    },
+    {
+      "id": "annualMileage",
+      "label": "Annual Mileage",
+      "type": "number",
+      "unit": "km",
+      "default": 15000,
+      "businessContext": "Estimated annual distance driven; higher mileage increases risk."
+    },
+    {
+      "id": "coverageLevel",
+      "label": "Coverage Level",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Coverage type: 1=Third party, 2=Third party fire & theft, 3=Comprehensive."
+    },
+    {
+      "id": "regionRisk",
+      "label": "Region Risk Factor",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Regional risk factor based on crime and accident statistics (1=lowest, 10=highest)."
+    },
+    {
+      "id": "vehicleAge",
+      "label": "Vehicle Age",
+      "type": "number",
+      "unit": "years",
+      "default": 3,
+      "businessContext": "Age of the vehicle; older cars may have different risk profiles."
+    }
+  ],
+  "formulas": {
+    "basePremium": "carValue * 0.03",
+    "ageFactor": "driverAge < 25 ? 1.8 : (driverAge <= 60 ? 1.0 : 1.3)",
+    "experienceFactor": "drivingExperience < 2 ? 2.0 : (drivingExperience <= 5 ? 1.5 : 1.0)",
+    "noClaimsFactor": "Math.max(0.4, 1 - noClaimsYears * 0.05)",
+    "mileageFactor": "annualMileage <= 10000 ? 0.9 : (annualMileage <= 20000 ? 1.0 : 1.2)",
+    "coverageFactor": "coverageLevel === 1 ? 0.7 : (coverageLevel === 2 ? 0.85 : 1.0)",
+    "regionFactor": "1 + (regionRisk - 5) * 0.02",
+    "vehicleAgeFactor": "vehicleAge <= 5 ? 1.0 : (vehicleAge <= 10 ? 0.95 : 1.1)",
+    "totalPremium": "basePremium * ageFactor * experienceFactor * noClaimsFactor * mileageFactor * coverageFactor * regionFactor * vehicleAgeFactor"
+  },
+  "outputs": {
+    "primary": "totalPremium",
+    "breakdown": [
+      "basePremium",
+      "ageFactor",
+      "experienceFactor",
+      "noClaimsFactor",
+      "mileageFactor",
+      "coverageFactor",
+      "regionFactor",
+      "vehicleAgeFactor"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "building-envelope-size-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Building Length",
+      "type": "number",
+      "unit": "m",
+      "default": 20,
+      "businessContext": "Horizontal length of the building."
+    },
+    {
+      "id": "width",
+      "label": "Building Width",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Horizontal width of the building."
+    },
+    {
+      "id": "height",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Vertical height of the walls from ground to eave."
+    },
+    {
+      "id": "pitch",
+      "label": "Roof Pitch",
+      "type": "number",
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Roof pitch angle in degrees."
+    }
+  ],
+  "formulas": {
+    "wallArea": "2 * (length + width) * height",
+    "roofArea": "(length * width) / Math.cos(pitch * Math.PI / 180)",
+    "gableArea": "(Math.pow(width, 2) * Math.tan(pitch * Math.PI / 180)) / 2",
+    "totalEnvelopeArea": "wallArea + roofArea + gableArea"
+  },
+  "outputs": {
+    "primary": "totalEnvelopeArea",
+    "breakdown": [
+      "wallArea",
+      "roofArea",
+      "gableArea"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

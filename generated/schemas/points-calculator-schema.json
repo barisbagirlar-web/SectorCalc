@@ -1,0 +1,72 @@
+{
+  "toolName": "points-calculator",
+  "inputs": [
+    {
+      "id": "purchaseAmount",
+      "label": "Purchase Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "The total amount spent in the transaction."
+    },
+    {
+      "id": "basePointsRate",
+      "label": "Base Points Rate",
+      "type": "number",
+      "unit": "points/currency",
+      "default": 1,
+      "businessContext": "Points earned per unit of currency spent before multipliers."
+    },
+    {
+      "id": "tierMultiplier",
+      "label": "Tier Multiplier",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Multiplier based on customer loyalty tier (e.g., 1 for base, 1.5 for silver, 2 for gold)."
+    },
+    {
+      "id": "bonusPoints",
+      "label": "Bonus Points",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Additional flat bonus points from promotions or campaigns."
+    },
+    {
+      "id": "capPoints",
+      "label": "Points Cap",
+      "type": "number",
+      "unit": "points",
+      "default": 1000,
+      "businessContext": "Maximum points that can be earned in this transaction; 0 for no cap."
+    },
+    {
+      "id": "pointsConversionRate",
+      "label": "Points to Currency Conversion",
+      "type": "number",
+      "unit": "currency/point",
+      "default": 0.01,
+      "businessContext": "Value of one point when redeemed (e.g., 0.01 means 1 point = 0.01 currency)."
+    }
+  ],
+  "formulas": {
+    "basePointsEarned": "purchaseAmount * basePointsRate",
+    "totalBeforeCap": "basePointsEarned * tierMultiplier + bonusPoints",
+    "totalPoints": "capPoints > 0 ? Math.min(totalBeforeCap, capPoints) : totalBeforeCap",
+    "monetaryValue": "totalPoints * pointsConversionRate"
+  },
+  "outputs": {
+    "primary": "totalPoints",
+    "breakdown": [
+      "basePointsEarned",
+      "monetaryValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

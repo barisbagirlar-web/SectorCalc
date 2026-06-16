@@ -1,0 +1,91 @@
+{
+  "toolName": "sheetrock-calculator",
+  "inputs": [
+    {
+      "id": "roomLength",
+      "label": "Room Length",
+      "type": "number",
+      "unit": "ft",
+      "default": 12,
+      "businessContext": "Length of the room in feet."
+    },
+    {
+      "id": "roomWidth",
+      "label": "Room Width",
+      "type": "number",
+      "unit": "ft",
+      "default": 12,
+      "businessContext": "Width of the room in feet."
+    },
+    {
+      "id": "roomHeight",
+      "label": "Room Height",
+      "type": "number",
+      "unit": "ft",
+      "default": 8,
+      "businessContext": "Height of the walls in feet."
+    },
+    {
+      "id": "sheetLength",
+      "label": "Sheet Length",
+      "type": "number",
+      "unit": "ft",
+      "default": 8,
+      "businessContext": "Length of a single sheetrock panel (commonly 8, 10, or 12 ft)."
+    },
+    {
+      "id": "sheetWidth",
+      "label": "Sheet Width",
+      "type": "number",
+      "unit": "ft",
+      "default": 4,
+      "businessContext": "Width of a single sheetrock panel (typically 4 ft)."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Additional material percentage to account for offcuts and damage."
+    },
+    {
+      "id": "deductionArea",
+      "label": "Deduction Area",
+      "type": "number",
+      "unit": "sq ft",
+      "default": 0,
+      "businessContext": "Total area of openings (doors, windows) to be subtracted from wall area."
+    }
+  ],
+  "formulas": {
+    "wallArea": "2 * (inputs.roomLength + inputs.roomWidth) * inputs.roomHeight - inputs.deductionArea",
+    "ceilingArea": "inputs.roomLength * inputs.roomWidth",
+    "totalArea": "wallArea + ceilingArea",
+    "sheetsWalls": "Math.ceil(wallArea / (inputs.sheetLength * inputs.sheetWidth) * (1 + inputs.wasteFactor / 100))",
+    "sheetsCeiling": "Math.ceil(ceilingArea / (inputs.sheetLength * inputs.sheetWidth) * (1 + inputs.wasteFactor / 100))",
+    "totalSheets": "sheetsWalls + sheetsCeiling",
+    "jointCompoundGallons": "totalArea / 150",
+    "jointTapeFeet": "totalArea * 0.37",
+    "screwsCount": "totalSheets * 32"
+  },
+  "outputs": {
+    "primary": "totalSheets",
+    "breakdown": [
+      "wallArea",
+      "ceilingArea",
+      "totalArea",
+      "sheetsWalls",
+      "sheetsCeiling",
+      "jointCompoundGallons",
+      "jointTapeFeet",
+      "screwsCount"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

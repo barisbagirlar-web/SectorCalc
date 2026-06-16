@@ -1,0 +1,60 @@
+{
+  "toolName": "principal-stress-calculator",
+  "inputs": [
+    {
+      "id": "sigmaX",
+      "label": "Normal Stress σx",
+      "type": "number",
+      "unit": "MPa",
+      "default": 0,
+      "businessContext": "Normal stress in x-direction"
+    },
+    {
+      "id": "sigmaY",
+      "label": "Normal Stress σy",
+      "type": "number",
+      "unit": "MPa",
+      "default": 0,
+      "businessContext": "Normal stress in y-direction"
+    },
+    {
+      "id": "tauXY",
+      "label": "Shear Stress τxy",
+      "type": "number",
+      "unit": "MPa",
+      "default": 0,
+      "businessContext": "Shear stress on the x-face in y-direction"
+    },
+    {
+      "id": "theta",
+      "label": "Plane Angle θ",
+      "type": "number",
+      "unit": "deg",
+      "default": 0,
+      "businessContext": "Angle of the plane on which to compute normal stress"
+    }
+  ],
+  "formulas": {
+    "sigmaAvg": "(sigmaX + sigmaY) / 2",
+    "R": "Math.sqrt((((sigmaX - sigmaY) / 2) ** 2) + (tauXY ** 2))",
+    "sigma1": "sigmaAvg + R",
+    "sigma2": "sigmaAvg - R",
+    "tauMax": "R",
+    "thetaRad": "theta * 0.017453292519943295",
+    "sigmaTheta": "sigmaAvg + ((sigmaX - sigmaY) / 2) * Math.cos(2 * thetaRad) + tauXY * Math.sin(2 * thetaRad)"
+  },
+  "outputs": {
+    "primary": "sigma1",
+    "breakdown": [
+      "sigma2",
+      "tauMax",
+      "sigmaTheta"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

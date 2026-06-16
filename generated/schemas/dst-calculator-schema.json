@@ -1,0 +1,73 @@
+{
+  "toolName": "dst-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "businessContext": "Total route distance"
+    },
+    {
+      "id": "averageSpeed",
+      "label": "Average Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 60,
+      "businessContext": "Expected average travel speed"
+    },
+    {
+      "id": "fuelConsumption",
+      "label": "Fuel Consumption",
+      "type": "number",
+      "unit": "L/100km",
+      "default": 30,
+      "businessContext": "Vehicle fuel consumption rate"
+    },
+    {
+      "id": "fuelPrice",
+      "label": "Fuel Price",
+      "type": "number",
+      "unit": "currency/L",
+      "default": 1.5,
+      "businessContext": "Cost of fuel per litre"
+    },
+    {
+      "id": "numStops",
+      "label": "Number of Stops",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Number of rest/delivery stops"
+    },
+    {
+      "id": "stopTime",
+      "label": "Time per Stop",
+      "type": "number",
+      "unit": "minutes",
+      "default": 15,
+      "businessContext": "Average time spent per stop"
+    }
+  ],
+  "formulas": {
+    "travelTime": "distance / averageSpeed",
+    "totalTime": "travelTime + (numStops * stopTime / 60)",
+    "fuelConsumed": "(distance / 100) * fuelConsumption",
+    "fuelCost": "fuelConsumed * fuelPrice"
+  },
+  "outputs": {
+    "primary": "totalTime",
+    "breakdown": [
+      "travelTime",
+      "fuelCost",
+      "fuelConsumed"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

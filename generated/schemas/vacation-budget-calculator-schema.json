@@ -1,0 +1,87 @@
+{
+  "toolName": "vacation-budget-calculator",
+  "inputs": [
+    {
+      "id": "numberOfTravelers",
+      "label": "Number of Travelers",
+      "type": "number",
+      "unit": "persons",
+      "default": 1,
+      "businessContext": "Number of people traveling; multiplies per-person costs."
+    },
+    {
+      "id": "numberOfNights",
+      "label": "Number of Nights",
+      "type": "number",
+      "unit": "nights",
+      "default": 7,
+      "businessContext": "Duration of stay in nights; used for hotel and daily expenses."
+    },
+    {
+      "id": "flightCostPerPerson",
+      "label": "Flight Cost per Person",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "businessContext": "Round-trip flight cost per traveler."
+    },
+    {
+      "id": "hotelCostPerNight",
+      "label": "Hotel Cost per Night (Total)",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "Total accommodation cost per night for the group."
+    },
+    {
+      "id": "dailyFoodCostPerPerson",
+      "label": "Daily Food Cost per Person",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "businessContext": "Estimated daily meal and drink cost per person."
+    },
+    {
+      "id": "activitiesCostPerPerson",
+      "label": "Activities Cost per Person",
+      "type": "number",
+      "unit": "USD",
+      "default": 200,
+      "businessContext": "Total cost of excursions and activities per person."
+    },
+    {
+      "id": "miscellaneousCost",
+      "label": "Miscellaneous Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "Extra expenses such as souvenirs, tips, and transport."
+    }
+  ],
+  "formulas": {
+    "flightsTotal": "numberOfTravelers * flightCostPerPerson",
+    "hotelTotal": "numberOfNights * hotelCostPerNight",
+    "foodTotal": "numberOfTravelers * dailyFoodCostPerPerson * numberOfNights",
+    "activitiesTotal": "numberOfTravelers * activitiesCostPerPerson",
+    "miscellaneousTotal": "miscellaneousCost",
+    "totalBudget": "flightsTotal + hotelTotal + foodTotal + activitiesTotal + miscellaneousTotal",
+    "dailyPerPerson": "totalBudget / (numberOfTravelers * numberOfNights)"
+  },
+  "outputs": {
+    "primary": "totalBudget",
+    "breakdown": [
+      "flightsTotal",
+      "hotelTotal",
+      "foodTotal",
+      "activitiesTotal",
+      "miscellaneousTotal",
+      "dailyPerPerson"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

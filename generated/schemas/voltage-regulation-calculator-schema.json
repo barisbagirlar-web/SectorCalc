@@ -1,0 +1,63 @@
+{
+  "toolName": "voltage-regulation-calculator",
+  "inputs": [
+    {
+      "id": "receivingVoltage",
+      "label": "Receiving End Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 11000,
+      "businessContext": "Nominal voltage at the load end of the transmission line."
+    },
+    {
+      "id": "loadCurrent",
+      "label": "Load Current",
+      "type": "number",
+      "unit": "A",
+      "default": 100,
+      "businessContext": "Current drawn by the load."
+    },
+    {
+      "id": "lineResistance",
+      "label": "Line Resistance",
+      "type": "number",
+      "unit": "Ω",
+      "default": 0.5,
+      "businessContext": "Total resistance of the transmission line."
+    },
+    {
+      "id": "lineReactance",
+      "label": "Line Reactance",
+      "type": "number",
+      "unit": "Ω",
+      "default": 1,
+      "businessContext": "Total inductive reactance of the transmission line."
+    },
+    {
+      "id": "powerFactor",
+      "label": "Power Factor",
+      "type": "number",
+      "unit": "pu",
+      "default": 0.8,
+      "businessContext": "Lagging power factor of the load (cos φ). Assumes inductive load."
+    }
+  ],
+  "formulas": {
+    "sendingVoltage": "Math.sqrt(Math.pow(receivingVoltage * Math.cos(Math.acos(powerFactor)) + loadCurrent * lineResistance, 2) + Math.pow(receivingVoltage * Math.sin(Math.acos(powerFactor)) + loadCurrent * lineReactance, 2))",
+    "voltageDrop": "sendingVoltage - receivingVoltage",
+    "voltageRegulation": "((sendingVoltage - receivingVoltage) / receivingVoltage) * 100"
+  },
+  "outputs": {
+    "primary": "voltageRegulation",
+    "breakdown": [
+      "sendingVoltage",
+      "voltageDrop"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

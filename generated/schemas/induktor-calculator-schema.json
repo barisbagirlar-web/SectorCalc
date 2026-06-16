@@ -1,0 +1,54 @@
+{
+  "toolName": "induktor-calculator",
+  "inputs": [
+    {
+      "id": "diameter",
+      "label": "Coil Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Outer diameter of the inductor coil."
+    },
+    {
+      "id": "length",
+      "label": "Coil Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 20,
+      "businessContext": "Length of the coil along its axis."
+    },
+    {
+      "id": "turns",
+      "label": "Number of Turns",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "Total number of wire turns in the coil."
+    },
+    {
+      "id": "frequency",
+      "label": "Frequency",
+      "type": "number",
+      "unit": "kHz",
+      "default": 100,
+      "businessContext": "Operating frequency of the AC signal in kilohertz."
+    }
+  ],
+  "formulas": {
+    "inductance_uH": "Math.pow(diameter/25.4,2) * Math.pow(turns,2) / (18*(diameter/25.4) + 40*(length/25.4))",
+    "reactance_ohm": "2 * Math.PI * (frequency * 1000) * (inductance_uH * 1e-6)"
+  },
+  "outputs": {
+    "primary": "Endüktans: ${inductance_uH.toFixed(2)} μH",
+    "breakdown": [
+      "Reaktans: ${reactance_ohm.toFixed(2)} Ω",
+      "Bobin: ${diameter} mm ⌀ × ${length} mm, ${turns} tur"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

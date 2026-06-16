@@ -1,0 +1,95 @@
+{
+  "toolName": "nutrition-label-calculator",
+  "inputs": [
+    {
+      "id": "servingSize",
+      "label": "Serving Size",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Weight of one serving in grams."
+    },
+    {
+      "id": "calories",
+      "label": "Calories",
+      "type": "number",
+      "unit": "kcal",
+      "default": 0,
+      "businessContext": "Energy content per serving in kilocalories."
+    },
+    {
+      "id": "totalFat",
+      "label": "Total Fat",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Total fat content per serving in grams."
+    },
+    {
+      "id": "saturatedFat",
+      "label": "Saturated Fat",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Saturated fat content per serving in grams."
+    },
+    {
+      "id": "cholesterol",
+      "label": "Cholesterol",
+      "type": "number",
+      "unit": "mg",
+      "default": 0,
+      "businessContext": "Cholesterol content per serving in milligrams."
+    },
+    {
+      "id": "sodium",
+      "label": "Sodium",
+      "type": "number",
+      "unit": "mg",
+      "default": 0,
+      "businessContext": "Sodium content per serving in milligrams."
+    },
+    {
+      "id": "totalCarbohydrates",
+      "label": "Total Carbohydrates",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Total carbohydrate content per serving in grams."
+    },
+    {
+      "id": "protein",
+      "label": "Protein",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Protein content per serving in grams."
+    }
+  ],
+  "formulas": {
+    "fatDV": "(totalFat / 65) * 100",
+    "saturatedFatDV": "(saturatedFat / 20) * 100",
+    "cholesterolDV": "(cholesterol / 300) * 100",
+    "sodiumDV": "(sodium / 2300) * 100",
+    "carbsDV": "(totalCarbohydrates / 300) * 100",
+    "proteinDV": "(protein / 50) * 100",
+    "averageDV": "(fatDV + saturatedFatDV + cholesterolDV + sodiumDV + carbsDV + proteinDV) / 6"
+  },
+  "outputs": {
+    "primary": "averageDV",
+    "breakdown": [
+      "fatDV",
+      "saturatedFatDV",
+      "cholesterolDV",
+      "sodiumDV",
+      "carbsDV",
+      "proteinDV"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

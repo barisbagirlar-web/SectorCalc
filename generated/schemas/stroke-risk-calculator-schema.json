@@ -1,0 +1,79 @@
+{
+  "toolName": "stroke-risk-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 60,
+      "businessContext": "Patient age in years"
+    },
+    {
+      "id": "systolicBP",
+      "label": "Systolic Blood Pressure",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 130,
+      "businessContext": "Measured systolic blood pressure"
+    },
+    {
+      "id": "diabetes",
+      "label": "Diabetes Mellitus",
+      "type": "number",
+      "unit": "boolean",
+      "default": 0,
+      "businessContext": "Presence of diabetes (1 = Yes, 0 = No)"
+    },
+    {
+      "id": "currentSmoker",
+      "label": "Current Smoker",
+      "type": "number",
+      "unit": "boolean",
+      "default": 0,
+      "businessContext": "Current cigarette smoker (1 = Yes, 0 = No)"
+    },
+    {
+      "id": "atrialFibrillation",
+      "label": "Atrial Fibrillation",
+      "type": "number",
+      "unit": "boolean",
+      "default": 0,
+      "businessContext": "History of atrial fibrillation (1 = Yes, 0 = No)"
+    },
+    {
+      "id": "leftVentricularHypertrophy",
+      "label": "Left Ventricular Hypertrophy",
+      "type": "number",
+      "unit": "boolean",
+      "default": 0,
+      "businessContext": "ECG evidence of LVH (1 = Yes, 0 = No)"
+    },
+    {
+      "id": "antihypertensiveMed",
+      "label": "Antihypertensive Medication",
+      "type": "number",
+      "unit": "boolean",
+      "default": 0,
+      "businessContext": "Currently using blood pressure medication (1 = Yes, 0 = No)"
+    }
+  ],
+  "formulas": {
+    "riskPercent": "(1/(1+Math.exp(-(0.05*age+0.01*systolicBP+0.5*diabetes+0.8*currentSmoker+0.7*atrialFibrillation+0.6*leftVentricularHypertrophy-0.2*antihypertensiveMed-5))))*100",
+    "riskScore": "0.05*age+0.01*systolicBP+0.5*diabetes+0.8*currentSmoker+0.7*atrialFibrillation+0.6*leftVentricularHypertrophy-0.2*antihypertensiveMed",
+    "riskCategory": "((1/(1+Math.exp(-(0.05*age+0.01*systolicBP+0.5*diabetes+0.8*currentSmoker+0.7*atrialFibrillation+0.6*leftVentricularHypertrophy-0.2*antihypertensiveMed-5))))*100) < 10 ? 0 : (((1/(1+Math.exp(-(0.05*age+0.01*systolicBP+0.5*diabetes+0.8*currentSmoker+0.7*atrialFibrillation+0.6*leftVentricularHypertrophy-0.2*antihypertensiveMed-5))))*100) < 20 ? 1 : 2)"
+  },
+  "outputs": {
+    "primary": "riskPercent",
+    "breakdown": [
+      "riskScore",
+      "riskCategory"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

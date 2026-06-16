@@ -1,0 +1,76 @@
+{
+  "toolName": "time-of-concentration",
+  "inputs": [
+    {
+      "id": "flowLength",
+      "label": "Flow Length (L)",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "businessContext": "Maximum length of overland flow path in the catchment"
+    },
+    {
+      "id": "slope",
+      "label": "Average Slope (S)",
+      "type": "number",
+      "unit": "m/m",
+      "default": 0.01,
+      "businessContext": "Average slope of the flow path"
+    },
+    {
+      "id": "manningN",
+      "label": "Manning's Roughness (n)",
+      "type": "number",
+      "unit": "",
+      "default": 0.035,
+      "businessContext": "Surface roughness coefficient for overland flow"
+    },
+    {
+      "id": "rainfallIntensity",
+      "label": "Rainfall Intensity (I)",
+      "type": "number",
+      "unit": "mm/hr",
+      "default": 50,
+      "businessContext": "Design rainfall intensity for the catchment"
+    },
+    {
+      "id": "catchmentArea",
+      "label": "Catchment Area (A)",
+      "type": "number",
+      "unit": "ha",
+      "default": 10,
+      "businessContext": "Total drainage area contributing to the point of interest"
+    },
+    {
+      "id": "percentImpervious",
+      "label": "Percent Impervious",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Percentage of impervious area in the catchment"
+    }
+  ],
+  "formulas": {
+    "kirpichTc": "0.01947 * (flowLength ** 0.77) * (slope ** -0.385)",
+    "manningTc": "(0.938 / manningN) * (flowLength ** 0.6) * (slope ** -0.3)",
+    "scsLag": "(flowLength ** 0.8) * ((1000 / (25.4 * (rainfallIntensity / 1000) * 1000 / 25.4 + 1)) ** 0.7) / (440 * (slope ** 0.5))",
+    "weightedTc": "0.5 * kirpichTc + 0.3 * manningTc + 0.2 * scsLag",
+    "adjustedTc": "weightedTc * (1 + 0.2 * (percentImpervious / 100))"
+  },
+  "outputs": {
+    "primary": "adjustedTc",
+    "breakdown": [
+      "Kirpich Tc (min): kirpichTc",
+      "Manning Tc (min): manningTc",
+      "SCS Lag (min): scsLag",
+      "Weighted Tc (min): weightedTc",
+      "Adjusted Tc (min): adjustedTc"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

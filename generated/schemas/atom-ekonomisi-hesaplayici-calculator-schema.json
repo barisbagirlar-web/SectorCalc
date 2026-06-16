@@ -1,0 +1,71 @@
+{
+  "toolName": "atom-ekonomisi-hesaplayici-calculator",
+  "inputs": [
+    {
+      "id": "productMW",
+      "label": "Ürün Molekül Ağırlığı",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 100,
+      "businessContext": "Hedef ürünün molekül ağırlığı"
+    },
+    {
+      "id": "reactantMW1",
+      "label": "Reaktan 1 Molekül Ağırlığı",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 50,
+      "businessContext": "Birinci reaktanın molekül ağırlığı"
+    },
+    {
+      "id": "reactantMW2",
+      "label": "Reaktan 2 Molekül Ağırlığı",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 50,
+      "businessContext": "İkinci reaktanın molekül ağırlığı"
+    },
+    {
+      "id": "reactantMW3",
+      "label": "Reaktan 3 Molekül Ağırlığı",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 0,
+      "businessContext": "Üçüncü reaktanın molekül ağırlığı (isteğe bağlı)"
+    },
+    {
+      "id": "reactantMW4",
+      "label": "Reaktan 4 Molekül Ağırlığı",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 0,
+      "businessContext": "Dördüncü reaktanın molekül ağırlığı (isteğe bağlı)"
+    },
+    {
+      "id": "reactantMW5",
+      "label": "Reaktan 5 Molekül Ağırlığı",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 0,
+      "businessContext": "Beşinci reaktanın molekül ağırlığı (isteğe bağlı)"
+    }
+  ],
+  "formulas": {
+    "toplamReaktanAgirlik": "reactantMW1 + reactantMW2 + reactantMW3 + reactantMW4 + reactantMW5",
+    "urunAgirlik": "productMW",
+    "atomEkonomisi": "productMW / (reactantMW1 + reactantMW2 + reactantMW3 + reactantMW4 + reactantMW5) * 100"
+  },
+  "outputs": {
+    "primary": "atomEkonomisi",
+    "breakdown": [
+      "toplamReaktanAgirlik",
+      "urunAgirlik"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

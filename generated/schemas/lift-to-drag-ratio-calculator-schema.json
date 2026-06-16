@@ -1,0 +1,64 @@
+{
+  "toolName": "lift-to-drag-ratio-calculator",
+  "inputs": [
+    {
+      "id": "liftCoefficient",
+      "label": "Lift Coefficient (CL)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.2,
+      "businessContext": "Non-dimensional lift coefficient of the aerodynamic body."
+    },
+    {
+      "id": "dragCoefficient",
+      "label": "Drag Coefficient (CD)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.04,
+      "businessContext": "Non-dimensional drag coefficient of the aerodynamic body."
+    },
+    {
+      "id": "airDensity",
+      "label": "Air Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1.225,
+      "businessContext": "Air density at current altitude and temperature (ISA sea level standard)."
+    },
+    {
+      "id": "velocity",
+      "label": "Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 50,
+      "businessContext": "Relative airspeed of the body through the fluid."
+    },
+    {
+      "id": "referenceArea",
+      "label": "Reference Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 10,
+      "businessContext": "Characteristic planform area (e.g., wing area)."
+    }
+  ],
+  "formulas": {
+    "dynamicPressure": "0.5 * airDensity * velocity ** 2",
+    "liftForce": "liftCoefficient * dynamicPressure * referenceArea",
+    "dragForce": "dragCoefficient * dynamicPressure * referenceArea",
+    "liftToDragRatio": "liftCoefficient / dragCoefficient"
+  },
+  "outputs": {
+    "primary": "liftToDragRatio",
+    "breakdown": [
+      "liftForce",
+      "dragForce"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

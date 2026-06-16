@@ -1,0 +1,83 @@
+{
+  "toolName": "wim-hof-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 30,
+      "businessContext": "Kullanıcının yaşı"
+    },
+    {
+      "id": "weight",
+      "label": "Vücut Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Kullanıcının kilosu"
+    },
+    {
+      "id": "height",
+      "label": "Boy",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Kullanıcının boyu"
+    },
+    {
+      "id": "coreTemp",
+      "label": "Çekirdek Vücut Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "default": 37,
+      "businessContext": "Başlangıç vücut sıcaklığı"
+    },
+    {
+      "id": "ambientTemp",
+      "label": "Çevre Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "default": 10,
+      "businessContext": "Soğuk maruziyet sıcaklığı"
+    },
+    {
+      "id": "exposureTime",
+      "label": "Maruziyet Süresi",
+      "type": "number",
+      "unit": "dk",
+      "default": 10,
+      "businessContext": "Soğuk maruziyet süresi"
+    }
+  ],
+  "formulas": {
+    "bsa": "Math.sqrt((weight * height) / 3600)",
+    "heatLossRate": "5 * Math.sqrt((weight * height) / 3600) * ((coreTemp - 2) - ambientTemp)",
+    "metabolicIncrease": "(5 * Math.sqrt((weight * height) / 3600) * ((coreTemp - 2) - ambientTemp) * exposureTime * 60) / 4184"
+  },
+  "outputs": {
+    "primary": {
+      "id": "metabolicIncrease",
+      "label": "Zorunlu Metabolik Artış",
+      "unit": "kcal"
+    },
+    "breakdown": [
+      {
+        "id": "bsa",
+        "label": "Vücut Yüzey Alanı",
+        "unit": "m²"
+      },
+      {
+        "id": "heatLossRate",
+        "label": "Isı Kaybı Oranı",
+        "unit": "W"
+      }
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

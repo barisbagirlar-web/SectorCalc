@@ -1,0 +1,89 @@
+{
+  "toolName": "pr-auc-calculator",
+  "inputs": [
+    {
+      "id": "r1",
+      "label": "Recall 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First recall value (must be the smallest, in ascending order)"
+    },
+    {
+      "id": "p1",
+      "label": "Precision 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Precision corresponding to Recall 1"
+    },
+    {
+      "id": "r2",
+      "label": "Recall 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second recall value (greater than or equal to Recall 1)"
+    },
+    {
+      "id": "p2",
+      "label": "Precision 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Precision corresponding to Recall 2"
+    },
+    {
+      "id": "r3",
+      "label": "Recall 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Third recall value (greater than or equal to Recall 2)"
+    },
+    {
+      "id": "p3",
+      "label": "Precision 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Precision corresponding to Recall 3"
+    },
+    {
+      "id": "r4",
+      "label": "Recall 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fourth recall value (the largest, equal to or greater than Recall 3, typically 1)"
+    },
+    {
+      "id": "p4",
+      "label": "Precision 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Precision corresponding to Recall 4"
+    }
+  ],
+  "formulas": {
+    "prAuc": "((r2 - r1) * (p1 + p2) / 2) + ((r3 - r2) * (p2 + p3) / 2) + ((r4 - r3) * (p3 + p4) / 2)",
+    "area1": "(r2 - r1) * (p1 + p2) / 2",
+    "area2": "(r3 - r2) * (p2 + p3) / 2",
+    "area3": "(r4 - r3) * (p3 + p4) / 2"
+  },
+  "outputs": {
+    "primary": "prAuc",
+    "breakdown": [
+      "area1",
+      "area2",
+      "area3"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

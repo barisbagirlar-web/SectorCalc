@@ -1,0 +1,76 @@
+{
+  "toolName": "cash-out-refinance-calculator",
+  "inputs": [
+    {
+      "id": "propertyValue",
+      "label": "Current Property Value",
+      "type": "number",
+      "unit": "$",
+      "default": 300000,
+      "businessContext": "The appraised market value of the property."
+    },
+    {
+      "id": "existingMortgageBalance",
+      "label": "Existing Mortgage Balance",
+      "type": "number",
+      "unit": "$",
+      "default": 200000,
+      "businessContext": "The outstanding balance on the current mortgage."
+    },
+    {
+      "id": "cashOutAmount",
+      "label": "Desired Cash-Out Amount",
+      "type": "number",
+      "unit": "$",
+      "default": 50000,
+      "businessContext": "The amount of equity to withdraw in cash."
+    },
+    {
+      "id": "interestRate",
+      "label": "Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual interest rate for the new refinance loan."
+    },
+    {
+      "id": "loanTerm",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "Years",
+      "default": 30,
+      "businessContext": "The duration of the new loan in years."
+    },
+    {
+      "id": "closingCosts",
+      "label": "Closing Costs",
+      "type": "number",
+      "unit": "$",
+      "default": 5000,
+      "businessContext": "Total closing costs and fees for the refinance."
+    }
+  ],
+  "formulas": {
+    "newLoanAmount": "existingMortgageBalance + cashOutAmount + closingCosts",
+    "monthlyInterestRate": "interestRate / 100 / 12",
+    "numberOfPayments": "loanTerm * 12",
+    "monthlyPayment": "newLoanAmount * monthlyInterestRate * ((1 + monthlyInterestRate) ** numberOfPayments) / (((1 + monthlyInterestRate) ** numberOfPayments) - 1)",
+    "totalPayment": "monthlyPayment * numberOfPayments",
+    "totalInterest": "totalPayment - newLoanAmount",
+    "loanToValue": "(newLoanAmount / propertyValue) * 100"
+  },
+  "outputs": {
+    "primary": "monthlyPayment",
+    "breakdown": [
+      "newLoanAmount",
+      "totalInterest",
+      "loanToValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

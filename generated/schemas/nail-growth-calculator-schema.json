@@ -1,0 +1,65 @@
+{
+  "toolName": "nail-growth-calculator",
+  "inputs": [
+    {
+      "id": "initialLength",
+      "label": "Initial Nail Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "businessContext": "Current length of the nail from nail bed to tip in millimeters."
+    },
+    {
+      "id": "targetLength",
+      "label": "Target Nail Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Desired final nail length in millimeters."
+    },
+    {
+      "id": "growthRatePerMonth",
+      "label": "Growth Rate per Month",
+      "type": "number",
+      "unit": "mm/month",
+      "default": 3.5,
+      "businessContext": "Average nail growth rate in millimeters per month."
+    },
+    {
+      "id": "breakagePerMonth",
+      "label": "Breakage Rate per Month",
+      "type": "number",
+      "unit": "mm/month",
+      "default": 0.5,
+      "businessContext": "Average nail breakage/loss per month without protection."
+    },
+    {
+      "id": "protectionFactor",
+      "label": "Protection Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "businessContext": "How well you protect your nails (0 = no protection, 1 = full protection)."
+    }
+  ],
+  "formulas": {
+    "netMonthlyGrowth": "growthRatePerMonth - breakagePerMonth * (1 - protectionFactor)",
+    "breakageLossPerMonth": "breakagePerMonth * (1 - protectionFactor)",
+    "netDailyGrowth": "netMonthlyGrowth / 30",
+    "estimatedDays": "Math.max(0, (targetLength - initialLength) / netDailyGrowth)"
+  },
+  "outputs": {
+    "primary": "estimatedDays",
+    "breakdown": [
+      "netDailyGrowth",
+      "netMonthlyGrowth",
+      "breakageLossPerMonth"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

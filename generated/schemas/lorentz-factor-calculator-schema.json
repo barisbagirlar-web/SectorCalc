@@ -1,0 +1,55 @@
+{
+  "toolName": "lorentz-factor-calculator",
+  "inputs": [
+    {
+      "id": "vx",
+      "label": "Velocity X (m/s)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Velocity component in X direction"
+    },
+    {
+      "id": "vy",
+      "label": "Velocity Y (m/s)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Velocity component in Y direction"
+    },
+    {
+      "id": "vz",
+      "label": "Velocity Z (m/s)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Velocity component in Z direction"
+    },
+    {
+      "id": "c",
+      "label": "Speed of Light (m/s)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 299792458,
+      "businessContext": "Constant speed of light in vacuum, typically 299792458 m/s"
+    }
+  ],
+  "formulas": {
+    "speed": "Math.sqrt(vx*vx + vy*vy + vz*vz)",
+    "beta": "Math.sqrt(vx*vx + vy*vy + vz*vz) / c",
+    "gamma": "1 / Math.sqrt(1 - (vx*vx + vy*vy + vz*vz) / (c*c))"
+  },
+  "outputs": {
+    "primary": "gamma",
+    "breakdown": [
+      "speed",
+      "beta"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

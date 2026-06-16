@@ -1,0 +1,71 @@
+{
+  "toolName": "weed-tolerance-calculator",
+  "inputs": [
+    {
+      "id": "baseLength",
+      "label": "Base Length (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "businessContext": "Nominal dimension before welding"
+    },
+    {
+      "id": "numWelds",
+      "label": "Number of Welds",
+      "type": "number",
+      "unit": "pcs",
+      "default": 10,
+      "businessContext": "Number of weld joints"
+    },
+    {
+      "id": "weldPasses",
+      "label": "Weld Passes per Joint",
+      "type": "number",
+      "unit": "passes",
+      "default": 2,
+      "businessContext": "Average number of passes per joint"
+    },
+    {
+      "id": "materialFactor",
+      "label": "Material Shrinkage Factor",
+      "type": "number",
+      "unit": "mm/(m·pass)",
+      "default": 0.5,
+      "businessContext": "Shrinkage per meter per pass (e.g., steel = 0.5)"
+    },
+    {
+      "id": "temperature",
+      "label": "Ambient Temperature (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Temperature for thermal expansion adjustment"
+    },
+    {
+      "id": "expansionCoeff",
+      "label": "Thermal Expansion Coeff (µm/m·°C)",
+      "type": "number",
+      "unit": "µm/m·°C",
+      "default": 12,
+      "businessContext": "Coefficient of thermal expansion for the material"
+    }
+  ],
+  "formulas": {
+    "totalShrinkage": "(baseLength / 1000) * numWelds * weldPasses * materialFactor",
+    "thermalExpansion": "expansionCoeff * baseLength * (temperature - 20) / 1000000",
+    "totalTolerance": "totalShrinkage + Math.abs(thermalExpansion)"
+  },
+  "outputs": {
+    "primary": "totalTolerance",
+    "breakdown": [
+      "totalShrinkage",
+      "thermalExpansion"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

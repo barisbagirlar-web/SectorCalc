@@ -1,0 +1,81 @@
+{
+  "toolName": "lawn-care-calculator",
+  "inputs": [
+    {
+      "id": "lawnArea",
+      "label": "Lawn Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "businessContext": "Total lawn area to be serviced"
+    },
+    {
+      "id": "seedCost",
+      "label": "Grass Seed Cost",
+      "type": "number",
+      "unit": "$/m²",
+      "default": 0.5,
+      "businessContext": "Cost of grass seed per square meter"
+    },
+    {
+      "id": "fertilizerCost",
+      "label": "Fertilizer Cost",
+      "type": "number",
+      "unit": "$/m²",
+      "default": 0.3,
+      "businessContext": "Cost of fertilizer per square meter"
+    },
+    {
+      "id": "irrigationCost",
+      "label": "Irrigation Cost",
+      "type": "number",
+      "unit": "$/m²",
+      "default": 0.1,
+      "businessContext": "Cost of irrigation water per square meter"
+    },
+    {
+      "id": "laborRate",
+      "label": "Labor Rate",
+      "type": "number",
+      "unit": "$/hr",
+      "default": 25,
+      "businessContext": "Hourly rate for labor"
+    },
+    {
+      "id": "laborHours",
+      "label": "Labor Hours",
+      "type": "number",
+      "unit": "hr",
+      "default": 4,
+      "businessContext": "Estimated labor hours required"
+    },
+    {
+      "id": "profitMargin",
+      "label": "Profit Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Desired profit margin percentage"
+    }
+  ],
+  "formulas": {
+    "materialCost": "(seedCost + fertilizerCost + irrigationCost) * lawnArea",
+    "laborCost": "laborRate * laborHours",
+    "totalCost": "materialCost + laborCost",
+    "sellingPrice": "totalCost / (1 - profitMargin / 100)"
+  },
+  "outputs": {
+    "primary": "sellingPrice",
+    "breakdown": [
+      "materialCost",
+      "laborCost",
+      "totalCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

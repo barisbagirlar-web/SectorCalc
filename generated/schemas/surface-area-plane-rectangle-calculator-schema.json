@@ -1,0 +1,71 @@
+{
+  "toolName": "surface-area-plane-rectangle-calculator",
+  "inputs": [
+    {
+      "id": "slopeX",
+      "label": "Slope in X-direction (dz/dx)",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0,
+      "businessContext": "Partial derivative of surface height with respect to X."
+    },
+    {
+      "id": "slopeY",
+      "label": "Slope in Y-direction (dz/dy)",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0,
+      "businessContext": "Partial derivative of surface height with respect to Y."
+    },
+    {
+      "id": "xMin",
+      "label": "X Start",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Lower bound of X integration domain."
+    },
+    {
+      "id": "xMax",
+      "label": "X End",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Upper bound of X integration domain."
+    },
+    {
+      "id": "yMin",
+      "label": "Y Start",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Lower bound of Y integration domain."
+    },
+    {
+      "id": "yMax",
+      "label": "Y End",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Upper bound of Y integration domain."
+    }
+  ],
+  "formulas": {
+    "rectangleArea": "(xMax - xMin) * (yMax - yMin)",
+    "inclinationFactor": "Math.sqrt(1 + slopeX * slopeX + slopeY * slopeY)",
+    "surfaceArea": "rectangleArea * inclinationFactor"
+  },
+  "outputs": {
+    "primary": "surfaceArea",
+    "breakdown": [
+      "rectangleArea",
+      "inclinationFactor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,79 @@
+{
+  "toolName": "student-loan-refinance-calculator",
+  "inputs": [
+    {
+      "id": "currentBalance",
+      "label": "Current Loan Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "businessContext": "The outstanding principal balance of the existing student loan."
+    },
+    {
+      "id": "currentRate",
+      "label": "Current Interest Rate (APR)",
+      "type": "number",
+      "unit": "%",
+      "default": 6.8,
+      "businessContext": "Annual Percentage Rate of the current loan."
+    },
+    {
+      "id": "currentTermRemaining",
+      "label": "Remaining Term",
+      "type": "number",
+      "unit": "months",
+      "default": 120,
+      "businessContext": "Number of months left on the current loan."
+    },
+    {
+      "id": "newRate",
+      "label": "New Interest Rate (APR)",
+      "type": "number",
+      "unit": "%",
+      "default": 4.5,
+      "businessContext": "Offered APR for the refinanced loan."
+    },
+    {
+      "id": "newTerm",
+      "label": "New Loan Term",
+      "type": "number",
+      "unit": "months",
+      "default": 120,
+      "businessContext": "Repayment period for the refinanced loan in months."
+    },
+    {
+      "id": "originationFee",
+      "label": "Origination Fee",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "businessContext": "One-time fee charged by the lender, expressed as a percentage of the loan balance."
+    }
+  ],
+  "formulas": {
+    "monthlyRateCurrent": "currentRate / 1200",
+    "monthlyRateNew": "newRate / 1200",
+    "currentMonthlyPayment": "currentBalance * (monthlyRateCurrent * Math.pow(1 + monthlyRateCurrent, currentTermRemaining)) / (Math.pow(1 + monthlyRateCurrent, currentTermRemaining) - 1)",
+    "newMonthlyPayment": "currentBalance * (monthlyRateNew * Math.pow(1 + monthlyRateNew, newTerm)) / (Math.pow(1 + monthlyRateNew, newTerm) - 1)",
+    "totalInterestCurrent": "currentMonthlyPayment * currentTermRemaining - currentBalance",
+    "totalInterestNew": "newMonthlyPayment * newTerm - currentBalance",
+    "feeCost": "currentBalance * (originationFee / 100)",
+    "totalSavings": "totalInterestCurrent - totalInterestNew - feeCost",
+    "monthlyPaymentReduction": "currentMonthlyPayment - newMonthlyPayment",
+    "interestSaved": "totalInterestCurrent - totalInterestNew"
+  },
+  "outputs": {
+    "primary": "totalSavings",
+    "breakdown": [
+      "monthlyPaymentReduction",
+      "interestSaved",
+      "feeCost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

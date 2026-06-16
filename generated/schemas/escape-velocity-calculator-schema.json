@@ -1,0 +1,55 @@
+{
+  "toolName": "escape-velocity-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 5.972e+24,
+      "businessContext": "Mass of the celestial body (e.g., Earth = 5.972 × 10^24 kg)"
+    },
+    {
+      "id": "radius",
+      "label": "Radius",
+      "type": "number",
+      "unit": "m",
+      "default": 6371000,
+      "businessContext": "Radius of the celestial body (e.g., Earth = 6,371 km)"
+    },
+    {
+      "id": "altitude",
+      "label": "Altitude",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Altitude above the surface (0 for surface launch)"
+    },
+    {
+      "id": "G",
+      "label": "Gravitational Constant",
+      "type": "number",
+      "unit": "m^3 kg^-1 s^-2",
+      "default": 6.6743e-11,
+      "businessContext": "Universal gravitational constant (default 6.67430×10^-11 m^3 kg^-1 s^-2)"
+    }
+  ],
+  "formulas": {
+    "effectiveRadius": "radius + altitude",
+    "escVelMPS": "Math.sqrt(2 * G * mass / effectiveRadius)",
+    "escVelKMPS": "escVelMPS / 1000"
+  },
+  "outputs": {
+    "primary": "escVelMPS",
+    "breakdown": [
+      "effectiveRadius",
+      "escVelKMPS"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

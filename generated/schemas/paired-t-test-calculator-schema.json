@@ -1,0 +1,57 @@
+{
+  "toolName": "paired-t-test-calculator",
+  "inputs": [
+    {
+      "id": "meanDifference",
+      "label": "Mean of Differences",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The average of the differences between the paired observations."
+    },
+    {
+      "id": "standardDeviationDifference",
+      "label": "Standard Deviation of Differences",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The standard deviation of the differences between the paired observations."
+    },
+    {
+      "id": "sampleSize",
+      "label": "Sample Size (Number of Pairs)",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "The number of paired observations in the sample."
+    },
+    {
+      "id": "hypothesizedDifference",
+      "label": "Hypothesized Difference (μ₀)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The hypothesized mean difference under the null hypothesis (commonly 0)."
+    }
+  ],
+  "formulas": {
+    "tStatistic": "(inputs.meanDifference - inputs.hypothesizedDifference) / (inputs.standardDeviationDifference / Math.sqrt(inputs.sampleSize))",
+    "degreesOfFreedom": "inputs.sampleSize - 1",
+    "standardError": "inputs.standardDeviationDifference / Math.sqrt(inputs.sampleSize)",
+    "meanDifference": "inputs.meanDifference"
+  },
+  "outputs": {
+    "primary": "tStatistic",
+    "breakdown": [
+      "degreesOfFreedom",
+      "standardError",
+      "meanDifference"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

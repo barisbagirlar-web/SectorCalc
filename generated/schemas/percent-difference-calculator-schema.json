@@ -1,0 +1,61 @@
+{
+  "toolName": "percent-difference-calculator",
+  "inputs": [
+    {
+      "id": "value1",
+      "label": "First Value",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First measurement value for comparison"
+    },
+    {
+      "id": "value2",
+      "label": "Second Value",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second measurement value for comparison"
+    },
+    {
+      "id": "referenceValue",
+      "label": "Reference Value",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Optimal theoretical value; if >0, percent error is calculated instead of percent difference"
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance Threshold",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Maximum acceptable percent deviation before flagging a quality issue"
+    }
+  ],
+  "formulas": {
+    "absDiff": "Math.abs(value1 - value2)",
+    "avg": "(value1 + value2) / 2",
+    "percentDifference": "avg === 0 ? 0 : (absDiff / avg) * 100",
+    "percentError": "referenceValue !== 0 ? (Math.abs(referenceValue - value2) / Math.abs(referenceValue)) * 100 : 0",
+    "primaryOutput": "referenceValue > 0 ? percentError : percentDifference",
+    "withinTolerance": "Math.abs(referenceValue > 0 ? percentError : percentDifference) <= tolerance"
+  },
+  "outputs": {
+    "primary": "primaryOutput",
+    "breakdown": [
+      "absDiff",
+      "avg",
+      "percentDifference",
+      "percentError",
+      "withinTolerance"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

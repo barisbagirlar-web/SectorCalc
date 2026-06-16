@@ -1,0 +1,67 @@
+{
+  "toolName": "meal-prep-calculator",
+  "inputs": [
+    {
+      "id": "servings",
+      "label": "Number of Servings",
+      "type": "number",
+      "unit": "servings",
+      "default": 4,
+      "businessContext": "Total number of servings/meals to prepare."
+    },
+    {
+      "id": "caloriesPerServing",
+      "label": "Calories per Serving",
+      "type": "number",
+      "unit": "kcal",
+      "default": 500,
+      "businessContext": "Target calories for each serving."
+    },
+    {
+      "id": "proteinPerServing",
+      "label": "Protein per Serving",
+      "type": "number",
+      "unit": "g",
+      "default": 30,
+      "businessContext": "Target grams of protein per serving."
+    },
+    {
+      "id": "totalCost",
+      "label": "Total Ingredient Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 20,
+      "businessContext": "Total cost of all ingredients for the batch."
+    },
+    {
+      "id": "prepTime",
+      "label": "Total Prep Time",
+      "type": "number",
+      "unit": "min",
+      "default": 60,
+      "businessContext": "Total time required to prepare the batch (scaled for different servings)."
+    }
+  ],
+  "formulas": {
+    "costPerServing": "totalCost / servings",
+    "totalCalories": "servings * caloriesPerServing",
+    "totalProtein": "servings * proteinPerServing",
+    "scaledPrepTime": "prepTime * Math.sqrt(servings / 4)",
+    "nutrientDensity": "proteinPerServing * Math.log(caloriesPerServing) / caloriesPerServing"
+  },
+  "outputs": {
+    "primary": "costPerServing",
+    "breakdown": [
+      "totalCalories",
+      "totalProtein",
+      "scaledPrepTime",
+      "nutrientDensity"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

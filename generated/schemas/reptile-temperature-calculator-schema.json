@@ -1,0 +1,73 @@
+{
+  "toolName": "reptile-temperature-calculator",
+  "inputs": [
+    {
+      "id": "enclosureLength",
+      "label": "Enclosure Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 60,
+      "businessContext": "The length of the reptile enclosure in centimeters."
+    },
+    {
+      "id": "enclosureWidth",
+      "label": "Enclosure Width",
+      "type": "number",
+      "unit": "cm",
+      "default": 45,
+      "businessContext": "The width of the reptile enclosure in centimeters."
+    },
+    {
+      "id": "enclosureHeight",
+      "label": "Enclosure Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 45,
+      "businessContext": "The height of the reptile enclosure in centimeters."
+    },
+    {
+      "id": "ambientTemp",
+      "label": "Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "The room temperature outside the enclosure in degrees Celsius."
+    },
+    {
+      "id": "desiredTemp",
+      "label": "Desired Basking Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 35,
+      "businessContext": "The target temperature for the basking spot inside the enclosure in degrees Celsius."
+    },
+    {
+      "id": "insulationFactor",
+      "label": "Insulation Factor (U-value)",
+      "type": "number",
+      "unit": "W/(m²·K)",
+      "default": 5,
+      "businessContext": "Thermal transmittance (U-value) of enclosure material. Typical glass: 5-6, insulated: 1-2."
+    }
+  ],
+  "formulas": {
+    "surfaceArea": "(2 * (enclosureLength * enclosureWidth + enclosureLength * enclosureHeight + enclosureWidth * enclosureHeight)) / 10000",
+    "volume": "(enclosureLength * enclosureWidth * enclosureHeight) / 1000",
+    "deltaT": "desiredTemp - ambientTemp",
+    "requiredWattage": "insulationFactor * ((2 * (enclosureLength * enclosureWidth + enclosureLength * enclosureHeight + enclosureWidth * enclosureHeight)) / 10000) * (desiredTemp - ambientTemp)"
+  },
+  "outputs": {
+    "primary": "requiredWattage",
+    "breakdown": [
+      "surfaceArea",
+      "volume",
+      "deltaT"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

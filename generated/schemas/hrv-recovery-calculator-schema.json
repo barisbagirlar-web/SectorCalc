@@ -1,0 +1,71 @@
+{
+  "toolName": "hrv-recovery-calculator",
+  "inputs": [
+    {
+      "id": "outdoorTemp",
+      "label": "Outdoor Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 5,
+      "businessContext": "Outside air temperature"
+    },
+    {
+      "id": "exhaustTemp",
+      "label": "Exhaust Air Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 22,
+      "businessContext": "Indoor exhaust air temperature before heat exchanger"
+    },
+    {
+      "id": "supplyTemp",
+      "label": "Supply Air Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 15,
+      "businessContext": "Supply air temperature after heat recovery"
+    },
+    {
+      "id": "airflow",
+      "label": "Airflow Rate",
+      "type": "number",
+      "unit": "m³/h",
+      "default": 300,
+      "businessContext": "Supply airflow rate"
+    },
+    {
+      "id": "airDensity",
+      "label": "Air Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1.2,
+      "businessContext": "Density of air"
+    },
+    {
+      "id": "specificHeat",
+      "label": "Specific Heat Capacity",
+      "type": "number",
+      "unit": "kJ/(kg·K)",
+      "default": 1.005,
+      "businessContext": "Specific heat capacity of air"
+    }
+  ],
+  "formulas": {
+    "efficiency": "((supplyTemp - outdoorTemp) / (exhaustTemp - outdoorTemp)) * 100",
+    "temperatureGain": "supplyTemp - outdoorTemp",
+    "heatRecoveryRate": "(airflow / 3600) * airDensity * specificHeat * (supplyTemp - outdoorTemp)"
+  },
+  "outputs": {
+    "primary": "efficiency",
+    "breakdown": [
+      "temperatureGain",
+      "heatRecoveryRate"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

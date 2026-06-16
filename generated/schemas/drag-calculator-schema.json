@@ -1,0 +1,53 @@
+{
+  "toolName": "drag-calculator",
+  "inputs": [
+    {
+      "id": "fluid_density",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1.225,
+      "businessContext": "Density of the fluid medium (e.g., air at sea level: 1.225 kg/m³)"
+    },
+    {
+      "id": "flow_velocity",
+      "label": "Flow Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 10,
+      "businessContext": "Relative velocity between object and fluid"
+    },
+    {
+      "id": "drag_coefficient",
+      "label": "Drag Coefficient",
+      "type": "number",
+      "unit": "-",
+      "default": 0.47,
+      "businessContext": "Dimensionless drag coefficient (e.g., sphere: 0.47)"
+    },
+    {
+      "id": "reference_area",
+      "label": "Reference Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 0.1,
+      "businessContext": "Cross-sectional area of the object perpendicular to flow"
+    }
+  ],
+  "formulas": {
+    "drag_force": "0.5 * fluid_density * flow_velocity ** 2 * drag_coefficient * reference_area",
+    "dynamic_pressure": "0.5 * fluid_density * flow_velocity ** 2"
+  },
+  "outputs": {
+    "primary": "drag_force",
+    "breakdown": [
+      "dynamic_pressure"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

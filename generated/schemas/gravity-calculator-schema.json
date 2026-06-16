@@ -1,0 +1,56 @@
+{
+  "toolName": "gravity-calculator",
+  "inputs": [
+    {
+      "id": "mass1",
+      "label": "Mass 1",
+      "type": "number",
+      "unit": "kg",
+      "default": 5.972e+24,
+      "businessContext": "Mass of the first object (e.g., Earth)"
+    },
+    {
+      "id": "mass2",
+      "label": "Mass 2",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Mass of the second object (e.g., a small object)"
+    },
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 6371000,
+      "businessContext": "Distance between centers of the two masses"
+    },
+    {
+      "id": "gravitationalConstant",
+      "label": "Gravitational Constant (G)",
+      "type": "number",
+      "unit": "m³/(kg·s²)",
+      "default": 6.6743e-11,
+      "businessContext": "Universal gravitational constant"
+    }
+  ],
+  "formulas": {
+    "numerator": "gravitationalConstant * mass1 * mass2",
+    "denominator": "distance ** 2",
+    "force": "numerator / denominator"
+  },
+  "outputs": {
+    "primary": "force",
+    "breakdown": [
+      "numerator",
+      "denominator",
+      "force"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

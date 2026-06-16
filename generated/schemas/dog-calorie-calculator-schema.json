@@ -1,0 +1,60 @@
+{
+  "toolName": "dog-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weightKg",
+      "label": "Dog Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "The dog's weight in kilograms, used as the base for calculating resting energy requirement."
+    },
+    {
+      "id": "activityFactor",
+      "label": "Activity & Life Stage Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.6,
+      "businessContext": "Multiplier for activity level and life stage. Typical values: 1.6 for neutered adult, 2.0 for active adult, 3.0 for working/pregnant dogs."
+    },
+    {
+      "id": "bodyConditionScore",
+      "label": "Body Condition Score (1-9)",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "1=emaciated, 5=ideal, 9=obese. Used to adjust calories: underweight dogs need more, overweight need less."
+    },
+    {
+      "id": "desiredWeightChange",
+      "label": "Desired Weekly Weight Change",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Target weight change per week as a percentage of current weight. Negative for loss, positive for gain. Affects calorie adjustment."
+    }
+  ],
+  "formulas": {
+    "rer": "70 * Math.pow(weightKg, 0.75)",
+    "bcsFactor": "(bodyConditionScore < 4) ? 1.2 : (bodyConditionScore > 6) ? 0.8 : 1.0",
+    "weightChangeFactor": "1 + (desiredWeightChange * 0.1)",
+    "activityAdjusted": "70 * Math.pow(weightKg, 0.75) * activityFactor",
+    "totalCalories": "70 * Math.pow(weightKg, 0.75) * activityFactor * ((bodyConditionScore < 4) ? 1.2 : (bodyConditionScore > 6) ? 0.8 : 1.0) * (1 + (desiredWeightChange * 0.1))"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "rer",
+      "activityAdjusted",
+      "bcsFactor",
+      "weightChangeFactor",
+      "totalCalories"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

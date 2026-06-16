@@ -1,0 +1,55 @@
+{
+  "toolName": "mass-energy-equivalence-calculator",
+  "inputs": [
+    {
+      "id": "mass_kg",
+      "label": "Kütle (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Cismin kilogram cinsinden kütlesi"
+    },
+    {
+      "id": "mass_g",
+      "label": "Kütle (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Cismin gram cinsinden kütlesi (opsiyonel)"
+    },
+    {
+      "id": "mass_lb",
+      "label": "Kütle (lb)",
+      "type": "number",
+      "unit": "lb",
+      "default": 0,
+      "businessContext": "Cismin pound cinsinden kütlesi (opsiyonel)"
+    },
+    {
+      "id": "mass_oz",
+      "label": "Kütle (oz)",
+      "type": "number",
+      "unit": "oz",
+      "default": 0,
+      "businessContext": "Cismin ons cinsinden kütlesi (opsiyonel)"
+    }
+  ],
+  "formulas": {
+    "totalMassKg": "mass_kg + mass_g/1000 + mass_lb*0.453592 + mass_oz*0.0283495",
+    "c": "299792458",
+    "energyJoules": "totalMassKg * c * c"
+  },
+  "outputs": {
+    "primary": "energyJoules",
+    "breakdown": [
+      "totalMassKg",
+      "c"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

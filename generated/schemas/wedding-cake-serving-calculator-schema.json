@@ -1,0 +1,75 @@
+{
+  "toolName": "wedding-cake-serving-calculator",
+  "inputs": [
+    {
+      "id": "shape",
+      "label": "Cake Shape (0=Round, 1=Square)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Select shape: 0 for round tiers, 1 for square tiers."
+    },
+    {
+      "id": "tier1Diameter",
+      "label": "Tier 1 Diameter/Side",
+      "type": "number",
+      "unit": "in",
+      "default": 6,
+      "businessContext": "Diameter for round or side length for square tier."
+    },
+    {
+      "id": "tier2Diameter",
+      "label": "Tier 2 Diameter/Side",
+      "type": "number",
+      "unit": "in",
+      "default": 0,
+      "businessContext": "Enter 0 if no second tier."
+    },
+    {
+      "id": "tier3Diameter",
+      "label": "Tier 3 Diameter/Side",
+      "type": "number",
+      "unit": "in",
+      "default": 0,
+      "businessContext": "Enter 0 if no third tier."
+    },
+    {
+      "id": "servingSize",
+      "label": "Serving Size (sq in)",
+      "type": "number",
+      "unit": "sq in",
+      "default": 2,
+      "businessContext": "Typical wedding serving is 1x2 inches = 2 sq in."
+    },
+    {
+      "id": "guestCount",
+      "label": "Guest Count",
+      "type": "number",
+      "unit": "people",
+      "default": 100,
+      "businessContext": "Number of guests to serve. Used to compute surplus."
+    }
+  ],
+  "formulas": {
+    "serv1": "tier1Diameter > 0 ? (shape == 0 ? Math.PI * Math.pow(tier1Diameter, 2) / (4 * servingSize) : Math.pow(tier1Diameter, 2) / servingSize) : 0",
+    "serv2": "tier2Diameter > 0 ? (shape == 0 ? Math.PI * Math.pow(tier2Diameter, 2) / (4 * servingSize) : Math.pow(tier2Diameter, 2) / servingSize) : 0",
+    "serv3": "tier3Diameter > 0 ? (shape == 0 ? Math.PI * Math.pow(tier3Diameter, 2) / (4 * servingSize) : Math.pow(tier3Diameter, 2) / servingSize) : 0",
+    "totalServings": "serv1 + serv2 + serv3",
+    "surplus": "totalServings - guestCount"
+  },
+  "outputs": {
+    "primary": "totalServings",
+    "breakdown": [
+      "serv1",
+      "serv2",
+      "serv3",
+      "surplus"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

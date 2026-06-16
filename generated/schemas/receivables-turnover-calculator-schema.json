@@ -1,0 +1,55 @@
+{
+  "toolName": "receivables-turnover-calculator",
+  "inputs": [
+    {
+      "id": "netCreditSales",
+      "label": "Net Credit Sales",
+      "type": "number",
+      "unit": "currency",
+      "default": 100000,
+      "businessContext": "Total credit sales minus returns and allowances."
+    },
+    {
+      "id": "beginningAR",
+      "label": "Beginning Accounts Receivable",
+      "type": "number",
+      "unit": "currency",
+      "default": 20000,
+      "businessContext": "Accounts receivable at start of period."
+    },
+    {
+      "id": "endingAR",
+      "label": "Ending Accounts Receivable",
+      "type": "number",
+      "unit": "currency",
+      "default": 25000,
+      "businessContext": "Accounts receivable at end of period."
+    },
+    {
+      "id": "daysInPeriod",
+      "label": "Days in Period",
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "businessContext": "Number of days in the accounting period (e.g., 365 for year)."
+    }
+  ],
+  "formulas": {
+    "averageAccountsReceivable": "(beginningAR + endingAR) / 2",
+    "receivablesTurnoverRatio": "netCreditSales / averageAccountsReceivable",
+    "daysSalesOutstanding": "daysInPeriod / receivablesTurnoverRatio"
+  },
+  "outputs": {
+    "primary": "receivablesTurnoverRatio",
+    "breakdown": [
+      "averageAccountsReceivable",
+      "daysSalesOutstanding"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

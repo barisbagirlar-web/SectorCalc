@@ -1,0 +1,66 @@
+{
+  "toolName": "crypto-mining-calculator",
+  "inputs": [
+    {
+      "id": "hashRate",
+      "label": "Hash Rate",
+      "type": "number",
+      "unit": "TH/s",
+      "default": 100,
+      "businessContext": "The total hash rate of the mining hardware."
+    },
+    {
+      "id": "powerConsumption",
+      "label": "Power Consumption",
+      "type": "number",
+      "unit": "W",
+      "default": 3000,
+      "businessContext": "Total power consumption of the mining rig."
+    },
+    {
+      "id": "electricityCost",
+      "label": "Electricity Cost",
+      "type": "number",
+      "unit": "$/kWh",
+      "default": 0.12,
+      "businessContext": "Cost of electricity per kilowatt-hour."
+    },
+    {
+      "id": "poolFee",
+      "label": "Pool Fee",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Fee percentage charged by the mining pool."
+    },
+    {
+      "id": "dailyRevenuePerTH",
+      "label": "Daily Revenue per TH/s",
+      "type": "number",
+      "unit": "$/day/TH/s",
+      "default": 0.06,
+      "businessContext": "Estimated daily revenue in USD per TH/s of hash rate, based on current network conditions."
+    }
+  ],
+  "formulas": {
+    "dailyGrossRevenue": "hashRate * dailyRevenuePerTH",
+    "dailyPoolFee": "dailyGrossRevenue * (poolFee / 100)",
+    "dailyNetRevenue": "dailyGrossRevenue - dailyPoolFee",
+    "dailyElectricityCost": "(powerConsumption / 1000) * 24 * electricityCost",
+    "dailyProfit": "dailyNetRevenue - dailyElectricityCost"
+  },
+  "outputs": {
+    "primary": "dailyProfit",
+    "breakdown": [
+      "dailyGrossRevenue",
+      "dailyElectricityCost",
+      "dailyPoolFee"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

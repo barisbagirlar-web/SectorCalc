@@ -1,0 +1,67 @@
+{
+  "toolName": "duty-calculator",
+  "inputs": [
+    {
+      "id": "productValue",
+      "label": "Mal Bedeli (FOB)",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000,
+      "businessContext": "Free On Board value of the goods"
+    },
+    {
+      "id": "insurance",
+      "label": "Sigorta Bedeli",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "Insurance cost for the shipment"
+    },
+    {
+      "id": "freight",
+      "label": "Nakliye Bedeli",
+      "type": "number",
+      "unit": "USD",
+      "default": 200,
+      "businessContext": "Freight cost of transportation"
+    },
+    {
+      "id": "dutyRate",
+      "label": "Gümrük Vergisi Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Customs duty rate applicable to the product category"
+    },
+    {
+      "id": "vatRate",
+      "label": "KDV Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "businessContext": "Value Added Tax rate applied on duty-paid CIF value"
+    }
+  ],
+  "formulas": {
+    "cifValue": "productValue + insurance + freight",
+    "dutyAmount": "cifValue * dutyRate / 100",
+    "vatAmount": "(cifValue + dutyAmount) * vatRate / 100",
+    "totalCost": "cifValue + dutyAmount + vatAmount",
+    "totalDuty": "dutyAmount"
+  },
+  "outputs": {
+    "primary": "totalDuty",
+    "breakdown": [
+      "cifValue",
+      "dutyAmount",
+      "vatAmount",
+      "totalCost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

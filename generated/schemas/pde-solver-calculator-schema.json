@@ -1,0 +1,81 @@
+{
+  "toolName": "pde-solver-calculator",
+  "inputs": [
+    {
+      "id": "alpha",
+      "label": "Thermal Diffusivity (α)",
+      "type": "number",
+      "unit": "m²/s",
+      "default": 0.0001,
+      "businessContext": "Material property"
+    },
+    {
+      "id": "length",
+      "label": "Rod Length (L)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Domain size"
+    },
+    {
+      "id": "x",
+      "label": "Position (x)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Measurement point"
+    },
+    {
+      "id": "time",
+      "label": "Time (t)",
+      "type": "number",
+      "unit": "s",
+      "default": 10,
+      "businessContext": "Elapsed time"
+    },
+    {
+      "id": "A1",
+      "label": "Coefficient A1",
+      "type": "number",
+      "unit": "K",
+      "default": 100,
+      "businessContext": "First harmonic amplitude"
+    },
+    {
+      "id": "A2",
+      "label": "Coefficient A2",
+      "type": "number",
+      "unit": "K",
+      "default": 0,
+      "businessContext": "Second harmonic amplitude"
+    },
+    {
+      "id": "A3",
+      "label": "Coefficient A3",
+      "type": "number",
+      "unit": "K",
+      "default": 0,
+      "businessContext": "Third harmonic amplitude"
+    }
+  ],
+  "formulas": {
+    "temperature": "A1 * Math.exp(-alpha * (Math.PI / length)**2 * time) * Math.sin(Math.PI * x / length) + A2 * Math.exp(-alpha * (2*Math.PI / length)**2 * time) * Math.sin(2*Math.PI * x / length) + A3 * Math.exp(-alpha * (3*Math.PI / length)**2 * time) * Math.sin(3*Math.PI * x / length)",
+    "harmonic1": "A1 * Math.exp(-alpha * (Math.PI / length)**2 * time) * Math.sin(Math.PI * x / length)",
+    "harmonic2": "A2 * Math.exp(-alpha * (2*Math.PI / length)**2 * time) * Math.sin(2*Math.PI * x / length)",
+    "harmonic3": "A3 * Math.exp(-alpha * (3*Math.PI / length)**2 * time) * Math.sin(3*Math.PI * x / length)"
+  },
+  "outputs": {
+    "primary": "temperature",
+    "breakdown": [
+      "harmonic1",
+      "harmonic2",
+      "harmonic3"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

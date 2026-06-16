@@ -1,0 +1,75 @@
+{
+  "toolName": "cost-benefit-analysis-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "The upfront cost of the project or investment."
+    },
+    {
+      "id": "annualBenefits",
+      "label": "Annual Benefits",
+      "type": "number",
+      "unit": "currency/year",
+      "default": 0,
+      "businessContext": "Expected annual cash inflows from the project."
+    },
+    {
+      "id": "annualCosts",
+      "label": "Annual Operating Costs",
+      "type": "number",
+      "unit": "currency/year",
+      "default": 0,
+      "businessContext": "Annual costs to operate and maintain the project."
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "The rate used to discount future cash flows to present value, reflecting opportunity cost of capital."
+    },
+    {
+      "id": "projectLifetime",
+      "label": "Project Lifetime",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Number of years the project is expected to generate benefits."
+    },
+    {
+      "id": "salvageValue",
+      "label": "Salvage Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Value of the investment at the end of its life."
+    }
+  ],
+  "formulas": {
+    "rate": "discountRate / 100",
+    "annuityFactor": "(1 - Math.pow(1 + rate, -projectLifetime)) / rate",
+    "netAnnualCash": "annualBenefits - annualCosts",
+    "presentValueBenefits": "annualBenefits * annuityFactor + salvageValue / Math.pow(1 + rate, projectLifetime)",
+    "presentValueCosts": "initialInvestment + annualCosts * annuityFactor",
+    "npv": "-initialInvestment + netAnnualCash * annuityFactor + salvageValue / Math.pow(1 + rate, projectLifetime)",
+    "bcr": "presentValueBenefits / presentValueCosts"
+  },
+  "outputs": {
+    "primary": "npv",
+    "breakdown": [
+      "npv",
+      "bcr"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

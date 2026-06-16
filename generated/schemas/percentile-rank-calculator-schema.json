@@ -1,0 +1,88 @@
+{
+  "toolName": "percentile-rank-calculator",
+  "inputs": [
+    {
+      "id": "target",
+      "label": "Hedef Değer",
+      "type": "number",
+      "unit": "birim",
+      "default": 50,
+      "businessContext": "Yüzdelik sıralaması hesaplanacak değer"
+    },
+    {
+      "id": "value1",
+      "label": "Referans Değer 1",
+      "type": "number",
+      "unit": "birim",
+      "default": 10,
+      "businessContext": "Örnek veri setindeki ilk ölçüm"
+    },
+    {
+      "id": "value2",
+      "label": "Referans Değer 2",
+      "type": "number",
+      "unit": "birim",
+      "default": 20,
+      "businessContext": "Örnek veri setindeki ikinci ölçüm"
+    },
+    {
+      "id": "value3",
+      "label": "Referans Değer 3",
+      "type": "number",
+      "unit": "birim",
+      "default": 30,
+      "businessContext": "Örnek veri setindeki üçüncü ölçüm"
+    },
+    {
+      "id": "value4",
+      "label": "Referans Değer 4",
+      "type": "number",
+      "unit": "birim",
+      "default": 40,
+      "businessContext": "Örnek veri setindeki dördüncü ölçüm"
+    },
+    {
+      "id": "value5",
+      "label": "Referans Değer 5",
+      "type": "number",
+      "unit": "birim",
+      "default": 60,
+      "businessContext": "Örnek veri setindeki beşinci ölçüm"
+    }
+  ],
+  "formulas": {
+    "primary": "(((value1 < target ? 1 : 0) + (value2 < target ? 1 : 0) + (value3 < target ? 1 : 0) + (value4 < target ? 1 : 0) + (value5 < target ? 1 : 0) + 0.5 * ((value1 == target ? 1 : 0) + (value2 == target ? 1 : 0) + (value3 == target ? 1 : 0) + (value4 == target ? 1 : 0) + (value5 == target ? 1 : 0))) / 5 * 100)",
+    "breakdown": [
+      "(value1 < target ? 1 : 0) + (value2 < target ? 1 : 0) + (value3 < target ? 1 : 0) + (value4 < target ? 1 : 0) + (value5 < target ? 1 : 0)",
+      "(value1 == target ? 1 : 0) + (value2 == target ? 1 : 0) + (value3 == target ? 1 : 0) + (value4 == target ? 1 : 0) + (value5 == target ? 1 : 0)"
+    ]
+  },
+  "outputs": {
+    "primary": {
+      "id": "percentileRank",
+      "label": "Yüzdelik Sıra",
+      "unit": "%",
+      "description": "Hedef değerin referans veri setindeki yüzdelik sıralaması"
+    },
+    "breakdown": [
+      {
+        "id": "belowCount",
+        "label": "Altında Kalanlar",
+        "unit": "adet",
+        "description": "Hedef değerden küçük olan referans değer sayısı"
+      },
+      {
+        "id": "equalCount",
+        "label": "Eşit Olanlar",
+        "unit": "adet",
+        "description": "Hedef değere eşit olan referans değer sayısı"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

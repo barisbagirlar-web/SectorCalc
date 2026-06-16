@@ -1,0 +1,60 @@
+{
+  "toolName": "shed-roof-calculator",
+  "inputs": [
+    {
+      "id": "roofLength",
+      "label": "Roof Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of the building along the ridge"
+    },
+    {
+      "id": "roofWidth",
+      "label": "Roof Width",
+      "type": "number",
+      "unit": "m",
+      "default": 6,
+      "businessContext": "Horizontal width of the building from eave to eave"
+    },
+    {
+      "id": "slopeAngle",
+      "label": "Slope Angle",
+      "type": "number",
+      "unit": "deg",
+      "default": 15,
+      "businessContext": "Angle of the roof slope in degrees"
+    },
+    {
+      "id": "overhang",
+      "label": "Overhang",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Overhang distance beyond walls on all sides"
+    }
+  ],
+  "formulas": {
+    "rad": "slopeAngle * Math.PI / 180",
+    "totalWidth": "roofWidth + 2 * overhang",
+    "totalLength": "roofLength + 2 * overhang",
+    "rafterLength": "totalWidth / Math.cos(rad)",
+    "rise": "totalWidth * Math.tan(rad)",
+    "totalRoofArea": "totalLength * rafterLength"
+  },
+  "outputs": {
+    "primary": "totalRoofArea",
+    "breakdown": [
+      "rafterLength",
+      "rise",
+      "totalWidth",
+      "totalLength"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

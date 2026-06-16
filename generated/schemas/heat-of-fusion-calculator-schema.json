@@ -1,0 +1,63 @@
+{
+  "toolName": "heat-of-fusion-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Total mass of substance undergoing phase change"
+    },
+    {
+      "id": "specificHeat",
+      "label": "Specific Heat Capacity",
+      "type": "number",
+      "unit": "J/(kg·K)",
+      "default": 4180,
+      "businessContext": "Specific heat capacity of the substance (e.g., water: 4180 J/(kg·K))"
+    },
+    {
+      "id": "initialTemperature",
+      "label": "Initial Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Starting temperature of the substance, must be ≤ melting point"
+    },
+    {
+      "id": "meltingTemperature",
+      "label": "Melting Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 0,
+      "businessContext": "Melting point of the substance (e.g., ice: 0°C)"
+    },
+    {
+      "id": "latentHeatOfFusion",
+      "label": "Latent Heat of Fusion",
+      "type": "number",
+      "unit": "J/kg",
+      "default": 334000,
+      "businessContext": "Energy per unit mass to change phase from solid to liquid (e.g., water: 334 kJ/kg)"
+    }
+  ],
+  "formulas": {
+    "sensibleHeat": "mass * specificHeat * Math.max(0, meltingTemperature - initialTemperature)",
+    "latentHeat": "mass * latentHeatOfFusion",
+    "totalHeat": "sensibleHeat + latentHeat"
+  },
+  "outputs": {
+    "primary": "totalHeat",
+    "breakdown": [
+      "sensibleHeat",
+      "latentHeat"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

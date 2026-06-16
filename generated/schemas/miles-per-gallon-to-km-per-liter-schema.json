@@ -1,0 +1,56 @@
+{
+  "toolName": "miles-per-gallon-to-km-per-liter",
+  "inputs": [
+    {
+      "id": "mpg",
+      "label": "Miles per Gallon (MPG)",
+      "type": "number",
+      "unit": "mpg",
+      "default": 25,
+      "businessContext": "Fuel efficiency in miles per gallon (US)."
+    },
+    {
+      "id": "fuelType",
+      "label": "Fuel Type",
+      "type": "number",
+      "unit": "factor",
+      "default": 1,
+      "businessContext": "Conversion factor for fuel type (1 for gasoline, 0.85 for diesel)."
+    },
+    {
+      "id": "temperatureCorrection",
+      "label": "Temperature Correction Factor",
+      "type": "number",
+      "unit": "factor",
+      "default": 1,
+      "businessContext": "Correction for temperature effects on fuel density (0.95-1.05)."
+    },
+    {
+      "id": "altitudeCorrection",
+      "label": "Altitude Correction Factor",
+      "type": "number",
+      "unit": "factor",
+      "default": 1,
+      "businessContext": "Correction for altitude effects on engine efficiency (0.9-1.0)."
+    }
+  ],
+  "formulas": {
+    "kmPerLiter": "mpg * 0.425143707 * fuelType * temperatureCorrection * altitudeCorrection",
+    "litersPer100km": "235.214583 / (mpg * fuelType * temperatureCorrection * altitudeCorrection)",
+    "gallonsPer100Miles": "100 / mpg"
+  },
+  "outputs": {
+    "primary": "kmPerLiter",
+    "breakdown": [
+      "kmPerLiter: {value} km/L",
+      "litersPer100km: {value} L/100km",
+      "gallonsPer100Miles: {value} gal/100mi"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

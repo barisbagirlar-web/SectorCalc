@@ -1,0 +1,62 @@
+{
+  "toolName": "tooth-eruption-calculator",
+  "inputs": [
+    {
+      "id": "currentWear",
+      "label": "Current Wear (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.5,
+      "businessContext": "Measured wear depth on the cutting tooth"
+    },
+    {
+      "id": "load",
+      "label": "Applied Load (kN)",
+      "type": "number",
+      "unit": "kN",
+      "default": 10,
+      "businessContext": "Force applied on the tooth during operation"
+    },
+    {
+      "id": "rpm",
+      "label": "Rotation Speed (rpm)",
+      "type": "number",
+      "unit": "rpm",
+      "default": 1500,
+      "businessContext": "Rotational speed of the cutter head"
+    },
+    {
+      "id": "materialHardness",
+      "label": "Material Hardness (HB)",
+      "type": "number",
+      "unit": "HB",
+      "default": 200,
+      "businessContext": "Brinell hardness of the material being cut"
+    },
+    {
+      "id": "initialWearLimit",
+      "label": "Wear Limit (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Maximum permissible wear before tooth replacement"
+    }
+  ],
+  "formulas": {
+    "wearRate": "load * rpm * Math.sqrt(materialHardness) / 10000",
+    "remainingLifeHours": "(initialWearLimit - currentWear) / wearRate"
+  },
+  "outputs": {
+    "primary": "remainingLifeHours",
+    "breakdown": [
+      "wearRate",
+      "remainingLifeHours"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

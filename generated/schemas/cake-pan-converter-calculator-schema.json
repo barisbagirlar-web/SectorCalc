@@ -1,0 +1,87 @@
+{
+  "toolName": "cake-pan-converter-calculator",
+  "inputs": [
+    {
+      "id": "originalShape",
+      "label": "Orijinal Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Orijinal kalıbın şekli; 1 ise yuvarlak (çap kullan), 2 ise dikdörtgen (kenarlar)"
+    },
+    {
+      "id": "originalDim1",
+      "label": "Orijinal Kalıp Ölçüsü 1 (Yuvarlak için çap, Dikdörtgen için uzunluk)",
+      "type": "number",
+      "unit": "cm",
+      "default": 20,
+      "businessContext": "Orijinal kalıbın birinci boyutu"
+    },
+    {
+      "id": "originalDim2",
+      "label": "Orijinal Kalıp Ölçüsü 2 (Sadece dikdörtgen için genişlik, yuvarlak için 0 bırakın)",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "Orijinal kalıbın ikinci boyutu; yuvarlak için 0"
+    },
+    {
+      "id": "originalDepth",
+      "label": "Orijinal Kalıp Derinliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 5,
+      "businessContext": "Orijinal kalıbın derinliği"
+    },
+    {
+      "id": "targetShape",
+      "label": "Hedef Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Hedef kalıbın şekli"
+    },
+    {
+      "id": "targetDim1",
+      "label": "Hedef Kalıp Ölçüsü 1",
+      "type": "number",
+      "unit": "cm",
+      "default": 24,
+      "businessContext": "Hedef kalıbın birinci boyutu"
+    },
+    {
+      "id": "targetDim2",
+      "label": "Hedef Kalıp Ölçüsü 2 (Dikdörtgen için genişlik, yuvarlak için 0)",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "Hedef kalıbın ikinci boyutu"
+    },
+    {
+      "id": "targetDepth",
+      "label": "Hedef Kalıp Derinliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 5,
+      "businessContext": "Hedef kalıbın derinliği"
+    }
+  ],
+  "formulas": {
+    "originalVolume": "(originalShape === 1 ? Math.PI * Math.pow(originalDim1/2, 2) : originalDim1 * originalDim2) * originalDepth",
+    "targetVolume": "(targetShape === 1 ? Math.PI * Math.pow(targetDim1/2, 2) : targetDim1 * targetDim2) * targetDepth",
+    "scalingFactor": "originalVolume ? targetVolume / originalVolume : 0"
+  },
+  "outputs": {
+    "primary": "scalingFactor",
+    "breakdown": [
+      "originalVolume",
+      "targetVolume"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

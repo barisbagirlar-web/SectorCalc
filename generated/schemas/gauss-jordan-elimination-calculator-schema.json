@@ -1,0 +1,72 @@
+{
+  "toolName": "gauss-jordan-elimination-calculator",
+  "inputs": [
+    {
+      "id": "a11",
+      "label": "Equation 1, coefficient of x",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The coefficient a11 in the first equation."
+    },
+    {
+      "id": "a12",
+      "label": "Equation 1, coefficient of y",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The coefficient a12 in the first equation."
+    },
+    {
+      "id": "a21",
+      "label": "Equation 2, coefficient of x",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The coefficient a21 in the second equation."
+    },
+    {
+      "id": "a22",
+      "label": "Equation 2, coefficient of y",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The coefficient a22 in the second equation."
+    },
+    {
+      "id": "b1",
+      "label": "Equation 1, right-hand side",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The constant term b1 in the first equation."
+    },
+    {
+      "id": "b2",
+      "label": "Equation 2, right-hand side",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The constant term b2 in the second equation."
+    }
+  ],
+  "formulas": {
+    "det": "a11 * a22 - a12 * a21",
+    "x": "(b1 * a22 - b2 * a12) / det",
+    "y": "(a11 * b2 - a21 * b1) / det",
+    "solutionString": "'x = ' + x + ', y = ' + y"
+  },
+  "outputs": {
+    "primary": "solutionString",
+    "breakdown": [
+      "x",
+      "y"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

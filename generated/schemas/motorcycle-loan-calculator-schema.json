@@ -1,0 +1,74 @@
+{
+  "toolName": "motorcycle-loan-calculator",
+  "inputs": [
+    {
+      "id": "vehiclePrice",
+      "label": "Vehicle Price",
+      "type": "number",
+      "unit": "TRY",
+      "default": 200000,
+      "businessContext": "The total price of the motorcycle before any additional taxes, down payment, or trade-in."
+    },
+    {
+      "id": "downPayment",
+      "label": "Down Payment",
+      "type": "number",
+      "unit": "TRY",
+      "default": 40000,
+      "businessContext": "Initial cash amount paid upfront to reduce the loan principal."
+    },
+    {
+      "id": "tradeIn",
+      "label": "Trade-in Value",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Value of a vehicle traded in as part of the purchase, reducing the amount to finance."
+    },
+    {
+      "id": "interestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Yearly interest rate of the loan, expressed as a percentage."
+    },
+    {
+      "id": "loanTerm",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "months",
+      "default": 36,
+      "businessContext": "Duration of the loan repayment period in months."
+    },
+    {
+      "id": "salesTaxRate",
+      "label": "Sales Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "businessContext": "Applicable sales tax percentage added to the vehicle price."
+    }
+  ],
+  "formulas": {
+    "monthlyInterestRate": "interestRate / 100 / 12",
+    "loanAmount": "vehiclePrice * (1 + salesTaxRate / 100) - downPayment - tradeIn",
+    "monthlyPayment": "loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTerm) / (Math.pow(1 + monthlyInterestRate, loanTerm) - 1)",
+    "totalPayment": "monthlyPayment * loanTerm",
+    "totalInterest": "totalPayment - loanAmount"
+  },
+  "outputs": {
+    "primary": "monthlyPayment",
+    "breakdown": [
+      "loanAmount",
+      "totalPayment",
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

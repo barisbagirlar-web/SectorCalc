@@ -1,0 +1,63 @@
+{
+  "toolName": "miles-to-km-calculator",
+  "inputs": [
+    {
+      "id": "miles",
+      "label": "Distance (miles)",
+      "type": "number",
+      "unit": "mi",
+      "default": 1,
+      "businessContext": "The distance in miles to be converted to kilometers"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output"
+    },
+    {
+      "id": "isNautical",
+      "label": "Nautical Mile Flag",
+      "type": "number",
+      "unit": "boolean (0 or 1)",
+      "default": 0,
+      "businessContext": "Set to 1 if the input is in nautical miles, 0 for statute miles"
+    },
+    {
+      "id": "conversionFactorStatute",
+      "label": "Statute Mile Factor",
+      "type": "number",
+      "unit": "km/mi",
+      "default": 1.60934,
+      "businessContext": "Conversion factor for statute miles to kilometers"
+    },
+    {
+      "id": "conversionFactorNautical",
+      "label": "Nautical Mile Factor",
+      "type": "number",
+      "unit": "km/mi",
+      "default": 1.852,
+      "businessContext": "Conversion factor for nautical miles to kilometers"
+    }
+  ],
+  "formulas": {
+    "kilometers": "Number(((isNautical === 1 ? miles * conversionFactorNautical : miles * conversionFactorStatute)).toFixed(precision))",
+    "kilometersRaw": "isNautical === 1 ? miles * conversionFactorNautical : miles * conversionFactorStatute",
+    "conversionMessage": "`Converted using factor ${isNautical === 1 ? conversionFactorNautical : conversionFactorStatute} km/mi`"
+  },
+  "outputs": {
+    "primary": "kilometers",
+    "breakdown": [
+      "kilometersRaw",
+      "conversionMessage"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

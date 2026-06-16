@@ -1,0 +1,28 @@
+{
+  "toolName": "cm-to-inch",
+  "inputs": [
+    {
+      "id": "cm",
+      "label": "Santimetre (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 1,
+      "businessContext": "Uzunluk değeri santimetre cinsinden"
+    }
+  ],
+  "formulas": {
+    "inch": "cm / 2.54"
+  },
+  "outputs": {
+    "primary": "inch",
+    "breakdown": [
+      "inch"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

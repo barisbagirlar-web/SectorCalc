@@ -1,0 +1,55 @@
+{
+  "toolName": "cricket-net-run-rate-calculator",
+  "inputs": [
+    {
+      "id": "runsScored",
+      "label": "Total Runs Scored",
+      "type": "number",
+      "unit": "runs",
+      "default": 0,
+      "businessContext": "Runs scored by the team in the tournament."
+    },
+    {
+      "id": "oversFaced",
+      "label": "Overs Faced",
+      "type": "number",
+      "unit": "overs",
+      "default": 0,
+      "businessContext": "Total overs faced by the team, expressed as a decimal (e.g., 50.3 for 50 overs and 3 balls)."
+    },
+    {
+      "id": "runsConceded",
+      "label": "Total Runs Conceded",
+      "type": "number",
+      "unit": "runs",
+      "default": 0,
+      "businessContext": "Runs conceded by the team in the tournament."
+    },
+    {
+      "id": "oversBowled",
+      "label": "Overs Bowled",
+      "type": "number",
+      "unit": "overs",
+      "default": 0,
+      "businessContext": "Total overs bowled by the team, expressed as a decimal (e.g., 50.3 for 50 overs and 3 balls)."
+    }
+  ],
+  "formulas": {
+    "battingRunRate": "runsScored / (Math.floor(oversFaced) + (oversFaced - Math.floor(oversFaced)) * (10/6))",
+    "bowlingRunRate": "runsConceded / (Math.floor(oversBowled) + (oversBowled - Math.floor(oversBowled)) * (10/6))",
+    "netRunRate": "battingRunRate - bowlingRunRate"
+  },
+  "outputs": {
+    "primary": "netRunRate",
+    "breakdown": [
+      "battingRunRate",
+      "bowlingRunRate"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

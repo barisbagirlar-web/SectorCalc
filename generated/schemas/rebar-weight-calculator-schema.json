@@ -1,0 +1,54 @@
+{
+  "toolName": "rebar-weight-calculator",
+  "inputs": [
+    {
+      "id": "diameter",
+      "label": "Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 12,
+      "businessContext": "Nominal diameter of rebar"
+    },
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "m",
+      "default": 12,
+      "businessContext": "Length of each rebar piece"
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "pieces",
+      "default": 1,
+      "businessContext": "Number of rebars"
+    },
+    {
+      "id": "density",
+      "label": "Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "businessContext": "Density of steel (typically 7850 kg/m³)"
+    }
+  ],
+  "formulas": {
+    "weightPerPiece": "Math.PI * Math.pow(diameter/1000, 2) / 4 * length * density",
+    "totalWeight": "weightPerPiece * quantity"
+  },
+  "outputs": {
+    "primary": "totalWeight",
+    "breakdown": [
+      "weightPerPiece",
+      "totalWeight"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

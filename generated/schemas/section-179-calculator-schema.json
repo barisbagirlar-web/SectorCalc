@@ -1,0 +1,64 @@
+{
+  "toolName": "section-179-calculator",
+  "inputs": [
+    {
+      "id": "assetCost",
+      "label": "Cost of Qualifying Property",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "The purchase price of the asset (equipment, software, etc.)"
+    },
+    {
+      "id": "businessUsePercent",
+      "label": "Business Use Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Percentage of the asset used for business purposes (0-100)"
+    },
+    {
+      "id": "section179Limit",
+      "label": "Section 179 Deduction Limit",
+      "type": "number",
+      "unit": "USD",
+      "default": 1220000,
+      "businessContext": "Maximum annual Section 179 deduction allowed by IRS (2025 limit)"
+    },
+    {
+      "id": "phaseOutThreshold",
+      "label": "Phase-Out Threshold",
+      "type": "number",
+      "unit": "USD",
+      "default": 3050000,
+      "businessContext": "Total asset additions above which the Section 179 deduction is reduced dollar-for-dollar"
+    },
+    {
+      "id": "totalAssetAdditions",
+      "label": "Total Asset Additions",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Total cost of all qualifying property placed in service during the tax year (for phase-out calculation)"
+    }
+  ],
+  "formulas": {
+    "reducedLimit": "Math.max(0, section179Limit - Math.max(0, totalAssetAdditions - phaseOutThreshold))",
+    "tentativeDeduction": "Math.min(assetCost, reducedLimit)",
+    "section179Deduction": "tentativeDeduction * (businessUsePercent / 100)",
+    "remainingBasis": "assetCost - section179Deduction"
+  },
+  "outputs": {
+    "primary": "section179Deduction",
+    "breakdown": [
+      "reducedLimit",
+      "remainingBasis"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

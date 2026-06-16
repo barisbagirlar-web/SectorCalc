@@ -1,0 +1,76 @@
+{
+  "toolName": "bogo-calculator",
+  "inputs": [
+    {
+      "id": "originalPrice",
+      "label": "Original Price per Item",
+      "type": "number",
+      "unit": "currency",
+      "default": 10,
+      "businessContext": "The regular unit selling price of the item before any promotion."
+    },
+    {
+      "id": "buyQuantity",
+      "label": "Buy Quantity",
+      "type": "number",
+      "unit": "items",
+      "default": 1,
+      "businessContext": "Number of items the customer must purchase to qualify for the free items (the 'Buy' part)."
+    },
+    {
+      "id": "getQuantity",
+      "label": "Get Quantity (Free)",
+      "type": "number",
+      "unit": "items",
+      "default": 1,
+      "businessContext": "Number of items the customer receives for free (the 'Get' part)."
+    },
+    {
+      "id": "numberOfSets",
+      "label": "Number of Sets",
+      "type": "number",
+      "unit": "sets",
+      "default": 1,
+      "businessContext": "How many times the BOGO deal is applied (e.g., buy 2 get 1 free repeated twice)."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Applicable tax percentage on the purchase. Set to 0 if tax is not considered."
+    },
+    {
+      "id": "additionalDiscount",
+      "label": "Additional Discount",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Any extra percentage discount applied to the total (e.g., store-wide sale)."
+    }
+  ],
+  "formulas": {
+    "totalItems": "(buyQuantity + getQuantity) * numberOfSets",
+    "totalCost": "originalPrice * buyQuantity * numberOfSets * (1 - additionalDiscount / 100) * (1 + taxRate / 100)",
+    "costPerItem": "(originalPrice * buyQuantity * numberOfSets * (1 - additionalDiscount / 100) * (1 + taxRate / 100)) / ((buyQuantity + getQuantity) * numberOfSets)",
+    "totalSavings": "originalPrice * (buyQuantity + getQuantity) * numberOfSets - originalPrice * buyQuantity * numberOfSets * (1 - additionalDiscount / 100) * (1 + taxRate / 100)",
+    "effectiveDiscountPercent": "(1 - (buyQuantity * (1 - additionalDiscount / 100) * (1 + taxRate / 100)) / (buyQuantity + getQuantity)) * 100"
+  },
+  "outputs": {
+    "primary": "effectiveDiscountPercent",
+    "breakdown": [
+      "totalItems",
+      "totalCost",
+      "costPerItem",
+      "totalSavings",
+      "effectiveDiscountPercent"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

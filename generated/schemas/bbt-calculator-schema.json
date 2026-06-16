@@ -1,0 +1,71 @@
+{
+  "toolName": "bbt-calculator",
+  "inputs": [
+    {
+      "id": "speed",
+      "label": "Shaft Speed",
+      "type": "number",
+      "unit": "RPM",
+      "default": 1500,
+      "businessContext": "Rotational speed of the shaft in revolutions per minute"
+    },
+    {
+      "id": "frictionCoeff",
+      "label": "Friction Coefficient",
+      "type": "number",
+      "unit": "",
+      "default": 0.001,
+      "businessContext": "Coefficient of friction between bearing surfaces"
+    },
+    {
+      "id": "load",
+      "label": "Radial Load",
+      "type": "number",
+      "unit": "N",
+      "default": 1000,
+      "businessContext": "Radial load applied on the bearing"
+    },
+    {
+      "id": "boreDiameter",
+      "label": "Bore Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Inner diameter of the bearing bore"
+    },
+    {
+      "id": "ambientTemp",
+      "label": "Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Surrounding ambient temperature"
+    },
+    {
+      "id": "coolingCoeff",
+      "label": "Cooling Coefficient",
+      "type": "number",
+      "unit": "W/°C",
+      "default": 5,
+      "businessContext": "Thermal dissipation capacity of the bearing housing"
+    }
+  ],
+  "formulas": {
+    "powerLoss": "frictionCoeff * load * (Math.PI * boreDiameter * speed / 60) / 1000",
+    "tempRise": "powerLoss / coolingCoeff",
+    "bearingTemp": "ambientTemp + tempRise"
+  },
+  "outputs": {
+    "primary": "bearingTemp",
+    "breakdown": [
+      "powerLoss",
+      "tempRise"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,98 @@
+{
+  "toolName": "catering-calculator",
+  "inputs": [
+    {
+      "id": "numberOfGuests",
+      "label": "Misafir Sayısı",
+      "type": "number",
+      "unit": "kişi",
+      "default": 50,
+      "businessContext": "Katılım sayısı"
+    },
+    {
+      "id": "costPerMeal",
+      "label": "Öğün Başı Maliyet",
+      "type": "number",
+      "unit": "TRY",
+      "default": 75,
+      "businessContext": "Menü birim fiyatı"
+    },
+    {
+      "id": "numberOfCourses",
+      "label": "Kur Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 3,
+      "businessContext": "Çorba, ana yemek, tatlı gibi"
+    },
+    {
+      "id": "serviceChargePercent",
+      "label": "Servis Ücreti (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Garson, servis ekipmanı"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Fire Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Hazırlık kaybı"
+    },
+    {
+      "id": "vatRate",
+      "label": "KDV Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "businessContext": "Vergi oranı"
+    }
+  ],
+  "formulas": {
+    "totalRawCost": "numberOfGuests * costPerMeal * numberOfCourses",
+    "wasteCost": "totalRawCost * (wasteFactor / 100)",
+    "serviceCost": "totalRawCost * (serviceChargePercent / 100)",
+    "taxableAmount": "totalRawCost + wasteCost + serviceCost",
+    "vatAmount": "taxableAmount * (vatRate / 100)",
+    "totalCost": "taxableAmount + vatAmount",
+    "costPerGuest": "totalCost / numberOfGuests"
+  },
+  "outputs": {
+    "primary": {
+      "id": "totalCost",
+      "label": "Toplam Maliyet",
+      "unit": "TRY",
+      "description": "Tüm vergiler, fire ve servis dahil nihai toplam maliyet"
+    },
+    "breakdown": [
+      {
+        "id": "costPerGuest",
+        "label": "Misafir Başına Maliyet",
+        "unit": "TRY"
+      },
+      {
+        "id": "totalRawCost",
+        "label": "Ham Maliyet",
+        "unit": "TRY"
+      },
+      {
+        "id": "vatAmount",
+        "label": "KDV Tutarı",
+        "unit": "TRY"
+      },
+      {
+        "id": "serviceCost",
+        "label": "Servis Ücreti",
+        "unit": "TRY"
+      }
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,87 @@
+{
+  "toolName": "beneish-m-score-calculator",
+  "inputs": [
+    {
+      "id": "dsri",
+      "label": "Days Sales in Receivables Index (DSRI)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Ratio of days sales in receivables in year t to year t-1"
+    },
+    {
+      "id": "gmi",
+      "label": "Gross Margin Index (GMI)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Ratio of gross margin in year t-1 to year t"
+    },
+    {
+      "id": "aqi",
+      "label": "Asset Quality Index (AQI)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Ratio of non-current assets (other than property, plant & equipment) to total assets in year t vs year t-1"
+    },
+    {
+      "id": "sgi",
+      "label": "Sales Growth Index (SGI)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Ratio of sales in year t to sales in year t-1"
+    },
+    {
+      "id": "depi",
+      "label": "Depreciation Index (DEPI)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Ratio of depreciation rate in year t-1 to depreciation rate in year t"
+    },
+    {
+      "id": "sgai",
+      "label": "Sales, General and Administrative Expenses Index (SGAI)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Ratio of SGA expenses to sales in year t vs year t-1"
+    },
+    {
+      "id": "lvgi",
+      "label": "Leverage Index (LVGI)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Ratio of total debt to total assets in year t vs year t-1"
+    },
+    {
+      "id": "tata",
+      "label": "Total Accruals to Total Assets (TATA)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Change in working capital accounts other than cash less depreciation, divided by total assets"
+    }
+  ],
+  "formulas": {
+    "mScore": "-4.84 + 0.92 * dsri + 0.528 * gmi + 0.404 * aqi + 0.892 * sgi + 0.115 * depi - 0.172 * sgai - 0.327 * lvgi + 4.679 * tata",
+    "threshold": "-2.22",
+    "manipulationIndicator": "mScore > threshold ? 1 : 0"
+  },
+  "outputs": {
+    "primary": "mScore",
+    "breakdown": [
+      "threshold",
+      "manipulationIndicator"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

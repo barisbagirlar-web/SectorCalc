@@ -1,0 +1,55 @@
+{
+  "toolName": "hundredweight-to-pounds-calculator",
+  "inputs": [
+    {
+      "id": "cwtWeight",
+      "label": "Weight in Hundredweight",
+      "type": "number",
+      "unit": "cwt",
+      "default": 0,
+      "businessContext": "Enter the weight in hundredweight to convert to pounds."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "lbs/cwt",
+      "default": 100,
+      "businessContext": "Pounds per hundredweight. Default 100 for short hundredweight; use 112 for long hundredweight."
+    },
+    {
+      "id": "itemCount",
+      "label": "Number of Items",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of identical items. Use 1 if converting a single weight."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output."
+    }
+  ],
+  "formulas": {
+    "poundsPerItem": "cwtWeight * conversionFactor",
+    "totalPounds": "poundsPerItem * itemCount",
+    "roundedTotalPounds": "Math.round(totalPounds * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "roundedTotalPounds",
+    "breakdown": [
+      "poundsPerItem",
+      "totalPounds"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,54 @@
+{
+  "toolName": "kpa-to-psi-calculator",
+  "inputs": [
+    {
+      "id": "pressureKpa",
+      "label": "Basınç (kPa)",
+      "type": "number",
+      "unit": "kPa",
+      "default": 100,
+      "businessContext": "Dönüştürülecek kPa cinsinden basınç değeri"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Dönüşüm Katsayısı",
+      "type": "number",
+      "unit": "psi/kPa",
+      "default": 0.1450377377,
+      "businessContext": "kPa'yı psi'ye çevirmek için kullanılan katsayı (varsayılan standart değer)"
+    },
+    {
+      "id": "precision",
+      "label": "Ondalık Basamak",
+      "type": "number",
+      "unit": "adet",
+      "default": 2,
+      "businessContext": "Sonuçtaki ondalık basamak sayısı"
+    },
+    {
+      "id": "offset",
+      "label": "Ofset (psi)",
+      "type": "number",
+      "unit": "psi",
+      "default": 0,
+      "businessContext": "Lineer dönüşüm sonrası eklenecek sabit ofset (genellikle 0)"
+    }
+  ],
+  "formulas": {
+    "psi": "pressureKpa * conversionFactor + offset",
+    "psiRounded": "Math.round(psi * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "psiRounded",
+    "breakdown": [
+      "psi",
+      "precision"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,70 @@
+{
+  "toolName": "climbing-calculator",
+  "inputs": [
+    {
+      "id": "climberMass",
+      "label": "Climber Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "Mass of the climber including all gear (harness, rope, hardware) in kilograms."
+    },
+    {
+      "id": "fallFactor",
+      "label": "Fall Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Fall factor (ratio of free-fall height to length of dynamic rope in the system), typically between 0 and 2."
+    },
+    {
+      "id": "ratedImpactForce",
+      "label": "Rated Impact Force",
+      "type": "number",
+      "unit": "kN",
+      "default": 9,
+      "businessContext": "Manufacturer-rated impact force of the rope for UIAA standard test (80 kg mass, 1.77 fall factor) in kilonewtons."
+    },
+    {
+      "id": "ratedMass",
+      "label": "Rated Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "Standard test mass used for UIAA rating, typically 80 kg."
+    },
+    {
+      "id": "ratedFallFactor",
+      "label": "Rated Fall Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.77,
+      "businessContext": "Standard test fall factor used for UIAA rating, typically 1.77."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Design safety factor applied to the estimated force (e.g., 1.0 for theoretical, 1.5 for equipment margin)."
+    }
+  ],
+  "formulas": {
+    "impactForce": "ratedImpactForce * Math.sqrt((climberMass / ratedMass) * (fallFactor / ratedFallFactor))",
+    "adjustedImpactForce": "impactForce * safetyFactor"
+  },
+  "outputs": {
+    "primary": "adjustedImpactForce",
+    "breakdown": [
+      "impactForce",
+      "adjustedImpactForce"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

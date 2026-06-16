@@ -1,0 +1,71 @@
+{
+  "toolName": "stopping-distance-calculator",
+  "inputs": [
+    {
+      "id": "speed",
+      "label": "Hız",
+      "type": "number",
+      "unit": "km/sa",
+      "default": 50,
+      "businessContext": "Araç hızı (km/saat cinsinden)"
+    },
+    {
+      "id": "reactionTime",
+      "label": "Tepki Süresi",
+      "type": "number",
+      "unit": "s",
+      "default": 1.5,
+      "businessContext": "Sürücünün tepki süresi (saniye)"
+    },
+    {
+      "id": "friction",
+      "label": "Sürtünme Katsayısı (μ)",
+      "type": "number",
+      "unit": "",
+      "default": 0.7,
+      "businessContext": "Lastik ile yol arasındaki sürtünme katsayısı (kuru asfalt: 0.7)"
+    },
+    {
+      "id": "gradient",
+      "label": "Yol Eğimi",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Yolun eğimi (% olarak; pozitif: yokuş yukarı, negatif: yokuş aşağı)"
+    }
+  ],
+  "formulas": {
+    "v": "inputs.speed / 3.6",
+    "dThinking": "v * inputs.reactionTime",
+    "dBraking": "(v * v) / (2 * 9.81 * (inputs.friction + inputs.gradient / 100))",
+    "total": "dThinking + dBraking"
+  },
+  "outputs": {
+    "primary": {
+      "id": "total",
+      "label": "Toplam Durma Mesafesi",
+      "unit": "m",
+      "value": "total"
+    },
+    "breakdown": [
+      {
+        "id": "dThinking",
+        "label": "Tepki Mesafesi",
+        "unit": "m",
+        "value": "dThinking"
+      },
+      {
+        "id": "dBraking",
+        "label": "Fren Mesafesi",
+        "unit": "m",
+        "value": "dBraking"
+      }
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

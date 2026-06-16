@@ -1,0 +1,57 @@
+{
+  "toolName": "egitim-birikim-hesaplayici",
+  "inputs": [
+    {
+      "id": "initialSavings",
+      "label": "Mevcut Birikim",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Eğitim için ayrılmış mevcut toplu para"
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Aylık Katkı",
+      "type": "number",
+      "unit": "TL/ay",
+      "default": 200,
+      "businessContext": "Her ay düzenli olarak biriktirilecek tutar"
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Yıllık Faiz Oranı",
+      "type": "number",
+      "unit": "%/yıl",
+      "default": 7,
+      "businessContext": "Yatırımın yıllık nominal getiri oranı"
+    },
+    {
+      "id": "years",
+      "label": "Vade (Yıl)",
+      "type": "number",
+      "unit": "yıl",
+      "default": 18,
+      "businessContext": "Eğitim başlangıcına kalan süre"
+    }
+  ],
+  "formulas": {
+    "monthlyRate": "(annualInterestRate / 100) / 12",
+    "months": "years * 12",
+    "totalFromInitial": "initialSavings * Math.pow(1 + monthlyRate, months)",
+    "totalFromContributions": "monthlyRate === 0 ? monthlyContribution * months : monthlyContribution * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate)",
+    "totalProjectedSavings": "totalFromInitial + totalFromContributions"
+  },
+  "outputs": {
+    "primary": "totalProjectedSavings",
+    "breakdown": [
+      "totalFromInitial",
+      "totalFromContributions"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

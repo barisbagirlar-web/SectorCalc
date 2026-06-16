@@ -1,0 +1,71 @@
+{
+  "toolName": "harmonic-series-calculator",
+  "inputs": [
+    {
+      "id": "startIndex",
+      "label": "Start Index",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Starting index for the summation in the harmonic series."
+    },
+    {
+      "id": "endIndex",
+      "label": "End Index",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Ending index for the summation."
+    },
+    {
+      "id": "exponent",
+      "label": "Exponent (p)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Exponent for the denominator term; use 1 for the standard harmonic series (1/k^p)."
+    },
+    {
+      "id": "increment",
+      "label": "Increment",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Step size between successive indices in the summation."
+    },
+    {
+      "id": "shift",
+      "label": "Shift",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Constant added to the index inside the denominator before exponentiation."
+    },
+    {
+      "id": "multiplier",
+      "label": "Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Scaling factor applied to each term of the series."
+    }
+  ],
+  "formulas": {
+    "totalSum": "Array.from({length: Math.max(0, Math.floor((endIndex - startIndex) / increment) + 1)}, (_, i) => startIndex + i * increment).reduce((acc, k) => acc + multiplier / Math.pow(k + shift, exponent), 0)",
+    "termsIncluded": "Math.floor((endIndex - startIndex) / increment) + 1",
+    "approximateIntegral": "exponent === 1 ? (multiplier / increment) * Math.log((endIndex + shift) / (startIndex + shift)) : (multiplier / increment) * (Math.pow(endIndex + shift, 1 - exponent) - Math.pow(startIndex + shift, 1 - exponent)) / (1 - exponent)"
+  },
+  "outputs": {
+    "primary": "totalSum",
+    "breakdown": [
+      "termsIncluded",
+      "approximateIntegral"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

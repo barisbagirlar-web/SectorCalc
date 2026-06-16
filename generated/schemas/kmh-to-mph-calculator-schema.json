@@ -1,0 +1,55 @@
+{
+  "toolName": "kmh-to-mph-calculator",
+  "inputs": [
+    {
+      "id": "speed_kmh",
+      "label": "Speed (km/h)",
+      "type": "number",
+      "unit": "km/h",
+      "default": 0,
+      "businessContext": "Enter the speed in kilometers per hour"
+    },
+    {
+      "id": "conversion_factor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "km/mi",
+      "default": 1.609344,
+      "businessContext": "Number of kilometers in one mile. Standard is 1.609344."
+    },
+    {
+      "id": "decimal_places",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the result"
+    },
+    {
+      "id": "known_mph",
+      "label": "Known mph (for verification)",
+      "type": "number",
+      "unit": "mph",
+      "default": 0,
+      "businessContext": "If you know the correct mph, enter here for error calculation."
+    }
+  ],
+  "formulas": {
+    "raw_mph": "speed_kmh / conversion_factor",
+    "rounded_mph": "Math.round((speed_kmh / conversion_factor) * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)",
+    "verification_difference": "Math.abs(rounded_mph - known_mph)"
+  },
+  "outputs": {
+    "primary": "rounded_mph",
+    "breakdown": [
+      "raw_mph",
+      "verification_difference"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

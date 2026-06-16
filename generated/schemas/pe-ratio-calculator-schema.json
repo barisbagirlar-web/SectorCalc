@@ -1,0 +1,55 @@
+{
+  "toolName": "pe-ratio-calculator",
+  "inputs": [
+    {
+      "id": "marketPrice",
+      "label": "Market Price per Share",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "Current stock price in market currency"
+    },
+    {
+      "id": "earningsPerShare",
+      "label": "Earnings per Share (EPS)",
+      "type": "number",
+      "unit": "currency",
+      "default": 5,
+      "businessContext": "Trailing twelve months (TTM) diluted EPS"
+    },
+    {
+      "id": "growthRate",
+      "label": "Expected Growth Rate",
+      "type": "number",
+      "unit": "percentage",
+      "default": 10,
+      "businessContext": "Projected annual EPS growth rate"
+    },
+    {
+      "id": "dividendPerShare",
+      "label": "Annual Dividend per Share",
+      "type": "number",
+      "unit": "currency",
+      "default": 2,
+      "businessContext": "Dividends paid per share per year"
+    }
+  ],
+  "formulas": {
+    "peRatio": "marketPrice / earningsPerShare",
+    "pegRatio": "growthRate !== 0 ? (marketPrice / earningsPerShare) / growthRate : null",
+    "dividendYield": "(dividendPerShare / marketPrice) * 100"
+  },
+  "outputs": {
+    "primary": "peRatio",
+    "breakdown": [
+      "pegRatio",
+      "dividendYield"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

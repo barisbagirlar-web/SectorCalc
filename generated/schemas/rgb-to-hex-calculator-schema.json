@@ -1,0 +1,59 @@
+{
+  "toolName": "rgb-to-hex-calculator",
+  "inputs": [
+    {
+      "id": "red",
+      "label": "Red (0-255)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Red color component"
+    },
+    {
+      "id": "green",
+      "label": "Green (0-255)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Green color component"
+    },
+    {
+      "id": "blue",
+      "label": "Blue (0-255)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Blue color component"
+    },
+    {
+      "id": "alpha",
+      "label": "Alpha (0-255)",
+      "type": "number",
+      "unit": "",
+      "default": 255,
+      "businessContext": "Alpha transparency (0 transparent, 255 opaque)"
+    }
+  ],
+  "formulas": {
+    "decimalColor": "alpha * 16777216 + red * 65536 + green * 256 + blue",
+    "redPart": "red * 65536",
+    "greenPart": "green * 256",
+    "bluePart": "blue",
+    "alphaPart": "alpha * 16777216"
+  },
+  "outputs": {
+    "primary": "decimalColor",
+    "breakdown": [
+      "redPart",
+      "greenPart",
+      "bluePart",
+      "alphaPart"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

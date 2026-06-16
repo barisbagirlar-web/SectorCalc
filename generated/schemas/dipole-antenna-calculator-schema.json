@@ -1,0 +1,39 @@
+{
+  "toolName": "dipole-antenna-calculator",
+  "inputs": [
+    {
+      "id": "frequency",
+      "label": "Frequency (MHz)",
+      "type": "number",
+      "unit": "MHz",
+      "default": 145.5,
+      "businessContext": "Operating frequency for the dipole antenna"
+    },
+    {
+      "id": "velocityFactor",
+      "label": "Velocity Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.95,
+      "businessContext": "Velocity factor of the wire (typically 0.95 for bare copper)"
+    }
+  ],
+  "formulas": {
+    "wavelength_m": "(300 / frequency)",
+    "dipoleLength_m": "(300 / frequency) * 0.5 * velocityFactor",
+    "dipoleLength_ft": "(300 / frequency) * 0.5 * velocityFactor * 3.28084"
+  },
+  "outputs": {
+    "primary": "dipoleLength_m",
+    "breakdown": [
+      "wavelength_m",
+      "dipoleLength_ft"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "restaurant-tip-calculator",
+  "inputs": [
+    {
+      "id": "billAmount",
+      "label": "Fatura Tutarı (Vergi Hariç)",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Yemek öncesi vergi hariç toplam tutar"
+    },
+    {
+      "id": "taxAmount",
+      "label": "Vergi Tutarı",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Yemek faturasındaki toplam vergi miktarı"
+    },
+    {
+      "id": "tipPercentage",
+      "label": "Bahşiş Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Vergi öncesi tutara uygulanacak bahşiş yüzdesi"
+    },
+    {
+      "id": "numberOfPeople",
+      "label": "Kişi Sayısı",
+      "type": "number",
+      "unit": "kişi",
+      "default": 1,
+      "businessContext": "Hesabı paylaşacak kişi sayısı"
+    }
+  ],
+  "formulas": {
+    "tipAmount": "billAmount * tipPercentage / 100",
+    "totalBill": "billAmount + taxAmount + tipAmount",
+    "perPerson": "totalBill / numberOfPeople"
+  },
+  "outputs": {
+    "primary": "perPerson",
+    "breakdown": [
+      "tipAmount",
+      "totalBill"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

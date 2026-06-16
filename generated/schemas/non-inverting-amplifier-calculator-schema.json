@@ -1,0 +1,77 @@
+{
+  "toolName": "non-inverting-amplifier-calculator",
+  "inputs": [
+    {
+      "id": "vin",
+      "label": "Input Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 1,
+      "businessContext": "Input signal voltage."
+    },
+    {
+      "id": "r1",
+      "label": "Resistor R1",
+      "type": "number",
+      "unit": "Ω",
+      "default": 10000,
+      "businessContext": "Resistor from inverting input to ground."
+    },
+    {
+      "id": "r2",
+      "label": "Feedback Resistor R2",
+      "type": "number",
+      "unit": "Ω",
+      "default": 10000,
+      "businessContext": "Feedback resistor from output to inverting input."
+    },
+    {
+      "id": "vcc",
+      "label": "Positive Supply Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 15,
+      "businessContext": "Positive power supply voltage."
+    },
+    {
+      "id": "vee",
+      "label": "Negative Supply Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": -15,
+      "businessContext": "Negative power supply voltage."
+    },
+    {
+      "id": "headroom",
+      "label": "Output Headroom",
+      "type": "number",
+      "unit": "V",
+      "default": 1.5,
+      "businessContext": "Voltage drop from supply rails to output swing limits."
+    }
+  ],
+  "formulas": {
+    "gain": "1 + r2 / r1",
+    "vout_ideal": "vin * (1 + r2 / r1)",
+    "vhigh": "vcc - headroom",
+    "vlow": "vee + headroom",
+    "vout_actual": "Math.max(vlow, Math.min(vout_ideal, vhigh))",
+    "is_clipping": "(vout_ideal > vhigh || vout_ideal < vlow) ? 1 : 0"
+  },
+  "outputs": {
+    "primary": "vout_actual",
+    "breakdown": [
+      "gain",
+      "vout_ideal",
+      "is_clipping",
+      "vhigh",
+      "vlow"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

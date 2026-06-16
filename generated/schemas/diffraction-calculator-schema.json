@@ -1,0 +1,70 @@
+{
+  "toolName": "diffraction-calculator",
+  "inputs": [
+    {
+      "id": "wavelength",
+      "label": "Wavelength",
+      "type": "number",
+      "unit": "nm",
+      "default": 500,
+      "businessContext": "Wavelength of the light used, in nanometers."
+    },
+    {
+      "id": "slitWidth",
+      "label": "Slit Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.1,
+      "businessContext": "Width of the single slit, in millimeters."
+    },
+    {
+      "id": "order",
+      "label": "Order (m)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Order of the minimum (positive integer)."
+    },
+    {
+      "id": "screenDistance",
+      "label": "Screen Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Distance from the slit to the screen, in meters."
+    }
+  ],
+  "formulas": {
+    "sinTheta": "(order * wavelength * 1e-9) / (slitWidth * 1e-3)",
+    "tanTheta": "((order * wavelength * 1e-9) / (slitWidth * 1e-3)) / Math.sqrt(1 - ((order * wavelength * 1e-9) / (slitWidth * 1e-3))**2)",
+    "position": "screenDistance * (((order * wavelength * 1e-9) / (slitWidth * 1e-3)) / Math.sqrt(1 - ((order * wavelength * 1e-9) / (slitWidth * 1e-3))**2))"
+  },
+  "outputs": {
+    "primary": {
+      "id": "position",
+      "label": "Linear Position",
+      "unit": "m",
+      "formula": "position"
+    },
+    "breakdown": [
+      {
+        "id": "sinTheta",
+        "label": "sin(θ)",
+        "unit": "",
+        "formula": "sinTheta"
+      },
+      {
+        "id": "tanTheta",
+        "label": "tan(θ)",
+        "unit": "",
+        "formula": "tanTheta"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,53 @@
+{
+  "toolName": "bending-stress-calculator",
+  "inputs": [
+    {
+      "id": "bendingMoment",
+      "label": "Bending Moment",
+      "type": "number",
+      "unit": "N·m",
+      "default": 1000,
+      "businessContext": "Applied bending moment at the section of interest."
+    },
+    {
+      "id": "sectionModulus",
+      "label": "Section Modulus",
+      "type": "number",
+      "unit": "mm³",
+      "default": 100000,
+      "businessContext": "Elastic section modulus about the axis of bending."
+    },
+    {
+      "id": "distanceFromNeutralAxis",
+      "label": "Distance from Neutral Axis",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Distance from the neutral axis to the extreme fiber where stress is maximum."
+    },
+    {
+      "id": "momentOfInertia",
+      "label": "Moment of Inertia",
+      "type": "number",
+      "unit": "mm⁴",
+      "default": 5000000,
+      "businessContext": "Second moment of area about the neutral axis."
+    }
+  ],
+  "formulas": {
+    "bendingStress": "(bendingMoment * 1000) / sectionModulus",
+    "bendingStressAlt": "(bendingMoment * 1000 * distanceFromNeutralAxis) / momentOfInertia"
+  },
+  "outputs": {
+    "primary": "bendingStress",
+    "breakdown": [
+      "bendingStressAlt"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

@@ -1,0 +1,418 @@
+{
+  "slug": "project-overrun-risk",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Monte Carlo simulation",
+    "Multi-project comparison"
+  ],
+  "inputs": [
+    {
+      "id": "plannedDuration",
+      "label": "Planned Duration (months)",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "min": 1,
+      "max": 120,
+      "businessContext": "Original planned project duration in months as per baseline schedule.",
+      "label_i18n": {
+        "en": "Planned Duration (months)"
+      },
+      "businessContext_i18n": {
+        "en": "Original planned project duration in months as per baseline schedule."
+      }
+    },
+    {
+      "id": "actualDuration",
+      "label": "Actual Duration to Date (months)",
+      "type": "number",
+      "unit": "months",
+      "default": 6,
+      "min": 0,
+      "max": 120,
+      "businessContext": "Elapsed time since project start, used to compute schedule performance.",
+      "label_i18n": {
+        "en": "Actual Duration to Date (months)"
+      },
+      "businessContext_i18n": {
+        "en": "Elapsed time since project start, used to compute schedule performance."
+      }
+    },
+    {
+      "id": "plannedCost",
+      "label": "Planned Total Cost (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "min": 1000,
+      "max": 1000000000,
+      "businessContext": "Total budgeted cost for the project at completion.",
+      "label_i18n": {
+        "en": "Planned Total Cost (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Total budgeted cost for the project at completion."
+      }
+    },
+    {
+      "id": "actualCost",
+      "label": "Actual Cost Incurred (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 600000,
+      "min": 0,
+      "max": 1000000000,
+      "businessContext": "Total costs actually incurred up to the current reporting period.",
+      "label_i18n": {
+        "en": "Actual Cost Incurred (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Total costs actually incurred up to the current reporting period."
+      }
+    },
+    {
+      "id": "percentComplete",
+      "label": "Percent Complete (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Estimated percentage of work completed based on earned value or physical progress.",
+      "label_i18n": {
+        "en": "Percent Complete (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated percentage of work completed based on earned value or physical progress."
+      }
+    },
+    {
+      "id": "scopeChangeFrequency",
+      "label": "Scope Change Frequency",
+      "type": "select",
+      "unit": "",
+      "default": "moderate",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "moderate",
+        "high"
+      ],
+      "businessContext": "Frequency of scope changes affecting project baseline. Low = 0-1 changes, Moderate = 2-4, High = 5+.",
+      "label_i18n": {
+        "en": "Scope Change Frequency"
+      },
+      "businessContext_i18n": {
+        "en": "Frequency of scope changes affecting project baseline. Low = 0-1 changes, Moderate = 2-4, High = 5+."
+      }
+    },
+    {
+      "id": "teamExperience",
+      "label": "Team Experience Level",
+      "type": "select",
+      "unit": "",
+      "default": "intermediate",
+      "min": null,
+      "max": null,
+      "options": [
+        "junior",
+        "intermediate",
+        "senior"
+      ],
+      "businessContext": "Average experience level of the core project team.",
+      "label_i18n": {
+        "en": "Team Experience Level"
+      },
+      "businessContext_i18n": {
+        "en": "Average experience level of the core project team."
+      }
+    },
+    {
+      "id": "qualityDefectRate",
+      "label": "Quality Defect Rate (defects per unit)",
+      "type": "number",
+      "unit": "defects/unit",
+      "default": 0.05,
+      "min": 0,
+      "max": 1,
+      "businessContext": "Number of defects per unit of output (e.g., per 1000 lines of code, per 100 parts).",
+      "label_i18n": {
+        "en": "Quality Defect Rate (defects per unit)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of defects per unit of output (e.g., per 1000 lines of code, per 100 parts)."
+      }
+    },
+    {
+      "id": "supplierReliability",
+      "label": "Supplier Reliability Index",
+      "type": "number",
+      "unit": "index",
+      "default": 0.9,
+      "min": 0,
+      "max": 1,
+      "businessContext": "Probability that critical suppliers deliver on time and within spec (0 = unreliable, 1 = fully reliable).",
+      "label_i18n": {
+        "en": "Supplier Reliability Index"
+      },
+      "businessContext_i18n": {
+        "en": "Probability that critical suppliers deliver on time and within spec (0 = unreliable, 1 = fully reliable)."
+      }
+    },
+    {
+      "id": "riskExposure",
+      "label": "Risk Exposure (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 200000,
+      "min": 0,
+      "max": 100000000,
+      "businessContext": "Monetary value of identified risks (probability * impact) not yet mitigated.",
+      "label_i18n": {
+        "en": "Risk Exposure (USD)"
+      },
+      "businessContext_i18n": {
+        "en": "Monetary value of identified risks (probability * impact) not yet mitigated."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "durationConsistency",
+        "condition": "actualDuration > plannedDuration",
+        "message": "Actual duration exceeds planned duration. Schedule overrun is already present."
+      },
+      {
+        "id": "costConsistency",
+        "condition": "actualCost > plannedCost",
+        "message": "Actual cost exceeds planned total cost. Cost overrun is already present."
+      },
+      {
+        "id": "percentCompleteRange",
+        "condition": "percentComplete < 0 || percentComplete > 100",
+        "message": "Percent complete must be between 0 and 100."
+      },
+      {
+        "id": "qualityDefectRange",
+        "condition": "qualityDefectRate < 0 || qualityDefectRate > 1",
+        "message": "Quality defect rate must be between 0 and 1."
+      },
+      {
+        "id": "supplierReliabilityRange",
+        "condition": "supplierReliability < 0 || supplierReliability > 1",
+        "message": "Supplier reliability index must be between 0 and 1."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "scheduleOverrunAlert",
+        "condition": "schedulePerformanceIndex < 0.8",
+        "message": "Schedule performance index below 0.8 – high risk of schedule overrun."
+      },
+      {
+        "id": "costOverrunAlert",
+        "condition": "costPerformanceIndex < 0.8",
+        "message": "Cost performance index below 0.8 – high risk of cost overrun."
+      },
+      {
+        "id": "overallRiskAlert",
+        "condition": "overrunRiskIndex > 0.7",
+        "message": "Overall overrun risk index exceeds 0.7 – immediate management attention required."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "schedulePerformanceIndex",
+      "label": "Schedule Performance Index (SPI)",
+      "description": "Earned Value / Planned Value. Measures schedule efficiency.",
+      "formula": "percentComplete / (actualDuration / plannedDuration * 100)",
+      "unit": "ratio",
+      "dependencies": [
+        "percentComplete",
+        "actualDuration",
+        "plannedDuration"
+      ]
+    },
+    {
+      "id": "costPerformanceIndex",
+      "label": "Cost Performance Index (CPI)",
+      "description": "Earned Value / Actual Cost. Measures cost efficiency.",
+      "formula": "(percentComplete / 100 * plannedCost) / actualCost",
+      "unit": "ratio",
+      "dependencies": [
+        "percentComplete",
+        "plannedCost",
+        "actualCost"
+      ]
+    },
+    {
+      "id": "scopeChangeFactor",
+      "label": "Scope Change Factor",
+      "description": "Quantifies impact of scope changes on risk. Low=0.8, Moderate=1.0, High=1.3.",
+      "formula": "CASE scopeChangeFrequency WHEN 'low' THEN 0.8 WHEN 'moderate' THEN 1.0 WHEN 'high' THEN 1.3 END",
+      "unit": "factor",
+      "dependencies": [
+        "scopeChangeFrequency"
+      ]
+    },
+    {
+      "id": "teamExperienceFactor",
+      "label": "Team Experience Factor",
+      "description": "Adjusts risk based on team experience. Junior=1.3, Intermediate=1.0, Senior=0.8.",
+      "formula": "CASE teamExperience WHEN 'junior' THEN 1.3 WHEN 'intermediate' THEN 1.0 WHEN 'senior' THEN 0.8 END",
+      "unit": "factor",
+      "dependencies": [
+        "teamExperience"
+      ]
+    },
+    {
+      "id": "qualityAndSupplyRisk",
+      "label": "Quality & Supply Risk Multiplier",
+      "description": "Combined effect of defect rate and supplier reliability on overrun risk.",
+      "formula": "(1 + qualityDefectRate) * (2 - supplierReliability)",
+      "unit": "factor",
+      "dependencies": [
+        "qualityDefectRate",
+        "supplierReliability"
+      ]
+    },
+    {
+      "id": "overrunRiskIndex",
+      "label": "Overrun Risk Index (ORI)",
+      "description": "Primary composite risk index combining schedule, cost, scope, team, quality, and risk exposure.",
+      "formula": "( (1 - schedulePerformanceIndex) + (1 - costPerformanceIndex) ) / 2 * scopeChangeFactor * teamExperienceFactor * qualityAndSupplyRisk + (riskExposure / plannedCost)",
+      "unit": "index (0 to 1+)",
+      "dependencies": [
+        "schedulePerformanceIndex",
+        "costPerformanceIndex",
+        "scopeChangeFactor",
+        "teamExperienceFactor",
+        "qualityAndSupplyRisk",
+        "riskExposure",
+        "plannedCost"
+      ]
+    },
+    {
+      "id": "dataConfidenceAdjusted",
+      "label": "Data Confidence Adjusted ORI",
+      "description": "Adjusts ORI based on data completeness and reliability (simulated confidence factor).",
+      "formula": "overrunRiskIndex * (1 - 0.1 * (1 - supplierReliability))",
+      "unit": "index",
+      "dependencies": [
+        "overrunRiskIndex",
+        "supplierReliability"
+      ]
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "overrunRiskIndex",
+      "label": "Overrun Risk Index (ORI)",
+      "description": "Primary composite risk index for project overrun. Values >0.7 indicate high risk.",
+      "unit": "index",
+      "sourceFormula": "overrunRiskIndex"
+    },
+    "breakdown": {
+      "schedulePerformanceIndex": {
+        "label": "Schedule Performance Index",
+        "value": null,
+        "unit": "ratio",
+        "sourceFormula": "schedulePerformanceIndex"
+      },
+      "costPerformanceIndex": {
+        "label": "Cost Performance Index",
+        "value": null,
+        "unit": "ratio",
+        "sourceFormula": "costPerformanceIndex"
+      },
+      "scopeChangeFactor": {
+        "label": "Scope Change Factor",
+        "value": null,
+        "unit": "factor",
+        "sourceFormula": "scopeChangeFactor"
+      },
+      "teamExperienceFactor": {
+        "label": "Team Experience Factor",
+        "value": null,
+        "unit": "factor",
+        "sourceFormula": "teamExperienceFactor"
+      },
+      "qualityAndSupplyRisk": {
+        "label": "Quality & Supply Risk Multiplier",
+        "value": null,
+        "unit": "factor",
+        "sourceFormula": "qualityAndSupplyRisk"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "scheduleSlippage",
+        "label": "Schedule Slippage",
+        "description": "Hidden driver: cumulative delay not captured by SPI alone (e.g., critical path delays).",
+        "impact": "medium"
+      },
+      {
+        "id": "reworkCost",
+        "label": "Rework Cost",
+        "description": "Hidden driver: cost of rework due to defects, often underestimated.",
+        "impact": "high"
+      },
+      {
+        "id": "scopeCreep",
+        "label": "Scope Creep",
+        "description": "Hidden driver: unapproved scope additions that increase cost and schedule.",
+        "impact": "high"
+      },
+      {
+        "id": "resourceAttrition",
+        "label": "Resource Attrition",
+        "description": "Hidden driver: loss of key personnel leading to productivity drops.",
+        "impact": "medium"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action1",
+        "label": "Implement Earned Value Management (EVM)",
+        "description": "Adopt EVM to track SPI and CPI monthly, enabling early corrective actions."
+      },
+      {
+        "id": "action2",
+        "label": "Scope Change Control Board",
+        "description": "Establish a formal change control board to evaluate and approve scope changes."
+      },
+      {
+        "id": "action3",
+        "label": "Quality Improvement Program",
+        "description": "Launch Six Sigma DMAIC project to reduce defect rate by 50% within 3 months."
+      },
+      {
+        "id": "action4",
+        "label": "Supplier Development Initiative",
+        "description": "Work with critical suppliers to improve reliability index to >0.95 through audits and training."
+      },
+      {
+        "id": "action5",
+        "label": "Risk Mitigation Reserve",
+        "description": "Allocate contingency reserve equal to 10% of planned cost for identified risks."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "dataConfidenceAdjusted",
+      "label": "Data Confidence Adjusted ORI",
+      "value": null,
+      "unit": "index",
+      "sourceFormula": "dataConfidenceAdjusted"
+    }
+  },
+  "toolName": "project-overrun-risk-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,85 @@
+{
+  "toolName": "ups-calculator",
+  "inputs": [
+    {
+      "id": "totalLoad",
+      "label": "Total Load",
+      "type": "number",
+      "unit": "W",
+      "default": 500,
+      "businessContext": "Total active power consumption of connected equipment (Watts)"
+    },
+    {
+      "id": "powerFactor",
+      "label": "Power Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "businessContext": "Power factor of the load (typically 0.7-0.9), ≤1"
+    },
+    {
+      "id": "requiredRuntime",
+      "label": "Required Runtime",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Required backup time in minutes during power outage"
+    },
+    {
+      "id": "inverterEfficiency",
+      "label": "Inverter Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Efficiency of the UPS inverter in converting DC to AC, typically 85-95%"
+    },
+    {
+      "id": "batteryVoltage",
+      "label": "Battery Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 12,
+      "businessContext": "DC system voltage of the battery bank (e.g., 12V, 24V, 48V)"
+    },
+    {
+      "id": "depthOfDischarge",
+      "label": "Depth of Discharge",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Maximum depth of discharge for battery, to prolong life (e.g., 50% for lead-acid)"
+    },
+    {
+      "id": "numberOfBatteries",
+      "label": "Number of Batteries in Parallel",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of identical batteries connected in parallel to share load"
+    }
+  ],
+  "formulas": {
+    "totalVA": "totalLoad / powerFactor",
+    "loadCurrent": "(totalLoad / powerFactor) / batteryVoltage",
+    "batteryWattHours": "(totalLoad * requiredRuntime) / 60",
+    "adjustedWattHours": "(totalLoad * requiredRuntime) / 60 / (inverterEfficiency / 100) / (depthOfDischarge / 100)",
+    "totalRequiredAh": "(((totalLoad * requiredRuntime) / 60) / ((inverterEfficiency / 100) * (depthOfDischarge / 100))) / batteryVoltage",
+    "perBatteryCapacityAh": "(((totalLoad * requiredRuntime) / 60) / ((inverterEfficiency / 100) * (depthOfDischarge / 100)) / batteryVoltage) / numberOfBatteries"
+  },
+  "outputs": {
+    "primary": "perBatteryCapacityAh",
+    "breakdown": [
+      "totalRequiredAh",
+      "totalVA",
+      "loadCurrent",
+      "batteryWattHours",
+      "adjustedWattHours"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

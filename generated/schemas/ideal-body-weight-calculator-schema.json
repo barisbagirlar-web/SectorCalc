@@ -1,0 +1,58 @@
+{
+  "toolName": "ideal-body-weight-calculator",
+  "inputs": [
+    {
+      "id": "heightFeet",
+      "label": "Height (feet)",
+      "type": "number",
+      "unit": "ft",
+      "default": 5,
+      "businessContext": "User's height in feet, whole number part"
+    },
+    {
+      "id": "heightInches",
+      "label": "Height (inches)",
+      "type": "number",
+      "unit": "in",
+      "default": 0,
+      "businessContext": "Additional inches beyond feet"
+    },
+    {
+      "id": "genderCode",
+      "label": "Gender",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for male, 2 for female"
+    },
+    {
+      "id": "frameFactor",
+      "label": "Frame Adjustment",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Body frame multiplier: 0.9 for small, 1.0 for medium, 1.1 for large"
+    }
+  ],
+  "formulas": {
+    "totalInches": "heightFeet * 12 + heightInches",
+    "ibwKgMale": "50 + 2.3 * (totalInches - 60)",
+    "ibwKgFemale": "45.5 + 2.3 * (totalInches - 60)",
+    "ibwKg": "genderCode == 1 ? ibwKgMale : ibwKgFemale",
+    "ibwKgAdjusted": "ibwKg * frameFactor",
+    "heightCm": "totalInches * 2.54"
+  },
+  "outputs": {
+    "primary": "ibwKgAdjusted",
+    "breakdown": [
+      "ibwKg",
+      "heightCm"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

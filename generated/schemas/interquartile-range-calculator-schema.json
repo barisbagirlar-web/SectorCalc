@@ -1,0 +1,71 @@
+{
+  "toolName": "interquartile-range-calculator",
+  "inputs": [
+    {
+      "id": "value1",
+      "label": "Değer 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Veri setindeki 1. değer"
+    },
+    {
+      "id": "value2",
+      "label": "Değer 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Veri setindeki 2. değer"
+    },
+    {
+      "id": "value3",
+      "label": "Değer 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Veri setindeki 3. değer"
+    },
+    {
+      "id": "value4",
+      "label": "Değer 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Veri setindeki 4. değer"
+    },
+    {
+      "id": "value5",
+      "label": "Değer 5",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Veri setindeki 5. değer"
+    },
+    {
+      "id": "value6",
+      "label": "Değer 6",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Veri setindeki 6. değer"
+    }
+  ],
+  "formulas": {
+    "iqr": "[value1,value2,value3,value4,value5,value6].sort((a,b)=>a-b)[4] - [value1,value2,value3,value4,value5,value6].sort((a,b)=>a-b)[1]",
+    "q1": "[value1,value2,value3,value4,value5,value6].sort((a,b)=>a-b)[1]",
+    "q3": "[value1,value2,value3,value4,value5,value6].sort((a,b)=>a-b)[4]"
+  },
+  "outputs": {
+    "primary": "iqr",
+    "breakdown": [
+      "q1",
+      "q3"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,39 @@
+{
+  "toolName": "abv-calculator",
+  "inputs": [
+    {
+      "id": "og",
+      "label": "Original Gravity (OG)",
+      "type": "number",
+      "unit": "SG",
+      "default": 1.05,
+      "businessContext": "Specific gravity reading before fermentation begins"
+    },
+    {
+      "id": "fg",
+      "label": "Final Gravity (FG)",
+      "type": "number",
+      "unit": "SG",
+      "default": 1.01,
+      "businessContext": "Specific gravity reading after fermentation completes"
+    }
+  ],
+  "formulas": {
+    "gravityPointsDrop": "og - fg",
+    "abv": "(og - fg) * 131.25"
+  },
+  "outputs": {
+    "primary": "abv",
+    "breakdown": [
+      "og",
+      "fg",
+      "gravityPointsDrop"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

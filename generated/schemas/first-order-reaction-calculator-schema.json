@@ -1,0 +1,67 @@
+{
+  "toolName": "first-order-reaction-calculator",
+  "inputs": [
+    {
+      "id": "c0",
+      "label": "Initial Concentration (C₀)",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 1,
+      "businessContext": "Başlangıç konsantrasyonu (mol/L cinsinden)"
+    },
+    {
+      "id": "k",
+      "label": "Rate Constant (k)",
+      "type": "number",
+      "unit": "1/s",
+      "default": 0.1,
+      "businessContext": "Birinci derece reaksiyon hız sabiti (s⁻¹ cinsinden)"
+    },
+    {
+      "id": "t",
+      "label": "Time (t)",
+      "type": "number",
+      "unit": "s",
+      "default": 10,
+      "businessContext": "Reaksiyon süresi (saniye cinsinden)"
+    },
+    {
+      "id": "order",
+      "label": "Reaction Order",
+      "type": "number",
+      "unit": "–",
+      "default": 1,
+      "businessContext": "Reaksiyon mertebesi (birinci derece için sabit 1)"
+    }
+  ],
+  "formulas": {
+    "c": "c0 * Math.exp(-k * t)",
+    "halfLife": "Math.log(2) / k",
+    "conversion": "((c0 - c) / c0) * 100"
+  },
+  "outputs": {
+    "primary": {
+      "id": "c",
+      "label": "Final Concentration (C)",
+      "unit": "mol/L"
+    },
+    "breakdown": [
+      {
+        "id": "halfLife",
+        "label": "Half-Life (t₁/₂)",
+        "unit": "s"
+      },
+      {
+        "id": "conversion",
+        "label": "Conversion",
+        "unit": "%"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

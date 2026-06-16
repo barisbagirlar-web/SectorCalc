@@ -1,0 +1,92 @@
+{
+  "toolName": "education-savings-calculator",
+  "inputs": [
+    {
+      "id": "childAge",
+      "label": "Current Age of Child",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Age of the child to plan savings for education"
+    },
+    {
+      "id": "yearsUntilCollege",
+      "label": "Years Until College Starts",
+      "type": "number",
+      "unit": "years",
+      "default": 13,
+      "businessContext": "Number of years remaining before the child begins college"
+    },
+    {
+      "id": "annualCost",
+      "label": "Current Annual Cost of Education",
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "businessContext": "Today's annual tuition and related expenses"
+    },
+    {
+      "id": "inflationRate",
+      "label": "Education Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Expected annual increase in education costs"
+    },
+    {
+      "id": "returnRate",
+      "label": "Expected Investment Return Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Annual rate of return on savings investments"
+    },
+    {
+      "id": "currentSavings",
+      "label": "Current Savings Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "businessContext": "Existing savings earmarked for education"
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Monthly Contribution Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 200,
+      "businessContext": "Regular monthly savings contribution until college begins"
+    },
+    {
+      "id": "durationOfStudy",
+      "label": "Duration of Study",
+      "type": "number",
+      "unit": "years",
+      "default": 4,
+      "businessContext": "Expected number of years the child will attend college"
+    }
+  ],
+  "formulas": {
+    "totalCost": "annualCost * Math.pow(1 + inflationRate/100, yearsUntilCollege) * (Math.pow(1 + inflationRate/100, durationOfStudy) - 1) / (inflationRate/100)",
+    "totalSavings": "currentSavings * Math.pow(1 + returnRate/100, yearsUntilCollege) + (monthlyContribution * 12) * ((Math.pow(1 + returnRate/100, yearsUntilCollege) - 1) / (returnRate/100))",
+    "shortfall": "totalCost - totalSavings",
+    "primary": "`${shortfall > 0 ? 'Shortfall' : 'Surplus'}: $${Math.abs(shortfall).toFixed(2)}`",
+    "breakdown": [
+      "`Total future cost: $${totalCost.toFixed(2)}`",
+      "`Total savings: $${totalSavings.toFixed(2)}`"
+    ]
+  },
+  "outputs": {
+    "primary": "${primary}",
+    "breakdown": [
+      "${breakdown[0]}",
+      "${breakdown[1]}"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,53 @@
+{
+  "toolName": "violin-string-calculator",
+  "inputs": [
+    {
+      "id": "scaleLength",
+      "label": "Scale Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0.33,
+      "businessContext": "The vibrating length of the string from nut to bridge, typically 0.33 m for a full-size violin."
+    },
+    {
+      "id": "frequency",
+      "label": "Desired Pitch Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 440,
+      "businessContext": "Frequency of the desired pitch, e.g., A4 = 440 Hz."
+    },
+    {
+      "id": "stringDiameter",
+      "label": "String Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0.0005,
+      "businessContext": "Diameter of the string, e.g., 0.5 mm = 0.0005 m."
+    },
+    {
+      "id": "materialDensity",
+      "label": "Material Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7800,
+      "businessContext": "Density of the string material, e.g., gut ~1000 kg/m³, steel ~7800 kg/m³."
+    }
+  ],
+  "formulas": {
+    "linearDensity": "Math.PI * (inputs.stringDiameter / 2) ** 2 * inputs.materialDensity",
+    "tension": "(2 * inputs.scaleLength * inputs.frequency) ** 2 * linearDensity"
+  },
+  "outputs": {
+    "primary": "tension",
+    "breakdown": [
+      "linearDensity"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Atölye & Tamir",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

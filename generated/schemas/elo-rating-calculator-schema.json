@@ -1,0 +1,55 @@
+{
+  "toolName": "elo-rating-calculator",
+  "inputs": [
+    {
+      "id": "ratingA",
+      "label": "Player A Rating",
+      "type": "number",
+      "unit": "Elo",
+      "default": 1200,
+      "businessContext": "Current Elo rating of player A."
+    },
+    {
+      "id": "ratingB",
+      "label": "Player B Rating",
+      "type": "number",
+      "unit": "Elo",
+      "default": 1200,
+      "businessContext": "Current Elo rating of player B."
+    },
+    {
+      "id": "scoreA",
+      "label": "Score for Player A",
+      "type": "number",
+      "unit": "score",
+      "default": 0.5,
+      "businessContext": "Match score for player A: 1 = win, 0.5 = draw, 0 = loss."
+    },
+    {
+      "id": "kFactor",
+      "label": "K-factor",
+      "type": "number",
+      "unit": "factor",
+      "default": 32,
+      "businessContext": "Development coefficient (e.g., 32 for amateurs, 16 for professionals)."
+    }
+  ],
+  "formulas": {
+    "expectedScore": "1 / (1 + 10 ** ((ratingB - ratingA) / 400))",
+    "ratingChange": "kFactor * (scoreA - expectedScore)",
+    "newRating": "ratingA + ratingChange"
+  },
+  "outputs": {
+    "primary": "newRating",
+    "breakdown": [
+      "expectedScore",
+      "ratingChange"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

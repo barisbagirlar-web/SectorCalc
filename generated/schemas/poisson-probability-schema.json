@@ -1,0 +1,46 @@
+{
+  "toolName": "poisson-probability",
+  "inputs": [
+    {
+      "id": "lambda",
+      "label": "Ortalama Olay Sayısı (λ)",
+      "type": "number",
+      "unit": "adet",
+      "default": 5,
+      "businessContext": "Belirli bir zaman aralığında beklenen ortalama olay sayısı"
+    },
+    {
+      "id": "k",
+      "label": "Hedef Olay Sayısı (k)",
+      "type": "number",
+      "unit": "adet",
+      "default": 3,
+      "businessContext": "Olasılığı hesaplanacak tam olay sayısı"
+    },
+    {
+      "id": "kumulatif",
+      "label": "Kümülatif (k veya daha az)",
+      "type": "number",
+      "unit": "adet",
+      "default": 3,
+      "businessContext": "Kümülatif olasılık için üst sınır (k dahil)"
+    }
+  ],
+  "formulas": {
+    "tamOlasilik": "Math.exp(-lambda) * Math.pow(lambda, k) / (k === 0 ? 1 : (() => { let f = 1; for (let i = 2; i <= k; i++) f *= i; return f; })())",
+    "kumulatifOlasilik": "(() => { let sum = 0; for (let i = 0; i <= kumulatif; i++) { sum += Math.exp(-lambda) * Math.pow(lambda, i) / (i === 0 ? 1 : (() => { let f = 1; for (let j = 2; j <= i; j++) f *= j; return f; })()); } return sum; })()"
+  },
+  "outputs": {
+    "primary": "P(X = k) = {tamOlasilik}",
+    "breakdown": [
+      "P(X ≤ k) = {kumulatifOlasilik}",
+      "λ = {lambda}, k = {k}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

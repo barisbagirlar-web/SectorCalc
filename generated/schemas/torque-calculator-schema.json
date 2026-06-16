@@ -1,0 +1,53 @@
+{
+  "toolName": "torque-calculator",
+  "inputs": [
+    {
+      "id": "coefficient_c",
+      "label": "Torque Coefficient (c)",
+      "type": "number",
+      "unit": "-",
+      "default": 0.2,
+      "businessContext": "Nut factor or torque coefficient, typically 0.2 for dry threads"
+    },
+    {
+      "id": "diameter_mm",
+      "label": "Bolt Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Nominal diameter of the bolt"
+    },
+    {
+      "id": "tension_kn",
+      "label": "Target Clamp Load",
+      "type": "number",
+      "unit": "kN",
+      "default": 50,
+      "businessContext": "Desired tension force in the bolt"
+    },
+    {
+      "id": "safety_factor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "-",
+      "default": 1.2,
+      "businessContext": "Multiplier to ensure clamping under uncertainty"
+    }
+  ],
+  "formulas": {
+    "torque_nm": "coefficient_c * diameter_mm * tension_kn * safety_factor",
+    "torque_without_safety": "coefficient_c * diameter_mm * tension_kn"
+  },
+  "outputs": {
+    "primary": "torque_nm Nm",
+    "breakdown": [
+      "torque_without_safety Nm"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

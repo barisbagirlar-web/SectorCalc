@@ -1,0 +1,57 @@
+{
+  "toolName": "cmyk-to-rgb-converter-calculator",
+  "inputs": [
+    {
+      "id": "c",
+      "label": "Cyan (C)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Cyan ink percentage (0–100)."
+    },
+    {
+      "id": "m",
+      "label": "Magenta (M)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Magenta ink percentage (0–100)."
+    },
+    {
+      "id": "y",
+      "label": "Yellow (Y)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Yellow ink percentage (0–100)."
+    },
+    {
+      "id": "k",
+      "label": "Key / Black (K)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Black ink percentage (0–100)."
+    }
+  ],
+  "formulas": {
+    "R": "255 * (1 - c / 100) * (1 - k / 100)",
+    "G": "255 * (1 - m / 100) * (1 - k / 100)",
+    "B": "255 * (1 - y / 100) * (1 - k / 100)",
+    "grayscale": "0.299 * R + 0.587 * G + 0.114 * B"
+  },
+  "outputs": {
+    "primary": "grayscale",
+    "breakdown": [
+      "R",
+      "G",
+      "B"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

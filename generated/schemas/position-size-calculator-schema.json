@@ -1,0 +1,55 @@
+{
+  "toolName": "position-size-calculator",
+  "inputs": [
+    {
+      "id": "accountBalance",
+      "label": "Account Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Total capital available for trading"
+    },
+    {
+      "id": "riskPercent",
+      "label": "Risk Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Maximum percentage of account to risk per trade"
+    },
+    {
+      "id": "entryPrice",
+      "label": "Entry Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "Price at which the trade is entered"
+    },
+    {
+      "id": "stopLossPrice",
+      "label": "Stop Loss Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 95,
+      "businessContext": "Price at which the trade will be exited to limit loss"
+    }
+  ],
+  "formulas": {
+    "riskAmount": "accountBalance * (riskPercent / 100)",
+    "priceRiskPerShare": "Math.abs(entryPrice - stopLossPrice)",
+    "positionSize": "Math.floor(riskAmount / priceRiskPerShare)"
+  },
+  "outputs": {
+    "primary": "positionSize",
+    "breakdown": [
+      "riskAmount",
+      "priceRiskPerShare"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

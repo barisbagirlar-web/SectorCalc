@@ -1,0 +1,66 @@
+{
+  "toolName": "purchasing-power-calculator",
+  "inputs": [
+    {
+      "id": "initialIncome",
+      "label": "Initial Income",
+      "type": "number",
+      "unit": "currency",
+      "default": 50000,
+      "businessContext": "The nominal income or amount to evaluate."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Annual Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2.5,
+      "businessContext": "Average annual inflation rate."
+    },
+    {
+      "id": "fromYear",
+      "label": "From Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2020,
+      "businessContext": "Base year of the income."
+    },
+    {
+      "id": "toYear",
+      "label": "To Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2025,
+      "businessContext": "Target year for purchasing power comparison."
+    },
+    {
+      "id": "compoundFrequency",
+      "label": "Compounding Frequency",
+      "type": "number",
+      "unit": "periods/year",
+      "default": 1,
+      "businessContext": "Number of times inflation compounds per year (1 for annual, 12 for monthly)."
+    }
+  ],
+  "formulas": {
+    "nYears": "toYear - fromYear",
+    "periodRate": "inflationRate / 100 / compoundFrequency",
+    "totalPeriods": "compoundFrequency * (toYear - fromYear)",
+    "inflationFactor": "(1 + inflationRate / 100 / compoundFrequency) ** (compoundFrequency * (toYear - fromYear))",
+    "adjustedPurchasingPower": "initialIncome / ((1 + inflationRate / 100 / compoundFrequency) ** (compoundFrequency * (toYear - fromYear)))",
+    "purchasingPowerLoss": "initialIncome - (initialIncome / ((1 + inflationRate / 100 / compoundFrequency) ** (compoundFrequency * (toYear - fromYear))))"
+  },
+  "outputs": {
+    "primary": "adjustedPurchasingPower",
+    "breakdown": [
+      "adjustedPurchasingPower",
+      "purchasingPowerLoss"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "roofing-square-calculator",
+  "inputs": [
+    {
+      "id": "roofLength",
+      "label": "Çatı Uzunluğu",
+      "type": "number",
+      "unit": "ft",
+      "default": 30,
+      "businessContext": "Çatı taban alanının uzun kenarı"
+    },
+    {
+      "id": "roofWidth",
+      "label": "Çatı Genişliği",
+      "type": "number",
+      "unit": "ft",
+      "default": 20,
+      "businessContext": "Çatı taban alanının kısa kenarı"
+    },
+    {
+      "id": "pitchAngle",
+      "label": "Çatı Eğim Açısı",
+      "type": "number",
+      "unit": "derece",
+      "default": 20,
+      "businessContext": "Çatı eğim açısı, yatay düzleme göre"
+    },
+    {
+      "id": "wastePercent",
+      "label": "Fire Yüzdesi",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Kesim ve hata payı için eklenen fire oranı"
+    }
+  ],
+  "formulas": {
+    "roofArea": "roofLength * roofWidth * (1 / Math.cos(pitchAngle * Math.PI / 180))",
+    "wasteArea": "roofArea * (wastePercent / 100)",
+    "totalArea": "roofArea + wasteArea",
+    "roofingSquares": "totalArea / 100"
+  },
+  "outputs": {
+    "primary": "roofingSquares",
+    "breakdown": [
+      "roofArea",
+      "wasteArea",
+      "totalArea"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

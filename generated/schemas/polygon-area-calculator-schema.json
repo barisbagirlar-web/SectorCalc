@@ -1,0 +1,87 @@
+{
+  "toolName": "polygon-area-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "X₁",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "X-coordinate of vertex 1"
+    },
+    {
+      "id": "y1",
+      "label": "Y₁",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y-coordinate of vertex 1"
+    },
+    {
+      "id": "x2",
+      "label": "X₂",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "X-coordinate of vertex 2"
+    },
+    {
+      "id": "y2",
+      "label": "Y₂",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y-coordinate of vertex 2"
+    },
+    {
+      "id": "x3",
+      "label": "X₃",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "X-coordinate of vertex 3"
+    },
+    {
+      "id": "y3",
+      "label": "Y₃",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y-coordinate of vertex 3"
+    },
+    {
+      "id": "x4",
+      "label": "X₄",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "X-coordinate of vertex 4"
+    },
+    {
+      "id": "y4",
+      "label": "Y₄",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y-coordinate of vertex 4"
+    }
+  ],
+  "formulas": {
+    "sum1": "x1 * y2 + x2 * y3 + x3 * y4 + x4 * y1",
+    "sum2": "y1 * x2 + y2 * x3 + y3 * x4 + y4 * x1",
+    "area": "0.5 * Math.sqrt((sum1 - sum2) ** 2)"
+  },
+  "outputs": {
+    "primary": "area",
+    "breakdown": [
+      "sum1",
+      "sum2"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

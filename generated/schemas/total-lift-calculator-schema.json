@@ -1,0 +1,75 @@
+{
+  "toolName": "total-lift-calculator",
+  "inputs": [
+    {
+      "id": "loadMass",
+      "label": "Load Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Weight of the object to be lifted"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Safety margin to ensure reliable lifting (e.g., 1.5 for general lifting)"
+    },
+    {
+      "id": "liftPoints",
+      "label": "Number of Lifting Points",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of ropes, chains, or hydraulic cylinders sharing the load"
+    },
+    {
+      "id": "angleFromVertical",
+      "label": "Angle from Vertical",
+      "type": "number",
+      "unit": "deg",
+      "default": 0,
+      "businessContext": "Angle of the lifting sling from vertical; 0° means straight vertical lift"
+    },
+    {
+      "id": "dynamicFactor",
+      "label": "Dynamic Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.1,
+      "businessContext": "Multiplier to account for acceleration and deceleration forces during lifting"
+    },
+    {
+      "id": "gravity",
+      "label": "Gravity",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Acceleration due to gravity; standard Earth gravity is 9.81 m/s²"
+    }
+  ],
+  "formulas": {
+    "staticLoadForce": "loadMass * gravity * safetyFactor",
+    "dynamicTotalForce": "staticLoadForce * dynamicFactor",
+    "angleFactor": "1 / Math.cos(angleFromVertical * Math.PI / 180)",
+    "pointsFactor": "1 / liftPoints",
+    "requiredLiftForce": "dynamicTotalForce * angleFactor * pointsFactor"
+  },
+  "outputs": {
+    "primary": "requiredLiftForce",
+    "breakdown": [
+      "staticLoadForce",
+      "dynamicTotalForce",
+      "angleFactor",
+      "pointsFactor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

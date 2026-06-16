@@ -1,0 +1,89 @@
+{
+  "toolName": "active-earth-pressure-calculator",
+  "inputs": [
+    {
+      "id": "height",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Vertical height of retaining wall from base to top of backfill"
+    },
+    {
+      "id": "unitWeight",
+      "label": "Soil Unit Weight",
+      "type": "number",
+      "unit": "kN/m³",
+      "default": 18,
+      "businessContext": "Unit weight of backfill soil (γ)"
+    },
+    {
+      "id": "frictionAngle",
+      "label": "Friction Angle",
+      "type": "number",
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Internal friction angle of backfill soil (φ)"
+    },
+    {
+      "id": "cohesion",
+      "label": "Cohesion",
+      "type": "number",
+      "unit": "kPa",
+      "default": 10,
+      "businessContext": "Cohesion intercept of backfill soil (c)"
+    },
+    {
+      "id": "surcharge",
+      "label": "Surcharge",
+      "type": "number",
+      "unit": "kPa",
+      "default": 0,
+      "businessContext": "Uniform surcharge load applied at top of backfill (q)"
+    }
+  ],
+  "formulas": {
+    "ka": "Math.tan(Math.PI/4 - (frictionAngle * Math.PI/180) / 2) ** 2",
+    "z0": "(2 * cohesion) / (unitWeight * Math.sqrt(ka))",
+    "sigmaBase": "Math.max(0, ka * (unitWeight * height + surcharge) - 2 * cohesion * Math.sqrt(ka))",
+    "totalForce": "height > z0 ? 0.5 * sigmaBase * (height - z0) : 0"
+  },
+  "outputs": {
+    "primary": {
+      "id": "totalForce",
+      "label": "Total Active Force",
+      "unit": "kN/m",
+      "precision": 2,
+      "businessContext": "Total horizontal active earth pressure force per unit length of wall"
+    },
+    "breakdown": [
+      {
+        "id": "ka",
+        "label": "Active Pressure Coefficient",
+        "unit": "",
+        "precision": 4,
+        "businessContext": "Rankine active earth pressure coefficient (Ka)"
+      },
+      {
+        "id": "z0",
+        "label": "Tension Crack Depth",
+        "unit": "m",
+        "precision": 2,
+        "businessContext": "Depth of tension crack from top of backfill (z₀)"
+      },
+      {
+        "id": "sigmaBase",
+        "label": "Active Pressure at Base",
+        "unit": "kPa",
+        "precision": 2,
+        "businessContext": "Horizontal active earth pressure at wall base"
+      }
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

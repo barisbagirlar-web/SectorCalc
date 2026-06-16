@@ -1,0 +1,55 @@
+{
+  "toolName": "number-of-stages-calculator",
+  "inputs": [
+    {
+      "id": "p_in",
+      "label": "Inlet Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 1,
+      "businessContext": "Suction pressure at compressor inlet"
+    },
+    {
+      "id": "p_out",
+      "label": "Outlet Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 10,
+      "businessContext": "Discharge pressure required"
+    },
+    {
+      "id": "r_max",
+      "label": "Max Pressure Ratio per Stage",
+      "type": "number",
+      "unit": "",
+      "default": 3.5,
+      "businessContext": "Maximum allowable pressure ratio for a single stage based on compressor type"
+    },
+    {
+      "id": "safety_factor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.1,
+      "businessContext": "Factor to oversize number of stages for reliability, typically 1.05-1.2"
+    }
+  ],
+  "formulas": {
+    "overallPR": "p_out / p_in",
+    "stagesExact": "safety_factor * Math.log(p_out/p_in) / Math.log(r_max)",
+    "stages": "Math.ceil(safety_factor * Math.log(p_out/p_in) / Math.log(r_max))"
+  },
+  "outputs": {
+    "primary": "stages",
+    "breakdown": [
+      "overallPR",
+      "stagesExact"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

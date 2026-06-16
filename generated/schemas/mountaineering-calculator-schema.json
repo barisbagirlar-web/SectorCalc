@@ -1,0 +1,72 @@
+{
+  "toolName": "mountaineering-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "Horizontal distance of the climbing route"
+    },
+    {
+      "id": "elevationGain",
+      "label": "Elevation Gain",
+      "type": "number",
+      "unit": "m",
+      "default": 800,
+      "businessContext": "Total vertical ascent of the route"
+    },
+    {
+      "id": "flatSpeed",
+      "label": "Flat Walking Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 5,
+      "businessContext": "Average horizontal speed on flat terrain"
+    },
+    {
+      "id": "ascentPace",
+      "label": "Ascent Pace",
+      "type": "number",
+      "unit": "m/h",
+      "default": 600,
+      "businessContext": "Vertical ascent speed in meters per hour"
+    },
+    {
+      "id": "difficultyMultiplier",
+      "label": "Difficulty Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Terrain difficulty factor (e.g. 1.0 for easy, 1.5 for rough)"
+    },
+    {
+      "id": "safetyMarginPercent",
+      "label": "Safety Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Additional time percentage for rests and contingencies"
+    }
+  ],
+  "formulas": {
+    "flatTime": "distance / flatSpeed",
+    "ascentTime": "elevationGain / ascentPace",
+    "baseTime": "flatTime + ascentTime",
+    "totalTime": "baseTime * difficultyMultiplier * (1 + safetyMarginPercent / 100)"
+  },
+  "outputs": {
+    "primary": "totalTime",
+    "breakdown": [
+      "flatTime",
+      "ascentTime"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

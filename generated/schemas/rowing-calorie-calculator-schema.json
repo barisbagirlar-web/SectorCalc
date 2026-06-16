@@ -1,0 +1,57 @@
+{
+  "toolName": "rowing-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User's body weight in kilograms"
+    },
+    {
+      "id": "active_duration",
+      "label": "Active Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 30,
+      "businessContext": "Duration of active rowing in minutes"
+    },
+    {
+      "id": "rest_duration",
+      "label": "Rest Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 5,
+      "businessContext": "Duration of rest intervals in minutes"
+    },
+    {
+      "id": "met",
+      "label": "MET Value",
+      "type": "number",
+      "unit": "MET",
+      "default": 7,
+      "businessContext": "Metabolic Equivalent of Task for rowing intensity"
+    }
+  ],
+  "formulas": {
+    "active_hours": "active_duration / 60",
+    "rest_hours": "rest_duration / 60",
+    "calories_active": "met * weight * active_hours",
+    "calories_rest": "1.0 * weight * rest_hours",
+    "total_calories": "calories_active + calories_rest"
+  },
+  "outputs": {
+    "primary": "total_calories",
+    "breakdown": [
+      "calories_active",
+      "calories_rest"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

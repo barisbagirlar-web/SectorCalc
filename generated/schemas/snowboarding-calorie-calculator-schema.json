@@ -1,0 +1,65 @@
+{
+  "toolName": "snowboarding-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User's body weight directly influences energy expenditure; heavier individuals burn more calories."
+    },
+    {
+      "id": "duration",
+      "label": "Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 60,
+      "businessContext": "Time spent actively snowboarding; longer duration increases total calorie burn."
+    },
+    {
+      "id": "intensity",
+      "label": "Intensity Level",
+      "type": "number",
+      "unit": "scale 1-10",
+      "default": 5,
+      "businessContext": "Perceived exertion from 1 (very light, like easy cruising) to 10 (extreme, like aggressive carving or backcountry); used to derive metabolic equivalent (MET)."
+    },
+    {
+      "id": "altitude",
+      "label": "Altitude",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Above sea level altitude of the snowboarding location; higher altitude increases metabolic rate due to reduced oxygen availability."
+    },
+    {
+      "id": "correctionFactor",
+      "label": "Correction Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Personal adjustment factor to account for individual metabolic variations (e.g., fitness level, genetics); typical range 0.8–1.2."
+    }
+  ],
+  "formulas": {
+    "met": "4.0 + intensity * 0.4",
+    "altFactor": "1 + altitude * 0.00002",
+    "baseCalories": "weight * met * (duration / 60)",
+    "caloriesBurned": "baseCalories * altFactor * correctionFactor"
+  },
+  "outputs": {
+    "primary": "caloriesBurned",
+    "breakdown": [
+      "met",
+      "altFactor",
+      "baseCalories"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

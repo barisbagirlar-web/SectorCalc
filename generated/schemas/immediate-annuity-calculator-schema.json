@@ -1,0 +1,57 @@
+{
+  "toolName": "immediate-annuity-calculator",
+  "inputs": [
+    {
+      "id": "principalAmount",
+      "label": "Principal Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 100000,
+      "businessContext": "The lump sum invested to purchase the immediate annuity."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Expected annual interest rate or discount rate."
+    },
+    {
+      "id": "paymentPeriodsPerYear",
+      "label": "Payments per Year",
+      "type": "number",
+      "unit": "count",
+      "default": 12,
+      "businessContext": "Number of annuity payments per year (e.g., 12 for monthly)."
+    },
+    {
+      "id": "years",
+      "label": "Number of Years",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "Total duration of the annuity in years."
+    }
+  ],
+  "formulas": {
+    "periodRate": "annualInterestRate / 100 / paymentPeriodsPerYear",
+    "totalPeriods": "years * paymentPeriodsPerYear",
+    "paymentAmount": "principalAmount * periodRate / (1 - Math.pow(1 + periodRate, -totalPeriods))",
+    "totalPayout": "paymentAmount * totalPeriods",
+    "totalInterest": "totalPayout - principalAmount"
+  },
+  "outputs": {
+    "primary": "paymentAmount",
+    "breakdown": [
+      "totalPayout",
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

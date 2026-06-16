@@ -1,0 +1,95 @@
+{
+  "toolName": "event-catering-calculator",
+  "inputs": [
+    {
+      "id": "numberOfGuests",
+      "label": "Number of Guests",
+      "type": "number",
+      "unit": "guests",
+      "default": 100,
+      "businessContext": "Expected total number of attendees for the event."
+    },
+    {
+      "id": "costPerPlate",
+      "label": "Cost per Plate",
+      "type": "number",
+      "unit": "USD",
+      "default": 15,
+      "businessContext": "Direct food and beverage cost per guest, including ingredients and preparation."
+    },
+    {
+      "id": "serviceStaff",
+      "label": "Service Staff",
+      "type": "number",
+      "unit": "persons",
+      "default": 5,
+      "businessContext": "Number of waitstaff and service personnel required."
+    },
+    {
+      "id": "staffHourlyRate",
+      "label": "Staff Hourly Rate",
+      "type": "number",
+      "unit": "USD/hr",
+      "default": 20,
+      "businessContext": "Hourly wage per service staff, including benefits and taxes."
+    },
+    {
+      "id": "eventDurationHours",
+      "label": "Event Duration",
+      "type": "number",
+      "unit": "hours",
+      "default": 4,
+      "businessContext": "Total duration of the event from setup to teardown."
+    },
+    {
+      "id": "overheadFixed",
+      "label": "Fixed Overhead",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "businessContext": "Fixed costs such as equipment rental, insurance, permits, and transportation."
+    },
+    {
+      "id": "profitMarginPercent",
+      "label": "Profit Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Desired markup percentage on total cost to ensure profitability."
+    },
+    {
+      "id": "taxRatePercent",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "businessContext": "Applicable sales tax or VAT percentage on the subtotal."
+    }
+  ],
+  "formulas": {
+    "totalFoodCost": "numberOfGuests * costPerPlate",
+    "totalStaffCost": "serviceStaff * staffHourlyRate * eventDurationHours",
+    "totalVariableCost": "totalFoodCost + totalStaffCost",
+    "totalFixedCost": "overheadFixed",
+    "subtotal": "totalVariableCost + totalFixedCost",
+    "taxAmount": "subtotal * (taxRatePercent / 100)",
+    "totalCost": "subtotal + taxAmount",
+    "revenueRequired": "totalCost * (1 + profitMarginPercent / 100)",
+    "pricePerPlate": "revenueRequired / numberOfGuests"
+  },
+  "outputs": {
+    "primary": "pricePerPlate",
+    "breakdown": [
+      "totalFoodCost",
+      "totalStaffCost",
+      "totalCost",
+      "revenueRequired"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

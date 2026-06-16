@@ -1,0 +1,57 @@
+{
+  "toolName": "rowing-split-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 2000,
+      "businessContext": "Total rowing distance in meters"
+    },
+    {
+      "id": "hours",
+      "label": "Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 0,
+      "businessContext": "Hours component of total time"
+    },
+    {
+      "id": "minutes",
+      "label": "Minutes",
+      "type": "number",
+      "unit": "min",
+      "default": 7,
+      "businessContext": "Minutes component of total time"
+    },
+    {
+      "id": "seconds",
+      "label": "Seconds",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Seconds component of total time"
+    }
+  ],
+  "formulas": {
+    "splitPer500m": "(hours * 3600 + minutes * 60 + seconds) / distance * 500",
+    "pacePer100m": "(hours * 3600 + minutes * 60 + seconds) / distance * 100",
+    "speedMs": "distance / (hours * 3600 + minutes * 60 + seconds)",
+    "totalTimeSeconds": "hours * 3600 + minutes * 60 + seconds"
+  },
+  "outputs": {
+    "primary": "splitPer500m",
+    "breakdown": [
+      "pacePer100m",
+      "speedMs",
+      "totalTimeSeconds"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

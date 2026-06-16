@@ -1,0 +1,57 @@
+{
+  "toolName": "conversion-rate-calculator",
+  "inputs": [
+    {
+      "id": "rawMaterialInput",
+      "label": "Raw Material Input",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Amount of raw material entering the process"
+    },
+    {
+      "id": "finishedProductOutput",
+      "label": "Finished Product Output",
+      "type": "number",
+      "unit": "kg",
+      "default": 900,
+      "businessContext": "Amount of acceptable finished product output"
+    },
+    {
+      "id": "reworkOutput",
+      "label": "Rework Output",
+      "type": "number",
+      "unit": "kg",
+      "default": 50,
+      "businessContext": "Product that needed rework but became acceptable"
+    },
+    {
+      "id": "scrap",
+      "label": "Scrap",
+      "type": "number",
+      "unit": "kg",
+      "default": 50,
+      "businessContext": "Waste material that cannot be used"
+    }
+  ],
+  "formulas": {
+    "overallConversionRate": "((finishedProductOutput + reworkOutput) / rawMaterialInput) * 100",
+    "yield": "(finishedProductOutput / rawMaterialInput) * 100",
+    "reworkRate": "(reworkOutput / rawMaterialInput) * 100",
+    "scrapRate": "(scrap / rawMaterialInput) * 100"
+  },
+  "outputs": {
+    "primary": "overallConversionRate",
+    "breakdown": [
+      "yield",
+      "reworkRate",
+      "scrapRate"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "american-odds-calculator",
+  "inputs": [
+    {
+      "id": "mode",
+      "label": "Calculation Mode",
+      "type": "number",
+      "unit": "none",
+      "default": 0,
+      "businessContext": "0 = Calculate Payout, 1 = Calculate Required Wager"
+    },
+    {
+      "id": "americanOdds",
+      "label": "American Odds",
+      "type": "number",
+      "unit": "none",
+      "default": -110,
+      "businessContext": "Negative for favorites, positive for underdogs"
+    },
+    {
+      "id": "wager",
+      "label": "Wager Amount ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 100,
+      "businessContext": "Amount bet (used in mode 0 for profit calculation, and always for breakdown)"
+    },
+    {
+      "id": "desiredProfit",
+      "label": "Desired Profit ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 100,
+      "businessContext": "Target profit when mode is 1"
+    }
+  ],
+  "formulas": {
+    "profit": "americanOdds > 0 ? wager * americanOdds / 100 : wager * 100 / Math.abs(americanOdds)",
+    "payout": "wager + profit",
+    "impliedProbability": "americanOdds > 0 ? 100 / (americanOdds + 100) : Math.abs(americanOdds) / (Math.abs(americanOdds) + 100)",
+    "requiredWager": "americanOdds > 0 ? desiredProfit * 100 / americanOdds : desiredProfit * Math.abs(americanOdds) / 100",
+    "result": "mode === 0 ? profit : requiredWager"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": [
+      "impliedProbability",
+      "payout"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

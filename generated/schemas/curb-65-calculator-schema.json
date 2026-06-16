@@ -1,0 +1,77 @@
+{
+  "toolName": "curb-65-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 0,
+      "businessContext": "Patient age in years"
+    },
+    {
+      "id": "confusion",
+      "label": "Confusion",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "New onset confusion (1=Yes, 0=No)"
+    },
+    {
+      "id": "urea",
+      "label": "Blood Urea Nitrogen",
+      "type": "number",
+      "unit": "mmol/L",
+      "default": 0,
+      "businessContext": "Serum urea level in mmol/L"
+    },
+    {
+      "id": "respiratoryRate",
+      "label": "Respiratory Rate",
+      "type": "number",
+      "unit": "breaths/min",
+      "default": 0,
+      "businessContext": "Respiratory rate in breaths per minute"
+    },
+    {
+      "id": "systolicBP",
+      "label": "Systolic Blood Pressure",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 0,
+      "businessContext": "Systolic blood pressure in mmHg"
+    },
+    {
+      "id": "diastolicBP",
+      "label": "Diastolic Blood Pressure",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 0,
+      "businessContext": "Diastolic blood pressure in mmHg"
+    }
+  ],
+  "formulas": {
+    "score": "ageScore + confusionScore + ureaScore + respiratoryScore + bpScore",
+    "ageScore": "(age >= 65) ? 1 : 0",
+    "confusionScore": "(confusion === 1) ? 1 : 0",
+    "ureaScore": "(urea > 7) ? 1 : 0",
+    "respiratoryScore": "(respiratoryRate >= 30) ? 1 : 0",
+    "bpScore": "(systolicBP < 90 || diastolicBP <= 60) ? 1 : 0"
+  },
+  "outputs": {
+    "primary": "score",
+    "breakdown": [
+      "ageScore",
+      "confusionScore",
+      "ureaScore",
+      "respiratoryScore",
+      "bpScore"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

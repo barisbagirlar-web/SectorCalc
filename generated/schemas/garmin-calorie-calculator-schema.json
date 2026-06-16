@@ -1,0 +1,72 @@
+{
+  "toolName": "garmin-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight of the user in kilograms."
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Height of the user in centimeters."
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the user in years."
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "0=Female,1=Male",
+      "default": 1,
+      "businessContext": "Biological gender: 0 for female, 1 for male."
+    },
+    {
+      "id": "duration",
+      "label": "Activity Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 30,
+      "businessContext": "Duration of the activity in minutes."
+    },
+    {
+      "id": "met",
+      "label": "MET Value",
+      "type": "number",
+      "unit": "MET",
+      "default": 8,
+      "businessContext": "Metabolic Equivalent of Task for the activity (e.g., 8 for running)."
+    }
+  ],
+  "formulas": {
+    "bmrPerDay": "gender == 0 ? 447.593 + 9.247 * weight + 3.098 * height - 4.330 * age : 88.362 + 13.397 * weight + 4.799 * height - 5.677 * age",
+    "totalCalories": "met * weight * (duration / 60)",
+    "restingCalories": "(bmrPerDay / 1440) * duration",
+    "activeCalories": "totalCalories - restingCalories"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "restingCalories",
+      "activeCalories"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

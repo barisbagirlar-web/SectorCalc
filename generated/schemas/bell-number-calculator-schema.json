@@ -1,0 +1,55 @@
+{
+  "toolName": "bell-number-calculator",
+  "inputs": [
+    {
+      "id": "power1",
+      "label": "Power 1 (P1)",
+      "type": "number",
+      "unit": "W",
+      "default": 1,
+      "businessContext": "Measured power in watts."
+    },
+    {
+      "id": "power2",
+      "label": "Power 2 (P0)",
+      "type": "number",
+      "unit": "W",
+      "default": 1,
+      "businessContext": "Reference power in watts."
+    },
+    {
+      "id": "envFactor",
+      "label": "Environmental Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Adjustment factor for environmental conditions (default 1 for standard conditions)."
+    },
+    {
+      "id": "calibrationOffset",
+      "label": "Calibration Offset",
+      "type": "number",
+      "unit": "B",
+      "default": 0,
+      "businessContext": "Systematic offset in Bels from calibration."
+    }
+  ],
+  "formulas": {
+    "primary": "envFactor * (Math.log(power1 / power2) / Math.log(10)) + calibrationOffset",
+    "powerRatio": "power1 / power2",
+    "decibelValue": "10 * envFactor * (Math.log(power1 / power2) / Math.log(10)) + 10 * calibrationOffset"
+  },
+  "outputs": {
+    "primary": "Bel Value",
+    "breakdown": [
+      "Power Ratio",
+      "Decibel Value"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

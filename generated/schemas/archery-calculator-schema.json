@@ -1,0 +1,55 @@
+{
+  "toolName": "archery-calculator",
+  "inputs": [
+    {
+      "id": "bowIboSpeed",
+      "label": "Bow IBO Speed",
+      "type": "number",
+      "unit": "fps",
+      "default": 300,
+      "businessContext": "Manufacturer's IBO rated speed (30\" draw, 70# draw weight, 350 gr arrow)"
+    },
+    {
+      "id": "drawWeight",
+      "label": "Draw Weight",
+      "type": "number",
+      "unit": "lbs",
+      "default": 70,
+      "businessContext": "Actual bow draw weight at user's draw length"
+    },
+    {
+      "id": "drawLength",
+      "label": "Draw Length",
+      "type": "number",
+      "unit": "in",
+      "default": 30,
+      "businessContext": "User's actual draw length"
+    },
+    {
+      "id": "arrowWeight",
+      "label": "Arrow Weight",
+      "type": "number",
+      "unit": "gr",
+      "default": 350,
+      "businessContext": "Total arrow weight including broadhead, in grains"
+    }
+  ],
+  "formulas": {
+    "velocityFtPerSec": "bowIboSpeed + (drawWeight - 70) * 1.5 - (30 - drawLength) * 10 - (arrowWeight - 350) / 3",
+    "kineticEnergy": "(arrowWeight * velocityFtPerSec ** 2) / 450240",
+    "momentum": "arrowWeight * velocityFtPerSec / 225400"
+  },
+  "outputs": {
+    "primary": "Arrow Velocity: {{velocityFtPerSec}} fps",
+    "breakdown": [
+      "Kinetic Energy: {{kineticEnergy}} ft-lbs",
+      "Momentum: {{momentum}} slug-ft/s"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

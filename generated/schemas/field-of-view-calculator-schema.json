@@ -1,0 +1,55 @@
+{
+  "toolName": "field-of-view-calculator",
+  "inputs": [
+    {
+      "id": "sensorWidth",
+      "label": "Sensor Width (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 6.4,
+      "businessContext": "Width of the image sensor in millimeters"
+    },
+    {
+      "id": "sensorHeight",
+      "label": "Sensor Height (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 4.8,
+      "businessContext": "Height of the image sensor in millimeters"
+    },
+    {
+      "id": "focalLength",
+      "label": "Focal Length (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 4,
+      "businessContext": "Lens focal length in millimeters"
+    },
+    {
+      "id": "distance",
+      "label": "Working Distance (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Distance from lens to object plane in meters"
+    }
+  ],
+  "formulas": {
+    "horizontal_linear_fov": "(sensorWidth * distance) / focalLength",
+    "vertical_linear_fov": "(sensorHeight * distance) / focalLength",
+    "diagonal_linear_fov": "(distance / focalLength) * Math.sqrt(sensorWidth**2 + sensorHeight**2)"
+  },
+  "outputs": {
+    "primary": "horizontal_linear_fov",
+    "breakdown": [
+      "vertical_linear_fov",
+      "diagonal_linear_fov"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

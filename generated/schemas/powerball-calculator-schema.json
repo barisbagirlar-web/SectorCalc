@@ -1,0 +1,93 @@
+{
+  "toolName": "powerball-calculator",
+  "inputs": [
+    {
+      "id": "internalDiameter",
+      "label": "Internal Mill Diameter (D)",
+      "type": "number",
+      "unit": "m",
+      "default": 3.5,
+      "businessContext": "Inner diameter of the mill shell, measured without liners. Determines critical speed and power draw."
+    },
+    {
+      "id": "internalLength",
+      "label": "Internal Mill Length (L)",
+      "type": "number",
+      "unit": "m",
+      "default": 6,
+      "businessContext": "Effective grinding length of the mill. Affects charge volume and power."
+    },
+    {
+      "id": "millSpeed",
+      "label": "Mill Rotation Speed",
+      "type": "number",
+      "unit": "rpm",
+      "default": 18,
+      "businessContext": "Actual rotational speed of the mill. Typically 65-80% of critical speed for optimal operation."
+    },
+    {
+      "id": "ballFillingFraction",
+      "label": "Ball Filling Fraction (J)",
+      "type": "number",
+      "unit": "(ratio 0–1)",
+      "default": 0.3,
+      "businessContext": "Fraction of mill volume occupied by grinding media (balls). Affects power consumption and throughput."
+    },
+    {
+      "id": "ballBulkDensity",
+      "label": "Ball Bulk Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 4800,
+      "businessContext": "Bulk density of the grinding media charge. For steel balls, typical is 4800 kg/m³."
+    },
+    {
+      "id": "motorEfficiency",
+      "label": "Motor Efficiency",
+      "type": "number",
+      "unit": "(ratio 0–1)",
+      "default": 0.95,
+      "businessContext": "Efficiency of the motor and drive system. Used to calculate required input electrical power."
+    }
+  ],
+  "formulas": {
+    "criticalSpeedRPM": "42.3 / Math.sqrt(internalDiameter)",
+    "percentCriticalSpeed": "(millSpeed / (42.3 / Math.sqrt(internalDiameter))) * 100",
+    "millPowerKW": "10.6 * (internalDiameter ** 2.5) * internalLength * (percentCriticalSpeed / 100) * ballFillingFraction * (ballBulkDensity / 1000)",
+    "motorInputPowerKW": "millPowerKW / motorEfficiency"
+  },
+  "outputs": {
+    "primary": {
+      "id": "motorInputPowerKW",
+      "label": "Required Motor Input Power",
+      "unit": "kW",
+      "description": "Electrical power that must be supplied to the motor, accounting for efficiency losses."
+    },
+    "breakdown": [
+      {
+        "id": "criticalSpeedRPM",
+        "label": "Critical Speed",
+        "unit": "rpm",
+        "description": "Theoretical speed at which grinding media centrifuges."
+      },
+      {
+        "id": "percentCriticalSpeed",
+        "label": "% of Critical Speed",
+        "unit": "%",
+        "description": "Operating speed as a percentage of critical speed."
+      },
+      {
+        "id": "millPowerKW",
+        "label": "Mill Mechanical Power",
+        "unit": "kW",
+        "description": "Power required at the mill shell (pinion shaft)."
+      }
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

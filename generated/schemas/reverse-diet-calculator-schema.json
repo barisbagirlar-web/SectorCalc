@@ -1,0 +1,87 @@
+{
+  "toolName": "reverse-diet-calculator",
+  "inputs": [
+    {
+      "id": "currentCalories",
+      "label": "Current Daily Calorie Intake",
+      "type": "number",
+      "unit": "kcal",
+      "default": 1500,
+      "businessContext": "The user's current average daily calorie consumption, typically a deficit level after a diet phase."
+    },
+    {
+      "id": "currentWeight",
+      "label": "Current Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User's current body weight in kilograms."
+    },
+    {
+      "id": "goalWeight",
+      "label": "Goal Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 65,
+      "businessContext": "Target weight the user aims to reach or maintain."
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "User's height in centimeters, used for BMR calculation."
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "User's age in years, used for BMR calculation."
+    },
+    {
+      "id": "gender",
+      "label": "Gender (1=Male, 0=Female)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Biological sex factor for BMR: 1 for male, 0 for female."
+    },
+    {
+      "id": "activityFactor",
+      "label": "Activity Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.55,
+      "businessContext": "Physical activity level multiplier (1.2 sedentary to 1.9 extra active)."
+    },
+    {
+      "id": "reverseDuration",
+      "label": "Reverse Diet Duration",
+      "type": "number",
+      "unit": "weeks",
+      "default": 12,
+      "businessContext": "Planned duration of the reverse diet in weeks."
+    }
+  ],
+  "formulas": {
+    "totalIncreaseNeeded": "(gender * (10 * goalWeight + 6.25 * height - 5 * age + 5) + (1 - gender) * (10 * goalWeight + 6.25 * height - 5 * age - 161)) * activityFactor - currentCalories",
+    "recommendedWeeklyIncrease": "Math.min(((gender * (10 * goalWeight + 6.25 * height - 5 * age + 5) + (1 - gender) * (10 * goalWeight + 6.25 * height - 5 * age - 161)) * activityFactor - currentCalories) / reverseDuration, 100)",
+    "targetFinalCalories": "currentCalories + Math.min(((gender * (10 * goalWeight + 6.25 * height - 5 * age + 5) + (1 - gender) * (10 * goalWeight + 6.25 * height - 5 * age - 161)) * activityFactor - currentCalories) / reverseDuration, 100) * reverseDuration"
+  },
+  "outputs": {
+    "primary": "recommendedWeeklyIncrease",
+    "breakdown": [
+      "totalIncreaseNeeded",
+      "targetFinalCalories"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

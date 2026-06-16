@@ -1,0 +1,47 @@
+{
+  "toolName": "poker-pot-odds-calculator",
+  "inputs": [
+    {
+      "id": "potBeforeBet",
+      "label": "Pot Size Before Bet",
+      "type": "number",
+      "unit": "chips",
+      "default": 0,
+      "businessContext": "The size of the pot before the opponent's bet."
+    },
+    {
+      "id": "opponentBet",
+      "label": "Opponent's Bet",
+      "type": "number",
+      "unit": "chips",
+      "default": 0,
+      "businessContext": "The amount the opponent bets."
+    },
+    {
+      "id": "callAmount",
+      "label": "Call Amount",
+      "type": "number",
+      "unit": "chips",
+      "default": 0,
+      "businessContext": "The amount required to call. Usually equal to the opponent's bet."
+    }
+  ],
+  "formulas": {
+    "potOddsRatio": "(potBeforeBet + opponentBet) / callAmount",
+    "requiredEquity": "callAmount / (potBeforeBet + opponentBet + callAmount) * 100",
+    "totalPotAfterCall": "potBeforeBet + opponentBet + callAmount"
+  },
+  "outputs": {
+    "primary": "potOddsRatio",
+    "breakdown": [
+      "requiredEquity",
+      "totalPotAfterCall"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

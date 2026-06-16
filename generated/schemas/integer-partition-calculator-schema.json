@@ -1,0 +1,33 @@
+{
+  "toolName": "integer-partition-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Integer to Partition",
+      "type": "number",
+      "unit": "integer",
+      "default": 10,
+      "businessContext": "Positive integer n (n ≥ 1) for which the number of integer partitions is approximated. Used in combinatorics, inventory partitioning, and resource distribution modeling."
+    }
+  ],
+  "formulas": {
+    "sqrtTerm": "Math.sqrt(2 * n / 3)",
+    "expTerm": "Math.exp(3.141592653589793 * sqrtTerm)",
+    "denominator": "4 * n * Math.sqrt(3)",
+    "estimatedPartitions": "expTerm / denominator"
+  },
+  "outputs": {
+    "primary": "estimatedPartitions",
+    "breakdown": [
+      "sqrtTerm",
+      "expTerm",
+      "denominator"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,71 @@
+{
+  "toolName": "financial-independence-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the individual, used for retirement planning context."
+    },
+    {
+      "id": "currentPortfolio",
+      "label": "Current Portfolio",
+      "type": "number",
+      "unit": "$",
+      "default": 50000,
+      "businessContext": "Total current invested assets, the starting point for future growth."
+    },
+    {
+      "id": "monthlySavings",
+      "label": "Monthly Savings",
+      "type": "number",
+      "unit": "$",
+      "default": 2000,
+      "businessContext": "Amount saved each month, assumed to be invested consistently."
+    },
+    {
+      "id": "annualExpenses",
+      "label": "Annual Expenses in Retirement",
+      "type": "number",
+      "unit": "$",
+      "default": 40000,
+      "businessContext": "Expected annual living expenses after reaching financial independence."
+    },
+    {
+      "id": "annualReturn",
+      "label": "Annual Return",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected annual investment return rate (e.g., 7% for a diversified portfolio)."
+    },
+    {
+      "id": "safeWithdrawalRate",
+      "label": "Safe Withdrawal Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "businessContext": "The percentage of the portfolio withdrawn annually to cover expenses without depleting principal (commonly 4%)."
+    }
+  ],
+  "formulas": {
+    "fiTarget": "annualExpenses/(safeWithdrawalRate/100)",
+    "annualSavings": "monthlySavings*12",
+    "yearsToFI": "(()=>{const r=annualReturn/100;const s=monthlySavings*12;const fi=annualExpenses/(safeWithdrawalRate/100);if(currentPortfolio>=fi)return 0;if(r<=0)return(fi-currentPortfolio)/s;return Math.log((fi+s/r)/(currentPortfolio+s/r))/Math.log(1+r);})()"
+  },
+  "outputs": {
+    "primary": "yearsToFI",
+    "breakdown": [
+      "fiTarget",
+      "annualSavings"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

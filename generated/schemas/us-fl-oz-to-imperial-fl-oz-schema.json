@@ -1,0 +1,28 @@
+{
+  "toolName": "us-fl-oz-to-imperial-fl-oz",
+  "inputs": [
+    {
+      "id": "us_fl_oz",
+      "label": "US fluid ounces",
+      "type": "number",
+      "unit": "US fl oz",
+      "default": 1,
+      "businessContext": "Volume in US customary fluid ounces"
+    }
+  ],
+  "formulas": {
+    "imperial_fl_oz": "us_fl_oz * 1.040842730786"
+  },
+  "outputs": {
+    "primary": "imperial_fl_oz",
+    "breakdown": [
+      "imperial_fl_oz = us_fl_oz * 1.040842730786"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

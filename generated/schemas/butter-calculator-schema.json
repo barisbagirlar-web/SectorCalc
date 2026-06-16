@@ -1,0 +1,69 @@
+{
+  "toolName": "butter-calculator",
+  "inputs": [
+    {
+      "id": "creamVolume",
+      "label": "Cream Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 100,
+      "businessContext": "The volume of cream used in butter production"
+    },
+    {
+      "id": "creamFatPercentage",
+      "label": "Cream Fat %",
+      "type": "number",
+      "unit": "%",
+      "default": 35,
+      "businessContext": "Fat content of the cream"
+    },
+    {
+      "id": "butterFatPercentage",
+      "label": "Butter Fat %",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Target fat content in butter"
+    },
+    {
+      "id": "processEfficiency",
+      "label": "Process Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Efficiency of the churning process"
+    },
+    {
+      "id": "saltPercentage",
+      "label": "Salt %",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage of salt to add (0 for unsalted butter)"
+    }
+  ],
+  "formulas": {
+    "totalFat": "creamVolume * creamFatPercentage / 100",
+    "theoreticalYield": "totalFat / (butterFatPercentage / 100)",
+    "butterYield": "theoreticalYield * processEfficiency / 100",
+    "buttermilkVolume": "creamVolume - butterYield",
+    "saltWeight": "butterYield * saltPercentage / 100",
+    "butterWithSalt": "butterYield + saltWeight"
+  },
+  "outputs": {
+    "primary": "butterYield",
+    "breakdown": [
+      "totalFat",
+      "theoreticalYield",
+      "buttermilkVolume",
+      "saltWeight",
+      "butterWithSalt"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

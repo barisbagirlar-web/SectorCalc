@@ -1,0 +1,59 @@
+{
+  "toolName": "swimming-lap-calculator",
+  "inputs": [
+    {
+      "id": "poolLength",
+      "label": "Pool Length",
+      "type": "number",
+      "unit": "m",
+      "default": 25,
+      "businessContext": "Length of the swimming pool in meters."
+    },
+    {
+      "id": "numLaps",
+      "label": "Number of Laps",
+      "type": "number",
+      "unit": "laps",
+      "default": 10,
+      "businessContext": "Total number of laps to be swum."
+    },
+    {
+      "id": "pacePer100m",
+      "label": "Pace per 100m",
+      "type": "number",
+      "unit": "s",
+      "default": 120,
+      "businessContext": "Swimmer's pace in seconds per 100 meters."
+    },
+    {
+      "id": "restBetweenLaps",
+      "label": "Rest Between Laps",
+      "type": "number",
+      "unit": "s",
+      "default": 15,
+      "businessContext": "Rest time in seconds taken after each lap (except the last)."
+    }
+  ],
+  "formulas": {
+    "totalDistance": "poolLength * numLaps",
+    "totalSwimTime": "(pacePer100m / 100) * poolLength * numLaps",
+    "totalRestTime": "(numLaps - 1) * restBetweenLaps",
+    "effectivePacePer100m": "((pacePer100m / 100) * poolLength * numLaps + (numLaps - 1) * restBetweenLaps) * 100 / (poolLength * numLaps)",
+    "totalTime": "(pacePer100m / 100) * poolLength * numLaps + (numLaps - 1) * restBetweenLaps"
+  },
+  "outputs": {
+    "primary": "totalTime",
+    "breakdown": [
+      "totalDistance",
+      "totalSwimTime",
+      "totalRestTime",
+      "effectivePacePer100m"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

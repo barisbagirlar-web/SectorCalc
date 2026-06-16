@@ -1,0 +1,68 @@
+{
+  "toolName": "paleo-calculator",
+  "inputs": [
+    {
+      "id": "meatCost",
+      "label": "Günlük Et Maliyeti (kişi başı)",
+      "type": "number",
+      "unit": "TL",
+      "default": 30,
+      "businessContext": "Bir kişinin günlük paleo diyetinde tükettiği etin toplam maliyeti"
+    },
+    {
+      "id": "vegCost",
+      "label": "Günlük Sebze Maliyeti (kişi başı)",
+      "type": "number",
+      "unit": "TL",
+      "default": 10,
+      "businessContext": "Bir kişinin günlük paleo diyetinde tükettiği sebzenin toplam maliyeti"
+    },
+    {
+      "id": "fruitCost",
+      "label": "Günlük Meyve Maliyeti (kişi başı)",
+      "type": "number",
+      "unit": "TL",
+      "default": 5,
+      "businessContext": "Bir kişinin günlük paleo diyetinde tükettiği meyvenin toplam maliyeti"
+    },
+    {
+      "id": "nutCost",
+      "label": "Günlük Kuruyemiş Maliyeti (kişi başı)",
+      "type": "number",
+      "unit": "TL",
+      "default": 5,
+      "businessContext": "Bir kişinin günlük paleo diyetinde tükettiği kuruyemişin toplam maliyeti"
+    },
+    {
+      "id": "numberOfPeople",
+      "label": "Kişi Sayısı",
+      "type": "number",
+      "unit": "kişi",
+      "default": 1,
+      "businessContext": "Paleo diyetini uygulayan kişi sayısı"
+    },
+    {
+      "id": "numberOfDays",
+      "label": "Gün Sayısı",
+      "type": "number",
+      "unit": "gün",
+      "default": 30,
+      "businessContext": "Maliyetin hesaplanacağı dönem (gün)"
+    }
+  ],
+  "formulas": {
+    "dailyPerPerson": "meatCost + vegCost + fruitCost + nutCost",
+    "totalPerDay": "dailyPerPerson * numberOfPeople",
+    "totalCost": "totalPerDay * numberOfDays"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "dailyPerPerson",
+      "totalPerDay"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false
+}

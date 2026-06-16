@@ -1,0 +1,56 @@
+{
+  "toolName": "decimal-to-hex-calculator",
+  "inputs": [
+    {
+      "id": "decimalNumber",
+      "label": "Decimal Number",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The decimal integer to convert to hexadecimal. Non-negative, integer."
+    },
+    {
+      "id": "minLength",
+      "label": "Minimum Length",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Minimum number of hexadecimal digits. Pads with leading zeros if result is shorter."
+    },
+    {
+      "id": "uppercase",
+      "label": "Uppercase",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Set to 1 to output uppercase letters (A-F), 0 for lowercase (a-f)."
+    },
+    {
+      "id": "prefix",
+      "label": "Prefix",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0: no prefix; 1: prefix '0x'; 2: prefix '0X'."
+    }
+  ],
+  "formulas": {
+    "rawHex": "Math.floor(Math.abs(decimalNumber)).toString(16)",
+    "padded": "minLength > 0 ? rawHex.padStart(Math.round(minLength), '0') : rawHex",
+    "cased": "uppercase === 1 ? padded.toUpperCase() : padded.toLowerCase()",
+    "finalHex": "prefix === 1 ? '0x' + cased : (prefix === 2 ? '0X' + cased : cased)"
+  },
+  "outputs": {
+    "primary": "finalHex",
+    "breakdown": [
+      "rawHex",
+      "cased"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

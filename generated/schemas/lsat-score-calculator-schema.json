@@ -1,0 +1,54 @@
+{
+  "toolName": "lsat-score-calculator",
+  "inputs": [
+    {
+      "id": "lr1",
+      "label": "Logical Reasoning 1 Correct",
+      "type": "number",
+      "unit": "questions",
+      "default": 15,
+      "businessContext": "Number of correct answers in Logical Reasoning section 1 (out of 25)."
+    },
+    {
+      "id": "lr2",
+      "label": "Logical Reasoning 2 Correct",
+      "type": "number",
+      "unit": "questions",
+      "default": 16,
+      "businessContext": "Number of correct answers in Logical Reasoning section 2 (out of 26)."
+    },
+    {
+      "id": "ar",
+      "label": "Analytical Reasoning Correct",
+      "type": "number",
+      "unit": "questions",
+      "default": 14,
+      "businessContext": "Number of correct answers in Analytical Reasoning (Logic Games) section (out of 23)."
+    },
+    {
+      "id": "rc",
+      "label": "Reading Comprehension Correct",
+      "type": "number",
+      "unit": "questions",
+      "default": 15,
+      "businessContext": "Number of correct answers in Reading Comprehension section (out of 27)."
+    }
+  ],
+  "formulas": {
+    "rawScore": "lr1 + lr2 + ar + rc",
+    "scaledScore": "Math.round( Math.min(180, Math.max(120, 120 + ((lr1+lr2+ar+rc) / 101) * 60) ))"
+  },
+  "outputs": {
+    "primary": "scaledScore",
+    "breakdown": [
+      "rawScore",
+      "scaledScore"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

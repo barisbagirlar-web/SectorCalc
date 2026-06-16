@@ -1,0 +1,63 @@
+{
+  "toolName": "race-equivalent-calculator",
+  "inputs": [
+    {
+      "id": "knownDistance",
+      "label": "Known Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "Distance of the race you have completed"
+    },
+    {
+      "id": "knownTimeHours",
+      "label": "Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 0,
+      "businessContext": "Hours part of your known race time"
+    },
+    {
+      "id": "knownTimeMinutes",
+      "label": "Minutes",
+      "type": "number",
+      "unit": "min",
+      "default": 50,
+      "businessContext": "Minutes part of your known race time"
+    },
+    {
+      "id": "knownTimeSeconds",
+      "label": "Seconds",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Seconds part of your known race time"
+    },
+    {
+      "id": "targetDistance",
+      "label": "Target Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 42.195,
+      "businessContext": "Distance of the race you want to predict"
+    }
+  ],
+  "formulas": {
+    "equivalentTimeSeconds": "(knownTimeHours * 3600 + knownTimeMinutes * 60 + knownTimeSeconds) * Math.pow(targetDistance / knownDistance, 1.06)",
+    "equivalentTimeMinutes": "equivalentTimeSeconds / 60",
+    "equivalentPaceSecondsPerKm": "equivalentTimeSeconds / targetDistance"
+  },
+  "outputs": {
+    "primary": "equivalentTimeSeconds",
+    "breakdown": [
+      "equivalentTimeMinutes",
+      "equivalentPaceSecondsPerKm"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,109 @@
+{
+  "toolName": "airbnb-profit-calculator",
+  "inputs": [
+    {
+      "id": "nightlyRate",
+      "label": "Nightly Rate",
+      "type": "number",
+      "unit": "currency",
+      "default": 150,
+      "businessContext": "Average price per night charged to guests"
+    },
+    {
+      "id": "occupancyRate",
+      "label": "Occupancy Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "businessContext": "Percentage of available nights that are booked"
+    },
+    {
+      "id": "nightsAvailable",
+      "label": "Nights Available per Month",
+      "type": "number",
+      "unit": "nights",
+      "default": 30,
+      "businessContext": "Total nights the property is available for booking per month"
+    },
+    {
+      "id": "avgStay",
+      "label": "Average Length of Stay",
+      "type": "number",
+      "unit": "nights",
+      "default": 3,
+      "businessContext": "Average duration of a guest's stay in nights"
+    },
+    {
+      "id": "cleaningFee",
+      "label": "Cleaning Fee per Booking",
+      "type": "number",
+      "unit": "currency",
+      "default": 50,
+      "businessContext": "Fee charged per guest booking for cleaning"
+    },
+    {
+      "id": "airbnbFeePercent",
+      "label": "Airbnb Service Fee",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "Host service fee percentage charged by Airbnb on each booking"
+    },
+    {
+      "id": "monthlyExpenses",
+      "label": "Monthly Expenses",
+      "type": "number",
+      "unit": "currency",
+      "default": 2000,
+      "businessContext": "Total monthly costs including mortgage/rent, utilities, maintenance, insurance, etc."
+    }
+  ],
+  "formulas": {
+    "bookedNights": "occupancyRate / 100 * nightsAvailable",
+    "totalBookings": "bookedNights / avgStay",
+    "grossRevenue": "nightlyRate * bookedNights + cleaningFee * totalBookings",
+    "airbnbFee": "airbnbFeePercent / 100 * grossRevenue",
+    "netRevenue": "grossRevenue - airbnbFee",
+    "monthlyProfit": "netRevenue - monthlyExpenses"
+  },
+  "outputs": {
+    "primary": {
+      "id": "monthlyProfit",
+      "label": "Monthly Profit",
+      "unit": "currency"
+    },
+    "breakdown": [
+      {
+        "id": "grossRevenue",
+        "label": "Gross Revenue",
+        "unit": "currency"
+      },
+      {
+        "id": "airbnbFee",
+        "label": "Airbnb Fee",
+        "unit": "currency"
+      },
+      {
+        "id": "netRevenue",
+        "label": "Net Revenue",
+        "unit": "currency"
+      },
+      {
+        "id": "bookedNights",
+        "label": "Booked Nights",
+        "unit": "nights"
+      },
+      {
+        "id": "totalBookings",
+        "label": "Estimated Bookings",
+        "unit": "bookings"
+      }
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,74 @@
+{
+  "toolName": "valentines-day-calculator",
+  "inputs": [
+    {
+      "id": "budget",
+      "label": "Bütçe (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 500,
+      "businessContext": "Toplam harcama limiti"
+    },
+    {
+      "id": "numPeople",
+      "label": "Kişi Sayısı",
+      "type": "number",
+      "unit": "kişi",
+      "default": 2,
+      "businessContext": "Hediye alınacak kişi sayısı"
+    },
+    {
+      "id": "giftCost",
+      "label": "Hediye Maliyeti (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 200,
+      "businessContext": "Ana hediye için harcanan tutar"
+    },
+    {
+      "id": "dinnerCost",
+      "label": "Yemek Maliyeti (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 150,
+      "businessContext": "Akşam yemeği harcaması"
+    },
+    {
+      "id": "flowerCost",
+      "label": "Çiçek Maliyeti (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 50,
+      "businessContext": "Çiçek buketi maliyeti"
+    },
+    {
+      "id": "otherCost",
+      "label": "Diğer Maliyetler (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 50,
+      "businessContext": "Kart, ambalaj vb. ek harcamalar"
+    }
+  ],
+  "formulas": {
+    "totalCost": "giftCost + dinnerCost + flowerCost + otherCost",
+    "remainingBudget": "budget - totalCost",
+    "costPerPerson": "totalCost / numPeople",
+    "budgetUtilization": "(totalCost / budget) * 100",
+    "romanceScore": "Math.min(100, (giftCost * 0.4 + dinnerCost * 0.3 + flowerCost * 0.2 + otherCost * 0.1) / (budget / 100))"
+  },
+  "outputs": {
+    "primary": "Toplam maliyet: {totalCost} TL, Kalan bütçe: {remainingBudget} TL",
+    "breakdown": [
+      "Kişi başı maliyet: {costPerPerson} TL",
+      "Bütçe kullanım oranı: %{budgetUtilization}",
+      "Romantizm puanı: {romanceScore}/100"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

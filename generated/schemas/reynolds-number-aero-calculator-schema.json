@@ -1,0 +1,46 @@
+{
+  "toolName": "reynolds-number-aero-calculator",
+  "inputs": [
+    {
+      "id": "velocity",
+      "label": "Flow Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 10,
+      "businessContext": "Flow velocity of the fluid relative to the object, in meters per second. Typical aircraft speeds are around 250 m/s."
+    },
+    {
+      "id": "length",
+      "label": "Characteristic Length",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Characteristic length of the body (e.g., chord length of an airfoil or diameter of a pipe), in meters."
+    },
+    {
+      "id": "kinematicViscosity",
+      "label": "Kinematic Viscosity",
+      "type": "number",
+      "unit": "m²/s",
+      "default": 0.000015,
+      "businessContext": "Kinematic viscosity of the fluid. For air at sea level conditions (15°C), this is approximately 1.5 × 10⁻⁵ m²/s."
+    }
+  ],
+  "formulas": {
+    "velocityLengthProduct": "velocity * length",
+    "reynoldsNumber": "velocityLengthProduct / kinematicViscosity"
+  },
+  "outputs": {
+    "primary": "reynoldsNumber",
+    "breakdown": [
+      "velocityLengthProduct",
+      "reynoldsNumber"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

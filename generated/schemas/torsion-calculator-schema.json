@@ -1,0 +1,63 @@
+{
+  "toolName": "torsion-calculator",
+  "inputs": [
+    {
+      "id": "torque",
+      "label": "Applied Torque",
+      "type": "number",
+      "unit": "N·m",
+      "default": 100,
+      "businessContext": "Torsion moment applied to the shaft"
+    },
+    {
+      "id": "length",
+      "label": "Shaft Length",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Length of the shaft under torsion"
+    },
+    {
+      "id": "shearModulus",
+      "label": "Shear Modulus (G)",
+      "type": "number",
+      "unit": "Pa",
+      "default": 80000000000,
+      "businessContext": "Shear modulus of the material, e.g., steel ~80 GPa"
+    },
+    {
+      "id": "diameter",
+      "label": "Outer Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0.05,
+      "businessContext": "Outer diameter of the shaft"
+    },
+    {
+      "id": "innerDiameter",
+      "label": "Inner Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Inner diameter for hollow shafts; set to 0 for solid shafts"
+    }
+  ],
+  "formulas": {
+    "polarMomentInertia": "(Math.PI / 32) * (Math.pow(diameter, 4) - Math.pow(innerDiameter, 4))",
+    "maxShearStress": "(torque * (diameter / 2)) / polarMomentInertia",
+    "angleOfTwist": "(torque * length) / (shearModulus * polarMomentInertia)"
+  },
+  "outputs": {
+    "primary": "maxShearStress",
+    "breakdown": [
+      "angleOfTwist",
+      "polarMomentInertia"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

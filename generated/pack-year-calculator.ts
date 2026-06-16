@@ -1,0 +1,58 @@
+// Auto-generated from pack-year-calculator-schema.json
+import * as z from 'zod';
+
+export interface Pack_year_calculatorInput {
+  start_age: number;
+  end_age: number;
+  cigarettes_per_day: number;
+  cigarettes_per_pack: number;
+}
+
+export const Pack_year_calculatorInputSchema = z.object({
+  start_age: z.number().default(20),
+  end_age: z.number().default(50),
+  cigarettes_per_day: z.number().default(20),
+  cigarettes_per_pack: z.number().default(20),
+});
+
+function evaluateAllFormulas(input: Pack_year_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.end_age - input.start_age; results["years_smoked"] = Number.isFinite(v) ? v : 0; } catch { results["years_smoked"] = 0; }
+  try { const v = (input.cigarettes_per_day / input.cigarettes_per_pack) * (results["years_smoked"] ?? 0); results["pack_years"] = Number.isFinite(v) ? v : 0; } catch { results["pack_years"] = 0; }
+  return results;
+}
+
+
+export function calculatePack_year_calculator(input: Pack_year_calculatorInput): Pack_year_calculatorOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values["pack_years"] ?? 0;
+  const breakdown = {
+    
+  };
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    premiumRequired: false,
+    premiumFeatures: [],
+  };
+}
+
+
+export interface Pack_year_calculatorOutput {
+  totalWasteCost: number;
+  breakdown: {  };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+}

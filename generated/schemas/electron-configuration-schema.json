@@ -1,0 +1,63 @@
+{
+  "toolName": "electron-configuration",
+  "inputs": [
+    {
+      "id": "atomicNumber",
+      "label": "Atomic Number (Z)",
+      "type": "number",
+      "unit": "",
+      "default": 26,
+      "businessContext": "Number of protons in the nucleus"
+    },
+    {
+      "id": "n1",
+      "label": "Lower Energy Level (n1)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Principal quantum number of lower orbit"
+    },
+    {
+      "id": "n2",
+      "label": "Upper Energy Level (n2)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Principal quantum number of upper orbit"
+    },
+    {
+      "id": "screening",
+      "label": "Screening Constant (σ)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Shielding effect from inner electrons"
+    },
+    {
+      "id": "rydberg",
+      "label": "Rydberg Energy (R)",
+      "type": "number",
+      "unit": "eV",
+      "default": 13.6,
+      "businessContext": "Ionization energy of hydrogen"
+    }
+  ],
+  "formulas": {
+    "z_eff": "atomicNumber - screening",
+    "invDiff": "1 / n1**2 - 1 / n2**2",
+    "energy": "rydberg * z_eff**2 * invDiff"
+  },
+  "outputs": {
+    "primary": "Transition Energy",
+    "breakdown": [
+      "Effective Nuclear Charge (Z_eff)",
+      "Energy Difference Term (1/n1^2 - 1/n2^2)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

@@ -1,0 +1,59 @@
+{
+  "toolName": "sleep-quality-calculator",
+  "inputs": [
+    {
+      "id": "totalSleepHours",
+      "label": "Total Sleep Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 7.5,
+      "businessContext": "Total sleep duration per night, impacts recovery and cognitive function."
+    },
+    {
+      "id": "timeToFallAsleep",
+      "label": "Time to Fall Asleep",
+      "type": "number",
+      "unit": "min",
+      "default": 15,
+      "businessContext": "Time taken to fall asleep, known as sleep onset latency, indicates ease of falling asleep."
+    },
+    {
+      "id": "awakeningsCount",
+      "label": "Awakenings Count",
+      "type": "number",
+      "unit": "count",
+      "default": 1,
+      "businessContext": "Number of awakenings during the sleep period, affecting sleep continuity and restorative value."
+    },
+    {
+      "id": "sleepEfficiency",
+      "label": "Sleep Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Percentage of time in bed actually spent sleeping, a key metric of sleep quality."
+    }
+  ],
+  "formulas": {
+    "durationScore": "100 * Math.exp(-((totalSleepHours - 7.5) ** 2) / 5)",
+    "latencyScore": "100 * Math.exp(-timeToFallAsleep / 30)",
+    "disturbanceScore": "100 * Math.exp(-awakeningsCount)",
+    "efficiencyScore": "sleepEfficiency",
+    "sleepQualityScore": "(durationScore + latencyScore + disturbanceScore + efficiencyScore) / 4"
+  },
+  "outputs": {
+    "primary": "sleepQualityScore",
+    "breakdown": [
+      "durationScore",
+      "latencyScore",
+      "disturbanceScore",
+      "efficiencyScore"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

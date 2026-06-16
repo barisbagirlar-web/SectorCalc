@@ -1,0 +1,75 @@
+{
+  "toolName": "rankine-cycle-calculator",
+  "inputs": [
+    {
+      "id": "turbineInletEnthalpy",
+      "label": "Turbine Inlet Enthalpy (h₁)",
+      "type": "number",
+      "unit": "kJ/kg",
+      "default": 2800,
+      "businessContext": "Specific enthalpy of steam at turbine inlet (superheated conditions)"
+    },
+    {
+      "id": "turbineExitIsentropicEnthalpy",
+      "label": "Isentropic Turbine Exit Enthalpy (h₂ₛ)",
+      "type": "number",
+      "unit": "kJ/kg",
+      "default": 2000,
+      "businessContext": "Specific enthalpy at turbine exit assuming isentropic expansion"
+    },
+    {
+      "id": "condenserOutletEnthalpy",
+      "label": "Condenser Outlet Enthalpy (h₃)",
+      "type": "number",
+      "unit": "kJ/kg",
+      "default": 200,
+      "businessContext": "Specific enthalpy of saturated liquid leaving the condenser"
+    },
+    {
+      "id": "pumpExitIsentropicEnthalpy",
+      "label": "Isentropic Pump Exit Enthalpy (h₄ₛ)",
+      "type": "number",
+      "unit": "kJ/kg",
+      "default": 210,
+      "businessContext": "Specific enthalpy at pump exit assuming isentropic compression"
+    },
+    {
+      "id": "turbineEfficiency",
+      "label": "Turbine Isentropic Efficiency (ηₜ)",
+      "type": "number",
+      "unit": "",
+      "default": 0.9,
+      "businessContext": "Ratio of actual turbine work to isentropic work (0–1)"
+    },
+    {
+      "id": "pumpEfficiency",
+      "label": "Pump Isentropic Efficiency (ηₚ)",
+      "type": "number",
+      "unit": "",
+      "default": 0.85,
+      "businessContext": "Ratio of isentropic pump work to actual pump work (0–1)"
+    }
+  ],
+  "formulas": {
+    "turbineWork": "(turbineInletEnthalpy - turbineExitIsentropicEnthalpy) * turbineEfficiency",
+    "pumpWork": "(pumpExitIsentropicEnthalpy - condenserOutletEnthalpy) / pumpEfficiency",
+    "netWork": "(turbineInletEnthalpy - turbineExitIsentropicEnthalpy) * turbineEfficiency - (pumpExitIsentropicEnthalpy - condenserOutletEnthalpy) / pumpEfficiency",
+    "heatAdded": "(turbineInletEnthalpy - condenserOutletEnthalpy) - (pumpExitIsentropicEnthalpy - condenserOutletEnthalpy) / pumpEfficiency",
+    "thermalEfficiency": "((turbineInletEnthalpy - turbineExitIsentropicEnthalpy) * turbineEfficiency - (pumpExitIsentropicEnthalpy - condenserOutletEnthalpy) / pumpEfficiency) / ((turbineInletEnthalpy - condenserOutletEnthalpy) - (pumpExitIsentropicEnthalpy - condenserOutletEnthalpy) / pumpEfficiency)"
+  },
+  "outputs": {
+    "primary": "thermalEfficiency",
+    "breakdown": [
+      "turbineWork",
+      "pumpWork",
+      "netWork",
+      "heatAdded"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

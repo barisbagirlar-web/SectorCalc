@@ -1,0 +1,75 @@
+{
+  "toolName": "lift-calculator",
+  "inputs": [
+    {
+      "id": "loadMass",
+      "label": "Load Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Mass of the load to be lifted"
+    },
+    {
+      "id": "carMass",
+      "label": "Car Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 500,
+      "businessContext": "Mass of the elevator car or lifting platform"
+    },
+    {
+      "id": "acceleration",
+      "label": "Acceleration",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 1.5,
+      "businessContext": "Acceleration of the lift"
+    },
+    {
+      "id": "counterweightRatio",
+      "label": "Counterweight Ratio",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.5,
+      "businessContext": "Ratio of counterweight mass to total mass (car + load)"
+    },
+    {
+      "id": "frictionForce",
+      "label": "Friction Force",
+      "type": "number",
+      "unit": "N",
+      "default": 200,
+      "businessContext": "Estimated friction opposing motion"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.5,
+      "businessContext": "Safety factor for mechanical design"
+    }
+  ],
+  "formulas": {
+    "counterweightMass": "counterweightRatio * (carMass + loadMass)",
+    "gravitationalForce": "(carMass + loadMass - counterweightMass) * 9.81",
+    "inertialForce": "(carMass + loadMass + counterweightMass) * acceleration",
+    "totalForce": "gravitationalForce + inertialForce + frictionForce",
+    "requiredForce": "totalForce * safetyFactor"
+  },
+  "outputs": {
+    "primary": "requiredForce",
+    "breakdown": [
+      "counterweightMass",
+      "gravitationalForce",
+      "inertialForce",
+      "totalForce"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

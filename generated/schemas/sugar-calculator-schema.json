@@ -1,0 +1,60 @@
+{
+  "toolName": "sugar-calculator",
+  "inputs": [
+    {
+      "id": "product_mass",
+      "label": "Ürün Kütlesi",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Toplam ürün miktarı (kg)"
+    },
+    {
+      "id": "target_sugar_pct",
+      "label": "Hedef Şeker Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Üründe istenen şeker yüzdesi"
+    },
+    {
+      "id": "sugar_purity",
+      "label": "Şeker Saflığı",
+      "type": "number",
+      "unit": "%",
+      "default": 99.5,
+      "businessContext": "Kullanılan şekerin saflık oranı"
+    },
+    {
+      "id": "sugar_price",
+      "label": "Şeker Birim Fiyatı",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 5,
+      "businessContext": "Şekerin kg başına maliyeti"
+    },
+    {
+      "id": "batch_size",
+      "label": "Parti Adedi",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Üretilecek parti sayısı"
+    }
+  ],
+  "formulas": {
+    "pure_sugar": "product_mass * target_sugar_pct / 100",
+    "actual_sugar": "pure_sugar / (sugar_purity / 100)",
+    "total_cost": "actual_sugar * sugar_price * batch_size"
+  },
+  "outputs": {
+    "primary": "total_cost",
+    "breakdown": [
+      "pure_sugar",
+      "actual_sugar"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false
+}

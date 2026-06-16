@@ -1,0 +1,85 @@
+{
+  "toolName": "altman-z-score-calculator",
+  "inputs": [
+    {
+      "id": "workingCapital",
+      "label": "Working Capital",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Current Assets minus Current Liabilities"
+    },
+    {
+      "id": "totalAssets",
+      "label": "Total Assets",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Total assets on balance sheet"
+    },
+    {
+      "id": "retainedEarnings",
+      "label": "Retained Earnings",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Cumulative net income minus dividends"
+    },
+    {
+      "id": "ebit",
+      "label": "EBIT",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Earnings Before Interest and Taxes"
+    },
+    {
+      "id": "marketValueEquity",
+      "label": "Market Value of Equity",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Market capitalization (share price * shares outstanding)"
+    },
+    {
+      "id": "totalLiabilities",
+      "label": "Total Liabilities",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Total liabilities on balance sheet"
+    },
+    {
+      "id": "sales",
+      "label": "Sales",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Total revenue or sales"
+    }
+  ],
+  "formulas": {
+    "X1": "workingCapital / totalAssets",
+    "X2": "retainedEarnings / totalAssets",
+    "X3": "ebit / totalAssets",
+    "X4": "marketValueEquity / totalLiabilities",
+    "X5": "sales / totalAssets",
+    "altmanZScore": "1.2 * X1 + 1.4 * X2 + 3.3 * X3 + 0.6 * X4 + 1.0 * X5"
+  },
+  "outputs": {
+    "primary": "altmanZScore",
+    "breakdown": [
+      "X1",
+      "X2",
+      "X3",
+      "X4",
+      "X5"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

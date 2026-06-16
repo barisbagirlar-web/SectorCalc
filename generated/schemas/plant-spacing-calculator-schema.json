@@ -1,0 +1,63 @@
+{
+  "toolName": "plant-spacing-calculator",
+  "inputs": [
+    {
+      "id": "bedLength",
+      "label": "Bed Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of the planting bed"
+    },
+    {
+      "id": "bedWidth",
+      "label": "Bed Width",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Width of the planting bed"
+    },
+    {
+      "id": "plantSpacing",
+      "label": "Plant Spacing",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Distance between plants in a row"
+    },
+    {
+      "id": "rowSpacing",
+      "label": "Row Spacing",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Distance between rows"
+    },
+    {
+      "id": "edgeSpacing",
+      "label": "Edge Spacing",
+      "type": "number",
+      "unit": "m",
+      "default": 0.25,
+      "businessContext": "Margin from bed edges before first plant (applied to all sides)"
+    }
+  ],
+  "formulas": {
+    "rows": "Math.floor((bedWidth - 2 * edgeSpacing) / rowSpacing) + 1",
+    "plantsPerRow": "Math.floor((bedLength - 2 * edgeSpacing) / plantSpacing) + 1",
+    "totalPlants": "rows * plantsPerRow"
+  },
+  "outputs": {
+    "primary": "totalPlants",
+    "breakdown": [
+      "rows",
+      "plantsPerRow"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

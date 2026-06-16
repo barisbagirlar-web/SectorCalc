@@ -1,0 +1,75 @@
+{
+  "toolName": "franchise-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Başlangıç Yatırımı",
+      "type": "number",
+      "unit": "₺",
+      "default": 100000,
+      "businessContext": "Toplam başlangıç yatırımı (franchise bedeli, ekipman vb.)"
+    },
+    {
+      "id": "monthlyRevenue",
+      "label": "Aylık Gelir",
+      "type": "number",
+      "unit": "₺/ay",
+      "default": 50000,
+      "businessContext": "Beklenen aylık brüt gelir"
+    },
+    {
+      "id": "royaltyRate",
+      "label": "Royalty Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Aylık gelirden yüzde olarak royalty kesintisi"
+    },
+    {
+      "id": "marketingFeeRate",
+      "label": "Pazarlama Fon Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Aylık gelirden yüzde olarak pazarlama fonu kesintisi"
+    },
+    {
+      "id": "operationalCosts",
+      "label": "Operasyonel Giderler",
+      "type": "number",
+      "unit": "₺/ay",
+      "default": 20000,
+      "businessContext": "Kira, personel, malzeme vb. aylık operasyonel giderler"
+    },
+    {
+      "id": "otherFeesMonthly",
+      "label": "Diğer Aylık Ücretler",
+      "type": "number",
+      "unit": "₺/ay",
+      "default": 0,
+      "businessContext": "Diğer aylık sabit ücretler (lisans, yazılım vb.)"
+    }
+  ],
+  "formulas": {
+    "royaltyAmount": "monthlyRevenue * royaltyRate / 100",
+    "marketingAmount": "monthlyRevenue * marketingFeeRate / 100",
+    "totalFeesMonthly": "otherFeesMonthly + (monthlyRevenue * royaltyRate / 100) + (monthlyRevenue * marketingFeeRate / 100)",
+    "monthlyNetProfit": "monthlyRevenue - operationalCosts - (otherFeesMonthly + monthlyRevenue * royaltyRate / 100 + monthlyRevenue * marketingFeeRate / 100)",
+    "breakEvenMonths": "initialInvestment / (monthlyRevenue - operationalCosts - (otherFeesMonthly + monthlyRevenue * royaltyRate / 100 + monthlyRevenue * marketingFeeRate / 100))"
+  },
+  "outputs": {
+    "primary": "monthlyNetProfit",
+    "breakdown": [
+      "totalFeesMonthly",
+      "royaltyAmount",
+      "marketingAmount",
+      "breakEvenMonths"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

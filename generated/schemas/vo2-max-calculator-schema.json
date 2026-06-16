@@ -1,0 +1,63 @@
+{
+  "toolName": "vo2-max-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "lbs",
+      "default": 150,
+      "businessContext": "Body weight in pounds for Rockport walking test estimation."
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the individual."
+    },
+    {
+      "id": "gender",
+      "label": "Gender (1=Male, 0=Female)",
+      "type": "number",
+      "unit": "binary",
+      "default": 1,
+      "businessContext": "Gender encoding: 1 for male, 0 for female."
+    },
+    {
+      "id": "time",
+      "label": "1-Mile Walk Time",
+      "type": "number",
+      "unit": "minutes",
+      "default": 15,
+      "businessContext": "Duration to walk exactly 1 mile on a flat surface."
+    },
+    {
+      "id": "heartRate",
+      "label": "Heart Rate at End",
+      "type": "number",
+      "unit": "bpm",
+      "default": 130,
+      "businessContext": "Heart rate in beats per minute measured immediately upon completing the walk."
+    }
+  ],
+  "formulas": {
+    "vo2MaxRelative": "132.853 - (0.0769 * weight) - (0.3877 * age) + (6.315 * gender) - (3.2649 * time) - (0.1565 * heartRate)",
+    "weightKg": "weight / 2.20462",
+    "vo2MaxAbsolute": "vo2MaxRelative * weightKg / 1000"
+  },
+  "outputs": {
+    "primary": "vo2MaxRelative",
+    "breakdown": [
+      "vo2MaxAbsolute",
+      "weightKg"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

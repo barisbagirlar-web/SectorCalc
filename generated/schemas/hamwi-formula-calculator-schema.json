@@ -1,0 +1,56 @@
+{
+  "toolName": "hamwi-formula-calculator",
+  "inputs": [
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for Male, 0 for Female"
+    },
+    {
+      "id": "heightFeet",
+      "label": "Height (ft)",
+      "type": "number",
+      "unit": "ft",
+      "default": 5,
+      "businessContext": "Feet component of height"
+    },
+    {
+      "id": "heightInches",
+      "label": "Height (in)",
+      "type": "number",
+      "unit": "in",
+      "default": 8,
+      "businessContext": "Inches component of height"
+    },
+    {
+      "id": "outputUnit",
+      "label": "Output Unit",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 for lbs, 1 for kg"
+    }
+  ],
+  "formulas": {
+    "totalHeight": "heightFeet * 12 + heightInches",
+    "idealWeightLbs": "gender === 1 ? 106 + 6 * (totalHeight - 60) : 100 + 5 * (totalHeight - 60)",
+    "idealWeightKg": "idealWeightLbs * 0.453592",
+    "idealWeight": "outputUnit === 0 ? idealWeightLbs : idealWeightKg"
+  },
+  "outputs": {
+    "primary": "idealWeight",
+    "breakdown": [
+      "idealWeightLbs",
+      "idealWeightKg"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

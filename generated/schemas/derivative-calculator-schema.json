@@ -1,0 +1,81 @@
+{
+  "toolName": "derivative-calculator",
+  "inputs": [
+    {
+      "id": "x",
+      "label": "x değeri",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Türev hesaplanacak nokta"
+    },
+    {
+      "id": "a",
+      "label": "1. Terim Katsayısı",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Birinci terimin katsayısı"
+    },
+    {
+      "id": "n",
+      "label": "1. Terim Üssü",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Birinci terimin üssü"
+    },
+    {
+      "id": "b",
+      "label": "2. Terim Katsayısı",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "İkinci terimin katsayısı"
+    },
+    {
+      "id": "m",
+      "label": "2. Terim Üssü",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "İkinci terimin üssü"
+    },
+    {
+      "id": "c",
+      "label": "3. Terim Katsayısı",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Üçüncü terimin katsayısı"
+    },
+    {
+      "id": "p",
+      "label": "3. Terim Üssü",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Üçüncü terimin üssü"
+    }
+  ],
+  "formulas": {
+    "derivativeTerm1": "a * n === 0 ? 0 : a * n * Math.pow(x, n - 1)",
+    "derivativeTerm2": "b * m === 0 ? 0 : b * m * Math.pow(x, m - 1)",
+    "derivativeTerm3": "c * p === 0 ? 0 : c * p * Math.pow(x, p - 1)",
+    "derivativeTotal": "((a * n === 0 ? 0 : a * n * Math.pow(x, n - 1)) + (b * m === 0 ? 0 : b * m * Math.pow(x, m - 1)) + (c * p === 0 ? 0 : c * p * Math.pow(x, p - 1)))"
+  },
+  "outputs": {
+    "primary": "derivativeTotal",
+    "breakdown": [
+      "derivativeTerm1",
+      "derivativeTerm2",
+      "derivativeTerm3"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

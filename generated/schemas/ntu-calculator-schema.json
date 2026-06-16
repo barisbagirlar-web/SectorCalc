@@ -1,0 +1,55 @@
+{
+  "toolName": "ntu-calculator",
+  "inputs": [
+    {
+      "id": "ntus_value",
+      "label": "NTU Değeri",
+      "type": "number",
+      "unit": "NTU",
+      "default": 15,
+      "businessContext": "Ölçülen bulanıklık değeri (NTU cinsinden)."
+    },
+    {
+      "id": "slope_a",
+      "label": "Eğim Katsayısı (a)",
+      "type": "number",
+      "unit": "mg/L/NTU",
+      "default": 2.1,
+      "businessContext": "Sahaya özgü kalibrasyon eğimi. TSS = a × NTU + b"
+    },
+    {
+      "id": "intercept_b",
+      "label": "Kesişim Sabiti (b)",
+      "type": "number",
+      "unit": "mg/L",
+      "default": 3.2,
+      "businessContext": "Sahaya özgü kalibrasyon kesişim değeri."
+    },
+    {
+      "id": "dilution_factor",
+      "label": "Seyreltme Faktörü",
+      "type": "number",
+      "unit": "birimsiz",
+      "default": 1,
+      "businessContext": "Numune seyreltildiyse seyreltme oranı. Seyreltme yoksa 1."
+    }
+  ],
+  "formulas": {
+    "tss": "(slope_a * ntus_value + intercept_b) * dilution_factor"
+  },
+  "outputs": {
+    "primary": "TSS: {tss} mg/L",
+    "breakdown": [
+      "Kalibrasyon denklemi: TSS = {slope_a} × NTU + {intercept_b}",
+      "Giriş NTU: {ntus_value} NTU",
+      "Seyreltme Faktörü: {dilution_factor}",
+      "Hesaplanan TSS (seyreltme dahil): {tss} mg/L"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

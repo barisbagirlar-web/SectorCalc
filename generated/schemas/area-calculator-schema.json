@@ -1,0 +1,63 @@
+{
+  "toolName": "area-calculator",
+  "inputs": [
+    {
+      "id": "room1Length",
+      "label": "1. Oda Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Birinci odanın uzunluk ölçüsü"
+    },
+    {
+      "id": "room1Width",
+      "label": "1. Oda Genişliği",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Birinci odanın genişlik ölçüsü"
+    },
+    {
+      "id": "room2Length",
+      "label": "2. Oda Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "İkinci odanın uzunluk ölçüsü"
+    },
+    {
+      "id": "room2Width",
+      "label": "2. Oda Genişliği",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "İkinci odanın genişlik ölçüsü"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Fire Faktörü",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Fire ve kayıp payı yüzdesi"
+    }
+  ],
+  "formulas": {
+    "area1": "room1Length * room1Width",
+    "area2": "room2Length * room2Width",
+    "totalArea": "(area1 + area2) * (1 + wasteFactor / 100)"
+  },
+  "outputs": {
+    "primary": "totalArea",
+    "breakdown": [
+      "area1",
+      "area2"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

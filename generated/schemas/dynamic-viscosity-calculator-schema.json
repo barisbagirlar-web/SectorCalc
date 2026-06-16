@@ -1,0 +1,55 @@
+{
+  "toolName": "dynamic-viscosity-calculator",
+  "inputs": [
+    {
+      "id": "tRef",
+      "label": "Reference Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 293,
+      "businessContext": "Temperature at which the reference viscosity is known (Kelvin)"
+    },
+    {
+      "id": "muRef",
+      "label": "Reference Viscosity",
+      "type": "number",
+      "unit": "Pa·s",
+      "default": 0.001002,
+      "businessContext": "Dynamic viscosity at reference temperature (Pascal-seconds)"
+    },
+    {
+      "id": "activationEnergy",
+      "label": "Activation Energy",
+      "type": "number",
+      "unit": "J/mol",
+      "default": 16000,
+      "businessContext": "Activation energy for viscous flow (Joules per mole)"
+    },
+    {
+      "id": "temp",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 313,
+      "businessContext": "Temperature at which to calculate viscosity (Kelvin)"
+    }
+  ],
+  "formulas": {
+    "exponentialFactor": "Math.exp((activationEnergy / 8.314) * (1/temp - 1/tRef))",
+    "dynamicViscosity": "muRef * Math.exp((activationEnergy / 8.314) * (1/temp - 1/tRef))",
+    "dynamicViscosity_cP": "muRef * 1000 * Math.exp((activationEnergy / 8.314) * (1/temp - 1/tRef))"
+  },
+  "outputs": {
+    "primary": "dynamicViscosity",
+    "breakdown": [
+      "exponentialFactor",
+      "dynamicViscosity_cP"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

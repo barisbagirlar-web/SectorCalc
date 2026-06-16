@@ -1,0 +1,55 @@
+{
+  "toolName": "depreciation-calculator",
+  "inputs": [
+    {
+      "id": "initialCost",
+      "label": "Initial Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "The initial purchase price of the asset."
+    },
+    {
+      "id": "salvageValue",
+      "label": "Salvage Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "businessContext": "The estimated residual value at the end of useful life."
+    },
+    {
+      "id": "usefulLifeYears",
+      "label": "Useful Life (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "The expected useful life of the asset in years."
+    },
+    {
+      "id": "yearsElapsed",
+      "label": "Years Elapsed",
+      "type": "number",
+      "unit": "years",
+      "default": 0,
+      "businessContext": "Number of years the asset has been in use."
+    }
+  ],
+  "formulas": {
+    "annualDepreciation": "(initialCost - salvageValue) / usefulLifeYears",
+    "accumulatedDepreciation": "(initialCost - salvageValue) / usefulLifeYears * yearsElapsed",
+    "bookValue": "initialCost - ((initialCost - salvageValue) / usefulLifeYears * yearsElapsed)"
+  },
+  "outputs": {
+    "primary": "annualDepreciation",
+    "breakdown": [
+      "accumulatedDepreciation",
+      "bookValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

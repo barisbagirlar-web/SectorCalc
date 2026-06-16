@@ -1,0 +1,60 @@
+{
+  "toolName": "chi-square-test-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "Observed A",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Observed frequency for cell (1,1)"
+    },
+    {
+      "id": "b",
+      "label": "Observed B",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Observed frequency for cell (1,2)"
+    },
+    {
+      "id": "c",
+      "label": "Observed C",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Observed frequency for cell (2,1)"
+    },
+    {
+      "id": "d",
+      "label": "Observed D",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Observed frequency for cell (2,2)"
+    }
+  ],
+  "formulas": {
+    "total": "a + b + c + d",
+    "expectedA": "(a + b) * (a + c) / total",
+    "expectedB": "(a + b) * (b + d) / total",
+    "expectedC": "(c + d) * (a + c) / total",
+    "expectedD": "(c + d) * (b + d) / total",
+    "chiSquare": "Math.pow(a - expectedA, 2) / expectedA + Math.pow(b - expectedB, 2) / expectedB + Math.pow(c - expectedC, 2) / expectedC + Math.pow(d - expectedD, 2) / expectedD"
+  },
+  "outputs": {
+    "primary": "chiSquare",
+    "breakdown": [
+      "expectedA",
+      "expectedB",
+      "expectedC",
+      "expectedD"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

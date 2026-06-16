@@ -1,0 +1,89 @@
+{
+  "toolName": "knapsack-problem-calculator",
+  "inputs": [
+    {
+      "id": "capacity",
+      "label": "Kapasite",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Maksimum yük kapasitesi"
+    },
+    {
+      "id": "weight1",
+      "label": "Ürün 1 Ağırlık",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Ürün 1 ağırlığı"
+    },
+    {
+      "id": "value1",
+      "label": "Ürün 1 Değer",
+      "type": "number",
+      "unit": "TL",
+      "default": 50,
+      "businessContext": "Ürün 1 değeri"
+    },
+    {
+      "id": "weight2",
+      "label": "Ürün 2 Ağırlık",
+      "type": "number",
+      "unit": "kg",
+      "default": 20,
+      "businessContext": "Ürün 2 ağırlığı"
+    },
+    {
+      "id": "value2",
+      "label": "Ürün 2 Değer",
+      "type": "number",
+      "unit": "TL",
+      "default": 100,
+      "businessContext": "Ürün 2 değeri"
+    },
+    {
+      "id": "weight3",
+      "label": "Ürün 3 Ağırlık",
+      "type": "number",
+      "unit": "kg",
+      "default": 30,
+      "businessContext": "Ürün 3 ağırlığı"
+    },
+    {
+      "id": "value3",
+      "label": "Ürün 3 Değer",
+      "type": "number",
+      "unit": "TL",
+      "default": 150,
+      "businessContext": "Ürün 3 değeri"
+    }
+  ],
+  "formulas": {
+    "subset0": "0",
+    "subset1": "weight1 <= capacity ? value1 : 0",
+    "subset2": "weight2 <= capacity ? value2 : 0",
+    "subset3": "weight3 <= capacity ? value3 : 0",
+    "subset12": "weight1 + weight2 <= capacity ? value1 + value2 : 0",
+    "subset13": "weight1 + weight3 <= capacity ? value1 + value3 : 0",
+    "subset23": "weight2 + weight3 <= capacity ? value2 + value3 : 0",
+    "subset123": "weight1 + weight2 + weight3 <= capacity ? value1 + value2 + value3 : 0",
+    "maxValue": "Math.max(subset0, subset1, subset2, subset3, subset12, subset13, subset23, subset123)",
+    "optimalWeight": "(maxValue === subset0) ? 0 : (maxValue === subset1) ? weight1 : (maxValue === subset2) ? weight2 : (maxValue === subset3) ? weight3 : (maxValue === subset12) ? weight1 + weight2 : (maxValue === subset13) ? weight1 + weight3 : (maxValue === subset23) ? weight2 + weight3 : (maxValue === subset123) ? weight1 + weight2 + weight3 : -1",
+    "capacityUtilization": "(optimalWeight / capacity) * 100",
+    "itemCount": "(maxValue === subset0) ? 0 : (maxValue === subset1) ? 1 : (maxValue === subset2) ? 1 : (maxValue === subset3) ? 1 : (maxValue === subset12) ? 2 : (maxValue === subset13) ? 2 : (maxValue === subset23) ? 2 : (maxValue === subset123) ? 3 : -1"
+  },
+  "outputs": {
+    "primary": "maxValue",
+    "breakdown": [
+      "optimalWeight",
+      "capacityUtilization",
+      "itemCount"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

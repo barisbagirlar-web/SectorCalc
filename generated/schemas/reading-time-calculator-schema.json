@@ -1,0 +1,65 @@
+{
+  "toolName": "reading-time-calculator",
+  "inputs": [
+    {
+      "id": "wordCount",
+      "label": "Word Count",
+      "type": "number",
+      "unit": "words",
+      "default": 1000,
+      "businessContext": "Total number of words in the document"
+    },
+    {
+      "id": "readingSpeed",
+      "label": "Reading Speed",
+      "type": "number",
+      "unit": "wpm",
+      "default": 200,
+      "businessContext": "Average reading speed in words per minute"
+    },
+    {
+      "id": "complexityFactor",
+      "label": "Complexity Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for text complexity (e.g., 1.2 for technical)"
+    },
+    {
+      "id": "pageCount",
+      "label": "Page Count",
+      "type": "number",
+      "unit": "pages",
+      "default": 10,
+      "businessContext": "Number of pages in the document (for per-page pauses)"
+    },
+    {
+      "id": "pauseTimePerPage",
+      "label": "Pause Per Page",
+      "type": "number",
+      "unit": "seconds",
+      "default": 15,
+      "businessContext": "Additional pause time per page for comprehension or notes"
+    }
+  ],
+  "formulas": {
+    "baseReadingTimeMinutes": "wordCount / readingSpeed",
+    "complexityAdjustedMinutes": "baseReadingTimeMinutes * complexityFactor",
+    "pauseAdditionalMinutes": "(pageCount * pauseTimePerPage) / 60",
+    "totalReadingTimeMinutes": "complexityAdjustedMinutes + pauseAdditionalMinutes"
+  },
+  "outputs": {
+    "primary": "totalReadingTimeMinutes",
+    "breakdown": [
+      "baseReadingTimeMinutes",
+      "complexityAdjustedMinutes",
+      "pauseAdditionalMinutes"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

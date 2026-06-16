@@ -1,0 +1,87 @@
+{
+  "toolName": "gpa-calculator",
+  "inputs": [
+    {
+      "id": "credit1",
+      "label": "Course 1 Credit Hours",
+      "type": "number",
+      "unit": "credits",
+      "default": 3,
+      "businessContext": "The number of credits for course 1."
+    },
+    {
+      "id": "grade1",
+      "label": "Course 1 Grade Point",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The grade point for course 1 (e.g., 4.0 for A, 3.0 for B)."
+    },
+    {
+      "id": "credit2",
+      "label": "Course 2 Credit Hours",
+      "type": "number",
+      "unit": "credits",
+      "default": 3,
+      "businessContext": "The number of credits for course 2."
+    },
+    {
+      "id": "grade2",
+      "label": "Course 2 Grade Point",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The grade point for course 2."
+    },
+    {
+      "id": "credit3",
+      "label": "Course 3 Credit Hours",
+      "type": "number",
+      "unit": "credits",
+      "default": 3,
+      "businessContext": "The number of credits for course 3."
+    },
+    {
+      "id": "grade3",
+      "label": "Course 3 Grade Point",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The grade point for course 3."
+    },
+    {
+      "id": "credit4",
+      "label": "Course 4 Credit Hours",
+      "type": "number",
+      "unit": "credits",
+      "default": 3,
+      "businessContext": "The number of credits for course 4."
+    },
+    {
+      "id": "grade4",
+      "label": "Course 4 Grade Point",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The grade point for course 4."
+    }
+  ],
+  "formulas": {
+    "totalCredits": "inputs.credit1 + inputs.credit2 + inputs.credit3 + inputs.credit4",
+    "totalPoints": "inputs.credit1 * inputs.grade1 + inputs.credit2 * inputs.grade2 + inputs.credit3 * inputs.grade3 + inputs.credit4 * inputs.grade4",
+    "gpa": "(inputs.credit1 * inputs.grade1 + inputs.credit2 * inputs.grade2 + inputs.credit3 * inputs.grade3 + inputs.credit4 * inputs.grade4) / (inputs.credit1 + inputs.credit2 + inputs.credit3 + inputs.credit4)"
+  },
+  "outputs": {
+    "primary": "gpa",
+    "breakdown": [
+      "totalCredits",
+      "totalPoints"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

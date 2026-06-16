@@ -1,0 +1,67 @@
+{
+  "toolName": "paneling-calculator",
+  "inputs": [
+    {
+      "id": "roomWidth",
+      "label": "Room Width",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Width of the room or wall to be paneled."
+    },
+    {
+      "id": "roomHeight",
+      "label": "Room Height",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Height of the room or wall."
+    },
+    {
+      "id": "panelWidth",
+      "label": "Panel Width",
+      "type": "number",
+      "unit": "cm",
+      "default": 60,
+      "businessContext": "Width of a single panel."
+    },
+    {
+      "id": "panelHeight",
+      "label": "Panel Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 240,
+      "businessContext": "Height of a single panel."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage of extra material to account for cutting, fitting, and damage."
+    }
+  ],
+  "formulas": {
+    "panelWidthM": "panelWidth / 100",
+    "panelHeightM": "panelHeight / 100",
+    "horizontalCount": "Math.ceil(roomWidth / panelWidthM)",
+    "verticalCount": "Math.ceil(roomHeight / panelHeightM)",
+    "basePanels": "horizontalCount * verticalCount",
+    "totalPanels": "Math.ceil(basePanels * (1 + wasteFactor / 100))",
+    "wasteExtra": "totalPanels - basePanels"
+  },
+  "outputs": {
+    "primary": "totalPanels",
+    "breakdown": [
+      "basePanels",
+      "wasteExtra"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

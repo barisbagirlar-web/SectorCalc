@@ -1,0 +1,63 @@
+{
+  "toolName": "rest-day-calculator",
+  "inputs": [
+    {
+      "id": "targetPercent",
+      "label": "Required Strength",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Percentage of reference strength needed before loading"
+    },
+    {
+      "id": "refStrength",
+      "label": "Reference 28-Day Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 30,
+      "businessContext": "Concrete strength at 28 days under standard conditions"
+    },
+    {
+      "id": "tempCoeff",
+      "label": "Temperature Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Adjustment for ambient temperature (1.0 at 20°C, increase for colder)"
+    },
+    {
+      "id": "humidCoeff",
+      "label": "Humidity Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Adjustment for relative humidity (1.0 at 60% RH)"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "businessContext": "Multiplier to ensure conservative estimate"
+    }
+  ],
+  "formulas": {
+    "primary": "safetyFactor * tempCoeff * humidCoeff * 28 * (targetPercent / 100) ** 2",
+    "requiredStrength": "refStrength * targetPercent / 100",
+    "estimatedStrength": "refStrength * Math.sqrt((safetyFactor * tempCoeff * humidCoeff * 28 * (targetPercent / 100) ** 2) / 28)"
+  },
+  "outputs": {
+    "primary": "restDays",
+    "breakdown": [
+      "requiredStrength",
+      "estimatedStrength"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

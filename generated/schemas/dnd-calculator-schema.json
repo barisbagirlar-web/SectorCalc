@@ -1,0 +1,93 @@
+{
+  "toolName": "dnd-calculator",
+  "inputs": [
+    {
+      "id": "strength",
+      "label": "Strength Score",
+      "type": "number",
+      "unit": "points",
+      "default": 10,
+      "businessContext": "Ability score for melee attacks and carrying capacity."
+    },
+    {
+      "id": "dexterity",
+      "label": "Dexterity Score",
+      "type": "number",
+      "unit": "points",
+      "default": 10,
+      "businessContext": "Ability score for ranged attacks and armor class."
+    },
+    {
+      "id": "constitution",
+      "label": "Constitution Score",
+      "type": "number",
+      "unit": "points",
+      "default": 10,
+      "businessContext": "Ability score for hit points and concentration."
+    },
+    {
+      "id": "intelligence",
+      "label": "Intelligence Score",
+      "type": "number",
+      "unit": "points",
+      "default": 10,
+      "businessContext": "Ability score for spellcasting and knowledge skills."
+    },
+    {
+      "id": "wisdom",
+      "label": "Wisdom Score",
+      "type": "number",
+      "unit": "points",
+      "default": 10,
+      "businessContext": "Ability score for perception and insight."
+    },
+    {
+      "id": "charisma",
+      "label": "Charisma Score",
+      "type": "number",
+      "unit": "points",
+      "default": 10,
+      "businessContext": "Ability score for social interactions and spellcasting."
+    },
+    {
+      "id": "proficiency_bonus",
+      "label": "Proficiency Bonus",
+      "type": "number",
+      "unit": "points",
+      "default": 2,
+      "businessContext": "Bonus added to proficient skills and attacks."
+    },
+    {
+      "id": "level",
+      "label": "Character Level",
+      "type": "number",
+      "unit": "level",
+      "default": 1,
+      "businessContext": "Determines proficiency bonus and class features."
+    }
+  ],
+  "formulas": {
+    "ability_modifier": "(score - 10) / 2",
+    "proficiency_bonus_calc": "Math.floor((level + 7) / 4)",
+    "attack_bonus": "ability_modifier + proficiency_bonus",
+    "damage_bonus": "ability_modifier",
+    "armor_class": "10 + ability_modifier(dexterity)",
+    "hit_points": "8 + ability_modifier(constitution) + (level - 1) * (5 + ability_modifier(constitution))"
+  },
+  "outputs": {
+    "primary": "attack_bonus",
+    "breakdown": [
+      "ability_modifier",
+      "proficiency_bonus_calc",
+      "damage_bonus",
+      "armor_class",
+      "hit_points"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,82 @@
+{
+  "toolName": "10k-calculator",
+  "inputs": [
+    {
+      "id": "units",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "units",
+      "default": 10000,
+      "businessContext": "Number of units per production batch"
+    },
+    {
+      "id": "cycleTime",
+      "label": "Cycle Time per Unit",
+      "type": "number",
+      "unit": "seconds",
+      "default": 60,
+      "businessContext": "Time to produce one unit on one machine"
+    },
+    {
+      "id": "OEE",
+      "label": "OEE",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Overall Equipment Effectiveness percentage"
+    },
+    {
+      "id": "machines",
+      "label": "Number of Machines",
+      "type": "number",
+      "unit": "machines",
+      "default": 1,
+      "businessContext": "Number of parallel machines"
+    },
+    {
+      "id": "setupTime",
+      "label": "Setup Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 0.5,
+      "businessContext": "Time to set up before production"
+    },
+    {
+      "id": "shiftDuration",
+      "label": "Shift Duration",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Length of one work shift"
+    },
+    {
+      "id": "breaks",
+      "label": "Break Time per Shift",
+      "type": "number",
+      "unit": "hours",
+      "default": 0.5,
+      "businessContext": "Non-productive time per shift"
+    }
+  ],
+  "formulas": {
+    "effectiveCycle": "cycleTime / (OEE / 100)",
+    "unitsPerHour": "3600 / effectiveCycle",
+    "totalProcessingTimeHours": "(units * cycleTime / 3600) / (OEE / 100) / machines",
+    "totalTime": "setupTime + totalProcessingTimeHours",
+    "shiftsRequired": "Math.ceil(totalTime / (shiftDuration - breaks))"
+  },
+  "outputs": {
+    "primary": "totalTime",
+    "breakdown": [
+      "effectiveCycle",
+      "unitsPerHour",
+      "shiftsRequired"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

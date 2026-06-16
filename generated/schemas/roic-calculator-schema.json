@@ -1,0 +1,63 @@
+{
+  "toolName": "roic-calculator",
+  "inputs": [
+    {
+      "id": "ebit",
+      "label": "EBIT (Faiz ve Vergi Öncesi Kar)",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "Faiz ve vergi öncesi net faaliyet karıdır."
+    },
+    {
+      "id": "taxRate",
+      "label": "Vergi Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Kurumlar vergisi oranıdır."
+    },
+    {
+      "id": "totalDebt",
+      "label": "Toplam Borç",
+      "type": "number",
+      "unit": "$",
+      "default": 500000,
+      "businessContext": "Şirketin toplam kısa ve uzun vadeli borçları."
+    },
+    {
+      "id": "totalEquity",
+      "label": "Toplam Öz Sermaye",
+      "type": "number",
+      "unit": "$",
+      "default": 500000,
+      "businessContext": "Şirketin hissedarlara ait öz sermayesi."
+    },
+    {
+      "id": "cash",
+      "label": "Nakit ve Nakit Benzerleri",
+      "type": "number",
+      "unit": "$",
+      "default": 50000,
+      "businessContext": "Kasadaki nakit ve likit varlıklar."
+    }
+  ],
+  "formulas": {
+    "nopat": "inputs.ebit * (1 - inputs.taxRate / 100)",
+    "investedCapital": "inputs.totalDebt + inputs.totalEquity - inputs.cash",
+    "roic": "(nopat / investedCapital) * 100"
+  },
+  "outputs": {
+    "primary": "roic",
+    "breakdown": [
+      "nopat",
+      "investedCapital"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

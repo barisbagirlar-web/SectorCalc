@@ -1,0 +1,71 @@
+{
+  "toolName": "golf-distance-calculator",
+  "inputs": [
+    {
+      "id": "clubSpeed",
+      "label": "Club Speed",
+      "type": "number",
+      "unit": "mph",
+      "default": 100,
+      "businessContext": "Club head speed at impact, typically 70-130 mph for amateur golfers"
+    },
+    {
+      "id": "smashFactor",
+      "label": "Smash Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.48,
+      "businessContext": "Ball speed divided by club speed, typically 1.35-1.5 for drivers"
+    },
+    {
+      "id": "launchAngle",
+      "label": "Launch Angle",
+      "type": "number",
+      "unit": "degrees",
+      "default": 12,
+      "businessContext": "Initial vertical angle of ball flight, optimal around 10-15 degrees"
+    },
+    {
+      "id": "spinRate",
+      "label": "Spin Rate",
+      "type": "number",
+      "unit": "rpm",
+      "default": 2500,
+      "businessContext": "Backspin rate, typical driver spin 2000-3000 rpm"
+    },
+    {
+      "id": "windSpeed",
+      "label": "Wind Speed",
+      "type": "number",
+      "unit": "mph",
+      "default": 0,
+      "businessContext": "Positive for tailwind, negative for headwind"
+    },
+    {
+      "id": "altitude",
+      "label": "Altitude",
+      "type": "number",
+      "unit": "feet",
+      "default": 0,
+      "businessContext": "Elevation above sea level, higher altitude reduces air density"
+    }
+  ],
+  "formulas": {
+    "ballSpeed": "clubSpeed * smashFactor",
+    "carryDistance": "(ballSpeed * 1.75) - 40 + (launchAngle - 12) * 3 - (spinRate - 2500) * 0.03 + (windSpeed * 2) + (altitude * 0.001)",
+    "totalDistance": "carryDistance * 1.08"
+  },
+  "outputs": {
+    "primary": "totalDistance",
+    "breakdown": [
+      "ballSpeed",
+      "carryDistance"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

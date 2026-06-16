@@ -1,0 +1,66 @@
+{
+  "toolName": "savings-goal-calculator",
+  "inputs": [
+    {
+      "id": "currentSavings",
+      "label": "Current Savings",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "The amount of money already saved."
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Monthly Contribution",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "Amount added to savings each month."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Expected annual rate of return on savings."
+    },
+    {
+      "id": "numberOfYears",
+      "label": "Number of Years",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Time horizon for savings goal."
+    },
+    {
+      "id": "goalAmount",
+      "label": "Goal Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "The target amount you want to save."
+    }
+  ],
+  "formulas": {
+    "monthlyRate": "annualInterestRate / 100 / 12",
+    "totalFutureValue": "currentSavings * (1 + monthlyRate) ** (numberOfYears * 12) + monthlyContribution * (((1 + monthlyRate) ** (numberOfYears * 12) - 1) / monthlyRate)",
+    "totalContributions": "currentSavings + monthlyContribution * numberOfYears * 12",
+    "interestEarned": "totalFutureValue - totalContributions",
+    "goalDifference": "totalFutureValue - goalAmount"
+  },
+  "outputs": {
+    "primary": "totalFutureValue",
+    "breakdown": [
+      "totalContributions",
+      "interestEarned",
+      "goalDifference"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

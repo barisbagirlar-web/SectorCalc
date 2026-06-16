@@ -1,0 +1,65 @@
+{
+  "toolName": "swimming-turn-calculator",
+  "inputs": [
+    {
+      "id": "approachDistance",
+      "label": "Approach Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 1.5,
+      "businessContext": "Distance from wall where the swimmer initiates the turn"
+    },
+    {
+      "id": "approachVelocity",
+      "label": "Approach Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 2,
+      "businessContext": "Velocity of the swimmer during the approach"
+    },
+    {
+      "id": "turnTime",
+      "label": "Turn Execution Time",
+      "type": "number",
+      "unit": "s",
+      "default": 1.2,
+      "businessContext": "Time taken to execute the turn on the wall"
+    },
+    {
+      "id": "pushOffVelocity",
+      "label": "Push-off Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 2.5,
+      "businessContext": "Velocity of the swimmer after push-off from the wall"
+    },
+    {
+      "id": "breakOutDistance",
+      "label": "Breakout Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Distance from wall to the point of breakout (first stroke)"
+    }
+  ],
+  "formulas": {
+    "totalTurnTime": "(approachDistance / approachVelocity) + turnTime + (breakOutDistance / pushOffVelocity)",
+    "approachTime": "approachDistance / approachVelocity",
+    "turnExecutionTime": "turnTime",
+    "pushOffTime": "breakOutDistance / pushOffVelocity"
+  },
+  "outputs": {
+    "primary": "totalTurnTime",
+    "breakdown": [
+      "approachTime",
+      "turnExecutionTime",
+      "pushOffTime"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

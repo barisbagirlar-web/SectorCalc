@@ -1,0 +1,83 @@
+{
+  "toolName": "event-carbon-footprint-calculator",
+  "inputs": [
+    {
+      "id": "attendees",
+      "label": "Number of Attendees",
+      "type": "number",
+      "unit": "persons",
+      "default": 100,
+      "businessContext": "Total number of people attending the event."
+    },
+    {
+      "id": "travelDistance",
+      "label": "Average Travel Distance per Attendee (one-way)",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "businessContext": "One-way distance travelled by each attendee (return trip considered automatically)."
+    },
+    {
+      "id": "travelEmissionFactor",
+      "label": "Travel Emission Factor",
+      "type": "number",
+      "unit": "kgCO2/km",
+      "default": 0.2,
+      "businessContext": "CO2 emitted per passenger-km (0.2 for car, 0.04 for train, 0.255 for flight)."
+    },
+    {
+      "id": "venueEnergy",
+      "label": "Venue Energy Consumption per Day",
+      "type": "number",
+      "unit": "kWh",
+      "default": 500,
+      "businessContext": "Daily electricity and heating consumption of the event venue."
+    },
+    {
+      "id": "eventDays",
+      "label": "Event Duration",
+      "type": "number",
+      "unit": "days",
+      "default": 1,
+      "businessContext": "Number of days the event takes place."
+    },
+    {
+      "id": "wastePerAttendee",
+      "label": "Waste per Attendee per Day",
+      "type": "number",
+      "unit": "kg",
+      "default": 0.5,
+      "businessContext": "Average waste generated per attendee per day."
+    },
+    {
+      "id": "accommodationNights",
+      "label": "Accommodation Nights per Attendee",
+      "type": "number",
+      "unit": "nights",
+      "default": 1,
+      "businessContext": "Number of hotel nights per attendee."
+    }
+  ],
+  "formulas": {
+    "travelCO2": "attendees * travelDistance * 2 * travelEmissionFactor",
+    "venueCO2": "venueEnergy * eventDays * 0.5",
+    "wasteCO2": "attendees * eventDays * wastePerAttendee * 0.5",
+    "accommodationCO2": "attendees * accommodationNights * 10",
+    "totalCO2": "travelCO2 + venueCO2 + wasteCO2 + accommodationCO2"
+  },
+  "outputs": {
+    "primary": "totalCO2",
+    "breakdown": [
+      "travelCO2",
+      "venueCO2",
+      "accommodationCO2",
+      "wasteCO2"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

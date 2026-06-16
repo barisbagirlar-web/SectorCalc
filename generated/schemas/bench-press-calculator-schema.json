@@ -1,0 +1,57 @@
+{
+  "toolName": "bench-press-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Lifted Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "The total weight (including bar) you lifted."
+    },
+    {
+      "id": "reps",
+      "label": "Repetitions",
+      "type": "number",
+      "unit": "reps",
+      "default": 8,
+      "businessContext": "Number of repetitions performed until failure."
+    },
+    {
+      "id": "desiredReps",
+      "label": "Desired Reps",
+      "type": "number",
+      "unit": "reps",
+      "default": 1,
+      "businessContext": "Target number of repetitions for which you want to estimate the weight."
+    },
+    {
+      "id": "percentage",
+      "label": "Percentage of 1RM",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Percentage of your estimated one-repetition maximum for programming working sets."
+    }
+  ],
+  "formulas": {
+    "epley1RM": "weight * (1 + reps / 30)",
+    "brzycki1RM": "weight * (36 / (37 - reps))",
+    "weightForDesiredReps": "epley1RM / (1 + desiredReps / 30)",
+    "weightAtPercentage": "epley1RM * percentage / 100"
+  },
+  "outputs": {
+    "primary": "epley1RM",
+    "breakdown": [
+      "brzycki1RM",
+      "weightForDesiredReps",
+      "weightAtPercentage"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,79 @@
+{
+  "toolName": "molecular-weight-calculator",
+  "inputs": [
+    {
+      "id": "c",
+      "label": "Number of Carbon atoms",
+      "type": "number",
+      "unit": "atoms",
+      "default": 0,
+      "businessContext": "Count of carbon atoms in the molecule"
+    },
+    {
+      "id": "h",
+      "label": "Number of Hydrogen atoms",
+      "type": "number",
+      "unit": "atoms",
+      "default": 0,
+      "businessContext": "Count of hydrogen atoms in the molecule"
+    },
+    {
+      "id": "o",
+      "label": "Number of Oxygen atoms",
+      "type": "number",
+      "unit": "atoms",
+      "default": 0,
+      "businessContext": "Count of oxygen atoms in the molecule"
+    },
+    {
+      "id": "n",
+      "label": "Number of Nitrogen atoms",
+      "type": "number",
+      "unit": "atoms",
+      "default": 0,
+      "businessContext": "Count of nitrogen atoms in the molecule"
+    },
+    {
+      "id": "s",
+      "label": "Number of Sulfur atoms",
+      "type": "number",
+      "unit": "atoms",
+      "default": 0,
+      "businessContext": "Count of sulfur atoms in the molecule"
+    },
+    {
+      "id": "p",
+      "label": "Number of Phosphorus atoms",
+      "type": "number",
+      "unit": "atoms",
+      "default": 0,
+      "businessContext": "Count of phosphorus atoms in the molecule"
+    }
+  ],
+  "formulas": {
+    "molecularWeight": "c * 12.011 + h * 1.008 + o * 15.999 + n * 14.007 + s * 32.065 + p * 30.974",
+    "carbonWeight": "c * 12.011",
+    "hydrogenWeight": "h * 1.008",
+    "oxygenWeight": "o * 15.999",
+    "nitrogenWeight": "n * 14.007",
+    "sulfurWeight": "s * 32.065",
+    "phosphorusWeight": "p * 30.974"
+  },
+  "outputs": {
+    "primary": "molecularWeight",
+    "breakdown": [
+      "carbonWeight",
+      "hydrogenWeight",
+      "oxygenWeight",
+      "nitrogenWeight",
+      "sulfurWeight",
+      "phosphorusWeight"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

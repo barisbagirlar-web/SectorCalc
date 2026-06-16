@@ -1,0 +1,71 @@
+{
+  "toolName": "hiking-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Mesafe",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "Planlanan yürüyüş mesafesi"
+    },
+    {
+      "id": "elevationGain",
+      "label": "İrtifa Kazancı",
+      "type": "number",
+      "unit": "m",
+      "default": 500,
+      "businessContext": "Toplam tırmanılan yükseklik"
+    },
+    {
+      "id": "averageSpeed",
+      "label": "Ortalama Hız",
+      "type": "number",
+      "unit": "km/h",
+      "default": 5,
+      "businessContext": "Düz zeminde yürüyüş hızı"
+    },
+    {
+      "id": "backpackWeight",
+      "label": "Çanta Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Sırt çantasının ağırlığı"
+    }
+  ],
+  "formulas": {
+    "adjustedSpeed": "averageSpeed * (1 - 0.005 * backpackWeight)",
+    "baseTime": "distance / adjustedSpeed",
+    "ascentTime": "elevationGain / 600",
+    "totalTime": "baseTime + ascentTime"
+  },
+  "outputs": {
+    "primary": {
+      "id": "totalTime",
+      "label": "Toplam Tahmini Süre",
+      "unit": "saat",
+      "formula": "totalTime"
+    },
+    "breakdown": [
+      {
+        "id": "baseTime",
+        "label": "Düz Yürüyüş Süresi",
+        "unit": "saat",
+        "formula": "baseTime"
+      },
+      {
+        "id": "ascentTime",
+        "label": "Tırmanış Süresi",
+        "unit": "saat",
+        "formula": "ascentTime"
+      }
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,58 @@
+{
+  "toolName": "snells-law-calculator",
+  "inputs": [
+    {
+      "id": "n1",
+      "label": "Refractive Index of Medium 1",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Refractive index of the first medium (e.g., air = 1.0003)"
+    },
+    {
+      "id": "theta1",
+      "label": "Angle of Incidence",
+      "type": "number",
+      "unit": "degrees",
+      "default": 30,
+      "businessContext": "Angle between incident ray and normal in medium 1"
+    },
+    {
+      "id": "n2",
+      "label": "Refractive Index of Medium 2",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.5,
+      "businessContext": "Refractive index of the second medium (e.g., glass = 1.5)"
+    },
+    {
+      "id": "theta2",
+      "label": "Angle of Refraction",
+      "type": "number",
+      "unit": "degrees",
+      "default": 19.47,
+      "businessContext": "Angle between refracted ray and normal in medium 2 (calculated if unknown)"
+    }
+  ],
+  "formulas": {
+    "theta2_rad": "Math.asin(n1 * Math.sin(theta1 * Math.PI / 180) / n2)",
+    "theta2_deg": "theta2_rad * 180 / Math.PI",
+    "critical_angle_rad": "Math.asin(n2 / n1)",
+    "critical_angle_deg": "critical_angle_rad * 180 / Math.PI",
+    "is_total_internal_reflection": "n1 > n2 && theta1 > critical_angle_deg"
+  },
+  "outputs": {
+    "primary": "theta2_deg",
+    "breakdown": [
+      "Angle of Refraction (degrees): theta2_deg",
+      "Critical Angle (degrees): critical_angle_deg",
+      "Total Internal Reflection: is_total_internal_reflection"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,64 @@
+{
+  "toolName": "unit-circle-calculator",
+  "inputs": [
+    {
+      "id": "initialAngle",
+      "label": "Initial Angle",
+      "type": "number",
+      "unit": "deg",
+      "default": 0,
+      "businessContext": "Starting angle in degrees"
+    },
+    {
+      "id": "angularVelocity",
+      "label": "Angular Velocity",
+      "type": "number",
+      "unit": "rad/s",
+      "default": 0,
+      "businessContext": "Constant angular velocity in radians per second"
+    },
+    {
+      "id": "time",
+      "label": "Time",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Elapsed time in seconds"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for output rounding"
+    }
+  ],
+  "formulas": {
+    "angleRad": "initialAngle * Math.PI / 180",
+    "totalAngleRad": "angleRad + angularVelocity * time",
+    "cosVal": "Math.cos(totalAngleRad)",
+    "sinVal": "Math.sin(totalAngleRad)",
+    "tanVal": "sinVal / cosVal",
+    "cotVal": "cosVal / sinVal",
+    "secVal": "1 / cosVal",
+    "cscVal": "1 / sinVal"
+  },
+  "outputs": {
+    "primary": "\"(\" + cosVal.toFixed(decimalPlaces) + \", \" + sinVal.toFixed(decimalPlaces) + \")\"",
+    "breakdown": [
+      "\"sin(θ) = \" + sinVal.toFixed(decimalPlaces)",
+      "\"cos(θ) = \" + cosVal.toFixed(decimalPlaces)",
+      "\"tan(θ) = \" + tanVal.toFixed(decimalPlaces)",
+      "\"cot(θ) = \" + cotVal.toFixed(decimalPlaces)",
+      "\"sec(θ) = \" + secVal.toFixed(decimalPlaces)",
+      "\"csc(θ) = \" + cscVal.toFixed(decimalPlaces)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

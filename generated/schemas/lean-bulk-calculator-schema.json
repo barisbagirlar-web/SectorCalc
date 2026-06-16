@@ -1,0 +1,65 @@
+{
+  "toolName": "lean-bulk-calculator",
+  "inputs": [
+    {
+      "id": "annualDemand",
+      "label": "Annual Demand (units)",
+      "type": "number",
+      "unit": "pcs",
+      "default": 12000,
+      "businessContext": "Toplam yıllık talep miktarı (parça olarak)"
+    },
+    {
+      "id": "setupCost",
+      "label": "Setup Cost per Batch",
+      "type": "number",
+      "unit": "$",
+      "default": 50,
+      "businessContext": "Her bir parti üretim için hazırlık/setup maliyeti"
+    },
+    {
+      "id": "holdingCost",
+      "label": "Holding Cost per Unit per Year",
+      "type": "number",
+      "unit": "$/unit/year",
+      "default": 2.5,
+      "businessContext": "Bir birim stoğun yıllık depolama/elde tutma maliyeti"
+    },
+    {
+      "id": "annualProductionRate",
+      "label": "Annual Production Capacity",
+      "type": "number",
+      "unit": "pcs/year",
+      "default": 24000,
+      "businessContext": "Toplam yıllık üretim kapasitesi (parça olarak)"
+    },
+    {
+      "id": "workingDays",
+      "label": "Working Days per Year",
+      "type": "number",
+      "unit": "days",
+      "default": 250,
+      "businessContext": "Yıllık çalışma günü sayısı"
+    }
+  ],
+  "formulas": {
+    "dailyDemand": "annualDemand / workingDays",
+    "dailyProduction": "annualProductionRate / workingDays",
+    "optimalBatchSize": "Math.sqrt((2 * annualDemand * setupCost) / (holdingCost * (1 - dailyDemand / dailyProduction)))",
+    "cycleLengthDays": "optimalBatchSize / dailyDemand",
+    "setupsPerYear": "annualDemand / optimalBatchSize"
+  },
+  "outputs": {
+    "primary": "optimalBatchSize",
+    "breakdown": [
+      "cycleLengthDays",
+      "setupsPerYear"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

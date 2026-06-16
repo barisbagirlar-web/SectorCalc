@@ -1,0 +1,63 @@
+{
+  "toolName": "vat-moss-calculator",
+  "inputs": [
+    {
+      "id": "netAmount",
+      "label": "Net Amount (€)",
+      "type": "number",
+      "unit": "€",
+      "default": 100,
+      "businessContext": "The price of the digital service excluding VAT."
+    },
+    {
+      "id": "vatRate",
+      "label": "VAT Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "The VAT rate applicable in the consumer's EU member state."
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of units or services sold."
+    },
+    {
+      "id": "discountPercent",
+      "label": "Discount (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Discount percentage applied before VAT calculation."
+    },
+    {
+      "id": "additionalCosts",
+      "label": "Additional Costs (€)",
+      "type": "number",
+      "unit": "€",
+      "default": 0,
+      "businessContext": "Any additional charges (e.g., processing fees) included in the taxable amount."
+    }
+  ],
+  "formulas": {
+    "taxableAmount": "(netAmount * quantity) * (1 - discountPercent/100) + additionalCosts",
+    "vatAmount": "taxableAmount * (vatRate/100)",
+    "grossAmount": "taxableAmount + vatAmount"
+  },
+  "outputs": {
+    "primary": "vatAmount",
+    "breakdown": [
+      "taxableAmount",
+      "grossAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

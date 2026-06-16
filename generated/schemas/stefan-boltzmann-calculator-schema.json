@@ -1,0 +1,54 @@
+{
+  "toolName": "stefan-boltzmann-calculator",
+  "inputs": [
+    {
+      "id": "emissivity",
+      "label": "Yayma Oranı (ε)",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 0.95,
+      "businessContext": "Yüzeyin siyah cisim idealine göre yayma oranı"
+    },
+    {
+      "id": "area",
+      "label": "Yüzey Alanı",
+      "type": "number",
+      "unit": "m²",
+      "default": 1,
+      "businessContext": "Işınım yapan yüzeyin alanı"
+    },
+    {
+      "id": "temperature",
+      "label": "Sıcaklık",
+      "type": "number",
+      "unit": "K",
+      "default": 300,
+      "businessContext": "Mutlak sıcaklık (Kelvin cinsinden)"
+    },
+    {
+      "id": "stefanConstant",
+      "label": "Stefan-Boltzmann Sabiti",
+      "type": "number",
+      "unit": "W/(m²·K⁴)",
+      "default": 5.670367e-8,
+      "businessContext": "Temel fizik sabiti, varsayılan değer TÜV onaylıdır"
+    }
+  ],
+  "formulas": {
+    "power": "emissivity * stefanConstant * area * Math.pow(temperature, 4)",
+    "intensity": "emissivity * stefanConstant * Math.pow(temperature, 4)"
+  },
+  "outputs": {
+    "primary": "power",
+    "breakdown": [
+      "intensity",
+      "power"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

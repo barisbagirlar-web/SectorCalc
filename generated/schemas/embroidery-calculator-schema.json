@@ -1,0 +1,85 @@
+{
+  "toolName": "embroidery-calculator",
+  "inputs": [
+    {
+      "id": "designWidth",
+      "label": "Design Width",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Width of the embroidery design in centimeters."
+    },
+    {
+      "id": "designHeight",
+      "label": "Design Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Height of the embroidery design in centimeters."
+    },
+    {
+      "id": "stitchDensity",
+      "label": "Stitch Density",
+      "type": "number",
+      "unit": "stitches/cm²",
+      "default": 50,
+      "businessContext": "Average number of stitches per square centimeter for the design."
+    },
+    {
+      "id": "threadFactor",
+      "label": "Thread Consumption Factor",
+      "type": "number",
+      "unit": "m/1000 stitches",
+      "default": 30,
+      "businessContext": "Meters of thread consumed per 1000 stitches, based on stitch type and thread weight."
+    },
+    {
+      "id": "threadCostPerMeter",
+      "label": "Thread Cost per Meter",
+      "type": "number",
+      "unit": "currency/m",
+      "default": 0.05,
+      "businessContext": "Cost of thread per meter in your local currency."
+    },
+    {
+      "id": "machineEfficiency",
+      "label": "Machine Efficiency",
+      "type": "number",
+      "unit": "stitches/min",
+      "default": 600,
+      "businessContext": "Average machine speed in stitches per minute, including downtime."
+    },
+    {
+      "id": "laborHourlyRate",
+      "label": "Labor Hourly Rate",
+      "type": "number",
+      "unit": "currency/hr",
+      "default": 15,
+      "businessContext": "Hourly labor cost for the machine operator."
+    }
+  ],
+  "formulas": {
+    "stitchCount": "designWidth * designHeight * stitchDensity",
+    "threadLength": "stitchCount * threadFactor / 1000",
+    "threadCost": "threadLength * threadCostPerMeter",
+    "machineTime": "stitchCount / machineEfficiency",
+    "laborCost": "machineTime / 60 * laborHourlyRate",
+    "totalCost": "threadCost + laborCost"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "stitchCount",
+      "threadLength",
+      "threadCost",
+      "machineTime",
+      "laborCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

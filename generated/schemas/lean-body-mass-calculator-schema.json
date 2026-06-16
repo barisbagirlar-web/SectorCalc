@@ -1,0 +1,55 @@
+{
+  "toolName": "lean-body-mass-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Total body weight in kilograms"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Height in centimeters"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age in full years"
+    },
+    {
+      "id": "gender",
+      "label": "Gender (0=Female, 1=Male)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Biological sex indicator: 0 for female, 1 for male"
+    }
+  ],
+  "formulas": {
+    "lbm": "weight * 0.732 + height * 0.203 - age * 0.002 - gender * 0.016 + 14.0",
+    "bodyFatMass": "weight - lbm",
+    "bodyFatPercentage": "(bodyFatMass / weight) * 100"
+  },
+  "outputs": {
+    "primary": "lbm",
+    "breakdown": [
+      "bodyFatMass",
+      "bodyFatPercentage"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

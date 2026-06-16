@@ -1,0 +1,53 @@
+{
+  "toolName": "beam-calculator",
+  "inputs": [
+    {
+      "id": "load",
+      "label": "Applied Load",
+      "type": "number",
+      "unit": "kN",
+      "default": 10,
+      "businessContext": "Central point load applied at midspan"
+    },
+    {
+      "id": "span",
+      "label": "Beam Span",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Length of the simply supported beam"
+    },
+    {
+      "id": "elasticModulus",
+      "label": "Elastic Modulus",
+      "type": "number",
+      "unit": "GPa",
+      "default": 200,
+      "businessContext": "Young's modulus of the beam material"
+    },
+    {
+      "id": "momentOfInertia",
+      "label": "Moment of Inertia",
+      "type": "number",
+      "unit": "cm⁴",
+      "default": 1000,
+      "businessContext": "Second moment of area of the beam cross-section"
+    }
+  ],
+  "formulas": {
+    "maxBendingMoment": "(load * span) / 4",
+    "maxDeflection": "(100000 * load * Math.pow(span, 3)) / (48 * elasticModulus * momentOfInertia)"
+  },
+  "outputs": {
+    "primary": "maxBendingMoment",
+    "breakdown": [
+      "maxDeflection"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

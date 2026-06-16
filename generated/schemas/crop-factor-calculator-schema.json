@@ -1,0 +1,57 @@
+{
+  "toolName": "crop-factor-calculator",
+  "inputs": [
+    {
+      "id": "sensorWidth",
+      "label": "Sensor Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 22.3,
+      "businessContext": "Width of the camera sensor in millimeters."
+    },
+    {
+      "id": "sensorHeight",
+      "label": "Sensor Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 14.9,
+      "businessContext": "Height of the camera sensor in millimeters."
+    },
+    {
+      "id": "fullFrameWidth",
+      "label": "Full-Frame Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 36,
+      "businessContext": "Width of a full-frame sensor (standard reference)."
+    },
+    {
+      "id": "fullFrameHeight",
+      "label": "Full-Frame Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 24,
+      "businessContext": "Height of a full-frame sensor (standard reference)."
+    }
+  ],
+  "formulas": {
+    "sensorDiagonal": "Math.sqrt(sensorWidth**2 + sensorHeight**2)",
+    "fullFrameDiagonal": "Math.sqrt(fullFrameWidth**2 + fullFrameHeight**2)",
+    "cropFactor": "fullFrameDiagonal / sensorDiagonal",
+    "areaRatio": "(fullFrameWidth * fullFrameHeight) / (sensorWidth * sensorHeight)"
+  },
+  "outputs": {
+    "primary": "cropFactor",
+    "breakdown": [
+      "sensorDiagonal",
+      "fullFrameDiagonal",
+      "areaRatio"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

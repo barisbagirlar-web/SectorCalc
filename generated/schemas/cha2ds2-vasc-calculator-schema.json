@@ -1,0 +1,91 @@
+{
+  "toolName": "cha2ds2-vasc-calculator",
+  "inputs": [
+    {
+      "id": "chf",
+      "label": "Congestive Heart Failure (1 point)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "History of CHF"
+    },
+    {
+      "id": "hypertension",
+      "label": "Hypertension (1 point)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Diagnosed hypertension"
+    },
+    {
+      "id": "age75",
+      "label": "Age ≥75 years (2 points)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Patient age 75 or older"
+    },
+    {
+      "id": "diabetes",
+      "label": "Diabetes Mellitus (1 point)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Diagnosed diabetes"
+    },
+    {
+      "id": "stroke",
+      "label": "Prior Stroke/TIA/Thromboembolism (2 points)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "History of stroke, TIA, or systemic embolism"
+    },
+    {
+      "id": "vascular",
+      "label": "Vascular Disease (1 point)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Prior MI, peripheral artery disease, or aortic plaque"
+    },
+    {
+      "id": "age65to74",
+      "label": "Age 65-74 years (1 point)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Patient age between 65 and 74"
+    },
+    {
+      "id": "sexFemale",
+      "label": "Female Sex (1 point)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Patient is female"
+    }
+  ],
+  "formulas": {
+    "score": "chf + hypertension + age75 * 2 + diabetes + stroke * 2 + vascular + age65to74 + sexFemale"
+  },
+  "outputs": {
+    "primary": "CHA2DS2-VASc Score: {{score}}",
+    "breakdown": [
+      "CHF: {{chf}} point(s)",
+      "Hypertension: {{hypertension}} point(s)",
+      "Age ≥75: {{age75 * 2}} point(s)",
+      "Diabetes: {{diabetes}} point(s)",
+      "Stroke/TIA: {{stroke * 2}} point(s)",
+      "Vascular: {{vascular}} point(s)",
+      "Age 65-74: {{age65to74}} point(s)",
+      "Female: {{sexFemale}} point(s)"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

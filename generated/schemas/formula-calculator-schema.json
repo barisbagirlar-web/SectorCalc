@@ -1,0 +1,59 @@
+{
+  "toolName": "formula-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "Değişken A",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Birinci girdi değişkeni"
+    },
+    {
+      "id": "b",
+      "label": "Değişken B",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "İkinci girdi değişkeni"
+    },
+    {
+      "id": "c",
+      "label": "Değişken C",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Üçüncü girdi değişkeni"
+    },
+    {
+      "id": "d",
+      "label": "Değişken D",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Dördüncü girdi değişkeni"
+    }
+  ],
+  "formulas": {
+    "primary": "(a + b) * (c - d)",
+    "breakdown": [
+      "a + b",
+      "c - d",
+      "(a + b) * (c - d)"
+    ]
+  },
+  "outputs": {
+    "primary": "Sonuç",
+    "breakdown": [
+      "Toplam (A+B)",
+      "Fark (C-D)",
+      "Çarpım"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

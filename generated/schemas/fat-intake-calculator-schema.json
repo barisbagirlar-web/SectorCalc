@@ -1,0 +1,54 @@
+{
+  "toolName": "fat-intake-calculator",
+  "inputs": [
+    {
+      "id": "dailyCalories",
+      "label": "Daily Calorie Intake",
+      "type": "number",
+      "unit": "kcal",
+      "default": 2000,
+      "businessContext": "Typical total daily energy intake as basis for fat calculation"
+    },
+    {
+      "id": "fatPercentage",
+      "label": "Fat Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Target percentage of daily calories from fat, typically 20–35%"
+    },
+    {
+      "id": "mealsPerDay",
+      "label": "Meals per Day",
+      "type": "number",
+      "unit": "meals",
+      "default": 3,
+      "businessContext": "Number of daily meals for per-meal fat distribution"
+    },
+    {
+      "id": "bodyWeight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Individual body weight used to normalize fat intake per kilogram"
+    }
+  ],
+  "formulas": {
+    "gramsFatPerDay": "dailyCalories * fatPercentage / 100 / 9",
+    "caloriesFromFat": "dailyCalories * fatPercentage / 100",
+    "gramsFatPerKg": "(dailyCalories * fatPercentage / 100 / 9) / bodyWeight",
+    "gramsFatPerMeal": "(dailyCalories * fatPercentage / 100 / 9) / mealsPerDay"
+  },
+  "outputs": {
+    "primary": "gramsFatPerDay",
+    "breakdown": [
+      "caloriesFromFat",
+      "gramsFatPerKg",
+      "gramsFatPerMeal"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "square-inches-to-sqcm-calculator",
+  "inputs": [
+    {
+      "id": "squareInches",
+      "label": "Square Inches",
+      "type": "number",
+      "unit": "in²",
+      "default": 1,
+      "businessContext": "The area in square inches to convert."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "cm²/in²",
+      "default": 6.4516,
+      "businessContext": "The conversion factor. Default 6.4516 (ISO standard). Change for custom conversions."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "places",
+      "default": 4,
+      "businessContext": "Number of decimal places for rounding the output."
+    },
+    {
+      "id": "applyRounding",
+      "label": "Apply Rounding",
+      "type": "number",
+      "unit": "binary",
+      "default": 1,
+      "businessContext": "Set to 1 to round the output, 0 to display raw result."
+    }
+  ],
+  "formulas": {
+    "rawSqcm": "squareInches * conversionFactor",
+    "roundedSqcm": "applyRounding === 1 ? Math.round(rawSqcm * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : rawSqcm",
+    "primaryOutputFormula": "roundedSqcm",
+    "breakdownFormula1": "`${squareInches} in² × ${conversionFactor} = ${rawSqcm} cm²`",
+    "breakdownFormula2": "applyRounding === 1 ? `Rounded to ${decimalPlaces} decimal places: ${roundedSqcm} cm²` : `No rounding applied: ${rawSqcm} cm²`"
+  },
+  "outputs": {
+    "primary": "primaryOutputFormula",
+    "breakdown": [
+      "breakdownFormula1",
+      "breakdownFormula2"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

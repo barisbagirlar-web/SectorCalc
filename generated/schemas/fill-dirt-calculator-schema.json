@@ -1,0 +1,53 @@
+{
+  "toolName": "fill-dirt-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of the area to be filled."
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Width of the area to be filled."
+    },
+    {
+      "id": "depth",
+      "label": "Depth",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Desired compacted depth of fill."
+    },
+    {
+      "id": "compactionFactor",
+      "label": "Compaction Factor",
+      "type": "number",
+      "unit": "(ratio)",
+      "default": 1.2,
+      "businessContext": "Loose-to-compacted volume ratio, typically 1.1–1.3."
+    }
+  ],
+  "formulas": {
+    "compactVolume": "length * width * depth",
+    "looseVolume": "compactVolume * compactionFactor"
+  },
+  "outputs": {
+    "primary": "looseVolume",
+    "breakdown": [
+      "compactVolume"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

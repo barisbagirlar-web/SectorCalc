@@ -1,0 +1,73 @@
+{
+  "toolName": "mile-calculator",
+  "inputs": [
+    {
+      "id": "distanceMiles",
+      "label": "Distance (miles)",
+      "type": "number",
+      "unit": "mi",
+      "default": 100,
+      "businessContext": "Total distance traveled in miles for the trip or period."
+    },
+    {
+      "id": "fuelEfficiency",
+      "label": "Fuel Efficiency",
+      "type": "number",
+      "unit": "mpg",
+      "default": 25,
+      "businessContext": "Vehicle fuel efficiency in miles per gallon."
+    },
+    {
+      "id": "fuelPrice",
+      "label": "Fuel Price",
+      "type": "number",
+      "unit": "$/gal",
+      "default": 3.5,
+      "businessContext": "Current fuel price per gallon."
+    },
+    {
+      "id": "maintenanceCost",
+      "label": "Maintenance Cost",
+      "type": "number",
+      "unit": "$/mi",
+      "default": 0.05,
+      "businessContext": "Estimated maintenance cost per mile (tires, oil, repairs)."
+    },
+    {
+      "id": "otherFixedCosts",
+      "label": "Annual Fixed Costs",
+      "type": "number",
+      "unit": "$/year",
+      "default": 1200,
+      "businessContext": "Total annual fixed costs like insurance and registration."
+    },
+    {
+      "id": "annualMiles",
+      "label": "Annual Mileage",
+      "type": "number",
+      "unit": "mi",
+      "default": 12000,
+      "businessContext": "Estimated total miles driven per year."
+    }
+  ],
+  "formulas": {
+    "fuelCostPerMile": "fuelPrice / fuelEfficiency",
+    "maintenanceCostPerMile": "maintenanceCost",
+    "fixedCostPerMile": "otherFixedCosts / annualMiles",
+    "totalCostPerMile": "fuelPrice / fuelEfficiency + maintenanceCost + otherFixedCosts / annualMiles"
+  },
+  "outputs": {
+    "primary": "totalCostPerMile",
+    "breakdown": [
+      "fuelCostPerMile",
+      "maintenanceCostPerMile",
+      "fixedCostPerMile"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

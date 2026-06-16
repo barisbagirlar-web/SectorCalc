@@ -1,0 +1,57 @@
+{
+  "toolName": "half-equivalence-point-calculator",
+  "inputs": [
+    {
+      "id": "acidConcentration",
+      "label": "Acid Concentration",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.1,
+      "businessContext": "Molarity of the weak acid solution being titrated"
+    },
+    {
+      "id": "acidVolume",
+      "label": "Acid Volume",
+      "type": "number",
+      "unit": "mL",
+      "default": 25,
+      "businessContext": "Volume of acid solution in the flask"
+    },
+    {
+      "id": "titrantConcentration",
+      "label": "Titrant Concentration",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.1,
+      "businessContext": "Molarity of the strong base titrant"
+    },
+    {
+      "id": "acidDissociationConstant",
+      "label": "Acid Dissociation Constant (Ka)",
+      "type": "number",
+      "unit": "",
+      "default": 0.000018,
+      "businessContext": "Dissociation constant of the weak acid"
+    }
+  ],
+  "formulas": {
+    "pH at Half Equivalence Point": "-(Math.log(acidDissociationConstant) / Math.log(10))",
+    "Volume at Half Equivalence Point (mL)": "(acidConcentration * acidVolume) / (2 * titrantConcentration)",
+    "Equivalence Point Volume (mL)": "(acidConcentration * acidVolume) / titrantConcentration",
+    "pKa": "-(Math.log(acidDissociationConstant) / Math.log(10))"
+  },
+  "outputs": {
+    "primary": "pH at Half Equivalence Point",
+    "breakdown": [
+      "Volume at Half Equivalence Point (mL)",
+      "Equivalence Point Volume (mL)",
+      "pKa"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

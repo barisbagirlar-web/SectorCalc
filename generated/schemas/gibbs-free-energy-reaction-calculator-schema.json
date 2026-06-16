@@ -1,0 +1,55 @@
+{
+  "toolName": "gibbs-free-energy-reaction-calculator",
+  "inputs": [
+    {
+      "id": "temperature",
+      "label": "Sıcaklık (T)",
+      "type": "number",
+      "unit": "K",
+      "default": 298.15,
+      "businessContext": "Reaksiyonun gerçekleştiği mutlak sıcaklık (Kelvin cinsinden)."
+    },
+    {
+      "id": "deltaH",
+      "label": "Entalpi Değişimi (ΔH)",
+      "type": "number",
+      "unit": "kJ/mol",
+      "default": 0,
+      "businessContext": "Reaksiyonun standart entalpi değişimi (ürünlerin oluşum entalpileri toplamı - reaktantların oluşum entalpileri toplamı)."
+    },
+    {
+      "id": "S_products",
+      "label": "Ürünlerin Toplam Entropisi",
+      "type": "number",
+      "unit": "J/(mol·K)",
+      "default": 0,
+      "businessContext": "Reaksiyonda oluşan ürünlerin toplam mutlak entropileri."
+    },
+    {
+      "id": "S_reactants",
+      "label": "Reaktantların Toplam Entropisi",
+      "type": "number",
+      "unit": "J/(mol·K)",
+      "default": 0,
+      "businessContext": "Reaksiyona giren reaktantların toplam mutlak entropileri."
+    }
+  ],
+  "formulas": {
+    "deltaS_kJ_per_molK": "(S_products - S_reactants) / 1000",
+    "T_deltaS_kJ_per_mol": "temperature * ((S_products - S_reactants) / 1000)",
+    "deltaG_kJ_per_mol": "deltaH - (temperature * ((S_products - S_reactants) / 1000))"
+  },
+  "outputs": {
+    "primary": "deltaG_kJ_per_mol",
+    "breakdown": [
+      "deltaS_kJ_per_molK",
+      "T_deltaS_kJ_per_mol"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

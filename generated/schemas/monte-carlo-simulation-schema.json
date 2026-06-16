@@ -1,0 +1,75 @@
+{
+  "toolName": "monte-carlo-simulation",
+  "inputs": [
+    {
+      "id": "mean",
+      "label": "Mean (μ)",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "businessContext": "Expected value of the process output"
+    },
+    {
+      "id": "stdDev",
+      "label": "Standard Deviation (σ)",
+      "type": "number",
+      "unit": "units",
+      "default": 10,
+      "businessContext": "Variability of the process output"
+    },
+    {
+      "id": "lowerSpec",
+      "label": "Lower Specification Limit (LSL)",
+      "type": "number",
+      "unit": "units",
+      "default": 80,
+      "businessContext": "Minimum acceptable value"
+    },
+    {
+      "id": "upperSpec",
+      "label": "Upper Specification Limit (USL)",
+      "type": "number",
+      "unit": "units",
+      "default": 120,
+      "businessContext": "Maximum acceptable value"
+    },
+    {
+      "id": "numSamples",
+      "label": "Number of Samples",
+      "type": "number",
+      "unit": "count",
+      "default": 10000,
+      "businessContext": "Number of Monte Carlo iterations"
+    },
+    {
+      "id": "seed",
+      "label": "Random Seed",
+      "type": "number",
+      "unit": "",
+      "default": 42,
+      "businessContext": "Seed for reproducible random numbers"
+    }
+  ],
+  "formulas": {
+    "generateSamples": "let samples = []; for(let i=0; i<numSamples; i++){ let u1 = Math.random(); let u2 = Math.random(); let z = Math.sqrt(-2*Math.log(u1))*Math.cos(2*Math.PI*u2); samples.push(mean + stdDev*z); } samples;",
+    "defects": "let samples = generateSamples(); let count = 0; for(let s of samples){ if(s < lowerSpec || s > upperSpec) count++; } count;",
+    "defectRate": "defects / numSamples",
+    "yield": "1 - defectRate",
+    "cp": "(upperSpec - lowerSpec) / (6 * stdDev)",
+    "cpk": "Math.min((mean - lowerSpec)/(3*stdDev), (upperSpec - mean)/(3*stdDev))"
+  },
+  "outputs": {
+    "primary": "defectRate",
+    "breakdown": [
+      "yield",
+      "cp",
+      "cpk"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

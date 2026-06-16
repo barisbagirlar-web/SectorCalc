@@ -1,0 +1,71 @@
+{
+  "toolName": "deload-calculator",
+  "inputs": [
+    {
+      "id": "currentTrainingMax",
+      "label": "Current Training Max",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "The lifter's current one-rep max for the exercise in kg."
+    },
+    {
+      "id": "currentIntensity",
+      "label": "Current Average Intensity",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Average training intensity as percentage of 1RM."
+    },
+    {
+      "id": "currentVolume",
+      "label": "Current Weekly Volume Load",
+      "type": "number",
+      "unit": "kg",
+      "default": 5000,
+      "businessContext": "Total weekly volume load in kilograms (sets x reps x weight)."
+    },
+    {
+      "id": "deloadDuration",
+      "label": "Deload Duration",
+      "type": "number",
+      "unit": "weeks",
+      "default": 1,
+      "businessContext": "Duration of the deload phase in weeks."
+    },
+    {
+      "id": "deloadIntensityReduction",
+      "label": "Intensity Reduction",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Reduction in intensity percentage points during deload."
+    },
+    {
+      "id": "deloadVolumeReduction",
+      "label": "Volume Reduction",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Percentage reduction in volume load during deload."
+    }
+  ],
+  "formulas": {
+    "deloadIntensity": "currentIntensity - deloadIntensityReduction",
+    "deloadVolume": "currentVolume * (1 - deloadVolumeReduction / 100)",
+    "deloadWorkingWeight": "currentTrainingMax * (deloadIntensity / 100)"
+  },
+  "outputs": {
+    "primary": "deloadWorkingWeight",
+    "breakdown": [
+      "deloadIntensity",
+      "deloadVolume"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

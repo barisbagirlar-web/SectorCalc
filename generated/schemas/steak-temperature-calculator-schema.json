@@ -1,0 +1,55 @@
+{
+  "toolName": "steak-temperature-calculator",
+  "inputs": [
+    {
+      "id": "thickness",
+      "label": "Steak Thickness",
+      "type": "number",
+      "unit": "cm",
+      "default": 2.5,
+      "businessContext": "Thickness of the steak."
+    },
+    {
+      "id": "initialTemp",
+      "label": "Initial Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 5,
+      "businessContext": "Starting temperature of the steak (e.g., from fridge)."
+    },
+    {
+      "id": "targetTemp",
+      "label": "Target Doneness Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 55,
+      "businessContext": "Internal temperature for desired doneness (e.g., 55°C for medium-rare)."
+    },
+    {
+      "id": "grillTemp",
+      "label": "Grill/Oven Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 200,
+      "businessContext": "Temperature of the cooking surface or oven."
+    }
+  ],
+  "formulas": {
+    "cookingTimeMin": "(((thickness / 100) ** 2) / (1.4e-7 * (Math.PI ** 2))) * Math.log((grillTemp - initialTemp) / (grillTemp - targetTemp)) / 60",
+    "cookingTimeSec": "(((thickness / 100) ** 2) / (1.4e-7 * (Math.PI ** 2))) * Math.log((grillTemp - initialTemp) / (grillTemp - targetTemp))",
+    "driveFactor": "Math.log((grillTemp - initialTemp) / (grillTemp - targetTemp))"
+  },
+  "outputs": {
+    "primary": "cookingTimeMin",
+    "breakdown": [
+      "cookingTimeSec",
+      "driveFactor"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

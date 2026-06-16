@@ -1,0 +1,78 @@
+{
+  "toolName": "buffet-calculator",
+  "inputs": [
+    {
+      "id": "numberOfGuests",
+      "label": "Guest Count",
+      "type": "number",
+      "unit": "persons",
+      "default": 50,
+      "businessContext": "The number of guests expected at the buffet."
+    },
+    {
+      "id": "pricePerGuest",
+      "label": "Ticket Price",
+      "type": "number",
+      "unit": "EUR per guest",
+      "default": 30,
+      "businessContext": "The price each guest pays for the buffet."
+    },
+    {
+      "id": "foodCostPerGuest",
+      "label": "Food Cost",
+      "type": "number",
+      "unit": "EUR per guest",
+      "default": 10,
+      "businessContext": "The average cost of food ingredients per guest."
+    },
+    {
+      "id": "laborCost",
+      "label": "Labor Cost",
+      "type": "number",
+      "unit": "EUR",
+      "default": 500,
+      "businessContext": "Total labor cost for the event, including preparation and service."
+    },
+    {
+      "id": "overheadCost",
+      "label": "Overhead Cost",
+      "type": "number",
+      "unit": "EUR",
+      "default": 200,
+      "businessContext": "Fixed overhead costs such as rent, utilities, equipment rental."
+    },
+    {
+      "id": "wastePercentage",
+      "label": "Waste Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of food cost expected to be wasted (spoilage, leftovers)."
+    }
+  ],
+  "formulas": {
+    "totalRevenue": "numberOfGuests * pricePerGuest",
+    "totalFoodCost": "numberOfGuests * foodCostPerGuest * (1 + wastePercentage / 100)",
+    "totalCost": "totalFoodCost + laborCost + overheadCost",
+    "profit": "totalRevenue - totalCost",
+    "profitMargin": "(profit / totalRevenue) * 100"
+  },
+  "outputs": {
+    "primary": {
+      "id": "profitMargin",
+      "label": "Profit Margin",
+      "unit": "%"
+    },
+    "breakdown": [
+      "totalRevenue",
+      "totalCost",
+      "profit"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

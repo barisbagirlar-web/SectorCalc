@@ -1,0 +1,65 @@
+{
+  "toolName": "riemann-sum-calculator",
+  "inputs": [
+    {
+      "id": "functionType",
+      "label": "Function",
+      "type": "number",
+      "unit": "enum: 0=sin(x), 1=cos(x), 2=x², 3=eˣ, 4=ln(x)",
+      "default": 0,
+      "businessContext": "Select the integrand function for Riemann approximation."
+    },
+    {
+      "id": "lowerBound",
+      "label": "Lower Bound",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Start of integration interval."
+    },
+    {
+      "id": "upperBound",
+      "label": "Upper Bound",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "End of integration interval."
+    },
+    {
+      "id": "numIntervals",
+      "label": "Number of Intervals",
+      "type": "number",
+      "unit": "positive integer",
+      "default": 10,
+      "businessContext": "Number of subintervals for Riemann sum (higher gives better accuracy)."
+    },
+    {
+      "id": "method",
+      "label": "Method",
+      "type": "number",
+      "unit": "enum: 0=Left, 1=Right, 2=Midpoint, 3=Trapezoidal",
+      "default": 0,
+      "businessContext": "Riemann sum approximation method."
+    }
+  ],
+  "formulas": {
+    "approximation": "(function(){var a=lowerBound,b=upperBound,n=numIntervals,m=method,ft=functionType;var dx=(b-a)/n;var f;switch(ft){case 0:f=function(x){return Math.sin(x);};break;case 1:f=function(x){return Math.cos(x);};break;case 2:f=function(x){return x*x;};break;case 3:f=function(x){return Math.exp(x);};break;case 4:f=function(x){return Math.log(x);};break;default:f=function(x){return x;}}var sum=0;if(m===0){for(var i=0;i<n;i++){sum+=f(a+i*dx);}}else if(m===1){for(var i=1;i<=n;i++){sum+=f(a+i*dx);}}else if(m===2){for(var i=0;i<n;i++){sum+=f(a+(i+0.5)*dx);}}else if(m===3){sum=f(a)/2+f(b)/2;for(var i=1;i<n;i++){sum+=f(a+i*dx);}}return sum*dx;})()",
+    "intervalWidth": "(upperBound - lowerBound) / numIntervals",
+    "numIntervalsOut": "numIntervals",
+    "methodDescription": "[{0:'Left Riemann Sum', 1:'Right Riemann Sum', 2:'Midpoint Riemann Sum', 3:'Trapezoidal Rule'}][method]"
+  },
+  "outputs": {
+    "primary": "approximation",
+    "breakdown": [
+      "intervalWidth",
+      "numIntervalsOut",
+      "methodDescription"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

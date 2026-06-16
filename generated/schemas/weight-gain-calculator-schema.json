@@ -1,0 +1,72 @@
+{
+  "toolName": "weight-gain-calculator",
+  "inputs": [
+    {
+      "id": "partArea",
+      "label": "Part Surface Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 0.5,
+      "businessContext": "Surface area of a single part that will receive the coating."
+    },
+    {
+      "id": "coatingThickness",
+      "label": "Coating Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.1,
+      "businessContext": "Thickness of the applied coating material."
+    },
+    {
+      "id": "coatingDensity",
+      "label": "Coating Material Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 2700,
+      "businessContext": "Density of the coating material (e.g., 2700 kg/m³ for aluminum)."
+    },
+    {
+      "id": "numberOfParts",
+      "label": "Number of Parts",
+      "type": "number",
+      "unit": "pieces",
+      "default": 100,
+      "businessContext": "Total number of identical parts to be coated."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of additional coating material lost through overspray, drips, etc."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.1,
+      "businessContext": "Multiplier for safety margin to account for process variations."
+    }
+  ],
+  "formulas": {
+    "volumePerPart": "partArea * (coatingThickness / 1000)",
+    "weightGainPerPart": "volumePerPart * coatingDensity",
+    "totalWeightWithoutWaste": "weightGainPerPart * numberOfParts",
+    "totalWeightGain": "totalWeightWithoutWaste * (1 + wasteFactor / 100) * safetyFactor"
+  },
+  "outputs": {
+    "primary": "totalWeightGain",
+    "breakdown": [
+      "weightGainPerPart",
+      "totalWeightWithoutWaste"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

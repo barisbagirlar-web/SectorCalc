@@ -1,0 +1,63 @@
+{
+  "toolName": "clat-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass (m)",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Mass of the rotating component (e.g., blade, disk)"
+    },
+    {
+      "id": "radius",
+      "label": "Radius (r)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Distance from rotation axis to center of mass"
+    },
+    {
+      "id": "angularVelocity",
+      "label": "Angular Velocity (ω)",
+      "type": "number",
+      "unit": "rad/s",
+      "default": 100,
+      "businessContext": "Rotational speed in radians per second (1 rad/s ≈ 9.55 rpm)"
+    },
+    {
+      "id": "area",
+      "label": "Cross-sectional Area (A)",
+      "type": "number",
+      "unit": "m²",
+      "default": 0.01,
+      "businessContext": "Effective cross-sectional area supporting the load"
+    },
+    {
+      "id": "yieldStress",
+      "label": "Yield Stress (σ_y)",
+      "type": "number",
+      "unit": "Pa",
+      "default": 250000000,
+      "businessContext": "Material yield strength (e.g., structural steel ~250 MPa)"
+    }
+  ],
+  "formulas": {
+    "centrifugalForce": "mass * radius * angularVelocity**2",
+    "stress": "centrifugalForce / area",
+    "safetyFactor": "yieldStress / stress"
+  },
+  "outputs": {
+    "primary": "centrifugalForce",
+    "breakdown": [
+      "stress",
+      "safetyFactor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

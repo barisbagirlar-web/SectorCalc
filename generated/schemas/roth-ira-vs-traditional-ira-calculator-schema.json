@@ -1,0 +1,88 @@
+{
+  "toolName": "roth-ira-vs-traditional-ira-calculator",
+  "inputs": [
+    {
+      "id": "annualContribution",
+      "label": "Annual Contribution",
+      "type": "number",
+      "unit": "currency",
+      "default": 6000,
+      "businessContext": "Amount you plan to contribute each year to the IRA (pre-tax for Traditional, after tax for Roth)."
+    },
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Your current age."
+    },
+    {
+      "id": "retirementAge",
+      "label": "Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 65,
+      "businessContext": "Age at which you plan to retire and start withdrawals."
+    },
+    {
+      "id": "currentTaxRate",
+      "label": "Current Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 22,
+      "businessContext": "Your current marginal income tax rate (e.g., 22 for 22%)."
+    },
+    {
+      "id": "retirementTaxRate",
+      "label": "Expected Retirement Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 22,
+      "businessContext": "Your expected marginal tax rate in retirement (e.g., 22 for 22%)."
+    },
+    {
+      "id": "annualReturnRate",
+      "label": "Expected Annual Return",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected average annual return on investments (assumed > 0%)."
+    }
+  ],
+  "formulas": {
+    "n": "retirementAge - currentAge",
+    "r": "annualReturnRate / 100",
+    "fvFactor": "(1 + r) ** n",
+    "fvContributionsTraditional": "annualContribution * ((fvFactor - 1) / r)",
+    "traditionalAfterTax": "fvContributionsTraditional * (1 - retirementTaxRate / 100)",
+    "effectiveRothContribution": "annualContribution * (1 - currentTaxRate / 100)",
+    "fvContributionsRoth": "effectiveRothContribution * ((fvFactor - 1) / r)",
+    "rothAfterTax": "fvContributionsRoth"
+  },
+  "outputs": {
+    "primary": {
+      "label": "After-Tax Difference (Roth - Traditional)",
+      "formula": "rothAfterTax - traditionalAfterTax",
+      "unit": "currency"
+    },
+    "breakdown": [
+      {
+        "label": "Roth After-Tax Value",
+        "formula": "rothAfterTax",
+        "unit": "currency"
+      },
+      {
+        "label": "Traditional After-Tax Value",
+        "formula": "traditionalAfterTax",
+        "unit": "currency"
+      }
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

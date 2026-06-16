@@ -1,0 +1,73 @@
+{
+  "toolName": "sprinkler-calculator",
+  "inputs": [
+    {
+      "id": "designArea",
+      "label": "Design Area",
+      "type": "number",
+      "unit": "ft²",
+      "default": 1500,
+      "businessContext": "The design area of sprinkler operation per NFPA 13."
+    },
+    {
+      "id": "density",
+      "label": "Discharge Density",
+      "type": "number",
+      "unit": "gpm/ft²",
+      "default": 0.1,
+      "businessContext": "Water density required per square foot per minute."
+    },
+    {
+      "id": "kFactor",
+      "label": "Sprinkler K-Factor",
+      "type": "number",
+      "unit": "gpm/psi^0.5",
+      "default": 5.6,
+      "businessContext": "Discharge coefficient of the sprinkler head."
+    },
+    {
+      "id": "numSprinklers",
+      "label": "Number of Sprinklers",
+      "type": "number",
+      "unit": "ea",
+      "default": 12,
+      "businessContext": "Number of sprinklers expected to operate in the design area."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.1,
+      "businessContext": "Factor to account for system inefficiencies."
+    },
+    {
+      "id": "pipeFrictionLoss",
+      "label": "Pipe Friction Loss",
+      "type": "number",
+      "unit": "psi",
+      "default": 5,
+      "businessContext": "Estimated friction loss in piping."
+    }
+  ],
+  "formulas": {
+    "totalFlow": "designArea * density * safetyFactor",
+    "flowPerSprinkler": "totalFlow / numSprinklers",
+    "requiredPressure": "(flowPerSprinkler / kFactor) ** 2",
+    "totalPressure": "requiredPressure + pipeFrictionLoss"
+  },
+  "outputs": {
+    "primary": "totalFlow",
+    "breakdown": [
+      "flowPerSprinkler",
+      "requiredPressure",
+      "totalPressure"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

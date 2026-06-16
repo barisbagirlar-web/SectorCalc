@@ -1,0 +1,57 @@
+{
+  "toolName": "heart-rate-zone-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the user in years"
+    },
+    {
+      "id": "restingHeartRate",
+      "label": "Resting Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 60,
+      "businessContext": "Resting heart rate in beats per minute"
+    },
+    {
+      "id": "lowerIntensity",
+      "label": "Lower Zone Intensity",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "businessContext": "Lower bound of target heart rate zone as percentage of heart rate reserve"
+    },
+    {
+      "id": "upperIntensity",
+      "label": "Upper Zone Intensity",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Upper bound of target heart rate zone as percentage of heart rate reserve"
+    }
+  ],
+  "formulas": {
+    "maxHR": "220 - age",
+    "heartRateReserve": "maxHR - restingHeartRate",
+    "lowerTarget": "restingHeartRate + (heartRateReserve * (lowerIntensity / 100))",
+    "upperTarget": "restingHeartRate + (heartRateReserve * (upperIntensity / 100))",
+    "midTarget": "(lowerTarget + upperTarget) / 2"
+  },
+  "outputs": {
+    "primary": "midTarget",
+    "breakdown": [
+      "lowerTarget",
+      "upperTarget"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "chi-square-test-independence-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "Group 1, Outcome A",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "businessContext": "Observed frequency for Group 1 with Outcome A"
+    },
+    {
+      "id": "b",
+      "label": "Group 1, Outcome B",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "businessContext": "Observed frequency for Group 1 with Outcome B"
+    },
+    {
+      "id": "c",
+      "label": "Group 2, Outcome A",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "businessContext": "Observed frequency for Group 2 with Outcome A"
+    },
+    {
+      "id": "d",
+      "label": "Group 2, Outcome B",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "businessContext": "Observed frequency for Group 2 with Outcome B"
+    }
+  ],
+  "formulas": {
+    "total": "a + b + c + d",
+    "expectedA": "(a + b) * (a + c) / total",
+    "expectedB": "(a + b) * (b + d) / total",
+    "expectedC": "(c + d) * (a + c) / total",
+    "expectedD": "(c + d) * (b + d) / total",
+    "chi2": "((a - expectedA)**2 / expectedA) + ((b - expectedB)**2 / expectedB) + ((c - expectedC)**2 / expectedC) + ((d - expectedD)**2 / expectedD)",
+    "df": "1"
+  },
+  "outputs": {
+    "primary": "chi2",
+    "breakdown": [
+      "total",
+      "expectedA",
+      "expectedB",
+      "expectedC",
+      "expectedD",
+      "df"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

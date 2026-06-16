@@ -1,0 +1,59 @@
+{
+  "toolName": "normality-test-calculator",
+  "inputs": [
+    {
+      "id": "sampleSize",
+      "label": "Sample Size (n)",
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "businessContext": "Number of observations in the sample"
+    },
+    {
+      "id": "skewness",
+      "label": "Skewness",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sample skewness coefficient"
+    },
+    {
+      "id": "excessKurtosis",
+      "label": "Excess Kurtosis",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Excess kurtosis (kurtosis - 3)"
+    },
+    {
+      "id": "criticalZ",
+      "label": "Critical Z-value",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Z-score threshold for normality rule of thumb"
+    }
+  ],
+  "formulas": {
+    "isNormal": "(Math.abs(skewness / Math.sqrt(6 / sampleSize)) <= criticalZ && Math.abs(excessKurtosis / Math.sqrt(24 / sampleSize)) <= criticalZ) ? 1 : 0",
+    "zSkew": "skewness / Math.sqrt(6 / sampleSize)",
+    "zKurt": "excessKurtosis / Math.sqrt(24 / sampleSize)",
+    "seSkew": "Math.sqrt(6 / sampleSize)",
+    "seKurt": "Math.sqrt(24 / sampleSize)"
+  },
+  "outputs": {
+    "primary": "isNormal",
+    "breakdown": [
+      "zSkew",
+      "zKurt",
+      "seSkew",
+      "seKurt"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

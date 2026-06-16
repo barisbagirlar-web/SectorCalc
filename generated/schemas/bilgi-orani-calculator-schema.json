@@ -1,0 +1,57 @@
+{
+  "toolName": "bilgi-orani-calculator",
+  "inputs": [
+    {
+      "id": "portfoyGetiri",
+      "label": "Portföy Getirisi",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Portföyün dönemsel getiri oranı."
+    },
+    {
+      "id": "benchmarkGetiri",
+      "label": "Benchmark Getirisi",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Karşılaştırma ölçütünün (benchmark) dönemsel getiri oranı."
+    },
+    {
+      "id": "takipHatasi",
+      "label": "Takip Hatası",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Portföy getirisi ile benchmark getirisi arasındaki farkın standart sapması."
+    },
+    {
+      "id": "yilliklastirmaCarpani",
+      "label": "Yıllıklaştırma Çarpanı",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Dönemsel getirileri ve takip hatasını yıllıklandırmak için kullanılan çarpan. Aylık veriler için genellikle √12 ≈ 3,464 kullanılır."
+    }
+  ],
+  "formulas": {
+    "ariziGetiri": "portfoyGetiri - benchmarkGetiri",
+    "yillikAriziGetiri": "ariziGetiri * yilliklastirmaCarpani",
+    "yillikTakipHatasi": "takipHatasi * yilliklastirmaCarpani",
+    "bilgiOrani": "ariziGetiri / takipHatasi"
+  },
+  "outputs": {
+    "primary": "bilgiOrani",
+    "breakdown": [
+      "ariziGetiri",
+      "yillikAriziGetiri",
+      "yillikTakipHatasi"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

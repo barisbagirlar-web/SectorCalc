@@ -1,0 +1,81 @@
+{
+  "toolName": "inverse-laplace-calculator",
+  "inputs": [
+    {
+      "id": "F_s",
+      "label": "F(s) Numerator Coefficient",
+      "type": "number",
+      "unit": "none",
+      "default": 1,
+      "businessContext": "Coefficient of the numerator polynomial in F(s)"
+    },
+    {
+      "id": "numerator_order",
+      "label": "Numerator Order",
+      "type": "number",
+      "unit": "none",
+      "default": 0,
+      "businessContext": "Order of the numerator polynomial (0 for constant)"
+    },
+    {
+      "id": "denominator_coeffs",
+      "label": "Denominator Coefficients (comma-separated)",
+      "type": "number",
+      "unit": "none",
+      "default": 1,
+      "businessContext": "Coefficients of denominator polynomial from highest to lowest order, e.g., 1,2,1 for s^2+2s+1"
+    },
+    {
+      "id": "denominator_order",
+      "label": "Denominator Order",
+      "type": "number",
+      "unit": "none",
+      "default": 1,
+      "businessContext": "Order of the denominator polynomial"
+    },
+    {
+      "id": "time_value",
+      "label": "Time t (s)",
+      "type": "number",
+      "unit": "s",
+      "default": 1,
+      "businessContext": "Time at which to evaluate the inverse Laplace transform"
+    },
+    {
+      "id": "damping_ratio",
+      "label": "Damping Ratio ζ",
+      "type": "number",
+      "unit": "none",
+      "default": 0.5,
+      "businessContext": "Damping ratio for second-order systems"
+    },
+    {
+      "id": "natural_frequency",
+      "label": "Natural Frequency ωn (rad/s)",
+      "type": "number",
+      "unit": "rad/s",
+      "default": 1,
+      "businessContext": "Undamped natural frequency for second-order systems"
+    }
+  ],
+  "formulas": {
+    "primary": "if (denominator_order === 1) { return (F_s / denominator_coeffs) * Math.exp(-denominator_coeffs * time_value); } else if (denominator_order === 2) { let omega_n = natural_frequency; let zeta = damping_ratio; let omega_d = omega_n * Math.sqrt(1 - zeta * zeta); let numerator = F_s; let denominator = denominator_coeffs; return (numerator / denominator) * (1 - (Math.exp(-zeta * omega_n * time_value) / Math.sqrt(1 - zeta * zeta)) * Math.sin(omega_d * time_value + Math.acos(zeta))); } else { return 0; }",
+    "breakdown": [
+      "if (denominator_order === 1) { let a = denominator_coeffs; let K = F_s; return K * Math.exp(-a * time_value); }",
+      "if (denominator_order === 2) { let omega_n = natural_frequency; let zeta = damping_ratio; let omega_d = omega_n * Math.sqrt(1 - zeta * zeta); let K = F_s; let denom = denominator_coeffs; let step_response = 1 - (Math.exp(-zeta * omega_n * time_value) / Math.sqrt(1 - zeta * zeta)) * Math.sin(omega_d * time_value + Math.acos(zeta)); return (K / denom) * step_response; }"
+    ]
+  },
+  "outputs": {
+    "primary": "f(t) value",
+    "breakdown": [
+      "Exponential term",
+      "Sinusoidal term"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "plastic-footprint-calculator",
+  "inputs": [
+    {
+      "id": "productionVolume",
+      "label": "Production Volume",
+      "type": "number",
+      "unit": "pieces",
+      "default": 1000,
+      "businessContext": "Total number of units produced"
+    },
+    {
+      "id": "plasticPerUnit",
+      "label": "Plastic per Unit",
+      "type": "number",
+      "unit": "g",
+      "default": 10,
+      "businessContext": "Weight of plastic used per unit product"
+    },
+    {
+      "id": "recycleRate",
+      "label": "Recycling Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Percentage of plastic that is recycled content"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Production Waste",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of plastic wasted during manufacturing"
+    },
+    {
+      "id": "carbonFactor",
+      "label": "Carbon Factor (Virgin)",
+      "type": "number",
+      "unit": "kgCO2/kg",
+      "default": 6,
+      "businessContext": "Carbon footprint of virgin plastic per kg"
+    },
+    {
+      "id": "recycledEmissionReduction",
+      "label": "Emission Reduction (Recycled)",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Percentage reduction in carbon footprint for recycled plastic"
+    }
+  ],
+  "formulas": {
+    "totalPlasticKg": "(productionVolume * plasticPerUnit) / 1000",
+    "recycledPlasticKg": "totalPlasticKg * recycleRate / 100",
+    "wasteKg": "totalPlasticKg * wasteFactor / 100",
+    "totalCarbon": "totalPlasticKg * carbonFactor * (1 - (recycleRate / 100) * (recycledEmissionReduction / 100))"
+  },
+  "outputs": {
+    "primary": "totalCarbon",
+    "breakdown": [
+      "totalPlasticKg",
+      "recycledPlasticKg",
+      "wasteKg"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

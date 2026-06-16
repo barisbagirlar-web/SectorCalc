@@ -1,0 +1,85 @@
+{
+  "toolName": "grout-calculator-for-tile-calculator",
+  "inputs": [
+    {
+      "id": "tileLength",
+      "label": "Tile Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 300,
+      "businessContext": "Nominal tile length in mm"
+    },
+    {
+      "id": "tileWidth",
+      "label": "Tile Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 300,
+      "businessContext": "Nominal tile width in mm"
+    },
+    {
+      "id": "jointWidth",
+      "label": "Joint Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 3,
+      "businessContext": "Grout joint width in mm"
+    },
+    {
+      "id": "tileThickness",
+      "label": "Tile Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Tile thickness in mm"
+    },
+    {
+      "id": "area",
+      "label": "Area to Tile",
+      "type": "number",
+      "unit": "m²",
+      "default": 10,
+      "businessContext": "Total floor/wall area to be tiled"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "businessContext": "Multiplier for cuts, breakage (e.g., 20% = 1.2)"
+    },
+    {
+      "id": "groutDensity",
+      "label": "Grout Density",
+      "type": "number",
+      "unit": "kg/L",
+      "default": 1.8,
+      "businessContext": "Density of grout mix (typically 1.6 - 2.0 kg/L)"
+    }
+  ],
+  "formulas": {
+    "L_m": "tileLength / 1000",
+    "W_m": "tileWidth / 1000",
+    "J_m": "jointWidth / 1000",
+    "D_m": "tileThickness / 1000",
+    "volumePerM2": "((L_m + W_m) / (L_m * W_m)) * J_m * D_m * wasteFactor * 1000",
+    "totalVolume": "volumePerM2 * area",
+    "totalWeight": "totalVolume * groutDensity",
+    "tilesNeeded": "Math.ceil(area / ((tileLength/1000) * (tileWidth/1000)))"
+  },
+  "outputs": {
+    "primary": "Total Grout Weight: ${totalWeight.toFixed(2)} kg",
+    "breakdown": [
+      "Grout Volume per m²: ${volumePerM2.toFixed(2)} L/m²",
+      "Total Grout Volume: ${totalVolume.toFixed(2)} L",
+      "Tiles Needed: ${tilesNeeded} pieces"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

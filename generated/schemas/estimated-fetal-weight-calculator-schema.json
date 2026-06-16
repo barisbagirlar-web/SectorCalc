@@ -1,0 +1,54 @@
+{
+  "toolName": "estimated-fetal-weight-calculator",
+  "inputs": [
+    {
+      "id": "bpd",
+      "label": "Biparietal Diameter (BPD)",
+      "type": "number",
+      "unit": "cm",
+      "default": 9.5,
+      "businessContext": "Ultrasound measurement of the fetal head from one side to the other."
+    },
+    {
+      "id": "hc",
+      "label": "Head Circumference (HC)",
+      "type": "number",
+      "unit": "cm",
+      "default": 33,
+      "businessContext": "Circumference of the fetal head measured by ultrasound."
+    },
+    {
+      "id": "ac",
+      "label": "Abdominal Circumference (AC)",
+      "type": "number",
+      "unit": "cm",
+      "default": 34,
+      "businessContext": "Circumference of the fetal abdomen at the liver level."
+    },
+    {
+      "id": "fl",
+      "label": "Femur Length (FL)",
+      "type": "number",
+      "unit": "cm",
+      "default": 7,
+      "businessContext": "Length of the fetal femur bone."
+    }
+  ],
+  "formulas": {
+    "logEfw": "1.3596 - 0.00386 * AC * FL + 0.0064 * HC + 0.00061 * BPD * AC + 0.0424 * AC + 0.174 * FL",
+    "efw": "Math.pow(10, logEfw)"
+  },
+  "outputs": {
+    "primary": "efw",
+    "breakdown": [
+      "logEfw",
+      "efw"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,53 @@
+{
+  "toolName": "parsecs-to-light-years-calculator",
+  "inputs": [
+    {
+      "id": "parsecs",
+      "label": "Parsecs",
+      "type": "number",
+      "unit": "pc",
+      "default": 0,
+      "businessContext": "Input distance in parsecs"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "ly/pc",
+      "default": 3.26156,
+      "businessContext": "Number of light-years per parsec"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "dp",
+      "default": 2,
+      "businessContext": "Number of decimal places for result display"
+    },
+    {
+      "id": "scientificNotation",
+      "label": "Scientific Notation",
+      "type": "number",
+      "unit": "boolean",
+      "default": 0,
+      "businessContext": "Use scientific notation (1 = yes, 0 = no)"
+    }
+  ],
+  "formulas": {
+    "lightYears": "parsecs * conversionFactor"
+  },
+  "outputs": {
+    "primary": "lightYears",
+    "breakdown": [
+      "Convert {parsecs} pc using conversion factor {conversionFactor}",
+      "Light-years: {lightYears} ly"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

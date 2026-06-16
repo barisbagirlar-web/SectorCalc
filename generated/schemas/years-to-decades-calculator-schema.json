@@ -1,0 +1,63 @@
+{
+  "toolName": "years-to-decades-calculator",
+  "inputs": [
+    {
+      "id": "years",
+      "label": "Years",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Number of full years to convert"
+    },
+    {
+      "id": "months",
+      "label": "Months",
+      "type": "number",
+      "unit": "months",
+      "default": 0,
+      "businessContext": "Additional months (12 months = 1 year)"
+    },
+    {
+      "id": "weeks",
+      "label": "Weeks",
+      "type": "number",
+      "unit": "weeks",
+      "default": 0,
+      "businessContext": "Additional weeks (52.1429 weeks ≈ 1 year)"
+    },
+    {
+      "id": "days",
+      "label": "Days",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Additional days (365.25 days ≈ 1 year)"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output"
+    }
+  ],
+  "formulas": {
+    "totalYears": "years + months/12 + weeks/52.1429 + days/365.25",
+    "rawDecades": "totalYears / 10",
+    "decades": "Math.round(rawDecades * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "decades",
+    "breakdown": [
+      "totalYears",
+      "rawDecades"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,47 @@
+{
+  "toolName": "skiing-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight of the skier in kilograms"
+    },
+    {
+      "id": "duration",
+      "label": "Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 60,
+      "businessContext": "Duration of skiing activity in minutes"
+    },
+    {
+      "id": "met",
+      "label": "MET",
+      "type": "number",
+      "unit": "",
+      "default": 7,
+      "businessContext": "Metabolic Equivalent of Task for skiing (e.g., 7 for moderate downhill skiing)"
+    }
+  ],
+  "formulas": {
+    "totalCalories": "weight * (duration / 60) * met",
+    "caloriesPerMinute": "weight * met / 60",
+    "caloriesPerHour": "weight * met"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "caloriesPerMinute",
+      "caloriesPerHour"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,87 @@
+{
+  "toolName": "hrv-calculator",
+  "inputs": [
+    {
+      "id": "outdoorTemp",
+      "label": "Outdoor Air Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 5,
+      "businessContext": "Typical winter outdoor temperature"
+    },
+    {
+      "id": "indoorTemp",
+      "label": "Indoor Air Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Target indoor temperature"
+    },
+    {
+      "id": "supplyTemp",
+      "label": "Supply Air Temperature after HRV",
+      "type": "number",
+      "unit": "°C",
+      "default": 15,
+      "businessContext": "Temperature of fresh air supplied to indoor after heat exchange"
+    },
+    {
+      "id": "exhaustTemp",
+      "label": "Exhaust Air Temperature after HRV",
+      "type": "number",
+      "unit": "°C",
+      "default": 10,
+      "businessContext": "Temperature of stale air exhausted after heat exchange"
+    },
+    {
+      "id": "airFlowRate",
+      "label": "Air Flow Rate",
+      "type": "number",
+      "unit": "m³/h",
+      "default": 500,
+      "businessContext": "Ventilation air flow rate"
+    },
+    {
+      "id": "airDensity",
+      "label": "Air Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1.2,
+      "businessContext": "Density of air (standard 1.2 kg/m³)"
+    },
+    {
+      "id": "specificHeat",
+      "label": "Specific Heat Capacity of Air",
+      "type": "number",
+      "unit": "kJ/(kg·K)",
+      "default": 1.005,
+      "businessContext": "Specific heat of air at constant pressure"
+    },
+    {
+      "id": "operatingHours",
+      "label": "Annual Operating Hours",
+      "type": "number",
+      "unit": "h/year",
+      "default": 4000,
+      "businessContext": "Hours per year the HRV operates"
+    }
+  ],
+  "formulas": {
+    "effectiveness": "(supplyTemp - outdoorTemp) / (indoorTemp - outdoorTemp)",
+    "heatRate": "(airFlowRate * airDensity * specificHeat * (supplyTemp - outdoorTemp)) / 3600",
+    "annualEnergySaved": "heatRate * operatingHours"
+  },
+  "outputs": {
+    "primary": "effectiveness",
+    "breakdown": [
+      "heatRate",
+      "annualEnergySaved"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

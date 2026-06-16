@@ -1,0 +1,66 @@
+{
+  "toolName": "mpg-to-kml-calculator",
+  "inputs": [
+    {
+      "id": "mpg",
+      "label": "Fuel Efficiency (mpg)",
+      "type": "number",
+      "unit": "mpg",
+      "default": 30,
+      "businessContext": "Miles per US gallon fuel efficiency"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "km/L per mpg",
+      "default": 0.425144,
+      "businessContext": "Factor to convert mpg to km/L (0.425144 for US gallon; 0.354006 for Imperial)"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding output"
+    },
+    {
+      "id": "measurementUncertainty",
+      "label": "Measurement Uncertainty (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Instrument uncertainty for worst-case tolerance analysis"
+    },
+    {
+      "id": "calibrationOffset",
+      "label": "Calibration Offset",
+      "type": "number",
+      "unit": "km/L",
+      "default": 0,
+      "businessContext": "Systematic instrument offset to be added after conversion"
+    }
+  ],
+  "formulas": {
+    "rawValue": "inputs.mpg * inputs.conversionFactor + inputs.calibrationOffset",
+    "roundedValue": "Math.round(rawValue * Math.pow(10, inputs.decimalPlaces)) / Math.pow(10, inputs.decimalPlaces)",
+    "minTolerance": "roundedValue * (1 - inputs.measurementUncertainty / 100)",
+    "maxTolerance": "roundedValue * (1 + inputs.measurementUncertainty / 100)"
+  },
+  "outputs": {
+    "primary": "roundedValue",
+    "breakdown": [
+      "rawValue",
+      "roundedValue",
+      "minTolerance",
+      "maxTolerance"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

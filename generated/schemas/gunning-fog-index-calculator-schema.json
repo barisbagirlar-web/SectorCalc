@@ -1,0 +1,55 @@
+{
+  "toolName": "gunning-fog-index-calculator",
+  "inputs": [
+    {
+      "id": "totalWords",
+      "label": "Total Words",
+      "type": "number",
+      "unit": "words",
+      "default": 100,
+      "businessContext": "Total number of words in the text to analyze."
+    },
+    {
+      "id": "totalSentences",
+      "label": "Total Sentences",
+      "type": "number",
+      "unit": "sentences",
+      "default": 5,
+      "businessContext": "Total number of sentences. Must be greater than 0."
+    },
+    {
+      "id": "complexWords",
+      "label": "Complex Words",
+      "type": "number",
+      "unit": "words",
+      "default": 10,
+      "businessContext": "Number of words with 3 or more syllables (excluding proper nouns, common suffixes, etc. if exempt)."
+    },
+    {
+      "id": "exemptWords",
+      "label": "Exempt Words",
+      "type": "number",
+      "unit": "words",
+      "default": 0,
+      "businessContext": "Number of complex words that are exempt from counting (e.g., proper nouns, compound words). Typically 0 if using simplified counting."
+    }
+  ],
+  "formulas": {
+    "avgSentenceLength": "totalWords / totalSentences",
+    "pctComplexWords": "((complexWords - exemptWords) / totalWords) * 100",
+    "gunningFogIndex": "0.4 * ((totalWords / totalSentences) + (((complexWords - exemptWords) / totalWords) * 100))"
+  },
+  "outputs": {
+    "primary": "gunningFogIndex",
+    "breakdown": [
+      "avgSentenceLength",
+      "pctComplexWords"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

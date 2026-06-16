@@ -1,0 +1,53 @@
+{
+  "toolName": "load-factor-calculator",
+  "inputs": [
+    {
+      "id": "totalEnergy",
+      "label": "Toplam Enerji Tüketimi",
+      "type": "number",
+      "unit": "kWh",
+      "default": 1000,
+      "businessContext": "Dönem boyunca tüketilen toplam enerji miktarı (kWh)"
+    },
+    {
+      "id": "peakDemand",
+      "label": "Pik Talep",
+      "type": "number",
+      "unit": "kW",
+      "default": 200,
+      "businessContext": "Aynı dönemde ölçülen en yüksek güç talebi (kW)"
+    },
+    {
+      "id": "numberOfDays",
+      "label": "Gün Sayısı",
+      "type": "number",
+      "unit": "gün",
+      "default": 30,
+      "businessContext": "Ölçüm periyodunun gün cinsinden süresi"
+    },
+    {
+      "id": "dailyOperatingHours",
+      "label": "Günlük Çalışma Saati",
+      "type": "number",
+      "unit": "saat/gün",
+      "default": 24,
+      "businessContext": "Tesisin günlük ortalama çalışma süresi"
+    }
+  ],
+  "formulas": {
+    "loadFactorPercent": "((totalEnergy / (numberOfDays * dailyOperatingHours)) / peakDemand * 100).toFixed(2)",
+    "averageLoad": "(totalEnergy / (numberOfDays * dailyOperatingHours)).toFixed(2)"
+  },
+  "outputs": {
+    "primary": "loadFactorPercent",
+    "breakdown": [
+      "averageLoad"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

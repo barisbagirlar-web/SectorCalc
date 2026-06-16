@@ -1,0 +1,92 @@
+{
+  "toolName": "rental-property-calculator",
+  "inputs": [
+    {
+      "id": "purchasePrice",
+      "label": "Purchase Price",
+      "type": "number",
+      "unit": "EUR",
+      "default": 200000,
+      "businessContext": "Total purchase price of the property"
+    },
+    {
+      "id": "downPaymentPercent",
+      "label": "Down Payment (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Percentage of purchase price paid upfront"
+    },
+    {
+      "id": "interestRate",
+      "label": "Interest Rate",
+      "type": "number",
+      "unit": "% p.a.",
+      "default": 4,
+      "businessContext": "Annual nominal interest rate for mortgage loan"
+    },
+    {
+      "id": "loanTermYears",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 25,
+      "businessContext": "Duration of mortgage loan in years"
+    },
+    {
+      "id": "monthlyRent",
+      "label": "Monthly Rent",
+      "type": "number",
+      "unit": "EUR",
+      "default": 1500,
+      "businessContext": "Expected gross monthly rental income"
+    },
+    {
+      "id": "annualExpensePercent",
+      "label": "Annual Operating Expenses (% of Rent)",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Annual operating expenses as percentage of annual gross rent, including maintenance, insurance, taxes"
+    },
+    {
+      "id": "vacancyRate",
+      "label": "Vacancy Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Estimated percentage of time the property is vacant, reducing rental income"
+    }
+  ],
+  "formulas": {
+    "monthlyGrossRent": "monthlyRent",
+    "annualGrossRent": "monthlyRent * 12",
+    "effectiveAnnualRent": "annualGrossRent * (1 - vacancyRate/100)",
+    "annualExpenses": "effectiveAnnualRent * annualExpensePercent/100",
+    "netOperatingIncome": "effectiveAnnualRent - annualExpenses",
+    "loanAmount": "purchasePrice * (1 - downPaymentPercent/100)",
+    "monthlyInterestRate": "interestRate/100/12",
+    "loanTermMonths": "loanTermYears * 12",
+    "monthlyPayment": "loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTermMonths)) / (Math.pow(1 + monthlyInterestRate, loanTermMonths) - 1)",
+    "annualDebtService": "monthlyPayment * 12",
+    "annualCashFlow": "netOperatingIncome - annualDebtService",
+    "monthlyCashFlow": "annualCashFlow / 12",
+    "totalCashInvested": "purchasePrice * downPaymentPercent/100",
+    "cashOnCashReturn": "(annualCashFlow / totalCashInvested) * 100",
+    "capRate": "(netOperatingIncome / purchasePrice) * 100"
+  },
+  "outputs": {
+    "primary": "cashOnCashReturn",
+    "breakdown": [
+      "annualCashFlow",
+      "monthlyCashFlow",
+      "capRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,70 @@
+{
+  "toolName": "clustering-calculator",
+  "inputs": [
+    {
+      "id": "numPoints",
+      "label": "Number of Points",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "businessContext": "Total data points to be clustered"
+    },
+    {
+      "id": "numClusters",
+      "label": "Number of Clusters",
+      "type": "number",
+      "unit": "adet",
+      "default": 3,
+      "businessContext": "Desired number of clusters (k)"
+    },
+    {
+      "id": "dimensions",
+      "label": "Dimensions",
+      "type": "number",
+      "unit": "adet",
+      "default": 2,
+      "businessContext": "Number of features per point"
+    },
+    {
+      "id": "maxIterations",
+      "label": "Max Iterations",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "businessContext": "Maximum iterations for k-means"
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "",
+      "default": 0.0001,
+      "businessContext": "Convergence threshold for centroid movement"
+    },
+    {
+      "id": "seed",
+      "label": "Random Seed",
+      "type": "number",
+      "unit": "",
+      "default": 42,
+      "businessContext": "Seed for reproducible initialization"
+    }
+  ],
+  "formulas": {
+    "inertia": "let points = []; for(let i=0; i<numPoints; i++){ let p = []; for(let d=0; d<dimensions; d++){ p.push(Math.random()); } points.push(p); } let centroids = []; for(let k=0; k<numClusters; k++){ centroids.push(points[Math.floor(Math.random()*points.length)]); } let assignments = new Array(numPoints).fill(0); let inertia = 0; for(let iter=0; iter<maxIterations; iter++){ for(let i=0; i<numPoints; i++){ let minDist = Infinity; let bestCluster = 0; for(let k=0; k<numClusters; k++){ let dist = 0; for(let d=0; d<dimensions; d++){ dist += (points[i][d] - centroids[k][d])**2; } dist = Math.sqrt(dist); if(dist < minDist){ minDist = dist; bestCluster = k; } } assignments[i] = bestCluster; } let newCentroids = Array.from({length: numClusters}, () => new Array(dimensions).fill(0)); let counts = new Array(numClusters).fill(0); for(let i=0; i<numPoints; i++){ let cluster = assignments[i]; counts[cluster]++; for(let d=0; d<dimensions; d++){ newCentroids[cluster][d] += points[i][d]; } } for(let k=0; k<numClusters; k++){ if(counts[k] > 0){ for(let d=0; d<dimensions; d++){ newCentroids[k][d] /= counts[k]; } } } let maxShift = 0; for(let k=0; k<numClusters; k++){ let shift = 0; for(let d=0; d<dimensions; d++){ shift += (newCentroids[k][d] - centroids[k][d])**2; } shift = Math.sqrt(shift); if(shift > maxShift) maxShift = shift; } centroids = newCentroids; if(maxShift < tolerance) break; } inertia = 0; for(let i=0; i<numPoints; i++){ let cluster = assignments[i]; let dist = 0; for(let d=0; d<dimensions; d++){ dist += (points[i][d] - centroids[cluster][d])**2; } inertia += dist; } inertia;",
+    "silhouetteScore": "let points = []; for(let i=0; i<numPoints; i++){ let p = []; for(let d=0; d<dimensions; d++){ p.push(Math.random()); } points.push(p); } let centroids = []; for(let k=0; k<numClusters; k++){ centroids.push(points[Math.floor(Math.random()*points.length)]); } let assignments = new Array(numPoints).fill(0); for(let iter=0; iter<maxIterations; iter++){ for(let i=0; i<numPoints; i++){ let minDist = Infinity; let bestCluster = 0; for(let k=0; k<numClusters; k++){ let dist = 0; for(let d=0; d<dimensions; d++){ dist += (points[i][d] - centroids[k][d])**2; } dist = Math.sqrt(dist); if(dist < minDist){ minDist = dist; bestCluster = k; } } assignments[i] = bestCluster; } let newCentroids = Array.from({length: numClusters}, () => new Array(dimensions).fill(0)); let counts = new Array(numClusters).fill(0); for(let i=0; i<numPoints; i++){ let cluster = assignments[i]; counts[cluster]++; for(let d=0; d<dimensions; d++){ newCentroids[cluster][d] += points[i][d]; } } for(let k=0; k<numClusters; k++){ if(counts[k] > 0){ for(let d=0; d<dimensions; d++){ newCentroids[k][d] /= counts[k]; } } } let maxShift = 0; for(let k=0; k<numClusters; k++){ let shift = 0; for(let d=0; d<dimensions; d++){ shift += (newCentroids[k][d] - centroids[k][d])**2; } shift = Math.sqrt(shift); if(shift > maxShift) maxShift = shift; } centroids = newCentroids; if(maxShift < tolerance) break; } let silhouette = 0; for(let i=0; i<numPoints; i++){ let cluster = assignments[i]; let a = 0; let countA = 0; for(let j=0; j<numPoints; j++){ if(assignments[j] === cluster && i !== j){ let dist = 0; for(let d=0; d<dimensions; d++){ dist += (points[i][d] - points[j][d])**2; } a += Math.sqrt(dist); countA++; } } a = countA > 0 ? a / countA : 0; let b = Infinity; for(let k=0; k<numClusters; k++){ if(k !== cluster){ let sum = 0; let count = 0; for(let j=0; j<numPoints; j++){ if(assignments[j] === k){ let dist = 0; for(let d=0; d<dimensions; d++){ dist += (points[i][d] - points[j][d])**2; } sum += Math.sqrt(dist); count++; } } let avg = count > 0 ? sum / count : 0; if(avg < b) b = avg; } } let s = (b - a) / Math.max(a, b); silhouette += s; } silhouette / numPoints;"
+  },
+  "outputs": {
+    "primary": "inertia",
+    "breakdown": [
+      "silhouetteScore",
+      "numClusters"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,49 @@
+{
+  "toolName": "binary-calculator",
+  "inputs": [
+    {
+      "id": "binary1",
+      "label": "Binary Number 1",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "First binary number input"
+    },
+    {
+      "id": "binary2",
+      "label": "Binary Number 2",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "Second binary number input"
+    },
+    {
+      "id": "operation",
+      "label": "Operation",
+      "type": "number",
+      "unit": "code",
+      "default": 0,
+      "businessContext": "0: AND, 1: OR, 2: XOR, 3: ADD, 4: SUB"
+    }
+  ],
+  "formulas": {
+    "primary": "(() => { const a = binary1; const b = binary2; const op = operation; const decA = parseInt(a.toString(), 2); const decB = parseInt(b.toString(), 2); let result; switch(op) { case 0: result = decA & decB; break; case 1: result = decA | decB; break; case 2: result = decA ^ decB; break; case 3: result = decA + decB; break; case 4: result = decA - decB; break; default: result = 0; } return result.toString(2); })()",
+    "breakdown": [
+      "(() => { const a = binary1; const b = binary2; const op = operation; const decA = parseInt(a.toString(), 2); const decB = parseInt(b.toString(), 2); let result; switch(op) { case 0: result = decA & decB; break; case 1: result = decA | decB; break; case 2: result = decA ^ decB; break; case 3: result = decA + decB; break; case 4: result = decA - decB; break; default: result = 0; } return `Decimal: ${decA} ${['&','|','^','+','-'][op]} ${decB} = ${result}`; })()",
+      "(() => { const a = binary1; const b = binary2; const op = operation; const decA = parseInt(a.toString(), 2); const decB = parseInt(b.toString(), 2); let result; switch(op) { case 0: result = decA & decB; break; case 1: result = decA | decB; break; case 2: result = decA ^ decB; break; case 3: result = decA + decB; break; case 4: result = decA - decB; break; default: result = 0; } return `Binary: ${a} ${['&','|','^','+','-'][op]} ${b} = ${result.toString(2)}`; })()"
+    ]
+  },
+  "outputs": {
+    "primary": "Result (binary)",
+    "breakdown": [
+      "Decimal operation",
+      "Binary operation"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

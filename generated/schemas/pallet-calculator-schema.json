@@ -1,0 +1,69 @@
+{
+  "toolName": "pallet-calculator",
+  "inputs": [
+    {
+      "id": "totalItems",
+      "label": "Total Items",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1000,
+      "businessContext": "Total quantity of items to be palletized."
+    },
+    {
+      "id": "itemsPerLayer",
+      "label": "Items per Layer",
+      "type": "number",
+      "unit": "pcs/layer",
+      "default": 20,
+      "businessContext": "Number of items that fit in one layer on the pallet."
+    },
+    {
+      "id": "layersPerPallet",
+      "label": "Layers per Pallet",
+      "type": "number",
+      "unit": "layers",
+      "default": 5,
+      "businessContext": "Maximum number of layers stackable per pallet."
+    },
+    {
+      "id": "itemWeight",
+      "label": "Item Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Weight of a single item."
+    },
+    {
+      "id": "maxPalletWeight",
+      "label": "Max Pallet Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 500,
+      "businessContext": "Maximum load capacity of one pallet."
+    }
+  ],
+  "formulas": {
+    "totalPallets": "Math.max(Math.ceil(totalItems / (itemsPerLayer * layersPerPallet)), Math.ceil((totalItems * itemWeight) / maxPalletWeight))",
+    "palletsByCount": "Math.ceil(totalItems / (itemsPerLayer * layersPerPallet))",
+    "palletsByWeight": "Math.ceil((totalItems * itemWeight) / maxPalletWeight)",
+    "itemsPerPalletActual": "totalItems / Math.max(Math.ceil(totalItems / (itemsPerLayer * layersPerPallet)), Math.ceil((totalItems * itemWeight) / maxPalletWeight))",
+    "totalWeight": "totalItems * itemWeight",
+    "weightUtilization": "(totalItems * itemWeight) / (Math.max(Math.ceil(totalItems / (itemsPerLayer * layersPerPallet)), Math.ceil((totalItems * itemWeight) / maxPalletWeight)) * maxPalletWeight) * 100"
+  },
+  "outputs": {
+    "primary": "totalPallets",
+    "breakdown": [
+      "palletsByCount",
+      "palletsByWeight",
+      "itemsPerPalletActual",
+      "totalWeight",
+      "weightUtilization"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

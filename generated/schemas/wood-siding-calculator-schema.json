@@ -1,0 +1,73 @@
+{
+  "toolName": "wood-siding-calculator",
+  "inputs": [
+    {
+      "id": "wallWidth",
+      "label": "Wall Width",
+      "type": "number",
+      "unit": "ft",
+      "default": 20,
+      "businessContext": "The horizontal length of the wall to cover."
+    },
+    {
+      "id": "wallHeight",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "ft",
+      "default": 10,
+      "businessContext": "The vertical height of the wall."
+    },
+    {
+      "id": "exposedFace",
+      "label": "Exposed Face",
+      "type": "number",
+      "unit": "in",
+      "default": 4,
+      "businessContext": "The visible height of each siding board after overlapping, typically 4-8 inches."
+    },
+    {
+      "id": "boardLength",
+      "label": "Board Length",
+      "type": "number",
+      "unit": "ft",
+      "default": 12,
+      "businessContext": "The length of each siding board."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Extra material percentage to account for cuts and errors."
+    },
+    {
+      "id": "pricePerBoard",
+      "label": "Price per Board",
+      "type": "number",
+      "unit": "$",
+      "default": 8.5,
+      "businessContext": "Cost of one board."
+    }
+  ],
+  "formulas": {
+    "totalBoardsWithWaste": "Math.ceil(wallWidth / boardLength) * Math.ceil(wallHeight / (exposedFace / 12)) + Math.ceil(Math.ceil(wallWidth / boardLength) * Math.ceil(wallHeight / (exposedFace / 12)) * (wasteFactor / 100))",
+    "wasteBoards": "Math.ceil(Math.ceil(wallWidth / boardLength) * Math.ceil(wallHeight / (exposedFace / 12)) * (wasteFactor / 100))",
+    "wallArea": "wallWidth * wallHeight",
+    "totalCost": "(Math.ceil(wallWidth / boardLength) * Math.ceil(wallHeight / (exposedFace / 12)) + Math.ceil(Math.ceil(wallWidth / boardLength) * Math.ceil(wallHeight / (exposedFace / 12)) * (wasteFactor / 100))) * pricePerBoard"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "totalBoardsWithWaste",
+      "wasteBoards",
+      "wallArea"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "net-price-calculator",
+  "inputs": [
+    {
+      "id": "listPrice",
+      "label": "List Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "The original price before any discounts or taxes."
+    },
+    {
+      "id": "discountPercent",
+      "label": "Discount (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage discount applied to the list price."
+    },
+    {
+      "id": "vatPercent",
+      "label": "VAT (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Value Added Tax percentage applied to the discounted price."
+    },
+    {
+      "id": "extraCharge",
+      "label": "Extra Charges",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Any additional fixed charges (e.g., shipping, handling) added before tax."
+    }
+  ],
+  "formulas": {
+    "discountedPrice": "listPrice * (1 - discountPercent / 100) + extraCharge",
+    "vatAmount": "(listPrice * (1 - discountPercent / 100) + extraCharge) * vatPercent / 100",
+    "netPrice": "(listPrice * (1 - discountPercent / 100) + extraCharge) * (1 + vatPercent / 100)"
+  },
+  "outputs": {
+    "primary": "netPrice",
+    "breakdown": [
+      "discountedPrice",
+      "vatAmount"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

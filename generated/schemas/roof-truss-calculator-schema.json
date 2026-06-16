@@ -1,0 +1,66 @@
+{
+  "toolName": "roof-truss-calculator",
+  "inputs": [
+    {
+      "id": "span",
+      "label": "Building Width (Span)",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Horizontal distance between outer walls, defines truss bottom chord length."
+    },
+    {
+      "id": "rise",
+      "label": "Roof Rise",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Vertical height from top of wall plate to ridge peak, determines roof slope."
+    },
+    {
+      "id": "overhang",
+      "label": "Eave Overhang",
+      "type": "number",
+      "unit": "m",
+      "default": 0.6,
+      "businessContext": "Horizontal projection of roof beyond exterior wall, extends rafter length."
+    },
+    {
+      "id": "length",
+      "label": "Building Length",
+      "type": "number",
+      "unit": "m",
+      "default": 12,
+      "businessContext": "Building length along ridge direction, used with spacing to calculate total truss quantity."
+    },
+    {
+      "id": "spacing",
+      "label": "Truss Spacing",
+      "type": "number",
+      "unit": "m",
+      "default": 0.6,
+      "businessContext": "Center-to-center distance between consecutive trusses, typical range 0.4–1.2 m."
+    }
+  ],
+  "formulas": {
+    "halfRun": "span / 2 + overhang",
+    "rafterLength": "Math.sqrt(Math.pow(halfRun, 2) + Math.pow(rise, 2))",
+    "angleDeg": "Math.atan(rise / (span / 2)) * (180 / Math.PI)",
+    "trussCount": "Math.ceil(length / spacing) + 1",
+    "totalRafterLength": "rafterLength * 2 * trussCount"
+  },
+  "outputs": {
+    "primary": "rafterLength",
+    "breakdown": [
+      "angleDeg",
+      "trussCount",
+      "totalRafterLength"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

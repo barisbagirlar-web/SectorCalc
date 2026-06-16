@@ -1,0 +1,65 @@
+{
+  "toolName": "overtraining-calculator",
+  "inputs": [
+    {
+      "id": "dailyHours",
+      "label": "Günlük Eğitim Saati",
+      "type": "number",
+      "unit": "saat",
+      "default": 2,
+      "businessContext": "Operatörün ortalama günlük eğitim süresi."
+    },
+    {
+      "id": "trainingDays",
+      "label": "Haftalık Eğitim Günü",
+      "type": "number",
+      "unit": "gün",
+      "default": 5,
+      "businessContext": "Bir haftada eğitim yapılan gün sayısı."
+    },
+    {
+      "id": "recoveryFactor",
+      "label": "Dinlenme Faktörü",
+      "type": "number",
+      "unit": "puan (1-10)",
+      "default": 7,
+      "businessContext": "Uyku, beslenme ve dinlenme kalitesini yansıtan 1-10 arası puan."
+    },
+    {
+      "id": "experience",
+      "label": "Deneyim (yıl)",
+      "type": "number",
+      "unit": "yıl",
+      "default": 2,
+      "businessContext": "Operatörün ilgili görevdeki toplam deneyim süresi."
+    },
+    {
+      "id": "taskComplexity",
+      "label": "İş Karmaşıklığı",
+      "type": "number",
+      "unit": "seviye (1-5)",
+      "default": 3,
+      "businessContext": "Yapılan işin zorluk ve karmaşıklık derecesi (1: basit, 5: çok karmaşık)."
+    }
+  ],
+  "formulas": {
+    "weeklyTrainingLoad": "dailyHours * trainingDays",
+    "recoveryIndex": "recoveryFactor * 0.1",
+    "overtrainingScore": "(weeklyTrainingLoad / (experience + taskComplexity)) / recoveryIndex",
+    "scoreInterpretation": "overtrainingScore <= 1 ? 'Düşük Risk' : overtrainingScore <= 2 ? 'Orta Risk' : 'Yüksek Risk'"
+  },
+  "outputs": {
+    "primary": "overtrainingScore",
+    "breakdown": [
+      "weeklyTrainingLoad",
+      "recoveryIndex",
+      "scoreInterpretation"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

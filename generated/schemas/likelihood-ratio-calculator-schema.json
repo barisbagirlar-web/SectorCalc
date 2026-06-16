@@ -1,0 +1,55 @@
+{
+  "toolName": "likelihood-ratio-calculator",
+  "inputs": [
+    {
+      "id": "truePositives",
+      "label": "True Positives",
+      "type": "number",
+      "unit": "cases",
+      "default": 0,
+      "businessContext": "Number of cases with condition and positive test"
+    },
+    {
+      "id": "falsePositives",
+      "label": "False Positives",
+      "type": "number",
+      "unit": "cases",
+      "default": 0,
+      "businessContext": "Number of cases without condition but positive test"
+    },
+    {
+      "id": "falseNegatives",
+      "label": "False Negatives",
+      "type": "number",
+      "unit": "cases",
+      "default": 0,
+      "businessContext": "Number of cases with condition and negative test"
+    },
+    {
+      "id": "trueNegatives",
+      "label": "True Negatives",
+      "type": "number",
+      "unit": "cases",
+      "default": 0,
+      "businessContext": "Number of cases without condition and negative test"
+    }
+  ],
+  "formulas": {
+    "sensitivity": "truePositives + falseNegatives > 0 ? truePositives / (truePositives + falseNegatives) : 0",
+    "specificity": "trueNegatives + falsePositives > 0 ? trueNegatives / (trueNegatives + falsePositives) : 0",
+    "lrPositive": "specificity < 1 ? sensitivity / (1 - specificity) : 0",
+    "lrNegative": "specificity > 0 ? (1 - sensitivity) / specificity : 0"
+  },
+  "outputs": {
+    "primary": "lrPositive",
+    "breakdown": [
+      "lrNegative"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

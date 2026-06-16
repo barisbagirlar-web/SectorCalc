@@ -1,0 +1,77 @@
+{
+  "toolName": "maximum-drawdown-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "The amount initially invested, used to calculate loss from the start."
+    },
+    {
+      "id": "peakValue",
+      "label": "Peak Portfolio Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 15000,
+      "businessContext": "The highest portfolio value reached before the drawdown begins."
+    },
+    {
+      "id": "troughValue",
+      "label": "Trough Portfolio Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 8000,
+      "businessContext": "The lowest value after the peak, marking the maximum drawdown."
+    },
+    {
+      "id": "timeToTrough",
+      "label": "Time to Trough",
+      "type": "number",
+      "unit": "months",
+      "default": 6,
+      "businessContext": "Number of months taken from the peak to the trough, indicating drawdown speed."
+    },
+    {
+      "id": "recoveryValue",
+      "label": "Recovery Value (if any)",
+      "type": "number",
+      "unit": "USD",
+      "default": 15000,
+      "businessContext": "Portfolio value at eventual recovery; set to peak if fully recovered, 0 if not."
+    },
+    {
+      "id": "recoveryTime",
+      "label": "Recovery Time",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "businessContext": "Months from trough to recovery; 0 if recovery not yet achieved."
+    }
+  ],
+  "formulas": {
+    "maxDrawdownPercent": "((peakValue - troughValue) / peakValue) * 100",
+    "absoluteDrawdown": "peakValue - troughValue",
+    "lossFromInitialPercent": "((initialInvestment - troughValue) / initialInvestment) * 100",
+    "requiredRecoveryGainPercent": "(peakValue / troughValue - 1) * 100",
+    "actualRecoveryGainPercent": "recoveryValue > 0 ? ((recoveryValue - troughValue) / troughValue) * 100 : 0",
+    "recoveryStatus": "recoveryValue >= peakValue ? 'Full Recovery' : (recoveryValue > 0 ? 'Partial Recovery' : 'Not Recovered')"
+  },
+  "outputs": {
+    "primary": "Maximum Drawdown: {maxDrawdownPercent}%",
+    "breakdown": [
+      "Absolute Drawdown: {absoluteDrawdown} USD",
+      "Loss from Initial: {lossFromInitialPercent}%",
+      "Required Recovery Gain: {requiredRecoveryGainPercent}%",
+      "Actual Recovery Gain: {actualRecoveryGainPercent}%",
+      "Recovery Status: {recoveryStatus}"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

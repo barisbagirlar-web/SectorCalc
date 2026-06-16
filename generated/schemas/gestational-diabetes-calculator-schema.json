@@ -1,0 +1,87 @@
+{
+  "toolName": "gestational-diabetes-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Anne Yaşı",
+      "type": "number",
+      "unit": "yıl",
+      "default": 30,
+      "businessContext": "Anne adayının yaşı, gestasyonel diyabet riskini etkileyen faktörlerden biridir."
+    },
+    {
+      "id": "bmi",
+      "label": "Vücut Kitle İndeksi (BMI)",
+      "type": "number",
+      "unit": "kg/m²",
+      "default": 25,
+      "businessContext": "Gebelik öncesi BMI, gestasyonel diyabet riskini belirlemede önemli bir parametredir."
+    },
+    {
+      "id": "previousGDM",
+      "label": "Önceki Gebelikte GDM Öyküsü",
+      "type": "number",
+      "unit": "0=Hayır, 1=Evet",
+      "default": 0,
+      "businessContext": "Daha önce gestasyonel diyabet geçirmiş olmak, tekrarlama riskini artırır."
+    },
+    {
+      "id": "familyDiabetes",
+      "label": "Ailede Diyabet Öyküsü",
+      "type": "number",
+      "unit": "0=Hayır, 1=Evet",
+      "default": 0,
+      "businessContext": "Birinci derece akrabalarda diyabet varlığı risk faktörüdür."
+    },
+    {
+      "id": "fastingGlucose",
+      "label": "Açlık Kan Şekeri",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 90,
+      "businessContext": "Gebelikte açlık kan şekeri düzeyi, diyabet taramasında kullanılır."
+    },
+    {
+      "id": "ogtt1h",
+      "label": "OGTT 1. Saat Kan Şekeri",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 140,
+      "businessContext": "Oral glukoz tolerans testi 1. saat değeri, tanı kriterlerinden biridir."
+    },
+    {
+      "id": "ogtt2h",
+      "label": "OGTT 2. Saat Kan Şekeri",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 120,
+      "businessContext": "Oral glukoz tolerans testi 2. saat değeri, tanı kriterlerinden biridir."
+    },
+    {
+      "id": "gestationalWeek",
+      "label": "Gebelik Haftası",
+      "type": "number",
+      "unit": "hafta",
+      "default": 24,
+      "businessContext": "Tarama genellikle 24-28. haftalar arasında yapılır."
+    }
+  ],
+  "formulas": {
+    "riskScore": "((age - 25) * 0.1 + (bmi - 25) * 0.2 + previousGDM * 2 + familyDiabetes * 1.5 + (fastingGlucose - 92) * 0.05 + (ogtt1h - 180) * 0.02 + (ogtt2h - 153) * 0.02 + (gestationalWeek - 24) * 0.01)",
+    "gdmProbability": "1 / (1 + Math.exp(-riskScore))",
+    "diagnosis": "((fastingGlucose >= 92 || ogtt1h >= 180 || ogtt2h >= 153) ? 1 : 0)"
+  },
+  "outputs": {
+    "primary": "GDM Olasılığı (%)",
+    "breakdown": [
+      "Risk Skoru",
+      "Tanı Kriteri (0=Negatif, 1=Pozitif)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

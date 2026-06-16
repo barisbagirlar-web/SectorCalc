@@ -1,0 +1,57 @@
+{
+  "toolName": "bar-to-atm-calculator",
+  "inputs": [
+    {
+      "id": "pressure_bar",
+      "label": "Pressure (bar)",
+      "type": "number",
+      "unit": "bar",
+      "default": 1,
+      "businessContext": "Measured pressure value in bars."
+    },
+    {
+      "id": "calibration_offset_bar",
+      "label": "Calibration Offset (bar)",
+      "type": "number",
+      "unit": "bar",
+      "default": 0,
+      "businessContext": "Instrument calibration offset to apply to the measured pressure."
+    },
+    {
+      "id": "uncertainty_percent",
+      "label": "Measurement Uncertainty (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Expanded measurement uncertainty as a percentage of the reading (k=2)."
+    },
+    {
+      "id": "decimal_places",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Number of decimal places for the output value."
+    }
+  ],
+  "formulas": {
+    "primary": "((pressure_bar + calibration_offset_bar) * 0.9869232667160128).toFixed(decimal_places)",
+    "breakdown": [
+      "'Adjusted pressure: ' + (pressure_bar + calibration_offset_bar).toFixed(2) + ' bar'",
+      "'Converted: ' + ((pressure_bar + calibration_offset_bar) * 0.9869232667160128).toFixed(decimal_places) + ' atm (Uncertainty: ±' + ((pressure_bar + calibration_offset_bar) * 0.9869232667160128 * uncertainty_percent / 100).toFixed(decimal_places) + ' atm)'"
+    ]
+  },
+  "outputs": {
+    "primary": "Converted pressure with specified decimal places.",
+    "breakdown": [
+      "Adjusted pressure after calibration offset.",
+      "Final converted value with uncertainty range."
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "watt-hour-calculator",
+  "inputs": [
+    {
+      "id": "voltage",
+      "label": "Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 230,
+      "businessContext": "Supply voltage in volts"
+    },
+    {
+      "id": "current",
+      "label": "Current",
+      "type": "number",
+      "unit": "A",
+      "default": 10,
+      "businessContext": "Current draw in amperes"
+    },
+    {
+      "id": "powerFactor",
+      "label": "Power Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Power factor (0-1), enter 1 for DC or resistive loads"
+    },
+    {
+      "id": "time",
+      "label": "Time",
+      "type": "number",
+      "unit": "h",
+      "default": 1,
+      "businessContext": "Operating time in hours"
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "System efficiency as a percentage (0-100)"
+    }
+  ],
+  "formulas": {
+    "powerW": "voltage * current * powerFactor * (efficiency / 100)",
+    "energyWh": "powerW * time",
+    "energyKwh": "energyWh / 1000"
+  },
+  "outputs": {
+    "primary": "energyWh",
+    "breakdown": [
+      "powerW",
+      "energyKwh"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

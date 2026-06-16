@@ -1,0 +1,82 @@
+{
+  "toolName": "heat-of-vaporization-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Mass of the substance to be vaporized."
+    },
+    {
+      "id": "initialTemp",
+      "label": "Initial Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "Starting temperature of the liquid before heating."
+    },
+    {
+      "id": "boilingPoint",
+      "label": "Boiling Point",
+      "type": "number",
+      "unit": "°C",
+      "default": 100,
+      "businessContext": "Boiling point of the liquid at the given pressure."
+    },
+    {
+      "id": "specificHeat",
+      "label": "Specific Heat Capacity",
+      "type": "number",
+      "unit": "kJ/(kg·°C)",
+      "default": 4.18,
+      "businessContext": "Specific heat capacity of the liquid phase (constant pressure)."
+    },
+    {
+      "id": "latentHeat",
+      "label": "Latent Heat of Vaporization",
+      "type": "number",
+      "unit": "kJ/kg",
+      "default": 2260,
+      "businessContext": "Energy required to vaporize one kilogram of the liquid at boiling point."
+    },
+    {
+      "id": "efficiency",
+      "label": "Heating Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Efficiency of the heating system (100% means no losses)."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier to account for design margins or uncertainties."
+    }
+  ],
+  "formulas": {
+    "deltaT": "Math.max(0, boilingPoint - initialTemp)",
+    "heatingEnergy": "mass * specificHeat * deltaT",
+    "vaporizationEnergy": "mass * latentHeat",
+    "totalTheoretical": "heatingEnergy + vaporizationEnergy",
+    "totalRequired": "totalTheoretical * safetyFactor / (efficiency / 100)"
+  },
+  "outputs": {
+    "primary": "totalRequired",
+    "breakdown": [
+      "heatingEnergy",
+      "vaporizationEnergy",
+      "totalTheoretical"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

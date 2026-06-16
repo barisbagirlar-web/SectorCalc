@@ -1,0 +1,55 @@
+{
+  "toolName": "inventory-turnover-calculator",
+  "inputs": [
+    {
+      "id": "cogs",
+      "label": "Cost of Goods Sold",
+      "type": "number",
+      "unit": "currency/year",
+      "default": 100000,
+      "businessContext": "Total cost of goods sold during the period"
+    },
+    {
+      "id": "beginInventory",
+      "label": "Beginning Inventory",
+      "type": "number",
+      "unit": "currency",
+      "default": 20000,
+      "businessContext": "Inventory value at the start of the period"
+    },
+    {
+      "id": "endInventory",
+      "label": "Ending Inventory",
+      "type": "number",
+      "unit": "currency",
+      "default": 30000,
+      "businessContext": "Inventory value at the end of the period"
+    },
+    {
+      "id": "days",
+      "label": "Days in Period",
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "businessContext": "Number of days in the period (e.g., 365 for annual)"
+    }
+  ],
+  "formulas": {
+    "averageInventory": "(beginInventory + endInventory) / 2",
+    "inventoryTurnover": "cogs / averageInventory",
+    "daysInventoryOutstanding": "days / inventoryTurnover"
+  },
+  "outputs": {
+    "primary": "inventoryTurnover",
+    "breakdown": [
+      "averageInventory",
+      "daysInventoryOutstanding"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

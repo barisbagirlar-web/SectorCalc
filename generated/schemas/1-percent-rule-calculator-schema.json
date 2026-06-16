@@ -1,0 +1,67 @@
+{
+  "toolName": "1-percent-rule-calculator",
+  "inputs": [
+    {
+      "id": "purchasePrice",
+      "label": "Purchase Price",
+      "type": "number",
+      "unit": "currency",
+      "default": 200000,
+      "businessContext": "Total acquisition cost of the property"
+    },
+    {
+      "id": "monthlyRent",
+      "label": "Monthly Rent",
+      "type": "number",
+      "unit": "currency",
+      "default": 2000,
+      "businessContext": "Expected monthly rental income"
+    },
+    {
+      "id": "closingCosts",
+      "label": "Closing Costs",
+      "type": "number",
+      "unit": "currency",
+      "default": 5000,
+      "businessContext": "One-time fees at purchase (e.g., legal, inspection)"
+    },
+    {
+      "id": "repairCosts",
+      "label": "Repair Costs",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "Initial repairs or renovations needed"
+    },
+    {
+      "id": "monthlyExpenses",
+      "label": "Monthly Expenses",
+      "type": "number",
+      "unit": "currency",
+      "default": 500,
+      "businessContext": "Recurring costs (taxes, insurance, HOA, maintenance)"
+    }
+  ],
+  "formulas": {
+    "totalInvestment": "purchasePrice + closingCosts + repairCosts",
+    "monthlyNetIncome": "monthlyRent - monthlyExpenses",
+    "onePercentThreshold": "totalInvestment * 0.01",
+    "meetsRule": "monthlyRent >= onePercentThreshold ? 1 : 0",
+    "annualReturn": "(monthlyNetIncome * 12 / totalInvestment) * 100"
+  },
+  "outputs": {
+    "primary": "monthlyRent >= onePercentThreshold ? 'Passes 1% Rule' : 'Fails 1% Rule'",
+    "breakdown": [
+      "Total Investment: totalInvestment",
+      "1% Threshold: onePercentThreshold",
+      "Monthly Net Income: monthlyNetIncome",
+      "Annual Return (%): annualReturn"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

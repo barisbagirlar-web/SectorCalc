@@ -1,0 +1,67 @@
+{
+  "toolName": "brooke-formula-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Patient's body weight in kilograms."
+    },
+    {
+      "id": "tbsa",
+      "label": "Total Burn Surface Area",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Percentage of total body surface area affected by burns."
+    },
+    {
+      "id": "fluidFactor",
+      "label": "Fluid Volume Factor",
+      "type": "number",
+      "unit": "mL/kg/%",
+      "default": 2,
+      "businessContext": "Standard Brooke formula uses 2 mL/kg/% TBSA."
+    },
+    {
+      "id": "firstPeriodHours",
+      "label": "First Period Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 8,
+      "businessContext": "Hours for first half of fluid administration."
+    },
+    {
+      "id": "secondPeriodHours",
+      "label": "Second Period Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 16,
+      "businessContext": "Hours for second half of fluid administration."
+    }
+  ],
+  "formulas": {
+    "totalFluid": "fluidFactor * weight * tbsa",
+    "firstHalf": "totalFluid / 2",
+    "secondHalf": "totalFluid / 2",
+    "firstHourlyRate": "firstHalf / firstPeriodHours",
+    "secondHourlyRate": "secondHalf / secondPeriodHours"
+  },
+  "outputs": {
+    "primary": "totalFluid",
+    "breakdown": [
+      "firstHalf",
+      "secondHalf",
+      "firstHourlyRate",
+      "secondHourlyRate"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

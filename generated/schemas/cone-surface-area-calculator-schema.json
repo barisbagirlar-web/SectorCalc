@@ -1,0 +1,40 @@
+{
+  "toolName": "cone-surface-area-calculator",
+  "inputs": [
+    {
+      "id": "radius",
+      "label": "Radius (r)",
+      "type": "number",
+      "unit": "cm",
+      "default": 5,
+      "businessContext": "The radius of the cone base"
+    },
+    {
+      "id": "height",
+      "label": "Height (h)",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "The perpendicular height of the cone"
+    }
+  ],
+  "formulas": {
+    "slantHeight": "sqrt(radius**2 + height**2)",
+    "lateralArea": "Math.PI * radius * slantHeight",
+    "baseArea": "Math.PI * radius**2",
+    "totalArea": "lateralArea + baseArea"
+  },
+  "outputs": {
+    "primary": "totalArea",
+    "breakdown": [
+      "lateralArea",
+      "baseArea"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

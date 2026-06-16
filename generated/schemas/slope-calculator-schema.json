@@ -1,0 +1,61 @@
+{
+  "toolName": "slope-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "X₁ Koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Başlangıç noktasının yatay koordinatı"
+    },
+    {
+      "id": "y1",
+      "label": "Y₁ Koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Başlangıç noktasının düşey koordinatı"
+    },
+    {
+      "id": "x2",
+      "label": "X₂ Koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Bitiş noktasının yatay koordinatı"
+    },
+    {
+      "id": "y2",
+      "label": "Y₂ Koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Bitiş noktasının düşey koordinatı"
+    }
+  ],
+  "formulas": {
+    "rise": "y2 - y1",
+    "run": "x2 - x1",
+    "slopeRatio": "run !== 0 ? (rise / run) : null",
+    "slopePercentage": "run !== 0 ? (rise / run) * 100 : null",
+    "angleDegrees": "run !== 0 ? Math.atan(rise / run) * (180 / Math.PI) : null",
+    "hypotenuse": "Math.sqrt(rise**2 + run**2)"
+  },
+  "outputs": {
+    "primary": "slopePercentage",
+    "breakdown": [
+      "rise",
+      "run",
+      "slopeRatio",
+      "angleDegrees",
+      "hypotenuse"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

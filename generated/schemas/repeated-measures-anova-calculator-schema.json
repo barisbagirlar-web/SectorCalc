@@ -1,0 +1,61 @@
+{
+  "toolName": "repeated-measures-anova-calculator",
+  "inputs": [
+    {
+      "id": "numberOfConditions",
+      "label": "Number of Conditions (k)",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Number of repeated measurement levels or conditions."
+    },
+    {
+      "id": "numberOfSubjects",
+      "label": "Number of Subjects (n)",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Total number of subjects (participants)."
+    },
+    {
+      "id": "ssCondition",
+      "label": "SS Condition",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "Sum of squares due to the within-subjects factor (condition)."
+    },
+    {
+      "id": "ssError",
+      "label": "SS Error",
+      "type": "number",
+      "unit": "",
+      "default": 50,
+      "businessContext": "Sum of squares error (residual) for the within-subjects factor."
+    }
+  ],
+  "formulas": {
+    "dfCondition": "numberOfConditions - 1",
+    "dfError": "(numberOfConditions - 1) * (numberOfSubjects - 1)",
+    "msCondition": "ssCondition / (numberOfConditions - 1)",
+    "msError": "ssError / ((numberOfConditions - 1) * (numberOfSubjects - 1))",
+    "F": "(ssCondition / (numberOfConditions - 1)) / (ssError / ((numberOfConditions - 1) * (numberOfSubjects - 1)))",
+    "eta2": "ssCondition / (ssCondition + ssError)"
+  },
+  "outputs": {
+    "primary": "F",
+    "breakdown": [
+      "eta2",
+      "dfCondition",
+      "dfError",
+      "msCondition",
+      "msError"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

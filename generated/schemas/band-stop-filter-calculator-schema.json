@@ -1,0 +1,58 @@
+{
+  "toolName": "band-stop-filter-calculator",
+  "inputs": [
+    {
+      "id": "centerFrequency",
+      "label": "Center Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1000,
+      "businessContext": "Notch frequency of the band-stop filter."
+    },
+    {
+      "id": "lowerCutoffFrequency",
+      "label": "Lower Cutoff Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 900,
+      "businessContext": "Lower -3 dB cutoff frequency of the stopband."
+    },
+    {
+      "id": "upperCutoffFrequency",
+      "label": "Upper Cutoff Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1100,
+      "businessContext": "Upper -3 dB cutoff frequency of the stopband."
+    },
+    {
+      "id": "evaluationFrequency",
+      "label": "Evaluation Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 800,
+      "businessContext": "Frequency at which the filter response is evaluated."
+    }
+  ],
+  "formulas": {
+    "qFactor": "centerFrequency / (upperCutoffFrequency - lowerCutoffFrequency)",
+    "w0": "2 * Math.PI * centerFrequency",
+    "w": "2 * Math.PI * evaluationFrequency",
+    "linearGain": "Math.abs(w0 * w0 - w * w) / Math.sqrt(Math.pow(w0 * w0 - w * w, 2) + Math.pow((w * w0) / qFactor, 2))",
+    "attenuation_dB": "20 * Math.log10(linearGain)",
+    "phaseShift_rad": "Math.atan2(- (w * w0) / qFactor, w0 * w0 - w * w)"
+  },
+  "outputs": {
+    "primary": "attenuation_dB",
+    "breakdown": [
+      "linearGain",
+      "phaseShift_rad"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

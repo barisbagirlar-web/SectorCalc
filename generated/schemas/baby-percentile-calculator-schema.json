@@ -1,0 +1,63 @@
+{
+  "toolName": "baby-percentile-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "businessContext": "Baby's age in months, 0-36"
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 9.5,
+      "businessContext": "Body weight in kilograms"
+    },
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 74,
+      "businessContext": "Body length in centimeters"
+    },
+    {
+      "id": "head",
+      "label": "Head Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 44,
+      "businessContext": "Head circumference in centimeters"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 for boy, 1 for girl"
+    }
+  ],
+  "formulas": {
+    "weightPercentile": "100/(1+Math.exp(-1.702 * ((weight - ((1-gender)*(3.5+0.5*age) + gender*(3.0+0.45*age))) / (1+0.05*age))))",
+    "lengthPercentile": "100/(1+Math.exp(-1.702 * ((length - ((1-gender)*(50+2.5*age) + gender*(49+2.4*age))) / (2+0.1*age))))",
+    "headPercentile": "100/(1+Math.exp(-1.702 * ((head - ((1-gender)*(35+0.7*age) + gender*(34+0.65*age))) / (1.5+0.05*age))))"
+  },
+  "outputs": {
+    "primary": "weightPercentile",
+    "breakdown": [
+      "lengthPercentile",
+      "headPercentile"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

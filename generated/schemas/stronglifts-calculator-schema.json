@@ -1,0 +1,55 @@
+{
+  "toolName": "stronglifts-calculator",
+  "inputs": [
+    {
+      "id": "loadWeight",
+      "label": "Yük Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Kaldırılacak nesnenin toplam ağırlığı"
+    },
+    {
+      "id": "numberOfSlings",
+      "label": "Sling Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 4,
+      "businessContext": "Kaldırmada kullanılan sling/bağlantı noktası sayısı"
+    },
+    {
+      "id": "angleFromVertical",
+      "label": "Dikeyden Açı",
+      "type": "number",
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Sling'in dikey eksenle yaptığı açı (0-60° arası önerilir)"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Emniyet Katsayısı",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Ekipman tipine ve yönetmeliğe göre emniyet katsayısı (ör. 4, 5, 6)"
+    }
+  ],
+  "formulas": {
+    "requiredCapacityPerSlingKg": "loadWeight * safetyFactor / (numberOfSlings * Math.cos(angleFromVertical * Math.PI / 180))",
+    "tensionPerSlingKg": "loadWeight / (numberOfSlings * Math.cos(angleFromVertical * Math.PI / 180))",
+    "angleMultiplier": "1 / Math.cos(angleFromVertical * Math.PI / 180)"
+  },
+  "outputs": {
+    "primary": "requiredCapacityPerSlingKg",
+    "breakdown": [
+      "tensionPerSlingKg",
+      "angleMultiplier"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

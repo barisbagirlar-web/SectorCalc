@@ -1,0 +1,52 @@
+{
+  "toolName": "caffeine-calculator",
+  "inputs": [
+    {
+      "id": "volumePerServing",
+      "label": "Hacim (Servis Başına)",
+      "type": "number",
+      "unit": "ml",
+      "default": 250,
+      "businessContext": "Tek bir porsiyonun hacmi (ml cinsinden)"
+    },
+    {
+      "id": "numberOfServings",
+      "label": "Porsiyon Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Tüketilen veya hazırlanan porsiyon sayısı"
+    },
+    {
+      "id": "caffeineContentPer100ml",
+      "label": "100 ml'deki Kafein Miktarı",
+      "type": "number",
+      "unit": "mg/100ml",
+      "default": 40,
+      "businessContext": "İçeceğin 100 ml'sinde bulunan kafein miktarı (mg)"
+    },
+    {
+      "id": "bodyWeight",
+      "label": "Vücut Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Kişinin vücut ağırlığı (kg)"
+    }
+  ],
+  "formulas": {
+    "totalCaffeine": "volumePerServing * numberOfServings * (caffeineContentPer100ml / 100)",
+    "safeLimit": "bodyWeight * 6",
+    "remainingCaffeine": "safeLimit - totalCaffeine"
+  },
+  "outputs": {
+    "primary": "totalCaffeine",
+    "breakdown": [
+      "safeLimit",
+      "remainingCaffeine"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false
+}

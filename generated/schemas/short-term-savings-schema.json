@@ -1,0 +1,55 @@
+{
+  "toolName": "short-term-savings",
+  "inputs": [
+    {
+      "id": "initialDeposit",
+      "label": "Initial Deposit",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "One-time initial deposit amount."
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Monthly Contribution",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "Amount contributed each month."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2.5,
+      "businessContext": "Expected annual interest rate (e.g., 2.5 for 2.5%)."
+    },
+    {
+      "id": "months",
+      "label": "Number of Months",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "businessContext": "Duration of savings in months."
+    }
+  ],
+  "formulas": {
+    "futureValue": "initialDeposit * (1 + annualInterestRate/100/12)**months + monthlyContribution * (((1 + annualInterestRate/100/12)**months - 1) / (annualInterestRate/100/12))",
+    "totalDeposits": "initialDeposit + monthlyContribution * months",
+    "interestEarned": "(initialDeposit * (1 + annualInterestRate/100/12)**months + monthlyContribution * (((1 + annualInterestRate/100/12)**months - 1) / (annualInterestRate/100/12))) - (initialDeposit + monthlyContribution * months)"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": [
+      "totalDeposits",
+      "interestEarned"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

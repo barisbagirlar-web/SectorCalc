@@ -1,0 +1,55 @@
+{
+  "toolName": "nuclear-fusion-calculator",
+  "inputs": [
+    {
+      "id": "n_D",
+      "label": "Deuterium Density (n_D)",
+      "type": "number",
+      "unit": "10^20 m^-3",
+      "default": 0.5,
+      "businessContext": "Density of deuterium ions in the fusion plasma, measured in units of 10^20 particles per cubic meter."
+    },
+    {
+      "id": "n_T",
+      "label": "Tritium Density (n_T)",
+      "type": "number",
+      "unit": "10^20 m^-3",
+      "default": 0.5,
+      "businessContext": "Density of tritium ions in the fusion plasma, measured in units of 10^20 particles per cubic meter."
+    },
+    {
+      "id": "T",
+      "label": "Ion Temperature (T)",
+      "type": "number",
+      "unit": "keV",
+      "default": 10,
+      "businessContext": "Plasma ion temperature in kilo-electronvolts (keV), typically 10-20 keV for DT fusion."
+    },
+    {
+      "id": "tau",
+      "label": "Energy Confinement Time (τ)",
+      "type": "number",
+      "unit": "s",
+      "default": 5,
+      "businessContext": "Energy confinement time in seconds, representing how well the plasma retains its heat."
+    }
+  ],
+  "formulas": {
+    "tripleProduct": "(n_D + n_T) * T * tau",
+    "meetsLawson": "((n_D + n_T) * T * tau) >= 30 ? 'Yes' : 'No'",
+    "margin": "((n_D + n_T) * T * tau) / 30"
+  },
+  "outputs": {
+    "primary": "tripleProduct",
+    "breakdown": [
+      "meetsLawson",
+      "margin"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

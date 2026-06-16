@@ -1,0 +1,63 @@
+{
+  "toolName": "distance-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "X coordinate of point 1",
+      "type": "number",
+      "unit": "meter",
+      "default": 0,
+      "businessContext": "Starting X coordinate"
+    },
+    {
+      "id": "y1",
+      "label": "Y coordinate of point 1",
+      "type": "number",
+      "unit": "meter",
+      "default": 0,
+      "businessContext": "Starting Y coordinate"
+    },
+    {
+      "id": "x2",
+      "label": "X coordinate of point 2",
+      "type": "number",
+      "unit": "meter",
+      "default": 0,
+      "businessContext": "Ending X coordinate"
+    },
+    {
+      "id": "y2",
+      "label": "Y coordinate of point 2",
+      "type": "number",
+      "unit": "meter",
+      "default": 0,
+      "businessContext": "Ending Y coordinate"
+    },
+    {
+      "id": "scale",
+      "label": "Output scale factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Scale factor to convert output units (e.g., 1 for meters, 0.001 for kilometers)"
+    }
+  ],
+  "formulas": {
+    "deltaX": "x2 - x1",
+    "deltaY": "y2 - y1",
+    "distance": "Math.sqrt( (x2 - x1)**2 + (y2 - y1)**2 ) * scale"
+  },
+  "outputs": {
+    "primary": "distance",
+    "breakdown": [
+      "deltaX",
+      "deltaY"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,60 @@
+{
+  "toolName": "parabola-equation-calculator",
+  "inputs": [
+    {
+      "id": "h",
+      "label": "Vertex x (h)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Vertex x-coordinate"
+    },
+    {
+      "id": "k",
+      "label": "Vertex y (k)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Vertex y-coordinate"
+    },
+    {
+      "id": "x1",
+      "label": "Point x (x₁)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "x-coordinate of a point on the parabola"
+    },
+    {
+      "id": "y1",
+      "label": "Point y (y₁)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "y-coordinate of a point on the parabola"
+    }
+  ],
+  "formulas": {
+    "a": "(y1 - k) / ((x1 - h) ** 2)",
+    "b": "-2 * a * h",
+    "c": "a * h ** 2 + k",
+    "vertexForm": "`y = ${a}(x - ${h})² + ${k}`",
+    "standardForm": "`y = ${a}x² + ${b}x + ${c}`",
+    "vertex": "`Vertex: (${h}, ${k})`",
+    "aValue": "`a = ${a}`"
+  },
+  "outputs": {
+    "primary": "vertexForm",
+    "breakdown": [
+      "standardForm",
+      "vertex",
+      "aValue"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

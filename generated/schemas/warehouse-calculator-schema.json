@@ -1,0 +1,90 @@
+{
+  "toolName": "warehouse-calculator",
+  "inputs": [
+    {
+      "id": "totalArea",
+      "label": "Total Warehouse Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 1000,
+      "businessContext": "Total floor area of the warehouse"
+    },
+    {
+      "id": "storageArea",
+      "label": "Storage Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 800,
+      "businessContext": "Area used for storage"
+    },
+    {
+      "id": "maxPalletPositions",
+      "label": "Max Pallet Positions",
+      "type": "number",
+      "unit": "positions",
+      "default": 500,
+      "businessContext": "Maximum number of pallet positions available"
+    },
+    {
+      "id": "currentPallets",
+      "label": "Current Pallets Stored",
+      "type": "number",
+      "unit": "pallets",
+      "default": 300,
+      "businessContext": "Current number of pallets stored"
+    },
+    {
+      "id": "dailyThroughput",
+      "label": "Daily Throughput",
+      "type": "number",
+      "unit": "pallets/day",
+      "default": 100,
+      "businessContext": "Pallets processed per day"
+    },
+    {
+      "id": "operatingDays",
+      "label": "Operating Days per Year",
+      "type": "number",
+      "unit": "days/year",
+      "default": 250,
+      "businessContext": "Number of working days in a year"
+    },
+    {
+      "id": "annualFixedCost",
+      "label": "Annual Fixed Costs",
+      "type": "number",
+      "unit": "currency",
+      "default": 100000,
+      "businessContext": "Annual fixed costs (rent, maintenance)"
+    },
+    {
+      "id": "variableCostPerPallet",
+      "label": "Variable Cost per Pallet",
+      "type": "number",
+      "unit": "currency/pallet",
+      "default": 10,
+      "businessContext": "Variable cost for handling one pallet"
+    }
+  ],
+  "formulas": {
+    "annualVolume": "dailyThroughput * operatingDays",
+    "totalCost": "annualFixedCost + variableCostPerPallet * annualVolume",
+    "costPerPallet": "totalCost / annualVolume",
+    "spaceUtilization": "(storageArea / totalArea) * 100",
+    "capacityUtilization": "(currentPallets / maxPalletPositions) * 100"
+  },
+  "outputs": {
+    "primary": "costPerPallet",
+    "breakdown": [
+      "spaceUtilization",
+      "capacityUtilization",
+      "annualVolume"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

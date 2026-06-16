@@ -1,0 +1,55 @@
+{
+  "toolName": "refraction-calculator",
+  "inputs": [
+    {
+      "id": "incidentAngle",
+      "label": "Geliş Açısı",
+      "type": "number",
+      "unit": "derece (°)",
+      "default": 30,
+      "businessContext": "Işığın birinci ortamdaki geliş açısı."
+    },
+    {
+      "id": "refractiveIndex1",
+      "label": "Birinci Ortam Kırılma İndisi",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 1,
+      "businessContext": "Birinci ortamın kırılma indisi (n1)."
+    },
+    {
+      "id": "refractiveIndex2",
+      "label": "İkinci Ortam Kırılma İndisi",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 1.5,
+      "businessContext": "İkinci ortamın kırılma indisi (n2)."
+    },
+    {
+      "id": "thickness",
+      "label": "Kalınlık",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Işığın geçtiği ortamın kalınlığı (yan kayma hesabı için)."
+    }
+  ],
+  "formulas": {
+    "refractedAngle": "Math.asin(refractiveIndex1 * Math.sin(incidentAngle * Math.PI / 180) / refractiveIndex2) * 180 / Math.PI",
+    "criticalAngle": "refractiveIndex1 > refractiveIndex2 ? Math.asin(refractiveIndex2 / refractiveIndex1) * 180 / Math.PI : null",
+    "lateralShift": "thickness * Math.sin((incidentAngle * Math.PI / 180) - Math.asin(refractiveIndex1 * Math.sin(incidentAngle * Math.PI / 180) / refractiveIndex2)) / Math.cos(Math.asin(refractiveIndex1 * Math.sin(incidentAngle * Math.PI / 180) / refractiveIndex2))"
+  },
+  "outputs": {
+    "primary": "refractedAngle",
+    "breakdown": [
+      "criticalAngle",
+      "lateralShift"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

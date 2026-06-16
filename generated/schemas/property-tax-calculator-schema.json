@@ -1,0 +1,64 @@
+{
+  "toolName": "property-tax-calculator",
+  "inputs": [
+    {
+      "id": "marketValue",
+      "label": "Property Market Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 300000,
+      "businessContext": "The fair market value of the property."
+    },
+    {
+      "id": "assessmentRatio",
+      "label": "Assessment Ratio",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Percentage of market value used for tax assessment."
+    },
+    {
+      "id": "millRate",
+      "label": "Mill Rate",
+      "type": "number",
+      "unit": "mills",
+      "default": 20,
+      "businessContext": "Tax per $1,000 of assessed value, expressed in mills."
+    },
+    {
+      "id": "exemptionAmount",
+      "label": "Exemption Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total value of tax exemptions applied."
+    },
+    {
+      "id": "additionalFees",
+      "label": "Additional Fees",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Any additional taxes or fees."
+    }
+  ],
+  "formulas": {
+    "assessedValue": "marketValue * (assessmentRatio / 100)",
+    "taxBeforeExemptions": "(assessedValue * millRate) / 1000",
+    "totalTax": "taxBeforeExemptions - exemptionAmount + additionalFees"
+  },
+  "outputs": {
+    "primary": "totalTax",
+    "breakdown": [
+      "assessedValue",
+      "taxBeforeExemptions",
+      "totalTax"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

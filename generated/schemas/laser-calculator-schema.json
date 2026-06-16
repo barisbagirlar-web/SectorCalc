@@ -1,0 +1,90 @@
+{
+  "toolName": "laser-calculator",
+  "inputs": [
+    {
+      "id": "laserPower",
+      "label": "Laser Power",
+      "type": "number",
+      "unit": "W",
+      "default": 100,
+      "businessContext": "Nominal laser output power"
+    },
+    {
+      "id": "cuttingSpeed",
+      "label": "Cutting Speed",
+      "type": "number",
+      "unit": "mm/min",
+      "default": 1000,
+      "businessContext": "Speed of the cutting head"
+    },
+    {
+      "id": "materialThickness",
+      "label": "Material Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Thickness of the material being cut"
+    },
+    {
+      "id": "kerfWidth",
+      "label": "Kerf Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.2,
+      "businessContext": "Width of the cut kerf"
+    },
+    {
+      "id": "materialAbsorption",
+      "label": "Material Absorption Coefficient",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.8,
+      "businessContext": "Fraction of laser energy absorbed by the material (0-1)"
+    },
+    {
+      "id": "operatingCost",
+      "label": "Operating Cost per Hour",
+      "type": "number",
+      "unit": "EUR/h",
+      "default": 50,
+      "businessContext": "Total operating cost including electricity, maintenance, and labor"
+    },
+    {
+      "id": "cutLength",
+      "label": "Total Cut Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 500,
+      "businessContext": "Total length of the laser cut path for the job"
+    },
+    {
+      "id": "setupTime",
+      "label": "Setup Time",
+      "type": "number",
+      "unit": "min",
+      "default": 5,
+      "businessContext": "Time required to load/unload material and set up the machine"
+    }
+  ],
+  "formulas": {
+    "totalCuttingTime": "cutLength / cuttingSpeed + setupTime",
+    "effectivePower": "laserPower * materialAbsorption",
+    "energy": "effectivePower * (totalCuttingTime / 60) / 1000",
+    "materialRemovalRate": "kerfWidth * materialThickness * (cuttingSpeed / 60)",
+    "cost": "operatingCost * (totalCuttingTime / 60)"
+  },
+  "outputs": {
+    "primary": "cost",
+    "breakdown": [
+      "totalCuttingTime",
+      "energy",
+      "materialRemovalRate"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

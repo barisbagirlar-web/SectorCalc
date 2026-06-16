@@ -1,0 +1,55 @@
+{
+  "toolName": "divide-decimals-calculator",
+  "inputs": [
+    {
+      "id": "dividend",
+      "label": "Dividend",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "The number to be divided"
+    },
+    {
+      "id": "divisor",
+      "label": "Divisor",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "The number to divide by (must be non-zero)"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places to round the result"
+    },
+    {
+      "id": "roundingMode",
+      "label": "Rounding Mode",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "0 = floor, 1 = half up, 2 = ceiling"
+    }
+  ],
+  "formulas": {
+    "primaryResult": "divisor === 0 ? 0 : (roundingMode === 0 ? Math.floor((dividend / divisor) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : roundingMode === 2 ? Math.ceil((dividend / divisor) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : Math.round((dividend / divisor) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces))",
+    "rawQuotient": "divisor === 0 ? 0 : dividend / divisor",
+    "info": "`Dividend: ${dividend}, Divisor: ${divisor}, Decimal places: ${decimalPlaces}, Mode: ${roundingMode===0?'floor':roundingMode===1?'half up':'ceiling'}`"
+  },
+  "outputs": {
+    "primary": "primaryResult",
+    "breakdown": [
+      "rawQuotient",
+      "info"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

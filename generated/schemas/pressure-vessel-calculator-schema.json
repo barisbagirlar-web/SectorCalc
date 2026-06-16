@@ -1,0 +1,63 @@
+{
+  "toolName": "pressure-vessel-calculator",
+  "inputs": [
+    {
+      "id": "pressure",
+      "label": "Internal Pressure",
+      "type": "number",
+      "unit": "MPa",
+      "default": 1.5,
+      "businessContext": "Design pressure of the vessel"
+    },
+    {
+      "id": "diameter",
+      "label": "Inner Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "businessContext": "Internal diameter of the cylindrical shell"
+    },
+    {
+      "id": "allowableStress",
+      "label": "Allowable Stress",
+      "type": "number",
+      "unit": "MPa",
+      "default": 138,
+      "businessContext": "Material allowable stress at design temperature per ASME Section II Part D"
+    },
+    {
+      "id": "jointEfficiency",
+      "label": "Joint Efficiency",
+      "type": "number",
+      "unit": "",
+      "default": 0.85,
+      "businessContext": "Weld joint efficiency factor per ASME UW-12"
+    },
+    {
+      "id": "corrosionAllowance",
+      "label": "Corrosion Allowance",
+      "type": "number",
+      "unit": "mm",
+      "default": 3,
+      "businessContext": "Corrosion allowance added to wall thickness"
+    }
+  ],
+  "formulas": {
+    "requiredThickness": "((pressure * (diameter / 2)) / (allowableStress * jointEfficiency - 0.6 * pressure)) + corrosionAllowance",
+    "hoopThickness": "((pressure * (diameter / 2)) / (allowableStress * jointEfficiency - 0.6 * pressure)) + corrosionAllowance",
+    "longitudinalThickness": "((pressure * (diameter / 2)) / (2 * allowableStress * jointEfficiency + 0.4 * pressure)) + corrosionAllowance"
+  },
+  "outputs": {
+    "primary": "requiredThickness",
+    "breakdown": [
+      "hoopThickness",
+      "longitudinalThickness"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

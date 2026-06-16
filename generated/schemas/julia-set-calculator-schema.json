@@ -1,0 +1,55 @@
+{
+  "toolName": "julia-set-calculator",
+  "inputs": [
+    {
+      "id": "cx",
+      "label": "Real part of c",
+      "type": "number",
+      "unit": "",
+      "default": -0.8,
+      "businessContext": "Real part of the Julia set constant c"
+    },
+    {
+      "id": "cy",
+      "label": "Imaginary part of c",
+      "type": "number",
+      "unit": "",
+      "default": 0.156,
+      "businessContext": "Imaginary part of the Julia set constant c"
+    },
+    {
+      "id": "zx",
+      "label": "Real part of z",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Real part of the initial complex number z"
+    },
+    {
+      "id": "zy",
+      "label": "Imaginary part of z",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Imaginary part of the initial complex number z"
+    }
+  ],
+  "formulas": {
+    "nextReal": "zx * zx - zy * zy + cx",
+    "nextImag": "2 * zx * zy + cy",
+    "magnitude": "Math.sqrt(nextReal ** 2 + nextImag ** 2)"
+  },
+  "outputs": {
+    "primary": "magnitude",
+    "breakdown": [
+      "nextReal",
+      "nextImag"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

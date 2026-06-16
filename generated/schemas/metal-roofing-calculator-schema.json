@@ -1,0 +1,57 @@
+{
+  "toolName": "metal-roofing-calculator",
+  "inputs": [
+    {
+      "id": "roofArea",
+      "label": "Çatı Alanı",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "businessContext": "Metal çatı kaplanacak toplam alan"
+    },
+    {
+      "id": "materialCostPerUnit",
+      "label": "Malzeme Birim Fiyatı",
+      "type": "number",
+      "unit": "€/m²",
+      "default": 15,
+      "businessContext": "Metal kaplama malzemesinin metrekare fiyatı"
+    },
+    {
+      "id": "laborCostPerUnit",
+      "label": "İşçilik Birim Fiyatı",
+      "type": "number",
+      "unit": "€/m²",
+      "default": 10,
+      "businessContext": "Metrekare başına işçilik maliyeti"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Kesim ve montaj fire yüzdesi"
+    }
+  ],
+  "formulas": {
+    "materialCost": "roofArea * materialCostPerUnit * (1 + wasteFactor / 100)",
+    "laborCost": "roofArea * laborCostPerUnit",
+    "wasteCost": "roofArea * materialCostPerUnit * wasteFactor / 100",
+    "totalCost": "materialCost + laborCost"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "materialCost",
+      "laborCost",
+      "wasteCost"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

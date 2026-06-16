@@ -1,0 +1,80 @@
+{
+  "toolName": "va-loan-calculator",
+  "inputs": [
+    {
+      "id": "loanAmount",
+      "label": "Loan Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 400000,
+      "businessContext": "Total amount borrowed, typically equal to the home purchase price if 0% down payment."
+    },
+    {
+      "id": "interestRate",
+      "label": "Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 3.5,
+      "businessContext": "Annual interest rate for the VA loan, typically lower than conventional loans."
+    },
+    {
+      "id": "loanTerm",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Duration of the loan in years; VA loans are commonly 30-year fixed-rate mortgages."
+    },
+    {
+      "id": "fundingFeeRate",
+      "label": "Funding Fee Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2.15,
+      "businessContext": "VA funding fee as a percentage of the loan amount; varies based on down payment and service history; can be financed into the loan."
+    },
+    {
+      "id": "propertyTaxRate",
+      "label": "Property Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 1.2,
+      "businessContext": "Annual property tax rate assessed on the home value (assumed equal to loan amount)."
+    },
+    {
+      "id": "homeInsuranceAnnual",
+      "label": "Home Insurance Annual",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 1200,
+      "businessContext": "Annual homeowners insurance premium."
+    }
+  ],
+  "formulas": {
+    "totalLoan": "loanAmount * (1 + fundingFeeRate / 100)",
+    "monthlyInterestRate": "interestRate / 12 / 100",
+    "numberOfPayments": "loanTerm * 12",
+    "monthlyPI": "(totalLoan * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments))",
+    "monthlyTax": "(loanAmount * propertyTaxRate / 100) / 12",
+    "monthlyInsurance": "homeInsuranceAnnual / 12",
+    "totalMonthlyPayment": "monthlyPI + monthlyTax + monthlyInsurance",
+    "totalInterestPaid": "(monthlyPI * numberOfPayments) - totalLoan",
+    "totalFundingFee": "loanAmount * fundingFeeRate / 100"
+  },
+  "outputs": {
+    "primary": "totalMonthlyPayment",
+    "breakdown": [
+      "monthlyPI",
+      "monthlyTax",
+      "monthlyInsurance",
+      "totalInterestPaid",
+      "totalFundingFee"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

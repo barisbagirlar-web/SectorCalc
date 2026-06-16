@@ -1,0 +1,59 @@
+{
+  "toolName": "golden-ratio-calculator",
+  "inputs": [
+    {
+      "id": "totalLength",
+      "label": "Total Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "The total length of the segment to be divided in golden ratio"
+    },
+    {
+      "id": "longSegment",
+      "label": "Long Segment",
+      "type": "number",
+      "unit": "mm",
+      "default": 61.8,
+      "businessContext": "The longer segment (approximately 0.618 of total)"
+    },
+    {
+      "id": "shortSegment",
+      "label": "Short Segment",
+      "type": "number",
+      "unit": "mm",
+      "default": 38.2,
+      "businessContext": "The shorter segment (approximately 0.382 of total)"
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.001,
+      "businessContext": "Allowed deviation for golden ratio check"
+    }
+  ],
+  "formulas": {
+    "expectedLong": "totalLength / ((1 + Math.sqrt(5)) / 2)",
+    "expectedShort": "totalLength - (totalLength / ((1 + Math.sqrt(5)) / 2))",
+    "longDeviation": "Math.abs(longSegment - (totalLength / ((1 + Math.sqrt(5)) / 2)))",
+    "shortDeviation": "Math.abs(shortSegment - (totalLength - (totalLength / ((1 + Math.sqrt(5)) / 2))))",
+    "goldenRatioStatus": "(Math.abs(longSegment - (totalLength / ((1 + Math.sqrt(5)) / 2))) <= tolerance && Math.abs(shortSegment - (totalLength - (totalLength / ((1 + Math.sqrt(5)) / 2)))) <= tolerance) ? 1 : 0"
+  },
+  "outputs": {
+    "primary": "goldenRatioStatus",
+    "breakdown": [
+      "expectedLong",
+      "expectedShort",
+      "longDeviation",
+      "shortDeviation"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

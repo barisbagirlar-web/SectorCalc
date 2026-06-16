@@ -1,0 +1,71 @@
+{
+  "toolName": "lawn-fertilizer-calculator",
+  "inputs": [
+    {
+      "id": "lawnArea",
+      "label": "Lawn Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "businessContext": "Total area of the lawn to be fertilized"
+    },
+    {
+      "id": "nitrogenPercent",
+      "label": "Nitrogen Content (N%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Percentage of nitrogen by weight in the fertilizer product (N-P-K first number)"
+    },
+    {
+      "id": "nitrogenRatePerSqM",
+      "label": "Desired Nitrogen Rate",
+      "type": "number",
+      "unit": "g/m²",
+      "default": 25,
+      "businessContext": "Target application rate of pure nitrogen per square meter per application"
+    },
+    {
+      "id": "applicationsPerYear",
+      "label": "Applications per Year",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of fertilizer applications planned per year"
+    },
+    {
+      "id": "bagWeight",
+      "label": "Bag Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Weight of a single fertilizer bag"
+    },
+    {
+      "id": "bagCost",
+      "label": "Cost per Bag",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Purchase cost of one fertilizer bag (optional, set to 0 for no cost calculation)"
+    }
+  ],
+  "formulas": {
+    "totalFertilizerWeight_kg": "lawnArea * nitrogenRatePerSqM * 0.1 / nitrogenPercent * applicationsPerYear",
+    "bagsNeeded": "Math.ceil((lawnArea * nitrogenRatePerSqM * 0.1 / nitrogenPercent * applicationsPerYear) / bagWeight)",
+    "totalCost": "Math.ceil((lawnArea * nitrogenRatePerSqM * 0.1 / nitrogenPercent * applicationsPerYear) / bagWeight) * bagCost"
+  },
+  "outputs": {
+    "primary": "bagsNeeded",
+    "breakdown": [
+      "totalFertilizerWeight_kg",
+      "totalCost"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "stress-calculator",
+  "inputs": [
+    {
+      "id": "force",
+      "label": "Applied Force",
+      "type": "number",
+      "unit": "N",
+      "default": 1000,
+      "businessContext": "Tensile or compressive load"
+    },
+    {
+      "id": "area",
+      "label": "Cross-sectional Area",
+      "type": "number",
+      "unit": "mm²",
+      "default": 100,
+      "businessContext": "Nominal cross-sectional area"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Design safety factor (≥1)"
+    },
+    {
+      "id": "yieldStrength",
+      "label": "Yield Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 250,
+      "businessContext": "Material yield stress"
+    },
+    {
+      "id": "kt",
+      "label": "Stress Concentration Kt",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Geometric stress concentration factor"
+    }
+  ],
+  "formulas": {
+    "nominalStress": "force / area",
+    "designStress": "force / area * safetyFactor * kt",
+    "yieldUtilization": "((force / area * safetyFactor * kt) / yieldStrength) * 100"
+  },
+  "outputs": {
+    "primary": "designStress",
+    "breakdown": [
+      "nominalStress",
+      "yieldUtilization"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

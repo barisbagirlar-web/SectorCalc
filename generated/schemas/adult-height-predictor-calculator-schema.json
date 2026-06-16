@@ -1,0 +1,61 @@
+{
+  "toolName": "adult-height-predictor-calculator",
+  "inputs": [
+    {
+      "id": "childGender",
+      "label": "Child Gender (0=Boy, 1=Girl)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Select 0 for a boy, 1 for a girl. Used to apply correct formula (+13 cm for boys, -13 cm for girls)."
+    },
+    {
+      "id": "fatherHeightCm",
+      "label": "Father's Height (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 175,
+      "businessContext": "Biological father's adult height in centimeters."
+    },
+    {
+      "id": "motherHeightCm",
+      "label": "Mother's Height (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 165,
+      "businessContext": "Biological mother's adult height in centimeters."
+    },
+    {
+      "id": "childHeightCm",
+      "label": "Child's Current Height (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 120,
+      "businessContext": "Optional: current measured height of the child. Not used in prediction formula."
+    },
+    {
+      "id": "childAgeYrs",
+      "label": "Child's Age (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 8,
+      "businessContext": "Optional: exact age of the child in years. Not used in prediction formula."
+    }
+  ],
+  "formulas": {
+    "predictedHeight": "childGender === 0 ? (fatherHeightCm + motherHeightCm + 13) / 2 : (fatherHeightCm - 13 + motherHeightCm) / 2"
+  },
+  "outputs": {
+    "primary": "predictedHeight",
+    "breakdown": [
+      "Mid-parental height method (Tanner): For boys: (fatherHeight + motherHeight + 13)/2; for girls: (fatherHeight - 13 + motherHeight)/2. This gives an estimate of adult height potential based on parental heights.",
+      "Note: The child's current height and age are not part of this formula. Growth plate maturity, nutrition, and health can affect final height. Consult a pediatrician for a personalized prediction."
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "cash-ratio-calculator",
+  "inputs": [
+    {
+      "id": "cash",
+      "label": "Nakit",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Şirketin kasasında bulunan nakit para"
+    },
+    {
+      "id": "bankDeposits",
+      "label": "Banka Mevduatları",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Vadesiz ve kısa vadeli banka mevduatları"
+    },
+    {
+      "id": "shortTermInvestments",
+      "label": "Kısa Vadeli Yatırımlar",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "3 ay içinde nakde çevrilebilir yatırımlar"
+    },
+    {
+      "id": "currentLiabilities",
+      "label": "Kısa Vadeli Yükümlülükler",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Bir yıl içinde ödenmesi gereken borçlar"
+    }
+  ],
+  "formulas": {
+    "totalCash": "cash + bankDeposits + shortTermInvestments",
+    "cashRatio": "totalCash / currentLiabilities",
+    "currentLiabilities": "currentLiabilities"
+  },
+  "outputs": {
+    "primary": "cashRatio",
+    "breakdown": [
+      "totalCash",
+      "currentLiabilities"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "ludwig-scale-calculator",
+  "inputs": [
+    {
+      "id": "materialHardness",
+      "label": "Material Hardness",
+      "type": "number",
+      "unit": "HV",
+      "default": 200,
+      "businessContext": "Material hardness measured in Vickers (HV)."
+    },
+    {
+      "id": "surfaceRoughness",
+      "label": "Surface Roughness",
+      "type": "number",
+      "unit": "µm",
+      "default": 0.8,
+      "businessContext": "Average surface roughness (Ra) in micrometers."
+    },
+    {
+      "id": "cuttingSpeed",
+      "label": "Cutting Speed",
+      "type": "number",
+      "unit": "m/min",
+      "default": 100,
+      "businessContext": "Linear speed of the cutting tool relative to the workpiece."
+    },
+    {
+      "id": "feedRate",
+      "label": "Feed Rate",
+      "type": "number",
+      "unit": "mm/rev",
+      "default": 0.1,
+      "businessContext": "Distance the tool advances per revolution."
+    },
+    {
+      "id": "depthOfCut",
+      "label": "Depth of Cut",
+      "type": "number",
+      "unit": "mm",
+      "default": 1,
+      "businessContext": "Thickness of material removed in a single pass."
+    }
+  ],
+  "formulas": {
+    "hardnessRoughnessComponent": "Math.sqrt(materialHardness) * surfaceRoughness",
+    "cuttingComponent": "cuttingSpeed / (feedRate * depthOfCut)",
+    "logComponent": "Math.log(Math.abs(depthOfCut)) * 5",
+    "ludwigScale": "hardnessRoughnessComponent + cuttingComponent - logComponent"
+  },
+  "outputs": {
+    "primary": "ludwigScale",
+    "breakdown": [
+      "hardnessRoughnessComponent",
+      "cuttingComponent",
+      "logComponent"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

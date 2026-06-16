@@ -1,0 +1,65 @@
+{
+  "toolName": "propagation-constant-calculator",
+  "inputs": [
+    {
+      "id": "r",
+      "label": "Resistance per unit length (R)",
+      "type": "number",
+      "unit": "Ω/m",
+      "default": 0.1,
+      "businessContext": "Series resistance per unit length of the transmission line"
+    },
+    {
+      "id": "l",
+      "label": "Inductance per unit length (L)",
+      "type": "number",
+      "unit": "H/m",
+      "default": 2e-7,
+      "businessContext": "Series inductance per unit length"
+    },
+    {
+      "id": "g",
+      "label": "Conductance per unit length (G)",
+      "type": "number",
+      "unit": "S/m",
+      "default": 0,
+      "businessContext": "Shunt conductance per unit length (use 0 for ideal lossless line)"
+    },
+    {
+      "id": "c",
+      "label": "Capacitance per unit length (C)",
+      "type": "number",
+      "unit": "F/m",
+      "default": 3e-11,
+      "businessContext": "Shunt capacitance per unit length"
+    },
+    {
+      "id": "f",
+      "label": "Frequency (f)",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1000000000,
+      "businessContext": "Operating frequency of the signal"
+    }
+  ],
+  "formulas": {
+    "alpha": "const omega = 2 * Math.PI * f; const A = r*g - omega*omega*l*c; const B = omega*(r*c + l*g); const magZY = Math.sqrt(A*A + B*B); const theta = Math.atan2(B, A); Math.sqrt(magZY) * Math.cos(theta/2);",
+    "beta": "const omega = 2 * Math.PI * f; const A = r*g - omega*omega*l*c; const B = omega*(r*c + l*g); const magZY = Math.sqrt(A*A + B*B); const theta = Math.atan2(B, A); Math.sqrt(magZY) * Math.sin(theta/2);",
+    "magnitude": "const omega = 2 * Math.PI * f; const A = r*g - omega*omega*l*c; const B = omega*(r*c + l*g); Math.sqrt(Math.sqrt(A*A + B*B));",
+    "alpha_dB": "const omega = 2 * Math.PI * f; const A = r*g - omega*omega*l*c; const B = omega*(r*c + l*g); const magZY = Math.sqrt(A*A + B*B); const theta = Math.atan2(B, A); const alpha = Math.sqrt(magZY) * Math.cos(theta/2); alpha * 8.685889638065035;"
+  },
+  "outputs": {
+    "primary": "alpha",
+    "breakdown": [
+      "beta",
+      "alpha_dB",
+      "magnitude"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

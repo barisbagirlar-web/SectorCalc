@@ -1,0 +1,333 @@
+{
+  "slug": "product-complexity-hidden-cost",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Benchmarking against industry standards",
+    "Multi-plant comparison"
+  ],
+  "inputs": [
+    {
+      "id": "num_sku",
+      "label": "Number of SKUs",
+      "type": "number",
+      "unit": "count",
+      "default": 100,
+      "min": 1,
+      "max": 100000,
+      "businessContext": "Total distinct product variants offered.",
+      "label_i18n": {
+        "en": "Number of SKUs"
+      },
+      "businessContext_i18n": {
+        "en": "Total distinct product variants offered."
+      }
+    },
+    {
+      "id": "avg_volume_per_sku",
+      "label": "Average Volume per SKU",
+      "type": "number",
+      "unit": "units/year",
+      "default": 5000,
+      "min": 1,
+      "max": 10000000,
+      "businessContext": "Average annual production quantity per SKU.",
+      "label_i18n": {
+        "en": "Average Volume per SKU"
+      },
+      "businessContext_i18n": {
+        "en": "Average annual production quantity per SKU."
+      }
+    },
+    {
+      "id": "num_components",
+      "label": "Number of Unique Components",
+      "type": "number",
+      "unit": "count",
+      "default": 500,
+      "min": 1,
+      "max": 50000,
+      "businessContext": "Total distinct raw materials or parts used across all SKUs.",
+      "label_i18n": {
+        "en": "Number of Unique Components"
+      },
+      "businessContext_i18n": {
+        "en": "Total distinct raw materials or parts used across all SKUs."
+      }
+    },
+    {
+      "id": "avg_bom_levels",
+      "label": "Average BOM Levels",
+      "type": "number",
+      "unit": "levels",
+      "default": 3,
+      "min": 1,
+      "max": 20,
+      "businessContext": "Average depth of the bill of materials (number of subassembly tiers).",
+      "label_i18n": {
+        "en": "Average BOM Levels"
+      },
+      "businessContext_i18n": {
+        "en": "Average depth of the bill of materials (number of subassembly tiers)."
+      }
+    },
+    {
+      "id": "setup_time_minutes",
+      "label": "Average Setup Time per Changeover",
+      "type": "number",
+      "unit": "minutes",
+      "default": 45,
+      "min": 0,
+      "max": 480,
+      "businessContext": "Average time to change a production line from one SKU to another.",
+      "label_i18n": {
+        "en": "Average Setup Time per Changeover"
+      },
+      "businessContext_i18n": {
+        "en": "Average time to change a production line from one SKU to another."
+      }
+    },
+    {
+      "id": "labor_rate",
+      "label": "Labor Rate",
+      "type": "number",
+      "unit": "$/hour",
+      "default": 25,
+      "min": 5,
+      "max": 150,
+      "businessContext": "Fully burdened hourly labor cost.",
+      "label_i18n": {
+        "en": "Labor Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Fully burdened hourly labor cost."
+      }
+    },
+    {
+      "id": "overhead_rate",
+      "label": "Overhead Rate",
+      "type": "number",
+      "unit": "% of direct cost",
+      "default": 150,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Manufacturing overhead as percentage of direct labor and material.",
+      "label_i18n": {
+        "en": "Overhead Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Manufacturing overhead as percentage of direct labor and material."
+      }
+    },
+    {
+      "id": "complexity_type",
+      "label": "Complexity Type",
+      "type": "select",
+      "unit": "",
+      "default": "mixed",
+      "min": null,
+      "max": null,
+      "businessContext": "Category of complexity: 'product' (high SKU count), 'process' (high setup time), 'mixed' (both).",
+      "options": [
+        "product",
+        "process",
+        "mixed"
+      ],
+      "label_i18n": {
+        "en": "Complexity Type"
+      },
+      "businessContext_i18n": {
+        "en": "Category of complexity: 'product' (high SKU count), 'process' (high setup time), 'mixed' (both)."
+      }
+    },
+    {
+      "id": "use_lean_metrics",
+      "label": "Use Lean Metrics (SMED, OEE)",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "min": null,
+      "max": null,
+      "businessContext": "If true, applies SMED-based setup reduction and OEE factors.",
+      "label_i18n": {
+        "en": "Use Lean Metrics (SMED, OEE)"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies SMED-based setup reduction and OEE factors."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "condition": "num_sku > 0 && avg_volume_per_sku > 0 && num_components > 0 && avg_bom_levels > 0",
+        "message": "All numeric inputs must be positive."
+      },
+      {
+        "condition": "complexity_type == 'product' ? (num_sku / num_components) > 0.2 : true",
+        "message": "For product complexity, SKU-to-component ratio should be >0.2 to avoid unrealistic data."
+      },
+      {
+        "condition": "complexity_type == 'process' ? setup_time_minutes >= 10 : true",
+        "message": "For process complexity, setup time should be at least 10 minutes."
+      }
+    ],
+    "thresholds": [
+      {
+        "condition": "hidden_cost_per_unit > 0.15 * (labor_rate * 0.01 + overhead_rate * 0.0001)",
+        "alert": "Hidden cost exceeds 15% of estimated base cost – investigate complexity reduction."
+      },
+      {
+        "condition": "setup_cost_per_sku > 5000",
+        "alert": "Setup cost per SKU is high (>$5,000) – consider SMED or product rationalization."
+      },
+      {
+        "condition": "inventory_holding_cost > 100000",
+        "alert": "Inventory holding cost exceeds $100,000 – review component commonality."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "setup_cost_per_sku",
+      "label": "Setup Cost per SKU",
+      "description": "Annual setup cost per SKU based on changeover time and labor rate.",
+      "expression": "(setup_time_minutes / 60) * labor_rate * (num_sku / (avg_volume_per_sku / 1000))",
+      "unit": "$/SKU"
+    },
+    {
+      "id": "inventory_holding_cost",
+      "label": "Inventory Holding Cost",
+      "description": "Cost of holding component inventory due to complexity (WIP and safety stock).",
+      "expression": "num_components * avg_bom_levels * 0.02 * (avg_volume_per_sku * 0.5) * 0.25",
+      "unit": "$/year"
+    },
+    {
+      "id": "quality_loss_cost",
+      "label": "Quality Loss Cost",
+      "description": "Cost of defects and rework driven by complexity (Six Sigma defect rate assumption).",
+      "expression": "num_sku * avg_volume_per_sku * 0.005 * (labor_rate * 0.5 + 10)",
+      "unit": "$/year"
+    },
+    {
+      "id": "overhead_complexity_penalty",
+      "label": "Overhead Complexity Penalty",
+      "description": "Additional overhead due to increased planning, scheduling, and material handling.",
+      "expression": "(num_sku * 0.1 + num_components * 0.05) * overhead_rate * 100",
+      "unit": "$/year"
+    },
+    {
+      "id": "lean_adjustment_factor",
+      "label": "Lean Adjustment Factor",
+      "description": "If use_lean_metrics is true, applies SMED reduction (30% setup time) and OEE improvement (15% quality loss).",
+      "expression": "use_lean_metrics ? 0.7 : 1.0",
+      "unit": "dimensionless"
+    },
+    {
+      "id": "hidden_cost_per_unit",
+      "label": "Hidden Cost per Unit",
+      "description": "Total hidden cost per unit produced, adjusted for lean metrics.",
+      "expression": "(setup_cost_per_sku * lean_adjustment_factor + inventory_holding_cost + quality_loss_cost * lean_adjustment_factor + overhead_complexity_penalty) / (num_sku * avg_volume_per_sku)",
+      "unit": "$/unit"
+    },
+    {
+      "id": "total_hidden_cost",
+      "label": "Total Hidden Cost",
+      "description": "Primary result: total annual hidden cost due to product complexity.",
+      "expression": "hidden_cost_per_unit * num_sku * avg_volume_per_sku",
+      "unit": "$/year"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_hidden_cost",
+      "label": "Total Hidden Cost",
+      "value": null,
+      "unit": "$/year",
+      "description": "Annual hidden cost driven by product and process complexity."
+    },
+    "breakdown": {
+      "setup_cost": {
+        "id": "setup_cost_per_sku",
+        "label": "Setup Cost per SKU",
+        "value": null,
+        "unit": "$/SKU"
+      },
+      "inventory_holding_cost": {
+        "id": "inventory_holding_cost",
+        "label": "Inventory Holding Cost",
+        "value": null,
+        "unit": "$/year"
+      },
+      "quality_loss_cost": {
+        "id": "quality_loss_cost",
+        "label": "Quality Loss Cost",
+        "value": null,
+        "unit": "$/year"
+      },
+      "overhead_complexity_penalty": {
+        "id": "overhead_complexity_penalty",
+        "label": "Overhead Complexity Penalty",
+        "value": null,
+        "unit": "$/year"
+      },
+      "hidden_cost_per_unit": {
+        "id": "hidden_cost_per_unit",
+        "label": "Hidden Cost per Unit",
+        "value": null,
+        "unit": "$/unit"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "driver": "Excessive SKU count",
+        "impact": "Increases setup frequency and inventory complexity.",
+        "recommended_action": "Rationalize product portfolio using ABC analysis."
+      },
+      {
+        "driver": "High component variety",
+        "impact": "Drives inventory holding cost and overhead.",
+        "recommended_action": "Implement component commonality and modular design."
+      },
+      {
+        "driver": "Long setup times",
+        "impact": "Reduces OEE and increases changeover cost.",
+        "recommended_action": "Apply SMED techniques to reduce setup time by 50%."
+      },
+      {
+        "driver": "Deep BOM levels",
+        "impact": "Amplifies WIP inventory and quality risk.",
+        "recommended_action": "Flatten BOM through design for assembly (DFA)."
+      }
+    ],
+    "suggestedActions": [
+      {
+        "action": "Conduct SKU rationalization workshop",
+        "expected_savings": "15-25% reduction in total hidden cost",
+        "timeline": "3 months"
+      },
+      {
+        "action": "Implement component commonality program",
+        "expected_savings": "10-20% reduction in inventory holding cost",
+        "timeline": "6 months"
+      },
+      {
+        "action": "Deploy SMED for top 20% of changeovers",
+        "expected_savings": "30-50% reduction in setup cost",
+        "timeline": "4 months"
+      },
+      {
+        "action": "Adopt Lean Six Sigma to reduce defect rate by 50%",
+        "expected_savings": "Significant quality loss reduction",
+        "timeline": "12 months"
+      }
+    ],
+    "dataConfidenceAdjusted": 0.85
+  },
+  "toolName": "product-complexity-hidden-cost-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

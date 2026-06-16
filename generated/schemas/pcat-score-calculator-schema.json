@@ -1,0 +1,55 @@
+{
+  "toolName": "pcat-score-calculator",
+  "inputs": [
+    {
+      "id": "usl",
+      "label": "Üst Spesifikasyon Limiti (USL)",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Müşteri tarafından kabul edilebilir üst sınır"
+    },
+    {
+      "id": "lsl",
+      "label": "Alt Spesifikasyon Limiti (LSL)",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Müşteri tarafından kabul edilebilir alt sınır"
+    },
+    {
+      "id": "mean",
+      "label": "Proses Ortalaması",
+      "type": "number",
+      "unit": "mm",
+      "default": 7.5,
+      "businessContext": "Ölçülen parçaların ortalama değeri"
+    },
+    {
+      "id": "stddev",
+      "label": "Standart Sapma",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.5,
+      "businessContext": "Prosesin değişkenlik ölçüsü"
+    }
+  ],
+  "formulas": {
+    "cp": "(usl - lsl) / (6 * stddev)",
+    "cpk": "Math.min((usl - mean) / (3 * stddev), (mean - lsl) / (3 * stddev))",
+    "pcatScore": "(Math.min((usl - lsl) / (6 * stddev), Math.min((usl - mean) / (3 * stddev), (mean - lsl) / (3 * stddev))) / 1.33) * 100"
+  },
+  "outputs": {
+    "primary": "pcatScore",
+    "breakdown": [
+      "cp",
+      "cpk"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

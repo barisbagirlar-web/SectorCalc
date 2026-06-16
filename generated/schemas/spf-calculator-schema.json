@@ -1,0 +1,53 @@
+{
+  "toolName": "spf-calculator",
+  "inputs": [
+    {
+      "id": "fuelMassFlow",
+      "label": "Yakıt Kütle Akış Hızı",
+      "type": "number",
+      "unit": "kg/h",
+      "default": 200,
+      "businessContext": "Motor veya kazan tarafından tüketilen yakıtın kütlesel akış hızı."
+    },
+    {
+      "id": "powerOutput",
+      "label": "Güç Çıkışı",
+      "type": "number",
+      "unit": "kW",
+      "default": 1000,
+      "businessContext": "Motorun veya tesisin net güç çıkışı."
+    },
+    {
+      "id": "carbonContent",
+      "label": "Karbon İçeriği",
+      "type": "number",
+      "unit": "kg C/kg yakıt",
+      "default": 0.86,
+      "businessContext": "Yakıtın birim kütlesi başına içerdiği karbon miktarı (ör. motorin için ~0.86, doğalgaz için ~0.75)."
+    },
+    {
+      "id": "oxidationFactor",
+      "label": "Oksidasyon Faktörü",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 0.99,
+      "businessContext": "Yakıttaki karbonun yanma sırasında CO2'ye dönüşme oranı (genellikle 0.99)."
+    }
+  ],
+  "formulas": {
+    "sfc": "fuelMassFlow * 1000 / powerOutput",
+    "co2Emissions": "fuelMassFlow * carbonContent * oxidationFactor * (44/12)"
+  },
+  "outputs": {
+    "primary": "sfc",
+    "breakdown": [
+      "co2Emissions"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

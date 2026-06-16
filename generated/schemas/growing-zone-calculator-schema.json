@@ -1,0 +1,70 @@
+{
+  "toolName": "growing-zone-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Bed Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of the growing bed"
+    },
+    {
+      "id": "width",
+      "label": "Bed Width",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Width of the growing bed"
+    },
+    {
+      "id": "plantSpacing",
+      "label": "In-row Spacing",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "Spacing between plants along the row"
+    },
+    {
+      "id": "rowSpacing",
+      "label": "Row Spacing",
+      "type": "number",
+      "unit": "cm",
+      "default": 40,
+      "businessContext": "Spacing between rows"
+    },
+    {
+      "id": "edgeOffset",
+      "label": "Edge Offset",
+      "type": "number",
+      "unit": "cm",
+      "default": 15,
+      "businessContext": "Space left from all edges to the first plant"
+    }
+  ],
+  "formulas": {
+    "plantSpacingM": "plantSpacing / 100",
+    "rowSpacingM": "rowSpacing / 100",
+    "edgeOffsetM": "edgeOffset / 100",
+    "effectiveLength": "length - 2 * edgeOffsetM",
+    "effectiveWidth": "width - 2 * edgeOffsetM",
+    "columns": "effectiveLength / plantSpacingM",
+    "rows": "effectiveWidth / rowSpacingM",
+    "totalPlants": "columns * rows",
+    "totalArea": "length * width"
+  },
+  "outputs": {
+    "primary": "totalPlants",
+    "breakdown": [
+      "totalArea",
+      "rows",
+      "columns"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

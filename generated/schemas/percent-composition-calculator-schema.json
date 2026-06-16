@@ -1,0 +1,69 @@
+{
+  "toolName": "percent-composition-calculator",
+  "inputs": [
+    {
+      "id": "mass1",
+      "label": "Component 1 Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Mass of the first component in kilograms"
+    },
+    {
+      "id": "mass2",
+      "label": "Component 2 Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Mass of the second component in kilograms"
+    },
+    {
+      "id": "mass3",
+      "label": "Component 3 Mass (optional)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Mass of the third component in kilograms"
+    },
+    {
+      "id": "mass4",
+      "label": "Component 4 Mass (optional)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Mass of the fourth component in kilograms"
+    },
+    {
+      "id": "mass5",
+      "label": "Component 5 Mass (optional)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Mass of the fifth component in kilograms"
+    }
+  ],
+  "formulas": {
+    "pct1": "(mass1+mass2+mass3+mass4+mass5) === 0 ? 0 : (mass1 / (mass1+mass2+mass3+mass4+mass5)) * 100",
+    "pct2": "(mass1+mass2+mass3+mass4+mass5) === 0 ? 0 : (mass2 / (mass1+mass2+mass3+mass4+mass5)) * 100",
+    "pct3": "(mass1+mass2+mass3+mass4+mass5) === 0 ? 0 : (mass3 / (mass1+mass2+mass3+mass4+mass5)) * 100",
+    "pct4": "(mass1+mass2+mass3+mass4+mass5) === 0 ? 0 : (mass4 / (mass1+mass2+mass3+mass4+mass5)) * 100",
+    "pct5": "(mass1+mass2+mass3+mass4+mass5) === 0 ? 0 : (mass5 / (mass1+mass2+mass3+mass4+mass5)) * 100",
+    "all": "(mass1+mass2+mass3+mass4+mass5) === 0 ? [0,0,0,0,0] : [(mass1/(mass1+mass2+mass3+mass4+mass5))*100, (mass2/(mass1+mass2+mass3+mass4+mass5))*100, (mass3/(mass1+mass2+mass3+mass4+mass5))*100, (mass4/(mass1+mass2+mass3+mass4+mass5))*100, (mass5/(mass1+mass2+mass3+mass4+mass5))*100]"
+  },
+  "outputs": {
+    "primary": "all",
+    "breakdown": [
+      "pct1",
+      "pct2",
+      "pct3",
+      "pct4",
+      "pct5"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

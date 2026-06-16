@@ -1,0 +1,85 @@
+{
+  "toolName": "opportunity-zone-calculator",
+  "inputs": [
+    {
+      "id": "initialCapitalGain",
+      "label": "Initial Capital Gain",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "The amount of capital gain being invested into the Qualified Opportunity Fund."
+    },
+    {
+      "id": "federalTaxRate",
+      "label": "Federal Capital Gains Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 23.8,
+      "businessContext": "Combined federal capital gains tax rate including net investment income tax if applicable."
+    },
+    {
+      "id": "stateTaxRate",
+      "label": "State Capital Gains Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "State-level capital gains tax rate."
+    },
+    {
+      "id": "holdingYears",
+      "label": "Holding Period",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Number of years the investment is held in the Opportunity Fund."
+    },
+    {
+      "id": "annualAppreciation",
+      "label": "Expected Annual Appreciation",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected annual rate of return on the Opportunity Fund investment."
+    }
+  ],
+  "formulas": {
+    "combinedTaxRate": "(federalTaxRate + stateTaxRate) / 100",
+    "originalTax": "initialCapitalGain * combinedTaxRate",
+    "deferralSavings": "originalTax * (Math.pow(1 + annualAppreciation/100, holdingYears) - 1)",
+    "stepUpRatio": "holdingYears >= 7 ? 0.15 : (holdingYears >= 5 ? 0.10 : 0)",
+    "stepUpSavings": "stepUpRatio * initialCapitalGain * combinedTaxRate",
+    "exclusionApplies": "holdingYears >= 10",
+    "exclusionSavings": "exclusionApplies ? (initialCapitalGain * Math.pow(1 + annualAppreciation/100, holdingYears) - initialCapitalGain) * combinedTaxRate : 0",
+    "totalSavings": "deferralSavings + stepUpSavings + exclusionSavings"
+  },
+  "outputs": {
+    "primary": {
+      "id": "totalSavings",
+      "label": "Total Tax Savings",
+      "unit": "$"
+    },
+    "breakdown": [
+      {
+        "id": "deferralSavings",
+        "label": "Tax Deferral Savings",
+        "unit": "$"
+      },
+      {
+        "id": "stepUpSavings",
+        "label": "Basis Step-Up Savings",
+        "unit": "$"
+      },
+      {
+        "id": "exclusionSavings",
+        "label": "Exclusion Savings",
+        "unit": "$"
+      }
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

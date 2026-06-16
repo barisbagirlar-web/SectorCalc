@@ -1,0 +1,79 @@
+{
+  "toolName": "hasi-calculator",
+  "inputs": [
+    {
+      "id": "operatingPressure",
+      "label": "Operating Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 100,
+      "businessContext": "System working pressure affects stress on components."
+    },
+    {
+      "id": "operatingTemperature",
+      "label": "Operating Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 80,
+      "businessContext": "Elevated temperatures reduce material strength and increase corrosion rates."
+    },
+    {
+      "id": "flowRate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "L/min",
+      "default": 200,
+      "businessContext": "Fluid velocity contributes to erosion and vibration risks."
+    },
+    {
+      "id": "vibrationLevel",
+      "label": "Vibration Level",
+      "type": "number",
+      "unit": "mm/s",
+      "default": 5,
+      "businessContext": "Vibration can cause fatigue and joint loosening."
+    },
+    {
+      "id": "wallThickness",
+      "label": "Wall Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Thinner walls are more susceptible to failure under pressure and corrosion."
+    },
+    {
+      "id": "corrosionRate",
+      "label": "Corrosion Rate",
+      "type": "number",
+      "unit": "mm/year",
+      "default": 0.1,
+      "businessContext": "Material loss over time reduces structural integrity."
+    }
+  ],
+  "formulas": {
+    "hasiScore": "100 - ((operatingPressure/250*100 + (operatingTemperature-20) + flowRate/500*100 + vibrationLevel/25*100 + (1-wallThickness/20)*100 + corrosionRate/0.5*100) / 6)",
+    "pressureRisk": "operatingPressure/250*100",
+    "temperatureRisk": "operatingTemperature-20",
+    "flowErosionRisk": "flowRate/500*100",
+    "vibrationRisk": "vibrationLevel/25*100",
+    "wallThinningRisk": "(1-wallThickness/20)*100",
+    "corrosionRisk": "corrosionRate/0.5*100"
+  },
+  "outputs": {
+    "primary": "hasiScore",
+    "breakdown": [
+      "pressureRisk",
+      "temperatureRisk",
+      "flowErosionRisk",
+      "vibrationRisk",
+      "wallThinningRisk",
+      "corrosionRisk"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

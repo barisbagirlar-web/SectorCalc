@@ -1,0 +1,67 @@
+{
+  "toolName": "carats-to-grams-calculator",
+  "inputs": [
+    {
+      "id": "carats",
+      "label": "Carats",
+      "type": "number",
+      "unit": "ct",
+      "default": 0,
+      "businessContext": "The weight in carats (ct) to be converted to grams."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "g/ct",
+      "default": 0.2,
+      "businessContext": "The conversion factor from carats to grams. Standard is 0.2 g/ct. Adjust if needed for non-standard carats."
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "items",
+      "default": 1,
+      "businessContext": "Number of items being converted, if multiple items of the same carat weight."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output. Minimum 0."
+    },
+    {
+      "id": "pricePerGram",
+      "label": "Price per Gram",
+      "type": "number",
+      "unit": "currency/g",
+      "default": 0,
+      "businessContext": "Optional: price per gram to calculate total value. Leave as 0 to ignore."
+    }
+  ],
+  "formulas": {
+    "totalCarats": "carats * batchSize",
+    "gramsPerItem": "carats * conversionFactor",
+    "totalGrams": "gramsPerItem * batchSize",
+    "roundedGrams": "Math.round(totalGrams * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "totalPrice": "totalGrams * pricePerGram"
+  },
+  "outputs": {
+    "primary": "roundedGrams",
+    "breakdown": [
+      "gramsPerItem",
+      "totalGrams",
+      "totalCarats",
+      "totalPrice"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

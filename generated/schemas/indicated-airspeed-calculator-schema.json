@@ -1,0 +1,57 @@
+{
+  "toolName": "indicated-airspeed-calculator",
+  "inputs": [
+    {
+      "id": "pitotPressure",
+      "label": "Pitot Basıncı (Pa)",
+      "type": "number",
+      "unit": "Pa",
+      "default": 102925,
+      "businessContext": "Pitot tüpünden okunan toplam basınç değeri"
+    },
+    {
+      "id": "staticPressure",
+      "label": "Statik Basınç (Pa)",
+      "type": "number",
+      "unit": "Pa",
+      "default": 101325,
+      "businessContext": "Statik porttan alınan atmosfer basıncı"
+    },
+    {
+      "id": "airDensity",
+      "label": "Hava Yoğunluğu (kg/m³)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1.225,
+      "businessContext": "Uluslararası standart atmosfer (ISA) deniz seviyesi hava yoğunluğu"
+    },
+    {
+      "id": "positionErrorCorrection",
+      "label": "Pozisyon Hatası Düzeltme Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Pitot-statik sistem pozisyon hatası için düzeltme katsayısı, genellikle 1.0 alınır"
+    }
+  ],
+  "formulas": {
+    "dynamicPressure": "pitotPressure - staticPressure",
+    "rawSpeedMS": "Math.sqrt(2 * dynamicPressure / airDensity)",
+    "correctedSpeedMS": "rawSpeedMS * positionErrorCorrection",
+    "correctedSpeedKnots": "correctedSpeedMS * 1.94384"
+  },
+  "outputs": {
+    "primary": "correctedSpeedKnots",
+    "breakdown": [
+      "rawSpeedMS",
+      "correctedSpeedMS",
+      "dynamicPressure"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

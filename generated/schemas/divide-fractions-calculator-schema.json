@@ -1,0 +1,55 @@
+{
+  "toolName": "divide-fractions-calculator",
+  "inputs": [
+    {
+      "id": "numerator1",
+      "label": "Numerator 1",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Numerator of the first fraction"
+    },
+    {
+      "id": "denominator1",
+      "label": "Denominator 1",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Denominator of the first fraction (non-zero)"
+    },
+    {
+      "id": "numerator2",
+      "label": "Numerator 2",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Numerator of the second fraction"
+    },
+    {
+      "id": "denominator2",
+      "label": "Denominator 2",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Denominator of the second fraction (non-zero)"
+    }
+  ],
+  "formulas": {
+    "resultNumerator": "numerator1 * denominator2",
+    "resultDenominator": "denominator1 * numerator2",
+    "result": "resultNumerator / resultDenominator"
+  },
+  "outputs": {
+    "primary": "resultNumerator / resultDenominator",
+    "breakdown": [
+      "resultNumerator",
+      "resultDenominator"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

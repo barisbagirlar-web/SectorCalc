@@ -1,0 +1,63 @@
+{
+  "toolName": "nernst-equation-calculator",
+  "inputs": [
+    {
+      "id": "E0",
+      "label": "Standart Elektrot Potansiyeli (E°)",
+      "type": "number",
+      "unit": "V",
+      "default": 0,
+      "businessContext": "Redoks yarı hücresinin standart potansiyeli"
+    },
+    {
+      "id": "temp",
+      "label": "Sıcaklık (T)",
+      "type": "number",
+      "unit": "K",
+      "default": 298.15,
+      "businessContext": "Reaksiyon sıcaklığı"
+    },
+    {
+      "id": "n",
+      "label": "Aktarılan Elektron Sayısı (n)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Yarı reaksiyonda transfer edilen elektron sayısı"
+    },
+    {
+      "id": "C_ox",
+      "label": "Yükseltgenmiş Tür Derişimi [Ox]",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 1,
+      "businessContext": "Yükseltgenmiş türün molar derişimi"
+    },
+    {
+      "id": "C_red",
+      "label": "İndirgenmiş Tür Derişimi [Red]",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 1,
+      "businessContext": "İndirgenmiş türün molar derişimi"
+    }
+  ],
+  "formulas": {
+    "E": "E0 + (8.314462618 * temp / (n * 96485.33212)) * Math.log(C_ox / C_red)",
+    "RT_over_nF": "8.314462618 * temp / (n * 96485.33212)",
+    "Q": "C_ox / C_red"
+  },
+  "outputs": {
+    "primary": "E",
+    "breakdown": [
+      "RT_over_nF",
+      "Q"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

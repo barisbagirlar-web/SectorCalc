@@ -1,0 +1,75 @@
+{
+  "toolName": "halloween-calculator",
+  "inputs": [
+    {
+      "id": "num_children",
+      "label": "Number of Children",
+      "type": "number",
+      "unit": "persons",
+      "default": 30,
+      "businessContext": "Expected number of trick-or-treaters"
+    },
+    {
+      "id": "candy_per_child",
+      "label": "Candy Pieces per Child",
+      "type": "number",
+      "unit": "pieces",
+      "default": 5,
+      "businessContext": "Average candy pieces given to each child"
+    },
+    {
+      "id": "cost_per_candy",
+      "label": "Cost per Candy Piece",
+      "type": "number",
+      "unit": "USD",
+      "default": 0.5,
+      "businessContext": "Unit cost of each candy piece"
+    },
+    {
+      "id": "decor_budget",
+      "label": "Decoration Budget",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "businessContext": "Budget allocated for Halloween decorations"
+    },
+    {
+      "id": "pumpkin_count",
+      "label": "Number of Pumpkins",
+      "type": "number",
+      "unit": "pieces",
+      "default": 3,
+      "businessContext": "Number of pumpkins to carve"
+    },
+    {
+      "id": "pumpkin_cost",
+      "label": "Cost per Pumpkin",
+      "type": "number",
+      "unit": "USD",
+      "default": 10,
+      "businessContext": "Unit cost of each pumpkin"
+    }
+  ],
+  "formulas": {
+    "total_candy_needed": "num_children * candy_per_child",
+    "candy_cost": "total_candy_needed * cost_per_candy",
+    "pumpkin_total_cost": "pumpkin_count * pumpkin_cost",
+    "total_cost": "candy_cost + decor_budget + pumpkin_total_cost",
+    "cost_per_child": "total_cost / num_children"
+  },
+  "outputs": {
+    "primary": "total_cost",
+    "breakdown": [
+      "total_candy_needed",
+      "candy_cost",
+      "pumpkin_total_cost",
+      "cost_per_child"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

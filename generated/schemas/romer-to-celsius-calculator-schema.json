@@ -1,0 +1,63 @@
+{
+  "toolName": "romer-to-celsius-calculator",
+  "inputs": [
+    {
+      "id": "temperatureRomer",
+      "label": "Temperature in Rømer",
+      "type": "number",
+      "unit": "°Rø",
+      "default": 0,
+      "businessContext": "Measured temperature in the Rømer scale, typically from a calibrated thermometer."
+    },
+    {
+      "id": "decimalPrecision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the displayed Celsius result."
+    },
+    {
+      "id": "calibrationFactor",
+      "label": "Calibration Offset",
+      "type": "number",
+      "unit": "°Rø",
+      "default": 0,
+      "businessContext": "Offset to compensate for known systematic error of the measuring instrument."
+    },
+    {
+      "id": "measurementUncertainty",
+      "label": "Measurement Uncertainty",
+      "type": "number",
+      "unit": "°Rø",
+      "default": 0.1,
+      "businessContext": "Standard uncertainty (k=1) of the Rømer measurement, per ISO/IEC 17025."
+    },
+    {
+      "id": "confidenceLevel",
+      "label": "Confidence Level",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Confidence level for expanded uncertainty (typically 95% for coverage factor k=2)."
+    }
+  ],
+  "formulas": {
+    "calibratedRomer": "temperatureRomer + calibrationFactor",
+    "celsiusExact": "(calibratedRomer - 7.5) * (40/21)",
+    "celsiusRounded": "Math.round(celsiusExact * Math.pow(10, decimalPrecision)) / Math.pow(10, decimalPrecision)"
+  },
+  "outputs": {
+    "primary": "celsiusRounded",
+    "breakdown": [
+      "calibratedRomer",
+      "celsiusExact"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

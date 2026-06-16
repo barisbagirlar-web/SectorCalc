@@ -1,0 +1,55 @@
+{
+  "toolName": "voltage-divider-calculator",
+  "inputs": [
+    {
+      "id": "vin",
+      "label": "Input Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 5,
+      "businessContext": "The input voltage supplied to the divider."
+    },
+    {
+      "id": "r1",
+      "label": "Resistance R1",
+      "type": "number",
+      "unit": "Ω",
+      "default": 1000,
+      "businessContext": "Resistance of the first resistor (connected to Vin)."
+    },
+    {
+      "id": "r2",
+      "label": "Resistance R2",
+      "type": "number",
+      "unit": "Ω",
+      "default": 1000,
+      "businessContext": "Resistance of the second resistor (connected to ground)."
+    },
+    {
+      "id": "tolerance",
+      "label": "Resistor Tolerance",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Resistor tolerance in percentage (e.g., ±1%, ±5%). Used to calculate worst-case output voltages."
+    }
+  ],
+  "formulas": {
+    "vout": "vin * r2 / (r1 + r2)",
+    "voutMin": "vin * (r2 * (1 - tolerance / 100)) / (r1 * (1 + tolerance / 100) + r2 * (1 - tolerance / 100))",
+    "voutMax": "vin * (r2 * (1 + tolerance / 100)) / (r1 * (1 - tolerance / 100) + r2 * (1 + tolerance / 100))"
+  },
+  "outputs": {
+    "primary": "vout",
+    "breakdown": [
+      "voutMin",
+      "voutMax"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

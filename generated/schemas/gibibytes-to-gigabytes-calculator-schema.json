@@ -1,0 +1,55 @@
+{
+  "toolName": "gibibytes-to-gigabytes-calculator",
+  "inputs": [
+    {
+      "id": "gibibytes",
+      "label": "Gibibytes (GiB)",
+      "type": "number",
+      "unit": "GiB",
+      "default": 1,
+      "businessContext": "Input value in gibibytes."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor (GB per GiB)",
+      "type": "number",
+      "unit": "GB/GiB",
+      "default": 1.073741824,
+      "businessContext": "Factor for converting GiB to GB (fixed, but overridable for calibration)."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal digits for output rounding."
+    },
+    {
+      "id": "safetyFactorPercent",
+      "label": "Safety Factor (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage added to result as safety margin, e.g., 10 means increase by 10%."
+    }
+  ],
+  "formulas": {
+    "rawGigabytes": "gibibytes * conversionFactor",
+    "safetyAppliedGigabytes": "rawGigabytes * (1 + safetyFactorPercent / 100)",
+    "roundedGigabytes": "Math.round(safetyAppliedGigabytes * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "roundedGigabytes",
+    "breakdown": [
+      "rawGigabytes",
+      "safetyAppliedGigabytes"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

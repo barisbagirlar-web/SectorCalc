@@ -1,0 +1,64 @@
+{
+  "toolName": "palliative-performance-scale-calculator",
+  "inputs": [
+    {
+      "id": "ambulationScore",
+      "label": "Ambulation",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Ambulation capability as a percentage (0-100)"
+    },
+    {
+      "id": "activityScore",
+      "label": "Activity & Extent of Disease",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Activity level and disease burden (0-100)"
+    },
+    {
+      "id": "selfCareScore",
+      "label": "Self-Care",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Self-care ability (0-100)"
+    },
+    {
+      "id": "intakeScore",
+      "label": "Intake",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Nutritional intake status (0-100)"
+    },
+    {
+      "id": "consciousnessScore",
+      "label": "Consciousness",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Level of consciousness (0-100)"
+    }
+  ],
+  "formulas": {
+    "pps": "(ambulationScore + activityScore + selfCareScore + intakeScore + consciousnessScore) / 5"
+  },
+  "outputs": {
+    "primary": "{{pps}}%",
+    "breakdown": [
+      "Ambulation: {{ambulationScore}}%",
+      "Activity: {{activityScore}}%",
+      "Self-Care: {{selfCareScore}}%",
+      "Intake: {{intakeScore}}%",
+      "Consciousness: {{consciousnessScore}}%"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,53 @@
+{
+  "toolName": "troy-ounces-to-grams-calculator",
+  "inputs": [
+    {
+      "id": "troyOunces",
+      "label": "Troy Ons",
+      "type": "number",
+      "unit": "oz t",
+      "default": 1,
+      "businessContext": "Dönüştürülecek ağırlık değeri (troy ons cinsinden)"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Dönüşüm Oranı",
+      "type": "number",
+      "unit": "g/oz t",
+      "default": 31.1034768,
+      "businessContext": "1 troy ons'un gram karşılığı. Varsayılan uluslararası standart değerdir."
+    },
+    {
+      "id": "precision",
+      "label": "Ondalık Basamak",
+      "type": "number",
+      "unit": "adet",
+      "default": 2,
+      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı"
+    },
+    {
+      "id": "quantity",
+      "label": "Adet",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Aynı ağırlığa sahip ürün adedi. Toplam gramı hesaplamak için kullanılır."
+    }
+  ],
+  "formulas": {
+    "rawGrams": "troyOunces * conversionFactor * quantity",
+    "grams": "Math.round((troyOunces * conversionFactor * quantity) * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "grams",
+    "breakdown": [
+      "rawGrams"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

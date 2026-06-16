@@ -1,0 +1,55 @@
+{
+  "toolName": "base-converter-calculator",
+  "inputs": [
+    {
+      "id": "inputNumber",
+      "label": "Number",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "The number whose logarithm base is to be converted."
+    },
+    {
+      "id": "fromBase",
+      "label": "From Base",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "The base of the logarithm you are converting from."
+    },
+    {
+      "id": "toBase",
+      "label": "To Base",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "The target logarithm base to convert to."
+    },
+    {
+      "id": "roundDigits",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "digits",
+      "default": 4,
+      "businessContext": "Number of decimal places for rounding the result."
+    }
+  ],
+  "formulas": {
+    "primary": "Math.round((Math.log(inputNumber) / Math.log(toBase)) * Math.pow(10, roundDigits)) / Math.pow(10, roundDigits)",
+    "logFromBase": "Math.round((Math.log(inputNumber) / Math.log(fromBase)) * Math.pow(10, roundDigits)) / Math.pow(10, roundDigits)",
+    "naturalLog": "Math.round(Math.log(inputNumber) * Math.pow(10, roundDigits)) / Math.pow(10, roundDigits)"
+  },
+  "outputs": {
+    "primary": "log_{toBase}(inputNumber)",
+    "breakdown": [
+      "log_{fromBase}(inputNumber)",
+      "ln(inputNumber)"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

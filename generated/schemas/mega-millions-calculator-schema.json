@@ -1,0 +1,76 @@
+{
+  "toolName": "mega-millions-calculator",
+  "inputs": [
+    {
+      "id": "jackpot",
+      "label": "Advertised Jackpot",
+      "type": "number",
+      "unit": "$",
+      "default": 50000000,
+      "businessContext": "The total annuity jackpot amount advertised."
+    },
+    {
+      "id": "cashOption",
+      "label": "Cash Option Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "businessContext": "Percentage of jackpot paid as lump sum (typically 60%)."
+    },
+    {
+      "id": "federalTax",
+      "label": "Federal Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 24,
+      "businessContext": "Federal tax withholding rate for lottery winnings."
+    },
+    {
+      "id": "stateTax",
+      "label": "State Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "State tax withholding rate, varies by state."
+    },
+    {
+      "id": "annuityYears",
+      "label": "Annuity Period",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Number of years over which annuity is paid out."
+    },
+    {
+      "id": "growthRate",
+      "label": "Annuity Growth Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual increase in annuity payments (Mega Millions uses 5%)."
+    }
+  ],
+  "formulas": {
+    "lumpSumAmount": "jackpot * (cashOption / 100)",
+    "totalTaxRate": "(federalTax + stateTax) / 100",
+    "lumpSumAfterTax": "lumpSumAmount * (1 - totalTaxRate)",
+    "annuityFirstPayment": "jackpot * (growthRate / 100) / (Math.pow(1 + growthRate / 100, annuityYears) - 1)",
+    "annuityLastPayment": "annuityFirstPayment * Math.pow(1 + growthRate / 100, annuityYears - 1)",
+    "totalAnnuityAfterTax": "jackpot * (1 - totalTaxRate)"
+  },
+  "outputs": {
+    "primary": "lumpSumAfterTax",
+    "breakdown": [
+      "lumpSumAmount",
+      "annuityFirstPayment",
+      "annuityLastPayment",
+      "totalAnnuityAfterTax"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,72 @@
+{
+  "toolName": "screen-resolution-calculator",
+  "inputs": [
+    {
+      "id": "screenWidth",
+      "label": "Screen Width (pixels)",
+      "type": "number",
+      "unit": "px",
+      "default": 1920,
+      "businessContext": "Görüntülenen yatay piksel sayısı"
+    },
+    {
+      "id": "screenHeight",
+      "label": "Screen Height (pixels)",
+      "type": "number",
+      "unit": "px",
+      "default": 1080,
+      "businessContext": "Görüntülenen dikey piksel sayısı"
+    },
+    {
+      "id": "screenDiagonal",
+      "label": "Screen Diagonal",
+      "type": "number",
+      "unit": "in",
+      "default": 24,
+      "businessContext": "Ekran köşegen uzunluğu (inç)"
+    },
+    {
+      "id": "aspectRatioX",
+      "label": "Aspect Ratio Width",
+      "type": "number",
+      "unit": "",
+      "default": 16,
+      "businessContext": "Özel en-boy oranı genişliği (varsayılan: 16:9 için 16)"
+    },
+    {
+      "id": "aspectRatioY",
+      "label": "Aspect Ratio Height",
+      "type": "number",
+      "unit": "",
+      "default": 9,
+      "businessContext": "Özel en-boy oranı yüksekliği (varsayılan: 16:9 için 9)"
+    }
+  ],
+  "formulas": {
+    "totalPixels": "screenWidth * screenHeight",
+    "totalPixelsMP": "totalPixels / 1000000",
+    "aspectDecimal": "screenWidth / screenHeight",
+    "diagonalPixels": "Math.sqrt(screenWidth**2 + screenHeight**2)",
+    "ppi": "diagonalPixels / screenDiagonal",
+    "screenWidthInches": "screenWidth / ppi",
+    "screenHeightInches": "screenHeight / ppi",
+    "pixelPitch": "(screenDiagonal / diagonalPixels) * 25.4"
+  },
+  "outputs": {
+    "primary": "PPI: {ppi}",
+    "breakdown": [
+      "Resolution: {screenWidth} x {screenHeight}",
+      "Aspect Ratio: {aspectDecimal} (Custom: {aspectRatioX}:{aspectRatioY})",
+      "Total Pixels: {totalPixels} (~{totalPixelsMP} MP)",
+      "Screen Width: {screenWidthInches} in",
+      "Screen Height: {screenHeightInches} in",
+      "Pixel Pitch: {pixelPitch} mm"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

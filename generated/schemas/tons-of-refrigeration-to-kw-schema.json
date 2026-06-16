@@ -1,0 +1,31 @@
+{
+  "toolName": "tons-of-refrigeration-to-kw",
+  "inputs": [
+    {
+      "id": "tons",
+      "label": "Tons of Refrigeration",
+      "type": "number",
+      "unit": "TR",
+      "default": 1,
+      "businessContext": "Cooling capacity in refrigeration tons"
+    }
+  ],
+  "formulas": {
+    "primary": "tons * 3.5168525",
+    "breakdown": [
+      "tons * 3.5168525"
+    ]
+  },
+  "outputs": {
+    "primary": "kW",
+    "breakdown": [
+      "Power in kilowatts"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

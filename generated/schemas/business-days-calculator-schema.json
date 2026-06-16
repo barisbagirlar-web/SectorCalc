@@ -1,0 +1,55 @@
+{
+  "toolName": "business-days-calculator",
+  "inputs": [
+    {
+      "id": "totalCalendarDays",
+      "label": "Total Calendar Days",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Toplam takvim günü sayısı (bitiş tarihi - başlangıç tarihi)."
+    },
+    {
+      "id": "saturdays",
+      "label": "Number of Saturdays",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Dönem içindeki Cumartesi günlerinin sayısı."
+    },
+    {
+      "id": "sundays",
+      "label": "Number of Sundays",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Dönem içindeki Pazar günlerinin sayısı."
+    },
+    {
+      "id": "holidays",
+      "label": "Number of Weekday Holidays",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Hafta içi resmî tatil günleri sayısı."
+    }
+  ],
+  "formulas": {
+    "businessDays": "totalCalendarDays - saturdays - sundays - holidays",
+    "totalWeekendDays": "saturdays + sundays",
+    "totalNonWorkingDays": "saturdays + sundays + holidays"
+  },
+  "outputs": {
+    "primary": "businessDays",
+    "breakdown": [
+      "totalWeekendDays",
+      "totalNonWorkingDays"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

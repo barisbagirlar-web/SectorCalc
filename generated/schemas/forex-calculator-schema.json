@@ -1,0 +1,71 @@
+{
+  "toolName": "forex-calculator",
+  "inputs": [
+    {
+      "id": "lotSize",
+      "label": "Lot Size",
+      "type": "number",
+      "unit": "lots",
+      "default": 0.1,
+      "businessContext": "Number of standard lots (1 lot = 100,000 units)"
+    },
+    {
+      "id": "entryPrice",
+      "label": "Entry Price",
+      "type": "number",
+      "unit": "price",
+      "default": 1.12,
+      "businessContext": "Exchange rate at which the position was entered"
+    },
+    {
+      "id": "exitPrice",
+      "label": "Exit Price",
+      "type": "number",
+      "unit": "price",
+      "default": 1.13,
+      "businessContext": "Exchange rate at which the position was closed"
+    },
+    {
+      "id": "pipSize",
+      "label": "Pip Size",
+      "type": "number",
+      "unit": "price step",
+      "default": 0.0001,
+      "businessContext": "Smallest price increment (e.g., 0.0001 for most pairs, 0.01 for JPY pairs)"
+    },
+    {
+      "id": "pipValue",
+      "label": "Pip Value",
+      "type": "number",
+      "unit": "account currency per pip per lot",
+      "default": 10,
+      "businessContext": "Monetary value of one pip per standard lot in the account currency"
+    },
+    {
+      "id": "leverage",
+      "label": "Leverage",
+      "type": "number",
+      "unit": "ratio",
+      "default": 100,
+      "businessContext": "Leverage ratio provided by the broker (e.g., 100:1)"
+    }
+  ],
+  "formulas": {
+    "profitPips": "(exitPrice - entryPrice) / pipSize",
+    "profitLoss": "profitPips * pipValue * lotSize",
+    "requiredMargin": "(lotSize * 100000 * entryPrice) / leverage"
+  },
+  "outputs": {
+    "primary": "profitLoss",
+    "breakdown": [
+      "profitPips",
+      "requiredMargin"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

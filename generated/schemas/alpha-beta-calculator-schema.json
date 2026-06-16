@@ -1,0 +1,65 @@
+{
+  "toolName": "alpha-beta-calculator",
+  "inputs": [
+    {
+      "id": "stockReturn",
+      "label": "Stock/Portfolio Average Return",
+      "type": "number",
+      "unit": "%",
+      "default": 12,
+      "businessContext": "Expected or historical average annual return of the stock or portfolio being analyzed, expressed as a percentage."
+    },
+    {
+      "id": "marketReturn",
+      "label": "Market Average Return",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Average annual return of the benchmark market index (e.g., S&P 500), expressed as a percentage."
+    },
+    {
+      "id": "riskFreeRate",
+      "label": "Risk-Free Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "Annual return of a risk-free asset (e.g., government bond yield), expressed as a percentage."
+    },
+    {
+      "id": "covSM",
+      "label": "Covariance (Stock, Market)",
+      "type": "number",
+      "unit": "%^2",
+      "default": 0.015,
+      "businessContext": "Covariance between the stock/portfolio returns and market returns, typically computed from historical data."
+    },
+    {
+      "id": "varM",
+      "label": "Variance of Market Returns",
+      "type": "number",
+      "unit": "%^2",
+      "default": 0.01,
+      "businessContext": "Variance of the benchmark market index returns, measuring total risk of the market."
+    }
+  ],
+  "formulas": {
+    "alpha": "(stockReturn - riskFreeRate) - (covSM / varM) * (marketReturn - riskFreeRate)",
+    "beta": "covSM / varM",
+    "marketExcessReturn": "marketReturn - riskFreeRate",
+    "stockExcessReturn": "stockReturn - riskFreeRate"
+  },
+  "outputs": {
+    "primary": "alpha",
+    "breakdown": [
+      "beta",
+      "marketExcessReturn",
+      "stockExcessReturn"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

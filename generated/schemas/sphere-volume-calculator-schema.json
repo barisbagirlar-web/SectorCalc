@@ -1,0 +1,91 @@
+{
+  "toolName": "sphere-volume-calculator",
+  "inputs": [
+    {
+      "id": "radius1",
+      "label": "Sphere 1 Radius",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Primary sphere radius in base units (if multiplier=1)"
+    },
+    {
+      "id": "radius2",
+      "label": "Sphere 2 Radius",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Optional secondary sphere radius"
+    },
+    {
+      "id": "radius3",
+      "label": "Sphere 3 Radius",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Optional tertiary sphere radius"
+    },
+    {
+      "id": "radius4",
+      "label": "Sphere 4 Radius",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Optional quaternary sphere radius"
+    },
+    {
+      "id": "unitMultiplier",
+      "label": "Radius Unit Conversion to m",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "Conversion factor to convert input radii to meters (e.g., cm=0.01, mm=0.001)"
+    },
+    {
+      "id": "density",
+      "label": "Material Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of the material for weight calculation"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Material Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of material waste considered for procurement"
+    }
+  ],
+  "formulas": {
+    "convertedRadius1": "radius1 * unitMultiplier",
+    "convertedRadius2": "radius2 * unitMultiplier",
+    "convertedRadius3": "radius3 * unitMultiplier",
+    "convertedRadius4": "radius4 * unitMultiplier",
+    "V1": "(4/3) * Math.PI * Math.pow(convertedRadius1, 3)",
+    "V2": "(4/3) * Math.PI * Math.pow(convertedRadius2, 3)",
+    "V3": "(4/3) * Math.PI * Math.pow(convertedRadius3, 3)",
+    "V4": "(4/3) * Math.PI * Math.pow(convertedRadius4, 3)",
+    "totalVolume": "V1 + V2 + V3 + V4",
+    "totalMass": "totalVolume * density",
+    "totalMassWithWaste": "totalMass * (1 + wasteFactor/100)"
+  },
+  "outputs": {
+    "primary": "Total Volume: {totalVolume} m³",
+    "breakdown": [
+      "Sphere 1 Volume: {V1} m³",
+      "Sphere 2 Volume: {V2} m³",
+      "Sphere 3 Volume: {V3} m³",
+      "Sphere 4 Volume: {V4} m³",
+      "Total Mass (without waste): {totalMass} kg",
+      "Total Mass (with {wasteFactor}% waste): {totalMassWithWaste} kg"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

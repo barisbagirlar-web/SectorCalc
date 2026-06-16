@@ -1,0 +1,55 @@
+{
+  "toolName": "rir-calculator",
+  "inputs": [
+    {
+      "id": "recordableCases",
+      "label": "Number of Recordable Cases",
+      "type": "number",
+      "unit": "cases",
+      "default": 5,
+      "businessContext": "OSHA recordable work-related injuries and illnesses in the period."
+    },
+    {
+      "id": "employeeCount",
+      "label": "Number of Employees",
+      "type": "number",
+      "unit": "FTE",
+      "default": 100,
+      "businessContext": "Full-time equivalent employees during the period."
+    },
+    {
+      "id": "hoursPerWeek",
+      "label": "Hours Worked per Week",
+      "type": "number",
+      "unit": "hours",
+      "default": 40,
+      "businessContext": "Standard work hours per employee per week."
+    },
+    {
+      "id": "weeksPerYear",
+      "label": "Weeks Worked per Year",
+      "type": "number",
+      "unit": "weeks",
+      "default": 50,
+      "businessContext": "Weeks per year the employees actually work (excluding holidays, vacations)."
+    }
+  ],
+  "formulas": {
+    "recordableIncidentRate": "(recordableCases * 200000) / (employeeCount * hoursPerWeek * weeksPerYear)",
+    "totalHoursWorked": "employeeCount * hoursPerWeek * weeksPerYear",
+    "numberOfRecordableCases": "recordableCases"
+  },
+  "outputs": {
+    "primary": "recordableIncidentRate",
+    "breakdown": [
+      "totalHoursWorked",
+      "numberOfRecordableCases"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

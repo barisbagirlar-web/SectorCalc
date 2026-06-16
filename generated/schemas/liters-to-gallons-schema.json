@@ -1,0 +1,39 @@
+{
+  "toolName": "liters-to-gallons",
+  "inputs": [
+    {
+      "id": "volume_liters",
+      "label": "Volume in Liters",
+      "type": "number",
+      "unit": "L",
+      "default": 1,
+      "businessContext": "Enter the volume in liters to convert to gallons."
+    },
+    {
+      "id": "conversion_type",
+      "label": "Conversion Type",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for US gallons, 2 for UK gallons."
+    }
+  ],
+  "formulas": {
+    "gallons_us": "volume_liters * 0.264172",
+    "gallons_uk": "volume_liters * 0.219969",
+    "gallons_selected": "conversion_type === 1 ? gallons_us : gallons_uk"
+  },
+  "outputs": {
+    "primary": "gallons_selected",
+    "breakdown": [
+      "gallons_us",
+      "gallons_uk"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

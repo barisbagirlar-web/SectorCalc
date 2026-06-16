@@ -1,0 +1,55 @@
+{
+  "toolName": "latent-heat-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Mass of the substance undergoing phase change"
+    },
+    {
+      "id": "specificLatentHeat",
+      "label": "Specific Latent Heat",
+      "type": "number",
+      "unit": "kJ/kg",
+      "default": 334,
+      "businessContext": "Energy required per kilogram to change phase at constant temperature"
+    },
+    {
+      "id": "numberOfCycles",
+      "label": "Number of Cycles",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of complete phase change cycles (e.g., melt-freeze)"
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Heat transfer efficiency (0–100%) accounting for losses"
+    }
+  ],
+  "formulas": {
+    "energy_kj": "mass * specificLatentHeat * numberOfCycles * (efficiency / 100)",
+    "energy_kwh": "mass * specificLatentHeat * numberOfCycles * (efficiency / 100) / 3600",
+    "energy_per_cycle": "mass * specificLatentHeat * (efficiency / 100)"
+  },
+  "outputs": {
+    "primary": "energy_kj",
+    "breakdown": [
+      "energy_kwh",
+      "energy_per_cycle"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

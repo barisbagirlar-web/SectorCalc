@@ -1,0 +1,91 @@
+{
+  "toolName": "expected-value-calculator",
+  "inputs": [
+    {
+      "id": "outcome1_probability",
+      "label": "Probability O1",
+      "type": "number",
+      "unit": "",
+      "default": 0.25,
+      "businessContext": "Probability of outcome 1 occurring (0 to 1)."
+    },
+    {
+      "id": "outcome1_value",
+      "label": "Value O1",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "Value (payoff) of outcome 1."
+    },
+    {
+      "id": "outcome2_probability",
+      "label": "Probability O2",
+      "type": "number",
+      "unit": "",
+      "default": 0.25,
+      "businessContext": "Probability of outcome 2 occurring (0 to 1)."
+    },
+    {
+      "id": "outcome2_value",
+      "label": "Value O2",
+      "type": "number",
+      "unit": "",
+      "default": 200,
+      "businessContext": "Value (payoff) of outcome 2."
+    },
+    {
+      "id": "outcome3_probability",
+      "label": "Probability O3",
+      "type": "number",
+      "unit": "",
+      "default": 0.25,
+      "businessContext": "Probability of outcome 3 occurring (0 to 1)."
+    },
+    {
+      "id": "outcome3_value",
+      "label": "Value O3",
+      "type": "number",
+      "unit": "",
+      "default": 300,
+      "businessContext": "Value (payoff) of outcome 3."
+    },
+    {
+      "id": "outcome4_probability",
+      "label": "Probability O4",
+      "type": "number",
+      "unit": "",
+      "default": 0.25,
+      "businessContext": "Probability of outcome 4 occurring (0 to 1)."
+    },
+    {
+      "id": "outcome4_value",
+      "label": "Value O4",
+      "type": "number",
+      "unit": "",
+      "default": 400,
+      "businessContext": "Value (payoff) of outcome 4."
+    }
+  ],
+  "formulas": {
+    "EV": "(outcome1_probability * outcome1_value) + (outcome2_probability * outcome2_value) + (outcome3_probability * outcome3_value) + (outcome4_probability * outcome4_value)",
+    "Outcome1_Contribution": "outcome1_probability * outcome1_value",
+    "Outcome2_Contribution": "outcome2_probability * outcome2_value",
+    "Outcome3_Contribution": "outcome3_probability * outcome3_value",
+    "Outcome4_Contribution": "outcome4_probability * outcome4_value"
+  },
+  "outputs": {
+    "primary": "EV",
+    "breakdown": [
+      "Outcome1_Contribution",
+      "Outcome2_Contribution",
+      "Outcome3_Contribution",
+      "Outcome4_Contribution"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

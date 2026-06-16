@@ -1,0 +1,57 @@
+{
+  "toolName": "breastfeeding-calculator",
+  "inputs": [
+    {
+      "id": "babyWeight",
+      "label": "Baby Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 3.5,
+      "businessContext": "The weight of the baby in kilograms, used to estimate daily milk intake requirement."
+    },
+    {
+      "id": "dailyFeeds",
+      "label": "Feeds per Day",
+      "type": "number",
+      "unit": "feeds",
+      "default": 8,
+      "businessContext": "Number of times the baby feeds per day, used to divide total daily volume."
+    },
+    {
+      "id": "milkDensity",
+      "label": "Milk Density",
+      "type": "number",
+      "unit": "g/mL",
+      "default": 1.03,
+      "businessContext": "Density of breast milk, typically 1.03 g/mL, for mass conversion."
+    },
+    {
+      "id": "wastageFactor",
+      "label": "Wastage Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Estimated percentage of milk lost due to spillage or storage inefficiencies."
+    }
+  ],
+  "formulas": {
+    "dailyVolume": "babyWeight * 150",
+    "perFeedVolume": "dailyVolume / dailyFeeds",
+    "totalMass": "dailyVolume * milkDensity",
+    "productionVolume": "dailyVolume / (1 - wastageFactor / 100)"
+  },
+  "outputs": {
+    "primary": "dailyVolume",
+    "breakdown": [
+      "perFeedVolume",
+      "totalMass",
+      "productionVolume"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

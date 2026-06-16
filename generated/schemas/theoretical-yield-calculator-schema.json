@@ -1,0 +1,63 @@
+{
+  "toolName": "theoretical-yield-calculator",
+  "inputs": [
+    {
+      "id": "massOfReactant",
+      "label": "Kütle (Reaktan)",
+      "type": "number",
+      "unit": "g",
+      "default": 10,
+      "businessContext": "Reaktanın kütlesi, gram cinsinden."
+    },
+    {
+      "id": "molarMassReactant",
+      "label": "Molar Kütle (Reaktan)",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 100,
+      "businessContext": "Reaktanın molar kütlesi."
+    },
+    {
+      "id": "stoichReactant",
+      "label": "Stokiyometrik Katsayı (Reaktan)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Reaktanın denklemdeki katsayısı."
+    },
+    {
+      "id": "stoichProduct",
+      "label": "Stokiyometrik Katsayı (Ürün)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Ürünün denklemdeki katsayısı."
+    },
+    {
+      "id": "molarMassProduct",
+      "label": "Molar Kütle (Ürün)",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 100,
+      "businessContext": "Ürünün molar kütlesi."
+    }
+  ],
+  "formulas": {
+    "molesReactant": "massOfReactant / molarMassReactant",
+    "molesProduct": "molesReactant * stoichProduct / stoichReactant",
+    "theoreticalYieldMass": "molesProduct * molarMassProduct"
+  },
+  "outputs": {
+    "primary": "theoreticalYieldMass",
+    "breakdown": [
+      "molesReactant",
+      "molesProduct"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

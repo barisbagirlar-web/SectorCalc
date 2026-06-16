@@ -1,0 +1,83 @@
+{
+  "toolName": "rendering-time-calculator",
+  "inputs": [
+    {
+      "id": "resolutionWidth",
+      "label": "Resolution Width",
+      "type": "number",
+      "unit": "px",
+      "default": 1920,
+      "businessContext": "Width of the output image in pixels for rendering."
+    },
+    {
+      "id": "resolutionHeight",
+      "label": "Resolution Height",
+      "type": "number",
+      "unit": "px",
+      "default": 1080,
+      "businessContext": "Height of the output image in pixels for rendering."
+    },
+    {
+      "id": "samplesPerPixel",
+      "label": "Samples per Pixel",
+      "type": "number",
+      "unit": "samples",
+      "default": 128,
+      "businessContext": "Number of samples per pixel for anti-aliasing quality."
+    },
+    {
+      "id": "frameCount",
+      "label": "Frame Count",
+      "type": "number",
+      "unit": "frames",
+      "default": 1,
+      "businessContext": "Total number of frames to render, e.g., for animation."
+    },
+    {
+      "id": "renderEngineSpeed",
+      "label": "Render Engine Speed",
+      "type": "number",
+      "unit": "rays/s",
+      "default": 1000000,
+      "businessContext": "Render engine throughput in rays per second. Adjust for hardware/software."
+    },
+    {
+      "id": "complexityFactor",
+      "label": "Complexity Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Scene complexity multiplier. 1 for simple, 5 for highly complex."
+    },
+    {
+      "id": "maxBounces",
+      "label": "Max Ray Bounces",
+      "type": "number",
+      "unit": "bounces",
+      "default": 4,
+      "businessContext": "Maximum light bounces for global illumination. Higher increases realism and time."
+    }
+  ],
+  "formulas": {
+    "totalPixels": "resolutionWidth * resolutionHeight",
+    "totalRaysPerFrame": "totalPixels * samplesPerPixel * maxBounces * complexityFactor",
+    "totalRays": "totalRaysPerFrame * frameCount",
+    "renderTimeSeconds": "totalRays / renderEngineSpeed",
+    "renderTimeMinutes": "renderTimeSeconds / 60",
+    "renderTimeHours": "renderTimeMinutes / 60"
+  },
+  "outputs": {
+    "primary": "renderTimeHours",
+    "breakdown": [
+      "totalRays",
+      "renderTimeSeconds",
+      "renderTimeMinutes"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,51 @@
+{
+  "toolName": "zone-diet-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight (lbs)",
+      "type": "number",
+      "unit": "lbs",
+      "default": 150,
+      "businessContext": "User's body weight in pounds"
+    },
+    {
+      "id": "bodyFat",
+      "label": "Body Fat (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Estimated body fat percentage"
+    },
+    {
+      "id": "activityFactor",
+      "label": "Activity Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.7,
+      "businessContext": "Zone Diet activity factor (0.5-1.0)"
+    }
+  ],
+  "formulas": {
+    "leanBodyMass": "weight * (1 - bodyFat / 100)",
+    "proteinReq": "leanBodyMass * activityFactor",
+    "dailyBlocks": "proteinReq / 7",
+    "proteinBlocks": "dailyBlocks",
+    "carbBlocks": "dailyBlocks",
+    "fatBlocks": "dailyBlocks"
+  },
+  "outputs": {
+    "primary": "dailyBlocks",
+    "breakdown": [
+      "proteinBlocks",
+      "carbBlocks",
+      "fatBlocks"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

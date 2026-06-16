@@ -1,0 +1,99 @@
+{
+  "toolName": "scope-1-emissions-calculator",
+  "inputs": [
+    {
+      "id": "natgas_volume",
+      "label": "Doğal Gaz Tüketimi",
+      "type": "number",
+      "unit": "m³",
+      "default": 0,
+      "businessContext": "Yıllık doğal gaz tüketimi (metreküp)"
+    },
+    {
+      "id": "diesel_stationary",
+      "label": "Dizel Tüketimi (Sabit)",
+      "type": "number",
+      "unit": "litre",
+      "default": 0,
+      "businessContext": "Sabit ekipmanlarda kullanılan dizel"
+    },
+    {
+      "id": "gasoline_mobile",
+      "label": "Benzin Tüketimi (Mobil)",
+      "type": "number",
+      "unit": "litre",
+      "default": 0,
+      "businessContext": "Araçlarda kullanılan benzin"
+    },
+    {
+      "id": "diesel_mobile",
+      "label": "Dizel Tüketimi (Mobil)",
+      "type": "number",
+      "unit": "litre",
+      "default": 0,
+      "businessContext": "Araçlarda kullanılan dizel"
+    },
+    {
+      "id": "lpg_volume",
+      "label": "LPG Tüketimi",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "LPG tüketimi (kg)"
+    },
+    {
+      "id": "coal_ton",
+      "label": "Kömür Tüketimi",
+      "type": "number",
+      "unit": "ton",
+      "default": 0,
+      "businessContext": "Kömür tüketimi (ton)"
+    },
+    {
+      "id": "refrigerant_leak",
+      "label": "Soğutucu Kaçağı",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Soğutucu gaz kaçağı (kg, R-410A eşdeğeri)"
+    },
+    {
+      "id": "process_emissions",
+      "label": "Proses Emisyonları",
+      "type": "number",
+      "unit": "tCO₂",
+      "default": 0,
+      "businessContext": "Üretim prosesinden kaynaklanan doğrudan emisyonlar (ton CO₂)"
+    }
+  ],
+  "formulas": {
+    "natgas_emissions": "natgas_volume * 1.95 / 1000",
+    "diesel_stat_emissions": "diesel_stationary * 2.68 / 1000",
+    "gasoline_emissions": "gasoline_mobile * 2.31 / 1000",
+    "diesel_mob_emissions": "diesel_mobile * 2.68 / 1000",
+    "lpg_emissions": "lpg_volume * 3.0 / 1000",
+    "coal_emissions": "coal_ton * 2.5",
+    "refrigerant_emissions": "refrigerant_leak * 2.088",
+    "process_emissions_total": "process_emissions",
+    "total": "natgas_emissions + diesel_stat_emissions + gasoline_emissions + diesel_mob_emissions + lpg_emissions + coal_emissions + refrigerant_emissions + process_emissions_total"
+  },
+  "outputs": {
+    "primary": "total",
+    "breakdown": [
+      "natgas_emissions",
+      "diesel_stat_emissions",
+      "gasoline_emissions",
+      "diesel_mob_emissions",
+      "lpg_emissions",
+      "coal_emissions",
+      "refrigerant_emissions",
+      "process_emissions_total"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,53 @@
+{
+  "toolName": "smog-index-calculator",
+  "inputs": [
+    {
+      "id": "totalSentences",
+      "label": "Toplam Cümle Sayısı",
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "businessContext": "Analiz edilen metindeki toplam cümle sayısı"
+    },
+    {
+      "id": "totalPolysyllabicWords",
+      "label": "Toplam Çok Heceli Kelime Sayısı (3+ hece)",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Metinde 3 veya daha fazla heceye sahip kelime sayısı"
+    },
+    {
+      "id": "sampleSize",
+      "label": "Örneklem Cümle Sayısı",
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "businessContext": "Standart SMOG hesaplamasında kullanılan örneklem cümle sayısı (genelde 30)"
+    },
+    {
+      "id": "totalWords",
+      "label": "Toplam Kelime Sayısı",
+      "type": "number",
+      "unit": "",
+      "default": 300,
+      "businessContext": "Metindeki toplam kelime sayısı (bilgi amaçlı, formülde kullanılmaz)"
+    }
+  ],
+  "formulas": {
+    "polysyllableCountPer30": "(totalPolysyllabicWords * sampleSize) / totalSentences",
+    "smogGrade": "1.043 * Math.sqrt(polysyllableCountPer30) + 3.1291"
+  },
+  "outputs": {
+    "primary": "smogGrade",
+    "breakdown": [
+      "polysyllableCountPer30"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

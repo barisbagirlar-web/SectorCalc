@@ -1,0 +1,55 @@
+{
+  "toolName": "anaerobic-threshold-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the individual in years."
+    },
+    {
+      "id": "restingHeartRate",
+      "label": "Resting Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 60,
+      "businessContext": "Resting heart rate, typically measured upon waking."
+    },
+    {
+      "id": "maxHeartRate",
+      "label": "Maximum Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 0,
+      "businessContext": "Maximum heart rate in beats per minute. Enter 0 to estimate from age (220 - age)."
+    },
+    {
+      "id": "intensity",
+      "label": "Intensity",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Percentage of heart rate reserve used for anaerobic threshold (commonly 80-90%)."
+    }
+  ],
+  "formulas": {
+    "maxHR": "inputs.maxHeartRate > 0 ? inputs.maxHeartRate : 220 - inputs.age",
+    "heartRateReserve": "maxHR - inputs.restingHeartRate",
+    "anaerobicThresholdHR": "inputs.restingHeartRate + (inputs.intensity / 100) * heartRateReserve"
+  },
+  "outputs": {
+    "primary": "anaerobicThresholdHR",
+    "breakdown": [
+      "maxHR",
+      "heartRateReserve"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

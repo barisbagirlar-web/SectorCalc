@@ -1,0 +1,73 @@
+{
+  "toolName": "maslach-burnout-inventory-calculator",
+  "inputs": [
+    {
+      "id": "eeScore",
+      "label": "Emotional Exhaustion Total Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Sum of scores for 9 EE items (0-6 scale)"
+    },
+    {
+      "id": "dpScore",
+      "label": "Depersonalization Total Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Sum of scores for 5 DP items (0-6 scale)"
+    },
+    {
+      "id": "paScore",
+      "label": "Personal Accomplishment Total Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Sum of scores for 8 PA items (0-6 scale)"
+    },
+    {
+      "id": "eeItems",
+      "label": "Number of Emotional Exhaustion Items",
+      "type": "number",
+      "unit": "items",
+      "default": 9,
+      "businessContext": "Typically 9 items in MBI-HSS"
+    },
+    {
+      "id": "dpItems",
+      "label": "Number of Depersonalization Items",
+      "type": "number",
+      "unit": "items",
+      "default": 5,
+      "businessContext": "Typically 5 items in MBI-HSS"
+    },
+    {
+      "id": "paItems",
+      "label": "Number of Personal Accomplishment Items",
+      "type": "number",
+      "unit": "items",
+      "default": 8,
+      "businessContext": "Typically 8 items in MBI-HSS"
+    }
+  ],
+  "formulas": {
+    "avgEE": "eeScore / eeItems",
+    "avgDP": "dpScore / dpItems",
+    "avgPA": "paScore / paItems",
+    "riskCategory": "((avgEE>=3.5?1:0)+(avgDP>=3.5?1:0)+(avgPA<=3.5?1:0))>=2?'High Risk':((avgEE>=3.5?1:0)+(avgDP>=3.5?1:0)+(avgPA<=3.5?1:0))>=1?'Moderate Risk':'Low Risk'"
+  },
+  "outputs": {
+    "primary": "riskCategory",
+    "breakdown": [
+      "avgEE",
+      "avgDP",
+      "avgPA"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

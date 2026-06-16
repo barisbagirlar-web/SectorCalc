@@ -1,0 +1,55 @@
+{
+  "toolName": "gram-to-cup-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass",
+      "type": "number",
+      "unit": "g",
+      "default": 100,
+      "businessContext": "Weight of ingredient in grams"
+    },
+    {
+      "id": "density",
+      "label": "Density",
+      "type": "number",
+      "unit": "g/mL",
+      "default": 1,
+      "businessContext": "Density of ingredient (mass per unit volume)"
+    },
+    {
+      "id": "cupVolume",
+      "label": "Cup Volume",
+      "type": "number",
+      "unit": "mL",
+      "default": 236.588,
+      "businessContext": "Volume of one standard cup in milliliters (US cup)"
+    },
+    {
+      "id": "decimals",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding"
+    }
+  ],
+  "formulas": {
+    "volumeML": "mass / density",
+    "cups": "volumeML / cupVolume",
+    "finalCups": "Math.round(cups * Math.pow(10, decimals)) / Math.pow(10, decimals)"
+  },
+  "outputs": {
+    "primary": "finalCups",
+    "breakdown": [
+      "volumeML",
+      "cups"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

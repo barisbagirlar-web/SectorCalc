@@ -1,0 +1,63 @@
+{
+  "toolName": "de-broglie-wavelength-calculator",
+  "inputs": [
+    {
+      "id": "electronMass",
+      "label": "Electron Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 9.1093837e-31,
+      "businessContext": "Mass of the particle (default is electron mass)"
+    },
+    {
+      "id": "elementaryCharge",
+      "label": "Elementary Charge",
+      "type": "number",
+      "unit": "C",
+      "default": 1.602176634e-19,
+      "businessContext": "Elementary electric charge (default is electron charge)"
+    },
+    {
+      "id": "voltage",
+      "label": "Accelerating Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 10000,
+      "businessContext": "Potential difference used to accelerate the particle"
+    },
+    {
+      "id": "planckConstant",
+      "label": "Planck Constant",
+      "type": "number",
+      "unit": "J·s",
+      "default": 6.62607015e-34,
+      "businessContext": "Planck's constant (value in J·s)"
+    },
+    {
+      "id": "unitMultiplier",
+      "label": "Wavelength Unit Multiplier",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Factor to convert output wavelength to desired unit (e.g., 1e9 for nm)"
+    }
+  ],
+  "formulas": {
+    "wavelength": "planckConstant / Math.sqrt(2 * electronMass * elementaryCharge * voltage) * unitMultiplier",
+    "momentum": "Math.sqrt(2 * electronMass * elementaryCharge * voltage)",
+    "rawWavelength": "planckConstant / Math.sqrt(2 * electronMass * elementaryCharge * voltage)"
+  },
+  "outputs": {
+    "primary": "wavelength",
+    "breakdown": [
+      "momentum",
+      "rawWavelength"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

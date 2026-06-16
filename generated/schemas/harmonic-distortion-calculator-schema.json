@@ -1,0 +1,77 @@
+{
+  "toolName": "harmonic-distortion-calculator",
+  "inputs": [
+    {
+      "id": "vFund",
+      "label": "Fundamental Voltage (Vrms)",
+      "type": "number",
+      "unit": "V",
+      "default": 230,
+      "businessContext": "RMS voltage at the fundamental frequency (e.g., 50 Hz or 60 Hz)"
+    },
+    {
+      "id": "v2",
+      "label": "2nd Harmonic Voltage (Vrms)",
+      "type": "number",
+      "unit": "V",
+      "default": 5,
+      "businessContext": "RMS voltage of the 2nd harmonic component, typically from nonlinear loads"
+    },
+    {
+      "id": "v3",
+      "label": "3rd Harmonic Voltage (Vrms)",
+      "type": "number",
+      "unit": "V",
+      "default": 3,
+      "businessContext": "RMS voltage of the 3rd harmonic component, common in industrial systems"
+    },
+    {
+      "id": "v4",
+      "label": "4th Harmonic Voltage (Vrms)",
+      "type": "number",
+      "unit": "V",
+      "default": 1,
+      "businessContext": "RMS voltage of the 4th harmonic component"
+    },
+    {
+      "id": "v5",
+      "label": "5th Harmonic Voltage (Vrms)",
+      "type": "number",
+      "unit": "V",
+      "default": 0.5,
+      "businessContext": "RMS voltage of the 5th harmonic component"
+    },
+    {
+      "id": "v6",
+      "label": "6th Harmonic Voltage (Vrms)",
+      "type": "number",
+      "unit": "V",
+      "default": 0.2,
+      "businessContext": "RMS voltage of the 6th harmonic component"
+    },
+    {
+      "id": "v7",
+      "label": "7th Harmonic Voltage (Vrms)",
+      "type": "number",
+      "unit": "V",
+      "default": 0.1,
+      "businessContext": "RMS voltage of the 7th harmonic component"
+    }
+  ],
+  "formulas": {
+    "harmonicRmsSum": "Math.sqrt(v2**2 + v3**2 + v4**2 + v5**2 + v6**2 + v7**2)",
+    "thdPercent": "(harmonicRmsSum / vFund) * 100"
+  },
+  "outputs": {
+    "primary": "thdPercent",
+    "breakdown": [
+      "harmonicRmsSum"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

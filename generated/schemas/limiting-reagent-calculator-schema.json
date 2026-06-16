@@ -1,0 +1,91 @@
+{
+  "toolName": "limiting-reagent-calculator",
+  "inputs": [
+    {
+      "id": "reactant1Mass",
+      "label": "Mass of Reactant 1",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Enter the mass of the first reactant in grams"
+    },
+    {
+      "id": "reactant1MolarMass",
+      "label": "Molar Mass of Reactant 1",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 0,
+      "businessContext": "Enter the molar mass of the first reactant in g/mol"
+    },
+    {
+      "id": "reactant1Coefficient",
+      "label": "Coefficient of Reactant 1",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Enter the stoichiometric coefficient of the first reactant"
+    },
+    {
+      "id": "reactant2Mass",
+      "label": "Mass of Reactant 2",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Enter the mass of the second reactant in grams"
+    },
+    {
+      "id": "reactant2MolarMass",
+      "label": "Molar Mass of Reactant 2",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 0,
+      "businessContext": "Enter the molar mass of the second reactant in g/mol"
+    },
+    {
+      "id": "reactant2Coefficient",
+      "label": "Coefficient of Reactant 2",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Enter the stoichiometric coefficient of the second reactant"
+    },
+    {
+      "id": "productCoefficient",
+      "label": "Coefficient of Product",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Enter the stoichiometric coefficient of the desired product"
+    },
+    {
+      "id": "productMolarMass",
+      "label": "Molar Mass of Product",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 0,
+      "businessContext": "Enter the molar mass of the desired product in g/mol"
+    }
+  ],
+  "formulas": {
+    "moles1": "reactant1Mass / reactant1MolarMass",
+    "moles2": "reactant2Mass / reactant2MolarMass",
+    "ratio1": "moles1 / reactant1Coefficient",
+    "ratio2": "moles2 / reactant2Coefficient",
+    "limitingReagent": "ratio1 <= ratio2 ? 'Reactant 1' : 'Reactant 2'",
+    "theoreticalYield": "Math.min(ratio1, ratio2) * productCoefficient * productMolarMass"
+  },
+  "outputs": {
+    "primary": "limitingReagent",
+    "breakdown": [
+      "moles1",
+      "moles2",
+      "theoreticalYield"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

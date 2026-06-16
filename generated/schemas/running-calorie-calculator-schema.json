@@ -1,0 +1,57 @@
+{
+  "toolName": "running-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Personnel Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight of the personnel"
+    },
+    {
+      "id": "distance",
+      "label": "Distance (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "Running distance covered"
+    },
+    {
+      "id": "elevation_gain",
+      "label": "Elevation Gain (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Total elevation gain during run"
+    },
+    {
+      "id": "load_kg",
+      "label": "Additional Load (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Additional load carried by personnel"
+    }
+  ],
+  "formulas": {
+    "totalWeight": "weight + load_kg",
+    "gradient": "elevation_gain / (distance * 1000)",
+    "flat_calories": "totalWeight * distance * 1.036",
+    "elevation_calories": "totalWeight * elevation_gain * 0.0008",
+    "total_calories": "flat_calories + elevation_calories"
+  },
+  "outputs": {
+    "primary": "total_calories",
+    "breakdown": [
+      "flat_calories",
+      "elevation_calories"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

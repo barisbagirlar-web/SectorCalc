@@ -1,0 +1,58 @@
+{
+  "toolName": "feet-to-meters-calculator",
+  "inputs": [
+    {
+      "id": "feet",
+      "label": "Feet",
+      "type": "number",
+      "unit": "ft",
+      "default": 0,
+      "businessContext": "Whole feet part of the length measurement."
+    },
+    {
+      "id": "inches",
+      "label": "Inches",
+      "type": "number",
+      "unit": "in",
+      "default": 0,
+      "businessContext": "Inches part of the length measurement (0-11)."
+    },
+    {
+      "id": "conversionType",
+      "label": "Conversion Standard",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1: International foot (0.3048 m), 2: U.S. survey foot (0.3048006096012192 m)."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output in meters."
+    }
+  ],
+  "formulas": {
+    "totalInches": "feet * 12 + inches",
+    "conversionFactor": "conversionType === 2 ? 0.3048006096012192 : 0.3048",
+    "meters": "totalInches * conversionFactor / 12",
+    "metersRounded": "Math.round(meters * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "metersRounded",
+    "breakdown": [
+      "totalInches",
+      "conversionFactor",
+      "meters",
+      "metersRounded"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

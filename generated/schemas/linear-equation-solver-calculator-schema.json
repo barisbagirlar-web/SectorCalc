@@ -1,0 +1,55 @@
+{
+  "toolName": "linear-equation-solver-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "a (coefficient of x on left side)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient of the variable x on the left side of the equation: ax + b = cx + d"
+    },
+    {
+      "id": "b",
+      "label": "b (constant on left side)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Constant term on the left side of the equation"
+    },
+    {
+      "id": "c",
+      "label": "c (coefficient of x on right side)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of the variable x on the right side of the equation"
+    },
+    {
+      "id": "d",
+      "label": "d (constant on right side)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Constant term on the right side of the equation"
+    }
+  ],
+  "formulas": {
+    "numerator": "d - b",
+    "denominator": "a - c",
+    "x": "numerator / denominator"
+  },
+  "outputs": {
+    "primary": "x",
+    "breakdown": [
+      "numerator",
+      "denominator"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

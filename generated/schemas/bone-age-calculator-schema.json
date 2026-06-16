@@ -1,0 +1,53 @@
+{
+  "toolName": "bone-age-calculator",
+  "inputs": [
+    {
+      "id": "chronologicalAge",
+      "label": "Chronological Age (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Patient's chronological age in years"
+    },
+    {
+      "id": "sex",
+      "label": "Sex (0=Male, 1=Female)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Biological sex code for bone age estimation"
+    },
+    {
+      "id": "height",
+      "label": "Height (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 140,
+      "businessContext": "Patient's height in centimeters"
+    },
+    {
+      "id": "weight",
+      "label": "Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 35,
+      "businessContext": "Patient's weight in kilograms"
+    }
+  ],
+  "formulas": {
+    "boneAge": "0.85 * chronologicalAge + 0.03 * height + 0.15 * weight - 1.2 * sex + 1.5"
+  },
+  "outputs": {
+    "primary": "boneAge",
+    "breakdown": [
+      "Bone age estimated using linear regression model",
+      "Based on chronological age, sex, height, and weight."
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

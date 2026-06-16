@@ -1,0 +1,57 @@
+{
+  "toolName": "baseball-launch-angle-calculator",
+  "inputs": [
+    {
+      "id": "initialVelocity",
+      "label": "Initial Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 42,
+      "businessContext": "Speed of the ball as it leaves the bat."
+    },
+    {
+      "id": "launchAngle",
+      "label": "Launch Angle",
+      "type": "number",
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Angle between the initial trajectory and the horizontal field."
+    },
+    {
+      "id": "initialHeight",
+      "label": "Initial Height",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Height above ground at which the ball is hit."
+    },
+    {
+      "id": "gravity",
+      "label": "Gravity",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Acceleration due to gravity (9.81 m/s² on Earth)."
+    }
+  ],
+  "formulas": {
+    "range": "initialVelocity * Math.cos(launchAngle * Math.PI / 180) * ((initialVelocity * Math.sin(launchAngle * Math.PI / 180) + Math.sqrt(Math.pow(initialVelocity * Math.sin(launchAngle * Math.PI / 180), 2) + 2 * gravity * initialHeight)) / gravity)",
+    "hangTime": "(initialVelocity * Math.sin(launchAngle * Math.PI / 180) + Math.sqrt(Math.pow(initialVelocity * Math.sin(launchAngle * Math.PI / 180), 2) + 2 * gravity * initialHeight)) / gravity",
+    "maxHeight": "initialHeight + Math.pow(initialVelocity * Math.sin(launchAngle * Math.PI / 180), 2) / (2 * gravity)",
+    "finalVelocity": "Math.sqrt(Math.pow(initialVelocity * Math.cos(launchAngle * Math.PI / 180), 2) + Math.pow(Math.sqrt(Math.pow(initialVelocity * Math.sin(launchAngle * Math.PI / 180), 2) + 2 * gravity * initialHeight), 2))"
+  },
+  "outputs": {
+    "primary": "range",
+    "breakdown": [
+      "hangTime",
+      "maxHeight",
+      "finalVelocity"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,67 @@
+{
+  "toolName": "1099-tax-calculator",
+  "inputs": [
+    {
+      "id": "grossIncome",
+      "label": "Gross Income ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 50000,
+      "businessContext": "Total income received from all 1099 contracts before any deductions."
+    },
+    {
+      "id": "businessExpenses",
+      "label": "Business Expenses ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 5000,
+      "businessContext": "Ordinary and necessary expenses directly related to the business (e.g., supplies, home office, mileage)."
+    },
+    {
+      "id": "federalTaxRate",
+      "label": "Federal Tax Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 22,
+      "businessContext": "Marginal federal income tax rate applied to taxable income after deductions."
+    },
+    {
+      "id": "stateTaxRate",
+      "label": "State Tax Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Combined state and local income tax rate, if applicable."
+    },
+    {
+      "id": "selfEmploymentTaxRate",
+      "label": "Self-Employment Tax Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 15.3,
+      "businessContext": "Social Security and Medicare taxes for self-employed individuals (typically 15.3% on 92.35% of net profit)."
+    }
+  ],
+  "formulas": {
+    "netProfit": "grossIncome - businessExpenses",
+    "seTax": "netProfit * 0.9235 * (selfEmploymentTaxRate / 100)",
+    "adjustedNet": "netProfit - (seTax / 2)",
+    "federalTax": "adjustedNet * (federalTaxRate / 100)",
+    "stateTax": "adjustedNet * (stateTaxRate / 100)",
+    "totalTax": "federalTax + stateTax + seTax"
+  },
+  "outputs": {
+    "primary": "totalTax",
+    "breakdown": [
+      "federalTax",
+      "stateTax",
+      "seTax"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

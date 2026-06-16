@@ -1,0 +1,77 @@
+{
+  "toolName": "recall-calculator",
+  "inputs": [
+    {
+      "id": "totalUnitsProduced",
+      "label": "Toplam Üretim Miktarı",
+      "type": "number",
+      "unit": "adet",
+      "default": 10000,
+      "businessContext": "Üretilen toplam birim sayısı"
+    },
+    {
+      "id": "defectRate",
+      "label": "Kusur Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "businessContext": "Ürünlerdeki kusurluluk oranı"
+    },
+    {
+      "id": "recallEffectiveness",
+      "label": "Geri Çağırma Etkinliği",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Geri çağırma kampanyasının etkinliği (ulaşılabilen kusurlu ürünlerin yüzdesi)"
+    },
+    {
+      "id": "costPerRecallUnit",
+      "label": "Birim Geri Çağırma Maliyeti",
+      "type": "number",
+      "unit": "TL",
+      "default": 50,
+      "businessContext": "Birim başına geri çağırma işlem maliyeti (lojistik, iletişim)"
+    },
+    {
+      "id": "fixedRecallCost",
+      "label": "Sabit Geri Çağırma Maliyeti",
+      "type": "number",
+      "unit": "TL",
+      "default": 5000,
+      "businessContext": "Sabit yönetim ve organizasyon maliyeti"
+    },
+    {
+      "id": "replacementCostPerUnit",
+      "label": "Birim Değiştirme Maliyeti",
+      "type": "number",
+      "unit": "TL",
+      "default": 30,
+      "businessContext": "Birim başına değiştirme veya onarım maliyeti"
+    }
+  ],
+  "formulas": {
+    "defectiveUnits": "totalUnitsProduced * (defectRate / 100)",
+    "recalledUnits": "defectiveUnits * (recallEffectiveness / 100)",
+    "variableRecallCost": "recalledUnits * costPerRecallUnit",
+    "totalReplacementCost": "recalledUnits * replacementCostPerUnit",
+    "fixedCost": "fixedRecallCost",
+    "totalRecallCost": "fixedCost + variableRecallCost + totalReplacementCost"
+  },
+  "outputs": {
+    "primary": "totalRecallCost",
+    "breakdown": [
+      "defectiveUnits",
+      "recalledUnits",
+      "variableRecallCost",
+      "totalReplacementCost",
+      "fixedCost"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

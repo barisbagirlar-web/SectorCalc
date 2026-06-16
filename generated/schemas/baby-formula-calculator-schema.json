@@ -1,0 +1,65 @@
+{
+  "toolName": "baby-formula-calculator",
+  "inputs": [
+    {
+      "id": "babyWeight",
+      "label": "Bebeğin Ağırlığı (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 4,
+      "businessContext": "Bebeğin mevcut ağırlığı."
+    },
+    {
+      "id": "feedingCount",
+      "label": "Günlük Öğün Sayısı",
+      "type": "number",
+      "unit": "kez",
+      "default": 8,
+      "businessContext": "Bebeğin günde kaç kez beslendiği."
+    },
+    {
+      "id": "dailyMlPerKg",
+      "label": "Günlük Sıvı İhtiyacı (ml/kg)",
+      "type": "number",
+      "unit": "ml/kg",
+      "default": 150,
+      "businessContext": "Bebeğin kg başına günlük ihtiyaç duyduğu hazır mama miktarı (genellikle 150-200 ml)."
+    },
+    {
+      "id": "waterPerScoop",
+      "label": "Bir Ölçek İçin Su Miktarı",
+      "type": "number",
+      "unit": "ml",
+      "default": 60,
+      "businessContext": "Bir ölçek mama tozu için eklenmesi gereken su miktarı (üretici talimatı)."
+    },
+    {
+      "id": "scoopWeight",
+      "label": "Bir Ölçek Toz Ağırlığı",
+      "type": "number",
+      "unit": "g",
+      "default": 4.5,
+      "businessContext": "Bir ölçek mama tozunun ağırlığı (genelde 4-5g)."
+    }
+  ],
+  "formulas": {
+    "dailyTotalMl": "babyWeight * dailyMlPerKg",
+    "perFeedingMl": "dailyTotalMl / feedingCount",
+    "scoopsPerFeeding": "perFeedingMl / waterPerScoop",
+    "powderPerFeeding": "scoopsPerFeeding * scoopWeight",
+    "dailyPowder": "powderPerFeeding * feedingCount"
+  },
+  "outputs": {
+    "primary": "dailyPowder",
+    "breakdown": [
+      "perFeedingMl",
+      "scoopsPerFeeding"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

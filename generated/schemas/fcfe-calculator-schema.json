@@ -1,0 +1,72 @@
+{
+  "toolName": "fcfe-calculator",
+  "inputs": [
+    {
+      "id": "netIncome",
+      "label": "Net Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "businessContext": "Net income after taxes and interest"
+    },
+    {
+      "id": "capex",
+      "label": "Capital Expenditures",
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "businessContext": "Expenditures on fixed assets"
+    },
+    {
+      "id": "depreciation",
+      "label": "Depreciation",
+      "type": "number",
+      "unit": "USD",
+      "default": 200000,
+      "businessContext": "Depreciation and amortization expenses"
+    },
+    {
+      "id": "changeWC",
+      "label": "Change in Working Capital",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Increase in non-cash working capital (current assets minus current liabilities)"
+    },
+    {
+      "id": "newDebt",
+      "label": "New Debt Issued",
+      "type": "number",
+      "unit": "USD",
+      "default": 300000,
+      "businessContext": "Proceeds from new borrowings"
+    },
+    {
+      "id": "repayments",
+      "label": "Debt Repayments",
+      "type": "number",
+      "unit": "USD",
+      "default": 200000,
+      "businessContext": "Repayment of existing debt"
+    }
+  ],
+  "formulas": {
+    "netCapEx": "capex - depreciation",
+    "netBorrowing": "newDebt - repayments",
+    "fcfe": "netIncome - netCapEx - changeWC + netBorrowing"
+  },
+  "outputs": {
+    "primary": "fcfe",
+    "breakdown": [
+      "netCapEx",
+      "netBorrowing",
+      "fcfe"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

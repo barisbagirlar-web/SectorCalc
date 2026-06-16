@@ -1,0 +1,65 @@
+{
+  "toolName": "skin-type-calculator",
+  "inputs": [
+    {
+      "id": "oiliness",
+      "label": "Oiliness Level",
+      "type": "number",
+      "unit": "index",
+      "default": 2,
+      "businessContext": "Skin oiliness scale: 0 (very dry) to 4 (very oily)."
+    },
+    {
+      "id": "hydration",
+      "label": "Hydration Level",
+      "type": "number",
+      "unit": "index",
+      "default": 2,
+      "businessContext": "Skin hydration scale: 0 (very dehydrated) to 4 (very hydrated)."
+    },
+    {
+      "id": "sensitivity",
+      "label": "Sensitivity Level",
+      "type": "number",
+      "unit": "index",
+      "default": 2,
+      "businessContext": "Skin sensitivity scale: 0 (not sensitive) to 4 (very sensitive)."
+    },
+    {
+      "id": "pigmentation",
+      "label": "Pigmentation Level",
+      "type": "number",
+      "unit": "index",
+      "default": 2,
+      "businessContext": "Pigmentation concerns scale: 0 (no issues) to 4 (major pigmentation)."
+    },
+    {
+      "id": "elasticity",
+      "label": "Skin Elasticity",
+      "type": "number",
+      "unit": "index",
+      "default": 2,
+      "businessContext": "Skin elasticity scale: 0 (poor) to 4 (excellent)."
+    }
+  ],
+  "formulas": {
+    "skinIndex": "(oiliness + hydration) * 12.5",
+    "sensitivityIndex": "sensitivity * 25",
+    "pigmentationIndex": "pigmentation * 25",
+    "agingIndex": "(4 - elasticity) * 25"
+  },
+  "outputs": {
+    "primary": "Skin Type Index: ${skinIndex.toFixed(0)} (0=Dry, 100=Oily)",
+    "breakdown": [
+      "Sensitivity Index: ${sensitivityIndex.toFixed(0)}",
+      "Pigmentation Index: ${pigmentationIndex.toFixed(0)}",
+      "Aging Index: ${agingIndex.toFixed(0)}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

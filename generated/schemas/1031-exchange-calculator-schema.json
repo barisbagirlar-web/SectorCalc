@@ -1,0 +1,74 @@
+{
+  "toolName": "1031-exchange-calculator",
+  "inputs": [
+    {
+      "id": "salePrice",
+      "label": "Sale Price of Relinquished Property",
+      "type": "number",
+      "unit": "$",
+      "default": 500000,
+      "businessContext": "The selling price of the property you are giving up"
+    },
+    {
+      "id": "mortgagePayoff",
+      "label": "Mortgage Payoff on Relinquished Property",
+      "type": "number",
+      "unit": "$",
+      "default": 300000,
+      "businessContext": "Outstanding mortgage balance on the relinquished property that will be paid off at sale"
+    },
+    {
+      "id": "sellingCosts",
+      "label": "Selling Costs (Commissions, Closing)",
+      "type": "number",
+      "unit": "$",
+      "default": 30000,
+      "businessContext": "Total costs associated with selling the relinquished property, e.g., agent commissions, legal fees"
+    },
+    {
+      "id": "purchasePrice",
+      "label": "Purchase Price of Replacement Property",
+      "type": "number",
+      "unit": "$",
+      "default": 600000,
+      "businessContext": "The purchase price of the replacement property you intend to acquire"
+    },
+    {
+      "id": "newMortgage",
+      "label": "New Mortgage on Replacement Property",
+      "type": "number",
+      "unit": "$",
+      "default": 350000,
+      "businessContext": "Amount of new mortgage or debt assumed on the replacement property"
+    },
+    {
+      "id": "buyingCosts",
+      "label": "Buying Costs (Closing)",
+      "type": "number",
+      "unit": "$",
+      "default": 15000,
+      "businessContext": "Total costs associated with purchasing the replacement property, e.g., title insurance, recording fees"
+    }
+  ],
+  "formulas": {
+    "netProceeds": "salePrice - mortgagePayoff - sellingCosts",
+    "cashRequired": "purchasePrice - newMortgage + buyingCosts",
+    "cashBoot": "Math.max(0, netProceeds - cashRequired)",
+    "mortgageBoot": "Math.max(0, mortgagePayoff - newMortgage)",
+    "totalBoot": "cashBoot + mortgageBoot"
+  },
+  "outputs": {
+    "primary": "totalBoot",
+    "breakdown": [
+      "netProceeds",
+      "cashBoot",
+      "mortgageBoot"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

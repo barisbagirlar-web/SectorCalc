@@ -1,0 +1,74 @@
+{
+  "toolName": "rolles-theorem-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "Lower bound a",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Left endpoint of the interval [a,b]"
+    },
+    {
+      "id": "b",
+      "label": "Upper bound b",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Right endpoint of the interval [a,b]"
+    },
+    {
+      "id": "fa",
+      "label": "f(a)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Function value at a"
+    },
+    {
+      "id": "fb",
+      "label": "f(b)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Function value at b"
+    },
+    {
+      "id": "derivativeCoeff",
+      "label": "Derivative coefficient",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Coefficient of x in derivative (e.g., for f(x)=x^2, derivative=2x, coefficient=2)"
+    },
+    {
+      "id": "derivativeConstant",
+      "label": "Derivative constant term",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Constant term in derivative (e.g., for f'(x)=2x+1, constant=1)"
+    }
+  ],
+  "formulas": {
+    "checkEqual": "fa === fb",
+    "c": "(0 - derivativeConstant) / derivativeCoeff",
+    "cInInterval": "c > a && c < b"
+  },
+  "outputs": {
+    "primary": "c",
+    "breakdown": [
+      "f(a) = fa",
+      "f(b) = fb",
+      "f(a) == f(b): checkEqual",
+      "c = (0 - derivativeConstant) / derivativeCoeff",
+      "c in (a,b): cInInterval"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "square-miles-to-square-kilometers-calculator",
+  "inputs": [
+    {
+      "id": "sm",
+      "label": "Square Miles",
+      "type": "number",
+      "unit": "sq mi",
+      "default": 0,
+      "businessContext": "Area in square miles to convert."
+    },
+    {
+      "id": "cf",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "km²/sq mi",
+      "default": 2.589988110336,
+      "businessContext": "Override standard conversion factor if needed (international definition: 1 mile = 1.609344 km, so 1 sq mi = (1.609344)^2 = 2.589988110336 km²)."
+    },
+    {
+      "id": "dp",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "integer",
+      "default": 4,
+      "businessContext": "Number of decimal places for the output (0-10)."
+    },
+    {
+      "id": "sf",
+      "label": "Scaling Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Multiplier for areas in terms of scaling (e.g., if input is in thousands of sq mi, use 1000)."
+    },
+    {
+      "id": "cc",
+      "label": "Calibration Constant",
+      "type": "number",
+      "unit": "km²",
+      "default": 0,
+      "businessContext": "Additive constant to account for systematic measurement bias (e.g., survey calibration offset)."
+    }
+  ],
+  "formulas": {
+    "rawKm2": "sm * cf",
+    "scaledKm2": "rawKm2 * sf + cc",
+    "km2": "Math.round(scaledKm2 * Math.pow(10, dp)) / Math.pow(10, dp)"
+  },
+  "outputs": {
+    "primary": "km2",
+    "breakdown": [
+      "rawKm2",
+      "scaledKm2"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

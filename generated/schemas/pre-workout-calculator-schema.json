@@ -1,0 +1,67 @@
+{
+  "toolName": "pre-workout-calculator",
+  "inputs": [
+    {
+      "id": "bodyWeight",
+      "label": "Vücut Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 75,
+      "businessContext": "Kullanıcının kilogram cinsinden vücut ağırlığı"
+    },
+    {
+      "id": "caffeinePerKg",
+      "label": "Kafein (mg/kg)",
+      "type": "number",
+      "unit": "mg/kg",
+      "default": 3,
+      "businessContext": "Vücut ağırlığı başına istenen kafein miktarı (mg)"
+    },
+    {
+      "id": "betaAlaninePerKg",
+      "label": "Beta-Alanin (mg/kg)",
+      "type": "number",
+      "unit": "mg/kg",
+      "default": 50,
+      "businessContext": "Vücut ağırlığı başına beta-alanin miktarı (mg)"
+    },
+    {
+      "id": "citrullinePerKg",
+      "label": "Sitrülin Malat (mg/kg)",
+      "type": "number",
+      "unit": "mg/kg",
+      "default": 80,
+      "businessContext": "Vücut ağırlığı başına sitrülin malat miktarı (mg)"
+    },
+    {
+      "id": "water",
+      "label": "Su Miktarı",
+      "type": "number",
+      "unit": "ml",
+      "default": 300,
+      "businessContext": "Karıştırma için önerilen su miktarı (ml)"
+    }
+  ],
+  "formulas": {
+    "caffeineDose": "bodyWeight * caffeinePerKg",
+    "betaAlanineDose": "bodyWeight * betaAlaninePerKg",
+    "citrullineDose": "bodyWeight * citrullinePerKg",
+    "totalActiveGrams": "(caffeineDose + betaAlanineDose + citrullineDose) / 1000",
+    "waterAmount": "water"
+  },
+  "outputs": {
+    "primary": "caffeineDose",
+    "breakdown": [
+      "betaAlanineDose",
+      "citrullineDose",
+      "totalActiveGrams",
+      "waterAmount"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

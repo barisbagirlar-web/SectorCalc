@@ -1,0 +1,65 @@
+{
+  "toolName": "natural-log-calculator",
+  "inputs": [
+    {
+      "id": "inputValue",
+      "label": "Input Value",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 2.71828,
+      "businessContext": "Value to compute natural logarithm of (e.g., process ratio, dimensionless parameter)"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "digits",
+      "default": 4,
+      "businessContext": "Number of decimal places for output"
+    },
+    {
+      "id": "scaleFactor",
+      "label": "Scale Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.434294,
+      "businessContext": "Multiply the natural log by this factor (e.g., 0.434294 converts to log10)"
+    },
+    {
+      "id": "offset",
+      "label": "Offset",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Add or subtract an offset to the scaled log value"
+    },
+    {
+      "id": "expDisplay",
+      "label": "Display e^x",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Set to 1 to output e^x instead of the scaled natural log"
+    }
+  ],
+  "formulas": {
+    "rawNaturalLog": "Math.log(inputValue)",
+    "scaledValue": "rawNaturalLog * scaleFactor + offset",
+    "exponentialValue": "Math.exp(inputValue)",
+    "naturalLogValue": "Number((expDisplay === 1 ? Math.exp(inputValue) : (Math.log(inputValue) * scaleFactor + offset)).toFixed(precision))"
+  },
+  "outputs": {
+    "primary": "naturalLogValue",
+    "breakdown": [
+      "rawNaturalLog",
+      "scaledValue",
+      "exponentialValue"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

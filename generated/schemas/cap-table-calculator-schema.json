@@ -1,0 +1,68 @@
+{
+  "toolName": "cap-table-calculator",
+  "inputs": [
+    {
+      "id": "totalAuthorizedShares",
+      "label": "Total Authorized Shares",
+      "type": "number",
+      "unit": "shares",
+      "default": 10000000,
+      "businessContext": "The maximum number of shares the company is authorized to issue."
+    },
+    {
+      "id": "sharesOutstanding",
+      "label": "Shares Outstanding",
+      "type": "number",
+      "unit": "shares",
+      "default": 5000000,
+      "businessContext": "Current number of shares held by all shareholders before new investment."
+    },
+    {
+      "id": "optionPoolSize",
+      "label": "Option Pool Size",
+      "type": "number",
+      "unit": "shares",
+      "default": 500000,
+      "businessContext": "Number of shares reserved for employee stock options."
+    },
+    {
+      "id": "newInvestment",
+      "label": "New Investment Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000000,
+      "businessContext": "Amount of money being invested in the company."
+    },
+    {
+      "id": "preMoneyValuation",
+      "label": "Pre-Money Valuation",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000000,
+      "businessContext": "Valuation of the company prior to the new investment."
+    }
+  ],
+  "formulas": {
+    "fullyDilutedPre": "sharesOutstanding + optionPoolSize",
+    "pricePerShare": "preMoneyValuation / fullyDilutedPre",
+    "newSharesIssued": "newInvestment / pricePerShare",
+    "postMoneyValuation": "preMoneyValuation + newInvestment",
+    "totalPostShares": "fullyDilutedPre + newSharesIssued",
+    "investorOwnershipPct": "(newSharesIssued / totalPostShares) * 100"
+  },
+  "outputs": {
+    "primary": "investorOwnershipPct",
+    "breakdown": [
+      "postMoneyValuation",
+      "newSharesIssued",
+      "pricePerShare",
+      "totalPostShares"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

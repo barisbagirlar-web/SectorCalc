@@ -1,0 +1,59 @@
+{
+  "toolName": "toefl-score-calculator",
+  "inputs": [
+    {
+      "id": "reading",
+      "label": "Reading Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Score for the Reading section (0-30)"
+    },
+    {
+      "id": "listening",
+      "label": "Listening Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Score for the Listening section (0-30)"
+    },
+    {
+      "id": "speaking",
+      "label": "Speaking Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Score for the Speaking section (0-30)"
+    },
+    {
+      "id": "writing",
+      "label": "Writing Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Score for the Writing section (0-30)"
+    }
+  ],
+  "formulas": {
+    "totalScore": "reading + listening + speaking + writing",
+    "readingScore": "reading",
+    "listeningScore": "listening",
+    "speakingScore": "speaking",
+    "writingScore": "writing"
+  },
+  "outputs": {
+    "primary": "totalScore",
+    "breakdown": [
+      "readingScore",
+      "listeningScore",
+      "speakingScore",
+      "writingScore"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

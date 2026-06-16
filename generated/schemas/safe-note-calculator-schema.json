@@ -1,0 +1,57 @@
+{
+  "toolName": "safe-note-calculator",
+  "inputs": [
+    {
+      "id": "investmentAmount",
+      "label": "Investment Amount",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "Amount of money invested via SAFE"
+    },
+    {
+      "id": "valuationCap",
+      "label": "Valuation Cap",
+      "type": "number",
+      "unit": "$",
+      "default": 5000000,
+      "businessContext": "Maximum valuation at which SAFE converts"
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Discount on the next round's price per share"
+    },
+    {
+      "id": "preMoneyValuation",
+      "label": "Pre-Money Valuation",
+      "type": "number",
+      "unit": "$",
+      "default": 8000000,
+      "businessContext": "Pre-money valuation of the next funding round"
+    }
+  ],
+  "formulas": {
+    "ownershipPct": "(investmentAmount / effectiveVal) * 100",
+    "effectiveVal": "Math.min(valuationCap, preMoneyValuation * (1 - discountRate/100))",
+    "discountedVal": "preMoneyValuation * (1 - discountRate/100)",
+    "convType": "effectiveVal === valuationCap ? 0 : 1"
+  },
+  "outputs": {
+    "primary": "ownershipPct",
+    "breakdown": [
+      "effectiveVal",
+      "discountedVal",
+      "convType"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

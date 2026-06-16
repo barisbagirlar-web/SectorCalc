@@ -1,0 +1,89 @@
+{
+  "toolName": "friedman-test-calculator",
+  "inputs": [
+    {
+      "id": "k",
+      "label": "Number of Treatments (k)",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Number of treatments or conditions being compared"
+    },
+    {
+      "id": "n",
+      "label": "Number of Blocks (n)",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Number of blocks or subjects"
+    },
+    {
+      "id": "R1",
+      "label": "Sum of Ranks for Treatment 1",
+      "type": "number",
+      "unit": "",
+      "default": 7,
+      "businessContext": "Sum of ranks for the first treatment across all blocks"
+    },
+    {
+      "id": "R2",
+      "label": "Sum of Ranks for Treatment 2",
+      "type": "number",
+      "unit": "",
+      "default": 12,
+      "businessContext": "Sum of ranks for the second treatment"
+    },
+    {
+      "id": "R3",
+      "label": "Sum of Ranks for Treatment 3",
+      "type": "number",
+      "unit": "",
+      "default": 11,
+      "businessContext": "Sum of ranks for the third treatment"
+    },
+    {
+      "id": "R4",
+      "label": "Sum of Ranks for Treatment 4 (optional)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sum of ranks for treatment 4, 0 if not applicable"
+    },
+    {
+      "id": "R5",
+      "label": "Sum of Ranks for Treatment 5 (optional)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sum of ranks for treatment 5, 0 if not applicable"
+    },
+    {
+      "id": "R6",
+      "label": "Sum of Ranks for Treatment 6 (optional)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sum of ranks for treatment 6, 0 if not applicable"
+    }
+  ],
+  "formulas": {
+    "sumSquaredRanks": "R1**2 + R2**2 + R3**2 + R4**2 + R5**2 + R6**2",
+    "friedmanStatistic": "12/(n*k*(k+1)) * (R1**2 + R2**2 + R3**2 + R4**2 + R5**2 + R6**2) - 3*n*(k+1)",
+    "degreesOfFreedom": "k - 1",
+    "expectedMeanRank": "n*(k+1)/2"
+  },
+  "outputs": {
+    "primary": "friedmanStatistic",
+    "breakdown": [
+      "degreesOfFreedom",
+      "sumSquaredRanks",
+      "expectedMeanRank"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

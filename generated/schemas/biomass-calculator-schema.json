@@ -1,0 +1,65 @@
+{
+  "toolName": "biomass-calculator",
+  "inputs": [
+    {
+      "id": "dbh_cm",
+      "label": "Tree Diameter at Breast Height (DBH)",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "Measure of tree trunk diameter at 1.3 m above ground; used in allometric equations."
+    },
+    {
+      "id": "height_m",
+      "label": "Tree Height",
+      "type": "number",
+      "unit": "m",
+      "default": 20,
+      "businessContext": "Total tree height; key variable in biomass estimation."
+    },
+    {
+      "id": "wood_density",
+      "label": "Wood Density",
+      "type": "number",
+      "unit": "g/cm³",
+      "default": 0.6,
+      "businessContext": "Oven-dry wood density; varies by species; affects biomass calculation."
+    },
+    {
+      "id": "tree_count",
+      "label": "Number of Trees",
+      "type": "number",
+      "unit": "trees",
+      "default": 100,
+      "businessContext": "Number of trees in the plot or stand for total biomass."
+    },
+    {
+      "id": "carbon_fraction",
+      "label": "Carbon Fraction of Biomass",
+      "type": "number",
+      "unit": "(fraction)",
+      "default": 0.47,
+      "businessContext": "Default 0.47 from IPCC; fraction of biomass that is carbon."
+    }
+  ],
+  "formulas": {
+    "biomass_per_tree_kg": "0.0673 * (wood_density * dbh_cm ** 2 * height_m) ** 0.976",
+    "total_biomass_kg": "biomass_per_tree_kg * tree_count",
+    "total_carbon_kg": "total_biomass_kg * carbon_fraction",
+    "total_co2e_kg": "total_carbon_kg * 44 / 12"
+  },
+  "outputs": {
+    "primary": "total_biomass_kg",
+    "breakdown": [
+      "biomass_per_tree_kg",
+      "total_carbon_kg",
+      "total_co2e_kg"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

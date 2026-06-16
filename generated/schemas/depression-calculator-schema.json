@@ -1,0 +1,63 @@
+{
+  "toolName": "depression-calculator",
+  "inputs": [
+    {
+      "id": "topLength",
+      "label": "Top Length",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Length of the depression at the top surface"
+    },
+    {
+      "id": "topWidth",
+      "label": "Top Width",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Width of the depression at the top surface"
+    },
+    {
+      "id": "bottomLength",
+      "label": "Bottom Length",
+      "type": "number",
+      "unit": "m",
+      "default": 1.5,
+      "businessContext": "Length of the depression at the bottom"
+    },
+    {
+      "id": "bottomWidth",
+      "label": "Bottom Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Width of the depression at the bottom"
+    },
+    {
+      "id": "depth",
+      "label": "Depth",
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "businessContext": "Depth of the depression from top to bottom"
+    }
+  ],
+  "formulas": {
+    "topArea": "topLength * topWidth",
+    "bottomArea": "bottomLength * bottomWidth",
+    "depressionVolume": "(depth / 3) * (topLength * topWidth + bottomLength * bottomWidth + Math.sqrt(topLength * topWidth * bottomLength * bottomWidth))"
+  },
+  "outputs": {
+    "primary": "depressionVolume",
+    "breakdown": [
+      "topArea",
+      "bottomArea"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

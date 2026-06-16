@@ -1,0 +1,55 @@
+{
+  "toolName": "qualified-charitable-distribution-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 72,
+      "businessContext": "Age of the IRA account holder. Must be at least 70.5 for QCD eligibility."
+    },
+    {
+      "id": "distributionAmount",
+      "label": "Distribution Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Amount intended for charitable distribution directly from IRA (max $100,000 per year)."
+    },
+    {
+      "id": "marginalTaxRate",
+      "label": "Marginal Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 24,
+      "businessContext": "Your top marginal income tax rate, used to estimate tax savings."
+    },
+    {
+      "id": "iraBalance",
+      "label": "IRA Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "businessContext": "Total value of your traditional IRA, for reference (RMD computation may apply)."
+    }
+  ],
+  "formulas": {
+    "eligible": "age >= 70.5 ? 1 : 0",
+    "qualifiedDistribution": "eligible ? Math.min(distributionAmount, 100000) : 0",
+    "taxSavings": "qualifiedDistribution * marginalTaxRate / 100"
+  },
+  "outputs": {
+    "primary": "taxSavings",
+    "breakdown": [
+      "qualifiedDistribution",
+      "eligible"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

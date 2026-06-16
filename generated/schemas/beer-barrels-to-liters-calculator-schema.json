@@ -1,0 +1,73 @@
+{
+  "toolName": "beer-barrels-to-liters-calculator",
+  "inputs": [
+    {
+      "id": "barrels",
+      "label": "Beer Barrels",
+      "type": "number",
+      "unit": "barrel",
+      "default": 1,
+      "businessContext": "Quantity of beer in barrels"
+    },
+    {
+      "id": "litersPerBarrel",
+      "label": "Liters per Barrel",
+      "type": "number",
+      "unit": "L/barrel",
+      "default": 117.3478,
+      "businessContext": "Conversion factor. Standard US beer barrel: 117.3478 L"
+    },
+    {
+      "id": "temperatureC",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Actual temperature of the beer"
+    },
+    {
+      "id": "referenceTemperatureC",
+      "label": "Reference Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Reference temperature (standard 20°C)"
+    },
+    {
+      "id": "thermalExpansionCoefficient",
+      "label": "Thermal Expansion Coefficient",
+      "type": "number",
+      "unit": "1/°C",
+      "default": 0.0003,
+      "businessContext": "Volumetric thermal expansion coefficient for beer (approx. 0.0003 per °C)"
+    },
+    {
+      "id": "correctionFactor",
+      "label": "Correction Factor",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "Manual correction factor (e.g., for foam, ullage, etc.)"
+    }
+  ],
+  "formulas": {
+    "volumeAtReference": "barrels * litersPerBarrel",
+    "temperatureCorrectionFactor": "1 + thermalExpansionCoefficient * (temperatureC - referenceTemperatureC)",
+    "volumeAfterTemperatureCorrection": "volumeAtReference * temperatureCorrectionFactor",
+    "volumeLiters": "volumeAfterTemperatureCorrection * correctionFactor"
+  },
+  "outputs": {
+    "primary": "volumeLiters",
+    "breakdown": [
+      "volumeAtReference",
+      "temperatureCorrectionFactor",
+      "volumeAfterTemperatureCorrection"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

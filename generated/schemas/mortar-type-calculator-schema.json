@@ -1,0 +1,56 @@
+{
+  "toolName": "mortar-type-calculator",
+  "inputs": [
+    {
+      "id": "design_strength",
+      "label": "Design Compressive Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 5,
+      "businessContext": "Required compressive strength from structural analysis (MPa)"
+    },
+    {
+      "id": "exposure_factor",
+      "label": "Exposure Severity Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.3,
+      "businessContext": "Factor accounting for exposure conditions (1.0 mild, 1.3 moderate, 1.6 severe)"
+    },
+    {
+      "id": "reinforced",
+      "label": "Reinforced Masonry",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "1 if reinforced masonry, 0 if unreinforced"
+    },
+    {
+      "id": "safety_factor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Design safety factor per building code"
+    }
+  ],
+  "formulas": {
+    "required_strength": "design_strength * exposure_factor * (reinforced ? 1.2 : 1) * safety_factor",
+    "mortarType": "(required_strength >= 17.2) ? 'M' : (required_strength >= 12.4) ? 'S' : (required_strength >= 5.2) ? 'N' : (required_strength >= 2.4) ? 'O' : 'K'",
+    "min_strength": "(mortarType == 'M') ? 17.2 : (mortarType == 'S') ? 12.4 : (mortarType == 'N') ? 5.2 : (mortarType == 'O') ? 2.4 : 0.5",
+    "safety_margin": "required_strength - min_strength"
+  },
+  "outputs": {
+    "primary": "mortarType",
+    "breakdown": [
+      "required_strength",
+      "safety_margin"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

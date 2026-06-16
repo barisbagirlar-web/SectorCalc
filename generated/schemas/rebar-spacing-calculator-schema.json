@@ -1,0 +1,65 @@
+{
+  "toolName": "rebar-spacing-calculator",
+  "inputs": [
+    {
+      "id": "concreteWidth",
+      "label": "Element Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "businessContext": "Total width of the concrete element (e.g., beam or slab dimension perpendicular to rebar direction)."
+    },
+    {
+      "id": "leftCover",
+      "label": "Left Cover",
+      "type": "number",
+      "unit": "mm",
+      "default": 40,
+      "businessContext": "Clear concrete cover from left edge to outer surface of leftmost rebar."
+    },
+    {
+      "id": "rightCover",
+      "label": "Right Cover",
+      "type": "number",
+      "unit": "mm",
+      "default": 40,
+      "businessContext": "Clear concrete cover from right edge to outer surface of rightmost rebar."
+    },
+    {
+      "id": "rebarDiameter",
+      "label": "Rebar Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 12,
+      "businessContext": "Nominal diameter of the reinforcing bar."
+    },
+    {
+      "id": "numberOfBars",
+      "label": "Number of Bars",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Total number of longitudinal bars placed within the element width (must be ≥2)."
+    }
+  ],
+  "formulas": {
+    "centerToCenterSpacing": "(concreteWidth - leftCover - rightCover - rebarDiameter) / (numberOfBars - 1)",
+    "clearSpacing": "centerToCenterSpacing - rebarDiameter",
+    "firstBarEdgeDistance": "leftCover + rebarDiameter / 2",
+    "lastBarEdgeDistance": "rightCover + rebarDiameter / 2"
+  },
+  "outputs": {
+    "primary": "centerToCenterSpacing",
+    "breakdown": [
+      "clearSpacing",
+      "firstBarEdgeDistance",
+      "lastBarEdgeDistance"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

@@ -1,0 +1,39 @@
+{
+  "toolName": "brinell-to-rockwell",
+  "inputs": [
+    {
+      "id": "hbw",
+      "label": "Brinell Hardness (HBW)",
+      "type": "number",
+      "unit": "HBW",
+      "default": 200,
+      "businessContext": "Measured Brinell hardness value from indentation test"
+    },
+    {
+      "id": "scale",
+      "label": "Rockwell Scale",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for HRA, 2 for HRB, 3 for HRC"
+    }
+  ],
+  "formulas": {
+    "primary": "scale === 1 ? (100 * hbw) / (hbw + 100) : scale === 2 ? (130 - 30 * Math.sqrt(hbw)) : (100 * hbw) / (hbw + 100) - 10",
+    "breakdown": [
+      "scale === 1 ? (100 * hbw) / (hbw + 100) : scale === 2 ? (130 - 30 * Math.sqrt(hbw)) : (100 * hbw) / (hbw + 100) - 10"
+    ]
+  },
+  "outputs": {
+    "primary": "Rockwell Hardness",
+    "breakdown": [
+      "Converted hardness value on selected Rockwell scale"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

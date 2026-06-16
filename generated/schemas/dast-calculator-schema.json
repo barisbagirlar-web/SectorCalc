@@ -1,0 +1,67 @@
+{
+  "toolName": "dast-calculator",
+  "inputs": [
+    {
+      "id": "force",
+      "label": "Uygulanan Kuvvet",
+      "type": "number",
+      "unit": "N",
+      "default": 1000,
+      "businessContext": "Çekme testinde ölçülen maksimum kuvvet"
+    },
+    {
+      "id": "area",
+      "label": "Yapışma Alanı",
+      "type": "number",
+      "unit": "mm²",
+      "default": 100,
+      "businessContext": "Test numunesinin yapışma yüzey alanı"
+    },
+    {
+      "id": "temperature",
+      "label": "Sıcaklık",
+      "type": "number",
+      "unit": "°C",
+      "default": 23,
+      "businessContext": "Test ortamının sıcaklığı"
+    },
+    {
+      "id": "humidity",
+      "label": "Bağıl Nem",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Test ortamının bağıl nemi"
+    },
+    {
+      "id": "speed",
+      "label": "Çekme Hızı",
+      "type": "number",
+      "unit": "mm/dak",
+      "default": 10,
+      "businessContext": "Test sırasında çene hareket hızı"
+    }
+  ],
+  "formulas": {
+    "rawStrength": "force / area",
+    "tempFactor": "1 + 0.002 * (temperature - 23)",
+    "humidityFactor": "1 + 0.001 * (humidity - 50)",
+    "speedFactor": "Math.log(speed + 1) / Math.log(11)",
+    "correctedStrength": "rawStrength * tempFactor * humidityFactor * speedFactor"
+  },
+  "outputs": {
+    "primary": "correctedStrength",
+    "breakdown": [
+      "rawStrength",
+      "tempFactor",
+      "humidityFactor",
+      "speedFactor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,69 @@
+{
+  "toolName": "co2-emissions-calculator",
+  "inputs": [
+    {
+      "id": "electricity",
+      "label": "Electricity Consumption",
+      "type": "number",
+      "unit": "kWh",
+      "default": 0,
+      "businessContext": "Total electricity used"
+    },
+    {
+      "id": "naturalGas",
+      "label": "Natural Gas Consumption",
+      "type": "number",
+      "unit": "m³",
+      "default": 0,
+      "businessContext": "Total natural gas used"
+    },
+    {
+      "id": "diesel",
+      "label": "Diesel Consumption",
+      "type": "number",
+      "unit": "L",
+      "default": 0,
+      "businessContext": "Total diesel fuel used"
+    },
+    {
+      "id": "gasoline",
+      "label": "Gasoline Consumption",
+      "type": "number",
+      "unit": "L",
+      "default": 0,
+      "businessContext": "Total gasoline used"
+    },
+    {
+      "id": "lpg",
+      "label": "LPG Consumption",
+      "type": "number",
+      "unit": "L",
+      "default": 0,
+      "businessContext": "Total LPG used"
+    }
+  ],
+  "formulas": {
+    "electricityEmissions": "electricity * 0.5",
+    "naturalGasEmissions": "naturalGas * 2.0",
+    "dieselEmissions": "diesel * 2.68",
+    "gasolineEmissions": "gasoline * 2.31",
+    "lpgEmissions": "lpg * 1.6",
+    "totalEmissions": "electricity * 0.5 + naturalGas * 2.0 + diesel * 2.68 + gasoline * 2.31 + lpg * 1.6"
+  },
+  "outputs": {
+    "primary": "totalEmissions",
+    "breakdown": [
+      "electricityEmissions",
+      "naturalGasEmissions",
+      "dieselEmissions",
+      "gasolineEmissions",
+      "lpgEmissions"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

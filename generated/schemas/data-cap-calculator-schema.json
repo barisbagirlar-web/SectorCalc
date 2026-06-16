@@ -1,0 +1,92 @@
+{
+  "toolName": "data-cap-calculator",
+  "inputs": [
+    {
+      "id": "monthlyDataCap",
+      "label": "Monthly Data Cap",
+      "type": "number",
+      "unit": "GB",
+      "default": 100,
+      "businessContext": "The total data allowance in gigabytes for the billing period."
+    },
+    {
+      "id": "dataUsed",
+      "label": "Data Used So Far",
+      "type": "number",
+      "unit": "GB",
+      "default": 20,
+      "businessContext": "Amount of data consumed so far in the current billing period."
+    },
+    {
+      "id": "billingCycleDays",
+      "label": "Billing Cycle Days",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Total days in the billing cycle."
+    },
+    {
+      "id": "daysElapsed",
+      "label": "Days Elapsed",
+      "type": "number",
+      "unit": "days",
+      "default": 10,
+      "businessContext": "Number of days that have passed in the current billing cycle."
+    },
+    {
+      "id": "overageFeePerGB",
+      "label": "Overage Fee per GB",
+      "type": "number",
+      "unit": "$/GB",
+      "default": 10,
+      "businessContext": "Cost charged per gigabyte when exceeding the data cap."
+    }
+  ],
+  "formulas": {
+    "dailyAverageUsage": "daysElapsed ? dataUsed / daysElapsed : 0",
+    "projectedTotalUsage": "dailyAverageUsage * billingCycleDays",
+    "overageData": "Math.max(0, projectedTotalUsage - monthlyDataCap)",
+    "estimatedOverageCost": "overageData * overageFeePerGB",
+    "remainingData": "monthlyDataCap - dataUsed"
+  },
+  "outputs": {
+    "primary": {
+      "id": "estimatedOverageCost",
+      "label": "Estimated Overage Cost",
+      "unit": "$",
+      "formula": "overageData * overageFeePerGB"
+    },
+    "breakdown": [
+      {
+        "id": "dailyAverageUsage",
+        "label": "Daily Average Usage",
+        "unit": "GB/day",
+        "formula": "daysElapsed ? dataUsed / daysElapsed : 0"
+      },
+      {
+        "id": "projectedTotalUsage",
+        "label": "Projected Total Usage",
+        "unit": "GB",
+        "formula": "dailyAverageUsage * billingCycleDays"
+      },
+      {
+        "id": "overageData",
+        "label": "Overage Data",
+        "unit": "GB",
+        "formula": "Math.max(0, projectedTotalUsage - monthlyDataCap)"
+      },
+      {
+        "id": "remainingData",
+        "label": "Remaining Data",
+        "unit": "GB",
+        "formula": "monthlyDataCap - dataUsed"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

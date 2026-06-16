@@ -1,0 +1,59 @@
+{
+  "toolName": "vector-angle-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "Vector 1 X",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "1. vektörün X bileşeni"
+    },
+    {
+      "id": "y1",
+      "label": "Vector 1 Y",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "1. vektörün Y bileşeni"
+    },
+    {
+      "id": "x2",
+      "label": "Vector 2 X",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "2. vektörün X bileşeni"
+    },
+    {
+      "id": "y2",
+      "label": "Vector 2 Y",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "2. vektörün Y bileşeni"
+    }
+  ],
+  "formulas": {
+    "dotProduct": "x1 * x2 + y1 * y2",
+    "magnitude1": "Math.sqrt(x1*x1 + y1*y1)",
+    "magnitude2": "Math.sqrt(x2*x2 + y2*y2)",
+    "angleRad": "Math.acos((x1 * x2 + y1 * y2) / (Math.sqrt(x1*x1 + y1*y1) * Math.sqrt(x2*x2 + y2*y2)))",
+    "angleDeg": "Math.acos((x1 * x2 + y1 * y2) / (Math.sqrt(x1*x1 + y1*y1) * Math.sqrt(x2*x2 + y2*y2))) * (180 / Math.PI)"
+  },
+  "outputs": {
+    "primary": "angleDeg",
+    "breakdown": [
+      "dotProduct",
+      "magnitude1",
+      "magnitude2",
+      "angleRad"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

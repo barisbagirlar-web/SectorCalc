@@ -1,0 +1,57 @@
+{
+  "toolName": "fuel-tax-calculator",
+  "inputs": [
+    {
+      "id": "fuelQuantity",
+      "label": "Fuel Quantity",
+      "type": "number",
+      "unit": "liters",
+      "default": 100,
+      "businessContext": "Amount of fuel purchased in liters"
+    },
+    {
+      "id": "pricePerLiter",
+      "label": "Price per Liter",
+      "type": "number",
+      "unit": "currency",
+      "default": 1.5,
+      "businessContext": "Base price per liter before taxes"
+    },
+    {
+      "id": "vatRate",
+      "label": "VAT Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "businessContext": "Value Added Tax percentage"
+    },
+    {
+      "id": "exciseTaxPerLiter",
+      "label": "Excise Tax per Liter",
+      "type": "number",
+      "unit": "currency/liter",
+      "default": 0.8,
+      "businessContext": "Fixed excise tax per liter"
+    }
+  ],
+  "formulas": {
+    "baseCost": "fuelQuantity * pricePerLiter",
+    "vatAmount": "baseCost * (vatRate / 100)",
+    "exciseAmount": "fuelQuantity * exciseTaxPerLiter",
+    "totalCost": "baseCost + vatAmount + exciseAmount"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "baseCost",
+      "vatAmount",
+      "exciseAmount"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

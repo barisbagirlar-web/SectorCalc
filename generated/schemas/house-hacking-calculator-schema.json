@@ -1,0 +1,86 @@
+{
+  "toolName": "house-hacking-calculator",
+  "inputs": [
+    {
+      "id": "propertyPrice",
+      "label": "Property Price",
+      "type": "number",
+      "unit": "$",
+      "default": 300000,
+      "businessContext": "Total purchase price of the multi-unit property."
+    },
+    {
+      "id": "downPayment",
+      "label": "Down Payment",
+      "type": "number",
+      "unit": "$",
+      "default": 60000,
+      "businessContext": "Cash amount paid upfront (typically 20% of property price)."
+    },
+    {
+      "id": "interestRate",
+      "label": "Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 4.5,
+      "businessContext": "Annual mortgage interest rate."
+    },
+    {
+      "id": "loanTerm",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Duration of the mortgage loan in years."
+    },
+    {
+      "id": "monthlyRentIncome",
+      "label": "Monthly Rental Income",
+      "type": "number",
+      "unit": "$",
+      "default": 2500,
+      "businessContext": "Gross monthly rental income from all rented units before vacancy and expenses."
+    },
+    {
+      "id": "monthlyExpenses",
+      "label": "Monthly Operating Expenses",
+      "type": "number",
+      "unit": "$",
+      "default": 800,
+      "businessContext": "Total monthly costs including property taxes, insurance, maintenance, property management, and other expenses."
+    },
+    {
+      "id": "vacancyRate",
+      "label": "Vacancy Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Expected percentage of time the rental units are vacant."
+    }
+  ],
+  "formulas": {
+    "loanAmount": "propertyPrice - downPayment",
+    "monthlyInterestRate": "interestRate / 100 / 12",
+    "numberOfPayments": "loanTerm * 12",
+    "monthlyMortgage": "loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1)",
+    "vacancyLoss": "monthlyRentIncome * (vacancyRate / 100)",
+    "effectiveRentIncome": "monthlyRentIncome - vacancyLoss",
+    "netMonthlyCashFlow": "effectiveRentIncome - monthlyMortgage - monthlyExpenses",
+    "annualCashFlow": "netMonthlyCashFlow * 12",
+    "cashOnCashReturn": "(annualCashFlow / downPayment) * 100"
+  },
+  "outputs": {
+    "primary": "Monthly Cash Flow",
+    "breakdown": [
+      "Monthly Mortgage Payment",
+      "Effective Rental Income",
+      "Cash-on-Cash Return"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

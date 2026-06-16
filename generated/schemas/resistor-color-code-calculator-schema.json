@@ -1,0 +1,55 @@
+{
+  "toolName": "resistor-color-code-calculator",
+  "inputs": [
+    {
+      "id": "band1",
+      "label": "1. Bant (Rakam)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Direnç değerinin ilk anlamlı basamağı (0-9, standartlarda genellikle 1-9)."
+    },
+    {
+      "id": "band2",
+      "label": "2. Bant (Rakam)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Direnç değerinin ikinci anlamlı basamağı (0-9)."
+    },
+    {
+      "id": "multiplier",
+      "label": "Çarpan (10ˣ)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Çarpan olarak 10ʼun üssü (0: ×1, 1: ×10, 2: ×100, …)."
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerans (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Yüzde cinsinden tolerans (örn. 5 → ±%5, 10 → ±%10, 20 → ±%20)."
+    }
+  ],
+  "formulas": {
+    "resistance": "(band1 * 10 + band2) * Math.pow(10, multiplier)",
+    "resistanceCalculation": "'Direnç: ' + ((band1 * 10 + band2) * Math.pow(10, multiplier)) + ' Ω'",
+    "toleranceInfo": "'Tolerans: ±' + tolerance + '%'"
+  },
+  "outputs": {
+    "primary": "resistance",
+    "breakdown": [
+      "resistanceCalculation",
+      "toleranceInfo"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

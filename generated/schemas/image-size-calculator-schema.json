@@ -1,0 +1,67 @@
+{
+  "toolName": "image-size-calculator",
+  "inputs": [
+    {
+      "id": "widthPx",
+      "label": "Width (px)",
+      "type": "number",
+      "unit": "px",
+      "default": 1920,
+      "businessContext": "Image width in pixels"
+    },
+    {
+      "id": "heightPx",
+      "label": "Height (px)",
+      "type": "number",
+      "unit": "px",
+      "default": 1080,
+      "businessContext": "Image height in pixels"
+    },
+    {
+      "id": "bitDepth",
+      "label": "Bit Depth",
+      "type": "number",
+      "unit": "bits/channel",
+      "default": 8,
+      "businessContext": "Color depth per channel (e.g., 8, 16, 32)"
+    },
+    {
+      "id": "channels",
+      "label": "Color Channels",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Number of color channels (1 for grayscale, 3 for RGB, 4 for CMYK)"
+    },
+    {
+      "id": "dpi",
+      "label": "DPI",
+      "type": "number",
+      "unit": "dpi",
+      "default": 72,
+      "businessContext": "Dots per inch for print size calculation"
+    }
+  ],
+  "formulas": {
+    "fileSizeBytes": "widthPx * heightPx * (bitDepth * channels) / 8",
+    "fileSizeKB": "(widthPx * heightPx * (bitDepth * channels) / 8) / 1024",
+    "fileSizeMB": "((widthPx * heightPx * (bitDepth * channels) / 8) / 1024) / 1024",
+    "printWidthInches": "widthPx / dpi",
+    "printHeightInches": "heightPx / dpi"
+  },
+  "outputs": {
+    "primary": "fileSizeMB",
+    "breakdown": [
+      "fileSizeBytes",
+      "fileSizeKB",
+      "printWidthInches",
+      "printHeightInches"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

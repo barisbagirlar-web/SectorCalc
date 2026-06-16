@@ -1,0 +1,72 @@
+{
+  "toolName": "topsoil-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of the area to cover with topsoil"
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Width of the area"
+    },
+    {
+      "id": "depth",
+      "label": "Depth",
+      "type": "number",
+      "unit": "cm",
+      "default": 15,
+      "businessContext": "Desired topsoil depth"
+    },
+    {
+      "id": "bulkDensity",
+      "label": "Bulk Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1500,
+      "businessContext": "Bulk density of topsoil for weight estimation"
+    },
+    {
+      "id": "costPerUnit",
+      "label": "Cost per Unit Volume",
+      "type": "number",
+      "unit": "USD/m³",
+      "default": 25,
+      "businessContext": "Purchase price of topsoil per cubic meter"
+    }
+  ],
+  "formulas": {
+    "volume": "length * width * (depth / 100)",
+    "weight": "volume * bulkDensity / 1000",
+    "cost": "volume * costPerUnit"
+  },
+  "outputs": {
+    "primary": {
+      "label": "Topsoil Volume Required",
+      "value": "volume"
+    },
+    "breakdown": [
+      {
+        "label": "Weight",
+        "value": "weight"
+      },
+      {
+        "label": "Estimated Cost",
+        "value": "cost"
+      }
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

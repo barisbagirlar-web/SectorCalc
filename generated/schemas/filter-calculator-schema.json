@@ -1,0 +1,69 @@
+{
+  "toolName": "filter-calculator",
+  "inputs": [
+    {
+      "id": "flowRate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "m³/s",
+      "default": 0.001,
+      "businessContext": "Volumetric flow rate through the filter"
+    },
+    {
+      "id": "viscosity",
+      "label": "Fluid Viscosity",
+      "type": "number",
+      "unit": "Pa·s",
+      "default": 0.001,
+      "businessContext": "Dynamic viscosity of the fluid"
+    },
+    {
+      "id": "thickness",
+      "label": "Filter Thickness",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Thickness of the filter medium"
+    },
+    {
+      "id": "porosity",
+      "label": "Porosity",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.4,
+      "businessContext": "Void fraction of the filter medium"
+    },
+    {
+      "id": "particleDiameter",
+      "label": "Particle Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0.001,
+      "businessContext": "Mean diameter of filter medium particles/grains"
+    },
+    {
+      "id": "filterArea",
+      "label": "Filter Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 0.5,
+      "businessContext": "Cross-sectional area of the filter"
+    }
+  ],
+  "formulas": {
+    "pressureDrop": "(180 * viscosity * thickness * flowRate * (1 - porosity) ** 2) / (filterArea * porosity ** 3 * particleDiameter ** 2)",
+    "permeability": "(porosity ** 3 * particleDiameter ** 2) / (180 * (1 - porosity) ** 2)"
+  },
+  "outputs": {
+    "primary": "pressureDrop",
+    "breakdown": [
+      "permeability"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

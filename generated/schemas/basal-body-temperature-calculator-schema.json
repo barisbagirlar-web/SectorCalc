@@ -1,0 +1,71 @@
+{
+  "toolName": "basal-body-temperature-calculator",
+  "inputs": [
+    {
+      "id": "day1Temp",
+      "label": "Day 1 Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 36.5,
+      "businessContext": "Basal body temperature reading for day 1"
+    },
+    {
+      "id": "day2Temp",
+      "label": "Day 2 Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 36.6,
+      "businessContext": "Basal body temperature reading for day 2"
+    },
+    {
+      "id": "day3Temp",
+      "label": "Day 3 Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 36.7,
+      "businessContext": "Basal body temperature reading for day 3"
+    },
+    {
+      "id": "baselineTemp",
+      "label": "Baseline Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 36.5,
+      "businessContext": "Average temperature from previous cycle or reference"
+    },
+    {
+      "id": "threshold",
+      "label": "Threshold Rise",
+      "type": "number",
+      "unit": "°C",
+      "default": 0.2,
+      "businessContext": "Temperature increase threshold to indicate shift"
+    },
+    {
+      "id": "daysToConfirm",
+      "label": "Days to Confirm",
+      "type": "number",
+      "unit": "days",
+      "default": 3,
+      "businessContext": "Number of consecutive days above threshold to confirm shift"
+    }
+  ],
+  "formulas": {
+    "averageTemperature": "(day1Temp + day2Temp + day3Temp) / 3",
+    "daysAboveThreshold": "(day1Temp > baselineTemp + threshold ? 1 : 0) + (day2Temp > baselineTemp + threshold ? 1 : 0) + (day3Temp > baselineTemp + threshold ? 1 : 0)",
+    "temperatureShiftScore": "((day1Temp > baselineTemp + threshold ? 1 : 0) + (day2Temp > baselineTemp + threshold ? 1 : 0) + (day3Temp > baselineTemp + threshold ? 1 : 0)) >= daysToConfirm ? 1 : 0"
+  },
+  "outputs": {
+    "primary": "temperatureShiftScore",
+    "breakdown": [
+      "averageTemperature",
+      "daysAboveThreshold"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

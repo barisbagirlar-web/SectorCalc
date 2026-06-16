@@ -1,0 +1,74 @@
+{
+  "toolName": "radiation-calculator",
+  "inputs": [
+    {
+      "id": "sourceActivity",
+      "label": "Kaynak Aktivitesi (Ci)",
+      "type": "number",
+      "unit": "Ci",
+      "default": 1,
+      "businessContext": "Radyoaktif kaynağın aktivite değeri (Curie cinsinden)."
+    },
+    {
+      "id": "distance",
+      "label": "Mesafe (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Kaynaktan hedef noktaya olan mesafe."
+    },
+    {
+      "id": "shieldingThickness",
+      "label": "Zırhlama Kalınlığı (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "Kullanılan zırh malzemesinin kalınlığı (örneğin kurşun)."
+    },
+    {
+      "id": "halfValueLayer",
+      "label": "Yarı Değer Kalınlığı (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 0.5,
+      "businessContext": "Zırh malzemesinin radyasyonu yarıya indiren kalınlık değeri."
+    },
+    {
+      "id": "exposureTime",
+      "label": "Maruziyet Süresi (saat)",
+      "type": "number",
+      "unit": "saat",
+      "default": 1,
+      "businessContext": "Radyasyona maruz kalınan toplam süre."
+    },
+    {
+      "id": "gammaConstant",
+      "label": "Gama Sabiti (R·m²/(Ci·saat))",
+      "type": "number",
+      "unit": "R·m²/(Ci·saat)",
+      "default": 1.32,
+      "businessContext": "Kaynağın gama ışını sabiti (örneğin Co-60 için 1.32)."
+    }
+  ],
+  "formulas": {
+    "unshieldedDoseRate": "gammaConstant * sourceActivity / (distance ** 2)",
+    "attenuationFactor": "Math.exp(-0.693 * shieldingThickness / halfValueLayer)",
+    "shieldedDoseRate": "unshieldedDoseRate * attenuationFactor",
+    "totalDose": "shieldedDoseRate * exposureTime"
+  },
+  "outputs": {
+    "primary": "totalDose",
+    "breakdown": [
+      "unshieldedDoseRate",
+      "attenuationFactor",
+      "shieldedDoseRate",
+      "totalDose"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,54 @@
+{
+  "toolName": "kolesterol-hesaplayici",
+  "inputs": [
+    {
+      "id": "totalKolesterol",
+      "label": "Total Kolesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 200,
+      "businessContext": "Total kolesterol değeri, lipid panelinden alınır."
+    },
+    {
+      "id": "hdlKolesterol",
+      "label": "HDL Kolesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 50,
+      "businessContext": "HDL (iyi) kolesterol değeri."
+    },
+    {
+      "id": "trigliserit",
+      "label": "Trigliserit",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 150,
+      "businessContext": "Trigliserit düzeyi, lipid panelinden."
+    },
+    {
+      "id": "ldlKolesterol",
+      "label": "LDL Kolesterol (Opsiyonel)",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 0,
+      "businessContext": "Opsiyonel, direkt ölçülmüş LDL kolesterol. 0 verilirse Friedewald formülü ile hesaplanır."
+    }
+  ],
+  "formulas": {
+    "ldlKolesterol": "ldlKolesterol > 0 ? ldlKolesterol : totalKolesterol - hdlKolesterol - trigliserit / 5",
+    "tcHdlRatio": "totalKolesterol / hdlKolesterol",
+    "trigHdlRatio": "trigliserit / hdlKolesterol",
+    "nonHdlKolesterol": "totalKolesterol - hdlKolesterol"
+  },
+  "outputs": {
+    "primary": "ldlKolesterol",
+    "breakdown": [
+      "tcHdlRatio",
+      "trigHdlRatio",
+      "nonHdlKolesterol"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false
+}

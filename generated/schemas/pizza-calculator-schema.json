@@ -1,0 +1,55 @@
+{
+  "toolName": "pizza-calculator",
+  "inputs": [
+    {
+      "id": "pizzaDiameter",
+      "label": "Pizza Çapı",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "Pizzanın çapı (cm)"
+    },
+    {
+      "id": "pizzaPrice",
+      "label": "Pizza Fiyatı",
+      "type": "number",
+      "unit": "EUR",
+      "default": 10,
+      "businessContext": "Bir pizzanın satış fiyatı"
+    },
+    {
+      "id": "quantity",
+      "label": "Adet",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Sipariş edilen pizza adedi"
+    },
+    {
+      "id": "discountRate",
+      "label": "İndirim Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Uygulanacak indirim yüzdesi"
+    }
+  ],
+  "formulas": {
+    "pizzaArea": "Math.PI * Math.pow(pizzaDiameter / 2, 2)",
+    "pricePerSquareCm": "pizzaPrice / pizzaArea",
+    "totalCostAfterDiscount": "pizzaPrice * quantity * (1 - discountRate / 100)"
+  },
+  "outputs": {
+    "primary": "totalCostAfterDiscount",
+    "breakdown": [
+      "pizzaArea",
+      "pricePerSquareCm"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

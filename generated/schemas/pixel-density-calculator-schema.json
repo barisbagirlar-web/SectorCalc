@@ -1,0 +1,49 @@
+{
+  "toolName": "pixel-density-calculator",
+  "inputs": [
+    {
+      "id": "widthPx",
+      "label": "Screen Width",
+      "type": "number",
+      "unit": "px",
+      "default": 1920,
+      "businessContext": "Horizontal pixel count of the display"
+    },
+    {
+      "id": "heightPx",
+      "label": "Screen Height",
+      "type": "number",
+      "unit": "px",
+      "default": 1080,
+      "businessContext": "Vertical pixel count of the display"
+    },
+    {
+      "id": "diagonalInch",
+      "label": "Diagonal Size",
+      "type": "number",
+      "unit": "in",
+      "default": 24,
+      "businessContext": "Screen diagonal measurement in inches"
+    }
+  ],
+  "formulas": {
+    "ppi": "Math.sqrt((widthPx ** 2) + (heightPx ** 2)) / diagonalInch",
+    "dotPitchMm": "25.4 / (Math.sqrt((widthPx ** 2) + (heightPx ** 2)) / diagonalInch)",
+    "totalPixels": "widthPx * heightPx",
+    "aspectRatio": "widthPx / heightPx"
+  },
+  "outputs": {
+    "primary": "ppi",
+    "breakdown": [
+      "dotPitchMm",
+      "totalPixels",
+      "aspectRatio"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

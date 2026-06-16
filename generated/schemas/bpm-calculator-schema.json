@@ -1,0 +1,57 @@
+{
+  "toolName": "bpm-calculator",
+  "inputs": [
+    {
+      "id": "bpm",
+      "label": "BPM (Beats/Cycles per Minute)",
+      "type": "number",
+      "unit": "bpm",
+      "default": 120,
+      "businessContext": "Tempo or cycle rate of the process"
+    },
+    {
+      "id": "sampleRate",
+      "label": "Sample Rate",
+      "type": "number",
+      "unit": "Hz",
+      "default": 44100,
+      "businessContext": "Sampling frequency for digital measurement"
+    },
+    {
+      "id": "beats",
+      "label": "Number of Beats/Cycles",
+      "type": "number",
+      "unit": "count",
+      "default": 4,
+      "businessContext": "Number of beats or cycles to calculate duration for"
+    },
+    {
+      "id": "division",
+      "label": "Beat Division Multiplier",
+      "type": "number",
+      "unit": "factor",
+      "default": 1,
+      "businessContext": "Multiplier for note subdivisions (1=quarter, 2=eighth, 0.5=half)"
+    }
+  ],
+  "formulas": {
+    "totalTimeSeconds": "(beats / bpm) * 60",
+    "totalTimeSamples": "((beats / bpm) * 60) * sampleRate",
+    "timePerBeatMs": "(60 / bpm) * 1000",
+    "timePerBeatSamples": "((60 / bpm) * sampleRate)"
+  },
+  "outputs": {
+    "primary": "totalTimeSeconds",
+    "breakdown": [
+      "timePerBeatMs",
+      "timePerBeatSamples",
+      "totalTimeSamples"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

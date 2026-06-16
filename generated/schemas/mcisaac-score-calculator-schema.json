@@ -1,0 +1,69 @@
+{
+  "toolName": "mcisaac-score-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Patient age in years"
+    },
+    {
+      "id": "exudate",
+      "label": "Tonsillar Exudate",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "1 if tonsillar exudate present, 0 otherwise"
+    },
+    {
+      "id": "tenderLymph",
+      "label": "Tender Anterior Cervical Lymph Nodes",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "1 if tender anterior cervical lymphadenopathy, 0 otherwise"
+    },
+    {
+      "id": "feverTemp",
+      "label": "Fever Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 37,
+      "businessContext": "Body temperature in degrees Celsius"
+    },
+    {
+      "id": "cough",
+      "label": "Cough",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "1 if cough present, 0 if absent"
+    }
+  ],
+  "formulas": {
+    "score": "agePoints + exudatePoints + tenderLymphPoints + feverPoints + coughPoints",
+    "agePoints": "(age >= 3 && age <= 14) ? 1 : 0",
+    "exudatePoints": "exudate",
+    "tenderLymphPoints": "tenderLymph",
+    "feverPoints": "feverTemp > 38 ? 1 : 0",
+    "coughPoints": "cough ? 0 : 1"
+  },
+  "outputs": {
+    "primary": "score",
+    "breakdown": [
+      "agePoints",
+      "exudatePoints",
+      "tenderLymphPoints",
+      "feverPoints",
+      "coughPoints"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

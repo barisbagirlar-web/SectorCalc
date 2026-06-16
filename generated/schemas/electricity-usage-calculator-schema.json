@@ -1,0 +1,61 @@
+{
+  "toolName": "electricity-usage-calculator",
+  "inputs": [
+    {
+      "id": "power",
+      "label": "Power Consumption",
+      "type": "number",
+      "unit": "kW",
+      "default": 1,
+      "businessContext": "Average power consumption of the device or system in kilowatts."
+    },
+    {
+      "id": "hoursPerDay",
+      "label": "Usage per Day",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Number of hours the device is used per day, on average."
+    },
+    {
+      "id": "daysPerMonth",
+      "label": "Days per Month",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Number of days per month the device is operated."
+    },
+    {
+      "id": "numberOfDevices",
+      "label": "Number of Devices",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of identical devices operating under the same conditions."
+    },
+    {
+      "id": "costPerKwh",
+      "label": "Cost per kWh",
+      "type": "number",
+      "unit": "currency/kWh",
+      "default": 0.15,
+      "businessContext": "Electricity tariff rate per kilowatt-hour (in the local currency)."
+    }
+  ],
+  "formulas": {
+    "totalEnergyKwh": "power * hoursPerDay * daysPerMonth * numberOfDevices",
+    "totalCost": "totalEnergyKwh * costPerKwh"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "totalEnergyKwh"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

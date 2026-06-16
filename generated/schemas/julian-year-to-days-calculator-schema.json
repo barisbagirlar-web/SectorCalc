@@ -1,0 +1,55 @@
+{
+  "toolName": "julian-year-to-days-calculator",
+  "inputs": [
+    {
+      "id": "julianYears",
+      "label": "Julian Years",
+      "type": "number",
+      "unit": "years",
+      "default": 1,
+      "businessContext": "Number of Julian years to convert"
+    },
+    {
+      "id": "daysPerYear",
+      "label": "Days per Julian Year",
+      "type": "number",
+      "unit": "days/year",
+      "default": 365.25,
+      "businessContext": "Standard length of a Julian year"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 2,
+      "businessContext": "Number of decimal places in output"
+    },
+    {
+      "id": "roundingMode",
+      "label": "Rounding Mode",
+      "type": "number",
+      "unit": "mode (0=none, 1=round, 2=floor, 3=ceil)",
+      "default": 0,
+      "businessContext": "Rounding method for result"
+    }
+  ],
+  "formulas": {
+    "rawDays": "julianYears * daysPerYear",
+    "daysPerYearUsed": "daysPerYear",
+    "finalDays": "roundingMode == 0 ? rawDays : roundingMode == 1 ? Math.round(rawDays * Math.pow(10, precision)) / Math.pow(10, precision) : roundingMode == 2 ? Math.floor(rawDays * Math.pow(10, precision)) / Math.pow(10, precision) : Math.ceil(rawDays * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "finalDays",
+    "breakdown": [
+      "rawDays",
+      "daysPerYearUsed"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

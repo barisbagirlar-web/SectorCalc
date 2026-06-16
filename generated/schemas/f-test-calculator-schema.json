@@ -1,0 +1,56 @@
+{
+  "toolName": "f-test-calculator",
+  "inputs": [
+    {
+      "id": "ss1",
+      "label": "Sum of Squares (Group 1)",
+      "type": "number",
+      "unit": "unit²",
+      "default": 0,
+      "businessContext": "Sum of squared deviations for group 1"
+    },
+    {
+      "id": "df1",
+      "label": "Degrees of Freedom (Group 1)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Degrees of freedom for group 1"
+    },
+    {
+      "id": "ss2",
+      "label": "Sum of Squares (Group 2)",
+      "type": "number",
+      "unit": "unit²",
+      "default": 0,
+      "businessContext": "Sum of squared deviations for group 2"
+    },
+    {
+      "id": "df2",
+      "label": "Degrees of Freedom (Group 2)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Degrees of freedom for group 2"
+    }
+  ],
+  "formulas": {
+    "ms1": "ss1 / df1",
+    "ms2": "ss2 / df2",
+    "f_statistic": "ms1 / ms2"
+  },
+  "outputs": {
+    "primary": "f_statistic",
+    "breakdown": [
+      "ms1",
+      "ms2",
+      "f_statistic"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

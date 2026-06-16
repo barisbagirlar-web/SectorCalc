@@ -1,0 +1,65 @@
+{
+  "toolName": "beam-size-calculator",
+  "inputs": [
+    {
+      "id": "span",
+      "label": "Beam Span (L)",
+      "type": "number",
+      "unit": "mm",
+      "default": 3000,
+      "businessContext": "Clear distance between supports for a simply supported beam."
+    },
+    {
+      "id": "udl",
+      "label": "Uniformly Distributed Load (w)",
+      "type": "number",
+      "unit": "N/mm",
+      "default": 10,
+      "businessContext": "Load applied evenly along the full length of the beam."
+    },
+    {
+      "id": "allowableStress",
+      "label": "Allowable Bending Stress (σ_allow)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 160,
+      "businessContext": "Maximum permissible stress for the beam material under bending."
+    },
+    {
+      "id": "elasticModulus",
+      "label": "Modulus of Elasticity (E)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 200000,
+      "businessContext": "Young's modulus of the beam material."
+    },
+    {
+      "id": "deflectionRatio",
+      "label": "Deflection Limit Ratio (L/δ)",
+      "type": "number",
+      "unit": "",
+      "default": 360,
+      "businessContext": "Allowable deflection expressed as span divided by this ratio (e.g., 360 means L/360)."
+    }
+  ],
+  "formulas": {
+    "S_req_mm3": "(udl * Math.pow(span, 2) / 8) / allowableStress",
+    "I_req_mm4": "(5 * udl * Math.pow(span, 3) * deflectionRatio) / (384 * elasticModulus)",
+    "M_max_Nmm": "udl * Math.pow(span, 2) / 8",
+    "delta_allow_mm": "span / deflectionRatio"
+  },
+  "outputs": {
+    "primary": "S_req_mm3",
+    "breakdown": [
+      "I_req_mm4",
+      "M_max_Nmm",
+      "delta_allow_mm"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

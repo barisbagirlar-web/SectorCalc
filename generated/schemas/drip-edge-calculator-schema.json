@@ -1,0 +1,69 @@
+{
+  "toolName": "drip-edge-calculator",
+  "inputs": [
+    {
+      "id": "roofLength",
+      "label": "Roof Length",
+      "type": "number",
+      "unit": "ft",
+      "default": 40,
+      "businessContext": "Horizontal length of the eave edge (building length), used to calculate total eave drip edge distance."
+    },
+    {
+      "id": "roofWidth",
+      "label": "Roof Width",
+      "type": "number",
+      "unit": "ft",
+      "default": 30,
+      "businessContext": "Horizontal span from eave to eave (building width), used to compute the horizontal run of the gable rake."
+    },
+    {
+      "id": "roofPitch",
+      "label": "Roof Pitch",
+      "type": "number",
+      "unit": "in/12in",
+      "default": 4,
+      "businessContext": "Rise in inches per 12 inches of horizontal run, used to compute the slope length of the rake."
+    },
+    {
+      "id": "gableOverhang",
+      "label": "Gable Overhang",
+      "type": "number",
+      "unit": "ft",
+      "default": 1,
+      "businessContext": "Horizontal projection of the rake beyond the gable wall, added to half of roof width to obtain the total run."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of extra material to allow for cutting, fitting, and installation errors."
+    }
+  ],
+  "formulas": {
+    "run": "roofWidth / 2 + gableOverhang",
+    "rise": "run * (roofPitch / 12)",
+    "rakeLength": "Math.sqrt(Math.pow(rise,2) + Math.pow(run,2))",
+    "eaveLength": "2 * roofLength",
+    "totalRakeLength": "4 * rakeLength",
+    "baseTotal": "eaveLength + totalRakeLength",
+    "wasteAdded": "baseTotal * (wasteFactor / 100)",
+    "totalWithWaste": "baseTotal + wasteAdded"
+  },
+  "outputs": {
+    "primary": "totalWithWaste",
+    "breakdown": [
+      "eaveLength",
+      "totalRakeLength",
+      "wasteAdded"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

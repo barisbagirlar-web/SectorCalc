@@ -1,0 +1,73 @@
+{
+  "toolName": "equivalent-dose-calculator",
+  "inputs": [
+    {
+      "id": "betaGammaDose",
+      "label": "Beta/Gamma Dose",
+      "type": "number",
+      "unit": "Gy",
+      "default": 0,
+      "businessContext": "Absorbed dose from beta particles or gamma rays."
+    },
+    {
+      "id": "alphaDose",
+      "label": "Alpha Dose",
+      "type": "number",
+      "unit": "Gy",
+      "default": 0,
+      "businessContext": "Absorbed dose from alpha particles."
+    },
+    {
+      "id": "neutronDose",
+      "label": "Neutron Dose",
+      "type": "number",
+      "unit": "Gy",
+      "default": 0,
+      "businessContext": "Absorbed dose from neutrons."
+    },
+    {
+      "id": "wR_betaGamma",
+      "label": "Beta/Gamma Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Radiation weighting factor for beta/gamma radiation (typically 1)."
+    },
+    {
+      "id": "wR_alpha",
+      "label": "Alpha Factor",
+      "type": "number",
+      "unit": "",
+      "default": 20,
+      "businessContext": "Radiation weighting factor for alpha particles (typically 20)."
+    },
+    {
+      "id": "wR_neutron",
+      "label": "Neutron Factor",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Radiation weighting factor for neutrons (simplified, typically 5-20 depending on energy)."
+    }
+  ],
+  "formulas": {
+    "totalH": "betaGammaDose * wR_betaGamma + alphaDose * wR_alpha + neutronDose * wR_neutron",
+    "betaGammaContrib": "betaGammaDose * wR_betaGamma",
+    "alphaContrib": "alphaDose * wR_alpha",
+    "neutronContrib": "neutronDose * wR_neutron"
+  },
+  "outputs": {
+    "primary": "totalH",
+    "breakdown": [
+      "Beta/Gamma: {betaGammaContrib} Sv",
+      "Alpha: {alphaContrib} Sv",
+      "Neutron: {neutronContrib} Sv"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

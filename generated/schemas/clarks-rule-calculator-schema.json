@@ -1,0 +1,38 @@
+{
+  "toolName": "clarks-rule-calculator",
+  "inputs": [
+    {
+      "id": "adultDose",
+      "label": "Adult Dose",
+      "type": "number",
+      "unit": "mg",
+      "default": 500,
+      "businessContext": "Standard adult dosage of the medication"
+    },
+    {
+      "id": "patientWeight",
+      "label": "Patient Weight",
+      "type": "number",
+      "unit": "lb",
+      "default": 70,
+      "businessContext": "Weight of the pediatric patient in pounds"
+    }
+  ],
+  "formulas": {
+    "childDose": "adultDose * (patientWeight / 150)",
+    "childDoseRounded": "Math.round(childDose * 100) / 100"
+  },
+  "outputs": {
+    "primary": "childDoseRounded",
+    "breakdown": [
+      "childDose = adultDose * (patientWeight / 150)",
+      "childDoseRounded = Math.round(childDose * 100) / 100"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

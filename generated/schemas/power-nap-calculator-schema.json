@@ -1,0 +1,56 @@
+{
+  "toolName": "power-nap-calculator",
+  "inputs": [
+    {
+      "id": "currentTimeMinutes",
+      "label": "Current Time (minutes past midnight)",
+      "type": "number",
+      "unit": "min",
+      "default": 480,
+      "businessContext": "Current time expressed in minutes since midnight (0-1439)."
+    },
+    {
+      "id": "deadlineTimeMinutes",
+      "label": "Deadline Wake-Up Time (minutes past midnight)",
+      "type": "number",
+      "unit": "min",
+      "default": 720,
+      "businessContext": "Latest time by which you must be awake, in minutes since midnight."
+    },
+    {
+      "id": "sleepLatencyMinutes",
+      "label": "Time to Fall Asleep",
+      "type": "number",
+      "unit": "min",
+      "default": 10,
+      "businessContext": "Estimated minutes needed to fall asleep after lying down."
+    },
+    {
+      "id": "napQualityGoal",
+      "label": "Desired Nap Quality (1-10)",
+      "type": "number",
+      "unit": "score",
+      "default": 5,
+      "businessContext": "Subjective goal for post-nap alertness; 10 = maximum revitalization."
+    }
+  ],
+  "formulas": {
+    "availableTimeMinutes": "deadlineTimeMinutes - currentTimeMinutes",
+    "powerNapFeasible": "(availableTimeMinutes >= (20 + sleepLatencyMinutes)) && (availableTimeMinutes > 0)",
+    "fullCycleFeasible": "availableTimeMinutes >= (90 + sleepLatencyMinutes)",
+    "recommendedNapDuration": "fullCycleFeasible && napQualityGoal >= 5 ? 90 : (powerNapFeasible ? 20 : 0)"
+  },
+  "outputs": {
+    "primary": "recommendedNapDuration",
+    "breakdown": [
+      "powerNapFeasible",
+      "fullCycleFeasible"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

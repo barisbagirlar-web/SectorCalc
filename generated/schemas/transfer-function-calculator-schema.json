@@ -1,0 +1,67 @@
+{
+  "toolName": "transfer-function-calculator",
+  "inputs": [
+    {
+      "id": "gain",
+      "label": "Gain (K)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Steady-state gain of the system."
+    },
+    {
+      "id": "zeta",
+      "label": "Damping Ratio (ζ)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.5,
+      "businessContext": "Damping ratio of the second-order system. Must be >0. For underdamped, 0<ζ<1."
+    },
+    {
+      "id": "omega_n",
+      "label": "Natural Frequency (ω_n)",
+      "type": "number",
+      "unit": "rad/s",
+      "default": 1,
+      "businessContext": "Natural frequency in radians per second."
+    },
+    {
+      "id": "step_amplitude",
+      "label": "Step Input Amplitude",
+      "type": "number",
+      "unit": "input unit",
+      "default": 1,
+      "businessContext": "Magnitude of the step input signal applied."
+    },
+    {
+      "id": "tau",
+      "label": "Time Delay (τ)",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Transport delay or dead time in seconds."
+    }
+  ],
+  "formulas": {
+    "percentOvershoot": "100 * Math.exp(-(zeta * Math.PI) / Math.sqrt(1 - Math.pow(zeta, 2)))",
+    "peakTime": "Math.PI / (omega_n * Math.sqrt(1 - Math.pow(zeta, 2))) + tau",
+    "settlingTime": "4 / (zeta * omega_n) + tau",
+    "riseTime": "(Math.PI - Math.acos(zeta)) / (omega_n * Math.sqrt(1 - Math.pow(zeta, 2))) + tau",
+    "steadyStateOutput": "gain * step_amplitude"
+  },
+  "outputs": {
+    "primary": "percentOvershoot",
+    "breakdown": [
+      "peakTime",
+      "settlingTime",
+      "riseTime",
+      "steadyStateOutput"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

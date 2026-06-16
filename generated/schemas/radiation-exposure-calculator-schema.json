@@ -1,0 +1,71 @@
+{
+  "toolName": "radiation-exposure-calculator",
+  "inputs": [
+    {
+      "id": "sourceActivity",
+      "label": "Source Activity",
+      "type": "number",
+      "unit": "Ci",
+      "default": 1,
+      "businessContext": "Enter the activity of the radioactive source in curies."
+    },
+    {
+      "id": "gammaConstant",
+      "label": "Gamma Constant",
+      "type": "number",
+      "unit": "R·m²/(Ci·h)",
+      "default": 0.5,
+      "businessContext": "Specific gamma constant for the isotope in R*m²/(Ci*h)."
+    },
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Distance from the source in meters."
+    },
+    {
+      "id": "shieldThickness",
+      "label": "Shield Thickness",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "Thickness of the shielding material in cm."
+    },
+    {
+      "id": "hvl",
+      "label": "Half-Value Layer (HVL)",
+      "type": "number",
+      "unit": "cm",
+      "default": 1,
+      "businessContext": "Half-value layer of the shielding material for the gamma energy."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Dose Conversion Factor",
+      "type": "number",
+      "unit": "µSv/R",
+      "default": 8.77,
+      "businessContext": "Conversion factor from exposure (R) to dose (µSv), typically 8.77 for air."
+    }
+  ],
+  "formulas": {
+    "exposureRate": "(sourceActivity * gammaConstant) / (distance ** 2)",
+    "attenuationFactor": "Math.pow(2, -shieldThickness / hvl)",
+    "doseRate": "exposureRate * attenuationFactor * conversionFactor"
+  },
+  "outputs": {
+    "primary": "doseRate",
+    "breakdown": [
+      "exposureRate",
+      "attenuationFactor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

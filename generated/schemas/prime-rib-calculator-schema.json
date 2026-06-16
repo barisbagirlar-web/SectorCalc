@@ -1,0 +1,54 @@
+{
+  "toolName": "prime-rib-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight of Prime Rib",
+      "type": "number",
+      "unit": "lb",
+      "default": 10,
+      "businessContext": "Weight of the prime rib roast in pounds"
+    },
+    {
+      "id": "minutesPerPound",
+      "label": "Minutes per Pound",
+      "type": "number",
+      "unit": "min/lb",
+      "default": 5,
+      "businessContext": "Cooking time factor per pound, typically 5 for rare at 500°F"
+    },
+    {
+      "id": "baseTime",
+      "label": "Base Time",
+      "type": "number",
+      "unit": "min",
+      "default": 0,
+      "businessContext": "Any additional base cooking time, e.g., for searing, in minutes"
+    },
+    {
+      "id": "restingTime",
+      "label": "Resting Time",
+      "type": "number",
+      "unit": "min",
+      "default": 15,
+      "businessContext": "Time to rest the roast after cooking, in minutes"
+    }
+  ],
+  "formulas": {
+    "cookingTime": "weight * minutesPerPound + baseTime",
+    "totalTime": "cookingTime + restingTime"
+  },
+  "outputs": {
+    "primary": "totalTime",
+    "breakdown": [
+      "cookingTime",
+      "restingTime"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

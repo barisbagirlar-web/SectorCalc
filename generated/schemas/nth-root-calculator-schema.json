@@ -1,0 +1,65 @@
+{
+  "toolName": "nth-root-calculator",
+  "inputs": [
+    {
+      "id": "radicand",
+      "label": "Radicand",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Measurement value"
+    },
+    {
+      "id": "index",
+      "label": "Index (n)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Root degree"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 6,
+      "businessContext": "Display precision"
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "",
+      "default": 1e-10,
+      "businessContext": "Calculation tolerance"
+    },
+    {
+      "id": "initialGuess",
+      "label": "Initial Guess",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Iteration start value"
+    }
+  ],
+  "formulas": {
+    "nthRoot": "(radicand >= 0 ? 1 : -1) * (radicand >= 0 ? radicand : -radicand) ** (1 / index)",
+    "inputRadicand": "radicand",
+    "inputIndex": "index",
+    "rootVerification": "nthRoot ** index"
+  },
+  "outputs": {
+    "primary": "nthRoot",
+    "breakdown": [
+      "inputRadicand",
+      "inputIndex",
+      "rootVerification"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

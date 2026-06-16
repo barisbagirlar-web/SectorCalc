@@ -1,0 +1,56 @@
+{
+  "toolName": "social-security-calculator",
+  "inputs": [
+    {
+      "id": "monthlyGrossSalary",
+      "label": "Aylık Brüt Maaş",
+      "type": "number",
+      "unit": "TL",
+      "default": 5000,
+      "businessContext": "Çalışanın aylık brüt maaşı"
+    },
+    {
+      "id": "employeeRate",
+      "label": "İşçi Payı Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 14,
+      "businessContext": "SGK işçi prim oranı"
+    },
+    {
+      "id": "employerRate",
+      "label": "İşveren Payı Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20.5,
+      "businessContext": "SGK işveren prim oranı"
+    },
+    {
+      "id": "capAmount",
+      "label": "Tavan Ücret (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 25000,
+      "businessContext": "SGK primine esas kazanç üst sınırı"
+    }
+  ],
+  "formulas": {
+    "cappedSalary": "Math.min(monthlyGrossSalary, capAmount)",
+    "employeeContribution": "cappedSalary * employeeRate / 100",
+    "employerContribution": "cappedSalary * employerRate / 100",
+    "toplamSGKPrimi": "employeeContribution + employerContribution"
+  },
+  "outputs": {
+    "primary": "toplamSGKPrimi",
+    "breakdown": [
+      "employeeContribution",
+      "employerContribution"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

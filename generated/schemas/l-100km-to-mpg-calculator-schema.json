@@ -1,0 +1,89 @@
+{
+  "toolName": "l-100km-to-mpg-calculator",
+  "inputs": [
+    {
+      "id": "l_per_100km",
+      "label": "Fuel Consumption (L/100km)",
+      "type": "number",
+      "unit": "L/100km",
+      "default": 8,
+      "businessContext": "Measured or rated fuel consumption in liters per 100 kilometers."
+    },
+    {
+      "id": "gallon_type",
+      "label": "Gallon Standard",
+      "type": "number",
+      "unit": "none",
+      "default": 1,
+      "businessContext": "1 = US gallon (3.785411784 L), 2 = UK gallon (4.54609 L)."
+    },
+    {
+      "id": "decimal_places",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "none",
+      "default": 2,
+      "businessContext": "Number of decimal places for output rounding."
+    },
+    {
+      "id": "rounding_method",
+      "label": "Rounding Method",
+      "type": "number",
+      "unit": "none",
+      "default": 0,
+      "businessContext": "0 = round, 1 = floor, 2 = ceil."
+    },
+    {
+      "id": "measurement_standard",
+      "label": "Measurement Standard",
+      "type": "number",
+      "unit": "none",
+      "default": 1,
+      "businessContext": "1 = EU, 2 = US, 3 = UK, for reporting context."
+    },
+    {
+      "id": "fuel_type",
+      "label": "Fuel Type",
+      "type": "number",
+      "unit": "none",
+      "default": 1,
+      "businessContext": "1 = petrol, 2 = diesel, 3 = electric equivalent (for context)."
+    },
+    {
+      "id": "vehicle_class",
+      "label": "Vehicle Class",
+      "type": "number",
+      "unit": "none",
+      "default": 1,
+      "businessContext": "1 = passenger car, 2 = light truck, 3 = heavy duty (for context)."
+    },
+    {
+      "id": "route_type",
+      "label": "Route Type",
+      "type": "number",
+      "unit": "none",
+      "default": 3,
+      "businessContext": "1 = highway, 2 = city, 3 = combined (driving condition context)."
+    }
+  ],
+  "formulas": {
+    "conversion_factor": "gallon_type == 1 ? 235.214583 : 282.480936",
+    "base_mpg": "l_per_100km > 0 ? conversion_factor / l_per_100km : 0",
+    "output_mpg": "rounding_method == 0 ? Math.round(base_mpg * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places) : rounding_method == 1 ? Math.floor(base_mpg * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places) : Math.ceil(base_mpg * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)"
+  },
+  "outputs": {
+    "primary": "output_mpg",
+    "breakdown": [
+      "Input Fuel Consumption: l_per_100km L/100km",
+      "Gallon Standard: gallon_type == 1 ? 'US' : 'UK'",
+      "Conversion Factor: conversion_factor",
+      "Calculated MPG: output_mpg miles per gallon"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "aquarium-heater-calculator",
+  "inputs": [
+    {
+      "id": "volume",
+      "label": "Tank Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 100,
+      "businessContext": "Volume of water in the aquarium, determining thermal mass"
+    },
+    {
+      "id": "targetTemp",
+      "label": "Target Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 26,
+      "businessContext": "Desired water temperature for aquatic species"
+    },
+    {
+      "id": "roomTemp",
+      "label": "Room Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Surrounding ambient temperature affecting heat loss"
+    },
+    {
+      "id": "heatingTime",
+      "label": "Heating Time",
+      "type": "number",
+      "unit": "h",
+      "default": 24,
+      "businessContext": "Time allowed for initial heating or temperature recovery"
+    },
+    {
+      "id": "efficiency",
+      "label": "System Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Overall efficiency accounting for heat loss through glass and evaporation"
+    },
+    {
+      "id": "safetyMargin",
+      "label": "Safety Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Additional capacity to ensure stable temperature under varying conditions"
+    }
+  ],
+  "formulas": {
+    "tempRise": "targetTemp - roomTemp",
+    "heatEnergy": "(volume * 4.186 * tempRise) / 3600",
+    "requiredWattage": "(heatEnergy * 1000) / (heatingTime * (efficiency / 100))",
+    "recommendedWattage": "requiredWattage * (1 + safetyMargin / 100)"
+  },
+  "outputs": {
+    "primary": "recommendedWattage",
+    "breakdown": [
+      "tempRise",
+      "heatEnergy",
+      "requiredWattage"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,60 @@
+{
+  "toolName": "density-altitude-calculator",
+  "inputs": [
+    {
+      "id": "fieldElevation",
+      "label": "Field Elevation",
+      "type": "number",
+      "unit": "ft",
+      "default": 0,
+      "businessContext": "Elevation of the airport or site above mean sea level"
+    },
+    {
+      "id": "altimeterSetting",
+      "label": "Altimeter Setting",
+      "type": "number",
+      "unit": "inHg",
+      "default": 29.92,
+      "businessContext": "Current barometric pressure setting from ATIS/AWOS"
+    },
+    {
+      "id": "temperature",
+      "label": "Outside Air Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 15,
+      "businessContext": "Measured outside air temperature"
+    },
+    {
+      "id": "dewPoint",
+      "label": "Dew Point",
+      "type": "number",
+      "unit": "°C",
+      "default": 10,
+      "businessContext": "Dew point temperature for humidity correction"
+    }
+  ],
+  "formulas": {
+    "pressureAltitude": "fieldElevation + (29.92 - altimeterSetting) * 1000",
+    "isaTemperature": "15 - 0.0019812 * pressureAltitude",
+    "airPressure": "1013.25 * Math.pow(1 - 2.25577e-5 * (pressureAltitude * 0.3048), 5.25588)",
+    "vaporPressure": "6.11 * Math.pow(10, (7.5 * dewPoint) / (237.7 + dewPoint))",
+    "mixingRatio": "0.622 * vaporPressure / (airPressure - vaporPressure)",
+    "virtualTemperature": "(temperature + 273.15) * (1 + 0.608 * mixingRatio) - 273.15",
+    "densityAltitude": "pressureAltitude + 118.8 * (virtualTemperature - isaTemperature)"
+  },
+  "outputs": {
+    "primary": "densityAltitude",
+    "breakdown": [
+      "pressureAltitude",
+      "isaTemperature",
+      "virtualTemperature"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

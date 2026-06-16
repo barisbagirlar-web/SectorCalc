@@ -1,0 +1,53 @@
+{
+  "toolName": "internal-energy-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Kütle (m)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Maddenin kütlesi"
+    },
+    {
+      "id": "specificHeatCapacity",
+      "label": "Sabit Hacimde Özgül Isı Kapasitesi (cᵥ)",
+      "type": "number",
+      "unit": "kJ/(kg·K)",
+      "default": 0.718,
+      "businessContext": "İdeal gaz veya sıkıştırılamaz akışkan için cᵥ"
+    },
+    {
+      "id": "initialTemperature",
+      "label": "Başlangıç Sıcaklığı (T₁)",
+      "type": "number",
+      "unit": "K",
+      "default": 300,
+      "businessContext": "Başlangıç sıcaklığı (Kelvin)"
+    },
+    {
+      "id": "finalTemperature",
+      "label": "Son Sıcaklık (T₂)",
+      "type": "number",
+      "unit": "K",
+      "default": 350,
+      "businessContext": "Son sıcaklık (Kelvin)"
+    }
+  ],
+  "formulas": {
+    "deltaT": "finalTemperature - initialTemperature",
+    "internalEnergy": "mass * specificHeatCapacity * (finalTemperature - initialTemperature)"
+  },
+  "outputs": {
+    "primary": "internalEnergy",
+    "breakdown": [
+      "deltaT"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

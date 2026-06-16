@@ -1,0 +1,91 @@
+{
+  "toolName": "college-savings-calculator",
+  "inputs": [
+    {
+      "id": "childAge",
+      "label": "Child's Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 0,
+      "businessContext": "Current age of the child"
+    },
+    {
+      "id": "yearsToCollege",
+      "label": "Years Until College",
+      "type": "number",
+      "unit": "years",
+      "default": 18,
+      "businessContext": "Number of years until college starts"
+    },
+    {
+      "id": "currentSavings",
+      "label": "Current Savings",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Amount already saved for college"
+    },
+    {
+      "id": "annualContribution",
+      "label": "Annual Contribution",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Amount contributed each year toward college"
+    },
+    {
+      "id": "expectedReturn",
+      "label": "Expected Rate of Return",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Expected annual return on invested savings"
+    },
+    {
+      "id": "inflationRate",
+      "label": "Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Expected annual inflation rate for college costs"
+    },
+    {
+      "id": "annualCollegeCost",
+      "label": "Annual College Cost (Today's $)",
+      "type": "number",
+      "unit": "$",
+      "default": 20000,
+      "businessContext": "Current annual cost of college in today's dollars"
+    },
+    {
+      "id": "collegeYears",
+      "label": "Years of College",
+      "type": "number",
+      "unit": "years",
+      "default": 4,
+      "businessContext": "Number of years of college attendance"
+    }
+  ],
+  "formulas": {
+    "totalSavings": "currentSavings * Math.pow(1 + expectedReturn/100, yearsToCollege) + annualContribution * ((Math.pow(1 + expectedReturn/100, yearsToCollege) - 1) / (expectedReturn/100))",
+    "totalContributions": "currentSavings + annualContribution * yearsToCollege",
+    "totalInterestEarned": "totalSavings - totalContributions",
+    "inflationAdjustedCollegeCost": "annualCollegeCost * collegeYears * Math.pow(1 + inflationRate/100, yearsToCollege)",
+    "shortfall": "totalSavings - inflationAdjustedCollegeCost"
+  },
+  "outputs": {
+    "primary": "shortfall",
+    "breakdown": [
+      "totalSavings",
+      "inflationAdjustedCollegeCost",
+      "totalContributions",
+      "totalInterestEarned"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

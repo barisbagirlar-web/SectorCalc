@@ -1,0 +1,82 @@
+{
+  "toolName": "basement-wall-calculator",
+  "inputs": [
+    {
+      "id": "wall_length",
+      "label": "Wall Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of the basement wall"
+    },
+    {
+      "id": "wall_height",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Height of the basement wall"
+    },
+    {
+      "id": "wall_thickness",
+      "label": "Wall Thickness",
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "businessContext": "Thickness of the basement wall"
+    },
+    {
+      "id": "concrete_strength",
+      "label": "Concrete Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 25,
+      "businessContext": "Compressive strength of concrete"
+    },
+    {
+      "id": "steel_ratio",
+      "label": "Steel Reinforcement Ratio",
+      "type": "number",
+      "unit": "%",
+      "default": 1.5,
+      "businessContext": "Percentage of steel reinforcement by volume"
+    },
+    {
+      "id": "soil_pressure",
+      "label": "Soil Lateral Pressure",
+      "type": "number",
+      "unit": "kN/m²",
+      "default": 30,
+      "businessContext": "Lateral pressure from soil"
+    }
+  ],
+  "formulas": {
+    "wall_volume": "wall_length * wall_height * wall_thickness",
+    "concrete_volume": "wall_volume * (1 - steel_ratio / 100)",
+    "steel_volume": "wall_volume * (steel_ratio / 100)",
+    "steel_weight": "steel_volume * 7850",
+    "moment_capacity": "concrete_strength * wall_thickness * wall_thickness / 6",
+    "shear_capacity": "0.5 * Math.sqrt(concrete_strength) * wall_thickness * wall_height",
+    "lateral_load": "soil_pressure * wall_height * wall_length / 2",
+    "safety_factor_moment": "moment_capacity / (lateral_load * wall_height / 3)",
+    "safety_factor_shear": "shear_capacity / lateral_load"
+  },
+  "outputs": {
+    "primary": "wall_volume",
+    "breakdown": [
+      "concrete_volume",
+      "steel_weight",
+      "moment_capacity",
+      "shear_capacity",
+      "lateral_load",
+      "safety_factor_moment",
+      "safety_factor_shear"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

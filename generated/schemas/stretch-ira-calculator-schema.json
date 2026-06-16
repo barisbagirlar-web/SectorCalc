@@ -1,0 +1,55 @@
+{
+  "toolName": "stretch-ira-calculator",
+  "inputs": [
+    {
+      "id": "initialBalance",
+      "label": "Initial IRA Balance",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "Current total balance of the inherited IRA."
+    },
+    {
+      "id": "annualReturnRate",
+      "label": "Expected Annual Return Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Expected annual percentage return on investments."
+    },
+    {
+      "id": "beneficiaryAge",
+      "label": "Beneficiary Age",
+      "type": "number",
+      "unit": "years",
+      "default": 50,
+      "businessContext": "Age of the beneficiary in the current year."
+    },
+    {
+      "id": "lifeExpectancyFactor",
+      "label": "Life Expectancy Factor",
+      "type": "number",
+      "unit": "years",
+      "default": 36.2,
+      "businessContext": "IRS Single Life Expectancy factor from Table I for the beneficiary's age. E.g., for age 50, factor is 36.2."
+    }
+  ],
+  "formulas": {
+    "requiredMinimumDistribution": "initialBalance / lifeExpectancyFactor",
+    "remainingBalance": "initialBalance - (initialBalance / lifeExpectancyFactor)",
+    "projectedBalanceNextYear": "(initialBalance - (initialBalance / lifeExpectancyFactor)) * (1 + annualReturnRate / 100)"
+  },
+  "outputs": {
+    "primary": "requiredMinimumDistribution",
+    "breakdown": [
+      "remainingBalance",
+      "projectedBalanceNextYear"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

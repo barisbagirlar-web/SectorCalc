@@ -1,0 +1,66 @@
+{
+  "toolName": "btu-to-joules-calculator",
+  "inputs": [
+    {
+      "id": "btuValue",
+      "label": "BTU Value",
+      "type": "number",
+      "unit": "BTU",
+      "default": 0,
+      "businessContext": "Energy quantity in British Thermal Units"
+    },
+    {
+      "id": "btuStandard",
+      "label": "BTU Standard",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1: IT (1055.06 J), 2: Thermochemical (1054.35 J), 3: ISO (1055.06 J), 4: Mean (1055.87 J)"
+    },
+    {
+      "id": "precision",
+      "label": "Precision",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output"
+    },
+    {
+      "id": "factorOverride",
+      "label": "Custom Conversion Factor",
+      "type": "number",
+      "unit": "J/BTU",
+      "default": 0,
+      "businessContext": "Override standard factor; 0 to use selected standard"
+    },
+    {
+      "id": "outputUnit",
+      "label": "Output Unit",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1: Joules, 2: Kilojoules"
+    }
+  ],
+  "formulas": {
+    "conversionFactor": "factorOverride !== 0 ? factorOverride : (btuStandard === 1 ? 1055.05585262 : (btuStandard === 2 ? 1054.350 : (btuStandard === 3 ? 1055.056 : (btuStandard === 4 ? 1055.87 : 1055.05585262))))",
+    "rawJoules": "btuValue * conversionFactor",
+    "joules": "outputUnit === 2 ? rawJoules / 1000 : rawJoules",
+    "roundedJoules": "Math.round(joules * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "roundedJoules",
+    "breakdown": [
+      "`Conversion factor: ${conversionFactor} J/BTU`",
+      "`Raw energy: ${rawJoules} ${outputUnit === 2 ? 'kJ' : 'J'}`",
+      "`Standard used: ${btuStandard === 1 ? 'IT' : btuStandard === 2 ? 'Thermochemical' : btuStandard === 3 ? 'ISO' : btuStandard === 4 ? 'Mean' : 'Unknown'}`",
+      "`Precision: ${precision} decimal places`"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

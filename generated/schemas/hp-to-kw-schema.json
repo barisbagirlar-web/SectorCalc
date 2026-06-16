@@ -1,0 +1,73 @@
+{
+  "toolName": "hp-to-kw",
+  "inputs": [
+    {
+      "id": "horsepower",
+      "label": "Horsepower (HP)",
+      "type": "number",
+      "unit": "hp",
+      "default": 1,
+      "businessContext": "Motor gücü beygir gücü cinsinden"
+    },
+    {
+      "id": "efficiency",
+      "label": "Motor Efficiency (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Motor verimliliği yüzde olarak"
+    },
+    {
+      "id": "powerFactor",
+      "label": "Power Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.85,
+      "businessContext": "Güç faktörü (0-1 arası)"
+    },
+    {
+      "id": "voltage",
+      "label": "Voltage (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 400,
+      "businessContext": "Motor besleme gerilimi"
+    },
+    {
+      "id": "current",
+      "label": "Current (A)",
+      "type": "number",
+      "unit": "A",
+      "default": 10,
+      "businessContext": "Motor akımı"
+    },
+    {
+      "id": "phases",
+      "label": "Number of Phases",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Faz sayısı (1 veya 3)"
+    }
+  ],
+  "formulas": {
+    "mechanicalPowerKW": "horsepower * 0.7457",
+    "electricalPowerKW": "voltage * current * powerFactor * Math.sqrt(phases) / 1000",
+    "outputPowerKW": "mechanicalPowerKW * (efficiency / 100)",
+    "lossesKW": "mechanicalPowerKW - outputPowerKW"
+  },
+  "outputs": {
+    "primary": "outputPowerKW",
+    "breakdown": [
+      "mechanicalPowerKW",
+      "electricalPowerKW",
+      "lossesKW"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,64 @@
+{
+  "toolName": "piano-tuning-calculator",
+  "inputs": [
+    {
+      "id": "referenceMidi",
+      "label": "Reference Note MIDI Number",
+      "type": "number",
+      "unit": "MIDI",
+      "default": 69,
+      "businessContext": "MIDI note number of the reference pitch (e.g., A4 = 69)."
+    },
+    {
+      "id": "referenceFreq",
+      "label": "Reference Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 440,
+      "businessContext": "Standard tuning frequency of the reference note in Hertz."
+    },
+    {
+      "id": "targetMidi",
+      "label": "Target Note MIDI Number",
+      "type": "number",
+      "unit": "MIDI",
+      "default": 60,
+      "businessContext": "MIDI note number of the key to tune."
+    },
+    {
+      "id": "detuneCents",
+      "label": "Detuning Offset",
+      "type": "number",
+      "unit": "cents",
+      "default": 0,
+      "businessContext": "Tuning offset in cents (1/100 semitone) for historical temperaments or artistic adjustment."
+    },
+    {
+      "id": "inharmonicityCoeff",
+      "label": "Inharmonicity Coefficient (B)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Inharmonicity coefficient for stretch tuning. Typical for a piano: B ≈ 0.0004. Set to 0 for pure equal temperament."
+    }
+  ],
+  "formulas": {
+    "baseEqFrequency": "referenceFreq * Math.pow(2, (targetMidi - referenceMidi) / 12) * Math.pow(2, detuneCents / 1200)",
+    "stretchFactor": "1 + inharmonicityCoeff * Math.pow(targetMidi - referenceMidi, 2)",
+    "finalFrequency": "baseEqFrequency * stretchFactor"
+  },
+  "outputs": {
+    "primary": "finalFrequency",
+    "breakdown": [
+      "baseEqFrequency",
+      "stretchFactor",
+      "finalFrequency"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

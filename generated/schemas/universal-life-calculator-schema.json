@@ -1,0 +1,73 @@
+{
+  "toolName": "universal-life-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the insured at policy inception"
+    },
+    {
+      "id": "annualPremium",
+      "label": "Annual Premium",
+      "type": "number",
+      "unit": "TRY",
+      "default": 3000,
+      "businessContext": "Annual premium paid by the policyholder"
+    },
+    {
+      "id": "faceAmount",
+      "label": "Face Amount",
+      "type": "number",
+      "unit": "TRY",
+      "default": 250000,
+      "businessContext": "Initial death benefit guaranteed under the policy"
+    },
+    {
+      "id": "interestRate",
+      "label": "Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "businessContext": "Annual credited interest rate on cash value"
+    },
+    {
+      "id": "policyDuration",
+      "label": "Policy Duration",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "Number of years premiums are paid and interest accumulates"
+    },
+    {
+      "id": "expenseCharge",
+      "label": "Expense Charge",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Annual percentage charge for mortality and expenses deducted from cash value accumulation"
+    }
+  ],
+  "formulas": {
+    "interestRateDecimal": "interestRate / 100",
+    "expenseChargeDecimal": "expenseCharge / 100",
+    "totalPremiumsPaid": "annualPremium * policyDuration",
+    "cashValue": "annualPremium * ((Math.pow(1 + interestRateDecimal, policyDuration) - 1) / interestRateDecimal) * (1 - expenseChargeDecimal)",
+    "deathBenefit": "faceAmount + cashValue"
+  },
+  "outputs": {
+    "primary": "cashValue",
+    "breakdown": [
+      "totalPremiumsPaid",
+      "deathBenefit"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

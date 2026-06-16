@@ -1,0 +1,53 @@
+{
+  "toolName": "non-hdl-cholesterol-calculator",
+  "inputs": [
+    {
+      "id": "totalCholesterol",
+      "label": "Total Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 200,
+      "businessContext": "Serum total cholesterol level"
+    },
+    {
+      "id": "hdlCholesterol",
+      "label": "HDL Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 50,
+      "businessContext": "Serum HDL cholesterol level"
+    },
+    {
+      "id": "triglycerides",
+      "label": "Triglycerides",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 150,
+      "businessContext": "Serum triglycerides level, used for LDL calculation when flag enabled"
+    },
+    {
+      "id": "calculateLdl",
+      "label": "Calculate LDL",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Set to 1 to compute LDL cholesterol using Friedewald formula (valid for triglycerides <400 mg/dL)"
+    }
+  ],
+  "formulas": {
+    "nonHdlCholesterol": "totalCholesterol - hdlCholesterol",
+    "ldlCholesterol": "calculateLdl * (totalCholesterol - hdlCholesterol - (triglycerides / 5))"
+  },
+  "outputs": {
+    "primary": "nonHdlCholesterol",
+    "breakdown": [
+      "ldlCholesterol"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

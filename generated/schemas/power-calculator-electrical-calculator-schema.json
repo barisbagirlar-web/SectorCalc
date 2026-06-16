@@ -1,0 +1,71 @@
+{
+  "toolName": "power-calculator-electrical-calculator",
+  "inputs": [
+    {
+      "id": "voltage",
+      "label": "Voltage (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 230,
+      "businessContext": "Supply voltage"
+    },
+    {
+      "id": "current",
+      "label": "Current (A)",
+      "type": "number",
+      "unit": "A",
+      "default": 10,
+      "businessContext": "Load current"
+    },
+    {
+      "id": "powerFactor",
+      "label": "Power Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "cos φ (0.8 inductive typically)"
+    },
+    {
+      "id": "phaseCount",
+      "label": "Phase Count",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for single-phase, 3 for three-phase"
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "0 to 1"
+    },
+    {
+      "id": "isAC",
+      "label": "AC (1) or DC (0)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "0 for DC, 1 for AC"
+    }
+  ],
+  "formulas": {
+    "realPower_W": "isAC === 0 ? voltage * current * efficiency : voltage * current * powerFactor * (phaseCount === 3 ? Math.sqrt(3) : 1) * efficiency",
+    "apparentPower_VA": "isAC === 0 ? voltage * current : voltage * current * (phaseCount === 3 ? Math.sqrt(3) : 1)",
+    "reactivePower_VAR": "isAC === 0 ? 0 : voltage * current * (phaseCount === 3 ? Math.sqrt(3) : 1) * Math.sqrt(1 - powerFactor * powerFactor)"
+  },
+  "outputs": {
+    "primary": "realPower_W",
+    "breakdown": [
+      "apparentPower_VA",
+      "reactivePower_VAR"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

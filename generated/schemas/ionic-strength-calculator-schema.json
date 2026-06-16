@@ -1,0 +1,91 @@
+{
+  "toolName": "ionic-strength-calculator",
+  "inputs": [
+    {
+      "id": "concentration1",
+      "label": "Ion 1 Concentration",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.1,
+      "businessContext": "Concentration of the first ion in solution"
+    },
+    {
+      "id": "charge1",
+      "label": "Ion 1 Charge",
+      "type": "number",
+      "unit": "e",
+      "default": 1,
+      "businessContext": "Charge number of the first ion (e.g., Na+ = 1, Ca2+ = 2)"
+    },
+    {
+      "id": "concentration2",
+      "label": "Ion 2 Concentration",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0,
+      "businessContext": "Concentration of the second ion in solution"
+    },
+    {
+      "id": "charge2",
+      "label": "Ion 2 Charge",
+      "type": "number",
+      "unit": "e",
+      "default": 0,
+      "businessContext": "Charge number of the second ion (enter 0 if not used)"
+    },
+    {
+      "id": "concentration3",
+      "label": "Ion 3 Concentration",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0,
+      "businessContext": "Concentration of the third ion in solution"
+    },
+    {
+      "id": "charge3",
+      "label": "Ion 3 Charge",
+      "type": "number",
+      "unit": "e",
+      "default": 0,
+      "businessContext": "Charge number of the third ion (enter 0 if not used)"
+    },
+    {
+      "id": "concentration4",
+      "label": "Ion 4 Concentration",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0,
+      "businessContext": "Concentration of the fourth ion in solution"
+    },
+    {
+      "id": "charge4",
+      "label": "Ion 4 Charge",
+      "type": "number",
+      "unit": "e",
+      "default": 0,
+      "businessContext": "Charge number of the fourth ion (enter 0 if not used)"
+    }
+  ],
+  "formulas": {
+    "ionicStrength": "0.5 * (concentration1 * charge1**2 + concentration2 * charge2**2 + concentration3 * charge3**2 + concentration4 * charge4**2)",
+    "term1": "0.5 * concentration1 * charge1**2",
+    "term2": "0.5 * concentration2 * charge2**2",
+    "term3": "0.5 * concentration3 * charge3**2",
+    "term4": "0.5 * concentration4 * charge4**2"
+  },
+  "outputs": {
+    "primary": "ionicStrength",
+    "breakdown": [
+      "term1",
+      "term2",
+      "term3",
+      "term4"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

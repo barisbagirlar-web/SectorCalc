@@ -1,0 +1,54 @@
+{
+  "toolName": "sortino-ratio-calculator",
+  "inputs": [
+    {
+      "id": "averageReturn",
+      "label": "Average Return",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.1,
+      "businessContext": "Portfolio's average return over the period."
+    },
+    {
+      "id": "riskFreeRate",
+      "label": "Risk-Free Rate",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.03,
+      "businessContext": "Risk-free rate of return (e.g., government bond yield)."
+    },
+    {
+      "id": "targetReturn",
+      "label": "Target Return",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.03,
+      "businessContext": "Minimum acceptable return (often equals risk-free rate)."
+    },
+    {
+      "id": "downsideDeviation",
+      "label": "Downside Deviation",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.05,
+      "businessContext": "Downside deviation (standard deviation of returns below target)."
+    }
+  ],
+  "formulas": {
+    "excessReturn": "averageReturn - targetReturn",
+    "sortinoRatio": "excessReturn / downsideDeviation"
+  },
+  "outputs": {
+    "primary": "sortinoRatio",
+    "breakdown": [
+      "Excess Return = Average Return - Target Return",
+      "Sortino Ratio = Excess Return / Downside Deviation"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

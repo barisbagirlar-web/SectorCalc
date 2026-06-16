@@ -1,0 +1,73 @@
+{
+  "toolName": "deck-board-calculator",
+  "inputs": [
+    {
+      "id": "deckLength",
+      "label": "Deck Uzunluğu (ft)",
+      "type": "number",
+      "unit": "ft",
+      "default": 12,
+      "businessContext": "Deck length along the house"
+    },
+    {
+      "id": "deckWidth",
+      "label": "Deck Genişliği (ft)",
+      "type": "number",
+      "unit": "ft",
+      "default": 10,
+      "businessContext": "Deck width out from house"
+    },
+    {
+      "id": "boardLength",
+      "label": "Tahta Uzunluğu (ft)",
+      "type": "number",
+      "unit": "ft",
+      "default": 8,
+      "businessContext": "Length of each deck board"
+    },
+    {
+      "id": "boardWidth",
+      "label": "Tahta Genişliği (in)",
+      "type": "number",
+      "unit": "in",
+      "default": 5.5,
+      "businessContext": "Actual width of a deck board"
+    },
+    {
+      "id": "gap",
+      "label": "Boşluk (in)",
+      "type": "number",
+      "unit": "in",
+      "default": 0.125,
+      "businessContext": "Gap between boards for drainage"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Fire Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Waste factor for cuts and defects"
+    }
+  ],
+  "formulas": {
+    "deckArea": "deckLength * deckWidth",
+    "boardArea": "boardLength * ((boardWidth + gap) / 12)",
+    "rawCount": "(deckLength * deckWidth) / (boardLength * ((boardWidth + gap) / 12))",
+    "totalBoards": "(deckLength * deckWidth) / (boardLength * ((boardWidth + gap) / 12)) * (1 + wasteFactor / 100)"
+  },
+  "outputs": {
+    "primary": "totalBoards",
+    "breakdown": [
+      "deckArea",
+      "boardArea",
+      "rawCount"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

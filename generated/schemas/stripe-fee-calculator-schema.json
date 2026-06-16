@@ -1,0 +1,58 @@
+{
+  "toolName": "stripe-fee-calculator",
+  "inputs": [
+    {
+      "id": "transactionAmount",
+      "label": "Transaction Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "Total amount of the transaction including taxes."
+    },
+    {
+      "id": "percentageFee",
+      "label": "Processing Fee Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 2.9,
+      "businessContext": "The percentage fee for domestic card processing (e.g., 2.9% for Stripe)."
+    },
+    {
+      "id": "fixedFee",
+      "label": "Fixed Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 0.3,
+      "businessContext": "The fixed fee per transaction (e.g., $0.30 for Stripe)."
+    },
+    {
+      "id": "extraPercentage",
+      "label": "Additional Fee Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Additional percentage for international cards or currency conversion (Stripe adds 1% for international, another 1% for conversion if needed)."
+    }
+  ],
+  "formulas": {
+    "processingFee": "transactionAmount * (percentageFee / 100)",
+    "extraFee": "transactionAmount * (extraPercentage / 100)",
+    "totalFee": "transactionAmount * (percentageFee / 100) + fixedFee + transactionAmount * (extraPercentage / 100)",
+    "netAmount": "transactionAmount - (transactionAmount * (percentageFee / 100) + fixedFee + transactionAmount * (extraPercentage / 100))"
+  },
+  "outputs": {
+    "primary": "totalFee",
+    "breakdown": [
+      "processingFee",
+      "extraFee",
+      "fixedFee",
+      "netAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

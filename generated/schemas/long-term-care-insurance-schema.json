@@ -1,0 +1,89 @@
+{
+  "toolName": "long-term-care-insurance",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 60,
+      "businessContext": "Current age of the insured"
+    },
+    {
+      "id": "dailyBenefit",
+      "label": "Daily Benefit",
+      "type": "number",
+      "unit": "USD",
+      "default": 200,
+      "businessContext": "Daily benefit amount in case of long-term care"
+    },
+    {
+      "id": "eliminationPeriod",
+      "label": "Elimination Period",
+      "type": "number",
+      "unit": "days",
+      "default": 90,
+      "businessContext": "Elimination period before benefits start"
+    },
+    {
+      "id": "inflationProtection",
+      "label": "Inflation Protection",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "Annual inflation protection rate for benefits"
+    },
+    {
+      "id": "expectedCareYears",
+      "label": "Expected Care Years",
+      "type": "number",
+      "unit": "years",
+      "default": 3,
+      "businessContext": "Expected duration of long-term care need"
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Discount rate for present value calculation"
+    },
+    {
+      "id": "healthFactor",
+      "label": "Health Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Health risk factor (1=standard, >1 higher risk)"
+    },
+    {
+      "id": "ageFactor",
+      "label": "Age Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Age-based risk factor (1=standard, >1 older)"
+    }
+  ],
+  "formulas": {
+    "totalNominalBenefit": "dailyBenefit * 365 * expectedCareYears",
+    "inflationMultiplier": "(1 + inflationProtection / 100) ** expectedCareYears",
+    "discountFactor": "1 / (1 + discountRate / 100) ** expectedCareYears",
+    "presentValue": "totalNominalBenefit * inflationMultiplier * discountFactor",
+    "estimatedMonthlyPremium": "presentValue / (expectedCareYears * 12) * healthFactor * ageFactor * 1.2"
+  },
+  "outputs": {
+    "primary": "estimatedMonthlyPremium",
+    "breakdown": [
+      "totalNominalBenefit",
+      "presentValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

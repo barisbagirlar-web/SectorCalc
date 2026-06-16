@@ -1,0 +1,63 @@
+{
+  "toolName": "soil-volume-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of the excavation or fill area (meters)"
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Width of the excavation or fill area (meters)"
+    },
+    {
+      "id": "depth",
+      "label": "Depth",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Depth of soil to be moved (meters)"
+    },
+    {
+      "id": "density",
+      "label": "Soil Density",
+      "type": "number",
+      "unit": "t/m³",
+      "default": 1.6,
+      "businessContext": "Average bulk density of the soil (tonnes per cubic meter, typically 1.2-2.0)"
+    },
+    {
+      "id": "compactionFactor",
+      "label": "Swell / Compaction Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "businessContext": "Factor accounting for soil swell after excavation or compaction requirement (1.0 = no change, >1 for extra volume needed)"
+    }
+  ],
+  "formulas": {
+    "soilVolume": "length * width * depth * compactionFactor",
+    "soilVolumeYards": "length * width * depth * compactionFactor * 1.30795",
+    "soilWeight": "length * width * depth * compactionFactor * density"
+  },
+  "outputs": {
+    "primary": "soilVolume",
+    "breakdown": [
+      "soilVolumeYards",
+      "soilWeight"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

@@ -1,0 +1,87 @@
+{
+  "toolName": "atomik-kutle-hesaplayici-calculator",
+  "inputs": [
+    {
+      "id": "mass1",
+      "label": "İzotop 1 Kütlesi (amu)",
+      "type": "number",
+      "unit": "amu",
+      "default": 12,
+      "businessContext": "Birinci izotopun atomik kütle birimi cinsinden kütlesi."
+    },
+    {
+      "id": "abundance1",
+      "label": "İzotop 1 Bolluk (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 98.93,
+      "businessContext": "Birinci izotopun bağıl bolluğu yüzde olarak."
+    },
+    {
+      "id": "mass2",
+      "label": "İzotop 2 Kütlesi (amu)",
+      "type": "number",
+      "unit": "amu",
+      "default": 13.003,
+      "businessContext": "İkinci izotopun atomik kütle birimi cinsinden kütlesi."
+    },
+    {
+      "id": "abundance2",
+      "label": "İzotop 2 Bolluk (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 1.07,
+      "businessContext": "İkinci izotopun bağıl bolluğu yüzde olarak."
+    },
+    {
+      "id": "mass3",
+      "label": "İzotop 3 Kütlesi (amu)",
+      "type": "number",
+      "unit": "amu",
+      "default": 0,
+      "businessContext": "Üçüncü izotopun isteğe bağlı kütlesi. Kullanılmazsa 0 bırakılır."
+    },
+    {
+      "id": "abundance3",
+      "label": "İzotop 3 Bolluk (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Üçüncü izotopun isteğe bağlı bolluğu. Kullanılmazsa 0 bırakılır."
+    },
+    {
+      "id": "mass4",
+      "label": "İzotop 4 Kütlesi (amu)",
+      "type": "number",
+      "unit": "amu",
+      "default": 0,
+      "businessContext": "Dördüncü izotopun isteğe bağlı kütlesi. Kullanılmazsa 0 bırakılır."
+    },
+    {
+      "id": "abundance4",
+      "label": "İzotop 4 Bolluk (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Dördüncü izotopun isteğe bağlı bolluğu. Kullanılmazsa 0 bırakılır."
+    }
+  ],
+  "formulas": {
+    "weightedSum": "(mass1 * abundance1) + (mass2 * abundance2) + (mass3 * abundance3) + (mass4 * abundance4)",
+    "totalAbundance": "abundance1 + abundance2 + abundance3 + abundance4",
+    "atomicMass": "((mass1 * abundance1) + (mass2 * abundance2) + (mass3 * abundance3) + (mass4 * abundance4)) / (abundance1 + abundance2 + abundance3 + abundance4)"
+  },
+  "outputs": {
+    "primary": "atomicMass",
+    "breakdown": [
+      "weightedSum",
+      "totalAbundance"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,67 @@
+{
+  "toolName": "pool-evaporation-calculator",
+  "inputs": [
+    {
+      "id": "surfaceArea",
+      "label": "Pool Surface Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 50,
+      "businessContext": "The water surface area of the pool exposed to air."
+    },
+    {
+      "id": "waterTemp",
+      "label": "Water Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 28,
+      "businessContext": "Average temperature of the pool water."
+    },
+    {
+      "id": "airTemp",
+      "label": "Air Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "Ambient air temperature above the pool."
+    },
+    {
+      "id": "relativeHumidity",
+      "label": "Relative Humidity",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "businessContext": "Percentage of moisture in air relative to saturation at air temperature."
+    },
+    {
+      "id": "windSpeed",
+      "label": "Wind Speed",
+      "type": "number",
+      "unit": "m/s",
+      "default": 2,
+      "businessContext": "Average wind speed above the pool surface."
+    }
+  ],
+  "formulas": {
+    "saturationVaporPressureWater": "0.6108 * Math.exp(17.27 * waterTemp / (waterTemp + 237.3))",
+    "saturationVaporPressureAir": "0.6108 * Math.exp(17.27 * airTemp / (airTemp + 237.3))",
+    "actualVaporPressureAir": "saturationVaporPressureAir * relativeHumidity / 100",
+    "vaporPressureDeficit": "saturationVaporPressureWater - actualVaporPressureAir",
+    "evaporationRateLPerH": "0.02 * vaporPressureDeficit * surfaceArea * (1 + 0.5 * windSpeed)"
+  },
+  "outputs": {
+    "primary": "evaporationRateLPerH",
+    "breakdown": [
+      "vaporPressureDeficit",
+      "saturationVaporPressureWater",
+      "saturationVaporPressureAir",
+      "actualVaporPressureAir"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

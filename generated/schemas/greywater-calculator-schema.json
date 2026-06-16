@@ -1,0 +1,65 @@
+{
+  "toolName": "greywater-calculator",
+  "inputs": [
+    {
+      "id": "numberOfPeople",
+      "label": "Number of People",
+      "type": "number",
+      "unit": "people",
+      "default": 4,
+      "businessContext": "Number of occupants in the building"
+    },
+    {
+      "id": "dailyWaterUsagePerPerson",
+      "label": "Daily Water Usage per Person",
+      "type": "number",
+      "unit": "L/person/day",
+      "default": 100,
+      "businessContext": "Average daily water consumption per person"
+    },
+    {
+      "id": "greywaterFraction",
+      "label": "Greywater Fraction",
+      "type": "number",
+      "unit": "",
+      "default": 0.65,
+      "businessContext": "Proportion of fresh water that becomes greywater"
+    },
+    {
+      "id": "systemEfficiency",
+      "label": "System Efficiency",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "businessContext": "Efficiency of the greywater recycling system"
+    },
+    {
+      "id": "waterCostPerCubicMeter",
+      "label": "Water Cost per Cubic Meter",
+      "type": "number",
+      "unit": "€/m³",
+      "default": 3.5,
+      "businessContext": "Local cost of water supply per cubic meter"
+    }
+  ],
+  "formulas": {
+    "dailyGreywaterProduction": "numberOfPeople * dailyWaterUsagePerPerson * greywaterFraction",
+    "dailyReusableWater": "dailyGreywaterProduction * systemEfficiency",
+    "annualWaterSaved": "dailyReusableWater * 365 / 1000",
+    "annualCostSaved": "annualWaterSaved * waterCostPerCubicMeter"
+  },
+  "outputs": {
+    "primary": "dailyReusableWater",
+    "breakdown": [
+      "dailyGreywaterProduction",
+      "annualWaterSaved",
+      "annualCostSaved"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

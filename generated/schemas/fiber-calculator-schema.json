@@ -1,0 +1,79 @@
+{
+  "toolName": "fiber-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Fiber Length",
+      "type": "number",
+      "unit": "km",
+      "default": 1,
+      "businessContext": "Total fiber cable length"
+    },
+    {
+      "id": "attenuation",
+      "label": "Attenuation Coefficient",
+      "type": "number",
+      "unit": "dB/km",
+      "default": 0.35,
+      "businessContext": "Typical for single-mode fiber at 1310nm"
+    },
+    {
+      "id": "connectors",
+      "label": "Number of Connectors",
+      "type": "number",
+      "unit": "pcs",
+      "default": 2,
+      "businessContext": "Connector pairs in the link"
+    },
+    {
+      "id": "connectorLoss",
+      "label": "Connector Loss",
+      "type": "number",
+      "unit": "dB",
+      "default": 0.5,
+      "businessContext": "Loss per connector pair"
+    },
+    {
+      "id": "splices",
+      "label": "Number of Splices",
+      "type": "number",
+      "unit": "pcs",
+      "default": 0,
+      "businessContext": "Fusion splices in the link"
+    },
+    {
+      "id": "spliceLoss",
+      "label": "Splice Loss",
+      "type": "number",
+      "unit": "dB",
+      "default": 0.1,
+      "businessContext": "Loss per splice"
+    },
+    {
+      "id": "margin",
+      "label": "Safety Margin",
+      "type": "number",
+      "unit": "dB",
+      "default": 3,
+      "businessContext": "System margin for degradation"
+    }
+  ],
+  "formulas": {
+    "totalLoss": "length * attenuation + connectors * connectorLoss + splices * spliceLoss + margin",
+    "fiberLoss": "length * attenuation",
+    "connectorLossTotal": "connectors * connectorLoss",
+    "spliceLossTotal": "splices * spliceLoss"
+  },
+  "outputs": {
+    "primary": "totalLoss",
+    "breakdown": [
+      "fiberLoss",
+      "connectorLossTotal",
+      "spliceLossTotal",
+      "margin"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false
+}

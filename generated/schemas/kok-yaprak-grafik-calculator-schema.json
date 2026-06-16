@@ -1,0 +1,91 @@
+{
+  "toolName": "kok-yaprak-grafik-calculator",
+  "inputs": [
+    {
+      "id": "v1",
+      "label": "Veri Noktası 1",
+      "type": "number",
+      "unit": "",
+      "default": 55,
+      "businessContext": "Kök-yaprak grafiğinin ilk veri noktası (örn. ölçüm değeri)"
+    },
+    {
+      "id": "v2",
+      "label": "Veri Noktası 2",
+      "type": "number",
+      "unit": "",
+      "default": 62,
+      "businessContext": "Kök-yaprak grafiğinin ikinci veri noktası"
+    },
+    {
+      "id": "v3",
+      "label": "Veri Noktası 3",
+      "type": "number",
+      "unit": "",
+      "default": 68,
+      "businessContext": "Kök-yaprak grafiğinin üçüncü veri noktası"
+    },
+    {
+      "id": "v4",
+      "label": "Veri Noktası 4",
+      "type": "number",
+      "unit": "",
+      "default": 73,
+      "businessContext": "Kök-yaprak grafiğinin dördüncü veri noktası"
+    },
+    {
+      "id": "v5",
+      "label": "Veri Noktası 5",
+      "type": "number",
+      "unit": "",
+      "default": 78,
+      "businessContext": "Kök-yaprak grafiğinin beşinci veri noktası"
+    },
+    {
+      "id": "v6",
+      "label": "Veri Noktası 6",
+      "type": "number",
+      "unit": "",
+      "default": 81,
+      "businessContext": "Kök-yaprak grafiğinin altıncı veri noktası"
+    },
+    {
+      "id": "v7",
+      "label": "Veri Noktası 7",
+      "type": "number",
+      "unit": "",
+      "default": 89,
+      "businessContext": "Kök-yaprak grafiğinin yedinci veri noktası"
+    },
+    {
+      "id": "v8",
+      "label": "Veri Noktası 8",
+      "type": "number",
+      "unit": "",
+      "default": 95,
+      "businessContext": "Kök-yaprak grafiğinin sekizinci veri noktası"
+    }
+  ],
+  "formulas": {
+    "kokYaprakGrafik": "const data = [v1, v2, v3, v4, v5, v6, v7, v8].sort((a,b) => a-b); const stems = [...new Set(data.map(x => Math.floor(x/10)))].sort((a,b) => a-b); let result = ''; stems.forEach(s => { const leaves = data.filter(x => Math.floor(x/10) === s).map(x => x % 10).sort((a,b)=>a-b); result += s + ' | ' + leaves.join(' ') + '\\n'; }); result.trim();",
+    "adet": "8",
+    "minimum": "Math.min(v1, v2, v3, v4, v5, v6, v7, v8)",
+    "maksimum": "Math.max(v1, v2, v3, v4, v5, v6, v7, v8)",
+    "medyan": "const sorted = [v1, v2, v3, v4, v5, v6, v7, v8].sort((a,b) => a-b); const mid = Math.floor(sorted.length/2); sorted.length % 2 !== 0 ? sorted[mid] : (sorted[mid-1]+sorted[mid])/2;"
+  },
+  "outputs": {
+    "primary": "kokYaprakGrafik",
+    "breakdown": [
+      "adet",
+      "minimum",
+      "maksimum",
+      "medyan"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

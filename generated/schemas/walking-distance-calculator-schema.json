@@ -1,0 +1,57 @@
+{
+  "toolName": "walking-distance-calculator",
+  "inputs": [
+    {
+      "id": "stepCount",
+      "label": "Number of Steps",
+      "type": "number",
+      "unit": "steps",
+      "default": 10000,
+      "businessContext": "Total step count from pedometer or manual tally."
+    },
+    {
+      "id": "stepLength",
+      "label": "Step Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 70,
+      "businessContext": "Average step length in centimeters. Typical adult range: 60–80 cm."
+    },
+    {
+      "id": "incline",
+      "label": "Incline",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Slope percentage. Positive for uphill, negative for downhill. 0 for flat."
+    },
+    {
+      "id": "terrainFactor",
+      "label": "Terrain Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for terrain difficulty. 1.0 = pavement, >1 for rough ground."
+    }
+  ],
+  "formulas": {
+    "horizontalDistance": "stepCount * stepLength / 100000",
+    "elevationGain": "stepCount * stepLength * incline / 10000",
+    "pathDistance": "stepCount * stepLength / 100000 / Math.cos(Math.atan(incline/100))",
+    "totalDistance": "stepCount * stepLength / 100000 / Math.cos(Math.atan(incline/100)) * terrainFactor"
+  },
+  "outputs": {
+    "primary": "Total Walking Distance (km)",
+    "breakdown": [
+      "Horizontal Distance (km)",
+      "Elevation Gain (m)",
+      "Path Distance on Slope (km)"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,53 @@
+{
+  "toolName": "balloon-kredi-hesaplayici-calculator",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Kredi Tutarı",
+      "type": "number",
+      "unit": "TL",
+      "default": 100000,
+      "businessContext": "Anapara"
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Yıllık Faiz Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Faiz"
+    },
+    {
+      "id": "termMonths",
+      "label": "Vade (Ay)",
+      "type": "number",
+      "unit": "ay",
+      "default": 60,
+      "businessContext": "Vade"
+    },
+    {
+      "id": "balloonPercent",
+      "label": "Balon Ödeme Yüzdesi",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Balon ödeme, anaparanın yüzdesi"
+    }
+  ],
+  "formulas": {
+    "compute": "function(inputs) { var P = inputs.principal; var r = inputs.annualInterestRate / 100 / 12; var n = inputs.termMonths; var B = (inputs.balloonPercent / 100) * P; var monthlyPayment = (P - B / Math.pow(1 + r, n)) * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1); var totalInterest = monthlyPayment * n + B - P; return { monthlyPayment: monthlyPayment, totalInterest: totalInterest, balloonAmount: B }; }"
+  },
+  "outputs": {
+    "primary": "monthlyPayment",
+    "breakdown": [
+      "totalInterest",
+      "balloonAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

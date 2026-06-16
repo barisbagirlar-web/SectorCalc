@@ -1,0 +1,70 @@
+{
+  "toolName": "hypothesis-testing-calculator",
+  "inputs": [
+    {
+      "id": "sampleMean",
+      "label": "Sample Mean (x̄)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Observed average of the sample data."
+    },
+    {
+      "id": "nullMean",
+      "label": "Null Hypothesis Mean (μ₀)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Hypothesized population mean under the null hypothesis."
+    },
+    {
+      "id": "stdDev",
+      "label": "Population Standard Deviation (σ)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Known standard deviation of the population. For unknown σ, use sample standard deviation with t-test; this tool assumes normal distribution."
+    },
+    {
+      "id": "sampleSize",
+      "label": "Sample Size (n)",
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "businessContext": "Number of observations in the sample."
+    },
+    {
+      "id": "alpha",
+      "label": "Significance Level (α)",
+      "type": "number",
+      "unit": "",
+      "default": 0.05,
+      "businessContext": "Probability threshold for rejecting the null hypothesis (e.g., 0.05 for 5%)."
+    },
+    {
+      "id": "tails",
+      "label": "Tail Type",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "1 for one-tailed test, 2 for two-tailed test."
+    }
+  ],
+  "formulas": {
+    "zScore": "(sampleMean - nullMean) / (stdDev / Math.sqrt(sampleSize))",
+    "pValue": "(function() { const z = (sampleMean - nullMean) / (stdDev / Math.sqrt(sampleSize)); const cdf = (x) => { const a1 = 0.254829592; const a2 = -0.284496736; const a3 = 1.421413741; const a4 = -1.453152027; const a5 = 1.061405429; const p = 0.3275911; const sign = (x >= 0) ? 1 : -1; x = Math.abs(x) / Math.sqrt(2); const t = 1.0 / (1.0 + p * x); const y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x); return 0.5 * (1.0 + sign * y); }; if (tails === 2) { return 2 * (1 - cdf(Math.abs(z))); } else { return 1 - cdf(z); } })()"
+  },
+  "outputs": {
+    "primary": "(pValue < alpha) ? 'Reject H₀' : 'Fail to reject H₀'",
+    "breakdown": [
+      "'Z-Score: ' + zScore.toFixed(4)",
+      "'p-value: ' + pValue.toFixed(4) + (pValue < alpha ? ' (significant)' : ' (not significant)')"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

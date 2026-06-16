@@ -1,0 +1,67 @@
+{
+  "toolName": "oat-score-calculator",
+  "inputs": [
+    {
+      "id": "torqueReading",
+      "label": "Torque Reading",
+      "type": "number",
+      "unit": "Nm",
+      "default": 50,
+      "businessContext": "Measured torque in Newton-meters"
+    },
+    {
+      "id": "angleReading",
+      "label": "Angle Reading",
+      "type": "number",
+      "unit": "degrees",
+      "default": 5,
+      "businessContext": "Off-axis angle in degrees"
+    },
+    {
+      "id": "vibrationLevel",
+      "label": "Vibration Level",
+      "type": "number",
+      "unit": "mm/s",
+      "default": 0.5,
+      "businessContext": "Vibration RMS velocity"
+    },
+    {
+      "id": "defectCount",
+      "label": "Defect Count",
+      "type": "number",
+      "unit": "pieces",
+      "default": 2,
+      "businessContext": "Number of quality defects detected"
+    },
+    {
+      "id": "calibrationFactor",
+      "label": "Calibration Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Equipment calibration multiplier"
+    }
+  ],
+  "formulas": {
+    "torqueScore": "torqueReading * Math.cos(angleReading * 0.01745329252)",
+    "vibrationImpact": "Math.log(vibrationLevel + 1) * 10",
+    "defectPenalty": "defectCount * 5",
+    "rawScore": "calibrationFactor * (torqueScore * 0.6 + (100 - vibrationImpact) * 0.3 + (100 - defectPenalty) * 0.1)",
+    "oatScore": "rawScore"
+  },
+  "outputs": {
+    "primary": "oatScore",
+    "breakdown": [
+      "torqueScore",
+      "vibrationImpact",
+      "defectPenalty",
+      "rawScore"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "duct-size-calculator",
+  "inputs": [
+    {
+      "id": "flowRate",
+      "label": "Hava Debisi",
+      "type": "number",
+      "unit": "m³/s",
+      "default": 1,
+      "businessContext": "Sistemin taşıması gereken hava miktarı. Soğutma/ısıtma yüküne göre hesaplanır."
+    },
+    {
+      "id": "velocity",
+      "label": "Hava Hızı",
+      "type": "number",
+      "unit": "m/s",
+      "default": 5,
+      "businessContext": "Kanalda izin verilen maksimum hava hızı. Gürültü ve basınç kaybı limitlerine bağlıdır. Tipik konfor uygulamalarında 5-8 m/s."
+    },
+    {
+      "id": "aspectRatio",
+      "label": "En/Boy Oranı",
+      "type": "number",
+      "unit": "oran",
+      "default": 1,
+      "businessContext": "Dikdörtgen kanalda genişliğin yüksekliğe oranı. Alan kısıtı ve maliyet optimizasyonu için kullanılır. 1 kare kanalı verir."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Emniyet Katsayısı",
+      "type": "number",
+      "unit": "-",
+      "default": 1.1,
+      "businessContext": "Hesap belirsizlikleri, sızıntı veya ileride kapasite artışı için debiyi artıran faktör."
+    }
+  ],
+  "formulas": {
+    "area": "(flowRate * safetyFactor) / velocity",
+    "roundDiameter": "2 * Math.sqrt(area / Math.PI)",
+    "rectHeight": "Math.sqrt(area / aspectRatio)",
+    "rectWidth": "aspectRatio * rectHeight"
+  },
+  "outputs": {
+    "primary": "roundDiameter",
+    "breakdown": [
+      "area",
+      "rectWidth",
+      "rectHeight"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

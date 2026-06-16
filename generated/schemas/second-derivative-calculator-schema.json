@@ -1,0 +1,63 @@
+{
+  "toolName": "second-derivative-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "a (x³ coefficient)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Cubic term coefficient"
+    },
+    {
+      "id": "b",
+      "label": "b (x² coefficient)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Quadratic term coefficient"
+    },
+    {
+      "id": "c",
+      "label": "c (x coefficient)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Linear term coefficient"
+    },
+    {
+      "id": "d",
+      "label": "d (constant term)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Constant term"
+    },
+    {
+      "id": "x",
+      "label": "x (evaluation point)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Point at which derivatives are calculated"
+    }
+  ],
+  "formulas": {
+    "secondDerivative": "6*a*x + 2*b",
+    "firstDerivative": "3*a*x*x + 2*b*x + c",
+    "functionValue": "a*x*x*x + b*x*x + c*x + d"
+  },
+  "outputs": {
+    "primary": "secondDerivative",
+    "breakdown": [
+      "firstDerivative",
+      "functionValue"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

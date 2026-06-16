@@ -1,0 +1,75 @@
+{
+  "toolName": "state-space-controllability-calculator",
+  "inputs": [
+    {
+      "id": "a11",
+      "label": "a11 (A row 1, col 1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "State matrix A element"
+    },
+    {
+      "id": "a12",
+      "label": "a12 (A row 1, col 2)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "State matrix A element"
+    },
+    {
+      "id": "a21",
+      "label": "a21 (A row 2, col 1)",
+      "type": "number",
+      "unit": "",
+      "default": -2,
+      "businessContext": "State matrix A element"
+    },
+    {
+      "id": "a22",
+      "label": "a22 (A row 2, col 2)",
+      "type": "number",
+      "unit": "",
+      "default": -3,
+      "businessContext": "State matrix A element"
+    },
+    {
+      "id": "b1",
+      "label": "b1 (B row 1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Input matrix B element"
+    },
+    {
+      "id": "b2",
+      "label": "b2 (B row 2)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Input matrix B element"
+    }
+  ],
+  "formulas": {
+    "c11": "b1",
+    "c12": "a11 * b1 + a12 * b2",
+    "c21": "b2",
+    "c22": "a21 * b1 + a22 * b2",
+    "det": "c11 * c22 - c12 * c21"
+  },
+  "outputs": {
+    "primary": "det",
+    "breakdown": [
+      "c11",
+      "c12",
+      "c21",
+      "c22"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

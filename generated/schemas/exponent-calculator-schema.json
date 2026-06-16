@@ -1,0 +1,75 @@
+{
+  "toolName": "exponent-calculator",
+  "inputs": [
+    {
+      "id": "base",
+      "label": "Base",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "The base number to be raised to a power."
+    },
+    {
+      "id": "exponent",
+      "label": "Exponent",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "The power to which the base is raised."
+    },
+    {
+      "id": "multiplier",
+      "label": "Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiply the power result by this factor."
+    },
+    {
+      "id": "constantAdd",
+      "label": "Constant Addition",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Add a constant to the result after multiplication."
+    },
+    {
+      "id": "modulus",
+      "label": "Modulus",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "If greater than 0, the result is taken modulo this value."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for final rounding."
+    }
+  ],
+  "formulas": {
+    "powerResult": "Math.pow(base, exponent)",
+    "afterMultiplier": "powerResult * multiplier",
+    "afterConstant": "afterMultiplier + constantAdd",
+    "moduloApplied": "modulus > 0 ? afterConstant % modulus : afterConstant",
+    "finalResult": "parseFloat(moduloApplied.toFixed(precision))"
+  },
+  "outputs": {
+    "primary": "finalResult",
+    "breakdown": [
+      "powerResult",
+      "afterMultiplier",
+      "afterConstant",
+      "moduloApplied"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

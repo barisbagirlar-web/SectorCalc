@@ -1,0 +1,71 @@
+{
+  "toolName": "medicare-savings-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 40,
+      "businessContext": "The individual's current age in years."
+    },
+    {
+      "id": "retirementAge",
+      "label": "Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 65,
+      "businessContext": "Age at which individual plans to retire and become eligible for Medicare."
+    },
+    {
+      "id": "currentAnnualMedicalCost",
+      "label": "Current Annual Medical Expenses",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "businessContext": "Current annual out-of-pocket medical expenses in US dollars."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Expected Healthcare Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 4.5,
+      "businessContext": "Annual expected growth rate of medical costs in percent."
+    },
+    {
+      "id": "yearsInRetirement",
+      "label": "Years in Retirement",
+      "type": "number",
+      "unit": "years",
+      "default": 25,
+      "businessContext": "Expected number of years in retirement during which medical expenses will be incurred."
+    },
+    {
+      "id": "expectedReturnRate",
+      "label": "Expected Investment Return Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 6,
+      "businessContext": "Annual expected rate of return on savings in percent, used to discount future expenses."
+    }
+  ],
+  "formulas": {
+    "totalSavingsNeeded": "currentAnnualMedicalCost * Math.pow(1 + inflationRate / 100, retirementAge - currentAge) * (1 - Math.pow(1 + expectedReturnRate / 100, -yearsInRetirement)) / (expectedReturnRate / 100)",
+    "futureAnnualCost": "currentAnnualMedicalCost * Math.pow(1 + inflationRate / 100, retirementAge - currentAge)",
+    "totalLifetimeCostWithoutDiscount": "currentAnnualMedicalCost * Math.pow(1 + inflationRate / 100, retirementAge - currentAge) * yearsInRetirement"
+  },
+  "outputs": {
+    "primary": "totalSavingsNeeded",
+    "breakdown": [
+      "futureAnnualCost",
+      "totalLifetimeCostWithoutDiscount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

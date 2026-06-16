@@ -1,0 +1,55 @@
+{
+  "toolName": "reorder-point-calculator",
+  "inputs": [
+    {
+      "id": "averageDailyUsage",
+      "label": "Average Daily Usage",
+      "type": "number",
+      "unit": "units/day",
+      "default": 100,
+      "businessContext": "Average number of units consumed per day"
+    },
+    {
+      "id": "leadTime",
+      "label": "Lead Time",
+      "type": "number",
+      "unit": "days",
+      "default": 7,
+      "businessContext": "Average time between ordering and receiving inventory"
+    },
+    {
+      "id": "dailyDemandStdDev",
+      "label": "Daily Demand Std Dev",
+      "type": "number",
+      "unit": "units",
+      "default": 15,
+      "businessContext": "Standard deviation of daily demand, measures variability"
+    },
+    {
+      "id": "serviceLevelZ",
+      "label": "Service Level (z)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.65,
+      "businessContext": "Z-score for desired service level (e.g., 1.65 for 95%)"
+    }
+  ],
+  "formulas": {
+    "averageDemandDuringLeadTime": "averageDailyUsage * leadTime",
+    "safetyStock": "serviceLevelZ * dailyDemandStdDev * Math.sqrt(leadTime)",
+    "reorderPoint": "averageDemandDuringLeadTime + safetyStock"
+  },
+  "outputs": {
+    "primary": "reorderPoint",
+    "breakdown": [
+      "averageDemandDuringLeadTime",
+      "safetyStock"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

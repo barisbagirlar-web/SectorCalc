@@ -1,0 +1,93 @@
+{
+  "toolName": "pay-period-calculator",
+  "inputs": [
+    {
+      "id": "annualSalary",
+      "label": "Annual Salary",
+      "type": "number",
+      "unit": "EUR",
+      "default": 30000,
+      "businessContext": "Gross annual salary"
+    },
+    {
+      "id": "payPeriodsPerYear",
+      "label": "Number of Pay Periods per Year",
+      "type": "number",
+      "unit": "",
+      "default": 12,
+      "businessContext": "Frequency of pay checks, e.g., 12 for monthly, 26 for bi-weekly, 52 for weekly"
+    },
+    {
+      "id": "overtimeHours",
+      "label": "Overtime Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 0,
+      "businessContext": "Total overtime hours worked in the pay period"
+    },
+    {
+      "id": "overtimeRateMultiplier",
+      "label": "Overtime Rate Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Multiplier for overtime pay relative to regular hourly rate"
+    },
+    {
+      "id": "hoursPerPeriod",
+      "label": "Hours per Pay Period",
+      "type": "number",
+      "unit": "h",
+      "default": 160,
+      "businessContext": "Standard working hours in one pay period"
+    },
+    {
+      "id": "deductions",
+      "label": "Deductions",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "Total pre-tax deductions per period"
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Income tax rate applied after deductions"
+    },
+    {
+      "id": "otherWithholdings",
+      "label": "Other Withholdings",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "Additional withholdings like insurance, union dues"
+    }
+  ],
+  "formulas": {
+    "regularPay": "annualSalary / payPeriodsPerYear",
+    "hourlyRate": "regularPay / hoursPerPeriod",
+    "overtimePay": "overtimeHours * hourlyRate * overtimeRateMultiplier",
+    "grossPayPerPeriod": "regularPay + overtimePay",
+    "taxableIncome": "grossPayPerPeriod - deductions",
+    "taxAmount": "taxableIncome * (taxRate / 100)",
+    "netPayPerPeriod": "taxableIncome - taxAmount - otherWithholdings"
+  },
+  "outputs": {
+    "primary": "netPayPerPeriod",
+    "breakdown": [
+      "grossPayPerPeriod",
+      "regularPay",
+      "overtimePay",
+      "taxAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

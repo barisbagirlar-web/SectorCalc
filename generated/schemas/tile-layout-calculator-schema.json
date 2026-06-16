@@ -1,0 +1,75 @@
+{
+  "toolName": "tile-layout-calculator",
+  "inputs": [
+    {
+      "id": "roomLength",
+      "label": "Oda Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Odanın uzunluğu (metre)"
+    },
+    {
+      "id": "roomWidth",
+      "label": "Oda Genişliği",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Odanın genişliği (metre)"
+    },
+    {
+      "id": "tileLength",
+      "label": "Fayans Uzunluğu",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "Fayansın uzun kenarı (santimetre)"
+    },
+    {
+      "id": "tileWidth",
+      "label": "Fayans Genişliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 20,
+      "businessContext": "Fayansın kısa kenarı (santimetre)"
+    },
+    {
+      "id": "groutWidth",
+      "label": "Derz Aralığı",
+      "type": "number",
+      "unit": "mm",
+      "default": 3,
+      "businessContext": "Derz kalınlığı (milimetre)"
+    },
+    {
+      "id": "wastePercent",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Kırılma/kesim kaybı yüzdesi"
+    }
+  ],
+  "formulas": {
+    "horizontalTiles": "Math.ceil(roomLength * 1000 / (tileLength * 10 + groutWidth))",
+    "verticalTiles": "Math.ceil(roomWidth * 1000 / (tileWidth * 10 + groutWidth))",
+    "tilesWithoutWaste": "Math.ceil(roomLength * 1000 / (tileLength * 10 + groutWidth)) * Math.ceil(roomWidth * 1000 / (tileWidth * 10 + groutWidth))",
+    "tilesWithWaste": "Math.ceil((Math.ceil(roomLength * 1000 / (tileLength * 10 + groutWidth)) * Math.ceil(roomWidth * 1000 / (tileWidth * 10 + groutWidth))) * (1 + wastePercent / 100))",
+    "wasteTiles": "Math.ceil((Math.ceil(roomLength * 1000 / (tileLength * 10 + groutWidth)) * Math.ceil(roomWidth * 1000 / (tileWidth * 10 + groutWidth))) * (1 + wastePercent / 100)) - (Math.ceil(roomLength * 1000 / (tileLength * 10 + groutWidth)) * Math.ceil(roomWidth * 1000 / (tileWidth * 10 + groutWidth)))"
+  },
+  "outputs": {
+    "primary": "tilesWithWaste",
+    "breakdown": [
+      "horizontalTiles",
+      "verticalTiles",
+      "tilesWithoutWaste",
+      "wasteTiles"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

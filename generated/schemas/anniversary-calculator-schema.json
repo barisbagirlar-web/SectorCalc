@@ -1,0 +1,63 @@
+{
+  "toolName": "anniversary-calculator",
+  "inputs": [
+    {
+      "id": "startYear",
+      "label": "Başlangıç Yılı",
+      "type": "number",
+      "unit": "yıl",
+      "default": 2020,
+      "businessContext": "Tarih hesaplamasında başlangıç yılı"
+    },
+    {
+      "id": "startMonth",
+      "label": "Başlangıç Ayı",
+      "type": "number",
+      "unit": "ay",
+      "default": 1,
+      "businessContext": "Tarih hesaplamasında başlangıç ayı (1-12)"
+    },
+    {
+      "id": "startDay",
+      "label": "Başlangıç Günü",
+      "type": "number",
+      "unit": "gün",
+      "default": 1,
+      "businessContext": "Tarih hesaplamasında başlangıç günü"
+    },
+    {
+      "id": "yearsToAdd",
+      "label": "Eklenecek Yıl",
+      "type": "number",
+      "unit": "yıl",
+      "default": 0,
+      "businessContext": "Başlangıç tarihine eklenecek yıl miktarı"
+    },
+    {
+      "id": "monthsToAdd",
+      "label": "Eklenecek Ay",
+      "type": "number",
+      "unit": "ay",
+      "default": 0,
+      "businessContext": "Başlangıç tarihine eklenecek ay miktarı"
+    }
+  ],
+  "formulas": {
+    "primary": "'Yeni Tarih: ' + Math.floor(((startYear * 12 + startMonth - 1) + yearsToAdd * 12 + monthsToAdd) / 12) + '-' + (((startYear * 12 + startMonth - 1) + yearsToAdd * 12 + monthsToAdd) % 12 + 1) + '-' + startDay",
+    "breakdown0": "'Yıl: ' + Math.floor(((startYear * 12 + startMonth - 1) + yearsToAdd * 12 + monthsToAdd) / 12)",
+    "breakdown1": "'Ay: ' + (((startYear * 12 + startMonth - 1) + yearsToAdd * 12 + monthsToAdd) % 12 + 1) + ' Gün: ' + startDay"
+  },
+  "outputs": {
+    "primary": "Yeni Tarih (YYYY-AA-GG)",
+    "breakdown": [
+      "Yıl Bileşeni",
+      "Ay ve Gün Bileşenleri"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

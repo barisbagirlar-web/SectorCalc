@@ -1,0 +1,87 @@
+{
+  "toolName": "log-loss-calculator",
+  "inputs": [
+    {
+      "id": "actual1",
+      "label": "Actual Value 1",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "The true class (0 or 1) for observation 1."
+    },
+    {
+      "id": "predicted1",
+      "label": "Predicted Probability 1",
+      "type": "number",
+      "unit": "probability",
+      "default": 0.5,
+      "businessContext": "The predicted probability of class 1 for observation 1."
+    },
+    {
+      "id": "actual2",
+      "label": "Actual Value 2",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "The true class (0 or 1) for observation 2."
+    },
+    {
+      "id": "predicted2",
+      "label": "Predicted Probability 2",
+      "type": "number",
+      "unit": "probability",
+      "default": 0.5,
+      "businessContext": "The predicted probability of class 1 for observation 2."
+    },
+    {
+      "id": "actual3",
+      "label": "Actual Value 3",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "The true class (0 or 1) for observation 3."
+    },
+    {
+      "id": "predicted3",
+      "label": "Predicted Probability 3",
+      "type": "number",
+      "unit": "probability",
+      "default": 0.5,
+      "businessContext": "The predicted probability of class 1 for observation 3."
+    },
+    {
+      "id": "actual4",
+      "label": "Actual Value 4",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "The true class (0 or 1) for observation 4."
+    },
+    {
+      "id": "predicted4",
+      "label": "Predicted Probability 4",
+      "type": "number",
+      "unit": "probability",
+      "default": 0.5,
+      "businessContext": "The predicted probability of class 1 for observation 4."
+    }
+  ],
+  "formulas": {
+    "totalLogLossSum": "(-(actual1 * Math.log(Math.max(predicted1, 1e-15)) + (1-actual1) * Math.log(Math.max(1-predicted1, 1e-15)))) + (-(actual2 * Math.log(Math.max(predicted2, 1e-15)) + (1-actual2) * Math.log(Math.max(1-predicted2, 1e-15)))) + (-(actual3 * Math.log(Math.max(predicted3, 1e-15)) + (1-actual3) * Math.log(Math.max(1-predicted3, 1e-15)))) + (-(actual4 * Math.log(Math.max(predicted4, 1e-15)) + (1-actual4) * Math.log(Math.max(1-predicted4, 1e-15))))",
+    "averageLogLoss": "totalLogLossSum / 4",
+    "sampleCount": "4"
+  },
+  "outputs": {
+    "primary": "averageLogLoss",
+    "breakdown": [
+      "totalLogLossSum",
+      "sampleCount"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

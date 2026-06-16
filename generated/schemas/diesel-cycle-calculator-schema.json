@@ -1,0 +1,88 @@
+{
+  "toolName": "diesel-cycle-calculator",
+  "inputs": [
+    {
+      "id": "r",
+      "label": "Compression Ratio (r)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 18,
+      "businessContext": "Ratio of cylinder volume at BDC to TDC. Typical diesel: 12-24."
+    },
+    {
+      "id": "rc",
+      "label": "Cutoff Ratio (rc)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 2.5,
+      "businessContext": "Ratio of volume after combustion to clearance volume. Typical: 1.5-3."
+    },
+    {
+      "id": "T1",
+      "label": "Initial Temperature (T1)",
+      "type": "number",
+      "unit": "K",
+      "default": 300,
+      "businessContext": "Temperature at start of compression (state 1). Standard ambient: 300 K."
+    },
+    {
+      "id": "p1",
+      "label": "Initial Pressure (p1)",
+      "type": "number",
+      "unit": "Pa",
+      "default": 100000,
+      "businessContext": "Pressure at start of compression (state 1). Atmospheric: 101325 Pa."
+    },
+    {
+      "id": "k",
+      "label": "Specific Heat Ratio (k)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.4,
+      "businessContext": "Ratio cp/cv for air. Typically 1.4 for diatomic gases."
+    },
+    {
+      "id": "cv",
+      "label": "Specific Heat (cv)",
+      "type": "number",
+      "unit": "J/(kg·K)",
+      "default": 718,
+      "businessContext": "Specific heat at constant volume for air. Standard: 718 J/(kg·K)."
+    }
+  ],
+  "formulas": {
+    "R": "cv * (k - 1)",
+    "T2": "T1 * Math.pow(r, k - 1)",
+    "T3": "T2 * rc",
+    "T4": "T3 * Math.pow(rc / r, k - 1)",
+    "p2": "p1 * Math.pow(r, k)",
+    "p3": "p2",
+    "p4": "p3 * Math.pow(rc / r, k)",
+    "q_in": "k * cv * (T3 - T2)",
+    "q_out": "cv * (T4 - T1)",
+    "w_net": "q_in - q_out",
+    "eta": "w_net / q_in",
+    "v1": "R * T1 / p1",
+    "mep": "w_net / (v1 * (1 - 1/r))",
+    "mep_kPa": "mep / 1000"
+  },
+  "outputs": {
+    "primary": "eta",
+    "breakdown": [
+      "T2",
+      "T3",
+      "T4",
+      "p2",
+      "p3",
+      "p4",
+      "w_net",
+      "mep_kPa"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

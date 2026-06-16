@@ -1,0 +1,83 @@
+{
+  "toolName": "easter-date-calculator",
+  "inputs": [
+    {
+      "id": "year",
+      "label": "Year",
+      "type": "number",
+      "unit": "",
+      "default": 2025,
+      "businessContext": "The year for which to calculate Easter Sunday."
+    },
+    {
+      "id": "refYear",
+      "label": "Reference Year",
+      "type": "number",
+      "unit": "",
+      "default": 2025,
+      "businessContext": "Year of the reference date to compute days until Easter."
+    },
+    {
+      "id": "refMonth",
+      "label": "Reference Month",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Month of the reference date (1-12)."
+    },
+    {
+      "id": "refDay",
+      "label": "Reference Day",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Day of the reference date (1-31)."
+    }
+  ],
+  "formulas": {
+    "a": "year % 19",
+    "b": "Math.floor(year / 100)",
+    "c": "year % 100",
+    "d": "Math.floor(b / 4)",
+    "e": "b % 4",
+    "f": "Math.floor((b + 8) / 25)",
+    "g": "Math.floor((b - f + 1) / 3)",
+    "h": "(19 * a + b - d - g + 15) % 30",
+    "i": "Math.floor(c / 4)",
+    "k": "c % 4",
+    "l": "(32 + 2 * e + 2 * i - h - k) % 7",
+    "m": "Math.floor((a + 11 * h + 22 * l) / 451)",
+    "easterMonth": "Math.floor((h + l - 7 * m + 114) / 31)",
+    "easterDay": "((h + l - 7 * m + 114) % 31) + 1",
+    "easterDateString": "easterMonth + '/' + easterDay + '/' + year",
+    "jdnEaster": "Math.floor((1461 * (year + 4800 + Math.floor((easterMonth - 14) / 12))) / 4) + Math.floor((367 * (easterMonth - 2 - 12 * Math.floor((easterMonth - 14) / 12))) / 12) - Math.floor((3 * Math.floor((year + 4900 + Math.floor((easterMonth - 14) / 12)) / 100)) / 4) + easterDay - 32075",
+    "jdnRef": "Math.floor((1461 * (refYear + 4800 + Math.floor((refMonth - 14) / 12))) / 4) + Math.floor((367 * (refMonth - 2 - 12 * Math.floor((refMonth - 14) / 12))) / 12) - Math.floor((3 * Math.floor((refYear + 4900 + Math.floor((refMonth - 14) / 12)) / 100)) / 4) + refDay - 32075",
+    "daysUntilEaster": "jdnEaster - jdnRef"
+  },
+  "outputs": {
+    "primary": "easterDateString",
+    "breakdown": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h",
+      "i",
+      "k",
+      "l",
+      "m",
+      "easterMonth",
+      "easterDay",
+      "daysUntilEaster"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

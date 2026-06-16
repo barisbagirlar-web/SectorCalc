@@ -1,0 +1,53 @@
+{
+  "toolName": "rainwater-harvesting-calculator",
+  "inputs": [
+    {
+      "id": "roofArea",
+      "label": "Roof Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "businessContext": "Total catchment area of the roof surface available for rainwater collection."
+    },
+    {
+      "id": "runoffCoeff",
+      "label": "Runoff Coefficient",
+      "type": "number",
+      "unit": "",
+      "default": 0.85,
+      "businessContext": "Ratio of rainfall that becomes runoff, accounting for roof material, slope, and evaporation losses."
+    },
+    {
+      "id": "annualRainfall",
+      "label": "Average Annual Rainfall",
+      "type": "number",
+      "unit": "mm/year",
+      "default": 800,
+      "businessContext": "Long-term average precipitation depth per year at the location."
+    },
+    {
+      "id": "filterEfficiency",
+      "label": "Filter Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Percentage of harvested water that passes through the filtration system without loss."
+    }
+  ],
+  "formulas": {
+    "annualHarvest": "roofArea * annualRainfall * runoffCoeff * (filterEfficiency / 100)",
+    "monthlyAverage": "(roofArea * annualRainfall * runoffCoeff * (filterEfficiency / 100)) / 12"
+  },
+  "outputs": {
+    "primary": "annualHarvest",
+    "breakdown": [
+      "monthlyAverage"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

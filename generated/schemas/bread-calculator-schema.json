@@ -1,0 +1,77 @@
+{
+  "toolName": "bread-calculator",
+  "inputs": [
+    {
+      "id": "flourWeight",
+      "label": "Un Miktarı",
+      "type": "number",
+      "unit": "g",
+      "default": 1000,
+      "businessContext": "Tarifin ana bileşeni olan unun gram cinsinden ağırlığı"
+    },
+    {
+      "id": "hydration",
+      "label": "Hidrasyon Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Un ağırlığına göre su yüzdesi"
+    },
+    {
+      "id": "yeast",
+      "label": "Maya Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "businessContext": "Un ağırlığına göre yaş maya yüzdesi"
+    },
+    {
+      "id": "salt",
+      "label": "Tuz Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Un ağırlığına göre tuz yüzdesi"
+    },
+    {
+      "id": "sugar",
+      "label": "Şeker Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Un ağırlığına göre şeker yüzdesi"
+    },
+    {
+      "id": "fat",
+      "label": "Yağ Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Un ağırlığına göre sıvı yağ veya tereyağı yüzdesi"
+    }
+  ],
+  "formulas": {
+    "totalDough": "flourWeight * (1 + (hydration + yeast + salt + sugar + fat) / 100)",
+    "water": "flourWeight * hydration / 100",
+    "yeast": "flourWeight * yeast / 100",
+    "salt": "flourWeight * salt / 100",
+    "sugar": "flourWeight * sugar / 100",
+    "fat": "flourWeight * fat / 100"
+  },
+  "outputs": {
+    "primary": "totalDough",
+    "breakdown": [
+      "water",
+      "yeast",
+      "salt",
+      "sugar",
+      "fat"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

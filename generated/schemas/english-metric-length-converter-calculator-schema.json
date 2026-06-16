@@ -1,0 +1,55 @@
+{
+  "toolName": "english-metric-length-converter-calculator",
+  "inputs": [
+    {
+      "id": "in_inch",
+      "label": "İnç",
+      "type": "number",
+      "unit": "in",
+      "default": 0,
+      "businessContext": "Uzunluk değeri inç cinsinden"
+    },
+    {
+      "id": "in_feet",
+      "label": "Fit",
+      "type": "number",
+      "unit": "ft",
+      "default": 0,
+      "businessContext": "Uzunluk değeri fit cinsinden"
+    },
+    {
+      "id": "in_yard",
+      "label": "Yarda",
+      "type": "number",
+      "unit": "yd",
+      "default": 0,
+      "businessContext": "Uzunluk değeri yarda cinsinden"
+    },
+    {
+      "id": "in_mile",
+      "label": "Mil",
+      "type": "number",
+      "unit": "mi",
+      "default": 0,
+      "businessContext": "Uzunluk değeri mil cinsinden"
+    }
+  ],
+  "formulas": {
+    "Metre": "(in_inch + in_feet*12 + in_yard*36 + in_mile*63360) * 0.0254",
+    "Santimetre": "(in_inch + in_feet*12 + in_yard*36 + in_mile*63360) * 2.54",
+    "Milimetre": "(in_inch + in_feet*12 + in_yard*36 + in_mile*63360) * 25.4"
+  },
+  "outputs": {
+    "primary": "Metre",
+    "breakdown": [
+      "Santimetre",
+      "Milimetre"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

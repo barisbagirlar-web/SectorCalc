@@ -1,0 +1,61 @@
+{
+  "toolName": "sunny-16-rule",
+  "inputs": [
+    {
+      "id": "aperture",
+      "label": "Aperture (f-stop)",
+      "type": "number",
+      "unit": "f",
+      "default": 16,
+      "businessContext": "Lens aperture setting"
+    },
+    {
+      "id": "iso",
+      "label": "ISO",
+      "type": "number",
+      "unit": "ISO",
+      "default": 100,
+      "businessContext": "Film or sensor sensitivity"
+    },
+    {
+      "id": "lightCondition",
+      "label": "Light Condition (EV offset)",
+      "type": "number",
+      "unit": "EV",
+      "default": 0,
+      "businessContext": "Adjustment for sunny 16 baseline: 0 for bright sun, +1 for slight overcast, -1 for open shade, etc."
+    },
+    {
+      "id": "ndFilter",
+      "label": "ND Filter (stops)",
+      "type": "number",
+      "unit": "stops",
+      "default": 0,
+      "businessContext": "Neutral density filter reduction in stops"
+    }
+  ],
+  "formulas": {
+    "baseShutterSpeed": "1 / (iso / 100)",
+    "evAdjustment": "Math.pow(2, lightCondition)",
+    "ndAdjustment": "Math.pow(2, ndFilter)",
+    "shutterSpeed": "baseShutterSpeed * evAdjustment / ndAdjustment",
+    "apertureAdjustment": "Math.pow(aperture / 16, 2)",
+    "finalShutterSpeed": "shutterSpeed * apertureAdjustment"
+  },
+  "outputs": {
+    "primary": "finalShutterSpeed",
+    "breakdown": [
+      "baseShutterSpeed",
+      "evAdjustment",
+      "ndAdjustment",
+      "shutterSpeed",
+      "apertureAdjustment"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

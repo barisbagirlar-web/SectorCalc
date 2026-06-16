@@ -1,0 +1,55 @@
+{
+  "toolName": "ihd-calculator",
+  "inputs": [
+    {
+      "id": "plannedProduction",
+      "label": "Planned Production",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "The total planned production quantity for the period."
+    },
+    {
+      "id": "actualProduction",
+      "label": "Actual Production",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "The actual quantity produced during the period."
+    },
+    {
+      "id": "goodParts",
+      "label": "Good Parts",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "The number of defect-free units produced."
+    },
+    {
+      "id": "totalParts",
+      "label": "Total Parts",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "The total number of units produced, including defects."
+    }
+  ],
+  "formulas": {
+    "ihd": "return (plannedProduction && totalParts) ? ((actualProduction / plannedProduction) * (goodParts / totalParts) * 100).toFixed(2) : '0.00'",
+    "availability": "return plannedProduction ? ((actualProduction / plannedProduction) * 100).toFixed(2) : '0.00'",
+    "quality": "return totalParts ? ((goodParts / totalParts) * 100).toFixed(2) : '0.00'"
+  },
+  "outputs": {
+    "primary": "ihd",
+    "breakdown": [
+      "availability",
+      "quality"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

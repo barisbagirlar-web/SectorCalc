@@ -1,0 +1,67 @@
+{
+  "toolName": "trading-card-calculator",
+  "inputs": [
+    {
+      "id": "cardPrice",
+      "label": "Card Market Price (Ungraded)",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "Current market value of the ungraded card"
+    },
+    {
+      "id": "gradingCost",
+      "label": "Grading Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 20,
+      "businessContext": "Total cost to submit card for professional grading"
+    },
+    {
+      "id": "gradeMultiplier",
+      "label": "Expected Grade Multiplier",
+      "type": "number",
+      "unit": "ratio",
+      "default": 2.5,
+      "businessContext": "Factor by which card value multiplies upon achieving the expected grade"
+    },
+    {
+      "id": "shippingCost",
+      "label": "Shipping & Insurance",
+      "type": "number",
+      "unit": "currency",
+      "default": 10,
+      "businessContext": "Combined shipping and insurance cost for round-trip"
+    },
+    {
+      "id": "sellingFee",
+      "label": "Selling Fee (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Platform or auction house fee as a percentage of the final sale price"
+    }
+  ],
+  "formulas": {
+    "totalCost": "gradingCost + shippingCost",
+    "gradedValue": "cardPrice * gradeMultiplier",
+    "feeAmount": "gradedValue * sellingFee / 100",
+    "netProfit": "gradedValue - totalCost - feeAmount",
+    "roi": "(netProfit / totalCost) * 100"
+  },
+  "outputs": {
+    "primary": "netProfit",
+    "breakdown": [
+      "totalCost",
+      "gradedValue",
+      "feeAmount",
+      "roi"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

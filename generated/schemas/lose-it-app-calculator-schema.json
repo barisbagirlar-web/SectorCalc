@@ -1,0 +1,91 @@
+{
+  "toolName": "lose-it-app-calculator",
+  "inputs": [
+    {
+      "id": "currentWeight",
+      "label": "Current Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "User's current body weight"
+    },
+    {
+      "id": "targetWeight",
+      "label": "Target Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Desired body weight"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "User's height"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "User's age"
+    },
+    {
+      "id": "gender",
+      "label": "Gender (1=Male, 2=Female)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Biological gender for BMR calculation"
+    },
+    {
+      "id": "activityLevel",
+      "label": "Activity Level (PAL)",
+      "type": "number",
+      "unit": "",
+      "default": 1.55,
+      "businessContext": "Physical activity level multiplier (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 active, 1.9 very active)"
+    },
+    {
+      "id": "dailyCalorieIntake",
+      "label": "Estimated Daily Calorie Intake",
+      "type": "number",
+      "unit": "kcal",
+      "default": 2000,
+      "businessContext": "Average daily calorie consumption"
+    },
+    {
+      "id": "targetDays",
+      "label": "Target Duration",
+      "type": "number",
+      "unit": "days",
+      "default": 90,
+      "businessContext": "Number of days to reach target weight"
+    }
+  ],
+  "formulas": {
+    "bmr": "10 * inputs.currentWeight + 6.25 * inputs.height - 5 * inputs.age + (inputs.gender === 1 ? 5 : -161)",
+    "tdee": "bmr * inputs.activityLevel",
+    "dailyDeficit": "tdee - inputs.dailyCalorieIntake",
+    "projectedWeightLoss": "(dailyDeficit / 7700) * inputs.targetDays",
+    "projectedWeight": "inputs.currentWeight - projectedWeightLoss"
+  },
+  "outputs": {
+    "primary": "projectedWeight",
+    "breakdown": [
+      "dailyDeficit",
+      "bmr",
+      "tdee",
+      "projectedWeightLoss"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

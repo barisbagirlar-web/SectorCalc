@@ -1,0 +1,65 @@
+{
+  "toolName": "working-capital-turnover-calculator",
+  "inputs": [
+    {
+      "id": "netSales",
+      "label": "Net Annual Sales",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total net sales revenue for the period"
+    },
+    {
+      "id": "begCurrentAssets",
+      "label": "Beginning Current Assets",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Current assets at the start of the period"
+    },
+    {
+      "id": "endCurrentAssets",
+      "label": "Ending Current Assets",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Current assets at the end of the period"
+    },
+    {
+      "id": "begCurrentLiabilities",
+      "label": "Beginning Current Liabilities",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Current liabilities at the start of the period"
+    },
+    {
+      "id": "endCurrentLiabilities",
+      "label": "Ending Current Liabilities",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Current liabilities at the end of the period"
+    }
+  ],
+  "formulas": {
+    "averageCurrentAssets": "(begCurrentAssets + endCurrentAssets) / 2",
+    "averageCurrentLiabilities": "(begCurrentLiabilities + endCurrentLiabilities) / 2",
+    "averageWorkingCapital": "averageCurrentAssets - averageCurrentLiabilities",
+    "workingCapitalTurnover": "averageWorkingCapital !== 0 ? netSales / averageWorkingCapital : 0"
+  },
+  "outputs": {
+    "primary": "workingCapitalTurnover",
+    "breakdown": [
+      "averageCurrentAssets",
+      "averageCurrentLiabilities",
+      "averageWorkingCapital"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

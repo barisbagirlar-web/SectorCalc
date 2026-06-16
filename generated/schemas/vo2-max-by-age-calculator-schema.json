@@ -1,0 +1,61 @@
+{
+  "toolName": "vo2-max-by-age-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Client age in years"
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Client body weight in kilograms"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "0-1",
+      "default": 1,
+      "businessContext": "Client gender (0 = Female, 1 = Male)"
+    },
+    {
+      "id": "walkTime",
+      "label": "Walk Time",
+      "type": "number",
+      "unit": "minutes",
+      "default": 12,
+      "businessContext": "Time to walk 1 mile (1609 meters) on a flat track, in minutes"
+    },
+    {
+      "id": "heartRate",
+      "label": "Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 140,
+      "businessContext": "Heart rate immediately after the 1-mile walk, in beats per minute"
+    }
+  ],
+  "formulas": {
+    "vo2max": "132.853 - 0.0769 * weight - 0.3877 * age + 6.315 * gender - 3.2649 * walkTime - 0.1565 * heartRate"
+  },
+  "outputs": {
+    "primary": "VO2max (ml/kg/min)",
+    "breakdown": [
+      "Rockport Walking Test formula: 132.853 - 0.0769 * weight - 0.3877 * age + 6.315 * gender - 3.2649 * walkTime - 0.1565 * heartRate",
+      "Compare result with normative values based on age and gender to assess cardiovascular fitness."
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

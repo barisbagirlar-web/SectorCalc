@@ -1,0 +1,94 @@
+{
+  "toolName": "interior-paint-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Room Length (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Uzunluk, odanın boyutlarını belirler ve boyanacak alan hesabında temel ölçüdür."
+    },
+    {
+      "id": "width",
+      "label": "Room Width (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Genişlik, odanın boyutlarını belirler."
+    },
+    {
+      "id": "height",
+      "label": "Room Height (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 2.5,
+      "businessContext": "Yükseklik, duvar alanının hesaplanmasında kullanılır."
+    },
+    {
+      "id": "numberDoors",
+      "label": "Number of Doors",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Kapı sayısı, boyanmayacak alanı hesaplamak için standart 2 m² indirim sağlar."
+    },
+    {
+      "id": "numberWindows",
+      "label": "Number of Windows",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Pencere sayısı, boyanmayacak alanı hesaplamak için standart 1.5 m² indirim sağlar."
+    },
+    {
+      "id": "paintCoverage",
+      "label": "Paint Coverage (m²/L)",
+      "type": "number",
+      "unit": "m²/L",
+      "default": 10,
+      "businessContext": "Boyanın litre başına kapladığı alan, üretici verisine dayanır."
+    },
+    {
+      "id": "coats",
+      "label": "Number of Coats",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Uygulanacak kat sayısı, toplam boya ihtiyacını doğrudan etkiler."
+    },
+    {
+      "id": "ceilingIncluded",
+      "label": "Include Ceiling (1=Yes, 0=No)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Tavanın boyanıp boyanmayacağını belirler, alan hesabına etki eder."
+    }
+  ],
+  "formulas": {
+    "wallPerimeter": "2 * (length + width)",
+    "wallArea": "wallPerimeter * height",
+    "doorDeduction": "numberDoors * 2",
+    "windowDeduction": "numberWindows * 1.5",
+    "deductionArea": "doorDeduction + windowDeduction",
+    "ceilingArea": "ceilingIncluded * length * width",
+    "totalPaintableArea": "wallArea - deductionArea + ceilingArea",
+    "paintLiters": "(totalPaintableArea * coats) / paintCoverage"
+  },
+  "outputs": {
+    "primary": "paintLiters",
+    "breakdown": [
+      "totalPaintableArea",
+      "deductionArea",
+      "wallArea",
+      "ceilingArea"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

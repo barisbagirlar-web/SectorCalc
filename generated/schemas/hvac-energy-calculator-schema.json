@@ -1,0 +1,73 @@
+{
+  "toolName": "hvac-energy-calculator",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "Building Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 200,
+      "businessContext": "Total floor area of the building"
+    },
+    {
+      "id": "tempDiff",
+      "label": "Temperature Difference",
+      "type": "number",
+      "unit": "°C",
+      "default": 15,
+      "businessContext": "Difference between outdoor and desired indoor temperature"
+    },
+    {
+      "id": "heatLossCoefficient",
+      "label": "Heat Loss Coefficient",
+      "type": "number",
+      "unit": "W/m²·K",
+      "default": 1.5,
+      "businessContext": "Overall heat transfer coefficient of building envelope"
+    },
+    {
+      "id": "acCop",
+      "label": "AC Coefficient of Performance",
+      "type": "number",
+      "unit": "COP",
+      "default": 3.5,
+      "businessContext": "Efficiency of air conditioning unit (higher is better)"
+    },
+    {
+      "id": "hoursPerDay",
+      "label": "Operating Hours per Day",
+      "type": "number",
+      "unit": "hours",
+      "default": 12,
+      "businessContext": "Average hours the HVAC system runs each day"
+    },
+    {
+      "id": "electricityRate",
+      "label": "Electricity Rate",
+      "type": "number",
+      "unit": "$/kWh",
+      "default": 0.1,
+      "businessContext": "Cost of electricity per kilowatt-hour"
+    }
+  ],
+  "formulas": {
+    "coolingLoad_kW": "area * tempDiff * heatLossCoefficient / 1000",
+    "dailyEnergy_kWh": "coolingLoad_kW / acCop * hoursPerDay",
+    "dailyCost": "dailyEnergy_kWh * electricityRate",
+    "monthlyCost": "dailyCost * 30",
+    "yearlyCost": "dailyEnergy_kWh * electricityRate * 365"
+  },
+  "outputs": {
+    "primary": "yearlyCost",
+    "breakdown": [
+      "dailyEnergy_kWh",
+      "monthlyCost"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

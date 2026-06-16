@@ -1,0 +1,56 @@
+{
+  "toolName": "matrix-determinant-calculator",
+  "inputs": [
+    {
+      "id": "a11",
+      "label": "Element (1,1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Top-left element of the 2x2 matrix"
+    },
+    {
+      "id": "a12",
+      "label": "Element (1,2)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Top-right element of the 2x2 matrix"
+    },
+    {
+      "id": "a21",
+      "label": "Element (2,1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Bottom-left element of the 2x2 matrix"
+    },
+    {
+      "id": "a22",
+      "label": "Element (2,2)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Bottom-right element of the 2x2 matrix"
+    }
+  ],
+  "formulas": {
+    "det": "a11 * a22 - a12 * a21",
+    "part1": "a11 * a22",
+    "part2": "a12 * a21"
+  },
+  "outputs": {
+    "primary": "det",
+    "breakdown": [
+      "part1",
+      "part2",
+      "det"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

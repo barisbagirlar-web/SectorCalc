@@ -1,0 +1,56 @@
+{
+  "toolName": "midpoint-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "X1 Coordinate",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Starting point X coordinate"
+    },
+    {
+      "id": "y1",
+      "label": "Y1 Coordinate",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Starting point Y coordinate"
+    },
+    {
+      "id": "x2",
+      "label": "X2 Coordinate",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Ending point X coordinate"
+    },
+    {
+      "id": "y2",
+      "label": "Y2 Coordinate",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Ending point Y coordinate"
+    }
+  ],
+  "formulas": {
+    "midX": "(x1 + x2) / 2",
+    "midY": "(y1 + y2) / 2",
+    "dist": "Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))"
+  },
+  "outputs": {
+    "primary": "Midpoint: (${midX} m, ${midY} m)",
+    "breakdown": [
+      "Distance between points: ${dist} m",
+      "Midpoint X: ${midX} m",
+      "Midpoint Y: ${midY} m"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

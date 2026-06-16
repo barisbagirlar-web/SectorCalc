@@ -1,0 +1,65 @@
+{
+  "toolName": "lens-equation-calculator",
+  "inputs": [
+    {
+      "id": "refractiveIndex",
+      "label": "Refractive Index (n)",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Material refractive index"
+    },
+    {
+      "id": "radius1",
+      "label": "Radius of Curvature 1 (R1)",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "First surface radius, positive for convex towards object"
+    },
+    {
+      "id": "radius2",
+      "label": "Radius of Curvature 2 (R2)",
+      "type": "number",
+      "unit": "cm",
+      "default": -30,
+      "businessContext": "Second surface radius, positive for convex away from object"
+    },
+    {
+      "id": "objectDistance",
+      "label": "Object Distance (do)",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Distance from object to lens"
+    },
+    {
+      "id": "objectHeight",
+      "label": "Object Height (ho)",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Height of object"
+    }
+  ],
+  "formulas": {
+    "focalLength": "1 / ((refractiveIndex - 1) * (1/radius1 - 1/radius2))",
+    "imageDistance": "1 / (1/focalLength - 1/objectDistance)",
+    "magnification": "-imageDistance / objectDistance",
+    "imageHeight": "magnification * objectHeight"
+  },
+  "outputs": {
+    "primary": "imageHeight",
+    "breakdown": [
+      "focalLength",
+      "imageDistance",
+      "magnification"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

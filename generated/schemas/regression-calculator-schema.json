@@ -1,0 +1,63 @@
+{
+  "toolName": "regression-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Sample Size (n)",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Number of paired (x,y) data points"
+    },
+    {
+      "id": "sumX",
+      "label": "Sum of X (Σx)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Sum of all x values"
+    },
+    {
+      "id": "sumY",
+      "label": "Sum of Y (Σy)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Sum of all y values"
+    },
+    {
+      "id": "sumXY",
+      "label": "Sum of XY (Σxy)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Sum of the product of each x and y pair"
+    },
+    {
+      "id": "sumX2",
+      "label": "Sum of X² (Σx²)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Sum of squared x values"
+    }
+  ],
+  "formulas": {
+    "slope": "(n * sumXY - sumX * sumY) / (n * sumX2 - sumX ** 2)",
+    "intercept": "(sumY - slope * sumX) / n",
+    "equation": "'y = ' + intercept.toFixed(2) + ' + ' + slope.toFixed(2) + ' * x'"
+  },
+  "outputs": {
+    "primary": "equation",
+    "breakdown": [
+      "slope",
+      "intercept"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

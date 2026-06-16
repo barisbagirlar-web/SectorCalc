@@ -1,0 +1,81 @@
+{
+  "toolName": "dnd-damage-calculator",
+  "inputs": [
+    {
+      "id": "weaponDamage",
+      "label": "Weapon Damage Dice Average",
+      "type": "number",
+      "unit": "hp",
+      "default": 4.5,
+      "businessContext": "Average damage from weapon dice (e.g., d8=4.5)"
+    },
+    {
+      "id": "abilityModifier",
+      "label": "Ability Modifier",
+      "type": "number",
+      "unit": "hp",
+      "default": 3,
+      "businessContext": "Strength or Dexterity modifier applied to damage"
+    },
+    {
+      "id": "proficiencyBonus",
+      "label": "Proficiency Bonus",
+      "type": "number",
+      "unit": "hp",
+      "default": 2,
+      "businessContext": "Bonus added to attack rolls, not damage, but used for certain features"
+    },
+    {
+      "id": "magicBonus",
+      "label": "Magic Weapon Bonus",
+      "type": "number",
+      "unit": "hp",
+      "default": 0,
+      "businessContext": "Additional damage from magical enhancement"
+    },
+    {
+      "id": "criticalHitChance",
+      "label": "Critical Hit Chance (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Probability of scoring a critical hit (normally 5%)"
+    },
+    {
+      "id": "extraDamageDice",
+      "label": "Extra Damage Dice Average",
+      "type": "number",
+      "unit": "hp",
+      "default": 0,
+      "businessContext": "Average damage from extra dice (e.g., sneak attack, smite)"
+    },
+    {
+      "id": "damageMultiplier",
+      "label": "Damage Multiplier",
+      "type": "number",
+      "unit": "x",
+      "default": 1,
+      "businessContext": "Multiplier for vulnerabilities or resistances (e.g., 0.5 for resistance)"
+    }
+  ],
+  "formulas": {
+    "baseDamage": "weaponDamage + abilityModifier + magicBonus + extraDamageDice",
+    "criticalDamage": "baseDamage * 2",
+    "averageDamagePerHit": "baseDamage * (1 - criticalHitChance / 100) + criticalDamage * (criticalHitChance / 100)",
+    "finalDamage": "averageDamagePerHit * damageMultiplier"
+  },
+  "outputs": {
+    "primary": "finalDamage",
+    "breakdown": [
+      "baseDamage",
+      "criticalDamage",
+      "averageDamagePerHit"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

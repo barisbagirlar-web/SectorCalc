@@ -1,0 +1,55 @@
+{
+  "toolName": "multiply-fractions-calculator",
+  "inputs": [
+    {
+      "id": "numerator1",
+      "label": "Numerator 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The numerator of the first fraction"
+    },
+    {
+      "id": "denominator1",
+      "label": "Denominator 1",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The denominator of the first fraction (non-zero)"
+    },
+    {
+      "id": "numerator2",
+      "label": "Numerator 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The numerator of the second fraction"
+    },
+    {
+      "id": "denominator2",
+      "label": "Denominator 2",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The denominator of the second fraction (non-zero)"
+    }
+  ],
+  "formulas": {
+    "productDecimal": "inputs.numerator1 / inputs.denominator1 * inputs.numerator2 / inputs.denominator2",
+    "productNumerator": "inputs.numerator1 * inputs.numerator2",
+    "productDenominator": "inputs.denominator1 * inputs.denominator2"
+  },
+  "outputs": {
+    "primary": "productDecimal",
+    "breakdown": [
+      "productNumerator",
+      "productDenominator"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

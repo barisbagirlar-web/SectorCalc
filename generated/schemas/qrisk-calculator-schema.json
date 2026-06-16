@@ -1,0 +1,71 @@
+{
+  "toolName": "qrisk-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 50,
+      "businessContext": "Patient age"
+    },
+    {
+      "id": "systolicBP",
+      "label": "Systolic Blood Pressure",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 120,
+      "businessContext": "Systolic blood pressure reading"
+    },
+    {
+      "id": "totalCholesterol",
+      "label": "Total Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 200,
+      "businessContext": "Total cholesterol level"
+    },
+    {
+      "id": "hdlCholesterol",
+      "label": "HDL Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 50,
+      "businessContext": "High-density lipoprotein cholesterol"
+    },
+    {
+      "id": "smoker",
+      "label": "Smoking Status (0/1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Current smoker (yes=1, no=0)"
+    },
+    {
+      "id": "diabetes",
+      "label": "Diabetes Status (0/1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Diabetes diagnosis (yes=1, no=0)"
+    }
+  ],
+  "formulas": {
+    "beta": "-5.5 + 0.05 * age + 0.01 * systolicBP + 0.005 * totalCholesterol - 0.008 * hdlCholesterol + 0.5 * smoker + 0.3 * diabetes",
+    "risk": "1 - Math.exp(-Math.exp(beta))",
+    "percentage": "risk * 100"
+  },
+  "outputs": {
+    "primary": "percentage",
+    "breakdown": [
+      "risk",
+      "percentage"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

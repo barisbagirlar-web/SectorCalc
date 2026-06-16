@@ -1,0 +1,55 @@
+{
+  "toolName": "tree-spacing-calculator",
+  "inputs": [
+    {
+      "id": "fieldLength",
+      "label": "Field Length",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "businessContext": "The length of the rectangular field in meters."
+    },
+    {
+      "id": "fieldWidth",
+      "label": "Field Width",
+      "type": "number",
+      "unit": "m",
+      "default": 50,
+      "businessContext": "The width of the rectangular field in meters."
+    },
+    {
+      "id": "treeSpacing",
+      "label": "Tree Spacing (In-Row)",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "The distance between trees within the same row, in meters."
+    },
+    {
+      "id": "rowSpacing",
+      "label": "Row Spacing (Between Rows)",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "The distance between adjacent rows, in meters."
+    }
+  ],
+  "formulas": {
+    "area": "fieldLength * fieldWidth",
+    "plantingDensity": "1 / (treeSpacing * rowSpacing)",
+    "totalTrees": "area / (treeSpacing * rowSpacing)"
+  },
+  "outputs": {
+    "primary": "totalTrees",
+    "breakdown": [
+      "area",
+      "plantingDensity"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

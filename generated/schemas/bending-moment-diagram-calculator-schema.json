@@ -1,0 +1,59 @@
+{
+  "toolName": "bending-moment-diagram-calculator",
+  "inputs": [
+    {
+      "id": "beamLength",
+      "label": "Kiriş Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Kirişin toplam uzunluğu (m)"
+    },
+    {
+      "id": "loadMagnitude",
+      "label": "Yük Büyüklüğü",
+      "type": "number",
+      "unit": "kN",
+      "default": 10,
+      "businessContext": "Tekil yükün büyüklüğü (kN)"
+    },
+    {
+      "id": "loadPosition",
+      "label": "Yük Konumu",
+      "type": "number",
+      "unit": "m",
+      "default": 2.5,
+      "businessContext": "Yükün sol mesnetten uzaklığı (m)"
+    },
+    {
+      "id": "distanceX",
+      "label": "Kesit Konumu",
+      "type": "number",
+      "unit": "m",
+      "default": 2.5,
+      "businessContext": "Moment hesabı yapılan kesitin sol mesnetten uzaklığı (m)"
+    }
+  ],
+  "formulas": {
+    "leftReaction": "loadMagnitude * (beamLength - loadPosition) / beamLength",
+    "rightReaction": "loadMagnitude * loadPosition / beamLength",
+    "bendingMomentAtX": "distanceX <= loadPosition ? (loadMagnitude * (beamLength - loadPosition) * distanceX / beamLength) : (loadMagnitude * loadPosition * (beamLength - distanceX) / beamLength)",
+    "maxBendingMoment": "loadMagnitude * loadPosition * (beamLength - loadPosition) / beamLength",
+    "maxMomentLocation": "loadPosition"
+  },
+  "outputs": {
+    "primary": "bendingMomentAtX",
+    "breakdown": [
+      "leftReaction",
+      "rightReaction",
+      "maxBendingMoment",
+      "maxMomentLocation"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

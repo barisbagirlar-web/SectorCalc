@@ -1,0 +1,83 @@
+{
+  "toolName": "caulk-calculator",
+  "inputs": [
+    {
+      "id": "jointLength",
+      "label": "Joint Length",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Total length of the joint to be caulked, in meters."
+    },
+    {
+      "id": "jointWidth",
+      "label": "Joint Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 6,
+      "businessContext": "Width of the joint in millimeters."
+    },
+    {
+      "id": "jointDepth",
+      "label": "Joint Depth",
+      "type": "number",
+      "unit": "mm",
+      "default": 6,
+      "businessContext": "Depth of the joint in millimeters. Typically, depth should be about half the width for proper adhesion."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Extra material added to account for waste, overfilling, and tooling. Typical range: 5-15%."
+    },
+    {
+      "id": "tubeVolume",
+      "label": "Tube Volume",
+      "type": "number",
+      "unit": "mL",
+      "default": 310,
+      "businessContext": "Volume of a single caulk tube in milliliters. Standard tubes are 310 mL."
+    },
+    {
+      "id": "numberOfJoints",
+      "label": "Number of Joints",
+      "type": "number",
+      "unit": "count",
+      "default": 1,
+      "businessContext": "Number of joints of identical dimensions to caulk."
+    }
+  ],
+  "formulas": {
+    "volumeWithWaste": "jointLength * jointWidth * jointDepth * numberOfJoints * (1 + wasteFactor/100)",
+    "theoreticalVolume": "jointLength * jointWidth * jointDepth * numberOfJoints",
+    "tubesRequired": "Math.ceil( (jointLength * jointWidth * jointDepth * numberOfJoints * (1 + wasteFactor/100)) / tubeVolume )"
+  },
+  "outputs": {
+    "primary": {
+      "id": "volumeWithWaste",
+      "label": "Total Caulk Volume Required (with waste)",
+      "unit": "mL"
+    },
+    "breakdown": [
+      {
+        "id": "theoreticalVolume",
+        "label": "Theoretical Volume (no waste)",
+        "unit": "mL"
+      },
+      {
+        "id": "tubesRequired",
+        "label": "Number of Tubes Required",
+        "unit": "tubes"
+      }
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

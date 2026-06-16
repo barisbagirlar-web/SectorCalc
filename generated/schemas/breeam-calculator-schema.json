@@ -1,0 +1,75 @@
+{
+  "toolName": "breeam-calculator",
+  "inputs": [
+    {
+      "id": "energy_use",
+      "label": "Annual Energy Use (kWh)",
+      "type": "number",
+      "unit": "kWh",
+      "default": 100000,
+      "businessContext": "Total annual energy consumption of the building"
+    },
+    {
+      "id": "water_use",
+      "label": "Annual Water Use (m³)",
+      "type": "number",
+      "unit": "m³",
+      "default": 5000,
+      "businessContext": "Total annual water consumption"
+    },
+    {
+      "id": "waste_generated",
+      "label": "Annual Waste Generated (tonnes)",
+      "type": "number",
+      "unit": "tonnes",
+      "default": 50,
+      "businessContext": "Total annual waste generated"
+    },
+    {
+      "id": "recycled_waste",
+      "label": "Recycled Waste (tonnes)",
+      "type": "number",
+      "unit": "tonnes",
+      "default": 20,
+      "businessContext": "Annual waste recycled"
+    },
+    {
+      "id": "co2_emissions",
+      "label": "CO2 Emissions (tonnes)",
+      "type": "number",
+      "unit": "tonnes",
+      "default": 200,
+      "businessContext": "Annual CO2 emissions from operations"
+    },
+    {
+      "id": "floor_area",
+      "label": "Floor Area (m²)",
+      "type": "number",
+      "unit": "m²",
+      "default": 10000,
+      "businessContext": "Total floor area of the building"
+    }
+  ],
+  "formulas": {
+    "energy_intensity": "energy_use / floor_area",
+    "water_intensity": "water_use / floor_area",
+    "waste_recycling_rate": "(recycled_waste / waste_generated) * 100",
+    "carbon_intensity": "co2_emissions / floor_area",
+    "breeam_score": "Math.min(100, (energy_intensity * 0.3 + water_intensity * 0.2 + (100 - waste_recycling_rate) * 0.2 + carbon_intensity * 0.3) / 10)"
+  },
+  "outputs": {
+    "primary": "BREEAM Score",
+    "breakdown": [
+      "Energy Intensity (kWh/m²)",
+      "Water Intensity (m³/m²)",
+      "Waste Recycling Rate (%)",
+      "Carbon Intensity (tonnes/m²)"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

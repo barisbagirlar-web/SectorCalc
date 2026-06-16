@@ -1,0 +1,55 @@
+{
+  "toolName": "wine-blending-calculator",
+  "inputs": [
+    {
+      "id": "volume1",
+      "label": "Volume of Wine 1",
+      "type": "number",
+      "unit": "L",
+      "default": 10,
+      "businessContext": "Volume of the first wine, typically the one with higher ABV"
+    },
+    {
+      "id": "abv1",
+      "label": "ABV of Wine 1",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Alcohol by volume percentage of the first wine"
+    },
+    {
+      "id": "abv2",
+      "label": "ABV of Wine 2",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Alcohol by volume percentage of the second wine, lower than target ABV"
+    },
+    {
+      "id": "targetABV",
+      "label": "Target ABV",
+      "type": "number",
+      "unit": "%",
+      "default": 13,
+      "businessContext": "Desired alcohol by volume percentage of the final blend"
+    }
+  ],
+  "formulas": {
+    "volume2": "volume1 * (abv1 - targetABV) / (targetABV - abv2)",
+    "totalVolume": "volume1 + volume2",
+    "finalABV": "(volume1 * abv1 + volume2 * abv2) / totalVolume"
+  },
+  "outputs": {
+    "primary": "volume2",
+    "breakdown": [
+      "totalVolume",
+      "finalABV"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

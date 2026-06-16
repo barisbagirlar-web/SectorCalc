@@ -1,0 +1,75 @@
+{
+  "toolName": "corrugated-roofing-calculator",
+  "inputs": [
+    {
+      "id": "roofWidth",
+      "label": "Roof Width (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "The total horizontal width of the roof area to be covered."
+    },
+    {
+      "id": "roofLength",
+      "label": "Roof Length (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "The length of the roof slope from ridge to eave."
+    },
+    {
+      "id": "sheetWidth",
+      "label": "Sheet Effective Width (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.76,
+      "businessContext": "The coverage width of one sheet after accounting for side overlap."
+    },
+    {
+      "id": "sheetLength",
+      "label": "Sheet Length (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 2.5,
+      "businessContext": "The length of a single corrugated sheet."
+    },
+    {
+      "id": "overlapLength",
+      "label": "End Overlap (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.15,
+      "businessContext": "The lengthwise overlap between sheets to ensure watertightness."
+    },
+    {
+      "id": "pricePerSheet",
+      "label": "Price per Sheet",
+      "type": "number",
+      "unit": "currency",
+      "default": 25,
+      "businessContext": "Cost of one sheet in local currency."
+    }
+  ],
+  "formulas": {
+    "rows": "Math.ceil(roofWidth / sheetWidth)",
+    "perRow": "roofLength <= sheetLength ? 1 : Math.ceil((roofLength - sheetLength) / (sheetLength - overlapLength)) + 1",
+    "totalSheets": "rows * perRow",
+    "totalCost": "totalSheets * pricePerSheet",
+    "roofArea": "roofWidth * roofLength"
+  },
+  "outputs": {
+    "primary": "totalSheets",
+    "breakdown": [
+      "rows",
+      "perRow",
+      "totalCost",
+      "roofArea"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

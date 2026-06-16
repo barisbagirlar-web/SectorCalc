@@ -1,0 +1,53 @@
+{
+  "toolName": "stirling-approximation-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "n",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Positive integer for factorial approximation"
+    },
+    {
+      "id": "a",
+      "label": "a",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First-order correction coefficient (1/n term)"
+    },
+    {
+      "id": "b",
+      "label": "b",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second-order correction coefficient (1/n² term)"
+    },
+    {
+      "id": "c",
+      "label": "c",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Third-order correction coefficient (1/n³ term)"
+    }
+  ],
+  "formulas": {
+    "primary": "Math.sqrt(2*Math.PI*n) * Math.pow(n/Math.E, n) * (1 + a/n + b/(n*n) + c/(n*n*n))"
+  },
+  "outputs": {
+    "primary": "Stirling approximation for n!",
+    "breakdown": [
+      "Math.sqrt(2*Math.PI*n) * Math.pow(n/Math.E, n)",
+      "(1 + a/n + b/(n*n) + c/(n*n*n))"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

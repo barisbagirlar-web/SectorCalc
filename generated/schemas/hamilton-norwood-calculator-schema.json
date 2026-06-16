@@ -1,0 +1,61 @@
+{
+  "toolName": "hamilton-norwood-calculator",
+  "inputs": [
+    {
+      "id": "temporalRecession",
+      "label": "Temporal Recession (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "Distance from original anterior hairline to current anterior hairline at temples"
+    },
+    {
+      "id": "vertexDiameter",
+      "label": "Vertex Bald Diameter (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "Diameter of circular bald area at the vertex (crown)"
+    },
+    {
+      "id": "frontalThinningArea",
+      "label": "Frontal Thinning Area (cm²)",
+      "type": "number",
+      "unit": "cm²",
+      "default": 0,
+      "businessContext": "Area of diffuse thinning in frontal region beyond recession"
+    },
+    {
+      "id": "crownThinningArea",
+      "label": "Crown Thinning Area (cm²)",
+      "type": "number",
+      "unit": "cm²",
+      "default": 0,
+      "businessContext": "Area of diffuse thinning around vertex bald spot"
+    }
+  ],
+  "formulas": {
+    "recessionScore": "temporalRecession / 3",
+    "vertexScore": "vertexDiameter / 5",
+    "frontalThinningScore": "frontalThinningArea / 50",
+    "crownThinningScore": "crownThinningArea / 50",
+    "totalScore": "recessionScore + vertexScore + frontalThinningScore + crownThinningScore",
+    "norwoodStage": "Math.min(7, Math.max(1, Math.round(totalScore)))"
+  },
+  "outputs": {
+    "primary": "Norwood Stage: {norwoodStage}",
+    "breakdown": [
+      "Recession Score: {recessionScore}",
+      "Vertex Score: {vertexScore}",
+      "Frontal Thinning Score: {frontalThinningScore}",
+      "Crown Thinning Score: {crownThinningScore}",
+      "Total Score: {totalScore}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

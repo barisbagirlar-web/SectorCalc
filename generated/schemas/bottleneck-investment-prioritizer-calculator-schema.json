@@ -1,0 +1,382 @@
+{
+  "slug": "bottleneck-investment-prioritizer",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Scenario simulation",
+    "Multi-site comparison"
+  ],
+  "inputs": [
+    {
+      "id": "bottleneck_utilization",
+      "label": "Bottleneck Utilization (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Current utilization rate of the primary bottleneck resource, measured over a representative period (e.g., last 4 weeks).",
+      "label_i18n": {
+        "en": "Bottleneck Utilization (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Current utilization rate of the primary bottleneck resource, measured over a representative period (e.g., last 4 weeks)."
+      }
+    },
+    {
+      "id": "demand_rate",
+      "label": "Average Demand Rate (units/hour)",
+      "type": "number",
+      "unit": "units/hour",
+      "default": 100,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Average customer demand rate for the product family flowing through the bottleneck.",
+      "label_i18n": {
+        "en": "Average Demand Rate (units/hour)"
+      },
+      "businessContext_i18n": {
+        "en": "Average customer demand rate for the product family flowing through the bottleneck."
+      }
+    },
+    {
+      "id": "bottleneck_capacity",
+      "label": "Bottleneck Capacity (units/hour)",
+      "type": "number",
+      "unit": "units/hour",
+      "default": 120,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Maximum theoretical output rate of the bottleneck resource under ideal conditions.",
+      "label_i18n": {
+        "en": "Bottleneck Capacity (units/hour)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum theoretical output rate of the bottleneck resource under ideal conditions."
+      }
+    },
+    {
+      "id": "investment_cost",
+      "label": "Proposed Investment Cost ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 50000,
+      "min": 0,
+      "max": 10000000,
+      "businessContext": "Total capital expenditure required for the bottleneck improvement (e.g., new equipment, tooling, automation).",
+      "label_i18n": {
+        "en": "Proposed Investment Cost ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Total capital expenditure required for the bottleneck improvement (e.g., new equipment, tooling, automation)."
+      }
+    },
+    {
+      "id": "expected_capacity_increase",
+      "label": "Expected Capacity Increase (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 200,
+      "businessContext": "Expected percentage increase in bottleneck capacity after the investment.",
+      "label_i18n": {
+        "en": "Expected Capacity Increase (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage increase in bottleneck capacity after the investment."
+      }
+    },
+    {
+      "id": "operating_hours_per_year",
+      "label": "Operating Hours per Year",
+      "type": "number",
+      "unit": "hours/year",
+      "default": 4000,
+      "min": 0,
+      "max": 8760,
+      "businessContext": "Total planned operating hours of the bottleneck resource per year.",
+      "label_i18n": {
+        "en": "Operating Hours per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Total planned operating hours of the bottleneck resource per year."
+      }
+    },
+    {
+      "id": "profit_margin_per_unit",
+      "label": "Profit Margin per Unit ($)",
+      "type": "number",
+      "unit": "$/unit",
+      "default": 5,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Contribution margin (revenue minus variable cost) per unit of product flowing through the bottleneck.",
+      "label_i18n": {
+        "en": "Profit Margin per Unit ($)"
+      },
+      "businessContext_i18n": {
+        "en": "Contribution margin (revenue minus variable cost) per unit of product flowing through the bottleneck."
+      }
+    },
+    {
+      "id": "quality_yield",
+      "label": "Quality Yield at Bottleneck (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "min": 0,
+      "max": 100,
+      "businessContext": "First-pass yield (percentage of good units) at the bottleneck operation.",
+      "label_i18n": {
+        "en": "Quality Yield at Bottleneck (%)"
+      },
+      "businessContext_i18n": {
+        "en": "First-pass yield (percentage of good units) at the bottleneck operation."
+      }
+    },
+    {
+      "id": "maintenance_downtime_percent",
+      "label": "Planned Maintenance Downtime (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Percentage of total operating time allocated to planned maintenance for the bottleneck.",
+      "label_i18n": {
+        "en": "Planned Maintenance Downtime (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of total operating time allocated to planned maintenance for the bottleneck."
+      }
+    },
+    {
+      "id": "risk_factor",
+      "label": "Implementation Risk Factor",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "businessContext": "Qualitative assessment of the risk that the investment will not achieve the expected capacity increase.",
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "label_i18n": {
+        "en": "Implementation Risk Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Qualitative assessment of the risk that the investment will not achieve the expected capacity increase."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "condition": "bottleneck_utilization > 100",
+        "message": "Bottleneck utilization cannot exceed 100%."
+      },
+      {
+        "condition": "demand_rate > bottleneck_capacity",
+        "message": "Demand rate exceeds current bottleneck capacity; investment is critical."
+      },
+      {
+        "condition": "investment_cost <= 0",
+        "message": "Investment cost must be greater than zero."
+      },
+      {
+        "condition": "expected_capacity_increase < 0",
+        "message": "Expected capacity increase cannot be negative."
+      },
+      {
+        "condition": "quality_yield < 50",
+        "message": "Quality yield below 50% indicates severe quality issues; consider root cause analysis before investment."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "roi_alert",
+        "condition": "roi < 0",
+        "message": "Negative ROI – investment is not financially justified."
+      },
+      {
+        "id": "payback_alert",
+        "condition": "payback_period_years > 5",
+        "message": "Payback period exceeds 5 years; consider alternative investments."
+      },
+      {
+        "id": "utilization_alert",
+        "condition": "bottleneck_utilization < 70",
+        "message": "Bottleneck utilization below 70% – consider if this is the true bottleneck."
+      },
+      {
+        "id": "capacity_gap_alert",
+        "condition": "capacity_gap < 0",
+        "message": "Negative capacity gap – demand already exceeds capacity; investment is urgent."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "effective_capacity",
+      "label": "Effective Capacity (units/hour)",
+      "description": "Current bottleneck capacity adjusted for quality yield and planned maintenance downtime.",
+      "expression": "bottleneck_capacity * (quality_yield / 100) * (1 - maintenance_downtime_percent / 100)"
+    },
+    {
+      "id": "capacity_gap",
+      "label": "Capacity Gap (units/hour)",
+      "description": "Difference between demand rate and effective capacity. Positive value indicates excess capacity; negative indicates a deficit.",
+      "expression": "effective_capacity - demand_rate"
+    },
+    {
+      "id": "new_capacity",
+      "label": "New Bottleneck Capacity (units/hour)",
+      "description": "Projected bottleneck capacity after investment, including quality and maintenance adjustments.",
+      "expression": "bottleneck_capacity * (1 + expected_capacity_increase / 100) * (quality_yield / 100) * (1 - maintenance_downtime_percent / 100)"
+    },
+    {
+      "id": "additional_throughput",
+      "label": "Additional Throughput (units/year)",
+      "description": "Expected increase in annual good units produced through the bottleneck after investment.",
+      "expression": "max(0, (new_capacity - effective_capacity)) * operating_hours_per_year"
+    },
+    {
+      "id": "annual_benefit",
+      "label": "Annual Financial Benefit ($/year)",
+      "description": "Additional profit generated from the increased throughput.",
+      "expression": "additional_throughput * profit_margin_per_unit"
+    },
+    {
+      "id": "roi",
+      "label": "Return on Investment (ROI) (%)",
+      "description": "Simple return on investment percentage, adjusted by risk factor.",
+      "expression": "((annual_benefit / investment_cost) * 100) * case when risk_factor = 'low' then 1.0 when risk_factor = 'medium' then 0.8 else 0.5 end"
+    },
+    {
+      "id": "payback_period_years",
+      "label": "Payback Period (years)",
+      "description": "Time required to recover the investment from annual benefits.",
+      "expression": "investment_cost / annual_benefit"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "investment_priority_score",
+      "label": "Investment Priority Score",
+      "description": "Composite score (0-100) indicating the priority of this bottleneck investment. Higher score = higher priority.",
+      "unit": "score",
+      "expression": "max(0, min(100, (roi / 50) * 40 + (max(0, -capacity_gap) / demand_rate) * 30 + (100 - payback_period_years * 10) * 30))"
+    },
+    "breakdown": {
+      "effective_capacity": {
+        "id": "effective_capacity",
+        "label": "Effective Capacity",
+        "unit": "units/hour",
+        "value": null
+      },
+      "capacity_gap": {
+        "id": "capacity_gap",
+        "label": "Capacity Gap",
+        "unit": "units/hour",
+        "value": null
+      },
+      "new_capacity": {
+        "id": "new_capacity",
+        "label": "New Capacity",
+        "unit": "units/hour",
+        "value": null
+      },
+      "additional_throughput": {
+        "id": "additional_throughput",
+        "label": "Additional Throughput",
+        "unit": "units/year",
+        "value": null
+      },
+      "annual_benefit": {
+        "id": "annual_benefit",
+        "label": "Annual Benefit",
+        "unit": "$/year",
+        "value": null
+      },
+      "roi": {
+        "id": "roi",
+        "label": "Return on Investment",
+        "unit": "%",
+        "value": null
+      },
+      "payback_period_years": {
+        "id": "payback_period_years",
+        "label": "Payback Period",
+        "unit": "years",
+        "value": null
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "quality_loss",
+        "label": "Quality Loss (units/hour)",
+        "description": "Units lost due to defects at the bottleneck.",
+        "value": null,
+        "formula": "bottleneck_capacity * (1 - quality_yield / 100)"
+      },
+      {
+        "id": "maintenance_loss",
+        "label": "Maintenance Loss (units/hour)",
+        "description": "Capacity lost due to planned maintenance downtime.",
+        "value": null,
+        "formula": "bottleneck_capacity * (maintenance_downtime_percent / 100)"
+      },
+      {
+        "id": "demand_loss",
+        "label": "Demand Loss (units/hour)",
+        "description": "Unmet demand due to capacity gap (if negative).",
+        "value": null,
+        "formula": "max(0, -capacity_gap)"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "label": "Increase Quality Yield",
+        "description": "Implement Six Sigma DMAIC project to reduce defects at bottleneck. Target yield improvement from current to 98%.",
+        "impact": "Increases effective capacity without capital investment."
+      },
+      {
+        "id": "action_2",
+        "label": "Reduce Planned Maintenance Downtime",
+        "description": "Apply TPM (Total Productive Maintenance) to optimize maintenance schedule and reduce downtime by 2%.",
+        "impact": "Increases effective capacity at low cost."
+      },
+      {
+        "id": "action_3",
+        "label": "Consider Alternative Investment",
+        "description": "If ROI is low or payback period long, evaluate process improvement (Lean) or outsourcing before capital expenditure.",
+        "impact": "Improves financial justification."
+      },
+      {
+        "id": "action_4",
+        "label": "Validate Bottleneck Identification",
+        "description": "Use value stream mapping and cycle time analysis to confirm the identified resource is the true bottleneck.",
+        "impact": "Avoids misallocation of investment."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_score",
+      "label": "Data Confidence Score",
+      "description": "Score (0-100) reflecting the reliability of input data based on completeness and consistency.",
+      "unit": "score",
+      "value": null,
+      "calculation": "if all inputs are within valid ranges and no validation alerts triggered then 90 else 60"
+    }
+  },
+  "toolName": "bottleneck-investment-prioritizer-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

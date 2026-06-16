@@ -1,0 +1,57 @@
+{
+  "toolName": "mulch-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length (ft)",
+      "type": "number",
+      "unit": "ft",
+      "default": 10,
+      "businessContext": "The length of the area to be covered with mulch, measured in feet."
+    },
+    {
+      "id": "width",
+      "label": "Width (ft)",
+      "type": "number",
+      "unit": "ft",
+      "default": 10,
+      "businessContext": "The width of the area to be covered with mulch, measured in feet."
+    },
+    {
+      "id": "depth",
+      "label": "Mulch Depth (in)",
+      "type": "number",
+      "unit": "in",
+      "default": 3,
+      "businessContext": "The desired depth of mulch layer, measured in inches."
+    },
+    {
+      "id": "bagVolume",
+      "label": "Bag Volume (ft³)",
+      "type": "number",
+      "unit": "ft³",
+      "default": 2,
+      "businessContext": "The volume of a single bag of mulch, typically 2 cubic feet."
+    }
+  ],
+  "formulas": {
+    "squareFeet": "length * width",
+    "cubicFeet": "length * width * (depth / 12)",
+    "cubicYards": "(length * width * (depth / 12)) / 27",
+    "bags": "(length * width * (depth / 12)) / bagVolume"
+  },
+  "outputs": {
+    "primary": "cubicYards",
+    "breakdown": [
+      "squareFeet",
+      "cubicFeet",
+      "bags"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

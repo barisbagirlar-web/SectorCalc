@@ -1,0 +1,54 @@
+{
+  "toolName": "financial-aid-calculator",
+  "inputs": [
+    {
+      "id": "annualIncome",
+      "label": "Annual Family Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Total gross annual income of the family before taxes"
+    },
+    {
+      "id": "totalAssets",
+      "label": "Total Assets",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "businessContext": "Total value of family assets including savings, investments, and property equity"
+    },
+    {
+      "id": "dependents",
+      "label": "Number of Dependents",
+      "type": "number",
+      "unit": "persons",
+      "default": 2,
+      "businessContext": "Number of dependent family members including the student"
+    },
+    {
+      "id": "costOfAttendance",
+      "label": "Annual Cost of Attendance",
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "businessContext": "Total annual cost of attending the educational institution including tuition, fees, room, and board"
+    }
+  ],
+  "formulas": {
+    "efc": "((annualIncome * 0.2 + totalAssets * 0.05 - dependents * 2000) + Math.sqrt((annualIncome * 0.2 + totalAssets * 0.05 - dependents * 2000) ** 2)) / 2",
+    "financialAid": "((costOfAttendance - efc) + Math.sqrt((costOfAttendance - efc) ** 2)) / 2"
+  },
+  "outputs": {
+    "primary": "financialAid",
+    "breakdown": [
+      "efc",
+      "costOfAttendance"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

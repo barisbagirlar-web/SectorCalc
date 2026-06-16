@@ -1,0 +1,51 @@
+{
+  "toolName": "clinical-frailty-scale-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 75,
+      "businessContext": "Hastanın yaşı"
+    },
+    {
+      "id": "comorbidities",
+      "label": "Komorbidite Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 2,
+      "businessContext": "Eşlik eden kronik hastalık sayısı"
+    },
+    {
+      "id": "adl",
+      "label": "Günlük Yaşam Aktiviteleri Skoru (0-7)",
+      "type": "number",
+      "unit": "puan",
+      "default": 5,
+      "businessContext": "Barthel İndeksi benzeri fonksiyonel bağımsızlık ölçümü (7: tam bağımsız, 0: tam bağımlı)"
+    }
+  ],
+  "formulas": {
+    "cfs": "Math.min(9, Math.max(1, Math.round(1 + Math.max(0, age - 65)/10 * 0.5 + comorbidities * 0.3 + Math.max(0, 7 - adl) * 0.4)))",
+    "rawScore": "1 + Math.max(0, age - 65)/10 * 0.5 + comorbidities * 0.3 + Math.max(0, 7 - adl) * 0.4",
+    "ageEffect": "Math.max(0, age - 65)/10 * 0.5",
+    "comorbidityEffect": "comorbidities * 0.3",
+    "adlEffect": "Math.max(0, 7 - adl) * 0.4"
+  },
+  "outputs": {
+    "primary": "cfs",
+    "breakdown": [
+      "rawScore",
+      "ageEffect",
+      "comorbidityEffect",
+      "adlEffect"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

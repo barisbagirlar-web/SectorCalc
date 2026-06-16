@@ -1,0 +1,55 @@
+{
+  "toolName": "gantt-chart-calculator",
+  "inputs": [
+    {
+      "id": "numTasks",
+      "label": "Number of Tasks",
+      "type": "number",
+      "unit": "tasks",
+      "default": 5,
+      "businessContext": "Toplam görev sayısı. Artan görevler proje süresini uzatabilir."
+    },
+    {
+      "id": "taskDuration",
+      "label": "Duration per Task",
+      "type": "number",
+      "unit": "days",
+      "default": 5,
+      "businessContext": "Her bir görevin tamamlanması için gereken süre (gün)."
+    },
+    {
+      "id": "overlap",
+      "label": "Overlap Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Ardışık görevler arasındaki örtüşme yüzdesi (fast-tracking). %0-100 arası."
+    },
+    {
+      "id": "startDelay",
+      "label": "Start Delay",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "İlk göreve başlamadan önceki gecikme süresi."
+    }
+  ],
+  "formulas": {
+    "totalDuration": "startDelay + numTasks * taskDuration - (numTasks - 1) * taskDuration * (overlap / 100)",
+    "totalWork": "numTasks * taskDuration",
+    "overlapTime": "(numTasks - 1) * taskDuration * (overlap / 100)"
+  },
+  "outputs": {
+    "primary": "totalDuration",
+    "breakdown": [
+      "totalWork",
+      "overlapTime"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

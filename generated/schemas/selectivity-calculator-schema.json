@@ -1,0 +1,81 @@
+{
+  "toolName": "selectivity-calculator",
+  "inputs": [
+    {
+      "id": "massReactantFed",
+      "label": "Reaktan Kütlesi",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Reaktöre beslenen toplam reaktan kütlesi"
+    },
+    {
+      "id": "molarMassReactant",
+      "label": "Reaktan Mol Kütlesi",
+      "type": "number",
+      "unit": "kg/kmol",
+      "default": 50,
+      "businessContext": "Reaktanın molar kütlesi"
+    },
+    {
+      "id": "conversion",
+      "label": "Dönüşüm Oranı",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 0.5,
+      "businessContext": "Reaktanın fraksiyonel dönüşümü (0–1)"
+    },
+    {
+      "id": "massDesired",
+      "label": "İstenen Ürün Kütlesi",
+      "type": "number",
+      "unit": "kg",
+      "default": 40,
+      "businessContext": "Elde edilen istenen ürün kütlesi"
+    },
+    {
+      "id": "molarMassDesired",
+      "label": "İstenen Ürün Mol Kütlesi",
+      "type": "number",
+      "unit": "kg/kmol",
+      "default": 80,
+      "businessContext": "İstenen ürünün molar kütlesi"
+    },
+    {
+      "id": "massUndesired",
+      "label": "İstenmeyen Ürün Kütlesi",
+      "type": "number",
+      "unit": "kg",
+      "default": 20,
+      "businessContext": "Oluşan istenmeyen yan ürün kütlesi"
+    },
+    {
+      "id": "molarMassUndesired",
+      "label": "İstenmeyen Ürün Mol Kütlesi",
+      "type": "number",
+      "unit": "kg/kmol",
+      "default": 60,
+      "businessContext": "İstenmeyen ürünün molar kütlesi"
+    }
+  ],
+  "formulas": {
+    "molesReactantFed": "massReactantFed / molarMassReactant",
+    "molesReactantConsumed": "molesReactantFed * conversion",
+    "molesDesired": "massDesired / molarMassDesired",
+    "molesUndesired": "massUndesired / molarMassUndesired",
+    "selectivity": "molesDesired / molesUndesired",
+    "yield": "molesDesired / molesReactantFed"
+  },
+  "outputs": {
+    "primary": "selectivity",
+    "breakdown": [
+      "yield"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

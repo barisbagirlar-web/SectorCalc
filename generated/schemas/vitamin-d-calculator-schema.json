@@ -1,0 +1,64 @@
+{
+  "toolName": "vitamin-d-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Consumer age for nutraceutical product dosing guidelines"
+    },
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Consumer weight to adjust supplement dosage per body mass"
+    },
+    {
+      "id": "currentVitaminD",
+      "label": "Current Serum Vitamin D Level",
+      "type": "number",
+      "unit": "ng/mL",
+      "default": 20,
+      "businessContext": "Baseline 25(OH)D level for deficiency correction calculation"
+    },
+    {
+      "id": "targetVitaminD",
+      "label": "Target Vitamin D Level",
+      "type": "number",
+      "unit": "ng/mL",
+      "default": 50,
+      "businessContext": "Desired 25(OH)D level for optimal health"
+    },
+    {
+      "id": "treatmentDuration",
+      "label": "Treatment Duration",
+      "type": "number",
+      "unit": "weeks",
+      "default": 12,
+      "businessContext": "Duration for gradual serum level adjustment in production planning"
+    }
+  ],
+  "formulas": {
+    "diff": "targetVitaminD - currentVitaminD",
+    "dailyDoseIU": "diff * 100",
+    "weeklyDoseIU": "dailyDoseIU * 7",
+    "totalDoseIU": "dailyDoseIU * treatmentDuration * 7"
+  },
+  "outputs": {
+    "primary": "dailyDoseIU",
+    "breakdown": [
+      "weeklyDoseIU",
+      "totalDoseIU"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

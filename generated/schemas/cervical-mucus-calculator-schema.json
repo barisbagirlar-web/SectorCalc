@@ -1,0 +1,79 @@
+{
+  "toolName": "cervical-mucus-calculator",
+  "inputs": [
+    {
+      "id": "temperature",
+      "label": "Sıcaklık",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "Proses sıcaklığı"
+    },
+    {
+      "id": "shearRate",
+      "label": "Kayma Hızı",
+      "type": "number",
+      "unit": "1/s",
+      "default": 10,
+      "businessContext": "Akışkanın maruz kaldığı kayma hızı"
+    },
+    {
+      "id": "consistencyIndex",
+      "label": "Kıvam İndisi",
+      "type": "number",
+      "unit": "Pa·s^n",
+      "default": 0.5,
+      "businessContext": "Power-law modeli tutarlılık katsayısı"
+    },
+    {
+      "id": "flowBehaviorIndex",
+      "label": "Akış Davranış İndisi",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 0.8,
+      "businessContext": "Power-law modeli akışkanlık katsayısı"
+    },
+    {
+      "id": "density",
+      "label": "Yoğunluk",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Akışkan yoğunluğu"
+    },
+    {
+      "id": "flowRate",
+      "label": "Debi",
+      "type": "number",
+      "unit": "m³/s",
+      "default": 0.0001,
+      "businessContext": "Hacimsel akış hızı"
+    },
+    {
+      "id": "pipeDiameter",
+      "label": "Boru Çapı",
+      "type": "number",
+      "unit": "m",
+      "default": 0.05,
+      "businessContext": "Taşıma borusu iç çapı"
+    }
+  ],
+  "formulas": {
+    "apparentViscosity": "consistencyIndex * Math.pow(shearRate, flowBehaviorIndex - 1)",
+    "reynoldsNumber": "(density * (flowRate / (Math.PI * Math.pow(pipeDiameter/2,2))) * pipeDiameter) / (consistencyIndex * Math.pow(shearRate, flowBehaviorIndex - 1))",
+    "flowRegime": "reynoldsNumber < 2100 ? 'Laminar' : reynoldsNumber > 4000 ? 'Turbulent' : 'Geçiş'"
+  },
+  "outputs": {
+    "primary": "apparentViscosity",
+    "breakdown": [
+      "reynoldsNumber",
+      "flowRegime"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

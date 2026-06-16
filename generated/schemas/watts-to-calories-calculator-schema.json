@@ -1,0 +1,57 @@
+{
+  "toolName": "watts-to-calories-calculator",
+  "inputs": [
+    {
+      "id": "watts",
+      "label": "Power (Watts)",
+      "type": "number",
+      "unit": "W",
+      "default": 100,
+      "businessContext": "Input power in watts (e.g., electrical device rating)."
+    },
+    {
+      "id": "time",
+      "label": "Time (seconds)",
+      "type": "number",
+      "unit": "s",
+      "default": 1,
+      "businessContext": "Duration of power application in seconds."
+    },
+    {
+      "id": "calFactor",
+      "label": "Joules per calorie",
+      "type": "number",
+      "unit": "J/cal",
+      "default": 4.184,
+      "businessContext": "Energy equivalent: 4.184 J per small calorie, 4184 J per kilocalorie (dietary Calorie)."
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Conversion efficiency from electrical power to heat/calories. 100% means all watts converted."
+    }
+  ],
+  "formulas": {
+    "totalCalories": "(watts * (efficiency / 100) * time) / calFactor",
+    "calPerSec": "(watts * (efficiency / 100)) / calFactor",
+    "calPerMin": "((watts * (efficiency / 100)) * 60) / calFactor",
+    "calPerHour": "((watts * (efficiency / 100)) * 3600) / calFactor"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "calPerSec",
+      "calPerMin",
+      "calPerHour"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

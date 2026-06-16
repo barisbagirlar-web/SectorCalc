@@ -1,0 +1,63 @@
+{
+  "toolName": "electron-volts-to-joules-calculator",
+  "inputs": [
+    {
+      "id": "electronVolts",
+      "label": "Energy (eV)",
+      "type": "number",
+      "unit": "eV",
+      "default": 1,
+      "businessContext": "Energy value in electronvolts."
+    },
+    {
+      "id": "inputScale",
+      "label": "Input unit multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Set to 1000 for keV, 1e6 for MeV. Default 1 for eV."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion factor",
+      "type": "number",
+      "unit": "J/eV",
+      "default": 1.602176634e-19,
+      "businessContext": "1.602176634×10⁻¹⁹ J/eV (exact, CODATA 2018)."
+    },
+    {
+      "id": "outputScale",
+      "label": "Output unit multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Set to 0.001 for kJ, 1e-6 for MJ. Default 1 for joules."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal places",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Number of decimal places for the result."
+    }
+  ],
+  "formulas": {
+    "joules": "Math.round((electronVolts * inputScale * conversionFactor * outputScale) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "exactValue": "electronVolts * inputScale * conversionFactor * outputScale",
+    "calculationDetails": "'Energy (J) = ' + electronVolts + ' eV × ' + conversionFactor + ' J/eV = ' + (electronVolts * inputScale * conversionFactor * outputScale) + ' J (with input scale ' + inputScale + ' and output scale ' + outputScale + ')'"
+  },
+  "outputs": {
+    "primary": "joules",
+    "breakdown": [
+      "exactValue",
+      "calculationDetails"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

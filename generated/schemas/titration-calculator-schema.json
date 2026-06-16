@@ -1,0 +1,63 @@
+{
+  "toolName": "titration-calculator",
+  "inputs": [
+    {
+      "id": "titrantConc",
+      "label": "Titrant Concentration",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.1,
+      "businessContext": "Concentration of the standard solution used for titration."
+    },
+    {
+      "id": "titrantVol",
+      "label": "Volume of Titrant",
+      "type": "number",
+      "unit": "mL",
+      "default": 20,
+      "businessContext": "Volume of titrant added to reach the endpoint."
+    },
+    {
+      "id": "analyteVol",
+      "label": "Volume of Analyte",
+      "type": "number",
+      "unit": "mL",
+      "default": 25,
+      "businessContext": "Volume of the sample solution being titrated."
+    },
+    {
+      "id": "stoichCoeffTitrant",
+      "label": "Stoichiometric Coefficient (Titrant)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Mole ratio of titrant in the balanced reaction equation."
+    },
+    {
+      "id": "stoichCoeffAnalyte",
+      "label": "Stoichiometric Coefficient (Analyte)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Mole ratio of analyte in the balanced reaction equation."
+    }
+  ],
+  "formulas": {
+    "titrantMoles": "titrantConc * (titrantVol / 1000)",
+    "analyteMoles": "titrantMoles * (stoichCoeffAnalyte / stoichCoeffTitrant)",
+    "analyteConcentration": "analyteMoles / (analyteVol / 1000)"
+  },
+  "outputs": {
+    "primary": "analyteConcentration",
+    "breakdown": [
+      "titrantMoles",
+      "analyteMoles"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

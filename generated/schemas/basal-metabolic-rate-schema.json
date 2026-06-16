@@ -1,0 +1,55 @@
+{
+  "toolName": "basal-metabolic-rate",
+  "inputs": [
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "0=male,1=female",
+      "default": 0,
+      "businessContext": "Biological sex for formula selection"
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body mass in kilograms"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 175,
+      "businessContext": "Body height in centimeters"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age in years"
+    }
+  ],
+  "formulas": {
+    "bmrMale": "10 * weight + 6.25 * height - 5 * age + 5",
+    "bmrFemale": "10 * weight + 6.25 * height - 5 * age - 161",
+    "bmr": "gender === 0 ? bmrMale : bmrFemale"
+  },
+  "outputs": {
+    "primary": "bmr",
+    "breakdown": [
+      "bmrMale",
+      "bmrFemale"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,56 @@
+{
+  "toolName": "km-to-miles-calculator",
+  "inputs": [
+    {
+      "id": "kilometers",
+      "label": "Kilometers",
+      "type": "number",
+      "unit": "km",
+      "default": 0,
+      "businessContext": "Distance in kilometers to convert to miles."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.621371,
+      "businessContext": "Conversion factor from kilometers to miles. Standard is 0.621371. Customize if needed."
+    },
+    {
+      "id": "roundingDecimals",
+      "label": "Rounding Decimals",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places to round the result."
+    },
+    {
+      "id": "scientificNotation",
+      "label": "Use Scientific Notation",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Set to 1 to output result in scientific notation (e.g., 1.23e+2). 0 for standard decimal."
+    }
+  ],
+  "formulas": {
+    "roundedMiles": "(scientificNotation === 1) ? (Math.round(kilometers * conversionFactor * Math.pow(10, roundingDecimals)) / Math.pow(10, roundingDecimals)).toExponential(roundingDecimals) : Math.round(kilometers * conversionFactor * Math.pow(10, roundingDecimals)) / Math.pow(10, roundingDecimals)",
+    "breakdownSteps": "['Step 1: Input distance: ' + kilometers + ' km', 'Step 2: Conversion factor: ' + conversionFactor + ' mi/km', 'Step 3: Miles (unrounded): ' + (kilometers * conversionFactor) + ' mi', 'Step 4: Rounded to ' + roundingDecimals + ' decimals: ' + (scientificNotation === 1 ? (Math.round(kilometers * conversionFactor * Math.pow(10, roundingDecimals)) / Math.pow(10, roundingDecimals)).toExponential(roundingDecimals) : Math.round(kilometers * conversionFactor * Math.pow(10, roundingDecimals)) / Math.pow(10, roundingDecimals)) + ' mi']"
+  },
+  "outputs": {
+    "primary": "roundedMiles",
+    "breakdown": [
+      "step1",
+      "step2",
+      "step3",
+      "step4"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

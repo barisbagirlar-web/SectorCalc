@@ -1,0 +1,73 @@
+{
+  "toolName": "sober-date-calculator",
+  "inputs": [
+    {
+      "id": "startDay",
+      "label": "Start Day",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Day of the start date (1-31)"
+    },
+    {
+      "id": "startMonth",
+      "label": "Start Month",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Month of the start date (1-12)"
+    },
+    {
+      "id": "startYear",
+      "label": "Start Year",
+      "type": "number",
+      "unit": "",
+      "default": 2025,
+      "businessContext": "Year of the start date"
+    },
+    {
+      "id": "endDay",
+      "label": "End Day",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Day of the end date (1-31)"
+    },
+    {
+      "id": "endMonth",
+      "label": "End Month",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Month of the end date (1-12)"
+    },
+    {
+      "id": "endYear",
+      "label": "End Year",
+      "type": "number",
+      "unit": "",
+      "default": 2025,
+      "businessContext": "Year of the end date"
+    }
+  ],
+  "formulas": {
+    "totalDays": "(endYear - startYear) * 365 + (endMonth - startMonth) * 30 + (endDay - startDay)",
+    "yearPart": "(endYear - startYear) * 365",
+    "monthPart": "(endMonth - startMonth) * 30",
+    "dayPart": "(endDay - startDay)"
+  },
+  "outputs": {
+    "primary": "totalDays",
+    "breakdown": [
+      "yearPart",
+      "monthPart",
+      "dayPart"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

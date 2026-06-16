@@ -1,0 +1,63 @@
+{
+  "toolName": "flight-carbon-footprint-calculator",
+  "inputs": [
+    {
+      "id": "distance_km",
+      "label": "Uçuş Mesafesi",
+      "type": "number",
+      "unit": "km",
+      "default": 1000,
+      "businessContext": "Kalkış ve varış noktaları arasındaki büyük daire mesafesi"
+    },
+    {
+      "id": "fuel_burn_per_100_pkm",
+      "label": "Yakıt Tüketimi",
+      "type": "number",
+      "unit": "L/100 pkm",
+      "default": 3.5,
+      "businessContext": "100 yolcu-kilometre başına litre cinsinden ortalama yakıt tüketimi (uçak tipine göre değişir)"
+    },
+    {
+      "id": "emission_factor_kg_per_liter",
+      "label": "Emisyon Faktörü",
+      "type": "number",
+      "unit": "kg CO₂/L",
+      "default": 2.52,
+      "businessContext": "Jet yakıtının yanması sonucu litre başına salınan CO₂ miktarı"
+    },
+    {
+      "id": "class_multiplier",
+      "label": "Sınıf Çarpanı",
+      "type": "number",
+      "unit": "çarpan",
+      "default": 1,
+      "businessContext": "Ekonomi=1, Business=2, First=3 gibi koltuk sınıfının kapladığı alan oranına göre düzeltme faktörü"
+    },
+    {
+      "id": "radiative_forcing_index",
+      "label": "Işınımsal Zorlama İndisi",
+      "type": "number",
+      "unit": "çarpan",
+      "default": 1.9,
+      "businessContext": "Yüksek irtifada salınan emisyonların ek iklim etkisini hesaba katan çarpan (IPCC önerisi: 1.9)"
+    }
+  ],
+  "formulas": {
+    "total_kg_CO2e": "distance_km * fuel_burn_per_100_pkm / 100 * emission_factor_kg_per_liter * class_multiplier * radiative_forcing_index",
+    "base_kg_CO2": "distance_km * fuel_burn_per_100_pkm / 100 * emission_factor_kg_per_liter * class_multiplier",
+    "radiative_forcing_contribution_kg_CO2e": "total_kg_CO2e - base_kg_CO2"
+  },
+  "outputs": {
+    "primary": "total_kg_CO2e",
+    "breakdown": [
+      "base_kg_CO2",
+      "radiative_forcing_contribution_kg_CO2e"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

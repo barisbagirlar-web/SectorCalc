@@ -1,0 +1,71 @@
+{
+  "toolName": "stones-to-pounds-calculator",
+  "inputs": [
+    {
+      "id": "stones",
+      "label": "Stones",
+      "type": "number",
+      "unit": "st",
+      "default": 0,
+      "businessContext": "Weight in stones to convert"
+    },
+    {
+      "id": "adjustmentFactor",
+      "label": "Conversion Factor (lb/st)",
+      "type": "number",
+      "unit": "lb/st",
+      "default": 14,
+      "businessContext": "Pounds per stone, default 14 for standard conversion"
+    },
+    {
+      "id": "additionalWeight",
+      "label": "Additional Pounds",
+      "type": "number",
+      "unit": "lb",
+      "default": 0,
+      "businessContext": "Extra weight in pounds to add to the total"
+    },
+    {
+      "id": "subtractWeight",
+      "label": "Subtract Pounds",
+      "type": "number",
+      "unit": "lb",
+      "default": 0,
+      "businessContext": "Weight in pounds to subtract from the total"
+    },
+    {
+      "id": "ounces",
+      "label": "Additional Ounces",
+      "type": "number",
+      "unit": "oz",
+      "default": 0,
+      "businessContext": "Extra weight in ounces to add (16 oz = 1 lb)"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounded output"
+    }
+  ],
+  "formulas": {
+    "roundedPounds": "Math.round((stones * adjustmentFactor + additionalWeight - subtractWeight + ounces / 16) * (10 ** precision)) / (10 ** precision)",
+    "rawPounds": "stones * adjustmentFactor + additionalWeight - subtractWeight + ounces / 16",
+    "stonesToPounds": "stones * adjustmentFactor"
+  },
+  "outputs": {
+    "primary": "roundedPounds",
+    "breakdown": [
+      "rawPounds",
+      "stonesToPounds"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

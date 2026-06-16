@@ -1,0 +1,82 @@
+{
+  "toolName": "cm-to-mm-calculator",
+  "inputs": [
+    {
+      "id": "length_cm",
+      "label": "Length (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Measured length at reference temperature (20°C) in centimeters."
+    },
+    {
+      "id": "correction_factor",
+      "label": "Correction Factor",
+      "type": "number",
+      "unit": "none",
+      "default": 1,
+      "businessContext": "Systematic measurement correction factor (dimensionless)."
+    },
+    {
+      "id": "temperature_c",
+      "label": "Temperature (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Ambient temperature in degrees Celsius."
+    },
+    {
+      "id": "expansion_coefficient",
+      "label": "Expansion Coefficient",
+      "type": "number",
+      "unit": "1/°C",
+      "default": 0.000012,
+      "businessContext": "Linear thermal expansion coefficient of material in per degree Celsius."
+    },
+    {
+      "id": "tolerance_cm",
+      "label": "Tolerance (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 0.1,
+      "businessContext": "Manufacturing tolerance limit in centimeters."
+    },
+    {
+      "id": "batch_quantity",
+      "label": "Batch Quantity",
+      "type": "number",
+      "unit": "pieces",
+      "default": 1,
+      "businessContext": "Number of identical pieces."
+    },
+    {
+      "id": "decimal_places",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "dp",
+      "default": 2,
+      "businessContext": "Number of decimal places for output formatting."
+    }
+  ],
+  "formulas": {
+    "thermal_effect": "1 + expansion_coefficient * (temperature_c - 20)",
+    "corrected_length_cm": "length_cm * correction_factor * thermal_effect",
+    "converted_mm": "corrected_length_cm * 10",
+    "tolerance_mm": "tolerance_cm * 10",
+    "total_batch_mm": "converted_mm * batch_quantity",
+    "formatted_converted_mm": "Math.round(converted_mm * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)"
+  },
+  "outputs": {
+    "primary": "formatted_converted_mm",
+    "breakdown": [
+      "tolerance_mm",
+      "total_batch_mm"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

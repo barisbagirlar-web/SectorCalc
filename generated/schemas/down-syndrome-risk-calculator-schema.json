@@ -1,0 +1,59 @@
+{
+  "toolName": "down-syndrome-risk-calculator",
+  "inputs": [
+    {
+      "id": "maternalAge",
+      "label": "Maternal Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Mother's age at estimated date of delivery"
+    },
+    {
+      "id": "nt",
+      "label": "Nuchal Translucency",
+      "type": "number",
+      "unit": "mm",
+      "default": 1.5,
+      "businessContext": "Fetal nuchal translucency measurement from ultrasound"
+    },
+    {
+      "id": "pappa",
+      "label": "PAPP-A MoM",
+      "type": "number",
+      "unit": "MoM",
+      "default": 1,
+      "businessContext": "Pregnancy-associated plasma protein A multiple of median"
+    },
+    {
+      "id": "hcg",
+      "label": "Free β-hCG MoM",
+      "type": "number",
+      "unit": "MoM",
+      "default": 1,
+      "businessContext": "Free beta human chorionic gonadotropin multiple of median"
+    }
+  ],
+  "formulas": {
+    "ageRisk": "1 / (1 + Math.exp(-(-16.2395 + 0.286 * maternalAge)))",
+    "lrNT": "Math.exp(0.2 * nt)",
+    "lrPAPPA": "Math.exp(-0.7 * (pappa - 1))",
+    "lrHCG": "Math.exp(0.5 * (hcg - 1))",
+    "combinedRisk": "ageRisk * lrNT * lrPAPPA * lrHCG",
+    "riskOneIn": "1 / combinedRisk"
+  },
+  "outputs": {
+    "primary": "1 in ${Math.round(riskOneIn)}",
+    "breakdown": [
+      "Age-related risk: 1 in ${Math.round(1/ageRisk)}",
+      "After NT adjustment: 1 in ${Math.round(1/(ageRisk * lrNT))}",
+      "After blood markers: 1 in ${Math.round(1/combinedRisk)}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

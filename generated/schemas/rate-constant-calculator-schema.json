@@ -1,0 +1,55 @@
+{
+  "toolName": "rate-constant-calculator",
+  "inputs": [
+    {
+      "id": "preExponentialFactor",
+      "label": "Pre-exponential Factor (A)",
+      "type": "number",
+      "unit": "1/s",
+      "default": 10000000000000,
+      "businessContext": "Frequency factor or pre-exponential factor in Arrhenius equation, representing collision frequency and orientation."
+    },
+    {
+      "id": "activationEnergy",
+      "label": "Activation Energy (Ea)",
+      "type": "number",
+      "unit": "J/mol",
+      "default": 100000,
+      "businessContext": "Minimum energy required for reaction to occur, in joules per mole."
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature (T)",
+      "type": "number",
+      "unit": "K",
+      "default": 298.15,
+      "businessContext": "Absolute temperature of the reaction in Kelvin."
+    },
+    {
+      "id": "gasConstant",
+      "label": "Gas Constant (R)",
+      "type": "number",
+      "unit": "J/(mol·K)",
+      "default": 8.314,
+      "businessContext": "Universal gas constant, typically 8.314 J/(mol·K)."
+    }
+  ],
+  "formulas": {
+    "exponent": "-activationEnergy / (gasConstant * temperature)",
+    "exponentialFactor": "Math.exp(exponent)",
+    "rateConstant": "preExponentialFactor * exponentialFactor"
+  },
+  "outputs": {
+    "primary": "rateConstant",
+    "breakdown": [
+      "exponent",
+      "exponentialFactor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

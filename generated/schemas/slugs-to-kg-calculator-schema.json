@@ -1,0 +1,55 @@
+{
+  "toolName": "slugs-to-kg-calculator",
+  "inputs": [
+    {
+      "id": "slugValue",
+      "label": "Slug Value",
+      "type": "number",
+      "unit": "slug",
+      "default": 0,
+      "businessContext": "Mass in slugs to convert"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "kg/slug",
+      "default": 14.5939029372,
+      "businessContext": "Standard slug to kg conversion factor"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for safety margin (1 = no safety)"
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of units or batches"
+    }
+  ],
+  "formulas": {
+    "appliedConversion": "slugValue * conversionFactor",
+    "withSafety": "slugValue * conversionFactor * safetyFactor",
+    "totalKg": "slugValue * conversionFactor * safetyFactor * quantity"
+  },
+  "outputs": {
+    "primary": "totalKg",
+    "breakdown": [
+      "appliedConversion",
+      "withSafety"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

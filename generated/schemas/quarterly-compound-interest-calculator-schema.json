@@ -1,0 +1,65 @@
+{
+  "toolName": "quarterly-compound-interest-calculator",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Principal Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "businessContext": "The initial sum of money invested or borrowed."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "The nominal annual interest rate before compounding."
+    },
+    {
+      "id": "years",
+      "label": "Number of Years",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "The total time the money is invested or borrowed for."
+    },
+    {
+      "id": "compoundingFrequency",
+      "label": "Compounding Frequency",
+      "type": "number",
+      "unit": "times per year",
+      "default": 4,
+      "businessContext": "The number of compounding periods per year. For quarterly, this is 4."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Annual Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "The expected average annual inflation rate, used to calculate the real value of money."
+    }
+  ],
+  "formulas": {
+    "finalAmount": "principal * (1 + annualInterestRate/100 / compoundingFrequency) ** (compoundingFrequency * years)",
+    "totalInterest": "finalAmount - principal",
+    "effectiveAnnualRate": "((1 + annualInterestRate/100 / compoundingFrequency) ** compoundingFrequency - 1) * 100",
+    "realFinalAmount": "finalAmount / (1 + inflationRate/100) ** years"
+  },
+  "outputs": {
+    "primary": "finalAmount",
+    "breakdown": [
+      "totalInterest",
+      "effectiveAnnualRate",
+      "realFinalAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

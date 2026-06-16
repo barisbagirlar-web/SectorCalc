@@ -1,0 +1,74 @@
+{
+  "toolName": "pss-calculator",
+  "inputs": [
+    {
+      "id": "inertiaConstant",
+      "label": "Inertia Constant (H)",
+      "type": "number",
+      "unit": "s",
+      "default": 3.5,
+      "businessContext": "Generator inertia constant in seconds (per unit)."
+    },
+    {
+      "id": "initialAngle",
+      "label": "Initial Load Angle (δ₀)",
+      "type": "number",
+      "unit": "deg",
+      "default": 30,
+      "businessContext": "Pre-fault rotor angle with respect to infinite bus."
+    },
+    {
+      "id": "mechPower",
+      "label": "Mechanical Power Input (Pₘ)",
+      "type": "number",
+      "unit": "p.u.",
+      "default": 0.8,
+      "businessContext": "Turbine mechanical power on system base."
+    },
+    {
+      "id": "maxElecPower",
+      "label": "Maximum Electrical Power (Pₘₐₓ)",
+      "type": "number",
+      "unit": "p.u.",
+      "default": 1.5,
+      "businessContext": "Post-fault maximum of the power-angle curve."
+    },
+    {
+      "id": "frequency",
+      "label": "System Frequency (f)",
+      "type": "number",
+      "unit": "Hz",
+      "default": 50,
+      "businessContext": "Nominal system frequency (50 or 60 Hz)."
+    }
+  ],
+  "formulas": {
+    "delta0_rad": "inputs.initialAngle * Math.PI / 180",
+    "pm": "inputs.mechPower",
+    "pmax": "inputs.maxElecPower",
+    "h": "inputs.inertiaConstant",
+    "freq": "inputs.frequency",
+    "delta1_rad": "Math.asin(pm / pmax)",
+    "delta_max_rad": "Math.PI - delta1_rad",
+    "cosDelta_cr": "(pm * (delta_max_rad - delta0_rad) + pmax * Math.cos(delta_max_rad)) / pmax",
+    "delta_cr_rad": "Math.acos(cosDelta_cr)",
+    "criticalClearingAngle": "delta_cr_rad * 180 / Math.PI",
+    "criticalClearingTime": "Math.sqrt((2 * h * (delta_cr_rad - delta0_rad)) / (Math.PI * freq * pm))",
+    "maxSwingAngle": "delta_max_rad * 180 / Math.PI",
+    "acceleratingEnergy": "pm * (delta_cr_rad - delta0_rad)"
+  },
+  "outputs": {
+    "primary": "criticalClearingTime",
+    "breakdown": [
+      "criticalClearingAngle",
+      "maxSwingAngle",
+      "acceleratingEnergy"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

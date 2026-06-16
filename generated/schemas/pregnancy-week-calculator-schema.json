@@ -1,0 +1,69 @@
+{
+  "toolName": "pregnancy-week-calculator",
+  "inputs": [
+    {
+      "id": "daysSinceLMP",
+      "label": "Days Since Last Menstrual Period",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "The number of days since the first day of the last menstrual period."
+    },
+    {
+      "id": "cycleLength",
+      "label": "Menstrual Cycle Length",
+      "type": "number",
+      "unit": "days",
+      "default": 28,
+      "businessContext": "Average length of the menstrual cycle, typically 28 days."
+    },
+    {
+      "id": "prePregnancyWeight",
+      "label": "Pre-pregnancy Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Weight before pregnancy in kilograms."
+    },
+    {
+      "id": "currentWeight",
+      "label": "Current Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Current weight during pregnancy in kilograms."
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "Height in centimeters."
+    }
+  ],
+  "formulas": {
+    "pregnancyWeek": "Math.floor(daysSinceLMP / 7) + 1",
+    "daysIntoWeek": "daysSinceLMP % 7",
+    "daysUntilDue": "280 - daysSinceLMP",
+    "estimatedConceptionDay": "daysSinceLMP - cycleLength + 14",
+    "gestationalAgeInDays": "daysSinceLMP",
+    "bmi": "currentWeight / ((height / 100) ** 2)"
+  },
+  "outputs": {
+    "primary": "pregnancyWeek",
+    "breakdown": [
+      "daysIntoWeek",
+      "daysUntilDue",
+      "estimatedConceptionDay",
+      "gestationalAgeInDays",
+      "bmi"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

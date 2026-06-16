@@ -1,0 +1,75 @@
+{
+  "toolName": "steel-beam-calculator",
+  "inputs": [
+    {
+      "id": "spanLength",
+      "label": "Span Length (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 5000,
+      "businessContext": "Distance between supports of the simply supported beam."
+    },
+    {
+      "id": "udl",
+      "label": "Uniformly Distributed Load (N/mm)",
+      "type": "number",
+      "unit": "N/mm",
+      "default": 50,
+      "businessContext": "Constant load per unit length along the beam."
+    },
+    {
+      "id": "elasticModulus",
+      "label": "Modulus of Elasticity (MPa)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 200000,
+      "businessContext": "Material's stiffness (Young's modulus)."
+    },
+    {
+      "id": "momentInertia",
+      "label": "Moment of Inertia (mm⁴)",
+      "type": "number",
+      "unit": "mm⁴",
+      "default": 1000000,
+      "businessContext": "Second moment of area of the beam cross-section."
+    },
+    {
+      "id": "yieldStrength",
+      "label": "Yield Strength (MPa)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 250,
+      "businessContext": "Material yield stress, used for safety factor."
+    },
+    {
+      "id": "sectionModulus",
+      "label": "Section Modulus (mm³)",
+      "type": "number",
+      "unit": "mm³",
+      "default": 10000,
+      "businessContext": "Elastic section modulus of the beam."
+    }
+  ],
+  "formulas": {
+    "maxBendingMoment": "udl * spanLength**2 / 8 * 1e-6",
+    "maxShearForce": "udl * spanLength / 2 * 1e-3",
+    "maxDeflection": "5 * udl * spanLength**4 / (384 * elasticModulus * momentInertia)",
+    "bendingStress": "(udl * spanLength**2 / 8) / sectionModulus",
+    "safetyFactor": "yieldStrength / ((udl * spanLength**2 / 8) / sectionModulus)"
+  },
+  "outputs": {
+    "primary": "maxDeflection",
+    "breakdown": [
+      "maxBendingMoment",
+      "maxShearForce",
+      "bendingStress",
+      "safetyFactor"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

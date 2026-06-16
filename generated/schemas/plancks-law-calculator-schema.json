@@ -1,0 +1,63 @@
+{
+  "toolName": "plancks-law-calculator",
+  "inputs": [
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 5000,
+      "businessContext": "Temperature of the black body in Kelvin"
+    },
+    {
+      "id": "wavelength",
+      "label": "Wavelength",
+      "type": "number",
+      "unit": "m",
+      "default": 5e-7,
+      "businessContext": "Wavelength at which spectral radiance is calculated"
+    },
+    {
+      "id": "wavelengthMin",
+      "label": "Wavelength Min",
+      "type": "number",
+      "unit": "m",
+      "default": 1e-7,
+      "businessContext": "Minimum wavelength for integration range"
+    },
+    {
+      "id": "wavelengthMax",
+      "label": "Wavelength Max",
+      "type": "number",
+      "unit": "m",
+      "default": 0.000003,
+      "businessContext": "Maximum wavelength for integration range"
+    },
+    {
+      "id": "numSteps",
+      "label": "Integration Steps",
+      "type": "number",
+      "unit": "",
+      "default": 1000,
+      "businessContext": "Number of steps for numerical integration"
+    }
+  ],
+  "formulas": {
+    "spectralRadiance": "const h = 6.62607015e-34; const c = 299792458; const k = 1.380649e-23; const lambda = wavelength; const T = temperature; (2*h*c*c)/(lambda**5) * 1/(Math.exp((h*c)/(lambda*k*T)) - 1)",
+    "totalRadiance": "const h = 6.62607015e-34; const c = 299792458; const k = 1.380649e-23; const T = temperature; const lamMin = wavelengthMin; const lamMax = wavelengthMax; const N = numSteps; const dlam = (lamMax - lamMin)/N; let sum = 0; for(let i=0; i<N; i++){ const lam = lamMin + (i+0.5)*dlam; sum += (2*h*c*c)/(lam**5) * 1/(Math.exp((h*c)/(lam*k*T)) - 1) * dlam; } sum",
+    "peakWavelength": "const b = 2.897771955e-3; b / temperature"
+  },
+  "outputs": {
+    "primary": "spectralRadiance",
+    "breakdown": [
+      "totalRadiance",
+      "peakWavelength"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,72 @@
+{
+  "toolName": "keto-macro-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User's body weight in kilograms"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "User's height in centimeters"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "User's age in years"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "0 for female, 1 for male"
+    },
+    {
+      "id": "activityFactor",
+      "label": "Activity Factor",
+      "type": "number",
+      "unit": "factor",
+      "default": 1.55,
+      "businessContext": "Physical activity multiplier (1.2 sedentary - 2.0 very active)"
+    },
+    {
+      "id": "calorieAdjustment",
+      "label": "Calorie Adjustment",
+      "type": "number",
+      "unit": "kcal",
+      "default": 0,
+      "businessContext": "Daily calorie surplus or deficit target (e.g., -500 for fat loss)"
+    }
+  ],
+  "formulas": {
+    "bmr": "10*weight + 6.25*height - 5*age + (gender === 0 ? -161 : 5)",
+    "tdee": "bmr * activityFactor",
+    "adjustedCalories": "tdee + calorieAdjustment",
+    "fat": "adjustedCalories * 0.7 / 9",
+    "protein": "adjustedCalories * 0.25 / 4",
+    "carbs": "adjustedCalories * 0.05 / 4"
+  },
+  "outputs": {
+    "primary": "adjustedCalories",
+    "breakdown": [
+      "fat",
+      "protein",
+      "carbs"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false
+}

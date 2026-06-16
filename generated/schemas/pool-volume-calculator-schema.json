@@ -1,0 +1,55 @@
+{
+  "toolName": "pool-volume-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Pool length in meters"
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Pool width in meters"
+    },
+    {
+      "id": "shallowDepth",
+      "label": "Shallow End Depth",
+      "type": "number",
+      "unit": "m",
+      "default": 1.2,
+      "businessContext": "Depth at the shallow end of the pool in meters"
+    },
+    {
+      "id": "deepDepth",
+      "label": "Deep End Depth",
+      "type": "number",
+      "unit": "m",
+      "default": 2.5,
+      "businessContext": "Depth at the deep end of the pool in meters"
+    }
+  ],
+  "formulas": {
+    "averageDepth": "(shallowDepth + deepDepth) / 2",
+    "area": "length * width",
+    "volume": "length * width * (shallowDepth + deepDepth) / 2"
+  },
+  "outputs": {
+    "primary": "Pool Volume: ${volume} m³",
+    "breakdown": [
+      "Average Depth: ${averageDepth} m",
+      "Surface Area: ${area} m²"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

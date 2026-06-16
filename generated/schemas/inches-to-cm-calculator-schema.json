@@ -1,0 +1,92 @@
+{
+  "toolName": "inches-to-cm-calculator",
+  "inputs": [
+    {
+      "id": "inches",
+      "label": "Inches",
+      "type": "number",
+      "unit": "in",
+      "default": 1,
+      "businessContext": "Length in inches, e.g., from machine dimensions or product specs"
+    },
+    {
+      "id": "calibrationOffset",
+      "label": "Calibration Offset",
+      "type": "number",
+      "unit": "in",
+      "default": 0,
+      "businessContext": "Systematic measurement instrument offset in inches"
+    },
+    {
+      "id": "uncertaintyPercent",
+      "label": "Measurement Uncertainty (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Relative uncertainty (k=2) to compute expanded uncertainty in cm"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "cm/in",
+      "default": 2.54,
+      "businessContext": "Fixed factor: 1 inch = 2.54 cm (ISO 80000-3)"
+    },
+    {
+      "id": "toleranceMm",
+      "label": "Tolerance (±)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.5,
+      "businessContext": "Acceptable deviation in mm, e.g., ISO 2768-m"
+    },
+    {
+      "id": "measurementTemperature",
+      "label": "Measurement Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Temperature during measurement for steel (CTE ~11.5e-6/K)"
+    },
+    {
+      "id": "materialExpansionCoeff",
+      "label": "Thermal Expansion Coefficient",
+      "type": "number",
+      "unit": "1/K",
+      "default": 0.0000115,
+      "businessContext": "Linear CTE for material (steel ~11.5e-6, aluminum ~23e-6)"
+    },
+    {
+      "id": "referenceTemperature",
+      "label": "Reference Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Reference for material dimensions (typically 20°C)"
+    }
+  ],
+  "formulas": {
+    "rawCm": "(inches + calibrationOffset) * conversionFactor",
+    "thermalCorrection": "1 + materialExpansionCoeff * (measurementTemperature - referenceTemperature)",
+    "convertedLengthCm": "rawCm * thermalCorrection",
+    "expandedUncertaintyCm": "convertedLengthCm * (uncertaintyPercent / 100)",
+    "tolerancePass": "Math.abs(expandedUncertaintyCm * 10) <= toleranceMm ? 'PASS' : 'FAIL'"
+  },
+  "outputs": {
+    "primary": "convertedLengthCm",
+    "breakdown": [
+      "Step 1 – Raw conversion: (inches + calibrationOffset) × conversionFactor = rawCm cm",
+      "Step 2 – Thermal expansion correction: 1 + α × (T_meas – T_ref) = thermalCorrection factor",
+      "Step 3 – Final converted length: rawCm × thermalCorrection = convertedLengthCm cm",
+      "Step 4 – Expanded uncertainty (k=2): convertedLengthCm × (uncertainty%/100) = expandedUncertaintyCm cm",
+      "Step 5 – Tolerance check: |expandedUncertaintyCm × 10| ≤ toleranceMm → tolerancePass"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

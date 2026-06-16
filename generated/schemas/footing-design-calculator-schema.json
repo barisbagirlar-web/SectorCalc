@@ -1,0 +1,55 @@
+{
+  "toolName": "footing-design-calculator",
+  "inputs": [
+    {
+      "id": "columnLoad",
+      "label": "Column Load",
+      "type": "number",
+      "unit": "kN",
+      "default": 500,
+      "businessContext": "Service axial load from column"
+    },
+    {
+      "id": "soilBearingCapacity",
+      "label": "Soil Bearing Capacity",
+      "type": "number",
+      "unit": "kPa",
+      "default": 150,
+      "businessContext": "Allowable soil bearing capacity"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 2.5,
+      "businessContext": "Factor of safety for bearing"
+    },
+    {
+      "id": "lengthToWidthRatio",
+      "label": "Length/Width Ratio",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Desired footing length to width ratio"
+    }
+  ],
+  "formulas": {
+    "requiredArea": "columnLoad * safetyFactor / soilBearingCapacity",
+    "footingWidth": "Math.sqrt(requiredArea / lengthToWidthRatio)",
+    "footingLength": "footingWidth * lengthToWidthRatio"
+  },
+  "outputs": {
+    "primary": "requiredArea",
+    "breakdown": [
+      "footingWidth",
+      "footingLength"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

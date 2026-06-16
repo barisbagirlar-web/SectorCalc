@@ -1,0 +1,63 @@
+{
+  "toolName": "moles-to-grams-calculator",
+  "inputs": [
+    {
+      "id": "moles",
+      "label": "Amount (mole)",
+      "type": "number",
+      "unit": "mol",
+      "default": 1,
+      "businessContext": "Number of moles of substance"
+    },
+    {
+      "id": "molecularWeight",
+      "label": "Molecular Weight",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 18.015,
+      "businessContext": "Molar mass of the substance"
+    },
+    {
+      "id": "purity",
+      "label": "Purity",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Purity of the substance, 100 for pure"
+    },
+    {
+      "id": "scalingFactor",
+      "label": "Scaling Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Factor for multiple batches or units"
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Measurement tolerance in grams"
+    }
+  ],
+  "formulas": {
+    "theoreticalMass": "moles * molecularWeight",
+    "purityEffect": "theoreticalMass * (purity / 100)",
+    "grams": "purityEffect * scalingFactor"
+  },
+  "outputs": {
+    "primary": "grams",
+    "breakdown": [
+      "theoreticalMass",
+      "purityEffect"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

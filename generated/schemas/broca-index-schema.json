@@ -1,0 +1,58 @@
+{
+  "toolName": "broca-index",
+  "inputs": [
+    {
+      "id": "heightCm",
+      "label": "Height (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Person's height in centimeters"
+    },
+    {
+      "id": "isMale",
+      "label": "Gender (1=Male, 0=Female)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for Male, 0 for Female"
+    },
+    {
+      "id": "frameSize",
+      "label": "Frame Size (-1=Small, 0=Medium, 1=Large)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Body frame size: -1 for small, 0 for medium, 1 for large (adjusts IBW by ±10%)"
+    },
+    {
+      "id": "customAdjustment",
+      "label": "Custom Adjustment (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Additional weight adjustment in kilograms"
+    }
+  ],
+  "formulas": {
+    "baseWeight": "heightCm - 100 - 5 * (1 - isMale)",
+    "frameFactor": "1 + 0.1 * frameSize",
+    "adjustedWeight": "baseWeight * frameFactor",
+    "idealWeight": "adjustedWeight + customAdjustment"
+  },
+  "outputs": {
+    "primary": "idealWeight",
+    "breakdown": [
+      "baseWeight",
+      "frameFactor",
+      "adjustedWeight",
+      "idealWeight"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

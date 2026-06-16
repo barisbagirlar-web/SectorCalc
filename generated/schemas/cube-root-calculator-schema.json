@@ -1,0 +1,59 @@
+{
+  "toolName": "cube-root-calculator",
+  "inputs": [
+    {
+      "id": "volume",
+      "label": "Volume",
+      "type": "number",
+      "unit": "m³",
+      "default": 1,
+      "businessContext": "Total volume of the cube or material."
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.1,
+      "businessContext": "Manufacturing tolerance for rounding the side length."
+    },
+    {
+      "id": "oversize",
+      "label": "Oversize Allowance",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Extra material allowance to add to side."
+    },
+    {
+      "id": "calibrationOffset",
+      "label": "Calibration Offset",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Instrument calibration offset to apply."
+    }
+  ],
+  "formulas": {
+    "rawCubeRoot_mm": "Math.cbrt(volume) * 1000",
+    "sideWithTolerance_mm": "Math.round(rawCubeRoot_mm / tolerance) * tolerance",
+    "sideWithOversize_mm": "sideWithTolerance_mm + oversize",
+    "sideWithCalibration_mm": "sideWithOversize_mm + calibrationOffset",
+    "finalSideLength_mm": "Math.max(0, sideWithCalibration_mm)"
+  },
+  "outputs": {
+    "primary": "finalSideLength_mm",
+    "breakdown": [
+      "rawCubeRoot_mm",
+      "sideWithTolerance_mm",
+      "sideWithOversize_mm",
+      "sideWithCalibration_mm"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,45 @@
+{
+  "toolName": "specific-impulse-calculator",
+  "inputs": [
+    {
+      "id": "thrust",
+      "label": "Thrust (F)",
+      "type": "number",
+      "unit": "N",
+      "default": null,
+      "businessContext": "The thrust force produced by the engine."
+    },
+    {
+      "id": "massFlowRate",
+      "label": "Mass Flow Rate (ṁ)",
+      "type": "number",
+      "unit": "kg/s",
+      "default": null,
+      "businessContext": "The rate at which propellant mass is expelled."
+    },
+    {
+      "id": "standardGravity",
+      "label": "Standard Gravity (g₀)",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.80665,
+      "businessContext": "Standard acceleration due to gravity (9.80665 m/s²)."
+    }
+  ],
+  "formulas": {
+    "primary": "thrust / (massFlowRate * standardGravity)"
+  },
+  "outputs": {
+    "primary": "Specific Impulse (s)",
+    "breakdown": [
+      "Isp = F / (ṁ × g₀)",
+      "Divide thrust by the product of mass flow rate and standard gravity."
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

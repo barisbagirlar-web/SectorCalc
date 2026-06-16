@@ -1,0 +1,93 @@
+{
+  "toolName": "barista-fire-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Your current age."
+    },
+    {
+      "id": "retirementAge",
+      "label": "Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 65,
+      "businessContext": "Age you want to achieve full retirement (or stop part-time work)."
+    },
+    {
+      "id": "currentSavings",
+      "label": "Current Savings",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Total savings and investments for retirement."
+    },
+    {
+      "id": "monthlySavings",
+      "label": "Monthly Savings",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000,
+      "businessContext": "Amount you save each month for retirement."
+    },
+    {
+      "id": "annualReturn",
+      "label": "Expected Annual Return",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Average annual return on investments after inflation."
+    },
+    {
+      "id": "withdrawalRate",
+      "label": "Safe Withdrawal Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "businessContext": "Percentage of portfolio you can withdraw annually without depleting it."
+    },
+    {
+      "id": "annualExpenses",
+      "label": "Annual Expenses in Retirement",
+      "type": "number",
+      "unit": "USD",
+      "default": 40000,
+      "businessContext": "Expected annual living expenses in retirement."
+    },
+    {
+      "id": "partTimeIncome",
+      "label": "Annual Part-Time Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 12000,
+      "businessContext": "Annual income from part-time work in retirement (Barista FIRE)."
+    }
+  ],
+  "formulas": {
+    "targetAmount": "Math.max(0, (annualExpenses - partTimeIncome) / (withdrawalRate / 100))",
+    "monthsToRetirement": "Math.max(0, (retirementAge - currentAge) * 12)",
+    "monthlyReturn": "Math.pow(1 + annualReturn / 100, 1 / 12) - 1",
+    "futureValueCurrent": "currentSavings * Math.pow(1 + annualReturn / 100, Math.max(0, retirementAge - currentAge))",
+    "futureValueMonthly": "monthlySavings * ((Math.pow(1 + monthlyReturn, monthsToRetirement) - 1) / Math.max(0.0001, monthlyReturn))",
+    "totalFutureSavings": "futureValueCurrent + futureValueMonthly",
+    "monthlySavingsNeeded": "(targetAmount - futureValueCurrent) * (Math.max(0.0001, monthlyReturn) / (Math.pow(1 + monthlyReturn, Math.max(1, monthsToRetirement)) - 1))",
+    "gap": "targetAmount - totalFutureSavings"
+  },
+  "outputs": {
+    "primary": "targetAmount",
+    "breakdown": [
+      "totalFutureSavings",
+      "monthlySavingsNeeded",
+      "gap"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "sobriety-calculator",
+  "inputs": [
+    {
+      "id": "drinks",
+      "label": "İçki sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Tüketilen standart içki sayısı"
+    },
+    {
+      "id": "alcoholPerDrink",
+      "label": "Bir içkideki alkol miktarı",
+      "type": "number",
+      "unit": "g",
+      "default": 14,
+      "businessContext": "Bir standart içkide bulunan saf alkol gramajı (ör: bir bira yaklaşık 14 g)"
+    },
+    {
+      "id": "weightKg",
+      "label": "Vücut ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Kişinin kilogram cinsinden ağırlığı"
+    },
+    {
+      "id": "genderCode",
+      "label": "Cinsiyet",
+      "type": "number",
+      "unit": "0: Erkek, 1: Kadın",
+      "default": 0,
+      "businessContext": "0 erkek, 1 kadın dağılım katsayısı seçimi"
+    },
+    {
+      "id": "timeHours",
+      "label": "İlk içkiden itibaren geçen süre",
+      "type": "number",
+      "unit": "saat",
+      "default": 1,
+      "businessContext": "İçmeye başlandıktan sonra geçen saat cinsinden süre"
+    }
+  ],
+  "formulas": {
+    "r": "genderCode == 0 ? 0.68 : 0.55",
+    "totalAlcohol": "drinks * alcoholPerDrink",
+    "currentBAC": "Math.max(0, totalAlcohol / (weightKg * r) - 0.15 * timeHours)",
+    "timeToSober": "Math.max(0, totalAlcohol / (weightKg * r) / 0.15 - timeHours)"
+  },
+  "outputs": {
+    "primary": "currentBAC",
+    "breakdown": [
+      "timeToSober",
+      "r",
+      "totalAlcohol"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

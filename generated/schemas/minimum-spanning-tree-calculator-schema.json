@@ -1,0 +1,73 @@
+{
+  "toolName": "minimum-spanning-tree-calculator",
+  "inputs": [
+    {
+      "id": "nodeCount",
+      "label": "Number of Nodes",
+      "type": "number",
+      "unit": "nodes",
+      "default": 3,
+      "businessContext": "The number of nodes in the network. This version supports 3-node MST calculation."
+    },
+    {
+      "id": "edgeAB",
+      "label": "Edge A-B Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Distance between node A and node B."
+    },
+    {
+      "id": "edgeBC",
+      "label": "Edge B-C Length",
+      "type": "number",
+      "unit": "m",
+      "default": 15,
+      "businessContext": "Distance between node B and node C."
+    },
+    {
+      "id": "edgeCA",
+      "label": "Edge C-A Length",
+      "type": "number",
+      "unit": "m",
+      "default": 20,
+      "businessContext": "Distance between node C and node A."
+    },
+    {
+      "id": "unitCost",
+      "label": "Cost per Meter",
+      "type": "number",
+      "unit": "EUR/m",
+      "default": 5,
+      "businessContext": "Cost per meter of cabling or piping for the network."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.1,
+      "businessContext": "Multiplicative safety factor to account for contingencies."
+    }
+  ],
+  "formulas": {
+    "maxAB": "(edgeAB + edgeBC + Math.sqrt(Math.pow(edgeAB - edgeBC, 2))) / 2",
+    "maxABC": "(maxAB + edgeCA + Math.sqrt(Math.pow(maxAB - edgeCA, 2))) / 2",
+    "mstLength": "edgeAB + edgeBC + edgeCA - maxABC",
+    "totalCost": "mstLength * unitCost",
+    "adjustedCost": "totalCost * safetyFactor"
+  },
+  "outputs": {
+    "primary": "adjustedCost",
+    "breakdown": [
+      "mstLength",
+      "totalCost"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,66 @@
+{
+  "toolName": "gas-bill-calculator",
+  "inputs": [
+    {
+      "id": "consumption",
+      "label": "Gas Consumption",
+      "type": "number",
+      "unit": "m³",
+      "default": 0,
+      "businessContext": "Actual meter reading difference or estimated monthly consumption"
+    },
+    {
+      "id": "calorificValue",
+      "label": "Calorific Value",
+      "type": "number",
+      "unit": "kWh/m³",
+      "default": 11.2,
+      "businessContext": "Average calorific value of gas supply as per gas network operator"
+    },
+    {
+      "id": "unitRate",
+      "label": "Unit Rate",
+      "type": "number",
+      "unit": "currency/kWh",
+      "default": 0.04,
+      "businessContext": "Unit price of gas per kWh from tariff"
+    },
+    {
+      "id": "standingCharge",
+      "label": "Standing Charge",
+      "type": "number",
+      "unit": "currency/month",
+      "default": 10,
+      "businessContext": "Fixed monthly charge by supplier"
+    },
+    {
+      "id": "vatRate",
+      "label": "VAT Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Applicable VAT rate, e.g., 20%"
+    }
+  ],
+  "formulas": {
+    "energyConsumed": "consumption * calorificValue",
+    "energyCost": "energyConsumed * unitRate",
+    "subtotal": "energyCost + standingCharge",
+    "vatAmount": "subtotal * vatRate / 100",
+    "totalBill": "subtotal + vatAmount"
+  },
+  "outputs": {
+    "primary": "totalBill",
+    "breakdown": [
+      "energyCost",
+      "standingCharge",
+      "vatAmount"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

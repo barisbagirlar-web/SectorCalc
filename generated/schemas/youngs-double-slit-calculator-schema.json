@@ -1,0 +1,57 @@
+{
+  "toolName": "youngs-double-slit-calculator",
+  "inputs": [
+    {
+      "id": "wavelength",
+      "label": "Wavelength (λ)",
+      "type": "number",
+      "unit": "m",
+      "default": 5e-7,
+      "businessContext": "Light wavelength in vacuum"
+    },
+    {
+      "id": "slitSeparation",
+      "label": "Slit Separation (d)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.001,
+      "businessContext": "Distance between the two slits"
+    },
+    {
+      "id": "screenDistance",
+      "label": "Screen Distance (L)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Distance from slits to observation screen"
+    },
+    {
+      "id": "fringeOrder",
+      "label": "Fringe Order (m)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Order number of the bright fringe (0 for central)"
+    }
+  ],
+  "formulas": {
+    "position": "(fringeOrder * wavelength * screenDistance) / slitSeparation",
+    "fringeSpacing": "(wavelength * screenDistance) / slitSeparation",
+    "angleRad": "Math.atan((fringeOrder * wavelength) / slitSeparation)",
+    "angleDeg": "(Math.atan((fringeOrder * wavelength) / slitSeparation)) * (180 / Math.PI)"
+  },
+  "outputs": {
+    "primary": "position",
+    "breakdown": [
+      "fringeSpacing",
+      "angleRad",
+      "angleDeg"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

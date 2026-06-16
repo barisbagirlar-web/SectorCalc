@@ -1,0 +1,55 @@
+{
+  "toolName": "fahrenheit-to-celsius-calculator",
+  "inputs": [
+    {
+      "id": "fahrenheit",
+      "label": "Fahrenheit Sıcaklık",
+      "type": "number",
+      "unit": "°F",
+      "default": 32,
+      "businessContext": "Dönüştürülecek Fahrenheit sıcaklık değeri"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Ondalık Basamak",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı (0-10)"
+    },
+    {
+      "id": "atmosphericPressure",
+      "label": "Atmosfer Basıncı",
+      "type": "number",
+      "unit": "hPa",
+      "default": 1013.25,
+      "businessContext": "Ortam basıncı (ISO 9001 kaydı için, hesaplamaya etkisi yok)"
+    },
+    {
+      "id": "relativeHumidity",
+      "label": "Bağıl Nem",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Bağıl nem (ISO 9001 kaydı için)"
+    }
+  ],
+  "formulas": {
+    "celsius": "(fahrenheit - 32) * 5 / 9",
+    "roundedResult": "Math.round(((fahrenheit - 32) * 5 / 9) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "roundedResult",
+    "breakdown": [
+      "Formül: °C = (°F - 32) × 5/9",
+      "Hesaplama: °C = ({fahrenheit} - 32) × 5/9 = {celsius}",
+      "Yuvarlanmış Sonuç ({decimalPlaces} ondalık): {roundedResult} °C"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "smoking-calculator",
+  "inputs": [
+    {
+      "id": "cigarettesPerDay",
+      "label": "Günlük sigara tüketimi",
+      "type": "number",
+      "unit": "adet",
+      "default": 20,
+      "businessContext": "Günde içilen ortalama sigara sayısı"
+    },
+    {
+      "id": "costPerPack",
+      "label": "Paket fiyatı",
+      "type": "number",
+      "unit": "TL",
+      "default": 30,
+      "businessContext": "Bir paketin ortalama satın alma fiyatı"
+    },
+    {
+      "id": "yearsSmoking",
+      "label": "İçilen yıl",
+      "type": "number",
+      "unit": "yıl",
+      "default": 10,
+      "businessContext": "Kaç yıldır sigara içildiği veya incelenecek süre"
+    },
+    {
+      "id": "packSize",
+      "label": "Paketteki sigara sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 20,
+      "businessContext": "Bir pakette bulunan sigara adedi"
+    }
+  ],
+  "formulas": {
+    "dailyCost": "(cigarettesPerDay / packSize) * costPerPack",
+    "yearlyCost": "dailyCost * 365",
+    "totalCost": "yearlyCost * yearsSmoking"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "dailyCost",
+      "yearlyCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

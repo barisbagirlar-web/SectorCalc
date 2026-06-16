@@ -1,0 +1,58 @@
+{
+  "toolName": "dymaxion-sleep-calculator",
+  "inputs": [
+    {
+      "id": "napDurationMinutes",
+      "label": "Nap Duration (minutes)",
+      "type": "number",
+      "unit": "minute",
+      "default": 30,
+      "businessContext": "Duration of each nap in minutes. Dymaxion schedule typically uses 30-minute naps."
+    },
+    {
+      "id": "intervalHours",
+      "label": "Interval Between Naps (hours)",
+      "type": "number",
+      "unit": "hour",
+      "default": 6,
+      "businessContext": "Time between the start of each nap. Standard Dymaxion interval is 6 hours, resulting in 4 naps per day."
+    },
+    {
+      "id": "totalDays",
+      "label": "Total Days",
+      "type": "number",
+      "unit": "day",
+      "default": 7,
+      "businessContext": "Number of consecutive days to calculate total sleep duration."
+    },
+    {
+      "id": "baseSleepHours",
+      "label": "Baseline Monophasic Sleep (hours)",
+      "type": "number",
+      "unit": "hour",
+      "default": 8,
+      "businessContext": "Recommended monophasic sleep duration used for efficiency comparison."
+    }
+  ],
+  "formulas": {
+    "napsPerDay": "24 / intervalHours",
+    "totalNaps": "napsPerDay * totalDays",
+    "totalSleepMinutes": "totalNaps * napDurationMinutes",
+    "totalSleepHours": "totalSleepMinutes / 60",
+    "efficiencyPercent": "(totalSleepMinutes / (baseSleepHours * 60)) * 100"
+  },
+  "outputs": {
+    "primary": "Total sleep: ${totalSleepHours.toFixed(1)} hours (${totalSleepMinutes} minutes) over ${totalDays} day(s).",
+    "breakdown": [
+      "Number of naps per day: ${napsPerDay.toFixed(1)} (standard Dymaxion: 4).",
+      "Total naps: ${totalNaps.toFixed(1)}.",
+      "Efficiency relative to ${baseSleepHours}h monophasic: ${efficiencyPercent.toFixed(1)}% (lower means less sleep)."
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,70 @@
+{
+  "toolName": "pull-up-calculator",
+  "inputs": [
+    {
+      "id": "supplyVoltage",
+      "label": "Besleme Voltajı",
+      "type": "number",
+      "unit": "V",
+      "default": 5,
+      "businessContext": "Devrenin besleme gerilimi"
+    },
+    {
+      "id": "minHighVoltage",
+      "label": "Minimum Yüksek Seviye Gerilimi",
+      "type": "number",
+      "unit": "V",
+      "default": 3.5,
+      "businessContext": "Girişin '1' olarak algılaması için gereken minimum gerilim"
+    },
+    {
+      "id": "inputLeakageHigh",
+      "label": "Yüksek Seviye Kaçak Akımı",
+      "type": "number",
+      "unit": "A",
+      "default": 0.000001,
+      "businessContext": "Giriş '1' durumundayken çekilen kaçak akım"
+    },
+    {
+      "id": "numberOfLoads",
+      "label": "Yük Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Hatta bağlı giriş sayısı"
+    },
+    {
+      "id": "outputLowVoltage",
+      "label": "Maksimum Çıkış Düşük Seviye Gerilimi",
+      "type": "number",
+      "unit": "V",
+      "default": 0.4,
+      "businessContext": "Çıkış '0' durumundayken izin verilen maksimum gerilim"
+    },
+    {
+      "id": "outputSinkCurrent",
+      "label": "Maksimum Çıkış Akımı",
+      "type": "number",
+      "unit": "A",
+      "default": 0.016,
+      "businessContext": "Çıkışın '0' durumunda çekebileceği maksimum akım"
+    }
+  ],
+  "formulas": {
+    "maxPullUpResistance": "(supplyVoltage - minHighVoltage) / (numberOfLoads * inputLeakageHigh)",
+    "minPullUpResistance": "(supplyVoltage - outputLowVoltage) / outputSinkCurrent"
+  },
+  "outputs": {
+    "primary": "maxPullUpResistance",
+    "breakdown": [
+      "maxPullUpResistance",
+      "minPullUpResistance"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

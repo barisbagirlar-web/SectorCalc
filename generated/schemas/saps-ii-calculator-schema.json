@@ -1,0 +1,97 @@
+{
+  "toolName": "saps-ii-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 60,
+      "businessContext": "Patient's age in years"
+    },
+    {
+      "id": "heartRate",
+      "label": "Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 80,
+      "businessContext": "Patient's heart rate in beats per minute"
+    },
+    {
+      "id": "systolicBP",
+      "label": "Systolic Blood Pressure",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 120,
+      "businessContext": "Systolic blood pressure in mmHg"
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 37,
+      "businessContext": "Body temperature in Celsius"
+    },
+    {
+      "id": "ventilation",
+      "label": "Mechanical Ventilation",
+      "type": "number",
+      "unit": "0/1",
+      "default": 0,
+      "businessContext": "1 if on mechanical ventilation or CPAP, else 0"
+    },
+    {
+      "id": "paO2FiO2",
+      "label": "PaO2/FiO2 Ratio",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 0,
+      "businessContext": "PaO2/FiO2 ratio in mmHg, relevant only if ventilated"
+    },
+    {
+      "id": "urineOutput",
+      "label": "Urine Output",
+      "type": "number",
+      "unit": "L/day",
+      "default": 1.5,
+      "businessContext": "Daily urine output in liters"
+    },
+    {
+      "id": "serumUrea",
+      "label": "Serum Urea",
+      "type": "number",
+      "unit": "mmol/L",
+      "default": 5,
+      "businessContext": "Serum urea concentration in mmol/L"
+    }
+  ],
+  "formulas": {
+    "agePoints": "(age < 40) ? 0 : (age < 60) ? 7 : (age < 70) ? 12 : (age < 75) ? 15 : (age < 80) ? 16 : 18",
+    "hrPoints": "(heartRate < 40) ? 11 : (heartRate < 70) ? 2 : (heartRate < 120) ? 0 : (heartRate < 160) ? 4 : 7",
+    "sysBPPoints": "(systolicBP < 70) ? 13 : (systolicBP < 100) ? 5 : (systolicBP < 200) ? 0 : 2",
+    "tempPoints": "(temperature >= 39) ? 3 : 0",
+    "ventPoints": "(ventilation === 1) ? ((paO2FiO2 < 100) ? 11 : (paO2FiO2 < 200) ? 9 : 6) : 0",
+    "urinePoints": "(urineOutput < 0.5) ? 11 : (urineOutput < 1) ? 4 : 0",
+    "ureaPoints": "(serumUrea < 10) ? 0 : (serumUrea < 30) ? 6 : 10",
+    "saps2Score": "agePoints + hrPoints + sysBPPoints + tempPoints + ventPoints + urinePoints + ureaPoints"
+  },
+  "outputs": {
+    "primary": "saps2Score",
+    "breakdown": [
+      "agePoints",
+      "hrPoints",
+      "sysBPPoints",
+      "tempPoints",
+      "ventPoints",
+      "urinePoints",
+      "ureaPoints"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,69 @@
+{
+  "toolName": "age-difference-calculator",
+  "inputs": [
+    {
+      "id": "person1Years",
+      "label": "Person 1 Age (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Completed years of person 1"
+    },
+    {
+      "id": "person1Months",
+      "label": "Person 1 Additional Months",
+      "type": "number",
+      "unit": "months",
+      "default": 0,
+      "businessContext": "Additional months beyond completed years for person 1"
+    },
+    {
+      "id": "person2Years",
+      "label": "Person 2 Age (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 25,
+      "businessContext": "Completed years of person 2"
+    },
+    {
+      "id": "person2Months",
+      "label": "Person 2 Additional Months",
+      "type": "number",
+      "unit": "months",
+      "default": 0,
+      "businessContext": "Additional months beyond completed years for person 2"
+    }
+  ],
+  "formulas": {
+    "diffYears": "Math.abs(person1Years + person1Months / 12 - (person2Years + person2Months / 12))",
+    "totalAge1": "person1Years + person1Months / 12",
+    "totalAge2": "person2Years + person2Months / 12",
+    "diffMonths": "Math.abs(person1Years + person1Months / 12 - (person2Years + person2Months / 12)) * 12"
+  },
+  "outputs": {
+    "primary": {
+      "label": "Age Difference (years)",
+      "value": "diffYears"
+    },
+    "breakdown": [
+      {
+        "label": "Person 1 Age (years)",
+        "value": "totalAge1"
+      },
+      {
+        "label": "Person 2 Age (years)",
+        "value": "totalAge2"
+      },
+      {
+        "label": "Age Difference (months)",
+        "value": "diffMonths"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

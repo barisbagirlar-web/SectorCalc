@@ -1,0 +1,78 @@
+{
+  "toolName": "beam-reaction-calculator",
+  "inputs": [
+    {
+      "id": "beamLength",
+      "label": "Kiriş Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Basit mesnetli kirişin toplam açıklık uzunluğu (m)."
+    },
+    {
+      "id": "load1",
+      "label": "Yük 1",
+      "type": "number",
+      "unit": "kN",
+      "default": 10,
+      "businessContext": "Birinci tekil yükün şiddeti (kN). Kullanılmıyorsa 0 girin."
+    },
+    {
+      "id": "pos1",
+      "label": "Konum 1",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Yük 1'in sol mesnetten uzaklığı (m)."
+    },
+    {
+      "id": "load2",
+      "label": "Yük 2",
+      "type": "number",
+      "unit": "kN",
+      "default": 0,
+      "businessContext": "İkinci tekil yükün şiddeti (kN). Kullanılmıyorsa 0 girin."
+    },
+    {
+      "id": "pos2",
+      "label": "Konum 2",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Yük 2'nin sol mesnetten uzaklığı (m)."
+    },
+    {
+      "id": "load3",
+      "label": "Yük 3",
+      "type": "number",
+      "unit": "kN",
+      "default": 0,
+      "businessContext": "Üçüncü tekil yükün şiddeti (kN). Kullanılmıyorsa 0 girin."
+    },
+    {
+      "id": "pos3",
+      "label": "Konum 3",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Yük 3'ün sol mesnetten uzaklığı (m)."
+    }
+  ],
+  "formulas": {
+    "solMesnetTepkisi": "(load1*(beamLength-pos1) + load2*(beamLength-pos2) + load3*(beamLength-pos3)) / beamLength",
+    "sagMesnetTepkisi": "(load1*pos1 + load2*pos2 + load3*pos3) / beamLength"
+  },
+  "outputs": {
+    "primary": "solMesnetTepkisi",
+    "breakdown": [
+      "solMesnetTepkisi",
+      "sagMesnetTepkisi"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

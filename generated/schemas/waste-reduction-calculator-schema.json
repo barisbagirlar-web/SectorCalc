@@ -1,0 +1,75 @@
+{
+  "toolName": "waste-reduction-calculator",
+  "inputs": [
+    {
+      "id": "totalProduction",
+      "label": "Total Production",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "businessContext": "Total number of units produced in the period."
+    },
+    {
+      "id": "defectUnits",
+      "label": "Defective Units",
+      "type": "number",
+      "unit": "units",
+      "default": 50,
+      "businessContext": "Number of defective or non-conforming units."
+    },
+    {
+      "id": "materialInput",
+      "label": "Material Input",
+      "type": "number",
+      "unit": "kg",
+      "default": 500,
+      "businessContext": "Total raw material consumed."
+    },
+    {
+      "id": "wasteMaterial",
+      "label": "Waste Material",
+      "type": "number",
+      "unit": "kg",
+      "default": 30,
+      "businessContext": "Material wasted as scrap, trimmings, rejects."
+    },
+    {
+      "id": "materialCostPerKg",
+      "label": "Material Cost per kg",
+      "type": "number",
+      "unit": "currency/kg",
+      "default": 2.5,
+      "businessContext": "Unit cost of raw material."
+    },
+    {
+      "id": "defectReductionTarget",
+      "label": "Defect Reduction Target",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Target percentage reduction in defect units (e.g., 20% means reduce defective units by one fifth)."
+    }
+  ],
+  "formulas": {
+    "materialPerUnit": "materialInput / totalProduction",
+    "currentDefectRate": "defectUnits / totalProduction * 100",
+    "currentWasteRate": "wasteMaterial / materialInput * 100",
+    "currentWasteCost": "wasteMaterial * materialCostPerKg",
+    "savings": "defectUnits * (defectReductionTarget / 100) * (materialInput / totalProduction) * materialCostPerKg"
+  },
+  "outputs": {
+    "primary": "savings",
+    "breakdown": [
+      "currentDefectRate",
+      "currentWasteRate",
+      "materialPerUnit",
+      "currentWasteCost"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

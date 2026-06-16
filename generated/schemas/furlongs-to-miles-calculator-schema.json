@@ -1,0 +1,74 @@
+{
+  "toolName": "furlongs-to-miles-calculator",
+  "inputs": [
+    {
+      "id": "furlongs",
+      "label": "Furlongs",
+      "type": "number",
+      "unit": "fur",
+      "default": 1,
+      "businessContext": "Distance measured in furlongs (1 furlong = 1/8 mile)"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor (mi/fur)",
+      "type": "number",
+      "unit": "mi/fur",
+      "default": 0.125,
+      "businessContext": "Custom conversion factor; default 0.125 mi/fur"
+    },
+    {
+      "id": "decimals",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "dp",
+      "default": 4,
+      "businessContext": "Rounding precision for output"
+    },
+    {
+      "id": "multiplier",
+      "label": "Batch Multiplier",
+      "type": "number",
+      "unit": "x",
+      "default": 1,
+      "businessContext": "Multiply result for batch conversions (e.g., number of furlong segments)"
+    },
+    {
+      "id": "additionalMiles",
+      "label": "Additional Miles",
+      "type": "number",
+      "unit": "mi",
+      "default": 0,
+      "businessContext": "Add a fixed mileage (e.g., access road distance)"
+    },
+    {
+      "id": "costPerMile",
+      "label": "Cost per Mile",
+      "type": "number",
+      "unit": "currency/mi",
+      "default": 0,
+      "businessContext": "Optional cost per mile for total cost calculation"
+    }
+  ],
+  "formulas": {
+    "miles": "furlongs * conversionFactor * multiplier",
+    "roundedMiles": "Math.round(miles * Math.pow(10, decimals)) / Math.pow(10, decimals)",
+    "totalMiles": "roundedMiles + additionalMiles",
+    "totalCost": "totalMiles * costPerMile"
+  },
+  "outputs": {
+    "primary": "totalMiles",
+    "breakdown": [
+      "Converted miles (base): `furlongs * conversionFactor * multiplier` = ${roundedMiles} mi",
+      "Additional miles added: ${additionalMiles} mi",
+      "Total distance: ${totalMiles} mi",
+      "Total cost: ${totalCost} currency units (if cost per mile provided)"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

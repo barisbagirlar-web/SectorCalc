@@ -1,0 +1,55 @@
+{
+  "toolName": "cables-to-nautical-miles-calculator",
+  "inputs": [
+    {
+      "id": "cables",
+      "label": "Cables",
+      "type": "number",
+      "unit": "cable",
+      "default": 0,
+      "businessContext": "Length in cables (1 standard cable = 0.1 nautical miles)."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "NM/cable",
+      "default": 0.1,
+      "businessContext": "Nautical miles per cable. Standard is 0.1. Adjust for non-standard cable definitions."
+    },
+    {
+      "id": "uncertainty",
+      "label": "Measurement Uncertainty",
+      "type": "number",
+      "unit": "cable",
+      "default": 0,
+      "businessContext": "± uncertainty in the cable measurement."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output."
+    }
+  ],
+  "formulas": {
+    "exactNM": "cables * conversionFactor",
+    "uncertaintyNM": "uncertainty * conversionFactor",
+    "roundedNM": "Math.round((cables * conversionFactor) * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "roundedNM",
+    "breakdown": [
+      "exactNM",
+      "uncertaintyNM"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

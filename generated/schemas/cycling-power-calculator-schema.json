@@ -1,0 +1,89 @@
+{
+  "toolName": "cycling-power-calculator",
+  "inputs": [
+    {
+      "id": "total_mass",
+      "label": "Total Mass (rider + bike)",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "Combined mass of the rider and the bicycle in kilograms."
+    },
+    {
+      "id": "speed",
+      "label": "Cycling Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 30,
+      "businessContext": "Desired or current cycling speed in kilometers per hour."
+    },
+    {
+      "id": "gradient",
+      "label": "Road Gradient",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Incline of the road as a percentage (positive for uphill, negative for downhill)."
+    },
+    {
+      "id": "wind_speed",
+      "label": "Wind Speed (headwind positive)",
+      "type": "number",
+      "unit": "km/h",
+      "default": 0,
+      "businessContext": "Component of wind speed along the direction of travel (positive for headwind, negative for tailwind)."
+    },
+    {
+      "id": "rolling_resistance_coefficient",
+      "label": "Rolling Resistance Coefficient (Crr)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.005,
+      "businessContext": "Coefficient of rolling resistance, typical values: 0.0025 (smooth track), 0.005 (road), 0.008 (gravel)."
+    },
+    {
+      "id": "air_density",
+      "label": "Air Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1.225,
+      "businessContext": "Density of ambient air (1.225 kg/m³ at sea level, 15°C)."
+    },
+    {
+      "id": "CdA",
+      "label": "Effective Frontal Area (CdA)",
+      "type": "number",
+      "unit": "m²",
+      "default": 0.3,
+      "businessContext": "Product of drag coefficient and frontal area, typically 0.2–0.4 m² for a cyclist."
+    },
+    {
+      "id": "drivetrain_efficiency",
+      "label": "Drivetrain Efficiency",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.95,
+      "businessContext": "Efficiency of the bicycle drivetrain (0.95 = 95%)."
+    }
+  ],
+  "formulas": {
+    "air_resistance_power": "0.5 * air_density * CdA * ((speed / 3.6 + wind_speed / 3.6) ** 2) * (speed / 3.6)",
+    "rolling_resistance_power": "(rolling_resistance_coefficient * total_mass * 9.81) * (speed / 3.6)",
+    "gravity_power": "(total_mass * 9.81 * Math.sin(Math.atan(gradient / 100))) * (speed / 3.6)",
+    "rider_power": "(air_resistance_power + rolling_resistance_power + gravity_power) / drivetrain_efficiency"
+  },
+  "outputs": {
+    "primary": "rider_power",
+    "breakdown": [
+      "air_resistance_power",
+      "rolling_resistance_power",
+      "gravity_power"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

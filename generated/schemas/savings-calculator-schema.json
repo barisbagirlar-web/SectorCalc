@@ -1,0 +1,55 @@
+{
+  "toolName": "savings-calculator",
+  "inputs": [
+    {
+      "id": "initialDeposit",
+      "label": "Initial Deposit",
+      "type": "number",
+      "unit": "€",
+      "default": 1000,
+      "businessContext": "One-time upfront investment amount"
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Monthly Contribution",
+      "type": "number",
+      "unit": "€",
+      "default": 100,
+      "businessContext": "Regular monthly savings added"
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Expected yearly interest rate"
+    },
+    {
+      "id": "years",
+      "label": "Number of Years",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Investment horizon"
+    }
+  ],
+  "formulas": {
+    "futureValue": "initialDeposit * Math.pow(1 + annualInterestRate/100/12, 12*years) + monthlyContribution * ((Math.pow(1 + annualInterestRate/100/12, 12*years) - 1) / (annualInterestRate/100/12))",
+    "totalContributions": "initialDeposit + monthlyContribution * 12 * years",
+    "totalInterest": "(initialDeposit * Math.pow(1 + annualInterestRate/100/12, 12*years) + monthlyContribution * ((Math.pow(1 + annualInterestRate/100/12, 12*years) - 1) / (annualInterestRate/100/12))) - (initialDeposit + monthlyContribution * 12 * years)"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": [
+      "totalContributions",
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

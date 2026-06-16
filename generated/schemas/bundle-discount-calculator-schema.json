@@ -1,0 +1,116 @@
+{
+  "toolName": "bundle-discount-calculator",
+  "inputs": [
+    {
+      "id": "numberOfBundles",
+      "label": "Paket Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Satın alınan paket adedi"
+    },
+    {
+      "id": "itemsPerBundle",
+      "label": "Paket Başına Ürün",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Bir paketteki ürün sayısı"
+    },
+    {
+      "id": "pricePerItem",
+      "label": "Birim Fiyatı",
+      "type": "number",
+      "unit": "TL",
+      "default": 10,
+      "businessContext": "Tek bir ürünün liste fiyatı"
+    },
+    {
+      "id": "bundleDiscountPercent",
+      "label": "Paket İndirimi (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Paket olarak alındığında uygulanacak indirim yüzdesi"
+    },
+    {
+      "id": "bulkThreshold",
+      "label": "Toplu Alım Eşiği",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "businessContext": "Bu sayıda veya daha fazla paket alındığında ek toplu indirim uygulanır"
+    },
+    {
+      "id": "bulkDiscountPercent",
+      "label": "Toplu İndirim Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Toplu alım eşiği aşıldığında, paket indirimi sonrasına uygulanacak ek indirim yüzdesi"
+    }
+  ],
+  "formulas": {
+    "totalItems": "numberOfBundles * itemsPerBundle",
+    "undiscountedCost": "totalItems * pricePerItem",
+    "bundleDiscountedPricePerItem": "pricePerItem * (1 - bundleDiscountPercent / 100)",
+    "bundlePrice": "itemsPerBundle * bundleDiscountedPricePerItem",
+    "totalBundleCost": "numberOfBundles * bundlePrice",
+    "bundleDiscountAmount": "undiscountedCost - totalBundleCost",
+    "bulkDiscountAmount": "numberOfBundles >= bulkThreshold ? totalBundleCost * (bulkDiscountPercent / 100) : 0",
+    "discountAmount": "bundleDiscountAmount + bulkDiscountAmount",
+    "finalCost": "undiscountedCost - discountAmount"
+  },
+  "outputs": {
+    "primary": {
+      "formula": "finalCost",
+      "label": "Toplam Maliyet",
+      "unit": "TL",
+      "description": "Tüm indirimler uygulandıktan sonra ödenecek net tutar"
+    },
+    "breakdown": [
+      {
+        "formula": "totalItems",
+        "label": "Toplam Ürün Adedi",
+        "unit": "adet",
+        "description": "Alınan toplam ürün sayısı"
+      },
+      {
+        "formula": "undiscountedCost",
+        "label": "Liste Fiyatı Toplamı",
+        "unit": "TL",
+        "description": "İndirimsiz toplam tutar"
+      },
+      {
+        "formula": "bundleDiscountAmount",
+        "label": "Paket İndirimi Tutarı",
+        "unit": "TL",
+        "description": "Paket indirimiyle düşülen tutar"
+      },
+      {
+        "formula": "bulkDiscountAmount",
+        "label": "Toplu Alım İndirimi Tutarı",
+        "unit": "TL",
+        "description": "Toplu alım indirimiyle düşülen tutar (varsa)"
+      },
+      {
+        "formula": "discountAmount",
+        "label": "Toplam İndirim",
+        "unit": "TL",
+        "description": "Tüm indirimlerin toplamı"
+      },
+      {
+        "formula": "finalCost",
+        "label": "Son Maliyet",
+        "unit": "TL",
+        "description": "İndirimler sonrası nihai maliyet"
+      }
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

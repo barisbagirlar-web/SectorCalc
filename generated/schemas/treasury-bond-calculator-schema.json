@@ -1,0 +1,67 @@
+{
+  "toolName": "treasury-bond-calculator",
+  "inputs": [
+    {
+      "id": "faceValue",
+      "label": "Face Value",
+      "type": "number",
+      "unit": "Currency",
+      "default": 1000,
+      "businessContext": "The nominal value of the bond, paid at maturity."
+    },
+    {
+      "id": "couponRate",
+      "label": "Coupon Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual coupon rate as percentage of face value."
+    },
+    {
+      "id": "yearsToMaturity",
+      "label": "Years to Maturity",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Number of years until the bond matures."
+    },
+    {
+      "id": "yieldToMaturity",
+      "label": "Yield to Maturity",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "businessContext": "Annual discount rate (market interest rate) for the bond."
+    },
+    {
+      "id": "frequency",
+      "label": "Coupon Frequency",
+      "type": "number",
+      "unit": "payments/year",
+      "default": 2,
+      "businessContext": "Number of coupon payments per year (e.g., 2 for semiannual)."
+    }
+  ],
+  "formulas": {
+    "annualCoupon": "inputs.faceValue * inputs.couponRate / 100",
+    "periodCoupon": "annualCoupon / inputs.frequency",
+    "numPeriods": "inputs.yearsToMaturity * inputs.frequency",
+    "periodRate": "(inputs.yieldToMaturity / 100) / inputs.frequency",
+    "bondPrice": "periodRate === 0 ? (periodCoupon * numPeriods + inputs.faceValue) : (periodCoupon * (1 - Math.pow(1 + periodRate, -numPeriods)) / periodRate + inputs.faceValue * Math.pow(1 + periodRate, -numPeriods))"
+  },
+  "outputs": {
+    "primary": "bondPrice",
+    "breakdown": [
+      "annualCoupon",
+      "periodCoupon",
+      "numPeriods",
+      "periodRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

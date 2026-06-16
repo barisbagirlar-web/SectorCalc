@@ -1,0 +1,72 @@
+{
+  "toolName": "fillet-weld-calculator",
+  "inputs": [
+    {
+      "id": "legSize",
+      "label": "Köşe Kaynak Kalınlığı (a)",
+      "type": "number",
+      "unit": "mm",
+      "default": 6,
+      "businessContext": "Teknik çizimde belirtilen köşe kaynak dikiş kalınlığı"
+    },
+    {
+      "id": "weldLength",
+      "label": "Kaynak Boyu",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Köşe kaynağının toplam uzunluğu"
+    },
+    {
+      "id": "yieldStrength",
+      "label": "Elektrot Akma Dayanımı",
+      "type": "number",
+      "unit": "MPa",
+      "default": 235,
+      "businessContext": "Kullanılan elektrot malzemesinin akma dayanımı (örneğin E42)"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Güvenlik Katsayısı",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Emniyet gerilmesi hesaplaması için yapısal güvenlik kat sayısı"
+    },
+    {
+      "id": "designLoad",
+      "label": "Tasarım Yükü",
+      "type": "number",
+      "unit": "kN",
+      "default": 50,
+      "businessContext": "Kaynak bağlantısına etkiyen tasarım yükü"
+    }
+  ],
+  "formulas": {
+    "throatThickness": "legSize * 0.707",
+    "allowableStress": "yieldStrength / safetyFactor",
+    "weldCapacityPerUnit": "throatThickness * allowableStress",
+    "totalWeldCapacity_N": "weldCapacityPerUnit * weldLength",
+    "totalWeldCapacity_kN": "totalWeldCapacity_N / 1000",
+    "utilizationRatio": "designLoad / totalWeldCapacity_kN",
+    "requiredWeldLength": "designLoad * 1000 / weldCapacityPerUnit",
+    "weldArea": "0.5 * legSize * legSize",
+    "weldVolume": "weldArea * weldLength"
+  },
+  "outputs": {
+    "primary": "totalWeldCapacity_kN",
+    "breakdown": [
+      "throatThickness",
+      "allowableStress",
+      "utilizationRatio",
+      "requiredWeldLength",
+      "weldVolume"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "forklift-calculator",
+  "inputs": [
+    {
+      "id": "ratedCapacity",
+      "label": "Nominal Kapasite",
+      "type": "number",
+      "unit": "kg",
+      "default": 5000,
+      "businessContext": "Forkliftin standart yük merkezindeki maksimum taşıma kapasitesi."
+    },
+    {
+      "id": "standardLoadCenter",
+      "label": "Standart Yük Merkezi",
+      "type": "number",
+      "unit": "mm",
+      "default": 600,
+      "businessContext": "Forkliftin nominal kapasitesinin geçerli olduğu standart yük merkezi mesafesi."
+    },
+    {
+      "id": "actualLoadCenter",
+      "label": "Gerçek Yük Merkezi",
+      "type": "number",
+      "unit": "mm",
+      "default": 700,
+      "businessContext": "Taşınacak yükün ağırlık merkezinin fork arkasına olan gerçek mesafesi."
+    },
+    {
+      "id": "liftHeight",
+      "label": "Kaldırma Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Yükün kaldırılacağı dikey yükseklik."
+    },
+    {
+      "id": "maxLiftHeight",
+      "label": "Maksimum Kaldırma Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Forkliftin erişebileceği en yüksek nokta."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Güvenlik Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Operasyonel emniyet için uygulanan güvenlik katsayısı."
+    }
+  ],
+  "formulas": {
+    "loadCenterDeratingFactor": "standardLoadCenter / actualLoadCenter",
+    "capacityAtLoadCenter": "ratedCapacity * (standardLoadCenter / actualLoadCenter)",
+    "capacityAtLiftHeight": "(ratedCapacity * (standardLoadCenter / actualLoadCenter)) * ((liftHeight > 0.8 * maxLiftHeight) ? (1 - ((liftHeight - 0.8 * maxLiftHeight) / (0.2 * maxLiftHeight)) * 0.3) : 1)",
+    "finalSafeLoad": "((ratedCapacity * (standardLoadCenter / actualLoadCenter)) * ((liftHeight > 0.8 * maxLiftHeight) ? (1 - ((liftHeight - 0.8 * maxLiftHeight) / (0.2 * maxLiftHeight)) * 0.3) : 1)) / safetyFactor"
+  },
+  "outputs": {
+    "primary": "finalSafeLoad",
+    "breakdown": [
+      "loadCenterDeratingFactor",
+      "capacityAtLoadCenter",
+      "capacityAtLiftHeight"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

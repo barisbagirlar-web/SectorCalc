@@ -1,0 +1,65 @@
+{
+  "toolName": "km2-to-square-miles-calculator",
+  "inputs": [
+    {
+      "id": "areaKm2",
+      "label": "Area in square kilometers",
+      "type": "number",
+      "unit": "km²",
+      "default": 1,
+      "businessContext": "The area to convert from square kilometers."
+    },
+    {
+      "id": "factor",
+      "label": "Conversion factor",
+      "type": "number",
+      "unit": "sq mi/km²",
+      "default": 0.38610215854245,
+      "businessContext": "Standard conversion factor. Override for regional or historical definitions."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal precision",
+      "type": "number",
+      "unit": "decimals",
+      "default": 4,
+      "businessContext": "Number of decimal places for the output."
+    },
+    {
+      "id": "multiplier",
+      "label": "Batch multiplier",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "Multiply the input by this factor for batch conversions (e.g., if input is in thousands)."
+    },
+    {
+      "id": "threshold",
+      "label": "Validation threshold",
+      "type": "number",
+      "unit": "km²",
+      "default": 0,
+      "businessContext": "Minimum valid area in km². Values below this are treated as invalid."
+    }
+  ],
+  "formulas": {
+    "raw_sqmi": "areaKm2 * factor * multiplier",
+    "rounded_sqmi": "Math.round(raw_sqmi * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "valid_input": "areaKm2 >= threshold"
+  },
+  "outputs": {
+    "primary": "valid_input ? rounded_sqmi : 0",
+    "breakdown": [
+      "raw_sqmi",
+      "rounded_sqmi",
+      "factor",
+      "valid_input"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

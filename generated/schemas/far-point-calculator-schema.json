@@ -1,0 +1,77 @@
+{
+  "toolName": "far-point-calculator",
+  "inputs": [
+    {
+      "id": "observerHeight",
+      "label": "Observer Height",
+      "type": "number",
+      "unit": "m",
+      "default": 1.7,
+      "businessContext": "Height of the observer above the ground level in meters."
+    },
+    {
+      "id": "targetHeight",
+      "label": "Target Height",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Height of the target object above the ground level in meters. Set to 0 for horizon distance."
+    },
+    {
+      "id": "earthRadius",
+      "label": "Earth Radius",
+      "type": "number",
+      "unit": "km",
+      "default": 6371,
+      "businessContext": "Mean radius of the Earth in kilometers. Standard value is 6371 km."
+    },
+    {
+      "id": "refractionCoefficient",
+      "label": "Refraction Coefficient",
+      "type": "number",
+      "unit": "",
+      "default": 0.13,
+      "businessContext": "Atmospheric refraction coefficient. For standard atmosphere, k=0.13. Range typically 0 to 0.2."
+    }
+  ],
+  "formulas": {
+    "effectiveRadius": "earthRadius / (1 - refractionCoefficient)",
+    "horizonDistance": "Math.sqrt(2 * effectiveRadius * (observerHeight / 1000))",
+    "targetHorizonDistance": "Math.sqrt(2 * effectiveRadius * (targetHeight / 1000))",
+    "lineOfSightDistance": "horizonDistance + targetHorizonDistance"
+  },
+  "outputs": {
+    "primary": {
+      "id": "lineOfSightDistance",
+      "label": "Far Point Distance",
+      "unit": "km",
+      "description": "The maximum line-of-sight distance between observer and target, accounting for Earth curvature and atmospheric refraction."
+    },
+    "breakdown": [
+      {
+        "id": "effectiveRadius",
+        "label": "Effective Earth Radius",
+        "unit": "km",
+        "description": "Effective Earth radius after correcting for atmospheric refraction."
+      },
+      {
+        "id": "horizonDistance",
+        "label": "Observer Horizon Distance",
+        "unit": "km",
+        "description": "Distance to the visible horizon from the observer's height."
+      },
+      {
+        "id": "targetHorizonDistance",
+        "label": "Target Horizon Distance",
+        "unit": "km",
+        "description": "Distance to the visible horizon from the target's height."
+      }
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

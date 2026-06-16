@@ -1,0 +1,79 @@
+{
+  "toolName": "timi-score-calculator",
+  "inputs": [
+    {
+      "id": "inventoryTurnover",
+      "label": "Envanter Devir Hızı",
+      "type": "number",
+      "unit": "ratio",
+      "default": 5,
+      "businessContext": "Yıllık envanter devir hızı (satılan mal maliyeti / ortalama envanter)"
+    },
+    {
+      "id": "machineUtilization",
+      "label": "Makine Kullanım Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Makinelerin fiili çalışma süresinin planlanan süreye oranı"
+    },
+    {
+      "id": "orderAccuracy",
+      "label": "Sipariş Doğruluk Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 98,
+      "businessContext": "Hatızısız teslim edilen siparişlerin toplam siparişlere oranı"
+    },
+    {
+      "id": "defectRate",
+      "label": "Hata Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Üretimdeki kusurlu ürün oranı"
+    },
+    {
+      "id": "maintenanceCompliance",
+      "label": "Bakım Uyum Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Planlanan bakım görevlerinin zamanında tamamlanma oranı"
+    },
+    {
+      "id": "safetyScore",
+      "label": "İş Güvenliği Skoru",
+      "type": "number",
+      "unit": "score",
+      "default": 95,
+      "businessContext": "İSG denetim puanı (0-100)"
+    }
+  ],
+  "formulas": {
+    "inventoryComponent": "inventoryTurnover * 2.5",
+    "machineComponent": "machineUtilization * 0.25",
+    "orderComponent": "orderAccuracy * 0.2",
+    "defectComponent": "-defectRate * 0.25",
+    "maintenanceComponent": "maintenanceCompliance * 0.1",
+    "safetyComponent": "safetyScore * 0.1",
+    "timiScore": "inventoryComponent + machineComponent + orderComponent + defectComponent + maintenanceComponent + safetyComponent"
+  },
+  "outputs": {
+    "primary": "timiScore",
+    "breakdown": [
+      "inventoryComponent",
+      "machineComponent",
+      "orderComponent",
+      "defectComponent",
+      "maintenanceComponent",
+      "safetyComponent"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

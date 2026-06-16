@@ -1,0 +1,55 @@
+{
+  "toolName": "highway-design-calculator",
+  "inputs": [
+    {
+      "id": "designSpeed",
+      "label": "Design Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 80,
+      "businessContext": "The design speed of the highway segment, typically between 40-140 km/h."
+    },
+    {
+      "id": "superelevation",
+      "label": "Maximum Superelevation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "businessContext": "The maximum superelevation (cross-slope) rate applied to the curve, usually 4%-12%."
+    },
+    {
+      "id": "frictionFactor",
+      "label": "Side Friction Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.14,
+      "businessContext": "The allowable side friction factor depending on design speed and surface conditions (e.g., 0.17 for low speeds, 0.10 for high speeds)."
+    },
+    {
+      "id": "desiredRadius",
+      "label": "Desired Curve Radius",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "The actual or desired radius of the horizontal curve. Set to 0 if unknown; otherwise used to compute required friction demand."
+    }
+  ],
+  "formulas": {
+    "minRadius": "designSpeed ** 2 / (127 * (superelevation / 100 + frictionFactor))",
+    "frictionDemand": "desiredRadius > 0 ? (designSpeed ** 2 / (127 * desiredRadius) - superelevation / 100) : 0",
+    "isRadiusAdequate": "desiredRadius > 0 && desiredRadius >= (designSpeed ** 2 / (127 * (superelevation / 100 + frictionFactor))) ? 1 : (desiredRadius > 0 ? 0 : 0)"
+  },
+  "outputs": {
+    "primary": "minRadius",
+    "breakdown": [
+      "frictionDemand",
+      "isRadiusAdequate"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

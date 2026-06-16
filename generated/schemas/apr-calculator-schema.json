@@ -1,0 +1,63 @@
+{
+  "toolName": "apr-calculator",
+  "inputs": [
+    {
+      "id": "loanAmount",
+      "label": "Loan Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Principal loan amount"
+    },
+    {
+      "id": "nominalRate",
+      "label": "Nominal Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual nominal interest rate"
+    },
+    {
+      "id": "loanTermYears",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Loan term in years"
+    },
+    {
+      "id": "compoundingFrequency",
+      "label": "Compounding Frequency",
+      "type": "number",
+      "unit": "per year",
+      "default": 12,
+      "businessContext": "Number of compounding periods per year"
+    },
+    {
+      "id": "fees",
+      "label": "Upfront Fees",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Any upfront fees or closing costs"
+    }
+  ],
+  "formulas": {
+    "monthlyPayment": "(loanAmount * (nominalRate/100/compoundingFrequency)) / (1 - Math.pow(1 + (nominalRate/100/compoundingFrequency), -(loanTermYears*compoundingFrequency)))",
+    "totalCost": "monthlyPayment * (loanTermYears*compoundingFrequency)",
+    "APR": "(Math.pow(totalCost / (loanAmount - fees), 1/loanTermYears) - 1) * 100"
+  },
+  "outputs": {
+    "primary": "APR",
+    "breakdown": [
+      "Monthly Payment",
+      "Total Cost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

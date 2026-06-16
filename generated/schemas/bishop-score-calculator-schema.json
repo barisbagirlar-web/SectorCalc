@@ -1,0 +1,69 @@
+{
+  "toolName": "bishop-score-calculator",
+  "inputs": [
+    {
+      "id": "dilation",
+      "label": "Cervical Dilation (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "Measured cervical dilation in centimeters."
+    },
+    {
+      "id": "effacement",
+      "label": "Cervical Effacement (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Cervical effacement percentage (0-100)."
+    },
+    {
+      "id": "station",
+      "label": "Fetal Station (-3 to +3)",
+      "type": "number",
+      "unit": "station",
+      "default": -3,
+      "businessContext": "Fetal station relative to ischial spines: -3 to +3."
+    },
+    {
+      "id": "consistency",
+      "label": "Cervical Consistency (0=firm, 1=medium, 2=soft)",
+      "type": "number",
+      "unit": "score",
+      "default": 0,
+      "businessContext": "Cervical consistency: 0 (firm), 1 (medium), 2 (soft)."
+    },
+    {
+      "id": "position",
+      "label": "Cervical Position (0=posterior, 1=mid, 2=anterior)",
+      "type": "number",
+      "unit": "score",
+      "default": 0,
+      "businessContext": "Cervical position: 0 (posterior), 1 (mid), 2 (anterior)."
+    }
+  ],
+  "formulas": {
+    "dilationScore": "dilation < 1 ? 0 : dilation <= 2 ? 1 : dilation <= 4 ? 2 : 3",
+    "effacementScore": "effacement < 30 ? 0 : effacement <= 50 ? 1 : effacement <= 70 ? 2 : 3",
+    "stationScore": "station == -3 ? 0 : station == -2 ? 1 : (station == -1 || station == 0) ? 2 : (station == 1 || station == 2) ? 3 : 0",
+    "consistencyScore": "consistency",
+    "positionScore": "position",
+    "totalScore": "dilationScore + effacementScore + stationScore + consistencyScore + positionScore"
+  },
+  "outputs": {
+    "primary": "totalScore",
+    "breakdown": [
+      "dilationScore",
+      "effacementScore",
+      "stationScore",
+      "consistencyScore",
+      "positionScore"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

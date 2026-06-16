@@ -1,0 +1,80 @@
+{
+  "toolName": "golden-hour-calculator",
+  "inputs": [
+    {
+      "id": "sunrise",
+      "label": "Sunrise Time (decimal hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 6.5,
+      "businessContext": "Time of sunrise in decimal hours (e.g., 6.5 = 06:30)"
+    },
+    {
+      "id": "sunset",
+      "label": "Sunset Time (decimal hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 19.5,
+      "businessContext": "Time of sunset in decimal hours (e.g., 19.5 = 19:30)"
+    },
+    {
+      "id": "latitude",
+      "label": "Latitude (degrees)",
+      "type": "number",
+      "unit": "°",
+      "default": 40.7128,
+      "businessContext": "Latitude of location in decimal degrees"
+    },
+    {
+      "id": "longitude",
+      "label": "Longitude (degrees)",
+      "type": "number",
+      "unit": "°",
+      "default": -74.006,
+      "businessContext": "Longitude of location in decimal degrees"
+    },
+    {
+      "id": "dateOffset",
+      "label": "Day of Year (1-365)",
+      "type": "number",
+      "unit": "days",
+      "default": 172,
+      "businessContext": "Day of the year (1 = Jan 1, 365 = Dec 31)"
+    },
+    {
+      "id": "timezoneOffset",
+      "label": "Timezone Offset from UTC (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": -4,
+      "businessContext": "Timezone offset in hours (e.g., -4 for EDT)"
+    }
+  ],
+  "formulas": {
+    "dayLength": "sunset - sunrise",
+    "solarNoon": "sunrise + dayLength / 2",
+    "declination": "23.45 * Math.sin((360/365) * (dateOffset - 81) * Math.PI / 180)",
+    "hourAngle": "Math.acos(-Math.tan(latitude * Math.PI / 180) * Math.tan(declination * Math.PI / 180)) * 180 / Math.PI",
+    "goldenHourMorningStart": "solarNoon - hourAngle / 15 - 0.5",
+    "goldenHourMorningEnd": "solarNoon - hourAngle / 15 + 0.5",
+    "goldenHourEveningStart": "solarNoon + hourAngle / 15 - 0.5",
+    "goldenHourEveningEnd": "solarNoon + hourAngle / 15 + 0.5"
+  },
+  "outputs": {
+    "primary": "Golden hour starts at {goldenHourMorningStart} and ends at {goldenHourMorningEnd} in the morning, and starts at {goldenHourEveningStart} and ends at {goldenHourEveningEnd} in the evening.",
+    "breakdown": [
+      "Morning golden hour start: {goldenHourMorningStart} hours",
+      "Morning golden hour end: {goldenHourMorningEnd} hours",
+      "Evening golden hour start: {goldenHourEveningStart} hours",
+      "Evening golden hour end: {goldenHourEveningEnd} hours",
+      "Day length: {dayLength} hours",
+      "Solar noon: {solarNoon} hours"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

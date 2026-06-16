@@ -1,0 +1,57 @@
+{
+  "toolName": "absolute-humidity-calculator",
+  "inputs": [
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Air temperature in Celsius"
+    },
+    {
+      "id": "relativeHumidity",
+      "label": "Relative Humidity",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Relative humidity percentage (0-100)"
+    },
+    {
+      "id": "molarMassWater",
+      "label": "Molar Mass of Water",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 18.015,
+      "businessContext": "Molar mass of water vapor, standard value 18.015 g/mol"
+    },
+    {
+      "id": "gasConstant",
+      "label": "Universal Gas Constant",
+      "type": "number",
+      "unit": "J/(mol·K)",
+      "default": 8.314,
+      "businessContext": "Ideal gas constant R, standard value 8.314 J/(mol·K)"
+    }
+  ],
+  "formulas": {
+    "kelvinTemperature": "temperature + 273.15",
+    "saturationVaporPressure": "6.112 * Math.exp((17.67 * temperature) / (temperature + 243.5))",
+    "actualVaporPressure": "saturationVaporPressure * (relativeHumidity / 100)",
+    "absoluteHumidity": "(actualVaporPressure * 100 * molarMassWater) / (gasConstant * kelvinTemperature)"
+  },
+  "outputs": {
+    "primary": "absoluteHumidity",
+    "breakdown": [
+      "saturationVaporPressure",
+      "actualVaporPressure",
+      "kelvinTemperature"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

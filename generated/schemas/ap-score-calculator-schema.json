@@ -1,0 +1,53 @@
+{
+  "toolName": "ap-score-calculator",
+  "inputs": [
+    {
+      "id": "multipleChoiceCorrect",
+      "label": "Multiple-Choice Correct",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Number of correct answers in the multiple-choice section."
+    },
+    {
+      "id": "multipleChoiceTotal",
+      "label": "Multiple-Choice Total Questions",
+      "type": "number",
+      "unit": "count",
+      "default": 60,
+      "businessContext": "Total number of multiple-choice questions on the exam."
+    },
+    {
+      "id": "freeResponsePoints",
+      "label": "Free-Response Points Earned",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Points earned from the free-response section."
+    },
+    {
+      "id": "freeResponseMaxPoints",
+      "label": "Free-Response Max Points",
+      "type": "number",
+      "unit": "points",
+      "default": 60,
+      "businessContext": "Maximum possible points in the free-response section."
+    }
+  ],
+  "formulas": {
+    "compositePercentage": "((multipleChoiceCorrect / multipleChoiceTotal) * 0.5 + (freeResponsePoints / freeResponseMaxPoints) * 0.5) * 100",
+    "apScore": "compositePercentage >= 85 ? 5 : compositePercentage >= 70 ? 4 : compositePercentage >= 50 ? 3 : compositePercentage >= 30 ? 2 : 1"
+  },
+  "outputs": {
+    "primary": "apScore",
+    "breakdown": [
+      "compositePercentage"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

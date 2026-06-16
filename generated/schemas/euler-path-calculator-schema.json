@@ -1,0 +1,72 @@
+{
+  "toolName": "euler-path-calculator",
+  "inputs": [
+    {
+      "id": "totalVertices",
+      "label": "Toplam Düğüm Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 5,
+      "businessContext": "Grafikteki toplam düğüm (vertex) sayısı"
+    },
+    {
+      "id": "totalEdges",
+      "label": "Toplam Kenar Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 6,
+      "businessContext": "Grafikteki toplam kenar (edge) sayısı"
+    },
+    {
+      "id": "oddVertices",
+      "label": "Tek Dereceli Düğüm Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 2,
+      "businessContext": "Derecesi tek olan düğümlerin sayısı"
+    },
+    {
+      "id": "isConnected",
+      "label": "Bağlantılı Grafik",
+      "type": "number",
+      "unit": "boolean",
+      "default": 1,
+      "businessContext": "Grafik bağlı ise 1, değilse 0"
+    },
+    {
+      "id": "minDegree",
+      "label": "Minimum Derece",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Grafikteki en küçük düğüm derecesi"
+    },
+    {
+      "id": "maxDegree",
+      "label": "Maksimum Derece",
+      "type": "number",
+      "unit": "adet",
+      "default": 3,
+      "businessContext": "Grafikteki en büyük düğüm derecesi"
+    }
+  ],
+  "formulas": {
+    "eulerResult": "isConnected == 1 ? (oddVertices == 0 ? 2 : (oddVertices == 2 ? 1 : 0)) : 0"
+  },
+  "outputs": {
+    "primary": "eulerResult",
+    "breakdown": [
+      "'Euler Sonucu: ' + (eulerResult == 2 ? 'Euler Devresi (Circuit)' : eulerResult == 1 ? 'Euler Yolu (Path)' : 'Euler Yolu Yok')",
+      "'Bağlantı Durumu: ' + (isConnected == 1 ? 'Bağlı' : 'Bağlı Değil')",
+      "'Tek Dereceli Düğümler: ' + oddVertices",
+      "'Min Derece: ' + minDegree + ', Max Derece: ' + maxDegree",
+      "'Toplam Düğüm: ' + totalVertices + ', Toplam Kenar: ' + totalEdges"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

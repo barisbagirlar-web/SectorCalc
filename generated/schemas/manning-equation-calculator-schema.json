@@ -1,0 +1,59 @@
+{
+  "toolName": "manning-equation-calculator",
+  "inputs": [
+    {
+      "id": "roughness",
+      "label": "Manning Pürüzlülük Katsayısı (n)",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 0.013,
+      "businessContext": "Yüzey pürüzlülük katsayısı; beton için 0.013, çakıl için 0.025"
+    },
+    {
+      "id": "hydraulicRadius",
+      "label": "Hidrolik Yarıçap (R)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Kesit alanının ıslak çevreye oranı"
+    },
+    {
+      "id": "area",
+      "label": "Kesit Alanı (A)",
+      "type": "number",
+      "unit": "m²",
+      "default": 1,
+      "businessContext": "Akışın gerçekleştiği kesit alanı"
+    },
+    {
+      "id": "slope",
+      "label": "Kanal Eğimi (S)",
+      "type": "number",
+      "unit": "m/m",
+      "default": 0.001,
+      "businessContext": "Enerji çizgisi eğimi, boyutsuz veya m/m"
+    }
+  ],
+  "formulas": {
+    "flowRate": "(1 / roughness) * area * Math.pow(hydraulicRadius, 2/3) * Math.sqrt(slope)",
+    "velocity": "flowRate / area"
+  },
+  "outputs": {
+    "primary": {
+      "id": "flowRate",
+      "label": "Debi (m³/s)"
+    },
+    "breakdown": [
+      {
+        "id": "velocity",
+        "label": "Hız (m/s)"
+      }
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

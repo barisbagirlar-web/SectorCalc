@@ -1,0 +1,54 @@
+{
+  "toolName": "drag-force-calculator",
+  "inputs": [
+    {
+      "id": "fluidDensity",
+      "label": "Fluid Density (ρ)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1.225,
+      "businessContext": "The density of the fluid through which the object moves. For air at sea level and 15°C, use 1.225 kg/m³."
+    },
+    {
+      "id": "velocity",
+      "label": "Flow Velocity (v)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 10,
+      "businessContext": "Relative velocity between the object and the fluid."
+    },
+    {
+      "id": "dragCoefficient",
+      "label": "Drag Coefficient (Cd)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.5,
+      "businessContext": "Empirical coefficient that depends on the shape of the object. Typical values: smooth sphere 0.47, streamlined body 0.04, cube 1.05."
+    },
+    {
+      "id": "referenceArea",
+      "label": "Reference Area (A)",
+      "type": "number",
+      "unit": "m²",
+      "default": 1,
+      "businessContext": "The frontal area of the object perpendicular to the flow, or other appropriate reference area."
+    }
+  ],
+  "formulas": {
+    "dynamicPressure": "0.5 * fluidDensity * velocity ** 2",
+    "dragForce": "dynamicPressure * dragCoefficient * referenceArea"
+  },
+  "outputs": {
+    "primary": "dragForce",
+    "breakdown": [
+      "dynamicPressure",
+      "dragForce"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

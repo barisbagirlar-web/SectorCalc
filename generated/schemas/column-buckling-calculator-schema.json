@@ -1,0 +1,93 @@
+{
+  "toolName": "column-buckling-calculator",
+  "inputs": [
+    {
+      "id": "elasticModulus",
+      "label": "Elastic Modulus (E)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 200000,
+      "businessContext": "Material's modulus of elasticity, e.g., 200 GPa = 200,000 MPa for steel."
+    },
+    {
+      "id": "momentInertia",
+      "label": "Moment of Inertia (I)",
+      "type": "number",
+      "unit": "mm⁴",
+      "default": 1000000,
+      "businessContext": "Second moment of area of column cross-section."
+    },
+    {
+      "id": "area",
+      "label": "Cross-Sectional Area (A)",
+      "type": "number",
+      "unit": "mm²",
+      "default": 5000,
+      "businessContext": "Cross-sectional area of the column."
+    },
+    {
+      "id": "length",
+      "label": "Unbraced Length (L)",
+      "type": "number",
+      "unit": "mm",
+      "default": 3000,
+      "businessContext": "Length of column between lateral supports."
+    },
+    {
+      "id": "effectiveLengthFactor",
+      "label": "Effective Length Factor (K)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "K=0.5 fixed-fixed, 1 pinned-pinned, 2 fixed-free."
+    },
+    {
+      "id": "appliedLoad",
+      "label": "Applied Axial Load (P)",
+      "type": "number",
+      "unit": "N",
+      "default": 50000,
+      "businessContext": "Compressive load applied to the column."
+    }
+  ],
+  "formulas": {
+    "criticalLoad": "Math.PI ** 2 * elasticModulus * momentInertia / ( (effectiveLengthFactor * length) ** 2 )",
+    "criticalStress": "criticalLoad / area",
+    "slendernessRatio": "(effectiveLengthFactor * length) / Math.sqrt(momentInertia / area)",
+    "safetyFactor": "criticalLoad / appliedLoad"
+  },
+  "outputs": {
+    "primary": {
+      "id": "criticalLoad",
+      "label": "Critical Buckling Load",
+      "unit": "N",
+      "formula": "criticalLoad"
+    },
+    "breakdown": [
+      {
+        "id": "criticalStress",
+        "label": "Critical Stress",
+        "unit": "MPa",
+        "formula": "criticalStress"
+      },
+      {
+        "id": "slendernessRatio",
+        "label": "Slenderness Ratio",
+        "unit": "",
+        "formula": "slendernessRatio"
+      },
+      {
+        "id": "safetyFactor",
+        "label": "Safety Factor",
+        "unit": "",
+        "formula": "safetyFactor"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

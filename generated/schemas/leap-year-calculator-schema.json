@@ -1,0 +1,57 @@
+{
+  "toolName": "leap-year-calculator",
+  "inputs": [
+    {
+      "id": "year",
+      "label": "Year",
+      "type": "number",
+      "unit": "",
+      "default": 2024,
+      "businessContext": "The Gregorian calendar year to check for leap year status."
+    },
+    {
+      "id": "divisor4",
+      "label": "4-Year Rule Divisor",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "The divisor for the 4-year cycle. Standard is 4 for Gregorian."
+    },
+    {
+      "id": "divisor100",
+      "label": "100-Year Rule Divisor",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "The divisor for the century exception. Standard is 100 for Gregorian."
+    },
+    {
+      "id": "divisor400",
+      "label": "400-Year Rule Divisor",
+      "type": "number",
+      "unit": "",
+      "default": 400,
+      "businessContext": "The divisor for the 400-year exception. Standard is 400 for Gregorian."
+    }
+  ],
+  "formulas": {
+    "isLeapYear": "((year % divisor4 === 0 && year % divisor100 !== 0) || (year % divisor400 === 0)) * 1",
+    "divBy4": "(year % divisor4 === 0) * 1",
+    "divBy100": "(year % divisor100 === 0) * 1",
+    "divBy400": "(year % divisor400 === 0) * 1"
+  },
+  "outputs": {
+    "primary": "isLeapYear",
+    "breakdown": [
+      "divBy4",
+      "divBy100",
+      "divBy400"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

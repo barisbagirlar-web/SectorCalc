@@ -1,0 +1,79 @@
+{
+  "toolName": "body-adiposity-index-calculator",
+  "inputs": [
+    {
+      "id": "hipCm",
+      "label": "Hip Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Measured at the widest part of the hips, in centimeters. Typical range 80-130 cm for adults."
+    },
+    {
+      "id": "heightCm",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Standing height without shoes, in centimeters. Typical range 140-200 cm."
+    },
+    {
+      "id": "weightKg",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms. Typical range 40-150 kg."
+    },
+    {
+      "id": "neckCm",
+      "label": "Neck Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 38,
+      "businessContext": "Neck circumference measured below the larynx, in centimeters. Typical range 30-50 cm."
+    },
+    {
+      "id": "waistCm",
+      "label": "Waist Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 80,
+      "businessContext": "Waist circumference measured at the narrowest point or navel, in centimeters. Typical range 60-120 cm."
+    },
+    {
+      "id": "gender",
+      "label": "Gender (0=Male, 1=Female)",
+      "type": "number",
+      "unit": "boolean (0/1)",
+      "default": 0,
+      "businessContext": "Biological sex: 0 for male, 1 for female. Determines body fat estimation model."
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age in years. For reference; not used in calculations but may affect interpretation."
+    }
+  ],
+  "formulas": {
+    "bai": "(hipCm / Math.pow(heightCm/100, 1.5)) - 18",
+    "bmi": "weightKg / Math.pow(heightCm/100, 2)",
+    "bodyFatNavy": "(1-gender)*(86.010*(Math.log(waistCm - neckCm)/Math.log(10)) - 70.041*(Math.log(heightCm)/Math.log(10)) + 36.76) + gender*(163.205*(Math.log(waistCm + hipCm - neckCm)/Math.log(10)) - 97.684*(Math.log(heightCm)/Math.log(10)) - 78.387)"
+  },
+  "outputs": {
+    "primary": "bai",
+    "breakdown": [
+      "bmi",
+      "bodyFatNavy"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "unit-hydrograph-calculator",
+  "inputs": [
+    {
+      "id": "drainageArea",
+      "label": "Drainage Area",
+      "type": "number",
+      "unit": "km²",
+      "default": 10,
+      "businessContext": "Havza alanı"
+    },
+    {
+      "id": "timeConcentration",
+      "label": "Time of Concentration",
+      "type": "number",
+      "unit": "hr",
+      "default": 1.5,
+      "businessContext": "Akış zamanı"
+    },
+    {
+      "id": "peakFactor",
+      "label": "Peak Rate Factor",
+      "type": "number",
+      "unit": "",
+      "default": 2.08,
+      "businessContext": "Pik faktörü"
+    },
+    {
+      "id": "rainfallDuration",
+      "label": "Rainfall Duration",
+      "type": "number",
+      "unit": "hr",
+      "default": 0.2,
+      "businessContext": "Yağış süresi"
+    }
+  ],
+  "formulas": {
+    "peakDischarge": "(peakFactor * drainageArea) / ((rainfallDuration / 2) + (0.6 * timeConcentration))",
+    "timeToPeak": "(rainfallDuration / 2) + (0.6 * timeConcentration)",
+    "timeBase": "2.67 * ((rainfallDuration / 2) + (0.6 * timeConcentration))"
+  },
+  "outputs": {
+    "primary": "peakDischarge",
+    "breakdown": [
+      "timeToPeak",
+      "timeBase"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

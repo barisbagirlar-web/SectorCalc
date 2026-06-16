@@ -1,0 +1,71 @@
+{
+  "toolName": "degrees-to-arcminutes-calculator",
+  "inputs": [
+    {
+      "id": "deg",
+      "label": "Degrees",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Angle component in degrees"
+    },
+    {
+      "id": "min",
+      "label": "Arcminutes",
+      "type": "number",
+      "unit": "'",
+      "default": 0,
+      "businessContext": "Angle component in arcminutes"
+    },
+    {
+      "id": "sec",
+      "label": "Arcseconds",
+      "type": "number",
+      "unit": "\"",
+      "default": 0,
+      "businessContext": "Angle component in arcseconds"
+    },
+    {
+      "id": "coeff",
+      "label": "Calibration Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplicative calibration factor for conversion (e.g., instrument scale)"
+    },
+    {
+      "id": "offset",
+      "label": "Offset",
+      "type": "number",
+      "unit": "'",
+      "default": 0,
+      "businessContext": "Additive offset in arcminutes (e.g., zero error)"
+    },
+    {
+      "id": "rounding",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounded output"
+    }
+  ],
+  "formulas": {
+    "exactTotal": "(deg * 60) + min + (sec / 60)",
+    "calibratedTotal": "exactTotal * coeff + offset",
+    "roundedResult": "Math.round(calibratedTotal * Math.pow(10, rounding)) / Math.pow(10, rounding)"
+  },
+  "outputs": {
+    "primary": "roundedResult",
+    "breakdown": [
+      "exactTotal",
+      "calibratedTotal"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

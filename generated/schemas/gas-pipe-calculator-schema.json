@@ -1,0 +1,73 @@
+{
+  "toolName": "gas-pipe-calculator",
+  "inputs": [
+    {
+      "id": "diameter_mm",
+      "label": "Pipe Internal Diameter (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 150,
+      "businessContext": "Internal diameter of the pipe used for gas flow."
+    },
+    {
+      "id": "length_m",
+      "label": "Pipe Length (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 1000,
+      "businessContext": "Total length of the pipe segment."
+    },
+    {
+      "id": "inlet_pressure_bar",
+      "label": "Inlet Pressure (bar)",
+      "type": "number",
+      "unit": "bar",
+      "default": 10,
+      "businessContext": "Absolute pressure at the pipe inlet."
+    },
+    {
+      "id": "outlet_pressure_bar",
+      "label": "Outlet Pressure (bar)",
+      "type": "number",
+      "unit": "bar",
+      "default": 5,
+      "businessContext": "Absolute pressure at the pipe outlet."
+    },
+    {
+      "id": "temperature_celsius",
+      "label": "Gas Temperature (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 15,
+      "businessContext": "Average gas temperature inside the pipe."
+    },
+    {
+      "id": "specific_gravity",
+      "label": "Specific Gravity (dimensionless)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.6,
+      "businessContext": "Ratio of gas density to air density at standard conditions."
+    }
+  ],
+  "formulas": {
+    "diameter_inch": "diameter_mm / 25.4",
+    "temperature_K": "temperature_celsius + 273.15",
+    "pressure_drop_bar": "inlet_pressure_bar - outlet_pressure_bar",
+    "flow_rate_m3h": "0.5 * (diameter_mm / 25.4) ** 2.5 * Math.sqrt( (inlet_pressure_bar ** 2 - outlet_pressure_bar ** 2) / (length_m * specific_gravity * (temperature_celsius + 273.15)) )"
+  },
+  "outputs": {
+    "primary": "flow_rate_m3h",
+    "breakdown": [
+      "diameter_inch",
+      "temperature_K",
+      "pressure_drop_bar"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

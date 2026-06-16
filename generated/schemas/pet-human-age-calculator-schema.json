@@ -1,0 +1,56 @@
+{
+  "toolName": "pet-human-age-calculator",
+  "inputs": [
+    {
+      "id": "petAgeYears",
+      "label": "Pet Age (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 0,
+      "businessContext": "The age of the pet in completed years."
+    },
+    {
+      "id": "petAgeMonths",
+      "label": "Pet Age (Months)",
+      "type": "number",
+      "unit": "months",
+      "default": 0,
+      "businessContext": "Additional months beyond years, from 0 to 11."
+    },
+    {
+      "id": "petType",
+      "label": "Pet Type",
+      "type": "number",
+      "unit": "code",
+      "default": 1,
+      "businessContext": "1 for Dog, 2 for Cat."
+    },
+    {
+      "id": "size",
+      "label": "Dog Size (if applicable)",
+      "type": "number",
+      "unit": "code",
+      "default": 1,
+      "businessContext": "1 for Small (<10 kg), 2 for Medium (10-25 kg), 3 for Large (>25 kg). Only used for dogs."
+    }
+  ],
+  "formulas": {
+    "totalYears": "petAgeYears + petAgeMonths/12",
+    "factor": "petType == 1 ? (size == 1 ? 4 : size == 2 ? 5 : 6) : (petType == 2 ? 4 : 0)",
+    "humanAge": "(Math.min(totalYears,1)*15) + (Math.max(0, Math.min(totalYears-1,1))*9) + (Math.max(0, totalYears-2)*factor)"
+  },
+  "outputs": {
+    "primary": "humanAge",
+    "breakdown": [
+      "Human age calculated based on standard veterinary guidelines.",
+      "For dogs: first year = 15 human years, second year = 9, then each additional year varies by size (small: 4, medium: 5, large: 6).",
+      "For cats: first year = 15, second year = 9, each additional year = 4."
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

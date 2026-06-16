@@ -1,0 +1,286 @@
+{
+  "slug": "smed-changeover-optimizer",
+  "title": "SMED Changeover Optimizer",
+  "description": "Calculates changeover time reduction potential using Single-Minute Exchange of Die (SMED) methodology, aligned with Lean Six Sigma and ISO 9001:2015 standards.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Benchmarking against industry standards",
+    "Multi-plant comparison"
+  ],
+  "inputs": [
+    {
+      "id": "current_changeover_time",
+      "label": "Current Changeover Time (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 45,
+      "min": 1,
+      "max": 480,
+      "businessContext": "Total time from last good piece of previous run to first good piece of next run. Measured per SMED standard.",
+      "label_i18n": {
+        "en": "Current Changeover Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Total time from last good piece of previous run to first good piece of next run. Measured per SMED standard."
+      }
+    },
+    {
+      "id": "internal_operations_percentage",
+      "label": "Internal Operations (% of total time)",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of changeover time where machine is stopped. Target is to convert internal to external.",
+      "label_i18n": {
+        "en": "Internal Operations (% of total time)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of changeover time where machine is stopped. Target is to convert internal to external."
+      }
+    },
+    {
+      "id": "setup_team_size",
+      "label": "Setup Team Size (operators)",
+      "type": "number",
+      "unit": "operators",
+      "default": 2,
+      "min": 1,
+      "max": 10,
+      "businessContext": "Number of operators directly involved in the changeover process.",
+      "label_i18n": {
+        "en": "Setup Team Size (operators)"
+      },
+      "businessContext_i18n": {
+        "en": "Number of operators directly involved in the changeover process."
+      }
+    },
+    {
+      "id": "parallel_work_possible",
+      "label": "Parallel Work Possible",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "min": null,
+      "max": null,
+      "businessContext": "Indicates if tasks can be performed simultaneously by multiple operators (SMED principle).",
+      "label_i18n": {
+        "en": "Parallel Work Possible"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if tasks can be performed simultaneously by multiple operators (SMED principle)."
+      }
+    },
+    {
+      "id": "standardization_level",
+      "label": "Standardization Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Degree of standardized work instructions, tooling, and die design. High = minimal adjustments.",
+      "label_i18n": {
+        "en": "Standardization Level"
+      },
+      "businessContext_i18n": {
+        "en": "Degree of standardized work instructions, tooling, and die design. High = minimal adjustments."
+      }
+    },
+    {
+      "id": "waste_motion_score",
+      "label": "Waste Motion Score (1-10)",
+      "type": "number",
+      "unit": "score",
+      "default": 6,
+      "min": 1,
+      "max": 10,
+      "businessContext": "Subjective assessment of unnecessary movement, searching, and walking during changeover. 1 = optimal, 10 = extreme waste.",
+      "label_i18n": {
+        "en": "Waste Motion Score (1-10)"
+      },
+      "businessContext_i18n": {
+        "en": "Subjective assessment of unnecessary movement, searching, and walking during changeover. 1 = optimal, 10 = extreme waste."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "internal_external_sum",
+        "condition": "internal_operations_percentage + (100 - internal_operations_percentage) == 100",
+        "message": "Internal and external operations must sum to 100%."
+      },
+      {
+        "id": "team_size_parallel",
+        "condition": "parallel_work_possible == true AND setup_team_size < 2",
+        "message": "Parallel work requires at least 2 operators."
+      },
+      {
+        "id": "standardization_waste",
+        "condition": "standardization_level == 'high' AND waste_motion_score > 5",
+        "message": "High standardization should correlate with low waste motion score (≤5)."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "changeover_time_alert",
+        "condition": "current_changeover_time > 60",
+        "message": "Changeover time exceeds 60 minutes; consider SMED kaizen event."
+      },
+      {
+        "id": "internal_high_alert",
+        "condition": "internal_operations_percentage > 70",
+        "message": "High internal operation ratio; focus on converting to external."
+      },
+      {
+        "id": "waste_motion_alert",
+        "condition": "waste_motion_score >= 8",
+        "message": "Critical waste motion; implement 5S and visual management."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "external_operations_percentage",
+      "name": "External Operations Percentage",
+      "formula": "100 - internal_operations_percentage",
+      "unit": "%",
+      "description": "Percentage of changeover time that can be performed while machine is running."
+    },
+    {
+      "id": "theoretical_minimum_changeover",
+      "name": "Theoretical Minimum Changeover Time",
+      "formula": "current_changeover_time * (external_operations_percentage / 100) + (current_changeover_time * (internal_operations_percentage / 100) / (parallel_work_possible ? setup_team_size : 1))",
+      "unit": "minutes",
+      "description": "Best-case changeover time assuming all internal tasks are optimized and parallelized."
+    },
+    {
+      "id": "standardization_factor",
+      "name": "Standardization Factor",
+      "formula": "CASE standardization_level WHEN 'low' THEN 1.3 WHEN 'medium' THEN 1.0 WHEN 'high' THEN 0.8 END",
+      "unit": "dimensionless",
+      "description": "Multiplier reflecting the impact of standardization on achievable reduction."
+    },
+    {
+      "id": "waste_motion_factor",
+      "name": "Waste Motion Factor",
+      "formula": "1 + (waste_motion_score - 1) * 0.05",
+      "unit": "dimensionless",
+      "description": "Penalty factor for non-value-added motion. Score 1 gives factor 1.0, score 10 gives factor 1.45."
+    },
+    {
+      "id": "achievable_changeover_time",
+      "name": "Achievable Changeover Time",
+      "formula": "theoretical_minimum_changeover * standardization_factor * waste_motion_factor",
+      "unit": "minutes",
+      "description": "Realistic target changeover time after applying SMED improvements."
+    },
+    {
+      "id": "reduction_potential",
+      "name": "Reduction Potential",
+      "formula": "current_changeover_time - achievable_changeover_time",
+      "unit": "minutes",
+      "description": "Absolute time savings possible."
+    },
+    {
+      "id": "reduction_percentage",
+      "name": "Reduction Percentage",
+      "formula": "(reduction_potential / current_changeover_time) * 100",
+      "unit": "%",
+      "description": "Relative improvement over current state."
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "smed_score",
+      "label": "SMED Efficiency Score",
+      "value": null,
+      "unit": "score (0-100)",
+      "description": "Composite score reflecting changeover maturity. Higher is better."
+    },
+    "breakdown": {
+      "current_changeover_time": null,
+      "internal_operations_percentage": null,
+      "external_operations_percentage": null,
+      "theoretical_minimum_changeover": null,
+      "achievable_changeover_time": null,
+      "reduction_potential": null,
+      "reduction_percentage": null,
+      "standardization_factor": null,
+      "waste_motion_factor": null
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "unnecessary_movement",
+        "label": "Unnecessary Movement",
+        "description": "Operators walking or searching for tools/dies. Addressed by 5S and tool shadow boards.",
+        "impact": "high"
+      },
+      {
+        "id": "lack_of_standardization",
+        "label": "Lack of Standardization",
+        "description": "Non-standard die heights, bolt sizes, or adjustment procedures increase time.",
+        "impact": "medium"
+      },
+      {
+        "id": "waiting_for_decisions",
+        "label": "Waiting for Decisions",
+        "description": "Operators waiting for supervisor or engineer to approve next step.",
+        "impact": "medium"
+      },
+      {
+        "id": "poor_parallelization",
+        "label": "Poor Parallelization",
+        "description": "Tasks performed sequentially when they could be done simultaneously.",
+        "impact": "high"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "convert_internal_to_external",
+        "label": "Convert Internal to External",
+        "description": "Identify tasks currently done while machine is stopped that can be done beforehand (e.g., preheating dies, staging tools).",
+        "priority": 1
+      },
+      {
+        "id": "implement_5s",
+        "label": "Implement 5S in Work Area",
+        "description": "Sort, Set in Order, Shine, Standardize, Sustain to reduce waste motion and search time.",
+        "priority": 2
+      },
+      {
+        "id": "standardize_die_design",
+        "label": "Standardize Die and Tooling Design",
+        "description": "Reduce adjustments by using common bolt sizes, locating pins, and quick-release mechanisms.",
+        "priority": 3
+      },
+      {
+        "id": "parallel_task_training",
+        "label": "Train Operators in Parallel Task Execution",
+        "description": "Cross-train team to perform independent tasks simultaneously without interference.",
+        "priority": 4
+      },
+      {
+        "id": "create_visual_work_instructions",
+        "label": "Create Visual Work Instructions",
+        "description": "Develop one-point lessons and video standards for each changeover step.",
+        "priority": 5
+      }
+    ],
+    "dataConfidenceAdjusted": 0.85
+  },
+  "toolName": "smed-changeover-optimizer-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

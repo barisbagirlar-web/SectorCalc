@@ -1,0 +1,65 @@
+{
+  "toolName": "viscosity-calculator",
+  "inputs": [
+    {
+      "id": "flowRate",
+      "label": "Flow Rate (Q)",
+      "type": "number",
+      "unit": "m³/s",
+      "default": 0.001,
+      "businessContext": "Volumetric flow rate of fluid through the pipe"
+    },
+    {
+      "id": "pressureDrop",
+      "label": "Pressure Drop (ΔP)",
+      "type": "number",
+      "unit": "Pa",
+      "default": 1000,
+      "businessContext": "Pressure difference along the pipe length"
+    },
+    {
+      "id": "diameter",
+      "label": "Pipe Diameter (D)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Internal diameter of the pipe"
+    },
+    {
+      "id": "length",
+      "label": "Pipe Length (L)",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of the pipe section over which pressure drop is measured"
+    },
+    {
+      "id": "density",
+      "label": "Fluid Density (ρ)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of the fluid"
+    }
+  ],
+  "formulas": {
+    "radius": "diameter / 2",
+    "dynamicViscosity": "(Math.PI * pressureDrop * Math.pow(radius, 4)) / (8 * length * flowRate)",
+    "kinematicViscosity": "dynamicViscosity / density",
+    "velocity": "flowRate / (Math.PI * Math.pow(radius, 2))",
+    "reynoldsNumber": "(density * velocity * diameter) / dynamicViscosity"
+  },
+  "outputs": {
+    "primary": "dynamicViscosity",
+    "breakdown": [
+      "kinematicViscosity",
+      "reynoldsNumber"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

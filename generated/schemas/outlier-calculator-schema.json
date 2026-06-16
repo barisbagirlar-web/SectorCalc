@@ -1,0 +1,57 @@
+{
+  "toolName": "outlier-calculator",
+  "inputs": [
+    {
+      "id": "q1",
+      "label": "First Quartile (Q1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Lower quartile of the dataset"
+    },
+    {
+      "id": "q3",
+      "label": "Third Quartile (Q3)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Upper quartile of the dataset"
+    },
+    {
+      "id": "value",
+      "label": "Test Value",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Value to check for outlier status"
+    },
+    {
+      "id": "multiplier",
+      "label": "IQR Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Typically 1.5 for mild outliers, 3 for extreme"
+    }
+  ],
+  "formulas": {
+    "iqr": "q3 - q1",
+    "lowerBound": "q1 - multiplier * (q3 - q1)",
+    "upperBound": "q3 + multiplier * (q3 - q1)",
+    "outlierStatus": "(value < (q1 - multiplier * (q3 - q1)) || value > (q3 + multiplier * (q3 - q1))) ? 'Yes' : 'No'"
+  },
+  "outputs": {
+    "primary": "outlierStatus",
+    "breakdown": [
+      "iqr",
+      "lowerBound",
+      "upperBound"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

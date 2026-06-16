@@ -1,0 +1,42 @@
+{
+  "toolName": "medicare-calculator",
+  "inputs": [
+    {
+      "id": "annualIncome",
+      "label": "Annual Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Enter your total annual taxable income."
+    },
+    {
+      "id": "filingStatus",
+      "label": "Filing Status",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 for Single, 1 for Married Filing Jointly."
+    }
+  ],
+  "formulas": {
+    "baseRate": 0.0145,
+    "additionalRate": 0.009,
+    "threshold": "(filingStatus === 0 ? 200000 : 250000)",
+    "baseTax": "annualIncome * baseRate",
+    "additionalTax": "Math.max(0, annualIncome - threshold) * additionalRate",
+    "totalTax": "baseTax + additionalTax"
+  },
+  "outputs": {
+    "primary": "totalTax",
+    "breakdown": [
+      "baseTax",
+      "additionalTax"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

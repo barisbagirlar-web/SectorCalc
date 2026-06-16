@@ -1,0 +1,60 @@
+{
+  "toolName": "airspeed-calculator",
+  "inputs": [
+    {
+      "id": "ias",
+      "label": "Indicated Airspeed",
+      "type": "number",
+      "unit": "knots",
+      "default": 100,
+      "businessContext": "Airspeed shown on the airspeed indicator"
+    },
+    {
+      "id": "indicatedAltitude",
+      "label": "Indicated Altitude",
+      "type": "number",
+      "unit": "feet",
+      "default": 5000,
+      "businessContext": "Altitude shown on the altimeter with a given altimeter setting"
+    },
+    {
+      "id": "altimeterSetting",
+      "label": "Altimeter Setting",
+      "type": "number",
+      "unit": "inHg",
+      "default": 29.92,
+      "businessContext": "Current altimeter setting from weather station"
+    },
+    {
+      "id": "oat",
+      "label": "Outside Air Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 15,
+      "businessContext": "OAT measured in Celsius"
+    }
+  ],
+  "formulas": {
+    "pressureAltitude": "indicatedAltitude + 1000 * (29.92 - altimeterSetting)",
+    "oatK": "oat + 273.15",
+    "delta": "Math.pow(1 - 6.8755856e-6 * pressureAltitude, 5.2561)",
+    "theta": "oatK / 288.15",
+    "sigma": "delta / theta",
+    "tas": "ias / Math.sqrt(sigma)",
+    "densityAltitude": "pressureAltitude + 118.8 * (oat - (15 - 1.98 * pressureAltitude / 1000))",
+    "mach": "tas / (38.9679 * Math.sqrt(oatK))"
+  },
+  "outputs": {
+    "primary": "tas",
+    "breakdown": [
+      "densityAltitude",
+      "mach"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

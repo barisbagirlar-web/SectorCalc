@@ -1,0 +1,57 @@
+{
+  "toolName": "chinese-calendar",
+  "inputs": [
+    {
+      "id": "year",
+      "label": "Gregorian Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2025,
+      "businessContext": "The Gregorian calendar year to convert."
+    },
+    {
+      "id": "month",
+      "label": "Gregorian Month",
+      "type": "number",
+      "unit": "month",
+      "default": 1,
+      "businessContext": "The Gregorian calendar month (1-12)."
+    },
+    {
+      "id": "day",
+      "label": "Gregorian Day",
+      "type": "number",
+      "unit": "day",
+      "default": 1,
+      "businessContext": "The Gregorian calendar day (1-31)."
+    },
+    {
+      "id": "leapMonth",
+      "label": "Leap Month Flag",
+      "type": "number",
+      "unit": "boolean",
+      "default": 0,
+      "businessContext": "Set to 1 if the month is a leap month in Chinese calendar, else 0."
+    }
+  ],
+  "formulas": {
+    "chineseYear": "year - 2697",
+    "chineseMonth": "((month + 9) % 12) + 1",
+    "chineseDay": "day",
+    "isLeapMonth": "leapMonth === 1 ? 'Yes' : 'No'"
+  },
+  "outputs": {
+    "primary": "Chinese Year: {chineseYear}",
+    "breakdown": [
+      "Chinese Month: {chineseMonth}",
+      "Chinese Day: {chineseDay}",
+      "Leap Month: {isLeapMonth}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,85 @@
+{
+  "toolName": "roc-auc-calculator",
+  "inputs": [
+    {
+      "id": "fpr1",
+      "label": "FPR 1",
+      "type": "number",
+      "unit": "",
+      "default": 0.1,
+      "businessContext": "First false positive rate point"
+    },
+    {
+      "id": "tpr1",
+      "label": "TPR 1",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "First true positive rate point"
+    },
+    {
+      "id": "fpr2",
+      "label": "FPR 2",
+      "type": "number",
+      "unit": "",
+      "default": 0.2,
+      "businessContext": "Second false positive rate point"
+    },
+    {
+      "id": "tpr2",
+      "label": "TPR 2",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "businessContext": "Second true positive rate point"
+    },
+    {
+      "id": "fpr3",
+      "label": "FPR 3",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Third false positive rate point"
+    },
+    {
+      "id": "tpr3",
+      "label": "TPR 3",
+      "type": "number",
+      "unit": "",
+      "default": 0.9,
+      "businessContext": "Third true positive rate point"
+    },
+    {
+      "id": "fpr4",
+      "label": "FPR 4",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "businessContext": "Fourth false positive rate point"
+    },
+    {
+      "id": "tpr4",
+      "label": "TPR 4",
+      "type": "number",
+      "unit": "",
+      "default": 0.95,
+      "businessContext": "Fourth true positive rate point"
+    }
+  ],
+  "formulas": {
+    "auc": "0.5 * (fpr1 * tpr1 + (fpr2 - fpr1) * (tpr1 + tpr2) + (fpr3 - fpr2) * (tpr2 + tpr3) + (fpr4 - fpr3) * (tpr3 + tpr4) + (1 - fpr4) * (tpr4 + 1))",
+    "gini": "2 * auc - 1"
+  },
+  "outputs": {
+    "primary": "auc",
+    "breakdown": [
+      "gini"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

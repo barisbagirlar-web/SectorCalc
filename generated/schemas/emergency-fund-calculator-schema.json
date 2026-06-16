@@ -1,0 +1,57 @@
+{
+  "toolName": "emergency-fund-calculator",
+  "inputs": [
+    {
+      "id": "monthlyExpenses",
+      "label": "Monthly Essential Expenses",
+      "type": "number",
+      "unit": "currency",
+      "default": 2000,
+      "businessContext": "Total essential monthly living expenses (e.g., housing, food, utilities, transportation, insurance)."
+    },
+    {
+      "id": "coverageMonths",
+      "label": "Desired Coverage (Months)",
+      "type": "number",
+      "unit": "months",
+      "default": 6,
+      "businessContext": "Number of months of expenses the emergency fund should cover (typically 3-6)."
+    },
+    {
+      "id": "currentSavings",
+      "label": "Current Emergency Savings",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Amount already saved toward the emergency fund."
+    },
+    {
+      "id": "safetyMargin",
+      "label": "Safety Margin (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Additional percentage buffer for unforeseen costs."
+    }
+  ],
+  "formulas": {
+    "totalEmergencyFund": "monthlyExpenses * coverageMonths * (1 + safetyMargin / 100)",
+    "safetyMarginAmount": "monthlyExpenses * coverageMonths * (safetyMargin / 100)",
+    "monthsCoveredByCurrent": "monthlyExpenses !== 0 ? currentSavings / (monthlyExpenses * (1 + safetyMargin / 100)) : 0",
+    "additionalSavingsNeeded": "Math.max(0, totalEmergencyFund - currentSavings)"
+  },
+  "outputs": {
+    "primary": "additionalSavingsNeeded",
+    "breakdown": [
+      "totalEmergencyFund",
+      "safetyMarginAmount",
+      "monthsCoveredByCurrent"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

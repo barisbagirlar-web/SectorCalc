@@ -1,0 +1,67 @@
+{
+  "toolName": "minutes-to-seconds-calculator",
+  "inputs": [
+    {
+      "id": "days",
+      "label": "Gün",
+      "type": "number",
+      "unit": "gün",
+      "default": 0,
+      "businessContext": "Gün cinsinden süre, saniyeye çevrilecek"
+    },
+    {
+      "id": "hours",
+      "label": "Saat",
+      "type": "number",
+      "unit": "saat",
+      "default": 0,
+      "businessContext": "Saat cinsinden süre, saniyeye çevrilecek"
+    },
+    {
+      "id": "minutes",
+      "label": "Dakika",
+      "type": "number",
+      "unit": "dk",
+      "default": 0,
+      "businessContext": "Dakika cinsinden süre (ana girdi), saniyeye çevrilecek"
+    },
+    {
+      "id": "seconds",
+      "label": "Saniye",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Doğrudan saniye olarak eklenecek süre"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Ondalık Basamak",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı (0 tam sayıya yuvarlar, en fazla 10 önerilir)"
+    }
+  ],
+  "formulas": {
+    "daysToSeconds": "days * 86400",
+    "hoursToSeconds": "hours * 3600",
+    "minutesToSeconds": "minutes * 60",
+    "seconds": "seconds",
+    "totalSeconds": "Math.round((days*86400 + hours*3600 + minutes*60 + seconds) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "totalSeconds",
+    "breakdown": [
+      "daysToSeconds",
+      "hoursToSeconds",
+      "minutesToSeconds",
+      "seconds"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

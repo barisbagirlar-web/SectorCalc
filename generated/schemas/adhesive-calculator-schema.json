@@ -1,0 +1,64 @@
+{
+  "toolName": "adhesive-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Length of the bonding surface in meters."
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Width of the bonding surface in meters."
+    },
+    {
+      "id": "coverageRate",
+      "label": "Coverage Rate",
+      "type": "number",
+      "unit": "kg/m²",
+      "default": 1.5,
+      "businessContext": "Adhesive consumption per square meter in kilograms per square meter."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of additional adhesive to account for waste, spillage, and application loss."
+    },
+    {
+      "id": "layers",
+      "label": "Number of Layers",
+      "type": "number",
+      "unit": "layers",
+      "default": 1,
+      "businessContext": "Number of adhesive layers to be applied (e.g., for multi-coat applications)."
+    }
+  ],
+  "formulas": {
+    "area": "length * width",
+    "netAdhesive": "area * coverageRate * layers",
+    "waste": "netAdhesive * wasteFactor / 100",
+    "total": "netAdhesive + waste"
+  },
+  "outputs": {
+    "primary": "total",
+    "breakdown": [
+      "netAdhesive",
+      "waste"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

@@ -1,0 +1,77 @@
+{
+  "toolName": "fibonacci-calculator",
+  "inputs": [
+    {
+      "id": "startIndex",
+      "label": "Başlangıç İndeksi",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Dizinin ilk teriminin indeksi."
+    },
+    {
+      "id": "firstTerm",
+      "label": "İlk Terim (F₀)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Dizinin başlangıç indeksindeki değeri."
+    },
+    {
+      "id": "secondTerm",
+      "label": "İkinci Terim (F₁)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Dizinin başlangıç indeksi + 1'deki değeri."
+    },
+    {
+      "id": "multiplierA",
+      "label": "Çarpan a",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Bir önceki terim için katsayı (F(n-1))."
+    },
+    {
+      "id": "multiplierB",
+      "label": "Çarpan b",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "İki önceki terim için katsayı (F(n-2))."
+    },
+    {
+      "id": "termCount",
+      "label": "Terim Sayısı",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Oluşturulacak toplam terim sayısı."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Ondalık Basamak",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Yuvarlama için ondalık basamak sayısı (0 tam sayı)."
+    }
+  ],
+  "formulas": {
+    "lastTerm": "(() => { let seq = []; if (termCount > 0) seq.push(firstTerm); if (termCount > 1) seq.push(secondTerm); for (let i = 2; i < termCount; i++) { seq.push(multiplierA * seq[i-1] + multiplierB * seq[i-2]); } if (decimalPlaces >= 0) { seq = seq.map(v => parseFloat(v.toFixed(decimalPlaces))); } return seq[seq.length - 1]; })()",
+    "sequence": "(() => { let seq = []; if (termCount > 0) seq.push(firstTerm); if (termCount > 1) seq.push(secondTerm); for (let i = 2; i < termCount; i++) { seq.push(multiplierA * seq[i-1] + multiplierB * seq[i-2]); } if (decimalPlaces >= 0) { seq = seq.map(v => parseFloat(v.toFixed(decimalPlaces))); } return JSON.stringify(seq); })()"
+  },
+  "outputs": {
+    "primary": "lastTerm",
+    "breakdown": [
+      "sequence"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

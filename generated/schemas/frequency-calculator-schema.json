@@ -1,0 +1,79 @@
+{
+  "toolName": "frequency-calculator",
+  "inputs": [
+    {
+      "id": "period",
+      "label": "Period (T)",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Time for one complete cycle. Used in f = 1/T."
+    },
+    {
+      "id": "cycles",
+      "label": "Number of Cycles",
+      "type": "number",
+      "unit": "cycles",
+      "default": 0,
+      "businessContext": "Number of cycles observed. Used with Total Time to compute frequency."
+    },
+    {
+      "id": "time",
+      "label": "Total Time",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Total time over which cycles were counted. Used in f = cycles / time."
+    },
+    {
+      "id": "velocity",
+      "label": "Velocity (v)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Wave propagation speed. Used with Wavelength to compute frequency."
+    },
+    {
+      "id": "wavelength",
+      "label": "Wavelength (λ)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Distance between successive peaks. Used with Velocity in f = v/λ."
+    },
+    {
+      "id": "angularFrequency",
+      "label": "Angular Frequency (ω)",
+      "type": "number",
+      "unit": "rad/s",
+      "default": 0,
+      "businessContext": "Angular frequency in radians per second. Converted to Hz via f = ω/(2π)."
+    },
+    {
+      "id": "rpm",
+      "label": "Revolutions per Minute (RPM)",
+      "type": "number",
+      "unit": "rpm",
+      "default": 0,
+      "businessContext": "Rotational speed in revolutions per minute. Converted to Hz via f = RPM/60."
+    }
+  ],
+  "formulas": {
+    "frequency": "period !== 0 ? 1 / period : (cycles !== 0 && time !== 0 ? cycles / time : (velocity !== 0 && wavelength !== 0 ? velocity / wavelength : (angularFrequency !== 0 ? angularFrequency / (2 * Math.PI) : (rpm !== 0 ? rpm / 60 : 0))))",
+    "angularFrequencyOut": "frequency * 2 * Math.PI",
+    "rpmOut": "frequency * 60"
+  },
+  "outputs": {
+    "primary": "frequency",
+    "breakdown": [
+      "angularFrequencyOut",
+      "rpmOut"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

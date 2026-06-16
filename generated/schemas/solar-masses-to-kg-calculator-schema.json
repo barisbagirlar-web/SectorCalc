@@ -1,0 +1,55 @@
+{
+  "toolName": "solar-masses-to-kg-calculator",
+  "inputs": [
+    {
+      "id": "solarMassValue",
+      "label": "Solar Masses",
+      "type": "number",
+      "unit": "M☉",
+      "default": 1,
+      "businessContext": "The mass in solar masses to convert."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "kg/M☉",
+      "default": 1.989e+30,
+      "businessContext": "The number of kilograms in one solar mass (default is 1.989 × 10³⁰ kg)."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Number of decimal places for the output."
+    },
+    {
+      "id": "uncertaintyPercent",
+      "label": "Uncertainty (±%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage uncertainty for the conversion, used to compute lower and upper bounds."
+    }
+  ],
+  "formulas": {
+    "massInKg": "Math.round(solarMassValue * conversionFactor * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "conversionResult": "'Converted mass: ' + (Math.round(solarMassValue * conversionFactor * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)) + ' kg'",
+    "uncertaintyRange": "'Uncertainty range: ' + (Math.round((solarMassValue * conversionFactor) * (1 - uncertaintyPercent / 100) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)) + ' to ' + (Math.round((solarMassValue * conversionFactor) * (1 + uncertaintyPercent / 100) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)) + ' kg'"
+  },
+  "outputs": {
+    "primary": "massInKg",
+    "breakdown": [
+      "conversionResult",
+      "uncertaintyRange"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,83 @@
+{
+  "toolName": "baccarat-calculator",
+  "inputs": [
+    {
+      "id": "rawMaterialCost",
+      "label": "Hammadde Maliyeti",
+      "type": "number",
+      "unit": "TRY/birim",
+      "default": 10,
+      "businessContext": "Birim ürün başına düşen hammadde maliyeti."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "Saatlik İşçilik Maliyeti",
+      "type": "number",
+      "unit": "TRY/saat",
+      "default": 50,
+      "businessContext": "Bir işçinin saatlik maliyeti."
+    },
+    {
+      "id": "hoursPerUnit",
+      "label": "Birim Başına İşçilik Süresi",
+      "type": "number",
+      "unit": "saat",
+      "default": 0.5,
+      "businessContext": "Bir birim ürün için harcanan işçilik süresi."
+    },
+    {
+      "id": "energyCostPerUnit",
+      "label": "Enerji Gideri (birim başına)",
+      "type": "number",
+      "unit": "TRY/birim",
+      "default": 2,
+      "businessContext": "Birim ürün başına enerji maliyeti."
+    },
+    {
+      "id": "additionalCost",
+      "label": "Ek Maliyetler",
+      "type": "number",
+      "unit": "TRY",
+      "default": 5,
+      "businessContext": "Ambalaj, nakliye gibi birim başı ek giderler."
+    },
+    {
+      "id": "overheadRate",
+      "label": "Genel Gider Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Direkt maliyetler üzerine eklenen genel gider yüzdesi."
+    },
+    {
+      "id": "profitMargin",
+      "label": "Kâr Marjı",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Toplam maliyet üzerine uygulanan kâr yüzdesi."
+    }
+  ],
+  "formulas": {
+    "directCosts": "rawMaterialCost + laborCostPerHour * hoursPerUnit + energyCostPerUnit",
+    "overheadAmount": "directCosts * overheadRate / 100",
+    "totalProductionCost": "directCosts + additionalCost + overheadAmount",
+    "profitAmount": "totalProductionCost * profitMargin / 100",
+    "sellingPrice": "totalProductionCost + profitAmount"
+  },
+  "outputs": {
+    "primary": "sellingPrice",
+    "breakdown": [
+      "totalProductionCost",
+      "directCosts",
+      "overheadAmount",
+      "profitAmount"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

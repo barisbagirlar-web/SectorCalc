@@ -1,0 +1,58 @@
+{
+  "toolName": "header-size-calculator",
+  "inputs": [
+    {
+      "id": "span",
+      "label": "Span",
+      "type": "number",
+      "unit": "ft",
+      "default": 8,
+      "businessContext": "Clear span of the opening in feet"
+    },
+    {
+      "id": "load",
+      "label": "Total Uniform Load",
+      "type": "number",
+      "unit": "plf",
+      "default": 500,
+      "businessContext": "Sum of live and dead loads per linear foot on the header"
+    },
+    {
+      "id": "fb",
+      "label": "Allowable Bending Stress",
+      "type": "number",
+      "unit": "psi",
+      "default": 1000,
+      "businessContext": "Design bending stress (Fb) of the header material"
+    },
+    {
+      "id": "plies",
+      "label": "Number of Plies",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of laminated 2x members (e.g., 2 for double 2x)"
+    }
+  ],
+  "formulas": {
+    "span_in": "span * 12",
+    "M": "1.5 * load * (span ** 2)",
+    "S_req": "M / fb",
+    "b": "plies * 1.5",
+    "d_required": "Math.sqrt((6 * S_req) / b)"
+  },
+  "outputs": {
+    "primary": "d_required",
+    "breakdown": [
+      "M",
+      "S_req",
+      "d_required"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

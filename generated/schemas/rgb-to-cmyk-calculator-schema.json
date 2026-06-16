@@ -1,0 +1,65 @@
+{
+  "toolName": "rgb-to-cmyk-calculator",
+  "inputs": [
+    {
+      "id": "red",
+      "label": "Red (R)",
+      "type": "number",
+      "unit": "value",
+      "default": 0,
+      "businessContext": "Red color component (0-255)"
+    },
+    {
+      "id": "green",
+      "label": "Green (G)",
+      "type": "number",
+      "unit": "value",
+      "default": 0,
+      "businessContext": "Green color component (0-255)"
+    },
+    {
+      "id": "blue",
+      "label": "Blue (B)",
+      "type": "number",
+      "unit": "value",
+      "default": 0,
+      "businessContext": "Blue color component (0-255)"
+    },
+    {
+      "id": "maxValue",
+      "label": "Max Input Value",
+      "type": "number",
+      "unit": "value",
+      "default": 255,
+      "businessContext": "Maximum value of color components (typically 255 for 8-bit)"
+    },
+    {
+      "id": "scale",
+      "label": "Output Scale",
+      "type": "number",
+      "unit": "percent",
+      "default": 100,
+      "businessContext": "Output scaling factor (100 for percentage)"
+    }
+  ],
+  "formulas": {
+    "cyan": "(Math.max(red/maxValue, green/maxValue, blue/maxValue) === 0) ? 0 : ((Math.max(red/maxValue, green/maxValue, blue/maxValue) - (red/maxValue)) / Math.max(red/maxValue, green/maxValue, blue/maxValue)) * scale",
+    "magenta": "(Math.max(red/maxValue, green/maxValue, blue/maxValue) === 0) ? 0 : ((Math.max(red/maxValue, green/maxValue, blue/maxValue) - (green/maxValue)) / Math.max(red/maxValue, green/maxValue, blue/maxValue)) * scale",
+    "yellow": "(Math.max(red/maxValue, green/maxValue, blue/maxValue) === 0) ? 0 : ((Math.max(red/maxValue, green/maxValue, blue/maxValue) - (blue/maxValue)) / Math.max(red/maxValue, green/maxValue, blue/maxValue)) * scale",
+    "key": "((1 - Math.max(red/maxValue, green/maxValue, blue/maxValue)) * scale)"
+  },
+  "outputs": {
+    "primary": "key",
+    "breakdown": [
+      "cyan",
+      "magenta",
+      "yellow"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,56 @@
+{
+  "toolName": "running-speed-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 5,
+      "businessContext": "Distance run in kilometers"
+    },
+    {
+      "id": "time_hours",
+      "label": "Time (hours)",
+      "type": "number",
+      "unit": "h",
+      "default": 0,
+      "businessContext": "Hours component of time taken"
+    },
+    {
+      "id": "time_minutes",
+      "label": "Time (minutes)",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Minutes component of time taken"
+    },
+    {
+      "id": "time_seconds",
+      "label": "Time (seconds)",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Seconds component of time taken"
+    }
+  ],
+  "formulas": {
+    "total_time": "(time_hours * 3600 + time_minutes * 60 + time_seconds) / 3600",
+    "speed": "distance / total_time",
+    "pace": "total_time * 60 / distance",
+    "speed_ms": "speed / 3.6"
+  },
+  "outputs": {
+    "primary": "speed",
+    "breakdown": [
+      "pace",
+      "speed_ms"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

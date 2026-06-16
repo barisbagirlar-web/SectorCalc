@@ -1,0 +1,58 @@
+{
+  "toolName": "download-time-calculator",
+  "inputs": [
+    {
+      "id": "fileSize",
+      "label": "File Size",
+      "type": "number",
+      "unit": "GB",
+      "default": 1,
+      "businessContext": "Size of the file to download, in gigabytes (GB)."
+    },
+    {
+      "id": "downloadSpeed",
+      "label": "Download Speed",
+      "type": "number",
+      "unit": "Mbps",
+      "default": 50,
+      "businessContext": "Nominal download speed of the internet connection, in megabits per second (Mbps)."
+    },
+    {
+      "id": "overheadPercentage",
+      "label": "Protocol Overhead",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage of bandwidth lost due to network protocol overhead (e.g., TCP/IP)."
+    },
+    {
+      "id": "parallelConnections",
+      "label": "Parallel Connections",
+      "type": "number",
+      "unit": "connections",
+      "default": 1,
+      "businessContext": "Number of simultaneous download connections (assumes linear speed scaling)."
+    }
+  ],
+  "formulas": {
+    "bits": "fileSize * 8e9",
+    "effectiveSpeedMbps": "downloadSpeed * (1 - overheadPercentage / 100) * parallelConnections",
+    "downloadTimeSeconds": "bits / (effectiveSpeedMbps * 1e6)",
+    "downloadTimeMinutes": "downloadTimeSeconds / 60",
+    "downloadTimeHours": "downloadTimeMinutes / 60"
+  },
+  "outputs": {
+    "primary": "downloadTimeMinutes",
+    "breakdown": [
+      "downloadTimeSeconds",
+      "downloadTimeMinutes",
+      "downloadTimeHours"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

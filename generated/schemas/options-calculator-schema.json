@@ -1,0 +1,82 @@
+{
+  "toolName": "options-calculator",
+  "inputs": [
+    {
+      "id": "optionType",
+      "label": "Option Type (1=Call, 0=Put)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Specify 1 for a call option, 0 for a put option."
+    },
+    {
+      "id": "S",
+      "label": "Current Stock Price",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "The current market price of the underlying asset."
+    },
+    {
+      "id": "K",
+      "label": "Strike Price",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "The price at which the option can be exercised."
+    },
+    {
+      "id": "T",
+      "label": "Time to Maturity",
+      "type": "number",
+      "unit": "years",
+      "default": 1,
+      "businessContext": "Time remaining until option expiration, expressed in years."
+    },
+    {
+      "id": "r",
+      "label": "Risk-Free Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual risk-free interest rate (e.g., 5 for 5%)."
+    },
+    {
+      "id": "sigma",
+      "label": "Volatility",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Annualized standard deviation of the underlying's returns (e.g., 20 for 20%)."
+    }
+  ],
+  "formulas": {
+    "normCDF": "function(x){ var a=[0.254829592,-0.284496736,1.421413741,-1.453152027,1.061405429],p=0.3275911,sign=x<0?-1:1; x=Math.abs(x)/Math.sqrt(2); var t=1/(1+p*x); var y=1-((((a[4]*t+a[3])*t+a[2])*t+a[1])*t+a[0])*t*Math.exp(-x*x); return 0.5*(1+sign*y); }",
+    "r_dec": "r / 100",
+    "sigma_dec": "sigma / 100",
+    "d1": "(Math.log(S / K) + (r_dec + sigma_dec ** 2 / 2) * T) / (sigma_dec * Math.sqrt(T))",
+    "d2": "d1 - sigma_dec * Math.sqrt(T)",
+    "call": "S * normCDF(d1) - K * Math.exp(-r_dec * T) * normCDF(d2)",
+    "put": "K * Math.exp(-r_dec * T) * normCDF(-d2) - S * normCDF(-d1)",
+    "optionPrice": "optionType === 1 ? call : put",
+    "callDelta": "normCDF(d1)",
+    "putDelta": "normCDF(d1) - 1"
+  },
+  "outputs": {
+    "primary": "optionPrice",
+    "breakdown": [
+      "call",
+      "put",
+      "d1",
+      "d2",
+      "callDelta",
+      "putDelta"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

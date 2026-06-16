@@ -1,0 +1,65 @@
+{
+  "toolName": "hit-points-calculator",
+  "inputs": [
+    {
+      "id": "initialHP",
+      "label": "Initial Hit Points",
+      "type": "number",
+      "unit": "hp",
+      "default": 100,
+      "businessContext": "The total life capacity of the equipment or component when new."
+    },
+    {
+      "id": "damagePerCycle",
+      "label": "Damage per Cycle",
+      "type": "number",
+      "unit": "hp/cycle",
+      "default": 1,
+      "businessContext": "The average damage incurred per operation cycle."
+    },
+    {
+      "id": "cycles",
+      "label": "Number of Cycles",
+      "type": "number",
+      "unit": "cycles",
+      "default": 10,
+      "businessContext": "Number of operation cycles performed."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Multiplier to account for variability and ensure conservative estimates."
+    },
+    {
+      "id": "repairHP",
+      "label": "Repair HP Gain",
+      "type": "number",
+      "unit": "hp",
+      "default": 0,
+      "businessContext": "Hit points regained after maintenance, if any."
+    }
+  ],
+  "formulas": {
+    "remainingHP": "Math.max(0, initialHP + repairHP - (damagePerCycle * cycles * safetyFactor))",
+    "baseDamage": "damagePerCycle * cycles",
+    "safetyAdjustedDamage": "damagePerCycle * cycles * safetyFactor",
+    "netHP": "initialHP + repairHP - (damagePerCycle * cycles * safetyFactor)"
+  },
+  "outputs": {
+    "primary": "remainingHP",
+    "breakdown": [
+      "baseDamage",
+      "safetyAdjustedDamage",
+      "netHP"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Atölye & Tamir",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

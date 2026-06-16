@@ -1,0 +1,71 @@
+{
+  "toolName": "body-fat-percentage-calculator",
+  "inputs": [
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 for Male, 1 for Female"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Body height in centimeters"
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms"
+    },
+    {
+      "id": "neck",
+      "label": "Neck Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 38,
+      "businessContext": "Neck circumference measured just below the larynx"
+    },
+    {
+      "id": "waist",
+      "label": "Waist Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 85,
+      "businessContext": "Waist circumference measured at the level of the navel"
+    },
+    {
+      "id": "hip",
+      "label": "Hip Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 90,
+      "businessContext": "Hip circumference at the widest point (only for females, set 0 for males)"
+    }
+  ],
+  "formulas": {
+    "bodyFatPercentage": "(gender === 0) ? (86.010 * Math.log(waist - neck) / Math.log(10) - 70.041 * Math.log(height) / Math.log(10) + 36.76) : (163.205 * Math.log(waist + hip - neck) / Math.log(10) - 97.684 * Math.log(height) / Math.log(10) - 78.387)",
+    "bmi": "weight / Math.pow(height / 100, 2)",
+    "fatMass": "(bodyFatPercentage / 100) * weight"
+  },
+  "outputs": {
+    "primary": "bodyFatPercentage",
+    "breakdown": [
+      "bmi",
+      "fatMass"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

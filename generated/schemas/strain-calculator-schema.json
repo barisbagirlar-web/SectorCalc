@@ -1,0 +1,66 @@
+{
+  "toolName": "strain-calculator",
+  "inputs": [
+    {
+      "id": "initial_length",
+      "label": "Initial Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Original length before deformation"
+    },
+    {
+      "id": "final_length",
+      "label": "Final Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 100.5,
+      "businessContext": "Length after deformation (e.g., under load or temperature)"
+    },
+    {
+      "id": "temperature_change",
+      "label": "Temperature Change",
+      "type": "number",
+      "unit": "°C",
+      "default": 0,
+      "businessContext": "Change in temperature for thermal expansion calculation"
+    },
+    {
+      "id": "cte",
+      "label": "Coefficient of Thermal Expansion",
+      "type": "number",
+      "unit": "/°C",
+      "default": 0.000012,
+      "businessContext": "Material's linear thermal expansion coefficient (e.g., steel 12e-6)"
+    },
+    {
+      "id": "elastic_modulus",
+      "label": "Young's Modulus",
+      "type": "number",
+      "unit": "GPa",
+      "default": 200,
+      "businessContext": "Material's modulus of elasticity. Set to 0 to ignore stress"
+    }
+  ],
+  "formulas": {
+    "mechStrainPct": "((final_length - initial_length) / initial_length) * 100",
+    "thermStrainPct": "cte * temperature_change * 100",
+    "totalStrainPct": "(((final_length - initial_length) / initial_length) + cte * temperature_change) * 100",
+    "stressMpa": "elastic_modulus > 0 ? (((final_length - initial_length) / initial_length) + cte * temperature_change) * elastic_modulus * 1000 : 0"
+  },
+  "outputs": {
+    "primary": "totalStrainPct",
+    "breakdown": [
+      "Mechanical Strain: ${mechStrainPct.toFixed(2)}%",
+      "Thermal Strain: ${thermStrainPct.toFixed(2)}%",
+      "Total Strain: ${totalStrainPct.toFixed(2)}%",
+      "Stress: ${elastic_modulus > 0 ? stressMpa.toFixed(2) + ' MPa' : 'N/A'}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

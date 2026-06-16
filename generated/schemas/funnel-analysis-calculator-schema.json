@@ -1,0 +1,67 @@
+{
+  "toolName": "funnel-analysis-calculator",
+  "inputs": [
+    {
+      "id": "visitors",
+      "label": "Visitors",
+      "type": "number",
+      "unit": "count",
+      "default": 1000,
+      "businessContext": "Top-of-funnel audience size (e.g., ad impressions, website visitors)"
+    },
+    {
+      "id": "leads",
+      "label": "Leads",
+      "type": "number",
+      "unit": "count",
+      "default": 500,
+      "businessContext": "Leads generated (e.g., form fills, sign-ups)"
+    },
+    {
+      "id": "qualifiedLeads",
+      "label": "Qualified Leads",
+      "type": "number",
+      "unit": "count",
+      "default": 200,
+      "businessContext": "Leads meeting marketing/sales qualification criteria"
+    },
+    {
+      "id": "opportunities",
+      "label": "Opportunities",
+      "type": "number",
+      "unit": "count",
+      "default": 100,
+      "businessContext": "Sales-qualified opportunities or trials"
+    },
+    {
+      "id": "customers",
+      "label": "Customers",
+      "type": "number",
+      "unit": "count",
+      "default": 30,
+      "businessContext": "Closed-won deals or paying customers"
+    }
+  ],
+  "formulas": {
+    "visitorToLeadRate": "visitors > 0 ? (leads / visitors) * 100 : 0",
+    "leadToQualifiedRate": "leads > 0 ? (qualifiedLeads / leads) * 100 : 0",
+    "qualifiedToOpportunityRate": "qualifiedLeads > 0 ? (opportunities / qualifiedLeads) * 100 : 0",
+    "opportunityToCustomerRate": "opportunities > 0 ? (customers / opportunities) * 100 : 0",
+    "overallConversion": "visitors > 0 ? (customers / visitors) * 100 : 0"
+  },
+  "outputs": {
+    "primary": "overallConversion",
+    "breakdown": [
+      "visitorToLeadRate",
+      "leadToQualifiedRate",
+      "qualifiedToOpportunityRate",
+      "opportunityToCustomerRate"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

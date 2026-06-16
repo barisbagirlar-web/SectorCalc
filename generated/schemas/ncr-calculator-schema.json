@@ -1,0 +1,58 @@
+{
+  "toolName": "ncr-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "n (Toplam Eleman Sayısı)",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Toplam öğe sayısı; örnek: bir üretim partisindeki toplam mamul sayısı."
+    },
+    {
+      "id": "r",
+      "label": "r (Seçilecek Eleman Sayısı)",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Kaç adet seçileceği; örnek: kalite kontrol için rastgele alınacak numune sayısı."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Ondalık Basamak (Yuvarlama)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sonucun kaç ondalık basamağa yuvarlanacağı (genellikle 0, tamsayı)."
+    },
+    {
+      "id": "maxIterations",
+      "label": "Maksimum İterasyon (Güvenlik Limiti)",
+      "type": "number",
+      "unit": "",
+      "default": 1000,
+      "businessContext": "Faktöriyel hesaplamada yineleme sınırı (büyük sayılar için koruma)."
+    }
+  ],
+  "formulas": {
+    "factorial": "(function fact(x){ if(x <= 1) return 1; else return x * fact(x-1); })",
+    "nCr": "Math.round( ( (function fact(x){ if(x <= 1) return 1; else return x * fact(x-1); })(n) ) / ( (function fact(x){ if(x <= 1) return 1; else return x * fact(x-1); })(r) * (function fact(x){ if(x <= 1) return 1; else return x * fact(x-1); })(n-r) ) * Math.pow(10, decimalPlaces) ) / Math.pow(10, decimalPlaces)",
+    "nFact": "(function fact(x){ if(x <= 1) return 1; else return x * fact(x-1); })(n)",
+    "rFact": "(function fact(x){ if(x <= 1) return 1; else return x * fact(x-1); })(r)",
+    "nrFact": "(function fact(x){ if(x <= 1) return 1; else return x * fact(x-1); })(n-r)"
+  },
+  "outputs": {
+    "primary": "nCr",
+    "breakdown": [
+      "nFact",
+      "rFact",
+      "nrFact"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "ka-calculator",
+  "inputs": [
+    {
+      "id": "concentrationHA",
+      "label": "Weak Acid Concentration [HA]",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.1,
+      "businessContext": "Molar concentration of the weak acid form."
+    },
+    {
+      "id": "concentrationA",
+      "label": "Conjugate Base Concentration [A-]",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.1,
+      "businessContext": "Molar concentration of the conjugate base form."
+    },
+    {
+      "id": "ph",
+      "label": "Solution pH",
+      "type": "number",
+      "unit": "pH",
+      "default": 5,
+      "businessContext": "Measured pH of the buffer solution."
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "Temperature of the solution (reference, not used in standard calculation)."
+    }
+  ],
+  "formulas": {
+    "ka": "Math.pow(10, -ph) * (concentrationA / concentrationHA)",
+    "pKa": "ph - (Math.log(concentrationA / concentrationHA) / Math.log(10))",
+    "ratio": "concentrationA / concentrationHA"
+  },
+  "outputs": {
+    "primary": "ka",
+    "breakdown": [
+      "pKa",
+      "ratio"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

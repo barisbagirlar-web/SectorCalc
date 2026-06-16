@@ -1,0 +1,65 @@
+{
+  "toolName": "rods-to-feet-calculator",
+  "inputs": [
+    {
+      "id": "rods",
+      "label": "Number of Rods",
+      "type": "number",
+      "unit": "rods",
+      "default": 1,
+      "businessContext": "The quantity to convert from rods to feet."
+    },
+    {
+      "id": "feetPerRod",
+      "label": "Feet per Rod",
+      "type": "number",
+      "unit": "ft/rod",
+      "default": 16.5,
+      "businessContext": "Conversion factor. Standard US survey rod is 16.5 feet. Adjust if using a different definition."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Additional percentage to add for safety margin in engineering calculations."
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance (± ft)",
+      "type": "number",
+      "unit": "ft",
+      "default": 0,
+      "businessContext": "Tolerance band for the converted length."
+    }
+  ],
+  "formulas": {
+    "baseFeet": "rods * feetPerRod",
+    "safetyFeet": "baseFeet * (1 + safetyFactor / 100)",
+    "totalFeet": "Math.round(safetyFeet * 10 ** decimalPlaces) / 10 ** decimalPlaces"
+  },
+  "outputs": {
+    "primary": "totalFeet",
+    "breakdown": [
+      "Base conversion: {rods} rods × {feetPerRod} ft/rod = {baseFeet} ft",
+      "After safety margin {safetyFactor}%: {safetyFeet} ft",
+      "Rounded to {decimalPlaces} decimals: {totalFeet} ft",
+      "Tolerance: ±{tolerance} ft"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,71 @@
+{
+  "toolName": "concrete-sealer-calculator",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "Surface Area",
+      "type": "number",
+      "unit": "sq ft",
+      "default": 1000,
+      "businessContext": "Total surface area of concrete to be sealed"
+    },
+    {
+      "id": "coverageRate",
+      "label": "Coverage Rate",
+      "type": "number",
+      "unit": "sq ft/gal",
+      "default": 200,
+      "businessContext": "Manufacturer's stated coverage rate per coat"
+    },
+    {
+      "id": "numCoats",
+      "label": "Number of Coats",
+      "type": "number",
+      "unit": "coats",
+      "default": 2,
+      "businessContext": "Number of coats to apply"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Extra material to account for spillage, overspray, and uneven application"
+    },
+    {
+      "id": "porosityFactor",
+      "label": "Porosity Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for coverage based on concrete surface roughness (1.0 for smooth, 1.2 for medium, 1.5 for rough)"
+    },
+    {
+      "id": "pricePerUnit",
+      "label": "Price per Gallon",
+      "type": "number",
+      "unit": "$/gal",
+      "default": 30,
+      "businessContext": "Cost of one gallon of sealer"
+    }
+  ],
+  "formulas": {
+    "adjustedCoverage": "coverageRate / porosityFactor",
+    "totalSealer": "(area * numCoats * (1 + wasteFactor / 100) * porosityFactor) / coverageRate",
+    "totalCost": "totalSealer * pricePerUnit"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "totalSealer",
+      "adjustedCoverage"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

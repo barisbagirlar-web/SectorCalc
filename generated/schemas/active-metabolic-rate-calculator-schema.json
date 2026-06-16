@@ -1,0 +1,63 @@
+{
+  "toolName": "active-metabolic-rate-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight of the person in kilograms."
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Height of the person in centimeters."
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the person in years."
+    },
+    {
+      "id": "sex",
+      "label": "Sex",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Biological sex: 0 for female, 1 for male."
+    },
+    {
+      "id": "activityFactor",
+      "label": "Activity Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.2,
+      "businessContext": "Physical activity level multiplier (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 active, 1.9 very active)."
+    }
+  ],
+  "formulas": {
+    "bmr": "10 * weight + 6.25 * height - 5 * age + (sex * 166 - 161)",
+    "amr": "bmr * activityFactor",
+    "activityMultiplier": "activityFactor"
+  },
+  "outputs": {
+    "primary": "amr",
+    "breakdown": [
+      "bmr",
+      "activityMultiplier"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

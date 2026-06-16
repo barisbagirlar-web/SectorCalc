@@ -1,0 +1,69 @@
+{
+  "toolName": "ecological-footprint-calculator",
+  "inputs": [
+    {
+      "id": "electricity",
+      "label": "Electricity Consumption",
+      "type": "number",
+      "unit": "kWh/month",
+      "default": 0,
+      "businessContext": "Monthly electricity consumption in kilowatt-hours."
+    },
+    {
+      "id": "naturalGas",
+      "label": "Natural Gas Consumption",
+      "type": "number",
+      "unit": "m³/month",
+      "default": 0,
+      "businessContext": "Monthly natural gas consumption in cubic meters."
+    },
+    {
+      "id": "fuel",
+      "label": "Fuel Consumption",
+      "type": "number",
+      "unit": "L/month",
+      "default": 0,
+      "businessContext": "Monthly vehicle fuel consumption in liters (gasoline/diesel)."
+    },
+    {
+      "id": "water",
+      "label": "Water Consumption",
+      "type": "number",
+      "unit": "m³/month",
+      "default": 0,
+      "businessContext": "Monthly water consumption in cubic meters."
+    },
+    {
+      "id": "waste",
+      "label": "Waste Generation",
+      "type": "number",
+      "unit": "kg/month",
+      "default": 0,
+      "businessContext": "Monthly non-recycled waste generation in kilograms."
+    }
+  ],
+  "formulas": {
+    "electricityFootprint": "electricity * 0.5",
+    "naturalGasFootprint": "naturalGas * 2.0",
+    "fuelFootprint": "fuel * 2.3",
+    "waterFootprint": "water * 1.0",
+    "wasteFootprint": "waste * 0.5",
+    "totalFootprint": "electricity * 0.5 + naturalGas * 2.0 + fuel * 2.3 + water * 1.0 + waste * 0.5"
+  },
+  "outputs": {
+    "primary": "totalFootprint",
+    "breakdown": [
+      "electricityFootprint",
+      "naturalGasFootprint",
+      "fuelFootprint",
+      "waterFootprint",
+      "wasteFootprint"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

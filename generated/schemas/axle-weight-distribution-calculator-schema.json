@@ -1,0 +1,59 @@
+{
+  "toolName": "axle-weight-distribution-calculator",
+  "inputs": [
+    {
+      "id": "totalWeight",
+      "label": "Total Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 10000,
+      "businessContext": "The total weight of the vehicle including cargo."
+    },
+    {
+      "id": "wheelbase",
+      "label": "Wheelbase",
+      "type": "number",
+      "unit": "m",
+      "default": 4.5,
+      "businessContext": "Distance between the front and rear axles."
+    },
+    {
+      "id": "cgDistance",
+      "label": "CG Distance from Front Axle",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Horizontal distance from the front axle to the center of gravity."
+    },
+    {
+      "id": "dynamicFactor",
+      "label": "Dynamic Load Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.2,
+      "businessContext": "Multiplier to account for dynamic forces during motion (e.g., braking, acceleration). Typical range 1.0 - 2.0."
+    }
+  ],
+  "formulas": {
+    "staticFrontLoad": "totalWeight * (wheelbase - cgDistance) / wheelbase",
+    "staticRearLoad": "totalWeight * cgDistance / wheelbase",
+    "dynamicFrontLoad": "staticFrontLoad * dynamicFactor",
+    "dynamicRearLoad": "staticRearLoad * dynamicFactor",
+    "maxAxleLoad": "Math.max(dynamicFrontLoad, dynamicRearLoad)"
+  },
+  "outputs": {
+    "primary": "maxAxleLoad",
+    "breakdown": [
+      "staticFrontLoad",
+      "staticRearLoad",
+      "dynamicFrontLoad",
+      "dynamicRearLoad"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

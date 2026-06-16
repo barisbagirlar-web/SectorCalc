@@ -1,0 +1,63 @@
+{
+  "toolName": "hra-calculator",
+  "inputs": [
+    {
+      "id": "basicSalary",
+      "label": "Basic Salary (Monthly)",
+      "type": "number",
+      "unit": "INR",
+      "default": 0,
+      "businessContext": "Monthly basic salary component"
+    },
+    {
+      "id": "da",
+      "label": "Dearness Allowance (Monthly)",
+      "type": "number",
+      "unit": "INR",
+      "default": 0,
+      "businessContext": "Monthly dearness allowance, if applicable"
+    },
+    {
+      "id": "hraReceived",
+      "label": "HRA Received (Monthly)",
+      "type": "number",
+      "unit": "INR",
+      "default": 0,
+      "businessContext": "Actual House Rent Allowance received per month"
+    },
+    {
+      "id": "rentPaid",
+      "label": "Rent Paid (Monthly)",
+      "type": "number",
+      "unit": "INR",
+      "default": 0,
+      "businessContext": "Monthly rent actually paid"
+    },
+    {
+      "id": "cityType",
+      "label": "City Type",
+      "type": "number",
+      "unit": "1=Metro, 0=Non-metro",
+      "default": 1,
+      "businessContext": "Indicates whether the city of residence is a metro (1) or non-metro (0)"
+    }
+  ],
+  "formulas": {
+    "exemption": "Math.min(inputs.hraReceived, (inputs.basicSalary + inputs.da) * (0.4 + 0.1 * inputs.cityType), inputs.rentPaid - 0.1 * (inputs.basicSalary + inputs.da))",
+    "taxableHRA": "Math.max(0, inputs.hraReceived - exemption)",
+    "annualTaxableHRA": "taxableHRA * 12"
+  },
+  "outputs": {
+    "primary": "taxableHRA",
+    "breakdown": [
+      "exemption",
+      "annualTaxableHRA"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

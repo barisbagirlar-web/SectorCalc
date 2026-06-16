@@ -1,0 +1,61 @@
+{
+  "toolName": "body-volume-index-calculator",
+  "inputs": [
+    {
+      "id": "height",
+      "label": "Boy (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Ayakta, ayakkabısız ölçülen boy uzunluğu"
+    },
+    {
+      "id": "weight",
+      "label": "Ağırlık (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Dijital terazi ile ölçülen vücut ağırlığı"
+    },
+    {
+      "id": "waist",
+      "label": "Bel Çevresi (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 80,
+      "businessContext": "En dar noktadan (genellikle göbek deliğinin hemen üstü) ölçülen bel çevresi"
+    },
+    {
+      "id": "hip",
+      "label": "Kalça Çevresi (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 95,
+      "businessContext": "En geniş noktadan (kalça çıkıntısı üzerinden) ölçülen kalça çevresi"
+    },
+    {
+      "id": "chest",
+      "label": "Göğüs Çevresi (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Koltuk altı hizasından, normal solunumda ölçülen göğüs çevresi"
+    }
+  ],
+  "formulas": {
+    "bodyVolume": "0.002 * height + 0.001 * weight + 0.005 * waist + 0.01 * hip + 0.003 * chest - 15",
+    "bvi": "bodyVolume / ((height / 100) ** 2)"
+  },
+  "outputs": {
+    "primary": "bvi",
+    "breakdown": [
+      "bodyVolume"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

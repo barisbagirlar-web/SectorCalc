@@ -1,0 +1,82 @@
+{
+  "toolName": "zero-based-budget",
+  "inputs": [
+    {
+      "id": "salaries",
+      "label": "Salaries",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Total salary expenses for the period"
+    },
+    {
+      "id": "rent",
+      "label": "Rent",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "businessContext": "Rent or lease payments for facilities"
+    },
+    {
+      "id": "utilities",
+      "label": "Utilities",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "businessContext": "Electricity, water, gas, and internet costs"
+    },
+    {
+      "id": "marketing",
+      "label": "Marketing",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Advertising, promotions, and market research expenses"
+    },
+    {
+      "id": "materials",
+      "label": "Materials",
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "businessContext": "Raw materials and supplies for production or service delivery"
+    },
+    {
+      "id": "travel",
+      "label": "Travel",
+      "type": "number",
+      "unit": "USD",
+      "default": 8000,
+      "businessContext": "Business travel and accommodation expenses"
+    },
+    {
+      "id": "miscellaneous",
+      "label": "Miscellaneous",
+      "type": "number",
+      "unit": "USD",
+      "default": 2000,
+      "businessContext": "Other unforeseen or minor expenses"
+    }
+  ],
+  "formulas": {
+    "total": "salaries + rent + utilities + marketing + materials + travel + miscellaneous"
+  },
+  "outputs": {
+    "primary": "total",
+    "breakdown": [
+      "salaries",
+      "rent",
+      "utilities",
+      "marketing",
+      "materials",
+      "travel",
+      "miscellaneous"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,71 @@
+{
+  "toolName": "effect-size-calculator",
+  "inputs": [
+    {
+      "id": "mean1",
+      "label": "Group 1 Mean",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Arithmetic mean of the first group (e.g., treatment)"
+    },
+    {
+      "id": "mean2",
+      "label": "Group 2 Mean",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Arithmetic mean of the second group (e.g., control)"
+    },
+    {
+      "id": "sd1",
+      "label": "Group 1 Standard Deviation",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Standard deviation of the first group"
+    },
+    {
+      "id": "sd2",
+      "label": "Group 2 Standard Deviation",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Standard deviation of the second group"
+    },
+    {
+      "id": "n1",
+      "label": "Group 1 Sample Size",
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "businessContext": "Number of observations in first group"
+    },
+    {
+      "id": "n2",
+      "label": "Group 2 Sample Size",
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "businessContext": "Number of observations in second group"
+    }
+  ],
+  "formulas": {
+    "pooledSd": "Math.sqrt(((n1-1)*Math.pow(sd1,2) + (n2-1)*Math.pow(sd2,2))/(n1+n2-2))",
+    "meanDiff": "mean1 - mean2",
+    "d": "(mean1 - mean2) / pooledSd"
+  },
+  "outputs": {
+    "primary": "d",
+    "breakdown": [
+      "pooledSd",
+      "meanDiff"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

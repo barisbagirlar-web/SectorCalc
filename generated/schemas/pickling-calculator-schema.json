@@ -1,0 +1,91 @@
+{
+  "toolName": "pickling-calculator",
+  "inputs": [
+    {
+      "id": "surfaceArea",
+      "label": "Metal Surface Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 10,
+      "businessContext": "Total area of metal to be pickled."
+    },
+    {
+      "id": "scaleThickness",
+      "label": "Scale Thickness",
+      "type": "number",
+      "unit": "µm",
+      "default": 50,
+      "businessContext": "Average oxide scale thickness."
+    },
+    {
+      "id": "scaleDensity",
+      "label": "Scale Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 5000,
+      "businessContext": "Density of the scale (e.g., iron oxide ≈ 5000 kg/m³)."
+    },
+    {
+      "id": "acidConcentration",
+      "label": "Acid Concentration",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "businessContext": "Concentration of hydrochloric acid by weight (typical 15-20%)."
+    },
+    {
+      "id": "acidDensity",
+      "label": "Acid Density",
+      "type": "number",
+      "unit": "kg/L",
+      "default": 1.09,
+      "businessContext": "Density of the acid solution (18% HCl ≈ 1.09 kg/L)."
+    },
+    {
+      "id": "stoichiometricRatio",
+      "label": "Stoichiometric Ratio",
+      "type": "number",
+      "unit": "kg/kg",
+      "default": 1.5,
+      "businessContext": "Mass of acid required to dissolve 1 kg of scale, considering chemical reaction."
+    },
+    {
+      "id": "dragOutRate",
+      "label": "Drag-out Rate",
+      "type": "number",
+      "unit": "L/m²",
+      "default": 1.5,
+      "businessContext": "Volume of acid solution carried out on metal surface per m²."
+    },
+    {
+      "id": "rinseWaterRatio",
+      "label": "Rinse Water Ratio",
+      "type": "number",
+      "unit": "L/m²",
+      "default": 10,
+      "businessContext": "Volume of rinse water needed per m² of metal surface."
+    }
+  ],
+  "formulas": {
+    "scaleMass": "surfaceArea * (scaleThickness / 1e6) * scaleDensity",
+    "pureAcidNeeded": "scaleMass * stoichiometricRatio",
+    "reactionAcidVolume": "pureAcidNeeded / (acidDensity * (acidConcentration / 100))",
+    "dragOutVolume": "surfaceArea * dragOutRate",
+    "totalAcidVolume": "reactionAcidVolume + dragOutVolume",
+    "rinseWaterVolume": "surfaceArea * rinseWaterRatio"
+  },
+  "outputs": {
+    "primary": "totalAcidVolume",
+    "breakdown": [
+      "reactionAcidVolume",
+      "dragOutVolume",
+      "rinseWaterVolume"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

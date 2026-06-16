@@ -1,0 +1,73 @@
+{
+  "toolName": "trisomy-21-risk-calculator",
+  "inputs": [
+    {
+      "id": "maternalAge",
+      "label": "Maternal Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Mother's age at expected delivery date"
+    },
+    {
+      "id": "gestationalAge",
+      "label": "Gestational Age",
+      "type": "number",
+      "unit": "weeks",
+      "default": 12,
+      "businessContext": "Weeks of pregnancy"
+    },
+    {
+      "id": "nuchalTranslucency",
+      "label": "Nuchal Translucency (NT)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1.5,
+      "businessContext": "NT thickness measured via ultrasound"
+    },
+    {
+      "id": "pappA",
+      "label": "PAPP-A",
+      "type": "number",
+      "unit": "MoM",
+      "default": 1,
+      "businessContext": "Pregnancy-associated plasma protein A in multiples of median"
+    },
+    {
+      "id": "freeBetaHCG",
+      "label": "Free β-hCG",
+      "type": "number",
+      "unit": "MoM",
+      "default": 1,
+      "businessContext": "Free beta human chorionic gonadotropin in multiples of median"
+    },
+    {
+      "id": "previousTrisomy",
+      "label": "Previous Trisomy 21",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Number of prior pregnancies affected by trisomy 21"
+    }
+  ],
+  "formulas": {
+    "baseRiskPercent": "0.05 * Math.exp(0.25 * (maternalAge - 20))",
+    "adjustedRiskPercent": "baseRiskPercent * (nuchalTranslucency / 1.0) * (1 / pappA) * freeBetaHCG * (1 + 2 * previousTrisomy)",
+    "oneInN": "Math.round(100 / adjustedRiskPercent)",
+    "ageRiskStr": "baseRiskPercent.toFixed(2)",
+    "adjRiskStr": "adjustedRiskPercent.toFixed(2)"
+  },
+  "outputs": {
+    "primary": "oneInN",
+    "breakdown": [
+      "baseRiskPercent",
+      "adjustedRiskPercent"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,59 @@
+{
+  "toolName": "juice-calculator",
+  "inputs": [
+    {
+      "id": "fruitWeight",
+      "label": "Meyve Miktarı (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "weight"
+    },
+    {
+      "id": "extractionRate",
+      "label": "Ekstraksiyon Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "efficiency"
+    },
+    {
+      "id": "waterAdded",
+      "label": "Eklenen Su (L)",
+      "type": "number",
+      "unit": "L",
+      "default": 0,
+      "businessContext": "dilution"
+    },
+    {
+      "id": "otherAdditives",
+      "label": "Diğer Katkılar (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "additives"
+    }
+  ],
+  "formulas": {
+    "juiceFromFruitOutput": "fruitWeight * extractionRate / 100",
+    "waterOutput": "waterAdded",
+    "additivesOutput": "otherAdditives",
+    "wasteOutput": "fruitWeight - (fruitWeight * extractionRate / 100)",
+    "totalJuiceOutput": "fruitWeight * extractionRate / 100 + waterAdded + otherAdditives"
+  },
+  "outputs": {
+    "primary": "totalJuiceOutput",
+    "breakdown": [
+      "juiceFromFruitOutput",
+      "waterOutput",
+      "additivesOutput",
+      "wasteOutput"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

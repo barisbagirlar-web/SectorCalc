@@ -1,0 +1,54 @@
+{
+  "toolName": "rectangular-prism-volume-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "businessContext": "Length of the rectangular prism in millimeters"
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 500,
+      "businessContext": "Width of the rectangular prism in millimeters"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 300,
+      "businessContext": "Height of the rectangular prism in millimeters"
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of identical prisms"
+    }
+  ],
+  "formulas": {
+    "volume_m3": "(length * width * height * quantity) / 1000000000",
+    "volume_mm3": "length * width * height * quantity"
+  },
+  "outputs": {
+    "primary": "volume_m3",
+    "breakdown": [
+      "volume_mm3",
+      "volume_m3"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

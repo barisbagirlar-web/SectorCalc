@@ -1,0 +1,67 @@
+{
+  "toolName": "fan-calculator",
+  "inputs": [
+    {
+      "id": "airflow",
+      "label": "Air Flow Rate",
+      "type": "number",
+      "unit": "m³/h",
+      "default": 10000,
+      "businessContext": "Volume of air moved per hour"
+    },
+    {
+      "id": "staticPressure",
+      "label": "Static Pressure",
+      "type": "number",
+      "unit": "Pa",
+      "default": 500,
+      "businessContext": "Resistance to airflow in duct system"
+    },
+    {
+      "id": "fanEfficiency",
+      "label": "Fan Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Efficiency of fan in converting shaft power to air power, typically 50-80%"
+    },
+    {
+      "id": "motorEfficiency",
+      "label": "Motor Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Efficiency of electric motor, typically 85-95%"
+    },
+    {
+      "id": "airDensity",
+      "label": "Air Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1.2,
+      "businessContext": "Density of air, affected by temperature and altitude, standard: 1.2 kg/m³ at 20°C, sea level"
+    }
+  ],
+  "formulas": {
+    "motorInputPowerKW": "(airflow * staticPressure) / (360 * fanEfficiency * motorEfficiency)",
+    "fanShaftPowerKW": "(airflow * staticPressure) / (36000 * fanEfficiency)",
+    "airPowerKW": "(airflow * staticPressure) / 3600000",
+    "airflowM3s": "airflow / 3600",
+    "massFlowRate": "(airflow / 3600) * airDensity"
+  },
+  "outputs": {
+    "primary": "Motor Input Power (kW)",
+    "breakdown": [
+      "Air Power (kW)",
+      "Fan Shaft Power (kW)",
+      "Volumetric Flow Rate (m³/s)",
+      "Mass Flow Rate (kg/s)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

@@ -1,0 +1,298 @@
+{
+  "slug": "machining-strategy-time-optimizer",
+  "title": "Machining Strategy Time Optimizer",
+  "description": "Calculates optimal machining cycle time and identifies hidden losses using Lean, Six Sigma, and ISO 9001 principles.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-machine comparison",
+    "Custom KPI dashboards"
+  ],
+  "inputs": [
+    {
+      "id": "cutting_speed",
+      "label": "Cutting Speed (Vc)",
+      "type": "number",
+      "unit": "m/min",
+      "default": 150,
+      "min": 20,
+      "max": 500,
+      "businessContext": "ISO 3685 standard for tool life; affects surface finish and cycle time."
+    },
+    {
+      "id": "feed_rate",
+      "label": "Feed Rate (f)",
+      "type": "number",
+      "unit": "mm/rev",
+      "default": 0.25,
+      "min": 0.05,
+      "max": 1,
+      "businessContext": "ISO 3002/1 standard; influences chip load and tool wear."
+    },
+    {
+      "id": "depth_of_cut",
+      "label": "Depth of Cut (ap)",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "min": 0.1,
+      "max": 10,
+      "businessContext": "ISO 3002/1; affects cutting forces and power consumption."
+    },
+    {
+      "id": "part_length",
+      "label": "Part Length (L)",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "min": 10,
+      "max": 2000,
+      "businessContext": "Workpiece geometry; defines total travel distance."
+    },
+    {
+      "id": "part_diameter",
+      "label": "Part Diameter (D)",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "min": 5,
+      "max": 500,
+      "businessContext": "Workpiece diameter; used for rotational speed calculation."
+    },
+    {
+      "id": "tool_change_time",
+      "label": "Tool Change Time (Tct)",
+      "type": "number",
+      "unit": "min",
+      "default": 2,
+      "min": 0.5,
+      "max": 10,
+      "businessContext": "SMED (Single Minute Exchange of Die) metric; Lean manufacturing."
+    },
+    {
+      "id": "tool_life_minutes",
+      "label": "Tool Life (T)",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "min": 5,
+      "max": 120,
+      "businessContext": "ISO 3685 Taylor tool life equation; affects cost and downtime."
+    },
+    {
+      "id": "number_of_passes",
+      "label": "Number of Passes (n_passes)",
+      "type": "number",
+      "unit": "count",
+      "default": 1,
+      "min": 1,
+      "max": 10,
+      "businessContext": "Roughing/finishing strategy; impacts total cycle time."
+    },
+    {
+      "id": "machine_type",
+      "label": "Machine Type",
+      "type": "select",
+      "unit": "",
+      "default": "CNC Lathe",
+      "options": [
+        "CNC Lathe",
+        "CNC Mill",
+        "Multi-Axis"
+      ],
+      "businessContext": "ISO 841 for coordinate systems; affects spindle power and rigidity."
+    },
+    {
+      "id": "use_high_feed",
+      "label": "High Feed Strategy",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "businessContext": "Lean Six Sigma approach to reduce cycle time; may increase tool wear."
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "feed_speed_ratio",
+        "condition": "feed_rate > 0.005 * cutting_speed",
+        "message": "Feed rate too high relative to cutting speed; risk of poor surface finish (ISO 1302)."
+      },
+      {
+        "id": "depth_limit",
+        "condition": "depth_of_cut > 0.5 * part_diameter",
+        "message": "Depth of cut exceeds 50% of part diameter; risk of chatter and tool breakage."
+      },
+      {
+        "id": "tool_life_warning",
+        "condition": "tool_life_minutes < 10",
+        "message": "Tool life less than 10 minutes; excessive downtime and cost (Lean waste)."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "cycle_time_alert",
+        "condition": "primaryResult > 15",
+        "message": "Cycle time exceeds 15 minutes; consider high-feed strategy or multi-tooling."
+      },
+      {
+        "id": "cost_alert",
+        "condition": "primaryResult * 2.5 > 50",
+        "message": "Estimated cost per part exceeds $50; review tooling and parameters."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "spindle_speed",
+      "label": "Spindle Speed (N)",
+      "expression": "(cutting_speed * 1000) / (PI * part_diameter)",
+      "unit": "rpm",
+      "description": "ISO 841 standard; rotational speed based on cutting speed and diameter."
+    },
+    {
+      "id": "cutting_time_per_pass",
+      "label": "Cutting Time per Pass (Tc)",
+      "expression": "part_length / (feed_rate * spindle_speed)",
+      "unit": "min",
+      "description": "Time for one pass; assumes continuous feed."
+    },
+    {
+      "id": "total_cutting_time",
+      "label": "Total Cutting Time (Tctotal)",
+      "expression": "cutting_time_per_pass * number_of_passes",
+      "unit": "min",
+      "description": "Sum of all passes; primary driver of cycle time."
+    },
+    {
+      "id": "tool_change_frequency",
+      "label": "Tool Change Frequency (Ftc)",
+      "expression": "total_cutting_time / tool_life_minutes",
+      "unit": "changes",
+      "description": "Number of tool changes required; affects downtime."
+    },
+    {
+      "id": "tool_change_downtime",
+      "label": "Tool Change Downtime (Td)",
+      "expression": "tool_change_frequency * tool_change_time",
+      "unit": "min",
+      "description": "Total downtime due to tool changes."
+    },
+    {
+      "id": "high_feed_adjustment",
+      "label": "High Feed Adjustment (HFA)",
+      "expression": "use_high_feed ? 0.85 : 1.0",
+      "unit": "factor",
+      "description": "Lean improvement factor; reduces cycle time by 15% when active."
+    },
+    {
+      "id": "primary_result",
+      "label": "Optimized Cycle Time (Topt)",
+      "expression": "(total_cutting_time + tool_change_downtime) * high_feed_adjustment",
+      "unit": "min",
+      "description": "Primary output; total time per part including cutting and tool changes."
+    },
+    {
+      "id": "cutting_time",
+      "label": "Cutting Time (Tctotal)",
+      "expression": "total_cutting_time",
+      "unit": "min",
+      "description": "Alias for total cutting time used by breakdown output."
+    },
+    {
+      "id": "optimized_cycle_time",
+      "label": "Optimized Cycle Time (Topt)",
+      "expression": "primary_result",
+      "unit": "min",
+      "description": "Alias for primary cycle time output."
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "optimized_cycle_time",
+      "label": "Optimized Cycle Time",
+      "value": null,
+      "unit": "min",
+      "description": "Total time per part after optimization."
+    },
+    "breakdown": {
+      "cutting_time": {
+        "id": "cutting_time",
+        "label": "Cutting Time",
+        "value": null,
+        "unit": "min"
+      },
+      "tool_change_downtime": {
+        "id": "tool_change_downtime",
+        "label": "Tool Change Downtime",
+        "value": null,
+        "unit": "min"
+      },
+      "spindle_speed": {
+        "id": "spindle_speed",
+        "label": "Spindle Speed",
+        "value": null,
+        "unit": "rpm"
+      },
+      "tool_change_frequency": {
+        "id": "tool_change_frequency",
+        "label": "Tool Change Frequency",
+        "value": null,
+        "unit": "changes"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excessive_tool_changes",
+        "label": "Excessive Tool Changes",
+        "description": "High tool change frequency increases downtime; consider longer-life tools or coatings.",
+        "severity": "medium"
+      },
+      {
+        "id": "low_spindle_utilization",
+        "label": "Low Spindle Utilization",
+        "description": "Spindle speed below 60% of max; idle time waste (Lean muda).",
+        "severity": "high"
+      },
+      {
+        "id": "non_optimal_feed",
+        "label": "Non-Optimal Feed Rate",
+        "description": "Feed rate not aligned with chip thinning; causes increased cycle time.",
+        "severity": "low"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "increase_feed_rate",
+        "label": "Increase Feed Rate",
+        "description": "If surface finish allows, increase feed by 10-20% to reduce cutting time.",
+        "expectedImpact": "Reduces cycle time by 5-10%"
+      },
+      {
+        "id": "use_high_feed_strategy",
+        "label": "Enable High Feed Strategy",
+        "description": "Activate high feed mode to reduce cycle time by 15%.",
+        "expectedImpact": "Reduces cycle time by 15%"
+      },
+      {
+        "id": "optimize_tool_life",
+        "label": "Optimize Tool Life",
+        "description": "Select tool with longer life (e.g., coated carbide) to reduce change frequency.",
+        "expectedImpact": "Reduces downtime by 20-30%"
+      },
+      {
+        "id": "reduce_number_of_passes",
+        "label": "Reduce Number of Passes",
+        "description": "Increase depth of cut if machine power allows; fewer passes reduce total time.",
+        "expectedImpact": "Reduces cycle time by 10-20%"
+      }
+    ],
+    "dataConfidenceAdjusted": 0.85
+  },
+  "toolName": "machining-strategy-time-optimizer-calculator",
+  "catalogCategory": "manufacturing-workshop",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

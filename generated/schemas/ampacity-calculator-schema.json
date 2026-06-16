@@ -1,0 +1,64 @@
+{
+  "toolName": "ampacity-calculator",
+  "inputs": [
+    {
+      "id": "materialFactor",
+      "label": "Conductor Material Factor (Copper=1, Aluminum=0.61)",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "Select 1 for copper or 0.61 for aluminum conductors as per ampacity standards."
+    },
+    {
+      "id": "area",
+      "label": "Cross-Sectional Area",
+      "type": "number",
+      "unit": "mm²",
+      "default": 2.5,
+      "businessContext": "Nominal cross-sectional area of the conductor in square millimeters."
+    },
+    {
+      "id": "insulationTemp",
+      "label": "Insulation Temperature Rating",
+      "type": "number",
+      "unit": "°C",
+      "default": 60,
+      "businessContext": "Maximum operating temperature of the insulation (e.g., 60, 75, 90°C)."
+    },
+    {
+      "id": "ambientTemp",
+      "label": "Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 30,
+      "businessContext": "Expected ambient temperature for the installation environment."
+    },
+    {
+      "id": "bundlingFactor",
+      "label": "Bundling/Grouping Factor",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "Derating factor for multiple conductors in a raceway or cable (1.0 for single, typically <1 for multiple). Range 0 to 1."
+    }
+  ],
+  "formulas": {
+    "calculate": "function(materialFactor, area, insulationTemp, ambientTemp, bundlingFactor) { const baseAmpacity = 15 * Math.pow(area, 0.6); const tempFactor = Math.sqrt((insulationTemp - ambientTemp) / (insulationTemp - 30)); const finalAmpacity = materialFactor * baseAmpacity * tempFactor * bundlingFactor; return { primary: finalAmpacity.toFixed(2) + ' A', breakdown: ['Base Ampacity: ' + baseAmpacity.toFixed(2) + ' A', 'Temperature Derating Factor: ' + tempFactor.toFixed(4), 'Bundling Factor: ' + bundlingFactor.toFixed(4), 'Material Factor: ' + materialFactor.toFixed(4), 'Final Ampacity: ' + finalAmpacity.toFixed(2) + ' A'] }; }"
+  },
+  "outputs": {
+    "primary": "finalAmpacity",
+    "breakdown": [
+      "baseAmpacity",
+      "tempFactor",
+      "bundlingFactor",
+      "materialFactor",
+      "finalAmpacity"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

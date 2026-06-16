@@ -1,0 +1,55 @@
+{
+  "toolName": "gordon-growth-model-calculator",
+  "inputs": [
+    {
+      "id": "currentDividend",
+      "label": "Current Annual Dividend Per Share ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 2.5,
+      "businessContext": "The most recent annual dividend paid per share."
+    },
+    {
+      "id": "growthRate",
+      "label": "Dividend Growth Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "The expected constant annual growth rate of the dividend."
+    },
+    {
+      "id": "requiredReturn",
+      "label": "Required Rate of Return (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "The minimum annual return required by an investor to invest in the stock."
+    },
+    {
+      "id": "marketPrice",
+      "label": "Current Market Price ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 50,
+      "businessContext": "The current trading price of the stock for margin of safety calculation."
+    }
+  ],
+  "formulas": {
+    "intrinsicValue": "currentDividend * (1 + growthRate/100) / (requiredReturn/100 - growthRate/100)",
+    "dividendYield": "(currentDividend / marketPrice) * 100",
+    "marginOfSafety": "((intrinsicValue - marketPrice) / intrinsicValue) * 100"
+  },
+  "outputs": {
+    "primary": "intrinsicValue",
+    "breakdown": [
+      "dividendYield",
+      "marginOfSafety"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

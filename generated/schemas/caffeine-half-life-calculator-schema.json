@@ -1,0 +1,54 @@
+{
+  "toolName": "caffeine-half-life-calculator",
+  "inputs": [
+    {
+      "id": "initialDose",
+      "label": "Initial Caffeine Dose",
+      "type": "number",
+      "unit": "mg",
+      "default": 200,
+      "businessContext": "Amount of caffeine consumed, e.g., an espresso shot ~63 mg, a cup of coffee ~95 mg, energy drink ~80 mg. Typical range: 50-500 mg."
+    },
+    {
+      "id": "halfLife",
+      "label": "Caffeine Half-Life",
+      "type": "number",
+      "unit": "hours",
+      "default": 5,
+      "businessContext": "Average half-life of caffeine in healthy adults: 3-7 hours, 5 hours typical. Smokers may have a half-life of 3 hours, pregnant women up to 15 hours."
+    },
+    {
+      "id": "elapsedTime",
+      "label": "Time Elapsed",
+      "type": "number",
+      "unit": "hours",
+      "default": 4,
+      "businessContext": "Hours since caffeine intake. For bedtime planning, consider elapsed time until sleep."
+    },
+    {
+      "id": "bodyWeight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight helps in assessing dose per kg, which relates to sensitivity. Average adult: 60-80 kg."
+    }
+  ],
+  "formulas": {
+    "primary": "initialDose * Math.pow(0.5, elapsedTime / halfLife)",
+    "breakdown": [
+      "primary / bodyWeight",
+      "elapsedTime / halfLife"
+    ]
+  },
+  "outputs": {
+    "primary": "remainingCaffeine_mg",
+    "breakdown": [
+      "remainingCaffeine_mg_per_kg",
+      "halfLivesElapsed"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false
+}

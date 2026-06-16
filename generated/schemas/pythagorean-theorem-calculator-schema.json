@@ -1,0 +1,61 @@
+{
+  "toolName": "pythagorean-theorem-calculator",
+  "inputs": [
+    {
+      "id": "legA",
+      "label": "Leg A Length",
+      "type": "number",
+      "unit": "m",
+      "default": null,
+      "businessContext": "Length of first leg of a right triangle (adjacent to the right angle)."
+    },
+    {
+      "id": "legB",
+      "label": "Leg B Length",
+      "type": "number",
+      "unit": "m",
+      "default": null,
+      "businessContext": "Length of second leg of a right triangle (adjacent to the right angle)."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding the computed hypotenuse."
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance (±)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.0001,
+      "businessContext": "Acceptable tolerance for verifying right triangle when checking existing measurements."
+    }
+  ],
+  "formulas": {
+    "primary": "parseFloat(Math.sqrt(legA**2 + legB**2).toFixed(precision))",
+    "breakdown": [
+      "legA**2",
+      "legB**2",
+      "legA**2 + legB**2",
+      "Math.sqrt(legA**2 + legB**2)"
+    ]
+  },
+  "outputs": {
+    "primary": "hypotenuse",
+    "breakdown": [
+      "Square of Leg A: legA²",
+      "Square of Leg B: legB²",
+      "Sum of squares: legA² + legB²",
+      "Hypotenuse length: √(legA² + legB²)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

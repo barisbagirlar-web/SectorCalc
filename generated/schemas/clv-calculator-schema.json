@@ -1,0 +1,63 @@
+{
+  "toolName": "clv-calculator",
+  "inputs": [
+    {
+      "id": "averageOrderValue",
+      "label": "Ortalama Sipariş Değeri",
+      "type": "number",
+      "unit": "TRY",
+      "default": 100,
+      "businessContext": "Müşteri başına ortalama harcama tutarı."
+    },
+    {
+      "id": "orderFrequency",
+      "label": "Yıllık Sipariş Sıklığı",
+      "type": "number",
+      "unit": "adet/yıl",
+      "default": 4,
+      "businessContext": "Müşterinin yılda kaç kez sipariş verdiği."
+    },
+    {
+      "id": "customerLifespan",
+      "label": "Müşteri Ömrü",
+      "type": "number",
+      "unit": "yıl",
+      "default": 3,
+      "businessContext": "Müşterinin aktif kaldığı süre."
+    },
+    {
+      "id": "profitMargin",
+      "label": "Kar Marjı",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Sipariş değerinden elde edilen kar oranı."
+    },
+    {
+      "id": "discountRate",
+      "label": "İndirim Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Gelecek nakit akışlarını bugüne indirgemek için kullanılan oran. %0 basit CLV için."
+    }
+  ],
+  "formulas": {
+    "annualProfit": "({averageOrderValue} * {orderFrequency} * ({profitMargin} / 100))",
+    "clv": "({discountRate} > 0) ? ({annualProfit} * ((1 - Math.pow(1 + {discountRate} / 100, -{customerLifespan})) / ({discountRate} / 100))) : ({annualProfit} * {customerLifespan})",
+    "totalProfitUndiscounted": "({annualProfit} * {customerLifespan})"
+  },
+  "outputs": {
+    "primary": "clv",
+    "breakdown": [
+      "annualProfit",
+      "totalProfitUndiscounted"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

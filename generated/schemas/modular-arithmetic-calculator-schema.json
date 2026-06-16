@@ -1,0 +1,58 @@
+{
+  "toolName": "modular-arithmetic-calculator",
+  "inputs": [
+    {
+      "id": "modulus",
+      "label": "Modulus (m)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 7,
+      "businessContext": "The modulus for arithmetic operations, must be a positive integer."
+    },
+    {
+      "id": "a",
+      "label": "Number a",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 5,
+      "businessContext": "First operand."
+    },
+    {
+      "id": "b",
+      "label": "Number b",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 3,
+      "businessContext": "Second operand, used in addition, subtraction, multiplication."
+    },
+    {
+      "id": "exponent",
+      "label": "Exponent",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 2,
+      "businessContext": "Exponent for modular exponentiation (a^exponent mod m)."
+    }
+  ],
+  "formulas": {
+    "sum": "((a + b) % modulus + modulus) % modulus",
+    "difference": "((a - b) % modulus + modulus) % modulus",
+    "product": "((a * b) % modulus + modulus) % modulus",
+    "power": "((a ** exponent) % modulus + modulus) % modulus"
+  },
+  "outputs": {
+    "primary": "sum",
+    "breakdown": [
+      "sum",
+      "difference",
+      "product",
+      "power"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

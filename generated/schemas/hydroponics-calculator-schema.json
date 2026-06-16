@@ -1,0 +1,63 @@
+{
+  "toolName": "hydroponics-calculator",
+  "inputs": [
+    {
+      "id": "fertilizerMass",
+      "label": "Fertilizer Mass",
+      "type": "number",
+      "unit": "g",
+      "default": 100,
+      "businessContext": "Mass of fertilizer used to prepare stock solution"
+    },
+    {
+      "id": "nutrientPercentage",
+      "label": "Nutrient Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Nutrient content by weight in fertilizer"
+    },
+    {
+      "id": "waterVolumeForStock",
+      "label": "Water Volume for Stock",
+      "type": "number",
+      "unit": "L",
+      "default": 1,
+      "businessContext": "Volume of water used to dissolve fertilizer for stock solution"
+    },
+    {
+      "id": "targetPpm",
+      "label": "Target PPM",
+      "type": "number",
+      "unit": "ppm",
+      "default": 150,
+      "businessContext": "Desired final nutrient concentration in reservoir"
+    },
+    {
+      "id": "reservoirWaterVolume",
+      "label": "Reservoir Water Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 100,
+      "businessContext": "Total water volume in hydroponic reservoir to be treated"
+    }
+  ],
+  "formulas": {
+    "stockPpm": "(fertilizerMass * 10 * nutrientPercentage) / waterVolumeForStock",
+    "stockVolumeL": "(targetPpm * reservoirWaterVolume) / stockPpm",
+    "stockVolumeML": "stockVolumeL * 1000"
+  },
+  "outputs": {
+    "primary": "stockVolumeML",
+    "breakdown": [
+      "stockPpm",
+      "stockVolumeL"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,70 @@
+{
+  "toolName": "kaplan-meier-calculator",
+  "inputs": [
+    {
+      "id": "time1",
+      "label": "Zaman 1",
+      "type": "number",
+      "unit": "zaman birimi",
+      "default": 0,
+      "businessContext": "İlk olayın gerçekleştiği zaman (veya ilk aralığın sonu)."
+    },
+    {
+      "id": "risk1",
+      "label": "Risk Altındaki Sayı 1",
+      "type": "number",
+      "unit": "birim",
+      "default": 0,
+      "businessContext": "İlk olaydan hemen önce risk altındaki denek sayısı."
+    },
+    {
+      "id": "events1",
+      "label": "Olay Sayısı 1",
+      "type": "number",
+      "unit": "birim",
+      "default": 0,
+      "businessContext": "Zaman 1'de meydana gelen olay (başarısızlık) sayısı."
+    },
+    {
+      "id": "time2",
+      "label": "Zaman 2",
+      "type": "number",
+      "unit": "zaman birimi",
+      "default": 0,
+      "businessContext": "İkinci olayın gerçekleştiği zaman."
+    },
+    {
+      "id": "risk2",
+      "label": "Risk Altındaki Sayı 2",
+      "type": "number",
+      "unit": "birim",
+      "default": 0,
+      "businessContext": "İkinci olaydan hemen önce risk altındaki denek sayısı (Zaman 1'deki kayıplar düşüldükten sonra)."
+    },
+    {
+      "id": "events2",
+      "label": "Olay Sayısı 2",
+      "type": "number",
+      "unit": "birim",
+      "default": 0,
+      "businessContext": "Zaman 2'de meydana gelen olay sayısı."
+    }
+  ],
+  "formulas": {
+    "survival1": "1 - (events1 / risk1)",
+    "survival2": "(1 - (events1 / risk1)) * (1 - (events2 / risk2))"
+  },
+  "outputs": {
+    "primary": "survival2",
+    "breakdown": [
+      "survival1",
+      "survival2"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

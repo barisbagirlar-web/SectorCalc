@@ -1,0 +1,89 @@
+{
+  "toolName": "401k-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Your current age"
+    },
+    {
+      "id": "retirementAge",
+      "label": "Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 65,
+      "businessContext": "Age at which you plan to retire"
+    },
+    {
+      "id": "currentSalary",
+      "label": "Current Annual Salary",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Your current gross annual salary"
+    },
+    {
+      "id": "contributionRate",
+      "label": "Employee Contribution Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage of salary you contribute to 401k"
+    },
+    {
+      "id": "employerMatchRate",
+      "label": "Employer Match Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of salary your employer matches"
+    },
+    {
+      "id": "expectedReturnRate",
+      "label": "Expected Annual Return",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected annual rate of return on investments"
+    },
+    {
+      "id": "inflationRate",
+      "label": "Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Annual inflation rate affecting salary increases"
+    },
+    {
+      "id": "currentBalance",
+      "label": "Current 401k Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Current balance in your 401k account"
+    }
+  ],
+  "formulas": {
+    "futureValue": "(expectedReturnRate === inflationRate) ? (currentBalance * Math.pow(1 + expectedReturnRate/100, retirementAge - currentAge) + currentSalary * (contributionRate/100 + employerMatchRate/100) * (retirementAge - currentAge) * Math.pow(1 + expectedReturnRate/100, retirementAge - currentAge - 1)) : (currentBalance * Math.pow(1 + expectedReturnRate/100, retirementAge - currentAge) + currentSalary * (contributionRate/100 + employerMatchRate/100) * (Math.pow(1 + expectedReturnRate/100, retirementAge - currentAge) - Math.pow(1 + inflationRate/100, retirementAge - currentAge)) / ((expectedReturnRate/100) - (inflationRate/100)))",
+    "totalEmployeeContributions": "(inflationRate === 0) ? currentSalary * (contributionRate/100) * (retirementAge - currentAge) : currentSalary * (contributionRate/100) * (Math.pow(1 + inflationRate/100, retirementAge - currentAge) - 1) / (inflationRate/100)",
+    "totalEmployerContributions": "(inflationRate === 0) ? currentSalary * (employerMatchRate/100) * (retirementAge - currentAge) : currentSalary * (employerMatchRate/100) * (Math.pow(1 + inflationRate/100, retirementAge - currentAge) - 1) / (inflationRate/100)",
+    "investmentGrowth": "futureValue - currentBalance - totalEmployeeContributions - totalEmployerContributions"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": [
+      "totalEmployeeContributions",
+      "totalEmployerContributions",
+      "investmentGrowth"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,72 @@
+{
+  "toolName": "days-between-dates-calculator",
+  "inputs": [
+    {
+      "id": "startYear",
+      "label": "Start Year",
+      "type": "number",
+      "unit": "",
+      "default": 2024,
+      "businessContext": "The year of the start date."
+    },
+    {
+      "id": "startMonth",
+      "label": "Start Month",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Month of start date (1-12)."
+    },
+    {
+      "id": "startDay",
+      "label": "Start Day",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Day of start date."
+    },
+    {
+      "id": "endYear",
+      "label": "End Year",
+      "type": "number",
+      "unit": "",
+      "default": 2024,
+      "businessContext": "The year of the end date."
+    },
+    {
+      "id": "endMonth",
+      "label": "End Month",
+      "type": "number",
+      "unit": "",
+      "default": 12,
+      "businessContext": "Month of end date (1-12)."
+    },
+    {
+      "id": "endDay",
+      "label": "End Day",
+      "type": "number",
+      "unit": "",
+      "default": 31,
+      "businessContext": "Day of end date."
+    }
+  ],
+  "formulas": {
+    "startDateISO": "`${startYear}-${String(startMonth).padStart(2, '0')}-${String(startDay).padStart(2, '0')}`",
+    "endDateISO": "`${endYear}-${String(endMonth).padStart(2, '0')}-${String(endDay).padStart(2, '0')}`",
+    "daysBetween": "(new Date(endYear, endMonth - 1, endDay) - new Date(startYear, startMonth - 1, startDay)) / (1000 * 60 * 60 * 24)"
+  },
+  "outputs": {
+    "primary": "daysBetween",
+    "breakdown": [
+      "startDateISO",
+      "endDateISO",
+      "daysBetween"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

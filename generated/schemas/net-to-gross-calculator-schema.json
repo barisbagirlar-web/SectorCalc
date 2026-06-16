@@ -1,0 +1,69 @@
+{
+  "toolName": "net-to-gross-calculator",
+  "inputs": [
+    {
+      "id": "netAmount",
+      "label": "Net Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "businessContext": "The net amount after deductions"
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Tax rate applied to gross amount"
+    },
+    {
+      "id": "socialInsuranceRate",
+      "label": "Social Insurance Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Social insurance contribution rate on gross"
+    },
+    {
+      "id": "additionalDeductionRate",
+      "label": "Additional Deduction Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Other deduction rate (e.g., union fees) from gross"
+    },
+    {
+      "id": "otherDeductionsFixed",
+      "label": "Other Fixed Deductions",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Fixed amount deductions before rate deduction"
+    }
+  ],
+  "formulas": {
+    "totalRate": "(taxRate + socialInsuranceRate + additionalDeductionRate) / 100",
+    "grossAmount": "(netAmount + otherDeductionsFixed) / (1 - totalRate)",
+    "taxAmount": "grossAmount * (taxRate / 100)",
+    "socialInsuranceAmount": "grossAmount * (socialInsuranceRate / 100)",
+    "additionalDeductionAmount": "grossAmount * (additionalDeductionRate / 100)",
+    "totalDeductions": "taxAmount + socialInsuranceAmount + additionalDeductionAmount + otherDeductionsFixed"
+  },
+  "outputs": {
+    "primary": "grossAmount",
+    "breakdown": [
+      "taxAmount",
+      "socialInsuranceAmount",
+      "additionalDeductionAmount",
+      "otherDeductionsFixed",
+      "totalDeductions"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

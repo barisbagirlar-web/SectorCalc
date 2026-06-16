@@ -1,0 +1,73 @@
+{
+  "toolName": "cohens-d-calculator",
+  "inputs": [
+    {
+      "id": "mean1",
+      "label": "Mean of Group 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Average value of the first group"
+    },
+    {
+      "id": "mean2",
+      "label": "Mean of Group 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Average value of the second group"
+    },
+    {
+      "id": "sd1",
+      "label": "Standard Deviation of Group 1",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Standard deviation of the first group"
+    },
+    {
+      "id": "sd2",
+      "label": "Standard Deviation of Group 2",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Standard deviation of the second group"
+    },
+    {
+      "id": "n1",
+      "label": "Sample Size of Group 1",
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "businessContext": "Number of observations in the first group"
+    },
+    {
+      "id": "n2",
+      "label": "Sample Size of Group 2",
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "businessContext": "Number of observations in the second group"
+    }
+  ],
+  "formulas": {
+    "pooledSD": "Math.sqrt(((n1-1)*sd1*sd1 + (n2-1)*sd2*sd2) / (n1+n2-2))",
+    "cohensD": "(mean1 - mean2) / pooledSD",
+    "effectSize": "Math.abs(cohensD)",
+    "interpretation": "cohensD >= 0.8 ? 'Large' : (cohensD >= 0.5 ? 'Medium' : (cohensD >= 0.2 ? 'Small' : 'Negligible'))"
+  },
+  "outputs": {
+    "primary": "cohensD",
+    "breakdown": [
+      "pooledSD",
+      "effectSize",
+      "interpretation"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

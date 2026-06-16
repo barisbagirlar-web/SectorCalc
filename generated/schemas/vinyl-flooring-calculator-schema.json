@@ -1,0 +1,72 @@
+{
+  "toolName": "vinyl-flooring-calculator",
+  "inputs": [
+    {
+      "id": "roomLength",
+      "label": "Room Length",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "The length of the room where vinyl flooring will be installed."
+    },
+    {
+      "id": "roomWidth",
+      "label": "Room Width",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "The width of the room where vinyl flooring will be installed."
+    },
+    {
+      "id": "plankLength",
+      "label": "Vinyl Plank Length",
+      "type": "number",
+      "unit": "m",
+      "default": 1.2,
+      "businessContext": "The length of a single vinyl plank."
+    },
+    {
+      "id": "plankWidth",
+      "label": "Vinyl Plank Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.2,
+      "businessContext": "The width of a single vinyl plank."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage of extra material to account for cutting and fitting waste."
+    },
+    {
+      "id": "plankPrice",
+      "label": "Price per Square Meter",
+      "type": "number",
+      "unit": "€/m²",
+      "default": 15,
+      "businessContext": "Cost of vinyl flooring per square meter."
+    }
+  ],
+  "formulas": {
+    "totalArea": "roomLength * roomWidth",
+    "effectiveArea": "totalArea * (1 + wasteFactor / 100)",
+    "numberOfPlanks": "effectiveArea / (plankLength * plankWidth)",
+    "totalCost": "effectiveArea * plankPrice"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "totalArea",
+      "numberOfPlanks"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

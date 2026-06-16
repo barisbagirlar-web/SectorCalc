@@ -1,0 +1,63 @@
+// Auto-generated from cows-calculator-schema.json
+import * as z from 'zod';
+
+export interface Cows_calculatorInput {
+  downtimeHours: number;
+  affectedMachines: number;
+  hourlyCostPerMachine: number;
+  lostProductionPerHour: number;
+  profitPerUnit: number;
+  overheadMultiplier: number;
+}
+
+export const Cows_calculatorInputSchema = z.object({
+  downtimeHours: z.number().default(1),
+  affectedMachines: z.number().default(1),
+  hourlyCostPerMachine: z.number().default(100),
+  lostProductionPerHour: z.number().default(10),
+  profitPerUnit: z.number().default(20),
+  overheadMultiplier: z.number().default(1.5),
+});
+
+function evaluateAllFormulas(input: Cows_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.downtimeHours * input.affectedMachines * input.hourlyCostPerMachine; results["directCost"] = Number.isFinite(v) ? v : 0; } catch { results["directCost"] = 0; }
+  try { const v = input.downtimeHours * input.affectedMachines * input.lostProductionPerHour * input.profitPerUnit; results["lostProfit"] = Number.isFinite(v) ? v : 0; } catch { results["lostProfit"] = 0; }
+  try { const v = ((results["directCost"] ?? 0) + (results["lostProfit"] ?? 0)) * input.overheadMultiplier; results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  return results;
+}
+
+
+export function calculateCows_calculator(input: Cows_calculatorInput): Cows_calculatorOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values["totalCost"] ?? 0;
+  const breakdown = {
+    
+  };
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    premiumRequired: false,
+    premiumFeatures: [],
+  };
+}
+
+
+export interface Cows_calculatorOutput {
+  totalWasteCost: number;
+  breakdown: {  };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+}

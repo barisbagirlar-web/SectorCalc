@@ -1,0 +1,71 @@
+{
+  "toolName": "uv-index-calculator",
+  "inputs": [
+    {
+      "id": "sza",
+      "label": "Solar Zenith Angle",
+      "type": "number",
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Angle between the sun and the vertical. 0° means sun directly overhead."
+    },
+    {
+      "id": "ozone",
+      "label": "Ozone Column Thickness",
+      "type": "number",
+      "unit": "DU",
+      "default": 300,
+      "businessContext": "Total ozone column in Dobson Units. Typical range 200–500 DU."
+    },
+    {
+      "id": "altitude",
+      "label": "Altitude",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Elevation above sea level in meters."
+    },
+    {
+      "id": "albedo",
+      "label": "Surface Albedo",
+      "type": "number",
+      "unit": "",
+      "default": 0.05,
+      "businessContext": "Reflectivity of the ground surface, between 0 and 1. Typical grass: 0.03, snow: 0.8."
+    },
+    {
+      "id": "aod",
+      "label": "Aerosol Optical Depth",
+      "type": "number",
+      "unit": "",
+      "default": 0.1,
+      "businessContext": "Aerosol optical depth at 550 nm. Clear atmosphere: 0.05–0.1, polluted: >0.5."
+    },
+    {
+      "id": "cloudCover",
+      "label": "Cloud Cover Fraction",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fraction of sky covered by clouds, 0 (clear) to 1 (overcast)."
+    }
+  ],
+  "formulas": {
+    "clearSkyUvIndex": "12 * Math.pow(Math.cos(sza * Math.PI / 180), 1.2) * Math.exp(-0.003 * (ozone - 250)) * (1 + 0.04 * altitude / 1000) * (1 + albedo) * Math.exp(-aod)",
+    "uvIndex": "clearSkyUvIndex * (1 - 0.75 * cloudCover)",
+    "uvIrradiance": "uvIndex * 25"
+  },
+  "outputs": {
+    "primary": "uvIndex",
+    "breakdown": [
+      "clearSkyUvIndex",
+      "uvIrradiance"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "pace-calculator",
+  "inputs": [
+    {
+      "id": "distanceKm",
+      "label": "Distance (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 1,
+      "businessContext": "Enter the distance covered in kilometers."
+    },
+    {
+      "id": "hours",
+      "label": "Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 0,
+      "businessContext": "Number of hours taken."
+    },
+    {
+      "id": "minutes",
+      "label": "Minutes",
+      "type": "number",
+      "unit": "min",
+      "default": 0,
+      "businessContext": "Number of minutes taken."
+    },
+    {
+      "id": "seconds",
+      "label": "Seconds",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Number of seconds taken."
+    }
+  ],
+  "formulas": {
+    "primary": "`Pace: ${(hours*60+minutes+seconds/60)/distanceKm} min/km`",
+    "breakdown": [
+      "`Speed: ${distanceKm/(hours + minutes/60 + seconds/3600)} km/h`",
+      "`Pace per mile: ${(hours*60+minutes+seconds/60)*1.60934/distanceKm} min/mi`"
+    ]
+  },
+  "outputs": {
+    "primary": "Pace per km",
+    "breakdown": [
+      "Speed in km/h",
+      "Pace per mile"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

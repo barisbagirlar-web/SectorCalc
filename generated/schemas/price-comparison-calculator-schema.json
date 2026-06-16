@@ -1,0 +1,81 @@
+{
+  "toolName": "price-comparison-calculator",
+  "inputs": [
+    {
+      "id": "priceA",
+      "label": "Price of Product A",
+      "type": "number",
+      "unit": "currency",
+      "default": 10,
+      "businessContext": "Unit price of the first product"
+    },
+    {
+      "id": "priceB",
+      "label": "Price of Product B",
+      "type": "number",
+      "unit": "currency",
+      "default": 12,
+      "businessContext": "Unit price of the second product"
+    },
+    {
+      "id": "quantityA",
+      "label": "Quantity of A",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "businessContext": "Number of units for Product A"
+    },
+    {
+      "id": "quantityB",
+      "label": "Quantity of B",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "businessContext": "Number of units for Product B"
+    },
+    {
+      "id": "discountA",
+      "label": "Discount on A (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Discount percentage for Product A"
+    },
+    {
+      "id": "discountB",
+      "label": "Discount on B (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Discount percentage for Product B"
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "businessContext": "Applicable tax rate percentage"
+    }
+  ],
+  "formulas": {
+    "totalA": "priceA * quantityA * (1 - discountA/100) * (1 + taxRate/100)",
+    "totalB": "priceB * quantityB * (1 - discountB/100) * (1 + taxRate/100)",
+    "difference": "Math.abs(totalA - totalB)",
+    "comparisonResult": "totalA < totalB ? `Product A is cheaper by ${difference.toFixed(2)} currency` : totalB < totalA ? `Product B is cheaper by ${difference.toFixed(2)} currency` : 'Both products cost the same'"
+  },
+  "outputs": {
+    "primary": "comparisonResult",
+    "breakdown": [
+      "totalA",
+      "totalB",
+      "difference"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

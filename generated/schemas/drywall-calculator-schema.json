@@ -1,0 +1,85 @@
+{
+  "toolName": "drywall-calculator",
+  "inputs": [
+    {
+      "id": "roomLength",
+      "label": "Oda Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Odanın uzunluğu (metre cinsinden). Ör: 5"
+    },
+    {
+      "id": "roomWidth",
+      "label": "Oda Genişliği",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Odanın genişliği (metre cinsinden). Ör: 4"
+    },
+    {
+      "id": "roomHeight",
+      "label": "Oda Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 2.5,
+      "businessContext": "Duvar yüksekliği (metre cinsinden). Ör: 2.5"
+    },
+    {
+      "id": "numberOfDoors",
+      "label": "Kapı Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Açıklık çıkarılacak kapı sayısı (her kapı 2 m²). Ör: 1"
+    },
+    {
+      "id": "numberOfWindows",
+      "label": "Pencere Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 2,
+      "businessContext": "Açıklık çıkarılacak pencere sayısı (her pencere 1.5 m²). Ör: 2"
+    },
+    {
+      "id": "panelArea",
+      "label": "Alçıpan Alanı",
+      "type": "number",
+      "unit": "m²",
+      "default": 2.88,
+      "businessContext": "Tek bir alçıpan levhanın alanı (m²). Standart 1.2x2.4m = 2.88 m². Ör: 2.88"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Kesim ve kayıp için eklenecek yüzde. Ör: 10"
+    }
+  ],
+  "formulas": {
+    "totalWallArea": "(2 * (roomLength + roomWidth)) * roomHeight",
+    "totalOpenings": "numberOfDoors * 2 + numberOfWindows * 1.5",
+    "netArea": "totalWallArea - totalOpenings",
+    "totalAreaWithWaste": "netArea * (1 + wasteFactor / 100)",
+    "totalPanels": "Math.ceil(totalAreaWithWaste / panelArea)",
+    "compound_kg": "totalAreaWithWaste * 0.4",
+    "tape_m": "totalAreaWithWaste * 1.5",
+    "screws": "Math.ceil(totalAreaWithWaste * 15)"
+  },
+  "outputs": {
+    "primary": "totalPanels",
+    "breakdown": [
+      "compound_kg",
+      "tape_m",
+      "screws"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

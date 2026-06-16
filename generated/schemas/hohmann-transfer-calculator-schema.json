@@ -1,0 +1,64 @@
+{
+  "toolName": "hohmann-transfer-calculator",
+  "inputs": [
+    {
+      "id": "bodyRadius",
+      "label": "Central Body Radius",
+      "type": "number",
+      "unit": "km",
+      "default": 6378,
+      "businessContext": "Radius of the central body (e.g., Earth radius = 6378 km)"
+    },
+    {
+      "id": "alt1",
+      "label": "Initial Altitude",
+      "type": "number",
+      "unit": "km",
+      "default": 300,
+      "businessContext": "Altitude of initial circular orbit above the surface"
+    },
+    {
+      "id": "alt2",
+      "label": "Final Altitude",
+      "type": "number",
+      "unit": "km",
+      "default": 35786,
+      "businessContext": "Altitude of final circular orbit above the surface"
+    },
+    {
+      "id": "mu",
+      "label": "Gravitational Parameter",
+      "type": "number",
+      "unit": "km^3/s^2",
+      "default": 398600.44,
+      "businessContext": "Standard gravitational parameter of the central body (Earth default)"
+    }
+  ],
+  "formulas": {
+    "r1": "bodyRadius + alt1",
+    "r2": "bodyRadius + alt2",
+    "v1i": "Math.sqrt(mu / r1)",
+    "v2f": "Math.sqrt(mu / r2)",
+    "a": "(r1 + r2) / 2",
+    "vp": "Math.sqrt(2 * mu / r1 - mu / a)",
+    "va": "Math.sqrt(2 * mu / r2 - mu / a)",
+    "dv1": "vp - v1i",
+    "dv2": "v2f - va",
+    "dvTotal": "dv1 + dv2",
+    "t_transfer": "Math.PI * Math.sqrt(Math.pow(a, 3) / mu)"
+  },
+  "outputs": {
+    "primary": "Total Δv: ${dvTotal} km/s",
+    "breakdown": [
+      "Δv1: ${dv1} km/s",
+      "Δv2: ${dv2} km/s",
+      "Transfer Time: ${t_transfer} s"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

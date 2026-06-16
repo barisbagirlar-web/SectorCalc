@@ -1,0 +1,57 @@
+{
+  "toolName": "archimedes-principle-calculator",
+  "inputs": [
+    {
+      "id": "fluidDensity",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of the fluid (e.g., water = 1000 kg/m³)"
+    },
+    {
+      "id": "objectVolume",
+      "label": "Object Volume",
+      "type": "number",
+      "unit": "m³",
+      "default": 0.5,
+      "businessContext": "Total volume of the submerged object"
+    },
+    {
+      "id": "objectMass",
+      "label": "Object Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 500,
+      "businessContext": "Mass of the object"
+    },
+    {
+      "id": "gravity",
+      "label": "Gravitational Acceleration",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Standard gravity (9.81 m/s² on Earth)"
+    }
+  ],
+  "formulas": {
+    "buoyantForce": "(objectMass / objectVolume <= fluidDensity) ? (objectMass * gravity) : (fluidDensity * objectVolume * gravity)",
+    "objectDensity": "objectMass / objectVolume",
+    "netForce": "(objectMass / objectVolume <= fluidDensity) ? 0 : (gravity * (objectMass - fluidDensity * objectVolume))",
+    "floats": "objectMass / objectVolume <= fluidDensity"
+  },
+  "outputs": {
+    "primary": "buoyantForce",
+    "breakdown": [
+      "objectDensity",
+      "netForce",
+      "floats"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

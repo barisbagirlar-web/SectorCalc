@@ -1,0 +1,74 @@
+{
+  "toolName": "estate-tax-calculator",
+  "inputs": [
+    {
+      "id": "grossEstateValue",
+      "label": "Gross Estate Value",
+      "type": "number",
+      "unit": "$",
+      "default": 1000000,
+      "businessContext": "Total fair market value of all assets at time of death"
+    },
+    {
+      "id": "standardExemption",
+      "label": "Standard Exemption",
+      "type": "number",
+      "unit": "$",
+      "default": 500000,
+      "businessContext": "Federal or jurisdictional exempt amount"
+    },
+    {
+      "id": "otherDeductions",
+      "label": "Other Deductions",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Charitable, marital, debts, and other allowable deductions"
+    },
+    {
+      "id": "taxRate",
+      "label": "Base Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "businessContext": "Statutory tax rate on taxable estate"
+    },
+    {
+      "id": "surchargeThreshold",
+      "label": "Surcharge Threshold",
+      "type": "number",
+      "unit": "$",
+      "default": 10000000,
+      "businessContext": "Taxable estate amount above which a surcharge applies"
+    },
+    {
+      "id": "surchargeRate",
+      "label": "Surcharge Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "businessContext": "Additional tax rate applied on estate value exceeding surcharge threshold"
+    }
+  ],
+  "formulas": {
+    "taxableEstate": "Math.max(0, grossEstateValue - standardExemption - otherDeductions)",
+    "baseTax": "taxableEstate * (taxRate / 100)",
+    "surcharge": "taxableEstate > surchargeThreshold ? (taxableEstate - surchargeThreshold) * (surchargeRate / 100) : 0",
+    "totalTax": "baseTax + surcharge"
+  },
+  "outputs": {
+    "primary": "totalTax",
+    "breakdown": [
+      "taxableEstate",
+      "baseTax",
+      "surcharge",
+      "totalTax"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

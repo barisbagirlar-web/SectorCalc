@@ -1,0 +1,57 @@
+{
+  "toolName": "yield-calculator",
+  "inputs": [
+    {
+      "id": "totalUnits",
+      "label": "Total Units Started",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "businessContext": "Total number of units that entered the production process."
+    },
+    {
+      "id": "goodUnitsFirstPass",
+      "label": "Good Units (First Pass)",
+      "type": "number",
+      "unit": "units",
+      "default": 850,
+      "businessContext": "Number of units that passed quality inspection on the first attempt without rework."
+    },
+    {
+      "id": "reworkedUnits",
+      "label": "Reworked Units",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "businessContext": "Number of units that required rework to meet quality standards."
+    },
+    {
+      "id": "scrapUnits",
+      "label": "Scrap Units",
+      "type": "number",
+      "unit": "units",
+      "default": 50,
+      "businessContext": "Number of units that were scrapped or deemed irreparable."
+    }
+  ],
+  "formulas": {
+    "overallYield": "(goodUnitsFirstPass + reworkedUnits) / totalUnits * 100",
+    "firstPassYield": "goodUnitsFirstPass / totalUnits * 100",
+    "reworkRate": "reworkedUnits / totalUnits * 100",
+    "scrapRate": "scrapUnits / totalUnits * 100"
+  },
+  "outputs": {
+    "primary": "overallYield",
+    "breakdown": [
+      "firstPassYield",
+      "reworkRate",
+      "scrapRate"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

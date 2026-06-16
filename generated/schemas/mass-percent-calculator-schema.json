@@ -1,0 +1,57 @@
+{
+  "toolName": "mass-percent-calculator",
+  "inputs": [
+    {
+      "id": "componentMass",
+      "label": "Mass of Component",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Mass of the component for which mass percent is calculated."
+    },
+    {
+      "id": "otherComponentMass",
+      "label": "Mass of Other Component",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Mass of the other component in the mixture. If total mass is not provided, this is used with component mass to compute total."
+    },
+    {
+      "id": "totalMass",
+      "label": "Total Mass of Mixture",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Total mass of the mixture. If provided, it overrides the sum of component and other component."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the mass percent output."
+    }
+  ],
+  "formulas": {
+    "totalMassCalc": "inputs.totalMass > 0 ? inputs.totalMass : inputs.componentMass + inputs.otherComponentMass",
+    "massPercent": "(inputs.componentMass / totalMassCalc) * 100",
+    "massPercentRounded": "parseFloat(massPercent.toFixed(inputs.precision))",
+    "otherMassPercent": "inputs.totalMass > 0 ? ((inputs.totalMass - inputs.componentMass) / inputs.totalMass) * 100 : (inputs.otherComponentMass / totalMassCalc) * 100",
+    "otherMassPercentRounded": "parseFloat(otherMassPercent.toFixed(inputs.precision))"
+  },
+  "outputs": {
+    "primary": "massPercentRounded",
+    "breakdown": [
+      "otherMassPercentRounded",
+      "totalMassCalc"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

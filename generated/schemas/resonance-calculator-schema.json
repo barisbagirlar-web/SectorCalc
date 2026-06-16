@@ -1,0 +1,59 @@
+{
+  "toolName": "resonance-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "The mass of the oscillating body in kilograms."
+    },
+    {
+      "id": "stiffness",
+      "label": "Spring Stiffness (N/m)",
+      "type": "number",
+      "unit": "N/m",
+      "default": 100,
+      "businessContext": "The stiffness of the spring or structural element in Newtons per meter."
+    },
+    {
+      "id": "dampingRatio",
+      "label": "Damping Ratio (ζ)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.05,
+      "businessContext": "The damping ratio ζ = c/(2√(mk)), typically between 0 and 1."
+    },
+    {
+      "id": "excitationFrequency",
+      "label": "Excitation Frequency (Hz)",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1,
+      "businessContext": "The frequency of the applied oscillating force or base motion."
+    }
+  ],
+  "formulas": {
+    "omega_n": "Math.sqrt(stiffness/mass)",
+    "f_n": "omega_n/(2*Math.PI)",
+    "r": "excitationFrequency/f_n",
+    "M": "1 / Math.sqrt((1 - r*r)*(1 - r*r) + 4*dampingRatio*dampingRatio*r*r)",
+    "f_d": "(dampingRatio < 1) ? f_n * Math.sqrt(1 - dampingRatio*dampingRatio) : 0",
+    "q": "1/(2*dampingRatio)"
+  },
+  "outputs": {
+    "primary": "M",
+    "breakdown": [
+      "f_n",
+      "f_d",
+      "q"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

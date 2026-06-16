@@ -1,0 +1,67 @@
+{
+  "toolName": "clustering-distance-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "X₁ Koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "İlk noktanın x koordinatı"
+    },
+    {
+      "id": "y1",
+      "label": "Y₁ Koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "İlk noktanın y koordinatı"
+    },
+    {
+      "id": "x2",
+      "label": "X₂ Koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "İkinci noktanın x koordinatı"
+    },
+    {
+      "id": "y2",
+      "label": "Y₂ Koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "İkinci noktanın y koordinatı"
+    },
+    {
+      "id": "w",
+      "label": "Ağırlık Faktörü",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 1,
+      "businessContext": "Mesafe ağırlık katsayısı"
+    }
+  ],
+  "formulas": {
+    "dx": "x2 - x1",
+    "dy": "y2 - y1",
+    "squaredSum": "dx * dx + dy * dy",
+    "sqrt": "Math.sqrt(squaredSum)",
+    "distance": "w * sqrt"
+  },
+  "outputs": {
+    "primary": "distance",
+    "breakdown": [
+      "dx",
+      "dy",
+      "squaredSum",
+      "sqrt"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

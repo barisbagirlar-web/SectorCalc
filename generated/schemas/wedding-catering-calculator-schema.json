@@ -1,0 +1,59 @@
+{
+  "toolName": "wedding-catering-calculator",
+  "inputs": [
+    {
+      "id": "guestCount",
+      "label": "Guest Count",
+      "type": "number",
+      "unit": "guests",
+      "default": 100,
+      "businessContext": "Number of guests attending the wedding."
+    },
+    {
+      "id": "costPerPlate",
+      "label": "Cost Per Plate",
+      "type": "number",
+      "unit": "TRY/guest",
+      "default": 200,
+      "businessContext": "Cost of food per guest."
+    },
+    {
+      "id": "drinksPerGuest",
+      "label": "Drinks Cost Per Guest",
+      "type": "number",
+      "unit": "TRY/guest",
+      "default": 50,
+      "businessContext": "Cost of beverages per guest."
+    },
+    {
+      "id": "serviceChargePercent",
+      "label": "Service Charge",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Service charge percentage applied to food and drinks subtotal."
+    }
+  ],
+  "formulas": {
+    "totalFoodCost": "guestCount * costPerPlate",
+    "totalDrinksCost": "guestCount * drinksPerGuest",
+    "serviceCharge": "(totalFoodCost + totalDrinksCost) * serviceChargePercent / 100",
+    "totalCost": "totalFoodCost + totalDrinksCost + serviceCharge",
+    "costPerGuest": "totalCost / guestCount"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "totalFoodCost",
+      "totalDrinksCost",
+      "serviceCharge",
+      "costPerGuest"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

@@ -1,0 +1,60 @@
+// Auto-generated from stamp-value-calculator-schema.json
+import * as z from 'zod';
+
+export interface Stamp_value_calculatorInput {
+  documentValue: number;
+  stampDutyRate: number;
+  fixedFee: number;
+  exemptionThreshold: number;
+  quantity: number;
+}
+
+export const Stamp_value_calculatorInputSchema = z.object({
+  documentValue: z.number().default(1000),
+  stampDutyRate: z.number().default(0.5),
+  fixedFee: z.number().default(0),
+  exemptionThreshold: z.number().default(0),
+  quantity: z.number().default(1),
+});
+
+function evaluateAllFormulas(input: Stamp_value_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.documentValue > input.exemptionThreshold ? ((input.documentValue - input.exemptionThreshold) * input.stampDutyRate / 100 + input.fixedFee) : 0; results["dutyPerUnit"] = Number.isFinite(v) ? v : 0; } catch { results["dutyPerUnit"] = 0; }
+  try { const v = (results["dutyPerUnit"] ?? 0) * input.quantity; results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  return results;
+}
+
+
+export function calculateStamp_value_calculator(input: Stamp_value_calculatorInput): Stamp_value_calculatorOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values["totalCost"] ?? 0;
+  const breakdown = {
+    
+  };
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    premiumRequired: false,
+    premiumFeatures: [],
+  };
+}
+
+
+export interface Stamp_value_calculatorOutput {
+  totalWasteCost: number;
+  breakdown: {  };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+}

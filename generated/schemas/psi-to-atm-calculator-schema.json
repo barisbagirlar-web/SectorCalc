@@ -1,0 +1,56 @@
+{
+  "toolName": "psi-to-atm-calculator",
+  "inputs": [
+    {
+      "id": "pressurePsi",
+      "label": "Pressure (psi)",
+      "type": "number",
+      "unit": "psi",
+      "default": 0,
+      "businessContext": "Measured pressure in pounds per square inch"
+    },
+    {
+      "id": "factor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "atm/psi",
+      "default": 0.0680459639,
+      "businessContext": "Conversion factor from psi to atm; standard value based on 1 atm = 14.695948775 psi"
+    },
+    {
+      "id": "offset",
+      "label": "Zero Offset",
+      "type": "number",
+      "unit": "psi",
+      "default": 0,
+      "businessContext": "Systematic offset to correct zero error in measurement"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 4,
+      "businessContext": "Number of decimal places for rounding the final result"
+    }
+  ],
+  "formulas": {
+    "adjustedPsi": "pressurePsi + offset",
+    "atm": "adjustedPsi * factor",
+    "roundedAtm": "Math.round(atm * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "roundedAtm",
+    "breakdown": [
+      "adjustedPsi",
+      "atm",
+      "roundedAtm"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

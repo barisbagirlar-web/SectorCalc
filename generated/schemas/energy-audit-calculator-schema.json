@@ -1,0 +1,73 @@
+{
+  "toolName": "energy-audit-calculator",
+  "inputs": [
+    {
+      "id": "equipmentPower",
+      "label": "Equipment Power Rating",
+      "type": "number",
+      "unit": "kW",
+      "default": 50,
+      "businessContext": "Total power rating of equipment being audited."
+    },
+    {
+      "id": "operatingHours",
+      "label": "Operating Hours per Year",
+      "type": "number",
+      "unit": "hours",
+      "default": 2000,
+      "businessContext": "Annual operating hours of the equipment."
+    },
+    {
+      "id": "loadFactor",
+      "label": "Load Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Percentage of full power at which equipment typically operates."
+    },
+    {
+      "id": "costPerKWh",
+      "label": "Cost per kWh",
+      "type": "number",
+      "unit": "currency/kWh",
+      "default": 0.12,
+      "businessContext": "Electricity cost per kilowatt-hour."
+    },
+    {
+      "id": "floorArea",
+      "label": "Floor Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 1000,
+      "businessContext": "Total floor area of the facility being audited."
+    },
+    {
+      "id": "emissionFactor",
+      "label": "CO2 Emission Factor",
+      "type": "number",
+      "unit": "kg CO2/kWh",
+      "default": 0.5,
+      "businessContext": "Carbon emission factor for grid electricity."
+    }
+  ],
+  "formulas": {
+    "annualEnergyConsumption": "equipmentPower * operatingHours * (loadFactor / 100)",
+    "totalEnergyCost": "annualEnergyConsumption * costPerKWh",
+    "energyIntensity": "annualEnergyConsumption / floorArea",
+    "carbonFootprint": "annualEnergyConsumption * emissionFactor"
+  },
+  "outputs": {
+    "primary": "totalEnergyCost",
+    "breakdown": [
+      "annualEnergyConsumption",
+      "energyIntensity",
+      "carbonFootprint"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

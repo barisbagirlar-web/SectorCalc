@@ -1,0 +1,55 @@
+{
+  "toolName": "horsepower-hours-to-kwh-calculator",
+  "inputs": [
+    {
+      "id": "horsepower",
+      "label": "Horsepower",
+      "type": "number",
+      "unit": "hp",
+      "default": 100,
+      "businessContext": "Mechanical power of the engine or motor"
+    },
+    {
+      "id": "hours",
+      "label": "Operating Time",
+      "type": "number",
+      "unit": "h",
+      "default": 1,
+      "businessContext": "Duration of operation"
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Efficiency factor (100% for direct conversion)"
+    },
+    {
+      "id": "cost_per_kwh",
+      "label": "Electricity Cost",
+      "type": "number",
+      "unit": "currency/kWh",
+      "default": 0.1,
+      "businessContext": "Cost per kWh of electricity for cost estimation"
+    }
+  ],
+  "formulas": {
+    "energy_hp_h": "horsepower * hours",
+    "energy_kwh": "energy_hp_h * 0.745699872 * (efficiency / 100)",
+    "cost": "energy_kwh * cost_per_kwh"
+  },
+  "outputs": {
+    "primary": "energy_kwh",
+    "breakdown": [
+      "energy_hp_h",
+      "cost"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "roulette-probability-calculator",
+  "inputs": [
+    {
+      "id": "numberOfSpins",
+      "label": "Number of Spins",
+      "type": "number",
+      "unit": "spins",
+      "default": 1,
+      "businessContext": "Total number of roulette wheel spins to analyze."
+    },
+    {
+      "id": "numbersCovered",
+      "label": "Numbers Covered per Spin",
+      "type": "number",
+      "unit": "numbers",
+      "default": 1,
+      "businessContext": "Quantity of numbers wagered on in each spin (e.g., 1 for straight-up)."
+    },
+    {
+      "id": "payoutMultiplier",
+      "label": "Payout Multiplier",
+      "type": "number",
+      "unit": "times",
+      "default": 35,
+      "businessContext": "Payout ratio for a winning spin (e.g., 35 for straight-up bet in European roulette)."
+    },
+    {
+      "id": "betAmount",
+      "label": "Bet Amount per Spin",
+      "type": "number",
+      "unit": "currency",
+      "default": 1,
+      "businessContext": "Wager placed on each individual spin."
+    },
+    {
+      "id": "totalNumbers",
+      "label": "Total Numbers on Wheel",
+      "type": "number",
+      "unit": "numbers",
+      "default": 37,
+      "businessContext": "Total pockets (37 for European single-zero, 38 for American double-zero)."
+    }
+  ],
+  "formulas": {
+    "winProbability": "1 - Math.pow(1 - numbersCovered / totalNumbers, numberOfSpins)",
+    "expectedWins": "numberOfSpins * numbersCovered / totalNumbers",
+    "totalBetAmount": "numberOfSpins * betAmount",
+    "expectedNetReturn": "numberOfSpins * (betAmount * ( (numbersCovered / totalNumbers) * payoutMultiplier - (1 - numbersCovered / totalNumbers) ))"
+  },
+  "outputs": {
+    "primary": "winProbability",
+    "breakdown": [
+      "expectedWins",
+      "totalBetAmount",
+      "expectedNetReturn"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

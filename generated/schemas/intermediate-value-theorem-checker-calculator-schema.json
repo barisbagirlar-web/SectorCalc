@@ -1,0 +1,63 @@
+{
+  "toolName": "intermediate-value-theorem-checker-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "Lower bound a",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "Left endpoint of the interval"
+    },
+    {
+      "id": "b",
+      "label": "Upper bound b",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "Right endpoint of the interval, must be greater than a"
+    },
+    {
+      "id": "f_a",
+      "label": "f(a)",
+      "type": "number",
+      "unit": "-",
+      "default": -1,
+      "businessContext": "Function value at the lower bound"
+    },
+    {
+      "id": "f_b",
+      "label": "f(b)",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "Function value at the upper bound"
+    },
+    {
+      "id": "k",
+      "label": "Target value k",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "Value to find between f(a) and f(b)"
+    }
+  ],
+  "formulas": {
+    "existsString": "((f_a <= k && k <= f_b) || (f_b <= k && k <= f_a)) ? 'Yes, a c exists.' : 'No, no guarantee.'",
+    "conditionDetail": "'f(a)=' + f_a + ', f(b)=' + f_b + ', k=' + k + ': k is ' + (((f_a <= k && k <= f_b) || (f_b <= k && k <= f_a)) ? 'inside' : 'outside') + ' the range.'",
+    "intervalInfo": "'Interval: [' + a + ', ' + b + ']'"
+  },
+  "outputs": {
+    "primary": "existsString",
+    "breakdown": [
+      "conditionDetail",
+      "intervalInfo"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

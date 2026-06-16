@@ -1,0 +1,71 @@
+{
+  "toolName": "hlb-calculator",
+  "inputs": [
+    {
+      "id": "oil1_hlb",
+      "label": "Oil 1 Required HLB",
+      "type": "number",
+      "unit": "none",
+      "default": 0,
+      "businessContext": "Required HLB value of the first oil component"
+    },
+    {
+      "id": "oil1_percent",
+      "label": "Oil 1 Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage of the first oil in the blend"
+    },
+    {
+      "id": "oil2_hlb",
+      "label": "Oil 2 Required HLB",
+      "type": "number",
+      "unit": "none",
+      "default": 0,
+      "businessContext": "Required HLB value of the second oil component"
+    },
+    {
+      "id": "oil2_percent",
+      "label": "Oil 2 Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage of the second oil in the blend"
+    },
+    {
+      "id": "oil3_hlb",
+      "label": "Oil 3 Required HLB",
+      "type": "number",
+      "unit": "none",
+      "default": 0,
+      "businessContext": "Required HLB value of the third oil component"
+    },
+    {
+      "id": "oil3_percent",
+      "label": "Oil 3 Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage of the third oil in the blend"
+    }
+  ],
+  "formulas": {
+    "requiredHLB": "(oil1_hlb * oil1_percent + oil2_hlb * oil2_percent + oil3_hlb * oil3_percent) / (oil1_percent + oil2_percent + oil3_percent) || 0",
+    "totalPercent": "oil1_percent + oil2_percent + oil3_percent",
+    "weightedSum": "oil1_hlb * oil1_percent + oil2_hlb * oil2_percent + oil3_hlb * oil3_percent"
+  },
+  "outputs": {
+    "primary": "requiredHLB",
+    "breakdown": [
+      "weightedSum",
+      "totalPercent"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

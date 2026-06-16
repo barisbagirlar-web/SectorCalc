@@ -1,0 +1,44 @@
+{
+  "toolName": "net-carb-calculator",
+  "inputs": [
+    {
+      "id": "totalCarbs",
+      "label": "Total Carbohydrates",
+      "type": "number",
+      "unit": "g",
+      "default": 30,
+      "businessContext": "Total carbohydrates per serving as shown on nutrition facts label."
+    },
+    {
+      "id": "dietaryFiber",
+      "label": "Dietary Fiber",
+      "type": "number",
+      "unit": "g",
+      "default": 5,
+      "businessContext": "Dietary fiber per serving in grams. Fiber is subtracted because it is not digested."
+    },
+    {
+      "id": "sugarAlcohols",
+      "label": "Sugar Alcohols",
+      "type": "number",
+      "unit": "g",
+      "default": 2,
+      "businessContext": "Sugar alcohols per serving (e.g., maltitol, sorbitol). Fully subtracted as they have minimal impact on blood sugar."
+    }
+  ],
+  "formulas": {
+    "netCarbs": "totalCarbs - dietaryFiber - sugarAlcohols"
+  },
+  "outputs": {
+    "primary": "netCarbs",
+    "breakdown": [
+      "totalCarbs",
+      "dietaryFiber",
+      "sugarAlcohols",
+      "netCarbs"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false
+}

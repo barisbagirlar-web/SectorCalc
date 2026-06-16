@@ -1,0 +1,53 @@
+{
+  "toolName": "rc-time-constant-calculator",
+  "inputs": [
+    {
+      "id": "R",
+      "label": "Direnç (R)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 1000,
+      "businessContext": "Direnç değeri, ohm cinsinden."
+    },
+    {
+      "id": "C",
+      "label": "Kapasite (C)",
+      "type": "number",
+      "unit": "F",
+      "default": 0.000001,
+      "businessContext": "Kapasite değeri, farad cinsinden."
+    },
+    {
+      "id": "V0",
+      "label": "Uygulanan Gerilim (V₀)",
+      "type": "number",
+      "unit": "V",
+      "default": 5,
+      "businessContext": "Uygulanan gerilim değeri, volt cinsinden."
+    },
+    {
+      "id": "t",
+      "label": "Zaman (t)",
+      "type": "number",
+      "unit": "s",
+      "default": 0.001,
+      "businessContext": "Geçen zaman, saniye cinsinden."
+    }
+  ],
+  "formulas": {
+    "tau": "R * C",
+    "Vc": "V0 * (1 - Math.exp(-t / (R * C)))"
+  },
+  "outputs": {
+    "primary": "tau",
+    "breakdown": [
+      "Vc"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

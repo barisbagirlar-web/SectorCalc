@@ -1,0 +1,65 @@
+{
+  "toolName": "land-transfer-tax-calculator",
+  "inputs": [
+    {
+      "id": "propertyValue",
+      "label": "Property Value",
+      "type": "number",
+      "unit": "$",
+      "default": 500000,
+      "businessContext": "The total purchase price or assessed value of the property."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2.5,
+      "businessContext": "The applicable land transfer tax rate as a percentage (e.g., 2.5 for 2.5%)."
+    },
+    {
+      "id": "exemptionAmount",
+      "label": "First-Time Buyer Exemption",
+      "type": "number",
+      "unit": "$",
+      "default": 4000,
+      "businessContext": "Maximum exemption amount available for first-time home buyers. Set to 0 if not applicable."
+    },
+    {
+      "id": "isFirstTimeBuyer",
+      "label": "First-Time Buyer?",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "1 if buyer qualifies as a first-time buyer, else 0."
+    },
+    {
+      "id": "fixedFee",
+      "label": "Administrative Fee",
+      "type": "number",
+      "unit": "$",
+      "default": 250,
+      "businessContext": "Government administrative or registration fee, if any."
+    }
+  ],
+  "formulas": {
+    "baseTax": "propertyValue * (taxRate / 100)",
+    "exemptionApplied": "isFirstTimeBuyer * exemptionAmount",
+    "netTax": "baseTax - exemptionApplied > 0 ? baseTax - exemptionApplied : 0",
+    "totalTax": "netTax + fixedFee"
+  },
+  "outputs": {
+    "primary": "totalTax",
+    "breakdown": [
+      "baseTax",
+      "exemptionApplied",
+      "netTax"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

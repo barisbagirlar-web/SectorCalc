@@ -1,0 +1,55 @@
+{
+  "toolName": "metabolic-age-calculator",
+  "inputs": [
+    {
+      "id": "chronologicalAge",
+      "label": "Chronological Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Your actual age in years."
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "0 for male, 1 for female",
+      "default": 0,
+      "businessContext": "Biological gender for BMR calculation."
+    },
+    {
+      "id": "weightKg",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms."
+    },
+    {
+      "id": "heightCm",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Body height in centimeters."
+    }
+  ],
+  "formulas": {
+    "bmr": "(10 * weightKg + 6.25 * heightCm - 5 * chronologicalAge) + (gender === 0 ? 5 : -161)",
+    "expectedBmr": "(gender === 0 ? 1800 - 5 * chronologicalAge : 1600 - 5 * chronologicalAge)",
+    "metabolicAge": "Math.max(0, chronologicalAge - (bmr - expectedBmr) / 5)"
+  },
+  "outputs": {
+    "primary": "metabolicAge",
+    "breakdown": [
+      "bmr",
+      "expectedBmr"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

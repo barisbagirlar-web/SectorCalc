@@ -1,0 +1,63 @@
+{
+  "toolName": "rugby-vo2-max-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Subject's body weight in kilograms"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Subject's age in years"
+    },
+    {
+      "id": "gender",
+      "label": "Gender (0=Female, 1=Male)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Biological gender encoded as 0 for female, 1 for male"
+    },
+    {
+      "id": "time",
+      "label": "1-Mile Walk Time",
+      "type": "number",
+      "unit": "min",
+      "default": 15,
+      "businessContext": "Time taken to walk 1 mile in minutes"
+    },
+    {
+      "id": "heartRate",
+      "label": "End Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 120,
+      "businessContext": "Heart rate immediately after completing the 1-mile walk in beats per minute"
+    }
+  ],
+  "formulas": {
+    "vo2max_relative": "132.853 - (0.1692 * weight) - (0.3877 * age) + (6.315 * gender) - (3.2649 * time) - (0.1565 * heartRate)",
+    "absolute_vo2": "(vo2max_relative * weight) / 1000",
+    "mets": "vo2max_relative / 3.5"
+  },
+  "outputs": {
+    "primary": "vo2max_relative",
+    "breakdown": [
+      "absolute_vo2",
+      "mets"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

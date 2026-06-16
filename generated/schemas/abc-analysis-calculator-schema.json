@@ -1,0 +1,62 @@
+{
+  "toolName": "abc-analysis-calculator",
+  "inputs": [
+    {
+      "id": "annualDemand",
+      "label": "Yıllık Talep Miktarı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1200,
+      "businessContext": "Yıllık talep miktarı (adet)"
+    },
+    {
+      "id": "unitCost",
+      "label": "Birim Maliyet",
+      "type": "number",
+      "unit": "TL",
+      "default": 25,
+      "businessContext": "Birim maliyet (TL)"
+    },
+    {
+      "id": "totalUsageValue",
+      "label": "Toplam Kullanım Değeri",
+      "type": "number",
+      "unit": "TL",
+      "default": 100000,
+      "businessContext": "Tüm stok kalemlerinin toplam yıllık kullanım değeri (TL)"
+    },
+    {
+      "id": "aClassThreshold",
+      "label": "A Sınıfı Eşiği",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "A sınıfı için kümülatif değer yüzdesi eşiği"
+    },
+    {
+      "id": "bClassThreshold",
+      "label": "B Sınıfı Eşiği",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "B sınıfı için kümülatif değer yüzdesi eşiği"
+    }
+  ],
+  "formulas": {
+    "itemUsageValue": "annualDemand * unitCost",
+    "percentageOfTotal": "(itemUsageValue / totalUsageValue) * 100"
+  },
+  "outputs": {
+    "primary": "itemUsageValue",
+    "breakdown": [
+      "itemUsageValue",
+      "percentageOfTotal"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

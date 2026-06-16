@@ -1,0 +1,73 @@
+{
+  "toolName": "pump-power-calculator",
+  "inputs": [
+    {
+      "id": "flowRate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "m³/s",
+      "default": 0.01,
+      "businessContext": "Volumetric flow rate of the fluid. Typical range for industrial pumps: 0.001 to 1 m³/s."
+    },
+    {
+      "id": "head",
+      "label": "Total Head",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Total dynamic head (TDH) that the pump must overcome, including static lift and friction losses."
+    },
+    {
+      "id": "density",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of the pumped fluid. Water: 1000 kg/m³, oil: ~900 kg/m³, chemicals vary."
+    },
+    {
+      "id": "pumpEfficiency",
+      "label": "Pump Efficiency",
+      "type": "number",
+      "unit": "fraction (0-1)",
+      "default": 0.7,
+      "businessContext": "Efficiency of the pump, typically 0.6-0.85 for centrifugal pumps."
+    },
+    {
+      "id": "motorEfficiency",
+      "label": "Motor Efficiency",
+      "type": "number",
+      "unit": "fraction (0-1)",
+      "default": 0.95,
+      "businessContext": "Efficiency of the electric motor driving the pump. Typical IE3 motor: 0.93-0.96."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.1,
+      "businessContext": "Safety margin to account for uncertainties (e.g., 1.1 = 10% extra). Common range 1.1-1.2."
+    }
+  ],
+  "formulas": {
+    "hydraulicPower": "density * 9.81 * flowRate * head",
+    "shaftPower": "density * 9.81 * flowRate * head / pumpEfficiency",
+    "motorInputPower": "(density * 9.81 * flowRate * head) / (pumpEfficiency * motorEfficiency)",
+    "totalRequiredPower": "(density * 9.81 * flowRate * head * safetyFactor) / (pumpEfficiency * motorEfficiency)"
+  },
+  "outputs": {
+    "primary": "totalRequiredPower",
+    "breakdown": [
+      "hydraulicPower",
+      "shaftPower",
+      "motorInputPower"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

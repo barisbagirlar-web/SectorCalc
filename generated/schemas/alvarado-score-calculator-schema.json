@@ -1,0 +1,85 @@
+{
+  "toolName": "alvarado-score-calculator",
+  "inputs": [
+    {
+      "id": "migrationPain",
+      "label": "Migration of pain to RLQ",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "1 point if present, 0 otherwise"
+    },
+    {
+      "id": "anorexia",
+      "label": "Anorexia",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "1 point if present, 0 otherwise"
+    },
+    {
+      "id": "nauseaVomiting",
+      "label": "Nausea or vomiting",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "1 point if present, 0 otherwise"
+    },
+    {
+      "id": "rlqTenderness",
+      "label": "Tenderness in right lower quadrant",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "2 points if present, 0 otherwise"
+    },
+    {
+      "id": "reboundTenderness",
+      "label": "Rebound tenderness",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "1 point if present, 0 otherwise"
+    },
+    {
+      "id": "tempElevated",
+      "label": "Elevated temperature (>37.3°C)",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "1 point if elevated, 0 otherwise"
+    },
+    {
+      "id": "leukocytosis",
+      "label": "Leukocytosis (>10,000/mm³)",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "2 points if present, 0 otherwise"
+    },
+    {
+      "id": "leftShift",
+      "label": "Left shift (neutrophils >75%)",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "1 point if present, 0 otherwise"
+    }
+  ],
+  "formulas": {
+    "totalScore": "migrationPain + anorexia + nauseaVomiting + rlqTenderness + reboundTenderness + tempElevated + leukocytosis + leftShift",
+    "interpretation": "totalScore <= 4 ? 'Low risk' : totalScore <= 6 ? 'Equivocal' : totalScore <= 8 ? 'Probable appendicitis' : 'Very probable appendicitis'"
+  },
+  "outputs": {
+    "primary": "totalScore",
+    "breakdown": [
+      "interpretation"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

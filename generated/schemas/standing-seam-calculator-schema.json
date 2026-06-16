@@ -1,0 +1,65 @@
+{
+  "toolName": "standing-seam-calculator",
+  "inputs": [
+    {
+      "id": "roofLength",
+      "label": "Çatı Uzunluğu (Mahya-Saçak)",
+      "type": "number",
+      "unit": "ft",
+      "default": 30,
+      "businessContext": "Çatının mahyadan saçağa olan eğim boyu (feet cinsinden)"
+    },
+    {
+      "id": "roofWidth",
+      "label": "Çatı Genişliği",
+      "type": "number",
+      "unit": "ft",
+      "default": 50,
+      "businessContext": "Çatının eğime dik yöndeki toplam genişliği (feet)"
+    },
+    {
+      "id": "panelCoverage",
+      "label": "Panel Kaplama Genişliği",
+      "type": "number",
+      "unit": "in",
+      "default": 16,
+      "businessContext": "Bir panelin kapladığı genişlik (inç). Standing seam paneller için tipik 12-18 inç."
+    },
+    {
+      "id": "overhang",
+      "label": "Saçak Payı",
+      "type": "number",
+      "unit": "in",
+      "default": 2,
+      "businessContext": "Saçakta bırakılan çıkma payı (inç)"
+    },
+    {
+      "id": "clipSpacing",
+      "label": "Klips Aralığı",
+      "type": "number",
+      "unit": "in",
+      "default": 24,
+      "businessContext": "Her bir panel dikişi boyunca klipslerin merkezden merkeze aralığı (inç). Tipik 12-24 inç."
+    }
+  ],
+  "formulas": {
+    "totalPanels": "Math.ceil((roofWidth * 12) / panelCoverage)",
+    "panelLengthActual": "roofLength + (overhang / 12)",
+    "totalLinearFeet": "totalPanels * panelLengthActual",
+    "clipsPerSeam": "Math.ceil((panelLengthActual * 12) / clipSpacing)",
+    "totalClips": "(totalPanels - 1) * clipsPerSeam"
+  },
+  "outputs": {
+    "primary": "totalPanels",
+    "breakdown": [
+      "totalLinearFeet",
+      "totalClips"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

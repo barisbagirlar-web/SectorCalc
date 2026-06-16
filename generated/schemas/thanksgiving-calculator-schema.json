@@ -1,0 +1,66 @@
+{
+  "toolName": "thanksgiving-calculator",
+  "inputs": [
+    {
+      "id": "adults",
+      "label": "Number of Adults",
+      "type": "number",
+      "unit": "people",
+      "default": 4,
+      "businessContext": "Total adult guests"
+    },
+    {
+      "id": "children",
+      "label": "Number of Children",
+      "type": "number",
+      "unit": "people",
+      "default": 2,
+      "businessContext": "Total children (under 12)"
+    },
+    {
+      "id": "leftoverDays",
+      "label": "Desired Leftover Days",
+      "type": "number",
+      "unit": "days",
+      "default": 1,
+      "businessContext": "Days of leftovers desired"
+    },
+    {
+      "id": "adultWeight",
+      "label": "Turkey per Adult (lbs)",
+      "type": "number",
+      "unit": "lbs",
+      "default": 1.5,
+      "businessContext": "Recommended turkey weight per adult"
+    },
+    {
+      "id": "childWeight",
+      "label": "Turkey per Child (lbs)",
+      "type": "number",
+      "unit": "lbs",
+      "default": 0.75,
+      "businessContext": "Recommended turkey weight per child"
+    }
+  ],
+  "formulas": {
+    "totalTurkeyWeight": "(adults * adultWeight + children * childWeight) * (1 + leftoverDays * 0.25)",
+    "cookingTimeMinutes": "totalTurkeyWeight * 15",
+    "cookingTimeHours": "Math.floor(cookingTimeMinutes / 60)",
+    "cookingTimeMinutesRemaining": "cookingTimeMinutes - cookingTimeHours * 60",
+    "estimatedServings": "(adults + children) * (1 + leftoverDays * 0.5)"
+  },
+  "outputs": {
+    "primary": "totalTurkeyWeight",
+    "breakdown": [
+      "cookingTimeHours",
+      "cookingTimeMinutesRemaining",
+      "estimatedServings"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,54 @@
+{
+  "toolName": "cbm-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Cargo length in centimeters"
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Cargo width in centimeters"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Cargo height in centimeters"
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of identical packages"
+    }
+  ],
+  "formulas": {
+    "volume_per_item_m3": "(length * width * height) / 1000000",
+    "total_cbm": "(length * width * height) / 1000000 * quantity"
+  },
+  "outputs": {
+    "primary": "total_cbm",
+    "breakdown": [
+      "volume_per_item_m3",
+      "total_cbm"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

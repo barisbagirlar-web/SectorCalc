@@ -1,0 +1,63 @@
+{
+  "toolName": "half-birthday-calculator",
+  "inputs": [
+    {
+      "id": "birthDay",
+      "label": "Doğum Günü",
+      "type": "number",
+      "unit": "gün",
+      "default": 1,
+      "businessContext": "Doğum günü (1–31 arası)"
+    },
+    {
+      "id": "birthMonth",
+      "label": "Doğum Ayı",
+      "type": "number",
+      "unit": "ay",
+      "default": 1,
+      "businessContext": "Doğum ayı (1–12 arası)"
+    },
+    {
+      "id": "birthYear",
+      "label": "Doğum Yılı",
+      "type": "number",
+      "unit": "yıl",
+      "default": 2000,
+      "businessContext": "Doğum yılı"
+    },
+    {
+      "id": "monthOffset",
+      "label": "Ay Farkı",
+      "type": "number",
+      "unit": "ay",
+      "default": 6,
+      "businessContext": "İleri sarılacak ay sayısı (yarı doğum günü için 6)"
+    }
+  ],
+  "formulas": {
+    "totalMonths": "birthMonth + monthOffset - 1",
+    "yearOffset": "Math.floor(totalMonths / 12)",
+    "newYear": "birthYear + yearOffset",
+    "newMonthRaw": "totalMonths % 12",
+    "newMonth": "newMonthRaw + 1",
+    "isLeap": "(newYear % 4 == 0 && newYear % 100 != 0) || (newYear % 400 == 0)",
+    "daysInMonth": "[31, isLeap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]",
+    "maxDay": "daysInMonth[newMonth - 1]",
+    "newDay": "Math.min(birthDay, maxDay)",
+    "dateString": "('' + newYear) + '-' + (newMonth < 10 ? '0' + newMonth : '' + newMonth) + '-' + (newDay < 10 ? '0' + newDay : '' + newDay)"
+  },
+  "outputs": {
+    "primary": "dateString",
+    "breakdown": [
+      "newYear",
+      "newMonth",
+      "newDay"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "streaming-calculator",
+  "inputs": [
+    {
+      "id": "pipeDiameter",
+      "label": "Pipe Inner Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Internal diameter of the pipe conveying the fluid."
+    },
+    {
+      "id": "fluidVelocity",
+      "label": "Fluid Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 2,
+      "businessContext": "Average velocity of the fluid flow in the pipe."
+    },
+    {
+      "id": "fluidDensity",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of the fluid (e.g., water = 1000 kg/m³)."
+    },
+    {
+      "id": "dynamicViscosity",
+      "label": "Dynamic Viscosity",
+      "type": "number",
+      "unit": "Pa·s",
+      "default": 0.001,
+      "businessContext": "Dynamic viscosity of the fluid (e.g., water at 20°C ≈ 0.001 Pa·s)."
+    }
+  ],
+  "formulas": {
+    "crossSectionArea": "Math.PI * (pipeDiameter / 2) ** 2",
+    "volumetricFlowRate": "Math.PI * (pipeDiameter / 2) ** 2 * fluidVelocity",
+    "massFlowRate": "Math.PI * (pipeDiameter / 2) ** 2 * fluidVelocity * fluidDensity",
+    "reynoldsNumber": "(fluidDensity * fluidVelocity * pipeDiameter) / dynamicViscosity"
+  },
+  "outputs": {
+    "primary": "volumetricFlowRate",
+    "breakdown": [
+      "crossSectionArea",
+      "massFlowRate",
+      "reynoldsNumber"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

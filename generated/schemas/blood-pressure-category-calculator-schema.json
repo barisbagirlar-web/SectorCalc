@@ -1,0 +1,57 @@
+{
+  "toolName": "blood-pressure-category-calculator",
+  "inputs": [
+    {
+      "id": "systolic",
+      "label": "Systolic Pressure",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 120,
+      "businessContext": "Maximum arterial pressure during left ventricular contraction."
+    },
+    {
+      "id": "diastolic",
+      "label": "Diastolic Pressure",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 80,
+      "businessContext": "Minimum arterial pressure during ventricular relaxation."
+    },
+    {
+      "id": "heart_rate",
+      "label": "Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 70,
+      "businessContext": "Number of heartbeats per minute."
+    },
+    {
+      "id": "rest_duration",
+      "label": "Rest Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 5,
+      "businessContext": "Minutes of rest before measurement to ensure accurate reading."
+    }
+  ],
+  "formulas": {
+    "category": "(systolic >= 180 || diastolic >= 120) ? 'Hypertensive Crisis' : ((systolic >= 140 || diastolic >= 90) ? 'Hypertension Stage 2' : ((systolic >= 130 || diastolic >= 80) ? 'Hypertension Stage 1' : (systolic >= 120 ? 'Elevated' : (systolic >= 90 && diastolic >= 60 ? 'Normal' : 'Low'))))",
+    "heart_rate_status": "(rest_duration >= 5) ? ((heart_rate < 60) ? 'Bradycardia' : (heart_rate <= 100 ? 'Normal' : 'Tachycardia')) : 'Insufficient Rest'",
+    "systolic_status": "systolic < 90 ? 'Low' : systolic < 120 ? 'Normal' : systolic < 130 ? 'Elevated' : systolic < 140 ? 'High-Normal' : systolic < 180 ? 'Stage 1-2 Hypertension' : 'Hypertensive Crisis'",
+    "diastolic_status": "diastolic < 60 ? 'Low' : diastolic < 80 ? 'Normal' : diastolic < 90 ? 'Elevated' : diastolic < 120 ? 'High' : 'Hypertensive Crisis'"
+  },
+  "outputs": {
+    "primary": "category",
+    "breakdown": [
+      "heart_rate_status",
+      "systolic_status",
+      "diastolic_status"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

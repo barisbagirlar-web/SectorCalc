@@ -1,0 +1,66 @@
+{
+  "toolName": "declining-balance-depreciation-calculator",
+  "inputs": [
+    {
+      "id": "cost",
+      "label": "Initial Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "The purchase price or initial cost of the asset."
+    },
+    {
+      "id": "salvage",
+      "label": "Salvage Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "businessContext": "The estimated residual value at the end of useful life."
+    },
+    {
+      "id": "life",
+      "label": "Useful Life",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "The expected useful life of the asset in years."
+    },
+    {
+      "id": "factor",
+      "label": "Depreciation Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 2,
+      "businessContext": "The multiplying factor for straight-line rate (e.g., 2 for double-declining balance)."
+    },
+    {
+      "id": "year",
+      "label": "Year",
+      "type": "number",
+      "unit": "year",
+      "default": 1,
+      "businessContext": "The year for which to calculate depreciation (1-based index)."
+    }
+  ],
+  "formulas": {
+    "rate": "factor / life",
+    "depreciation": "cost * rate * (1 - rate) ** (year - 1)",
+    "bookValueBeginning": "cost * (1 - rate) ** (year - 1)",
+    "accumulatedDepreciation": "cost - cost * (1 - rate) ** year",
+    "endingBookValue": "cost * (1 - rate) ** year"
+  },
+  "outputs": {
+    "primary": "depreciation",
+    "breakdown": [
+      "bookValueBeginning",
+      "accumulatedDepreciation",
+      "endingBookValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

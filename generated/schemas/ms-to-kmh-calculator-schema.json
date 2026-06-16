@@ -1,0 +1,62 @@
+{
+  "toolName": "ms-to-kmh-calculator",
+  "inputs": [
+    {
+      "id": "speedMs",
+      "label": "Speed (m/s)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 1,
+      "businessContext": "Speed value in meters per second to be converted to kilometers per hour."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "",
+      "default": 3.6,
+      "businessContext": "Fixed conversion factor from m/s to km/h (1 m/s = 3.6 km/h). Default 3.6."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding the output."
+    },
+    {
+      "id": "roundingMethod",
+      "label": "Rounding Method",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 = normal rounding, 1 = floor, 2 = ceil. Determines how the output is rounded."
+    },
+    {
+      "id": "expectedOutput",
+      "label": "Expected Output (Optional)",
+      "type": "number",
+      "unit": "km/h",
+      "default": 0,
+      "businessContext": "Optional manual validation value to compare with computed output."
+    }
+  ],
+  "formulas": {
+    "rawValue": "speedMs * conversionFactor",
+    "kmh": "(roundingMethod === 0 ? Math.round(speedMs * conversionFactor * Math.pow(10, decimalPlaces)) : roundingMethod === 1 ? Math.floor(speedMs * conversionFactor * Math.pow(10, decimalPlaces)) : roundingMethod === 2 ? Math.ceil(speedMs * conversionFactor * Math.pow(10, decimalPlaces)) : speedMs * conversionFactor) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "{{kmh}} km/h",
+    "breakdown": [
+      "Raw value: {{rawValue}} km/h",
+      "Rounded to {{decimalPlaces}} decimal places"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

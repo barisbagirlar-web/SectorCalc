@@ -1,0 +1,68 @@
+{
+  "toolName": "percent-error-calculator",
+  "inputs": [
+    {
+      "id": "measuredValue",
+      "label": "Ölçülen Değer",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Gerçekleşen ölçüm sonucu (örn. üretim parçasının ölçülen boyutu)"
+    },
+    {
+      "id": "trueValue",
+      "label": "Referans Değer",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Kabul edilen referans veya teorik değer (nominal ölçü)"
+    },
+    {
+      "id": "tolerancePercent",
+      "label": "Tolerans (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Kabul edilebilir yüzde hata sınırı (kalite kontrol limiti)"
+    },
+    {
+      "id": "measurementUncertainty",
+      "label": "Ölçüm Belirsizliği",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.1,
+      "businessContext": "Ölçüm prosesinin standart belirsizliği (k=1 için)"
+    },
+    {
+      "id": "coverageFactor",
+      "label": "Kapsam Faktörü (k)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Genişletilmiş belirsizlik için katsayı; %95 güven için tipik olarak 2"
+    }
+  ],
+  "formulas": {
+    "error": "measuredValue - trueValue",
+    "absoluteError": "Math.abs(error)",
+    "percentError": "absoluteError / Math.abs(trueValue) * 100",
+    "expandedUncertainty": "coverageFactor * measurementUncertainty",
+    "withinTolerance": "Math.abs(percentError) <= tolerancePercent ? 1 : 0"
+  },
+  "outputs": {
+    "primary": "percentError",
+    "breakdown": [
+      "error",
+      "absoluteError",
+      "percentError",
+      "expandedUncertainty",
+      "withinTolerance"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

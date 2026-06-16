@@ -1,0 +1,54 @@
+{
+  "toolName": "extreme-value-theorem-calculator",
+  "inputs": [
+    {
+      "id": "location",
+      "label": "Location (μ)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Location parameter of the GEV distribution (center)."
+    },
+    {
+      "id": "scale",
+      "label": "Scale (σ)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Scale parameter, must be > 0. Controls spread."
+    },
+    {
+      "id": "shape",
+      "label": "Shape (ξ)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Shape parameter. ξ>0 heavy-tailed, ξ=0 Gumbel, ξ<0 bounded."
+    },
+    {
+      "id": "returnPeriod",
+      "label": "Return Period",
+      "type": "number",
+      "unit": "years",
+      "default": 100,
+      "businessContext": "Average recurrence interval in years (e.g., 100 for 100-year event)."
+    }
+  ],
+  "formulas": {
+    "exceedanceProbability": "1 / returnPeriod",
+    "returnLevel": "Math.abs(shape) < 1e-10 ? location - scale * Math.log(-Math.log(1 - 1/returnPeriod)) : location + (scale/shape) * (Math.pow(-Math.log(1 - 1/returnPeriod), -shape) - 1)"
+  },
+  "outputs": {
+    "primary": "returnLevel",
+    "breakdown": [
+      "exceedanceProbability",
+      "returnLevel"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

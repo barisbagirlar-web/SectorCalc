@@ -1,0 +1,71 @@
+{
+  "toolName": "irrigation-calculator",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "Area",
+      "type": "number",
+      "unit": "ha",
+      "default": 1,
+      "businessContext": "Irrigated land area in hectares"
+    },
+    {
+      "id": "cropWater",
+      "label": "Crop Water Requirement",
+      "type": "number",
+      "unit": "mm/day",
+      "default": 5,
+      "businessContext": "Daily water need of the crop from evapotranspiration data"
+    },
+    {
+      "id": "efficiency",
+      "label": "Application Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 75,
+      "businessContext": "Application efficiency of the irrigation system (sprinkler, drip, etc.)"
+    },
+    {
+      "id": "peakFactor",
+      "label": "Peak Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "businessContext": "Peak multiplier for hot/dry periods"
+    },
+    {
+      "id": "systemLosses",
+      "label": "System Losses",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percent water loss due to leaks, evaporation, etc."
+    },
+    {
+      "id": "operatingHours",
+      "label": "Operating Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 12,
+      "businessContext": "Hours per day the irrigation system operates"
+    }
+  ],
+  "formulas": {
+    "totalDailyVolume": "(area * cropWater * 100000 * peakFactor) / (efficiency * (100 - systemLosses))",
+    "requiredFlowRate": "((area * cropWater * 100000 * peakFactor) / (efficiency * (100 - systemLosses))) / operatingHours",
+    "rawWaterRequirement": "area * cropWater * 10"
+  },
+  "outputs": {
+    "primary": "totalDailyVolume",
+    "breakdown": [
+      "requiredFlowRate",
+      "rawWaterRequirement"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

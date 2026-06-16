@@ -1,0 +1,55 @@
+{
+  "toolName": "reading-level-calculator",
+  "inputs": [
+    {
+      "id": "totalWords",
+      "label": "Toplam Kelime Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "businessContext": "Metindeki toplam kelime sayısı"
+    },
+    {
+      "id": "totalSentences",
+      "label": "Toplam Cümle Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "businessContext": "Metindeki toplam cümle sayısı"
+    },
+    {
+      "id": "totalSyllables",
+      "label": "Toplam Hece Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 150,
+      "businessContext": "Metindeki toplam hece sayısı"
+    },
+    {
+      "id": "totalComplexWords",
+      "label": "Çok Heceli Kelime Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 20,
+      "businessContext": "3 veya daha fazla heceli kelime sayısı"
+    }
+  ],
+  "formulas": {
+    "readingGradeLevel": "0.39 * (totalWords / totalSentences) + 11.8 * (totalSyllables / totalWords) - 15.59",
+    "readingEase": "206.835 - 1.015 * (totalWords / totalSentences) - 84.6 * (totalSyllables / totalWords)",
+    "gunningFog": "0.4 * ((totalWords / totalSentences) + 100 * (totalComplexWords / totalWords))"
+  },
+  "outputs": {
+    "primary": "0.39 * (totalWords / totalSentences) + 11.8 * (totalSyllables / totalWords) - 15.59",
+    "breakdown": [
+      "206.835 - 1.015 * (totalWords / totalSentences) - 84.6 * (totalSyllables / totalWords)",
+      "0.4 * ((totalWords / totalSentences) + 100 * (totalComplexWords / totalWords))"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

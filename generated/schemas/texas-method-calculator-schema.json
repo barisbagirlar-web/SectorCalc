@@ -1,0 +1,64 @@
+{
+  "toolName": "texas-method-calculator",
+  "inputs": [
+    {
+      "id": "oneRepMax",
+      "label": "1RM (One Rep Max)",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "The maximum weight you can lift for one repetition."
+    },
+    {
+      "id": "fiveRepMaxPercentage",
+      "label": "5RM % of 1RM",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Percentage of your 1RM that represents your 5-rep max. Typically 85%."
+    },
+    {
+      "id": "volumeDayPercentage",
+      "label": "Volume Day % of 5RM",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Percentage of your 5RM used for the volume day (5 sets of 5 reps)."
+    },
+    {
+      "id": "lightDayPercentage",
+      "label": "Light Day % of Volume",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Percentage of the volume day weight used for the light day (2 sets of 5 reps)."
+    },
+    {
+      "id": "intensityDayIncrement",
+      "label": "Intensity Day Increment",
+      "type": "number",
+      "unit": "kg",
+      "default": 2.5,
+      "businessContext": "Weight added to the previous week's intensity day weight for a new 5RM attempt. Set to 0 if not incrementing."
+    }
+  ],
+  "formulas": {
+    "fiveRM": "oneRepMax * (fiveRepMaxPercentage / 100)",
+    "volumeDayWeight": "fiveRM * (volumeDayPercentage / 100)",
+    "lightDayWeight": "volumeDayWeight * (lightDayPercentage / 100)",
+    "intensityDayWeight": "fiveRM + intensityDayIncrement"
+  },
+  "outputs": {
+    "primary": "volumeDayWeight",
+    "breakdown": [
+      "lightDayWeight",
+      "intensityDayWeight"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,71 @@
+{
+  "toolName": "mega-backdoor-roth-calculator",
+  "inputs": [
+    {
+      "id": "annualSalary",
+      "label": "Annual Salary (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 75000,
+      "businessContext": "Gross annual income"
+    },
+    {
+      "id": "preTaxDeferral",
+      "label": "Pre-Tax 401(k) Deferral (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 22500,
+      "businessContext": "Employee pre-tax elective deferral"
+    },
+    {
+      "id": "employerContribution",
+      "label": "Employer Contribution (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 4000,
+      "businessContext": "Total employer contributions (match + non-elective)"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 35,
+      "businessContext": "Age of the participant"
+    },
+    {
+      "id": "overallLimit",
+      "label": "Overall Contribution Limit (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 69000,
+      "businessContext": "IRS overall limit for total contributions (2024: $69,000 if under 50)"
+    },
+    {
+      "id": "catchUpLimit",
+      "label": "Catch-Up Contribution Limit (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 7500,
+      "businessContext": "Additional pre-tax deferral allowed for age 50+ (2024: $7,500)"
+    }
+  ],
+  "formulas": {
+    "afterTaxSpace": "overallLimit - preTaxDeferral - employerContribution",
+    "totalPotentialContributions": "afterTaxSpace + preTaxDeferral + employerContribution",
+    "excessContribution": "Math.max(0, -(afterTaxSpace))"
+  },
+  "outputs": {
+    "primary": "afterTaxSpace",
+    "breakdown": [
+      "totalPotentialContributions",
+      "excessContribution"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "hip-roof-calculator",
+  "inputs": [
+    {
+      "id": "building_length",
+      "label": "Building Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of the building along the ridge"
+    },
+    {
+      "id": "building_width",
+      "label": "Building Width",
+      "type": "number",
+      "unit": "m",
+      "default": 8,
+      "businessContext": "Width of the building perpendicular to ridge"
+    },
+    {
+      "id": "roof_pitch",
+      "label": "Roof Pitch",
+      "type": "number",
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Angle of roof slope in degrees"
+    },
+    {
+      "id": "overhang",
+      "label": "Overhang",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Eave overhang beyond walls"
+    },
+    {
+      "id": "ridge_beam_width",
+      "label": "Ridge Beam Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.15,
+      "businessContext": "Width of ridge beam"
+    }
+  ],
+  "formulas": {
+    "roof_angle_rad": "roof_pitch * Math.PI / 180",
+    "rise": "building_width / 2 * Math.tan(roof_angle_rad)",
+    "common_rafter_length": "Math.sqrt((building_width / 2 + overhang) ** 2 + (rise + overhang * Math.tan(roof_angle_rad)) ** 2)",
+    "hip_rafter_length": "Math.sqrt((building_width / 2 + overhang) ** 2 + (building_length / 2 + overhang) ** 2 + (rise + overhang * Math.tan(roof_angle_rad)) ** 2)",
+    "jack_rafter_length": "common_rafter_length - ridge_beam_width / 2 * Math.tan(roof_angle_rad)",
+    "total_roof_area": "2 * (building_length + 2 * overhang) * common_rafter_length + 2 * (building_width + 2 * overhang) * common_rafter_length",
+    "number_of_common_rafters": "Math.ceil((building_length + 2 * overhang) / 0.6) + 1",
+    "number_of_hip_rafters": 4,
+    "number_of_jack_rafters": "2 * (Math.ceil((building_length + 2 * overhang) / 0.6) - 1)"
+  },
+  "outputs": {
+    "primary": "Total Roof Area",
+    "breakdown": [
+      "Common Rafter Length",
+      "Hip Rafter Length",
+      "Jack Rafter Length",
+      "Number of Common Rafters",
+      "Number of Hip Rafters",
+      "Number of Jack Rafters"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

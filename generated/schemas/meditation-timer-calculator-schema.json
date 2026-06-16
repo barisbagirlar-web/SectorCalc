@@ -1,0 +1,61 @@
+{
+  "toolName": "meditation-timer-calculator",
+  "inputs": [
+    {
+      "id": "totalMeditationTime",
+      "label": "Meditasyon Süresi",
+      "type": "number",
+      "unit": "dk",
+      "default": 15,
+      "businessContext": "Hazırlık ve soğuma hariç ana meditasyon süresi"
+    },
+    {
+      "id": "preparationTime",
+      "label": "Hazırlık Süresi",
+      "type": "number",
+      "unit": "dk",
+      "default": 2,
+      "businessContext": "Meditasyon öncesi yerleşme ve gevşeme için ayrılan süre"
+    },
+    {
+      "id": "coolDownTime",
+      "label": "Soğuma Süresi",
+      "type": "number",
+      "unit": "dk",
+      "default": 2,
+      "businessContext": "Meditasyon sonrası yavaşça geri dönüş için ayrılan süre"
+    },
+    {
+      "id": "bellInterval",
+      "label": "Zil Aralığı",
+      "type": "number",
+      "unit": "dk",
+      "default": 5,
+      "businessContext": "Meditasyon süresince çalacak ziller arasındaki süre"
+    }
+  ],
+  "formulas": {
+    "numberOfBells": "Math.floor(totalMeditationTime / bellInterval) + 1",
+    "totalSessionDuration": "preparationTime + totalMeditationTime + coolDownTime",
+    "preparationInfo": "'Hazırlık: ' + preparationTime + ' dk'",
+    "meditationInfo": "'Meditasyon: ' + totalMeditationTime + ' dk, ' + numberOfBells + ' adet zil'",
+    "cooldownInfo": "'Soğuma: ' + coolDownTime + ' dk'",
+    "bellTimes": "Array.from({length: numberOfBells}, (_, i) => i * bellInterval).join(', ')",
+    "bellSchedule": "'Zil zamanları: ' + bellTimes + ' dk'"
+  },
+  "outputs": {
+    "primary": "totalSessionDuration",
+    "breakdown": [
+      "preparationInfo",
+      "meditationInfo",
+      "cooldownInfo",
+      "bellSchedule"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,79 @@
+{
+  "toolName": "atomic-mass-calculator",
+  "inputs": [
+    {
+      "id": "protonCount",
+      "label": "Proton Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 6,
+      "businessContext": "Atomdaki proton sayısı (atom numarası)"
+    },
+    {
+      "id": "neutronCount",
+      "label": "Nötron Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 6,
+      "businessContext": "Atomdaki nötron sayısı"
+    },
+    {
+      "id": "electronCount",
+      "label": "Elektron Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 6,
+      "businessContext": "Atomdaki elektron sayısı (nötr atomda proton sayısına eşit)"
+    },
+    {
+      "id": "protonMass",
+      "label": "Proton Kütlesi",
+      "type": "number",
+      "unit": "u",
+      "default": 1.007276,
+      "businessContext": "Bir protonun atomik kütle birimi cinsinden kütlesi"
+    },
+    {
+      "id": "neutronMass",
+      "label": "Nötron Kütlesi",
+      "type": "number",
+      "unit": "u",
+      "default": 1.008665,
+      "businessContext": "Bir nötronun atomik kütle birimi cinsinden kütlesi"
+    },
+    {
+      "id": "electronMass",
+      "label": "Elektron Kütlesi",
+      "type": "number",
+      "unit": "u",
+      "default": 0.00054858,
+      "businessContext": "Bir elektronun atomik kütle birimi cinsinden kütlesi"
+    },
+    {
+      "id": "bindingEnergy",
+      "label": "Bağlanma Enerjisi",
+      "type": "number",
+      "unit": "MeV",
+      "default": 0,
+      "businessContext": "Çekirdeğin bağlanma enerjisi (isteğe bağlı, varsa kütle düzeltmesi için)"
+    }
+  ],
+  "formulas": {
+    "atomicMass": "(protonCount * protonMass + neutronCount * neutronMass + electronCount * electronMass) - (bindingEnergy * 0.001073544)",
+    "massNumber": "protonCount + neutronCount",
+    "massDefect": "(protonCount * protonMass + neutronCount * neutronMass) - (atomicMass - electronCount * electronMass)"
+  },
+  "outputs": {
+    "primary": "atomicMass",
+    "breakdown": [
+      "massNumber",
+      "massDefect"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

@@ -1,0 +1,97 @@
+{
+  "toolName": "brrrr-strategy-calculator",
+  "inputs": [
+    {
+      "id": "purchasePrice",
+      "label": "Purchase Price",
+      "type": "number",
+      "unit": "€",
+      "default": 100000,
+      "businessContext": "The price at which the property is purchased."
+    },
+    {
+      "id": "rehabCost",
+      "label": "Rehab Cost",
+      "type": "number",
+      "unit": "€",
+      "default": 20000,
+      "businessContext": "Total cost of renovations and repairs."
+    },
+    {
+      "id": "arv",
+      "label": "After Repair Value (ARV)",
+      "type": "number",
+      "unit": "€",
+      "default": 150000,
+      "businessContext": "Estimated market value of the property after renovations."
+    },
+    {
+      "id": "monthlyRent",
+      "label": "Monthly Rent",
+      "type": "number",
+      "unit": "€",
+      "default": 1200,
+      "businessContext": "Expected monthly rental income."
+    },
+    {
+      "id": "operatingExpensePercentage",
+      "label": "Operating Expense Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Percentage of monthly rent reserved for operating expenses (taxes, insurance, maintenance, vacancy, management)."
+    },
+    {
+      "id": "refinanceLTV",
+      "label": "Refinance LTV",
+      "type": "number",
+      "unit": "%",
+      "default": 75,
+      "businessContext": "Loan-to-value ratio for refinancing, expressed as a percentage of ARV."
+    },
+    {
+      "id": "refinanceRate",
+      "label": "Refinance Interest Rate",
+      "type": "number",
+      "unit": "% p.a.",
+      "default": 4.5,
+      "businessContext": "Annual interest rate for the refinance mortgage."
+    },
+    {
+      "id": "loanTerm",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Duration of the refinance loan in years."
+    }
+  ],
+  "formulas": {
+    "totalInvestment": "purchasePrice + rehabCost",
+    "refinanceAmount": "arv * refinanceLTV / 100",
+    "cashInvested": "totalInvestment - refinanceAmount",
+    "monthlyInterestRate": "refinanceRate / 100 / 12",
+    "numberOfPayments": "loanTerm * 12",
+    "monthlyMortgagePayment": "refinanceAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1)",
+    "monthlyOperatingExpenses": "monthlyRent * operatingExpensePercentage / 100",
+    "monthlyCashFlow": "monthlyRent - monthlyMortgagePayment - monthlyOperatingExpenses",
+    "annualCashFlow": "monthlyCashFlow * 12",
+    "cashOnCashReturn": "(annualCashFlow / cashInvested) * 100",
+    "equityGained": "arv - purchasePrice - rehabCost"
+  },
+  "outputs": {
+    "primary": "monthlyCashFlow",
+    "breakdown": [
+      "annualCashFlow",
+      "cashOnCashReturn",
+      "equityGained",
+      "cashInvested"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

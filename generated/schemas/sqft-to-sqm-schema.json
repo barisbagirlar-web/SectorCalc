@@ -1,0 +1,28 @@
+{
+  "toolName": "sqft-to-sqm",
+  "inputs": [
+    {
+      "id": "sqft",
+      "label": "Square Feet",
+      "type": "number",
+      "unit": "ft²",
+      "default": 100,
+      "businessContext": "Area in square feet to be converted"
+    }
+  ],
+  "formulas": {
+    "sqm": "sqft * 0.09290304"
+  },
+  "outputs": {
+    "primary": "sqm",
+    "breakdown": [
+      "sqft * 0.09290304 = sqm"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

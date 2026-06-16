@@ -1,0 +1,91 @@
+{
+  "toolName": "control-system-calculator",
+  "inputs": [
+    {
+      "id": "setpoint",
+      "label": "Setpoint (SP)",
+      "type": "number",
+      "unit": "°C",
+      "default": 100,
+      "businessContext": "Desired process value"
+    },
+    {
+      "id": "processVariable",
+      "label": "Process Variable (PV)",
+      "type": "number",
+      "unit": "°C",
+      "default": 95,
+      "businessContext": "Measured process value"
+    },
+    {
+      "id": "proportionalGain",
+      "label": "Proportional Gain (Kp)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Proportional controller gain"
+    },
+    {
+      "id": "integralTime",
+      "label": "Integral Time (Ti)",
+      "type": "number",
+      "unit": "s",
+      "default": 5,
+      "businessContext": "Integral time constant"
+    },
+    {
+      "id": "derivativeTime",
+      "label": "Derivative Time (Td)",
+      "type": "number",
+      "unit": "s",
+      "default": 0.5,
+      "businessContext": "Derivative time constant"
+    },
+    {
+      "id": "sampleTime",
+      "label": "Sample Time (Ts)",
+      "type": "number",
+      "unit": "s",
+      "default": 0.1,
+      "businessContext": "Controller sample interval"
+    },
+    {
+      "id": "previousError",
+      "label": "Previous Error (e_prev)",
+      "type": "number",
+      "unit": "°C",
+      "default": 0,
+      "businessContext": "Error from previous sample"
+    },
+    {
+      "id": "integralSum",
+      "label": "Integral Sum (sum_e)",
+      "type": "number",
+      "unit": "°C·s",
+      "default": 0,
+      "businessContext": "Accumulated integral error"
+    }
+  ],
+  "formulas": {
+    "error": "setpoint - processVariable",
+    "proportionalOutput": "proportionalGain * error",
+    "integralOutput": "proportionalGain * (sampleTime / integralTime) * (error + previousError) / 2 + integralSum",
+    "derivativeOutput": "proportionalGain * (derivativeTime / sampleTime) * (error - previousError)",
+    "controllerOutput": "proportionalOutput + integralOutput + derivativeOutput"
+  },
+  "outputs": {
+    "primary": "controllerOutput",
+    "breakdown": [
+      "error",
+      "proportionalOutput",
+      "integralOutput",
+      "derivativeOutput"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

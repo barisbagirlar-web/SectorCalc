@@ -1,0 +1,71 @@
+{
+  "toolName": "leed-calculator",
+  "inputs": [
+    {
+      "id": "ss",
+      "label": "Sustainable Sites Points",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Points earned in Sustainable Sites category"
+    },
+    {
+      "id": "we",
+      "label": "Water Efficiency Points",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Points earned in Water Efficiency category"
+    },
+    {
+      "id": "ea",
+      "label": "Energy & Atmosphere Points",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Points earned in Energy & Atmosphere category"
+    },
+    {
+      "id": "mr",
+      "label": "Materials & Resources Points",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Points earned in Materials & Resources category"
+    },
+    {
+      "id": "eq",
+      "label": "Indoor Environmental Quality Points",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Points earned in Indoor Environmental Quality category"
+    }
+  ],
+  "formulas": {
+    "total": "ss + we + ea + mr + eq",
+    "level": "total >= 80 ? 'Platinum' : total >= 60 ? 'Gold' : total >= 50 ? 'Silver' : total >= 40 ? 'Certified' : 'Not Certified'",
+    "totalScore": "'Total: ' + total + ' points (' + level + ')'",
+    "ssBreakdown": "'Sustainable Sites: ' + ss + ' points'",
+    "weBreakdown": "'Water Efficiency: ' + we + ' points'",
+    "eaBreakdown": "'Energy & Atmosphere: ' + ea + ' points'",
+    "mrBreakdown": "'Materials & Resources: ' + mr + ' points'",
+    "eqBreakdown": "'Indoor Environmental Quality: ' + eq + ' points'"
+  },
+  "outputs": {
+    "primary": "totalScore",
+    "breakdown": [
+      "ssBreakdown",
+      "weBreakdown",
+      "eaBreakdown",
+      "mrBreakdown",
+      "eqBreakdown"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

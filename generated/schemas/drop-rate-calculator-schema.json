@@ -1,0 +1,55 @@
+{
+  "toolName": "drop-rate-calculator",
+  "inputs": [
+    {
+      "id": "drops",
+      "label": "Number of Drops",
+      "type": "number",
+      "unit": "drops",
+      "default": 0,
+      "businessContext": "Total dropped items during observation"
+    },
+    {
+      "id": "totalItems",
+      "label": "Total Items Handled",
+      "type": "number",
+      "unit": "items",
+      "default": 1000,
+      "businessContext": "Total items processed in the same period"
+    },
+    {
+      "id": "timePeriod",
+      "label": "Time Period",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Duration of observation in hours"
+    },
+    {
+      "id": "costPerDrop",
+      "label": "Cost per Drop",
+      "type": "number",
+      "unit": "currency",
+      "default": 0.5,
+      "businessContext": "Average financial loss per dropped item"
+    }
+  ],
+  "formulas": {
+    "dropRatePercentage": "(drops / totalItems) * 100",
+    "dropsPerHour": "drops / timePeriod",
+    "annualDropCost": "costPerDrop * (drops / timePeriod) * 24 * 365"
+  },
+  "outputs": {
+    "primary": "dropRatePercentage",
+    "breakdown": [
+      "dropsPerHour",
+      "annualDropCost"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

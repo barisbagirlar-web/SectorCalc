@@ -1,0 +1,61 @@
+{
+  "toolName": "turkey-cooking-time-calculator",
+  "inputs": [
+    {
+      "id": "weightKg",
+      "label": "Turkey Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 5,
+      "businessContext": "Net weight of the turkey before cooking, without giblets."
+    },
+    {
+      "id": "ovenTempC",
+      "label": "Oven Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 175,
+      "businessContext": "Set temperature of the oven. Standard roasting temperature is 175°C (350°F)."
+    },
+    {
+      "id": "isStuffed",
+      "label": "Stuffed",
+      "type": "number",
+      "unit": "0=No, 1=Yes",
+      "default": 0,
+      "businessContext": "Indicates whether the turkey cavity is filled with stuffing. Stuffed turkeys require longer cooking to ensure safe internal temperature."
+    },
+    {
+      "id": "startTempC",
+      "label": "Starting Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 4,
+      "businessContext": "Initial temperature of the turkey. Typically refrigerated at 4°C."
+    }
+  ],
+  "formulas": {
+    "weightLbs": "weightKg * 2.20462",
+    "ovenTempF": "ovenTempC * 9/5 + 32",
+    "stuffingRate": "isStuffed * 5",
+    "baseRate": "17.5 + stuffingRate",
+    "baseTime": "weightLbs * baseRate",
+    "adjustedTime": "baseTime * (325 / ovenTempF)",
+    "startFactor": "(74 - startTempC) / 70",
+    "finalTimeMinutes": "adjustedTime * startFactor",
+    "finalTimeHours": "finalTimeMinutes / 60"
+  },
+  "outputs": {
+    "primary": "finalTimeMinutes",
+    "breakdown": [
+      "finalTimeMinutes",
+      "finalTimeHours"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

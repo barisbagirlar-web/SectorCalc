@@ -1,0 +1,59 @@
+{
+  "toolName": "dice-probability-calculator",
+  "inputs": [
+    {
+      "id": "numDice",
+      "label": "Number of Dice",
+      "type": "number",
+      "unit": "adet",
+      "default": 2,
+      "businessContext": "Number of independent quality parameters"
+    },
+    {
+      "id": "numSides",
+      "label": "Sides per Die",
+      "type": "number",
+      "unit": "faces",
+      "default": 6,
+      "businessContext": "Possible discrete levels per parameter"
+    },
+    {
+      "id": "modifier",
+      "label": "Sum Modifier",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Fixed allowance or penalty"
+    },
+    {
+      "id": "rangeMultiplier",
+      "label": "Range Multiplier",
+      "type": "number",
+      "unit": "σ",
+      "default": 2,
+      "businessContext": "Sigma level for expected variation band"
+    }
+  ],
+  "formulas": {
+    "expectedSum": "numDice * (numSides + 1) / 2 + modifier",
+    "variance": "numDice * (numSides ** 2 - 1) / 12",
+    "stdDev": "Math.sqrt(variance)",
+    "lowerRange": "expectedSum - rangeMultiplier * stdDev",
+    "upperRange": "expectedSum + rangeMultiplier * stdDev"
+  },
+  "outputs": {
+    "primary": "expectedSum",
+    "breakdown": [
+      "variance",
+      "stdDev",
+      "lowerRange",
+      "upperRange"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

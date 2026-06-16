@@ -1,0 +1,83 @@
+{
+  "toolName": "induction-calculator",
+  "inputs": [
+    {
+      "id": "frequency",
+      "label": "Frekans (Hz)",
+      "type": "number",
+      "unit": "Hz",
+      "default": 50,
+      "businessContext": "Elektrik şebeke frekansı"
+    },
+    {
+      "id": "poles",
+      "label": "Kutup Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 4,
+      "businessContext": "Motor kutup sayısı"
+    },
+    {
+      "id": "slip",
+      "label": "Kayma (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "Motor kayması"
+    },
+    {
+      "id": "outputPower",
+      "label": "Çıkış Gücü (kW)",
+      "type": "number",
+      "unit": "kW",
+      "default": 10,
+      "businessContext": "Motor mil gücü"
+    },
+    {
+      "id": "voltage",
+      "label": "Gerilim (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 400,
+      "businessContext": "Hat voltajı"
+    },
+    {
+      "id": "current",
+      "label": "Akım (A)",
+      "type": "number",
+      "unit": "A",
+      "default": 20,
+      "businessContext": "Hat akımı"
+    },
+    {
+      "id": "powerFactor",
+      "label": "Güç Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 0.85,
+      "businessContext": "Motor güç faktörü"
+    }
+  ],
+  "formulas": {
+    "synchronousSpeed": "120 * frequency / poles",
+    "rotorSpeed": "synchronousSpeed * (1 - slip / 100)",
+    "torque": "(outputPower * 9550) / rotorSpeed",
+    "inputPower": "voltage * current * powerFactor * Math.sqrt(3) / 1000",
+    "efficiency": "(outputPower / inputPower) * 100"
+  },
+  "outputs": {
+    "primary": "torque",
+    "breakdown": [
+      "synchronousSpeed",
+      "rotorSpeed",
+      "inputPower",
+      "efficiency"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

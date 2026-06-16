@@ -1,0 +1,55 @@
+{
+  "toolName": "conservation-of-momentum-calculator",
+  "inputs": [
+    {
+      "id": "mass1",
+      "label": "Mass 1",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Mass of first object in kilograms"
+    },
+    {
+      "id": "velocity1",
+      "label": "Velocity 1",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Velocity of first object in meters per second (positive direction)"
+    },
+    {
+      "id": "mass2",
+      "label": "Mass 2",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Mass of second object in kilograms"
+    },
+    {
+      "id": "velocity2",
+      "label": "Velocity 2",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Velocity of second object in meters per second (positive direction)"
+    }
+  ],
+  "formulas": {
+    "totalMomentum": "mass1 * velocity1 + mass2 * velocity2",
+    "momentum1": "mass1 * velocity1",
+    "momentum2": "mass2 * velocity2"
+  },
+  "outputs": {
+    "primary": "totalMomentum",
+    "breakdown": [
+      "momentum1",
+      "momentum2"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

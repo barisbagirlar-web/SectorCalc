@@ -1,0 +1,64 @@
+{
+  "toolName": "gear-ratio-calculator",
+  "inputs": [
+    {
+      "id": "drivingTeeth",
+      "label": "Driving Gear Teeth",
+      "type": "number",
+      "unit": "teeth",
+      "default": 20,
+      "businessContext": "Number of teeth on the driving (input) gear."
+    },
+    {
+      "id": "drivenTeeth",
+      "label": "Driven Gear Teeth",
+      "type": "number",
+      "unit": "teeth",
+      "default": 40,
+      "businessContext": "Number of teeth on the driven (output) gear."
+    },
+    {
+      "id": "inputSpeed",
+      "label": "Input Speed",
+      "type": "number",
+      "unit": "rpm",
+      "default": 1000,
+      "businessContext": "Rotational speed of the driving gear in revolutions per minute."
+    },
+    {
+      "id": "inputTorque",
+      "label": "Input Torque",
+      "type": "number",
+      "unit": "Nm",
+      "default": 50,
+      "businessContext": "Torque applied to the driving gear in Newton-meters."
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Efficiency of the gear pair in percentage (0-100). If not provided, assumes 100% (ideal)."
+    }
+  ],
+  "formulas": {
+    "ratio": "drivenTeeth / drivingTeeth",
+    "outputSpeed": "inputSpeed / (drivenTeeth / drivingTeeth)",
+    "outputTorque": "inputTorque * (drivenTeeth / drivingTeeth) * (Math.min(Math.max(efficiency, 0), 100) / 100)"
+  },
+  "outputs": {
+    "primary": "Gear Ratio: ${ratio}:1",
+    "breakdown": [
+      "Output Speed: ${outputSpeed} RPM",
+      "Output Torque: ${outputTorque} Nm",
+      "Mechanical Advantage: ${ratio}:1"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

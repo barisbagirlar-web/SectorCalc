@@ -1,0 +1,55 @@
+{
+  "toolName": "peak-demand-calculator",
+  "inputs": [
+    {
+      "id": "connectedLoad",
+      "label": "Toplam Bağlı Yük",
+      "type": "number",
+      "unit": "kW",
+      "default": 100,
+      "businessContext": "Tesisteki tüm ekipmanların anma güçlerinin toplamı (kW cinsinden)"
+    },
+    {
+      "id": "demandFactor",
+      "label": "Talep Faktörü",
+      "type": "number",
+      "unit": "-",
+      "default": 0.8,
+      "businessContext": "Maksimum talebin toplam bağlı yüke oranı, tipik olarak 0-1 arasındadır"
+    },
+    {
+      "id": "powerFactor",
+      "label": "Güç Faktörü",
+      "type": "number",
+      "unit": "-",
+      "default": 0.9,
+      "businessContext": "Aktif gücün görünür güce oranı, tipik olarak 0-1 arasındadır"
+    },
+    {
+      "id": "reserveMargin",
+      "label": "Yedek Kapasite Marjı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Gelecekteki büyüme veya belirsizlik için eklenen yüzde marj"
+    }
+  ],
+  "formulas": {
+    "peakDemand_kW": "connectedLoad * demandFactor * (1 + reserveMargin / 100)",
+    "peakDemand_kVA": "peakDemand_kW / powerFactor",
+    "demandPercentage": "(peakDemand_kW / connectedLoad) * 100"
+  },
+  "outputs": {
+    "primary": "peakDemand_kW",
+    "breakdown": [
+      "peakDemand_kVA",
+      "demandPercentage"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

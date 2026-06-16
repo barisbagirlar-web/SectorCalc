@@ -1,0 +1,55 @@
+{
+  "toolName": "regular-polygon-area-calculator",
+  "inputs": [
+    {
+      "id": "numberOfSides",
+      "label": "Kenar Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 6,
+      "businessContext": "Düzgün çokgenin kenar sayısı (3 veya daha büyük)"
+    },
+    {
+      "id": "sideLength",
+      "label": "Kenar Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Bir kenarın uzunluğu (metre)"
+    },
+    {
+      "id": "unitScale",
+      "label": "Birim Ölçek",
+      "type": "number",
+      "unit": "çarpan",
+      "default": 1,
+      "businessContext": "Çıktı alan için birim dönüşüm katsayısı (örn. m² → cm²: 10000)"
+    },
+    {
+      "id": "decimals",
+      "label": "Ondalık Basamak",
+      "type": "number",
+      "unit": "adet",
+      "default": 2,
+      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı"
+    }
+  ],
+  "formulas": {
+    "areaBase": "(numberOfSides * sideLength ** 2 * Math.cos(Math.PI / numberOfSides)) / (4 * Math.sin(Math.PI / numberOfSides))",
+    "areaScaled": "areaBase * unitScale",
+    "roundArea": "Math.round(areaScaled * 10**decimals) / 10**decimals"
+  },
+  "outputs": {
+    "primary": "roundArea",
+    "breakdown": [
+      "areaBase",
+      "areaScaled"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

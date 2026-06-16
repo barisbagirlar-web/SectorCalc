@@ -1,0 +1,55 @@
+{
+  "toolName": "learning-curve-calculator",
+  "inputs": [
+    {
+      "id": "firstUnitCost",
+      "label": "First Unit Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "businessContext": "Cost or time required to produce the first unit (in any currency or hour unit). Serves as basis for learning curve calculation."
+    },
+    {
+      "id": "learningRate",
+      "label": "Learning Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "The percentage of cost retained when cumulative output doubles. Typical values range from 70% to 100% (no learning)."
+    },
+    {
+      "id": "unitNumber",
+      "label": "Unit Number",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "businessContext": "The cumulative unit number for which the individual cost is estimated."
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "businessContext": "Total number of units in the production batch for total cost calculation."
+    }
+  ],
+  "formulas": {
+    "exponent": "Math.log(inputs.learningRate / 100) / Math.log(2)",
+    "unitCost": "inputs.firstUnitCost * Math.pow(inputs.unitNumber, Math.log(inputs.learningRate / 100) / Math.log(2))",
+    "totalBatchCost": "inputs.firstUnitCost * ((Math.pow(inputs.batchSize + 0.5, (Math.log(inputs.learningRate / 100) / Math.log(2)) + 1) - Math.pow(0.5, (Math.log(inputs.learningRate / 100) / Math.log(2)) + 1)) / ((Math.log(inputs.learningRate / 100) / Math.log(2)) + 1))"
+  },
+  "outputs": {
+    "primary": "unitCost",
+    "breakdown": [
+      "exponent",
+      "totalBatchCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,67 @@
+{
+  "toolName": "baking-percentage-calculator",
+  "inputs": [
+    {
+      "id": "flourWeight",
+      "label": "Un Ağırlığı",
+      "type": "number",
+      "unit": "g",
+      "default": 1000,
+      "businessContext": "Ana un miktarı (gram). Fırıncı yüzdesinde %100 kabul edilir."
+    },
+    {
+      "id": "waterPercent",
+      "label": "Su Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 65,
+      "businessContext": "Un ağırlığına göre su yüzdesi (fırıncı yüzdesi)."
+    },
+    {
+      "id": "saltPercent",
+      "label": "Tuz Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Un ağırlığına göre tuz yüzdesi."
+    },
+    {
+      "id": "yeastPercent",
+      "label": "Maya Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "businessContext": "Un ağırlığına göre maya yüzdesi."
+    },
+    {
+      "id": "otherPercent",
+      "label": "Diğer Malzeme Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "İsteğe bağlı diğer malzeme (ör. şeker, yağ) yüzdesi."
+    }
+  ],
+  "formulas": {
+    "waterWeight": "flourWeight * (waterPercent / 100)",
+    "saltWeight": "flourWeight * (saltPercent / 100)",
+    "yeastWeight": "flourWeight * (yeastPercent / 100)",
+    "otherWeight": "flourWeight * (otherPercent / 100)",
+    "totalDoughWeight": "flourWeight + waterWeight + saltWeight + yeastWeight + otherWeight"
+  },
+  "outputs": {
+    "primary": "totalDoughWeight",
+    "breakdown": [
+      "waterWeight",
+      "saltWeight",
+      "yeastWeight",
+      "otherWeight"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "chemical-equation-balancer-calculator",
+  "inputs": [
+    {
+      "id": "fuelCarbon",
+      "label": "Number of Carbon Atoms in Fuel",
+      "type": "number",
+      "unit": "atoms",
+      "default": 1,
+      "businessContext": "Specify the number of carbon atoms in one molecule of the fuel."
+    },
+    {
+      "id": "fuelHydrogen",
+      "label": "Number of Hydrogen Atoms in Fuel",
+      "type": "number",
+      "unit": "atoms",
+      "default": 4,
+      "businessContext": "Specify the number of hydrogen atoms in one molecule of the fuel."
+    },
+    {
+      "id": "fuelSulfur",
+      "label": "Number of Sulfur Atoms in Fuel",
+      "type": "number",
+      "unit": "atoms",
+      "default": 0,
+      "businessContext": "Specify the number of sulfur atoms in one molecule of the fuel (0 if none)."
+    },
+    {
+      "id": "fuelOxygen",
+      "label": "Number of Oxygen Atoms in Fuel",
+      "type": "number",
+      "unit": "atoms",
+      "default": 0,
+      "businessContext": "Specify the number of oxygen atoms in one molecule of the fuel (0 if none)."
+    }
+  ],
+  "formulas": {
+    "oxygenRequired": "fuelCarbon + fuelHydrogen/4 + fuelSulfur - fuelOxygen/2",
+    "co2Moles": "fuelCarbon",
+    "waterMoles": "fuelHydrogen/2",
+    "so2Moles": "fuelSulfur"
+  },
+  "outputs": {
+    "primary": "oxygenRequired",
+    "breakdown": [
+      "co2Moles",
+      "waterMoles",
+      "so2Moles"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "candy-temperature-calculator",
+  "inputs": [
+    {
+      "id": "stageIndex",
+      "label": "Candy Stage",
+      "type": "number",
+      "unit": "",
+      "default": 6,
+      "businessContext": "Select candy cooking stage: 1=Thread (230°F), 2=Soft Ball (238°F), 3=Firm Ball (245°F), 4=Hard Ball (255°F), 5=Soft Crack (280°F), 6=Hard Crack (305°F), 7=Caramel (335°F), 0=Custom"
+    },
+    {
+      "id": "altitudeFt",
+      "label": "Altitude (feet)",
+      "type": "number",
+      "unit": "ft",
+      "default": 0,
+      "businessContext": "Elevation above sea level; for every 500 ft, boiling point drops ~1°F"
+    },
+    {
+      "id": "customTempF",
+      "label": "Custom Target Temp (°F)",
+      "type": "number",
+      "unit": "°F",
+      "default": 300,
+      "businessContext": "Target temperature when using custom stage (stage = 0)"
+    },
+    {
+      "id": "thermometerOffsetF",
+      "label": "Thermometer Offset (°F)",
+      "type": "number",
+      "unit": "°F",
+      "default": 0,
+      "businessContext": "Correction if your thermometer is inaccurate (e.g., +2°F if it reads low)"
+    }
+  ],
+  "formulas": {
+    "baseTempF": "(stageIndex == 0) ? customTempF : [230, 238, 245, 255, 280, 305, 335][stageIndex - 1] || 230",
+    "altitudeAdjustment": "-(altitudeFt / 500)",
+    "adjustedF": "baseTempF + altitudeAdjustment + thermometerOffsetF",
+    "adjustedC": "(adjustedF - 32) * 5 / 9"
+  },
+  "outputs": {
+    "primary": {
+      "label": "Adjusted Cooking Temperature (°F)",
+      "value": "adjustedF",
+      "unit": "°F"
+    },
+    "breakdown": [
+      {
+        "label": "Base Temperature at Sea Level (°F)",
+        "value": "baseTempF",
+        "unit": "°F"
+      },
+      {
+        "label": "Altitude Adjustment (°F)",
+        "value": "altitudeAdjustment",
+        "unit": "°F"
+      },
+      {
+        "label": "Temperature in Celsius (°C)",
+        "value": "adjustedC",
+        "unit": "°C"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

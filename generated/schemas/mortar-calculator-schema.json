@@ -1,0 +1,86 @@
+{
+  "toolName": "mortar-calculator",
+  "inputs": [
+    {
+      "id": "wallLength",
+      "label": "Wall Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Total length of the wall in meters."
+    },
+    {
+      "id": "wallHeight",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Total height of the wall in meters."
+    },
+    {
+      "id": "brickLength",
+      "label": "Brick Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 190,
+      "businessContext": "Length of a single brick in millimeters (e.g., 190)."
+    },
+    {
+      "id": "brickWidth",
+      "label": "Brick Width (Thickness)",
+      "type": "number",
+      "unit": "mm",
+      "default": 90,
+      "businessContext": "Width or thickness of the brick, which determines wall thickness in mm."
+    },
+    {
+      "id": "brickHeight",
+      "label": "Brick Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 90,
+      "businessContext": "Height of the brick in millimeters."
+    },
+    {
+      "id": "jointThickness",
+      "label": "Mortar Joint Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Thickness of mortar joints (bed and head joints) in millimeters."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of extra mortar to account for spillage, overfill, and waste."
+    }
+  ],
+  "formulas": {
+    "bricksPerRow": "Math.floor(wallLength * 1000 / (brickLength + jointThickness))",
+    "rows": "Math.floor(wallHeight * 1000 / (brickHeight + jointThickness))",
+    "totalBricks": "bricksPerRow * rows",
+    "solidVolume": "totalBricks * (brickLength / 1000 * brickWidth / 1000 * brickHeight / 1000)",
+    "wallVolume": "wallLength * wallHeight * (brickWidth / 1000)",
+    "mortarVolumeBase": "wallVolume - solidVolume",
+    "waste": "mortarVolumeBase * wasteFactor / 100",
+    "totalMortar": "mortarVolumeBase + waste"
+  },
+  "outputs": {
+    "primary": "totalMortar",
+    "breakdown": [
+      "totalBricks",
+      "mortarVolumeBase",
+      "waste",
+      "solidVolume"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

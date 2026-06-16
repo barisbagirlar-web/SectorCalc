@@ -1,0 +1,40 @@
+{
+  "toolName": "corpulence-index",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Ağırlık",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Kişinin kilogram cinsinden vücut ağırlığı"
+    },
+    {
+      "id": "height",
+      "label": "Boy",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Kişinin santimetre cinsinden boy uzunluğu"
+    }
+  ],
+  "formulas": {
+    "heightM": "height / 100",
+    "heightCubed": "Math.pow(heightM, 3)",
+    "corpulenceIndex": "weight / heightCubed"
+  },
+  "outputs": {
+    "primary": "corpulenceIndex",
+    "breakdown": [
+      "heightM",
+      "heightCubed",
+      "corpulenceIndex"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

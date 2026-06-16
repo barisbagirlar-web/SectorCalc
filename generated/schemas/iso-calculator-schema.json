@@ -1,0 +1,51 @@
+{
+  "toolName": "iso-calculator",
+  "inputs": [
+    {
+      "id": "availability",
+      "label": "Availability (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Ratio of actual production time to planned production time, expressed as a percentage. Higher availability indicates less downtime."
+    },
+    {
+      "id": "performance",
+      "label": "Performance (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Ratio of actual output to theoretical maximum output during actual production time, expressed as a percentage. Accounts for speed losses."
+    },
+    {
+      "id": "quality",
+      "label": "Quality (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 98,
+      "businessContext": "Ratio of good units produced to total units started, expressed as a percentage. Reflects defect rate."
+    }
+  ],
+  "formulas": {
+    "primary": "(availability / 100) * (performance / 100) * (quality / 100) * 100",
+    "breakdown": [
+      "availability",
+      "performance",
+      "quality"
+    ]
+  },
+  "outputs": {
+    "primary": "OEE (%)",
+    "breakdown": [
+      "Availability Score (%)",
+      "Performance Score (%)",
+      "Quality Score (%)"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

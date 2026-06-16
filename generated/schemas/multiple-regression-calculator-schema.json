@@ -1,0 +1,83 @@
+{
+  "toolName": "multiple-regression-calculator",
+  "inputs": [
+    {
+      "id": "intercept",
+      "label": "Intercept (b0)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Constant term in the regression equation"
+    },
+    {
+      "id": "slope1",
+      "label": "Slope for Variable 1 (b1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient for first predictor"
+    },
+    {
+      "id": "slope2",
+      "label": "Slope for Variable 2 (b2)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient for second predictor"
+    },
+    {
+      "id": "slope3",
+      "label": "Slope for Variable 3 (b3)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient for third predictor"
+    },
+    {
+      "id": "x1",
+      "label": "Value of Variable 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Observed value for first independent variable"
+    },
+    {
+      "id": "x2",
+      "label": "Value of Variable 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Observed value for second independent variable"
+    },
+    {
+      "id": "x3",
+      "label": "Value of Variable 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Observed value for third independent variable"
+    }
+  ],
+  "formulas": {
+    "primary": "intercept + slope1 * x1 + slope2 * x2 + slope3 * x3",
+    "interceptContribution": "intercept",
+    "var1Contribution": "slope1 * x1",
+    "var2Contribution": "slope2 * x2",
+    "var3Contribution": "slope3 * x3"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "interceptContribution",
+      "var1Contribution",
+      "var2Contribution",
+      "var3Contribution"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

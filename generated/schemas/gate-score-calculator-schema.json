@@ -1,0 +1,92 @@
+{
+  "toolName": "gate-score-calculator",
+  "inputs": [
+    {
+      "id": "scoreG",
+      "label": "G Puanı",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Good (İyi) kriter puanı"
+    },
+    {
+      "id": "scoreA",
+      "label": "A Puanı",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Average (Ortalama) kriter puanı"
+    },
+    {
+      "id": "scoreT",
+      "label": "T Puanı",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Tolerable (Kabul Edilebilir) kriter puanı"
+    },
+    {
+      "id": "scoreE",
+      "label": "E Puanı",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Excellent (Mükemmel) kriter puanı"
+    },
+    {
+      "id": "weightG",
+      "label": "G Ağırlığı",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "G kategorisi ağırlık yüzdesi"
+    },
+    {
+      "id": "weightA",
+      "label": "A Ağırlığı",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "A kategorisi ağırlık yüzdesi"
+    },
+    {
+      "id": "weightT",
+      "label": "T Ağırlığı",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "T kategorisi ağırlık yüzdesi"
+    },
+    {
+      "id": "weightE",
+      "label": "E Ağırlığı",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "E kategorisi ağırlık yüzdesi"
+    }
+  ],
+  "formulas": {
+    "totalWeight": "weightG + weightA + weightT + weightE",
+    "overallScore": "(scoreG * weightG + scoreA * weightA + scoreT * weightT + scoreE * weightE) / (weightG + weightA + weightT + weightE)",
+    "gContribution": "(scoreG * weightG) / (weightG + weightA + weightT + weightE)",
+    "aContribution": "(scoreA * weightA) / (weightG + weightA + weightT + weightE)",
+    "tContribution": "(scoreT * weightT) / (weightG + weightA + weightT + weightE)",
+    "eContribution": "(scoreE * weightE) / (weightG + weightA + weightT + weightE)"
+  },
+  "outputs": {
+    "primary": "overallScore",
+    "breakdown": [
+      "gContribution",
+      "aContribution",
+      "tContribution",
+      "eContribution"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

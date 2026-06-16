@@ -1,0 +1,83 @@
+{
+  "toolName": "grout-calculator",
+  "inputs": [
+    {
+      "id": "tileLength",
+      "label": "Tile Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 300,
+      "businessContext": "Tile length in millimeters."
+    },
+    {
+      "id": "tileWidth",
+      "label": "Tile Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 300,
+      "businessContext": "Tile width in millimeters."
+    },
+    {
+      "id": "gapWidth",
+      "label": "Grout Joint Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Width of the grout joint between tiles."
+    },
+    {
+      "id": "gapDepth",
+      "label": "Grout Joint Depth",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Depth of the grout joint (tile thickness)."
+    },
+    {
+      "id": "totalArea",
+      "label": "Total Tiled Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 10,
+      "businessContext": "Total surface area covered with tiles."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of extra grout to account for waste and spillage."
+    },
+    {
+      "id": "bagYield",
+      "label": "Bag Yield",
+      "type": "number",
+      "unit": "m³ per bag",
+      "default": 0.012,
+      "businessContext": "Volume of grout one bag produces when mixed."
+    }
+  ],
+  "formulas": {
+    "groutVolume": "(totalArea * gapDepth * gapWidth * (tileLength + tileWidth)) / (1000 * tileLength * tileWidth)",
+    "wasteVolume": "groutVolume * wasteFactor / 100",
+    "totalVolume": "groutVolume * (1 + wasteFactor / 100)",
+    "exactBags": "totalVolume / bagYield",
+    "numberOfBags": "Math.ceil(totalVolume / bagYield)"
+  },
+  "outputs": {
+    "primary": "numberOfBags",
+    "breakdown": [
+      "groutVolume",
+      "wasteVolume",
+      "totalVolume",
+      "exactBags"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

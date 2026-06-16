@@ -1,0 +1,67 @@
+{
+  "toolName": "healthy-weight-calculator",
+  "inputs": [
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Employee height measurement for wellness assessment"
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Employee weight measurement for wellness assessment"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Employee age for reference"
+    },
+    {
+      "id": "waist",
+      "label": "Waist Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 80,
+      "businessContext": "Employee waist measurement for health risk indicators"
+    },
+    {
+      "id": "hip",
+      "label": "Hip Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Employee hip measurement for waist-hip ratio"
+    }
+  ],
+  "formulas": {
+    "bmi": "weight / ((height / 100) ** 2)",
+    "whtr": "waist / height",
+    "whr": "waist / hip",
+    "ideal_min": "18.5 * ((height / 100) ** 2)",
+    "ideal_max": "24.9 * ((height / 100) ** 2)"
+  },
+  "outputs": {
+    "primary": "bmi",
+    "breakdown": [
+      "ideal_min",
+      "ideal_max",
+      "whtr",
+      "whr"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,96 @@
+{
+  "toolName": "mandolin-calculator",
+  "inputs": [
+    {
+      "id": "mandolin_count",
+      "label": "Mandolin Count",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of mandolins to be produced"
+    },
+    {
+      "id": "body_wood_cost",
+      "label": "Body Wood Cost",
+      "type": "number",
+      "unit": "USD/pcs",
+      "default": 150,
+      "businessContext": "Cost of wood for one mandolin body"
+    },
+    {
+      "id": "neck_wood_cost",
+      "label": "Neck Wood Cost",
+      "type": "number",
+      "unit": "USD/pcs",
+      "default": 80,
+      "businessContext": "Cost of wood for one mandolin neck"
+    },
+    {
+      "id": "hardware_cost",
+      "label": "Hardware Cost",
+      "type": "number",
+      "unit": "USD/pcs",
+      "default": 120,
+      "businessContext": "Cost of hardware (tuners, bridge, tailpiece) per mandolin"
+    },
+    {
+      "id": "labor_hours",
+      "label": "Labor Hours",
+      "type": "number",
+      "unit": "hours/pcs",
+      "default": 40,
+      "businessContext": "Labor hours required to build one mandolin"
+    },
+    {
+      "id": "labor_rate",
+      "label": "Labor Rate",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 25,
+      "businessContext": "Hourly wage for luthier"
+    },
+    {
+      "id": "overhead_percent",
+      "label": "Overhead Percent",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Overhead cost as percentage of direct costs"
+    },
+    {
+      "id": "profit_margin",
+      "label": "Profit Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Desired profit margin on total cost"
+    }
+  ],
+  "formulas": {
+    "total_material_cost": "mandolin_count * (body_wood_cost + neck_wood_cost + hardware_cost)",
+    "total_labor_cost": "mandolin_count * labor_hours * labor_rate",
+    "direct_cost": "total_material_cost + total_labor_cost",
+    "overhead_cost": "direct_cost * (overhead_percent / 100)",
+    "total_cost": "direct_cost + overhead_cost",
+    "selling_price": "total_cost * (1 + profit_margin / 100)",
+    "cost_per_unit": "total_cost / mandolin_count",
+    "price_per_unit": "selling_price / mandolin_count"
+  },
+  "outputs": {
+    "primary": "price_per_unit",
+    "breakdown": [
+      "total_material_cost",
+      "total_labor_cost",
+      "overhead_cost",
+      "total_cost",
+      "selling_price",
+      "cost_per_unit"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

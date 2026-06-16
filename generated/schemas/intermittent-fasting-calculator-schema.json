@@ -1,0 +1,65 @@
+{
+  "toolName": "intermittent-fasting-calculator",
+  "inputs": [
+    {
+      "id": "fastingStartHour",
+      "label": "Fasting Start Hour",
+      "type": "number",
+      "unit": "hour (0-23)",
+      "default": 20,
+      "businessContext": "Time when the fasting period starts (24-hour format)."
+    },
+    {
+      "id": "fastingDurationHours",
+      "label": "Fasting Duration",
+      "type": "number",
+      "unit": "hours",
+      "default": 16,
+      "businessContext": "Number of consecutive hours to fast."
+    },
+    {
+      "id": "eatingWindowDurationHours",
+      "label": "Eating Window Duration",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Number of hours allowed for eating."
+    },
+    {
+      "id": "targetDailyCalories",
+      "label": "Target Daily Calories",
+      "type": "number",
+      "unit": "kcal",
+      "default": 2000,
+      "businessContext": "Total calories to consume during the eating window."
+    },
+    {
+      "id": "currentWeight",
+      "label": "Current Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Current body weight for additional context."
+    }
+  ],
+  "formulas": {
+    "feedingToFastingRatio": "i.eatingWindowDurationHours / i.fastingDurationHours",
+    "eatingEndHour": "(i.fastingStartHour + i.eatingWindowDurationHours) % 24",
+    "totalCycleHours": "i.fastingDurationHours + i.eatingWindowDurationHours",
+    "caloriesPerHour": "i.targetDailyCalories / i.eatingWindowDurationHours"
+  },
+  "outputs": {
+    "primary": "feedingToFastingRatio",
+    "breakdown": [
+      "eatingEndHour",
+      "totalCycleHours",
+      "caloriesPerHour"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

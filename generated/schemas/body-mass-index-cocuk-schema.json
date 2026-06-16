@@ -1,0 +1,55 @@
+{
+  "toolName": "body-mass-index-cocuk",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Ağırlık",
+      "type": "number",
+      "unit": "kg",
+      "default": 30,
+      "businessContext": "Çocuğun kilogram cinsinden vücut ağırlığı"
+    },
+    {
+      "id": "height",
+      "label": "Boy",
+      "type": "number",
+      "unit": "cm",
+      "default": 130,
+      "businessContext": "Çocuğun santimetre cinsinden boy uzunluğu"
+    },
+    {
+      "id": "age",
+      "label": "Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 8,
+      "businessContext": "Çocuğun yıl cinsinden yaşı"
+    },
+    {
+      "id": "gender",
+      "label": "Cinsiyet (0=Kız, 1=Erkek)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Çocuğun cinsiyeti: 0 kız, 1 erkek"
+    }
+  ],
+  "formulas": {
+    "bmi": "weight / ((height / 100) ** 2)",
+    "bmiPercentile": "0.5 + 0.5 * Math.erf((bmi - 17.5) / (2.5 * Math.sqrt(2)))",
+    "bmiCategory": "bmi < 14.5 ? 'Zayıf' : (bmi < 18.5 ? 'Normal' : (bmi < 25 ? 'Fazla Kilolu' : 'Obez'))"
+  },
+  "outputs": {
+    "primary": "bmi",
+    "breakdown": [
+      "bmiPercentile",
+      "bmiCategory"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,75 @@
+{
+  "toolName": "gable-roof-calculator",
+  "inputs": [
+    {
+      "id": "buildingWidth",
+      "label": "Building Width",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Width of the building (gable end span)"
+    },
+    {
+      "id": "buildingLength",
+      "label": "Building Length",
+      "type": "number",
+      "unit": "m",
+      "default": 12,
+      "businessContext": "Length of the building (ridge direction)"
+    },
+    {
+      "id": "roofPitch",
+      "label": "Roof Pitch",
+      "type": "number",
+      "unit": "deg",
+      "default": 30,
+      "businessContext": "Angle of roof slope from horizontal in degrees"
+    },
+    {
+      "id": "overhang",
+      "label": "Eave Overhang",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Horizontal projection of eaves beyond wall"
+    },
+    {
+      "id": "rafterSpacing",
+      "label": "Rafter Spacing",
+      "type": "number",
+      "unit": "m",
+      "default": 0.6,
+      "businessContext": "Center-to-center distance between rafters"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Additional percentage for material waste"
+    }
+  ],
+  "formulas": {
+    "totalRoofAreaIncludingWaste": "2 * buildingLength * ((buildingWidth / 2 + overhang) / Math.cos(roofPitch * Math.PI / 180)) * (1 + wasteFactor / 100)",
+    "rafterLength": "(buildingWidth / 2 + overhang) / Math.cos(roofPitch * Math.PI / 180)",
+    "ridgeLength": "buildingLength",
+    "roofSurfaceArea": "2 * buildingLength * ((buildingWidth / 2 + overhang) / Math.cos(roofPitch * Math.PI / 180))",
+    "totalRafters": "2 * (Math.ceil(buildingLength / rafterSpacing) + 1)"
+  },
+  "outputs": {
+    "primary": "totalRoofAreaIncludingWaste",
+    "breakdown": [
+      "rafterLength",
+      "ridgeLength",
+      "roofSurfaceArea",
+      "totalRafters"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

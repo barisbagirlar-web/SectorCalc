@@ -1,0 +1,55 @@
+{
+  "toolName": "coleman-liau-index-calculator",
+  "inputs": [
+    {
+      "id": "totalLetters",
+      "label": "Total Letters",
+      "type": "number",
+      "unit": "letters",
+      "default": 0,
+      "businessContext": "Total number of characters that are letters (A-Z, a-z) in the text"
+    },
+    {
+      "id": "totalWords",
+      "label": "Total Words",
+      "type": "number",
+      "unit": "words",
+      "default": 0,
+      "businessContext": "Total number of words in the text"
+    },
+    {
+      "id": "totalSentences",
+      "label": "Total Sentences",
+      "type": "number",
+      "unit": "sentences",
+      "default": 0,
+      "businessContext": "Total number of sentences in the text"
+    },
+    {
+      "id": "normalizationWordCount",
+      "label": "Normalization Word Count",
+      "type": "number",
+      "unit": "words",
+      "default": 100,
+      "businessContext": "Number of words to normalize to (typically 100 for Coleman-Liau)"
+    }
+  ],
+  "formulas": {
+    "L": "(totalLetters / totalWords) * normalizationWordCount",
+    "S": "(totalSentences / totalWords) * normalizationWordCount",
+    "CLI": "0.0588 * L - 0.296 * S - 15.8"
+  },
+  "outputs": {
+    "primary": "CLI",
+    "breakdown": [
+      "L",
+      "S"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

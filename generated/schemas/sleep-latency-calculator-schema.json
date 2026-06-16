@@ -1,0 +1,79 @@
+{
+  "toolName": "sleep-latency-calculator",
+  "inputs": [
+    {
+      "id": "lightsOutTime",
+      "label": "Lights Out Time (decimal hours)",
+      "type": "number",
+      "unit": "decimal hours",
+      "default": 22.5,
+      "businessContext": "Time when worker turns off lights and attempts to sleep (e.g., 22.5 for 22:30)"
+    },
+    {
+      "id": "age",
+      "label": "Worker Age",
+      "type": "number",
+      "unit": "years",
+      "default": 35,
+      "businessContext": "Worker's age in years; older age may increase sleep latency"
+    },
+    {
+      "id": "caffeineIntake",
+      "label": "Caffeine Intake Before Bed",
+      "type": "number",
+      "unit": "mg",
+      "default": 150,
+      "businessContext": "Total caffeine consumed in mg within 6 hours before bedtime"
+    },
+    {
+      "id": "screenTime",
+      "label": "Screen Time Before Bed",
+      "type": "number",
+      "unit": "minutes",
+      "default": 60,
+      "businessContext": "Minutes spent on screens (phone, TV, computer) before lights out"
+    },
+    {
+      "id": "roomTemperature",
+      "label": "Room Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Bedroom temperature in degrees Celsius; optimal is around 20°C"
+    },
+    {
+      "id": "stressLevel",
+      "label": "Stress Level (1-10)",
+      "type": "number",
+      "unit": "scale",
+      "default": 5,
+      "businessContext": "Self-reported stress level on a scale of 1-10, 10 being extremely stressed"
+    }
+  ],
+  "formulas": {
+    "predictedSleepLatency": "10 + 0.2 * (age - 30) + 0.05 * caffeineIntake + 0.1 * screenTime + ((roomTemperature - 20) ** 2) / 2 + 2 * stressLevel",
+    "estimatedSleepOnset": "lightsOutTime + predictedSleepLatency / 60",
+    "ageAdjustment": "0.2 * (age - 30)",
+    "caffeineAdjustment": "0.05 * caffeineIntake",
+    "screenAdjustment": "0.1 * screenTime",
+    "temperatureAdjustment": "((roomTemperature - 20) ** 2) / 2",
+    "stressAdjustment": "2 * stressLevel"
+  },
+  "outputs": {
+    "primary": "predictedSleepLatency",
+    "breakdown": [
+      "estimatedSleepOnset",
+      "ageAdjustment",
+      "caffeineAdjustment",
+      "screenAdjustment",
+      "temperatureAdjustment",
+      "stressAdjustment"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

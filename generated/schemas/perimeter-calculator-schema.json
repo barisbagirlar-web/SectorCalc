@@ -1,0 +1,84 @@
+{
+  "toolName": "perimeter-calculator",
+  "inputs": [
+    {
+      "id": "side1",
+      "label": "Side 1 Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Enter the length of the first side in meters."
+    },
+    {
+      "id": "side2",
+      "label": "Side 2 Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Enter the length of the second side in meters."
+    },
+    {
+      "id": "side3",
+      "label": "Side 3 Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Enter the length of the third side in meters."
+    },
+    {
+      "id": "side4",
+      "label": "Side 4 Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Enter the length of the fourth side in meters."
+    },
+    {
+      "id": "side5",
+      "label": "Side 5 Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Enter the length of the fifth side in meters."
+    },
+    {
+      "id": "side6",
+      "label": "Side 6 Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Enter the length of the sixth side in meters."
+    },
+    {
+      "id": "side7",
+      "label": "Side 7 Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Enter the length of the seventh side in meters."
+    },
+    {
+      "id": "side8",
+      "label": "Side 8 Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Enter the length of the eighth side in meters."
+    }
+  ],
+  "formulas": {
+    "perimeter": "side1 + side2 + side3 + side4 + side5 + side6 + side7 + side8"
+  },
+  "outputs": {
+    "primary": "perimeter",
+    "breakdown": [
+      "perimeter = side1 + side2 + side3 + side4 + side5 + side6 + side7 + side8"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

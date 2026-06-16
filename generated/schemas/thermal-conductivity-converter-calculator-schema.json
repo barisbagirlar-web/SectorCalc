@@ -1,0 +1,55 @@
+{
+  "toolName": "thermal-conductivity-converter-calculator",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "Thermal Conductivity Value",
+      "type": "number",
+      "unit": "input unit",
+      "default": 1,
+      "businessContext": "Numeric value to convert"
+    },
+    {
+      "id": "fromUnit",
+      "label": "From Unit Code",
+      "type": "number",
+      "unit": "code",
+      "default": 0,
+      "businessContext": "Source unit: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)"
+    },
+    {
+      "id": "toUnit",
+      "label": "To Unit Code",
+      "type": "number",
+      "unit": "code",
+      "default": 1,
+      "businessContext": "Target unit: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 2,
+      "businessContext": "Number of decimal places for result"
+    }
+  ],
+  "formulas": {
+    "primaryResult": "((value * ({1:1.730735, 2:0.859845, 3:100}[toUnit] || 1)) / ({1:1.730735, 2:0.859845, 3:100}[fromUnit] || 1)).toFixed(precision) + ' ' + ({0:'W/(m·K)', 1:'BTU/(hr·ft·°F)', 2:'kcal/(hr·m·°C)', 3:'W/(cm·K)'})[toUnit]",
+    "breakdownFactor": "(({1:1.730735, 2:0.859845, 3:100}[toUnit] || 1) / ({1:1.730735, 2:0.859845, 3:100}[fromUnit] || 1)).toFixed(precision)",
+    "breakdownFormula": "'Multiply by factor: ' + (({1:1.730735, 2:0.859845, 3:100}[toUnit] || 1) / ({1:1.730735, 2:0.859845, 3:100}[fromUnit] || 1)).toFixed(6)"
+  },
+  "outputs": {
+    "primary": "primaryResult",
+    "breakdown": [
+      "breakdownFactor",
+      "breakdownFormula"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

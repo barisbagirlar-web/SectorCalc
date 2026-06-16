@@ -1,0 +1,66 @@
+{
+  "toolName": "semi-annual-compound-interest",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Principal Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "Initial investment amount"
+    },
+    {
+      "id": "annualRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual nominal interest rate"
+    },
+    {
+      "id": "years",
+      "label": "Investment Duration",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Number of years the money is invested"
+    },
+    {
+      "id": "compoundsPerYear",
+      "label": "Compounding Periods per Year",
+      "type": "number",
+      "unit": "times/year",
+      "default": 2,
+      "businessContext": "Number of times interest is compounded per year (semi-annual = 2)"
+    },
+    {
+      "id": "inflationRate",
+      "label": "Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Annual inflation rate (optional, set to 0 to ignore)"
+    }
+  ],
+  "formulas": {
+    "nominalFutureValue": "principal * Math.pow(1 + annualRate/100/compoundsPerYear, compoundsPerYear * years)",
+    "totalInterest": "nominalFutureValue - principal",
+    "effectiveAnnualRate": "(Math.pow(1 + annualRate/100/compoundsPerYear, compoundsPerYear) - 1) * 100",
+    "realFutureValue": "inflationRate > 0 ? nominalFutureValue / Math.pow(1 + inflationRate/100, years) : nominalFutureValue"
+  },
+  "outputs": {
+    "primary": "nominalFutureValue",
+    "breakdown": [
+      "nominalFutureValue",
+      "totalInterest",
+      "effectiveAnnualRate",
+      "realFutureValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

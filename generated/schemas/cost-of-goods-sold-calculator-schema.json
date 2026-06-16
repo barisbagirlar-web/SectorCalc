@@ -1,0 +1,63 @@
+{
+  "toolName": "cost-of-goods-sold-calculator",
+  "inputs": [
+    {
+      "id": "beginningInventory",
+      "label": "Beginning Inventory",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Value of inventory at the start of the accounting period"
+    },
+    {
+      "id": "materialPurchases",
+      "label": "Material Purchases",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Cost of direct materials purchased during the period"
+    },
+    {
+      "id": "directLabor",
+      "label": "Direct Labor",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Cost of labor directly involved in production"
+    },
+    {
+      "id": "overhead",
+      "label": "Manufacturing Overhead",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Indirect production costs such as utilities, rent, and depreciation"
+    },
+    {
+      "id": "endingInventory",
+      "label": "Ending Inventory",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Value of inventory at the end of the accounting period"
+    }
+  ],
+  "formulas": {
+    "totalProductionCost": "materialPurchases + directLabor + overhead",
+    "costOfGoodsAvailableForSale": "beginningInventory + totalProductionCost",
+    "cogs": "costOfGoodsAvailableForSale - endingInventory"
+  },
+  "outputs": {
+    "primary": "cogs",
+    "breakdown": [
+      "totalProductionCost",
+      "costOfGoodsAvailableForSale"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

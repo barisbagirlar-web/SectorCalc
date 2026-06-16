@@ -1,0 +1,73 @@
+{
+  "toolName": "air-consumption-calculator",
+  "inputs": [
+    {
+      "id": "bore",
+      "label": "Bore Diameter (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Internal cylinder diameter"
+    },
+    {
+      "id": "stroke",
+      "label": "Stroke Length (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Cylinder stroke length"
+    },
+    {
+      "id": "pressure",
+      "label": "Operating Pressure (bar)",
+      "type": "number",
+      "unit": "bar",
+      "default": 6,
+      "businessContext": "Gauge working pressure"
+    },
+    {
+      "id": "cyclesPerMinute",
+      "label": "Cycles per Minute",
+      "type": "number",
+      "unit": "cycles/min",
+      "default": 10,
+      "businessContext": "Complete extend-retract cycles per minute"
+    },
+    {
+      "id": "atmospheric",
+      "label": "Atmospheric Pressure (bar)",
+      "type": "number",
+      "unit": "bar",
+      "default": 1.013,
+      "businessContext": "Local atmospheric pressure, default 1.013 bar at sea level"
+    },
+    {
+      "id": "actingFactor",
+      "label": "Acting Factor",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "1 for single-acting, 2 for double-acting cylinder"
+    }
+  ],
+  "formulas": {
+    "pistonArea": "Math.PI * Math.pow(bore / 2, 2)",
+    "volumePerCycle": "Math.PI * Math.pow(bore / 2, 2) * stroke * (pressure + atmospheric) / atmospheric",
+    "totalConsumptionMM3": "Math.PI * Math.pow(bore / 2, 2) * stroke * (pressure + atmospheric) * cyclesPerMinute * actingFactor / atmospheric",
+    "consumptionLMin": "Math.PI * Math.pow(bore / 2, 2) * stroke * (pressure + atmospheric) * cyclesPerMinute * actingFactor / (atmospheric * 1e6)"
+  },
+  "outputs": {
+    "primary": "consumptionLMin",
+    "breakdown": [
+      "pistonArea",
+      "volumePerCycle",
+      "totalConsumptionMM3"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

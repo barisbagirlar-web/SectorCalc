@@ -1,0 +1,54 @@
+{
+  "toolName": "hydration-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Used to calculate base hydration need based on body mass."
+    },
+    {
+      "id": "moderate_activity_hours",
+      "label": "Moderate Activity (hours/day)",
+      "type": "number",
+      "unit": "hours/day",
+      "default": 0,
+      "businessContext": "Moderate physical activity like walking or light work increases water loss."
+    },
+    {
+      "id": "heavy_activity_hours",
+      "label": "Heavy Activity (hours/day)",
+      "type": "number",
+      "unit": "hours/day",
+      "default": 0,
+      "businessContext": "Intense physical labor or exercise significantly raises hydration requirements."
+    },
+    {
+      "id": "average_temperature",
+      "label": "Average Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "High temperatures increase sweating and water needs, adjustment applied above 30°C."
+    }
+  ],
+  "formulas": {
+    "total": "weight * 0.033 + moderate_activity_hours * 0.35 + heavy_activity_hours * 0.7 + (average_temperature > 30 ? (average_temperature - 30) * 0.2 : 0)",
+    "base": "weight * 0.033",
+    "activity": "moderate_activity_hours * 0.35 + heavy_activity_hours * 0.7",
+    "tempAdjust": "average_temperature > 30 ? (average_temperature - 30) * 0.2 : 0"
+  },
+  "outputs": {
+    "primary": "${total.toFixed(1)} L per day",
+    "breakdown": [
+      "Base (from body weight): ${base.toFixed(1)} L",
+      "Activity adjustment: ${activity.toFixed(1)} L",
+      "Temperature adjustment: ${tempAdjust.toFixed(1)} L"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false
+}

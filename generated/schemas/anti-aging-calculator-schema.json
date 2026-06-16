@@ -1,0 +1,63 @@
+{
+  "toolName": "anti-aging-calculator",
+  "inputs": [
+    {
+      "id": "temperature",
+      "label": "Operating Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 40,
+      "businessContext": "The operating temperature of the component or system in degrees Celsius."
+    },
+    {
+      "id": "referenceTemperature",
+      "label": "Reference Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "The reference temperature at which standard aging data is known."
+    },
+    {
+      "id": "activationEnergy",
+      "label": "Activation Energy",
+      "type": "number",
+      "unit": "eV",
+      "default": 0.7,
+      "businessContext": "Activation energy for the aging process, typically in electron volts."
+    },
+    {
+      "id": "referenceTime",
+      "label": "Reference Time",
+      "type": "number",
+      "unit": "years",
+      "default": 1,
+      "businessContext": "The duration at reference conditions for which aging is compared."
+    },
+    {
+      "id": "treatmentEffectiveness",
+      "label": "Treatment Effectiveness",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Effectiveness factor of the anti-aging treatment, ranging from 0 (no effect) to 1 (fully effective)."
+    }
+  ],
+  "formulas": {
+    "accelerationFactor": "Math.exp((activationEnergy/8.617333262145e-5) * (1/(referenceTemperature+273.15) - 1/(temperature+273.15)))",
+    "treatmentEffectivenessFactor": "1 - treatmentEffectiveness",
+    "equivalentTime": "referenceTime * (Math.exp((activationEnergy/8.617333262145e-5) * (1/(referenceTemperature+273.15) - 1/(temperature+273.15))) * (1 - treatmentEffectiveness))"
+  },
+  "outputs": {
+    "primary": "equivalentTime",
+    "breakdown": [
+      "accelerationFactor",
+      "treatmentEffectivenessFactor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

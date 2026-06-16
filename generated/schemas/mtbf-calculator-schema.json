@@ -1,0 +1,56 @@
+{
+  "toolName": "mtbf-calculator",
+  "inputs": [
+    {
+      "id": "operatingHours",
+      "label": "Operating Hours per Unit",
+      "type": "number",
+      "unit": "hours",
+      "default": 8760,
+      "businessContext": "Total operating hours for a single unit during the observation period"
+    },
+    {
+      "id": "unitCount",
+      "label": "Number of Units",
+      "type": "number",
+      "unit": "pieces",
+      "default": 1,
+      "businessContext": "Number of identical units under observation"
+    },
+    {
+      "id": "failureCount",
+      "label": "Number of Failures",
+      "type": "number",
+      "unit": "count",
+      "default": 5,
+      "businessContext": "Total number of failures observed across all units"
+    },
+    {
+      "id": "repairHours",
+      "label": "Total Repair Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 50,
+      "businessContext": "Total time spent on repairs for all failures"
+    }
+  ],
+  "formulas": {
+    "totalOperationalTime": "operatingHours * unitCount",
+    "MTBF": "totalOperationalTime / failureCount",
+    "MTTR": "repairHours / failureCount",
+    "Availability": "MTBF / (MTBF + MTTR)"
+  },
+  "outputs": {
+    "primary": "MTBF",
+    "breakdown": [
+      "MTTR",
+      "Availability"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

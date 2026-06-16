@@ -1,0 +1,59 @@
+{
+  "toolName": "sat-subject-tests-calculator",
+  "inputs": [
+    {
+      "id": "rawMath2",
+      "label": "Math Level 2 Raw Score",
+      "type": "number",
+      "unit": "points",
+      "default": 30,
+      "businessContext": "Number of correct answers minus 0.25 times wrong answers for Math Level 2"
+    },
+    {
+      "id": "rawPhysics",
+      "label": "Physics Raw Score",
+      "type": "number",
+      "unit": "points",
+      "default": 40,
+      "businessContext": "Number of correct answers minus 0.25 times wrong answers for Physics"
+    },
+    {
+      "id": "rawChemistry",
+      "label": "Chemistry Raw Score",
+      "type": "number",
+      "unit": "points",
+      "default": 35,
+      "businessContext": "Number of correct answers minus 0.25 times wrong answers for Chemistry"
+    },
+    {
+      "id": "rawUSH",
+      "label": "U.S. History Raw Score",
+      "type": "number",
+      "unit": "points",
+      "default": 25,
+      "businessContext": "Number of correct answers minus 0.25 times wrong answers for U.S. History"
+    }
+  ],
+  "formulas": {
+    "math2Scaled": "200 + (rawMath2 / 50) * 600",
+    "physicsScaled": "200 + (rawPhysics / 75) * 600",
+    "chemistryScaled": "200 + (rawChemistry / 85) * 600",
+    "ushScaled": "200 + (rawUSH / 90) * 600",
+    "averageScaled": "( (200 + (rawMath2 / 50) * 600) + (200 + (rawPhysics / 75) * 600) + (200 + (rawChemistry / 85) * 600) + (200 + (rawUSH / 90) * 600) ) / 4"
+  },
+  "outputs": {
+    "primary": "averageScaled",
+    "breakdown": [
+      "math2Scaled",
+      "physicsScaled",
+      "chemistryScaled",
+      "ushScaled"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

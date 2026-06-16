@@ -1,0 +1,71 @@
+{
+  "toolName": "medicare-part-d-calculator",
+  "inputs": [
+    {
+      "id": "annualDrugCost",
+      "label": "Annual Total Drug Costs",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "businessContext": "Total retail cost of all prescription drugs for the year before insurance"
+    },
+    {
+      "id": "deductible",
+      "label": "Plan Deductible",
+      "type": "number",
+      "unit": "USD",
+      "default": 590,
+      "businessContext": "The amount you pay out-of-pocket before initial coverage begins"
+    },
+    {
+      "id": "initialCoinsurance",
+      "label": "Initial Coinsurance Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Percentage of drug costs you pay during initial coverage phase"
+    },
+    {
+      "id": "catastrophicThreshold",
+      "label": "Catastrophic Threshold",
+      "type": "number",
+      "unit": "USD",
+      "default": 2000,
+      "businessContext": "Out-of-pocket maximum after which catastrophic coverage begins"
+    },
+    {
+      "id": "catastrophicCoinsurance",
+      "label": "Catastrophic Coinsurance Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of drug costs you pay in catastrophic phase"
+    }
+  ],
+  "formulas": {
+    "OOP_deductible": "Math.min(annualDrugCost, deductible)",
+    "remainingAfterDeductible": "annualDrugCost - OOP_deductible",
+    "OOP_to_reach_threshold": "catastrophicThreshold - OOP_deductible",
+    "initialCoverageDrugCost": "Math.min(remainingAfterDeductible, OOP_to_reach_threshold / (initialCoinsurance / 100))",
+    "OOP_initial": "initialCoverageDrugCost * (initialCoinsurance / 100)",
+    "OOP_so_far": "OOP_deductible + OOP_initial",
+    "catastrophicDrugCost": "annualDrugCost - OOP_deductible - initialCoverageDrugCost",
+    "OOP_catastrophic": "catastrophicDrugCost * (catastrophicCoinsurance / 100)",
+    "totalOOP": "OOP_deductible + OOP_initial + OOP_catastrophic"
+  },
+  "outputs": {
+    "primary": "totalOOP",
+    "breakdown": [
+      "OOP_deductible",
+      "OOP_initial",
+      "OOP_catastrophic",
+      "annualDrugCost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

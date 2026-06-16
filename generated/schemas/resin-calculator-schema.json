@@ -1,0 +1,84 @@
+{
+  "toolName": "resin-calculator",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 1,
+      "businessContext": "The surface area to be coated"
+    },
+    {
+      "id": "thickness",
+      "label": "Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 1,
+      "businessContext": "Desired coating thickness"
+    },
+    {
+      "id": "resinRatio",
+      "label": "Resin Ratio",
+      "type": "number",
+      "unit": "parts",
+      "default": 100,
+      "businessContext": "Parts of resin in the mix by weight"
+    },
+    {
+      "id": "hardenerRatio",
+      "label": "Hardener Ratio",
+      "type": "number",
+      "unit": "parts",
+      "default": 50,
+      "businessContext": "Parts of hardener in the mix by weight"
+    },
+    {
+      "id": "resinDensity",
+      "label": "Resin Density",
+      "type": "number",
+      "unit": "g/cm³",
+      "default": 1.1,
+      "businessContext": "Density of resin"
+    },
+    {
+      "id": "hardenerDensity",
+      "label": "Hardener Density",
+      "type": "number",
+      "unit": "g/cm³",
+      "default": 0.95,
+      "businessContext": "Density of hardener"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Extra material percentage for waste and spillage"
+    }
+  ],
+  "formulas": {
+    "totalVolume": "area * thickness",
+    "resinWeight": "(totalVolume / ((resinRatio / hardenerRatio) / resinDensity + 1 / hardenerDensity)) * (resinRatio / hardenerRatio) * (1 + wasteFactor / 100)",
+    "hardenerWeight": "(totalVolume / ((resinRatio / hardenerRatio) / resinDensity + 1 / hardenerDensity)) * (1 + wasteFactor / 100)",
+    "resinVolume": "resinWeight / resinDensity",
+    "hardenerVolume": "hardenerWeight / hardenerDensity",
+    "totalWeight": "resinWeight + hardenerWeight"
+  },
+  "outputs": {
+    "primary": "totalWeight",
+    "breakdown": [
+      "resinWeight",
+      "hardenerWeight",
+      "resinVolume",
+      "hardenerVolume"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

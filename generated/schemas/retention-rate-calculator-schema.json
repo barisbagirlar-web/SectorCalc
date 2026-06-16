@@ -1,0 +1,55 @@
+{
+  "toolName": "retention-rate-calculator",
+  "inputs": [
+    {
+      "id": "customersStart",
+      "label": "Starting Customers",
+      "type": "number",
+      "unit": "customers",
+      "default": 1000,
+      "businessContext": "Number of customers at the beginning of the measurement period."
+    },
+    {
+      "id": "customersEnd",
+      "label": "Ending Customers",
+      "type": "number",
+      "unit": "customers",
+      "default": 900,
+      "businessContext": "Number of customers at the end of the measurement period."
+    },
+    {
+      "id": "newCustomers",
+      "label": "New Customers",
+      "type": "number",
+      "unit": "customers",
+      "default": 200,
+      "businessContext": "Number of new customers acquired during the measurement period."
+    },
+    {
+      "id": "periodDays",
+      "label": "Period Length",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Length of the measurement period in days (optional, can be used for annualization)."
+    }
+  ],
+  "formulas": {
+    "retainedCustomers": "customersEnd - newCustomers",
+    "retentionRate": "customersStart > 0 ? ((customersEnd - newCustomers) / customersStart) * 100 : 0",
+    "churnRate": "customersStart > 0 ? 100 - ((customersEnd - newCustomers) / customersStart) * 100 : 0"
+  },
+  "outputs": {
+    "primary": "retentionRate",
+    "breakdown": [
+      "retainedCustomers",
+      "churnRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

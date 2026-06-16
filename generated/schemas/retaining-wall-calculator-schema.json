@@ -1,0 +1,92 @@
+{
+  "toolName": "retaining-wall-calculator",
+  "inputs": [
+    {
+      "id": "wallHeight",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Height of retained soil"
+    },
+    {
+      "id": "wallThickness",
+      "label": "Wall Thickness",
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "businessContext": "Thickness of stem"
+    },
+    {
+      "id": "baseWidth",
+      "label": "Base Width",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Total width of base slab"
+    },
+    {
+      "id": "baseThickness",
+      "label": "Base Thickness",
+      "type": "number",
+      "unit": "m",
+      "default": 0.4,
+      "businessContext": "Thickness of base slab"
+    },
+    {
+      "id": "soilDensity",
+      "label": "Soil Density",
+      "type": "number",
+      "unit": "kN/m³",
+      "default": 18,
+      "businessContext": "Unit weight of backfill"
+    },
+    {
+      "id": "concreteDensity",
+      "label": "Concrete Density",
+      "type": "number",
+      "unit": "kN/m³",
+      "default": 24,
+      "businessContext": "Unit weight of concrete"
+    },
+    {
+      "id": "frictionAngle",
+      "label": "Friction Angle",
+      "type": "number",
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Angle of internal friction of soil"
+    }
+  ],
+  "formulas": {
+    "Ka": "(1 - Math.sin(frictionAngle * Math.PI / 180)) / (1 + Math.sin(frictionAngle * Math.PI / 180))",
+    "Pa": "0.5 * soilDensity * Math.pow(wallHeight, 2) * Ka",
+    "W1": "wallHeight * wallThickness * concreteDensity",
+    "W2": "baseWidth * baseThickness * concreteDensity",
+    "heel_length": "baseWidth - wallThickness",
+    "W3": "soilDensity * wallHeight * heel_length",
+    "R": "W1 + W2 + W3",
+    "Mo": "Pa * (wallHeight / 3)",
+    "Mr": "W1 * (wallThickness / 2) + W2 * (baseWidth / 2) + W3 * ((baseWidth + wallThickness) / 2)",
+    "FS_overturning": "Mr / Mo",
+    "FS_sliding": "R * Math.tan(frictionAngle * Math.PI / 180) / Pa",
+    "x_bar": "(Mr - Mo) / R",
+    "e": "(baseWidth / 2) - x_bar",
+    "q_max": "e <= baseWidth / 6 ? (R / baseWidth) * (1 + 6 * e / baseWidth) : (2 * R) / (3 * (baseWidth / 2 - e))",
+    "q_min": "e <= baseWidth / 6 ? (R / baseWidth) * (1 - 6 * e / baseWidth) : 0"
+  },
+  "outputs": {
+    "primary": "FS_sliding",
+    "breakdown": [
+      "FS_overturning",
+      "q_max",
+      "e"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

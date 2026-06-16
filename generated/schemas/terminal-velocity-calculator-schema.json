@@ -1,0 +1,75 @@
+{
+  "toolName": "terminal-velocity-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Mass of the falling object"
+    },
+    {
+      "id": "crossSectionalArea",
+      "label": "Cross-sectional Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 0.7,
+      "businessContext": "Effective cross-sectional area perpendicular to the direction of fall"
+    },
+    {
+      "id": "dragCoefficient",
+      "label": "Drag Coefficient",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Aerodynamic drag coefficient of the object's shape"
+    },
+    {
+      "id": "fluidDensity",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1.225,
+      "businessContext": "Density of the fluid through which the object falls (e.g., air at sea level ≈ 1.225 kg/m³)"
+    },
+    {
+      "id": "gravity",
+      "label": "Gravity",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Acceleration due to gravity (standard Earth gravity = 9.81 m/s²)"
+    }
+  ],
+  "formulas": {
+    "terminalVelocity": "Math.sqrt((2 * mass * gravity) / (fluidDensity * crossSectionalArea * dragCoefficient))",
+    "terminalVelocityKmh": "terminalVelocity * 3.6",
+    "terminalVelocityMph": "terminalVelocity * 2.23694"
+  },
+  "outputs": {
+    "primary": {
+      "id": "terminalVelocity",
+      "label": "Terminal Velocity",
+      "unit": "m/s"
+    },
+    "breakdown": [
+      {
+        "id": "terminalVelocityKmh",
+        "label": "Terminal Velocity (km/h)",
+        "unit": "km/h"
+      },
+      {
+        "id": "terminalVelocityMph",
+        "label": "Terminal Velocity (mph)",
+        "unit": "mph"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

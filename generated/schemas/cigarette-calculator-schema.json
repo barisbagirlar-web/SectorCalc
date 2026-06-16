@@ -1,0 +1,55 @@
+{
+  "toolName": "cigarette-calculator",
+  "inputs": [
+    {
+      "id": "packCost",
+      "label": "Price per Pack",
+      "type": "number",
+      "unit": "currency",
+      "default": 20,
+      "businessContext": "Cost of a single pack of cigarettes."
+    },
+    {
+      "id": "cigarettesPerPack",
+      "label": "Cigarettes per Pack",
+      "type": "number",
+      "unit": "pieces",
+      "default": 20,
+      "businessContext": "Number of cigarettes in a pack."
+    },
+    {
+      "id": "cigarettesPerDay",
+      "label": "Cigarettes per Day",
+      "type": "number",
+      "unit": "pieces",
+      "default": 20,
+      "businessContext": "Number of cigarettes smoked per day."
+    },
+    {
+      "id": "periodDays",
+      "label": "Period in Days",
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "businessContext": "Number of days for total cost calculation."
+    }
+  ],
+  "formulas": {
+    "dailyCost": "(packCost / cigarettesPerPack) * cigarettesPerDay",
+    "monthlyCost": "(packCost / cigarettesPerPack) * cigarettesPerDay * 30",
+    "totalCost": "(packCost / cigarettesPerPack) * cigarettesPerDay * periodDays"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "dailyCost",
+      "monthlyCost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

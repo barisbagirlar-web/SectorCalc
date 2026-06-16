@@ -1,0 +1,86 @@
+{
+  "toolName": "btu-calculator-for-hvac",
+  "inputs": [
+    {
+      "id": "room_length",
+      "label": "Room Length",
+      "type": "number",
+      "unit": "ft",
+      "default": 10,
+      "businessContext": "Length of the room to be cooled or heated."
+    },
+    {
+      "id": "room_width",
+      "label": "Room Width",
+      "type": "number",
+      "unit": "ft",
+      "default": 10,
+      "businessContext": "Width of the room to be cooled or heated."
+    },
+    {
+      "id": "ceiling_height",
+      "label": "Ceiling Height",
+      "type": "number",
+      "unit": "ft",
+      "default": 8,
+      "businessContext": "Height of the ceiling from floor."
+    },
+    {
+      "id": "insulation_factor",
+      "label": "Insulation Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Insulation quality: 0.5 (excellent), 1.0 (average), 1.5 (poor)."
+    },
+    {
+      "id": "sun_exposure",
+      "label": "Sun Exposure",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Additional BTU per square foot due to sun: 0 (none), 10 (moderate), 20 (high)."
+    },
+    {
+      "id": "num_occupants",
+      "label": "Number of Occupants",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Typical number of people in the room."
+    },
+    {
+      "id": "num_windows",
+      "label": "Number of Windows",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of windows in the room."
+    }
+  ],
+  "formulas": {
+    "volume": "room_length * room_width * ceiling_height",
+    "base_btu": "volume * 3.5",
+    "insulation_adjustment": "base_btu * insulation_factor",
+    "sun_adjustment": "sun_exposure * room_length * room_width",
+    "occupant_adjustment": "num_occupants * 400",
+    "window_adjustment": "num_windows * 1000",
+    "total_btu": "insulation_adjustment + sun_adjustment + occupant_adjustment + window_adjustment"
+  },
+  "outputs": {
+    "primary": "total_btu",
+    "breakdown": [
+      "base_btu",
+      "insulation_adjustment",
+      "sun_adjustment",
+      "occupant_adjustment",
+      "window_adjustment"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

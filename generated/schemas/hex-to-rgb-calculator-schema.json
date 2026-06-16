@@ -1,0 +1,89 @@
+{
+  "toolName": "hex-to-rgb-calculator",
+  "inputs": [
+    {
+      "id": "rHigh",
+      "label": "Red High (0-15)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "High nibble of red component (0-F in hex)"
+    },
+    {
+      "id": "rLow",
+      "label": "Red Low (0-15)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Low nibble of red component (0-F in hex)"
+    },
+    {
+      "id": "gHigh",
+      "label": "Green High (0-15)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "High nibble of green component (0-F in hex)"
+    },
+    {
+      "id": "gLow",
+      "label": "Green Low (0-15)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Low nibble of green component (0-F in hex)"
+    },
+    {
+      "id": "bHigh",
+      "label": "Blue High (0-15)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "High nibble of blue component (0-F in hex)"
+    },
+    {
+      "id": "bLow",
+      "label": "Blue Low (0-15)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Low nibble of blue component (0-F in hex)"
+    }
+  ],
+  "formulas": {
+    "red": "rHigh * 16 + rLow",
+    "green": "gHigh * 16 + gLow",
+    "blue": "bHigh * 16 + bLow",
+    "rgbString": "'rgb(' + red + ', ' + green + ', ' + blue + ')'"
+  },
+  "outputs": {
+    "primary": {
+      "formula": "rgbString",
+      "label": "RGB Color",
+      "unit": ""
+    },
+    "breakdown": [
+      {
+        "formula": "red",
+        "label": "Red",
+        "unit": ""
+      },
+      {
+        "formula": "green",
+        "label": "Green",
+        "unit": ""
+      },
+      {
+        "formula": "blue",
+        "label": "Blue",
+        "unit": ""
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "ftp-calculator",
+  "inputs": [
+    {
+      "id": "testDuration",
+      "label": "Test Duration (min)",
+      "type": "number",
+      "unit": "min",
+      "default": 20,
+      "businessContext": "Duration of the test in minutes (typically 20 or 60)."
+    },
+    {
+      "id": "averagePower",
+      "label": "Average Power (W)",
+      "type": "number",
+      "unit": "W",
+      "default": 200,
+      "businessContext": "Average power output during the test in watts."
+    },
+    {
+      "id": "weight",
+      "label": "Rider Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Rider's body weight in kilograms."
+    },
+    {
+      "id": "ambientTemperature",
+      "label": "Ambient Temperature (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Ambient temperature during the test in degrees Celsius."
+    }
+  ],
+  "formulas": {
+    "adjFactor": "Math.min(1, 0.95 + 0.00125 * Math.max(0, testDuration - 20))",
+    "tempCorrection": "1 - 0.005 * Math.max(0, ambientTemperature - 20)",
+    "overallFactor": "adjFactor * tempCorrection",
+    "FTP": "averagePower * overallFactor",
+    "powerToWeight": "FTP / weight"
+  },
+  "outputs": {
+    "primary": "FTP (W)",
+    "breakdown": [
+      "Power-to-Weight Ratio (W/kg)",
+      "Overall Adjustment Factor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

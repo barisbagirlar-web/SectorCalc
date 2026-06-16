@@ -1,0 +1,55 @@
+{
+  "toolName": "ideal-weight-calculator",
+  "inputs": [
+    {
+      "id": "height_ft",
+      "label": "Height (feet)",
+      "type": "number",
+      "unit": "ft",
+      "default": 5,
+      "businessContext": "Height in feet"
+    },
+    {
+      "id": "height_in",
+      "label": "Height (inches)",
+      "type": "number",
+      "unit": "in",
+      "default": 0,
+      "businessContext": "Additional inches"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1=Male, 2=Female"
+    },
+    {
+      "id": "body_frame",
+      "label": "Body Frame",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "1=Small, 2=Medium, 3=Large"
+    }
+  ],
+  "formulas": {
+    "ideal_weight_kg": "var total_in = height_ft * 12 + height_in; var base = gender == 1 ? 50 + 2.3*(total_in - 60) : 45.5 + 2.3*(total_in - 60); var factor = body_frame == 1 ? 0.9 : (body_frame == 2 ? 1.0 : 1.1); return base * factor;",
+    "ideal_weight_lbs": "var total_in = height_ft * 12 + height_in; var base = gender == 1 ? 50 + 2.3*(total_in - 60) : 45.5 + 2.3*(total_in - 60); var factor = body_frame == 1 ? 0.9 : (body_frame == 2 ? 1.0 : 1.1); var kg = base * factor; return kg * 2.20462;",
+    "bmi": "var total_in = height_ft * 12 + height_in; var base = gender == 1 ? 50 + 2.3*(total_in - 60) : 45.5 + 2.3*(total_in - 60); var factor = body_frame == 1 ? 0.9 : (body_frame == 2 ? 1.0 : 1.1); var kg = base * factor; var m = total_in * 0.0254; return kg / (m * m);"
+  },
+  "outputs": {
+    "primary": "ideal_weight_kg",
+    "breakdown": [
+      "ideal_weight_lbs",
+      "bmi"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "oz-to-ml-calculator",
+  "inputs": [
+    {
+      "id": "fluidOunces",
+      "label": "Fluid Ounces",
+      "type": "number",
+      "unit": "fl oz",
+      "default": 1,
+      "businessContext": "Amount of liquid in fluid ounces to convert to milliliters"
+    },
+    {
+      "id": "ounceType",
+      "label": "Ounce System",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "0 for US fluid ounce (29.5735 ml), 1 for UK imperial fluid ounce (28.4131 ml)"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "count",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output, typically 2 for laboratory precision"
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size Multiplier",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "businessContext": "Multiply conversion result by number of units if converting for a batch"
+    }
+  ],
+  "formulas": {
+    "conversionFactor": "(ounceType === 0 ? 29.5735 : 28.4131)",
+    "baseMilliliters": "fluidOunces * conversionFactor * batchSize",
+    "roundedMilliliters": "Math.round(baseMilliliters * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": {
+      "id": "milliliters",
+      "label": "Milliliters",
+      "formula": "roundedMilliliters",
+      "unit": "ml",
+      "businessContext": "Converted volume in milliliters, rounded to specified decimal places"
+    },
+    "breakdown": [
+      {
+        "id": "baseMilliliters",
+        "label": "Base Milliliters",
+        "formula": "baseMilliliters",
+        "unit": "ml",
+        "businessContext": "Unrounded conversion result before precision adjustment"
+      },
+      {
+        "id": "conversionFactorUsed",
+        "label": "Conversion Factor",
+        "formula": "conversionFactor",
+        "unit": "ml/fl oz",
+        "businessContext": "Applied conversion factor based on ounce system"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

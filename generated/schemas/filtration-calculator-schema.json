@@ -1,0 +1,63 @@
+{
+  "toolName": "filtration-calculator",
+  "inputs": [
+    {
+      "id": "flowRate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "m³/s",
+      "default": 0.001,
+      "businessContext": "Target volumetric flow rate of the fluid to be filtered."
+    },
+    {
+      "id": "viscosity",
+      "label": "Dynamic Viscosity",
+      "type": "number",
+      "unit": "Pa·s",
+      "default": 0.001,
+      "businessContext": "Dynamic viscosity of the fluid."
+    },
+    {
+      "id": "pressureDrop",
+      "label": "Pressure Drop",
+      "type": "number",
+      "unit": "Pa",
+      "default": 100000,
+      "businessContext": "Maximum allowable pressure drop across the filter."
+    },
+    {
+      "id": "membraneResistance",
+      "label": "Membrane Resistance",
+      "type": "number",
+      "unit": "1/m",
+      "default": 10000000000,
+      "businessContext": "Resistance of the clean filter medium."
+    },
+    {
+      "id": "cakeResistance",
+      "label": "Cake Resistance",
+      "type": "number",
+      "unit": "1/m",
+      "default": 0,
+      "businessContext": "Additional resistance from the filter cake (0 for clean filter)."
+    }
+  ],
+  "formulas": {
+    "totalResistance": "membraneResistance + cakeResistance",
+    "requiredFilterArea": "(flowRate * viscosity * totalResistance) / pressureDrop",
+    "flux": "flowRate / requiredFilterArea"
+  },
+  "outputs": {
+    "primary": "requiredFilterArea",
+    "breakdown": [
+      "flux",
+      "totalResistance"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

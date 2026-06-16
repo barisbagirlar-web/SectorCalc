@@ -1,0 +1,67 @@
+{
+  "toolName": "tweak-calculator",
+  "inputs": [
+    {
+      "id": "currentValue",
+      "label": "Current Parameter Value",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "businessContext": "Measured current value of the parameter to be adjusted (e.g., pressure, speed, temperature)."
+    },
+    {
+      "id": "targetValue",
+      "label": "Target Value",
+      "type": "number",
+      "unit": "units",
+      "default": 120,
+      "businessContext": "Desired target value for the parameter after adjustment."
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Current process efficiency affecting the parameter response (0-100)."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 110,
+      "businessContext": "Safety factor applied to the adjustment to prevent overshoot (typically >=100)."
+    },
+    {
+      "id": "tolerance",
+      "label": "Adjustment Tolerance",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Maximum permissible tweak percentage variation before issuing a warning."
+    }
+  ],
+  "formulas": {
+    "rawTweakPercent": "((targetValue - currentValue) / currentValue) * 100",
+    "efficiencyAdjustedTweakPercent": "((targetValue - currentValue) / currentValue) * 100 / (efficiency / 100)",
+    "recommendedTweakPercent": "((targetValue - currentValue) / currentValue) * 100 * safetyFactor / efficiency",
+    "finalParameterValue": "currentValue * (1 + ((targetValue - currentValue) / currentValue) * safetyFactor / efficiency)",
+    "withinTolerance": "Math.abs(((targetValue - currentValue) / currentValue) * 100 * safetyFactor / efficiency) <= tolerance"
+  },
+  "outputs": {
+    "primary": "recommendedTweakPercent",
+    "breakdown": [
+      "rawTweakPercent",
+      "efficiencyAdjustedTweakPercent",
+      "finalParameterValue",
+      "withinTolerance"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

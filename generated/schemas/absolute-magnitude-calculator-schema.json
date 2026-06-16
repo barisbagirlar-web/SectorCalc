@@ -1,0 +1,55 @@
+{
+  "toolName": "absolute-magnitude-calculator",
+  "inputs": [
+    {
+      "id": "apparentMagnitude",
+      "label": "Görünür Parlaklık (m)",
+      "type": "number",
+      "unit": "mag",
+      "default": 0,
+      "businessContext": "Gök cisminin gözlemlenen parlaklık değeri"
+    },
+    {
+      "id": "distanceParsecs",
+      "label": "Uzaklık (d)",
+      "type": "number",
+      "unit": "pc",
+      "default": 10,
+      "businessContext": "Gök cisminin Dünya'ya olan uzaklığı (parsek cinsinden)"
+    },
+    {
+      "id": "extinction",
+      "label": "Sönümleme (A_V)",
+      "type": "number",
+      "unit": "mag",
+      "default": 0,
+      "businessContext": "Yıldızlararası toz nedeniyle parlaklık kaybı"
+    },
+    {
+      "id": "bolometricCorrection",
+      "label": "Bolometrik Düzeltme (BC)",
+      "type": "number",
+      "unit": "mag",
+      "default": 0,
+      "businessContext": "Görsel parlaklıktan bolometrik parlaklığa geçiş düzeltmesi"
+    }
+  ],
+  "formulas": {
+    "distanceModulus": "5 * (Math.log(distanceParsecs) / Math.log(10) - 1)",
+    "absoluteVisualMagnitude": "apparentMagnitude - (5 * (Math.log(distanceParsecs) / Math.log(10) - 1)) - extinction",
+    "absoluteBolometricMagnitude": "apparentMagnitude - (5 * (Math.log(distanceParsecs) / Math.log(10) - 1)) - extinction + bolometricCorrection"
+  },
+  "outputs": {
+    "primary": "absoluteVisualMagnitude",
+    "breakdown": [
+      "distanceModulus",
+      "absoluteBolometricMagnitude"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

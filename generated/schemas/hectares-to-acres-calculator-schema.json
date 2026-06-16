@@ -1,0 +1,55 @@
+{
+  "toolName": "hectares-to-acres-calculator",
+  "inputs": [
+    {
+      "id": "field1",
+      "label": "Tarla 1 (ha)",
+      "type": "number",
+      "unit": "ha",
+      "default": 1,
+      "businessContext": "Birinci tarla alanı hektar"
+    },
+    {
+      "id": "field2",
+      "label": "Tarla 2 (ha)",
+      "type": "number",
+      "unit": "ha",
+      "default": 0,
+      "businessContext": "İkinci tarla alanı hektar"
+    },
+    {
+      "id": "field3",
+      "label": "Tarla 3 (ha)",
+      "type": "number",
+      "unit": "ha",
+      "default": 0,
+      "businessContext": "Üçüncü tarla alanı hektar"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Dönüşüm Faktörü",
+      "type": "number",
+      "unit": "acre/ha",
+      "default": 2.47105,
+      "businessContext": "1 hektar kaç acre? Standart uluslararası acre: 2.47105"
+    }
+  ],
+  "formulas": {
+    "totalHectares": "field1 + field2 + field3",
+    "acres": "totalHectares * conversionFactor"
+  },
+  "outputs": {
+    "primary": "acres",
+    "breakdown": [
+      "totalHectares",
+      "conversionFactor",
+      "acres"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

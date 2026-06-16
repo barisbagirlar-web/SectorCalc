@@ -1,0 +1,68 @@
+{
+  "toolName": "debt-payoff-calculator",
+  "inputs": [
+    {
+      "id": "totalDebt",
+      "label": "Total Debt Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "Total outstanding debt balance"
+    },
+    {
+      "id": "interestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual percentage rate on the debt"
+    },
+    {
+      "id": "monthlyPayment",
+      "label": "Monthly Payment",
+      "type": "number",
+      "unit": "currency",
+      "default": 500,
+      "businessContext": "Fixed monthly payment amount"
+    },
+    {
+      "id": "extraPayment",
+      "label": "Extra Monthly Payment",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Additional amount paid each month"
+    },
+    {
+      "id": "numDebts",
+      "label": "Number of Debts",
+      "type": "number",
+      "unit": "count",
+      "default": 1,
+      "businessContext": "Number of separate debts to consolidate"
+    }
+  ],
+  "formulas": {
+    "monthlyRate": "interestRate / 100 / 12",
+    "totalMonthlyPayment": "monthlyPayment + extraPayment",
+    "monthsSnowball": "Math.ceil(Math.log(1 - (totalDebt * monthlyRate / totalMonthlyPayment)) / Math.log(1 + monthlyRate))",
+    "totalInterestSnowball": "totalMonthlyPayment * monthsSnowball - totalDebt",
+    "monthsAvalanche": "Math.ceil(Math.log(1 - (totalDebt * monthlyRate / totalMonthlyPayment)) / Math.log(1 + monthlyRate))",
+    "totalInterestAvalanche": "totalMonthlyPayment * monthsAvalanche - totalDebt"
+  },
+  "outputs": {
+    "primary": "monthsSnowball",
+    "breakdown": [
+      "monthsSnowball",
+      "totalInterestSnowball",
+      "monthsAvalanche",
+      "totalInterestAvalanche"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,54 @@
+{
+  "toolName": "standard-drink-calculator",
+  "inputs": [
+    {
+      "id": "volume",
+      "label": "Volume (mL)",
+      "type": "number",
+      "unit": "mL",
+      "default": 330,
+      "businessContext": "Net volume of the alcoholic beverage"
+    },
+    {
+      "id": "abv",
+      "label": "Alcohol by Volume (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Alcohol percentage by volume"
+    },
+    {
+      "id": "standardGrams",
+      "label": "Standard Drink Size (g alcohol)",
+      "type": "number",
+      "unit": "g",
+      "default": 14,
+      "businessContext": "Definition of one standard drink in grams of pure alcohol"
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity (units)",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of identical drinks consumed"
+    }
+  ],
+  "formulas": {
+    "gramsAlcohol": "volume * (abv / 100) * 0.789",
+    "totalStandardDrinks": "(gramsAlcohol * quantity) / standardGrams"
+  },
+  "outputs": {
+    "primary": "totalStandardDrinks",
+    "breakdown": [
+      "gramsAlcohol",
+      "totalStandardDrinks"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,67 @@
+{
+  "toolName": "magnification-calculator",
+  "inputs": [
+    {
+      "id": "objectDistance",
+      "label": "Object Distance",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Distance from object to lens"
+    },
+    {
+      "id": "imageDistance",
+      "label": "Image Distance",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "businessContext": "Distance from lens to image"
+    },
+    {
+      "id": "focalLength",
+      "label": "Focal Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Focal length of the lens"
+    },
+    {
+      "id": "objectHeight",
+      "label": "Object Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Height of the object"
+    },
+    {
+      "id": "imageHeight",
+      "label": "Image Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 20,
+      "businessContext": "Height of the image"
+    }
+  ],
+  "formulas": {
+    "primary": "imageDistance / objectDistance",
+    "breakdown": [
+      "imageHeight / objectHeight",
+      "focalLength / (objectDistance - focalLength)",
+      "(imageDistance - focalLength) / focalLength"
+    ]
+  },
+  "outputs": {
+    "primary": "imageDistance / objectDistance",
+    "breakdown": [
+      "imageHeight / objectHeight",
+      "focalLength / (objectDistance - focalLength)",
+      "(imageDistance - focalLength) / focalLength"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,64 @@
+{
+  "toolName": "variable-annuity-calculator",
+  "inputs": [
+    {
+      "id": "initialBalance",
+      "label": "Initial Balance",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "The starting balance of the annuity, if already invested."
+    },
+    {
+      "id": "annualContribution",
+      "label": "Annual Contribution",
+      "type": "number",
+      "unit": "$",
+      "default": 10000,
+      "businessContext": "The amount added to the annuity each year."
+    },
+    {
+      "id": "years",
+      "label": "Investment Period",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "Number of years the annuity will grow."
+    },
+    {
+      "id": "annualReturn",
+      "label": "Expected Annual Return",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "The average annual rate of return of the underlying investments before fees."
+    },
+    {
+      "id": "annualFee",
+      "label": "Annual Fee",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "businessContext": "The annual management fee deducted from the account balance."
+    }
+  ],
+  "formulas": {
+    "netRate": "(annualReturn - annualFee) / 100",
+    "futureValue": "initialBalance * Math.pow(1 + netRate, years) + (netRate === 0 ? annualContribution * years : annualContribution * ((Math.pow(1 + netRate, years) - 1) / netRate))",
+    "totalContributions": "initialBalance + annualContribution * years",
+    "totalEarnings": "futureValue - totalContributions"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": [
+      "totalContributions",
+      "totalEarnings"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

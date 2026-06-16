@@ -1,0 +1,63 @@
+{
+  "toolName": "day-rate-calculator",
+  "inputs": [
+    {
+      "id": "annualSalary",
+      "label": "Annual Salary",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Desired take-home annual salary"
+    },
+    {
+      "id": "workingDaysPerYear",
+      "label": "Working Days per Year",
+      "type": "number",
+      "unit": "days",
+      "default": 230,
+      "businessContext": "Number of billable/working days in a year"
+    },
+    {
+      "id": "overheadPercentage",
+      "label": "Overhead Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Overhead costs as percentage of salary (e.g., rent, utilities)"
+    },
+    {
+      "id": "profitMarginPercentage",
+      "label": "Profit Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Target profit margin on top of costs"
+    },
+    {
+      "id": "billableHoursPerDay",
+      "label": "Billable Hours per Day",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Average billable hours per working day"
+    }
+  ],
+  "formulas": {
+    "dayRate": "(annualSalary * (1 + overheadPercentage / 100) * (1 + profitMarginPercentage / 100)) / workingDaysPerYear",
+    "hourlyRate": "dayRate / billableHoursPerDay",
+    "totalAnnualCost": "annualSalary * (1 + overheadPercentage / 100)"
+  },
+  "outputs": {
+    "primary": "dayRate",
+    "breakdown": [
+      "hourlyRate",
+      "totalAnnualCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

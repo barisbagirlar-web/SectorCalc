@@ -1,0 +1,74 @@
+{
+  "toolName": "concrete-cost-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of the concrete area"
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Width of the concrete area"
+    },
+    {
+      "id": "thickness",
+      "label": "Thickness",
+      "type": "number",
+      "unit": "m",
+      "default": 0.15,
+      "businessContext": "Thickness of the concrete slab"
+    },
+    {
+      "id": "costPerCubicMeter",
+      "label": "Concrete Cost per m³",
+      "type": "number",
+      "unit": "EUR/m³",
+      "default": 120,
+      "businessContext": "Unit price of ready-mix concrete"
+    },
+    {
+      "id": "wastePercentage",
+      "label": "Waste Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Extra percentage for spillage and waste"
+    },
+    {
+      "id": "deliveryCost",
+      "label": "Delivery Cost",
+      "type": "number",
+      "unit": "EUR",
+      "default": 200,
+      "businessContext": "Flat delivery fee for concrete truck"
+    }
+  ],
+  "formulas": {
+    "volume": "length * width * thickness",
+    "effectiveVolume": "volume * (1 + wastePercentage / 100)",
+    "materialCost": "effectiveVolume * costPerCubicMeter",
+    "totalCost": "materialCost + deliveryCost"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "materialCost",
+      "deliveryCost",
+      "volume",
+      "effectiveVolume"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

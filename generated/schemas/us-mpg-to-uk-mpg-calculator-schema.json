@@ -1,0 +1,57 @@
+{
+  "toolName": "us-mpg-to-uk-mpg-calculator",
+  "inputs": [
+    {
+      "id": "usMpg",
+      "label": "US MPG",
+      "type": "number",
+      "unit": "mpg (US)",
+      "default": 25,
+      "businessContext": "Fuel economy in miles per US gallon"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.20095,
+      "businessContext": "Factor to convert US mpg to UK mpg. Based on 1 US gallon = 0.832674 UK gallon"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounded output"
+    },
+    {
+      "id": "referenceValue",
+      "label": "Reference Value",
+      "type": "number",
+      "unit": "mpg (UK)",
+      "default": 30,
+      "businessContext": "Optional reference UK mpg value for comparison"
+    }
+  ],
+  "formulas": {
+    "rawUkMpg": "usMpg * conversionFactor",
+    "roundedUkMpg": "Math.round(rawUkMpg * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "ukMpg": "roundedUkMpg",
+    "difference": "roundedUkMpg - referenceValue"
+  },
+  "outputs": {
+    "primary": "ukMpg",
+    "breakdown": [
+      "rawUkMpg",
+      "roundedUkMpg",
+      "difference"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

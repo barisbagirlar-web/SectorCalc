@@ -1,0 +1,41 @@
+{
+  "toolName": "incidence-matrix-calculator",
+  "inputs": [
+    {
+      "id": "nodeCount",
+      "label": "Düğüm Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 5,
+      "businessContext": "Grafikteki toplam düğüm (node) sayısı."
+    },
+    {
+      "id": "edgeCount",
+      "label": "Kenar Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 4,
+      "businessContext": "Grafikteki toplam kenar (edge) sayısı."
+    }
+  ],
+  "formulas": {
+    "Graph Density": "edgeCount / (nodeCount * (nodeCount - 1) / 2)",
+    "Average Node Degree": "2 * edgeCount / nodeCount",
+    "Total Incidences": "2 * edgeCount",
+    "Max Possible Edges": "nodeCount * (nodeCount - 1) / 2"
+  },
+  "outputs": {
+    "primary": "Graph Density",
+    "breakdown": [
+      "Average Node Degree",
+      "Total Incidences",
+      "Max Possible Edges"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

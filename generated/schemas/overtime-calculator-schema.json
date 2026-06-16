@@ -1,0 +1,67 @@
+{
+  "toolName": "overtime-calculator",
+  "inputs": [
+    {
+      "id": "regularHours",
+      "label": "Regular Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 40,
+      "businessContext": "Normal working hours per period (e.g., per week)"
+    },
+    {
+      "id": "overtimeHours",
+      "label": "Overtime Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 5,
+      "businessContext": "Overtime hours worked beyond regular time"
+    },
+    {
+      "id": "hourlyRate",
+      "label": "Hourly Rate",
+      "type": "number",
+      "unit": "currency/hr",
+      "default": 20,
+      "businessContext": "Normal hourly wage rate"
+    },
+    {
+      "id": "overtimeMultiplier",
+      "label": "Overtime Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Multiplier applied to hourly rate for overtime (e.g., 1.5 for time and a half)"
+    }
+  ],
+  "formulas": {
+    "regularPay": "regularHours * hourlyRate",
+    "overtimePay": "overtimeHours * hourlyRate * overtimeMultiplier",
+    "totalPay": "regularPay + overtimePay"
+  },
+  "outputs": {
+    "primary": {
+      "id": "totalPay",
+      "label": "Total Pay",
+      "unit": "currency"
+    },
+    "breakdown": [
+      {
+        "id": "regularPay",
+        "label": "Regular Pay",
+        "unit": "currency"
+      },
+      {
+        "id": "overtimePay",
+        "label": "Overtime Pay",
+        "unit": "currency"
+      }
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "earth-overshoot-day-calculator",
+  "inputs": [
+    {
+      "id": "globalPopulation",
+      "label": "World Population",
+      "type": "number",
+      "unit": "billion people",
+      "default": 7.9,
+      "businessContext": "Total global population in billions"
+    },
+    {
+      "id": "perCapitaBiocapacity",
+      "label": "Biocapacity per capita",
+      "type": "number",
+      "unit": "gha/person",
+      "default": 1.6,
+      "businessContext": "Average global biocapacity availability per person in global hectares"
+    },
+    {
+      "id": "perCapitaFootprint",
+      "label": "Ecological Footprint per capita",
+      "type": "number",
+      "unit": "gha/person",
+      "default": 2.7,
+      "businessContext": "Average global ecological footprint per person in global hectares"
+    },
+    {
+      "id": "year",
+      "label": "Calculation Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2025,
+      "businessContext": "Year for which Earth Overshoot Day is calculated (used for date context)"
+    }
+  ],
+  "formulas": {
+    "totalBiocapacity": "globalPopulation * perCapitaBiocapacity",
+    "totalFootprint": "globalPopulation * perCapitaFootprint",
+    "excessEarths": "totalFootprint / totalBiocapacity",
+    "overshootDayFloat": "(totalBiocapacity / totalFootprint) * 365",
+    "overshootDay": "Math.floor(overshootDayFloat)"
+  },
+  "outputs": {
+    "primary": "overshootDay",
+    "breakdown": [
+      "Earth Overshoot Day falls on day ${overshootDay} of the year.",
+      "Humanity uses the equivalent of ${excessEarths} Earths."
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

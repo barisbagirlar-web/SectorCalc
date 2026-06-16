@@ -1,0 +1,67 @@
+{
+  "toolName": "dutching-calculator",
+  "inputs": [
+    {
+      "id": "totalStake",
+      "label": "Total Stake",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "The total amount to bet across all selections."
+    },
+    {
+      "id": "oddsA",
+      "label": "Odds Selection A",
+      "type": "number",
+      "unit": "decimal",
+      "default": 2,
+      "businessContext": "Decimal odds for the first selection."
+    },
+    {
+      "id": "oddsB",
+      "label": "Odds Selection B",
+      "type": "number",
+      "unit": "decimal",
+      "default": 2,
+      "businessContext": "Decimal odds for the second selection."
+    },
+    {
+      "id": "oddsC",
+      "label": "Odds Selection C",
+      "type": "number",
+      "unit": "decimal",
+      "default": 2,
+      "businessContext": "Decimal odds for the third selection."
+    },
+    {
+      "id": "oddsD",
+      "label": "Odds Selection D",
+      "type": "number",
+      "unit": "decimal",
+      "default": 2,
+      "businessContext": "Decimal odds for the fourth selection."
+    }
+  ],
+  "formulas": {
+    "profit": "totalStake / (1/oddsA + 1/oddsB + 1/oddsC + 1/oddsD) - totalStake",
+    "stakeA": "(totalStake * (1/oddsA)) / (1/oddsA + 1/oddsB + 1/oddsC + 1/oddsD)",
+    "stakeB": "(totalStake * (1/oddsB)) / (1/oddsA + 1/oddsB + 1/oddsC + 1/oddsD)",
+    "stakeC": "(totalStake * (1/oddsC)) / (1/oddsA + 1/oddsB + 1/oddsC + 1/oddsD)",
+    "stakeD": "(totalStake * (1/oddsD)) / (1/oddsA + 1/oddsB + 1/oddsC + 1/oddsD)"
+  },
+  "outputs": {
+    "primary": "profit",
+    "breakdown": [
+      "stakeA",
+      "stakeB",
+      "stakeC",
+      "stakeD"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

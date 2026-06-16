@@ -1,0 +1,55 @@
+{
+  "toolName": "heart-rate-reserve-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the individual in years, used to estimate maximum heart rate if not explicitly provided"
+    },
+    {
+      "id": "restingHeartRate",
+      "label": "Resting Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 70,
+      "businessContext": "Resting heart rate measured in the morning before any activity, in beats per minute"
+    },
+    {
+      "id": "maximumHeartRate",
+      "label": "Maximum Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 0,
+      "businessContext": "Maximum heart rate in beats per minute; if set to 0, it is estimated as 220 minus age"
+    },
+    {
+      "id": "intensity",
+      "label": "Training Intensity",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "businessContext": "Desired training intensity as a percentage of heart rate reserve (Karvonen method)"
+    }
+  ],
+  "formulas": {
+    "maxHeartRate": "maximumHeartRate > 0 ? maximumHeartRate : 220 - age",
+    "heartRateReserve": "maxHeartRate - restingHeartRate",
+    "targetHeartRate": "heartRateReserve * (intensity / 100) + restingHeartRate"
+  },
+  "outputs": {
+    "primary": "targetHeartRate",
+    "breakdown": [
+      "heartRateReserve",
+      "maxHeartRate"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

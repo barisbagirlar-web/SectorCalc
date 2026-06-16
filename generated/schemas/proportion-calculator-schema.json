@@ -1,0 +1,59 @@
+{
+  "toolName": "proportion-calculator",
+  "inputs": [
+    {
+      "id": "comp1",
+      "label": "Component 1 Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Weight of first component in the mixture"
+    },
+    {
+      "id": "comp2",
+      "label": "Component 2 Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Weight of second component in the mixture"
+    },
+    {
+      "id": "comp3",
+      "label": "Component 3 Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Weight of third component in the mixture"
+    },
+    {
+      "id": "comp4",
+      "label": "Component 4 Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Weight of fourth component in the mixture"
+    }
+  ],
+  "formulas": {
+    "totalWeight": "comp1 + comp2 + comp3 + comp4",
+    "prop1": "totalWeight > 0 ? (comp1 / totalWeight) * 100 : 0",
+    "prop2": "totalWeight > 0 ? (comp2 / totalWeight) * 100 : 0",
+    "prop3": "totalWeight > 0 ? (comp3 / totalWeight) * 100 : 0",
+    "prop4": "totalWeight > 0 ? (comp4 / totalWeight) * 100 : 0"
+  },
+  "outputs": {
+    "primary": "Mixture proportions calculated. Total weight: {totalWeight} kg.",
+    "breakdown": [
+      "Component 1: {prop1}%",
+      "Component 2: {prop2}%",
+      "Component 3: {prop3}%",
+      "Component 4: {prop4}%"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

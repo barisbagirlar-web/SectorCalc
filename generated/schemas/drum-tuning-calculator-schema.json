@@ -1,0 +1,65 @@
+{
+  "toolName": "drum-tuning-calculator",
+  "inputs": [
+    {
+      "id": "drumDiameter",
+      "label": "Drum Diameter",
+      "type": "number",
+      "unit": "cm",
+      "default": 35,
+      "businessContext": "Diameter of the drum head measured across the bearing edge in centimeters."
+    },
+    {
+      "id": "headThickness",
+      "label": "Head Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.2,
+      "businessContext": "Thickness of the drum head material (e.g., Mylar) in millimeters."
+    },
+    {
+      "id": "headDensity",
+      "label": "Head Material Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1400,
+      "businessContext": "Volumetric mass density of the drum head material in kilograms per cubic meter."
+    },
+    {
+      "id": "tension",
+      "label": "Tension",
+      "type": "number",
+      "unit": "N/m",
+      "default": 500,
+      "businessContext": "Tension per unit length applied to the drum head in Newtons per meter."
+    },
+    {
+      "id": "densityAdjustment",
+      "label": "Density Adjustment Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplicative calibration factor to compensate for material variations or environmental effects."
+    }
+  ],
+  "formulas": {
+    "primary": "0.766 / (drumDiameter * 0.01) * Math.sqrt(tension / (headThickness * 0.001 * headDensity * densityAdjustment))",
+    "breakdown": [
+      "0.766 / (drumDiameter * 0.01) * Math.sqrt(tension / (headThickness * 0.001 * headDensity * densityAdjustment)) * 1.593",
+      "0.766 / (drumDiameter * 0.01) * Math.sqrt(tension / (headThickness * 0.001 * headDensity * densityAdjustment)) * 2.135"
+    ]
+  },
+  "outputs": {
+    "primary": "Fundamental Frequency (Hz)",
+    "breakdown": [
+      "First Overtone (Hz)",
+      "Second Overtone (Hz)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

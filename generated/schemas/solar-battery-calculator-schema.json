@@ -1,0 +1,79 @@
+{
+  "toolName": "solar-battery-calculator",
+  "inputs": [
+    {
+      "id": "dailyEnergyConsumption",
+      "label": "Günlük Enerji Tüketimi",
+      "type": "number",
+      "unit": "kWh",
+      "default": 10,
+      "businessContext": "Toplam günlük enerji ihtiyacı"
+    },
+    {
+      "id": "peakSunHours",
+      "label": "Efektif Güneşlenme Süresi",
+      "type": "number",
+      "unit": "saat",
+      "default": 5,
+      "businessContext": "Günlük ortalama tam güneş ışığı süresi"
+    },
+    {
+      "id": "systemVoltage",
+      "label": "Sistem Voltajı",
+      "type": "number",
+      "unit": "V",
+      "default": 24,
+      "businessContext": "Akü bankası voltajı"
+    },
+    {
+      "id": "depthOfDischarge",
+      "label": "Deşarj Derinliği (DoD)",
+      "type": "number",
+      "unit": "oran",
+      "default": 0.5,
+      "businessContext": "Akünün kullanılabilir kapasite oranı (0-1 arası)"
+    },
+    {
+      "id": "daysOfAutonomy",
+      "label": "Otonomi Gün Sayısı",
+      "type": "number",
+      "unit": "gün",
+      "default": 3,
+      "businessContext": "Güneşsiz günlerde sistemin çalışma süresi"
+    },
+    {
+      "id": "batteryEfficiency",
+      "label": "Akü Verimliliği",
+      "type": "number",
+      "unit": "oran",
+      "default": 0.85,
+      "businessContext": "Akü şarj/deşarj verimliliği (0-1)"
+    },
+    {
+      "id": "batteryCapacityAh",
+      "label": "Tek Akü Kapasitesi",
+      "type": "number",
+      "unit": "Ah",
+      "default": 200,
+      "businessContext": "Kullanılacak her bir akünün kapasitesi"
+    }
+  ],
+  "formulas": {
+    "requiredEnergyWh": "(dailyEnergyConsumption * 1000 * daysOfAutonomy) / (depthOfDischarge * batteryEfficiency)",
+    "requiredAh": "requiredEnergyWh / systemVoltage",
+    "batteryCountExact": "requiredAh / batteryCapacityAh"
+  },
+  "outputs": {
+    "primary": "requiredAh",
+    "breakdown": [
+      "requiredEnergyWh",
+      "batteryCountExact"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

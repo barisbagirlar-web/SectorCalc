@@ -1,0 +1,91 @@
+{
+  "toolName": "chi-square-goodness-of-fit-calculator",
+  "inputs": [
+    {
+      "id": "o1",
+      "label": "Observed Frequency 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The observed count for category 1."
+    },
+    {
+      "id": "e1",
+      "label": "Expected Frequency 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The expected count for category 1 under the null hypothesis."
+    },
+    {
+      "id": "o2",
+      "label": "Observed Frequency 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The observed count for category 2."
+    },
+    {
+      "id": "e2",
+      "label": "Expected Frequency 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The expected count for category 2 under the null hypothesis."
+    },
+    {
+      "id": "o3",
+      "label": "Observed Frequency 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The observed count for category 3."
+    },
+    {
+      "id": "e3",
+      "label": "Expected Frequency 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The expected count for category 3 under the null hypothesis."
+    },
+    {
+      "id": "o4",
+      "label": "Observed Frequency 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The observed count for category 4."
+    },
+    {
+      "id": "e4",
+      "label": "Expected Frequency 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The expected count for category 4 under the null hypothesis."
+    }
+  ],
+  "formulas": {
+    "chiSq": {
+      "formula": "((o1-e1)**2)/e1 + ((o2-e2)**2)/e2 + ((o3-e3)**2)/e3 + ((o4-e4)**2)/e4",
+      "unit": ""
+    },
+    "df": {
+      "formula": "3",
+      "unit": ""
+    }
+  },
+  "outputs": {
+    "primary": "chiSq",
+    "breakdown": [
+      "df"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

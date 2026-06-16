@@ -1,0 +1,55 @@
+{
+  "toolName": "roman-numeral-calculator",
+  "inputs": [
+    {
+      "id": "numberA",
+      "label": "Sayı A",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Birinci sayı"
+    },
+    {
+      "id": "numberB",
+      "label": "Sayı B",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "İkinci sayı"
+    },
+    {
+      "id": "operation",
+      "label": "İşlem",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1=Toplama, 2=Çıkarma, 3=Çarpma, 4=Bölme"
+    },
+    {
+      "id": "precision",
+      "label": "Ondalık Basamak",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sonuç ondalık basamak sayısı (0 tamsayıya yuvarla)"
+    }
+  ],
+  "formulas": {
+    "rawResult": "(operation == 1 ? numberA + numberB : operation == 2 ? numberA - numberB : operation == 3 ? numberA * numberB : operation == 4 ? (numberB != 0 ? numberA / numberB : NaN) : NaN)",
+    "finalResult": "precision == 0 ? Math.round(rawResult) : Number(rawResult.toFixed(precision))"
+  },
+  "outputs": {
+    "primary": "Roma rakamı ile sonuç: {romanResult}",
+    "breakdown": [
+      "İşlem: {numberA} {operation==1?'+':operation==2?'-':operation==3?'*':'/'} {numberB} = {rawResult}",
+      "Yuvarlanmış sonuç: {finalResult}",
+      "Roma rakamı karşılığı: {romanResult}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

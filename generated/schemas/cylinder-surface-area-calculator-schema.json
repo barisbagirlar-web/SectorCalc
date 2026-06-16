@@ -1,0 +1,57 @@
+{
+  "toolName": "cylinder-surface-area-calculator",
+  "inputs": [
+    {
+      "id": "outerRadius",
+      "label": "Outer Radius",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Outer radius of the cylinder (pipe/tank)"
+    },
+    {
+      "id": "innerRadius",
+      "label": "Inner Radius",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Inner radius of the cylinder (set to 0 for solid cylinder)"
+    },
+    {
+      "id": "height",
+      "label": "Height / Length",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Height or length of the cylinder"
+    },
+    {
+      "id": "includeEnds",
+      "label": "Include Annular Ends",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 = include surface area of both annular end faces, 0 = exclude (e.g., open pipe)"
+    }
+  ],
+  "formulas": {
+    "externalLateral": "2 * Math.PI * outerRadius * height",
+    "internalLateral": "2 * Math.PI * innerRadius * height",
+    "endAreas": "2 * Math.PI * (Math.pow(outerRadius, 2) - Math.pow(innerRadius, 2))",
+    "totalSurfaceArea": "externalLateral + internalLateral + (includeEnds * endAreas)"
+  },
+  "outputs": {
+    "primary": "totalSurfaceArea",
+    "breakdown": [
+      "externalLateral",
+      "internalLateral",
+      "endAreas"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

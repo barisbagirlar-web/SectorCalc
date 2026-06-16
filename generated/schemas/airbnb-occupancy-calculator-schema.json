@@ -1,0 +1,71 @@
+{
+  "toolName": "airbnb-occupancy-calculator",
+  "inputs": [
+    {
+      "id": "bookedNights",
+      "label": "Booked Nights",
+      "type": "number",
+      "unit": "nights",
+      "default": 15,
+      "businessContext": "Total number of nights booked in the period."
+    },
+    {
+      "id": "totalAvailableNights",
+      "label": "Total Available Nights",
+      "type": "number",
+      "unit": "nights",
+      "default": 30,
+      "businessContext": "Total nights the property was available for booking."
+    },
+    {
+      "id": "averageDailyRate",
+      "label": "Average Daily Rate",
+      "type": "number",
+      "unit": "$/night",
+      "default": 120,
+      "businessContext": "Average nightly rental rate before fees."
+    },
+    {
+      "id": "cleaningFeePerBooking",
+      "label": "Cleaning Fee per Booking",
+      "type": "number",
+      "unit": "$",
+      "default": 50,
+      "businessContext": "Fixed cleaning fee added per booking."
+    },
+    {
+      "id": "numberOfBookings",
+      "label": "Number of Bookings",
+      "type": "number",
+      "unit": "count",
+      "default": 3,
+      "businessContext": "Total number of separate bookings in the period."
+    },
+    {
+      "id": "fixedMonthlyCosts",
+      "label": "Fixed Monthly Costs",
+      "type": "number",
+      "unit": "$",
+      "default": 800,
+      "businessContext": "All fixed monthly expenses (mortgage, utilities, insurance, etc.)."
+    }
+  ],
+  "formulas": {
+    "occupancyRate": "bookedNights / totalAvailableNights * 100",
+    "totalRevenue": "(bookedNights * averageDailyRate) + (numberOfBookings * cleaningFeePerBooking)",
+    "netIncome": "totalRevenue - fixedMonthlyCosts"
+  },
+  "outputs": {
+    "primary": "occupancyRate",
+    "breakdown": [
+      "totalRevenue",
+      "netIncome"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

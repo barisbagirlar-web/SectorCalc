@@ -1,0 +1,56 @@
+{
+  "toolName": "runway-calculator",
+  "inputs": [
+    {
+      "id": "cash_balance",
+      "label": "Current Cash Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Total liquid cash on hand."
+    },
+    {
+      "id": "monthly_expenses",
+      "label": "Monthly Expenses",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Total monthly cash outflows (operational costs, rent, salaries)."
+    },
+    {
+      "id": "monthly_revenue",
+      "label": "Monthly Revenue",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "businessContext": "Total monthly cash inflows from sales or other income."
+    },
+    {
+      "id": "buffer_percent",
+      "label": "Cash Buffer (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage of cash reserved as a safety buffer, not used in runway calculation."
+    }
+  ],
+  "formulas": {
+    "net_monthly_burn": "monthly_expenses - monthly_revenue",
+    "effective_cash": "cash_balance * (1 - buffer_percent / 100)",
+    "runway_months": "net_monthly_burn > 0 ? effective_cash / net_monthly_burn : Infinity"
+  },
+  "outputs": {
+    "primary": "runway_months",
+    "breakdown": [
+      "net_monthly_burn",
+      "effective_cash",
+      "runway_months"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,75 @@
+{
+  "toolName": "cubic-yards-to-cubic-meters-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length (yd)",
+      "type": "number",
+      "unit": "yd",
+      "default": 1,
+      "businessContext": "Enter the length in yards."
+    },
+    {
+      "id": "width",
+      "label": "Width (yd)",
+      "type": "number",
+      "unit": "yd",
+      "default": 1,
+      "businessContext": "Enter the width in yards."
+    },
+    {
+      "id": "height",
+      "label": "Height (yd)",
+      "type": "number",
+      "unit": "yd",
+      "default": 1,
+      "businessContext": "Enter the height in yards."
+    },
+    {
+      "id": "cubicYards",
+      "label": "Cubic Yards",
+      "type": "number",
+      "unit": "yd³",
+      "default": 0,
+      "businessContext": "Alternatively, enter the volume directly in cubic yards. Overrides dimensions if non-zero."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the final result."
+    },
+    {
+      "id": "conversionConstant",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "m³/yd³",
+      "default": 0.764554857992,
+      "businessContext": "Fixed conversion factor: 1 yd³ = 0.764554857992 m³."
+    }
+  ],
+  "formulas": {
+    "primary": "`${((cubicYards || (length * width * height)) * conversionConstant).toFixed(decimalPlaces)} m³`",
+    "breakdown_0": "`Volume in cubic yards: ${(cubicYards || (length * width * height)).toFixed(4)} yd³`",
+    "breakdown_1": "`Conversion factor: ${conversionConstant} m³/yd³`",
+    "breakdown_2": "`Raw conversion: ${((cubicYards || (length * width * height)) * conversionConstant).toFixed(6)} m³`",
+    "breakdown_3": "`Final rounded: ${((cubicYards || (length * width * height)) * conversionConstant).toFixed(decimalPlaces)} m³`"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "breakdown_0",
+      "breakdown_1",
+      "breakdown_2",
+      "breakdown_3"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

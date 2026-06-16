@@ -1,0 +1,75 @@
+{
+  "toolName": "atm-to-bar-calculator",
+  "inputs": [
+    {
+      "id": "pressure_atm",
+      "label": "Pressure (atm)",
+      "type": "number",
+      "unit": "atm",
+      "default": 1,
+      "businessContext": "The pressure value in standard atmospheres to be converted."
+    },
+    {
+      "id": "conversion_factor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "bar/atm",
+      "default": 1.01325,
+      "businessContext": "Standard conversion factor from atm to bar. Adjustable for calibration or traceability."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding the primary output."
+    },
+    {
+      "id": "temperature_celsius",
+      "label": "Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Reference temperature for potential gas law corrections (informational; not used in standard conversion)."
+    },
+    {
+      "id": "altitude_meters",
+      "label": "Altitude",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Altitude above sea level for atmospheric pressure estimation (informational; not directly used in atm to bar conversion)."
+    },
+    {
+      "id": "measurement_uncertainty",
+      "label": "Measurement Uncertainty",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "businessContext": "Relative uncertainty percentage for TÜV-compliant documentation and error bounds."
+    }
+  ],
+  "formulas": {
+    "primary": "pressure_atm * conversion_factor",
+    "breakdown": [
+      "Math.round(pressure_atm * conversion_factor * Math.pow(10, precision)) / Math.pow(10, precision)",
+      "pressure_atm * conversion_factor * (1 + measurement_uncertainty / 100)",
+      "pressure_atm * conversion_factor * (1 - measurement_uncertainty / 100)"
+    ]
+  },
+  "outputs": {
+    "primary": "Pressure in bar",
+    "breakdown": [
+      "Rounded pressure (bar) to specified precision",
+      "Upper uncertainty bound (bar)",
+      "Lower uncertainty bound (bar)"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,81 @@
+{
+  "toolName": "pizza-cost-calculator",
+  "inputs": [
+    {
+      "id": "doughCost",
+      "label": "Dough Cost per Pizza",
+      "type": "number",
+      "unit": "$/pizza",
+      "default": 0.5,
+      "businessContext": "Cost of dough used per pizza"
+    },
+    {
+      "id": "sauceCost",
+      "label": "Sauce Cost per Pizza",
+      "type": "number",
+      "unit": "$/pizza",
+      "default": 0.3,
+      "businessContext": "Cost of sauce used per pizza"
+    },
+    {
+      "id": "cheeseCost",
+      "label": "Cheese Cost per Pizza",
+      "type": "number",
+      "unit": "$/pizza",
+      "default": 0.6,
+      "businessContext": "Cost of cheese used per pizza"
+    },
+    {
+      "id": "toppingsCost",
+      "label": "Toppings Cost per Pizza",
+      "type": "number",
+      "unit": "$/pizza",
+      "default": 0.4,
+      "businessContext": "Cost of additional toppings per pizza"
+    },
+    {
+      "id": "laborCost",
+      "label": "Labor Cost per Pizza",
+      "type": "number",
+      "unit": "$/pizza",
+      "default": 0.75,
+      "businessContext": "Labor cost allocated per pizza"
+    },
+    {
+      "id": "overheadCost",
+      "label": "Overhead Cost per Pizza",
+      "type": "number",
+      "unit": "$/pizza",
+      "default": 0.25,
+      "businessContext": "Fixed overhead allocated per pizza"
+    },
+    {
+      "id": "marginPercent",
+      "label": "Desired Profit Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "businessContext": "Target profit margin percentage"
+    }
+  ],
+  "formulas": {
+    "totalIngredientCost": "doughCost + sauceCost + cheeseCost + toppingsCost",
+    "totalCostPerPizza": "totalIngredientCost + laborCost + overheadCost",
+    "sellingPricePerPizza": "totalCostPerPizza / (1 - marginPercent/100)",
+    "profitPerPizza": "sellingPricePerPizza - totalCostPerPizza"
+  },
+  "outputs": {
+    "primary": "sellingPricePerPizza",
+    "breakdown": [
+      "totalCostPerPizza",
+      "totalIngredientCost",
+      "profitPerPizza"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

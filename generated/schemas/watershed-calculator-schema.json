@@ -1,0 +1,78 @@
+{
+  "toolName": "watershed-calculator",
+  "inputs": [
+    {
+      "id": "drainageArea",
+      "label": "Drainage Area",
+      "type": "number",
+      "unit": "ha",
+      "default": 10,
+      "businessContext": "Area of the watershed contributing runoff."
+    },
+    {
+      "id": "runoffCoefficient",
+      "label": "Runoff Coefficient",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.5,
+      "businessContext": "Fraction of rainfall that becomes runoff."
+    },
+    {
+      "id": "rainfallIntensity",
+      "label": "Rainfall Intensity",
+      "type": "number",
+      "unit": "mm/hr",
+      "default": 25,
+      "businessContext": "Design storm rainfall intensity."
+    },
+    {
+      "id": "channelLength",
+      "label": "Main Channel Length",
+      "type": "number",
+      "unit": "m",
+      "default": 500,
+      "businessContext": "Length of the longest flow path."
+    },
+    {
+      "id": "slope",
+      "label": "Slope",
+      "type": "number",
+      "unit": "m/m",
+      "default": 0.01,
+      "businessContext": "Average slope of the main channel."
+    }
+  ],
+  "formulas": {
+    "peakDischarge": "(runoffCoefficient * rainfallIntensity * drainageArea) / 360",
+    "timeOfConcentration": "0.01947 * Math.pow(channelLength, 0.77) * Math.pow(slope, -0.385)",
+    "runoffVolumePerHour": "rainfallIntensity * drainageArea * 10"
+  },
+  "outputs": {
+    "primary": {
+      "id": "peakDischarge",
+      "label": "Peak Discharge",
+      "unit": "m³/s",
+      "businessContext": "Maximum rate of runoff at the outlet."
+    },
+    "breakdown": [
+      {
+        "id": "timeOfConcentration",
+        "label": "Time of Concentration",
+        "unit": "min",
+        "businessContext": "Time for runoff to travel from farthest point to outlet."
+      },
+      {
+        "id": "runoffVolumePerHour",
+        "label": "Runoff Volume",
+        "unit": "m³/hr",
+        "businessContext": "Volume of runoff generated per hour."
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

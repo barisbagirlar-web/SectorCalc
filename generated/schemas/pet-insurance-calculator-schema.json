@@ -1,0 +1,73 @@
+{
+  "toolName": "pet-insurance-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Pet Age",
+      "type": "number",
+      "unit": "years",
+      "default": 3,
+      "businessContext": "Age of the pet in years"
+    },
+    {
+      "id": "breedRisk",
+      "label": "Breed Risk Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Risk factor assigned to the breed (1 = low risk, 3 = high risk)"
+    },
+    {
+      "id": "basePremium",
+      "label": "Base Monthly Premium",
+      "type": "number",
+      "unit": "USD/month",
+      "default": 25,
+      "businessContext": "Starting monthly premium before adjustments"
+    },
+    {
+      "id": "coverageLimit",
+      "label": "Annual Coverage Limit",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "businessContext": "Maximum amount the policy will pay per year"
+    },
+    {
+      "id": "deductible",
+      "label": "Deductible",
+      "type": "number",
+      "unit": "USD",
+      "default": 200,
+      "businessContext": "Amount the owner must pay before insurance covers the rest"
+    },
+    {
+      "id": "reimbursement",
+      "label": "Reimbursement Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Percentage of covered costs paid by the insurer after deductible"
+    }
+  ],
+  "formulas": {
+    "riskMultiplier": "breedRisk * (1 + age * 0.05)",
+    "adjustedMonthlyPremium": "basePremium * riskMultiplier * (coverageLimit / 5000) * (reimbursement / 80)",
+    "annualCost": "adjustedMonthlyPremium * 12",
+    "effectiveCoverage": "coverageLimit - deductible"
+  },
+  "outputs": {
+    "primary": "adjustedMonthlyPremium",
+    "breakdown": [
+      "riskMultiplier",
+      "annualCost",
+      "effectiveCoverage"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

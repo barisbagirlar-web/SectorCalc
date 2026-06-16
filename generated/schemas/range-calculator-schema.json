@@ -1,0 +1,57 @@
+{
+  "toolName": "range-calculator",
+  "inputs": [
+    {
+      "id": "minValue",
+      "label": "Minimum Value",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "The lower bound of the measured data set."
+    },
+    {
+      "id": "maxValue",
+      "label": "Maximum Value",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "The upper bound of the measured data set."
+    },
+    {
+      "id": "nominalValue",
+      "label": "Nominal Value",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "The target or expected value for the measurement."
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "The permissible deviation from nominal; used to compute out-of-tolerance margins."
+    }
+  ],
+  "formulas": {
+    "range": "maxValue - minValue",
+    "midrange": "(minValue + maxValue) / 2",
+    "relativeRange": "(maxValue - minValue) / Math.sqrt(nominalValue ** 2)",
+    "toleranceMargin": "tolerance - (maxValue - minValue)"
+  },
+  "outputs": {
+    "primary": "range",
+    "breakdown": [
+      "midrange",
+      "relativeRange",
+      "toleranceMargin"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

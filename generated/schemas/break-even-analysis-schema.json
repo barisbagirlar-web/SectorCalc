@@ -1,0 +1,59 @@
+{
+  "toolName": "break-even-analysis",
+  "inputs": [
+    {
+      "id": "fixedCosts",
+      "label": "Fixed Costs (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 100000,
+      "businessContext": "Total fixed costs (rent, salaries, insurance, etc.)"
+    },
+    {
+      "id": "variableCostPerUnit",
+      "label": "Variable Cost per Unit (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 50,
+      "businessContext": "Cost per unit that varies with production volume"
+    },
+    {
+      "id": "sellingPricePerUnit",
+      "label": "Selling Price per Unit (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 100,
+      "businessContext": "Price at which each unit is sold"
+    },
+    {
+      "id": "expectedSalesVolume",
+      "label": "Expected Sales Volume (units)",
+      "type": "number",
+      "unit": "units",
+      "default": 3000,
+      "businessContext": "Projected number of units to be sold"
+    }
+  ],
+  "formulas": {
+    "breakEvenUnits": "fixedCosts / (sellingPricePerUnit - variableCostPerUnit)",
+    "breakEvenRevenue": "breakEvenUnits * sellingPricePerUnit",
+    "profit": "(sellingPricePerUnit - variableCostPerUnit) * expectedSalesVolume - fixedCosts",
+    "contributionMargin": "sellingPricePerUnit - variableCostPerUnit",
+    "marginRatio": "contributionMargin / sellingPricePerUnit"
+  },
+  "outputs": {
+    "primary": "breakEvenUnits",
+    "breakdown": [
+      "breakEvenRevenue",
+      "profit",
+      "contributionMargin",
+      "marginRatio"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

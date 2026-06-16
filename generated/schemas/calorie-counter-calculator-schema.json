@@ -1,0 +1,62 @@
+{
+  "toolName": "calorie-counter-calculator",
+  "inputs": [
+    {
+      "id": "gender",
+      "label": "Gender (0: Female, 1: Male)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Biological gender as numeric code: 0 for female, 1 for male."
+    },
+    {
+      "id": "age",
+      "label": "Age (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the individual in years."
+    },
+    {
+      "id": "weight_kg",
+      "label": "Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms."
+    },
+    {
+      "id": "height_cm",
+      "label": "Height (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Height in centimeters."
+    },
+    {
+      "id": "activity_level",
+      "label": "Activity Level",
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "businessContext": "Physical activity multiplier: 1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 active, 1.9 very active."
+    }
+  ],
+  "formulas": {
+    "bmr": "(gender * (10 * weight_kg + 6.25 * height_cm - 5 * age + 5)) + ((1 - gender) * (10 * weight_kg + 6.25 * height_cm - 5 * age - 161))",
+    "tdee": "bmr * activity_level"
+  },
+  "outputs": {
+    "primary": "tdee",
+    "breakdown": [
+      "bmr",
+      "tdee"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,56 @@
+{
+  "toolName": "prorated-property-tax-calculator",
+  "inputs": [
+    {
+      "id": "annualPropertyTax",
+      "label": "Annual Property Tax",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "The total property tax for the full year as assessed by the local government."
+    },
+    {
+      "id": "daysInTaxYear",
+      "label": "Days in Tax Year",
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "businessContext": "The number of days in the tax year (typically 365, or 366 for a leap year)."
+    },
+    {
+      "id": "daysOwned",
+      "label": "Days Owned",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Number of days the property was owned during the tax year."
+    },
+    {
+      "id": "otherFees",
+      "label": "Other Fees",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Any additional fees or adjustments (e.g., closing costs, penalties, credits)."
+    }
+  ],
+  "formulas": {
+    "dailyTax": "annualPropertyTax / daysInTaxYear",
+    "proratedTax": "dailyTax * daysOwned",
+    "totalTaxDue": "proratedTax + otherFees"
+  },
+  "outputs": {
+    "primary": "proratedTax",
+    "breakdown": [
+      "dailyTax",
+      "proratedTax",
+      "totalTaxDue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

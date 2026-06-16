@@ -1,0 +1,55 @@
+{
+  "toolName": "rv-calculator",
+  "inputs": [
+    {
+      "id": "failureRate",
+      "label": "Failure Rate",
+      "type": "number",
+      "unit": "failures/year",
+      "default": 0.5,
+      "businessContext": "Number of expected failures per year for the equipment/system."
+    },
+    {
+      "id": "downtimeHours",
+      "label": "Downtime per Failure",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Average downtime in hours per failure event."
+    },
+    {
+      "id": "costPerHour",
+      "label": "Cost per Downtime Hour",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 1000,
+      "businessContext": "Cost incurred per hour of downtime, including lost production, labor, etc."
+    },
+    {
+      "id": "detectionProbability",
+      "label": "Detection Probability",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.7,
+      "businessContext": "Probability of detecting a failure before it causes downtime (0 to 1)."
+    }
+  ],
+  "formulas": {
+    "grossExpectedLoss": "failureRate * downtimeHours * costPerHour",
+    "detectionSavings": "grossExpectedLoss * detectionProbability",
+    "annualExpectedLoss": "grossExpectedLoss - detectionSavings"
+  },
+  "outputs": {
+    "primary": "annualExpectedLoss",
+    "breakdown": [
+      "grossExpectedLoss",
+      "detectionSavings"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

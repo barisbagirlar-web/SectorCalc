@@ -1,0 +1,55 @@
+{
+  "toolName": "centor-score-calculator",
+  "inputs": [
+    {
+      "id": "fever",
+      "label": "Fever >38°C",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "1 if fever present, 0 otherwise"
+    },
+    {
+      "id": "exudates",
+      "label": "Tonsillar Exudates",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "1 if exudates present, 0 otherwise"
+    },
+    {
+      "id": "lymphadenopathy",
+      "label": "Tender Anterior Cervical Lymphadenopathy",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "1 if lymphadenopathy present, 0 otherwise"
+    },
+    {
+      "id": "cough_absence",
+      "label": "Absence of Cough",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "1 if cough absent, 0 if cough present"
+    }
+  ],
+  "formulas": {
+    "score": "fever + exudates + lymphadenopathy + cough_absence"
+  },
+  "outputs": {
+    "primary": "score",
+    "breakdown": [
+      "fever",
+      "exudates",
+      "lymphadenopathy",
+      "cough_absence"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,87 @@
+{
+  "toolName": "set-theory-calculator",
+  "inputs": [
+    {
+      "id": "sizeA",
+      "label": "|A|",
+      "type": "number",
+      "unit": "elements",
+      "default": 0,
+      "businessContext": "Cardinality of set A"
+    },
+    {
+      "id": "sizeB",
+      "label": "|B|",
+      "type": "number",
+      "unit": "elements",
+      "default": 0,
+      "businessContext": "Cardinality of set B"
+    },
+    {
+      "id": "sizeC",
+      "label": "|C|",
+      "type": "number",
+      "unit": "elements",
+      "default": 0,
+      "businessContext": "Cardinality of set C"
+    },
+    {
+      "id": "intersectAB",
+      "label": "|A ∩ B|",
+      "type": "number",
+      "unit": "elements",
+      "default": 0,
+      "businessContext": "Cardinality of intersection of A and B"
+    },
+    {
+      "id": "intersectAC",
+      "label": "|A ∩ C|",
+      "type": "number",
+      "unit": "elements",
+      "default": 0,
+      "businessContext": "Cardinality of intersection of A and C"
+    },
+    {
+      "id": "intersectBC",
+      "label": "|B ∩ C|",
+      "type": "number",
+      "unit": "elements",
+      "default": 0,
+      "businessContext": "Cardinality of intersection of B and C"
+    },
+    {
+      "id": "intersectABC",
+      "label": "|A ∩ B ∩ C|",
+      "type": "number",
+      "unit": "elements",
+      "default": 0,
+      "businessContext": "Cardinality of triple intersection"
+    }
+  ],
+  "formulas": {
+    "unionAB": "sizeA + sizeB - intersectAB",
+    "unionABC": "sizeA + sizeB + sizeC - intersectAB - intersectAC - intersectBC + intersectABC",
+    "intersectionAB": "intersectAB",
+    "intersectionABC": "intersectABC",
+    "aOnly": "sizeA - intersectAB - intersectAC + intersectABC",
+    "bOnly": "sizeB - intersectAB - intersectBC + intersectABC",
+    "cOnly": "sizeC - intersectAC - intersectBC + intersectABC",
+    "symmetricDifferenceAB": "sizeA + sizeB - 2 * intersectAB"
+  },
+  "outputs": {
+    "primary": "unionABC",
+    "breakdown": [
+      "unionAB",
+      "aOnly",
+      "bOnly",
+      "cOnly",
+      "symmetricDifferenceAB"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

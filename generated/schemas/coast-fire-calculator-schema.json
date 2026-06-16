@@ -1,0 +1,55 @@
+{
+  "toolName": "coast-fire-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "The investor's current age"
+    },
+    {
+      "id": "retirementAge",
+      "label": "Traditional Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 65,
+      "businessContext": "Age at which full retirement corpus is needed"
+    },
+    {
+      "id": "annualReturnRate",
+      "label": "Annual Return Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected annual nominal investment return before inflation"
+    },
+    {
+      "id": "fireTarget",
+      "label": "FIRE Target Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000000,
+      "businessContext": "Total retirement corpus required at retirement age"
+    }
+  ],
+  "formulas": {
+    "yearsToRetirement": "retirementAge - currentAge",
+    "growthFactor": "Math.pow(1 + annualReturnRate/100, yearsToRetirement)",
+    "coastFireNumber": "fireTarget / growthFactor"
+  },
+  "outputs": {
+    "primary": "coastFireNumber",
+    "breakdown": [
+      "yearsToRetirement",
+      "growthFactor"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

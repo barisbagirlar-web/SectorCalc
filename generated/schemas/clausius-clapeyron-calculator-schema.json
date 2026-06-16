@@ -1,0 +1,71 @@
+{
+  "toolName": "clausius-clapeyron-calculator",
+  "inputs": [
+    {
+      "id": "T1_C",
+      "label": "Sıcaklık 1",
+      "type": "number",
+      "unit": "°C",
+      "default": 100,
+      "businessContext": "Birinci sıcaklık değeri (Santigrat)"
+    },
+    {
+      "id": "P1_kPa",
+      "label": "Basınç 1",
+      "type": "number",
+      "unit": "kPa",
+      "default": 101.325,
+      "businessContext": "Birinci basınç değeri (kPa)"
+    },
+    {
+      "id": "T2_C",
+      "label": "Sıcaklık 2",
+      "type": "number",
+      "unit": "°C",
+      "default": 120,
+      "businessContext": "İkinci sıcaklık değeri (Santigrat)"
+    },
+    {
+      "id": "P2_kPa",
+      "label": "Basınç 2",
+      "type": "number",
+      "unit": "kPa",
+      "default": 198.5,
+      "businessContext": "İkinci basınç değeri (kPa)"
+    },
+    {
+      "id": "R_JmolK",
+      "label": "Gaz Sabiti (R)",
+      "type": "number",
+      "unit": "J/(mol·K)",
+      "default": 8.314,
+      "businessContext": "İdeal gaz sabiti, genellikle 8.314 J/(mol·K)"
+    },
+    {
+      "id": "M_gmol",
+      "label": "Molekül Ağırlığı",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 18.015,
+      "businessContext": "Maddenin molekül ağırlığı (isteğe bağlı, kütleye özgü ısı hesabı için)"
+    }
+  ],
+  "formulas": {
+    "latentHeatMolar_kJmol": "(-R_JmolK * Math.log(P2_kPa / P1_kPa) / (1/(T2_C + 273.15) - 1/(T1_C + 273.15))) / 1000",
+    "massSpecificHeat_kJkg": "(-R_JmolK * Math.log(P2_kPa / P1_kPa) / (1/(T2_C + 273.15) - 1/(T1_C + 273.15))) / M_gmol",
+    "logPressureRatio": "Math.log(P2_kPa / P1_kPa)"
+  },
+  "outputs": {
+    "primary": "latentHeatMolar_kJmol",
+    "breakdown": [
+      "massSpecificHeat_kJkg",
+      "logPressureRatio"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

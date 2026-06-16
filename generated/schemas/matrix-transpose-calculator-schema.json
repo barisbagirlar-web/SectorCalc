@@ -1,0 +1,58 @@
+{
+  "toolName": "matrix-transpose-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "Row 1, Col 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Matrix element"
+    },
+    {
+      "id": "b",
+      "label": "Row 1, Col 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Matrix element"
+    },
+    {
+      "id": "c",
+      "label": "Row 2, Col 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Matrix element"
+    },
+    {
+      "id": "d",
+      "label": "Row 2, Col 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Matrix element"
+    }
+  ],
+  "formulas": {
+    "transposed_11": "a",
+    "transposed_12": "c",
+    "transposed_21": "b",
+    "transposed_22": "d"
+  },
+  "outputs": {
+    "primary": "Transposed Matrix",
+    "breakdown": [
+      "transposed_11",
+      "transposed_12",
+      "transposed_21",
+      "transposed_22"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

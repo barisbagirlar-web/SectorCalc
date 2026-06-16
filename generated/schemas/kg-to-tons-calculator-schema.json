@@ -1,0 +1,55 @@
+{
+  "toolName": "kg-to-tons-calculator",
+  "inputs": [
+    {
+      "id": "gross_kg",
+      "label": "Gross Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Total weight of goods including packaging"
+    },
+    {
+      "id": "tare_kg",
+      "label": "Tare Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Weight of empty packaging or container"
+    },
+    {
+      "id": "batch_count",
+      "label": "Number of Containers",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of identical containers in the shipment"
+    },
+    {
+      "id": "decimal_places",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Precision of the output value in tons (0-6 recommended)"
+    }
+  ],
+  "formulas": {
+    "tons_output": "Math.round((((gross_kg - tare_kg) * batch_count) / 1000) * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)",
+    "net_kg": "(gross_kg - tare_kg) * batch_count",
+    "gross_tons": "(gross_kg * batch_count) / 1000"
+  },
+  "outputs": {
+    "primary": "tons_output",
+    "breakdown": [
+      "net_kg",
+      "gross_tons"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,77 @@
+{
+  "toolName": "flux-surface-integral-calculator",
+  "inputs": [
+    {
+      "id": "fx",
+      "label": "Vector Field X-Component",
+      "type": "number",
+      "unit": "N/C",
+      "default": 0,
+      "businessContext": "X component of the vector field"
+    },
+    {
+      "id": "fy",
+      "label": "Vector Field Y-Component",
+      "type": "number",
+      "unit": "N/C",
+      "default": 0,
+      "businessContext": "Y component of the vector field"
+    },
+    {
+      "id": "fz",
+      "label": "Vector Field Z-Component",
+      "type": "number",
+      "unit": "N/C",
+      "default": 0,
+      "businessContext": "Z component of the vector field"
+    },
+    {
+      "id": "nx",
+      "label": "Unit Normal X-Component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "X component of the unit normal vector"
+    },
+    {
+      "id": "ny",
+      "label": "Unit Normal Y-Component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Y component of the unit normal vector"
+    },
+    {
+      "id": "nz",
+      "label": "Unit Normal Z-Component",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Z component of the unit normal vector"
+    },
+    {
+      "id": "area",
+      "label": "Surface Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 1,
+      "businessContext": "Area of the surface"
+    }
+  ],
+  "formulas": {
+    "dotProduct": "fx * nx + fy * ny + fz * nz",
+    "flux": "dotProduct * area"
+  },
+  "outputs": {
+    "primary": "flux",
+    "breakdown": [
+      "dotProduct"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,402 @@
+{
+  "slug": "warehouse-layout-optimizer",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario comparison",
+    "Heatmap visualization"
+  ],
+  "inputs": [
+    {
+      "id": "total_floor_area",
+      "label": "Total Floor Area",
+      "type": "number",
+      "unit": "sq_ft",
+      "default": 100000,
+      "min": 5000,
+      "max": 2000000,
+      "businessContext": "Total available warehouse floor space in square feet.",
+      "label_i18n": {
+        "en": "Total Floor Area"
+      },
+      "businessContext_i18n": {
+        "en": "Total available warehouse floor space in square feet."
+      }
+    },
+    {
+      "id": "storage_area_percent",
+      "label": "Storage Area Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "min": 20,
+      "max": 90,
+      "businessContext": "Percentage of total floor area dedicated to storage (pallet racks, shelving).",
+      "label_i18n": {
+        "en": "Storage Area Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of total floor area dedicated to storage (pallet racks, shelving)."
+      }
+    },
+    {
+      "id": "aisle_width",
+      "label": "Aisle Width",
+      "type": "number",
+      "unit": "ft",
+      "default": 12,
+      "min": 6,
+      "max": 20,
+      "businessContext": "Width of main travel aisles in feet.",
+      "label_i18n": {
+        "en": "Aisle Width"
+      },
+      "businessContext_i18n": {
+        "en": "Width of main travel aisles in feet."
+      }
+    },
+    {
+      "id": "pallet_flow_type",
+      "label": "Pallet Flow Type",
+      "type": "select",
+      "options": [
+        "single_deep",
+        "double_deep",
+        "drive_in",
+        "push_back"
+      ],
+      "default": "single_deep",
+      "businessContext": "Type of pallet storage system used.",
+      "label_i18n": {
+        "en": "Pallet Flow Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of pallet storage system used."
+      }
+    },
+    {
+      "id": "avg_pallet_size",
+      "label": "Average Pallet Size (footprint)",
+      "type": "number",
+      "unit": "sq_ft",
+      "default": 13.75,
+      "min": 10,
+      "max": 20,
+      "businessContext": "Average footprint of a single pallet (length x width).",
+      "label_i18n": {
+        "en": "Average Pallet Size (footprint)"
+      },
+      "businessContext_i18n": {
+        "en": "Average footprint of a single pallet (length x width)."
+      }
+    },
+    {
+      "id": "avg_inventory_turns",
+      "label": "Average Inventory Turns per Year",
+      "type": "number",
+      "unit": "turns/yr",
+      "default": 6,
+      "min": 1,
+      "max": 52,
+      "businessContext": "Number of times inventory is cycled annually.",
+      "label_i18n": {
+        "en": "Average Inventory Turns per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of times inventory is cycled annually."
+      }
+    },
+    {
+      "id": "labor_cost_per_hour",
+      "label": "Labor Cost per Hour",
+      "type": "number",
+      "unit": "USD/hr",
+      "default": 25,
+      "min": 10,
+      "max": 60,
+      "businessContext": "Fully loaded hourly wage for warehouse operators.",
+      "label_i18n": {
+        "en": "Labor Cost per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Fully loaded hourly wage for warehouse operators."
+      }
+    },
+    {
+      "id": "equipment_cost_per_hour",
+      "label": "Equipment Cost per Hour",
+      "type": "number",
+      "unit": "USD/hr",
+      "default": 15,
+      "min": 5,
+      "max": 50,
+      "businessContext": "Hourly cost of material handling equipment (forklifts, pallet jacks).",
+      "label_i18n": {
+        "en": "Equipment Cost per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly cost of material handling equipment (forklifts, pallet jacks)."
+      }
+    },
+    {
+      "id": "order_lines_per_day",
+      "label": "Order Lines per Day",
+      "type": "number",
+      "unit": "lines/day",
+      "default": 2000,
+      "min": 100,
+      "max": 50000,
+      "businessContext": "Average number of order lines processed daily.",
+      "label_i18n": {
+        "en": "Order Lines per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of order lines processed daily."
+      }
+    },
+    {
+      "id": "storage_utilization",
+      "label": "Storage Utilization Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 50,
+      "max": 100,
+      "businessContext": "Current percentage of storage positions occupied.",
+      "label_i18n": {
+        "en": "Storage Utilization Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Current percentage of storage positions occupied."
+      }
+    },
+    {
+      "id": "layout_type",
+      "label": "Layout Type",
+      "type": "select",
+      "options": [
+        "conventional",
+        "narrow_aisle",
+        "very_narrow_aisle",
+        "automated"
+      ],
+      "default": "conventional",
+      "businessContext": "Warehouse layout configuration based on aisle width and equipment.",
+      "label_i18n": {
+        "en": "Layout Type"
+      },
+      "businessContext_i18n": {
+        "en": "Warehouse layout configuration based on aisle width and equipment."
+      }
+    },
+    {
+      "id": "include_cross_dock",
+      "label": "Include Cross-Dock Area",
+      "type": "boolean",
+      "default": false,
+      "businessContext": "Whether a dedicated cross-docking zone is included in the layout.",
+      "label_i18n": {
+        "en": "Include Cross-Dock Area"
+      },
+      "businessContext_i18n": {
+        "en": "Whether a dedicated cross-docking zone is included in the layout."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "storage_area_floor_consistency",
+        "condition": "storage_area_percent * total_floor_area / 100 <= total_floor_area",
+        "message": "Storage area must not exceed total floor area."
+      },
+      {
+        "id": "aisle_width_layout_match",
+        "condition": "layout_type == 'very_narrow_aisle' ? aisle_width <= 8 : (layout_type == 'narrow_aisle' ? aisle_width <= 12 : true)",
+        "message": "Aisle width inconsistent with selected layout type."
+      },
+      {
+        "id": "utilization_turns_balance",
+        "condition": "storage_utilization >= 50 && avg_inventory_turns >= 1",
+        "message": "Utilization and turns must be within realistic ranges."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "low_utilization_alert",
+        "condition": "storage_utilization < 70",
+        "severity": "warning",
+        "message": "Storage utilization below 70% indicates wasted space."
+      },
+      {
+        "id": "high_density_alert",
+        "condition": "storage_utilization > 95",
+        "severity": "warning",
+        "message": "Utilization above 95% may cause congestion and safety risks."
+      },
+      {
+        "id": "low_turns_alert",
+        "condition": "avg_inventory_turns < 3",
+        "severity": "warning",
+        "message": "Low inventory turns suggest overstocking or slow movers."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "storage_area",
+      "label": "Storage Area (sq ft)",
+      "expression": "total_floor_area * (storage_area_percent / 100)",
+      "unit": "sq_ft",
+      "description": "Floor area allocated to storage."
+    },
+    {
+      "id": "pallet_positions",
+      "label": "Estimated Pallet Positions",
+      "expression": "storage_area / (avg_pallet_size * (1 + (aisle_width / 10) * 0.15))",
+      "unit": "positions",
+      "description": "Number of pallet positions based on storage area and aisle overhead factor."
+    },
+    {
+      "id": "effective_capacity",
+      "label": "Effective Storage Capacity (pallets)",
+      "expression": "pallet_positions * (storage_utilization / 100)",
+      "unit": "pallets",
+      "description": "Currently utilized pallet positions."
+    },
+    {
+      "id": "daily_throughput",
+      "label": "Daily Throughput (pallets moved)",
+      "expression": "order_lines_per_day * 0.6",
+      "unit": "pallets/day",
+      "description": "Estimated pallet moves per day (60% of order lines involve pallet handling)."
+    },
+    {
+      "id": "travel_distance_factor",
+      "label": "Travel Distance Factor",
+      "expression": "case layout_type when 'conventional' then 1.0 when 'narrow_aisle' then 0.85 when 'very_narrow_aisle' then 0.7 when 'automated' then 0.5 else 1.0 end",
+      "unit": "dimensionless",
+      "description": "Factor reducing travel distance based on layout efficiency."
+    },
+    {
+      "id": "labor_cost_per_pallet",
+      "label": "Labor Cost per Pallet Moved",
+      "expression": "(labor_cost_per_hour + equipment_cost_per_hour) * (travel_distance_factor * 0.02)",
+      "unit": "USD/pallet",
+      "description": "Cost to move one pallet considering labor, equipment, and travel efficiency."
+    },
+    {
+      "id": "annual_operating_cost",
+      "label": "Annual Operating Cost (storage & handling)",
+      "expression": "daily_throughput * labor_cost_per_pallet * 365",
+      "unit": "USD/yr",
+      "description": "Total annual cost for pallet movement and storage operations."
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_annual_cost",
+      "label": "Total Annual Operating Cost",
+      "value": null,
+      "unit": "USD/yr",
+      "description": "Primary result: total annual warehouse operating cost."
+    },
+    "breakdown": {
+      "storage_area": {
+        "id": "storage_area",
+        "label": "Storage Area",
+        "value": null,
+        "unit": "sq_ft"
+      },
+      "pallet_positions": {
+        "id": "pallet_positions",
+        "label": "Pallet Positions",
+        "value": null,
+        "unit": "positions"
+      },
+      "effective_capacity": {
+        "id": "effective_capacity",
+        "label": "Effective Capacity",
+        "value": null,
+        "unit": "pallets"
+      },
+      "daily_throughput": {
+        "id": "daily_throughput",
+        "label": "Daily Throughput",
+        "value": null,
+        "unit": "pallets/day"
+      },
+      "travel_distance_factor": {
+        "id": "travel_distance_factor",
+        "label": "Travel Distance Factor",
+        "value": null,
+        "unit": "dimensionless"
+      },
+      "labor_cost_per_pallet": {
+        "id": "labor_cost_per_pallet",
+        "label": "Labor Cost per Pallet",
+        "value": null,
+        "unit": "USD/pallet"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excess_aisle_space",
+        "label": "Excess Aisle Space",
+        "description": "Aisle width greater than necessary for layout type increases travel time and reduces storage density.",
+        "impact": "high"
+      },
+      {
+        "id": "low_storage_utilization",
+        "label": "Low Storage Utilization",
+        "description": "Underutilized positions increase cost per pallet stored.",
+        "impact": "medium"
+      },
+      {
+        "id": "inefficient_pallet_flow",
+        "label": "Inefficient Pallet Flow Type",
+        "description": "Flow type mismatch with inventory turns leads to extra handling.",
+        "impact": "medium"
+      },
+      {
+        "id": "labor_equipment_ratio",
+        "label": "Labor/Equipment Cost Imbalance",
+        "description": "High labor cost relative to equipment may indicate automation opportunity.",
+        "impact": "low"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_aisle_width",
+        "label": "Reduce Aisle Width",
+        "description": "If layout type allows, narrow aisles to increase storage density and reduce travel time.",
+        "expectedImprovement": "10-20% reduction in labor cost per pallet"
+      },
+      {
+        "id": "increase_utilization",
+        "label": "Increase Storage Utilization",
+        "description": "Reorganize slow movers and consolidate space to raise utilization above 85%.",
+        "expectedImprovement": "5-15% reduction in effective cost per pallet"
+      },
+      {
+        "id": "adopt_automation",
+        "label": "Adopt Automation for High Throughput",
+        "description": "If daily throughput > 3000 pallets, consider automated storage and retrieval systems (AS/RS).",
+        "expectedImprovement": "20-40% reduction in labor cost"
+      },
+      {
+        "id": "cross_dock_optimization",
+        "label": "Optimize Cross-Dock Flow",
+        "description": "If cross-dock area is included, ensure it is positioned near shipping/receiving to minimize travel.",
+        "expectedImprovement": "5-10% reduction in travel distance"
+      }
+    ],
+    "dataConfidenceAdjusted": 0.85
+  },
+  "toolName": "warehouse-layout-optimizer-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

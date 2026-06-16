@@ -1,0 +1,63 @@
+{
+  "toolName": "body-recomposition-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Total body mass in kilograms"
+    },
+    {
+      "id": "bodyFatPercentage",
+      "label": "Body Fat Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Percentage of body mass that is fat tissue"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Height in centimeters"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age in years"
+    },
+    {
+      "id": "activityLevel",
+      "label": "Activity Level Multiplier",
+      "type": "number",
+      "unit": "factor",
+      "default": 1.55,
+      "businessContext": "Physical activity level factor (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 heavy, 1.9 athlete)"
+    }
+  ],
+  "formulas": {
+    "tdeeKcalPerDay": "Math.round((370 + 21.6 * (weight * (1 - bodyFatPercentage / 100))) * activityLevel)",
+    "proteinGramsPerDay": "Math.round(2.2 * weight)",
+    "fatGramsPerDay": "Math.round(1 * weight)"
+  },
+  "outputs": {
+    "primary": "tdeeKcalPerDay",
+    "breakdown": [
+      "proteinGramsPerDay",
+      "fatGramsPerDay"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

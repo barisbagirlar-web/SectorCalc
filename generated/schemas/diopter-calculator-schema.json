@@ -1,0 +1,67 @@
+{
+  "toolName": "diopter-calculator",
+  "inputs": [
+    {
+      "id": "focalLengthCm",
+      "label": "Focal Length (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 50,
+      "businessContext": "Enter focal length in centimeters to calculate diopter."
+    },
+    {
+      "id": "diopter1",
+      "label": "Lens 1 Power",
+      "type": "number",
+      "unit": "D",
+      "default": 1,
+      "businessContext": "Power of first thin lens in diopters."
+    },
+    {
+      "id": "diopter2",
+      "label": "Lens 2 Power",
+      "type": "number",
+      "unit": "D",
+      "default": 1,
+      "businessContext": "Power of second thin lens in diopters."
+    },
+    {
+      "id": "originalDiopter",
+      "label": "Original Prescription",
+      "type": "number",
+      "unit": "D",
+      "default": -3,
+      "businessContext": "Lens power before vertex distance change (negative for myopia)."
+    },
+    {
+      "id": "vertexDistanceMm",
+      "label": "Vertex Distance Change",
+      "type": "number",
+      "unit": "mm",
+      "default": 12,
+      "businessContext": "Distance the lens is moved from the eye (in mm, positive if moved away)."
+    }
+  ],
+  "formulas": {
+    "diopter": "100 / focalLengthCm",
+    "focalLengthM": "focalLengthCm / 100",
+    "combinedDiopter": "diopter1 + diopter2",
+    "combinedFocalLengthCm": "100 / combinedDiopter",
+    "effectiveDiopter": "originalDiopter / (1 - (vertexDistanceMm / 1000) * originalDiopter)"
+  },
+  "outputs": {
+    "primary": "diopter",
+    "breakdown": [
+      "focalLengthM",
+      "combinedDiopter",
+      "combinedFocalLengthCm",
+      "effectiveDiopter"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

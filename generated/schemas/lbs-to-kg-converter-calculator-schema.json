@@ -1,0 +1,391 @@
+{
+  "slug": "lbs-to-kg-converter",
+  "title": "Pounds to Kilograms Converter (Industrial Grade)",
+  "description": "Industrial-grade conversion tool with mass-based loss analysis, confidence adjustment, and action recommendations per ISO 80000-1 and Lean Six Sigma standards.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis"
+  ],
+  "inputs": [
+    {
+      "id": "mass_lbs",
+      "label": "Mass in Pounds (lb)",
+      "type": "number",
+      "unit": "lb",
+      "default": 0,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Input mass value in pounds for conversion to kilograms. Used in logistics, manufacturing, and material handling.",
+      "label_i18n": {
+        "en": "Mass in Pounds (lb)"
+      },
+      "businessContext_i18n": {
+        "en": "Input mass value in pounds for conversion to kilograms. Used in logistics, manufacturing, and material handling."
+      }
+    },
+    {
+      "id": "precision_level",
+      "label": "Precision Level (Decimal Places)",
+      "type": "select",
+      "unit": "decimal places",
+      "default": 2,
+      "min": 0,
+      "max": 6,
+      "options": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "businessContext": "Select the number of decimal places for the output. Higher precision for laboratory or quality control (ISO 17025).",
+      "label_i18n": {
+        "en": "Precision Level (Decimal Places)"
+      },
+      "businessContext_i18n": {
+        "en": "Select the number of decimal places for the output. Higher precision for laboratory or quality control (ISO 17025)."
+      }
+    },
+    {
+      "id": "rounding_method",
+      "label": "Rounding Method",
+      "type": "select",
+      "unit": "method",
+      "default": "standard",
+      "options": [
+        "standard",
+        "floor",
+        "ceiling",
+        "truncate"
+      ],
+      "businessContext": "Rounding method per ASTM E29 or ISO 80000-1. Standard rounding (half up) is default for most industrial applications.",
+      "label_i18n": {
+        "en": "Rounding Method"
+      },
+      "businessContext_i18n": {
+        "en": "Rounding method per ASTM E29 or ISO 80000-1. Standard rounding (half up) is default for most industrial applications."
+      }
+    },
+    {
+      "id": "include_loss_analysis",
+      "label": "Include Hidden Loss Analysis",
+      "type": "boolean",
+      "unit": "flag",
+      "default": false,
+      "businessContext": "Enable to calculate potential mass loss due to moisture, measurement error, or material handling (Lean Six Sigma waste analysis).",
+      "label_i18n": {
+        "en": "Include Hidden Loss Analysis"
+      },
+      "businessContext_i18n": {
+        "en": "Enable to calculate potential mass loss due to moisture, measurement error, or material handling (Lean Six Sigma waste analysis)."
+      }
+    },
+    {
+      "id": "measurement_uncertainty_pct",
+      "label": "Measurement Uncertainty (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Estimated measurement uncertainty as a percentage of the mass value. Based on calibration data (ISO 17025, GUM).",
+      "label_i18n": {
+        "en": "Measurement Uncertainty (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated measurement uncertainty as a percentage of the mass value. Based on calibration data (ISO 17025, GUM)."
+      }
+    },
+    {
+      "id": "material_type",
+      "label": "Material Type (for loss factor)",
+      "type": "select",
+      "unit": "category",
+      "default": "general",
+      "options": [
+        "general",
+        "hygroscopic",
+        "liquid",
+        "powder",
+        "metal"
+      ],
+      "businessContext": "Material type influences hidden loss factors (e.g., moisture absorption for hygroscopic materials, spillage for powders).",
+      "label_i18n": {
+        "en": "Material Type (for loss factor)"
+      },
+      "businessContext_i18n": {
+        "en": "Material type influences hidden loss factors (e.g., moisture absorption for hygroscopic materials, spillage for powders)."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "mass_non_negative",
+        "condition": "mass_lbs >= 0",
+        "message": "Mass in pounds must be a non-negative value."
+      },
+      {
+        "id": "uncertainty_range",
+        "condition": "measurement_uncertainty_pct >= 0 AND measurement_uncertainty_pct <= 10",
+        "message": "Measurement uncertainty must be between 0% and 10%."
+      },
+      {
+        "id": "precision_consistency",
+        "condition": "precision_level >= 0 AND precision_level <= 6",
+        "message": "Precision level must be between 0 and 6 decimal places."
+      },
+      {
+        "id": "loss_analysis_requires_material",
+        "condition": "include_loss_analysis == false OR (include_loss_analysis == true AND material_type != 'general')",
+        "message": "When loss analysis is enabled, material type must be specified (not 'general')."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_mass_alert",
+        "condition": "mass_lbs > 50000",
+        "severity": "warning",
+        "message": "Mass exceeds 50,000 lb. Verify scale capacity and handling equipment per OSHA 1910.179."
+      },
+      {
+        "id": "high_uncertainty_alert",
+        "condition": "measurement_uncertainty_pct > 2",
+        "severity": "caution",
+        "message": "Measurement uncertainty > 2%. Recalibration recommended per ISO 17025."
+      },
+      {
+        "id": "zero_mass_alert",
+        "condition": "mass_lbs == 0",
+        "severity": "info",
+        "message": "Mass is zero. Conversion will yield zero kilograms."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "base_conversion",
+      "name": "Base Conversion (lb to kg)",
+      "description": "Standard conversion using 1 lb = 0.45359237 kg (exact, per international agreement).",
+      "formula": "kg_base = mass_lbs * 0.45359237",
+      "dependencies": [
+        "mass_lbs"
+      ]
+    },
+    {
+      "id": "rounding_application",
+      "name": "Rounding Application",
+      "description": "Apply selected rounding method and precision to the base converted value.",
+      "formula": "kg_rounded = round(kg_base, precision_level, rounding_method)",
+      "dependencies": [
+        "kg_base",
+        "precision_level",
+        "rounding_method"
+      ]
+    },
+    {
+      "id": "uncertainty_calculation",
+      "name": "Measurement Uncertainty (kg)",
+      "description": "Calculate absolute uncertainty in kilograms based on input percentage.",
+      "formula": "uncertainty_kg = kg_base * (measurement_uncertainty_pct / 100)",
+      "dependencies": [
+        "kg_base",
+        "measurement_uncertainty_pct"
+      ]
+    },
+    {
+      "id": "hidden_loss_factor",
+      "name": "Hidden Loss Factor",
+      "description": "Determine loss factor based on material type (Lean Six Sigma waste categories).",
+      "formula": "loss_factor = CASE material_type WHEN 'hygroscopic' THEN 0.02 WHEN 'liquid' THEN 0.015 WHEN 'powder' THEN 0.03 WHEN 'metal' THEN 0.005 ELSE 0.0 END",
+      "dependencies": [
+        "material_type"
+      ]
+    },
+    {
+      "id": "hidden_loss_mass",
+      "name": "Hidden Loss Mass (kg)",
+      "description": "Calculate estimated mass loss due to material handling, moisture, or spillage.",
+      "formula": "loss_kg = kg_base * loss_factor",
+      "dependencies": [
+        "kg_base",
+        "loss_factor"
+      ]
+    },
+    {
+      "id": "adjusted_mass",
+      "name": "Adjusted Mass (kg) with Loss",
+      "description": "Subtract hidden loss from rounded mass if loss analysis is enabled.",
+      "formula": "kg_adjusted = kg_rounded - (include_loss_analysis ? loss_kg : 0)",
+      "dependencies": [
+        "kg_rounded",
+        "loss_kg",
+        "include_loss_analysis"
+      ]
+    },
+    {
+      "id": "data_confidence_score",
+      "name": "Data Confidence Score",
+      "description": "Calculate confidence score based on uncertainty and loss analysis (0 to 1 scale).",
+      "formula": "confidence_score = max(0, 1 - (measurement_uncertainty_pct / 100) - (include_loss_analysis ? loss_factor : 0))",
+      "dependencies": [
+        "measurement_uncertainty_pct",
+        "loss_factor",
+        "include_loss_analysis"
+      ]
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "kg_result",
+      "label": "Converted Mass (kg)",
+      "description": "Primary result: mass in kilograms after conversion, rounding, and optional loss adjustment.",
+      "unit": "kg",
+      "source": "kg_adjusted"
+    },
+    "breakdown": {
+      "id": "breakdown",
+      "label": "Conversion Breakdown",
+      "description": "Detailed breakdown of conversion steps and intermediate values.",
+      "components": {
+        "mass_lbs_input": {
+          "label": "Input Mass (lb)",
+          "unit": "lb",
+          "source": "mass_lbs"
+        },
+        "kg_base": {
+          "label": "Base Conversion (kg)",
+          "unit": "kg",
+          "source": "kg_base"
+        },
+        "kg_rounded": {
+          "label": "Rounded Mass (kg)",
+          "unit": "kg",
+          "source": "kg_rounded"
+        },
+        "uncertainty_kg": {
+          "label": "Measurement Uncertainty (±kg)",
+          "unit": "kg",
+          "source": "uncertainty_kg"
+        },
+        "loss_factor": {
+          "label": "Hidden Loss Factor",
+          "unit": "dimensionless",
+          "source": "loss_factor"
+        },
+        "loss_kg": {
+          "label": "Hidden Loss (kg)",
+          "unit": "kg",
+          "source": "loss_kg"
+        },
+        "kg_adjusted": {
+          "label": "Adjusted Mass (kg)",
+          "unit": "kg",
+          "source": "kg_adjusted"
+        },
+        "confidence_score": {
+          "label": "Data Confidence Score",
+          "unit": "dimensionless (0-1)",
+          "source": "confidence_score"
+        }
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "moisture_absorption",
+        "label": "Moisture Absorption",
+        "description": "Mass gain due to hygroscopic material absorbing moisture from air. Typical for powders and organic materials.",
+        "applicableMaterials": [
+          "hygroscopic",
+          "powder"
+        ],
+        "estimatedImpactPct": 2
+      },
+      {
+        "id": "spillage_dust",
+        "label": "Spillage / Dust Loss",
+        "description": "Material loss during handling, transfer, or weighing. Common in powder and granular materials.",
+        "applicableMaterials": [
+          "powder",
+          "liquid"
+        ],
+        "estimatedImpactPct": 1.5
+      },
+      {
+        "id": "evaporation",
+        "label": "Evaporation Loss",
+        "description": "Loss of volatile components in liquids or hygroscopic materials during storage or processing.",
+        "applicableMaterials": [
+          "liquid",
+          "hygroscopic"
+        ],
+        "estimatedImpactPct": 1
+      },
+      {
+        "id": "measurement_bias",
+        "label": "Measurement Bias / Calibration Drift",
+        "description": "Systematic error due to scale drift or improper calibration. Affects all material types.",
+        "applicableMaterials": [
+          "general",
+          "hygroscopic",
+          "liquid",
+          "powder",
+          "metal"
+        ],
+        "estimatedImpactPct": 0.5
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "recalibrate_scale",
+        "label": "Recalibrate Scale",
+        "description": "If measurement uncertainty > 2%, recalibrate scale per ISO 17025 to reduce error.",
+        "condition": "measurement_uncertainty_pct > 2",
+        "priority": "high"
+      },
+      {
+        "id": "use_desiccant",
+        "label": "Use Desiccant or Climate Control",
+        "description": "For hygroscopic materials, control humidity to reduce moisture absorption loss.",
+        "condition": "material_type == 'hygroscopic' AND include_loss_analysis == true",
+        "priority": "medium"
+      },
+      {
+        "id": "improve_handling",
+        "label": "Improve Material Handling Procedures",
+        "description": "Implement closed-transfer systems or dust collection to reduce spillage for powders and liquids.",
+        "condition": "material_type == 'powder' OR material_type == 'liquid'",
+        "priority": "medium"
+      },
+      {
+        "id": "verify_scale_capacity",
+        "label": "Verify Scale Capacity",
+        "description": "Mass exceeds 50,000 lb. Ensure scale capacity and safety factors meet OSHA requirements.",
+        "condition": "mass_lbs > 50000",
+        "priority": "high"
+      },
+      {
+        "id": "use_higher_precision",
+        "label": "Use Higher Precision Instrument",
+        "description": "If precision requirement is > 3 decimal places, consider using a laboratory-grade balance.",
+        "condition": "precision_level > 3",
+        "priority": "low"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_adjusted",
+      "label": "Data Confidence Adjusted Mass (kg)",
+      "description": "Mass value adjusted by confidence score to reflect reliability. Useful for risk-based decisions.",
+      "unit": "kg",
+      "source": "kg_adjusted * confidence_score"
+    }
+  },
+  "toolName": "lbs-to-kg-converter-calculator",
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

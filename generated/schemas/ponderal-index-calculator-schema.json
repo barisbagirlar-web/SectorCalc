@@ -1,0 +1,54 @@
+{
+  "toolName": "ponderal-index-calculator",
+  "inputs": [
+    {
+      "id": "mass_kg",
+      "label": "Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms for metric ponderal index calculation."
+    },
+    {
+      "id": "height_cm",
+      "label": "Height (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Height in centimeters for metric ponderal index calculation."
+    },
+    {
+      "id": "mass_lb",
+      "label": "Weight (lb)",
+      "type": "number",
+      "unit": "lb",
+      "default": 154.32,
+      "businessContext": "Body weight in pounds for imperial ponderal index calculation."
+    },
+    {
+      "id": "height_in",
+      "label": "Height (in)",
+      "type": "number",
+      "unit": "in",
+      "default": 66.93,
+      "businessContext": "Height in inches for imperial ponderal index calculation."
+    }
+  ],
+  "formulas": {
+    "metricPI": "mass_kg / ((height_cm / 100) ** 3)",
+    "imperialPI": "mass_lb / (height_in ** 3)"
+  },
+  "outputs": {
+    "primary": "metricPI",
+    "breakdown": [
+      "imperialPI",
+      "metricPI"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

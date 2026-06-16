@@ -1,0 +1,54 @@
+{
+  "toolName": "cubic-feet-to-cubic-meters-calculator",
+  "inputs": [
+    {
+      "id": "lengthFeet",
+      "label": "Length (feet)",
+      "type": "number",
+      "unit": "ft",
+      "default": 1,
+      "businessContext": "The length dimension in feet."
+    },
+    {
+      "id": "widthFeet",
+      "label": "Width (feet)",
+      "type": "number",
+      "unit": "ft",
+      "default": 1,
+      "businessContext": "The width dimension in feet."
+    },
+    {
+      "id": "heightFeet",
+      "label": "Height (feet)",
+      "type": "number",
+      "unit": "ft",
+      "default": 1,
+      "businessContext": "The height dimension in feet."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for reference output."
+    }
+  ],
+  "formulas": {
+    "volumeCubicFeet": "lengthFeet * widthFeet * heightFeet",
+    "rawCubicMeters": "volumeCubicFeet * 0.028316846592"
+  },
+  "outputs": {
+    "primary": "rawCubicMeters",
+    "breakdown": [
+      "volumeCubicFeet",
+      "rawCubicMeters"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

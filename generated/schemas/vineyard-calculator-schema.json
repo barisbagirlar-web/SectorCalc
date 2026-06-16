@@ -1,0 +1,77 @@
+{
+  "toolName": "vineyard-calculator",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "Vineyard Area",
+      "type": "number",
+      "unit": "hectares",
+      "default": 5,
+      "businessContext": "Total vineyard area in hectares."
+    },
+    {
+      "id": "vineDensity",
+      "label": "Vine Density",
+      "type": "number",
+      "unit": "vines/ha",
+      "default": 4000,
+      "businessContext": "Number of vines per hectare."
+    },
+    {
+      "id": "yieldPerVine",
+      "label": "Grape Yield per Vine",
+      "type": "number",
+      "unit": "kg/vine",
+      "default": 2.5,
+      "businessContext": "Average grape yield per vine in kilograms."
+    },
+    {
+      "id": "grapePrice",
+      "label": "Grape Price",
+      "type": "number",
+      "unit": "$/kg",
+      "default": 1.2,
+      "businessContext": "Selling price per kilogram of grapes."
+    },
+    {
+      "id": "costPerHectare",
+      "label": "Annual Cost per Hectare",
+      "type": "number",
+      "unit": "$/ha",
+      "default": 5000,
+      "businessContext": "Total annual maintenance cost per hectare including labor, water, and other expenses."
+    },
+    {
+      "id": "wasteRate",
+      "label": "Waste Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of grapes lost to waste or spoilage."
+    }
+  ],
+  "formulas": {
+    "totalVines": "area * vineDensity",
+    "totalGrapesGross": "totalVines * yieldPerVine",
+    "wasteAmount": "totalGrapesGross * (wasteRate / 100)",
+    "totalGrapesNet": "totalGrapesGross - wasteAmount",
+    "totalRevenue": "totalGrapesNet * grapePrice",
+    "totalCost": "area * costPerHectare",
+    "netProfit": "totalRevenue - totalCost"
+  },
+  "outputs": {
+    "primary": "netProfit",
+    "breakdown": [
+      "totalGrapesNet",
+      "totalRevenue",
+      "totalCost",
+      "wasteAmount"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

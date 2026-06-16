@@ -1,0 +1,86 @@
+{
+  "toolName": "m-to-inches-calculator",
+  "inputs": [
+    {
+      "id": "meters",
+      "label": "Metre Değeri",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "measurement"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Dönüşüm Faktörü",
+      "type": "number",
+      "unit": "in/m",
+      "default": 39.37007874015748,
+      "businessContext": "standard"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Ondalık Basamak",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "precision"
+    },
+    {
+      "id": "quantity",
+      "label": "Adet",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "production"
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerans",
+      "type": "number",
+      "unit": "in",
+      "default": 0.005,
+      "businessContext": "quality"
+    },
+    {
+      "id": "expansionCoeff",
+      "label": "Isıl Genleşme Katsayısı",
+      "type": "number",
+      "unit": "1/°C",
+      "default": 0.000011,
+      "businessContext": "material"
+    },
+    {
+      "id": "tempDelta",
+      "label": "Sıcaklık Sapması",
+      "type": "number",
+      "unit": "°C",
+      "default": 0,
+      "businessContext": "environment"
+    }
+  ],
+  "formulas": {
+    "baseInches": "meters * conversionFactor",
+    "thermalFactor": "1 + expansionCoeff * tempDelta",
+    "correctedInches": "baseInches * thermalFactor",
+    "totalInches": "correctedInches * quantity",
+    "roundedInches": "Math.round(totalInches * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "toleranceLower": "correctedInches - tolerance",
+    "toleranceUpper": "correctedInches + tolerance"
+  },
+  "outputs": {
+    "primary": "roundedInches",
+    "breakdown": [
+      "baseInches",
+      "correctedInches",
+      "totalInches",
+      "toleranceLower",
+      "toleranceUpper"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

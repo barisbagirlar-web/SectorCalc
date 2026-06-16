@@ -1,0 +1,75 @@
+{
+  "toolName": "pd-calculator",
+  "inputs": [
+    {
+      "id": "diameter",
+      "label": "Boru Çapı",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Borunun iç çapı (metre)"
+    },
+    {
+      "id": "length",
+      "label": "Boru Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "businessContext": "Borunun toplam uzunluğu (metre)"
+    },
+    {
+      "id": "flowRate",
+      "label": "Debi",
+      "type": "number",
+      "unit": "m3/s",
+      "default": 0.01,
+      "businessContext": "Hacimsel akış debisi (metreküp/saniye)"
+    },
+    {
+      "id": "density",
+      "label": "Akışkan Yoğunluğu",
+      "type": "number",
+      "unit": "kg/m3",
+      "default": 998.2,
+      "businessContext": "Akışkanın kütle yoğunluğu (kg/m³) [Su için ~998]"
+    },
+    {
+      "id": "viscosity",
+      "label": "Dinamik Viskozite",
+      "type": "number",
+      "unit": "Pa·s",
+      "default": 0.001002,
+      "businessContext": "Akışkanın dinamik viskozitesi (Pa·s) [Su için ~0.001]"
+    },
+    {
+      "id": "roughness",
+      "label": "Yüzey Pürüzlülüğü",
+      "type": "number",
+      "unit": "m",
+      "default": 0.000046,
+      "businessContext": "Boru iç yüzeyi mutlak pürüzlülüğü (m) [Çelik için ~4.6e-5]"
+    }
+  ],
+  "formulas": {
+    "area": "Math.PI * diameter * diameter / 4",
+    "velocity": "flowRate / area",
+    "reynoldsNumber": "(density * velocity * diameter) / viscosity",
+    "logArg": "(roughness/(3.7*diameter)) + (5.74/Math.pow(reynoldsNumber,0.9))",
+    "frictionFactor": "0.25 / Math.pow( Math.log(logArg) / Math.LN10 , 2)",
+    "pressureDrop": "frictionFactor * (length/diameter) * (density * velocity * velocity / 2)"
+  },
+  "outputs": {
+    "primary": "pressureDrop",
+    "breakdown": [
+      "velocity",
+      "reynoldsNumber",
+      "frictionFactor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,111 @@
+{
+  "toolName": "insulation-r-value-calculator",
+  "inputs": [
+    {
+      "id": "thickness1",
+      "label": "Layer 1 Thickness",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Thickness of first insulation layer in meters"
+    },
+    {
+      "id": "conductivity1",
+      "label": "Layer 1 Thermal Conductivity",
+      "type": "number",
+      "unit": "W/(m·K)",
+      "default": 0.04,
+      "businessContext": "Thermal conductivity of first layer"
+    },
+    {
+      "id": "thickness2",
+      "label": "Layer 2 Thickness",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Optional second layer thickness"
+    },
+    {
+      "id": "conductivity2",
+      "label": "Layer 2 Thermal Conductivity",
+      "type": "number",
+      "unit": "W/(m·K)",
+      "default": 0,
+      "businessContext": "Optional second layer thermal conductivity"
+    },
+    {
+      "id": "thickness3",
+      "label": "Layer 3 Thickness",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Optional third layer thickness"
+    },
+    {
+      "id": "conductivity3",
+      "label": "Layer 3 Thermal Conductivity",
+      "type": "number",
+      "unit": "W/(m·K)",
+      "default": 0,
+      "businessContext": "Optional third layer thermal conductivity"
+    },
+    {
+      "id": "area",
+      "label": "Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 1,
+      "businessContext": "Surface area for heat loss calculation"
+    },
+    {
+      "id": "deltaT",
+      "label": "Temperature Difference",
+      "type": "number",
+      "unit": "K",
+      "default": 20,
+      "businessContext": "Temperature difference across insulation"
+    }
+  ],
+  "formulas": {
+    "r1": "(inputs.thickness1 > 0 && inputs.conductivity1 > 0) ? inputs.thickness1 / inputs.conductivity1 : 0",
+    "r2": "(inputs.thickness2 > 0 && inputs.conductivity2 > 0) ? inputs.thickness2 / inputs.conductivity2 : 0",
+    "r3": "(inputs.thickness3 > 0 && inputs.conductivity3 > 0) ? inputs.thickness3 / inputs.conductivity3 : 0",
+    "totalRValue": "r1 + r2 + r3",
+    "heatLoss": "(inputs.area * inputs.deltaT) / totalRValue"
+  },
+  "outputs": {
+    "primary": {
+      "label": "Total R-Value",
+      "unit": "m²K/W",
+      "formulaRef": "totalRValue"
+    },
+    "breakdown": [
+      {
+        "label": "Layer 1 R-Value",
+        "unit": "m²K/W",
+        "formulaRef": "r1"
+      },
+      {
+        "label": "Layer 2 R-Value",
+        "unit": "m²K/W",
+        "formulaRef": "r2"
+      },
+      {
+        "label": "Layer 3 R-Value",
+        "unit": "m²K/W",
+        "formulaRef": "r3"
+      },
+      {
+        "label": "Heat Loss",
+        "unit": "W",
+        "formulaRef": "heatLoss"
+      }
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

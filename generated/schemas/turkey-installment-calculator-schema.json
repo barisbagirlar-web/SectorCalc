@@ -1,0 +1,74 @@
+{
+  "toolName": "turkey-installment-calculator",
+  "inputs": [
+    {
+      "id": "loanAmount",
+      "label": "Loan Amount (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 10000,
+      "businessContext": "Principal amount in Turkish Lira"
+    },
+    {
+      "id": "interestRate",
+      "label": "Annual Interest Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 24,
+      "businessContext": "Nominal annual interest rate"
+    },
+    {
+      "id": "loanTerm",
+      "label": "Loan Term (Months)",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "businessContext": "Number of monthly installments"
+    },
+    {
+      "id": "bsmv",
+      "label": "BSMV Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Banking and Insurance Transaction Tax rate on interest"
+    },
+    {
+      "id": "kkdf",
+      "label": "KKDF Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Resource Utilization Support Fund rate on interest"
+    },
+    {
+      "id": "fee",
+      "label": "Arrangement Fee (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "One-time fee added to loan principal"
+    }
+  ],
+  "formulas": {
+    "effectiveMonthlyRate": "(interestRate / 100 / 12) * (1 + bsmv/100 + kkdf/100)",
+    "monthlyInstallment": "((loanAmount + fee) * effectiveMonthlyRate * Math.pow(1 + effectiveMonthlyRate, loanTerm)) / (Math.pow(1 + effectiveMonthlyRate, loanTerm) - 1)",
+    "totalPayment": "monthlyInstallment * loanTerm",
+    "totalInterest": "totalPayment - (loanAmount + fee)",
+    "totalTax": "totalInterest * (bsmv/100 + kkdf/100)"
+  },
+  "outputs": {
+    "primary": "monthlyInstallment",
+    "breakdown": [
+      "totalPayment",
+      "totalInterest",
+      "totalTax"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

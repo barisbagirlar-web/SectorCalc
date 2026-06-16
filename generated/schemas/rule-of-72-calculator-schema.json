@@ -1,0 +1,59 @@
+{
+  "toolName": "rule-of-72-calculator",
+  "inputs": [
+    {
+      "id": "interestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "businessContext": "The nominal annual interest rate, before compounding effect."
+    },
+    {
+      "id": "compoundingFrequency",
+      "label": "Compounding Frequency",
+      "type": "number",
+      "unit": "times/year",
+      "default": 1,
+      "businessContext": "Number of compounding periods per year (e.g., 1 for annual, 12 for monthly)."
+    },
+    {
+      "id": "ruleConstant",
+      "label": "Rule Constant",
+      "type": "number",
+      "unit": "year·%",
+      "default": 72,
+      "businessContext": "The constant used in the rule of 72 (typically 72, but can be 70 or 69.3 for more precision)."
+    },
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "The initial amount invested."
+    }
+  ],
+  "formulas": {
+    "effectiveRate": "((1 + interestRate / 100 / compoundingFrequency) ** compoundingFrequency - 1)",
+    "exactYears": "Math.log(2) / Math.log(1 + effectiveRate)",
+    "approxYears": "ruleConstant / interestRate",
+    "finalExact": "initialInvestment * Math.exp(exactYears * Math.log(1 + effectiveRate))",
+    "finalApprox": "initialInvestment * (1 + effectiveRate) ** approxYears"
+  },
+  "outputs": {
+    "primary": "approxYears",
+    "breakdown": [
+      "exactYears",
+      "effectiveRate",
+      "finalExact",
+      "finalApprox"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

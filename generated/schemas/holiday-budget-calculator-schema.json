@@ -1,0 +1,75 @@
+{
+  "toolName": "holiday-budget-calculator",
+  "inputs": [
+    {
+      "id": "travelers",
+      "label": "Number of Travelers",
+      "type": "number",
+      "unit": "people",
+      "default": 2,
+      "businessContext": "Number of people traveling, affects per-person costs"
+    },
+    {
+      "id": "days",
+      "label": "Trip Duration (Days)",
+      "type": "number",
+      "unit": "days",
+      "default": 7,
+      "businessContext": "Total number of days for the holiday"
+    },
+    {
+      "id": "flightCostPerPerson",
+      "label": "Flight Cost per Person",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "businessContext": "Round-trip airfare cost per traveler"
+    },
+    {
+      "id": "hotelCostPerNight",
+      "label": "Hotel Cost per Night",
+      "type": "number",
+      "unit": "USD",
+      "default": 150,
+      "businessContext": "Accommodation cost per night for the group"
+    },
+    {
+      "id": "dailyFoodBudgetPerPerson",
+      "label": "Daily Food Budget per Person",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "businessContext": "Estimated daily food expense per traveler"
+    },
+    {
+      "id": "dailyActivityBudgetPerPerson",
+      "label": "Daily Activity Budget per Person",
+      "type": "number",
+      "unit": "USD",
+      "default": 30,
+      "businessContext": "Estimated daily activity/entertainment cost per traveler"
+    }
+  ],
+  "formulas": {
+    "transportTotal": "flightCostPerPerson * travelers",
+    "accommodationTotal": "hotelCostPerNight * days",
+    "foodTotal": "dailyFoodBudgetPerPerson * travelers * days",
+    "activitiesTotal": "dailyActivityBudgetPerPerson * travelers * days",
+    "grandTotal": "transportTotal + accommodationTotal + foodTotal + activitiesTotal"
+  },
+  "outputs": {
+    "primary": "grandTotal",
+    "breakdown": [
+      "transportTotal",
+      "accommodationTotal",
+      "foodTotal",
+      "activitiesTotal"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

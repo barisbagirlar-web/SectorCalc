@@ -1,0 +1,57 @@
+{
+  "toolName": "ml-to-oz-calculator",
+  "inputs": [
+    {
+      "id": "volume_ml",
+      "label": "Volume (ml)",
+      "type": "number",
+      "unit": "ml",
+      "default": 100,
+      "businessContext": "Miktar mililitre cinsinden"
+    },
+    {
+      "id": "factor_us",
+      "label": "US fl oz per ml",
+      "type": "number",
+      "unit": "oz/ml",
+      "default": 0.033814,
+      "businessContext": "1 ml = 0.033814 US fluid ounces"
+    },
+    {
+      "id": "factor_uk",
+      "label": "UK fl oz per ml",
+      "type": "number",
+      "unit": "oz/ml",
+      "default": 0.035195,
+      "businessContext": "1 ml = 0.035195 UK fluid ounces"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal precision",
+      "type": "number",
+      "unit": "adet",
+      "default": 2,
+      "businessContext": "Yuvarlama hassasiyeti (ondalık basamak)"
+    }
+  ],
+  "formulas": {
+    "primary": "Math.round(volume_ml * factor_us * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "breakdown": [
+      "Math.round(volume_ml * factor_uk * Math.pow(10, precision)) / Math.pow(10, precision)",
+      "volume_ml"
+    ]
+  },
+  "outputs": {
+    "primary": "US Fluid Ounces",
+    "breakdown": [
+      "UK Fluid Ounces",
+      "Volume in ml"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

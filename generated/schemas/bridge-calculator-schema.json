@@ -1,0 +1,74 @@
+{
+  "toolName": "bridge-calculator",
+  "inputs": [
+    {
+      "id": "span_length",
+      "label": "Span Length (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 20,
+      "businessContext": "Distance between bridge supports"
+    },
+    {
+      "id": "deck_width",
+      "label": "Deck Width (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Width of the bridge deck"
+    },
+    {
+      "id": "load_per_area",
+      "label": "Load per Area (kN/m²)",
+      "type": "number",
+      "unit": "kN/m²",
+      "default": 5,
+      "businessContext": "Distributed load on the deck"
+    },
+    {
+      "id": "steel_yield_strength",
+      "label": "Steel Yield Strength (MPa)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 250,
+      "businessContext": "Yield strength of structural steel"
+    },
+    {
+      "id": "safety_factor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Factor of safety for design"
+    },
+    {
+      "id": "beam_depth",
+      "label": "Beam Depth (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Depth of main beams"
+    }
+  ],
+  "formulas": {
+    "total_load": "load_per_area * deck_width * span_length",
+    "max_moment": "total_load * span_length / 8",
+    "section_modulus_required": "max_moment * 1000 / (steel_yield_strength / safety_factor)",
+    "beam_width_estimate": "section_modulus_required * 6 / (beam_depth ** 2) / 1000"
+  },
+  "outputs": {
+    "primary": "Required Beam Width (mm)",
+    "breakdown": [
+      "Total Load (kN): total_load",
+      "Max Moment (kN·m): max_moment",
+      "Required Section Modulus (cm³): section_modulus_required",
+      "Estimated Beam Width (mm): beam_width_estimate"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

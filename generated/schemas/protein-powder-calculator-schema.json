@@ -1,0 +1,64 @@
+{
+  "toolName": "protein-powder-calculator",
+  "inputs": [
+    {
+      "id": "servingSize",
+      "label": "Serving Size",
+      "type": "number",
+      "unit": "g",
+      "default": 30,
+      "businessContext": "Standard serving size in grams as indicated on the product label."
+    },
+    {
+      "id": "proteinPerServing",
+      "label": "Protein per Serving",
+      "type": "number",
+      "unit": "g",
+      "default": 25,
+      "businessContext": "Amount of protein in grams per serving according to nutrition facts."
+    },
+    {
+      "id": "scoopsUsed",
+      "label": "Scoops Used",
+      "type": "number",
+      "unit": "count",
+      "default": 1,
+      "businessContext": "Number of scoops typically consumed per serving."
+    },
+    {
+      "id": "containerSize",
+      "label": "Container Size",
+      "type": "number",
+      "unit": "g",
+      "default": 1000,
+      "businessContext": "Net weight of protein powder in the container."
+    },
+    {
+      "id": "containerPrice",
+      "label": "Container Price",
+      "type": "number",
+      "unit": "€",
+      "default": 29.99,
+      "businessContext": "Total price paid for the container."
+    }
+  ],
+  "formulas": {
+    "totalProtein": "proteinPerServing * scoopsUsed",
+    "totalServings": "containerSize / servingSize",
+    "costPerServing": "containerPrice / totalServings",
+    "costPerGram": "costPerServing / proteinPerServing"
+  },
+  "outputs": {
+    "primary": "totalProtein",
+    "breakdown": [
+      "costPerServing",
+      "costPerGram"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

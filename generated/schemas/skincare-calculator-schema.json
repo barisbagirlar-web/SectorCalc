@@ -1,0 +1,79 @@
+{
+  "toolName": "skincare-calculator",
+  "inputs": [
+    {
+      "id": "ingredientCostPerKg",
+      "label": "Ingredient Cost per kg",
+      "type": "number",
+      "unit": "USD",
+      "default": 10,
+      "businessContext": "Cost of raw ingredients per kilogram"
+    },
+    {
+      "id": "ingredientUsageGramsPerUnit",
+      "label": "Ingredient Usage per Unit",
+      "type": "number",
+      "unit": "g",
+      "default": 50,
+      "businessContext": "Amount of raw ingredient used per product unit in grams"
+    },
+    {
+      "id": "packagingCostPerUnit",
+      "label": "Packaging Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 2,
+      "businessContext": "Cost of packaging materials per product unit"
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "businessContext": "Number of units produced in a batch"
+    },
+    {
+      "id": "laborCostPerBatch",
+      "label": "Labor Cost per Batch",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "businessContext": "Total labor cost for producing one batch"
+    },
+    {
+      "id": "overheadCostPerBatch",
+      "label": "Overhead Cost per Batch",
+      "type": "number",
+      "unit": "USD",
+      "default": 300,
+      "businessContext": "Allocated overhead costs (utilities, rent, etc.) per batch"
+    },
+    {
+      "id": "profitMarginPercent",
+      "label": "Desired Profit Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Target profit margin percentage on selling price"
+    }
+  ],
+  "formulas": {
+    "costPerUnit": "((ingredientCostPerKg * ingredientUsageGramsPerUnit / 1000) + packagingCostPerUnit + ((laborCostPerBatch + overheadCostPerBatch) / batchSize))",
+    "sellingPricePerUnit": "((ingredientCostPerKg * ingredientUsageGramsPerUnit / 1000) + packagingCostPerUnit + ((laborCostPerBatch + overheadCostPerBatch) / batchSize)) / (1 - profitMarginPercent / 100)",
+    "profitPerUnit": "(((ingredientCostPerKg * ingredientUsageGramsPerUnit / 1000) + packagingCostPerUnit + ((laborCostPerBatch + overheadCostPerBatch) / batchSize)) / (1 - profitMarginPercent / 100)) - ((ingredientCostPerKg * ingredientUsageGramsPerUnit / 1000) + packagingCostPerUnit + ((laborCostPerBatch + overheadCostPerBatch) / batchSize))"
+  },
+  "outputs": {
+    "primary": "sellingPricePerUnit",
+    "breakdown": [
+      "costPerUnit",
+      "profitPerUnit"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

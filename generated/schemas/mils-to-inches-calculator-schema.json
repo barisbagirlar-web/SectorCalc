@@ -1,0 +1,55 @@
+{
+  "toolName": "mils-to-inches-calculator",
+  "inputs": [
+    {
+      "id": "mils",
+      "label": "Mils",
+      "type": "number",
+      "unit": "mil",
+      "default": 1,
+      "businessContext": "Thickness in mils (1 mil = 0.001 inch)"
+    },
+    {
+      "id": "precision",
+      "label": "Precision",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 4,
+      "businessContext": "Number of decimal places for output display"
+    },
+    {
+      "id": "scaleFactor",
+      "label": "Scale Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for mils value (use for calibration)"
+    },
+    {
+      "id": "baseInches",
+      "label": "Base Inches",
+      "type": "number",
+      "unit": "in",
+      "default": 0,
+      "businessContext": "Additional base thickness in inches to add"
+    }
+  ],
+  "formulas": {
+    "adjustedMils": "mils * scaleFactor",
+    "convertedInches": "adjustedMils * 0.001",
+    "totalInches": "convertedInches + baseInches"
+  },
+  "outputs": {
+    "primary": "totalInches",
+    "breakdown": [
+      "adjustedMils",
+      "convertedInches"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

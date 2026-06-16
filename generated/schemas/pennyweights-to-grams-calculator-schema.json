@@ -1,0 +1,63 @@
+{
+  "toolName": "pennyweights-to-grams-calculator",
+  "inputs": [
+    {
+      "id": "pennyweight",
+      "label": "Pennyweight",
+      "type": "number",
+      "unit": "dwt",
+      "default": 1,
+      "businessContext": "Weight in pennyweight"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "g/dwt",
+      "default": 1.55517384,
+      "businessContext": "Grams per pennyweight. Calibrated value."
+    },
+    {
+      "id": "decimalPrecision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places for output"
+    },
+    {
+      "id": "sampleCount",
+      "label": "Sample Count",
+      "type": "number",
+      "unit": "samples",
+      "default": 1,
+      "businessContext": "Number of items being weighed"
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "g",
+      "default": 0.001,
+      "businessContext": "Acceptable measurement uncertainty"
+    }
+  ],
+  "formulas": {
+    "gramsPerSample": "pennyweight * conversionFactor",
+    "totalGrams": "gramsPerSample * sampleCount",
+    "roundedTotalGrams": "parseFloat(totalGrams.toFixed(decimalPrecision))"
+  },
+  "outputs": {
+    "primary": "roundedTotalGrams",
+    "breakdown": [
+      "gramsPerSample",
+      "totalGrams"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

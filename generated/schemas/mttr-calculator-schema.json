@@ -1,0 +1,55 @@
+{
+  "toolName": "mttr-calculator",
+  "inputs": [
+    {
+      "id": "repairTime",
+      "label": "Onarım Süresi",
+      "type": "number",
+      "unit": "saat",
+      "default": 10,
+      "businessContext": "Ekipmanın onarımında geçen aktif süre (arıza tespit, sökme, tamir, montaj, test)"
+    },
+    {
+      "id": "adminDelay",
+      "label": "İdari Gecikme",
+      "type": "number",
+      "unit": "saat",
+      "default": 2,
+      "businessContext": "İş emri onay, bekleme ve diğer idari süreçlerden kaynaklanan gecikmeler"
+    },
+    {
+      "id": "logisticsDelay",
+      "label": "Lojistik Gecikme",
+      "type": "number",
+      "unit": "saat",
+      "default": 1,
+      "businessContext": "Yedek parça tedariki, nakliye veya personel bekleme gibi lojistik nedenlerden oluşan gecikmeler"
+    },
+    {
+      "id": "numberOfRepairs",
+      "label": "Onarım Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 5,
+      "businessContext": "Belirli bir dönemde gerçekleşen onarım olaylarının toplam sayısı"
+    }
+  ],
+  "formulas": {
+    "mttr": "(repairTime + adminDelay + logisticsDelay) / numberOfRepairs",
+    "totalDowntime": "repairTime + adminDelay + logisticsDelay",
+    "numberOfRepairs": "numberOfRepairs"
+  },
+  "outputs": {
+    "primary": "mttr",
+    "breakdown": [
+      "totalDowntime",
+      "numberOfRepairs"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

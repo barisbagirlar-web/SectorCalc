@@ -1,0 +1,64 @@
+{
+  "toolName": "delay-calculator",
+  "inputs": [
+    {
+      "id": "setupDelay",
+      "label": "Kurulum Gecikmesi",
+      "type": "number",
+      "unit": "dakika",
+      "default": 0,
+      "businessContext": "Üretim hattı kurulum süresindeki gecikme"
+    },
+    {
+      "id": "queueDelay",
+      "label": "Kuyrukta Bekleme Gecikmesi",
+      "type": "number",
+      "unit": "dakika",
+      "default": 0,
+      "businessContext": "Malzeme veya iş emri kuyruk bekleme süresi gecikmesi"
+    },
+    {
+      "id": "processDelay",
+      "label": "İşlem Gecikmesi",
+      "type": "number",
+      "unit": "dakika",
+      "default": 0,
+      "businessContext": "İşleme süresindeki gecikme"
+    },
+    {
+      "id": "transportDelay",
+      "label": "Taşıma Gecikmesi",
+      "type": "number",
+      "unit": "dakika",
+      "default": 0,
+      "businessContext": "Malzeme taşıma veya lojistik gecikmesi"
+    },
+    {
+      "id": "unplannedDelay",
+      "label": "Planlanmamış Gecikme",
+      "type": "number",
+      "unit": "dakika",
+      "default": 0,
+      "businessContext": "Arıza, bakım vb. planlanmamış gecikmeler"
+    }
+  ],
+  "formulas": {
+    "totalDelay": "setupDelay + queueDelay + processDelay + transportDelay + unplannedDelay"
+  },
+  "outputs": {
+    "primary": "totalDelay",
+    "breakdown": [
+      "setupDelay",
+      "queueDelay",
+      "processDelay",
+      "transportDelay",
+      "unplannedDelay"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

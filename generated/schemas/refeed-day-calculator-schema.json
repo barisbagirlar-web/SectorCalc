@@ -1,0 +1,68 @@
+{
+  "toolName": "refeed-day-calculator",
+  "inputs": [
+    {
+      "id": "productionRate",
+      "label": "Production Rate",
+      "type": "number",
+      "unit": "units/day",
+      "default": 1000,
+      "businessContext": "Daily number of good units produced"
+    },
+    {
+      "id": "scrapRate",
+      "label": "Scrap Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Scrap generated as percentage of good output"
+    },
+    {
+      "id": "refeedTargetRatio",
+      "label": "Refeed Target Ratio",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Target percentage of total input material from refeed"
+    },
+    {
+      "id": "refeedMaterialAvailability",
+      "label": "Refeed Material Availability",
+      "type": "number",
+      "unit": "units",
+      "default": 500,
+      "businessContext": "Total refeed material available in inventory"
+    },
+    {
+      "id": "maxRefeedCapacity",
+      "label": "Max Refeed Capacity",
+      "type": "number",
+      "unit": "units/day",
+      "default": 0,
+      "businessContext": "Maximum refeed processing capacity per day (0 for unlimited)"
+    }
+  ],
+  "formulas": {
+    "scrapPerDay": "productionRate * (scrapRate / 100)",
+    "totalInputPerDay": "productionRate + scrapPerDay",
+    "dailyRefeedTarget": "totalInputPerDay * (refeedTargetRatio / 100)",
+    "actualDailyRefeed": "maxRefeedCapacity > 0 ? Math.min(dailyRefeedTarget, maxRefeedCapacity) : dailyRefeedTarget",
+    "daysOfRefeed": "Math.floor(refeedMaterialAvailability / actualDailyRefeed)",
+    "refeedRatioAchieved": "actualDailyRefeed / totalInputPerDay * 100"
+  },
+  "outputs": {
+    "primary": "daysOfRefeed",
+    "breakdown": [
+      "actualDailyRefeed",
+      "totalInputPerDay",
+      "scrapPerDay",
+      "refeedRatioAchieved"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,60 @@
+{
+  "toolName": "party-food-calculator",
+  "inputs": [
+    {
+      "id": "adults",
+      "label": "Yetişkin Sayısı",
+      "type": "number",
+      "unit": "kişi",
+      "default": 10,
+      "businessContext": "Partiye katılacak yetişkin sayısı"
+    },
+    {
+      "id": "children",
+      "label": "Çocuk Sayısı",
+      "type": "number",
+      "unit": "kişi",
+      "default": 5,
+      "businessContext": "Partiye katılacak çocuk sayısı (12 yaş altı)"
+    },
+    {
+      "id": "hours",
+      "label": "Parti Süresi",
+      "type": "number",
+      "unit": "saat",
+      "default": 3,
+      "businessContext": "Partinin tahmini süresi (saat)"
+    },
+    {
+      "id": "veggieRatio",
+      "label": "Vejetaryen Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Misafirler içindeki vejetaryen oranı (yüzde)"
+    }
+  ],
+  "formulas": {
+    "totalGuests": "adults + children",
+    "mainCourse": "adults * 0.4 + children * 0.2",
+    "sideDish": "totalGuests * 0.3",
+    "dessert": "totalGuests * 0.2",
+    "drinks": "totalGuests * hours * 0.15",
+    "totalFoodUnits": "mainCourse + sideDish + dessert + drinks"
+  },
+  "outputs": {
+    "primary": "totalFoodUnits",
+    "breakdown": [
+      "mainCourse",
+      "sideDish",
+      "dessert",
+      "drinks"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

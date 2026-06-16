@@ -1,0 +1,63 @@
+{
+  "toolName": "disk-method-calculator",
+  "inputs": [
+    {
+      "id": "lowerBound",
+      "label": "Alt Sınır (a)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Entegrasyon başlangıcı"
+    },
+    {
+      "id": "upperBound",
+      "label": "Üst Sınır (b)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Entegrasyon bitişi"
+    },
+    {
+      "id": "coeffA",
+      "label": "Katsayı A (ax²)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "İkinci dereceden katsayı"
+    },
+    {
+      "id": "coeffB",
+      "label": "Katsayı B (bx)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Birinci dereceden katsayı"
+    },
+    {
+      "id": "coeffC",
+      "label": "Katsayı C (c)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sabit terim"
+    }
+  ],
+  "formulas": {
+    "integral": "coeffA**2*(upperBound**5 - lowerBound**5)/5 + 2*coeffA*coeffB*(upperBound**4 - lowerBound**4)/4 + (2*coeffA*coeffC + coeffB**2)*(upperBound**3 - lowerBound**3)/3 + 2*coeffB*coeffC*(upperBound**2 - lowerBound**2)/2 + coeffC**2*(upperBound - lowerBound)",
+    "volume": "Math.PI * integral",
+    "midRadius": "coeffA*((lowerBound+upperBound)/2)**2 + coeffB*(lowerBound+upperBound)/2 + coeffC"
+  },
+  "outputs": {
+    "primary": "volume",
+    "breakdown": [
+      "integral",
+      "midRadius"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

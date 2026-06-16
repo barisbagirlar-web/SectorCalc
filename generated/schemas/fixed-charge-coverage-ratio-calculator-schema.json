@@ -1,0 +1,55 @@
+{
+  "toolName": "fixed-charge-coverage-ratio-calculator",
+  "inputs": [
+    {
+      "id": "ebitda",
+      "label": "EBITDA",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Earnings before interest, taxes, depreciation, and amortization for the period."
+    },
+    {
+      "id": "interestExpense",
+      "label": "Interest Expense",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total interest expense on all debt obligations for the period."
+    },
+    {
+      "id": "currentMaturities",
+      "label": "Current Debt Maturities",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Current portion of long-term debt and other scheduled principal repayments due within one year."
+    },
+    {
+      "id": "leasePayments",
+      "label": "Lease Payments",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total operating lease payments for the period."
+    }
+  ],
+  "formulas": {
+    "totalFixedCharges": "interestExpense + currentMaturities + leasePayments",
+    "ebitdaOut": "ebitda",
+    "fccr": "ebitda / (interestExpense + currentMaturities + leasePayments)"
+  },
+  "outputs": {
+    "primary": "fccr",
+    "breakdown": [
+      "ebitdaOut",
+      "totalFixedCharges"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

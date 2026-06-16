@@ -1,0 +1,59 @@
+{
+  "toolName": "osmolality-calculator",
+  "inputs": [
+    {
+      "id": "sodium",
+      "label": "Sodium (Na⁺)",
+      "type": "number",
+      "unit": "mmol/L",
+      "default": 140,
+      "businessContext": "Serum sodium concentration for osmolality calculation."
+    },
+    {
+      "id": "glucose",
+      "label": "Glucose",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 90,
+      "businessContext": "Blood glucose level contributing to osmolality."
+    },
+    {
+      "id": "bun",
+      "label": "Blood Urea Nitrogen (BUN)",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 14,
+      "businessContext": "BUN concentration affecting osmolality."
+    },
+    {
+      "id": "measuredOsm",
+      "label": "Measured Osmolality (optional)",
+      "type": "number",
+      "unit": "mOsm/kg",
+      "default": 0,
+      "businessContext": "Measured serum osmolality for osmolar gap calculation; leave 0 if not available."
+    }
+  ],
+  "formulas": {
+    "calculatedOsmolality": "2 * sodium + glucose / 18 + bun / 2.8",
+    "sodiumContribution": "2 * sodium",
+    "glucoseContribution": "glucose / 18",
+    "bunContribution": "bun / 2.8",
+    "osmolarGap": "measuredOsm > 0 ? measuredOsm - (2 * sodium + glucose / 18 + bun / 2.8) : null"
+  },
+  "outputs": {
+    "primary": "calculatedOsmolality",
+    "breakdown": [
+      "sodiumContribution",
+      "glucoseContribution",
+      "bunContribution",
+      "osmolarGap"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

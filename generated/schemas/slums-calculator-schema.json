@@ -1,0 +1,73 @@
+{
+  "toolName": "slums-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Kargo Uzunluğu",
+      "type": "number",
+      "unit": "cm",
+      "default": 120,
+      "businessContext": "Gönderinin uzunluğu"
+    },
+    {
+      "id": "width",
+      "label": "Kargo Genişliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 80,
+      "businessContext": "Gönderinin genişliği"
+    },
+    {
+      "id": "height",
+      "label": "Kargo Yüksekliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Gönderinin yüksekliği"
+    },
+    {
+      "id": "weight",
+      "label": "Kargo Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 500,
+      "businessContext": "Gönderinin ağırlığı"
+    },
+    {
+      "id": "unitLoadCapacity",
+      "label": "Birim Yük Kapasitesi",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Bir paletin veya konteynerin taşıma kapasitesi"
+    },
+    {
+      "id": "volumePerUnit",
+      "label": "Birim Yük Hacmi",
+      "type": "number",
+      "unit": "m³",
+      "default": 1.5,
+      "businessContext": "Bir birim yükün kapladığı hacim"
+    }
+  ],
+  "formulas": {
+    "volume": "(length * width * height) / 1000000",
+    "volumeUnits": "volume / volumePerUnit",
+    "weightUnits": "weight / unitLoadCapacity",
+    "totalUnits": "Math.ceil(Math.max(volumeUnits, weightUnits))"
+  },
+  "outputs": {
+    "primary": "Toplam Birim Yük Sayısı: ${totalUnits} birim gerekli.",
+    "breakdown": [
+      "Toplam Hacim: ${volume} m³",
+      "Hacim Bazlı Birim Gereksinimi: ${volumeUnits}",
+      "Ağırlık Bazlı Birim Gereksinimi: ${weightUnits}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

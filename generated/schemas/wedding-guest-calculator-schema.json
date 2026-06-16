@@ -1,0 +1,73 @@
+{
+  "toolName": "wedding-guest-calculator",
+  "inputs": [
+    {
+      "id": "guestCount",
+      "label": "Guest Count",
+      "type": "number",
+      "unit": "guests",
+      "default": 100,
+      "businessContext": "Total number of invited guests"
+    },
+    {
+      "id": "costPerPlate",
+      "label": "Cost per Plate",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "businessContext": "Average cost of food and drinks per guest"
+    },
+    {
+      "id": "venueCost",
+      "label": "Venue Rental Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 2000,
+      "businessContext": "Fixed cost for venue rental"
+    },
+    {
+      "id": "decorationCost",
+      "label": "Decoration Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 1500,
+      "businessContext": "Total expense for flowers and decor"
+    },
+    {
+      "id": "entertainmentCost",
+      "label": "Entertainment Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 3000,
+      "businessContext": "Cost for music, photography, etc."
+    },
+    {
+      "id": "miscPercent",
+      "label": "Miscellaneous (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage of base cost reserved for unexpected expenses"
+    }
+  ],
+  "formulas": {
+    "baseCost": "venueCost + decorationCost + entertainmentCost + (costPerPlate * guestCount)",
+    "miscAmount": "baseCost * (miscPercent / 100)",
+    "totalWeddingBudget": "baseCost + miscAmount",
+    "costPerGuest": "totalWeddingBudget / guestCount"
+  },
+  "outputs": {
+    "primary": "totalWeddingBudget",
+    "breakdown": [
+      "baseCost",
+      "miscAmount",
+      "costPerGuest"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

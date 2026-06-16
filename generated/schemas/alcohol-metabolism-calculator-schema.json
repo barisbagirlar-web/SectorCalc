@@ -1,0 +1,60 @@
+{
+  "toolName": "alcohol-metabolism-calculator",
+  "inputs": [
+    {
+      "id": "gender",
+      "label": "Gender (Male=1, Female=0)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Select gender: 1 for male, 0 for female"
+    },
+    {
+      "id": "alcohol_grams",
+      "label": "Pure Alcohol Consumed",
+      "type": "number",
+      "unit": "g",
+      "default": 14,
+      "businessContext": "Total pure alcohol in grams (typical drink: 14g)"
+    },
+    {
+      "id": "body_weight_kg",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms"
+    },
+    {
+      "id": "time_hours",
+      "label": "Time Elapsed",
+      "type": "number",
+      "unit": "h",
+      "default": 1,
+      "businessContext": "Time since drinking began in hours"
+    },
+    {
+      "id": "elimination_rate",
+      "label": "Elimination Rate",
+      "type": "number",
+      "unit": "g/dL/h",
+      "default": 0.015,
+      "businessContext": "Alcohol elimination rate (standard 0.015 g/dL per hour)"
+    }
+  ],
+  "formulas": {
+    "bac_without_time": "(alcohol_grams / (body_weight_kg * 1000 * (gender === 1 ? 0.68 : 0.55))) * 100",
+    "current_bac": "Math.max(0, (alcohol_grams / (body_weight_kg * 1000 * (gender === 1 ? 0.68 : 0.55))) * 100 - (elimination_rate * time_hours))",
+    "time_to_zero": "current_bac > 0 ? current_bac / elimination_rate : 0"
+  },
+  "outputs": {
+    "primary": "current_bac",
+    "breakdown": [
+      "bac_without_time",
+      "time_to_zero"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false
+}

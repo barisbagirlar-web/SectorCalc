@@ -1,0 +1,59 @@
+{
+  "toolName": "mcat-score-calculator",
+  "inputs": [
+    {
+      "id": "raw-cpbs",
+      "label": "CPBS Doğru Sayısı",
+      "type": "number",
+      "unit": "correct answers",
+      "default": 30,
+      "businessContext": "Chemical and Physical Foundations of Biological Systems bölümünde doğru cevap sayısı (0-59)"
+    },
+    {
+      "id": "raw-cars",
+      "label": "CARS Doğru Sayısı",
+      "type": "number",
+      "unit": "correct answers",
+      "default": 27,
+      "businessContext": "Critical Analysis and Reasoning Skills bölümünde doğru cevap sayısı (0-53)"
+    },
+    {
+      "id": "raw-bbls",
+      "label": "BBLS Doğru Sayısı",
+      "type": "number",
+      "unit": "correct answers",
+      "default": 30,
+      "businessContext": "Biological and Biochemical Foundations of Living Systems bölümünde doğru cevap sayısı (0-59)"
+    },
+    {
+      "id": "raw-psbb",
+      "label": "PSBB Doğru Sayısı",
+      "type": "number",
+      "unit": "correct answers",
+      "default": 30,
+      "businessContext": "Psychological, Social, and Biological Foundations of Behavior bölümünde doğru cevap sayısı (0-59)"
+    }
+  ],
+  "formulas": {
+    "scaledCPBS": "Math.min(132, Math.max(118, Math.round(118 + (raw-cpbs / 59) * 14)))",
+    "scaledCARS": "Math.min(132, Math.max(118, Math.round(118 + (raw-cars / 53) * 14)))",
+    "scaledBBLS": "Math.min(132, Math.max(118, Math.round(118 + (raw-bbls / 59) * 14)))",
+    "scaledPSBB": "Math.min(132, Math.max(118, Math.round(118 + (raw-psbb / 59) * 14)))",
+    "totalScore": "scaledCPBS + scaledCARS + scaledBBLS + scaledPSBB"
+  },
+  "outputs": {
+    "primary": "totalScore",
+    "breakdown": [
+      "scaledCPBS",
+      "scaledCARS",
+      "scaledBBLS",
+      "scaledPSBB"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

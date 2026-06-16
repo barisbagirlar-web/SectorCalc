@@ -1,0 +1,54 @@
+{
+  "toolName": "golf-slope-calculator",
+  "inputs": [
+    {
+      "id": "bogeyRating",
+      "label": "Bogey Rating",
+      "type": "number",
+      "unit": "strokes",
+      "default": 96,
+      "businessContext": "The expected score for a bogey golfer under normal course and weather conditions."
+    },
+    {
+      "id": "scratchRating",
+      "label": "Scratch Course Rating",
+      "type": "number",
+      "unit": "strokes",
+      "default": 72,
+      "businessContext": "The expected score for a scratch golfer under normal course and weather conditions."
+    },
+    {
+      "id": "slopeFactor",
+      "label": "Slope Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 5.381,
+      "businessContext": "Constant multiplier to convert rating difference to slope (5.381 for men, 4.24 for women)."
+    },
+    {
+      "id": "score",
+      "label": "Gross Score",
+      "type": "number",
+      "unit": "strokes",
+      "default": 90,
+      "businessContext": "Actual strokes taken by the player in the round."
+    }
+  ],
+  "formulas": {
+    "slopeRating": "(bogeyRating - scratchRating) * slopeFactor",
+    "handicapDifferential": "(score - scratchRating) * 113 / slopeRating"
+  },
+  "outputs": {
+    "primary": "slopeRating",
+    "breakdown": [
+      "slopeRating",
+      "handicapDifferential"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

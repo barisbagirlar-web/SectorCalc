@@ -1,0 +1,84 @@
+{
+  "toolName": "ltt-calculator-wales",
+  "inputs": [
+    {
+      "id": "distance_km",
+      "label": "Distance (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "businessContext": "Total distance of the transport route in Wales."
+    },
+    {
+      "id": "fuel_consumption_l_per_100km",
+      "label": "Fuel Consumption (L/100km)",
+      "type": "number",
+      "unit": "L/100km",
+      "default": 30,
+      "businessContext": "Average fuel consumption of the vehicle per 100 km."
+    },
+    {
+      "id": "fuel_price_gbp_per_l",
+      "label": "Fuel Price (GBP/L)",
+      "type": "number",
+      "unit": "GBP/L",
+      "default": 1.5,
+      "businessContext": "Current price of diesel or petrol per litre in Wales."
+    },
+    {
+      "id": "driver_wage_gbp_per_hour",
+      "label": "Driver Wage (GBP/hour)",
+      "type": "number",
+      "unit": "GBP/hour",
+      "default": 15,
+      "businessContext": "Hourly wage of the driver."
+    },
+    {
+      "id": "average_speed_kmh",
+      "label": "Average Speed (km/h)",
+      "type": "number",
+      "unit": "km/h",
+      "default": 60,
+      "businessContext": "Average speed of the vehicle during the journey."
+    },
+    {
+      "id": "load_tonnes",
+      "label": "Load (tonnes)",
+      "type": "number",
+      "unit": "tonnes",
+      "default": 20,
+      "businessContext": "Weight of the cargo being transported."
+    },
+    {
+      "id": "co2_emission_factor_kg_per_l",
+      "label": "CO2 Emission Factor (kg/L)",
+      "type": "number",
+      "unit": "kg/L",
+      "default": 2.68,
+      "businessContext": "CO2 emissions per litre of fuel consumed."
+    }
+  ],
+  "formulas": {
+    "total_fuel_cost": "distance_km * (fuel_consumption_l_per_100km / 100) * fuel_price_gbp_per_l",
+    "travel_time_hours": "distance_km / average_speed_kmh",
+    "driver_cost": "travel_time_hours * driver_wage_gbp_per_hour",
+    "total_cost": "total_fuel_cost + driver_cost",
+    "cost_per_tonne_km": "total_cost / (distance_km * load_tonnes)",
+    "total_co2_kg": "distance_km * (fuel_consumption_l_per_100km / 100) * co2_emission_factor_kg_per_l"
+  },
+  "outputs": {
+    "primary": "total_cost",
+    "breakdown": [
+      "total_fuel_cost",
+      "driver_cost",
+      "cost_per_tonne_km",
+      "total_co2_kg"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

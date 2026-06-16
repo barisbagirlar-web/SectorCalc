@@ -1,0 +1,71 @@
+{
+  "toolName": "gratitude-index-calculator",
+  "inputs": [
+    {
+      "id": "appreciation_freq",
+      "label": "Appreciation Frequency",
+      "type": "number",
+      "unit": "count/week",
+      "default": 5,
+      "businessContext": "Weekly frequency of explicit appreciation expressions."
+    },
+    {
+      "id": "positive_feedback_ratio",
+      "label": "Positive Feedback Ratio",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Percentage of positive feedback among total feedback."
+    },
+    {
+      "id": "team_morale_score",
+      "label": "Team Morale Score",
+      "type": "number",
+      "unit": "score",
+      "default": 7,
+      "businessContext": "Self-reported team morale score on a scale of 1 to 10."
+    },
+    {
+      "id": "recognition_impact",
+      "label": "Recognition Impact",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Estimated performance improvement due to recognition."
+    },
+    {
+      "id": "gratitude_decay",
+      "label": "Gratitude Decay",
+      "type": "number",
+      "unit": "1/day",
+      "default": 0.1,
+      "businessContext": "Exponential decay constant for gratitude effects over time."
+    },
+    {
+      "id": "baseline_productivity",
+      "label": "Baseline Productivity",
+      "type": "number",
+      "unit": "units/day",
+      "default": 100,
+      "businessContext": "Standard productivity without gratitude interventions."
+    }
+  ],
+  "formulas": {
+    "raw_gratitude_score": "appreciation_freq * positive_feedback_ratio * team_morale_score * recognition_impact",
+    "decay_factor": "Math.exp(-gratitude_decay)",
+    "gratitude_index": "(raw_gratitude_score * decay_factor) / baseline_productivity"
+  },
+  "outputs": {
+    "primary": "gratitude_index",
+    "breakdown": [
+      "raw_gratitude_score",
+      "decay_factor"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

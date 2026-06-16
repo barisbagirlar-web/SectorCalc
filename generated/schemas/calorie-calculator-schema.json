@@ -1,0 +1,59 @@
+{
+  "toolName": "calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User body weight for metabolic rate estimation"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "User height for body surface area proxy"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age affects basal metabolic rate"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "binary (0=female, 1=male)",
+      "default": 1,
+      "businessContext": "Biological sex for Mifflin-St Jeor equation"
+    },
+    {
+      "id": "activityFactor",
+      "label": "Activity Factor",
+      "type": "number",
+      "unit": "multiplier (1.2–1.9)",
+      "default": 1.2,
+      "businessContext": "Physical activity level multiplier for TDEE"
+    }
+  ],
+  "formulas": {
+    "bmr": "10 * weight + 6.25 * height - 5 * age + (gender == 1 ? 5 : -161)",
+    "tdee": "activityFactor * (10 * weight + 6.25 * height - 5 * age + (gender == 1 ? 5 : -161))"
+  },
+  "outputs": {
+    "primary": "tdee",
+    "breakdown": [
+      "bmr",
+      "tdee"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false
+}

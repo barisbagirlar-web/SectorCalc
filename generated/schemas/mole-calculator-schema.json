@@ -1,0 +1,55 @@
+{
+  "toolName": "mole-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass",
+      "type": "number",
+      "unit": "g",
+      "default": 18.015,
+      "businessContext": "Mass of the sample in grams"
+    },
+    {
+      "id": "molarMass",
+      "label": "Molar Mass",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 18.015,
+      "businessContext": "Molar mass of the substance"
+    },
+    {
+      "id": "avogadro",
+      "label": "Avogadro's Number",
+      "type": "number",
+      "unit": "particles/mol",
+      "default": 6.02214076e+23,
+      "businessContext": "Number of particles per mole"
+    },
+    {
+      "id": "molarVolume",
+      "label": "Molar Volume",
+      "type": "number",
+      "unit": "L/mol",
+      "default": 22.414,
+      "businessContext": "Volume per mole of ideal gas at STP"
+    }
+  ],
+  "formulas": {
+    "moles": "mass / molarMass",
+    "particles": "moles * avogadro",
+    "volumeSTP": "moles * molarVolume"
+  },
+  "outputs": {
+    "primary": "moles",
+    "breakdown": [
+      "particles",
+      "volumeSTP"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

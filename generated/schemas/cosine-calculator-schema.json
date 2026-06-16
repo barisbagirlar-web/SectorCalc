@@ -1,0 +1,73 @@
+{
+  "toolName": "cosine-calculator",
+  "inputs": [
+    {
+      "id": "angle",
+      "label": "Angle",
+      "type": "number",
+      "unit": "deg",
+      "default": 0,
+      "businessContext": "Enter the angle value. Base unit is degrees unless unit selector is set to 1 (radians)."
+    },
+    {
+      "id": "unitSelector",
+      "label": "Unit (0=deg,1=rad)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Select unit: 0 for degrees, 1 for radians. The angle will be interpreted accordingly."
+    },
+    {
+      "id": "amplitude",
+      "label": "Amplitude",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Amplitude scaling factor for the cosine function. Default 1 gives standard cosine."
+    },
+    {
+      "id": "frequency",
+      "label": "Frequency Multiplier (b)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Frequency multiplier for cosine argument: cos(b*x + phase)."
+    },
+    {
+      "id": "phaseShift",
+      "label": "Phase Shift (c)",
+      "type": "number",
+      "unit": "rad",
+      "default": 0,
+      "businessContext": "Phase shift added to argument. Input in radians regardless of unit selector, since phase shift is typically in radians."
+    },
+    {
+      "id": "roundTo",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Number of decimal places for rounding the output."
+    }
+  ],
+  "formulas": {
+    "radianAngle": "unitSelector === 0 ? (angle * Math.PI / 180) : angle",
+    "argument": "radianAngle * frequency + phaseShift",
+    "rawCos": "amplitude * Math.cos(argument)",
+    "finalResult": "Math.round(rawCos * 10**roundTo) / 10**roundTo"
+  },
+  "outputs": {
+    "primary": "finalResult",
+    "breakdown": [
+      "radianAngle",
+      "argument",
+      "rawCos"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

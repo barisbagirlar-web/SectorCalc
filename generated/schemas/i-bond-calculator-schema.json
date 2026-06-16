@@ -1,0 +1,58 @@
+{
+  "toolName": "i-bond-calculator",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Investment Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "The amount you invest in I Bonds"
+    },
+    {
+      "id": "fixedRate",
+      "label": "Fixed Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0.4,
+      "businessContext": "The fixed rate set by the Treasury for the bond"
+    },
+    {
+      "id": "inflationRate",
+      "label": "Inflation Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 3.24,
+      "businessContext": "The annual inflation rate based on CPI-U"
+    },
+    {
+      "id": "years",
+      "label": "Years Held",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Number of years the bond is held (1-30)"
+    }
+  ],
+  "formulas": {
+    "compositeRateDecimal": "(fixedRate/100) + 2*(inflationRate/100) + (fixedRate/100)*(inflationRate/100)",
+    "finalValue": "principal * Math.pow(1 + compositeRateDecimal/2, 2*years)",
+    "totalInterest": "finalValue - principal",
+    "compositeRatePercent": "compositeRateDecimal * 100",
+    "effectiveAnnualRate": "(Math.pow(1 + compositeRateDecimal/2, 2) - 1) * 100"
+  },
+  "outputs": {
+    "primary": "finalValue",
+    "breakdown": [
+      "compositeRatePercent",
+      "totalInterest",
+      "effectiveAnnualRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

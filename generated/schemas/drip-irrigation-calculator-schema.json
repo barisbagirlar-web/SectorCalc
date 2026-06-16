@@ -1,0 +1,76 @@
+{
+  "toolName": "drip-irrigation-calculator",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "Arazi Alanı",
+      "type": "number",
+      "unit": "m²",
+      "default": 1000,
+      "businessContext": "Sulanacak toplam alan"
+    },
+    {
+      "id": "emitterFlowRate",
+      "label": "Damlatıcı Debisi",
+      "type": "number",
+      "unit": "L/h",
+      "default": 2,
+      "businessContext": "Her bir damlatıcının saatte verdiği su miktarı"
+    },
+    {
+      "id": "emitterSpacing",
+      "label": "Damlatıcı Aralığı",
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "businessContext": "Lateral üzerindeki damlatıcılar arası mesafe"
+    },
+    {
+      "id": "lateralSpacing",
+      "label": "Lateral Aralığı",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Damlama hatları arası mesafe"
+    },
+    {
+      "id": "irrigationDepth",
+      "label": "Sulama Suyu Derinliği",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Her sulamada uygulanacak net su yüksekliği"
+    },
+    {
+      "id": "systemEfficiency",
+      "label": "Sistem Verimi",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Sulama sisteminin su iletim ve dağıtım verimi (0-100)"
+    }
+  ],
+  "formulas": {
+    "emittersPerSquareMeter": "1 / (emitterSpacing * lateralSpacing)",
+    "totalEmitters": "area * emittersPerSquareMeter",
+    "totalFlowRate": "totalEmitters * emitterFlowRate",
+    "netVolume": "irrigationDepth * area",
+    "grossVolume": "netVolume / (systemEfficiency / 100)",
+    "irrigationTime": "grossVolume / totalFlowRate"
+  },
+  "outputs": {
+    "primary": "irrigationTime",
+    "breakdown": [
+      "totalEmitters",
+      "totalFlowRate",
+      "netVolume",
+      "grossVolume"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

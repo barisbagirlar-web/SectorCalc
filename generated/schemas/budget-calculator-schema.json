@@ -1,0 +1,79 @@
+{
+  "toolName": "budget-calculator",
+  "inputs": [
+    {
+      "id": "monthlyIncome",
+      "label": "Aylık Net Gelir",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Vergi sonrası aylık net gelir"
+    },
+    {
+      "id": "rent",
+      "label": "Kira",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Aylık kira veya konut kredisi ödemesi"
+    },
+    {
+      "id": "utilities",
+      "label": "Faturalar",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Elektrik, su, doğalgaz, internet vb. faturalar"
+    },
+    {
+      "id": "grocery",
+      "label": "Mutfak Masrafları",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Aylık gıda ve market harcamaları"
+    },
+    {
+      "id": "transportation",
+      "label": "Ulaşım",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Yakıt, toplu taşıma, araç bakım vb. ulaşım giderleri"
+    },
+    {
+      "id": "savings",
+      "label": "Tasarruf",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Aylık düzenli tasarruf miktarı"
+    },
+    {
+      "id": "otherExpenses",
+      "label": "Diğer Giderler",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Eğlence, sağlık, giyim vb. diğer harcamalar"
+    }
+  ],
+  "formulas": {
+    "totalExpenses": "rent + utilities + grocery + transportation + savings + otherExpenses",
+    "netBalance": "monthlyIncome - totalExpenses",
+    "savingsRate": "(savings / monthlyIncome) * 100"
+  },
+  "outputs": {
+    "primary": "netBalance",
+    "breakdown": [
+      "totalExpenses",
+      "savingsRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

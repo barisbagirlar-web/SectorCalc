@@ -1,0 +1,73 @@
+{
+  "toolName": "microseconds-to-nanoseconds-calculator",
+  "inputs": [
+    {
+      "id": "microseconds",
+      "label": "Microseconds",
+      "type": "number",
+      "unit": "µs",
+      "default": 0,
+      "businessContext": "Time duration in microseconds to be converted to nanoseconds."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "ns/µs",
+      "default": 1000,
+      "businessContext": "Standard conversion factor from microseconds to nanoseconds. Fixed at 1000 for certified calculations. Do not alter without recalibration."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "places",
+      "default": 0,
+      "businessContext": "Number of decimal places for rounding the result. Use 0 for integer nanoseconds as per standard."
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "items",
+      "default": 1,
+      "businessContext": "If converting multiple identical durations, enter the quantity. Acts as a multiplier."
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "ns",
+      "default": 0,
+      "businessContext": "Acceptable deviation in nanoseconds for quality assurance. The result will be checked against ± tolerance."
+    },
+    {
+      "id": "calibrationOffset",
+      "label": "Calibration Offset",
+      "type": "number",
+      "unit": "ns",
+      "default": 0,
+      "businessContext": "Instrument calibration offset added to the converted value."
+    }
+  ],
+  "formulas": {
+    "rawNanoseconds": "microseconds * conversionFactor * batchSize + calibrationOffset",
+    "nanoseconds": "Math.round((microseconds * conversionFactor * batchSize + calibrationOffset) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "minAcceptable": "(Math.round((microseconds * conversionFactor * batchSize + calibrationOffset) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)) - Math.abs(tolerance)",
+    "maxAcceptable": "(Math.round((microseconds * conversionFactor * batchSize + calibrationOffset) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)) + Math.abs(tolerance)"
+  },
+  "outputs": {
+    "primary": "nanoseconds",
+    "breakdown": [
+      "rawNanoseconds",
+      "minAcceptable",
+      "maxAcceptable"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "concrete-slab-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Slab length in meters"
+    },
+    {
+      "id": "width",
+      "label": "Width (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Slab width in meters"
+    },
+    {
+      "id": "thickness",
+      "label": "Thickness (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.2,
+      "businessContext": "Slab thickness in meters (e.g., 0.2 for 20 cm)"
+    },
+    {
+      "id": "density",
+      "label": "Concrete Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 2400,
+      "businessContext": "Density of concrete (kg/m³). Standard reinforced concrete: 2400"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage waste factor (typically 5-10%)"
+    }
+  ],
+  "formulas": {
+    "volume": "length * width * thickness",
+    "waste": "volume * wasteFactor / 100",
+    "totalVolume": "volume + waste",
+    "totalWeight": "totalVolume * density / 1000"
+  },
+  "outputs": {
+    "primary": "totalVolume",
+    "breakdown": [
+      "volume",
+      "waste",
+      "totalWeight"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

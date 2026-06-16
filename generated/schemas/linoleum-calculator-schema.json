@@ -1,0 +1,67 @@
+{
+  "toolName": "linoleum-calculator",
+  "inputs": [
+    {
+      "id": "roomLength",
+      "label": "Room Length",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Length of the room to be covered with linoleum."
+    },
+    {
+      "id": "roomWidth",
+      "label": "Room Width",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Width of the room to be covered with linoleum."
+    },
+    {
+      "id": "rollWidth",
+      "label": "Roll Width",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Width of the linoleum roll as supplied by the manufacturer."
+    },
+    {
+      "id": "wastePercentage",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Additional material to account for cutting, pattern matching, and installation waste."
+    },
+    {
+      "id": "pricePerSqM",
+      "label": "Price per m²",
+      "type": "number",
+      "unit": "currency/m²",
+      "default": 20,
+      "businessContext": "Cost of linoleum per square meter in local currency."
+    }
+  ],
+  "formulas": {
+    "numberOfStrips": "Math.ceil(roomWidth / rollWidth)",
+    "totalLinearMeters": "roomLength * numberOfStrips",
+    "areaBeforeWaste": "totalLinearMeters * rollWidth",
+    "wasteFactor": "1 + wastePercentage / 100",
+    "finalArea": "areaBeforeWaste * wasteFactor",
+    "totalCost": "finalArea * pricePerSqM"
+  },
+  "outputs": {
+    "primary": "Total area to purchase: {finalArea} m², Total cost: {totalCost} currency.",
+    "breakdown": [
+      "Number of strips: {numberOfStrips}",
+      "Total linear meters: {totalLinearMeters} m",
+      "Area before waste: {areaBeforeWaste} m²"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

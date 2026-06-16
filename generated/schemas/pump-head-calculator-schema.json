@@ -1,0 +1,73 @@
+{
+  "toolName": "pump-head-calculator",
+  "inputs": [
+    {
+      "id": "suctionHead",
+      "label": "Suction Static Head",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Elevation of fluid source surface relative to pump centerline (positive if source is above pump, negative if below)."
+    },
+    {
+      "id": "dischargeHead",
+      "label": "Discharge Static Head",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Elevation of discharge point relative to pump centerline."
+    },
+    {
+      "id": "flowRate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "l/s",
+      "default": 10,
+      "businessContext": "Volumetric flow rate of the fluid in liters per second."
+    },
+    {
+      "id": "pipeLength",
+      "label": "Pipe Length",
+      "type": "number",
+      "unit": "m",
+      "default": 50,
+      "businessContext": "Total length of straight pipe between suction and discharge."
+    },
+    {
+      "id": "pipeDiameter",
+      "label": "Pipe Internal Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Inner diameter of the pipe."
+    },
+    {
+      "id": "roughnessCoefficient",
+      "label": "Hazen-Williams C-Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 120,
+      "businessContext": "Pipe roughness coefficient (e.g., 120 for steel, 150 for PVC)."
+    }
+  ],
+  "formulas": {
+    "staticHead": "dischargeHead - suctionHead",
+    "Q": "flowRate / 1000",
+    "d": "pipeDiameter / 1000",
+    "frictionLoss": "10.67 * pipeLength * Math.pow(Q / roughnessCoefficient, 1.852) / Math.pow(d, 4.87)",
+    "totalHead": "staticHead + frictionLoss"
+  },
+  "outputs": {
+    "primary": "totalHead",
+    "breakdown": [
+      "staticHead",
+      "frictionLoss"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

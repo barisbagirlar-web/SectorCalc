@@ -1,0 +1,55 @@
+{
+  "toolName": "ionic-radius-calculator",
+  "inputs": [
+    {
+      "id": "atomicNumber",
+      "label": "Atomic Number (Z)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Number of protons in the nucleus of the atom."
+    },
+    {
+      "id": "shieldingConstant",
+      "label": "Shielding Constant (S)",
+      "type": "number",
+      "unit": "e (elementary charge)",
+      "default": 0,
+      "businessContext": "Screening constant due to inner electrons reducing the effective nuclear charge."
+    },
+    {
+      "id": "principalQuantumNumber",
+      "label": "Principal Quantum Number (n)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Principal quantum number of the outermost electron shell."
+    },
+    {
+      "id": "scalingFactor",
+      "label": "Scaling Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Empirical adjustment factor to match experimental ionic radii."
+    }
+  ],
+  "formulas": {
+    "ionicRadius": "scalingFactor * (principalQuantumNumber**2 / (atomicNumber - shieldingConstant)) * 52.9",
+    "effectiveNuclearCharge": "atomicNumber - shieldingConstant",
+    "rawHydrogenicRadius": "(principalQuantumNumber**2 / (atomicNumber - shieldingConstant)) * 52.9"
+  },
+  "outputs": {
+    "primary": "ionicRadius",
+    "breakdown": [
+      "effectiveNuclearCharge",
+      "rawHydrogenicRadius"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

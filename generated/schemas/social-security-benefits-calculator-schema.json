@@ -1,0 +1,55 @@
+{
+  "toolName": "social-security-benefits-calculator",
+  "inputs": [
+    {
+      "id": "monthlySalary",
+      "label": "Aylık Brüt Maaş",
+      "type": "number",
+      "unit": "TRY",
+      "default": 5000,
+      "businessContext": "Sigortalının aylık brüt maaşı"
+    },
+    {
+      "id": "employeeRate",
+      "label": "İşçi SGK Primi Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 14,
+      "businessContext": "İşçinin Sosyal Güvenlik Kurumu prim oranı"
+    },
+    {
+      "id": "employerRate",
+      "label": "İşveren SGK Primi Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 20.5,
+      "businessContext": "İşverenin Sosyal Güvenlik Kurumu prim oranı"
+    },
+    {
+      "id": "ceiling",
+      "label": "Aylık Tavan Ücret",
+      "type": "number",
+      "unit": "TRY",
+      "default": 20000,
+      "businessContext": "SGK primine esas kazanç üst sınırı"
+    }
+  ],
+  "formulas": {
+    "employeeContribution": "Math.min(monthlySalary, ceiling) * employeeRate / 100",
+    "employerContribution": "Math.min(monthlySalary, ceiling) * employerRate / 100",
+    "totalMonthlySSContribution": "employeeContribution + employerContribution"
+  },
+  "outputs": {
+    "primary": "totalMonthlySSContribution",
+    "breakdown": [
+      "employeeContribution",
+      "employerContribution"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

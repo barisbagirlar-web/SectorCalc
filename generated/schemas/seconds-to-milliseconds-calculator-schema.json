@@ -1,0 +1,65 @@
+{
+  "toolName": "seconds-to-milliseconds-calculator",
+  "inputs": [
+    {
+      "id": "seconds",
+      "label": "Seconds",
+      "type": "number",
+      "unit": "s",
+      "default": 1,
+      "businessContext": "Input time in seconds"
+    },
+    {
+      "id": "milliseconds",
+      "label": "Milliseconds",
+      "type": "number",
+      "unit": "ms",
+      "default": 1000,
+      "businessContext": "Output time in milliseconds"
+    },
+    {
+      "id": "minutes",
+      "label": "Minutes",
+      "type": "number",
+      "unit": "min",
+      "default": 0.0166666667,
+      "businessContext": "Equivalent time in minutes"
+    },
+    {
+      "id": "hours",
+      "label": "Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 0.00027777778,
+      "businessContext": "Equivalent time in hours"
+    },
+    {
+      "id": "days",
+      "label": "Days",
+      "type": "number",
+      "unit": "d",
+      "default": 0.000011574074,
+      "businessContext": "Equivalent time in days"
+    }
+  ],
+  "formulas": {
+    "milliseconds": "seconds * 1000",
+    "minutes": "seconds / 60",
+    "hours": "seconds / 3600",
+    "days": "seconds / 86400"
+  },
+  "outputs": {
+    "primary": "milliseconds",
+    "breakdown": [
+      "minutes",
+      "hours",
+      "days"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

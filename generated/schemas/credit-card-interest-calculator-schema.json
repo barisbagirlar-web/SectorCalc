@@ -1,0 +1,57 @@
+{
+  "toolName": "credit-card-interest-calculator",
+  "inputs": [
+    {
+      "id": "outstandingBalance",
+      "label": "Outstanding Balance",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "businessContext": "The current credit card balance."
+    },
+    {
+      "id": "annualPercentageRate",
+      "label": "Annual Percentage Rate (APR)",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "businessContext": "The annual interest rate for the credit card."
+    },
+    {
+      "id": "billingDays",
+      "label": "Billing Period (Days)",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Number of days in the billing cycle."
+    },
+    {
+      "id": "minimumPaymentPercent",
+      "label": "Minimum Payment (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "The percentage of the outstanding balance required as minimum payment."
+    }
+  ],
+  "formulas": {
+    "dailyRate": "annualPercentageRate / (100 * 365)",
+    "totalInterest": "outstandingBalance * ((1 + (annualPercentageRate / (100 * 365))) ** billingDays - 1)",
+    "newBalance": "outstandingBalance + (outstandingBalance * ((1 + (annualPercentageRate / (100 * 365))) ** billingDays - 1))",
+    "minimumPaymentAmount": "outstandingBalance * minimumPaymentPercent / 100"
+  },
+  "outputs": {
+    "primary": "totalInterest",
+    "breakdown": [
+      "dailyRate",
+      "newBalance",
+      "minimumPaymentAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

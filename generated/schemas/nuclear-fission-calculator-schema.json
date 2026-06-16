@@ -1,0 +1,67 @@
+{
+  "toolName": "nuclear-fission-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Fissile Material Mass",
+      "type": "number",
+      "unit": "g",
+      "default": 1000,
+      "businessContext": "Mass of the fissile material sample."
+    },
+    {
+      "id": "energyPerFission",
+      "label": "Energy per Fission",
+      "type": "number",
+      "unit": "MeV",
+      "default": 200,
+      "businessContext": "Average energy released per fission event."
+    },
+    {
+      "id": "molarMass",
+      "label": "Molar Mass",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 235.0439299,
+      "businessContext": "Molar mass of the fissile isotope."
+    },
+    {
+      "id": "avogadroNumber",
+      "label": "Avogadro's Number",
+      "type": "number",
+      "unit": "atoms/mol",
+      "default": 6.02214076e+23,
+      "businessContext": "Avogadro constant, number of atoms per mole."
+    },
+    {
+      "id": "mevToJoules",
+      "label": "Conversion MeV to Joules",
+      "type": "number",
+      "unit": "J/MeV",
+      "default": 1.602176634e-13,
+      "businessContext": "Conversion factor from mega-electronvolts to joules."
+    }
+  ],
+  "formulas": {
+    "atomsCount": "mass / molarMass * avogadroNumber",
+    "energyMeV": "atomsCount * energyPerFission",
+    "energyJoules": "energyMeV * mevToJoules",
+    "energyKWh": "energyJoules / 3.6e6",
+    "energyTNT": "energyJoules / 4.184e9"
+  },
+  "outputs": {
+    "primary": "energyJoules",
+    "breakdown": [
+      "atomsCount",
+      "energyMeV",
+      "energyKWh",
+      "energyTNT"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

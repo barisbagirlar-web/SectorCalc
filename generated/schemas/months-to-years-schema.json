@@ -1,0 +1,56 @@
+{
+  "toolName": "months-to-years",
+  "inputs": [
+    {
+      "id": "months",
+      "label": "Ay Sayısı",
+      "type": "number",
+      "unit": "ay",
+      "default": 12,
+      "businessContext": "Dönüştürülecek toplam ay miktarı"
+    },
+    {
+      "id": "monthsPerYear",
+      "label": "Yıldaki Ay Sayısı",
+      "type": "number",
+      "unit": "ay/yıl",
+      "default": 12,
+      "businessContext": "Bir yıldaki ay sayısı (standart 12)"
+    },
+    {
+      "id": "precision",
+      "label": "Hassasiyet (Ondalık Basamak)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Sonuçtaki ondalık basamak sayısı"
+    },
+    {
+      "id": "includeRemainder",
+      "label": "Kalan Ay Göster",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1: kalan ay göster, 0: gösterme"
+    }
+  ],
+  "formulas": {
+    "years": "Math.floor(months / monthsPerYear)",
+    "remainderMonths": "months % monthsPerYear",
+    "decimalYears": "months / monthsPerYear",
+    "roundedDecimalYears": "Math.round(decimalYears * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "roundedDecimalYears",
+    "breakdown": [
+      "years",
+      "remainderMonths"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

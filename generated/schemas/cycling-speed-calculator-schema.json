@@ -1,0 +1,65 @@
+{
+  "toolName": "cycling-speed-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "Total cycling distance in kilometers."
+    },
+    {
+      "id": "timeHours",
+      "label": "Time (hours)",
+      "type": "number",
+      "unit": "h",
+      "default": 0,
+      "businessContext": "Hours spent cycling (moving time)."
+    },
+    {
+      "id": "timeMinutes",
+      "label": "Time (minutes)",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Minutes spent cycling (moving time)."
+    },
+    {
+      "id": "timeSeconds",
+      "label": "Time (seconds)",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Seconds spent cycling (moving time)."
+    },
+    {
+      "id": "breakTime",
+      "label": "Break Time",
+      "type": "number",
+      "unit": "min",
+      "default": 5,
+      "businessContext": "Total break time in minutes during the trip."
+    }
+  ],
+  "formulas": {
+    "totalTimeMinutes": "timeHours * 60 + timeMinutes + timeSeconds / 60",
+    "movingTimeMinutes": "totalTimeMinutes - breakTime",
+    "avgMovingSpeed": "distance / (movingTimeMinutes / 60)",
+    "avgTotalSpeed": "distance / (totalTimeMinutes / 60)"
+  },
+  "outputs": {
+    "primary": "avgMovingSpeed",
+    "breakdown": [
+      "avgTotalSpeed",
+      "movingTimeMinutes",
+      "totalTimeMinutes"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,82 @@
+{
+  "toolName": "carbon-intensity-calculator",
+  "inputs": [
+    {
+      "id": "electricityConsumption",
+      "label": "Electricity Consumption",
+      "type": "number",
+      "unit": "kWh",
+      "default": 1000,
+      "businessContext": "Total monthly electricity consumption"
+    },
+    {
+      "id": "naturalGasConsumption",
+      "label": "Natural Gas Consumption",
+      "type": "number",
+      "unit": "m³",
+      "default": 500,
+      "businessContext": "Total monthly natural gas consumption"
+    },
+    {
+      "id": "dieselConsumption",
+      "label": "Diesel Consumption",
+      "type": "number",
+      "unit": "liters",
+      "default": 100,
+      "businessContext": "Total monthly diesel consumption"
+    },
+    {
+      "id": "productionOutput",
+      "label": "Production Output",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "businessContext": "Total monthly production output (e.g., kg, pieces)"
+    },
+    {
+      "id": "electricityEmissionFactor",
+      "label": "Electricity Emission Factor",
+      "type": "number",
+      "unit": "kg CO₂/kWh",
+      "default": 0.5,
+      "businessContext": "Emission factor for grid electricity"
+    },
+    {
+      "id": "naturalGasEmissionFactor",
+      "label": "Natural Gas Emission Factor",
+      "type": "number",
+      "unit": "kg CO₂/m³",
+      "default": 2,
+      "businessContext": "Emission factor for natural gas"
+    },
+    {
+      "id": "dieselEmissionFactor",
+      "label": "Diesel Emission Factor",
+      "type": "number",
+      "unit": "kg CO₂/liter",
+      "default": 2.7,
+      "businessContext": "Emission factor for diesel fuel"
+    }
+  ],
+  "formulas": {
+    "totalEmissions": "electricityConsumption * electricityEmissionFactor + naturalGasConsumption * naturalGasEmissionFactor + dieselConsumption * dieselEmissionFactor",
+    "electricityEmissions": "electricityConsumption * electricityEmissionFactor",
+    "naturalGasEmissions": "naturalGasConsumption * naturalGasEmissionFactor",
+    "dieselEmissions": "dieselConsumption * dieselEmissionFactor",
+    "carbonIntensity": "totalEmissions / productionOutput"
+  },
+  "outputs": {
+    "primary": "carbonIntensity",
+    "breakdown": [
+      "electricityEmissions",
+      "naturalGasEmissions",
+      "dieselEmissions"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

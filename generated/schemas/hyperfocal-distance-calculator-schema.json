@@ -1,0 +1,56 @@
+{
+  "toolName": "hyperfocal-distance-calculator",
+  "inputs": [
+    {
+      "id": "focalLength",
+      "label": "Focal Length (f)",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "The focal length of the lens in millimeters."
+    },
+    {
+      "id": "aperture",
+      "label": "Aperture (N)",
+      "type": "number",
+      "unit": "f-number",
+      "default": 8,
+      "businessContext": "The f-number of the lens aperture. Larger numbers indicate smaller apertures."
+    },
+    {
+      "id": "circleOfConfusion",
+      "label": "Circle of Confusion (c)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.03,
+      "businessContext": "The acceptable circle of confusion diameter in mm. Common values: 0.03mm for full-frame, 0.02mm for APS-C, 0.015mm for Four Thirds."
+    },
+    {
+      "id": "outputUnitMultiplier",
+      "label": "Output Unit Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier to convert the result to desired output unit. Use 1 for mm, 0.001 for meters, 0.03937 for inches."
+    }
+  ],
+  "formulas": {
+    "H_mm": "focalLength**2 / (aperture * circleOfConfusion) + focalLength",
+    "hyperfocal": "H_mm * outputUnitMultiplier",
+    "nearLimit": "H_mm * outputUnitMultiplier / 2",
+    "farLimit": "'Infinity'"
+  },
+  "outputs": {
+    "primary": "hyperfocal",
+    "breakdown": [
+      "nearLimit",
+      "farLimit"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,77 @@
+{
+  "toolName": "alternate-day-fasting-calculator",
+  "inputs": [
+    {
+      "id": "periodDays",
+      "label": "Total Period (Days)",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Duration over which alternate day fasting is applied"
+    },
+    {
+      "id": "operatingHours",
+      "label": "Daily Operating Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Number of hours the machine runs per day (both on and fasting days, if standby)"
+    },
+    {
+      "id": "powerOn",
+      "label": "Power Consumption on Normal Day",
+      "type": "number",
+      "unit": "kW",
+      "default": 100,
+      "businessContext": "Power draw during normal operation"
+    },
+    {
+      "id": "powerStandby",
+      "label": "Power Consumption on Fasting Day",
+      "type": "number",
+      "unit": "kW",
+      "default": 5,
+      "businessContext": "Power draw during standby or reduced operation on fasting day (0 for complete shutdown)"
+    },
+    {
+      "id": "electricityCost",
+      "label": "Electricity Cost",
+      "type": "number",
+      "unit": "currency/kWh",
+      "default": 0.15,
+      "businessContext": "Cost per kWh of electricity"
+    },
+    {
+      "id": "carbonFactor",
+      "label": "Carbon Emission Factor",
+      "type": "number",
+      "unit": "kgCO2/kWh",
+      "default": 0.5,
+      "businessContext": "CO2 emissions per kWh consumed"
+    }
+  ],
+  "formulas": {
+    "onDays": "Math.ceil(periodDays / 2)",
+    "offDays": "Math.floor(periodDays / 2)",
+    "energyOnDay": "powerOn * operatingHours",
+    "energyOffDay": "powerStandby * operatingHours",
+    "totalEnergy": "(onDays * energyOnDay) + (offDays * energyOffDay)",
+    "baselineEnergy": "periodDays * energyOnDay",
+    "energySaved": "baselineEnergy - totalEnergy",
+    "costSaved": "energySaved * electricityCost",
+    "carbonReduced": "energySaved * carbonFactor"
+  },
+  "outputs": {
+    "primary": "costSaved",
+    "breakdown": [
+      "energySaved",
+      "carbonReduced"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

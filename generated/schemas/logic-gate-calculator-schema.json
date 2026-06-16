@@ -1,0 +1,69 @@
+{
+  "toolName": "logic-gate-calculator",
+  "inputs": [
+    {
+      "id": "gateType",
+      "label": "Gate Type",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Select gate: 1=AND, 2=OR, 3=XOR, 4=NAND, 5=NOR, 6=XNOR"
+    },
+    {
+      "id": "A",
+      "label": "Input A",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Binary input (0 or 1)"
+    },
+    {
+      "id": "B",
+      "label": "Input B",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Binary input (0 or 1)"
+    },
+    {
+      "id": "C",
+      "label": "Input C",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Binary input (0 or 1)"
+    },
+    {
+      "id": "D",
+      "label": "Input D",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Binary input (0 or 1)"
+    }
+  ],
+  "formulas": {
+    "product": "A * B * C * D",
+    "sum": "A + B + C + D",
+    "andResult": "product",
+    "orResult": "sum > 0 ? 1 : 0",
+    "xorResult": "sum % 2",
+    "nandResult": "1 - andResult",
+    "norResult": "1 - orResult",
+    "xnorResult": "1 - xorResult",
+    "output": "gateType == 1 ? andResult : gateType == 2 ? orResult : gateType == 3 ? xorResult : gateType == 4 ? nandResult : gateType == 5 ? norResult : xnorResult"
+  },
+  "outputs": {
+    "primary": "output",
+    "breakdown": [
+      "product",
+      "sum"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

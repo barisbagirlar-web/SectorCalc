@@ -1,0 +1,45 @@
+{
+  "toolName": "calcium-calculator",
+  "inputs": [
+    {
+      "id": "volume",
+      "label": "Water Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 1000,
+      "businessContext": "Volume of water sample"
+    },
+    {
+      "id": "caConcentration",
+      "label": "Calcium Concentration",
+      "type": "number",
+      "unit": "mg/L",
+      "default": 40,
+      "businessContext": "Measured calcium ion concentration"
+    },
+    {
+      "id": "hardnessFactor",
+      "label": "CaCO3 Hardness Factor",
+      "type": "number",
+      "unit": "",
+      "default": 2.497,
+      "businessContext": "Conversion factor from Ca to CaCO3 equivalent"
+    }
+  ],
+  "formulas": {
+    "calciumMassMg": "volume * caConcentration",
+    "hardnessCaCO3MassMg": "volume * caConcentration * hardnessFactor",
+    "calciumMassG": "calciumMassMg / 1000",
+    "hardnessCaCO3MassG": "hardnessCaCO3MassMg / 1000"
+  },
+  "outputs": {
+    "primary": "hardnessCaCO3MassMg",
+    "breakdown": [
+      "calciumMassMg",
+      "hardnessCaCO3MassG"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false
+}

@@ -1,0 +1,28 @@
+{
+  "toolName": "angstroms-to-nm",
+  "inputs": [
+    {
+      "id": "angstroms",
+      "label": "Angstroms",
+      "type": "number",
+      "unit": "Å",
+      "default": 1,
+      "businessContext": "Wavelength or atomic spacing in angstroms"
+    }
+  ],
+  "formulas": {
+    "nanometers": "angstroms * 0.1"
+  },
+  "outputs": {
+    "primary": "nanometers",
+    "breakdown": [
+      "nanometers = angstroms * 0.1"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

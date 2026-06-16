@@ -1,0 +1,55 @@
+{
+  "toolName": "sep-ira-calculator",
+  "inputs": [
+    {
+      "id": "annualCompensation",
+      "label": "Annual Compensation",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "Total compensation from employment or net earnings from self-employment (before any contribution)."
+    },
+    {
+      "id": "contributionRatePercent",
+      "label": "Contribution Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "The percentage of compensation you contribute to the SEP IRA, up to 25% for employees and effectively lower for self-employed."
+    },
+    {
+      "id": "isSelfEmployed",
+      "label": "Self-Employed (0/1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Enter 1 if you are self-employed (the calculation adjusts for self-employment), otherwise 0 for employee."
+    },
+    {
+      "id": "contributionLimit",
+      "label": "IRS Contribution Limit",
+      "type": "number",
+      "unit": "$",
+      "default": 66000,
+      "businessContext": "The maximum annual contribution limit set by the IRS (e.g., $66,000 for 2023)."
+    }
+  ],
+  "formulas": {
+    "calculatedContribution": "const compensation = inputs['annualCompensation']; const rate = inputs['contributionRatePercent'] / 100; const isSE = inputs['isSelfEmployed']; return isSE === 1 ? compensation * rate / (1 + rate) : compensation * rate;",
+    "contributionAfterLimit": "const calculated = function() { const c=inputs['annualCompensation']; const r=inputs['contributionRatePercent']/100; const se=inputs['isSelfEmployed']; return se===1? c*r/(1+r) : c*r; }(); const limit = inputs['contributionLimit']; return Math.min(calculated, limit);",
+    "finalContribution": "return inputs['contributionAfterLimit'];"
+  },
+  "outputs": {
+    "primary": "finalContribution",
+    "breakdown": [
+      "calculatedContribution",
+      "contributionAfterLimit"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

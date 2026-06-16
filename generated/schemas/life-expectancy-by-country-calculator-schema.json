@@ -1,0 +1,57 @@
+{
+  "toolName": "life-expectancy-by-country-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Current age of the individual."
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "none",
+      "default": 0,
+      "businessContext": "Gender: 0 for male, 1 for female. Used to apply life expectancy adjustment."
+    },
+    {
+      "id": "countryLifeExpectancy",
+      "label": "Country Life Expectancy at Birth",
+      "type": "number",
+      "unit": "years",
+      "default": 75,
+      "businessContext": "Average life expectancy at birth for the country (e.g., from WHO data)."
+    },
+    {
+      "id": "healthFactor",
+      "label": "Health Factor",
+      "type": "number",
+      "unit": "none",
+      "default": 1,
+      "businessContext": "Multiplier for individual health relative to average (1.0 = average, <1 worse, >1 better)."
+    }
+  ],
+  "formulas": {
+    "adjustedLifeExpectancy": "countryLifeExpectancy - currentAge",
+    "genderAdjustment": "gender === 1 ? 5 : 0",
+    "healthMultiplier": "healthFactor",
+    "remainingLifeExpectancy": "(adjustedLifeExpectancy + genderAdjustment) * healthMultiplier"
+  },
+  "outputs": {
+    "primary": "remainingLifeExpectancy",
+    "breakdown": [
+      "adjustedLifeExpectancy",
+      "genderAdjustment",
+      "healthMultiplier"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

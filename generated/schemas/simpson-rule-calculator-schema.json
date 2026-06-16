@@ -1,0 +1,78 @@
+{
+  "toolName": "simpson-rule-calculator",
+  "inputs": [
+    {
+      "id": "lowerLimit",
+      "label": "Alt Sınır (a)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "İntegrasyonun başlangıç noktası"
+    },
+    {
+      "id": "upperLimit",
+      "label": "Üst Sınır (b)",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "İntegrasyonun bitiş noktası"
+    },
+    {
+      "id": "y0",
+      "label": "y₀ (a noktasındaki değer)",
+      "type": "number",
+      "unit": "birim",
+      "default": 0,
+      "businessContext": "f(a) fonksiyon değeri"
+    },
+    {
+      "id": "y1",
+      "label": "y₁ (a+h noktasındaki değer)",
+      "type": "number",
+      "unit": "birim",
+      "default": 0,
+      "businessContext": "f(a+h) fonksiyon değeri"
+    },
+    {
+      "id": "y2",
+      "label": "y₂ (a+2h noktasındaki değer)",
+      "type": "number",
+      "unit": "birim",
+      "default": 0,
+      "businessContext": "f(a+2h) fonksiyon değeri"
+    },
+    {
+      "id": "y3",
+      "label": "y₃ (a+3h noktasındaki değer)",
+      "type": "number",
+      "unit": "birim",
+      "default": 0,
+      "businessContext": "f(a+3h) fonksiyon değeri"
+    },
+    {
+      "id": "y4",
+      "label": "y₄ (b noktasındaki değer)",
+      "type": "number",
+      "unit": "birim",
+      "default": 0,
+      "businessContext": "f(b) fonksiyon değeri"
+    }
+  ],
+  "formulas": {
+    "h": "(upperLimit - lowerLimit) / 4",
+    "integral": "(h / 3) * (y0 + 4 * y1 + 2 * y2 + 4 * y3 + y4)"
+  },
+  "outputs": {
+    "primary": "integral",
+    "breakdown": [
+      "Aralık h = (b - a) / 4",
+      "İntegral ≈ (h/3) × (y₀ + 4y₁ + 2y₂ + 4y₃ + y₄)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

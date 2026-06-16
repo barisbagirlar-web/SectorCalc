@@ -1,0 +1,65 @@
+{
+  "toolName": "log-base-2-calculator",
+  "inputs": [
+    {
+      "id": "sign",
+      "label": "Sign (0: positive, 1: negative)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sign bit of the floating-point number (must be 0 for positive input as log2 is undefined for non-positive numbers)"
+    },
+    {
+      "id": "fraction",
+      "label": "Fraction (mantissa)",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Fractional part of the mantissa, in range [0, 1) for normalized numbers."
+    },
+    {
+      "id": "exponent",
+      "label": "Exponent",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Exponent value before bias adjustment."
+    },
+    {
+      "id": "bias",
+      "label": "Bias",
+      "type": "number",
+      "unit": "",
+      "default": 127,
+      "businessContext": "Bias value (e.g., 127 for single-precision IEEE 754)."
+    },
+    {
+      "id": "precision",
+      "label": "Output Precision (decimal places)",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Number of decimal places to round the result."
+    }
+  ],
+  "formulas": {
+    "exponentPart": "exponent - bias",
+    "fractionalPart": "Math.log(1 + fraction) / Math.log(2)",
+    "log2Value": "(exponent - bias) + Math.log(1 + fraction) / Math.log(2)",
+    "actualValue": "(1 + fraction) * Math.pow(2, exponent - bias)"
+  },
+  "outputs": {
+    "primary": "log2Value",
+    "breakdown": [
+      "actualValue",
+      "exponentPart",
+      "fractionalPart"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

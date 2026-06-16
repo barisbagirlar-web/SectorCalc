@@ -1,0 +1,55 @@
+{
+  "toolName": "strength-standard-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Kaldırılan Ağırlık (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Kaldırılan ağırlık"
+    },
+    {
+      "id": "reps",
+      "label": "Tekrar Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 5,
+      "businessContext": "Tamamlanan tekrar sayısı"
+    },
+    {
+      "id": "bodyWeight",
+      "label": "Vücut Ağırlığı (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "Kullanıcının vücut ağırlığı"
+    },
+    {
+      "id": "gender",
+      "label": "Cinsiyet (0: Erkek, 1: Kadın)",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "Cinsiyet seçimi"
+    }
+  ],
+  "formulas": {
+    "oneRepMax": "weight * (1 + reps/30)",
+    "strengthRatio": "oneRepMax / bodyWeight",
+    "strengthLevel": "(gender == 0) ? (strengthRatio < 1.0 ? 0 : strengthRatio < 1.5 ? 1 : strengthRatio < 2.0 ? 2 : strengthRatio < 2.5 ? 3 : 4) : (strengthRatio < 0.8 ? 0 : strengthRatio < 1.2 ? 1 : strengthRatio < 1.6 ? 2 : strengthRatio < 2.0 ? 3 : 4)"
+  },
+  "outputs": {
+    "primary": "oneRepMax",
+    "breakdown": [
+      "strengthRatio",
+      "strengthLevel"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

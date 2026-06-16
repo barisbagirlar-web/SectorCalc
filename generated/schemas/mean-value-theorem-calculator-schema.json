@@ -1,0 +1,67 @@
+{
+  "toolName": "mean-value-theorem-calculator",
+  "inputs": [
+    {
+      "id": "A",
+      "label": "Coefficient A (x²)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Quadratic function coefficient A"
+    },
+    {
+      "id": "B",
+      "label": "Coefficient B (x)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Quadratic function coefficient B"
+    },
+    {
+      "id": "C",
+      "label": "Coefficient C (constant)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Quadratic function constant C"
+    },
+    {
+      "id": "a",
+      "label": "Interval start (a)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Left endpoint of interval [a, b]"
+    },
+    {
+      "id": "b",
+      "label": "Interval end (b)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Right endpoint of interval [a, b]"
+    }
+  ],
+  "formulas": {
+    "f_a": "A * a**2 + B * a + C",
+    "f_b": "A * b**2 + B * b + C",
+    "slope": "(f_b - f_a) / (b - a)",
+    "c": "(slope - B) / (2 * A)",
+    "f_prime_c": "2 * A * c + B"
+  },
+  "outputs": {
+    "primary": "c",
+    "breakdown": [
+      "f_a",
+      "f_b",
+      "slope",
+      "f_prime_c"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

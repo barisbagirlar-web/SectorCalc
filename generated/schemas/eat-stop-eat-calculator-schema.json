@@ -1,0 +1,72 @@
+{
+  "toolName": "eat-stop-eat-calculator",
+  "inputs": [
+    {
+      "id": "currentWeight",
+      "label": "Current Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Your current body weight in kilograms."
+    },
+    {
+      "id": "targetWeight",
+      "label": "Target Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 65,
+      "businessContext": "Your desired target weight in kilograms."
+    },
+    {
+      "id": "maintenanceCalories",
+      "label": "Daily Maintenance Calories",
+      "type": "number",
+      "unit": "kcal",
+      "default": 2000,
+      "businessContext": "Average number of calories required to maintain current weight on a non-fasting day."
+    },
+    {
+      "id": "fastingDaysPerWeek",
+      "label": "Fasting Days per Week",
+      "type": "number",
+      "unit": "days",
+      "default": 2,
+      "businessContext": "Number of days per week you plan to fast (typically 1 or 2)."
+    },
+    {
+      "id": "fastingDuration",
+      "label": "Fasting Duration",
+      "type": "number",
+      "unit": "hours",
+      "default": 24,
+      "businessContext": "Length of each fasting period in hours (standard is 24)."
+    },
+    {
+      "id": "caloricDeficitPerKg",
+      "label": "Caloric Deficit per kg Weight Loss",
+      "type": "number",
+      "unit": "kcal/kg",
+      "default": 7700,
+      "businessContext": "Approximate calorie deficit needed to lose 1 kg of body weight (commonly 7700 kcal)."
+    }
+  ],
+  "formulas": {
+    "caloriesSavedPerFastingDay": "maintenanceCalories * (fastingDuration / 24)",
+    "weeklyCaloricDeficit": "fastingDaysPerWeek * caloriesSavedPerFastingDay",
+    "totalWeightLossPerWeek": "weeklyCaloricDeficit / caloricDeficitPerKg",
+    "weeksToTarget": "(currentWeight - targetWeight) / totalWeightLossPerWeek"
+  },
+  "outputs": {
+    "primary": "weeksToTarget",
+    "breakdown": [
+      "weeklyCaloricDeficit",
+      "totalWeightLossPerWeek"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

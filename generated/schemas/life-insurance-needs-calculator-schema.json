@@ -1,0 +1,76 @@
+{
+  "toolName": "life-insurance-needs-calculator",
+  "inputs": [
+    {
+      "id": "annual_income",
+      "label": "Annual Income",
+      "type": "number",
+      "unit": "currency",
+      "default": 50000,
+      "businessContext": "The policyholder's current annual after-tax income that needs replacement."
+    },
+    {
+      "id": "years_needed",
+      "label": "Years of Need",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "Number of years the dependents will require income replacement."
+    },
+    {
+      "id": "current_savings",
+      "label": "Current Savings & Investments",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "Total liquid assets that can be used toward future needs."
+    },
+    {
+      "id": "outstanding_debts",
+      "label": "Outstanding Debts (e.g., mortgage, loans)",
+      "type": "number",
+      "unit": "currency",
+      "default": 150000,
+      "businessContext": "Total debts that must be paid off upon death."
+    },
+    {
+      "id": "education_expenses",
+      "label": "Future Education Expenses",
+      "type": "number",
+      "unit": "currency",
+      "default": 50000,
+      "businessContext": "Estimated total cost for children's education."
+    },
+    {
+      "id": "final_expenses",
+      "label": "Final Expenses (funeral, estate settlement)",
+      "type": "number",
+      "unit": "currency",
+      "default": 20000,
+      "businessContext": "Estimated cost for funeral and estate settlement."
+    }
+  ],
+  "formulas": {
+    "income_replacement": "annual_income * years_needed",
+    "total_needs": "income_replacement + outstanding_debts + education_expenses + final_expenses",
+    "recommended_coverage": "total_needs - current_savings"
+  },
+  "outputs": {
+    "primary": "recommended_coverage",
+    "breakdown": [
+      "income_replacement",
+      "outstanding_debts",
+      "education_expenses",
+      "final_expenses",
+      "total_needs",
+      "current_savings",
+      "recommended_coverage"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

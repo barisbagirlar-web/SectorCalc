@@ -1,0 +1,79 @@
+{
+  "toolName": "convergent-divergent-nozzle-calculator",
+  "inputs": [
+    {
+      "id": "totalPressure",
+      "label": "Total Pressure",
+      "type": "number",
+      "unit": "Pa",
+      "default": 500000,
+      "businessContext": "Stagnation pressure at nozzle inlet"
+    },
+    {
+      "id": "totalTemperature",
+      "label": "Total Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 300,
+      "businessContext": "Stagnation temperature at nozzle inlet"
+    },
+    {
+      "id": "throatArea",
+      "label": "Throat Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 0.001,
+      "businessContext": "Cross-sectional area at the nozzle throat"
+    },
+    {
+      "id": "exitArea",
+      "label": "Exit Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 0.005,
+      "businessContext": "Cross-sectional area at the nozzle exit"
+    },
+    {
+      "id": "gasConstant",
+      "label": "Gas Constant (R)",
+      "type": "number",
+      "unit": "J/(kg·K)",
+      "default": 287,
+      "businessContext": "Specific gas constant for the working fluid (e.g., air=287)"
+    },
+    {
+      "id": "specificHeatRatio",
+      "label": "Specific Heat Ratio (γ)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.4,
+      "businessContext": "Ratio of specific heats Cp/Cv"
+    },
+    {
+      "id": "ambientPressure",
+      "label": "Ambient Pressure",
+      "type": "number",
+      "unit": "Pa",
+      "default": 101325,
+      "businessContext": "Pressure of the environment at the nozzle exit (back pressure)"
+    }
+  ],
+  "formulas": {
+    "massFlowRate": "(throatArea * totalPressure / Math.sqrt(totalTemperature)) * Math.sqrt( (specificHeatRatio / gasConstant) * Math.pow(2/(specificHeatRatio+1), (specificHeatRatio+1)/(specificHeatRatio-1)) )",
+    "exitVelocity": "Math.sqrt( (2*specificHeatRatio*gasConstant*totalTemperature)/(specificHeatRatio-1) * (1 - Math.pow(ambientPressure/totalPressure, (specificHeatRatio-1)/specificHeatRatio)) )",
+    "thrust": "massFlowRate * exitVelocity"
+  },
+  "outputs": {
+    "primary": "massFlowRate",
+    "breakdown": [
+      "exitVelocity",
+      "thrust"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

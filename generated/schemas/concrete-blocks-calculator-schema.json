@@ -1,0 +1,73 @@
+{
+  "toolName": "concrete-blocks-calculator",
+  "inputs": [
+    {
+      "id": "wallLength",
+      "label": "Duvar Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Duvarın toplam yatay uzunluğu, metre cinsinden."
+    },
+    {
+      "id": "wallHeight",
+      "label": "Duvar Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Duvarın dikey yüksekliği, metre cinsinden."
+    },
+    {
+      "id": "blockLength",
+      "label": "Briket Uzunluğu",
+      "type": "number",
+      "unit": "cm",
+      "default": 40,
+      "businessContext": "Bir briketin uzun kenarı, santimetre cinsinden."
+    },
+    {
+      "id": "blockHeight",
+      "label": "Briket Yüksekliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 20,
+      "businessContext": "Bir briketin kısa kenarı (yüksekliği), santimetre cinsinden."
+    },
+    {
+      "id": "mortarThickness",
+      "label": "Harç Kalınlığı",
+      "type": "number",
+      "unit": "cm",
+      "default": 1,
+      "businessContext": "Briketler arasındaki harç kalınlığı, santimetre cinsinden."
+    },
+    {
+      "id": "wastage",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Kesme, kırılma vb. nedenlerle oluşan tahmini fire yüzdesi."
+    }
+  ],
+  "formulas": {
+    "wallArea": "wallLength * 100 * wallHeight * 100",
+    "blockFaceArea": "(blockLength + mortarThickness) * (blockHeight + mortarThickness)",
+    "blocksExact": "wallArea / blockFaceArea",
+    "totalBlocks": "blocksExact * (1 + wastage / 100)"
+  },
+  "outputs": {
+    "primary": "totalBlocks",
+    "breakdown": [
+      "wallArea",
+      "blockFaceArea",
+      "blocksExact"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

@@ -1,0 +1,93 @@
+{
+  "toolName": "duathlon-calculator",
+  "inputs": [
+    {
+      "id": "run1Distance",
+      "label": "1. Koşu Mesafesi",
+      "type": "number",
+      "unit": "km",
+      "default": 5,
+      "businessContext": "İlk koşu etabının mesafesi"
+    },
+    {
+      "id": "run1Time",
+      "label": "1. Koşu Süresi",
+      "type": "number",
+      "unit": "dakika",
+      "default": 25,
+      "businessContext": "İlk koşu etabının süresi"
+    },
+    {
+      "id": "transition1",
+      "label": "1. Geçiş Süresi (T1)",
+      "type": "number",
+      "unit": "dakika",
+      "default": 1,
+      "businessContext": "Koşudan bisiklete geçiş süresi"
+    },
+    {
+      "id": "bikeDistance",
+      "label": "Bisiklet Mesafesi",
+      "type": "number",
+      "unit": "km",
+      "default": 20,
+      "businessContext": "Bisiklet etabının mesafesi"
+    },
+    {
+      "id": "bikeTime",
+      "label": "Bisiklet Süresi",
+      "type": "number",
+      "unit": "dakika",
+      "default": 40,
+      "businessContext": "Bisiklet etabının süresi"
+    },
+    {
+      "id": "transition2",
+      "label": "2. Geçiş Süresi (T2)",
+      "type": "number",
+      "unit": "dakika",
+      "default": 1,
+      "businessContext": "Bisikletten ikinci koşuya geçiş süresi"
+    },
+    {
+      "id": "run2Distance",
+      "label": "2. Koşu Mesafesi",
+      "type": "number",
+      "unit": "km",
+      "default": 2.5,
+      "businessContext": "İkinci koşu etabının mesafesi"
+    },
+    {
+      "id": "run2Time",
+      "label": "2. Koşu Süresi",
+      "type": "number",
+      "unit": "dakika",
+      "default": 12,
+      "businessContext": "İkinci koşu etabının süresi"
+    }
+  ],
+  "formulas": {
+    "totalTimeMinutes": "run1Time + transition1 + bikeTime + transition2 + run2Time",
+    "totalDistanceKm": "run1Distance + bikeDistance + run2Distance",
+    "averageSpeedKmh": "(run1Distance + bikeDistance + run2Distance) / ((run1Time + transition1 + bikeTime + transition2 + run2Time) / 60)",
+    "run1PaceMinPerKm": "run1Time / run1Distance",
+    "bikeSpeedKmh": "bikeDistance / (bikeTime / 60)",
+    "run2PaceMinPerKm": "run2Time / run2Distance"
+  },
+  "outputs": {
+    "primary": "totalTimeMinutes",
+    "breakdown": [
+      "averageSpeedKmh",
+      "run1PaceMinPerKm",
+      "bikeSpeedKmh",
+      "run2PaceMinPerKm",
+      "totalDistanceKm"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

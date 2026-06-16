@@ -1,0 +1,53 @@
+{
+  "toolName": "parts-per-million-calculator",
+  "inputs": [
+    {
+      "id": "soluteMass",
+      "label": "Mass of Solute",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "The mass of the substance being measured (solute)."
+    },
+    {
+      "id": "solutionMass",
+      "label": "Mass of Solution",
+      "type": "number",
+      "unit": "g",
+      "default": 1,
+      "businessContext": "Total mass of the solution (solute + solvent)."
+    },
+    {
+      "id": "soluteVolume",
+      "label": "Volume of Solute",
+      "type": "number",
+      "unit": "mL",
+      "default": 0,
+      "businessContext": "The volume of the substance being measured (solute)."
+    },
+    {
+      "id": "solutionVolume",
+      "label": "Volume of Solution",
+      "type": "number",
+      "unit": "mL",
+      "default": 1,
+      "businessContext": "Total volume of the solution (solute + solvent)."
+    }
+  ],
+  "formulas": {
+    "ppmMass": "solutionMass !== 0 ? (soluteMass / solutionMass) * 1000000 : 0",
+    "ppmVolume": "solutionVolume !== 0 ? (soluteVolume / solutionVolume) * 1000000 : 0"
+  },
+  "outputs": {
+    "primary": "ppmMass",
+    "breakdown": [
+      "ppmVolume"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

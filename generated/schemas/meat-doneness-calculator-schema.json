@@ -1,0 +1,71 @@
+{
+  "toolName": "meat-doneness-calculator",
+  "inputs": [
+    {
+      "id": "meat-weight",
+      "label": "Meat Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Weight of the meat cut in kilograms, responsible for heat capacity."
+    },
+    {
+      "id": "oven-temp",
+      "label": "Oven Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 180,
+      "businessContext": "Temperature of the cooking environment."
+    },
+    {
+      "id": "target-temp",
+      "label": "Target Internal Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 70,
+      "businessContext": "Desired core temperature for doneness."
+    },
+    {
+      "id": "starting-temp",
+      "label": "Starting Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Initial meat temperature."
+    },
+    {
+      "id": "thickness",
+      "label": "Meat Thickness",
+      "type": "number",
+      "unit": "cm",
+      "default": 5,
+      "businessContext": "Thickness of the cut."
+    },
+    {
+      "id": "shape-factor",
+      "label": "Shape Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Geometry correction (1: slab, 1.3: cylinder, 1.5: sphere)."
+    }
+  ],
+  "formulas": {
+    "cookingTime": "Math.round((meat_weight ** 0.65) * (thickness ** 0.5) * ((target_temp - starting_temp) / (oven_temp - target_temp)) * 10 * shape_factor * 100) / 100",
+    "donenessLevel": "target_temp < 55 ? 'Rare' : target_temp < 65 ? 'Medium-Rare' : target_temp < 70 ? 'Medium' : target_temp < 75 ? 'Medium-Well' : 'Well-Done'",
+    "tempDifference": "target_temp - starting_temp"
+  },
+  "outputs": {
+    "primary": "cookingTime",
+    "breakdown": [
+      "donenessLevel",
+      "tempDifference"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

@@ -1,0 +1,69 @@
+{
+  "toolName": "utf-8-bayt-hesaplayici-calculator",
+  "inputs": [
+    {
+      "id": "asciiChars",
+      "label": "ASCII Karakter Sayısı (1 bayt)",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "1 bayt ile kodlanan karakterler (U+0000–U+007F)"
+    },
+    {
+      "id": "twoByteChars",
+      "label": "2 Baytlık Karakter Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "2 bayt ile kodlanan karakterler (U+0080–U+07FF)"
+    },
+    {
+      "id": "threeByteChars",
+      "label": "3 Baytlık Karakter Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "3 bayt ile kodlanan karakterler (U+0800–U+FFFF)"
+    },
+    {
+      "id": "fourByteChars",
+      "label": "4 Baytlık Karakter Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "4 bayt ile kodlanan karakterler (U+10000–U+10FFFF)"
+    },
+    {
+      "id": "bomIncluded",
+      "label": "BOM Dahil mi? (0=Hayır, 1=Evet)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "UTF-8 BOM (EF BB BF) 3 bayt ekler"
+    }
+  ],
+  "formulas": {
+    "totalBytes": "asciiChars * 1 + twoByteChars * 2 + threeByteChars * 3 + fourByteChars * 4 + bomIncluded * 3",
+    "asciiBytes": "asciiChars * 1",
+    "twoByteBytes": "twoByteChars * 2",
+    "threeByteBytes": "threeByteChars * 3",
+    "fourByteBytes": "fourByteChars * 4",
+    "bomBytes": "bomIncluded * 3"
+  },
+  "outputs": {
+    "primary": "Toplam bayt: {totalBytes}",
+    "breakdown": [
+      "ASCII ({asciiChars} adet × 1): {asciiBytes} bayt",
+      "2-bayt ({twoByteChars} adet × 2): {twoByteBytes} bayt",
+      "3-bayt ({threeByteChars} adet × 3): {threeByteBytes} bayt",
+      "4-bayt ({fourByteChars} adet × 4): {fourByteBytes} bayt",
+      "BOM (3 bayt): {bomBytes} bayt"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

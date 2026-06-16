@@ -1,0 +1,57 @@
+{
+  "toolName": "transformer-calculator",
+  "inputs": [
+    {
+      "id": "primaryVoltage",
+      "label": "Primary Voltage (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 230,
+      "businessContext": "The voltage applied to the primary winding of the transformer."
+    },
+    {
+      "id": "secondaryVoltage",
+      "label": "Secondary Voltage (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 12,
+      "businessContext": "The desired or measured voltage at the secondary winding."
+    },
+    {
+      "id": "powerRating",
+      "label": "Power Rating (VA)",
+      "type": "number",
+      "unit": "VA",
+      "default": 100,
+      "businessContext": "The apparent power (volt-ampere) rating of the transformer."
+    },
+    {
+      "id": "primaryTurns",
+      "label": "Primary Turns",
+      "type": "number",
+      "unit": "turns",
+      "default": 1000,
+      "businessContext": "Number of turns in the primary winding."
+    }
+  ],
+  "formulas": {
+    "secondaryTurns": "primaryTurns * secondaryVoltage / primaryVoltage",
+    "primaryCurrent": "powerRating / primaryVoltage",
+    "secondaryCurrent": "powerRating / secondaryVoltage",
+    "turnsRatio": "primaryVoltage / secondaryVoltage"
+  },
+  "outputs": {
+    "primary": "secondaryTurns",
+    "breakdown": [
+      "primaryCurrent",
+      "secondaryCurrent",
+      "turnsRatio"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

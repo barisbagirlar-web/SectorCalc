@@ -1,0 +1,55 @@
+{
+  "toolName": "radical-calculator",
+  "inputs": [
+    {
+      "id": "multiplier",
+      "label": "Çarpan",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Kök önündeki katsayı çarpanı"
+    },
+    {
+      "id": "radicand",
+      "label": "Köklü Sayı",
+      "type": "number",
+      "unit": "",
+      "default": 16,
+      "businessContext": "Kök içine yazılan sayı"
+    },
+    {
+      "id": "index",
+      "label": "Kök Derecesi",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Kökün derecesi (2 karekök, 3 küpkök...)"
+    },
+    {
+      "id": "addend",
+      "label": "Ek Terim",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sonuca eklenecek sabit sayı"
+    }
+  ],
+  "formulas": {
+    "rootValue": "radicand ** (1/index)",
+    "multiplied": "multiplier * rootValue",
+    "finalResult": "multiplied + addend"
+  },
+  "outputs": {
+    "primary": "finalResult",
+    "breakdown": [
+      "rootValue",
+      "multiplied"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

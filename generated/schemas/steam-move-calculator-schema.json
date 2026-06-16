@@ -1,0 +1,57 @@
+{
+  "toolName": "steam-move-calculator",
+  "inputs": [
+    {
+      "id": "massFlow",
+      "label": "Steam Mass Flow Rate",
+      "type": "number",
+      "unit": "kg/h",
+      "default": 1000,
+      "businessContext": "The mass of steam flowing through the pipe per hour. Used to determine the required pipe size and velocity."
+    },
+    {
+      "id": "diameter",
+      "label": "Pipe Inner Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "The internal diameter of the steam pipe. Critical for cross-sectional area calculation."
+    },
+    {
+      "id": "pressure",
+      "label": "Steam Pressure (absolute)",
+      "type": "number",
+      "unit": "bar",
+      "default": 10,
+      "businessContext": "Absolute pressure of the steam. Required to calculate steam density via ideal gas law."
+    },
+    {
+      "id": "temperature",
+      "label": "Steam Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 200,
+      "businessContext": "Temperature of the steam in degrees Celsius. Used with pressure to compute density."
+    }
+  ],
+  "formulas": {
+    "steamDensity": "(pressure * 1e5) / (461.5 * (temperature + 273.15))",
+    "pipeArea": "Math.PI * Math.pow(diameter / 1000 / 2, 2)",
+    "volFlow": "(massFlow / 3600) / steamDensity",
+    "velocity": "volFlow / pipeArea"
+  },
+  "outputs": {
+    "primary": "velocity",
+    "breakdown": [
+      "steamDensity",
+      "pipeArea",
+      "volFlow"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

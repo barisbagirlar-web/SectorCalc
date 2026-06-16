@@ -1,0 +1,53 @@
+{
+  "toolName": "growing-annuity-calculator",
+  "inputs": [
+    {
+      "id": "payment",
+      "label": "Initial Payment (P)",
+      "type": "number",
+      "unit": "$",
+      "default": 1000,
+      "businessContext": "The payment amount at the end of the first period."
+    },
+    {
+      "id": "growthRate",
+      "label": "Growth Rate (g)",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.03,
+      "businessContext": "The rate at which the payment grows each period. Enter as decimal (e.g., 0.03 for 3%)."
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate (r)",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.05,
+      "businessContext": "The interest rate per period used for discounting. Enter as decimal."
+    },
+    {
+      "id": "periods",
+      "label": "Number of Periods (n)",
+      "type": "number",
+      "unit": "periods",
+      "default": 10,
+      "businessContext": "Total number of payment periods."
+    }
+  ],
+  "formulas": {
+    "presentValue": "(discountRate === growthRate) ? (payment * periods) / (1 + discountRate) : (payment / (discountRate - growthRate)) * (1 - Math.pow((1 + growthRate) / (1 + discountRate), periods))",
+    "futureValue": "(discountRate === growthRate) ? payment * periods * Math.pow(1 + discountRate, periods - 1) : payment * (Math.pow(1 + discountRate, periods) - Math.pow(1 + growthRate, periods)) / (discountRate - growthRate)"
+  },
+  "outputs": {
+    "primary": "presentValue",
+    "breakdown": [
+      "futureValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

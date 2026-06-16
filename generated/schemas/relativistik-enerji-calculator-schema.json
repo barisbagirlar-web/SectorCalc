@@ -1,0 +1,56 @@
+{
+  "toolName": "relativistik-enerji-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Kütle (m₀)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Durgun kütle"
+    },
+    {
+      "id": "c",
+      "label": "Işık Hızı (c)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 299792458,
+      "businessContext": "Vakum ışık hızı, ISO 80000-7:2019 sabiti"
+    },
+    {
+      "id": "v",
+      "label": "Hız (v)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Cismin hızı, c'den küçük olmalıdır"
+    },
+    {
+      "id": "unitFactor",
+      "label": "Enerji Birim Çarpanı",
+      "type": "number",
+      "unit": "(çarpan)",
+      "default": 1,
+      "businessContext": "Enerji çıktısı için birim dönüşüm çarpanı (1: Joule, 6.2415e12: MeV, 1e-6: MJ)"
+    }
+  ],
+  "formulas": {
+    "gamma": "1 / Math.sqrt(1 - (v / c) ** 2)",
+    "restEnergy": "mass * c ** 2 * unitFactor",
+    "totalEnergy": "gamma * mass * c ** 2 * unitFactor",
+    "kineticEnergy": "totalEnergy - restEnergy"
+  },
+  "outputs": {
+    "primary": "totalEnergy",
+    "breakdown": [
+      "kineticEnergy",
+      "restEnergy"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

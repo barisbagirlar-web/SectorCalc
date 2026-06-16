@@ -1,0 +1,55 @@
+{
+  "toolName": "strength-training-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Lifted Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "The weight lifted in kilograms"
+    },
+    {
+      "id": "reps",
+      "label": "Repetitions",
+      "type": "number",
+      "unit": "reps",
+      "default": 8,
+      "businessContext": "Number of repetitions performed"
+    },
+    {
+      "id": "sets",
+      "label": "Sets",
+      "type": "number",
+      "unit": "sets",
+      "default": 3,
+      "businessContext": "Number of sets performed"
+    },
+    {
+      "id": "bodyWeight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight of the lifter for relative strength calculation"
+    }
+  ],
+  "formulas": {
+    "oneRepMax": "weight * (1 + reps / 30)",
+    "totalVolume": "weight * reps * sets",
+    "relativeStrength": "weight * (1 + reps / 30) / bodyWeight"
+  },
+  "outputs": {
+    "primary": "oneRepMax",
+    "breakdown": [
+      "totalVolume",
+      "relativeStrength"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

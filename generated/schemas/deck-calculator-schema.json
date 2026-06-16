@@ -1,0 +1,71 @@
+{
+  "toolName": "deck-calculator",
+  "inputs": [
+    {
+      "id": "deckLength",
+      "label": "Deck Length",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Total length of the deck area in meters."
+    },
+    {
+      "id": "deckWidth",
+      "label": "Deck Width",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Total width of the deck area in meters."
+    },
+    {
+      "id": "boardLength",
+      "label": "Board Length",
+      "type": "number",
+      "unit": "m",
+      "default": 2.4,
+      "businessContext": "Length of one deck board, typically available in standard sizes."
+    },
+    {
+      "id": "boardWidth",
+      "label": "Board Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.14,
+      "businessContext": "Width of one deck board (e.g., 140 mm = 0.14 m)."
+    },
+    {
+      "id": "boardPrice",
+      "label": "Board Price",
+      "type": "number",
+      "unit": "$",
+      "default": 8.5,
+      "businessContext": "Unit price of one deck board in currency."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Additional material percentage to account for cuts and waste (e.g., 10% = 0.1)."
+    }
+  ],
+  "formulas": {
+    "area": "deckLength * deckWidth",
+    "boardsNeeded": "Math.ceil((deckLength * deckWidth) / (boardLength * boardWidth) * (1 + wasteFactor / 100))",
+    "totalCost": "boardsNeeded * boardPrice"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "area",
+      "boardsNeeded"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

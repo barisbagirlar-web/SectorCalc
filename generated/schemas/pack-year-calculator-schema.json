@@ -1,0 +1,53 @@
+{
+  "toolName": "pack-year-calculator",
+  "inputs": [
+    {
+      "id": "start_age",
+      "label": "Smoking Start Age",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "The age at which the individual began smoking regularly."
+    },
+    {
+      "id": "end_age",
+      "label": "Smoking End Age (or Current Age)",
+      "type": "number",
+      "unit": "years",
+      "default": 50,
+      "businessContext": "The age at which smoking ended, or the current age if still smoking."
+    },
+    {
+      "id": "cigarettes_per_day",
+      "label": "Average Cigarettes per Day",
+      "type": "number",
+      "unit": "cigarettes",
+      "default": 20,
+      "businessContext": "The average number of cigarettes smoked per day during the smoking period."
+    },
+    {
+      "id": "cigarettes_per_pack",
+      "label": "Cigarettes per Pack",
+      "type": "number",
+      "unit": "cigarettes",
+      "default": 20,
+      "businessContext": "The number of cigarettes contained in a single pack, typically 20."
+    }
+  ],
+  "formulas": {
+    "years_smoked": "end_age - start_age",
+    "pack_years": "(cigarettes_per_day / cigarettes_per_pack) * years_smoked"
+  },
+  "outputs": {
+    "primary": "pack_years",
+    "breakdown": [
+      "years_smoked"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

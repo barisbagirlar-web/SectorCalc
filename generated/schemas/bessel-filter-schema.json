@@ -1,0 +1,56 @@
+{
+  "toolName": "bessel-filter",
+  "inputs": [
+    {
+      "id": "order",
+      "label": "Filter Order (n)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Order of the Bessel filter (integer >= 1). Higher order gives steeper roll-off."
+    },
+    {
+      "id": "cutoffFrequency",
+      "label": "Cutoff Frequency (fc)",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1000,
+      "businessContext": "The -3 dB cutoff frequency of the filter in Hz."
+    },
+    {
+      "id": "samplingFrequency",
+      "label": "Sampling Frequency (fs)",
+      "type": "number",
+      "unit": "Hz",
+      "default": 10000,
+      "businessContext": "Sampling frequency for digital implementation (must be > 2*fc)."
+    },
+    {
+      "id": "frequencyPoint",
+      "label": "Frequency Point (f)",
+      "type": "number",
+      "unit": "Hz",
+      "default": 500,
+      "businessContext": "Frequency at which to evaluate the filter response."
+    }
+  ],
+  "formulas": {
+    "normalizedFrequency": "frequencyPoint / cutoffFrequency",
+    "besselPolynomial": "order === 1 ? 1 + normalizedFrequency : order === 2 ? 3 + 3*normalizedFrequency + normalizedFrequency**2 : order === 3 ? 15 + 15*normalizedFrequency + 6*normalizedFrequency**2 + normalizedFrequency**3 : 105 + 105*normalizedFrequency + 45*normalizedFrequency**2 + 10*normalizedFrequency**3 + normalizedFrequency**4",
+    "magnitudeResponse": "1 / Math.sqrt(besselPolynomial * besselPolynomial.conjugate ? besselPolynomial * besselPolynomial.conjugate : besselPolynomial * besselPolynomial)",
+    "phaseResponse": "-Math.atan2(normalizedFrequency, 1) * order"
+  },
+  "outputs": {
+    "primary": "Magnitude Response (dB)",
+    "breakdown": [
+      "Magnitude Response (linear): magnitudeResponse",
+      "Phase Response (radians): phaseResponse"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

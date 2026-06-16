@@ -1,0 +1,55 @@
+{
+  "toolName": "rate-law-calculator",
+  "inputs": [
+    {
+      "id": "initialConcentration",
+      "label": "Initial Concentration [A]₀",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 1,
+      "businessContext": "Başlangıç konsantrasyonu (mol/L)"
+    },
+    {
+      "id": "finalConcentration",
+      "label": "Final Concentration [A]ₜ",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.5,
+      "businessContext": "t süre sonundaki konsantrasyon (mol/L)"
+    },
+    {
+      "id": "time",
+      "label": "Time (t)",
+      "type": "number",
+      "unit": "s",
+      "default": 10,
+      "businessContext": "Reaksiyon süresi (saniye)"
+    },
+    {
+      "id": "reactionOrder",
+      "label": "Reaction Order (n)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Reaksiyon mertebesi (0, 1, 2…) Hesaplama sıfırıncı, birinci ve ikinci mertebe için geçerlidir."
+    }
+  ],
+  "formulas": {
+    "rateConstant": "(reactionOrder === 0) ? ((initialConcentration - finalConcentration) / time) : (reactionOrder === 1) ? (Math.log(initialConcentration / finalConcentration) / time) : (reactionOrder === 2) ? ((1/finalConcentration - 1/initialConcentration) / time) : 0",
+    "rateLawExpression": "reactionOrder === 0 ? 'Rate = k' : reactionOrder === 1 ? 'Rate = k[A]' : reactionOrder === 2 ? 'Rate = k[A]²' : 'Rate = k[A]^' + reactionOrder",
+    "halfLife": "(reactionOrder === 0) ? ((initialConcentration * time) / (2 * (initialConcentration - finalConcentration))) : (reactionOrder === 1) ? ((Math.log(2) * time) / Math.log(initialConcentration / finalConcentration)) : (reactionOrder === 2) ? (time / ((initialConcentration / finalConcentration) - 1)) : 0"
+  },
+  "outputs": {
+    "primary": "rateConstant",
+    "breakdown": [
+      "rateLawExpression",
+      "halfLife"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

@@ -1,0 +1,503 @@
+{
+  "slug": "noise-vibration-cost",
+  "title": "Noise & Vibration Cost Calculator",
+  "description": "Industrial-grade tool to quantify the total cost of noise and vibration in manufacturing environments, based on ISO 2631, ISO 9612, Lean, and Six Sigma principles.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-plant comparison",
+    "Custom threshold configuration"
+  ],
+  "inputs": [
+    {
+      "id": "num_workers_exposed",
+      "label": "Number of workers exposed",
+      "type": "number",
+      "unit": "workers",
+      "default": 10,
+      "min": 1,
+      "max": 10000,
+      "businessContext": "Total headcount in the noise/vibration zone (e.g., assembly line, press shop).",
+      "label_i18n": {
+        "en": "Number of workers exposed"
+      },
+      "businessContext_i18n": {
+        "en": "Total headcount in the noise/vibration zone (e.g., assembly line, press shop)."
+      }
+    },
+    {
+      "id": "avg_daily_exposure_hours",
+      "label": "Average daily exposure hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "min": 0.5,
+      "max": 16,
+      "businessContext": "Per worker, typical shift duration in the affected area.",
+      "label_i18n": {
+        "en": "Average daily exposure hours"
+      },
+      "businessContext_i18n": {
+        "en": "Per worker, typical shift duration in the affected area."
+      }
+    },
+    {
+      "id": "noise_level_dba",
+      "label": "Noise level (A-weighted)",
+      "type": "number",
+      "unit": "dB(A)",
+      "default": 85,
+      "min": 60,
+      "max": 130,
+      "businessContext": "Measured at operator position per ISO 9612. 85 dB(A) is typical action level.",
+      "label_i18n": {
+        "en": "Noise level (A-weighted)"
+      },
+      "businessContext_i18n": {
+        "en": "Measured at operator position per ISO 9612. 85 dB(A) is typical action level."
+      }
+    },
+    {
+      "id": "vibration_level_ms2",
+      "label": "Vibration level (RMS acceleration)",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 0.5,
+      "min": 0.1,
+      "max": 20,
+      "businessContext": "Weighted acceleration per ISO 2631-1. Hand-arm or whole-body.",
+      "label_i18n": {
+        "en": "Vibration level (RMS acceleration)"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted acceleration per ISO 2631-1. Hand-arm or whole-body."
+      }
+    },
+    {
+      "id": "machine_runtime_hours_per_day",
+      "label": "Machine runtime per day",
+      "type": "number",
+      "unit": "hours",
+      "default": 16,
+      "min": 1,
+      "max": 24,
+      "businessContext": "Total operating hours of the primary noise/vibration source.",
+      "label_i18n": {
+        "en": "Machine runtime per day"
+      },
+      "businessContext_i18n": {
+        "en": "Total operating hours of the primary noise/vibration source."
+      }
+    },
+    {
+      "id": "maintenance_cost_per_machine_per_year",
+      "label": "Annual maintenance cost per machine",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Current average spend on repairs and parts for each affected machine.",
+      "label_i18n": {
+        "en": "Annual maintenance cost per machine"
+      },
+      "businessContext_i18n": {
+        "en": "Current average spend on repairs and parts for each affected machine."
+      }
+    },
+    {
+      "id": "number_of_machines",
+      "label": "Number of machines in zone",
+      "type": "number",
+      "unit": "machines",
+      "default": 5,
+      "min": 1,
+      "max": 500,
+      "businessContext": "Count of equipment generating noise/vibration in the assessed area.",
+      "label_i18n": {
+        "en": "Number of machines in zone"
+      },
+      "businessContext_i18n": {
+        "en": "Count of equipment generating noise/vibration in the assessed area."
+      }
+    },
+    {
+      "id": "avg_worker_annual_salary",
+      "label": "Average worker annual salary (fully loaded)",
+      "type": "number",
+      "unit": "USD",
+      "default": 45000,
+      "min": 15000,
+      "max": 200000,
+      "businessContext": "Includes wages, benefits, overhead. Used to estimate productivity loss.",
+      "label_i18n": {
+        "en": "Average worker annual salary (fully loaded)"
+      },
+      "businessContext_i18n": {
+        "en": "Includes wages, benefits, overhead. Used to estimate productivity loss."
+      }
+    },
+    {
+      "id": "hearing_protection_cost_per_worker_per_year",
+      "label": "Hearing protection cost per worker per year",
+      "type": "number",
+      "unit": "USD",
+      "default": 150,
+      "min": 0,
+      "max": 2000,
+      "businessContext": "PPE (earplugs, muffs) and audiometric testing.",
+      "label_i18n": {
+        "en": "Hearing protection cost per worker per year"
+      },
+      "businessContext_i18n": {
+        "en": "PPE (earplugs, muffs) and audiometric testing."
+      }
+    },
+    {
+      "id": "quality_defect_rate_percent",
+      "label": "Current defect rate due to vibration",
+      "type": "number",
+      "unit": "%",
+      "default": 2.5,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Estimated percentage of parts affected by vibration-induced quality issues (e.g., surface finish, tolerances).",
+      "label_i18n": {
+        "en": "Current defect rate due to vibration"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated percentage of parts affected by vibration-induced quality issues (e.g., surface finish, tolerances)."
+      }
+    },
+    {
+      "id": "annual_production_volume",
+      "label": "Annual production volume",
+      "type": "number",
+      "unit": "units",
+      "default": 100000,
+      "min": 100,
+      "max": 100000000,
+      "businessContext": "Total units produced per year in the assessed line.",
+      "label_i18n": {
+        "en": "Annual production volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total units produced per year in the assessed line."
+      }
+    },
+    {
+      "id": "cost_per_defect",
+      "label": "Cost per defect (rework + scrap)",
+      "type": "number",
+      "unit": "USD",
+      "default": 25,
+      "min": 0.1,
+      "max": 10000,
+      "businessContext": "Average cost to rework or scrap a defective unit.",
+      "label_i18n": {
+        "en": "Cost per defect (rework + scrap)"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost to rework or scrap a defective unit."
+      }
+    },
+    {
+      "id": "energy_cost_per_kwh",
+      "label": "Energy cost per kWh",
+      "type": "number",
+      "unit": "USD/kWh",
+      "default": 0.12,
+      "min": 0.01,
+      "max": 1,
+      "businessContext": "Industrial electricity rate.",
+      "label_i18n": {
+        "en": "Energy cost per kWh"
+      },
+      "businessContext_i18n": {
+        "en": "Industrial electricity rate."
+      }
+    },
+    {
+      "id": "machine_power_kw",
+      "label": "Machine power consumption",
+      "type": "number",
+      "unit": "kW",
+      "default": 50,
+      "min": 1,
+      "max": 5000,
+      "businessContext": "Average power draw per machine during operation.",
+      "label_i18n": {
+        "en": "Machine power consumption"
+      },
+      "businessContext_i18n": {
+        "en": "Average power draw per machine during operation."
+      }
+    },
+    {
+      "id": "vibration_reduction_investment",
+      "label": "Vibration reduction investment (one-time)",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "min": 0,
+      "max": 5000000,
+      "businessContext": "Budget for dampers, isolators, foundations, or redesign.",
+      "label_i18n": {
+        "en": "Vibration reduction investment (one-time)"
+      },
+      "businessContext_i18n": {
+        "en": "Budget for dampers, isolators, foundations, or redesign."
+      }
+    },
+    {
+      "id": "noise_reduction_investment",
+      "label": "Noise reduction investment (one-time)",
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "min": 0,
+      "max": 5000000,
+      "businessContext": "Budget for enclosures, silencers, acoustic panels.",
+      "label_i18n": {
+        "en": "Noise reduction investment (one-time)"
+      },
+      "businessContext_i18n": {
+        "en": "Budget for enclosures, silencers, acoustic panels."
+      }
+    },
+    {
+      "id": "iso_standard_compliance",
+      "label": "ISO standard compliance level",
+      "type": "select",
+      "options": [
+        "None",
+        "ISO 2631-1 (Whole-body)",
+        "ISO 2631-2 (Building)",
+        "ISO 5349 (Hand-arm)",
+        "ISO 9612 (Noise)"
+      ],
+      "default": "None",
+      "businessContext": "Select the most relevant standard for threshold evaluation.",
+      "label_i18n": {
+        "en": "ISO standard compliance level"
+      },
+      "businessContext_i18n": {
+        "en": "Select the most relevant standard for threshold evaluation."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "exposure_hours_consistency",
+        "condition": "avg_daily_exposure_hours <= machine_runtime_hours_per_day",
+        "message": "Worker exposure hours cannot exceed machine runtime hours."
+      },
+      {
+        "id": "defect_rate_range",
+        "condition": "quality_defect_rate_percent >= 0 AND quality_defect_rate_percent <= 50",
+        "message": "Defect rate must be between 0% and 50%."
+      },
+      {
+        "id": "noise_vibration_correlation",
+        "condition": "noise_level_dba >= 60 OR vibration_level_ms2 >= 0.3",
+        "message": "Either noise or vibration should be above typical background to justify assessment."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "noise_action_level",
+        "condition": "noise_level_dba >= 85",
+        "alert": "Noise level exceeds 85 dB(A) action level per ISO 9612. Hearing conservation program required.",
+        "severity": "high"
+      },
+      {
+        "id": "vibration_caution",
+        "condition": "vibration_level_ms2 >= 0.5 AND vibration_level_ms2 < 1.15",
+        "alert": "Vibration level in caution zone (ISO 2631). Health surveillance recommended.",
+        "severity": "medium"
+      },
+      {
+        "id": "vibration_danger",
+        "condition": "vibration_level_ms2 >= 1.15",
+        "alert": "Vibration level exceeds danger threshold (ISO 2631). Immediate engineering controls required.",
+        "severity": "critical"
+      },
+      {
+        "id": "defect_rate_high",
+        "condition": "quality_defect_rate_percent > 5",
+        "alert": "Defect rate above 5% indicates significant vibration impact on quality. Six Sigma DMAIC project recommended.",
+        "severity": "high"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "productivity_loss_cost",
+      "label": "Productivity loss cost (noise + vibration)",
+      "description": "Based on ISO 9612 and literature: 0.5% productivity loss per dB(A) above 80, plus 1% per 0.1 m/s² above 0.3.",
+      "expression": "num_workers_exposed * avg_worker_annual_salary * (MAX(0, (noise_level_dba - 80) * 0.005) + MAX(0, (vibration_level_ms2 - 0.3) * 10 * 0.01))",
+      "unit": "USD/year"
+    },
+    {
+      "id": "health_and_ppe_cost",
+      "label": "Health & PPE cost",
+      "description": "Direct cost of hearing protection, audiometric testing, and vibration health surveillance.",
+      "expression": "num_workers_exposed * hearing_protection_cost_per_worker_per_year + (num_workers_exposed * 50 * (vibration_level_ms2 > 0.5 ? 1 : 0))",
+      "unit": "USD/year"
+    },
+    {
+      "id": "quality_defect_cost",
+      "label": "Quality defect cost due to vibration",
+      "description": "Cost of rework and scrap attributed to vibration-induced defects.",
+      "expression": "annual_production_volume * (quality_defect_rate_percent / 100) * cost_per_defect",
+      "unit": "USD/year"
+    },
+    {
+      "id": "excess_energy_cost",
+      "label": "Excess energy cost due to vibration",
+      "description": "Vibration increases friction and energy consumption. Estimated 5% increase per 1 m/s² above 0.5.",
+      "expression": "number_of_machines * machine_power_kw * machine_runtime_hours_per_day * 365 * energy_cost_per_kwh * (0.05 * MAX(0, vibration_level_ms2 - 0.5))",
+      "unit": "USD/year"
+    },
+    {
+      "id": "excess_maintenance_cost",
+      "label": "Excess maintenance cost due to vibration",
+      "description": "Vibration accelerates wear. Estimated 10% increase per 1 m/s² above 0.3.",
+      "expression": "number_of_machines * maintenance_cost_per_machine_per_year * (0.10 * MAX(0, vibration_level_ms2 - 0.3))",
+      "unit": "USD/year"
+    },
+    {
+      "id": "total_annual_loss",
+      "label": "Total annual loss from noise & vibration",
+      "description": "Sum of all direct and indirect costs.",
+      "expression": "productivity_loss_cost + health_and_ppe_cost + quality_defect_cost + excess_energy_cost + excess_maintenance_cost",
+      "unit": "USD/year"
+    },
+    {
+      "id": "roi_improvement",
+      "label": "Return on investment (5-year)",
+      "description": "Net present value of investing in noise and vibration reduction, assuming 50% reduction in losses.",
+      "expression": "(total_annual_loss * 0.5 * 5) - (noise_reduction_investment + vibration_reduction_investment)",
+      "unit": "USD"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_annual_loss",
+      "label": "Total annual loss from noise & vibration",
+      "value": null,
+      "unit": "USD/year",
+      "formulaRef": "total_annual_loss"
+    },
+    "breakdown": {
+      "productivityLossCost": {
+        "label": "Productivity loss cost",
+        "value": null,
+        "unit": "USD/year",
+        "formulaRef": "productivity_loss_cost"
+      },
+      "healthAndPpeCost": {
+        "label": "Health & PPE cost",
+        "value": null,
+        "unit": "USD/year",
+        "formulaRef": "health_and_ppe_cost"
+      },
+      "qualityDefectCost": {
+        "label": "Quality defect cost",
+        "value": null,
+        "unit": "USD/year",
+        "formulaRef": "quality_defect_cost"
+      },
+      "excessEnergyCost": {
+        "label": "Excess energy cost",
+        "value": null,
+        "unit": "USD/year",
+        "formulaRef": "excess_energy_cost"
+      },
+      "excessMaintenanceCost": {
+        "label": "Excess maintenance cost",
+        "value": null,
+        "unit": "USD/year",
+        "formulaRef": "excess_maintenance_cost"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "absenteeism_related",
+        "label": "Absenteeism due to noise/vibration",
+        "description": "Estimated 2-5% additional absenteeism cost not captured in direct productivity loss.",
+        "estimatedImpact": "low"
+      },
+      {
+        "id": "regulatory_fines",
+        "label": "Regulatory non-compliance fines",
+        "description": "Potential OSHA/EU fines for exceeding noise/vibration limits.",
+        "estimatedImpact": "medium"
+      },
+      {
+        "id": "employee_turnover",
+        "label": "Increased turnover costs",
+        "description": "Higher turnover in high noise/vibration areas (recruitment, training).",
+        "estimatedImpact": "medium"
+      },
+      {
+        "id": "brand_reputation",
+        "label": "Brand reputation damage",
+        "description": "Negative perception from poor working conditions.",
+        "estimatedImpact": "low"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_1",
+        "priority": "critical",
+        "description": "Implement engineering controls for vibration (isolators, dampers) on machines exceeding 1.15 m/s².",
+        "estimatedCost": "vibration_reduction_investment",
+        "estimatedBenefit": "50% reduction in vibration-related costs"
+      },
+      {
+        "id": "action_2",
+        "priority": "high",
+        "description": "Install acoustic enclosures or barriers for noise sources above 85 dB(A).",
+        "estimatedCost": "noise_reduction_investment",
+        "estimatedBenefit": "30% reduction in noise-related productivity loss"
+      },
+      {
+        "id": "action_3",
+        "priority": "medium",
+        "description": "Initiate a Six Sigma DMAIC project to reduce vibration-induced defects by 50%.",
+        "estimatedCost": 20000,
+        "estimatedBenefit": "50% reduction in quality defect cost"
+      },
+      {
+        "id": "action_4",
+        "priority": "medium",
+        "description": "Establish a predictive maintenance program using vibration monitoring.",
+        "estimatedCost": 15000,
+        "estimatedBenefit": "20% reduction in excess maintenance cost"
+      },
+      {
+        "id": "action_5",
+        "priority": "low",
+        "description": "Rotate workers to reduce daily exposure hours below 8 hours.",
+        "estimatedCost": 0,
+        "estimatedBenefit": "Reduced health risk and potential liability"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_score",
+      "label": "Data confidence adjusted total loss",
+      "description": "Total annual loss multiplied by a confidence factor (0.7 to 1.0) based on input completeness and precision.",
+      "value": null,
+      "unit": "USD/year",
+      "calculation": "total_annual_loss * (0.7 + 0.3 * (num_workers_exposed > 0 ? 1 : 0) * (noise_level_dba > 0 ? 1 : 0) * (vibration_level_ms2 > 0 ? 1 : 0) / 3)"
+    }
+  },
+  "toolName": "noise-vibration-cost-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,79 @@
+{
+  "toolName": "journaling-calculator",
+  "inputs": [
+    {
+      "id": "shaftDiameter",
+      "label": "Shaft Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Diameter of the shaft in millimeters"
+    },
+    {
+      "id": "bearingLength",
+      "label": "Bearing Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 80,
+      "businessContext": "Length of the bearing in millimeters"
+    },
+    {
+      "id": "radialLoad",
+      "label": "Radial Load",
+      "type": "number",
+      "unit": "N",
+      "default": 5000,
+      "businessContext": "Applied radial load on the bearing in Newtons"
+    },
+    {
+      "id": "rotationalSpeed",
+      "label": "Rotational Speed",
+      "type": "number",
+      "unit": "rpm",
+      "default": 1500,
+      "businessContext": "Shaft rotational speed in revolutions per minute"
+    },
+    {
+      "id": "oilViscosity",
+      "label": "Oil Viscosity",
+      "type": "number",
+      "unit": "cP",
+      "default": 30,
+      "businessContext": "Dynamic viscosity of the lubricant in centipoise"
+    },
+    {
+      "id": "radialClearance",
+      "label": "Radial Clearance",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.05,
+      "businessContext": "Radial clearance (half of diametral clearance) between shaft and bearing in millimeters"
+    }
+  ],
+  "formulas": {
+    "shaftRadius_mm": "shaftDiameter / 2",
+    "shaftRadius_m": "shaftRadius_mm / 1000",
+    "bearingLength_m": "bearingLength / 1000",
+    "radialClearance_m": "radialClearance / 1000",
+    "oilViscosity_Pas": "oilViscosity * 0.001",
+    "rotationalSpeed_rps": "rotationalSpeed / 60",
+    "unitLoadPressure": "(radialLoad * 1e6) / (shaftDiameter * bearingLength)",
+    "sommerfeldNumber": "Math.pow(shaftRadius_m / radialClearance_m, 2) * (oilViscosity_Pas * rotationalSpeed_rps) / unitLoadPressure",
+    "clearanceRatio": "radialClearance_m / shaftRadius_m"
+  },
+  "outputs": {
+    "primary": "sommerfeldNumber",
+    "breakdown": [
+      "unitLoadPressure",
+      "clearanceRatio",
+      "rotationalSpeed_rps",
+      "oilViscosity_Pas"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

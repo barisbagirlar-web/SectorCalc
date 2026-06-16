@@ -1,0 +1,75 @@
+{
+  "toolName": "r-squared-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Number of observations (n)",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Total paired data points"
+    },
+    {
+      "id": "sumX",
+      "label": "Sum of X (Σx)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sum of all independent variable values"
+    },
+    {
+      "id": "sumY",
+      "label": "Sum of Y (Σy)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sum of all dependent variable values"
+    },
+    {
+      "id": "sumXSq",
+      "label": "Sum of X² (Σx²)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sum of squares of independent variable"
+    },
+    {
+      "id": "sumYSq",
+      "label": "Sum of Y² (Σy²)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sum of squares of dependent variable"
+    },
+    {
+      "id": "sumXY",
+      "label": "Sum of XY (Σxy)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sum of cross-products of X and Y"
+    }
+  ],
+  "formulas": {
+    "SS_xy": "n * sumXY - sumX * sumY",
+    "SS_xx": "n * sumXSq - sumX ** 2",
+    "SS_yy": "n * sumYSq - sumY ** 2",
+    "r": "SS_xy / Math.sqrt(SS_xx * SS_yy)",
+    "R_squared": "SS_xy ** 2 / (SS_xx * SS_yy)"
+  },
+  "outputs": {
+    "primary": "R_squared",
+    "breakdown": [
+      "r",
+      "SS_xx",
+      "SS_yy",
+      "SS_xy"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "henderson-hasselbalch-calculator",
+  "inputs": [
+    {
+      "id": "pka",
+      "label": "pKa",
+      "type": "number",
+      "unit": "",
+      "default": 4.76,
+      "businessContext": "Negative logarithm of the acid dissociation constant (Ka) of the weak acid."
+    },
+    {
+      "id": "conc_acid",
+      "label": "Concentration of Acid (HA)",
+      "type": "number",
+      "unit": "M",
+      "default": 0.1,
+      "businessContext": "Molar concentration of the weak acid species in the buffer."
+    },
+    {
+      "id": "conc_base",
+      "label": "Concentration of Conjugate Base (A⁻)",
+      "type": "number",
+      "unit": "M",
+      "default": 0.1,
+      "businessContext": "Molar concentration of the conjugate base species in the buffer."
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "Temperature of the buffer solution; ensure the provided pKa corresponds to this temperature."
+    }
+  ],
+  "formulas": {
+    "ratio": "conc_base / conc_acid",
+    "log_ratio": "Math.log(ratio) / Math.LN10",
+    "ph": "pka + log_ratio"
+  },
+  "outputs": {
+    "primary": "ph",
+    "breakdown": [
+      "ratio",
+      "log_ratio"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

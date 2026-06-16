@@ -1,0 +1,53 @@
+{
+  "toolName": "bps-to-kbps-calculator",
+  "inputs": [
+    {
+      "id": "bps",
+      "label": "Bit rate (bps)",
+      "type": "number",
+      "unit": "bps",
+      "default": 1000,
+      "businessContext": "Data transfer rate in bits per second"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.001,
+      "businessContext": "Factor to convert bps to kbps (0.001 for SI standard)"
+    },
+    {
+      "id": "roundingDecimal",
+      "label": "Rounding decimals",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Number of decimal places in the converted output"
+    },
+    {
+      "id": "confirmationBit",
+      "label": "Confirmation bit",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Integrity check: set to 1 to proceed with conversion"
+    }
+  ],
+  "formulas": {
+    "raw": "bps * conversionFactor",
+    "kbps": "Math.round(raw * Math.pow(10, roundingDecimal)) / Math.pow(10, roundingDecimal)"
+  },
+  "outputs": {
+    "primary": "kbps",
+    "breakdown": [
+      "raw"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

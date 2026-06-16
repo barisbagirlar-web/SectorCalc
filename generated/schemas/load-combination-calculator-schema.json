@@ -1,0 +1,59 @@
+{
+  "toolName": "load-combination-calculator",
+  "inputs": [
+    {
+      "id": "deadLoad",
+      "label": "Dead Load (G)",
+      "type": "number",
+      "unit": "kN/m²",
+      "default": 5,
+      "businessContext": "Permanent action, e.g., self-weight of structure"
+    },
+    {
+      "id": "liveLoad",
+      "label": "Live Load (Q)",
+      "type": "number",
+      "unit": "kN/m²",
+      "default": 3,
+      "businessContext": "Main variable action, e.g., occupancy or traffic"
+    },
+    {
+      "id": "windLoad",
+      "label": "Wind Load (W)",
+      "type": "number",
+      "unit": "kN/m²",
+      "default": 1.5,
+      "businessContext": "Accompanying variable action: wind pressure"
+    },
+    {
+      "id": "snowLoad",
+      "label": "Snow Load (S)",
+      "type": "number",
+      "unit": "kN/m²",
+      "default": 2,
+      "businessContext": "Accompanying variable action: snow load"
+    }
+  ],
+  "formulas": {
+    "combined": "1.35 * deadLoad + 1.5 * liveLoad + 0.7 * 1.5 * windLoad + 0.7 * 1.5 * snowLoad",
+    "deadComponent": "1.35 * deadLoad",
+    "liveComponent": "1.5 * liveLoad",
+    "windComponent": "0.7 * 1.5 * windLoad",
+    "snowComponent": "0.7 * 1.5 * snowLoad"
+  },
+  "outputs": {
+    "primary": "combined",
+    "breakdown": [
+      "deadComponent",
+      "liveComponent",
+      "windComponent",
+      "snowComponent"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

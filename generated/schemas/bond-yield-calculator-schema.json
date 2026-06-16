@@ -1,0 +1,78 @@
+{
+  "toolName": "bond-yield-calculator",
+  "inputs": [
+    {
+      "id": "faceValue",
+      "label": "Face Value",
+      "type": "number",
+      "unit": "$",
+      "default": 1000,
+      "businessContext": "Par value of the bond"
+    },
+    {
+      "id": "couponRate",
+      "label": "Coupon Rate",
+      "type": "number",
+      "unit": "% p.a.",
+      "default": 5,
+      "businessContext": "Annual coupon rate"
+    },
+    {
+      "id": "currentPrice",
+      "label": "Current Market Price",
+      "type": "number",
+      "unit": "$",
+      "default": 950,
+      "businessContext": "Current trading price"
+    },
+    {
+      "id": "yearsToMaturity",
+      "label": "Years to Maturity",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Time until bond matures"
+    },
+    {
+      "id": "frequency",
+      "label": "Coupon Frequency",
+      "type": "number",
+      "unit": "times per year",
+      "default": 1,
+      "businessContext": "Number of coupon payments per year"
+    }
+  ],
+  "formulas": {
+    "annualCoupon": "faceValue * couponRate / 100",
+    "currentYield": "annualCoupon / currentPrice * 100",
+    "approxYTM": "(annualCoupon + (faceValue - currentPrice) / yearsToMaturity) / ((faceValue + currentPrice) / 2) * 100"
+  },
+  "outputs": {
+    "primary": {
+      "id": "approxYTM",
+      "label": "Approximate Yield to Maturity",
+      "unit": "%",
+      "value": "approxYTM"
+    },
+    "breakdown": [
+      {
+        "id": "currentYield",
+        "label": "Current Yield",
+        "unit": "%",
+        "value": "currentYield"
+      },
+      {
+        "id": "annualCoupon",
+        "label": "Annual Coupon Payment",
+        "unit": "$",
+        "value": "annualCoupon"
+      }
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

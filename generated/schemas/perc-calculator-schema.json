@@ -1,0 +1,65 @@
+{
+  "toolName": "perc-calculator",
+  "inputs": [
+    {
+      "id": "goodParts",
+      "label": "Good Parts Produced",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "businessContext": "Number of defect-free parts produced during the planned production time."
+    },
+    {
+      "id": "totalParts",
+      "label": "Total Parts Produced",
+      "type": "number",
+      "unit": "units",
+      "default": 1100,
+      "businessContext": "Total parts produced including defective ones."
+    },
+    {
+      "id": "idealCycleTime",
+      "label": "Ideal Cycle Time",
+      "type": "number",
+      "unit": "seconds/part",
+      "default": 60,
+      "businessContext": "The theoretical fastest time to produce one part."
+    },
+    {
+      "id": "plannedProductionTime",
+      "label": "Planned Production Time",
+      "type": "number",
+      "unit": "seconds",
+      "default": 28800,
+      "businessContext": "Total scheduled production time for the shift or period."
+    },
+    {
+      "id": "downtime",
+      "label": "Total Downtime",
+      "type": "number",
+      "unit": "seconds",
+      "default": 3600,
+      "businessContext": "Unplanned and planned stoppages during the planned production time."
+    }
+  ],
+  "formulas": {
+    "availability": "(plannedProductionTime - downtime) / plannedProductionTime",
+    "performance": "(idealCycleTime * totalParts) / plannedProductionTime",
+    "quality": "goodParts / totalParts",
+    "overallOEE": "((plannedProductionTime - downtime) / plannedProductionTime) * ((idealCycleTime * totalParts) / plannedProductionTime) * (goodParts / totalParts)"
+  },
+  "outputs": {
+    "primary": "overallOEE",
+    "breakdown": [
+      "availability",
+      "performance",
+      "quality"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

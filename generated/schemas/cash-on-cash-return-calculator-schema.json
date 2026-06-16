@@ -1,0 +1,53 @@
+{
+  "toolName": "cash-on-cash-return-calculator",
+  "inputs": [
+    {
+      "id": "annualGrossIncome",
+      "label": "Yıllık Brüt Gelir",
+      "type": "number",
+      "unit": "EUR",
+      "default": 12000,
+      "businessContext": "Yıllık toplam kira geliri veya diğer gelirler"
+    },
+    {
+      "id": "annualOperatingExpenses",
+      "label": "Yıllık İşletme Giderleri",
+      "type": "number",
+      "unit": "EUR",
+      "default": 4000,
+      "businessContext": "Yıllık işletme, bakım, vergi ve sigorta giderleri"
+    },
+    {
+      "id": "annualDebtService",
+      "label": "Yıllık Borç Servisi",
+      "type": "number",
+      "unit": "EUR",
+      "default": 5000,
+      "businessContext": "Yıllık toplam kredi geri ödemesi (anapara+faiz)"
+    },
+    {
+      "id": "totalCashInvested",
+      "label": "Yatırılan Toplam Nakit",
+      "type": "number",
+      "unit": "EUR",
+      "default": 50000,
+      "businessContext": "Peşinat + kapanış maliyetleri + yenileme giderleri gibi toplam yatırım"
+    }
+  ],
+  "formulas": {
+    "annualCashFlow": "(annualGrossIncome - annualOperatingExpenses - annualDebtService)",
+    "cashOnCashReturn": "((annualGrossIncome - annualOperatingExpenses - annualDebtService) / totalCashInvested) * 100"
+  },
+  "outputs": {
+    "primary": "cashOnCashReturn",
+    "breakdown": [
+      "annualCashFlow"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

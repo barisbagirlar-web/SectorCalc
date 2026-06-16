@@ -1,0 +1,78 @@
+{
+  "toolName": "email-size-calculator",
+  "inputs": [
+    {
+      "id": "textCharacters",
+      "label": "Number of Text Characters",
+      "type": "number",
+      "unit": "characters",
+      "default": 1000,
+      "businessContext": "The number of characters in the email body text."
+    },
+    {
+      "id": "attachmentCount",
+      "label": "Number of Attachments",
+      "type": "number",
+      "unit": "count",
+      "default": 2,
+      "businessContext": "Total number of file attachments."
+    },
+    {
+      "id": "avgAttachmentSize",
+      "label": "Average Attachment Size",
+      "type": "number",
+      "unit": "KB",
+      "default": 500,
+      "businessContext": "Average file size per attachment in kilobytes."
+    },
+    {
+      "id": "embeddedImageCount",
+      "label": "Number of Embedded Images",
+      "type": "number",
+      "unit": "count",
+      "default": 3,
+      "businessContext": "Number of inline/embedded images in the email content."
+    },
+    {
+      "id": "avgImageSize",
+      "label": "Average Image Size",
+      "type": "number",
+      "unit": "KB",
+      "default": 200,
+      "businessContext": "Average size per embedded image in kilobytes."
+    },
+    {
+      "id": "metadataSize",
+      "label": "Metadata Overhead",
+      "type": "number",
+      "unit": "bytes",
+      "default": 1024,
+      "businessContext": "Size of email headers, signatures, and other metadata in bytes."
+    }
+  ],
+  "formulas": {
+    "totalBytes": "textCharacters + (attachmentCount * avgAttachmentSize * 1024) + (embeddedImageCount * avgImageSize * 1024) + metadataSize",
+    "totalKB": "totalBytes / 1024",
+    "totalMB": "totalKB / 1024",
+    "textKB": "textCharacters / 1024",
+    "attachmentsKB": "attachmentCount * avgAttachmentSize",
+    "imagesKB": "embeddedImageCount * avgImageSize",
+    "metadataKB": "metadataSize / 1024"
+  },
+  "outputs": {
+    "primary": "totalKB",
+    "breakdown": [
+      "textKB",
+      "attachmentsKB",
+      "imagesKB",
+      "metadataKB",
+      "totalMB"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

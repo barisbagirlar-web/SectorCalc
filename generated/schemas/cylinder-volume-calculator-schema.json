@@ -1,0 +1,55 @@
+{
+  "toolName": "cylinder-volume-calculator",
+  "inputs": [
+    {
+      "id": "outerRadius",
+      "label": "Dış Yarıçap (R)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Dış yarıçap metre cinsinden."
+    },
+    {
+      "id": "innerRadius",
+      "label": "İç Yarıçap (r)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "İç yarıçap metre cinsinden (dolu silindir için 0)."
+    },
+    {
+      "id": "height",
+      "label": "Yükseklik (h)",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Silindir yüksekliği metre cinsinden."
+    },
+    {
+      "id": "quantity",
+      "label": "Adet (n)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Üretilecek silindir sayısı."
+    }
+  ],
+  "formulas": {
+    "crossSectionalArea": "Math.PI * (outerRadius ** 2 - innerRadius ** 2)",
+    "perCylinderVolume": "crossSectionalArea * height",
+    "totalVolume": "perCylinderVolume * quantity"
+  },
+  "outputs": {
+    "primary": "totalVolume",
+    "breakdown": [
+      "perCylinderVolume",
+      "crossSectionalArea"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

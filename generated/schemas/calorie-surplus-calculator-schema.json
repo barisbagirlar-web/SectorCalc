@@ -1,0 +1,60 @@
+{
+  "toolName": "calorie-surplus-calculator",
+  "inputs": [
+    {
+      "id": "totalGenerated",
+      "label": "Total Energy Generated",
+      "type": "number",
+      "unit": "kCal",
+      "default": 10000,
+      "businessContext": "Total energy produced by the system over the measurement period."
+    },
+    {
+      "id": "totalConsumed",
+      "label": "Total Energy Consumed",
+      "type": "number",
+      "unit": "kCal",
+      "default": 8000,
+      "businessContext": "Total energy utilized by core processes, excluding auxiliary systems."
+    },
+    {
+      "id": "lossPercent",
+      "label": "Transmission Loss",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of surplus energy lost during transmission and conversion."
+    },
+    {
+      "id": "storageEfficiency",
+      "label": "Storage Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Efficiency of energy storage systems in recovering surplus energy."
+    },
+    {
+      "id": "auxConsumption",
+      "label": "Auxiliary Consumption",
+      "type": "number",
+      "unit": "kCal",
+      "default": 200,
+      "businessContext": "Energy consumed by auxiliary systems (e.g., cooling, controls)."
+    }
+  ],
+  "formulas": {
+    "grossSurplus": "totalGenerated - totalConsumed",
+    "netSurplus": "grossSurplus * (1 - lossPercent / 100) * (storageEfficiency / 100) - auxConsumption",
+    "totalLosses": "grossSurplus - netSurplus"
+  },
+  "outputs": {
+    "primary": "netSurplus",
+    "breakdown": [
+      "grossSurplus",
+      "totalLosses"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false
+}

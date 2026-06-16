@@ -1,0 +1,76 @@
+{
+  "toolName": "consolidation-calculator",
+  "inputs": [
+    {
+      "id": "currentTotalDebt",
+      "label": "Toplam Mevcut Borç",
+      "type": "number",
+      "unit": "TL",
+      "default": 100000,
+      "businessContext": "Mevcut tüm borçların toplam anapara tutarı"
+    },
+    {
+      "id": "currentMonthlyPayment",
+      "label": "Mevcut Aylık Ödeme",
+      "type": "number",
+      "unit": "TL",
+      "default": 2000,
+      "businessContext": "Tüm mevcut borçlar için aylık toplam ödeme"
+    },
+    {
+      "id": "currentRemainingMonths",
+      "label": "Kalan Vade",
+      "type": "number",
+      "unit": "ay",
+      "default": 60,
+      "businessContext": "Mevcut borçların ortalama kalan vadesi (ay cinsinden)"
+    },
+    {
+      "id": "newInterestRate",
+      "label": "Yeni Faiz Oranı",
+      "type": "number",
+      "unit": "% yıllık",
+      "default": 15,
+      "businessContext": "Konsolidasyon kredisi yıllık faiz oranı"
+    },
+    {
+      "id": "newTermMonths",
+      "label": "Yeni Vade",
+      "type": "number",
+      "unit": "ay",
+      "default": 48,
+      "businessContext": "Konsolidasyon kredisi vadesi (ay)"
+    },
+    {
+      "id": "consolidationFee",
+      "label": "Konsolidasyon Ücreti",
+      "type": "number",
+      "unit": "TL",
+      "default": 500,
+      "businessContext": "Kredi yapılandırma veya dosya masrafı"
+    }
+  ],
+  "formulas": {
+    "currentTotalCost": "currentMonthlyPayment * currentRemainingMonths",
+    "newLoanAmount": "currentTotalDebt + consolidationFee",
+    "monthlyRate": "newInterestRate / 100 / 12",
+    "newMonthlyPayment": "monthlyRate === 0 ? newLoanAmount / newTermMonths : newLoanAmount * monthlyRate * Math.pow(1 + monthlyRate, newTermMonths) / (Math.pow(1 + monthlyRate, newTermMonths) - 1)",
+    "newTotalCost": "newMonthlyPayment * newTermMonths",
+    "savings": "currentTotalCost - newTotalCost"
+  },
+  "outputs": {
+    "primary": "savings",
+    "breakdown": [
+      "currentTotalCost",
+      "newTotalCost",
+      "newMonthlyPayment",
+      "currentMonthlyPayment"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

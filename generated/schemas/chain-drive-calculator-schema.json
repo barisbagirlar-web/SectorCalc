@@ -1,0 +1,59 @@
+{
+  "toolName": "chain-drive-calculator",
+  "inputs": [
+    {
+      "id": "driverTeeth",
+      "label": "Driver Sprocket Teeth",
+      "type": "number",
+      "unit": "teeth",
+      "default": 17,
+      "businessContext": "Number of teeth on the driving sprocket."
+    },
+    {
+      "id": "drivenTeeth",
+      "label": "Driven Sprocket Teeth",
+      "type": "number",
+      "unit": "teeth",
+      "default": 34,
+      "businessContext": "Number of teeth on the driven sprocket."
+    },
+    {
+      "id": "pitch",
+      "label": "Chain Pitch",
+      "type": "number",
+      "unit": "mm",
+      "default": 12.7,
+      "businessContext": "Nominal pitch of the roller chain."
+    },
+    {
+      "id": "centerDistance",
+      "label": "Center Distance",
+      "type": "number",
+      "unit": "mm",
+      "default": 500,
+      "businessContext": "Desired center distance between sprocket centers."
+    }
+  ],
+  "formulas": {
+    "chainLengthMm": "(2 * centerDistance / pitch + (driverTeeth + drivenTeeth) / 2 + ((drivenTeeth - driverTeeth) ** 2 * pitch) / (4 * Math.PI ** 2 * centerDistance)) * pitch",
+    "chainLengthPitches": "2 * centerDistance / pitch + (driverTeeth + drivenTeeth) / 2 + ((drivenTeeth - driverTeeth) ** 2 * pitch) / (4 * Math.PI ** 2 * centerDistance)",
+    "speedRatio": "driverTeeth / drivenTeeth",
+    "pitchDiameterDriver": "pitch / Math.sin(Math.PI / driverTeeth)",
+    "pitchDiameterDriven": "pitch / Math.sin(Math.PI / drivenTeeth)"
+  },
+  "outputs": {
+    "primary": "chainLengthMm",
+    "breakdown": [
+      "chainLengthPitches",
+      "speedRatio",
+      "pitchDiameterDriver",
+      "pitchDiameterDriven"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

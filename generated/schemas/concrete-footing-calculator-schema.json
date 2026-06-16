@@ -1,0 +1,63 @@
+{
+  "toolName": "concrete-footing-calculator",
+  "inputs": [
+    {
+      "id": "FootingLength",
+      "label": "Footing Length",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "The length of a single footing in meters."
+    },
+    {
+      "id": "FootingWidth",
+      "label": "Footing Width",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "The width of a single footing in meters."
+    },
+    {
+      "id": "FootingDepth",
+      "label": "Footing Depth",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "The depth or thickness of the footing in meters."
+    },
+    {
+      "id": "NumberOfFootings",
+      "label": "Number of Footings",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Total number of identical footings to be poured."
+    },
+    {
+      "id": "WasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of extra concrete added to account for spillage, over‑excavation, and formwork irregularities."
+    }
+  ],
+  "formulas": {
+    "volumeWithoutWaste": "FootingLength * FootingWidth * FootingDepth * NumberOfFootings",
+    "totalVolume": "FootingLength * FootingWidth * FootingDepth * NumberOfFootings * (1 + WasteFactor / 100)",
+    "wasteAddition": "totalVolume - volumeWithoutWaste"
+  },
+  "outputs": {
+    "primary": "totalVolume",
+    "breakdown": [
+      "volumeWithoutWaste",
+      "wasteAddition"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

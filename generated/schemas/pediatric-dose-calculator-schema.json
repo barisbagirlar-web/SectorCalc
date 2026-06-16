@@ -1,0 +1,67 @@
+{
+  "toolName": "pediatric-dose-calculator",
+  "inputs": [
+    {
+      "id": "adultDose",
+      "label": "Yetişkin Dozu",
+      "type": "number",
+      "unit": "mg",
+      "default": 500,
+      "businessContext": "İlacın standart yetişkin dozu (mg)"
+    },
+    {
+      "id": "childWeight",
+      "label": "Çocuk Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Çocuğun vücut ağırlığı (kg)"
+    },
+    {
+      "id": "childAge",
+      "label": "Çocuk Yaşı",
+      "type": "number",
+      "unit": "yıl",
+      "default": 5,
+      "businessContext": "Çocuğun yaşı (yıl)"
+    },
+    {
+      "id": "maxDosePerKg",
+      "label": "Maksimum Doz/kg/Gün",
+      "type": "number",
+      "unit": "mg/kg/gün",
+      "default": 80,
+      "businessContext": "Güvenli üst sınır mg/kg/gün (örn. 80)"
+    },
+    {
+      "id": "concentration",
+      "label": "Konsantrasyon",
+      "type": "number",
+      "unit": "mg/mL",
+      "default": 100,
+      "businessContext": "Sıvı formdaki ilaç konsantrasyonu (mg/mL)"
+    }
+  ],
+  "formulas": {
+    "clarkDose": "Math.round((childWeight / 68) * adultDose * 100) / 100",
+    "youngDose": "Math.round((childAge / (childAge + 12)) * adultDose * 100) / 100",
+    "maxAllowedDose": "maxDosePerKg * childWeight",
+    "volumeClarke": "Math.round(clarkDose / concentration * 100) / 100",
+    "volumeYoung": "Math.round(youngDose / concentration * 100) / 100",
+    "isClarkeSafe": "clarkDose <= maxAllowedDose",
+    "isYoungSafe": "youngDose <= maxAllowedDose"
+  },
+  "outputs": {
+    "primary": "Clark Kuralı: ${clarkDose} mg (${volumeClarke} mL), Güvenli: ${isClarkeSafe}",
+    "breakdown": [
+      "Young Kuralı: ${youngDose} mg (${volumeYoung} mL), Güvenli: ${isYoungSafe}",
+      "Maksimum Güvenli Günlük Doz: ${maxAllowedDose} mg"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

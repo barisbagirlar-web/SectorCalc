@@ -1,0 +1,81 @@
+{
+  "toolName": "solar-payback-calculator",
+  "inputs": [
+    {
+      "id": "system_cost",
+      "label": "System Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Total upfront cost of solar system installation"
+    },
+    {
+      "id": "annual_production_kwh",
+      "label": "Annual Production",
+      "type": "number",
+      "unit": "kWh/year",
+      "default": 5000,
+      "businessContext": "Estimated annual electricity generation from the solar system"
+    },
+    {
+      "id": "electricity_price_per_kwh",
+      "label": "Electricity Price",
+      "type": "number",
+      "unit": "USD/kWh",
+      "default": 0.12,
+      "businessContext": "Current electricity price per kWh"
+    },
+    {
+      "id": "annual_maintenance_cost",
+      "label": "Annual Maintenance Cost",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 200,
+      "businessContext": "Annual maintenance and operation cost"
+    },
+    {
+      "id": "tax_credit_percent",
+      "label": "Tax Credit",
+      "type": "number",
+      "unit": "%",
+      "default": 26,
+      "businessContext": "Applicable tax credit percentage (e.g., 26% federal ITC in the US)"
+    },
+    {
+      "id": "degradation_rate",
+      "label": "Degradation Rate",
+      "type": "number",
+      "unit": "fraction/year",
+      "default": 0.005,
+      "businessContext": "Annual degradation rate of solar panels (e.g., 0.005 for 0.5%)"
+    },
+    {
+      "id": "escalation_rate",
+      "label": "Escalation Rate",
+      "type": "number",
+      "unit": "fraction/year",
+      "default": 0.03,
+      "businessContext": "Annual electricity price escalation rate (e.g., 0.03 for 3%)"
+    }
+  ],
+  "formulas": {
+    "net_system_cost": "system_cost * (1 - tax_credit_percent / 100)",
+    "first_year_savings": "annual_production_kwh * electricity_price_per_kwh - annual_maintenance_cost",
+    "simple_payback_years": "net_system_cost / first_year_savings",
+    "annual_return_percent": "(first_year_savings / net_system_cost) * 100"
+  },
+  "outputs": {
+    "primary": "simple_payback_years",
+    "breakdown": [
+      "net_system_cost",
+      "first_year_savings",
+      "annual_return_percent"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

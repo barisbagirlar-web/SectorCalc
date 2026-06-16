@@ -1,0 +1,61 @@
+{
+  "toolName": "pipe-thickness-calculator",
+  "inputs": [
+    {
+      "id": "pressure",
+      "label": "Design Pressure",
+      "type": "number",
+      "unit": "MPa",
+      "default": 1,
+      "businessContext": "Internal design pressure of the pipe."
+    },
+    {
+      "id": "diameter",
+      "label": "Outside Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Outside diameter of the pipe."
+    },
+    {
+      "id": "allowableStress",
+      "label": "Allowable Stress",
+      "type": "number",
+      "unit": "MPa",
+      "default": 138,
+      "businessContext": "Allowable stress of the pipe material at design temperature."
+    },
+    {
+      "id": "jointEfficiency",
+      "label": "Joint Efficiency",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Longitudinal joint efficiency factor (between 0 and 1)."
+    },
+    {
+      "id": "corrosionAllowance",
+      "label": "Corrosion Allowance",
+      "type": "number",
+      "unit": "mm",
+      "default": 1.5,
+      "businessContext": "Additional thickness to compensate for corrosion or erosion."
+    }
+  ],
+  "formulas": {
+    "requiredThickness": "(pressure * diameter) / (2 * allowableStress * jointEfficiency) + corrosionAllowance"
+  },
+  "outputs": {
+    "primary": "requiredThickness",
+    "breakdown": [
+      "Hoop stress calculation: P*D/(2*S*E)",
+      "Final thickness includes corrosion allowance: t = P*D/(2*S*E) + C"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

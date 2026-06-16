@@ -1,0 +1,55 @@
+{
+  "toolName": "bonus-depreciation-calculator",
+  "inputs": [
+    {
+      "id": "assetCost",
+      "label": "Asset Cost (Purchase Price)",
+      "type": "number",
+      "unit": "$",
+      "default": 10000,
+      "businessContext": "The total cost of the asset before any deductions."
+    },
+    {
+      "id": "bonusRate",
+      "label": "Bonus Depreciation Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "The applicable bonus depreciation percentage for the tax year."
+    },
+    {
+      "id": "businessUse",
+      "label": "Business Use Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "The percentage the asset is used for business purposes."
+    },
+    {
+      "id": "section179",
+      "label": "Section 179 Deduction",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Any Section 179 deduction claimed on this asset before bonus depreciation."
+    }
+  ],
+  "formulas": {
+    "bonusDepreciation": "(assetCost - section179) * (bonusRate / 100) * (businessUse / 100)",
+    "remainingBasis": "assetCost - section179 - ((assetCost - section179) * (bonusRate / 100) * (businessUse / 100))",
+    "totalFirstYear": "section179 + ((assetCost - section179) * (bonusRate / 100) * (businessUse / 100))"
+  },
+  "outputs": {
+    "primary": "bonusDepreciation",
+    "breakdown": [
+      "remainingBasis",
+      "totalFirstYear"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

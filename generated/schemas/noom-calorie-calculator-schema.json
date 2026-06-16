@@ -1,0 +1,73 @@
+{
+  "toolName": "noom-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Current body weight in kilograms"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Height in centimeters"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age in years"
+    },
+    {
+      "id": "sex",
+      "label": "Sex (Male=1, Female=0)",
+      "type": "number",
+      "unit": "boolean",
+      "default": 1,
+      "businessContext": "Biological sex: 1 for male, 0 for female, used for BMR formula"
+    },
+    {
+      "id": "activityFactor",
+      "label": "Activity Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.55,
+      "businessContext": "Physical activity level multiplier (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 very active, 1.9 extra active)"
+    },
+    {
+      "id": "deficitPercent",
+      "label": "Calorie Deficit",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Percentage calorie deficit from TDEE for weight loss (typically 10-20%)"
+    }
+  ],
+  "formulas": {
+    "bmr": "sex ? (10 * weight + 6.25 * height - 5 * age + 5) : (10 * weight + 6.25 * height - 5 * age - 161)",
+    "tdee": "bmr * activityFactor",
+    "deficit": "tdee * (deficitPercent / 100)",
+    "dailyCalorieBudget": "tdee - deficit"
+  },
+  "outputs": {
+    "primary": "dailyCalorieBudget",
+    "breakdown": [
+      "bmr",
+      "tdee",
+      "deficit"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

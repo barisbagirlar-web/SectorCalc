@@ -1,0 +1,75 @@
+{
+  "toolName": "jewelry-calculator",
+  "inputs": [
+    {
+      "id": "metalWeight",
+      "label": "Metal Ağırlık",
+      "type": "number",
+      "unit": "g",
+      "default": 5,
+      "businessContext": "Mücevherde kullanılan değerli metalin gram cinsinden ağırlığı"
+    },
+    {
+      "id": "metalPurity",
+      "label": "Ayar",
+      "type": "number",
+      "unit": "K",
+      "default": 18,
+      "businessContext": "Metalin saflığı (24 ayar saf, 18 ayar %75 vb.)"
+    },
+    {
+      "id": "metalPricePerGram",
+      "label": "Metal Gram Fiyatı",
+      "type": "number",
+      "unit": "USD/g",
+      "default": 60,
+      "businessContext": "Saf metalin güncel piyasa gram fiyatı"
+    },
+    {
+      "id": "gemstoneCost",
+      "label": "Taş Maliyeti",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Kullanılan değerli taşların toplam maliyeti"
+    },
+    {
+      "id": "laborCost",
+      "label": "İşçilik Maliyeti",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "businessContext": "Üretim veya montaj için işçilik bedeli"
+    },
+    {
+      "id": "markupPercent",
+      "label": "Kâr Marjı Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Toplam maliyet üzerine eklenecek kâr marjı yüzdesi"
+    }
+  ],
+  "formulas": {
+    "metalCost": "metalWeight * (metalPurity / 24) * metalPricePerGram",
+    "materialCost": "metalCost + gemstoneCost",
+    "totalCost": "materialCost + laborCost",
+    "markupAmount": "totalCost * (markupPercent / 100)",
+    "finalPrice": "totalCost + markupAmount"
+  },
+  "outputs": {
+    "primary": "finalPrice",
+    "breakdown": [
+      "metalCost",
+      "materialCost",
+      "totalCost",
+      "markupAmount"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

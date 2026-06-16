@@ -1,0 +1,91 @@
+{
+  "toolName": "two-way-anova-calculator",
+  "inputs": [
+    {
+      "id": "SSA",
+      "label": "Sum of Squares (Factor A)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Sum of squares for factor A (between rows)"
+    },
+    {
+      "id": "SSB",
+      "label": "Sum of Squares (Factor B)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Sum of squares for factor B (between columns)"
+    },
+    {
+      "id": "SSAB",
+      "label": "Sum of Squares (Interaction AxB)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Sum of squares for the interaction between A and B"
+    },
+    {
+      "id": "SSE",
+      "label": "Error Sum of Squares",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Sum of squares for the error (within groups)"
+    },
+    {
+      "id": "dfA",
+      "label": "Degrees of Freedom (Factor A)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Degrees of freedom for factor A (r - 1)"
+    },
+    {
+      "id": "dfB",
+      "label": "Degrees of Freedom (Factor B)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Degrees of freedom for factor B (c - 1)"
+    },
+    {
+      "id": "dfAB",
+      "label": "Degrees of Freedom (Interaction)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Degrees of freedom for interaction ((r-1)*(c-1))"
+    },
+    {
+      "id": "dfE",
+      "label": "Degrees of Freedom (Error)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Degrees of freedom for error (N - r*c)"
+    }
+  ],
+  "formulas": {
+    "MSA": "SSA / dfA",
+    "MSB": "SSB / dfB",
+    "MSAB": "SSAB / dfAB",
+    "MSE": "SSE / dfE",
+    "FA": "MSA / MSE",
+    "FB": "MSB / MSE",
+    "FAB": "MSAB / MSE"
+  },
+  "outputs": {
+    "primary": "FAB",
+    "breakdown": [
+      "FA",
+      "FB"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

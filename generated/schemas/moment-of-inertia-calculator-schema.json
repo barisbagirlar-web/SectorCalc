@@ -1,0 +1,76 @@
+{
+  "toolName": "moment-of-inertia-calculator",
+  "inputs": [
+    {
+      "id": "shape",
+      "label": "Shape",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "Select shape: 1=Rectangle, 2=Circle, 3=Hollow Circle, 4=I-beam"
+    },
+    {
+      "id": "dim1",
+      "label": "Width/Outer Radius (b or R)",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Base width for rectangle/I-beam, outer radius for circle/hollow circle"
+    },
+    {
+      "id": "dim2",
+      "label": "Height (h)",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "businessContext": "Height for rectangle, overall height for I-beam (includes flanges); unused for circle"
+    },
+    {
+      "id": "dim3",
+      "label": "Flange Thickness/Inner Radius (tf or r)",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Flange thickness for I-beam, inner radius for hollow circle; unused for rectangle/circle"
+    },
+    {
+      "id": "dim4",
+      "label": "Web Thickness (tw)",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Web thickness for I-beam; unused for other shapes"
+    }
+  ],
+  "formulas": {
+    "1": {
+      "Ix": "(dim1 * Math.pow(dim2, 3)) / 12",
+      "Iy": "(dim2 * Math.pow(dim1, 3)) / 12"
+    },
+    "2": {
+      "Ix": "(Math.PI * Math.pow(dim1, 4)) / 4",
+      "Iy": "(Math.PI * Math.pow(dim1, 4)) / 4"
+    },
+    "3": {
+      "Ix": "Math.PI * (Math.pow(dim1, 4) - Math.pow(dim3, 4)) / 4",
+      "Iy": "Math.PI * (Math.pow(dim1, 4) - Math.pow(dim3, 4)) / 4"
+    },
+    "4": {
+      "Ix": "(dim1 * Math.pow(dim2, 3) - (dim1 - dim4) * Math.pow(dim2 - 2*dim3, 3)) / 12",
+      "Iy": "2 * (dim3 * Math.pow(dim1, 3) / 12) + ((dim2 - 2*dim3) * Math.pow(dim4, 3) / 12)"
+    }
+  },
+  "outputs": {
+    "primary": "I_x",
+    "breakdown": [
+      "I_y",
+      "Shape description"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

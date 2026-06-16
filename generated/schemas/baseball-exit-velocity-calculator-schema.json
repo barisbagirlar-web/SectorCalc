@@ -1,0 +1,63 @@
+{
+  "toolName": "baseball-exit-velocity-calculator",
+  "inputs": [
+    {
+      "id": "ballMass",
+      "label": "Ball Mass",
+      "type": "number",
+      "unit": "oz",
+      "default": 5.125,
+      "businessContext": "Mass of the baseball in ounces. MLB regulations: 5 to 5.25 ounces."
+    },
+    {
+      "id": "batMass",
+      "label": "Effective Bat Mass",
+      "type": "number",
+      "unit": "oz",
+      "default": 28,
+      "businessContext": "Effective mass of the bat at the impact point, typically less than total bat weight. Default is for a standard wood bat."
+    },
+    {
+      "id": "pitchSpeed",
+      "label": "Pitch Speed",
+      "type": "number",
+      "unit": "mph",
+      "default": 90,
+      "businessContext": "Speed of the pitched ball as it crosses the plate, in miles per hour."
+    },
+    {
+      "id": "batSpeed",
+      "label": "Bat Speed",
+      "type": "number",
+      "unit": "mph",
+      "default": 70,
+      "businessContext": "Speed of the bat's sweet spot at the moment of impact, in miles per hour."
+    },
+    {
+      "id": "cor",
+      "label": "Coefficient of Restitution",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Coefficient of restitution between ball and bat, typically 0.5 to 0.55 for wood bats."
+    }
+  ],
+  "formulas": {
+    "exitVelocity": "((ballMass - cor*batMass) / (ballMass + batMass)) * (-pitchSpeed) + ((1+cor)*batMass / (ballMass + batMass)) * batSpeed",
+    "batContribution": "((1+cor)*batMass / (ballMass + batMass)) * batSpeed",
+    "pitchContribution": "((ballMass - cor*batMass) / (ballMass + batMass)) * (-pitchSpeed)"
+  },
+  "outputs": {
+    "primary": "exitVelocity",
+    "breakdown": [
+      "batContribution",
+      "pitchContribution"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

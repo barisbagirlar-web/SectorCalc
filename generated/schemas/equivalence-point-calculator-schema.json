@@ -1,0 +1,75 @@
+{
+  "toolName": "equivalence-point-calculator",
+  "inputs": [
+    {
+      "id": "v_analyte",
+      "label": "Volume of Analyte",
+      "type": "number",
+      "unit": "mL",
+      "default": 25,
+      "businessContext": "Volume of the solution being titrated."
+    },
+    {
+      "id": "c_analyte",
+      "label": "Concentration of Analyte",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.1,
+      "businessContext": "Molarity of the analyte solution."
+    },
+    {
+      "id": "c_titrant",
+      "label": "Concentration of Titrant",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.1,
+      "businessContext": "Molarity of the titrant solution."
+    },
+    {
+      "id": "mole_ratio_analyte",
+      "label": "Mole Ratio (Analyte Coefficient)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Stoichiometric coefficient of analyte in balanced reaction."
+    },
+    {
+      "id": "mole_ratio_titrant",
+      "label": "Mole Ratio (Titrant Coefficient)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Stoichiometric coefficient of titrant in balanced reaction."
+    }
+  ],
+  "formulas": {
+    "v_titrant": "(c_analyte * v_analyte * mole_ratio_titrant) / (c_titrant * mole_ratio_analyte)",
+    "moles_analyte": "c_analyte * v_analyte / 1000",
+    "moles_titrant": "(c_analyte * v_analyte / 1000) * (mole_ratio_titrant / mole_ratio_analyte)"
+  },
+  "outputs": {
+    "primary": {
+      "id": "v_titrant",
+      "label": "Volume of Titrant at Equivalence Point",
+      "unit": "mL"
+    },
+    "breakdown": [
+      {
+        "id": "moles_analyte",
+        "label": "Moles of Analyte",
+        "unit": "mol"
+      },
+      {
+        "id": "moles_titrant",
+        "label": "Moles of Titrant Required",
+        "unit": "mol"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

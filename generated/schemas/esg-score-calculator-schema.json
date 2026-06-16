@@ -1,0 +1,74 @@
+{
+  "toolName": "esg-score-calculator",
+  "inputs": [
+    {
+      "id": "environScore",
+      "label": "Environmental Score",
+      "type": "number",
+      "unit": "points (0-100)",
+      "default": 0,
+      "businessContext": "Aggregated environmental performance score. Higher is better."
+    },
+    {
+      "id": "socialScore",
+      "label": "Social Score",
+      "type": "number",
+      "unit": "points (0-100)",
+      "default": 0,
+      "businessContext": "Aggregated social performance score. Higher is better."
+    },
+    {
+      "id": "governScore",
+      "label": "Governance Score",
+      "type": "number",
+      "unit": "points (0-100)",
+      "default": 0,
+      "businessContext": "Aggregated governance performance score. Higher is better."
+    },
+    {
+      "id": "weightE",
+      "label": "Weight Environment",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.33,
+      "businessContext": "Weight for environmental score. Must be >0. Sum of all weights should be positive."
+    },
+    {
+      "id": "weightS",
+      "label": "Weight Social",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.33,
+      "businessContext": "Weight for social score."
+    },
+    {
+      "id": "weightG",
+      "label": "Weight Governance",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.34,
+      "businessContext": "Weight for governance score."
+    }
+  ],
+  "formulas": {
+    "totalWeight": "weightE + weightS + weightG",
+    "environContrib": "(environScore * weightE) / totalWeight",
+    "socialContrib": "(socialScore * weightS) / totalWeight",
+    "governContrib": "(governScore * weightG) / totalWeight",
+    "esgScore": "environContrib + socialContrib + governContrib"
+  },
+  "outputs": {
+    "primary": "esgScore",
+    "breakdown": [
+      "environContrib",
+      "socialContrib",
+      "governContrib"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

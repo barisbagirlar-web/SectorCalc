@@ -1,0 +1,47 @@
+{
+  "toolName": "power-calculator",
+  "inputs": [
+    {
+      "id": "voltage",
+      "label": "Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 230,
+      "businessContext": "Nominal line voltage"
+    },
+    {
+      "id": "current",
+      "label": "Current",
+      "type": "number",
+      "unit": "A",
+      "default": 10,
+      "businessContext": "Operating current"
+    },
+    {
+      "id": "powerFactor",
+      "label": "Power Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Power factor (cos φ)"
+    }
+  ],
+  "formulas": {
+    "realPower": "voltage * current * powerFactor",
+    "apparentPower": "voltage * current",
+    "reactivePower": "voltage * current * Math.sin(Math.acos(powerFactor))"
+  },
+  "outputs": {
+    "primary": "realPower",
+    "breakdown": [
+      "apparentPower",
+      "reactivePower"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

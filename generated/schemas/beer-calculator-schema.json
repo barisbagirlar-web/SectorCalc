@@ -1,0 +1,106 @@
+{
+  "toolName": "beer-calculator",
+  "inputs": [
+    {
+      "id": "maltQuantity",
+      "label": "Malt Miktarı (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 5,
+      "businessContext": "Batch başına kullanılan malt miktarı"
+    },
+    {
+      "id": "maltCostPerKg",
+      "label": "Malt Birim Fiyatı (TL/kg)",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 15,
+      "businessContext": "Maltın kilogram başına maliyeti"
+    },
+    {
+      "id": "hopsQuantity",
+      "label": "Şerbetçiotu Miktarı (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 100,
+      "businessContext": "Batch başına şerbetçiotu miktarı"
+    },
+    {
+      "id": "hopsCostPer100g",
+      "label": "Şerbetçiotu 100g Fiyatı (TL)",
+      "type": "number",
+      "unit": "TL/100g",
+      "default": 50,
+      "businessContext": "100 gram şerbetçiotu fiyatı"
+    },
+    {
+      "id": "yeastCost",
+      "label": "Maya Maliyeti (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 25,
+      "businessContext": "Batch başına maya maliyeti"
+    },
+    {
+      "id": "energyCost",
+      "label": "Enerji Birim Fiyatı (TL/kWh)",
+      "type": "number",
+      "unit": "TL/kWh",
+      "default": 2.5,
+      "businessContext": "Fabrika elektrik birim fiyatı"
+    },
+    {
+      "id": "batchVolume",
+      "label": "Üretim Hacmi (L)",
+      "type": "number",
+      "unit": "L",
+      "default": 1000,
+      "businessContext": "Batch sonucu elde edilen bira miktarı (litre)"
+    },
+    {
+      "id": "overheadCost",
+      "label": "Genel Gider (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 500,
+      "businessContext": "İşçilik, bakım, amortisman vb. dahil batch başına sabit gider"
+    }
+  ],
+  "formulas": {
+    "materialCost": "maltQuantity * maltCostPerKg + hopsQuantity * (hopsCostPer100g / 100) + yeastCost",
+    "energyUsage": "batchVolume * 0.3",
+    "energyTotalCost": "energyUsage * energyCost",
+    "totalCost": "materialCost + energyTotalCost + overheadCost",
+    "costPerLiter": "totalCost / batchVolume"
+  },
+  "outputs": {
+    "primary": {
+      "id": "costPerLiter",
+      "label": "Litre Başına Maliyet (TL/L)",
+      "unit": "TL/L"
+    },
+    "breakdown": [
+      {
+        "id": "materialCost",
+        "label": "Malzeme Maliyeti (TL)",
+        "unit": "TL"
+      },
+      {
+        "id": "energyTotalCost",
+        "label": "Enerji Maliyeti (TL)",
+        "unit": "TL"
+      },
+      {
+        "id": "overheadCost",
+        "label": "Genel Gider (TL)",
+        "unit": "TL"
+      }
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

@@ -1,0 +1,78 @@
+{
+  "toolName": "level-up-calculator",
+  "inputs": [
+    {
+      "id": "currentProduction",
+      "label": "Mevcut Aylık Üretim",
+      "type": "number",
+      "unit": "adet/ay",
+      "default": 5000,
+      "businessContext": "Mevcut aylık üretim adedi (birim/ay)"
+    },
+    {
+      "id": "sellingPrice",
+      "label": "Birim Satış Fiyatı",
+      "type": "number",
+      "unit": "TL",
+      "default": 100,
+      "businessContext": "Birim başına satış fiyatı (TL)"
+    },
+    {
+      "id": "variableCost",
+      "label": "Birim Değişken Maliyet",
+      "type": "number",
+      "unit": "TL",
+      "default": 60,
+      "businessContext": "Birim başına değişken maliyet (TL)"
+    },
+    {
+      "id": "fixedCosts",
+      "label": "Mevcut Sabit Maliyetler",
+      "type": "number",
+      "unit": "TL/ay",
+      "default": 150000,
+      "businessContext": "Mevcut aylık sabit maliyetler (TL/ay)"
+    },
+    {
+      "id": "levelUpPercent",
+      "label": "Üretim Artış Yüzdesi",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Üretim seviyesini artırma hedef yüzdesi (%)"
+    },
+    {
+      "id": "additionalFixedCost",
+      "label": "Ek Sabit Maliyet",
+      "type": "number",
+      "unit": "TL/ay",
+      "default": 30000,
+      "businessContext": "Seviye atlama için gerekli ek aylık sabit maliyet (TL/ay)"
+    }
+  ],
+  "formulas": {
+    "currentProfit": "currentProduction * sellingPrice - currentProduction * variableCost - fixedCosts",
+    "newProduction": "currentProduction * (1 + levelUpPercent / 100)",
+    "newProfit": "newProduction * sellingPrice - newProduction * variableCost - (fixedCosts + additionalFixedCost)",
+    "monthlyProfitIncrease": "newProfit - (currentProduction * sellingPrice - currentProduction * variableCost - fixedCosts)",
+    "profitMarginCurrent": "(currentProfit / (currentProduction * sellingPrice)) * 100",
+    "profitMarginNew": "(newProfit / (newProduction * sellingPrice)) * 100",
+    "roi": "additionalFixedCost > 0 ? (monthlyProfitIncrease / additionalFixedCost) * 100 : 0"
+  },
+  "outputs": {
+    "primary": "monthlyProfitIncrease",
+    "breakdown": [
+      "currentProfit",
+      "newProfit",
+      "profitMarginCurrent",
+      "profitMarginNew",
+      "roi"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

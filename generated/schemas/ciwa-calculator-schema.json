@@ -1,0 +1,55 @@
+{
+  "toolName": "ciwa-calculator",
+  "inputs": [
+    {
+      "id": "cost1",
+      "label": "Material Cost 1",
+      "type": "number",
+      "unit": "currency/kg",
+      "default": 10,
+      "businessContext": "Cost per unit of first material"
+    },
+    {
+      "id": "weight1",
+      "label": "Weight 1",
+      "type": "number",
+      "unit": "kg",
+      "default": 5,
+      "businessContext": "Quantity of first material"
+    },
+    {
+      "id": "cost2",
+      "label": "Material Cost 2",
+      "type": "number",
+      "unit": "currency/kg",
+      "default": 15,
+      "businessContext": "Cost per unit of second material"
+    },
+    {
+      "id": "weight2",
+      "label": "Weight 2",
+      "type": "number",
+      "unit": "kg",
+      "default": 3,
+      "businessContext": "Quantity of second material"
+    }
+  ],
+  "formulas": {
+    "weightedAverage": "(cost1 * weight1 + cost2 * weight2) / (weight1 + weight2)",
+    "totalCost": "cost1 * weight1 + cost2 * weight2",
+    "totalWeight": "weight1 + weight2"
+  },
+  "outputs": {
+    "primary": "weightedAverage",
+    "breakdown": [
+      "totalCost",
+      "totalWeight"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

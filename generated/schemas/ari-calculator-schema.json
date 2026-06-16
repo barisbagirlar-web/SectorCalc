@@ -1,0 +1,63 @@
+{
+  "toolName": "ari-calculator",
+  "inputs": [
+    {
+      "id": "initialValue",
+      "label": "Başlangıç Değeri",
+      "type": "number",
+      "unit": "birim",
+      "default": 100,
+      "businessContext": "İyileştirme sürecinin başlangıcındaki performans göstergesi değeri (adet, oran, vb.)"
+    },
+    {
+      "id": "targetValue",
+      "label": "Hedef Değer",
+      "type": "number",
+      "unit": "birim",
+      "default": 80,
+      "businessContext": "Ulaşılmak istenen hedef performans göstergesi değeri"
+    },
+    {
+      "id": "currentValue",
+      "label": "Mevcut Değer",
+      "type": "number",
+      "unit": "birim",
+      "default": 90,
+      "businessContext": "Şu anki güncel performans göstergesi değeri"
+    },
+    {
+      "id": "yearsElapsed",
+      "label": "Geçen Yıl",
+      "type": "number",
+      "unit": "yıl",
+      "default": 1,
+      "businessContext": "Başlangıçtan bugüne kadar geçen süre (yıl cinsinden)"
+    },
+    {
+      "id": "confidenceFactor",
+      "label": "Güven Kat Sayısı",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "Hesaplanan iyileştirme oranına uygulanacak güven düzeyi çarpanı (1: standart, >1: daha muhafazakâr tahmin)"
+    }
+  ],
+  "formulas": {
+    "ariRequired": "((inputs.initialValue - inputs.targetValue) / inputs.initialValue) / inputs.yearsElapsed * 100 * inputs.confidenceFactor",
+    "ariActual": "((inputs.initialValue - inputs.currentValue) / inputs.initialValue) / inputs.yearsElapsed * 100 * inputs.confidenceFactor",
+    "gapPercentage": "((inputs.currentValue - inputs.targetValue) / inputs.initialValue) * 100"
+  },
+  "outputs": {
+    "primary": "ariRequired",
+    "breakdown": [
+      "ariActual",
+      "gapPercentage"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

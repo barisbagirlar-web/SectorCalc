@@ -1,0 +1,77 @@
+{
+  "toolName": "joist-span-calculator",
+  "inputs": [
+    {
+      "id": "joist_width",
+      "label": "Joist Width",
+      "type": "number",
+      "unit": "in",
+      "default": 1.5,
+      "businessContext": "Actual width of the joist in inches (e.g., 1.5 for a nominal 2x)."
+    },
+    {
+      "id": "joist_depth",
+      "label": "Joist Depth",
+      "type": "number",
+      "unit": "in",
+      "default": 9.25,
+      "businessContext": "Actual depth of the joist in inches (e.g., 9.25 for a nominal 2x10)."
+    },
+    {
+      "id": "spacing",
+      "label": "Joist Spacing",
+      "type": "number",
+      "unit": "in",
+      "default": 16,
+      "businessContext": "Center-to-center spacing between joists in inches."
+    },
+    {
+      "id": "live_load",
+      "label": "Live Load",
+      "type": "number",
+      "unit": "psf",
+      "default": 40,
+      "businessContext": "Design live load in pounds per square foot (e.g., residential floor = 40 psf)."
+    },
+    {
+      "id": "dead_load",
+      "label": "Dead Load",
+      "type": "number",
+      "unit": "psf",
+      "default": 10,
+      "businessContext": "Superimposed dead load in pounds per square foot (e.g., flooring, ceiling = 10 psf)."
+    },
+    {
+      "id": "fb",
+      "label": "Bending Design Value (Fb)",
+      "type": "number",
+      "unit": "psi",
+      "default": 1000,
+      "businessContext": "Allowable bending stress for the lumber species and grade (e.g., #2 Douglas Fir-Larch = 900-1000 psi)."
+    }
+  ],
+  "formulas": {
+    "total_load_plf": "(live_load + dead_load) * spacing / 12",
+    "section_modulus": "(joist_width * joist_depth ** 2) / 6",
+    "max_bending_moment_lb_in": "fb * section_modulus",
+    "w_pli": "total_load_plf / 12",
+    "max_span_in": "Math.sqrt(8 * max_bending_moment_lb_in / w_pli)",
+    "max_span_ft": "max_span_in / 12",
+    "max_span_display": "Math.floor(max_span_ft) + ' ft ' + (max_span_in % 12).toFixed(1) + ' in'"
+  },
+  "outputs": {
+    "primary": "max_span_display",
+    "breakdown": [
+      "total_load_plf",
+      "section_modulus",
+      "max_bending_moment_lb_in",
+      "max_span_in"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

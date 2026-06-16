@@ -1,0 +1,55 @@
+{
+  "toolName": "series-i-savings-bond-calculator",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Principal Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Initial investment amount in U.S. dollars."
+    },
+    {
+      "id": "fixedRate",
+      "label": "Fixed Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Fixed rate of return set at bond issuance, as a percentage."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Semiannual Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 1.5,
+      "businessContext": "Inflation rate determined every six months, expressed as a percentage."
+    },
+    {
+      "id": "years",
+      "label": "Holding Period",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Number of years the bond is held until redemption."
+    }
+  ],
+  "formulas": {
+    "compositeRate": "fixedRate/100 + 2*(inflationRate/100) + (fixedRate/100)*(inflationRate/100)",
+    "futureValue": "principal * Math.pow(1 + compositeRate/2, 2*years)",
+    "totalInterest": "futureValue - principal"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": [
+      "totalInterest",
+      "compositeRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

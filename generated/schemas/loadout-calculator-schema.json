@@ -1,0 +1,81 @@
+{
+  "toolName": "loadout-calculator",
+  "inputs": [
+    {
+      "id": "cargoWeight",
+      "label": "Cargo Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Total weight of cargo to be loaded (excluding pallets)"
+    },
+    {
+      "id": "vehicleCapacity",
+      "label": "Vehicle Capacity",
+      "type": "number",
+      "unit": "kg",
+      "default": 10000,
+      "businessContext": "Maximum payload capacity of the vehicle"
+    },
+    {
+      "id": "palletCount",
+      "label": "Number of Pallets",
+      "type": "number",
+      "unit": "pcs",
+      "default": 0,
+      "businessContext": "Total count of pallets in the load"
+    },
+    {
+      "id": "palletWeight",
+      "label": "Weight per Pallet",
+      "type": "number",
+      "unit": "kg",
+      "default": 20,
+      "businessContext": "Average weight of an empty pallet"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.1,
+      "businessContext": "Multiplier applied to total load for safety margin"
+    },
+    {
+      "id": "axleLimit",
+      "label": "Axle Load Limit",
+      "type": "number",
+      "unit": "kg",
+      "default": 5000,
+      "businessContext": "Maximum permissible load per axle"
+    },
+    {
+      "id": "numberOfAxles",
+      "label": "Number of Axles",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Total number of axles on the vehicle"
+    }
+  ],
+  "formulas": {
+    "totalLoad": "(cargoWeight + palletCount * palletWeight) * safetyFactor",
+    "loadUtilization": "((cargoWeight + palletCount * palletWeight) * safetyFactor / vehicleCapacity) * 100",
+    "remainingCapacity": "vehicleCapacity - (cargoWeight + palletCount * palletWeight) * safetyFactor",
+    "axleLoadPerAxle": "((cargoWeight + palletCount * palletWeight) * safetyFactor) / numberOfAxles"
+  },
+  "outputs": {
+    "primary": "loadUtilization",
+    "breakdown": [
+      "totalLoad",
+      "remainingCapacity",
+      "axleLoadPerAxle"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

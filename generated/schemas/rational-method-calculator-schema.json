@@ -1,0 +1,54 @@
+{
+  "toolName": "rational-method-calculator",
+  "inputs": [
+    {
+      "id": "c",
+      "label": "Runoff Coefficient",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.5,
+      "businessContext": "Runoff coefficient based on surface type (0.05–0.95)"
+    },
+    {
+      "id": "i",
+      "label": "Rainfall Intensity",
+      "type": "number",
+      "unit": "mm/hr",
+      "default": 50,
+      "businessContext": "Design rainfall intensity in millimeters per hour"
+    },
+    {
+      "id": "a",
+      "label": "Drainage Area",
+      "type": "number",
+      "unit": "ha",
+      "default": 1,
+      "businessContext": "Catchment area in hectares"
+    },
+    {
+      "id": "sf",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Design safety factor (typically 1.0–1.5)"
+    }
+  ],
+  "formulas": {
+    "peakDischargeLps": "sf * c * i * a / 0.36",
+    "peakDischargeCumecs": "sf * c * i * a / 360"
+  },
+  "outputs": {
+    "primary": "peakDischargeLps",
+    "breakdown": [
+      "peakDischargeLps",
+      "peakDischargeCumecs"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "date-add-calculator",
+  "inputs": [
+    {
+      "id": "startSerial",
+      "label": "Start Date (serial number)",
+      "type": "number",
+      "unit": "days",
+      "default": 45000,
+      "businessContext": "Date represented as a serial number, e.g., days since 1900-01-01 (Excel epoch). For example, 45000 corresponds to 2023-03-17."
+    },
+    {
+      "id": "addDays",
+      "label": "Days to Add",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Number of calendar days to add."
+    },
+    {
+      "id": "addMonths",
+      "label": "Months to Add",
+      "type": "number",
+      "unit": "months",
+      "default": 0,
+      "businessContext": "Number of months to add (average 30.4375 days per month)."
+    },
+    {
+      "id": "addYears",
+      "label": "Years to Add",
+      "type": "number",
+      "unit": "years",
+      "default": 0,
+      "businessContext": "Number of years to add (average 365.25 days per year)."
+    }
+  ],
+  "formulas": {
+    "totalDays": "startSerial + addDays + (addMonths * 30.4375) + (addYears * 365.25)",
+    "approxYears": "totalDays / 365.25",
+    "approxMonths": "totalDays / 30.4375"
+  },
+  "outputs": {
+    "primary": "totalDays",
+    "breakdown": [
+      "approxYears",
+      "approxMonths"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

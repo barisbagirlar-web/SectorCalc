@@ -1,0 +1,55 @@
+{
+  "toolName": "currency-converter-calculator",
+  "inputs": [
+    {
+      "id": "sourceAmount",
+      "label": "Source Amount",
+      "type": "number",
+      "unit": "EUR",
+      "default": 100,
+      "businessContext": "Amount in original currency"
+    },
+    {
+      "id": "exchangeRate",
+      "label": "Exchange Rate",
+      "type": "number",
+      "unit": "USD/EUR",
+      "default": 1.1,
+      "businessContext": "Rate converting source to target currency"
+    },
+    {
+      "id": "fixedFee",
+      "label": "Fixed Fee",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "Flat transaction fee in source currency"
+    },
+    {
+      "id": "percentageFee",
+      "label": "Percentage Fee",
+      "type": "number",
+      "unit": "fraction",
+      "default": 0,
+      "businessContext": "Fee as decimal (e.g., 0.02 for 2%)"
+    }
+  ],
+  "formulas": {
+    "convertedAmount": "Math.max(0, sourceAmount * (1 - percentageFee) - fixedFee) * exchangeRate",
+    "netSourceAmount": "Math.max(0, sourceAmount * (1 - percentageFee) - fixedFee)",
+    "totalFees": "sourceAmount - Math.max(0, sourceAmount * (1 - percentageFee) - fixedFee)"
+  },
+  "outputs": {
+    "primary": "convertedAmount",
+    "breakdown": [
+      "netSourceAmount",
+      "totalFees"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

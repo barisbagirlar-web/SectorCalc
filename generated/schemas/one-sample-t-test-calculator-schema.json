@@ -1,0 +1,57 @@
+{
+  "toolName": "one-sample-t-test-calculator",
+  "inputs": [
+    {
+      "id": "sampleMean",
+      "label": "Sample Mean",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "The average of your sample data"
+    },
+    {
+      "id": "sampleStdDev",
+      "label": "Sample Standard Deviation",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "The standard deviation of your sample data"
+    },
+    {
+      "id": "sampleSize",
+      "label": "Sample Size (n)",
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "businessContext": "Number of observations in the sample"
+    },
+    {
+      "id": "hypothesizedMean",
+      "label": "Hypothesized Population Mean",
+      "type": "number",
+      "unit": "",
+      "default": 9,
+      "businessContext": "The population mean under the null hypothesis"
+    }
+  ],
+  "formulas": {
+    "tStatistic": "(sampleMean - hypothesizedMean) / (sampleStdDev / Math.sqrt(sampleSize))",
+    "standardError": "sampleStdDev / Math.sqrt(sampleSize)",
+    "degreesOfFreedom": "sampleSize - 1",
+    "meanDifference": "sampleMean - hypothesizedMean"
+  },
+  "outputs": {
+    "primary": "tStatistic",
+    "breakdown": [
+      "standardError",
+      "degreesOfFreedom",
+      "meanDifference"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

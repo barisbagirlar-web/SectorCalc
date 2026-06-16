@@ -1,0 +1,73 @@
+{
+  "toolName": "walking-pace-calculator",
+  "inputs": [
+    {
+      "id": "distanceMeters",
+      "label": "Distance (meters)",
+      "type": "number",
+      "unit": "m",
+      "default": 1000,
+      "businessContext": "Total walking distance in meters, e.g., from one workstation to another in a factory layout."
+    },
+    {
+      "id": "timeHours",
+      "label": "Time (hours)",
+      "type": "number",
+      "unit": "h",
+      "default": 0,
+      "businessContext": "Hours part of the walking time."
+    },
+    {
+      "id": "timeMinutes",
+      "label": "Time (minutes)",
+      "type": "number",
+      "unit": "min",
+      "default": 15,
+      "businessContext": "Minutes part of the walking time."
+    },
+    {
+      "id": "timeSeconds",
+      "label": "Time (seconds)",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Seconds part of the walking time."
+    },
+    {
+      "id": "strideLengthCm",
+      "label": "Stride Length (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "Optional: average stride length in centimeters for step-based distance calculation."
+    },
+    {
+      "id": "steps",
+      "label": "Steps",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Optional: number of steps taken. Used with stride length to estimate distance if distance is not directly entered."
+    }
+  ],
+  "formulas": {
+    "distanceMetersCalc": "distanceMeters > 0 ? distanceMeters : (steps * strideLengthCm / 100)",
+    "totalSeconds": "timeHours * 3600 + timeMinutes * 60 + timeSeconds",
+    "speedKmh": "(distanceMetersCalc * 3.6) / totalSeconds",
+    "paceMinPerKm": "totalSeconds / distanceMetersCalc * 1000 / 60",
+    "totalDistanceKm": "distanceMetersCalc / 1000"
+  },
+  "outputs": {
+    "primary": "paceMinPerKm",
+    "breakdown": [
+      "speedKmh",
+      "totalDistanceKm"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

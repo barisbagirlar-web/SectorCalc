@@ -1,0 +1,55 @@
+{
+  "toolName": "jack-daniels-vdot-calculator",
+  "inputs": [
+    {
+      "id": "raceDistance",
+      "label": "Race Distance",
+      "type": "number",
+      "unit": "meters",
+      "default": 5000,
+      "businessContext": "The distance of the recent race used to calculate VDOT."
+    },
+    {
+      "id": "raceTimeMinutes",
+      "label": "Race Time (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 20,
+      "businessContext": "The whole minutes component of the race time."
+    },
+    {
+      "id": "raceTimeSeconds",
+      "label": "Race Time (seconds)",
+      "type": "number",
+      "unit": "seconds",
+      "default": 0,
+      "businessContext": "The seconds component of the race time."
+    },
+    {
+      "id": "targetDistance",
+      "label": "Target Distance",
+      "type": "number",
+      "unit": "meters",
+      "default": 10000,
+      "businessContext": "The distance for which to predict a race time using the calculated VDOT."
+    }
+  ],
+  "formulas": {
+    "velocity": "raceDistance / (raceTimeMinutes + raceTimeSeconds / 60)",
+    "vdot": "0.2 * (raceDistance / (raceTimeMinutes + raceTimeSeconds / 60)) + 3.5",
+    "predictedTimeMinutes": "targetDistance / (raceDistance / (raceTimeMinutes + raceTimeSeconds / 60))"
+  },
+  "outputs": {
+    "primary": "vdot",
+    "breakdown": [
+      "predictedTimeMinutes",
+      "velocity"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

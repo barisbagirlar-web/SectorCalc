@@ -1,0 +1,59 @@
+{
+  "toolName": "upload-time-calculator",
+  "inputs": [
+    {
+      "id": "fileSize",
+      "label": "File Size (MB)",
+      "type": "number",
+      "unit": "MB",
+      "default": 100,
+      "businessContext": "Size of the file to upload in megabytes (MB)."
+    },
+    {
+      "id": "uploadSpeed",
+      "label": "Upload Speed (Mbps)",
+      "type": "number",
+      "unit": "Mbps",
+      "default": 10,
+      "businessContext": "Upload bandwidth in megabits per second (Mbps)."
+    },
+    {
+      "id": "overheadFactor",
+      "label": "Overhead Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.1,
+      "businessContext": "Multiplier accounting for protocol overhead (e.g., 1.1 for 10% overhead)."
+    },
+    {
+      "id": "numConnections",
+      "label": "Parallel Connections",
+      "type": "number",
+      "unit": "connections",
+      "default": 1,
+      "businessContext": "Number of parallel upload connections."
+    }
+  ],
+  "formulas": {
+    "rawTimeSeconds": "(fileSize * 8) / uploadSpeed",
+    "uploadTimeSeconds": "(fileSize * 8 * overheadFactor) / (uploadSpeed * numConnections)",
+    "overheadTimeSeconds": "(fileSize * 8 * (overheadFactor - 1)) / (uploadSpeed * numConnections)",
+    "effectiveSpeedMbps": "(uploadSpeed * numConnections) / overheadFactor",
+    "formattedTime": "(function(){ let sec = (fileSize * 8 * overheadFactor) / (uploadSpeed * numConnections); let hrs = Math.floor(sec / 3600); let mins = Math.floor((sec % 3600) / 60); let secs = Math.round(sec % 60); return hrs > 0 ? hrs + 'h ' + mins + 'm ' + secs + 's' : mins > 0 ? mins + 'm ' + secs + 's' : secs + 's'; })()"
+  },
+  "outputs": {
+    "primary": "uploadTimeSeconds",
+    "breakdown": [
+      "formattedTime",
+      "rawTimeSeconds",
+      "overheadTimeSeconds",
+      "effectiveSpeedMbps"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "contribution-margin-calculator",
+  "inputs": [
+    {
+      "id": "salesPricePerUnit",
+      "label": "Satış Fiyatı (Birim)",
+      "type": "number",
+      "unit": "TL/birim",
+      "default": 100,
+      "businessContext": "Birim başına satış fiyatı"
+    },
+    {
+      "id": "variableCostPerUnit",
+      "label": "Değişken Maliyet (Birim)",
+      "type": "number",
+      "unit": "TL/birim",
+      "default": 60,
+      "businessContext": "Birim başına doğrudan değişken maliyet"
+    },
+    {
+      "id": "unitsSold",
+      "label": "Satılan Miktar",
+      "type": "number",
+      "unit": "adet",
+      "default": 1000,
+      "businessContext": "Satılan toplam birim sayısı"
+    },
+    {
+      "id": "fixedCosts",
+      "label": "Sabit Maliyetler",
+      "type": "number",
+      "unit": "TL",
+      "default": 20000,
+      "businessContext": "Toplam sabit maliyetler (faaliyet karı hesaplaması için isteğe bağlı)"
+    }
+  ],
+  "formulas": {
+    "contributionMarginPerUnit": "salesPricePerUnit - variableCostPerUnit",
+    "totalContributionMargin": "(salesPricePerUnit - variableCostPerUnit) * unitsSold",
+    "contributionMarginRatio": "(salesPricePerUnit - variableCostPerUnit) / salesPricePerUnit",
+    "operatingProfit": "(salesPricePerUnit - variableCostPerUnit) * unitsSold - fixedCosts"
+  },
+  "outputs": {
+    "primary": "totalContributionMargin",
+    "breakdown": [
+      "contributionMarginPerUnit",
+      "contributionMarginRatio",
+      "operatingProfit"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

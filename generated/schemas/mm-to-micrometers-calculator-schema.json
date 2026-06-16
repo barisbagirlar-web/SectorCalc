@@ -1,0 +1,62 @@
+{
+  "toolName": "mm-to-micrometers-calculator",
+  "inputs": [
+    {
+      "id": "mmValue",
+      "label": "Milimetre Değeri",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Dönüştürülecek ölçüm değeri"
+    },
+    {
+      "id": "calibration",
+      "label": "Kalibrasyon Düzeltme Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Ölçüm cihazı kalibrasyon katsayısı"
+    },
+    {
+      "id": "scaleFactor",
+      "label": "Ölçek Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Çizim/plan ölçek katsayısı"
+    },
+    {
+      "id": "uncertaintyMm",
+      "label": "Ölçüm Belirsizliği (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.001,
+      "businessContext": "Standart belirsizlik (k=1)"
+    },
+    {
+      "id": "coverageFactor",
+      "label": "Genişletme Faktörü (k)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Belirsizlik genişletme katsayısı (genelde 2)"
+    }
+  ],
+  "formulas": {
+    "micrometer": "mmValue * calibration * scaleFactor * 1000",
+    "expandedUncertainty": "uncertaintyMm * coverageFactor * 1000"
+  },
+  "outputs": {
+    "primary": "micrometer",
+    "breakdown": [
+      "micrometer",
+      "expandedUncertainty"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "stoichiometry-calculator",
+  "inputs": [
+    {
+      "id": "knownMass",
+      "label": "Mass of Known Substance",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "The mass of the substance whose amount is known."
+    },
+    {
+      "id": "knownMolarMass",
+      "label": "Molar Mass of Known Substance",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 1,
+      "businessContext": "Molar mass (molecular weight) of the known substance."
+    },
+    {
+      "id": "unknownMolarMass",
+      "label": "Molar Mass of Unknown Substance",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 1,
+      "businessContext": "Molar mass of the substance whose mass is to be calculated."
+    },
+    {
+      "id": "coefficientKnown",
+      "label": "Coefficient of Known Substance",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Stoichiometric coefficient of the known substance in the balanced equation."
+    },
+    {
+      "id": "coefficientUnknown",
+      "label": "Coefficient of Unknown Substance",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Stoichiometric coefficient of the unknown substance in the balanced equation."
+    }
+  ],
+  "formulas": {
+    "primary": "(knownMass / knownMolarMass) * (coefficientUnknown / coefficientKnown) * unknownMolarMass",
+    "breakdown": [
+      "knownMass / knownMolarMass",
+      "(knownMass / knownMolarMass) * (coefficientUnknown / coefficientKnown)"
+    ]
+  },
+  "outputs": {
+    "primary": "Mass of Unknown Substance (g)",
+    "breakdown": [
+      "Moles of Known Substance (mol)",
+      "Moles of Unknown Substance (mol)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

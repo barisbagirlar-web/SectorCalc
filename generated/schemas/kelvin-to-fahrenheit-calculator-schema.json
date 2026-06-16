@@ -1,0 +1,58 @@
+{
+  "toolName": "kelvin-to-fahrenheit-calculator",
+  "inputs": [
+    {
+      "id": "kelvin",
+      "label": "Kelvin Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 273.15,
+      "businessContext": "The temperature in Kelvin to be converted to Fahrenheit."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output Fahrenheit value."
+    },
+    {
+      "id": "calibrationOffset",
+      "label": "Calibration Offset",
+      "type": "number",
+      "unit": "K",
+      "default": 0,
+      "businessContext": "An optional offset to apply to the Kelvin value for calibration purposes."
+    },
+    {
+      "id": "expectedFahrenheit",
+      "label": "Expected Fahrenheit (Verification)",
+      "type": "number",
+      "unit": "°F",
+      "default": 32,
+      "businessContext": "A known Fahrenheit value for cross-checking the conversion (not used in calculation)."
+    }
+  ],
+  "formulas": {
+    "effectiveKelvin": "kelvin + calibrationOffset",
+    "celsius": "effectiveKelvin - 273.15",
+    "fahrenheitUnrounded": "celsius * 9/5 + 32",
+    "fahrenheit": "Math.round(fahrenheitUnrounded * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "fahrenheit",
+    "breakdown": [
+      "Effective Kelvin (with offset): ${effectiveKelvin} K",
+      "Celsius: ${celsius} °C",
+      "Fahrenheit (unrounded): ${fahrenheitUnrounded} °F",
+      "Fahrenheit (rounded to ${precision} decimal places): ${fahrenheit} °F"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

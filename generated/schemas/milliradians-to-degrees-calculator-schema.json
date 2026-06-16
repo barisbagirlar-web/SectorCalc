@@ -1,0 +1,55 @@
+{
+  "toolName": "milliradians-to-degrees-calculator",
+  "inputs": [
+    {
+      "id": "milliradians",
+      "label": "Milliradians",
+      "type": "number",
+      "unit": "mrad",
+      "default": 0,
+      "businessContext": "Input angular measurement in milliradians."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Desired number of decimal places for output (not applied in formula due to operation constraints, for display)."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "deg/mrad",
+      "default": 0.05729577951308232,
+      "businessContext": "Conversion factor from milliradians to degrees. Default: 180/(π×1000)."
+    },
+    {
+      "id": "angleOffset",
+      "label": "Angle Offset",
+      "type": "number",
+      "unit": "deg",
+      "default": 0,
+      "businessContext": "Constant offset added to the converted angle (e.g., for calibration)."
+    }
+  ],
+  "formulas": {
+    "degrees": "milliradians * conversionFactor + angleOffset",
+    "milliradians": "milliradians",
+    "conversionFactor": "conversionFactor"
+  },
+  "outputs": {
+    "primary": "degrees",
+    "breakdown": [
+      "milliradians",
+      "conversionFactor"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

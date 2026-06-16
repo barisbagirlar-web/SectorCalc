@@ -1,0 +1,71 @@
+{
+  "toolName": "date-difference-calculator",
+  "inputs": [
+    {
+      "id": "startYear",
+      "label": "Start Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2023,
+      "businessContext": "The year of the start date"
+    },
+    {
+      "id": "startMonth",
+      "label": "Start Month",
+      "type": "number",
+      "unit": "month",
+      "default": 1,
+      "businessContext": "The month of the start date (1-12)"
+    },
+    {
+      "id": "startDay",
+      "label": "Start Day",
+      "type": "number",
+      "unit": "day",
+      "default": 1,
+      "businessContext": "The day of the start date (1-31)"
+    },
+    {
+      "id": "endYear",
+      "label": "End Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2024,
+      "businessContext": "The year of the end date"
+    },
+    {
+      "id": "endMonth",
+      "label": "End Month",
+      "type": "number",
+      "unit": "month",
+      "default": 1,
+      "businessContext": "The month of the end date (1-12)"
+    },
+    {
+      "id": "endDay",
+      "label": "End Day",
+      "type": "number",
+      "unit": "day",
+      "default": 1,
+      "businessContext": "The day of the end date (1-31)"
+    }
+  ],
+  "formulas": {
+    "diffDays": "endYear * 365 + endMonth * 30 + endDay - (startYear * 365 + startMonth * 30 + startDay)",
+    "diffYears": "(endYear * 365 + endMonth * 30 + endDay - (startYear * 365 + startMonth * 30 + startDay)) / 365",
+    "diffMonths": "(endYear * 365 + endMonth * 30 + endDay - (startYear * 365 + startMonth * 30 + startDay)) / 30"
+  },
+  "outputs": {
+    "primary": "diffDays",
+    "breakdown": [
+      "diffYears",
+      "diffMonths"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

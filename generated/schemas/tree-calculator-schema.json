@@ -1,0 +1,75 @@
+{
+  "toolName": "tree-calculator",
+  "inputs": [
+    {
+      "id": "treeHeight",
+      "label": "Ağaç Yüksekliği (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 15,
+      "businessContext": "Ağacın toplam yüksekliği (metre)."
+    },
+    {
+      "id": "dbh",
+      "label": "Gövde Çapı (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "Göğüs yüksekliğindeki çap (1.3 m)."
+    },
+    {
+      "id": "woodDensity",
+      "label": "Odun Yoğunluğu (kg/m³)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 600,
+      "businessContext": "Kuru odun yoğunluğu (türe göre 300-900)."
+    },
+    {
+      "id": "carbonFraction",
+      "label": "Karbon Oranı",
+      "type": "number",
+      "unit": "oran",
+      "default": 0.5,
+      "businessContext": "Biyokütledeki karbon oranı (genelde 0.47-0.5)."
+    },
+    {
+      "id": "formFactor",
+      "label": "Form Faktörü",
+      "type": "number",
+      "unit": "oran",
+      "default": 0.5,
+      "businessContext": "Gövde hacmi düzeltme faktörü (0.4-0.6)."
+    },
+    {
+      "id": "branchFactor",
+      "label": "Dal Biyokütle Oranı",
+      "type": "number",
+      "unit": "oran",
+      "default": 0.3,
+      "businessContext": "Gövde biyokütlesine oranla dal miktarı."
+    }
+  ],
+  "formulas": {
+    "volumeTrunk": "formFactor * (Math.PI * (dbh/100)**2 / 4) * treeHeight",
+    "biomassTrunk": "volumeTrunk * woodDensity",
+    "biomassBranches": "biomassTrunk * branchFactor",
+    "totalBiomass": "biomassTrunk + biomassBranches",
+    "totalCarbon": "totalBiomass * carbonFraction"
+  },
+  "outputs": {
+    "primary": "totalCarbon",
+    "breakdown": [
+      "volumeTrunk",
+      "biomassTrunk",
+      "biomassBranches",
+      "totalBiomass"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

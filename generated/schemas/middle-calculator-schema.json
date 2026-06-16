@@ -1,0 +1,62 @@
+{
+  "toolName": "middle-calculator",
+  "inputs": [
+    {
+      "id": "input1",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First input value for calculating the average"
+    },
+    {
+      "id": "input2",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second input value for calculating the average"
+    },
+    {
+      "id": "input3",
+      "label": "Value 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Third input value for calculating the average"
+    },
+    {
+      "id": "input4",
+      "label": "Value 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fourth input value for calculating the average"
+    },
+    {
+      "id": "input5",
+      "label": "Value 5",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fifth input value for calculating the average"
+    }
+  ],
+  "formulas": {
+    "sum": "Number(input1) + Number(input2) + Number(input3) + Number(input4) + Number(input5)",
+    "average": "sum / 5"
+  },
+  "outputs": {
+    "primary": "average",
+    "breakdown": [
+      "sum",
+      "average"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

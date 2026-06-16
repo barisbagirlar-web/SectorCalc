@@ -1,0 +1,56 @@
+{
+  "toolName": "number-to-words-calculator",
+  "inputs": [
+    {
+      "id": "inputNumber",
+      "label": "Number",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The number to convert to words"
+    },
+    {
+      "id": "languageCode",
+      "label": "Language Code",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Numeric language code (1=English, 2=Turkish, etc.)"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places to spell out"
+    },
+    {
+      "id": "caseFormat",
+      "label": "Case Format",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0=lowercase, 1=Title Case, 2=UPPERCASE"
+    }
+  ],
+  "formulas": {
+    "result": "inputNumber",
+    "decimalInfo": "decimalPlaces",
+    "languageInfo": "languageCode"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": [
+      "inputNumber",
+      "decimalInfo",
+      "languageInfo"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

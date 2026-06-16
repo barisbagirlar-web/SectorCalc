@@ -1,0 +1,86 @@
+{
+  "toolName": "binary-to-decimal-calculator",
+  "inputs": [
+    {
+      "id": "bit7",
+      "label": "Bit 7 (MSB)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Binary digit value (0 or 1)"
+    },
+    {
+      "id": "bit6",
+      "label": "Bit 6",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Binary digit value (0 or 1)"
+    },
+    {
+      "id": "bit5",
+      "label": "Bit 5",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Binary digit value (0 or 1)"
+    },
+    {
+      "id": "bit4",
+      "label": "Bit 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Binary digit value (0 or 1)"
+    },
+    {
+      "id": "bit3",
+      "label": "Bit 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Binary digit value (0 or 1)"
+    },
+    {
+      "id": "bit2",
+      "label": "Bit 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Binary digit value (0 or 1)"
+    },
+    {
+      "id": "bit1",
+      "label": "Bit 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Binary digit value (0 or 1)"
+    },
+    {
+      "id": "bit0",
+      "label": "Bit 0 (LSB)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Binary digit value (0 or 1)"
+    }
+  ],
+  "formulas": {
+    "decimal": "bit7 * Math.pow(2, 7) + bit6 * Math.pow(2, 6) + bit5 * Math.pow(2, 5) + bit4 * Math.pow(2, 4) + bit3 * Math.pow(2, 3) + bit2 * Math.pow(2, 2) + bit1 * Math.pow(2, 1) + bit0 * Math.pow(2, 0)",
+    "binaryString": "'' + bit7 + bit6 + bit5 + bit4 + bit3 + bit2 + bit1 + bit0"
+  },
+  "outputs": {
+    "primary": "decimal",
+    "breakdown": [
+      "'Binary Input: ' + binaryString",
+      "'Decimal Output: ' + decimal"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

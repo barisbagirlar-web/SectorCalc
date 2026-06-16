@@ -1,0 +1,89 @@
+{
+  "toolName": "words-to-numbers-calculator",
+  "inputs": [
+    {
+      "id": "millions",
+      "label": "Millions",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Number of millions"
+    },
+    {
+      "id": "thousands",
+      "label": "Thousands",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Number of thousands"
+    },
+    {
+      "id": "hundreds",
+      "label": "Hundreds",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Number of hundreds"
+    },
+    {
+      "id": "tens",
+      "label": "Tens",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Number of tens"
+    },
+    {
+      "id": "ones",
+      "label": "Ones",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Number of ones"
+    },
+    {
+      "id": "tenths",
+      "label": "Tenths",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Number of tenths (for decimal)"
+    },
+    {
+      "id": "hundredths",
+      "label": "Hundredths",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Number of hundredths (for decimal)"
+    }
+  ],
+  "formulas": {
+    "totalNumber": "millions * 1000000 + thousands * 1000 + hundreds * 100 + tens * 10 + ones + tenths * 0.1 + hundredths * 0.01",
+    "millionsPart": "millions * 1000000",
+    "thousandsPart": "thousands * 1000",
+    "hundredsPart": "hundreds * 100",
+    "tensPart": "tens * 10",
+    "onesPart": "ones",
+    "tenthsPart": "tenths * 0.1",
+    "hundredthsPart": "hundredths * 0.01"
+  },
+  "outputs": {
+    "primary": "totalNumber",
+    "breakdown": [
+      "millionsPart",
+      "thousandsPart",
+      "hundredsPart",
+      "tensPart",
+      "onesPart",
+      "tenthsPart",
+      "hundredthsPart"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

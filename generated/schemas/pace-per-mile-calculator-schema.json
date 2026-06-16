@@ -1,0 +1,57 @@
+{
+  "toolName": "pace-per-mile-calculator",
+  "inputs": [
+    {
+      "id": "hours",
+      "label": "Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 0,
+      "businessContext": "Time spent in hours"
+    },
+    {
+      "id": "minutes",
+      "label": "Minutes",
+      "type": "number",
+      "unit": "min",
+      "default": 0,
+      "businessContext": "Time spent in minutes"
+    },
+    {
+      "id": "seconds",
+      "label": "Seconds",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Time spent in seconds"
+    },
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "miles",
+      "default": 1,
+      "businessContext": "Total distance covered in miles"
+    }
+  ],
+  "formulas": {
+    "total_time_min": "hours * 60 + minutes + seconds / 60",
+    "pace_min_per_mile": "total_time_min / distance",
+    "pace_sec_per_mile": "pace_min_per_mile * 60",
+    "speed_mph": "60 / pace_min_per_mile"
+  },
+  "outputs": {
+    "primary": "pace_min_per_mile",
+    "breakdown": [
+      "pace_sec_per_mile",
+      "speed_mph",
+      "total_time_min"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

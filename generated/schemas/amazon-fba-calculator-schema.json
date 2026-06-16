@@ -1,0 +1,81 @@
+{
+  "toolName": "amazon-fba-calculator",
+  "inputs": [
+    {
+      "id": "productCost",
+      "label": "Ürün Maliyeti (Birim)",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Birim başına ürün edinme maliyeti"
+    },
+    {
+      "id": "sellingPrice",
+      "label": "Satış Fiyatı (KDV Dahil)",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Amazon'da listelenecek nihai satış fiyatı"
+    },
+    {
+      "id": "referralFeePercentage",
+      "label": "Amazon Referral Ücreti (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Kategoriye göre Amazon komisyon oranı"
+    },
+    {
+      "id": "fbaFulfillmentFee",
+      "label": "FBA İşlem Ücreti (Birim)",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Amazon tarafından alınan depolama, paketleme ve gönderim ücreti"
+    },
+    {
+      "id": "shippingToAmazon",
+      "label": "Amazon'a Nakliye (Birim)",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Ürünlerin Amazon deposuna gönderim maliyeti"
+    },
+    {
+      "id": "advertisingCost",
+      "label": "Reklam Maliyeti (Birim Başı)",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "PPC reklam harcaması (birim başı dağıtılmış)"
+    },
+    {
+      "id": "storageCost",
+      "label": "Depolama Ücreti (Birim Başı/Aylık)",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Aylık depolama ücreti (varsa)"
+    }
+  ],
+  "formulas": {
+    "referralFeeAmount": "(sellingPrice * referralFeePercentage) / 100",
+    "totalCost": "productCost + ((sellingPrice * referralFeePercentage) / 100) + fbaFulfillmentFee + shippingToAmazon + advertisingCost + storageCost",
+    "netProfit": "sellingPrice - (productCost + ((sellingPrice * referralFeePercentage) / 100) + fbaFulfillmentFee + shippingToAmazon + advertisingCost + storageCost)",
+    "profitMargin": "((sellingPrice - (productCost + ((sellingPrice * referralFeePercentage) / 100) + fbaFulfillmentFee + shippingToAmazon + advertisingCost + storageCost)) / sellingPrice) * 100"
+  },
+  "outputs": {
+    "primary": "netProfit",
+    "breakdown": [
+      "totalCost",
+      "referralFeeAmount",
+      "profitMargin"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

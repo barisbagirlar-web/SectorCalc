@@ -1,0 +1,57 @@
+{
+  "toolName": "qr-code-generator-calculator",
+  "inputs": [
+    {
+      "id": "version",
+      "label": "QR Code Version",
+      "type": "number",
+      "unit": "version",
+      "default": 5,
+      "businessContext": "QR code version from 1 to 40, determines data capacity and physical size."
+    },
+    {
+      "id": "moduleSize",
+      "label": "Module Size",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.5,
+      "businessContext": "Edge length of one module (black or white square) in millimeters."
+    },
+    {
+      "id": "quietZoneModules",
+      "label": "Quiet Zone Width",
+      "type": "number",
+      "unit": "modules",
+      "default": 4,
+      "businessContext": "Required clear margin around the QR code, measured in modules (standard is 4)."
+    },
+    {
+      "id": "dpi",
+      "label": "Print Resolution",
+      "type": "number",
+      "unit": "dpi",
+      "default": 300,
+      "businessContext": "Printer or display resolution in dots per inch, used for pixel dimension output."
+    }
+  ],
+  "formulas": {
+    "Total Modules Count": "17 + 4 * version",
+    "Quiet Zone (mm)": "2 * quietZoneModules * moduleSize",
+    "Width (mm)": "(17 + 4 * version + 2 * quietZoneModules) * moduleSize",
+    "Width (px)": "((17 + 4 * version + 2 * quietZoneModules) * moduleSize) / 25.4 * dpi"
+  },
+  "outputs": {
+    "primary": "Width (mm)",
+    "breakdown": [
+      "Total Modules Count",
+      "Width (px)",
+      "Quiet Zone (mm)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

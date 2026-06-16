@@ -1,0 +1,67 @@
+{
+  "toolName": "deans-list-calculator",
+  "inputs": [
+    {
+      "id": "totalCredits",
+      "label": "Total Credits Attempted",
+      "type": "number",
+      "unit": "credits",
+      "default": 30,
+      "businessContext": "Total number of credits enrolled in the semester"
+    },
+    {
+      "id": "earnedCredits",
+      "label": "Earned Credits",
+      "type": "number",
+      "unit": "credits",
+      "default": 30,
+      "businessContext": "Number of credits successfully completed"
+    },
+    {
+      "id": "gpa",
+      "label": "Semester GPA",
+      "type": "number",
+      "unit": "",
+      "default": 3.5,
+      "businessContext": "Grade point average for the semester (0.0 - 4.0 scale)"
+    },
+    {
+      "id": "minGpa",
+      "label": "Minimum GPA Requirement",
+      "type": "number",
+      "unit": "",
+      "default": 3.5,
+      "businessContext": "Minimum GPA threshold for Dean's List (e.g., 3.5)"
+    },
+    {
+      "id": "minCredits",
+      "label": "Minimum Credits Requirement",
+      "type": "number",
+      "unit": "credits",
+      "default": 12,
+      "businessContext": "Minimum number of earned credits required for Dean's List"
+    }
+  ],
+  "formulas": {
+    "meetsGpaRequirement": "gpa >= minGpa",
+    "meetsCreditRequirement": "earnedCredits >= minCredits",
+    "isEligible": "meetsGpaRequirement && meetsCreditRequirement",
+    "gpaDifference": "gpa - minGpa",
+    "creditDeficit": "minCredits - earnedCredits"
+  },
+  "outputs": {
+    "primary": "isEligible ? 'Eligible for Dean\\'s List' : 'Not Eligible for Dean\\'s List'",
+    "breakdown": [
+      "meetsGpaRequirement ? 'GPA requirement met' : 'GPA requirement not met'",
+      "meetsCreditRequirement ? 'Credit requirement met' : 'Credit requirement not met'",
+      "gpaDifference >= 0 ? 'GPA above minimum by ' + gpaDifference.toFixed(2) : 'GPA below minimum by ' + Math.abs(gpaDifference).toFixed(2)",
+      "creditDeficit > 0 ? 'Credit deficit: ' + creditDeficit : 'No credit deficit'"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

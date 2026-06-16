@@ -1,0 +1,56 @@
+{
+  "toolName": "child-growth-calculator",
+  "inputs": [
+    {
+      "id": "parentQuantity",
+      "label": "Parent Item Quantity",
+      "type": "number",
+      "unit": "pcs",
+      "default": 100,
+      "businessContext": "Production order quantity for the parent item."
+    },
+    {
+      "id": "bomMultiplier",
+      "label": "BOM Multiplier",
+      "type": "number",
+      "unit": "pcs/pcs",
+      "default": 1,
+      "businessContext": "Number of child items required per one parent item."
+    },
+    {
+      "id": "scrapRate",
+      "label": "Scrap Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Expected percentage of child items scrapped during production."
+    },
+    {
+      "id": "safetyStockFactor",
+      "label": "Safety Stock Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Additional percentage for safety stock to cover uncertainties."
+    }
+  ],
+  "formulas": {
+    "grossRequirement": "parentQuantity * bomMultiplier",
+    "netRequirement": "grossRequirement / (1 - scrapRate / 100)",
+    "finalRequirement": "netRequirement * (1 + safetyStockFactor / 100)"
+  },
+  "outputs": {
+    "primary": "finalRequirement",
+    "breakdown": [
+      "grossRequirement",
+      "netRequirement",
+      "finalRequirement"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

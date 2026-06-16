@@ -1,0 +1,81 @@
+{
+  "toolName": "asset-allocation-calculator",
+  "inputs": [
+    {
+      "id": "totalInvestment",
+      "label": "Total Investment Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Total amount to allocate"
+    },
+    {
+      "id": "stockAllocation",
+      "label": "Stock Allocation (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "businessContext": "Percentage allocated to stocks"
+    },
+    {
+      "id": "bondAllocation",
+      "label": "Bond Allocation (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Percentage allocated to bonds"
+    },
+    {
+      "id": "cashAllocation",
+      "label": "Cash Allocation (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage allocated to cash"
+    },
+    {
+      "id": "stockReturn",
+      "label": "Expected Stock Return (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected annual return from stocks"
+    },
+    {
+      "id": "bondReturn",
+      "label": "Expected Bond Return (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "businessContext": "Expected annual return from bonds"
+    },
+    {
+      "id": "cashReturn",
+      "label": "Cash Return (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Expected annual return from cash"
+    }
+  ],
+  "formulas": {
+    "stockAmount": "totalInvestment * (stockAllocation / 100)",
+    "bondAmount": "totalInvestment * (bondAllocation / 100)",
+    "cashAmount": "totalInvestment * (cashAllocation / 100)",
+    "portfolioExpectedReturn": "(stockAllocation / 100 * stockReturn) + (bondAllocation / 100 * bondReturn) + (cashAllocation / 100 * cashReturn)"
+  },
+  "outputs": {
+    "primary": "portfolioExpectedReturn",
+    "breakdown": [
+      "stockAmount",
+      "bondAmount",
+      "cashAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

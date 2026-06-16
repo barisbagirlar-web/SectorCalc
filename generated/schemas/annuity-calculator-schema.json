@@ -1,0 +1,55 @@
+{
+  "toolName": "annuity-calculator",
+  "inputs": [
+    {
+      "id": "payment",
+      "label": "Payment per Period",
+      "type": "number",
+      "unit": "$",
+      "default": 1000,
+      "businessContext": "The amount paid each period (end of period)."
+    },
+    {
+      "id": "annualRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual nominal interest rate in percent."
+    },
+    {
+      "id": "years",
+      "label": "Number of Years",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Total number of years."
+    },
+    {
+      "id": "compounding",
+      "label": "Compounding Periods per Year",
+      "type": "number",
+      "unit": "times/year",
+      "default": 12,
+      "businessContext": "Number of times interest compounds per year (e.g., 12 for monthly)."
+    }
+  ],
+  "formulas": {
+    "presentValue": "payment * ((1 - (1 + (annualRate/100/compounding)) ** -(years*compounding)) / (annualRate/100/compounding))",
+    "futureValue": "payment * (((1 + (annualRate/100/compounding)) ** (years*compounding) - 1) / (annualRate/100/compounding))",
+    "totalPayments": "payment * years * compounding"
+  },
+  "outputs": {
+    "primary": "presentValue",
+    "breakdown": [
+      "futureValue",
+      "totalPayments"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

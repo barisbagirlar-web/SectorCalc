@@ -1,0 +1,77 @@
+{
+  "toolName": "body-fat-set-point-calculator",
+  "inputs": [
+    {
+      "id": "currentBodyFat",
+      "label": "Current Body Fat (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Mevcut vücut yağ yüzdesi (kaliper, DXA veya biyoempedans ile ölçülmüş)."
+    },
+    {
+      "id": "desiredBodyFat",
+      "label": "Desired Body Fat (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Hedef vücut yağ yüzdesi."
+    },
+    {
+      "id": "currentWeight",
+      "label": "Current Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Güncel vücut ağırlığı (kg)."
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Boy uzunluğu (cm)."
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Yaş (yıl). Metabolik değişikliklerin hesaba katılması için."
+    },
+    {
+      "id": "activityLevel",
+      "label": "Activity Level",
+      "type": "number",
+      "unit": "factor",
+      "default": 1.55,
+      "businessContext": "Fiziksel aktivite çarpanı (1.2 sedanter, 1.375 hafif, 1.55 orta, 1.725 çok aktif, 1.9 ağır antrenman)."
+    }
+  ],
+  "formulas": {
+    "leanBodyMass": "currentWeight * (1 - currentBodyFat / 100)",
+    "idealWeight": "22 * Math.pow(height / 100, 2)",
+    "adjustmentFactor": "0.14 * (1 + (currentWeight - idealWeight) / idealWeight) * (1 - (age - 30) * 0.005)",
+    "bmr": "370 + 21.6 * leanBodyMass",
+    "tdee": "bmr * activityLevel",
+    "bodyFatSetPoint": "currentBodyFat + (desiredBodyFat - currentBodyFat) * adjustmentFactor"
+  },
+  "outputs": {
+    "primary": "bodyFatSetPoint",
+    "breakdown": [
+      "leanBodyMass",
+      "idealWeight",
+      "adjustmentFactor",
+      "bmr",
+      "tdee"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,85 @@
+{
+  "toolName": "dpi-to-ppi-calculator",
+  "inputs": [
+    {
+      "id": "dpi",
+      "label": "Original Image DPI",
+      "type": "number",
+      "unit": "DPI",
+      "default": 300,
+      "businessContext": "Dots per inch of the original image, defining pixel density"
+    },
+    {
+      "id": "originalWidth",
+      "label": "Original Width",
+      "type": "number",
+      "unit": "inches",
+      "default": 8.5,
+      "businessContext": "Physical width of the original image"
+    },
+    {
+      "id": "originalHeight",
+      "label": "Original Height",
+      "type": "number",
+      "unit": "inches",
+      "default": 11,
+      "businessContext": "Physical height of the original image"
+    },
+    {
+      "id": "displayWidth",
+      "label": "Display Width",
+      "type": "number",
+      "unit": "inches",
+      "default": 5,
+      "businessContext": "Desired physical width for display"
+    },
+    {
+      "id": "displayHeight",
+      "label": "Display Height",
+      "type": "number",
+      "unit": "inches",
+      "default": 7,
+      "businessContext": "Desired physical height for display"
+    }
+  ],
+  "formulas": {
+    "fittedPPI": "dpi / Math.min(displayWidth / originalWidth, displayHeight / originalHeight)",
+    "horizontalPPI": "(dpi * originalWidth) / displayWidth",
+    "verticalPPI": "(dpi * originalHeight) / displayHeight",
+    "aspectRatioDelta": "Math.abs(originalWidth / originalHeight - displayWidth / displayHeight)"
+  },
+  "outputs": {
+    "primary": {
+      "id": "fittedPPI",
+      "label": "Effective PPI (Fitted)",
+      "unit": "PPI",
+      "businessContext": "PPI when image is fitted to display while maintaining aspect ratio"
+    },
+    "breakdown": [
+      {
+        "id": "horizontalPPI",
+        "label": "Horizontal PPI",
+        "unit": "PPI",
+        "businessContext": "PPI if width is stretched to fill display width exactly"
+      },
+      {
+        "id": "verticalPPI",
+        "label": "Vertical PPI",
+        "unit": "PPI",
+        "businessContext": "PPI if height is stretched to fill display height exactly"
+      },
+      {
+        "id": "aspectRatioDelta",
+        "label": "Aspect Ratio Difference",
+        "unit": "",
+        "businessContext": "Absolute difference between original and display aspect ratios"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "transition-time-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Travel Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 1.5,
+      "businessContext": "Total linear distance to be covered during the transition"
+    },
+    {
+      "id": "acceleration",
+      "label": "Acceleration Capability",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 2.5,
+      "businessContext": "Maximum acceleration the system can achieve"
+    },
+    {
+      "id": "maxVelocity",
+      "label": "Max Velocity Limit",
+      "type": "number",
+      "unit": "m/s",
+      "default": 3,
+      "businessContext": "Maximum velocity the system can sustain"
+    },
+    {
+      "id": "preDelay",
+      "label": "Pre-Motion Delay",
+      "type": "number",
+      "unit": "s",
+      "default": 0.1,
+      "businessContext": "Delay before motion starts (e.g., signal processing, grip activation)"
+    },
+    {
+      "id": "postSettling",
+      "label": "Post-Motion Settling Time",
+      "type": "number",
+      "unit": "s",
+      "default": 0.2,
+      "businessContext": "Time required after reaching position for stabilization (vibration, settling)"
+    }
+  ],
+  "formulas": {
+    "transitionTime": "preDelay + (distance < (maxVelocity**2 / acceleration) ? 2 * Math.sqrt(distance / acceleration) : (distance / maxVelocity + maxVelocity / acceleration)) + postSettling",
+    "preDelayTime": "preDelay",
+    "motionTime": "distance < (maxVelocity**2 / acceleration) ? 2 * Math.sqrt(distance / acceleration) : (distance / maxVelocity + maxVelocity / acceleration)",
+    "postSettlingTime": "postSettling"
+  },
+  "outputs": {
+    "primary": "transitionTime",
+    "breakdown": [
+      "preDelayTime",
+      "motionTime",
+      "postSettlingTime"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

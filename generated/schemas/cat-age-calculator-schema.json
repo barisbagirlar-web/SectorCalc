@@ -1,0 +1,67 @@
+{
+  "toolName": "cat-age-calculator",
+  "inputs": [
+    {
+      "id": "cat_years",
+      "label": "Cat Age (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 1,
+      "businessContext": "The whole number of years the cat has lived. Minimum 0."
+    },
+    {
+      "id": "cat_months",
+      "label": "Cat Age (Additional Months)",
+      "type": "number",
+      "unit": "months",
+      "default": 0,
+      "businessContext": "Additional months beyond whole years, from 0 to 11. For cats under 1 year, use years=0 and enter months here."
+    },
+    {
+      "id": "lifestyle_factor",
+      "label": "Lifestyle Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Adjustment for indoor/outdoor lifestyle: Indoor only = 1.0, Outdoor access = 0.9, Feral = 0.8. Lower factor means slower aging in human years."
+    },
+    {
+      "id": "diet_factor",
+      "label": "Diet Quality Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Adjustment for diet quality: Premium diet = 0.95, Normal diet = 1.0, Poor diet = 1.1. Higher factor means faster aging."
+    },
+    {
+      "id": "neuter_factor",
+      "label": "Neutered/Spayed Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Adjustment if neutered/spayed: Yes = 1.0, No = 1.05. Intact cats may age slightly faster due to stress."
+    }
+  ],
+  "formulas": {
+    "total_months": "cat_years * 12 + cat_months",
+    "base_human_age": "total_months <= 12 ? 15 * (total_months / 12) : total_months <= 24 ? 15 + 9 * (total_months / 12 - 1) : 24 + 4 * (total_months / 12 - 2)",
+    "adjusted_human_age": "base_human_age * lifestyle_factor * diet_factor * neuter_factor"
+  },
+  "outputs": {
+    "primary": "adjusted_human_age",
+    "breakdown": [
+      "Total months: total_months",
+      "Base human age (before adjustments): base_human_age",
+      "Applied lifestyle factor: lifestyle_factor",
+      "Applied diet factor: diet_factor",
+      "Applied neuter factor: neuter_factor",
+      "Final adjusted human age: adjusted_human_age"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

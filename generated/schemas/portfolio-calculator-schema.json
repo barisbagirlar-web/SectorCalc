@@ -1,0 +1,55 @@
+{
+  "toolName": "portfolio-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "The initial lump sum investment amount."
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Monthly Contribution",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "businessContext": "The amount added to the portfolio each month."
+    },
+    {
+      "id": "annualReturnRate",
+      "label": "Annual Return Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected average annual return rate of the portfolio."
+    },
+    {
+      "id": "years",
+      "label": "Investment Horizon",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Total number of years the investment will grow."
+    }
+  ],
+  "formulas": {
+    "futureValue": "initialInvestment * Math.pow(1 + annualReturnRate/12/100, years*12) + monthlyContribution * ((Math.pow(1 + annualReturnRate/12/100, years*12) - 1) / (annualReturnRate/12/100))",
+    "totalContributions": "initialInvestment + monthlyContribution * years * 12",
+    "totalInterest": "futureValue - totalContributions"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": [
+      "totalContributions",
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

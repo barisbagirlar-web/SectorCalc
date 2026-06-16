@@ -1,0 +1,62 @@
+{
+  "toolName": "inheritance-tax-calculator",
+  "inputs": [
+    {
+      "id": "estateValue",
+      "label": "Estate Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Total market value of all assets in the estate"
+    },
+    {
+      "id": "funeralExpenses",
+      "label": "Funeral Expenses",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Funeral and burial expenses deductible from the estate"
+    },
+    {
+      "id": "debts",
+      "label": "Debts and Liabilities",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Outstanding debts and liabilities of the deceased"
+    },
+    {
+      "id": "taxAllowance",
+      "label": "Tax-Free Allowance",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Tax-free threshold or nil-rate band"
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Effective inheritance tax rate in percentage"
+    }
+  ],
+  "formulas": {
+    "taxableEstate": "Math.max(0, estateValue - funeralExpenses - debts - taxAllowance)",
+    "inheritanceTax": "taxableEstate * (taxRate / 100)"
+  },
+  "outputs": {
+    "primary": "inheritanceTax",
+    "breakdown": [
+      "taxableEstate",
+      "inheritanceTax"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "preterm-birth-risk-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Maternal Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the mother in years"
+    },
+    {
+      "id": "cervicalLength",
+      "label": "Cervical Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 35,
+      "businessContext": "Cervical length measured by transvaginal ultrasound"
+    },
+    {
+      "id": "fetalFibronectin",
+      "label": "Fetal Fibronectin",
+      "type": "number",
+      "unit": "ng/mL",
+      "default": 20,
+      "businessContext": "Concentration of fetal fibronectin in cervicovaginal fluid"
+    },
+    {
+      "id": "previousPreterm",
+      "label": "Previous Preterm Birth",
+      "type": "number",
+      "unit": "0=No, 1=Yes",
+      "default": 0,
+      "businessContext": "History of previous spontaneous preterm birth"
+    }
+  ],
+  "formulas": {
+    "linearCombo": "-3 + 0.1*age - 0.1*cervicalLength + 0.01*fetalFibronectin + 1.5*previousPreterm",
+    "riskProbability": "1 / (1 + Math.exp(-linearCombo))",
+    "riskPercent": "riskProbability * 100"
+  },
+  "outputs": {
+    "primary": "riskPercent",
+    "breakdown": [
+      "linearCombo",
+      "riskProbability"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

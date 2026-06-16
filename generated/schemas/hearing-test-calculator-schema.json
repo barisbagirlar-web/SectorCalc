@@ -1,0 +1,53 @@
+{
+  "toolName": "hearing-test-calculator",
+  "inputs": [
+    {
+      "id": "threshold500",
+      "label": "Threshold at 500 Hz",
+      "type": "number",
+      "unit": "dB HL",
+      "default": 0,
+      "businessContext": "Hearing threshold level in decibels Hearing Level (dB HL) at 500 Hz frequency."
+    },
+    {
+      "id": "threshold1000",
+      "label": "Threshold at 1000 Hz",
+      "type": "number",
+      "unit": "dB HL",
+      "default": 0,
+      "businessContext": "Hearing threshold level in dB HL at 1000 Hz frequency."
+    },
+    {
+      "id": "threshold2000",
+      "label": "Threshold at 2000 Hz",
+      "type": "number",
+      "unit": "dB HL",
+      "default": 0,
+      "businessContext": "Hearing threshold level in dB HL at 2000 Hz frequency."
+    },
+    {
+      "id": "threshold4000",
+      "label": "Threshold at 4000 Hz",
+      "type": "number",
+      "unit": "dB HL",
+      "default": 0,
+      "businessContext": "Hearing threshold level in dB HL at 4000 Hz frequency."
+    }
+  ],
+  "formulas": {
+    "pureToneAverage": "(threshold500 + threshold1000 + threshold2000 + threshold4000) / 4"
+  },
+  "outputs": {
+    "primary": "pureToneAverage",
+    "breakdown": [
+      "Pure Tone Average (PTA) is the arithmetic mean of hearing thresholds at 500, 1000, 2000, and 4000 Hz.",
+      "PTA is commonly used to classify the degree of hearing loss according to WHO or ASHA guidelines."
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

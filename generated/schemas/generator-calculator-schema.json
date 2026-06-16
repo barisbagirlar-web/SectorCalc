@@ -1,0 +1,73 @@
+{
+  "toolName": "generator-calculator",
+  "inputs": [
+    {
+      "id": "powerRating",
+      "label": "Generator Rated Power",
+      "type": "number",
+      "unit": "kW",
+      "default": 100,
+      "businessContext": "Maximum continuous electrical power output of the generator as specified by the manufacturer."
+    },
+    {
+      "id": "loadFactor",
+      "label": "Load Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 75,
+      "businessContext": "Average percentage of rated power at which the generator operates during the period."
+    },
+    {
+      "id": "operatingHours",
+      "label": "Operating Hours per Day",
+      "type": "number",
+      "unit": "h",
+      "default": 8,
+      "businessContext": "Number of hours the generator is expected to run per day."
+    },
+    {
+      "id": "fuelConsumptionRate",
+      "label": "Fuel Consumption Rate",
+      "type": "number",
+      "unit": "L/kWh",
+      "default": 0.3,
+      "businessContext": "Volume of fuel consumed per kilowatt-hour of electrical energy generated, at the given load factor."
+    },
+    {
+      "id": "fuelDensity",
+      "label": "Fuel Density",
+      "type": "number",
+      "unit": "kg/L",
+      "default": 0.85,
+      "businessContext": "Mass density of the fuel (e.g., diesel ~0.85 kg/L)."
+    },
+    {
+      "id": "generatorEfficiency",
+      "label": "Generator Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Efficiency of the generator in converting mechanical input to electrical output."
+    }
+  ],
+  "formulas": {
+    "actualPower": "powerRating * (loadFactor / 100) * (generatorEfficiency / 100)",
+    "dailyEnergy": "actualPower * operatingHours",
+    "fuelVolume": "dailyEnergy * fuelConsumptionRate",
+    "fuelMass": "fuelVolume * fuelDensity",
+    "co2Emissions": "fuelMass * 3.15"
+  },
+  "outputs": {
+    "primary": "fuelVolume",
+    "breakdown": [
+      "dailyEnergy",
+      "co2Emissions"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

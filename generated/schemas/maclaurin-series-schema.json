@@ -1,0 +1,55 @@
+{
+  "toolName": "maclaurin-series",
+  "inputs": [
+    {
+      "id": "function",
+      "label": "Function f(x)",
+      "type": "string",
+      "unit": "",
+      "default": "sin(x)",
+      "businessContext": "Mathematical function to expand"
+    },
+    {
+      "id": "center",
+      "label": "Center a",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Expansion point (Maclaurin if a=0)"
+    },
+    {
+      "id": "x_value",
+      "label": "Evaluation point x",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Point at which series is evaluated"
+    },
+    {
+      "id": "terms",
+      "label": "Number of terms n",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Number of terms in the series"
+    }
+  ],
+  "formulas": {
+    "approximation": "let sum = 0; for(let k=0; k<terms; k++) { let coeff = (k%2===0 ? 1 : -1) / factorial(2*k+1); sum += coeff * Math.pow(x_value, 2*k+1); } sum",
+    "exact": "Math.sin(x_value)",
+    "error": "Math.abs(approximation - exact)"
+  },
+  "outputs": {
+    "primary": "approximation",
+    "breakdown": [
+      "exact",
+      "error"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

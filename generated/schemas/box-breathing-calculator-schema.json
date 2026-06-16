@@ -1,0 +1,63 @@
+{
+  "toolName": "box-breathing-calculator",
+  "inputs": [
+    {
+      "id": "inhaleTime",
+      "label": "Inhale Duration",
+      "type": "number",
+      "unit": "seconds",
+      "default": 4,
+      "businessContext": "Duration of inhale phase per cycle."
+    },
+    {
+      "id": "holdTime1",
+      "label": "Hold After Inhale",
+      "type": "number",
+      "unit": "seconds",
+      "default": 4,
+      "businessContext": "Duration of holding breath after inhale."
+    },
+    {
+      "id": "exhaleTime",
+      "label": "Exhale Duration",
+      "type": "number",
+      "unit": "seconds",
+      "default": 4,
+      "businessContext": "Duration of exhale phase per cycle."
+    },
+    {
+      "id": "holdTime2",
+      "label": "Hold After Exhale",
+      "type": "number",
+      "unit": "seconds",
+      "default": 4,
+      "businessContext": "Duration of holding breath after exhale."
+    },
+    {
+      "id": "numCycles",
+      "label": "Number of Cycles",
+      "type": "number",
+      "unit": "cycles",
+      "default": 10,
+      "businessContext": "Number of complete box breathing cycles to perform."
+    }
+  ],
+  "formulas": {
+    "cycleDuration": "inhaleTime + holdTime1 + exhaleTime + holdTime2",
+    "totalDuration": "cycleDuration * numCycles",
+    "breathsPerMinute": "60 / cycleDuration"
+  },
+  "outputs": {
+    "primary": "totalDuration",
+    "breakdown": [
+      "cycleDuration",
+      "breathsPerMinute"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

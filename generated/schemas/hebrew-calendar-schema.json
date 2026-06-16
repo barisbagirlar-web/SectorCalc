@@ -1,0 +1,75 @@
+{
+  "toolName": "hebrew-calendar",
+  "inputs": [
+    {
+      "id": "gregorianYear",
+      "label": "Gregorian Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2025,
+      "businessContext": "The Gregorian calendar year for which the Hebrew calendar year is calculated."
+    },
+    {
+      "id": "gregorianMonth",
+      "label": "Gregorian Month",
+      "type": "number",
+      "unit": "month",
+      "default": 1,
+      "businessContext": "The Gregorian month (1-12) for conversion."
+    },
+    {
+      "id": "gregorianDay",
+      "label": "Gregorian Day",
+      "type": "number",
+      "unit": "day",
+      "default": 1,
+      "businessContext": "The Gregorian day of the month."
+    },
+    {
+      "id": "hebrewYear",
+      "label": "Hebrew Year",
+      "type": "number",
+      "unit": "year",
+      "default": 5785,
+      "businessContext": "The Hebrew calendar year for conversion to Gregorian."
+    },
+    {
+      "id": "hebrewMonth",
+      "label": "Hebrew Month",
+      "type": "number",
+      "unit": "month",
+      "default": 1,
+      "businessContext": "The Hebrew month (1=Tishrei, 2=Cheshvan, etc.)"
+    },
+    {
+      "id": "hebrewDay",
+      "label": "Hebrew Day",
+      "type": "number",
+      "unit": "day",
+      "default": 1,
+      "businessContext": "The Hebrew day of the month."
+    }
+  ],
+  "formulas": {
+    "hebrewYearFromGregorian": "Math.floor((3761 + gregorianYear) + (gregorianMonth > 9 ? 1 : 0))",
+    "gregorianYearFromHebrew": "hebrewYear - 3761",
+    "daysInHebrewYear": "hebrewYear % 19 < 7 ? 354 : 384",
+    "isLeapYear": "hebrewYear % 19 === 0 || hebrewYear % 19 === 3 || hebrewYear % 19 === 6 || hebrewYear % 19 === 8 || hebrewYear % 19 === 11 || hebrewYear % 19 === 14 || hebrewYear % 19 === 17 ? 1 : 0",
+    "monthName": "['Tishrei','Cheshvan','Kislev','Tevet','Shevat','Adar','Nisan','Iyar','Sivan','Tammuz','Av','Elul'][hebrewMonth-1] || 'Invalid'"
+  },
+  "outputs": {
+    "primary": "Hebrew year: {hebrewYearFromGregorian}",
+    "breakdown": [
+      "Gregorian year from Hebrew: {gregorianYearFromHebrew}",
+      "Days in Hebrew year: {daysInHebrewYear}",
+      "Leap year: {isLeapYear}",
+      "Month name: {monthName}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

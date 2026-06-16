@@ -1,0 +1,57 @@
+{
+  "toolName": "abc-classification-calculator",
+  "inputs": [
+    {
+      "id": "annualDemand",
+      "label": "Annual Demand",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "The number of units consumed annually for this item."
+    },
+    {
+      "id": "unitCost",
+      "label": "Unit Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "The cost per unit of the item."
+    },
+    {
+      "id": "totalAnnualValue",
+      "label": "Total Annual Usage Value of All Items",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Sum of annual usage values of all items in inventory."
+    },
+    {
+      "id": "cumulativeBefore",
+      "label": "Cumulative Percentage Before This Item",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "The cumulative percentage of total annual usage value accounted for by items ranked before this one (should be 0 for first item)."
+    }
+  ],
+  "formulas": {
+    "annualValue": "annualDemand * unitCost",
+    "percentage": "totalAnnualValue !== 0 ? (annualValue / totalAnnualValue) * 100 : 0",
+    "cumulativeAfter": "cumulativeBefore + percentage",
+    "classification": "cumulativeAfter <= 80 ? 'A' : cumulativeAfter <= 95 ? 'B' : 'C'"
+  },
+  "outputs": {
+    "primary": "classification",
+    "breakdown": [
+      "annualValue",
+      "percentage",
+      "cumulativeAfter"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

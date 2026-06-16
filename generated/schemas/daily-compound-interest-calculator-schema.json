@@ -1,0 +1,55 @@
+{
+  "toolName": "daily-compound-interest-calculator",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Principal Amount",
+      "type": "number",
+      "unit": "EUR",
+      "default": 1000,
+      "businessContext": "Initial investment or loan amount."
+    },
+    {
+      "id": "annualRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Nominal annual interest rate."
+    },
+    {
+      "id": "timeInDays",
+      "label": "Time Period",
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "businessContext": "Total number of days the money is invested or borrowed for."
+    },
+    {
+      "id": "daysInYear",
+      "label": "Days in Year",
+      "type": "number",
+      "unit": "days/year",
+      "default": 365,
+      "businessContext": "Day count convention: 365 for standard, 360 for some financial markets."
+    }
+  ],
+  "formulas": {
+    "futureValue": "principal * (1 + annualRate / 100 / daysInYear) ** timeInDays",
+    "totalInterest": "futureValue - principal",
+    "effectiveAnnualRate": "((1 + annualRate / 100 / daysInYear) ** daysInYear - 1) * 100"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": [
+      "totalInterest",
+      "effectiveAnnualRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "tolerance-calculator",
+  "inputs": [
+    {
+      "id": "basicSize",
+      "label": "Temel Ölçü",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Nominal çap veya boyut (mm)"
+    },
+    {
+      "id": "holeUpperDev",
+      "label": "Delik Üst Sapma",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.025,
+      "businessContext": "Delik için üst sapma değeri (mm)"
+    },
+    {
+      "id": "holeLowerDev",
+      "label": "Delik Alt Sapma",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Delik için alt sapma değeri (mm)"
+    },
+    {
+      "id": "shaftUpperDev",
+      "label": "Mil Üst Sapma",
+      "type": "number",
+      "unit": "mm",
+      "default": -0.009,
+      "businessContext": "Mil için üst sapma değeri (mm)"
+    },
+    {
+      "id": "shaftLowerDev",
+      "label": "Mil Alt Sapma",
+      "type": "number",
+      "unit": "mm",
+      "default": -0.025,
+      "businessContext": "Mil için alt sapma değeri (mm)"
+    }
+  ],
+  "formulas": {
+    "maxClearance": "(basicSize + holeUpperDev) - (basicSize + shaftLowerDev)",
+    "minClearance": "(basicSize + holeLowerDev) - (basicSize + shaftUpperDev)",
+    "holeTolerance": "holeUpperDev - holeLowerDev",
+    "shaftTolerance": "shaftUpperDev - shaftLowerDev"
+  },
+  "outputs": {
+    "primary": "maxClearance",
+    "breakdown": [
+      "minClearance",
+      "holeTolerance",
+      "shaftTolerance"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

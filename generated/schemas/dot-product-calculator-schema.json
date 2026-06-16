@@ -1,0 +1,73 @@
+{
+  "toolName": "dot-product-calculator",
+  "inputs": [
+    {
+      "id": "a_x",
+      "label": "A x-component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "X component of vector A"
+    },
+    {
+      "id": "a_y",
+      "label": "A y-component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Y component of vector A"
+    },
+    {
+      "id": "a_z",
+      "label": "A z-component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Z component of vector A"
+    },
+    {
+      "id": "b_x",
+      "label": "B x-component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "X component of vector B"
+    },
+    {
+      "id": "b_y",
+      "label": "B y-component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Y component of vector B"
+    },
+    {
+      "id": "b_z",
+      "label": "B z-component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Z component of vector B"
+    }
+  ],
+  "formulas": {
+    "dotProduct": "a_x * b_x + a_y * b_y + a_z * b_z",
+    "product_x": "a_x * b_x",
+    "product_y": "a_y * b_y",
+    "product_z": "a_z * b_z"
+  },
+  "outputs": {
+    "primary": "dotProduct",
+    "breakdown": [
+      "product_x",
+      "product_y",
+      "product_z"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

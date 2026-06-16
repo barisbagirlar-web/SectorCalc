@@ -1,0 +1,55 @@
+{
+  "toolName": "semi-annual-compound-interest-calculator",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Principal Amount",
+      "type": "number",
+      "unit": "TL",
+      "default": 10000,
+      "businessContext": "Initial lump sum invested"
+    },
+    {
+      "id": "annualRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Nominal annual interest rate"
+    },
+    {
+      "id": "years",
+      "label": "Number of Years",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Investment duration in years"
+    },
+    {
+      "id": "compoundingPeriods",
+      "label": "Compounding Periods per Year",
+      "type": "number",
+      "unit": "periods/year",
+      "default": 2,
+      "businessContext": "For semi-annual compounding, set to 2"
+    }
+  ],
+  "formulas": {
+    "futureValue": "principal * (1 + (annualRate/100) / compoundingPeriods) ** (compoundingPeriods * years)",
+    "totalInterest": "futureValue - principal",
+    "effectiveAnnualRate": "((1 + (annualRate/100) / compoundingPeriods) ** compoundingPeriods - 1) * 100"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": [
+      "totalInterest",
+      "effectiveAnnualRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

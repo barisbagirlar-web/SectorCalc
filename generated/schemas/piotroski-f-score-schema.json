@@ -1,0 +1,129 @@
+{
+  "toolName": "piotroski-f-score",
+  "inputs": [
+    {
+      "id": "netIncome",
+      "label": "Net Income (Current Year)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Net income for the current fiscal year"
+    },
+    {
+      "id": "netIncomePrev",
+      "label": "Net Income (Previous Year)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Net income for the previous fiscal year"
+    },
+    {
+      "id": "operatingCashFlow",
+      "label": "Operating Cash Flow (Current Year)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Cash flow from operations for the current year"
+    },
+    {
+      "id": "totalAssets",
+      "label": "Total Assets (Current Year)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Total assets at end of current year"
+    },
+    {
+      "id": "totalAssetsPrev",
+      "label": "Total Assets (Previous Year)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Total assets at end of previous year"
+    },
+    {
+      "id": "longTermDebt",
+      "label": "Long-Term Debt (Current Year)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Long-term debt at end of current year"
+    },
+    {
+      "id": "longTermDebtPrev",
+      "label": "Long-Term Debt (Previous Year)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Long-term debt at end of previous year"
+    },
+    {
+      "id": "grossMargin",
+      "label": "Gross Margin (Current Year)",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0,
+      "businessContext": "Gross profit / Revenue for current year"
+    },
+    {
+      "id": "grossMarginPrev",
+      "label": "Gross Margin (Previous Year)",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0,
+      "businessContext": "Gross profit / Revenue for previous year"
+    },
+    {
+      "id": "assetTurnover",
+      "label": "Asset Turnover (Current Year)",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0,
+      "businessContext": "Revenue / Total Assets for current year"
+    },
+    {
+      "id": "assetTurnoverPrev",
+      "label": "Asset Turnover (Previous Year)",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0,
+      "businessContext": "Revenue / Total Assets for previous year"
+    },
+    {
+      "id": "sharesOutstanding",
+      "label": "Shares Outstanding (Current Year)",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Number of shares outstanding at end of current year"
+    },
+    {
+      "id": "sharesOutstandingPrev",
+      "label": "Shares Outstanding (Previous Year)",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Number of shares outstanding at end of previous year"
+    }
+  ],
+  "formulas": {
+    "profitabilityScore": "((netIncome > 0) ? 1 : 0) + ((operatingCashFlow > 0) ? 1 : 0) + ((netIncome > netIncomePrev) ? 1 : 0) + ((operatingCashFlow > netIncome) ? 1 : 0)",
+    "leverageScore": "((longTermDebt < longTermDebtPrev) ? 1 : 0) + ((totalAssets > totalAssetsPrev) ? 1 : 0)",
+    "operatingEfficiencyScore": "((grossMargin > grossMarginPrev) ? 1 : 0) + ((assetTurnover > assetTurnoverPrev) ? 1 : 0)",
+    "totalScore": "profitabilityScore + leverageScore + operatingEfficiencyScore"
+  },
+  "outputs": {
+    "primary": "totalScore",
+    "breakdown": [
+      "profitabilityScore",
+      "leverageScore",
+      "operatingEfficiencyScore"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

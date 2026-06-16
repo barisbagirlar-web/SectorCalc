@@ -1,0 +1,65 @@
+{
+  "toolName": "nominal-interest-rate-calculator",
+  "inputs": [
+    {
+      "id": "realRate",
+      "label": "Real Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "The real interest rate adjusted for inflation."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "The expected inflation rate."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate on Interest Income",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "The tax rate applied to interest income."
+    },
+    {
+      "id": "feePercentage",
+      "label": "Annual Fee Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "businessContext": "Annual fee as a percentage of the principal."
+    }
+  ],
+  "formulas": {
+    "realDecimal": "realRate / 100",
+    "inflDecimal": "inflationRate / 100",
+    "taxDecimal": "taxRate / 100",
+    "feeDecimal": "feePercentage / 100",
+    "nominalDecimal": "(1 + realDecimal) * (1 + inflDecimal) - 1",
+    "nominalRatePercent": "nominalDecimal * 100",
+    "afterTaxDecimal": "nominalDecimal * (1 - taxDecimal)",
+    "afterTaxRatePercent": "afterTaxDecimal * 100",
+    "afterFeesDecimal": "afterTaxDecimal - feeDecimal",
+    "afterFeesRatePercent": "afterFeesDecimal * 100"
+  },
+  "outputs": {
+    "primary": "Nominal Interest Rate (%)",
+    "breakdown": [
+      "Real Rate (decimal)",
+      "Inflation Rate (decimal)",
+      "Nominal Rate (decimal)",
+      "After-Tax Nominal Rate (%)",
+      "After-Fees Nominal Rate (%)"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

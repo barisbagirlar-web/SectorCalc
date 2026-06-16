@@ -1,0 +1,75 @@
+{
+  "toolName": "epidural-calculator",
+  "inputs": [
+    {
+      "id": "patientWeight",
+      "label": "Patient Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Weight of the patient in kilograms"
+    },
+    {
+      "id": "drugConcentration",
+      "label": "Drug Concentration",
+      "type": "number",
+      "unit": "%",
+      "default": 1.5,
+      "businessContext": "Concentration of anesthetic agent in percentage (g/100mL)"
+    },
+    {
+      "id": "desiredDose",
+      "label": "Desired Dose Rate",
+      "type": "number",
+      "unit": "mg/kg",
+      "default": 3,
+      "businessContext": "Desired dose of anesthetic per kilogram of body weight"
+    },
+    {
+      "id": "maxDoseLimit",
+      "label": "Max Safe Dose Limit",
+      "type": "number",
+      "unit": "mg/kg",
+      "default": 4,
+      "businessContext": "Maximum safe dose of the anesthetic without epinephrine (e.g., 4 mg/kg for lidocaine)"
+    },
+    {
+      "id": "epinephrineAdded",
+      "label": "Epinephrine Added",
+      "type": "number",
+      "unit": "boolean (0=no, 1=yes)",
+      "default": 0,
+      "businessContext": "Indicates whether epinephrine is added (1) or not (0). Increases max safe dose by 75%."
+    },
+    {
+      "id": "volumeOnHand",
+      "label": "Volume On Hand",
+      "type": "number",
+      "unit": "mL",
+      "default": 20,
+      "businessContext": "Total volume of anesthetic solution available in the vial"
+    }
+  ],
+  "formulas": {
+    "totalDoseRequired": "desiredDose * patientWeight",
+    "volumeToInject": "(desiredDose * patientWeight) / (drugConcentration * 10)",
+    "maxDoseAdjusted": "maxDoseLimit * (1 + 0.75 * epinephrineAdded)",
+    "maxSafeDoseCheck": "desiredDose * patientWeight <= maxDoseLimit * (1 + 0.75 * epinephrineAdded) ? 1 : 0",
+    "remainingVolume": "volumeOnHand - (desiredDose * patientWeight) / (drugConcentration * 10)"
+  },
+  "outputs": {
+    "primary": "volumeToInject",
+    "breakdown": [
+      "totalDoseRequired",
+      "maxSafeDoseCheck",
+      "maxDoseAdjusted",
+      "remainingVolume"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

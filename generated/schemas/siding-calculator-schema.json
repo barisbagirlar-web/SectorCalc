@@ -1,0 +1,93 @@
+{
+  "toolName": "siding-calculator",
+  "inputs": [
+    {
+      "id": "wallLength",
+      "label": "Total Wall Length",
+      "type": "number",
+      "unit": "m",
+      "default": 20,
+      "businessContext": "Total perimeter length of all walls to be sided."
+    },
+    {
+      "id": "wallHeight",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Height of the walls from base to eaves."
+    },
+    {
+      "id": "windowCount",
+      "label": "Number of Windows",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Total count of window openings."
+    },
+    {
+      "id": "windowArea",
+      "label": "Area per Window",
+      "type": "number",
+      "unit": "m²",
+      "default": 1.5,
+      "businessContext": "Average area of a single window opening."
+    },
+    {
+      "id": "doorCount",
+      "label": "Number of Doors",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Total count of door openings."
+    },
+    {
+      "id": "doorArea",
+      "label": "Area per Door",
+      "type": "number",
+      "unit": "m²",
+      "default": 2,
+      "businessContext": "Average area of a single door opening."
+    },
+    {
+      "id": "sidingCoverage",
+      "label": "Siding Panel Coverage",
+      "type": "number",
+      "unit": "m² per panel",
+      "default": 1,
+      "businessContext": "Surface area covered by one siding panel."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.1,
+      "businessContext": "Extra material to account for cuts and waste (e.g., 0.1 for 10%)."
+    }
+  ],
+  "formulas": {
+    "totalWallArea": "wallLength * wallHeight",
+    "windowOpeningsArea": "windowCount * windowArea",
+    "doorOpeningsArea": "doorCount * doorArea",
+    "netWallArea": "totalWallArea - (windowOpeningsArea + doorOpeningsArea)",
+    "panelsWithoutWaste": "netWallArea / sidingCoverage",
+    "wastePanels": "panelsWithoutWaste * wasteFactor",
+    "panelsNeeded": "panelsWithoutWaste + wastePanels"
+  },
+  "outputs": {
+    "primary": "panelsNeeded",
+    "breakdown": [
+      "totalWallArea",
+      "netWallArea",
+      "panelsWithoutWaste",
+      "wastePanels"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

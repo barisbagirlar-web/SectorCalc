@@ -1,0 +1,61 @@
+{
+  "toolName": "spearman-correlation-calculator",
+  "inputs": [
+    {
+      "id": "sampleSize",
+      "label": "Sample Size (n)",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Number of paired observations"
+    },
+    {
+      "id": "sumSquaredDifferences",
+      "label": "Sum of Squared Rank Differences (Σd²)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Sum of squared differences between paired ranks"
+    },
+    {
+      "id": "tieCorrectionX",
+      "label": "Tie Correction for X (Σ(t³-t))",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sum of (t³ - t) for each tied group in variable X"
+    },
+    {
+      "id": "tieCorrectionY",
+      "label": "Tie Correction for Y (Σ(t³-t))",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sum of (t³ - t) for each tied group in variable Y"
+    }
+  ],
+  "formulas": {
+    "n": "sampleSize",
+    "sumd2": "sumSquaredDifferences",
+    "Tx": "tieCorrectionX",
+    "Ty": "tieCorrectionY",
+    "correction": "(Tx + Ty) / 12",
+    "sixTerm": "6 * (sumd2 + correction)",
+    "denominator": "n * (Math.pow(n, 2) - 1)",
+    "spearmanCoefficient": "denominator !== 0 ? 1 - sixTerm / denominator : 0"
+  },
+  "outputs": {
+    "primary": "spearmanCoefficient",
+    "breakdown": [
+      "sixTerm",
+      "denominator",
+      "spearmanCoefficient"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "service-charge-calculator",
+  "inputs": [
+    {
+      "id": "baseAmount",
+      "label": "Bill Subtotal",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "The total bill amount before service charge and taxes."
+    },
+    {
+      "id": "serviceChargeRate",
+      "label": "Service Charge Rate",
+      "type": "number",
+      "unit": "percentage",
+      "default": 18,
+      "businessContext": "Common service charge rate, e.g., 18% for large parties."
+    },
+    {
+      "id": "minServiceCharge",
+      "label": "Minimum Service Charge",
+      "type": "number",
+      "unit": "currency",
+      "default": 5,
+      "businessContext": "A minimum service charge to be applied regardless of percentage."
+    },
+    {
+      "id": "partySize",
+      "label": "Party Size",
+      "type": "number",
+      "unit": "persons",
+      "default": 1,
+      "businessContext": "Number of people in the party; some restaurants apply service charge only for parties above a threshold."
+    },
+    {
+      "id": "partyThreshold",
+      "label": "Service Charge Threshold",
+      "type": "number",
+      "unit": "persons",
+      "default": 6,
+      "businessContext": "If party size is above this threshold, service charge is mandatory."
+    }
+  ],
+  "formulas": {
+    "serviceChargeAmount": "(inputs.partySize >= inputs.partyThreshold) ? Math.max(inputs.baseAmount * inputs.serviceChargeRate / 100, inputs.minServiceCharge) : 0",
+    "totalBill": "inputs.baseAmount + outputs.serviceChargeAmount",
+    "effectiveRate": "outputs.serviceChargeAmount / inputs.baseAmount * 100"
+  },
+  "outputs": {
+    "primary": "serviceChargeAmount",
+    "breakdown": [
+      "totalBill",
+      "effectiveRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

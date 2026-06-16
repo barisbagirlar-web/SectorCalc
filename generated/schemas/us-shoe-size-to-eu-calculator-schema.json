@@ -1,0 +1,55 @@
+{
+  "toolName": "us-shoe-size-to-eu-calculator",
+  "inputs": [
+    {
+      "id": "usSize",
+      "label": "US Shoe Size",
+      "type": "number",
+      "unit": "US size",
+      "default": 0,
+      "businessContext": "The US shoe size to convert (e.g., 5-14 for men, 5-12 for women, 1-7 for children). Set to 0 to use foot length instead."
+    },
+    {
+      "id": "footLengthCm",
+      "label": "Foot Length (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "Foot length in centimeters. Used only when US size is 0. Conversion formula: EU = 1.5 × (footLengthCm + 1.5)."
+    },
+    {
+      "id": "gender",
+      "label": "Gender/Age Group",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0: Men (EU ≈ US + 33), 1: Women (EU ≈ US + 31), 2: Children (EU ≈ US + 16). Used only when US size > 0."
+    },
+    {
+      "id": "userAdjustment",
+      "label": "User Adjustment",
+      "type": "number",
+      "unit": "EU size",
+      "default": 0,
+      "businessContext": "Optional manual adjustment to the final EU size to account for brand variation or personal fit (e.g., +0.5 for a wider fit)."
+    }
+  ],
+  "formulas": {
+    "rawEurSize": "Number(usSize) > 0 ? (Number(gender) === 0 ? Number(usSize) + 33 : Number(gender) === 1 ? Number(usSize) + 31 : Number(usSize) + 16) : (Number(footLengthCm) > 0 ? 1.5 * (Number(footLengthCm) + 1.5) : 0)",
+    "adjustment": "Number(userAdjustment)",
+    "eurSize": "Number(rawEurSize) + Number(userAdjustment)"
+  },
+  "outputs": {
+    "primary": "eurSize",
+    "breakdown": [
+      "rawEurSize",
+      "adjustment"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

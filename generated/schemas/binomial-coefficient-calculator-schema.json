@@ -1,0 +1,56 @@
+{
+  "toolName": "binomial-coefficient-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "n",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Total number of items, n >= 0"
+    },
+    {
+      "id": "k",
+      "label": "k",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of items to choose, 0 <= k <= n"
+    },
+    {
+      "id": "useSymmetry",
+      "label": "Use Symmetry",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Set to 1 to use C(n,k)=C(n,n-k) when k > n/2 for efficiency"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Number of decimal places to round the result. Default 0 for integer coefficient."
+    }
+  ],
+  "formulas": {
+    "k_eff": "(useSymmetry && k > n/2) ? n - k : k",
+    "primary": "((n,k,d) => { if (k < 0 || k > n) return 0; let r = 1; for (let i = 1; i <= k; i++) { r = r * (n - k + i) / i; } return Math.round(r * (10 ** d)) / (10 ** d); })(n, k_eff, decimalPlaces)",
+    "breakdownFormula": "`C(n,k) = n! / (k! * (n-k)!)`",
+    "breakdownResult": "`C(${n},${k}) = ${primary}`"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "breakdownFormula",
+      "breakdownResult"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

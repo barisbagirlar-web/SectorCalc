@@ -1,0 +1,49 @@
+{
+  "toolName": "relative-fat-mass-calculator",
+  "inputs": [
+    {
+      "id": "height",
+      "label": "Boy (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Kişinin boy uzunluğu santimetre cinsinden"
+    },
+    {
+      "id": "waist",
+      "label": "Bel Çevresi (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 80,
+      "businessContext": "Bel çevresi ölçümü santimetre cinsinden"
+    },
+    {
+      "id": "sex",
+      "label": "Cinsiyet (0: Erkek, 1: Kadın)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Cinsiyet göstergesi: 0 erkek, 1 kadın"
+    }
+  ],
+  "formulas": {
+    "RFM": "sex === 1 ? 76 - 20 * (height / waist) : 64 - 20 * (height / waist)",
+    "heightToWaistRatio": "height / waist",
+    "twentyTimesRatio": "20 * (height / waist)",
+    "constant": "sex === 1 ? 76 : 64"
+  },
+  "outputs": {
+    "primary": "RFM",
+    "breakdown": [
+      "heightToWaistRatio",
+      "twentyTimesRatio",
+      "constant"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

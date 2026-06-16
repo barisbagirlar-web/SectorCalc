@@ -1,0 +1,74 @@
+{
+  "toolName": "fathoms-to-meters-calculator",
+  "inputs": [
+    {
+      "id": "fathoms",
+      "label": "Fathoms",
+      "type": "number",
+      "unit": "fathoms",
+      "default": 1,
+      "businessContext": "The length value in fathoms to convert."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "m/fa",
+      "default": 1.8288,
+      "businessContext": "The exact conversion factor from fathoms to meters, as defined by international standards."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "digits",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output, based on precision requirements."
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "m",
+      "default": 0.001,
+      "businessContext": "Acceptable measurement tolerance for quality assurance."
+    },
+    {
+      "id": "measurementUncertainty",
+      "label": "Measurement Uncertainty",
+      "type": "number",
+      "unit": "%",
+      "default": 0.05,
+      "businessContext": "Relative measurement uncertainty in the input fathom value (percentage)."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "unitless",
+      "default": 1,
+      "businessContext": "Safety factor applied to the converted value for engineering design, if applicable."
+    }
+  ],
+  "formulas": {
+    "rawMeters": "fathoms * conversionFactor",
+    "converted": "rawMeters * safetyFactor",
+    "convertedRounded": "Math.round(converted * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "upperBound": "convertedRounded + tolerance",
+    "lowerBound": "convertedRounded - tolerance"
+  },
+  "outputs": {
+    "primary": "convertedRounded",
+    "breakdown": [
+      "rawMeters",
+      "upperBound",
+      "lowerBound"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

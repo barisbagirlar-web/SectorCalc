@@ -1,0 +1,56 @@
+{
+  "toolName": "game-theory-calculator",
+  "inputs": [
+    {
+      "id": "payoff11",
+      "label": "Payoff (1,1)",
+      "type": "number",
+      "unit": "utility",
+      "default": 0,
+      "businessContext": "Row player's payoff when choosing strategy 1 and column player chooses strategy 1"
+    },
+    {
+      "id": "payoff12",
+      "label": "Payoff (1,2)",
+      "type": "number",
+      "unit": "utility",
+      "default": 0,
+      "businessContext": "Row player's payoff when choosing strategy 1 and column player chooses strategy 2"
+    },
+    {
+      "id": "payoff21",
+      "label": "Payoff (2,1)",
+      "type": "number",
+      "unit": "utility",
+      "default": 0,
+      "businessContext": "Row player's payoff when choosing strategy 2 and column player chooses strategy 1"
+    },
+    {
+      "id": "payoff22",
+      "label": "Payoff (2,2)",
+      "type": "number",
+      "unit": "utility",
+      "default": 0,
+      "businessContext": "Row player's payoff when choosing strategy 2 and column player chooses strategy 2"
+    }
+  ],
+  "formulas": {
+    "denom": "payoff11 - payoff12 - payoff21 + payoff22",
+    "rowProb": "(payoff22 - payoff21) / (payoff11 - payoff12 - payoff21 + payoff22)",
+    "gameValue": "rowProb * payoff11 + (1 - rowProb) * payoff21",
+    "colProb": "(payoff22 - payoff12) / (payoff11 - payoff12 - payoff21 + payoff22)"
+  },
+  "outputs": {
+    "primary": "gameValue",
+    "breakdown": [
+      "rowProb",
+      "colProb"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

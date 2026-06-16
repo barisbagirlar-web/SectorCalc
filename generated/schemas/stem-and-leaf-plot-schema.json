@@ -1,0 +1,56 @@
+{
+  "toolName": "stem-and-leaf-plot",
+  "inputs": [
+    {
+      "id": "data",
+      "label": "Data Values (comma-separated)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Raw numerical data points for constructing the stem-and-leaf plot."
+    },
+    {
+      "id": "leafUnit",
+      "label": "Leaf Unit",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The unit of the leaf digit (e.g., 1 for ones, 0.1 for tenths)."
+    },
+    {
+      "id": "stemUnit",
+      "label": "Stem Unit",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "The unit of the stem (e.g., 10 for tens, 100 for hundreds)."
+    },
+    {
+      "id": "sortOrder",
+      "label": "Sort Order (1=ascending, -1=descending)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Order to sort the leaves within each stem."
+    }
+  ],
+  "formulas": {
+    "stem": "Math.floor(data / stemUnit)",
+    "leaf": "Math.floor((data % stemUnit) / leafUnit)",
+    "sortedLeaves": "leaves.sort((a,b) => sortOrder * (a - b))",
+    "plot": "stems.map((stem, i) => stem + ' | ' + sortedLeaves[i].join(' ')).join('\\n')"
+  },
+  "outputs": {
+    "primary": "Stem-and-Leaf Plot",
+    "breakdown": [
+      "Stems: list of unique stems",
+      "Leaves: sorted leaves per stem"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,87 @@
+{
+  "toolName": "paragraph-count-calculator",
+  "inputs": [
+    {
+      "id": "totalWords",
+      "label": "Total Words",
+      "type": "number",
+      "unit": "words",
+      "default": 1000,
+      "businessContext": "Total word count of the document"
+    },
+    {
+      "id": "wordsPerParagraph",
+      "label": "Average Words per Paragraph",
+      "type": "number",
+      "unit": "words/paragraph",
+      "default": 100,
+      "businessContext": "Average number of words in a paragraph"
+    },
+    {
+      "id": "totalCharacters",
+      "label": "Total Characters",
+      "type": "number",
+      "unit": "characters",
+      "default": 0,
+      "businessContext": "Total character count (including spaces) for verification"
+    },
+    {
+      "id": "charactersPerWord",
+      "label": "Average Characters per Word",
+      "type": "number",
+      "unit": "characters/word",
+      "default": 5,
+      "businessContext": "Average length of words used to validate word count"
+    },
+    {
+      "id": "totalPages",
+      "label": "Total Pages",
+      "type": "number",
+      "unit": "pages",
+      "default": 0,
+      "businessContext": "Number of pages if known, for alternative calculation"
+    },
+    {
+      "id": "linesPerPage",
+      "label": "Lines per Page",
+      "type": "number",
+      "unit": "lines/page",
+      "default": 25,
+      "businessContext": "Average number of lines on a page"
+    },
+    {
+      "id": "wordsPerLine",
+      "label": "Words per Line",
+      "type": "number",
+      "unit": "words/line",
+      "default": 10,
+      "businessContext": "Average words per line"
+    },
+    {
+      "id": "paragraphsPerPage",
+      "label": "Paragraphs per Page",
+      "type": "number",
+      "unit": "paragraphs/page",
+      "default": 5,
+      "businessContext": "Typical paragraphs on a page, used for page-based estimate"
+    }
+  ],
+  "formulas": {
+    "paragraphCount": "inputs.totalWords / inputs.wordsPerParagraph",
+    "alternativeParagraphCount": "(inputs.totalPages > 0 && inputs.paragraphsPerPage > 0) ? inputs.totalPages * inputs.paragraphsPerPage : 0",
+    "validatedTotalWords": "inputs.totalCharacters / inputs.charactersPerWord"
+  },
+  "outputs": {
+    "primary": "paragraphCount",
+    "breakdown": [
+      "alternativeParagraphCount",
+      "validatedTotalWords"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

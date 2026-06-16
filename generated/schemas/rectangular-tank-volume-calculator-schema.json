@@ -1,0 +1,65 @@
+{
+  "toolName": "rectangular-tank-volume-calculator",
+  "inputs": [
+    {
+      "id": "outerLength",
+      "label": "Outer Length",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "External length of the tank including wall thickness"
+    },
+    {
+      "id": "outerWidth",
+      "label": "Outer Width",
+      "type": "number",
+      "unit": "m",
+      "default": 1.5,
+      "businessContext": "External width of the tank including wall thickness"
+    },
+    {
+      "id": "outerHeight",
+      "label": "Outer Height",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "External height of the tank including top and bottom"
+    },
+    {
+      "id": "wallThickness",
+      "label": "Wall Thickness",
+      "type": "number",
+      "unit": "m",
+      "default": 0.05,
+      "businessContext": "Uniform thickness of walls, roof, and floor"
+    },
+    {
+      "id": "fillLevel",
+      "label": "Fill Level",
+      "type": "number",
+      "unit": "m",
+      "default": 0.8,
+      "businessContext": "Liquid height measured from inside bottom, must not exceed inner height"
+    }
+  ],
+  "formulas": {
+    "outerVolume": "outerLength * outerWidth * outerHeight",
+    "innerVolume": "(outerLength - 2*wallThickness) * (outerWidth - 2*wallThickness) * (outerHeight - 2*wallThickness)",
+    "materialVolume": "outerVolume - innerVolume",
+    "filledVolume": "(outerLength - 2*wallThickness) * (outerWidth - 2*wallThickness) * Math.min(fillLevel, outerHeight - 2*wallThickness)"
+  },
+  "outputs": {
+    "primary": "filledVolume",
+    "breakdown": [
+      "outerVolume",
+      "innerVolume",
+      "materialVolume"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

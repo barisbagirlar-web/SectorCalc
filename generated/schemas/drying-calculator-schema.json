@@ -1,0 +1,74 @@
+{
+  "toolName": "drying-calculator",
+  "inputs": [
+    {
+      "id": "initialMoisture",
+      "label": "Initial Moisture Content (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Moisture percentage of material before drying"
+    },
+    {
+      "id": "finalMoisture",
+      "label": "Final Moisture Content (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Target moisture percentage after drying"
+    },
+    {
+      "id": "materialMass",
+      "label": "Material Mass (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Total mass of wet material to be dried"
+    },
+    {
+      "id": "dryingTime",
+      "label": "Drying Time (hours)",
+      "type": "number",
+      "unit": "h",
+      "default": 8,
+      "businessContext": "Total time available for drying process"
+    },
+    {
+      "id": "energyConsumption",
+      "label": "Energy Consumption (kWh/kg water)",
+      "type": "number",
+      "unit": "kWh/kg",
+      "default": 1.5,
+      "businessContext": "Energy required to remove 1 kg of water"
+    },
+    {
+      "id": "energyCost",
+      "label": "Energy Cost ($/kWh)",
+      "type": "number",
+      "unit": "$/kWh",
+      "default": 0.12,
+      "businessContext": "Cost per unit of energy"
+    }
+  ],
+  "formulas": {
+    "waterToRemove": "materialMass * (initialMoisture - finalMoisture) / 100",
+    "totalEnergy": "waterToRemove * energyConsumption",
+    "totalCost": "totalEnergy * energyCost",
+    "dryingRate": "waterToRemove / dryingTime"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "Water to Remove: {waterToRemove} kg",
+      "Total Energy: {totalEnergy} kWh",
+      "Total Cost: ${totalCost}",
+      "Drying Rate: {dryingRate} kg/h"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

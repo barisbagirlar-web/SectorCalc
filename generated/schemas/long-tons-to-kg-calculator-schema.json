@@ -1,0 +1,63 @@
+{
+  "toolName": "long-tons-to-kg-calculator",
+  "inputs": [
+    {
+      "id": "longTons",
+      "label": "Long Tons",
+      "type": "number",
+      "unit": "long tons",
+      "default": 0,
+      "businessContext": "Weight per item in long tons (UK, 2240 lbs)"
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "items",
+      "default": 1,
+      "businessContext": "Number of identical items"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "kg/long ton",
+      "default": 1016.0469088,
+      "businessContext": "Exact conversion factor: 1 long ton = 1016.0469088 kg (based on 1 lb = 0.45359237 kg). Editable for traceability."
+    },
+    {
+      "id": "safetyMargin",
+      "label": "Safety Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Additional safety margin percentage (e.g., 10 for 10% extra)"
+    },
+    {
+      "id": "decimals",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for final result"
+    }
+  ],
+  "formulas": {
+    "exactKg": "longTons * conversionFactor * quantity",
+    "withSafetyKg": "exactKg * (1 + safetyMargin / 100)",
+    "resultKg": "Math.round(withSafetyKg * Math.pow(10, decimals)) / Math.pow(10, decimals)"
+  },
+  "outputs": {
+    "primary": "resultKg",
+    "breakdown": [
+      "exactKg",
+      "withSafetyKg"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

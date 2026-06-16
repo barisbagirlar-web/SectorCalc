@@ -1,0 +1,82 @@
+{
+  "toolName": "nanometers-to-meters-calculator",
+  "inputs": [
+    {
+      "id": "nmValue",
+      "label": "Nanometre Değeri",
+      "type": "number",
+      "unit": "nm",
+      "default": 1,
+      "businessContext": "Dönüştürülecek nanometre miktarı"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Dönüşüm Çarpanı",
+      "type": "number",
+      "unit": "nm/m",
+      "default": 1000000000,
+      "businessContext": "1 metrenin kaç nanometre olduğu; standart 1.000.000.000"
+    },
+    {
+      "id": "precision",
+      "label": "Hassasiyet (Ondalık)",
+      "type": "number",
+      "unit": "",
+      "default": 9,
+      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı"
+    },
+    {
+      "id": "scaling",
+      "label": "Ölçekleme",
+      "type": "number",
+      "unit": "çarpan",
+      "default": 1,
+      "businessContext": "Sonuç değerini ölçeklendirme katsayısı"
+    },
+    {
+      "id": "offset",
+      "label": "Ofset",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Sonuca eklenecek sabit değer"
+    },
+    {
+      "id": "targetUnitFactor",
+      "label": "Hedef Birim Çarpanı",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Metreden istenen birime dönüşüm çarpanı (ör. cm için 100, km için 0.001)"
+    },
+    {
+      "id": "scientificNotation",
+      "label": "Bilimsel Gösterim",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "1 ise sonuç bilimsel notasyonda gösterilir, 0 ise normal"
+    }
+  ],
+  "formulas": {
+    "rawMeters": "nmValue / conversionFactor",
+    "scaledMeters": "(nmValue / conversionFactor) * scaling",
+    "offsetMeters": "((nmValue / conversionFactor) * scaling) + offset",
+    "resultInTarget": "((nmValue / conversionFactor) * scaling + offset) * targetUnitFactor"
+  },
+  "outputs": {
+    "primary": "parseFloat(((((nmValue / conversionFactor) * scaling) + offset) * targetUnitFactor).toFixed(precision))",
+    "breakdown": [
+      "nmValue / conversionFactor",
+      "(nmValue / conversionFactor) * scaling",
+      "((nmValue / conversionFactor) * scaling) + offset",
+      "(((nmValue / conversionFactor) * scaling) + offset) * targetUnitFactor"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

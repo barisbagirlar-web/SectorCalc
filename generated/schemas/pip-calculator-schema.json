@@ -1,0 +1,55 @@
+{
+  "toolName": "pip-calculator",
+  "inputs": [
+    {
+      "id": "lotSize",
+      "label": "Lot Büyüklüğü",
+      "type": "number",
+      "unit": "birim",
+      "default": 100000,
+      "businessContext": "Standart lot, genellikle 100,000 birim olarak kabul edilir."
+    },
+    {
+      "id": "tradeLots",
+      "label": "İşlem Lot Sayısı",
+      "type": "number",
+      "unit": "lot",
+      "default": 1,
+      "businessContext": "Alım satım yapılan lot miktarı."
+    },
+    {
+      "id": "pipDecimal",
+      "label": "Pip Değeri",
+      "type": "number",
+      "unit": "pip",
+      "default": 0.0001,
+      "businessContext": "Çoğu döviz çiftinde 0.0001, JPY çiftlerinde 0.01."
+    },
+    {
+      "id": "quoteToAccountRate",
+      "label": "Dönüşüm Kuru",
+      "type": "number",
+      "unit": "oran",
+      "default": 1,
+      "businessContext": "Karşıt dövizden hesap dövizine dönüşüm oranı."
+    }
+  ],
+  "formulas": {
+    "tradeSize": "lotSize * tradeLots",
+    "pipValueInQuoteCurrency": "tradeSize * pipDecimal",
+    "pipValueInAccountCurrency": "pipValueInQuoteCurrency * quoteToAccountRate"
+  },
+  "outputs": {
+    "primary": "pipValueInAccountCurrency",
+    "breakdown": [
+      "pipValueInQuoteCurrency",
+      "pipValueInAccountCurrency"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

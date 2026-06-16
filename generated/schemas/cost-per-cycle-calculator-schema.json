@@ -1,0 +1,75 @@
+{
+  "toolName": "cost-per-cycle-calculator",
+  "inputs": [
+    {
+      "id": "setupCost",
+      "label": "Kurulum Maliyeti",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Üretim başına bir defalık kurulum maliyeti"
+    },
+    {
+      "id": "cycleCount",
+      "label": "Çevrim Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Toplam üretim çevrimi veya parça sayısı"
+    },
+    {
+      "id": "materialCostPerCycle",
+      "label": "Birim Malzeme Maliyeti",
+      "type": "number",
+      "unit": "TL/çevrim",
+      "default": 0,
+      "businessContext": "Her çevrim başına malzeme maliyeti"
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "Saatlik İşçilik Maliyeti",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 0,
+      "businessContext": "Bir saatlik işçilik maliyeti"
+    },
+    {
+      "id": "cycleTime",
+      "label": "Çevrim Süresi",
+      "type": "number",
+      "unit": "saat",
+      "default": 0.01,
+      "businessContext": "Bir çevrimin tamamlanma süresi (saat)"
+    },
+    {
+      "id": "overheadRate",
+      "label": "Genel Gider Oranı",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 0,
+      "businessContext": "Saatlik genel gider (enerji, amortisman vb.)"
+    }
+  ],
+  "formulas": {
+    "costPerCycle": "(setupCost / cycleCount) + materialCostPerCycle + (laborCostPerHour * cycleTime) + (overheadRate * cycleTime)",
+    "setupCostPerCycle": "setupCost / cycleCount",
+    "materialCostPerCycle": "materialCostPerCycle",
+    "laborCostPerCycle": "laborCostPerHour * cycleTime",
+    "overheadCostPerCycle": "overheadRate * cycleTime"
+  },
+  "outputs": {
+    "primary": "Çevrim Başına Maliyet (TL/çevrim)",
+    "breakdown": [
+      "Kurulum Maliyeti (TL/çevrim)",
+      "Malzeme Maliyeti (TL/çevrim)",
+      "İşçilik Maliyeti (TL/çevrim)",
+      "Genel Gider (TL/çevrim)"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

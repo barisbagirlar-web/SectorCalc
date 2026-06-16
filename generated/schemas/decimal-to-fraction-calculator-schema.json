@@ -1,0 +1,75 @@
+{
+  "toolName": "decimal-to-fraction-calculator",
+  "inputs": [
+    {
+      "id": "decimalValue",
+      "label": "Ondalıklı Değer",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Kesire dönüştürülecek ondalıklı sayı"
+    },
+    {
+      "id": "maxDenom",
+      "label": "Maksimum Payda",
+      "type": "number",
+      "unit": "",
+      "default": 10000,
+      "businessContext": "Kesir yaklaşımı için izin verilen en büyük payda"
+    },
+    {
+      "id": "simplify",
+      "label": "Sadeleştirme",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Kesirin en sade haline getirilmesi (1: Evet, 0: Hayır)"
+    },
+    {
+      "id": "format",
+      "label": "Kesir Formatı",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0: Basit Kesir, 1: Tam Sayılı Kesir, 2: Bileşik Kesir"
+    },
+    {
+      "id": "rounding",
+      "label": "Yuvarlama Modu",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0: En Yakın, 1: Aşağı, 2: Yukarı"
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerans",
+      "type": "number",
+      "unit": "",
+      "default": 1e-9,
+      "businessContext": "Ondalıklı sayının kesir eşleşmesi için tolerans"
+    }
+  ],
+  "formulas": {
+    "primary": "decimalToFraction(decimalValue, maxDenom, simplify, format, rounding, tolerance).display",
+    "breakdown": [
+      "decimalToFraction(decimalValue, maxDenom, simplify, format, rounding, tolerance).numerator",
+      "decimalToFraction(decimalValue, maxDenom, simplify, format, rounding, tolerance).denominator",
+      "decimalToFraction(decimalValue, maxDenom, simplify, format, rounding, tolerance).wholePart"
+    ]
+  },
+  "outputs": {
+    "primary": "Kesir Gösterimi",
+    "breakdown": [
+      "Pay",
+      "Payda",
+      "Tam Kısım"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

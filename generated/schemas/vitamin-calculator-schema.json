@@ -1,0 +1,76 @@
+{
+  "toolName": "vitamin-calculator",
+  "inputs": [
+    {
+      "id": "rda",
+      "label": "Recommended Daily Allowance (RDA)",
+      "type": "number",
+      "unit": "mg",
+      "default": 90,
+      "businessContext": "The recommended dietary intake for the vitamin (e.g., Vitamin C)."
+    },
+    {
+      "id": "food1Servings",
+      "label": "Food 1 Servings",
+      "type": "number",
+      "unit": "servings",
+      "default": 1,
+      "businessContext": "Number of servings consumed from food source 1."
+    },
+    {
+      "id": "food1VitPerServing",
+      "label": "Vitamin per Serving (Food 1)",
+      "type": "number",
+      "unit": "mg",
+      "default": 30,
+      "businessContext": "Vitamin content per serving for food 1."
+    },
+    {
+      "id": "food2Servings",
+      "label": "Food 2 Servings",
+      "type": "number",
+      "unit": "servings",
+      "default": 1,
+      "businessContext": "Number of servings consumed from food source 2."
+    },
+    {
+      "id": "food2VitPerServing",
+      "label": "Vitamin per Serving (Food 2)",
+      "type": "number",
+      "unit": "mg",
+      "default": 20,
+      "businessContext": "Vitamin content per serving for food 2."
+    },
+    {
+      "id": "food3Servings",
+      "label": "Food 3 Servings",
+      "type": "number",
+      "unit": "servings",
+      "default": 1,
+      "businessContext": "Number of servings consumed from food source 3."
+    },
+    {
+      "id": "food3VitPerServing",
+      "label": "Vitamin per Serving (Food 3)",
+      "type": "number",
+      "unit": "mg",
+      "default": 10,
+      "businessContext": "Vitamin content per serving for food 3."
+    }
+  ],
+  "formulas": {
+    "totalVitaminIntake": "food1Servings * food1VitPerServing + food2Servings * food2VitPerServing + food3Servings * food3VitPerServing",
+    "percentRDA": "(totalVitaminIntake / rda) * 100",
+    "shortfallValue": "rda - totalVitaminIntake"
+  },
+  "outputs": {
+    "primary": "totalVitaminIntake",
+    "breakdown": [
+      "percentRDA",
+      "shortfallValue"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false
+}

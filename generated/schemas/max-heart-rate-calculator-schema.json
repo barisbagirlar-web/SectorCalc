@@ -1,0 +1,65 @@
+{
+  "toolName": "max-heart-rate-calculator",
+  "inputs": [
+    {
+      "id": "birthYear",
+      "label": "Birth Year",
+      "type": "number",
+      "unit": "year",
+      "default": 1990,
+      "businessContext": "User demographic data"
+    },
+    {
+      "id": "currentYear",
+      "label": "Current Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2024,
+      "businessContext": "Reference year for age calculation"
+    },
+    {
+      "id": "restingHR",
+      "label": "Resting Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 70,
+      "businessContext": "User health metric"
+    },
+    {
+      "id": "lowerIntensity",
+      "label": "Lower Intensity Zone",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "businessContext": "Target heart rate zone lower bound"
+    },
+    {
+      "id": "upperIntensity",
+      "label": "Upper Intensity Zone",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Target heart rate zone upper bound"
+    }
+  ],
+  "formulas": {
+    "age": "currentYear - birthYear",
+    "maxHR": "220 - age",
+    "heartRateReserve": "maxHR - restingHR",
+    "lowerTarget": "restingHR + heartRateReserve * (lowerIntensity / 100)",
+    "upperTarget": "restingHR + heartRateReserve * (upperIntensity / 100)"
+  },
+  "outputs": {
+    "primary": "maxHR",
+    "breakdown": [
+      "lowerTarget",
+      "upperTarget"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

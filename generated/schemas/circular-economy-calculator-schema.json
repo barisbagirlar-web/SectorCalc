@@ -1,0 +1,77 @@
+{
+  "toolName": "circular-economy-calculator",
+  "inputs": [
+    {
+      "id": "total_material_input",
+      "label": "Toplam Hammadde Girişi",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Üretim sürecine giren toplam hammadde miktarı"
+    },
+    {
+      "id": "recycled_input",
+      "label": "Geri Dönüştürülmüş Girdi",
+      "type": "number",
+      "unit": "kg",
+      "default": 200,
+      "businessContext": "Geri dönüştürülmüş malzemeden gelen girdi miktarı"
+    },
+    {
+      "id": "reused_input",
+      "label": "Yeniden Kullanılan Girdi",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Yeniden kullanım yoluyla sağlanan girdi miktarı"
+    },
+    {
+      "id": "total_waste_generated",
+      "label": "Toplam Atık Üretimi",
+      "type": "number",
+      "unit": "kg",
+      "default": 300,
+      "businessContext": "Üretim sürecinde oluşan toplam atık miktarı"
+    },
+    {
+      "id": "recycled_waste",
+      "label": "Geri Dönüştürülen Atık",
+      "type": "number",
+      "unit": "kg",
+      "default": 150,
+      "businessContext": "Atığın geri dönüştürülen kısmı"
+    },
+    {
+      "id": "reused_waste",
+      "label": "Yeniden Kullanılan Atık",
+      "type": "number",
+      "unit": "kg",
+      "default": 50,
+      "businessContext": "Atığın yeniden kullanılan kısmı"
+    }
+  ],
+  "formulas": {
+    "circular_input": "recycled_input + reused_input",
+    "circular_output": "recycled_waste + reused_waste",
+    "linear_output": "total_waste_generated - circular_output",
+    "total_throughput": "total_material_input + total_waste_generated",
+    "circularity_index": "((circular_input + circular_output) / total_throughput) * 100",
+    "reuse_rate": "((reused_input + reused_waste) / total_throughput) * 100",
+    "recycling_rate": "((recycled_input + recycled_waste) / total_throughput) * 100",
+    "landfill_rate": "((total_waste_generated - circular_output) / total_throughput) * 100"
+  },
+  "outputs": {
+    "primary": "circularity_index",
+    "breakdown": [
+      "reuse_rate",
+      "recycling_rate",
+      "landfill_rate"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

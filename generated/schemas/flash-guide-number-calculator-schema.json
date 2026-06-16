@@ -1,0 +1,56 @@
+{
+  "toolName": "flash-guide-number-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Distance from flash to subject"
+    },
+    {
+      "id": "aperture",
+      "label": "Aperture",
+      "type": "number",
+      "unit": "",
+      "default": 8,
+      "businessContext": "Lens aperture f-number"
+    },
+    {
+      "id": "iso",
+      "label": "ISO",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "ISO sensitivity"
+    },
+    {
+      "id": "flashPower",
+      "label": "Flash Power Fraction",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Flash power fraction (1 = full, 0.5 = half)"
+    }
+  ],
+  "formulas": {
+    "effectiveGN": "distance * aperture",
+    "fullPowerGN": "effectiveGN / Math.sqrt(flashPower)",
+    "requiredGuideNumberISO100": "fullPowerGN / Math.sqrt(iso / 100)"
+  },
+  "outputs": {
+    "primary": "requiredGuideNumberISO100",
+    "breakdown": [
+      "Effective Guide Number: distance * aperture = ${effectiveGN}",
+      "Full Power Guide Number: ${effectiveGN} / sqrt(${flashPower}) = ${fullPowerGN}",
+      "ISO 100 Guide Number: ${fullPowerGN} / sqrt(${iso}/100) = ${requiredGuideNumberISO100}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

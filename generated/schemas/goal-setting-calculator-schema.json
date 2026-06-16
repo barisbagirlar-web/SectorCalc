@@ -1,0 +1,72 @@
+{
+  "toolName": "goal-setting-calculator",
+  "inputs": [
+    {
+      "id": "currentOEE",
+      "label": "Current OEE",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Current Overall Equipment Effectiveness percentage"
+    },
+    {
+      "id": "targetOEE",
+      "label": "Target OEE",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Target OEE percentage to achieve"
+    },
+    {
+      "id": "timeframe",
+      "label": "Timeframe",
+      "type": "number",
+      "unit": "months",
+      "default": 6,
+      "businessContext": "Time period in months to achieve the target OEE"
+    },
+    {
+      "id": "currentAvailability",
+      "label": "Current Availability",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Current availability proportion of planned production time"
+    },
+    {
+      "id": "currentPerformance",
+      "label": "Current Performance",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Current performance speed vs ideal cycle time"
+    },
+    {
+      "id": "currentQuality",
+      "label": "Current Quality",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Current quality rate (good units/total units)"
+    }
+  ],
+  "formulas": {
+    "deltaOEE": "targetOEE - currentOEE",
+    "monthlyOEEincrease": "deltaOEE / timeframe"
+  },
+  "outputs": {
+    "primary": "monthlyOEEincrease",
+    "breakdown": [
+      "Current OEE: {currentOEE}%",
+      "Target OEE: {targetOEE}%",
+      "Total OEE improvement needed: {deltaOEE}%",
+      "Required monthly OEE increase: {monthlyOEEincrease}% per month"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

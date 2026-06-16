@@ -1,0 +1,77 @@
+{
+  "toolName": "beehive-calculator",
+  "inputs": [
+    {
+      "id": "hiveCount",
+      "label": "Number of Hives",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "businessContext": "Total number of active beehives in the apiary."
+    },
+    {
+      "id": "framesPerHive",
+      "label": "Frames per Hive",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "businessContext": "Number of frames per hive, typically 10 for Langstroth."
+    },
+    {
+      "id": "honeyPerFrame",
+      "label": "Honey per Frame",
+      "type": "number",
+      "unit": "kg",
+      "default": 2.5,
+      "businessContext": "Average honey yield per fully capped frame."
+    },
+    {
+      "id": "extractionLoss",
+      "label": "Extraction Loss",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of honey lost during extraction and filtering."
+    },
+    {
+      "id": "pricePerKg",
+      "label": "Price per kg",
+      "type": "number",
+      "unit": "TL",
+      "default": 150,
+      "businessContext": "Selling price per kilogram of honey."
+    },
+    {
+      "id": "costPerHive",
+      "label": "Cost per Hive",
+      "type": "number",
+      "unit": "TL",
+      "default": 500,
+      "businessContext": "Annual operational cost per hive (feed, maintenance, etc.)."
+    }
+  ],
+  "formulas": {
+    "grossHoney": "hiveCount * framesPerHive * honeyPerFrame",
+    "netHoney": "grossHoney * (1 - extractionLoss / 100)",
+    "revenue": "netHoney * pricePerKg",
+    "totalCost": "hiveCount * costPerHive",
+    "profit": "revenue - totalCost",
+    "profitMargin": "(profit / revenue) * 100"
+  },
+  "outputs": {
+    "primary": "netHoney",
+    "breakdown": [
+      "grossHoney",
+      "revenue",
+      "totalCost",
+      "profit",
+      "profitMargin"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

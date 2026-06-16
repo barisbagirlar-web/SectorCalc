@@ -1,0 +1,70 @@
+{
+  "toolName": "age-in-days-calculator",
+  "inputs": [
+    {
+      "id": "birthYear",
+      "label": "Doğum Yılı",
+      "type": "number",
+      "unit": "yıl",
+      "default": 1990,
+      "businessContext": "Kişinin doğduğu yıl"
+    },
+    {
+      "id": "birthMonth",
+      "label": "Doğum Ay",
+      "type": "number",
+      "unit": "ay",
+      "default": 1,
+      "businessContext": "Kişinin doğduğu ay (1-12)"
+    },
+    {
+      "id": "birthDay",
+      "label": "Doğum Gün",
+      "type": "number",
+      "unit": "gün",
+      "default": 1,
+      "businessContext": "Kişinin doğduğu gün"
+    },
+    {
+      "id": "refYear",
+      "label": "Referans Yıl",
+      "type": "number",
+      "unit": "yıl",
+      "default": 2025,
+      "businessContext": "Yaş hesaplanacak yıl"
+    },
+    {
+      "id": "refMonth",
+      "label": "Referans Ay",
+      "type": "number",
+      "unit": "ay",
+      "default": 1,
+      "businessContext": "Yaş hesaplanacak ay (1-12)"
+    },
+    {
+      "id": "refDay",
+      "label": "Referans Gün",
+      "type": "number",
+      "unit": "gün",
+      "default": 1,
+      "businessContext": "Yaş hesaplanacak gün"
+    }
+  ],
+  "formulas": {
+    "calculate": "const birth = new Date(birthYear, birthMonth - 1, birthDay); const ref = new Date(refYear, refMonth - 1, refDay); const diff = Math.floor((ref - birth) / (1000 * 60 * 60 * 24)); return { ageInDays: diff, birthString: birth.toISOString().split('T')[0], refString: ref.toISOString().split('T')[0], diffDays: diff };"
+  },
+  "outputs": {
+    "primary": "ageInDays",
+    "breakdown": [
+      "birthString",
+      "refString",
+      "diffDays"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

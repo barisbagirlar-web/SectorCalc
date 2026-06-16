@@ -1,0 +1,63 @@
+{
+  "toolName": "wrestling-weight-class-calculator",
+  "inputs": [
+    {
+      "id": "gender",
+      "label": "Gender (0=Female, 1=Male)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Cinsiyet seçimi"
+    },
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Vücut ağırlığı"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Boy uzunluğu"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 25,
+      "businessContext": "Yaş"
+    },
+    {
+      "id": "bodyFat",
+      "label": "Body Fat Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Vücut yağ oranı"
+    }
+  ],
+  "formulas": {
+    "bmi": "weight / ((height / 100) ** 2)",
+    "leanBodyMass": "weight * (1 - bodyFat / 100)",
+    "weightClass": "(gender === 0 ? (weight <= 50 ? '50 kg' : weight <= 53 ? '53 kg' : weight <= 57 ? '57 kg' : weight <= 62 ? '62 kg' : weight <= 68 ? '68 kg' : weight <= 76 ? '76 kg' : '76+ kg') : (weight <= 57 ? '57 kg' : weight <= 65 ? '65 kg' : weight <= 74 ? '74 kg' : weight <= 86 ? '86 kg' : weight <= 97 ? '97 kg' : weight <= 125 ? '125 kg' : '125+ kg'))"
+  },
+  "outputs": {
+    "primary": "weightClass",
+    "breakdown": [
+      "bmi",
+      "leanBodyMass"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

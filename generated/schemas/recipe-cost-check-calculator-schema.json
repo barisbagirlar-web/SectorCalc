@@ -1,0 +1,387 @@
+{
+  "slug": "recipe-cost-check",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-plant comparison",
+    "Real-time cost alerts"
+  ],
+  "inputs": [
+    {
+      "id": "material_cost_per_kg",
+      "label": "Material Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 0,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Direct material cost per kilogram of the primary ingredient, sourced from supplier contracts or market index.",
+      "label_i18n": {
+        "en": "Material Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Direct material cost per kilogram of the primary ingredient, sourced from supplier contracts or market index."
+      }
+    },
+    {
+      "id": "recipe_yield_percent",
+      "label": "Recipe Yield (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of usable output after processing losses (e.g., evaporation, trimming). Based on historical process data.",
+      "label_i18n": {
+        "en": "Recipe Yield (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of usable output after processing losses (e.g., evaporation, trimming). Based on historical process data."
+      }
+    },
+    {
+      "id": "labor_rate_per_hour",
+      "label": "Labor Rate per Hour",
+      "type": "number",
+      "unit": "USD/hr",
+      "default": 25,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Fully burdened labor cost per operator hour, including wages, benefits, and overhead.",
+      "label_i18n": {
+        "en": "Labor Rate per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Fully burdened labor cost per operator hour, including wages, benefits, and overhead."
+      }
+    },
+    {
+      "id": "batch_size_kg",
+      "label": "Batch Size (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "min": 1,
+      "max": 100000,
+      "businessContext": "Total input weight of the recipe batch before processing.",
+      "label_i18n": {
+        "en": "Batch Size (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Total input weight of the recipe batch before processing."
+      }
+    },
+    {
+      "id": "processing_time_minutes",
+      "label": "Processing Time (minutes)",
+      "type": "number",
+      "unit": "min",
+      "default": 60,
+      "min": 1,
+      "max": 1440,
+      "businessContext": "Total cycle time from start to finish for one batch, including mixing, heating, cooling, and packaging.",
+      "label_i18n": {
+        "en": "Processing Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Total cycle time from start to finish for one batch, including mixing, heating, cooling, and packaging."
+      }
+    },
+    {
+      "id": "energy_cost_per_kwh",
+      "label": "Energy Cost per kWh",
+      "type": "number",
+      "unit": "USD/kWh",
+      "default": 0.12,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Average cost of electricity or thermal energy per kilowatt-hour, based on utility rates.",
+      "label_i18n": {
+        "en": "Energy Cost per kWh"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost of electricity or thermal energy per kilowatt-hour, based on utility rates."
+      }
+    },
+    {
+      "id": "energy_consumption_kwh",
+      "label": "Energy Consumption (kWh)",
+      "type": "number",
+      "unit": "kWh",
+      "default": 50,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Total energy used per batch, measured by submeters or equipment nameplate ratings.",
+      "label_i18n": {
+        "en": "Energy Consumption (kWh)"
+      },
+      "businessContext_i18n": {
+        "en": "Total energy used per batch, measured by submeters or equipment nameplate ratings."
+      }
+    },
+    {
+      "id": "overhead_rate_percent",
+      "label": "Overhead Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 200,
+      "businessContext": "Allocated manufacturing overhead as a percentage of direct labor and material costs, following standard cost accounting.",
+      "label_i18n": {
+        "en": "Overhead Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Allocated manufacturing overhead as a percentage of direct labor and material costs, following standard cost accounting."
+      }
+    },
+    {
+      "id": "waste_disposal_cost_per_kg",
+      "label": "Waste Disposal Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 0.05,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Cost to dispose of non-recyclable waste per kilogram, including landfill fees or incineration.",
+      "label_i18n": {
+        "en": "Waste Disposal Cost per kg"
+      },
+      "businessContext_i18n": {
+        "en": "Cost to dispose of non-recyclable waste per kilogram, including landfill fees or incineration."
+      }
+    },
+    {
+      "id": "quality_rework_rate",
+      "label": "Quality Rework Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of batches requiring rework due to quality deviations, tracked via Six Sigma metrics.",
+      "label_i18n": {
+        "en": "Quality Rework Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of batches requiring rework due to quality deviations, tracked via Six Sigma metrics."
+      }
+    },
+    {
+      "id": "currency",
+      "label": "Currency",
+      "type": "select",
+      "unit": "",
+      "default": "USD",
+      "min": null,
+      "max": null,
+      "businessContext": "ISO 4217 currency code for cost reporting. All input costs are assumed in this currency.",
+      "label_i18n": {
+        "en": "Currency"
+      },
+      "businessContext_i18n": {
+        "en": "ISO 4217 currency code for cost reporting. All input costs are assumed in this currency."
+      }
+    },
+    {
+      "id": "include_environmental_cost",
+      "label": "Include Environmental Cost",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "Toggle to include estimated carbon tax or environmental compliance costs in the total cost.",
+      "label_i18n": {
+        "en": "Include Environmental Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Toggle to include estimated carbon tax or environmental compliance costs in the total cost."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_yield_range",
+        "condition": "recipe_yield_percent < 50",
+        "message": "Recipe yield is below 50% – check process efficiency and material losses."
+      },
+      {
+        "id": "rule_rework_high",
+        "condition": "quality_rework_rate > 10",
+        "message": "Quality rework rate exceeds 10% – investigate root cause and implement corrective actions."
+      },
+      {
+        "id": "rule_batch_size_positive",
+        "condition": "batch_size_kg <= 0",
+        "message": "Batch size must be greater than zero."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "thresh_cost_per_kg_alert",
+        "metric": "total_cost_per_kg",
+        "operator": ">",
+        "value": 50,
+        "severity": "warning",
+        "message": "Total cost per kg exceeds $50 – review material sourcing and process efficiency."
+      },
+      {
+        "id": "thresh_yield_alert",
+        "metric": "recipe_yield_percent",
+        "operator": "<",
+        "value": 80,
+        "severity": "critical",
+        "message": "Yield below 80% – immediate process review required."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "material_cost_total",
+      "label": "Total Material Cost",
+      "description": "Total direct material cost for the batch.",
+      "expression": "material_cost_per_kg * batch_size_kg",
+      "unit": "USD"
+    },
+    {
+      "id": "labor_cost_total",
+      "label": "Total Labor Cost",
+      "description": "Direct labor cost for the batch based on processing time.",
+      "expression": "labor_rate_per_hour * (processing_time_minutes / 60)",
+      "unit": "USD"
+    },
+    {
+      "id": "energy_cost_total",
+      "label": "Total Energy Cost",
+      "description": "Energy cost for the batch.",
+      "expression": "energy_cost_per_kwh * energy_consumption_kwh",
+      "unit": "USD"
+    },
+    {
+      "id": "waste_cost_total",
+      "label": "Total Waste Disposal Cost",
+      "description": "Cost to dispose of waste generated from the batch.",
+      "expression": "waste_disposal_cost_per_kg * (batch_size_kg * (1 - recipe_yield_percent / 100))",
+      "unit": "USD"
+    },
+    {
+      "id": "rework_cost_total",
+      "label": "Total Rework Cost",
+      "description": "Additional cost due to quality rework, estimated as a percentage of material and labor.",
+      "expression": "(material_cost_total + labor_cost_total) * (quality_rework_rate / 100)",
+      "unit": "USD"
+    },
+    {
+      "id": "overhead_cost_total",
+      "label": "Total Overhead Cost",
+      "description": "Allocated manufacturing overhead based on direct costs.",
+      "expression": "(material_cost_total + labor_cost_total + energy_cost_total) * (overhead_rate_percent / 100)",
+      "unit": "USD"
+    },
+    {
+      "id": "total_cost_per_kg",
+      "label": "Total Cost per kg (Primary Result)",
+      "description": "Primary result: total cost per kilogram of usable output.",
+      "expression": "(material_cost_total + labor_cost_total + energy_cost_total + waste_cost_total + rework_cost_total + overhead_cost_total) / (batch_size_kg * (recipe_yield_percent / 100))",
+      "unit": "USD/kg"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_cost_per_kg",
+      "label": "Total Cost per kg",
+      "unit": "USD/kg",
+      "description": "Fully loaded cost per kilogram of finished product, including material, labor, energy, waste, rework, and overhead."
+    },
+    "breakdown": {
+      "material_cost_per_kg": {
+        "label": "Material Cost per kg",
+        "unit": "USD/kg",
+        "value": null
+      },
+      "labor_cost_per_kg": {
+        "label": "Labor Cost per kg",
+        "unit": "USD/kg",
+        "value": null
+      },
+      "energy_cost_per_kg": {
+        "label": "Energy Cost per kg",
+        "unit": "USD/kg",
+        "value": null
+      },
+      "waste_cost_per_kg": {
+        "label": "Waste Disposal Cost per kg",
+        "unit": "USD/kg",
+        "value": null
+      },
+      "rework_cost_per_kg": {
+        "label": "Rework Cost per kg",
+        "unit": "USD/kg",
+        "value": null
+      },
+      "overhead_cost_per_kg": {
+        "label": "Overhead Cost per kg",
+        "unit": "USD/kg",
+        "value": null
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "yield_loss",
+        "label": "Yield Loss",
+        "description": "Cost impact of material lost due to yield less than 100%.",
+        "formula": "material_cost_per_kg * batch_size_kg * (1 - recipe_yield_percent / 100) / (batch_size_kg * (recipe_yield_percent / 100))",
+        "unit": "USD/kg"
+      },
+      {
+        "id": "rework_loss",
+        "label": "Rework Loss",
+        "description": "Cost impact of quality rework on total cost per kg.",
+        "formula": "rework_cost_total / (batch_size_kg * (recipe_yield_percent / 100))",
+        "unit": "USD/kg"
+      },
+      {
+        "id": "energy_inefficiency",
+        "label": "Energy Inefficiency",
+        "description": "Excess energy cost compared to a benchmark of 0.10 USD/kWh.",
+        "formula": "max(0, (energy_cost_per_kwh - 0.10) * energy_consumption_kwh) / (batch_size_kg * (recipe_yield_percent / 100))",
+        "unit": "USD/kg"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_improve_yield",
+        "label": "Improve Recipe Yield",
+        "description": "Target yield improvement to 98% through process optimization (e.g., reduce evaporation, trim losses). Estimated savings: X USD/kg.",
+        "condition": "recipe_yield_percent < 95"
+      },
+      {
+        "id": "action_reduce_rework",
+        "label": "Reduce Quality Rework",
+        "description": "Implement SPC and root cause analysis to lower rework rate below 1%. Estimated savings: Y USD/kg.",
+        "condition": "quality_rework_rate > 2"
+      },
+      {
+        "id": "action_energy_audit",
+        "label": "Conduct Energy Audit",
+        "description": "Audit energy consumption to identify savings opportunities (e.g., insulation, efficient motors). Estimated savings: Z USD/kg.",
+        "condition": "energy_cost_per_kg > 0.05"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "total_cost_per_kg_adjusted",
+      "label": "Total Cost per kg (Confidence Adjusted)",
+      "unit": "USD/kg",
+      "description": "Primary result adjusted by a confidence factor based on data quality (e.g., 0.9 for estimated inputs, 1.0 for measured).",
+      "value": null
+    }
+  },
+  "toolName": "recipe-cost-check-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

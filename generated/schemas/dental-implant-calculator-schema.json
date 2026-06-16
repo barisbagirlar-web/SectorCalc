@@ -1,0 +1,87 @@
+{
+  "toolName": "dental-implant-calculator",
+  "inputs": [
+    {
+      "id": "materialCost",
+      "label": "Titanium Cost per Implant (€)",
+      "type": "number",
+      "unit": "€",
+      "default": 25,
+      "businessContext": "Cost of titanium blank per implant"
+    },
+    {
+      "id": "machiningTime",
+      "label": "Machining Time per Implant (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 0.5,
+      "businessContext": "CNC machining time per single implant"
+    },
+    {
+      "id": "machineRate",
+      "label": "Machine Hourly Rate (€/hour)",
+      "type": "number",
+      "unit": "€/hour",
+      "default": 120,
+      "businessContext": "Operating cost of CNC machine per hour"
+    },
+    {
+      "id": "laborCost",
+      "label": "Labor Cost per Hour (€/hour)",
+      "type": "number",
+      "unit": "€/hour",
+      "default": 40,
+      "businessContext": "Operator wage rate per hour"
+    },
+    {
+      "id": "overheadPercent",
+      "label": "Overhead & Indirect Cost (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Indirect cost percentage applied to direct cost"
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size (units)",
+      "type": "number",
+      "unit": "units",
+      "default": 10,
+      "businessContext": "Number of implants per batch for setup cost distribution"
+    },
+    {
+      "id": "setupTime",
+      "label": "Setup Time per Batch (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 1,
+      "businessContext": "Machine setup time per batch"
+    }
+  ],
+  "formulas": {
+    "materialCostOutput": "materialCost",
+    "machiningCost": "machiningTime * machineRate",
+    "laborCostOutput": "machiningTime * laborCost",
+    "setupCost": "(setupTime * machineRate) / batchSize",
+    "directCost": "materialCost + machiningTime*machineRate + machiningTime*laborCost + (setupTime*machineRate)/batchSize",
+    "overheadCost": "(materialCost + machiningTime*machineRate + machiningTime*laborCost + (setupTime*machineRate)/batchSize) * (overheadPercent/100)",
+    "totalCost": "(materialCost + machiningTime*machineRate + machiningTime*laborCost + (setupTime*machineRate)/batchSize) * (1 + overheadPercent/100)"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "directCost",
+      "overheadCost",
+      "setupCost",
+      "machiningCost",
+      "laborCostOutput",
+      "materialCostOutput"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

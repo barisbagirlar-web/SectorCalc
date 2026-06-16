@@ -1,0 +1,65 @@
+{
+  "toolName": "rectangle-area-calculator",
+  "inputs": [
+    {
+      "id": "lengthMm",
+      "label": "Uzunluk (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "businessContext": "Dikdörtgenin milimetre cinsinden uzunluğu."
+    },
+    {
+      "id": "widthMm",
+      "label": "Genişlik (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "businessContext": "Dikdörtgenin milimetre cinsinden genişliği."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Alan Dönüşüm Faktörü",
+      "type": "number",
+      "unit": "m²/mm²",
+      "default": 0.000001,
+      "businessContext": "Milimetrekareyi metrekareye çevirme faktörü. 1 mm² = 1e-6 m²."
+    },
+    {
+      "id": "tolerancePercent",
+      "label": "Tolerans (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "İmalat toleransı, her iki boyuta uygulanacak yüzde."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Emniyet Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Alan hesaplamasına uygulanacak emniyet çarpanı."
+    }
+  ],
+  "formulas": {
+    "effectiveLengthMm": "lengthMm * (1 + tolerancePercent/100)",
+    "effectiveWidthMm": "widthMm * (1 + tolerancePercent/100)",
+    "rawAreaMm2": "effectiveLengthMm * effectiveWidthMm",
+    "area": "rawAreaMm2 * conversionFactor * safetyFactor"
+  },
+  "outputs": {
+    "primary": "area",
+    "breakdown": [
+      "effectiveLengthMm",
+      "effectiveWidthMm",
+      "rawAreaMm2"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

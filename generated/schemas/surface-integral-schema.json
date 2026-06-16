@@ -1,0 +1,77 @@
+{
+  "toolName": "surface-integral",
+  "inputs": [
+    {
+      "id": "surfaceFunction",
+      "label": "Surface Function f(x,y)",
+      "type": "number",
+      "unit": "unitless",
+      "default": 1,
+      "businessContext": "Scalar function value on surface"
+    },
+    {
+      "id": "xMin",
+      "label": "X Lower Bound",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Lower limit of x integration"
+    },
+    {
+      "id": "xMax",
+      "label": "X Upper Bound",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Upper limit of x integration"
+    },
+    {
+      "id": "yMin",
+      "label": "Y Lower Bound",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Lower limit of y integration"
+    },
+    {
+      "id": "yMax",
+      "label": "Y Upper Bound",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Upper limit of y integration"
+    },
+    {
+      "id": "dx",
+      "label": "Step Size dx",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Discretization step in x"
+    },
+    {
+      "id": "dy",
+      "label": "Step Size dy",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Discretization step in y"
+    }
+  ],
+  "formulas": {
+    "primary": "let sum = 0; for (let x = xMin; x <= xMax; x += dx) { for (let y = yMin; y <= yMax; y += dy) { sum += surfaceFunction * dx * dy; } } sum"
+  },
+  "outputs": {
+    "primary": "Surface Integral Result",
+    "breakdown": [
+      "Number of X steps: Math.round((xMax - xMin) / dx)",
+      "Number of Y steps: Math.round((yMax - yMin) / dy)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

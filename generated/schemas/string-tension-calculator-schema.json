@@ -1,0 +1,55 @@
+{
+  "toolName": "string-tension-calculator",
+  "inputs": [
+    {
+      "id": "materialDensity",
+      "label": "Material Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "businessContext": "Density of string material (e.g., steel: 7850 kg/m³)"
+    },
+    {
+      "id": "stringDiameter",
+      "label": "String Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 1,
+      "businessContext": "Diameter of the string in millimeters"
+    },
+    {
+      "id": "stringLength",
+      "label": "String Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 65,
+      "businessContext": "Vibrating length of the string in centimeters"
+    },
+    {
+      "id": "frequency",
+      "label": "Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 440,
+      "businessContext": "Fundamental frequency of vibration (e.g., A4 = 440 Hz)"
+    }
+  ],
+  "formulas": {
+    "linearDensity": "materialDensity * Math.PI * (stringDiameter / 1000) ** 2 / 4",
+    "lengthM": "stringLength / 100",
+    "tension": "linearDensity * (2 * lengthM * frequency) ** 2"
+  },
+  "outputs": {
+    "primary": "tension",
+    "breakdown": [
+      "linearDensity",
+      "tension"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Atölye & Tamir",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "baby-weight-calculator",
+  "inputs": [
+    {
+      "id": "bpd",
+      "label": "Biparietal Çap (BPD)",
+      "type": "number",
+      "unit": "cm",
+      "default": 7.5,
+      "businessContext": "Fetal başın iki parietal kemik arasındaki en geniş çap"
+    },
+    {
+      "id": "hc",
+      "label": "Baş Çevresi (HC)",
+      "type": "number",
+      "unit": "cm",
+      "default": 27,
+      "businessContext": "Fetal başın çevresi"
+    },
+    {
+      "id": "ac",
+      "label": "Karın Çevresi (AC)",
+      "type": "number",
+      "unit": "cm",
+      "default": 25.5,
+      "businessContext": "Fetal karın çevresi"
+    },
+    {
+      "id": "fl",
+      "label": "Femur Uzunluğu (FL)",
+      "type": "number",
+      "unit": "cm",
+      "default": 5.6,
+      "businessContext": "Fetal uyluk kemiği uzunluğu"
+    }
+  ],
+  "formulas": {
+    "logEFW": "1.335 - 0.0034 * ac * fl + 0.0316 * bpd + 0.0457 * ac + 0.1623 * fl",
+    "efw_g": "Math.pow(10, logEFW)",
+    "efw_kg": "efw_g / 1000"
+  },
+  "outputs": {
+    "primary": "efw_g",
+    "breakdown": [
+      "efw_g",
+      "efw_kg"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

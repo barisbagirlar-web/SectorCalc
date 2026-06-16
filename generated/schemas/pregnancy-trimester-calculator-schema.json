@@ -1,0 +1,80 @@
+{
+  "toolName": "pregnancy-trimester-calculator",
+  "inputs": [
+    {
+      "id": "lmpDay",
+      "label": "LMP Day",
+      "type": "number",
+      "unit": "day",
+      "default": 1,
+      "businessContext": "Day of the last menstrual period"
+    },
+    {
+      "id": "lmpMonth",
+      "label": "LMP Month",
+      "type": "number",
+      "unit": "month",
+      "default": 1,
+      "businessContext": "Month of the last menstrual period"
+    },
+    {
+      "id": "lmpYear",
+      "label": "LMP Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2024,
+      "businessContext": "Year of the last menstrual period"
+    },
+    {
+      "id": "currentDay",
+      "label": "Current Day",
+      "type": "number",
+      "unit": "day",
+      "default": 1,
+      "businessContext": "Current day"
+    },
+    {
+      "id": "currentMonth",
+      "label": "Current Month",
+      "type": "number",
+      "unit": "month",
+      "default": 1,
+      "businessContext": "Current month"
+    },
+    {
+      "id": "currentYear",
+      "label": "Current Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2024,
+      "businessContext": "Current year"
+    }
+  ],
+  "formulas": {
+    "totalDaysDifference": "(currentYear - lmpYear)*365 + (currentMonth - lmpMonth)*30 + (currentDay - lmpDay)",
+    "gestationalWeeks": "Math.floor(totalDaysDifference / 7)",
+    "gestationalDays": "totalDaysDifference % 7",
+    "trimester": "gestationalWeeks < 14 ? 1 : (gestationalWeeks < 28 ? 2 : 3)",
+    "lmpTotalDays": "lmpYear*365 + lmpMonth*30 + lmpDay",
+    "dueTotalDays": "lmpTotalDays + 280",
+    "dueYear": "Math.floor(dueTotalDays / 365)",
+    "remainingAfterYear": "dueTotalDays % 365",
+    "dueMonth": "Math.floor(remainingAfterYear / 30)",
+    "dueDay": "remainingAfterYear % 30",
+    "dueDateString": "dueMonth + '/' + dueDay + '/' + dueYear",
+    "gestationalString": "gestationalWeeks + ' weeks ' + gestationalDays + ' days'"
+  },
+  "outputs": {
+    "primary": "trimester",
+    "breakdown": [
+      "gestationalString",
+      "dueDateString"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

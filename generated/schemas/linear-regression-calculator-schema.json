@@ -1,0 +1,71 @@
+{
+  "toolName": "linear-regression-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Veri Sayısı (n)",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "X ve Y değişkenleri için eşleştirilmiş veri noktası sayısı"
+    },
+    {
+      "id": "sumX",
+      "label": "ΣX",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Tüm X değerlerinin toplamı"
+    },
+    {
+      "id": "sumY",
+      "label": "ΣY",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Tüm Y değerlerinin toplamı"
+    },
+    {
+      "id": "sumX2",
+      "label": "ΣX²",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Tüm X² değerlerinin toplamı"
+    },
+    {
+      "id": "sumXY",
+      "label": "ΣXY",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Tüm X·Y çarpımlarının toplamı"
+    },
+    {
+      "id": "sumY2",
+      "label": "ΣY²",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Tüm Y² değerlerinin toplamı"
+    }
+  ],
+  "formulas": {
+    "slope": "(n * sumXY - sumX * sumY) / (n * sumX2 - sumX ** 2)",
+    "intercept": "(sumY - slope * sumX) / n",
+    "rSquared": "((n * sumXY - sumX * sumY) / Math.sqrt((n * sumX2 - sumX ** 2) * (n * sumY2 - sumY ** 2))) ** 2"
+  },
+  "outputs": {
+    "primary": "slope",
+    "breakdown": [
+      "intercept",
+      "rSquared"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

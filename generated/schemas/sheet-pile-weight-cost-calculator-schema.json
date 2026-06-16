@@ -1,0 +1,71 @@
+{
+  "toolName": "sheet-pile-weight-cost-calculator",
+  "inputs": [
+    {
+      "id": "pileWidth",
+      "label": "Pile Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.6,
+      "businessContext": "Width of a single sheet pile"
+    },
+    {
+      "id": "pileLength",
+      "label": "Pile Length",
+      "type": "number",
+      "unit": "m",
+      "default": 12,
+      "businessContext": "Length of each pile"
+    },
+    {
+      "id": "numberOfPiles",
+      "label": "Number of Piles",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "Total number of piles"
+    },
+    {
+      "id": "weightPerArea",
+      "label": "Unit Weight",
+      "type": "number",
+      "unit": "kg/m²",
+      "default": 120,
+      "businessContext": "Mass of sheet pile per square meter (e.g., from manufacturer)"
+    },
+    {
+      "id": "costPerTon",
+      "label": "Cost per Ton",
+      "type": "number",
+      "unit": "$/ton",
+      "default": 900,
+      "businessContext": "Cost of steel per metric ton"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Waste factor for cutting and damage"
+    }
+  ],
+  "formulas": {
+    "totalArea": "pileWidth * pileLength * numberOfPiles * (1 + wasteFactor / 100)",
+    "totalWeightTons": "totalArea * weightPerArea / 1000",
+    "totalCost": "totalWeightTons * costPerTon"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "totalArea",
+      "totalWeightTons"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

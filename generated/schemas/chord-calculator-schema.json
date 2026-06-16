@@ -1,0 +1,70 @@
+{
+  "toolName": "chord-calculator",
+  "inputs": [
+    {
+      "id": "radius",
+      "label": "Radius",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Circle radius"
+    },
+    {
+      "id": "angleDeg",
+      "label": "Central Angle",
+      "type": "number",
+      "unit": "°",
+      "default": 60,
+      "businessContext": "Angle in degrees (0 if using arc length or offset)"
+    },
+    {
+      "id": "arcLength",
+      "label": "Arc Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Arc length alternative to angle (0 to ignore)"
+    },
+    {
+      "id": "chordOffset",
+      "label": "Chord Offset",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Distance from center to chord (0 to ignore)"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for outputs"
+    }
+  ],
+  "formulas": {
+    "angleRad": "inputs.angleDeg > 0 ? inputs.angleDeg * Math.PI / 180 : inputs.arcLength > 0 ? inputs.arcLength / inputs.radius : inputs.chordOffset > 0 ? 2 * Math.acos(inputs.chordOffset / inputs.radius) : 0",
+    "chord": "2 * inputs.radius * Math.sin(angleRad / 2)",
+    "chordFinal": "Math.round(chord * Math.pow(10, inputs.precision)) / Math.pow(10, inputs.precision)",
+    "arcLength": "angleRad * inputs.radius",
+    "arcLengthFinal": "Math.round(arcLength * Math.pow(10, inputs.precision)) / Math.pow(10, inputs.precision)",
+    "sagitta": "inputs.radius - Math.sqrt(Math.pow(inputs.radius, 2) - Math.pow(chord / 2, 2))",
+    "sagittaFinal": "Math.round(sagitta * Math.pow(10, inputs.precision)) / Math.pow(10, inputs.precision)",
+    "segmentArea": "0.5 * Math.pow(inputs.radius, 2) * (angleRad - Math.sin(angleRad))",
+    "segmentAreaFinal": "Math.round(segmentArea * Math.pow(10, inputs.precision)) / Math.pow(10, inputs.precision)"
+  },
+  "outputs": {
+    "primary": "chordFinal",
+    "breakdown": [
+      "arcLengthFinal",
+      "sagittaFinal",
+      "segmentAreaFinal"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "note-frequency-calculator",
+  "inputs": [
+    {
+      "id": "referenceFrequency",
+      "label": "Reference Frequency (A4)",
+      "type": "number",
+      "unit": "Hz",
+      "default": 440,
+      "businessContext": "Standard tuning frequency for A4 note."
+    },
+    {
+      "id": "referenceNote",
+      "label": "Reference MIDI Note",
+      "type": "number",
+      "unit": "MIDI number",
+      "default": 69,
+      "businessContext": "MIDI note number for the reference pitch; A4=69."
+    },
+    {
+      "id": "targetNote",
+      "label": "Target MIDI Note",
+      "type": "number",
+      "unit": "MIDI number",
+      "default": 69,
+      "businessContext": "MIDI note number for which to calculate frequency."
+    },
+    {
+      "id": "centsAdjustment",
+      "label": "Cents Adjustment",
+      "type": "number",
+      "unit": "cents",
+      "default": 0,
+      "businessContext": "Fine-tuning adjustment in cents (100 cents = 1 semitone)."
+    }
+  ],
+  "formulas": {
+    "semitoneOffset": "targetNote - referenceNote",
+    "frequencyWithoutCents": "referenceFrequency * Math.pow(2, (targetNote - referenceNote) / 12)",
+    "frequency": "referenceFrequency * Math.pow(2, (targetNote - referenceNote + centsAdjustment / 100) / 12)"
+  },
+  "outputs": {
+    "primary": "frequency",
+    "breakdown": [
+      "semitoneOffset",
+      "frequencyWithoutCents"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

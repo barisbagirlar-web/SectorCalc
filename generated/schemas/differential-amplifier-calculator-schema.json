@@ -1,0 +1,71 @@
+{
+  "toolName": "differential-amplifier-calculator",
+  "inputs": [
+    {
+      "id": "V1",
+      "label": "Input Voltage V1",
+      "type": "number",
+      "unit": "V",
+      "default": 1,
+      "businessContext": "Voltage applied to inverting input through resistor R1"
+    },
+    {
+      "id": "V2",
+      "label": "Input Voltage V2",
+      "type": "number",
+      "unit": "V",
+      "default": 2,
+      "businessContext": "Voltage applied to non-inverting input through resistor R3"
+    },
+    {
+      "id": "R1",
+      "label": "Resistor R1",
+      "type": "number",
+      "unit": "Ω",
+      "default": 10000,
+      "businessContext": "Resistor connected between V1 and inverting input"
+    },
+    {
+      "id": "R2",
+      "label": "Resistor R2",
+      "type": "number",
+      "unit": "Ω",
+      "default": 10000,
+      "businessContext": "Feedback resistor connected between output and inverting input"
+    },
+    {
+      "id": "R3",
+      "label": "Resistor R3",
+      "type": "number",
+      "unit": "Ω",
+      "default": 10000,
+      "businessContext": "Resistor connected between V2 and non-inverting input"
+    },
+    {
+      "id": "R4",
+      "label": "Resistor R4",
+      "type": "number",
+      "unit": "Ω",
+      "default": 10000,
+      "businessContext": "Resistor connected between non-inverting input and ground"
+    }
+  ],
+  "formulas": {
+    "Vout": "V2 * (R4 / (R3 + R4)) * (1 + R2 / R1) - V1 * (R2 / R1)",
+    "gain_inv": "R2 / R1",
+    "gain_noninv": "(R4 / (R3 + R4)) * (1 + R2 / R1)"
+  },
+  "outputs": {
+    "primary": "Vout",
+    "breakdown": [
+      "gain_inv",
+      "gain_noninv"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

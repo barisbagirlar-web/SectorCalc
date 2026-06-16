@@ -1,0 +1,55 @@
+{
+  "toolName": "dpi-calculator",
+  "inputs": [
+    {
+      "id": "widthPixels",
+      "label": "Width (pixels)",
+      "type": "number",
+      "unit": "px",
+      "default": 1920,
+      "businessContext": "Horizontal pixel count of the display or image"
+    },
+    {
+      "id": "heightPixels",
+      "label": "Height (pixels)",
+      "type": "number",
+      "unit": "px",
+      "default": 1080,
+      "businessContext": "Vertical pixel count of the display or image"
+    },
+    {
+      "id": "widthInches",
+      "label": "Width (inches)",
+      "type": "number",
+      "unit": "in",
+      "default": 13.6,
+      "businessContext": "Physical width of the display area in inches"
+    },
+    {
+      "id": "heightInches",
+      "label": "Height (inches)",
+      "type": "number",
+      "unit": "in",
+      "default": 7.65,
+      "businessContext": "Physical height of the display area in inches"
+    }
+  ],
+  "formulas": {
+    "horizontalDpi": "widthPixels / widthInches",
+    "verticalDpi": "heightPixels / heightInches",
+    "diagonalDpi": "Math.sqrt(Math.pow(widthPixels, 2) + Math.pow(heightPixels, 2)) / Math.sqrt(Math.pow(widthInches, 2) + Math.pow(heightInches, 2))"
+  },
+  "outputs": {
+    "primary": "diagonalDpi",
+    "breakdown": [
+      "Horizontal DPI: horizontalDpi",
+      "Vertical DPI: verticalDpi"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

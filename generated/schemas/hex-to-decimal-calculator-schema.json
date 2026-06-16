@@ -1,0 +1,55 @@
+{
+  "toolName": "hex-to-decimal-calculator",
+  "inputs": [
+    {
+      "id": "hexDigit0",
+      "label": "Hex Digit (16^0)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Least significant hexadecimal digit (0-15)"
+    },
+    {
+      "id": "hexDigit1",
+      "label": "Hex Digit (16^1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second hexadecimal digit (0-15)"
+    },
+    {
+      "id": "hexDigit2",
+      "label": "Hex Digit (16^2)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Third hexadecimal digit (0-15)"
+    },
+    {
+      "id": "hexDigit3",
+      "label": "Hex Digit (16^3)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Most significant hexadecimal digit (0-15)"
+    }
+  ],
+  "formulas": {
+    "decimal": "inputs.hexDigit0 + inputs.hexDigit1 * 16 + inputs.hexDigit2 * 16**2 + inputs.hexDigit3 * 16**3"
+  },
+  "outputs": {
+    "primary": "decimal",
+    "breakdown": [
+      "hexDigit0 * 1",
+      "hexDigit1 * 16",
+      "hexDigit2 * 256",
+      "hexDigit3 * 4096"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

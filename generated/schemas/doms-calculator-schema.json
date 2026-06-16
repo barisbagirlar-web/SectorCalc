@@ -1,0 +1,65 @@
+{
+  "toolName": "doms-calculator",
+  "inputs": [
+    {
+      "id": "plannedProductionTime",
+      "label": "Planlanan Üretim Süresi",
+      "type": "number",
+      "unit": "saat",
+      "default": 8,
+      "businessContext": "Vardiya süresi veya planlanan üretim süresi"
+    },
+    {
+      "id": "actualRunTime",
+      "label": "Gerçekleşen Çalışma Süresi",
+      "type": "number",
+      "unit": "saat",
+      "default": 7.5,
+      "businessContext": "Arızalar, duruşlar sonrası net üretim süresi"
+    },
+    {
+      "id": "idealCycleTime",
+      "label": "İdeal Çevrim Süresi",
+      "type": "number",
+      "unit": "dakika/adet",
+      "default": 0.5,
+      "businessContext": "Bir ürünün ideal üretim süresi"
+    },
+    {
+      "id": "totalCount",
+      "label": "Toplam Üretim Adedi",
+      "type": "number",
+      "unit": "adet",
+      "default": 800,
+      "businessContext": "Toplam üretilen parça sayısı"
+    },
+    {
+      "id": "goodCount",
+      "label": "Sağlam Ürün Adedi",
+      "type": "number",
+      "unit": "adet",
+      "default": 760,
+      "businessContext": "Kalite kontrolden geçen ürün sayısı"
+    }
+  ],
+  "formulas": {
+    "availability": "actualRunTime / plannedProductionTime",
+    "performance": "(idealCycleTime * totalCount) / (actualRunTime * 60)",
+    "quality": "goodCount / totalCount",
+    "oee": "availability * performance * quality"
+  },
+  "outputs": {
+    "primary": "oee",
+    "breakdown": [
+      "availability",
+      "performance",
+      "quality"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

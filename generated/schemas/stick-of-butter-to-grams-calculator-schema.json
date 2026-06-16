@@ -1,0 +1,65 @@
+{
+  "toolName": "stick-of-butter-to-grams-calculator",
+  "inputs": [
+    {
+      "id": "numberOfSticks",
+      "label": "Number of Sticks",
+      "type": "number",
+      "unit": "sticks",
+      "default": 1,
+      "businessContext": "Quantity of US butter sticks"
+    },
+    {
+      "id": "stickWeight",
+      "label": "Stick Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 113.4,
+      "businessContext": "Standard weight of one stick (4 oz)"
+    },
+    {
+      "id": "packagingWeight",
+      "label": "Packaging Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Additional weight e.g. paper wrap"
+    },
+    {
+      "id": "butterDensity",
+      "label": "Butter Density",
+      "type": "number",
+      "unit": "g/mL",
+      "default": 0.911,
+      "businessContext": "Approximate density of butter at room temperature"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimals for outputs"
+    }
+  ],
+  "formulas": {
+    "totalGrams": "numberOfSticks * stickWeight + packagingWeight",
+    "totalOunces": "totalGrams / 28.349523125",
+    "totalCups": "numberOfSticks * 0.5",
+    "totalMilliliters": "totalGrams / butterDensity"
+  },
+  "outputs": {
+    "primary": "totalGrams",
+    "breakdown": [
+      "totalOunces",
+      "totalCups",
+      "totalMilliliters"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

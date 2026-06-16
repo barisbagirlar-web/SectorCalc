@@ -1,0 +1,54 @@
+{
+  "toolName": "ellipsoid-volume-calculator",
+  "inputs": [
+    {
+      "id": "semiAxisA",
+      "label": "Semi-axis a",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Length of semi-axis a (along x-axis)"
+    },
+    {
+      "id": "semiAxisB",
+      "label": "Semi-axis b",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Length of semi-axis b (along y-axis)"
+    },
+    {
+      "id": "semiAxisC",
+      "label": "Semi-axis c",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Length of semi-axis c (along z-axis)"
+    },
+    {
+      "id": "density",
+      "label": "Material density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 0,
+      "businessContext": "Density of the material for mass calculation (set 0 to ignore)"
+    }
+  ],
+  "formulas": {
+    "volume": "4/3 * Math.PI * semiAxisA * semiAxisB * semiAxisC",
+    "mass": "density > 0 ? volume * density : null"
+  },
+  "outputs": {
+    "primary": "volume",
+    "breakdown": [
+      "Volume = (4/3) * π * a * b * c",
+      "Mass = Volume * density"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

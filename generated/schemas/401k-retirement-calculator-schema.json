@@ -1,0 +1,73 @@
+{
+  "toolName": "401k-retirement-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Your current age"
+    },
+    {
+      "id": "retirementAge",
+      "label": "Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 65,
+      "businessContext": "Age at which you plan to retire"
+    },
+    {
+      "id": "currentBalance",
+      "label": "Current 401k Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Current amount in your 401k account"
+    },
+    {
+      "id": "annualContribution",
+      "label": "Annual Contribution",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Amount you contribute annually to your 401k"
+    },
+    {
+      "id": "employerMatchRate",
+      "label": "Employer Match Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of your contribution that your employer matches"
+    },
+    {
+      "id": "annualReturnRate",
+      "label": "Annual Return Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected annual rate of return on investments"
+    }
+  ],
+  "formulas": {
+    "totalAtRetirement": "currentBalance * Math.pow(1 + (annualReturnRate / 100), retirementAge - currentAge) + (annualContribution * (1 + employerMatchRate / 100)) * ((Math.pow(1 + (annualReturnRate / 100), retirementAge - currentAge) - 1) / (annualReturnRate / 100))",
+    "fromPrincipal": "currentBalance * Math.pow(1 + (annualReturnRate / 100), retirementAge - currentAge)",
+    "fromContributions": "annualContribution * ((Math.pow(1 + (annualReturnRate / 100), retirementAge - currentAge) - 1) / (annualReturnRate / 100))",
+    "fromEmployerMatch": "(annualContribution * (employerMatchRate / 100)) * ((Math.pow(1 + (annualReturnRate / 100), retirementAge - currentAge) - 1) / (annualReturnRate / 100))"
+  },
+  "outputs": {
+    "primary": "totalAtRetirement",
+    "breakdown": [
+      "fromPrincipal",
+      "fromContributions",
+      "fromEmployerMatch"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

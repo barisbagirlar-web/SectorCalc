@@ -1,0 +1,61 @@
+{
+  "toolName": "vo2-max-from-mile-time-calculator",
+  "inputs": [
+    {
+      "id": "timeMinutes",
+      "label": "Mile Time (min)",
+      "type": "number",
+      "unit": "min",
+      "default": 8.5,
+      "businessContext": "Time to run/jog one mile in decimal minutes (e.g., 8.5 for 8 minutes 30 seconds)."
+    },
+    {
+      "id": "heartRateBpm",
+      "label": "Heart Rate (bpm)",
+      "type": "number",
+      "unit": "bpm",
+      "default": 150,
+      "businessContext": "Heart rate at the end of the mile (beats per minute)."
+    },
+    {
+      "id": "weightKg",
+      "label": "Body Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms."
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Gender: 0 for female, 1 for male."
+    }
+  ],
+  "formulas": {
+    "constant": "100.5",
+    "weightComponent": "-0.1636 * weightKg",
+    "timeComponent": "-1.438 * timeMinutes",
+    "heartRateComponent": "-0.1928 * heartRateBpm",
+    "genderComponent": "8.344 * gender",
+    "vo2max": "100.5 - 0.1636 * weightKg - 1.438 * timeMinutes - 0.1928 * heartRateBpm + 8.344 * gender"
+  },
+  "outputs": {
+    "primary": "vo2max",
+    "breakdown": [
+      "constant",
+      "weightComponent",
+      "timeComponent",
+      "heartRateComponent",
+      "genderComponent"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,61 @@
+{
+  "toolName": "effective-dose-calculator",
+  "inputs": [
+    {
+      "id": "absorbedDose",
+      "label": "Absorbed Dose (mGy)",
+      "type": "number",
+      "unit": "mGy",
+      "default": 10,
+      "businessContext": "Energy deposited per unit mass in the tissue or organ of interest."
+    },
+    {
+      "id": "numExposures",
+      "label": "Number of Exposures",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of identical exposures to multiply the dose by."
+    },
+    {
+      "id": "wR",
+      "label": "Radiation Weighting Factor (wR)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "ICRP 103: 1 for photons/electrons, 5 for protons, 10 for alpha, 20 for neutrons (energy dependent)."
+    },
+    {
+      "id": "wT",
+      "label": "Tissue Weighting Factor (wT)",
+      "type": "number",
+      "unit": "",
+      "default": 0.12,
+      "businessContext": "ICRP 103: organ-specific (e.g., lung 0.12, red marrow 0.12, stomach 0.12, thyroid 0.04, breast 0.12, gonads 0.08, bone surface 0.01, brain 0.01, salivary glands 0.01, skin 0.01, remainder 0.12). Sum for whole body = 1. Use 1 for whole-body uniform exposure."
+    },
+    {
+      "id": "convFactor",
+      "label": "Conversion Factor (mSv per mGy)",
+      "type": "number",
+      "unit": "mSv/mGy",
+      "default": 1,
+      "businessContext": "Normally 1 mSv per mGy for the same tissue. Adjust if input dose is in different units (e.g., 1000 mSv per Gy)."
+    }
+  ],
+  "formulas": {
+    "equivalentDose_mSv": "absorbedDose * numExposures * wR * convFactor",
+    "effectiveDose_mSv": "equivalentDose_mSv * wT"
+  },
+  "outputs": {
+    "primary": "effectiveDose_mSv",
+    "breakdown": [
+      "equivalentDose_mSv"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

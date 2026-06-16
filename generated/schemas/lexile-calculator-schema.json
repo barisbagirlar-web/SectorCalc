@@ -1,0 +1,58 @@
+{
+  "toolName": "lexile-calculator",
+  "inputs": [
+    {
+      "id": "tensileStrength",
+      "label": "Tensile Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 500,
+      "businessContext": "Ultimate tensile strength of material"
+    },
+    {
+      "id": "thickness",
+      "label": "Material Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "businessContext": "Thickness of the specimen"
+    },
+    {
+      "id": "width",
+      "label": "Specimen Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Width of the gauge section"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Design safety factor per ISO 13849"
+    }
+  ],
+  "formulas": {
+    "stressArea": "thickness * width",
+    "nominalLoad": "tensileStrength * stressArea",
+    "allowableLoad": "nominalLoad / safetyFactor",
+    "lexileIndex": "allowableLoad / 1000"
+  },
+  "outputs": {
+    "primary": "lexileIndex",
+    "breakdown": [
+      "stressArea",
+      "nominalLoad",
+      "allowableLoad",
+      "lexileIndex"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

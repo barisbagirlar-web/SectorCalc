@@ -1,0 +1,47 @@
+{
+  "toolName": "beneficiary-ira-calculator",
+  "inputs": [
+    {
+      "id": "accountBalance",
+      "label": "Account Balance",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "The fair market value of the inherited IRA as of December 31 of the prior year."
+    },
+    {
+      "id": "distributionFactor",
+      "label": "Distribution Period",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Life expectancy factor from IRS Single Life Table or chosen distribution period in years."
+    },
+    {
+      "id": "annualGrowthRate",
+      "label": "Annual Growth Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Expected annual rate of return on the account, e.g., 5 for 5%."
+    }
+  ],
+  "formulas": {
+    "requiredMinimumDistribution": "accountBalance / distributionFactor",
+    "remainingBalanceAfterRMD": "accountBalance - (accountBalance / distributionFactor)",
+    "projectedBalanceNextYear": "(accountBalance - (accountBalance / distributionFactor)) * (1 + annualGrowthRate / 100)"
+  },
+  "outputs": {
+    "primary": "requiredMinimumDistribution",
+    "breakdown": [
+      "remainingBalanceAfterRMD",
+      "projectedBalanceNextYear"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

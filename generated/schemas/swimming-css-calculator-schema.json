@@ -1,0 +1,53 @@
+{
+  "toolName": "swimming-css-calculator",
+  "inputs": [
+    {
+      "id": "dist1",
+      "label": "Longer Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 400,
+      "businessContext": "Typically the 400m distance for the CSS test"
+    },
+    {
+      "id": "time1",
+      "label": "Time for Longer Distance",
+      "type": "number",
+      "unit": "seconds",
+      "default": 300,
+      "businessContext": "Total time in seconds to complete the longer distance"
+    },
+    {
+      "id": "dist2",
+      "label": "Shorter Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 200,
+      "businessContext": "Typically the 200m distance for the CSS test"
+    },
+    {
+      "id": "time2",
+      "label": "Time for Shorter Distance",
+      "type": "number",
+      "unit": "seconds",
+      "default": 140,
+      "businessContext": "Total time in seconds to complete the shorter distance"
+    }
+  ],
+  "formulas": {
+    "css_speed_ms": "(dist1 - dist2) / (time1 - time2)",
+    "css_pace_per_100m": "100 / ((dist1 - dist2) / (time1 - time2))"
+  },
+  "outputs": {
+    "primary": "css_pace_per_100m",
+    "breakdown": [
+      "css_speed_ms"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

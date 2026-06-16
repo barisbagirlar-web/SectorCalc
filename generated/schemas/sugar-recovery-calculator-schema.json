@@ -1,0 +1,59 @@
+{
+  "toolName": "sugar-recovery-calculator",
+  "inputs": [
+    {
+      "id": "caneWeight",
+      "label": "Cane Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Total mass of sugarcane processed."
+    },
+    {
+      "id": "polCane",
+      "label": "Pol % Cane",
+      "type": "number",
+      "unit": "%",
+      "default": 14,
+      "businessContext": "Sucrose content in sugarcane by weight."
+    },
+    {
+      "id": "extractionEfficiency",
+      "label": "Extraction Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Percentage of sugar extracted from cane into juice."
+    },
+    {
+      "id": "boilingHouseEfficiency",
+      "label": "Boiling House Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Percentage of sugar in juice that is recovered as crystal sugar."
+    }
+  ],
+  "formulas": {
+    "totalSugar": "caneWeight * polCane / 100",
+    "extractedSugar": "totalSugar * extractionEfficiency / 100",
+    "recoveredSugar": "extractedSugar * boilingHouseEfficiency / 100",
+    "extractionLoss": "totalSugar - extractedSugar",
+    "boilingLoss": "extractedSugar - recoveredSugar"
+  },
+  "outputs": {
+    "primary": "recoveredSugar",
+    "breakdown": [
+      "totalSugar",
+      "extractedSugar",
+      "extractionLoss",
+      "boilingLoss"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

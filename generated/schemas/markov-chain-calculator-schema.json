@@ -1,0 +1,55 @@
+{
+  "toolName": "markov-chain-calculator",
+  "inputs": [
+    {
+      "id": "pAB",
+      "label": "Transition Probability A → B",
+      "type": "number",
+      "unit": "",
+      "default": 0.2,
+      "businessContext": "Probability of transitioning from state A to state B in one step."
+    },
+    {
+      "id": "pBA",
+      "label": "Transition Probability B → A",
+      "type": "number",
+      "unit": "",
+      "default": 0.3,
+      "businessContext": "Probability of transitioning from state B to state A in one step."
+    },
+    {
+      "id": "initA",
+      "label": "Initial Probability of State A",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Initial probability of being in state A (1 means definitely in state A)."
+    },
+    {
+      "id": "steps",
+      "label": "Number of Steps",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of transitions to perform."
+    }
+  ],
+  "formulas": {
+    "steadyStateA": "pBA / (pAB + pBA)",
+    "steadyStateB": "pAB / (pAB + pBA)",
+    "stateAProb": "steadyStateA + (initA - steadyStateA) * Math.pow(1 - pAB - pBA, steps)"
+  },
+  "outputs": {
+    "primary": "stateAProb",
+    "breakdown": [
+      "steadyStateA",
+      "steadyStateB"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

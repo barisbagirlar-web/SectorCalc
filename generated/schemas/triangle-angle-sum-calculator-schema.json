@@ -1,0 +1,55 @@
+{
+  "toolName": "triangle-angle-sum-calculator",
+  "inputs": [
+    {
+      "id": "angleA",
+      "label": "Angle A",
+      "type": "number",
+      "unit": "degree",
+      "default": 0,
+      "businessContext": "First angle of the triangle in degrees"
+    },
+    {
+      "id": "angleB",
+      "label": "Angle B",
+      "type": "number",
+      "unit": "degree",
+      "default": 0,
+      "businessContext": "Second angle of the triangle in degrees"
+    },
+    {
+      "id": "angleC",
+      "label": "Angle C",
+      "type": "number",
+      "unit": "degree",
+      "default": 0,
+      "businessContext": "Third angle of the triangle in degrees"
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "degree",
+      "default": 0.0001,
+      "businessContext": "Allowed deviation from 180° for triangle validity check"
+    }
+  ],
+  "formulas": {
+    "sum": "angleA + angleB + angleC",
+    "deviation": "Math.abs(angleA + angleB + angleC - 180)",
+    "isTriangle": "(Math.abs(angleA + angleB + angleC - 180) <= tolerance) ? 1 : 0"
+  },
+  "outputs": {
+    "primary": "sum",
+    "breakdown": [
+      "deviation",
+      "isTriangle"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

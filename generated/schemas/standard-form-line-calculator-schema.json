@@ -1,0 +1,57 @@
+{
+  "toolName": "standard-form-line-calculator",
+  "inputs": [
+    {
+      "id": "A",
+      "label": "A",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient of x in Ax + By = C"
+    },
+    {
+      "id": "B",
+      "label": "B",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient of y in Ax + By = C"
+    },
+    {
+      "id": "C",
+      "label": "C",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Constant term in Ax + By = C"
+    },
+    {
+      "id": "x",
+      "label": "x",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Value of x to compute corresponding y"
+    }
+  ],
+  "formulas": {
+    "y": "(C - A * x) / B",
+    "slope": "-A / B",
+    "x_intercept": "C / A",
+    "y_intercept": "C / B"
+  },
+  "outputs": {
+    "primary": "y",
+    "breakdown": [
+      "slope",
+      "x_intercept",
+      "y_intercept"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

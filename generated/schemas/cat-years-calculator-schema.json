@@ -1,0 +1,59 @@
+{
+  "toolName": "cat-years-calculator",
+  "inputs": [
+    {
+      "id": "catAgeYears",
+      "label": "Cat's Age (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 0,
+      "businessContext": "Full years of the cat's life."
+    },
+    {
+      "id": "catAgeMonths",
+      "label": "Cat's Age (Months)",
+      "type": "number",
+      "unit": "months",
+      "default": 0,
+      "businessContext": "Additional months beyond full years (0–11)."
+    },
+    {
+      "id": "catWeightKg",
+      "label": "Cat's Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 4.5,
+      "businessContext": "Weight in kilograms; average adult cat is 4.5 kg, affecting aging rate."
+    },
+    {
+      "id": "indoor",
+      "label": "Indoor Cat",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for primarily indoor, 0 for outdoor; outdoor cats age slightly faster."
+    }
+  ],
+  "formulas": {
+    "totalAgeYears": "catAgeYears + catAgeMonths / 12",
+    "baseHuman": "(totalAgeYears <= 1) ? 15 * totalAgeYears : (totalAgeYears <= 2) ? 15 + 9 * (totalAgeYears - 1) : 24 + 4 * (totalAgeYears - 2)",
+    "weightFactor": "1 + 0.02 * (catWeightKg - 4.5)",
+    "indoorFactor": "indoor === 0 ? 1.1 : 1.0",
+    "finalHumanYears": "baseHuman * weightFactor * indoorFactor"
+  },
+  "outputs": {
+    "primary": "Human age equivalent: ${finalHumanYears.toFixed(1)} years",
+    "breakdown": [
+      "Base human years (standard curve): ${baseHuman.toFixed(2)}",
+      "Weight adjustment factor: ${weightFactor.toFixed(2)}",
+      "Lifestyle factor (indoor/outdoor): ${indoorFactor.toFixed(2)}",
+      "Final estimated human age: ${finalHumanYears.toFixed(1)} years"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

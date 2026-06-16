@@ -1,0 +1,70 @@
+{
+  "toolName": "mansard-roof-calculator",
+  "inputs": [
+    {
+      "id": "buildingWidth",
+      "label": "Building Width (Span)",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Total horizontal distance from eave to eave across the ridge."
+    },
+    {
+      "id": "buildingLength",
+      "label": "Building Length",
+      "type": "number",
+      "unit": "m",
+      "default": 15,
+      "businessContext": "Length of building parallel to ridge."
+    },
+    {
+      "id": "lowerAngle",
+      "label": "Lower Slope Angle",
+      "type": "number",
+      "unit": "deg",
+      "default": 70,
+      "businessContext": "Angle of lower slope from horizontal, typically steep (60-80°)."
+    },
+    {
+      "id": "upperAngle",
+      "label": "Upper Slope Angle",
+      "type": "number",
+      "unit": "deg",
+      "default": 30,
+      "businessContext": "Angle of upper slope from horizontal, typically shallower (10-30°)."
+    },
+    {
+      "id": "lowerHeight",
+      "label": "Lower Vertical Height",
+      "type": "number",
+      "unit": "m",
+      "default": 2.5,
+      "businessContext": "Vertical rise from eave to break point where slope changes."
+    }
+  ],
+  "formulas": {
+    "halfSpan": "buildingWidth / 2",
+    "x1": "lowerHeight / Math.tan(lowerAngle * Math.PI/180)",
+    "h2": "(halfSpan - x1) * Math.tan(upperAngle * Math.PI/180)",
+    "lowerSlopeLength": "Math.sqrt(lowerHeight**2 + x1**2)",
+    "upperSlopeLength": "Math.sqrt(h2**2 + (halfSpan - x1)**2)",
+    "lowerRoofArea": "2 * buildingLength * lowerSlopeLength",
+    "upperRoofArea": "2 * buildingLength * upperSlopeLength",
+    "totalRoofArea": "lowerRoofArea + upperRoofArea",
+    "ridgeHeight": "lowerHeight + h2"
+  },
+  "outputs": {
+    "primary": "totalRoofArea",
+    "breakdown": [
+      "lowerRoofArea",
+      "upperRoofArea",
+      "ridgeHeight"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "astronomical-units-to-km-calculator",
+  "inputs": [
+    {
+      "id": "astronomicalUnits",
+      "label": "Astronomik Birim (AU)",
+      "type": "number",
+      "unit": "AU",
+      "default": 1,
+      "businessContext": "Dönüştürülecek mesafe değeri, astronomik birim cinsinden."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Dönüşüm Oranı",
+      "type": "number",
+      "unit": "km/AU",
+      "default": 149597870.7,
+      "businessContext": "1 AU'nun kilometre karşılığı. IAU 2012 tanımına göre sabittir."
+    },
+    {
+      "id": "precision",
+      "label": "Gösterim Hassasiyeti",
+      "type": "number",
+      "unit": "basamak",
+      "default": 2,
+      "businessContext": "Sonuç gösteriminde kullanılacak ondalık basamak sayısı. Hesaplamada etkisizdir."
+    },
+    {
+      "id": "outputMultiplier",
+      "label": "Çıktı Çarpanı",
+      "type": "number",
+      "unit": "çarpan",
+      "default": 1,
+      "businessContext": "Çıktı birimini ölçeklendirmek için katsayı. 1: km, 1e-6: milyon km."
+    }
+  ],
+  "formulas": {
+    "kilometers": "astronomicalUnits * conversionFactor * outputMultiplier",
+    "meters": "astronomicalUnits * conversionFactor * outputMultiplier * 1000",
+    "miles": "astronomicalUnits * conversionFactor * outputMultiplier * 0.621371"
+  },
+  "outputs": {
+    "primary": "kilometers",
+    "breakdown": [
+      "meters",
+      "miles"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

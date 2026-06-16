@@ -1,0 +1,75 @@
+{
+  "toolName": "ramadan-calculator",
+  "inputs": [
+    {
+      "id": "normalDailyHours",
+      "label": "Normal Daily Working Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Standard daily operating hours outside Ramadan."
+    },
+    {
+      "id": "ramadanDailyHours",
+      "label": "Ramadan Daily Working Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 6,
+      "businessContext": "Reduced daily operating hours during Ramadan."
+    },
+    {
+      "id": "workingDaysRamadan",
+      "label": "Working Days in Ramadan",
+      "type": "number",
+      "unit": "days",
+      "default": 22,
+      "businessContext": "Total number of working days in the month of Ramadan."
+    },
+    {
+      "id": "energyConsumptionRate",
+      "label": "Energy Consumption Rate",
+      "type": "number",
+      "unit": "kW",
+      "default": 500,
+      "businessContext": "Average electrical power demand while factory is operating."
+    },
+    {
+      "id": "energyCostPerKwh",
+      "label": "Energy Cost per kWh",
+      "type": "number",
+      "unit": "₺/kWh",
+      "default": 2.5,
+      "businessContext": "Cost of electricity per kilowatt-hour."
+    },
+    {
+      "id": "co2EmissionFactor",
+      "label": "CO₂ Emission Factor",
+      "type": "number",
+      "unit": "kg CO₂/kWh",
+      "default": 0.5,
+      "businessContext": "Carbon dioxide emission per kilowatt-hour consumed from grid."
+    }
+  ],
+  "formulas": {
+    "primary": "(normalDailyHours - ramadanDailyHours) * workingDaysRamadan * energyConsumptionRate * energyCostPerKwh",
+    "Normal Energy Consumption (kWh)": "normalDailyHours * workingDaysRamadan * energyConsumptionRate",
+    "Ramadan Energy Consumption (kWh)": "ramadanDailyHours * workingDaysRamadan * energyConsumptionRate",
+    "Total Energy Saved (kWh)": "(normalDailyHours - ramadanDailyHours) * workingDaysRamadan * energyConsumptionRate",
+    "CO₂ Emission Reduction (kg)": "(normalDailyHours - ramadanDailyHours) * workingDaysRamadan * energyConsumptionRate * co2EmissionFactor"
+  },
+  "outputs": {
+    "primary": "Total Energy Cost Savings (₺)",
+    "breakdown": [
+      "Normal Energy Consumption (kWh)",
+      "Ramadan Energy Consumption (kWh)",
+      "Total Energy Saved (kWh)",
+      "CO₂ Emission Reduction (kg)"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

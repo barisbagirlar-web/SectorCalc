@@ -1,0 +1,67 @@
+{
+  "toolName": "focus-time-calculator",
+  "inputs": [
+    {
+      "id": "totalWorkHours",
+      "label": "Total Work Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Total scheduled working hours per day"
+    },
+    {
+      "id": "breakHours",
+      "label": "Break Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 1,
+      "businessContext": "Total break time (e.g., lunch, coffee breaks)"
+    },
+    {
+      "id": "meetingHours",
+      "label": "Meeting Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 1.5,
+      "businessContext": "Time spent in scheduled meetings"
+    },
+    {
+      "id": "interruptionCount",
+      "label": "Interruption Count",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "businessContext": "Average number of unplanned interruptions per day"
+    },
+    {
+      "id": "avgInterruptionDuration",
+      "label": "Avg Interruption Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 5,
+      "businessContext": "Average duration of each interruption"
+    }
+  ],
+  "formulas": {
+    "breakOut": "breakHours",
+    "meetingOut": "meetingHours",
+    "interruptionOut": "interruptionCount * avgInterruptionDuration / 60",
+    "nonFocusOut": "breakOut + meetingOut + interruptionOut",
+    "focusOut": "totalWorkHours - nonFocusOut"
+  },
+  "outputs": {
+    "primary": "focusOut",
+    "breakdown": [
+      "breakOut",
+      "meetingOut",
+      "interruptionOut",
+      "nonFocusOut"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

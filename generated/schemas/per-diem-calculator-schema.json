@@ -1,0 +1,64 @@
+{
+  "toolName": "per-diem-calculator",
+  "inputs": [
+    {
+      "id": "days",
+      "label": "Number of Days",
+      "type": "number",
+      "unit": "days",
+      "default": 1,
+      "businessContext": "Total days of travel"
+    },
+    {
+      "id": "dailyMeal",
+      "label": "Daily Meal Allowance",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "businessContext": "Per day meal allowance"
+    },
+    {
+      "id": "dailyLodging",
+      "label": "Daily Lodging Allowance",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "Per day lodging allowance"
+    },
+    {
+      "id": "incidentals",
+      "label": "Daily Incidentals Allowance",
+      "type": "number",
+      "unit": "USD",
+      "default": 20,
+      "businessContext": "Per day incidental expenses"
+    },
+    {
+      "id": "exchangeRate",
+      "label": "Exchange Rate to Home Currency",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Conversion rate from travel currency to home currency"
+    }
+  ],
+  "formulas": {
+    "dailyTotal": "(dailyMeal + dailyLodging + incidentals)",
+    "totalDaysCost": "(dailyMeal + dailyLodging + incidentals) * days",
+    "totalAllowance": "(dailyMeal + dailyLodging + incidentals) * days * exchangeRate"
+  },
+  "outputs": {
+    "primary": "totalAllowance",
+    "breakdown": [
+      "dailyTotal",
+      "totalDaysCost",
+      "totalAllowance"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

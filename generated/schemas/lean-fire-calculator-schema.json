@@ -1,0 +1,65 @@
+{
+  "toolName": "lean-fire-calculator",
+  "inputs": [
+    {
+      "id": "annualExpenses",
+      "label": "Yıllık Harcamalar",
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "businessContext": "Yıllık yaşam giderleri"
+    },
+    {
+      "id": "currentSavings",
+      "label": "Mevcut Birikim",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Şu anki toplam birikim"
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Aylık Katkı",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000,
+      "businessContext": "Her ay yapılan düzenli yatırım"
+    },
+    {
+      "id": "annualReturnRate",
+      "label": "Yıllık Getiri Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Beklenen yıllık bileşik getiri oranı"
+    },
+    {
+      "id": "safeWithdrawalRate",
+      "label": "Güvenli Çekim Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "businessContext": "Sürdürülebilir yıllık çekim oranı (ör. %4 kuralı)"
+    }
+  ],
+  "formulas": {
+    "fireNumber": "annualExpenses / (safeWithdrawalRate / 100)",
+    "annualContribution": "monthlyContribution * 12",
+    "r": "annualReturnRate / 100",
+    "yearsToFire": "annualContribution > 0 ? Math.log((fireNumber * r + annualContribution) / (currentSavings * r + annualContribution)) / Math.log(1 + r) : Math.log(fireNumber / currentSavings) / Math.log(1 + r)",
+    "monthlySafeWithdrawal": "(fireNumber * (safeWithdrawalRate / 100)) / 12"
+  },
+  "outputs": {
+    "primary": "yearsToFire",
+    "breakdown": [
+      "fireNumber",
+      "monthlySafeWithdrawal"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

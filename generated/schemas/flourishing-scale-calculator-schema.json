@@ -1,0 +1,87 @@
+{
+  "toolName": "flourishing-scale-calculator",
+  "inputs": [
+    {
+      "id": "item1",
+      "label": "I lead a purposeful and meaningful life",
+      "type": "number",
+      "unit": "point",
+      "default": 4,
+      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)"
+    },
+    {
+      "id": "item2",
+      "label": "My social relationships are supportive and rewarding",
+      "type": "number",
+      "unit": "point",
+      "default": 4,
+      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)"
+    },
+    {
+      "id": "item3",
+      "label": "I am engaged and interested in my daily activities",
+      "type": "number",
+      "unit": "point",
+      "default": 4,
+      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)"
+    },
+    {
+      "id": "item4",
+      "label": "I actively contribute to the happiness and well-being of others",
+      "type": "number",
+      "unit": "point",
+      "default": 4,
+      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)"
+    },
+    {
+      "id": "item5",
+      "label": "I am competent and capable in the activities that are important to me",
+      "type": "number",
+      "unit": "point",
+      "default": 4,
+      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)"
+    },
+    {
+      "id": "item6",
+      "label": "I am a good person and live a good life",
+      "type": "number",
+      "unit": "point",
+      "default": 4,
+      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)"
+    },
+    {
+      "id": "item7",
+      "label": "I am optimistic about my future",
+      "type": "number",
+      "unit": "point",
+      "default": 4,
+      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)"
+    },
+    {
+      "id": "item8",
+      "label": "People respect me",
+      "type": "number",
+      "unit": "point",
+      "default": 4,
+      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)"
+    }
+  ],
+  "formulas": {
+    "totalScore": "item1 + item2 + item3 + item4 + item5 + item6 + item7 + item8",
+    "averageScore": "(item1 + item2 + item3 + item4 + item5 + item6 + item7 + item8) / 8",
+    "category": "totalScore >= 48 ? 'High Flourishing' : totalScore >= 40 ? 'Moderate Flourishing' : 'Low Flourishing'"
+  },
+  "outputs": {
+    "primary": "totalScore",
+    "breakdown": [
+      "averageScore",
+      "category"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

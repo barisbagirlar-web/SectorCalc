@@ -1,0 +1,63 @@
+{
+  "toolName": "retirement-date-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "The current age of the individual."
+    },
+    {
+      "id": "currentSavings",
+      "label": "Current Savings",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Total amount currently saved for retirement."
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Monthly Contribution",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000,
+      "businessContext": "Amount contributed to retirement savings each month."
+    },
+    {
+      "id": "annualReturnPercent",
+      "label": "Annual Return Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected average annual investment return rate."
+    },
+    {
+      "id": "targetCorpus",
+      "label": "Target Retirement Corpus",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "businessContext": "The total savings target required to retire comfortably."
+    }
+  ],
+  "formulas": {
+    "yearsUntilRetirement": "Math.log((targetCorpus*(annualReturnPercent/100) + (monthlyContribution*12)) / (currentSavings*(annualReturnPercent/100) + (monthlyContribution*12))) / Math.log(1 + annualReturnPercent/100)",
+    "retirementAge": "currentAge + (Math.log((targetCorpus*(annualReturnPercent/100) + (monthlyContribution*12)) / (currentSavings*(annualReturnPercent/100) + (monthlyContribution*12))) / Math.log(1 + annualReturnPercent/100))",
+    "totalContributions": "monthlyContribution * 12 * (Math.log((targetCorpus*(annualReturnPercent/100) + (monthlyContribution*12)) / (currentSavings*(annualReturnPercent/100) + (monthlyContribution*12))) / Math.log(1 + annualReturnPercent/100))"
+  },
+  "outputs": {
+    "primary": "yearsUntilRetirement",
+    "breakdown": [
+      "retirementAge",
+      "totalContributions"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

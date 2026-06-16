@@ -1,0 +1,70 @@
+{
+  "toolName": "shortest-path-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "Start X",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "X-coordinate of the starting point."
+    },
+    {
+      "id": "y1",
+      "label": "Start Y",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y-coordinate of the starting point."
+    },
+    {
+      "id": "x2",
+      "label": "End X",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "X-coordinate of the ending point."
+    },
+    {
+      "id": "y2",
+      "label": "End Y",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y-coordinate of the ending point."
+    }
+  ],
+  "formulas": {
+    "dx": "Math.sqrt((x2 - x1) ** 2)",
+    "dy": "Math.sqrt((y2 - y1) ** 2)",
+    "distance": "Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)"
+  },
+  "outputs": {
+    "primary": {
+      "label": "Shortest Distance",
+      "value": "distance",
+      "unit": "m",
+      "businessContext": "The Euclidean straight-line distance between the two points."
+    },
+    "breakdown": [
+      {
+        "label": "Horizontal Distance (dx)",
+        "value": "dx",
+        "unit": "m",
+        "businessContext": "Absolute horizontal difference between start and end points."
+      },
+      {
+        "label": "Vertical Distance (dy)",
+        "value": "dy",
+        "unit": "m",
+        "businessContext": "Absolute vertical difference between start and end points."
+      }
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

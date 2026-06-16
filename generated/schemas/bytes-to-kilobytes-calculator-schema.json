@@ -1,0 +1,56 @@
+{
+  "toolName": "bytes-to-kilobytes-calculator",
+  "inputs": [
+    {
+      "id": "bytes",
+      "label": "Bytes",
+      "type": "number",
+      "unit": "B",
+      "default": 0,
+      "businessContext": "Enter the number of bytes to convert to kilobytes"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output"
+    },
+    {
+      "id": "convention",
+      "label": "Conversion Base",
+      "type": "number",
+      "unit": "",
+      "default": 1024,
+      "businessContext": "1024 for binary (IEC) kilobytes, 1000 for decimal (SI) kilobytes"
+    },
+    {
+      "id": "roundMode",
+      "label": "Rounding Mode",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "0: No rounding, 1: Round half up, 2: Ceil, 3: Floor"
+    }
+  ],
+  "formulas": {
+    "exact": "bytes / convention",
+    "result": "(() => { const e = exact; const m = Math.pow(10, precision); const rm = roundMode; if (rm === 0) return e; if (rm === 1) return Math.round(e * m) / m; if (rm === 2) return Math.ceil(e * m) / m; return Math.floor(e * m) / m; })()"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": [
+      "Input: {{bytes}} bytes",
+      "Conversion base: {{convention}} bytes per kilobyte",
+      "Exact value: {{exact}} KB",
+      "Rounded according to mode {{roundMode}} with {{precision}} decimal places: {{result}} KB"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

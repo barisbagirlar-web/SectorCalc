@@ -1,0 +1,79 @@
+{
+  "toolName": "quilt-calculator",
+  "inputs": [
+    {
+      "id": "quiltWidth",
+      "label": "Quilt Width",
+      "type": "number",
+      "unit": "cm",
+      "default": 200,
+      "businessContext": "Finished width of the quilt"
+    },
+    {
+      "id": "quiltLength",
+      "label": "Quilt Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 200,
+      "businessContext": "Finished length of the quilt"
+    },
+    {
+      "id": "blockWidth",
+      "label": "Block Width",
+      "type": "number",
+      "unit": "cm",
+      "default": 20,
+      "businessContext": "Finished width of one quilt block"
+    },
+    {
+      "id": "blockLength",
+      "label": "Block Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 20,
+      "businessContext": "Finished length of one quilt block"
+    },
+    {
+      "id": "seamAllowance",
+      "label": "Seam Allowance",
+      "type": "number",
+      "unit": "cm",
+      "default": 0.6,
+      "businessContext": "Seam allowance added to each side of the block"
+    },
+    {
+      "id": "fabricWidth",
+      "label": "Fabric Width",
+      "type": "number",
+      "unit": "cm",
+      "default": 110,
+      "businessContext": "Width of the fabric bolt"
+    }
+  ],
+  "formulas": {
+    "blockCutWidth": "blockWidth + 2 * seamAllowance",
+    "blockCutLength": "blockLength + 2 * seamAllowance",
+    "horizontalBlocks": "Math.ceil(quiltWidth / blockWidth)",
+    "verticalBlocks": "Math.ceil(quiltLength / blockLength)",
+    "totalBlocks": "horizontalBlocks * verticalBlocks",
+    "blocksPerWidth": "Math.floor(fabricWidth / blockCutWidth)",
+    "rowsNeeded": "Math.ceil(totalBlocks / Math.max(1, blocksPerWidth))",
+    "totalFabricLengthCm": "rowsNeeded * blockCutLength",
+    "totalFabricLengthM": "totalFabricLengthCm / 100",
+    "totalFabricAreaSqM": "(totalBlocks * blockCutWidth * blockCutLength) / 10000"
+  },
+  "outputs": {
+    "primary": "totalFabricLengthM",
+    "breakdown": [
+      "totalBlocks",
+      "blocksPerWidth",
+      "totalFabricAreaSqM"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,100 @@
+{
+  "toolName": "cantilever-retaining-wall",
+  "inputs": [
+    {
+      "id": "height",
+      "label": "Wall Height (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Total height of the retaining wall from base to top."
+    },
+    {
+      "id": "stemThickness",
+      "label": "Stem Thickness (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "businessContext": "Thickness of the vertical stem at the top."
+    },
+    {
+      "id": "baseWidth",
+      "label": "Base Width (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Width of the base slab."
+    },
+    {
+      "id": "baseThickness",
+      "label": "Base Thickness (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.4,
+      "businessContext": "Thickness of the base slab."
+    },
+    {
+      "id": "heelLength",
+      "label": "Heel Length (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 1.2,
+      "businessContext": "Length of the heel (portion of base behind the stem)."
+    },
+    {
+      "id": "toeLength",
+      "label": "Toe Length (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.8,
+      "businessContext": "Length of the toe (portion of base in front of the stem)."
+    },
+    {
+      "id": "soilDensity",
+      "label": "Soil Density (kN/m³)",
+      "type": "number",
+      "unit": "kN/m³",
+      "default": 18,
+      "businessContext": "Unit weight of retained soil."
+    },
+    {
+      "id": "frictionAngle",
+      "label": "Soil Friction Angle (°)",
+      "type": "number",
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Angle of internal friction of the soil."
+    }
+  ],
+  "formulas": {
+    "activePressureCoefficient": "Math.tan((45 - frictionAngle / 2) * Math.PI / 180) ** 2",
+    "totalActiveForce": "0.5 * soilDensity * height ** 2 * activePressureCoefficient",
+    "overturningMoment": "totalActiveForce * height / 3",
+    "wallWeight": "stemThickness * height * 25",
+    "baseWeight": "baseWidth * baseThickness * 25",
+    "heelWeight": "heelLength * baseThickness * 25",
+    "toeWeight": "toeLength * baseThickness * 25",
+    "totalWeight": "wallWeight + baseWeight + heelWeight + toeWeight",
+    "resistingMoment": "totalWeight * baseWidth / 2",
+    "factorOfSafetyOverturning": "resistingMoment / overturningMoment",
+    "slidingResistance": "totalWeight * Math.tan(frictionAngle * Math.PI / 180)",
+    "factorOfSafetySliding": "slidingResistance / totalActiveForce"
+  },
+  "outputs": {
+    "primary": "Factor of Safety against Overturning: {factorOfSafetyOverturning.toFixed(2)}",
+    "breakdown": [
+      "Active Earth Pressure Coefficient (Ka): {activePressureCoefficient.toFixed(4)}",
+      "Total Active Force (kN): {totalActiveForce.toFixed(2)}",
+      "Overturning Moment (kN·m): {overturningMoment.toFixed(2)}",
+      "Total Weight (kN): {totalWeight.toFixed(2)}",
+      "Resisting Moment (kN·m): {resistingMoment.toFixed(2)}",
+      "Factor of Safety against Sliding: {factorOfSafetySliding.toFixed(2)}"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

@@ -1,0 +1,75 @@
+{
+  "toolName": "dirty-bulk-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "User body weight in kilograms"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 175,
+      "businessContext": "User height in centimeters"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 25,
+      "businessContext": "User age in years"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "binary",
+      "default": 1,
+      "businessContext": "0 for female, 1 for male"
+    },
+    {
+      "id": "activityFactor",
+      "label": "Activity Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.55,
+      "businessContext": "Physical activity level multiplier (e.g., 1.2 sedentary, 1.55 moderate, 1.9 extra active)"
+    },
+    {
+      "id": "surplusPercent",
+      "label": "Surplus Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Caloric surplus percentage for dirty bulk (e.g., 25 for 25% surplus)"
+    }
+  ],
+  "formulas": {
+    "bmr": "gender ? (10 * weight + 6.25 * height - 5 * age + 5) : (10 * weight + 6.25 * height - 5 * age - 161)",
+    "tdee": "bmr * activityFactor",
+    "targetCalories": "tdee * (1 + surplusPercent / 100)",
+    "proteinGrams": "weight * 2",
+    "fatGrams": "weight * 0.8",
+    "carbGrams": "(targetCalories - (proteinGrams * 4 + fatGrams * 9)) / 4"
+  },
+  "outputs": {
+    "primary": "targetCalories",
+    "breakdown": [
+      "proteinGrams",
+      "fatGrams",
+      "carbGrams"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

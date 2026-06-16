@@ -1,0 +1,56 @@
+{
+  "toolName": "margin-of-error-calculator",
+  "inputs": [
+    {
+      "id": "sample_size",
+      "label": "Sample Size (n)",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "Total number of observations or respondents in the sample."
+    },
+    {
+      "id": "confidence_level",
+      "label": "Confidence Level (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Desired confidence level as a percentage (e.g., 95, 99). Note: The corresponding Z-score must be entered manually."
+    },
+    {
+      "id": "z_score",
+      "label": "Z-Score",
+      "type": "number",
+      "unit": "",
+      "default": 1.96,
+      "businessContext": "Critical value from the standard normal distribution corresponding to the confidence level (e.g., 1.96 for 95%, 2.576 for 99%)."
+    },
+    {
+      "id": "sample_proportion",
+      "label": "Sample Proportion (p)",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Proportion of the sample with the characteristic of interest; use 0.5 for maximum margin of error."
+    }
+  ],
+  "formulas": {
+    "standard_error": "Math.sqrt((sample_proportion * (1 - sample_proportion)) / sample_size)",
+    "margin_of_error": "z_score * standard_error",
+    "margin_of_error_percent": "margin_of_error * 100"
+  },
+  "outputs": {
+    "primary": "margin_of_error_percent",
+    "breakdown": [
+      "standard_error",
+      "margin_of_error",
+      "margin_of_error_percent"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

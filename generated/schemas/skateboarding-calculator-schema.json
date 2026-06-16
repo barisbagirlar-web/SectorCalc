@@ -1,0 +1,95 @@
+{
+  "toolName": "skateboarding-calculator",
+  "inputs": [
+    {
+      "id": "deckLength",
+      "label": "Deck Length",
+      "type": "number",
+      "unit": "in",
+      "default": 32,
+      "businessContext": "Length of the skateboard deck in inches"
+    },
+    {
+      "id": "deckWidth",
+      "label": "Deck Width",
+      "type": "number",
+      "unit": "in",
+      "default": 8,
+      "businessContext": "Width of the skateboard deck in inches"
+    },
+    {
+      "id": "wheelDiameter",
+      "label": "Wheel Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 54,
+      "businessContext": "Diameter of the wheels in millimeters"
+    },
+    {
+      "id": "wheelHardness",
+      "label": "Wheel Hardness (Durometer A)",
+      "type": "number",
+      "unit": "A",
+      "default": 99,
+      "businessContext": "Hardness of the wheels on the Shore A scale"
+    },
+    {
+      "id": "bearingRating",
+      "label": "Bearing Rating (ABEC)",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "ABEC rating of the bearings (1,3,5,7,9)"
+    },
+    {
+      "id": "truckWidth",
+      "label": "Truck Width",
+      "type": "number",
+      "unit": "in",
+      "default": 5.5,
+      "businessContext": "Width of the truck axle in inches"
+    },
+    {
+      "id": "riderWeight",
+      "label": "Rider Weight",
+      "type": "number",
+      "unit": "lbs",
+      "default": 150,
+      "businessContext": "Weight of the rider in pounds"
+    },
+    {
+      "id": "skateStyle",
+      "label": "Skate Style (1=Street, 2=Park, 3=Cruise)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Type of skating: 1 for street, 2 for park, 3 for cruising"
+    }
+  ],
+  "formulas": {
+    "deckArea": "deckLength * deckWidth",
+    "wheelPerformance": "wheelDiameter * (100 - wheelHardness) / 100",
+    "bearingSpeed": "bearingRating * 10",
+    "truckStability": "truckWidth / deckWidth",
+    "weightFactor": "riderWeight / 150",
+    "styleMultiplier": "skateStyle === 1 ? 1.2 : (skateStyle === 2 ? 1.0 : 0.8)",
+    "overallScore": "(deckArea * 0.2 + wheelPerformance * 0.3 + bearingSpeed * 0.25 + truckStability * 0.15 + weightFactor * 0.1) * styleMultiplier"
+  },
+  "outputs": {
+    "primary": "overallScore",
+    "breakdown": [
+      "deckArea",
+      "wheelPerformance",
+      "bearingSpeed",
+      "truckStability",
+      "weightFactor",
+      "styleMultiplier"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Atölye & Tamir",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

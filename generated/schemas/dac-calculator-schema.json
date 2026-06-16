@@ -1,0 +1,71 @@
+{
+  "toolName": "dac-calculator",
+  "inputs": [
+    {
+      "id": "airFlow",
+      "label": "Air Flow Rate",
+      "type": "number",
+      "unit": "m³/h",
+      "default": 1000,
+      "businessContext": "The volumetric flow rate of air processed by the DAC system per hour."
+    },
+    {
+      "id": "co2Concentration",
+      "label": "CO₂ Concentration",
+      "type": "number",
+      "unit": "ppm",
+      "default": 415,
+      "businessContext": "The atmospheric CO₂ concentration at the intake, typically around 415 ppm."
+    },
+    {
+      "id": "captureEfficiency",
+      "label": "Capture Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "The percentage of CO₂ removed from the processed air stream."
+    },
+    {
+      "id": "operatingHours",
+      "label": "Operating Hours per Year",
+      "type": "number",
+      "unit": "h",
+      "default": 8000,
+      "businessContext": "The total number of hours the DAC plant operates annually."
+    },
+    {
+      "id": "energyPerTon",
+      "label": "Energy Consumption per Ton CO₂",
+      "type": "number",
+      "unit": "kWh/ton",
+      "default": 2000,
+      "businessContext": "The electrical energy required to capture one metric ton of CO₂."
+    },
+    {
+      "id": "electricityPrice",
+      "label": "Electricity Price",
+      "type": "number",
+      "unit": "$/kWh",
+      "default": 0.1,
+      "businessContext": "The cost of electricity per kilowatt-hour."
+    }
+  ],
+  "formulas": {
+    "annualCO2Captured": "airFlow * co2Concentration * captureEfficiency * operatingHours * 1.964e-11",
+    "annualEnergyConsumption": "airFlow * co2Concentration * captureEfficiency * operatingHours * 1.964e-11 * energyPerTon",
+    "annualElectricityCost": "airFlow * co2Concentration * captureEfficiency * operatingHours * 1.964e-11 * energyPerTon * electricityPrice"
+  },
+  "outputs": {
+    "primary": "annualCO2Captured",
+    "breakdown": [
+      "annualEnergyConsumption",
+      "annualElectricityCost"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

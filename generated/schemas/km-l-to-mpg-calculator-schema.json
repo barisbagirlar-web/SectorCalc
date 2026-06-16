@@ -1,0 +1,57 @@
+{
+  "toolName": "km-l-to-mpg-calculator",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "Fuel Economy Value",
+      "type": "number",
+      "unit": "km/L or mpg",
+      "default": 1,
+      "businessContext": "The consumption or efficiency value to convert."
+    },
+    {
+      "id": "sourceUnit",
+      "label": "Source Unit",
+      "type": "number",
+      "unit": "0=km/L, 1=mpg",
+      "default": 0,
+      "businessContext": "Specify 0 if input is in km/L, 1 if in mpg."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output."
+    },
+    {
+      "id": "gallonType",
+      "label": "Gallon Type",
+      "type": "number",
+      "unit": "0=US, 1=UK",
+      "default": 0,
+      "businessContext": "Select gallon type: 0 for US gallon (3.785 L), 1 for Imperial gallon (4.546 L)."
+    }
+  ],
+  "formulas": {
+    "primary": "(sourceUnit == 0 ? (gallonType == 0 ? value * 2.352145833333333 : value * 2.8248094) : (gallonType == 0 ? value / 2.352145833333333 : value / 2.8248094)).toFixed(decimalPlaces) + (sourceUnit == 0 ? (gallonType == 0 ? ' mpg (US)' : ' mpg (UK)') : (gallonType == 0 ? ' km/L (from US mpg)' : ' km/L (from UK mpg)'))",
+    "breakdown": [
+      "sourceUnit == 0 ? (gallonType == 0 ? 'Conversion factor: 1 km/L = 2.352145833333333 mpg (US)' : 'Conversion factor: 1 km/L = 2.8248094 mpg (UK)') : (gallonType == 0 ? 'Conversion factor: 1 mpg (US) = ' + (1/2.352145833333333).toFixed(6) + ' km/L' : 'Conversion factor: 1 mpg (UK) = ' + (1/2.8248094).toFixed(6) + ' km/L')",
+      "'Raw unrounded value: ' + (sourceUnit == 0 ? (gallonType == 0 ? value * 2.352145833333333 : value * 2.8248094) : (gallonType == 0 ? value / 2.352145833333333 : value / 2.8248094))"
+    ]
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "breakdown[0]",
+      "breakdown[1]"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

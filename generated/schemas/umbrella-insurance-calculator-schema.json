@@ -1,0 +1,58 @@
+{
+  "toolName": "umbrella-insurance-calculator",
+  "inputs": [
+    {
+      "id": "totalAssets",
+      "label": "Total Assets",
+      "type": "number",
+      "unit": "$",
+      "default": 500000,
+      "businessContext": "Total value of all owned assets (home, cars, investments, etc.)"
+    },
+    {
+      "id": "totalLiabilities",
+      "label": "Total Liabilities",
+      "type": "number",
+      "unit": "$",
+      "default": 200000,
+      "businessContext": "Outstanding debts (mortgage, loans, etc.)"
+    },
+    {
+      "id": "underlyingCoverage",
+      "label": "Underlying Liability Coverage",
+      "type": "number",
+      "unit": "$",
+      "default": 300000,
+      "businessContext": "Combined liability limits from auto, home, and other primary insurance policies"
+    },
+    {
+      "id": "riskFactor",
+      "label": "Risk Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Multiplier based on occupation, lifestyle, and property risks (100% = standard)"
+    }
+  ],
+  "formulas": {
+    "netWorth": "totalAssets - totalLiabilities",
+    "riskAdjustedNetWorth": "netWorth * (riskFactor / 100)",
+    "coverageGap": "riskAdjustedNetWorth - underlyingCoverage",
+    "recommendedCoverage": "Math.max(0, coverageGap)",
+    "finalRecommendation": "recommendedCoverage > 0 ? Math.max(1000000, recommendedCoverage) : 0"
+  },
+  "outputs": {
+    "primary": "finalRecommendation",
+    "breakdown": [
+      "netWorth",
+      "riskAdjustedNetWorth",
+      "coverageGap"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

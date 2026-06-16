@@ -1,0 +1,67 @@
+{
+  "toolName": "reverse-mortgage-calculator",
+  "inputs": [
+    {
+      "id": "homeValue",
+      "label": "Home Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 300000,
+      "businessContext": "Current appraised value of the home."
+    },
+    {
+      "id": "age",
+      "label": "Borrower Age",
+      "type": "number",
+      "unit": "years",
+      "default": 70,
+      "businessContext": "Age of the youngest borrower."
+    },
+    {
+      "id": "interestRate",
+      "label": "Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Expected interest rate (annual)."
+    },
+    {
+      "id": "margin",
+      "label": "Lender Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Margin added to reference rate."
+    },
+    {
+      "id": "lifeExpectancy",
+      "label": "Life Expectancy",
+      "type": "number",
+      "unit": "years",
+      "default": 100,
+      "businessContext": "Projected lifespan for cost calculation."
+    }
+  ],
+  "formulas": {
+    "effectiveRate": "interestRate + margin",
+    "ltv": "age >= 62 ? Math.min(0.8, 0.5 + (age - 62) * 0.02) : 0",
+    "maxLoanAmount": "homeValue * ltv",
+    "projectedInterestCost": "maxLoanAmount * (Math.pow(1 + effectiveRate/100, lifeExpectancy - age) - 1)",
+    "totalCost": "maxLoanAmount + projectedInterestCost"
+  },
+  "outputs": {
+    "primary": "maxLoanAmount",
+    "breakdown": [
+      "ltv",
+      "projectedInterestCost",
+      "totalCost",
+      "effectiveRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

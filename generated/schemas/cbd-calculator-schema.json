@@ -1,0 +1,69 @@
+{
+  "toolName": "cbd-calculator",
+  "inputs": [
+    {
+      "id": "materialUnitCost",
+      "label": "Birim Malzeme Maliyeti",
+      "type": "number",
+      "unit": "TL",
+      "default": 10,
+      "businessContext": "Ürün başına hammadde maliyeti"
+    },
+    {
+      "id": "laborUnitCost",
+      "label": "Birim İşçilik Maliyeti",
+      "type": "number",
+      "unit": "TL",
+      "default": 5,
+      "businessContext": "Ürün başına direkt işçilik maliyeti"
+    },
+    {
+      "id": "overheadUnitCost",
+      "label": "Birim Genel Gider",
+      "type": "number",
+      "unit": "TL",
+      "default": 3,
+      "businessContext": "Ürün başına amortisman, enerji vb. genel üretim gideri"
+    },
+    {
+      "id": "quantity",
+      "label": "Üretim Miktarı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1000,
+      "businessContext": "Üretilecek toplam ürün sayısı"
+    },
+    {
+      "id": "profitMarginPercent",
+      "label": "Kar Marjı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Toplam maliyet üzerine eklenecek kar yüzdesi"
+    }
+  ],
+  "formulas": {
+    "totalMaterialCost": "materialUnitCost * quantity",
+    "totalLaborCost": "laborUnitCost * quantity",
+    "totalOverheadCost": "overheadUnitCost * quantity",
+    "totalCost": "(materialUnitCost + laborUnitCost + overheadUnitCost) * quantity",
+    "profit": "(materialUnitCost + laborUnitCost + overheadUnitCost) * quantity * (profitMarginPercent / 100)",
+    "sellingPrice": "(materialUnitCost + laborUnitCost + overheadUnitCost) * quantity * (1 + profitMarginPercent / 100)"
+  },
+  "outputs": {
+    "primary": "sellingPrice",
+    "breakdown": [
+      "totalCost",
+      "profit",
+      "totalMaterialCost",
+      "totalLaborCost",
+      "totalOverheadCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

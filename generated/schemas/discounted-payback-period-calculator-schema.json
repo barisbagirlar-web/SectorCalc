@@ -1,0 +1,61 @@
+{
+  "toolName": "discounted-payback-period-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "$",
+      "default": 10000,
+      "businessContext": "Total upfront capital expenditure for the project"
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Annual discount rate reflecting cost of capital or required return"
+    },
+    {
+      "id": "annualCashFlow",
+      "label": "Annual Cash Flow",
+      "type": "number",
+      "unit": "$",
+      "default": 3000,
+      "businessContext": "Expected constant annual net cash inflow from the project"
+    },
+    {
+      "id": "maxYears",
+      "label": "Maximum Evaluation Period",
+      "type": "number",
+      "unit": "years",
+      "default": 50,
+      "businessContext": "Maximum number of years to consider for payback; beyond this, payback is not achieved"
+    }
+  ],
+  "formulas": {
+    "discountRateDecimal": "discountRate / 100",
+    "paybackFactor": "1 - (initialInvestment * discountRateDecimal / annualCashFlow)",
+    "paybackPeriod": "paybackFactor > 0 && annualCashFlow > 0 ? -Math.log(paybackFactor) / Math.log(1 + discountRateDecimal) : maxYears",
+    "cumulativePVatPayback": "annualCashFlow * (1 - Math.pow(1 + discountRateDecimal, -paybackPeriod)) / discountRateDecimal",
+    "totalDiscountedCashFlows": "annualCashFlow * (1 - Math.pow(1 + discountRateDecimal, -maxYears)) / discountRateDecimal"
+  },
+  "outputs": {
+    "primary": "paybackPeriod",
+    "breakdown": [
+      "paybackPeriod",
+      "cumulativePVatPayback",
+      "totalDiscountedCashFlows",
+      "initialInvestment",
+      "discountRate",
+      "annualCashFlow"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

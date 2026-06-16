@@ -1,0 +1,63 @@
+{
+  "toolName": "inverting-amplifier-calculator",
+  "inputs": [
+    {
+      "id": "vin",
+      "label": "Input Voltage (Vin)",
+      "type": "number",
+      "unit": "V",
+      "default": 1,
+      "businessContext": "AC or DC signal voltage at input"
+    },
+    {
+      "id": "rin",
+      "label": "Input Resistor (Rin)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 1000,
+      "businessContext": "Resistance between input and inverting terminal"
+    },
+    {
+      "id": "rf",
+      "label": "Feedback Resistor (Rf)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 10000,
+      "businessContext": "Resistance between output and inverting terminal"
+    },
+    {
+      "id": "vcc_plus",
+      "label": "Positive Supply (Vcc+)",
+      "type": "number",
+      "unit": "V",
+      "default": 15,
+      "businessContext": "Op-amp positive power supply voltage"
+    },
+    {
+      "id": "vcc_minus",
+      "label": "Negative Supply (Vcc-)",
+      "type": "number",
+      "unit": "V",
+      "default": -15,
+      "businessContext": "Op-amp negative power supply voltage"
+    }
+  ],
+  "formulas": {
+    "gain": "Math.abs(rf/rin)",
+    "vout_ideal": "-(rf/rin)*vin",
+    "vout": "Math.min(vcc_plus, Math.max(vcc_minus, -(rf/rin)*vin))"
+  },
+  "outputs": {
+    "primary": "vout",
+    "breakdown": [
+      "gain",
+      "vout_ideal"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "percent-increase-calculator",
+  "inputs": [
+    {
+      "id": "originalValue",
+      "label": "Original Value",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "businessContext": "The initial amount before change. Represents baseline measurement."
+    },
+    {
+      "id": "newValue",
+      "label": "New Value",
+      "type": "number",
+      "unit": "units",
+      "default": 120,
+      "businessContext": "The final amount after change. Used to compare with original."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Precision of the percentage output. Typical industrial reports require 1-2 decimals."
+    },
+    {
+      "id": "thresholdPercent",
+      "label": "Increase Threshold (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Optional threshold to flag significant increase. Triggers alert if exceeded."
+    }
+  ],
+  "formulas": {
+    "absoluteIncrease": "newValue - originalValue",
+    "percentIncrease": "((newValue - originalValue) / originalValue) * 100",
+    "roundedPercentIncrease": "Math.round(percentIncrease * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "thresholdExceeded": "percentIncrease > thresholdPercent"
+  },
+  "outputs": {
+    "primary": "roundedPercentIncrease",
+    "breakdown": [
+      "absoluteIncrease",
+      "percentIncrease",
+      "thresholdExceeded"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

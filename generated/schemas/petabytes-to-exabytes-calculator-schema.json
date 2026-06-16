@@ -1,0 +1,73 @@
+{
+  "toolName": "petabytes-to-exabytes-calculator",
+  "inputs": [
+    {
+      "id": "rawPetabytes",
+      "label": "Raw Data Volume (PB)",
+      "type": "number",
+      "unit": "PB",
+      "default": 100,
+      "businessContext": "The raw data volume in petabytes."
+    },
+    {
+      "id": "replicationFactor",
+      "label": "Replication Factor",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Number of replicas (e.g., HDFS replication factor)."
+    },
+    {
+      "id": "redundancyOverhead",
+      "label": "Redundancy Overhead (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Percentage overhead for RAID, erasure coding, or other redundancy."
+    },
+    {
+      "id": "provisioningBuffer",
+      "label": "Provisioning Buffer (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Extra capacity for future growth or temporary spikes."
+    },
+    {
+      "id": "compressionRatio",
+      "label": "Compression Ratio",
+      "type": "number",
+      "unit": ":1",
+      "default": 2,
+      "businessContext": "Lossless compression ratio (e.g., 2 means 2:1 compression)."
+    },
+    {
+      "id": "decimalPrecision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Number of decimal places for the output."
+    }
+  ],
+  "formulas": {
+    "effectiveEB": "Number((rawPetabytes * replicationFactor * (1 + redundancyOverhead / 100) * (1 + provisioningBuffer / 100) / compressionRatio / 1000).toFixed(decimalPrecision))",
+    "rawPB": "rawPetabytes * replicationFactor * (1 + redundancyOverhead / 100) * (1 + provisioningBuffer / 100)",
+    "compressedPB": "rawPetabytes * replicationFactor * (1 + redundancyOverhead / 100) * (1 + provisioningBuffer / 100) / compressionRatio",
+    "finalEB": "Number((rawPetabytes * replicationFactor * (1 + redundancyOverhead / 100) * (1 + provisioningBuffer / 100) / compressionRatio / 1000).toFixed(decimalPrecision))"
+  },
+  "outputs": {
+    "primary": "effectiveEB",
+    "breakdown": [
+      "rawPB",
+      "compressedPB",
+      "finalEB"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

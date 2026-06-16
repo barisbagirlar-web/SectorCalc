@@ -1,0 +1,55 @@
+{
+  "toolName": "ascii-checksum-calculator",
+  "inputs": [
+    {
+      "id": "byte1",
+      "label": "Byte 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First ASCII byte value (0-255)"
+    },
+    {
+      "id": "byte2",
+      "label": "Byte 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second ASCII byte value (0-255)"
+    },
+    {
+      "id": "byte3",
+      "label": "Byte 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Third ASCII byte value (0-255)"
+    },
+    {
+      "id": "byte4",
+      "label": "Byte 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fourth ASCII byte value (0-255)"
+    }
+  ],
+  "formulas": {
+    "sum": "byte1 + byte2 + byte3 + byte4",
+    "checksum": "sum % 256",
+    "checksumHex": "\"0x\" + checksum.toString(16)"
+  },
+  "outputs": {
+    "primary": "checksum",
+    "breakdown": [
+      "sum",
+      "checksumHex"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

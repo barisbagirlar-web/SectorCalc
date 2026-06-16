@@ -1,0 +1,55 @@
+{
+  "toolName": "negative-predictive-value-calculator",
+  "inputs": [
+    {
+      "id": "tn",
+      "label": "True Negatives (TN)",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Number of correctly predicted negative outcomes (e.g., non-defective items correctly identified as non-defective in quality inspection)."
+    },
+    {
+      "id": "fn",
+      "label": "False Negatives (FN)",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Number of negative outcomes incorrectly predicted as positive (e.g., defective items missed, false escapes)."
+    },
+    {
+      "id": "tp",
+      "label": "True Positives (TP)",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Number of positive outcomes correctly predicted as positive (e.g., defective items correctly identified)."
+    },
+    {
+      "id": "fp",
+      "label": "False Positives (FP)",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Number of positive outcomes incorrectly predicted as negative (e.g., non-defective items incorrectly flagged as defective, false alarms)."
+    }
+  ],
+  "formulas": {
+    "npv": "tn + fn ? tn / (tn + fn) : 0"
+  },
+  "outputs": {
+    "primary": "tn + fn ? tn / (tn + fn) : 0",
+    "breakdown": [
+      "tn",
+      "fn",
+      "tn + fn",
+      "tn + fn ? tn / (tn + fn) : 0"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

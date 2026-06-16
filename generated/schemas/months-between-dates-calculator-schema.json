@@ -1,0 +1,55 @@
+{
+  "toolName": "months-between-dates-calculator",
+  "inputs": [
+    {
+      "id": "startYear",
+      "label": "Start Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2023,
+      "businessContext": "Başlangıç yılı"
+    },
+    {
+      "id": "startMonth",
+      "label": "Start Month",
+      "type": "number",
+      "unit": "month",
+      "default": 1,
+      "businessContext": "Başlangıç ayı"
+    },
+    {
+      "id": "endYear",
+      "label": "End Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2024,
+      "businessContext": "Bitiş yılı"
+    },
+    {
+      "id": "endMonth",
+      "label": "End Month",
+      "type": "number",
+      "unit": "month",
+      "default": 1,
+      "businessContext": "Bitiş ayı"
+    }
+  ],
+  "formulas": {
+    "totalMonths": "(endYear - startYear) * 12 + (endMonth - startMonth)",
+    "years": "Math.floor(totalMonths / 12)",
+    "months": "totalMonths % 12"
+  },
+  "outputs": {
+    "primary": "totalMonths",
+    "breakdown": [
+      "years",
+      "months"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & Kredi",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "roa-calculator",
+  "inputs": [
+    {
+      "id": "netIncome",
+      "label": "Net Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Annual net income from income statement"
+    },
+    {
+      "id": "beginningAssets",
+      "label": "Beginning Total Assets",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total assets at the start of the period"
+    },
+    {
+      "id": "endingAssets",
+      "label": "Ending Total Assets",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total assets at the end of the period"
+    },
+    {
+      "id": "averageAssetsOverride",
+      "label": "Average Assets Override",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "If provided, use as average total assets instead of computing from beginning and ending"
+    }
+  ],
+  "formulas": {
+    "averageAssets": "inputs.averageAssetsOverride > 0 ? inputs.averageAssetsOverride : (inputs.beginningAssets + inputs.endingAssets) / 2",
+    "roa": "inputs.netIncome / averageAssets * 100"
+  },
+  "outputs": {
+    "primary": "roa",
+    "breakdown": [
+      "netIncome",
+      "averageAssets",
+      "roa"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

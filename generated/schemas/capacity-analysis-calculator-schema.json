@@ -1,0 +1,73 @@
+{
+  "toolName": "capacity-analysis-calculator",
+  "inputs": [
+    {
+      "id": "numMachines",
+      "label": "Makine Sayısı",
+      "type": "number",
+      "unit": "makine",
+      "default": 10,
+      "businessContext": "Üretim hattındaki toplam makine sayısı"
+    },
+    {
+      "id": "hoursPerDay",
+      "label": "Günlük Çalışma Saati",
+      "type": "number",
+      "unit": "saat/gün",
+      "default": 8,
+      "businessContext": "Vardiya başına günlük çalışma süresi"
+    },
+    {
+      "id": "daysPerMonth",
+      "label": "Aylık Çalışma Günü",
+      "type": "number",
+      "unit": "gün",
+      "default": 22,
+      "businessContext": "Bir ayda üretimin yapıldığı iş günü sayısı"
+    },
+    {
+      "id": "efficiency",
+      "label": "Verimlilik",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Planlı duruşlar, ayar ve arızalar sonrası net verimlilik oranı"
+    },
+    {
+      "id": "productDemand",
+      "label": "Aylık Talep",
+      "type": "number",
+      "unit": "adet/ay",
+      "default": 10000,
+      "businessContext": "Müşteri siparişlerine göre aylık üretilmesi gereken ürün adedi"
+    },
+    {
+      "id": "cycleTime",
+      "label": "Birim İşlem Süresi",
+      "type": "number",
+      "unit": "dakika/adet",
+      "default": 1.5,
+      "businessContext": "Bir ürünün makineden geçiş süresi (cycle time)"
+    }
+  ],
+  "formulas": {
+    "availableCapacity": "numMachines * hoursPerDay * 60 * daysPerMonth * (efficiency / 100) / cycleTime",
+    "requiredCapacity": "productDemand",
+    "capacityUtilization": "productDemand / (numMachines * hoursPerDay * 60 * daysPerMonth * (efficiency / 100) / cycleTime) * 100",
+    "requiredMachines": "Math.ceil(productDemand * cycleTime / (hoursPerDay * 60 * daysPerMonth * (efficiency / 100)))"
+  },
+  "outputs": {
+    "primary": "capacityUtilization",
+    "breakdown": [
+      "availableCapacity",
+      "requiredCapacity",
+      "requiredMachines"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

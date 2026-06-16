@@ -1,0 +1,87 @@
+{
+  "toolName": "gestational-diabetes-risk-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Maternal age at conception"
+    },
+    {
+      "id": "bmi",
+      "label": "BMI",
+      "type": "number",
+      "unit": "kg/m²",
+      "default": 25,
+      "businessContext": "Pre-pregnancy body mass index"
+    },
+    {
+      "id": "familyHistory",
+      "label": "Family History of Diabetes",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "First-degree relative with diabetes (1 if yes, 0 if no)"
+    },
+    {
+      "id": "previousGdm",
+      "label": "Previous Gestational Diabetes",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "History of gestational diabetes in prior pregnancy (1 if yes, 0 if no)"
+    },
+    {
+      "id": "ethnicity",
+      "label": "Ethnicity Risk Factor",
+      "type": "number",
+      "unit": "score",
+      "default": 1,
+      "businessContext": "High-risk ethnicity score (e.g., South Asian=2, Hispanic=1.5, Caucasian=1, etc.)"
+    },
+    {
+      "id": "fastingGlucose",
+      "label": "Fasting Plasma Glucose",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 90,
+      "businessContext": "First trimester fasting glucose level"
+    },
+    {
+      "id": "hba1c",
+      "label": "HbA1c",
+      "type": "number",
+      "unit": "%",
+      "default": 5.2,
+      "businessContext": "Glycated hemoglobin percentage"
+    },
+    {
+      "id": "triglycerides",
+      "label": "Triglycerides",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 130,
+      "businessContext": "Fasting triglyceride level"
+    }
+  ],
+  "formulas": {
+    "logitScore": "(age-25)*0.05 + (bmi-22)*0.1 + familyHistory*0.7 + previousGdm*1.2 + ethnicity*0.4 + (fastingGlucose-80)*0.02 + (hba1c-4.5)*0.5 + (triglycerides-100)*0.003",
+    "riskRaw": "1/(1+Math.exp(-logitScore))",
+    "riskPercent": "riskRaw*100"
+  },
+  "outputs": {
+    "primary": "riskPercent",
+    "breakdown": [
+      "logitScore",
+      "riskRaw"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

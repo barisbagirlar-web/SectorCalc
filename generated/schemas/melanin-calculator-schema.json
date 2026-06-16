@@ -1,0 +1,54 @@
+{
+  "toolName": "melanin-calculator",
+  "inputs": [
+    {
+      "id": "eumelaninPercent",
+      "label": "Eumelanin (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Percentage of eumelanin pigment in total melanin content. Typically ranges 60-80% for darker skin."
+    },
+    {
+      "id": "pheomelaninPercent",
+      "label": "Pheomelanin (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Percentage of pheomelanin pigment. Sum with eumelanin should be 100%."
+    },
+    {
+      "id": "melanocyteDensity",
+      "label": "Melanocyte Density (cells/mm²)",
+      "type": "number",
+      "unit": "cells/mm²",
+      "default": 1000,
+      "businessContext": "Number of melanocytes per square millimeter of skin. Typically 900-2000."
+    },
+    {
+      "id": "avgMelaninPerCell",
+      "label": "Avg. Melanin per Cell (ng)",
+      "type": "number",
+      "unit": "ng",
+      "default": 0.05,
+      "businessContext": "Average melanin content per melanocyte in nanograms."
+    }
+  ],
+  "formulas": {
+    "melaninIndex": "(eumelaninPercent * melanocyteDensity * avgMelaninPerCell) / (pheomelaninPercent + 1)"
+  },
+  "outputs": {
+    "primary": "melaninIndex",
+    "breakdown": [
+      "Step 1: Calculate eumelanin contribution = Eumelanin (%) × Melanocyte Density × Avg. Melanin per Cell",
+      "Step 2: Calculate pheomelanin correction = 1 / (Pheomelanin (%) + 1)",
+      "Step 3: Melanin Index = Eumelanin contribution × Pheomelanin correction"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

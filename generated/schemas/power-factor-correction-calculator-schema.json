@@ -1,0 +1,65 @@
+{
+  "toolName": "power-factor-correction-calculator",
+  "inputs": [
+    {
+      "id": "realPower",
+      "label": "Aktif Güç (kW)",
+      "type": "number",
+      "unit": "kW",
+      "default": 100,
+      "businessContext": "Tesisteki toplam gerçek güç tüketimi"
+    },
+    {
+      "id": "existingPowerFactor",
+      "label": "Mevcut Güç Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "businessContext": "Düzeltme öncesi mevcut cos φ değeri"
+    },
+    {
+      "id": "targetPowerFactor",
+      "label": "Hedef Güç Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 0.95,
+      "businessContext": "Ulaşılmak istenen cos φ değeri"
+    },
+    {
+      "id": "tariff",
+      "label": "Elektrik Tarifesi",
+      "type": "number",
+      "unit": "TL/kWh",
+      "default": 0.8,
+      "businessContext": "Reaktif enerji ceza bedelini hesaplamak için"
+    },
+    {
+      "id": "hoursPerDay",
+      "label": "Günlük Çalışma Saati",
+      "type": "number",
+      "unit": "saat/gün",
+      "default": 24,
+      "businessContext": "Yıllık kullanım süresini belirlemek için"
+    }
+  ],
+  "formulas": {
+    "requiredKVAR": "realPower * (Math.sqrt(1 - existingPowerFactor**2) / existingPowerFactor - Math.sqrt(1 - targetPowerFactor**2) / targetPowerFactor)",
+    "currentReactivePower": "realPower * Math.sqrt(1 - existingPowerFactor**2) / existingPowerFactor",
+    "targetReactivePower": "realPower * Math.sqrt(1 - targetPowerFactor**2) / targetPowerFactor",
+    "apparentPowerReduction": "(realPower / existingPowerFactor) - (realPower / targetPowerFactor)"
+  },
+  "outputs": {
+    "primary": "requiredKVAR",
+    "breakdown": [
+      "currentReactivePower",
+      "targetReactivePower",
+      "apparentPowerReduction"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

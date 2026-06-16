@@ -1,0 +1,70 @@
+{
+  "toolName": "forex-profit-calculator",
+  "inputs": [
+    {
+      "id": "direction",
+      "label": "Direction (1=Buy, -1=Sell)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Indicates trade direction: 1 for long (buy), -1 for short (sell)."
+    },
+    {
+      "id": "entryPrice",
+      "label": "Entry Price",
+      "type": "number",
+      "unit": "quote currency per base",
+      "default": 1.1,
+      "businessContext": "The exchange rate at which the position was entered."
+    },
+    {
+      "id": "exitPrice",
+      "label": "Exit Price",
+      "type": "number",
+      "unit": "quote currency per base",
+      "default": 1.105,
+      "businessContext": "The exchange rate at which the position was closed."
+    },
+    {
+      "id": "lotSize",
+      "label": "Lot Size",
+      "type": "number",
+      "unit": "lots",
+      "default": 1,
+      "businessContext": "Number of standard lots traded (1 lot = 100,000 units typically)."
+    },
+    {
+      "id": "pipValue",
+      "label": "Pip Value per Lot",
+      "type": "number",
+      "unit": "account currency per pip per lot",
+      "default": 10,
+      "businessContext": "Monetary value of one pip movement for one standard lot in account currency."
+    },
+    {
+      "id": "pipSize",
+      "label": "Pip Size",
+      "type": "number",
+      "unit": "price change per pip",
+      "default": 0.0001,
+      "businessContext": "Smallest incremental price movement, typically 0.0001 except for JPY pairs (0.01)."
+    }
+  ],
+  "formulas": {
+    "pips": "(exitPrice - entryPrice) / pipSize",
+    "profitLoss": "direction * pips * lotSize * pipValue"
+  },
+  "outputs": {
+    "primary": "profitLoss",
+    "breakdown": [
+      "pips",
+      "profitLoss"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

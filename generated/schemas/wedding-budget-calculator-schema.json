@@ -1,0 +1,72 @@
+{
+  "toolName": "wedding-budget-calculator",
+  "inputs": [
+    {
+      "id": "numberOfGuests",
+      "label": "Number of Guests",
+      "type": "number",
+      "unit": "people",
+      "default": 100,
+      "businessContext": "Expected guest count"
+    },
+    {
+      "id": "costPerGuest",
+      "label": "Cost per Guest (Catering)",
+      "type": "number",
+      "unit": "€/person",
+      "default": 50,
+      "businessContext": "Average catering cost per guest"
+    },
+    {
+      "id": "venueCost",
+      "label": "Venue Rental Cost",
+      "type": "number",
+      "unit": "€",
+      "default": 2000,
+      "businessContext": "Cost for the venue"
+    },
+    {
+      "id": "decorationCost",
+      "label": "Decoration Cost",
+      "type": "number",
+      "unit": "€",
+      "default": 1000,
+      "businessContext": "Flowers and decoration expenses"
+    },
+    {
+      "id": "photographyCost",
+      "label": "Photography & Video Cost",
+      "type": "number",
+      "unit": "€",
+      "default": 1500,
+      "businessContext": "Photography and videography package"
+    },
+    {
+      "id": "miscellaneousCost",
+      "label": "Miscellaneous Cost",
+      "type": "number",
+      "unit": "€",
+      "default": 500,
+      "businessContext": "Other small expenses (invitations, favors, etc.)"
+    }
+  ],
+  "formulas": {
+    "foodCost": "numberOfGuests * costPerGuest",
+    "totalBudget": "foodCost + venueCost + decorationCost + photographyCost + miscellaneousCost",
+    "costPerGuestOverall": "totalBudget / numberOfGuests"
+  },
+  "outputs": {
+    "primary": "totalBudget",
+    "breakdown": [
+      "foodCost",
+      "costPerGuestOverall",
+      "totalBudget"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

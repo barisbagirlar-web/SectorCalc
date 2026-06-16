@@ -1,0 +1,67 @@
+{
+  "toolName": "sourdough-calculator",
+  "inputs": [
+    {
+      "id": "flourWeight",
+      "label": "Un Ağırlığı (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 500,
+      "businessContext": "Ana malzeme"
+    },
+    {
+      "id": "hydration",
+      "label": "Hidrasyon Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Su oranı"
+    },
+    {
+      "id": "starterPercent",
+      "label": "Başlatıcı Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Ekşi maya miktarı"
+    },
+    {
+      "id": "saltPercent",
+      "label": "Tuz Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Tuz miktarı"
+    },
+    {
+      "id": "loafCount",
+      "label": "Ekmek Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Üretim adedi"
+    }
+  ],
+  "formulas": {
+    "totalFlour": "flourWeight * loafCount",
+    "water": "flourWeight * loafCount * hydration / 100",
+    "starter": "flourWeight * loafCount * starterPercent / 100",
+    "salt": "flourWeight * loafCount * saltPercent / 100",
+    "totalDough": "flourWeight * loafCount * (1 + hydration/100 + starterPercent/100 + saltPercent/100)"
+  },
+  "outputs": {
+    "primary": "totalDough",
+    "breakdown": [
+      "water",
+      "starter",
+      "salt",
+      "totalFlour"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

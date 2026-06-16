@@ -1,0 +1,92 @@
+{
+  "toolName": "exterior-paint-calculator",
+  "inputs": [
+    {
+      "id": "totalWallArea",
+      "label": "Total Wall Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "businessContext": "Measured external wall area including gables but before openings."
+    },
+    {
+      "id": "numberOfCoats",
+      "label": "Number of Coats",
+      "type": "number",
+      "unit": "coat",
+      "default": 2,
+      "businessContext": "Typically 2 for new work, 1 for repaint."
+    },
+    {
+      "id": "paintCoverage",
+      "label": "Paint Coverage Rate",
+      "type": "number",
+      "unit": "m²/L",
+      "default": 10,
+      "businessContext": "Check paint can label; varies 8-14 m²/L."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Additional paint for loss, uneven surfaces, touch-ups."
+    },
+    {
+      "id": "doorArea",
+      "label": "Total Door Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 2,
+      "businessContext": "Area of doors to deduct."
+    },
+    {
+      "id": "windowArea",
+      "label": "Total Window Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 5,
+      "businessContext": "Area of windows to deduct."
+    },
+    {
+      "id": "otherOpeningsArea",
+      "label": "Other Openings Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 0,
+      "businessContext": "Other non-paintable openings area."
+    }
+  ],
+  "formulas": {
+    "netArea": "totalWallArea - (doorArea + windowArea + otherOpeningsArea)",
+    "effectiveArea": "netArea * (1 + wasteFactor / 100)",
+    "paintNeeded": "effectiveArea * numberOfCoats / paintCoverage"
+  },
+  "outputs": {
+    "primary": {
+      "id": "paintNeeded",
+      "label": "Paint Needed",
+      "unit": "L",
+      "description": "Total paint required considering coats, coverage, and waste."
+    },
+    "breakdown": [
+      {
+        "id": "netArea",
+        "label": "Net Paintable Area",
+        "unit": "m²"
+      },
+      {
+        "id": "effectiveArea",
+        "label": "Effective Area (with waste)",
+        "unit": "m²"
+      }
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

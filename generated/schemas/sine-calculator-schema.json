@@ -1,0 +1,55 @@
+{
+  "toolName": "sine-calculator",
+  "inputs": [
+    {
+      "id": "angleValue",
+      "label": "Angle Value",
+      "type": "number",
+      "unit": "unitless",
+      "default": 45,
+      "businessContext": "The magnitude of the angle to compute the sine of."
+    },
+    {
+      "id": "angleUnit",
+      "label": "Angle Unit (0=Degrees, 1=Radians)",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0,
+      "businessContext": "Select 0 if the angle is in degrees, 1 if in radians."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "unitless",
+      "default": 4,
+      "businessContext": "Number of decimal places for the sine output."
+    },
+    {
+      "id": "amplitude",
+      "label": "Amplitude Scaling",
+      "type": "number",
+      "unit": "unitless",
+      "default": 1,
+      "businessContext": "Optional amplitude multiplication factor (for a*sin(x))."
+    }
+  ],
+  "formulas": {
+    "sineValue": "Math.round(Math.sin(angleUnit === 0 ? angleValue * Math.PI / 180 : angleValue) * amplitude * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "radiansUsed": "angleUnit === 0 ? angleValue * Math.PI / 180 : angleValue",
+    "rawSine": "Math.sin(angleUnit === 0 ? angleValue * Math.PI / 180 : angleValue)"
+  },
+  "outputs": {
+    "primary": "sineValue",
+    "breakdown": [
+      "radiansUsed",
+      "rawSine"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,64 @@
+{
+  "toolName": "christmas-club-calculator",
+  "inputs": [
+    {
+      "id": "weeklyDeposit",
+      "label": "Haftalık Para Yatırma",
+      "type": "number",
+      "unit": "TL",
+      "default": 50,
+      "businessContext": "Each week's deposit amount"
+    },
+    {
+      "id": "numberOfWeeks",
+      "label": "Hafta Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 50,
+      "businessContext": "Number of weeks until Christmas"
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Yıllık Faiz Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Annual interest rate if savings earn interest"
+    },
+    {
+      "id": "compoundingFrequency",
+      "label": "Faizlendirme Sıklığı (yıllık)",
+      "type": "number",
+      "unit": "kez/yıl",
+      "default": 52,
+      "businessContext": "Number of times interest is compounded per year"
+    },
+    {
+      "id": "startingBalance",
+      "label": "Başlangıç Bakiyesi",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Initial amount in the account"
+    }
+  ],
+  "formulas": {
+    "periodicRate": "annualInterestRate / 100 / compoundingFrequency",
+    "totalDeposits": "weeklyDeposit * numberOfWeeks",
+    "futureValue": "periodicRate === 0 ? (weeklyDeposit * numberOfWeeks + startingBalance) : (weeklyDeposit * ((Math.pow(1 + periodicRate, numberOfWeeks) - 1) / periodicRate) + startingBalance * Math.pow(1 + periodicRate, numberOfWeeks))",
+    "totalInterest": "futureValue - totalDeposits - startingBalance"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": [
+      "totalDeposits",
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

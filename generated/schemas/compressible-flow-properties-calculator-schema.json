@@ -1,0 +1,67 @@
+{
+  "toolName": "compressible-flow-properties-calculator",
+  "inputs": [
+    {
+      "id": "machNumber",
+      "label": "Mach Number",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.5,
+      "businessContext": "Mach number of the flow"
+    },
+    {
+      "id": "gamma",
+      "label": "Specific Heat Ratio",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.4,
+      "businessContext": "Specific heat ratio (Cp/Cv)"
+    },
+    {
+      "id": "staticTemperature",
+      "label": "Static Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 300,
+      "businessContext": "Static temperature of the fluid"
+    },
+    {
+      "id": "staticPressure",
+      "label": "Static Pressure",
+      "type": "number",
+      "unit": "Pa",
+      "default": 101325,
+      "businessContext": "Static pressure of the fluid"
+    },
+    {
+      "id": "gasConstant",
+      "label": "Specific Gas Constant",
+      "type": "number",
+      "unit": "J/(kg·K)",
+      "default": 287,
+      "businessContext": "Specific gas constant of the fluid"
+    }
+  ],
+  "formulas": {
+    "stagnationTemperature": "staticTemperature * (1 + ((gamma - 1) / 2) * machNumber ** 2)",
+    "stagnationPressure": "staticPressure * (1 + ((gamma - 1) / 2) * machNumber ** 2) ** (gamma / (gamma - 1))",
+    "speedOfSound": "Math.sqrt(gamma * gasConstant * staticTemperature)",
+    "velocity": "machNumber * Math.sqrt(gamma * gasConstant * staticTemperature)",
+    "density": "staticPressure / (gasConstant * staticTemperature)"
+  },
+  "outputs": {
+    "primary": "stagnationPressure",
+    "breakdown": [
+      "stagnationTemperature",
+      "speedOfSound",
+      "velocity",
+      "density"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

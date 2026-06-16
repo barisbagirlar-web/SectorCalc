@@ -1,0 +1,46 @@
+{
+  "toolName": "npsh-required-calculator",
+  "inputs": [
+    {
+      "id": "speed",
+      "label": "Rotational Speed (N)",
+      "type": "number",
+      "unit": "rpm",
+      "default": 1750,
+      "businessContext": "Pump shaft rotational speed in revolutions per minute (rpm)."
+    },
+    {
+      "id": "flowRate",
+      "label": "Flow Rate (Q)",
+      "type": "number",
+      "unit": "gpm",
+      "default": 500,
+      "businessContext": "Pump flow rate in US gallons per minute (gpm)."
+    },
+    {
+      "id": "suctionSpecificSpeed",
+      "label": "Suction Specific Speed (S)",
+      "type": "number",
+      "unit": "US units",
+      "default": 10000,
+      "businessContext": "Pump suction specific speed (Nss) in US customary units (rpm, gpm, ft). Typical range 7000–12000."
+    }
+  ],
+  "formulas": {
+    "npshFt": "Math.pow((speed * Math.sqrt(flowRate) / suctionSpecificSpeed), (4/3))",
+    "npshM": "npshFt * 0.3048"
+  },
+  "outputs": {
+    "primary": "npshM.toFixed(2) + ' m'",
+    "breakdown": [
+      "npshFt.toFixed(2) + ' ft (US customary)'",
+      "npshM.toFixed(2) + ' m (metric)'"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

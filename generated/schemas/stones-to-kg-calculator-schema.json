@@ -1,0 +1,55 @@
+{
+  "toolName": "stones-to-kg-calculator",
+  "inputs": [
+    {
+      "id": "stones",
+      "label": "Weight in stones",
+      "type": "number",
+      "unit": "st",
+      "default": 0,
+      "businessContext": "Enter the weight in stones to be converted to kilograms."
+    },
+    {
+      "id": "pounds",
+      "label": "Additional pounds",
+      "type": "number",
+      "unit": "lb",
+      "default": 0,
+      "businessContext": "Enter any additional pounds (0–13). 1 stone = 14 pounds."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion factor",
+      "type": "number",
+      "unit": "kg/st",
+      "default": 6.35029,
+      "businessContext": "Standard conversion factor: 1 stone = 6.35029 kg. Adjust if local standards require a different factor."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal places",
+      "type": "number",
+      "unit": "digits",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output in kilograms."
+    }
+  ],
+  "formulas": {
+    "weight_kg": "Math.round((stones + pounds/14) * conversionFactor * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "total_stones": "stones + pounds/14",
+    "raw_kg": "(stones + pounds/14) * conversionFactor"
+  },
+  "outputs": {
+    "primary": "weight_kg",
+    "breakdown": [
+      "total_stones",
+      "raw_kg"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

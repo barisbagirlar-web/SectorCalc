@@ -1,0 +1,71 @@
+{
+  "toolName": "arctangent-calculator",
+  "inputs": [
+    {
+      "id": "x",
+      "label": "X Value / Input",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The x-coordinate if using atan2, or the value for arctan."
+    },
+    {
+      "id": "y",
+      "label": "Y Value (optional)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "If provided and non-zero, computes atan2(y, x) instead of arctan(x)."
+    },
+    {
+      "id": "outputUnit",
+      "label": "Output Unit",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 for radians, 1 for degrees."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "dp",
+      "default": 2,
+      "businessContext": "Number of decimal places for final output."
+    },
+    {
+      "id": "scale",
+      "label": "Input Scale",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier applied to x and y before calculation."
+    },
+    {
+      "id": "offset",
+      "label": "Offset Angle",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Angle added to the result in the output unit."
+    }
+  ],
+  "formulas": {
+    "result": "parseFloat(((outputUnit === 1 ? ((y !== 0 ? Math.atan2(y * scale, x * scale) : Math.atan(x * scale)) * 180 / Math.PI) : (y !== 0 ? Math.atan2(y * scale, x * scale) : Math.atan(x * scale))) + offset).toFixed(precision))",
+    "rawRad": "y !== 0 ? Math.atan2(y * scale, x * scale) : Math.atan(x * scale)",
+    "finalBeforeRound": "(outputUnit === 1 ? (y !== 0 ? Math.atan2(y * scale, x * scale) : Math.atan(x * scale)) * 180 / Math.PI : (y !== 0 ? Math.atan2(y * scale, x * scale) : Math.atan(x * scale))) + offset"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": [
+      "rawRad",
+      "finalBeforeRound"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

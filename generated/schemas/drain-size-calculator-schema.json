@@ -1,0 +1,56 @@
+{
+  "toolName": "drain-size-calculator",
+  "inputs": [
+    {
+      "id": "flowRate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "l/s",
+      "default": 10,
+      "businessContext": "Design flow rate for the drain"
+    },
+    {
+      "id": "slope",
+      "label": "Pipe Slope",
+      "type": "number",
+      "unit": "m/m",
+      "default": 0.01,
+      "businessContext": "Slope of the drainage pipe"
+    },
+    {
+      "id": "manningN",
+      "label": "Manning's Roughness (n)",
+      "type": "number",
+      "unit": "",
+      "default": 0.013,
+      "businessContext": "Manning's roughness coefficient for pipe material"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "businessContext": "Factor applied to flow rate for safety"
+    }
+  ],
+  "formulas": {
+    "diameter_m": "((4**(5/3) * manningN * (flowRate / 1000) * safetyFactor) / (Math.PI * Math.sqrt(slope))) ** (3/8)",
+    "diameter_mm": "diameter_m * 1000",
+    "velocity": "(flowRate / 1000) / (Math.PI * (diameter_m ** 2) / 4)",
+    "area": "Math.PI * (diameter_m ** 2) / 4"
+  },
+  "outputs": {
+    "primary": "diameter_mm",
+    "breakdown": [
+      "velocity",
+      "area"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

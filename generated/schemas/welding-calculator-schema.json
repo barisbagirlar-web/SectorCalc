@@ -1,0 +1,95 @@
+{
+  "toolName": "welding-calculator",
+  "inputs": [
+    {
+      "id": "weldLength",
+      "label": "Weld Length (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Total length of the weld seam"
+    },
+    {
+      "id": "weldThroat",
+      "label": "Throat Thickness (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Effective throat thickness of the weld"
+    },
+    {
+      "id": "electrodeDiameter",
+      "label": "Electrode Diameter (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 3.2,
+      "businessContext": "Diameter of the welding electrode"
+    },
+    {
+      "id": "depositionEfficiency",
+      "label": "Deposition Efficiency (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 65,
+      "businessContext": "Percentage of electrode material deposited as weld metal"
+    },
+    {
+      "id": "electrodeDensity",
+      "label": "Electrode Density (g/cm³)",
+      "type": "number",
+      "unit": "g/cm³",
+      "default": 7.85,
+      "businessContext": "Density of the electrode material"
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "Labor Cost per Hour (€)",
+      "type": "number",
+      "unit": "€/h",
+      "default": 45,
+      "businessContext": "Hourly labor cost including overhead"
+    },
+    {
+      "id": "electrodeCostPerKg",
+      "label": "Electrode Cost per kg (€)",
+      "type": "number",
+      "unit": "€/kg",
+      "default": 3.5,
+      "businessContext": "Cost per kilogram of electrode"
+    },
+    {
+      "id": "weldingSpeed",
+      "label": "Welding Speed (mm/min)",
+      "type": "number",
+      "unit": "mm/min",
+      "default": 300,
+      "businessContext": "Travel speed of the welding process"
+    }
+  ],
+  "formulas": {
+    "weldVolume": "weldLength * weldThroat * weldThroat * 0.5",
+    "weldMass": "weldVolume * electrodeDensity / 1000",
+    "electrodeMass": "weldMass / (depositionEfficiency / 100)",
+    "electrodeCost": "electrodeMass * electrodeCostPerKg",
+    "laborTime": "weldLength / weldingSpeed",
+    "laborCost": "laborTime * laborCostPerHour / 60",
+    "totalCost": "electrodeCost + laborCost"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "weldVolume",
+      "weldMass",
+      "electrodeMass",
+      "electrodeCost",
+      "laborTime",
+      "laborCost"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

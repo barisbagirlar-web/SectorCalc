@@ -1,0 +1,55 @@
+{
+  "toolName": "spring-rate-calculator",
+  "inputs": [
+    {
+      "id": "wireDiameter",
+      "label": "Wire Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 1,
+      "businessContext": "Çelik tel çapı"
+    },
+    {
+      "id": "meanCoilDiameter",
+      "label": "Mean Coil Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Ortalama bobin çapı"
+    },
+    {
+      "id": "activeCoils",
+      "label": "Number of Active Coils",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Aktif sarım sayısı"
+    },
+    {
+      "id": "shearModulus",
+      "label": "Shear Modulus (G)",
+      "type": "number",
+      "unit": "GPa",
+      "default": 79.3,
+      "businessContext": "Kayma modülü (çelik için tipik)"
+    }
+  ],
+  "formulas": {
+    "springRate": "(shearModulus * 1000 * wireDiameter**4) / (8 * meanCoilDiameter**3 * activeCoils)"
+  },
+  "outputs": {
+    "primary": "springRate",
+    "breakdown": [
+      "Formül: k = (G * d^4) / (8 * D^3 * N)",
+      "GPa -> MPa: shearModulus * 1000",
+      "k = (G_MPa * d^4) / (8 * D^3 * N)",
+      "Hesaplanan yay oranı: springRate N/mm"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

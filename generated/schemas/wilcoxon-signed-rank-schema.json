@@ -1,0 +1,69 @@
+{
+  "toolName": "wilcoxon-signed-rank",
+  "inputs": [
+    {
+      "id": "before",
+      "label": "Before Measurements",
+      "type": "number",
+      "unit": "value",
+      "default": 0,
+      "businessContext": "Measurements before intervention (comma-separated)"
+    },
+    {
+      "id": "after",
+      "label": "After Measurements",
+      "type": "number",
+      "unit": "value",
+      "default": 0,
+      "businessContext": "Measurements after intervention (comma-separated)"
+    },
+    {
+      "id": "alpha",
+      "label": "Significance Level (α)",
+      "type": "number",
+      "unit": "probability",
+      "default": 0.05,
+      "businessContext": "Type I error rate for hypothesis test"
+    },
+    {
+      "id": "hypothesis",
+      "label": "Hypothesis Direction",
+      "type": "number",
+      "unit": "code",
+      "default": 0,
+      "businessContext": "0=two-sided, 1=one-sided greater, -1=one-sided less"
+    }
+  ],
+  "formulas": {
+    "differences": "after - before",
+    "absDifferences": "Math.abs(differences)",
+    "ranks": "rank(absDifferences, nonZeroMask)",
+    "signedRanks": "ranks * Math.sign(differences)",
+    "Wplus": "sum(signedRanks > 0)",
+    "Wminus": "sum(signedRanks < 0)",
+    "W": "Math.min(Wplus, Wminus)",
+    "n": "count(nonZeroMask)",
+    "expectedW": "n * (n + 1) / 4",
+    "stdW": "Math.sqrt(n * (n + 1) * (2 * n + 1) / 24)",
+    "z": "(W - expectedW) / stdW",
+    "pValue": "2 * (1 - normalCDF(Math.abs(z)))",
+    "rejectNull": "pValue < alpha"
+  },
+  "outputs": {
+    "primary": "W statistic",
+    "breakdown": [
+      "W+ (sum of positive ranks)",
+      "W- (sum of negative ranks)",
+      "n (number of non-zero differences)",
+      "z-score",
+      "p-value",
+      "Reject null hypothesis?"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

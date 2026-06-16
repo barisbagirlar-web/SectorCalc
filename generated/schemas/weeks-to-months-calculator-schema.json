@@ -1,0 +1,71 @@
+{
+  "toolName": "weeks-to-months-calculator",
+  "inputs": [
+    {
+      "id": "weeks",
+      "label": "Number of Weeks",
+      "type": "number",
+      "unit": "weeks",
+      "default": 4,
+      "businessContext": "Total weeks to convert"
+    },
+    {
+      "id": "daysPerWeek",
+      "label": "Days per Week",
+      "type": "number",
+      "unit": "days",
+      "default": 7,
+      "businessContext": "Calendar days per week (typically 7)"
+    },
+    {
+      "id": "daysPerMonth",
+      "label": "Days per Month",
+      "type": "number",
+      "unit": "days",
+      "default": 30.44,
+      "businessContext": "Average days per month for calendar conversion (e.g., 30.44 for average, 30 for financial)"
+    },
+    {
+      "id": "workDaysPerWeek",
+      "label": "Work Days per Week",
+      "type": "number",
+      "unit": "days",
+      "default": 5,
+      "businessContext": "Working days per week (typically 5)"
+    },
+    {
+      "id": "workDaysPerMonth",
+      "label": "Work Days per Month",
+      "type": "number",
+      "unit": "days",
+      "default": 22,
+      "businessContext": "Average working days per month for business conversion (e.g., 22)"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places for the primary output"
+    }
+  ],
+  "formulas": {
+    "monthsCalendar": "(weeks * daysPerWeek) / daysPerMonth",
+    "monthsWorking": "(weeks * workDaysPerWeek) / workDaysPerMonth",
+    "roundedCalendar": "Math.round(monthsCalendar * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "roundedCalendar",
+    "breakdown": [
+      "monthsCalendar",
+      "monthsWorking"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

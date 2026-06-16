@@ -1,0 +1,69 @@
+{
+  "toolName": "log-base-10-calculator",
+  "inputs": [
+    {
+      "id": "x",
+      "label": "Value (x)",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "The primary numeric value for which the base-10 logarithm is computed."
+    },
+    {
+      "id": "y",
+      "label": "Second Value (y)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "A secondary numeric value used in product and quotient rule calculations to demonstrate logarithmic properties."
+    },
+    {
+      "id": "n",
+      "label": "Exponent (n)",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "The exponent applied to the primary value in the power rule (log10(x^n) = n·log10(x))."
+    },
+    {
+      "id": "base",
+      "label": "Custom Base (b)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "An alternative logarithm base for change-of-base demonstration (log_b(x) = log10(x)/log10(b))."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "The number of decimal places to which all outputs are rounded for readability and engineering precision."
+    }
+  ],
+  "formulas": {
+    "log10Result": "Number((Math.log(x)/Math.log(10)).toFixed(precision))",
+    "productLog": "Number((Math.log(x*y)/Math.log(10)).toFixed(precision))",
+    "quotientLog": "Number((Math.log(x/y)/Math.log(10)).toFixed(precision))",
+    "powerLog": "Number((n * Math.log(x)/Math.log(10)).toFixed(precision))",
+    "customBaseLog": "Number((Math.log(x)/Math.log(base)).toFixed(precision))",
+    "antilog10": "Number(Math.pow(10, x).toFixed(precision))"
+  },
+  "outputs": {
+    "primary": "log10Result",
+    "breakdown": [
+      "productLog",
+      "quotientLog",
+      "powerLog",
+      "customBaseLog",
+      "antilog10"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

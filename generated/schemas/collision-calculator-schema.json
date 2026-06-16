@@ -1,0 +1,58 @@
+{
+  "toolName": "collision-calculator",
+  "inputs": [
+    {
+      "id": "mass1",
+      "label": "Mass 1",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "First object's mass in kilograms"
+    },
+    {
+      "id": "velocity1",
+      "label": "Velocity 1",
+      "type": "number",
+      "unit": "m/s",
+      "default": 10,
+      "businessContext": "First object's initial velocity in meters per second"
+    },
+    {
+      "id": "mass2",
+      "label": "Mass 2",
+      "type": "number",
+      "unit": "kg",
+      "default": 1500,
+      "businessContext": "Second object's mass in kilograms"
+    },
+    {
+      "id": "velocity2",
+      "label": "Velocity 2",
+      "type": "number",
+      "unit": "m/s",
+      "default": -5,
+      "businessContext": "Second object's initial velocity in meters per second"
+    }
+  ],
+  "formulas": {
+    "finalVelocityMass1": "((mass1 - mass2) * velocity1 + 2 * mass2 * velocity2) / (mass1 + mass2)",
+    "finalVelocityMass2": "(2 * mass1 * velocity1 + (mass2 - mass1) * velocity2) / (mass1 + mass2)",
+    "initialKineticEnergy": "0.5 * mass1 * velocity1 * velocity1 + 0.5 * mass2 * velocity2 * velocity2",
+    "finalKineticEnergy": "0.5 * mass1 * finalVelocityMass1 * finalVelocityMass1 + 0.5 * mass2 * finalVelocityMass2 * finalVelocityMass2"
+  },
+  "outputs": {
+    "primary": "Collision calculations completed successfully",
+    "breakdown": [
+      "Final Velocity Mass 1",
+      "Final Velocity Mass 2",
+      "Initial Kinetic Energy",
+      "Final Kinetic Energy"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

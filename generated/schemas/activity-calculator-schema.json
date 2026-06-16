@@ -1,0 +1,68 @@
+{
+  "toolName": "activity-calculator",
+  "inputs": [
+    {
+      "id": "actualOutput",
+      "label": "Actual Output",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "The actual number of units produced."
+    },
+    {
+      "id": "plannedOutput",
+      "label": "Planned Output",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "The target number of units to be produced."
+    },
+    {
+      "id": "availableTime",
+      "label": "Available Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 0,
+      "businessContext": "Total time available for production."
+    },
+    {
+      "id": "downtime",
+      "label": "Downtime",
+      "type": "number",
+      "unit": "hours",
+      "default": 0,
+      "businessContext": "Unplanned stoppages or idle time."
+    },
+    {
+      "id": "cycleTime",
+      "label": "Cycle Time per Unit",
+      "type": "number",
+      "unit": "seconds",
+      "default": 0,
+      "businessContext": "Time required to produce one unit."
+    }
+  ],
+  "formulas": {
+    "actualProductionTime": "availableTime - downtime",
+    "activityRate": "actualOutput / actualProductionTime",
+    "efficiency": "actualOutput / plannedOutput",
+    "utilization": "actualProductionTime / availableTime",
+    "theoreticalMaxOutput": "(availableTime * 3600) / cycleTime",
+    "performance": "actualOutput / theoreticalMaxOutput"
+  },
+  "outputs": {
+    "primary": "activityRate",
+    "breakdown": [
+      "efficiency",
+      "utilization",
+      "performance",
+      "actualProductionTime"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

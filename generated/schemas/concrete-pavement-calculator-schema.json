@@ -1,0 +1,75 @@
+{
+  "toolName": "concrete-pavement-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Pavement Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of concrete pavement"
+    },
+    {
+      "id": "width",
+      "label": "Pavement Width",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Width of concrete pavement"
+    },
+    {
+      "id": "thickness",
+      "label": "Pavement Thickness",
+      "type": "number",
+      "unit": "m",
+      "default": 0.15,
+      "businessContext": "Thickness of concrete slab"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of material wastage"
+    },
+    {
+      "id": "concreteDensity",
+      "label": "Concrete Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 2400,
+      "businessContext": "Density of concrete mix"
+    },
+    {
+      "id": "costPerCubicMeter",
+      "label": "Cost per m³",
+      "type": "number",
+      "unit": "currency/m³",
+      "default": 100,
+      "businessContext": "Unit cost of concrete"
+    }
+  ],
+  "formulas": {
+    "volume": "length * width * thickness",
+    "wasteVolume": "length * width * thickness * wasteFactor / 100",
+    "totalVolume": "length * width * thickness * (1 + wasteFactor / 100)",
+    "totalCost": "length * width * thickness * (1 + wasteFactor / 100) * costPerCubicMeter",
+    "weight": "length * width * thickness * (1 + wasteFactor / 100) * concreteDensity"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "volume",
+      "wasteVolume",
+      "totalVolume",
+      "weight"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

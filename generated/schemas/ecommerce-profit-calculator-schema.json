@@ -1,0 +1,80 @@
+{
+  "toolName": "ecommerce-profit-calculator",
+  "inputs": [
+    {
+      "id": "sellingPrice",
+      "label": "Selling Price per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "businessContext": "The price at which each unit is sold to customers."
+    },
+    {
+      "id": "costPrice",
+      "label": "Cost Price per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 30,
+      "businessContext": "The cost to produce or purchase each unit."
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity Sold",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "businessContext": "Total number of units sold."
+    },
+    {
+      "id": "shippingCostPerUnit",
+      "label": "Shipping Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 5,
+      "businessContext": "Average shipping cost per unit."
+    },
+    {
+      "id": "marketingSpend",
+      "label": "Marketing Spend",
+      "type": "number",
+      "unit": "USD",
+      "default": 200,
+      "businessContext": "Total amount spent on marketing campaigns."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Tax rate applied to gross profit after expenses."
+    }
+  ],
+  "formulas": {
+    "revenue": "sellingPrice * quantity",
+    "cogs": "costPrice * quantity",
+    "grossProfit": "revenue - cogs",
+    "shippingCost": "shippingCostPerUnit * quantity",
+    "marketingSpend": "marketingSpend",
+    "taxAmount": "(revenue - cogs - shippingCost - marketingSpend) * (taxRate / 100)",
+    "netProfit": "revenue - cogs - shippingCost - marketingSpend - taxAmount"
+  },
+  "outputs": {
+    "primary": "netProfit",
+    "breakdown": [
+      "revenue",
+      "cogs",
+      "grossProfit",
+      "shippingCost",
+      "marketingSpend",
+      "taxAmount",
+      "netProfit"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

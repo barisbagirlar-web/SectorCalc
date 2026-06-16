@@ -1,0 +1,61 @@
+{
+  "toolName": "capillary-action-calculator",
+  "inputs": [
+    {
+      "id": "surfaceTension",
+      "label": "Surface Tension (γ)",
+      "type": "number",
+      "unit": "N/m",
+      "default": 0.0728,
+      "businessContext": "Surface tension of the liquid-air interface"
+    },
+    {
+      "id": "contactAngle",
+      "label": "Contact Angle (θ)",
+      "type": "number",
+      "unit": "°",
+      "default": 20,
+      "businessContext": "Contact angle of liquid with tube wall"
+    },
+    {
+      "id": "density",
+      "label": "Density (ρ)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of the liquid"
+    },
+    {
+      "id": "radius",
+      "label": "Tube Radius (r)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.0005,
+      "businessContext": "Inner radius of the capillary tube"
+    },
+    {
+      "id": "gravity",
+      "label": "Gravity (g)",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Acceleration due to gravity"
+    }
+  ],
+  "formulas": {
+    "heightM": "2 * surfaceTension * Math.cos(contactAngle * Math.PI / 180) / (density * gravity * radius)",
+    "heightCm": "heightM * 100"
+  },
+  "outputs": {
+    "primary": "heightM",
+    "breakdown": [
+      "heightCm"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

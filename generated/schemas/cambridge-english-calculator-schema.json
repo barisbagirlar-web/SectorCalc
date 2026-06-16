@@ -1,0 +1,63 @@
+{
+  "toolName": "cambridge-english-calculator",
+  "inputs": [
+    {
+      "id": "readingScore",
+      "label": "Reading Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Raw score from the Reading section (0-25)"
+    },
+    {
+      "id": "writingScore",
+      "label": "Writing Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Raw score from the Writing section (0-25)"
+    },
+    {
+      "id": "listeningScore",
+      "label": "Listening Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Raw score from the Listening section (0-25)"
+    },
+    {
+      "id": "speakingScore",
+      "label": "Speaking Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Raw score from the Speaking section (0-25)"
+    },
+    {
+      "id": "useOfEnglishScore",
+      "label": "Use of English Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Raw score from the Use of English section (0-25)"
+    }
+  ],
+  "formulas": {
+    "totalRawScore": "readingScore + writingScore + listeningScore + speakingScore + useOfEnglishScore",
+    "cambridgeScore": "Math.round((totalRawScore / 125) * 200)",
+    "cefrLevel": "cambridgeScore >= 180 ? 'C1' : (cambridgeScore >= 160 ? 'B2' : (cambridgeScore >= 140 ? 'B1' : 'A2'))"
+  },
+  "outputs": {
+    "primary": "cambridgeScore",
+    "breakdown": [
+      "totalRawScore",
+      "cefrLevel"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

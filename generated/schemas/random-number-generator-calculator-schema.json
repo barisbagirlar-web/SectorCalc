@@ -1,0 +1,56 @@
+{
+  "toolName": "random-number-generator-calculator",
+  "inputs": [
+    {
+      "id": "min",
+      "label": "Minimum Değer",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Üretilecek rastgele sayı için alt sınır"
+    },
+    {
+      "id": "max",
+      "label": "Maksimum Değer",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "Üretilecek rastgele sayı için üst sınır"
+    },
+    {
+      "id": "seed",
+      "label": "Tohum (Seed)",
+      "type": "number",
+      "unit": "",
+      "default": 12345,
+      "businessContext": "Rastgele sayı üretimi için başlangıç tohumu. Aynı tohum aynı sonucu verir."
+    },
+    {
+      "id": "count",
+      "label": "Adet",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Kaç adet rastgele sayı üretileceği (Bu sürümde yalnızca 1 desteklenir)."
+    }
+  ],
+  "formulas": {
+    "raw": "(Math.sin((seed + 0) * 9301 + 49297) + 1) / 2",
+    "randomValue": "min + raw * (max - min)"
+  },
+  "outputs": {
+    "primary": "randomValue",
+    "breakdown": [
+      "min",
+      "max",
+      "seed",
+      "raw"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

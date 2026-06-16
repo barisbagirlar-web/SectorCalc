@@ -1,0 +1,65 @@
+{
+  "toolName": "bearing-life-calculator",
+  "inputs": [
+    {
+      "id": "C",
+      "label": "Basic Dynamic Load Rating (C)",
+      "type": "number",
+      "unit": "kN",
+      "default": 10,
+      "businessContext": "Manufacturer's rated load for 1 million revolutions, from bearing catalog."
+    },
+    {
+      "id": "P",
+      "label": "Equivalent Dynamic Load (P)",
+      "type": "number",
+      "unit": "kN",
+      "default": 2,
+      "businessContext": "Calculated equivalent radial load considering actual radial and axial forces."
+    },
+    {
+      "id": "n",
+      "label": "Rotational Speed (n)",
+      "type": "number",
+      "unit": "rpm",
+      "default": 1500,
+      "businessContext": "Shaft speed in revolutions per minute."
+    },
+    {
+      "id": "p",
+      "label": "Bearing Life Exponent (p)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 3,
+      "businessContext": "3 for ball bearings, 10/3 (≈3.33) for roller bearings as per ISO 281."
+    },
+    {
+      "id": "a1",
+      "label": "Reliability Factor (a1)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Life adjustment factor for reliability: 1 for 90%, 0.62 for 95%, 0.53 for 96%, etc. (ISO 281)."
+    }
+  ],
+  "formulas": {
+    "cToPRatio": "C / P",
+    "basicL10RevMillions": "(C / P) ** p",
+    "basicL10h": "((C / P) ** p * 1e6) / (60 * n)",
+    "adjustedL10h": "a1 * ((C / P) ** p * 1e6) / (60 * n)"
+  },
+  "outputs": {
+    "primary": "adjustedL10h",
+    "breakdown": [
+      "cToPRatio",
+      "basicL10RevMillions",
+      "basicL10h"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

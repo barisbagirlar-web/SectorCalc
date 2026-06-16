@@ -1,0 +1,54 @@
+{
+  "toolName": "macro-nutrient-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Food Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 100,
+      "businessContext": "Total weight of food batch or serving in grams"
+    },
+    {
+      "id": "proteinPer100",
+      "label": "Protein per 100g",
+      "type": "number",
+      "unit": "g/100g",
+      "default": 20,
+      "businessContext": "Protein content per 100 grams of food"
+    },
+    {
+      "id": "carbsPer100",
+      "label": "Carbohydrates per 100g",
+      "type": "number",
+      "unit": "g/100g",
+      "default": 10,
+      "businessContext": "Carbohydrate content per 100 grams of food"
+    },
+    {
+      "id": "fatPer100",
+      "label": "Fat per 100g",
+      "type": "number",
+      "unit": "g/100g",
+      "default": 5,
+      "businessContext": "Fat content per 100 grams of food"
+    }
+  ],
+  "formulas": {
+    "proteinGrams": "(proteinPer100 / 100) * weight",
+    "carbsGrams": "(carbsPer100 / 100) * weight",
+    "fatGrams": "(fatPer100 / 100) * weight",
+    "totalCalories": "4 * proteinGrams + 4 * carbsGrams + 9 * fatGrams"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "proteinGrams",
+      "carbsGrams",
+      "fatGrams"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false
+}

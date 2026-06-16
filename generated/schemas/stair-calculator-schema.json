@@ -1,0 +1,59 @@
+{
+  "toolName": "stair-calculator",
+  "inputs": [
+    {
+      "id": "totalRise",
+      "label": "Total Rise",
+      "type": "number",
+      "unit": "cm",
+      "default": 280,
+      "businessContext": "floor-to-floor height"
+    },
+    {
+      "id": "numberOfRisers",
+      "label": "Number of Risers",
+      "type": "number",
+      "unit": "count",
+      "default": 15,
+      "businessContext": "desired number of steps (risers)"
+    },
+    {
+      "id": "treadDepth",
+      "label": "Tread Depth",
+      "type": "number",
+      "unit": "cm",
+      "default": 28,
+      "businessContext": "horizontal depth of each tread"
+    },
+    {
+      "id": "stairWidth",
+      "label": "Stair Width",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "width of the staircase"
+    }
+  ],
+  "formulas": {
+    "riserHeight": "inputs.totalRise / inputs.numberOfRisers",
+    "numberOfTreads": "inputs.numberOfRisers - 1",
+    "totalRun": "inputs.treadDepth * (inputs.numberOfRisers - 1)",
+    "stringerLength": "Math.sqrt(Math.pow(inputs.totalRise, 2) + Math.pow(inputs.treadDepth * (inputs.numberOfRisers - 1), 2))",
+    "stairAngle": "Math.atan(inputs.totalRise / (inputs.treadDepth * (inputs.numberOfRisers - 1))) * (180 / Math.PI)"
+  },
+  "outputs": {
+    "primary": "stringerLength",
+    "breakdown": [
+      "riserHeight",
+      "numberOfTreads",
+      "totalRun",
+      "stairAngle"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

@@ -1,0 +1,74 @@
+{
+  "toolName": "stain-calculator",
+  "inputs": [
+    {
+      "id": "surfaceArea",
+      "label": "Yüzey Alanı",
+      "type": "number",
+      "unit": "m²",
+      "default": 10,
+      "businessContext": "Stain-affected area in square meters."
+    },
+    {
+      "id": "stainIntensity",
+      "label": "Leke Yoğunluğu",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Stain intensity percentage (0-100). A higher value indicates a more concentrated stain."
+    },
+    {
+      "id": "coverageRate",
+      "label": "Kaplama Oranı",
+      "type": "number",
+      "unit": "m²/L",
+      "default": 10,
+      "businessContext": "Surface area that 1 liter of cleaning solution can cover under ideal conditions."
+    },
+    {
+      "id": "efficiency",
+      "label": "Temizlik Verimliliği",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Real-world cleaning efficiency, accounting for losses like overspray or absorption."
+    },
+    {
+      "id": "numberOfCoats",
+      "label": "Uygulama Katmanı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Number of application coats required to remove the stain completely."
+    }
+  ],
+  "formulas": {},
+  "outputs": {
+    "primary": {
+      "id": "totalRequiredVolume",
+      "label": "Gerekli Solüsyon Hacmi",
+      "unit": "L",
+      "formula": "(surfaceArea * numberOfCoats * (stainIntensity / 100)) / (coverageRate * (efficiency / 100))"
+    },
+    "breakdown": [
+      {
+        "id": "effectiveCoverage",
+        "label": "Etkili Kaplama Oranı",
+        "unit": "m²/L",
+        "formula": "coverageRate * (efficiency / 100)"
+      },
+      {
+        "id": "rawRequiredVolume",
+        "label": "Brüt Gerekli Hacim",
+        "unit": "L",
+        "formula": "(surfaceArea * numberOfCoats * (stainIntensity / 100)) / coverageRate"
+      }
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

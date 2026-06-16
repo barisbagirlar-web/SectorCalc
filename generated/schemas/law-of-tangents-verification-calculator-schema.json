@@ -1,0 +1,55 @@
+{
+  "toolName": "law-of-tangents-verification-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "Side a",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Length of side opposite angle A"
+    },
+    {
+      "id": "b",
+      "label": "Side b",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Length of side opposite angle B"
+    },
+    {
+      "id": "A",
+      "label": "Angle A",
+      "type": "number",
+      "unit": "°",
+      "default": 60,
+      "businessContext": "Angle opposite side a, in degrees"
+    },
+    {
+      "id": "B",
+      "label": "Angle B",
+      "type": "number",
+      "unit": "°",
+      "default": 40,
+      "businessContext": "Angle opposite side b, in degrees"
+    }
+  ],
+  "formulas": {
+    "sideRatio": "(a - b) / (a + b)",
+    "angleRatio": "Math.tan(((A - B) / 2) * Math.PI / 180) / Math.tan(((A + B) / 2) * Math.PI / 180)",
+    "difference": "Math.abs(sideRatio - angleRatio)"
+  },
+  "outputs": {
+    "primary": "difference",
+    "breakdown": [
+      "sideRatio",
+      "angleRatio"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

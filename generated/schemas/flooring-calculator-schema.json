@@ -1,0 +1,76 @@
+{
+  "toolName": "flooring-calculator",
+  "inputs": [
+    {
+      "id": "roomLength",
+      "label": "Oda Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Döşeme yapılacak odanın uzunluğu (metre cinsinden)."
+    },
+    {
+      "id": "roomWidth",
+      "label": "Oda Genişliği",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Döşeme yapılacak odanın genişliği (metre cinsinden)."
+    },
+    {
+      "id": "tileLength",
+      "label": "Karo Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "businessContext": "Bir karonun uzun kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m."
+    },
+    {
+      "id": "tileWidth",
+      "label": "Karo Genişliği",
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "businessContext": "Bir karonun kısa kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m."
+    },
+    {
+      "id": "pricePerTile",
+      "label": "Karo Başına Fiyat",
+      "type": "number",
+      "unit": "TRY",
+      "default": 15,
+      "businessContext": "Bir adet karonun satın alma fiyatı (TL cinsinden)."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Kesim, kırılma gibi kayıplar için eklenecek yüzde oranı. Örn: 10."
+    }
+  ],
+  "formulas": {
+    "roomArea": "roomLength * roomWidth",
+    "tileArea": "tileLength * tileWidth",
+    "tilesWithoutWaste": "roomArea / tileArea",
+    "tilesWithWaste": "tilesWithoutWaste * (1 + wasteFactor / 100)",
+    "numberOfTiles": "Math.ceil(tilesWithWaste)",
+    "totalCost": "numberOfTiles * pricePerTile",
+    "wasteTiles": "numberOfTiles - tilesWithoutWaste"
+  },
+  "outputs": {
+    "primary": "numberOfTiles",
+    "breakdown": [
+      "roomArea",
+      "totalCost",
+      "wasteTiles"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

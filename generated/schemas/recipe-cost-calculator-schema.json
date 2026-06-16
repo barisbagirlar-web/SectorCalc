@@ -1,0 +1,75 @@
+{
+  "toolName": "recipe-cost-calculator",
+  "inputs": [
+    {
+      "id": "ingredientCost",
+      "label": "Toplam Malzeme Maliyeti",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Ham madde ve malzeme giderleri"
+    },
+    {
+      "id": "laborHours",
+      "label": "İşçilik Süresi",
+      "type": "number",
+      "unit": "saat",
+      "default": 0,
+      "businessContext": "Üretimde harcanan işçilik süresi"
+    },
+    {
+      "id": "laborRate",
+      "label": "Saatlik İşçilik Ücreti",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 50,
+      "businessContext": "İşçilik birim maliyeti"
+    },
+    {
+      "id": "overheadPercentage",
+      "label": "Genel Gider Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Enerji, kira, amortisman gibi genel giderler"
+    },
+    {
+      "id": "packagingCost",
+      "label": "Paketleme Maliyeti",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Ambalaj ve paketleme giderleri"
+    },
+    {
+      "id": "servings",
+      "label": "Porsiyon Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Hazırlanan toplam porsiyon"
+    }
+  ],
+  "formulas": {
+    "totalIngredientCost": "ingredientCost",
+    "totalLaborCost": "laborHours * laborRate",
+    "totalOverhead": "(totalIngredientCost + totalLaborCost) * (overheadPercentage / 100)",
+    "totalCost": "totalIngredientCost + totalLaborCost + totalOverhead + packagingCost",
+    "costPerServing": "totalCost / servings"
+  },
+  "outputs": {
+    "primary": "costPerServing",
+    "breakdown": [
+      "totalCost",
+      "totalIngredientCost",
+      "totalLaborCost",
+      "totalOverhead"
+    ]
+  },
+  "category": "Perakende & Gıda",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

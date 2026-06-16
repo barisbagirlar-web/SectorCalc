@@ -1,0 +1,54 @@
+{
+  "toolName": "chinese-zodiac-calculator",
+  "inputs": [
+    {
+      "id": "birthYear",
+      "label": "Birth Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2000,
+      "businessContext": "Gregorian year of birth."
+    },
+    {
+      "id": "birthMonth",
+      "label": "Birth Month",
+      "type": "number",
+      "unit": "month",
+      "default": 1,
+      "businessContext": "Month of birth (1-12). Not used for zodiac, but included for completeness."
+    },
+    {
+      "id": "birthDay",
+      "label": "Birth Day",
+      "type": "number",
+      "unit": "day",
+      "default": 1,
+      "businessContext": "Day of birth (1-31)."
+    },
+    {
+      "id": "birthHour",
+      "label": "Birth Hour",
+      "type": "number",
+      "unit": "hour",
+      "default": 0,
+      "businessContext": "Hour of birth (0-23)."
+    }
+  ],
+  "formulas": {
+    "zodiacIndex": "((birthYear - 4) % 12 + 12) % 12",
+    "elementIndex": "Math.floor((((birthYear - 4) % 10 + 10) % 10) / 2)"
+  },
+  "outputs": {
+    "primary": "Zodiac: ${['Rat','Ox','Tiger','Rabbit','Dragon','Snake','Horse','Goat','Monkey','Rooster','Dog','Pig'][zodiacIndex]}, Element: ${['Wood','Fire','Earth','Metal','Water'][elementIndex]}",
+    "breakdown": [
+      "Zodiac Index: ${zodiacIndex}",
+      "Element Index: ${elementIndex}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

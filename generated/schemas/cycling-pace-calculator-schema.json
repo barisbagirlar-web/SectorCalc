@@ -1,0 +1,56 @@
+{
+  "toolName": "cycling-pace-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "Total distance cycled in kilometers."
+    },
+    {
+      "id": "hours",
+      "label": "Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 0,
+      "businessContext": "Hours component of the elapsed time."
+    },
+    {
+      "id": "minutes",
+      "label": "Minutes",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Minutes component of the elapsed time."
+    },
+    {
+      "id": "seconds",
+      "label": "Seconds",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Seconds component of the elapsed time."
+    }
+  ],
+  "formulas": {
+    "totalTimeSec": "hours * 3600 + minutes * 60 + seconds",
+    "totalTimeMin": "totalTimeSec / 60",
+    "pace": "totalTimeMin / distance",
+    "speed": "distance / (totalTimeSec / 3600)"
+  },
+  "outputs": {
+    "primary": "pace",
+    "breakdown": [
+      "totalTimeMin",
+      "speed"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

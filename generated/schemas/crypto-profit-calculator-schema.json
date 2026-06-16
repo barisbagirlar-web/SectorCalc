@@ -1,0 +1,70 @@
+{
+  "toolName": "crypto-profit-calculator",
+  "inputs": [
+    {
+      "id": "investment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000,
+      "businessContext": "Amount invested in fiat currency (USD)"
+    },
+    {
+      "id": "buyPrice",
+      "label": "Buy Price per Coin",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "Price at which cryptocurrency was purchased (per unit)"
+    },
+    {
+      "id": "sellPrice",
+      "label": "Sell Price per Coin",
+      "type": "number",
+      "unit": "USD",
+      "default": 150,
+      "businessContext": "Price at which cryptocurrency is sold (per unit)"
+    },
+    {
+      "id": "feePercent",
+      "label": "Transaction Fee (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "businessContext": "Fee percentage charged per transaction (buy and sell)"
+    },
+    {
+      "id": "taxPercent",
+      "label": "Tax on Profit (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Capital gains tax percentage applied to net profit"
+    }
+  ],
+  "formulas": {
+    "amount": "investment / buyPrice",
+    "grossProfit": "amount * sellPrice - investment",
+    "buyFee": "investment * feePercent / 100",
+    "sellFee": "amount * sellPrice * feePercent / 100",
+    "netProfitBeforeTax": "grossProfit - buyFee - sellFee",
+    "taxAmount": "netProfitBeforeTax * taxPercent / 100",
+    "netProfit": "netProfitBeforeTax - taxAmount",
+    "roi": "(netProfit / investment) * 100"
+  },
+  "outputs": {
+    "primary": "netProfit",
+    "breakdown": [
+      "grossProfit",
+      "netProfitBeforeTax",
+      "taxAmount",
+      "roi"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

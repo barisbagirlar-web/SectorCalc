@@ -1,0 +1,73 @@
+{
+  "toolName": "curl-calculator",
+  "inputs": [
+    {
+      "id": "dFz_dy",
+      "label": "∂Fz/∂y",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Partial derivative of the z-component of the vector field with respect to y"
+    },
+    {
+      "id": "dFy_dz",
+      "label": "∂Fy/∂z",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Partial derivative of the y-component of the vector field with respect to z"
+    },
+    {
+      "id": "dFx_dz",
+      "label": "∂Fx/∂z",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Partial derivative of the x-component of the vector field with respect to z"
+    },
+    {
+      "id": "dFz_dx",
+      "label": "∂Fz/∂x",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Partial derivative of the z-component of the vector field with respect to x"
+    },
+    {
+      "id": "dFy_dx",
+      "label": "∂Fy/∂x",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Partial derivative of the y-component of the vector field with respect to x"
+    },
+    {
+      "id": "dFx_dy",
+      "label": "∂Fx/∂y",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Partial derivative of the x-component of the vector field with respect to y"
+    }
+  ],
+  "formulas": {
+    "curl_x": "dFz_dy - dFy_dz",
+    "curl_y": "dFx_dz - dFz_dx",
+    "curl_z": "dFy_dx - dFx_dy",
+    "curl_mag": "Math.sqrt(curl_x*curl_x + curl_y*curl_y + curl_z*curl_z)"
+  },
+  "outputs": {
+    "primary": "curl_mag",
+    "breakdown": [
+      "curl_x",
+      "curl_y",
+      "curl_z"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

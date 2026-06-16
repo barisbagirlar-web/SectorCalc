@@ -1,0 +1,55 @@
+{
+  "toolName": "weight-loss-goal-calculator",
+  "inputs": [
+    {
+      "id": "currentWeight",
+      "label": "Current Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "Current weight of the individual in kilograms."
+    },
+    {
+      "id": "targetWeight",
+      "label": "Target Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Desired target weight in kilograms."
+    },
+    {
+      "id": "dailyCaloricDeficit",
+      "label": "Daily Caloric Deficit",
+      "type": "number",
+      "unit": "kcal",
+      "default": 500,
+      "businessContext": "Planned daily caloric deficit in kilocalories."
+    },
+    {
+      "id": "calorieEquivalent",
+      "label": "Calorie Equivalent per kg",
+      "type": "number",
+      "unit": "kcal/kg",
+      "default": 7700,
+      "businessContext": "Estimated energy equivalent of 1 kg of body weight loss, typically 7700 kcal per kg."
+    }
+  ],
+  "formulas": {
+    "totalWeightLoss": "currentWeight - targetWeight",
+    "weeklyWeightLoss": "(dailyCaloricDeficit * 7) / calorieEquivalent",
+    "weeksNeeded": "(totalWeightLoss * calorieEquivalent) / (dailyCaloricDeficit * 7)"
+  },
+  "outputs": {
+    "primary": "weeksNeeded",
+    "breakdown": [
+      "weeklyWeightLoss",
+      "totalWeightLoss"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

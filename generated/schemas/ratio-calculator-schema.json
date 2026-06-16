@@ -1,0 +1,55 @@
+{
+  "toolName": "ratio-calculator",
+  "inputs": [
+    {
+      "id": "numerator",
+      "label": "Numerator",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The value to be divided (the top of the fraction)."
+    },
+    {
+      "id": "denominator",
+      "label": "Denominator",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The value to divide by (the bottom of the fraction). Must not be zero."
+    },
+    {
+      "id": "multiplier",
+      "label": "Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier to apply to the ratio, e.g., 100 for percentage, 1 for raw ratio."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding the final output."
+    }
+  ],
+  "formulas": {
+    "rawRatio": "denominator !== 0 ? numerator / denominator : null",
+    "multipliedRatio": "denominator !== 0 ? (numerator / denominator * multiplier) : null",
+    "roundedRatio": "denominator !== 0 ? Math.round((numerator / denominator * multiplier) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : null"
+  },
+  "outputs": {
+    "primary": "roundedRatio",
+    "breakdown": [
+      "rawRatio",
+      "multipliedRatio"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

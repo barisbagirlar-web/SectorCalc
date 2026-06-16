@@ -1,0 +1,55 @@
+{
+  "toolName": "debt-to-equity-ratio-calculator",
+  "inputs": [
+    {
+      "id": "totalAssets",
+      "label": "Total Assets",
+      "type": "number",
+      "unit": "USD",
+      "default": 200000,
+      "businessContext": "The total resources owned by the company, including both current and non-current assets."
+    },
+    {
+      "id": "longTermDebt",
+      "label": "Long-Term Debt",
+      "type": "number",
+      "unit": "USD",
+      "default": 40000,
+      "businessContext": "Borrowings and financial obligations due after one year."
+    },
+    {
+      "id": "currentLiabilities",
+      "label": "Current Liabilities",
+      "type": "number",
+      "unit": "USD",
+      "default": 60000,
+      "businessContext": "Short-term obligations due within one year, such as accounts payable and accruals."
+    },
+    {
+      "id": "otherLiabilities",
+      "label": "Other Liabilities",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Any other liabilities not classified as long-term debt or current liabilities, such as provisions or deferred tax liabilities."
+    }
+  ],
+  "formulas": {
+    "debtToEquity": "(longTermDebt + currentLiabilities + otherLiabilities) / (totalAssets - (longTermDebt + currentLiabilities + otherLiabilities))",
+    "totalLiabilities": "longTermDebt + currentLiabilities + otherLiabilities",
+    "shareholdersEquity": "totalAssets - (longTermDebt + currentLiabilities + otherLiabilities)"
+  },
+  "outputs": {
+    "primary": "debtToEquity",
+    "breakdown": [
+      "totalLiabilities",
+      "shareholdersEquity"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

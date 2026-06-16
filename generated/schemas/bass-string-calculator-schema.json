@@ -1,0 +1,49 @@
+{
+  "toolName": "bass-string-calculator",
+  "inputs": [
+    {
+      "id": "scaleLength",
+      "label": "Scale Length",
+      "type": "number",
+      "unit": "in",
+      "default": 34,
+      "businessContext": "Measured from nut to bridge saddle."
+    },
+    {
+      "id": "unitWeight",
+      "label": "Linear Density",
+      "type": "number",
+      "unit": "lb/in",
+      "default": 0.00245,
+      "businessContext": "Mass per unit length of the string; obtain from manufacturer data or calculate from gauge and material."
+    },
+    {
+      "id": "frequency",
+      "label": "Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 41.2,
+      "businessContext": "Fundamental pitch of the open string note (e.g., E1 = 41.2 Hz)."
+    }
+  ],
+  "formulas": {
+    "tensionLBF": "Math.pow(2 * scaleLength * frequency, 2) * unitWeight / 386.4",
+    "tensionN": "tensionLBF * 4.44822",
+    "scaleLengthM": "scaleLength * 0.0254",
+    "unitWeightKGperM": "unitWeight * 17.858"
+  },
+  "outputs": {
+    "primary": "tensionLBF",
+    "breakdown": [
+      "tensionN",
+      "scaleLengthM",
+      "unitWeightKGperM"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Atölye & Tamir",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

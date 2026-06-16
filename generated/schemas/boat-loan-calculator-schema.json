@@ -1,0 +1,73 @@
+{
+  "toolName": "boat-loan-calculator",
+  "inputs": [
+    {
+      "id": "boatPrice",
+      "label": "Boat Price",
+      "type": "number",
+      "unit": "$",
+      "default": 50000,
+      "businessContext": "The total price of the boat."
+    },
+    {
+      "id": "downPayment",
+      "label": "Down Payment",
+      "type": "number",
+      "unit": "$",
+      "default": 10000,
+      "businessContext": "Amount paid upfront."
+    },
+    {
+      "id": "tradeInValue",
+      "label": "Trade-In Value",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Value of any traded-in boat."
+    },
+    {
+      "id": "salesTaxRate",
+      "label": "Sales Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 6,
+      "businessContext": "Sales tax rate applied to the boat purchase."
+    },
+    {
+      "id": "loanTerm",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Duration of the loan in years."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual interest rate as a percentage."
+    }
+  ],
+  "formulas": {
+    "monthlyPayment": "const boatPrice = inputs.boatPrice; const salesTaxRate = inputs.salesTaxRate; const downPayment = inputs.downPayment; const tradeInValue = inputs.tradeInValue; const annualInterestRate = inputs.annualInterestRate; const loanTerm = inputs.loanTerm; const P = (boatPrice * (1 + salesTaxRate / 100)) - downPayment - tradeInValue; const n = loanTerm * 12; if (annualInterestRate === 0) { return P / n; } const r = annualInterestRate / (12 * 100); return P * (r * (1 + r) ** n) / ((1 + r) ** n - 1);",
+    "totalInterest": "const boatPrice = inputs.boatPrice; const salesTaxRate = inputs.salesTaxRate; const downPayment = inputs.downPayment; const tradeInValue = inputs.tradeInValue; const annualInterestRate = inputs.annualInterestRate; const loanTerm = inputs.loanTerm; const P = (boatPrice * (1 + salesTaxRate / 100)) - downPayment - tradeInValue; const n = loanTerm * 12; let M; if (annualInterestRate === 0) { M = P / n; } else { const r = annualInterestRate / (12 * 100); M = P * (r * (1 + r) ** n) / ((1 + r) ** n - 1); } return M * n - P;",
+    "totalCost": "const boatPrice = inputs.boatPrice; const salesTaxRate = inputs.salesTaxRate; const downPayment = inputs.downPayment; const tradeInValue = inputs.tradeInValue; const annualInterestRate = inputs.annualInterestRate; const loanTerm = inputs.loanTerm; const P = (boatPrice * (1 + salesTaxRate / 100)) - downPayment - tradeInValue; const n = loanTerm * 12; let M; if (annualInterestRate === 0) { M = P / n; } else { const r = annualInterestRate / (12 * 100); M = P * (r * (1 + r) ** n) / ((1 + r) ** n - 1); } return M * n;",
+    "principal": "const boatPrice = inputs.boatPrice; const salesTaxRate = inputs.salesTaxRate; const downPayment = inputs.downPayment; const tradeInValue = inputs.tradeInValue; return (boatPrice * (1 + salesTaxRate / 100)) - downPayment - tradeInValue;"
+  },
+  "outputs": {
+    "primary": "monthlyPayment",
+    "breakdown": [
+      "totalInterest",
+      "totalCost",
+      "principal"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

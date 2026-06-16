@@ -1,0 +1,73 @@
+{
+  "toolName": "time-zone-converter-calculator",
+  "inputs": [
+    {
+      "id": "inputHours",
+      "label": "Source Hour (0-23)",
+      "type": "number",
+      "unit": "h",
+      "default": 12,
+      "businessContext": "Hour component of the source time."
+    },
+    {
+      "id": "inputMinutes",
+      "label": "Source Minutes (0-59)",
+      "type": "number",
+      "unit": "min",
+      "default": 0,
+      "businessContext": "Minute component of the source time."
+    },
+    {
+      "id": "sourceOffsetHours",
+      "label": "Source UTC Offset Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 0,
+      "businessContext": "Hour offset of source timezone from UTC (e.g., -5 for EST)."
+    },
+    {
+      "id": "sourceOffsetMinutes",
+      "label": "Source UTC Offset Minutes",
+      "type": "number",
+      "unit": "min",
+      "default": 0,
+      "businessContext": "Additional minute offset of source timezone from UTC."
+    },
+    {
+      "id": "targetOffsetHours",
+      "label": "Target UTC Offset Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 3,
+      "businessContext": "Hour offset of target timezone from UTC (e.g., 3 for EAT)."
+    },
+    {
+      "id": "targetOffsetMinutes",
+      "label": "Target UTC Offset Minutes",
+      "type": "number",
+      "unit": "min",
+      "default": 0,
+      "businessContext": "Additional minute offset of target timezone from UTC."
+    }
+  ],
+  "formulas": {
+    "sourceOffsetTotalMinutes": "sourceOffsetHours * 60 + sourceOffsetMinutes",
+    "targetOffsetTotalMinutes": "targetOffsetHours * 60 + targetOffsetMinutes",
+    "utcMinutes": "(inputHours * 60 + inputMinutes - (sourceOffsetHours * 60 + sourceOffsetMinutes) + 1440) % 1440",
+    "targetTime": "(function(){ var tm = ((inputHours * 60 + inputMinutes - (sourceOffsetHours * 60 + sourceOffsetMinutes) + 1440) % 1440 + (targetOffsetHours * 60 + targetOffsetMinutes) + 1440) % 1440; var h = Math.floor(tm / 60); var m = tm % 60; return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m; })()"
+  },
+  "outputs": {
+    "primary": "targetTime",
+    "breakdown": [
+      "sourceOffsetTotalMinutes",
+      "targetOffsetTotalMinutes",
+      "utcMinutes"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

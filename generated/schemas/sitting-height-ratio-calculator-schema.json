@@ -1,0 +1,55 @@
+{
+  "toolName": "sitting-height-ratio-calculator",
+  "inputs": [
+    {
+      "id": "sittingHeightCm",
+      "label": "Sitting Height (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 90,
+      "businessContext": "Sitting height measured in centimeters from the seating surface to the vertex of the head."
+    },
+    {
+      "id": "sittingHeightMm",
+      "label": "Sitting Height (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Sitting height measured in millimeters. Will be converted to cm by dividing by 10."
+    },
+    {
+      "id": "standingHeightCm",
+      "label": "Standing Height (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Standing height measured in centimeters from floor to vertex."
+    },
+    {
+      "id": "standingHeightMm",
+      "label": "Standing Height (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Standing height measured in millimeters. Will be converted to cm by dividing by 10."
+    }
+  ],
+  "formulas": {
+    "totalSittingHeight": "sittingHeightCm + sittingHeightMm / 10",
+    "totalStandingHeight": "standingHeightCm + standingHeightMm / 10",
+    "ratio": "totalSittingHeight / totalStandingHeight",
+    "percentage": "ratio * 100"
+  },
+  "outputs": {
+    "primary": "ratio",
+    "breakdown": [
+      "percentage"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

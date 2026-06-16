@@ -1,0 +1,53 @@
+{
+  "toolName": "waist-to-hip-ratio",
+  "inputs": [
+    {
+      "id": "waist",
+      "label": "Waist Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 80,
+      "businessContext": "Measured at the narrowest point of the torso, usually above the belly button."
+    },
+    {
+      "id": "hip",
+      "label": "Hip Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Measured at the widest point of the hips and buttocks."
+    },
+    {
+      "id": "unitCode",
+      "label": "Measurement Unit Code",
+      "type": "number",
+      "unit": "code",
+      "default": 1,
+      "businessContext": "1 for centimeters, 2 for inches. The ratio is unit-independent."
+    },
+    {
+      "id": "genderCode",
+      "label": "Gender Code",
+      "type": "number",
+      "unit": "code",
+      "default": 0,
+      "businessContext": "0 for female, 1 for male. Used for health risk threshold."
+    }
+  ],
+  "formulas": {
+    "waistToHipRatio": "waist / hip",
+    "riskCategory": "genderCode === 0 ? (waist / hip > 0.85 ? 'High' : 'Low') : (waist / hip > 0.90 ? 'High' : 'Low')"
+  },
+  "outputs": {
+    "primary": "waistToHipRatio",
+    "breakdown": [
+      "riskCategory"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

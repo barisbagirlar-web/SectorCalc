@@ -1,0 +1,87 @@
+{
+  "toolName": "horse-riding-calculator",
+  "inputs": [
+    {
+      "id": "lessonDuration",
+      "label": "Lesson Duration (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 1,
+      "businessContext": "Duration of one riding lesson in hours."
+    },
+    {
+      "id": "hourlyRate",
+      "label": "Instructor Hourly Rate",
+      "type": "number",
+      "unit": "currency",
+      "default": 50,
+      "businessContext": "Cost per hour for the riding instructor."
+    },
+    {
+      "id": "horseMaintenancePerLesson",
+      "label": "Horse Maintenance Cost per Lesson",
+      "type": "number",
+      "unit": "currency",
+      "default": 20,
+      "businessContext": "Additional cost for horse care, feed, and tack per lesson."
+    },
+    {
+      "id": "equipmentRental",
+      "label": "Equipment Rental per Lesson",
+      "type": "number",
+      "unit": "currency",
+      "default": 10,
+      "businessContext": "Cost for renting helmet, boots, etc. per lesson."
+    },
+    {
+      "id": "insurancePerLesson",
+      "label": "Insurance Fee per Lesson",
+      "type": "number",
+      "unit": "currency",
+      "default": 5,
+      "businessContext": "Insurance cost allocated per lesson."
+    },
+    {
+      "id": "travelCost",
+      "label": "Travel Cost per Lesson",
+      "type": "number",
+      "unit": "currency",
+      "default": 5,
+      "businessContext": "Travel expenses to reach the stable per lesson."
+    },
+    {
+      "id": "numberOfLessons",
+      "label": "Number of Lessons",
+      "type": "number",
+      "unit": "lessons",
+      "default": 4,
+      "businessContext": "Total number of lessons in the package."
+    }
+  ],
+  "formulas": {
+    "totalCost": "(hourlyRate * lessonDuration + horseMaintenancePerLesson + equipmentRental + insurancePerLesson + travelCost) * numberOfLessons",
+    "costPerLesson": "totalCost / numberOfLessons",
+    "instructorCost": "hourlyRate * lessonDuration * numberOfLessons",
+    "horseMaintenanceTotal": "horseMaintenancePerLesson * numberOfLessons",
+    "equipmentTotal": "equipmentRental * numberOfLessons",
+    "insuranceTotal": "insurancePerLesson * numberOfLessons",
+    "travelTotal": "travelCost * numberOfLessons"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "costPerLesson",
+      "instructorCost",
+      "horseMaintenanceTotal",
+      "equipmentTotal",
+      "insuranceTotal",
+      "travelTotal"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,58 @@
+// Auto-generated from broca-index-calculator-schema.json
+import * as z from 'zod';
+
+export interface Broca_index_calculatorInput {
+  heightCm: number;
+  sex: number;
+  frameSize: number;
+  currentWeight: number;
+}
+
+export const Broca_index_calculatorInputSchema = z.object({
+  heightCm: z.number().default(170),
+  sex: z.number().default(0),
+  frameSize: z.number().default(1),
+  currentWeight: z.number().default(70),
+});
+
+function evaluateAllFormulas(input: Broca_index_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.heightCm - 100) * (input.sex == 0 ? 0.9 : 0.85) * (input.frameSize == 0 ? 0.9 : (input.frameSize == 2 ? 1.1 : 1)); results["idealWeight"] = Number.isFinite(v) ? v : 0; } catch { results["idealWeight"] = 0; }
+  try { const v = input.currentWeight - (results["idealWeight"] ?? 0); results["difference"] = Number.isFinite(v) ? v : 0; } catch { results["difference"] = 0; }
+  return results;
+}
+
+
+export function calculateBroca_index_calculator(input: Broca_index_calculatorInput): Broca_index_calculatorOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values["idealWeight"] ?? 0;
+  const breakdown = {
+    
+  };
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    premiumRequired: false,
+    premiumFeatures: [],
+  };
+}
+
+
+export interface Broca_index_calculatorOutput {
+  totalWasteCost: number;
+  breakdown: {  };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+}

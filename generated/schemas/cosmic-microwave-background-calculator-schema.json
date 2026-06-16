@@ -1,0 +1,39 @@
+{
+  "toolName": "cosmic-microwave-background-calculator",
+  "inputs": [
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 2.725,
+      "businessContext": "Temperature of the CMB (default 2.725 K)"
+    },
+    {
+      "id": "frequency",
+      "label": "Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 160200000000,
+      "businessContext": "Observation frequency (peak of CMB is ~160.2 GHz)"
+    }
+  ],
+  "formulas": {
+    "spectral_radiance": "2 * 6.62607015e-34 * Math.pow(frequency, 3) / Math.pow(299792458, 2) * 1 / (Math.exp(6.62607015e-34 * frequency / (1.380649e-23 * temperature)) - 1)",
+    "peak_frequency": "5.878925e10 * temperature",
+    "peak_wavelength": "0.002897771955 / temperature"
+  },
+  "outputs": {
+    "primary": "spectral_radiance",
+    "breakdown": [
+      "peak_frequency",
+      "peak_wavelength"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

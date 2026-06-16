@@ -1,0 +1,63 @@
+{
+  "toolName": "free-cash-flow-calculator",
+  "inputs": [
+    {
+      "id": "ebit",
+      "label": "EBIT (Earnings Before Interest and Taxes)",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000000,
+      "businessContext": "The company's operating profit before interest and tax expenses."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Effective corporate tax rate as a percentage (e.g., 30 for 30%)."
+    },
+    {
+      "id": "depreciation",
+      "label": "Depreciation & Amortization",
+      "type": "number",
+      "unit": "currency",
+      "default": 100000,
+      "businessContext": "Non-cash expenses from depreciation and amortization of assets."
+    },
+    {
+      "id": "capex",
+      "label": "Capital Expenditures",
+      "type": "number",
+      "unit": "currency",
+      "default": 200000,
+      "businessContext": "Cash spent on acquiring or maintaining fixed assets (CapEx)."
+    },
+    {
+      "id": "changeNWC",
+      "label": "Change in Net Working Capital",
+      "type": "number",
+      "unit": "currency",
+      "default": 50000,
+      "businessContext": "Increase in net working capital (current assets minus current liabilities) that consumes cash."
+    }
+  ],
+  "formulas": {
+    "freeCashFlow": "ebit * (1 - taxRate / 100) + depreciation - changeNWC - capex",
+    "operatingCashFlow": "ebit * (1 - taxRate / 100) + depreciation",
+    "capitalInvestments": "capex + changeNWC"
+  },
+  "outputs": {
+    "primary": "freeCashFlow",
+    "breakdown": [
+      "operatingCashFlow",
+      "capitalInvestments"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

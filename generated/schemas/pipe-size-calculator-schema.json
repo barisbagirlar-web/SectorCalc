@@ -1,0 +1,73 @@
+{
+  "toolName": "pipe-size-calculator",
+  "inputs": [
+    {
+      "id": "flowRate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "m³/h",
+      "default": 100,
+      "businessContext": "Volumetric flow rate of the fluid"
+    },
+    {
+      "id": "velocity",
+      "label": "Design Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 2,
+      "businessContext": "Allowable fluid velocity based on service and material"
+    },
+    {
+      "id": "pressure",
+      "label": "Operating Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 10,
+      "businessContext": "Internal design pressure of the pipe"
+    },
+    {
+      "id": "allowableStress",
+      "label": "Allowable Stress",
+      "type": "number",
+      "unit": "MPa",
+      "default": 137.9,
+      "businessContext": "Allowable stress of the pipe material at design temperature"
+    },
+    {
+      "id": "jointEfficiency",
+      "label": "Joint Efficiency",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Longitudinal joint efficiency factor (0-1)"
+    },
+    {
+      "id": "corrosionAllowance",
+      "label": "Corrosion Allowance",
+      "type": "number",
+      "unit": "mm",
+      "default": 1.5,
+      "businessContext": "Additional thickness to compensate for material loss due to corrosion"
+    }
+  ],
+  "formulas": {
+    "d_mm": "Math.sqrt(4 * (flowRate / 3600) / (velocity * Math.PI)) * 1000",
+    "t_mm": "(pressure * 0.1 * d_mm) / (2 * allowableStress * jointEfficiency) + corrosionAllowance",
+    "od_mm": "d_mm + 2 * t_mm",
+    "area_mm2": "Math.PI * Math.pow(d_mm, 2) / 4"
+  },
+  "outputs": {
+    "primary": "d_mm",
+    "breakdown": [
+      "t_mm",
+      "od_mm",
+      "area_mm2"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

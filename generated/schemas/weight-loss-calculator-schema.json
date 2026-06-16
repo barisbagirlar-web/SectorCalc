@@ -1,0 +1,55 @@
+{
+  "toolName": "weight-loss-calculator",
+  "inputs": [
+    {
+      "id": "currentWeightKg",
+      "label": "Current Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "User's current body weight in kilograms."
+    },
+    {
+      "id": "targetWeightKg",
+      "label": "Target Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User's desired target weight in kilograms."
+    },
+    {
+      "id": "dailyDeficitKcal",
+      "label": "Daily Calorie Deficit",
+      "type": "number",
+      "unit": "kcal",
+      "default": 500,
+      "businessContext": "Average daily calorie deficit (calories consumed minus calories burned) in kilocalories."
+    },
+    {
+      "id": "periodDays",
+      "label": "Period (Days)",
+      "type": "number",
+      "unit": "days",
+      "default": 90,
+      "businessContext": "Number of days to simulate for weight loss estimation."
+    }
+  ],
+  "formulas": {
+    "estimatedWeightLossKg": "(inputs.dailyDeficitKcal * inputs.periodDays) / 7700",
+    "totalDeficitKcal": "inputs.dailyDeficitKcal * inputs.periodDays",
+    "newWeightKg": "inputs.currentWeightKg - ((inputs.dailyDeficitKcal * inputs.periodDays) / 7700)"
+  },
+  "outputs": {
+    "primary": "estimatedWeightLossKg",
+    "breakdown": [
+      "totalDeficitKcal",
+      "newWeightKg"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

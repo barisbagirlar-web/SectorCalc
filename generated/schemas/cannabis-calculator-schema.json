@@ -1,0 +1,71 @@
+{
+  "toolName": "cannabis-calculator",
+  "inputs": [
+    {
+      "id": "initial_cannabinoid_mg",
+      "label": "Initial Cannabinoid",
+      "type": "number",
+      "unit": "mg",
+      "default": 1000,
+      "businessContext": "Total cannabinoid content before extraction, measured in milligrams."
+    },
+    {
+      "id": "solvent_volume_ml",
+      "label": "Solvent Volume",
+      "type": "number",
+      "unit": "ml",
+      "default": 500,
+      "businessContext": "Volume of solvent used in extraction, in milliliters."
+    },
+    {
+      "id": "extraction_time_min",
+      "label": "Extraction Time",
+      "type": "number",
+      "unit": "min",
+      "default": 60,
+      "businessContext": "Duration of extraction process in minutes."
+    },
+    {
+      "id": "temperature_c",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "Operating temperature in degrees Celsius, affects rate constant via Arrhenius equation."
+    },
+    {
+      "id": "k0",
+      "label": "Pre-exponential Factor",
+      "type": "number",
+      "unit": "1/min",
+      "default": 0.01,
+      "businessContext": "Frequency factor in the Arrhenius rate equation, represents maximum possible rate."
+    },
+    {
+      "id": "Ea",
+      "label": "Activation Energy",
+      "type": "number",
+      "unit": "J/mol",
+      "default": 50000,
+      "businessContext": "Energy barrier for extraction, in joules per mole."
+    }
+  ],
+  "formulas": {
+    "k": "k0 * Math.exp(-Ea / (8.314 * (temperature_c + 273.15)))",
+    "extracted": "initial_cannabinoid_mg * (1 - Math.exp(-k * extraction_time_min))",
+    "efficiency": "(extracted / initial_cannabinoid_mg) * 100"
+  },
+  "outputs": {
+    "primary": "extracted",
+    "breakdown": [
+      "efficiency",
+      "k"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,56 @@
+{
+  "toolName": "batch-reactor-calculator",
+  "inputs": [
+    {
+      "id": "volume",
+      "label": "Reactor Volume",
+      "type": "number",
+      "unit": "m3",
+      "default": 1,
+      "businessContext": "Nominal volume of the batch reactor vessel."
+    },
+    {
+      "id": "initial_concentration",
+      "label": "Initial Concentration (C_A0)",
+      "type": "number",
+      "unit": "kmol/m3",
+      "default": 1,
+      "businessContext": "Initial concentration of reactant A in the feed."
+    },
+    {
+      "id": "rate_constant",
+      "label": "Rate Constant (k)",
+      "type": "number",
+      "unit": "1/s",
+      "default": 0.1,
+      "businessContext": "First-order rate constant for the reaction."
+    },
+    {
+      "id": "conversion",
+      "label": "Desired Conversion (X)",
+      "type": "number",
+      "unit": "fraction",
+      "default": 0.9,
+      "businessContext": "Target fractional conversion of reactant A (0 to 1)."
+    }
+  ],
+  "formulas": {
+    "time_seconds": "(1/rate_constant) * Math.log(1/(1 - conversion))",
+    "final_concentration": "initial_concentration * (1 - conversion)",
+    "product_moles": "volume * initial_concentration * conversion",
+    "time_minutes": "time_seconds / 60"
+  },
+  "outputs": {
+    "primary": "time_minutes",
+    "breakdown": [
+      "final_concentration",
+      "product_moles"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

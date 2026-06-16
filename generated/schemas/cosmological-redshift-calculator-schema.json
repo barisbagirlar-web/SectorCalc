@@ -1,0 +1,82 @@
+{
+  "toolName": "cosmological-redshift-calculator",
+  "inputs": [
+    {
+      "id": "observedWavelength",
+      "label": "Gözlenen Dalga Boyu",
+      "type": "number",
+      "unit": "nm",
+      "default": 656.3,
+      "businessContext": "Kırmızıya kayan spektrum çizgisinin ölçülen dalga boyu"
+    },
+    {
+      "id": "emittedWavelength",
+      "label": "Yayılan Dalga Boyu",
+      "type": "number",
+      "unit": "nm",
+      "default": 656.3,
+      "businessContext": "Laboratuvar referans dalga boyu"
+    },
+    {
+      "id": "speedOfLight",
+      "label": "Işık Hızı",
+      "type": "number",
+      "unit": "km/s",
+      "default": 299792,
+      "businessContext": "Sabit değer"
+    },
+    {
+      "id": "hubbleConstant",
+      "label": "Hubble Sabiti",
+      "type": "number",
+      "unit": "km/s/Mpc",
+      "default": 70,
+      "businessContext": "Evrenin genişleme hızı"
+    }
+  ],
+  "formulas": {
+    "z": "(observedWavelength - emittedWavelength) / emittedWavelength",
+    "velocity": "z * speedOfLight",
+    "distance": "velocity / hubbleConstant"
+  },
+  "outputs": {
+    "primary": {
+      "id": "redshift",
+      "label": "Kırmızıya Kayma (z)",
+      "value": "z",
+      "unit": ""
+    },
+    "breakdown": [
+      {
+        "id": "observed",
+        "label": "Gözlenen Dalga Boyu",
+        "value": "observedWavelength",
+        "unit": "nm"
+      },
+      {
+        "id": "emitted",
+        "label": "Yayılan Dalga Boyu",
+        "value": "emittedWavelength",
+        "unit": "nm"
+      },
+      {
+        "id": "velocity",
+        "label": "Uzaklaşma Hızı",
+        "value": "velocity",
+        "unit": "km/s"
+      },
+      {
+        "id": "distance",
+        "label": "Uzaklık",
+        "value": "distance",
+        "unit": "Mpc"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

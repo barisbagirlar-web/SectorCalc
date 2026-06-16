@@ -1,0 +1,95 @@
+{
+  "toolName": "pneumonia-severity-index-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 60,
+      "businessContext": "Patient age in years"
+    },
+    {
+      "id": "respiratoryRate",
+      "label": "Respiratory Rate",
+      "type": "number",
+      "unit": "breaths/min",
+      "default": 20,
+      "businessContext": "Patient respiratory rate in breaths per minute"
+    },
+    {
+      "id": "systolicBP",
+      "label": "Systolic Blood Pressure",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 120,
+      "businessContext": "Patient systolic blood pressure in mmHg"
+    },
+    {
+      "id": "bun",
+      "label": "BUN",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 15,
+      "businessContext": "Blood urea nitrogen level in mg/dL"
+    },
+    {
+      "id": "sodium",
+      "label": "Sodium",
+      "type": "number",
+      "unit": "mmol/L",
+      "default": 140,
+      "businessContext": "Serum sodium level in mmol/L"
+    },
+    {
+      "id": "glucose",
+      "label": "Glucose",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 100,
+      "businessContext": "Blood glucose level in mg/dL"
+    },
+    {
+      "id": "hematocrit",
+      "label": "Hematocrit",
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "businessContext": "Hematocrit percentage"
+    },
+    {
+      "id": "paO2",
+      "label": "PaO₂",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 80,
+      "businessContext": "Arterial partial pressure of oxygen in mmHg"
+    }
+  ],
+  "formulas": {
+    "agePoints": "(age > 50 ? age - 50 : 0)",
+    "respiratoryRatePoints": "(respiratoryRate > 30 ? 20 : 0)",
+    "systolicBPPoints": "(systolicBP < 90 ? 20 : 0)",
+    "bunPoints": "(bun > 30 ? 20 : 0)",
+    "sodiumPoints": "(sodium < 130 ? 20 : 0)",
+    "glucosePoints": "(glucose >= 250 ? 10 : 0)",
+    "hematocritPoints": "(hematocrit < 30 ? 10 : 0)",
+    "paO2Points": "(paO2 < 60 ? 10 : 0)",
+    "psiScore": "agePoints + respiratoryRatePoints + systolicBPPoints + bunPoints + sodiumPoints + glucosePoints + hematocritPoints + paO2Points",
+    "riskClass": "psiScore <= 50 ? 'I' : (psiScore <= 70 ? 'II' : (psiScore <= 90 ? 'III' : (psiScore <= 130 ? 'IV' : 'V')))",
+    "mortalityRiskPercentage": "psiScore <= 50 ? 0.1 : (psiScore <= 70 ? 0.6 : (psiScore <= 90 ? 0.9 : (psiScore <= 130 ? 9.3 : 27)))"
+  },
+  "outputs": {
+    "primary": "psiScore",
+    "breakdown": [
+      "riskClass",
+      "mortalityRiskPercentage"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

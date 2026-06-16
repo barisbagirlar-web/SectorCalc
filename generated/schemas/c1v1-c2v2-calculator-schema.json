@@ -1,0 +1,63 @@
+{
+  "toolName": "c1v1-c2v2-calculator",
+  "inputs": [
+    {
+      "id": "c1",
+      "label": "Initial Concentration (C1)",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 1,
+      "businessContext": "Concentration of stock solution"
+    },
+    {
+      "id": "v1",
+      "label": "Initial Volume (V1)",
+      "type": "number",
+      "unit": "L",
+      "default": 1,
+      "businessContext": "Volume of stock solution to use"
+    },
+    {
+      "id": "c2",
+      "label": "Final Concentration (C2)",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.5,
+      "businessContext": "Desired concentration after dilution"
+    },
+    {
+      "id": "v2",
+      "label": "Final Volume (V2)",
+      "type": "number",
+      "unit": "L",
+      "default": 2,
+      "businessContext": "Total volume after dilution"
+    }
+  ],
+  "formulas": {
+    "c1v1": "c1 * v1",
+    "c2v2": "c2 * v2",
+    "balanceCheck": "Math.abs(c1 * v1 - c2 * v2)",
+    "v1FromC1C2V2": "c2 * v2 / c1",
+    "v2FromC1V1C2": "c1 * v1 / c2",
+    "c1FromC2V2V1": "c2 * v2 / v1",
+    "c2FromC1V1V2": "c1 * v1 / v2"
+  },
+  "outputs": {
+    "primary": "C1V1 = C2V2 balance: {balanceCheck}",
+    "breakdown": [
+      "C1V1 = {c1v1}",
+      "C2V2 = {c2v2}",
+      "If V1 unknown: V1 = {v1FromC1C2V2}",
+      "If V2 unknown: V2 = {v2FromC1V1C2}",
+      "If C1 unknown: C1 = {c1FromC2V2V1}",
+      "If C2 unknown: C2 = {c2FromC1V1V2}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

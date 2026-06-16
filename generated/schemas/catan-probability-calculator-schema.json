@@ -1,0 +1,68 @@
+{
+  "toolName": "catan-probability-calculator",
+  "inputs": [
+    {
+      "id": "diceCount",
+      "label": "Zar Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 2,
+      "businessContext": "Kullanılan zar adedi (Catan için 2)"
+    },
+    {
+      "id": "diceSides",
+      "label": "Zar Yüz Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 6,
+      "businessContext": "Her bir zarın yüz sayısı"
+    },
+    {
+      "id": "targetSum",
+      "label": "Hedef Toplam",
+      "type": "number",
+      "unit": "adet",
+      "default": 7,
+      "businessContext": "Hangi toplamın üretim tetiklediği"
+    },
+    {
+      "id": "settlementCount",
+      "label": "Yerleşim Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Bu altıgen üzerindeki yerleşim sayısı"
+    },
+    {
+      "id": "rolls",
+      "label": "Tur Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Kaç zar atışı (tur) sonrası olasılık hesaplanacak"
+    }
+  ],
+  "formulas": {
+    "totalOutcomes": "Math.pow(diceSides, diceCount)",
+    "favorableOutcomes": "Math.max(0, diceSides - Math.abs(targetSum - (diceSides + 1)))",
+    "probabilityPerRoll": "favorableOutcomes / totalOutcomes",
+    "expectedPerRoll": "probabilityPerRoll * settlementCount",
+    "probabilityAtLeastOne": "1 - Math.pow(1 - probabilityPerRoll, rolls)",
+    "expectedResources": "expectedPerRoll * rolls"
+  },
+  "outputs": {
+    "primary": "expectedResources",
+    "breakdown": [
+      "probabilityPerRoll",
+      "expectedPerRoll",
+      "probabilityAtLeastOne",
+      "expectedResources"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

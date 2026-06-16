@@ -1,0 +1,73 @@
+{
+  "toolName": "local-tax-calculator",
+  "inputs": [
+    {
+      "id": "propertyValue",
+      "label": "Property Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Assessed or market value of the property subject to local tax."
+    },
+    {
+      "id": "propertyTaxRate",
+      "label": "Property Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Local property tax rate as a percentage."
+    },
+    {
+      "id": "salesAmount",
+      "label": "Sales Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total sales amount subject to local sales tax."
+    },
+    {
+      "id": "salesTaxRate",
+      "label": "Sales Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Local sales tax rate as a percentage."
+    },
+    {
+      "id": "incomeAmount",
+      "label": "Income Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Income amount subject to local income tax."
+    },
+    {
+      "id": "incomeTaxRate",
+      "label": "Income Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Local income tax rate as a percentage."
+    }
+  ],
+  "formulas": {
+    "propertyTax": "propertyValue * propertyTaxRate / 100",
+    "salesTax": "salesAmount * salesTaxRate / 100",
+    "incomeTax": "incomeAmount * incomeTaxRate / 100",
+    "totalLocalTax": "propertyTax + salesTax + incomeTax"
+  },
+  "outputs": {
+    "primary": "totalLocalTax",
+    "breakdown": [
+      "propertyTax",
+      "salesTax",
+      "incomeTax"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "car-depreciation-calculator",
+  "inputs": [
+    {
+      "id": "purchasePrice",
+      "label": "Purchase Price",
+      "type": "number",
+      "unit": "EUR",
+      "default": 30000,
+      "businessContext": "Initial purchase price of the car"
+    },
+    {
+      "id": "residualValuePercentage",
+      "label": "Residual Value (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Expected residual value as percentage of purchase price at end of life"
+    },
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Current age of the car in years"
+    },
+    {
+      "id": "expectedLifespan",
+      "label": "Expected Lifespan",
+      "type": "number",
+      "unit": "years",
+      "default": 15,
+      "businessContext": "Expected total useful lifespan of the car in years"
+    },
+    {
+      "id": "mileage",
+      "label": "Current Mileage",
+      "type": "number",
+      "unit": "km",
+      "default": 100000,
+      "businessContext": "Current mileage of the car"
+    },
+    {
+      "id": "expectedMileage",
+      "label": "Expected Mileage Life",
+      "type": "number",
+      "unit": "km",
+      "default": 300000,
+      "businessContext": "Expected total mileage life of the car"
+    }
+  ],
+  "formulas": {
+    "currentValue": "purchasePrice - (( (currentAge/expectedLifespan + mileage/expectedMileage + Math.sqrt((currentAge/expectedLifespan - mileage/expectedMileage) ** 2)) / 2 ) * (purchasePrice - purchasePrice * residualValuePercentage/100))",
+    "totalDepreciation": "(( (currentAge/expectedLifespan + mileage/expectedMileage + Math.sqrt((currentAge/expectedLifespan - mileage/expectedMileage) ** 2)) / 2 ) * (purchasePrice - purchasePrice * residualValuePercentage/100))",
+    "annualDepreciation": "(purchasePrice - purchasePrice * residualValuePercentage/100) / expectedLifespan",
+    "depreciationPercentage": "((( (currentAge/expectedLifespan + mileage/expectedMileage + Math.sqrt((currentAge/expectedLifespan - mileage/expectedMileage) ** 2)) / 2 ) * (purchasePrice - purchasePrice * residualValuePercentage/100)) / purchasePrice) * 100"
+  },
+  "outputs": {
+    "primary": "currentValue",
+    "breakdown": [
+      "totalDepreciation",
+      "annualDepreciation",
+      "depreciationPercentage"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

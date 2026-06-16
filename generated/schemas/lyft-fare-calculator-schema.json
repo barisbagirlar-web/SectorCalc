@@ -1,0 +1,84 @@
+{
+  "toolName": "lyft-fare-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "miles",
+      "default": 10,
+      "businessContext": "The total distance of the trip in miles."
+    },
+    {
+      "id": "time",
+      "label": "Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 15,
+      "businessContext": "The total duration of the trip in minutes."
+    },
+    {
+      "id": "baseFare",
+      "label": "Base Fare",
+      "type": "number",
+      "unit": "$",
+      "default": 2.5,
+      "businessContext": "The fixed pickup charge applied to every ride."
+    },
+    {
+      "id": "costPerMile",
+      "label": "Cost per Mile",
+      "type": "number",
+      "unit": "$/mile",
+      "default": 1.5,
+      "businessContext": "The rate charged per mile traveled."
+    },
+    {
+      "id": "costPerMinute",
+      "label": "Cost per Minute",
+      "type": "number",
+      "unit": "$/minute",
+      "default": 0.25,
+      "businessContext": "The rate charged per minute of trip time."
+    },
+    {
+      "id": "bookingFee",
+      "label": "Booking Fee",
+      "type": "number",
+      "unit": "$",
+      "default": 1,
+      "businessContext": "A flat service fee added to every ride."
+    },
+    {
+      "id": "surge",
+      "label": "Surge Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "A demand-based multiplier applied to the sum of base, distance, and time charges."
+    }
+  ],
+  "formulas": {
+    "distanceCharge": "distance * costPerMile",
+    "timeCharge": "time * costPerMinute",
+    "subtotal": "(baseFare + distanceCharge + timeCharge) * surge",
+    "totalFare": "subtotal + bookingFee"
+  },
+  "outputs": {
+    "primary": "totalFare",
+    "breakdown": [
+      "subtotal",
+      "distanceCharge",
+      "timeCharge",
+      "baseFare",
+      "bookingFee",
+      "surge"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

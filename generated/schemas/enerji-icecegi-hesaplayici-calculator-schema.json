@@ -1,0 +1,65 @@
+{
+  "toolName": "enerji-icecegi-hesaplayici-calculator",
+  "inputs": [
+    {
+      "id": "servings",
+      "label": "Porsiyon Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Tüketilen enerji içeceği porsiyon adedi."
+    },
+    {
+      "id": "caffeinePerServing",
+      "label": "Porsiyon Başına Kafein",
+      "type": "number",
+      "unit": "mg",
+      "default": 80,
+      "businessContext": "Bir porsiyondaki kafein miktarı."
+    },
+    {
+      "id": "sugarPerServing",
+      "label": "Porsiyon Başına Şeker",
+      "type": "number",
+      "unit": "g",
+      "default": 27,
+      "businessContext": "Bir porsiyondaki şeker miktarı."
+    },
+    {
+      "id": "costPerCan",
+      "label": "Kutu Başına Maliyet",
+      "type": "number",
+      "unit": "TL",
+      "default": 2.5,
+      "businessContext": "Bir kutu enerji içeceğinin satın alma maliyeti."
+    },
+    {
+      "id": "servingsPerCan",
+      "label": "Kutu Başına Porsiyon",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Bir kutudaki porsiyon sayısı."
+    }
+  ],
+  "formulas": {
+    "totalCaffeine": "servings * caffeinePerServing",
+    "totalSugar": "servings * sugarPerServing",
+    "costPerServing": "costPerCan / servingsPerCan",
+    "caffeinePerCost": "totalCaffeine / costPerCan"
+  },
+  "outputs": {
+    "primary": "totalCaffeine",
+    "breakdown": [
+      "totalSugar",
+      "costPerServing",
+      "caffeinePerCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

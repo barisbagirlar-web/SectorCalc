@@ -1,0 +1,67 @@
+{
+  "toolName": "stopping-sight-distance-calculator",
+  "inputs": [
+    {
+      "id": "speed",
+      "label": "Speed (V)",
+      "type": "number",
+      "unit": "km/h",
+      "default": 50,
+      "businessContext": "Vehicle design speed in kilometers per hour"
+    },
+    {
+      "id": "reactionTime",
+      "label": "Reaction Time (t)",
+      "type": "number",
+      "unit": "s",
+      "default": 2.5,
+      "businessContext": "Driver perception-reaction time in seconds"
+    },
+    {
+      "id": "frictionCoeff",
+      "label": "Friction Coefficient (f)",
+      "type": "number",
+      "unit": "",
+      "default": 0.35,
+      "businessContext": "Tire-road friction coefficient (typical range 0.3-0.8)"
+    },
+    {
+      "id": "grade",
+      "label": "Grade (G)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Road grade in percent, positive for uphill, negative for downhill"
+    }
+  ],
+  "formulas": {
+    "reactionDist": "(speed * reactionTime) / 3.6",
+    "brakingDist": "Math.pow(speed, 2) / (254 * (frictionCoeff + grade / 100))",
+    "ssd": "reactionDist + brakingDist"
+  },
+  "outputs": {
+    "primary": {
+      "id": "ssd",
+      "label": "Stopping Sight Distance",
+      "unit": "m"
+    },
+    "breakdown": [
+      {
+        "id": "reactionDist",
+        "label": "Reaction Distance",
+        "unit": "m"
+      },
+      {
+        "id": "brakingDist",
+        "label": "Braking Distance",
+        "unit": "m"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

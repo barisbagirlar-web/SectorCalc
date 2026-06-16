@@ -1,0 +1,75 @@
+{
+  "toolName": "feature-selection-calculator",
+  "inputs": [
+    {
+      "id": "correlation",
+      "label": "Correlation Coefficient",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Pearson correlation between feature and target"
+    },
+    {
+      "id": "variance",
+      "label": "Normalized Variance",
+      "type": "number",
+      "unit": "",
+      "default": 0.3,
+      "businessContext": "Measure of spread (0-1 scale)"
+    },
+    {
+      "id": "cost",
+      "label": "Measurement Cost",
+      "type": "number",
+      "unit": "EUR",
+      "default": 100,
+      "businessContext": "Cost to collect this feature data"
+    },
+    {
+      "id": "accuracy_impact",
+      "label": "Accuracy Impact",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Expected accuracy gain from including this feature"
+    },
+    {
+      "id": "stability",
+      "label": "Stability Index",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "businessContext": "Reliability of measurement over time (1 = stable)"
+    },
+    {
+      "id": "compliance_score",
+      "label": "Compliance Score",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Regulatory or compliance importance (1 = compliant)"
+    }
+  ],
+  "formulas": {
+    "predictive_power": "Math.abs(correlation) * variance * (accuracy_impact / 100)",
+    "compliance_factor": "compliance_score",
+    "stability_factor": "stability",
+    "cost_factor": "1 / (cost + 1)",
+    "feature_selection_score": "predictive_power * compliance_factor * stability_factor * cost_factor"
+  },
+  "outputs": {
+    "primary": "feature_selection_score",
+    "breakdown": [
+      "predictive_power",
+      "cost_factor",
+      "stability_factor",
+      "compliance_factor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

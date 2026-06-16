@@ -1,0 +1,62 @@
+// Auto-generated from fuel-cost-calculator-schema.json
+import * as z from 'zod';
+
+export interface Fuel_cost_calculatorInput {
+  distance: number;
+  fuelConsumption: number;
+  fuelPrice: number;
+  trips: number;
+  extraCost: number;
+}
+
+export const Fuel_cost_calculatorInputSchema = z.object({
+  distance: z.number().default(100),
+  fuelConsumption: z.number().default(7),
+  fuelPrice: z.number().default(1.5),
+  trips: z.number().default(1),
+  extraCost: z.number().default(0),
+});
+
+function evaluateAllFormulas(input: Fuel_cost_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.distance * input.fuelConsumption / 100) * input.trips; results["totalFuelConsumed"] = Number.isFinite(v) ? v : 0; } catch { results["totalFuelConsumed"] = 0; }
+  try { const v = ((input.distance * input.fuelConsumption / 100) * input.trips) * input.fuelPrice; results["fuelCost"] = Number.isFinite(v) ? v : 0; } catch { results["fuelCost"] = 0; }
+  try { const v = input.extraCost * input.trips; results["extraCostTotal"] = Number.isFinite(v) ? v : 0; } catch { results["extraCostTotal"] = 0; }
+  try { const v = ((input.distance * input.fuelConsumption / 100) * input.trips) * input.fuelPrice + (input.extraCost * input.trips); results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  return results;
+}
+
+
+export function calculateFuel_cost_calculator(input: Fuel_cost_calculatorInput): Fuel_cost_calculatorOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values["totalCost"] ?? 0;
+  const breakdown = {
+    
+  };
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    premiumRequired: false,
+    premiumFeatures: [],
+  };
+}
+
+
+export interface Fuel_cost_calculatorOutput {
+  totalWasteCost: number;
+  breakdown: {  };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+}

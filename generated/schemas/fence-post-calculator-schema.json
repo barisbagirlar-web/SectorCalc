@@ -1,0 +1,70 @@
+{
+  "toolName": "fence-post-calculator",
+  "inputs": [
+    {
+      "id": "fenceLength",
+      "label": "Fence Length",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "businessContext": "Total linear distance of the fence to be constructed"
+    },
+    {
+      "id": "postSpacing",
+      "label": "Post Spacing",
+      "type": "number",
+      "unit": "m",
+      "default": 2.5,
+      "businessContext": "Maximum distance between fence posts as per design specifications"
+    },
+    {
+      "id": "numberOfCorners",
+      "label": "Number of Corners",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Number of directional changes in the fence line requiring additional corner posts"
+    },
+    {
+      "id": "numberOfGateOpenings",
+      "label": "Number of Gate Openings",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of gates planned in the fence line; each gate adds posts"
+    },
+    {
+      "id": "postDiameter",
+      "label": "Post Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Diameter of the fence post for concrete volume calculation"
+    },
+    {
+      "id": "postDepth",
+      "label": "Post Depth",
+      "type": "number",
+      "unit": "m",
+      "default": 0.6,
+      "businessContext": "Depth of the post hole for concrete volume calculation"
+    }
+  ],
+  "formulas": {
+    "totalPosts": "Math.ceil(fenceLength / postSpacing) + 1 + numberOfCorners + numberOfGateOpenings * 2",
+    "concretePerPost": "Math.PI * (postDiameter / 2) ** 2 * postDepth",
+    "concreteTotal": "totalPosts * concretePerPost"
+  },
+  "outputs": {
+    "primary": "totalPosts",
+    "breakdown": [
+      "concreteTotal"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

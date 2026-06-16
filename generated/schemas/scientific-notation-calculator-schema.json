@@ -1,0 +1,55 @@
+{
+  "toolName": "scientific-notation-calculator",
+  "inputs": [
+    {
+      "id": "coefficient",
+      "label": "Coefficient (a)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "The significant digits of the number, typically between 1 and 10."
+    },
+    {
+      "id": "exponent",
+      "label": "Exponent (b)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "The power of 10 multiplier."
+    },
+    {
+      "id": "value",
+      "label": "Value (optional)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "If provided, the calculator will convert this value to scientific notation."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "digits",
+      "default": 4,
+      "businessContext": "Number of decimal places for the coefficient."
+    }
+  ],
+  "formulas": {
+    "toScientific": "if (value !== 0) { let exp = Math.floor(Math.log10(Math.abs(value))); let coeff = value / Math.pow(10, exp); return { coefficient: parseFloat(coeff.toFixed(precision)), exponent: exp }; } else { return { coefficient: 0, exponent: 0 }; }",
+    "fromScientific": "coefficient * Math.pow(10, exponent)"
+  },
+  "outputs": {
+    "primary": "Scientific Notation: {coefficient} × 10^{exponent}",
+    "breakdown": [
+      "Coefficient: {coefficient}",
+      "Exponent: {exponent}",
+      "Standard Form: {value}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

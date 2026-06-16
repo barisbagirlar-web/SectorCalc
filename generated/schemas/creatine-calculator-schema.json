@@ -1,0 +1,64 @@
+{
+  "toolName": "creatine-calculator",
+  "inputs": [
+    {
+      "id": "totalUnits",
+      "label": "Toplam Üretim Adedi",
+      "type": "number",
+      "unit": "adet",
+      "default": 1000,
+      "businessContext": "Toplam üretilecek takviye adedi"
+    },
+    {
+      "id": "dosagePerUnit",
+      "label": "Birim Dozaj (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 5,
+      "businessContext": "Her bir ürün başına kreatin miktarı"
+    },
+    {
+      "id": "lossRate",
+      "label": "Üretim Kayıp Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Üretim sürecinde meydana gelen kreatin fire oranı"
+    },
+    {
+      "id": "purity",
+      "label": "Kreatin Saflık Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 99,
+      "businessContext": "Kullanılan kreatin hammaddesinin saflık yüzdesi"
+    },
+    {
+      "id": "costPerKg",
+      "label": "Kreatin Birim Maliyeti (TL/kg)",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 500,
+      "businessContext": "Kreatin hammaddesinin kg başına maliyeti"
+    }
+  ],
+  "formulas": {
+    "netDosagePerUnit": "dosagePerUnit / (purity / 100)",
+    "totalTheoreticalKg": "(totalUnits * netDosagePerUnit) / 1000",
+    "totalNeededKg": "totalTheoreticalKg / (1 - lossRate / 100)",
+    "totalCost": "totalNeededKg * costPerKg"
+  },
+  "outputs": {
+    "primary": "Toplam Kreatin İhtiyacı: ${totalNeededKg} kg",
+    "breakdown": [
+      "Net Kreatin Miktarı: ${totalNeededKg} kg",
+      "Toplam Maliyet: ${totalCost} TL"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

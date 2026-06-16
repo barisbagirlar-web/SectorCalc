@@ -1,0 +1,71 @@
+{
+  "toolName": "creep-calculator",
+  "inputs": [
+    {
+      "id": "stress",
+      "label": "Applied Stress",
+      "type": "number",
+      "unit": "MPa",
+      "default": 100,
+      "businessContext": "The sustained mechanical stress acting on the material, in megapascals."
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 873,
+      "businessContext": "Absolute operating temperature of the component in Kelvin."
+    },
+    {
+      "id": "A",
+      "label": "Material Constant A",
+      "type": "number",
+      "unit": "",
+      "default": 1e-12,
+      "businessContext": "Pre‑exponential factor, a material‑dependent strength parameter (units: MPa⁻ⁿ s⁻¹)."
+    },
+    {
+      "id": "n",
+      "label": "Stress Exponent",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Dimensionless exponent describing the stress sensitivity of the creep rate (typically 3–8 for metals)."
+    },
+    {
+      "id": "Q",
+      "label": "Activation Energy",
+      "type": "number",
+      "unit": "J/mol",
+      "default": 280000,
+      "businessContext": "Activation energy for creep deformation, material property in joules per mole."
+    },
+    {
+      "id": "R",
+      "label": "Gas Constant",
+      "type": "number",
+      "unit": "J/(mol·K)",
+      "default": 8.314,
+      "businessContext": "Universal gas constant; may be adjusted for different unit systems."
+    }
+  ],
+  "formulas": {
+    "stressPower": "Math.pow(stress, n)",
+    "exponentialTerm": "Math.exp(-Q / (R * temperature))",
+    "creepRate": "A * Math.pow(stress, n) * Math.exp(-Q / (R * temperature))"
+  },
+  "outputs": {
+    "primary": "creepRate",
+    "breakdown": [
+      "stressPower",
+      "exponentialTerm"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

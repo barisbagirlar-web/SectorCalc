@@ -1,0 +1,65 @@
+{
+  "toolName": "candle-making-calculator",
+  "inputs": [
+    {
+      "id": "containerVolume",
+      "label": "Container Volume",
+      "type": "number",
+      "unit": "cm³",
+      "default": 200,
+      "businessContext": "Volume of each candle container."
+    },
+    {
+      "id": "numberOfCandles",
+      "label": "Number of Candles",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Total number of candles to make."
+    },
+    {
+      "id": "waxDensity",
+      "label": "Wax Density",
+      "type": "number",
+      "unit": "g/cm³",
+      "default": 0.9,
+      "businessContext": "Density of the wax used (e.g., soy wax ~0.9)."
+    },
+    {
+      "id": "fragranceLoad",
+      "label": "Fragrance Load",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "businessContext": "Percentage of fragrance oil relative to wax weight."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Extra material percentage for waste and spillage."
+    }
+  ],
+  "formulas": {
+    "waxPerCandle": "containerVolume * waxDensity",
+    "fragrancePerCandle": "waxPerCandle * fragranceLoad / 100",
+    "totalWaxNeeded": "waxPerCandle * numberOfCandles * (1 + wasteFactor / 100)",
+    "totalFragranceNeeded": "fragrancePerCandle * numberOfCandles * (1 + wasteFactor / 100)"
+  },
+  "outputs": {
+    "primary": "totalWaxNeeded",
+    "breakdown": [
+      "waxPerCandle",
+      "fragrancePerCandle",
+      "totalFragranceNeeded"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Atölye & Tamir",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

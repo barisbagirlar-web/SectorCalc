@@ -1,0 +1,85 @@
+{
+  "toolName": "retirement-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Current age of the individual."
+    },
+    {
+      "id": "retirementAge",
+      "label": "Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 65,
+      "businessContext": "Target retirement age."
+    },
+    {
+      "id": "currentSavings",
+      "label": "Current Savings",
+      "type": "number",
+      "unit": "EUR",
+      "default": 50000,
+      "businessContext": "Total current retirement savings."
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Monthly Contribution",
+      "type": "number",
+      "unit": "EUR",
+      "default": 500,
+      "businessContext": "Monthly contribution to retirement savings."
+    },
+    {
+      "id": "annualReturn",
+      "label": "Annual Return",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected annual return on investments before retirement (e.g., 7 for 7%)."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Expected average inflation rate (e.g., 2 for 2%)."
+    },
+    {
+      "id": "desiredMonthlyIncome",
+      "label": "Desired Monthly Income",
+      "type": "number",
+      "unit": "EUR",
+      "default": 2000,
+      "businessContext": "Desired monthly income in retirement (today's value)."
+    }
+  ],
+  "formulas": {
+    "yearsToRetirement": "retirementAge - currentAge",
+    "totalCorpus": "currentSavings * (1 + annualReturn / 100) ** yearsToRetirement + monthlyContribution * (((1 + annualReturn / 1200) ** (yearsToRetirement * 12) - 1) / (annualReturn / 1200))",
+    "requiredCorpus": "desiredMonthlyIncome * 12 * (1 + inflationRate / 100) ** yearsToRetirement / (annualReturn / 100 - inflationRate / 100)",
+    "shortfallSurplus": "totalCorpus - requiredCorpus"
+  },
+  "outputs": {
+    "primary": {
+      "id": "shortfallSurplus",
+      "label": "Shortfall / Surplus",
+      "unit": "EUR"
+    },
+    "breakdown": [
+      "totalCorpus",
+      "requiredCorpus",
+      "yearsToRetirement"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

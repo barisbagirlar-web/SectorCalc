@@ -1,0 +1,57 @@
+{
+  "toolName": "partition-number-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Sayı (n)",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Bölme sayısı hesaplanacak pozitif tamsayı."
+    },
+    {
+      "id": "pi",
+      "label": "Pi Sayısı",
+      "type": "number",
+      "unit": "",
+      "default": 3.141592653589793,
+      "businessContext": "Matematiksel sabit pi."
+    },
+    {
+      "id": "sqrt3",
+      "label": "Karekök 3",
+      "type": "number",
+      "unit": "",
+      "default": 1.7320508075688772,
+      "businessContext": "3'ün karekökü (√3)."
+    },
+    {
+      "id": "divisor",
+      "label": "Bölen Sabiti",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Hardy-Ramanujan yaklaşımındaki bölen sabiti."
+    }
+  ],
+  "formulas": {
+    "primary": "1 / (divisor * n * sqrt3) * Math.exp(pi * Math.sqrt(2 * n / 3))",
+    "breakdown": [
+      "pi * Math.sqrt(2 * n / 3)",
+      "divisor * n * sqrt3"
+    ]
+  },
+  "outputs": {
+    "primary": "approxPartitionNumber",
+    "breakdown": [
+      "exponentValue",
+      "denominatorValue"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

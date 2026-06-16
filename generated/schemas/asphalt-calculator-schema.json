@@ -1,0 +1,63 @@
+{
+  "toolName": "asphalt-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Uzunluk",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Asfaltlanacak alanın uzunluğu"
+    },
+    {
+      "id": "width",
+      "label": "Genişlik",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Asfaltlanacak alanın genişliği"
+    },
+    {
+      "id": "thickness",
+      "label": "Kalınlık",
+      "type": "number",
+      "unit": "cm",
+      "default": 5,
+      "businessContext": "Asfalt tabakasının kalınlığı"
+    },
+    {
+      "id": "density",
+      "label": "Yoğunluk",
+      "type": "number",
+      "unit": "t/m³",
+      "default": 2.4,
+      "businessContext": "Sıkıştırılmış asfalt yoğunluğu"
+    },
+    {
+      "id": "compactionFactor",
+      "label": "Sıkıştırma Faktörü",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Sıkıştırma faktörü yüzdesi"
+    }
+  ],
+  "formulas": {
+    "volume": "length * width * (thickness / 100)",
+    "looseVolume": "volume / (compactionFactor / 100)",
+    "weight": "volume * density"
+  },
+  "outputs": {
+    "primary": "weight",
+    "breakdown": [
+      "volume",
+      "looseVolume"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

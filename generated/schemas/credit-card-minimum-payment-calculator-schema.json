@@ -1,0 +1,73 @@
+{
+  "toolName": "credit-card-minimum-payment-calculator",
+  "inputs": [
+    {
+      "id": "outstandingBalance",
+      "label": "Outstanding Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000,
+      "businessContext": "Current credit card balance before interest"
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate (APR)",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "businessContext": "Annual percentage rate applied to balance"
+    },
+    {
+      "id": "minPaymentPercent",
+      "label": "Minimum Payment Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Percentage of balance used in minimum payment calculation"
+    },
+    {
+      "id": "fixedMinAmount",
+      "label": "Fixed Minimum Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 25,
+      "businessContext": "Dollar floor for minimum payment if percentage is lower"
+    },
+    {
+      "id": "pastDueAmount",
+      "label": "Past Due Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Any past due amount added to minimum payment"
+    },
+    {
+      "id": "overLimitAmount",
+      "label": "Over Limit Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Over limit fee added to minimum payment"
+    }
+  ],
+  "formulas": {
+    "monthlyInterest": "(annualInterestRate / 100 / 12) * outstandingBalance",
+    "totalBalance": "outstandingBalance + monthlyInterest",
+    "baseMin": "Math.max((minPaymentPercent / 100) * totalBalance, fixedMinAmount)",
+    "minPayment": "baseMin + pastDueAmount + overLimitAmount"
+  },
+  "outputs": {
+    "primary": "minPayment",
+    "breakdown": [
+      "monthlyInterest",
+      "totalBalance",
+      "baseMin"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

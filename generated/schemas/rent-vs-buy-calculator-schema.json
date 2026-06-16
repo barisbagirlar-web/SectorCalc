@@ -1,0 +1,76 @@
+{
+  "toolName": "rent-vs-buy-calculator",
+  "inputs": [
+    {
+      "id": "purchasePrice",
+      "label": "Purchase Price",
+      "type": "number",
+      "unit": "€",
+      "default": 200000,
+      "businessContext": "Total purchase price of the asset"
+    },
+    {
+      "id": "downPaymentPercentage",
+      "label": "Down Payment",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Percentage of purchase price paid upfront"
+    },
+    {
+      "id": "loanInterestRate",
+      "label": "Loan Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual interest rate on the mortgage loan"
+    },
+    {
+      "id": "loanTermYears",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "Duration of the loan in years"
+    },
+    {
+      "id": "monthlyRent",
+      "label": "Monthly Rent",
+      "type": "number",
+      "unit": "€",
+      "default": 1000,
+      "businessContext": "Current monthly rental cost"
+    },
+    {
+      "id": "annualRentIncrease",
+      "label": "Annual Rent Increase",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "Yearly percentage increase in rent"
+    }
+  ],
+  "formulas": {
+    "monthlyInterest": "loanInterestRate/100/12",
+    "months": "loanTermYears * 12",
+    "monthlyPayment": "monthlyInterest === 0 ? (purchasePrice * (1 - downPaymentPercentage/100)) / months : (purchasePrice * (1 - downPaymentPercentage/100)) * (monthlyInterest * Math.pow(1+monthlyInterest, months)) / (Math.pow(1+monthlyInterest, months) - 1)",
+    "downPayment": "purchasePrice * downPaymentPercentage/100",
+    "totalBuyingCost": "downPayment + (monthlyPayment * months)",
+    "r": "annualRentIncrease/100",
+    "totalRentingCost": "r === 0 ? 12*monthlyRent*loanTermYears : 12*monthlyRent*(Math.pow(1+r, loanTermYears)-1)/r",
+    "netCostDifference": "totalBuyingCost - totalRentingCost"
+  },
+  "outputs": {
+    "primary": "netCostDifference",
+    "breakdown": [
+      "totalBuyingCost",
+      "totalRentingCost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

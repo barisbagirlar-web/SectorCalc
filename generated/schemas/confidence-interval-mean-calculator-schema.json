@@ -1,0 +1,57 @@
+{
+  "toolName": "confidence-interval-mean-calculator",
+  "inputs": [
+    {
+      "id": "sampleMean",
+      "label": "Sample Mean",
+      "type": "number",
+      "unit": "unit",
+      "default": 0,
+      "businessContext": "Arithmetic mean of the sample data."
+    },
+    {
+      "id": "standardDeviation",
+      "label": "Standard Deviation (σ or s)",
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "Population standard deviation if known; otherwise sample standard deviation."
+    },
+    {
+      "id": "sampleSize",
+      "label": "Sample Size (n)",
+      "type": "number",
+      "unit": "count",
+      "default": 30,
+      "businessContext": "Number of independent observations. Must be > 1."
+    },
+    {
+      "id": "criticalValue",
+      "label": "Critical Value (z or t)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.96,
+      "businessContext": "Z-score for normal distribution (e.g., 1.96 for 95% CI) or t-score from t-distribution table."
+    }
+  ],
+  "formulas": {
+    "marginOfError": "standardDeviation * criticalValue / Math.sqrt(sampleSize)",
+    "lowerBound": "sampleMean - (standardDeviation * criticalValue / Math.sqrt(sampleSize))",
+    "upperBound": "sampleMean + (standardDeviation * criticalValue / Math.sqrt(sampleSize))",
+    "intervalString": "lowerBound + ' - ' + upperBound"
+  },
+  "outputs": {
+    "primary": "intervalString",
+    "breakdown": [
+      "marginOfError",
+      "lowerBound",
+      "upperBound"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

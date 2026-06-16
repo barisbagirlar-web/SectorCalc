@@ -1,0 +1,59 @@
+{
+  "toolName": "sale-price-calculator",
+  "inputs": [
+    {
+      "id": "costPrice",
+      "label": "Cost Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "The base cost of the product."
+    },
+    {
+      "id": "markupPercentage",
+      "label": "Markup Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Percentage added to cost to determine initial selling price before discount and tax."
+    },
+    {
+      "id": "discount",
+      "label": "Discount",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage discount applied to the initial selling price before tax."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Sales tax rate applied to the discounted selling price."
+    }
+  ],
+  "formulas": {
+    "basePrice": "costPrice * (1 + markupPercentage / 100)",
+    "discountAmount": "costPrice * (1 + markupPercentage / 100) * discount / 100",
+    "discountedPrice": "costPrice * (1 + markupPercentage / 100) * (1 - discount / 100)",
+    "taxAmount": "costPrice * (1 + markupPercentage / 100) * (1 - discount / 100) * taxRate / 100",
+    "finalPrice": "costPrice * (1 + markupPercentage / 100) * (1 - discount / 100) * (1 + taxRate / 100)"
+  },
+  "outputs": {
+    "primary": "finalPrice",
+    "breakdown": [
+      "basePrice",
+      "discountAmount",
+      "taxAmount",
+      "discountedPrice"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

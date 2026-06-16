@@ -1,0 +1,54 @@
+{
+  "toolName": "amperes-law-calculator",
+  "inputs": [
+    {
+      "id": "current",
+      "label": "Electric Current",
+      "type": "number",
+      "unit": "A",
+      "default": 1,
+      "businessContext": "Current flowing through the conductor"
+    },
+    {
+      "id": "distance",
+      "label": "Distance from Wire",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Radial distance from the wire to the point of measurement"
+    },
+    {
+      "id": "permeability",
+      "label": "Permeability of Medium",
+      "type": "number",
+      "unit": "H/m",
+      "default": 0.0000012566370614,
+      "businessContext": "Magnetic permeability of the surrounding medium (default: vacuum)"
+    },
+    {
+      "id": "wireCount",
+      "label": "Number of Wires",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of parallel wires carrying current (for multi-wire configurations)"
+    }
+  ],
+  "formulas": {
+    "magneticField": "permeability * current * wireCount / (2 * Math.PI * distance)",
+    "magneticFieldUnit": "T"
+  },
+  "outputs": {
+    "primary": "Magnetic Field Strength",
+    "breakdown": [
+      "Magnetic field = (μ₀ * I * N) / (2π * r)",
+      "Result in Tesla (T)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

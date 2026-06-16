@@ -1,0 +1,67 @@
+{
+  "toolName": "character-count-calculator",
+  "inputs": [
+    {
+      "id": "wordCount",
+      "label": "Word Count",
+      "type": "number",
+      "unit": "words",
+      "default": 0,
+      "businessContext": "Number of words in the text"
+    },
+    {
+      "id": "avgCharsPerWord",
+      "label": "Avg. Characters per Word",
+      "type": "number",
+      "unit": "chars/word",
+      "default": 5,
+      "businessContext": "Average number of characters per word"
+    },
+    {
+      "id": "punctuationCount",
+      "label": "Punctuation Marks",
+      "type": "number",
+      "unit": "marks",
+      "default": 0,
+      "businessContext": "Number of punctuation marks"
+    },
+    {
+      "id": "spaceCount",
+      "label": "Spaces",
+      "type": "number",
+      "unit": "spaces",
+      "default": 0,
+      "businessContext": "Number of spaces"
+    },
+    {
+      "id": "extraChars",
+      "label": "Extra Characters",
+      "type": "number",
+      "unit": "chars",
+      "default": 0,
+      "businessContext": "Any additional characters not accounted for"
+    }
+  ],
+  "formulas": {
+    "totalCharacters": "wordCount * avgCharsPerWord + punctuationCount + spaceCount + extraChars",
+    "charsFromWords": "wordCount * avgCharsPerWord",
+    "charsFromPunctuation": "punctuationCount",
+    "charsFromSpaces": "spaceCount",
+    "charsFromExtra": "extraChars"
+  },
+  "outputs": {
+    "primary": "totalCharacters",
+    "breakdown": [
+      "charsFromWords",
+      "charsFromPunctuation",
+      "charsFromSpaces",
+      "charsFromExtra"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

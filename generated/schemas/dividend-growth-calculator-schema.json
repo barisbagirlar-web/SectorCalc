@@ -1,0 +1,53 @@
+{
+  "toolName": "dividend-growth-calculator",
+  "inputs": [
+    {
+      "id": "currentDividend",
+      "label": "Current Annual Dividend Per Share",
+      "type": "number",
+      "unit": "$",
+      "default": 2,
+      "businessContext": "The most recent annual dividend payment per share in dollars."
+    },
+    {
+      "id": "growthRate",
+      "label": "Expected Dividend Growth Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "The anticipated annual growth rate of the dividend, expressed as a percentage."
+    },
+    {
+      "id": "requiredRate",
+      "label": "Required Rate of Return",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "The investor's required rate of return or discount rate, expressed as a percentage."
+    },
+    {
+      "id": "years",
+      "label": "Number of Years",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "The number of years into the future for which the dividend is projected."
+    }
+  ],
+  "formulas": {
+    "projectedDividend": "currentDividend * Math.pow(1 + growthRate / 100, years)",
+    "presentValue": "currentDividend * Math.pow(1 + growthRate / 100, years) / Math.pow(1 + requiredRate / 100, years)"
+  },
+  "outputs": {
+    "primary": "projectedDividend",
+    "breakdown": [
+      "presentValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

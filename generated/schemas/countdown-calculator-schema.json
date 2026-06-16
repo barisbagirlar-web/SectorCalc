@@ -1,0 +1,63 @@
+{
+  "toolName": "countdown-calculator",
+  "inputs": [
+    {
+      "id": "totalDuration",
+      "label": "Total Duration",
+      "type": "number",
+      "unit": "hours",
+      "default": 100,
+      "businessContext": "The total allocated time for completion, e.g., planned maintenance duration."
+    },
+    {
+      "id": "elapsedDuration",
+      "label": "Elapsed Duration",
+      "type": "number",
+      "unit": "hours",
+      "default": 0,
+      "businessContext": "The time already passed since the start."
+    },
+    {
+      "id": "bufferTime",
+      "label": "Buffer Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 0,
+      "businessContext": "Additional safety margin added to total duration."
+    },
+    {
+      "id": "warningThreshold",
+      "label": "Warning Threshold",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "When remaining time falls below this percent, trigger warning."
+    },
+    {
+      "id": "criticalThreshold",
+      "label": "Critical Threshold",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "When remaining time falls below this percent, trigger critical alert."
+    }
+  ],
+  "formulas": {
+    "remainingHours": "totalDuration + bufferTime - elapsedDuration",
+    "percentRemaining": "((totalDuration + bufferTime - elapsedDuration) / (totalDuration + bufferTime)) * 100",
+    "status": "(((totalDuration + bufferTime - elapsedDuration) / (totalDuration + bufferTime)) * 100) <= criticalThreshold ? 2 : ((((totalDuration + bufferTime - elapsedDuration) / (totalDuration + bufferTime)) * 100) <= warningThreshold ? 1 : 0)"
+  },
+  "outputs": {
+    "primary": "remainingHours",
+    "breakdown": [
+      "percentRemaining",
+      "status"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

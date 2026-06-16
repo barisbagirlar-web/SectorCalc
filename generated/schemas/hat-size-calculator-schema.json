@@ -1,0 +1,55 @@
+{
+  "toolName": "hat-size-calculator",
+  "inputs": [
+    {
+      "id": "headCircumference",
+      "label": "Head Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 58,
+      "businessContext": "Measured circumference around widest part of head."
+    },
+    {
+      "id": "unitSystem",
+      "label": "Measurement System",
+      "type": "number",
+      "unit": "0=cm,1=inches",
+      "default": 0,
+      "businessContext": "0 for metric input in cm, 1 for imperial input in inches."
+    },
+    {
+      "id": "hairThickness",
+      "label": "Hair Thickness Allowance",
+      "type": "number",
+      "unit": "cm",
+      "default": 0.5,
+      "businessContext": "Extra centimeters to add for thick hair (0 for none)."
+    },
+    {
+      "id": "fitPreference",
+      "label": "Fit Preference",
+      "type": "number",
+      "unit": "tight=0,standard=1,loose=2",
+      "default": 1,
+      "businessContext": "0 for tight fit (subtract 0.5 cm), 1 for standard, 2 for loose fit (add 0.5 cm)."
+    }
+  ],
+  "formulas": {
+    "usSize": "((headCircumference * (unitSystem === 1 ? 2.54 : 1)) + hairThickness + (fitPreference === 0 ? -0.5 : fitPreference === 2 ? 0.5 : 0)) / 2.54 / Math.PI",
+    "euSize": "(headCircumference * (unitSystem === 1 ? 2.54 : 1)) + hairThickness + (fitPreference === 0 ? -0.5 : fitPreference === 2 ? 0.5 : 0)",
+    "ukSize": "((headCircumference * (unitSystem === 1 ? 2.54 : 1)) + hairThickness + (fitPreference === 0 ? -0.5 : fitPreference === 2 ? 0.5 : 0)) / 2.54 / Math.PI - 0.125"
+  },
+  "outputs": {
+    "primary": "usSize",
+    "breakdown": [
+      "euSize",
+      "ukSize"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

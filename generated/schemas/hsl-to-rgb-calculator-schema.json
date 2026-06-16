@@ -1,0 +1,69 @@
+{
+  "toolName": "hsl-to-rgb-calculator",
+  "inputs": [
+    {
+      "id": "hue",
+      "label": "Hue",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Color hue angle, range 0-360 degrees."
+    },
+    {
+      "id": "saturation",
+      "label": "Saturation",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Color saturation percentage, 0-100."
+    },
+    {
+      "id": "lightness",
+      "label": "Lightness",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Color lightness percentage, 0-100."
+    },
+    {
+      "id": "max",
+      "label": "Max RGB Value",
+      "type": "number",
+      "unit": "",
+      "default": 255,
+      "businessContext": "Maximum value for each RGB channel, e.g., 255 for 8-bit."
+    }
+  ],
+  "formulas": {
+    "h": "hue / 360",
+    "s": "saturation / 100",
+    "l": "lightness / 100",
+    "q": "l < 0.5 ? l * (1 + s) : l + s - l * s",
+    "p": "2 * l - q",
+    "adjustR": "(h + 1/3 < 0 ? h + 1/3 + 1 : h + 1/3 > 1 ? h + 1/3 - 1 : h + 1/3)",
+    "adjustG": "(h < 0 ? h + 1 : h > 1 ? h - 1 : h)",
+    "adjustB": "(h - 1/3 < 0 ? h - 1/3 + 1 : h - 1/3 > 1 ? h - 1/3 - 1 : h - 1/3)",
+    "r1": "s === 0 ? l : (adjustR < 1/6 ? p + (q - p) * 6 * adjustR : adjustR < 1/2 ? q : adjustR < 2/3 ? p + (q - p) * (2/3 - adjustR) * 6 : p)",
+    "g1": "s === 0 ? l : (adjustG < 1/6 ? p + (q - p) * 6 * adjustG : adjustG < 1/2 ? q : adjustG < 2/3 ? p + (q - p) * (2/3 - adjustG) * 6 : p)",
+    "b1": "s === 0 ? l : (adjustB < 1/6 ? p + (q - p) * 6 * adjustB : adjustB < 1/2 ? q : adjustB < 2/3 ? p + (q - p) * (2/3 - adjustB) * 6 : p)",
+    "r": "Math.round(r1 * max)",
+    "g": "Math.round(g1 * max)",
+    "b": "Math.round(b1 * max)",
+    "primary": "\"rgb(\" + r + \",\" + g + \",\" + b + \")\"",
+    "breakdown": "[r, g, b]"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "r",
+      "g",
+      "b"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

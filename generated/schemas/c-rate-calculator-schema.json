@@ -1,0 +1,55 @@
+{
+  "toolName": "c-rate-calculator",
+  "inputs": [
+    {
+      "id": "capacity",
+      "label": "Battery Capacity (Ah)",
+      "type": "number",
+      "unit": "Ah",
+      "default": 100,
+      "businessContext": "Nominal capacity of the battery in ampere-hours."
+    },
+    {
+      "id": "current",
+      "label": "Current (A)",
+      "type": "number",
+      "unit": "A",
+      "default": 50,
+      "businessContext": "Charge or discharge current in amperes."
+    },
+    {
+      "id": "voltage",
+      "label": "Nominal Voltage (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 12,
+      "businessContext": "Nominal voltage of the battery."
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Charging/discharging efficiency for adjusted calculations (not used in core C-rate)."
+    }
+  ],
+  "formulas": {
+    "C-Rate (C)": "current / capacity",
+    "Discharge Time (h)": "capacity / current",
+    "Power (W)": "current * voltage"
+  },
+  "outputs": {
+    "primary": "C-Rate (C)",
+    "breakdown": [
+      "Discharge Time (h)",
+      "Power (W)"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

@@ -1,0 +1,59 @@
+{
+  "toolName": "rpe-calculator",
+  "inputs": [
+    {
+      "id": "coRev",
+      "label": "Your Annual Revenue",
+      "type": "number",
+      "unit": "TL",
+      "default": 1000000,
+      "businessContext": "Your company's total annual revenue"
+    },
+    {
+      "id": "coEmp",
+      "label": "Your Number of Employees",
+      "type": "number",
+      "unit": "employees",
+      "default": 50,
+      "businessContext": "Average number of employees in your company"
+    },
+    {
+      "id": "indRev",
+      "label": "Industry Annual Revenue",
+      "type": "number",
+      "unit": "TL",
+      "default": 5000000,
+      "businessContext": "Average industry annual revenue for similar companies"
+    },
+    {
+      "id": "indEmp",
+      "label": "Industry Employees",
+      "type": "number",
+      "unit": "employees",
+      "default": 100,
+      "businessContext": "Average industry number of employees"
+    }
+  ],
+  "formulas": {
+    "primary": "coRev / coEmp",
+    "breakdown": [
+      "indRev / indEmp",
+      "(coRev / coEmp) - (indRev / indEmp)",
+      "(coRev / coEmp) / (indRev / indEmp)"
+    ]
+  },
+  "outputs": {
+    "primary": "Your Revenue Per Employee (RPE)",
+    "breakdown": [
+      "Industry Revenue Per Employee",
+      "RPE Difference (Your - Industry)",
+      "RPE Ratio (Your / Industry)"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

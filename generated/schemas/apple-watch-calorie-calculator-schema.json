@@ -1,0 +1,63 @@
+{
+  "toolName": "apple-watch-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User body weight in kilograms"
+    },
+    {
+      "id": "duration",
+      "label": "Exercise Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 30,
+      "businessContext": "Total exercise time"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "User age"
+    },
+    {
+      "id": "heartRate",
+      "label": "Average Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 120,
+      "businessContext": "Average heart rate during exercise"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Biological gender: 0 for male, 1 for female"
+    }
+  ],
+  "formulas": {
+    "totalCalories": "((gender === 0 ? ((age * 0.2017) + (weight * 0.1992) + (heartRate * 0.6309) - 55.0969) : ((age * 0.074) + (weight * 0.1266) + (heartRate * 0.4472) - 20.4022)) * duration / 4.184)",
+    "calorieBurnRate": "totalCalories / duration",
+    "energyKj": "totalCalories * 4.184"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "calorieBurnRate",
+      "energyKj"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,58 @@
+{
+  "toolName": "octal-to-decimal-calculator",
+  "inputs": [
+    {
+      "id": "octalInput1",
+      "label": "Octal Number 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First octal number to convert"
+    },
+    {
+      "id": "octalInput2",
+      "label": "Octal Number 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second octal number to convert"
+    },
+    {
+      "id": "octalInput3",
+      "label": "Octal Number 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Third octal number to convert"
+    },
+    {
+      "id": "octalInput4",
+      "label": "Octal Number 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fourth octal number to convert"
+    }
+  ],
+  "formulas": {
+    "decimal1": "parseInt(String(octalInput1), 8)",
+    "decimal2": "parseInt(String(octalInput2), 8)",
+    "decimal3": "parseInt(String(octalInput3), 8)",
+    "decimal4": "parseInt(String(octalInput4), 8)"
+  },
+  "outputs": {
+    "primary": "Conversions completed",
+    "breakdown": [
+      "Octal Input 1: ${octalInput1} -> Decimal: ${decimal1}",
+      "Octal Input 2: ${octalInput2} -> Decimal: ${decimal2}",
+      "Octal Input 3: ${octalInput3} -> Decimal: ${decimal3}",
+      "Octal Input 4: ${octalInput4} -> Decimal: ${decimal4}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

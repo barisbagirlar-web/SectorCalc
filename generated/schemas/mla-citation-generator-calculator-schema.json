@@ -1,0 +1,71 @@
+{
+  "toolName": "mla-citation-generator-calculator",
+  "inputs": [
+    {
+      "id": "wordCount",
+      "label": "Word Count",
+      "type": "number",
+      "unit": "words",
+      "default": 1000,
+      "businessContext": "Total word count of the document"
+    },
+    {
+      "id": "pages",
+      "label": "Number of Pages",
+      "type": "number",
+      "unit": "pages",
+      "default": 5,
+      "businessContext": "Total number of pages"
+    },
+    {
+      "id": "authorsPerCitation",
+      "label": "Avg Authors per Citation",
+      "type": "number",
+      "unit": "count",
+      "default": 2,
+      "businessContext": "Average number of authors per citation"
+    },
+    {
+      "id": "sourcesPerPage",
+      "label": "Sources per Page",
+      "type": "number",
+      "unit": "count",
+      "default": 3,
+      "businessContext": "Average number of distinct sources cited per page"
+    },
+    {
+      "id": "inTextFrequency",
+      "label": "In-text Citation Frequency",
+      "type": "number",
+      "unit": "citations per page",
+      "default": 2,
+      "businessContext": "How many in-text citations appear per page"
+    },
+    {
+      "id": "bibliographyEntries",
+      "label": "Bibliography Entries",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "businessContext": "Total number of bibliography entries"
+    }
+  ],
+  "formulas": {
+    "totalInText": "pages * inTextFrequency",
+    "totalBibliographyWeight": "bibliographyEntries * (1 + authorsPerCitation * 0.1)",
+    "wordsPerCitation": "wordCount / (pages * sourcesPerPage + 1)"
+  },
+  "outputs": {
+    "primary": "totalInText",
+    "breakdown": [
+      "totalBibliographyWeight",
+      "wordsPerCitation"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

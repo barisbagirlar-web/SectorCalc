@@ -1,0 +1,55 @@
+{
+  "toolName": "ldl-calculator",
+  "inputs": [
+    {
+      "id": "totalCholesterol",
+      "label": "Total Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 200,
+      "businessContext": "Lipid panel total cholesterol measurement (typical range: 100–400 mg/dL)"
+    },
+    {
+      "id": "hdl",
+      "label": "HDL Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 50,
+      "businessContext": "High-density lipoprotein measurement (typical range: 20–100 mg/dL)"
+    },
+    {
+      "id": "triglycerides",
+      "label": "Triglycerides",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 150,
+      "businessContext": "Triglycerides measurement (must be ≤400 mg/dL for Friedewald formula validity)"
+    },
+    {
+      "id": "directLdl",
+      "label": "Direct LDL (if available)",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 0,
+      "businessContext": "Set to >0 to override calculation with direct LDL measurement; 0 triggers Friedewald computation"
+    }
+  ],
+  "formulas": {
+    "ldl": "directLdl > 0 ? directLdl : totalCholesterol - hdl - (triglycerides / 5)",
+    "vldl": "directLdl > 0 ? null : (triglycerides / 5)",
+    "nonHdl": "totalCholesterol - hdl"
+  },
+  "outputs": {
+    "primary": "ldl",
+    "breakdown": [
+      "vldl",
+      "nonHdl"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

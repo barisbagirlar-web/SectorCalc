@@ -1,0 +1,91 @@
+{
+  "toolName": "molar-mass-calculator",
+  "inputs": [
+    {
+      "id": "element1Count",
+      "label": "Atom count of element 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Number of atoms of the first element in the compound"
+    },
+    {
+      "id": "element1Mass",
+      "label": "Atomic mass of element 1",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 0,
+      "businessContext": "Molar mass of the first element"
+    },
+    {
+      "id": "element2Count",
+      "label": "Atom count of element 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Number of atoms of the second element in the compound"
+    },
+    {
+      "id": "element2Mass",
+      "label": "Atomic mass of element 2",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 0,
+      "businessContext": "Molar mass of the second element"
+    },
+    {
+      "id": "element3Count",
+      "label": "Atom count of element 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Number of atoms of the third element in the compound"
+    },
+    {
+      "id": "element3Mass",
+      "label": "Atomic mass of element 3",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 0,
+      "businessContext": "Molar mass of the third element"
+    },
+    {
+      "id": "element4Count",
+      "label": "Atom count of element 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Number of atoms of the fourth element in the compound"
+    },
+    {
+      "id": "element4Mass",
+      "label": "Atomic mass of element 4",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 0,
+      "businessContext": "Molar mass of the fourth element"
+    }
+  ],
+  "formulas": {
+    "contribution1": "element1Count * element1Mass",
+    "contribution2": "element2Count * element2Mass",
+    "contribution3": "element3Count * element3Mass",
+    "contribution4": "element4Count * element4Mass",
+    "molarMass": "contribution1 + contribution2 + contribution3 + contribution4"
+  },
+  "outputs": {
+    "primary": "molarMass",
+    "breakdown": [
+      "contribution1",
+      "contribution2",
+      "contribution3",
+      "contribution4"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

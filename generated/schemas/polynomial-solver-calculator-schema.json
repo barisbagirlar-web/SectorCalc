@@ -1,0 +1,59 @@
+{
+  "toolName": "polynomial-solver-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "a (quadratic coefficient)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient of x². Must be non-zero for a quadratic equation."
+    },
+    {
+      "id": "b",
+      "label": "b (linear coefficient)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of x."
+    },
+    {
+      "id": "c",
+      "label": "c (constant)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Constant term."
+    },
+    {
+      "id": "x",
+      "label": "x (evaluation point)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Point at which to evaluate the polynomial."
+    }
+  ],
+  "formulas": {
+    "discriminant": "b*b - 4*a*c",
+    "root1": "(b*b - 4*a*c) >= 0 ? (-b + Math.sqrt(b*b - 4*a*c)) / (2*a) : 'No real roots'",
+    "root2": "(b*b - 4*a*c) >= 0 ? (-b - Math.sqrt(b*b - 4*a*c)) / (2*a) : 'No real roots'",
+    "evaluated": "a*x*x + b*x + c",
+    "rootsSummary": "(b*b - 4*a*c) >= 0 ? 'Real roots: ' + ((-b + Math.sqrt(b*b - 4*a*c))/(2*a)).toFixed(4) + ', ' + ((-b - Math.sqrt(b*b - 4*a*c))/(2*a)).toFixed(4) : 'No real roots'"
+  },
+  "outputs": {
+    "primary": "rootsSummary",
+    "breakdown": [
+      "discriminant",
+      "root1",
+      "root2",
+      "evaluated"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

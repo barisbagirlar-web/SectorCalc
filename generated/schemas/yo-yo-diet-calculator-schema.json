@@ -1,0 +1,73 @@
+{
+  "toolName": "yo-yo-diet-calculator",
+  "inputs": [
+    {
+      "id": "startingWeight",
+      "label": "Starting Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Initial body weight before starting yo-yo diet cycle"
+    },
+    {
+      "id": "dailyWeightLoss",
+      "label": "Daily Weight Loss During Diet",
+      "type": "number",
+      "unit": "kg/day",
+      "default": 0.2,
+      "businessContext": "Average weight loss per day during active dieting phase"
+    },
+    {
+      "id": "dietDuration",
+      "label": "Diet Duration",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Number of days on the diet"
+    },
+    {
+      "id": "dailyWeightGain",
+      "label": "Daily Weight Gain After Diet",
+      "type": "number",
+      "unit": "kg/day",
+      "default": 0.15,
+      "businessContext": "Average weight gain per day after stopping diet"
+    },
+    {
+      "id": "postDietDuration",
+      "label": "Post-Diet Duration",
+      "type": "number",
+      "unit": "days",
+      "default": 60,
+      "businessContext": "Number of days after diet to evaluate yo-yo effect"
+    },
+    {
+      "id": "cycles",
+      "label": "Number of Cycles",
+      "type": "number",
+      "unit": "cycles",
+      "default": 1,
+      "businessContext": "Number of complete yo-yo diet cycles (diet + post-diet phase)"
+    }
+  ],
+  "formulas": {
+    "totalWeightLoss": "dailyWeightLoss * dietDuration * cycles",
+    "totalWeightGain": "dailyWeightGain * postDietDuration * cycles",
+    "netWeightChange": "totalWeightGain - totalWeightLoss",
+    "finalWeight": "startingWeight + netWeightChange"
+  },
+  "outputs": {
+    "primary": "finalWeight",
+    "breakdown": [
+      "totalWeightLoss",
+      "totalWeightGain",
+      "netWeightChange"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

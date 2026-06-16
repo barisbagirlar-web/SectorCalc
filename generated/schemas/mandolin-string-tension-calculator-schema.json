@@ -1,0 +1,55 @@
+{
+  "toolName": "mandolin-string-tension-calculator",
+  "inputs": [
+    {
+      "id": "scaleLength",
+      "label": "Scale Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 330,
+      "businessContext": "The distance from the nut to the bridge, representing the vibrating length of the string. Standard mandolin scale length is around 330 mm."
+    },
+    {
+      "id": "stringDiameter",
+      "label": "String Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.25,
+      "businessContext": "The diameter of the string in millimeters. Typical mandolin strings range from 0.2 mm to 0.4 mm."
+    },
+    {
+      "id": "materialDensity",
+      "label": "Material Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7800,
+      "businessContext": "The density of the string material in kilograms per cubic meter. Common values are 7800 for steel, 6500 for titanium, 1840 for nylon."
+    },
+    {
+      "id": "noteFrequency",
+      "label": "Note Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 196,
+      "businessContext": "The desired fundamental frequency of the string in Hertz. G3 (the lowest standard mandolin string) is 196 Hz."
+    }
+  ],
+  "formulas": {
+    "linearDensity": "materialDensity * Math.PI * Math.pow((stringDiameter / 1000) / 2, 2)",
+    "tension": "materialDensity * Math.PI * Math.pow((stringDiameter / 1000) / 2, 2) * Math.pow(2 * (scaleLength / 1000) * noteFrequency, 2)"
+  },
+  "outputs": {
+    "primary": "materialDensity * Math.PI * Math.pow((stringDiameter / 1000) / 2, 2) * Math.pow(2 * (scaleLength / 1000) * noteFrequency, 2)",
+    "breakdown": [
+      "materialDensity * Math.PI * Math.pow((stringDiameter / 1000) / 2, 2)",
+      "2 * (scaleLength / 1000) * noteFrequency",
+      "Math.pow(2 * (scaleLength / 1000) * noteFrequency, 2)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Atölye & Tamir",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

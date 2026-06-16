@@ -1,0 +1,101 @@
+{
+  "toolName": "text-to-ascii-calculator",
+  "inputs": [
+    {
+      "id": "ascii1",
+      "label": "ASCII Code 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First character's ASCII code (0–127)."
+    },
+    {
+      "id": "ascii2",
+      "label": "ASCII Code 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second character's ASCII code."
+    },
+    {
+      "id": "ascii3",
+      "label": "ASCII Code 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Third character's ASCII code."
+    },
+    {
+      "id": "ascii4",
+      "label": "ASCII Code 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fourth character's ASCII code."
+    },
+    {
+      "id": "ascii5",
+      "label": "ASCII Code 5",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fifth character's ASCII code."
+    },
+    {
+      "id": "ascii6",
+      "label": "ASCII Code 6",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sixth character's ASCII code."
+    },
+    {
+      "id": "ascii7",
+      "label": "ASCII Code 7",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Seventh character's ASCII code."
+    },
+    {
+      "id": "ascii8",
+      "label": "ASCII Code 8",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Eighth character's ASCII code."
+    }
+  ],
+  "formulas": {
+    "outputPrimary": "ascii1 + ascii2 + ascii3 + ascii4 + ascii5 + ascii6 + ascii7 + ascii8",
+    "outputBreakdown": [
+      "ascii1",
+      "ascii2",
+      "ascii3",
+      "ascii4",
+      "ascii5",
+      "ascii6",
+      "ascii7",
+      "ascii8"
+    ]
+  },
+  "outputs": {
+    "primary": "Total ASCII Sum",
+    "breakdown": [
+      "ASCII Code 1",
+      "ASCII Code 2",
+      "ASCII Code 3",
+      "ASCII Code 4",
+      "ASCII Code 5",
+      "ASCII Code 6",
+      "ASCII Code 7",
+      "ASCII Code 8"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

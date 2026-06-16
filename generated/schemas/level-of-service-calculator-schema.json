@@ -1,0 +1,61 @@
+{
+  "toolName": "level-of-service-calculator",
+  "inputs": [
+    {
+      "id": "meanDemandDdlt",
+      "label": "Average Demand During Lead Time",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "businessContext": "The average total demand expected during the replenishment lead time."
+    },
+    {
+      "id": "stdDevDemandDdlt",
+      "label": "Standard Deviation of Demand During Lead Time",
+      "type": "number",
+      "unit": "units",
+      "default": 200,
+      "businessContext": "The standard deviation of demand variability during the lead time."
+    },
+    {
+      "id": "reorderPoint",
+      "label": "Reorder Point",
+      "type": "number",
+      "unit": "units",
+      "default": 1200,
+      "businessContext": "Inventory level at which a new order is triggered."
+    },
+    {
+      "id": "orderQuantity",
+      "label": "Order Quantity",
+      "type": "number",
+      "unit": "units",
+      "default": 500,
+      "businessContext": "The fixed order quantity placed each time."
+    }
+  ],
+  "formulas": {
+    "z": "(reorderPoint - meanDemandDdlt) / stdDevDemandDdlt",
+    "csl": "1 / (1 + Math.exp(-0.07056 * Math.pow(z, 3) - 1.5976 * z))",
+    "safetyStock": "reorderPoint - meanDemandDdlt",
+    "standardNormalPDF": "(1 / Math.sqrt(2 * Math.PI)) * Math.exp(-0.5 * Math.pow(z, 2))",
+    "standardNormalLoss": "standardNormalPDF - z * (1 - csl)",
+    "fillRate": "1 - (stdDevDemandDdlt * standardNormalLoss) / orderQuantity",
+    "cslPercent": "csl * 100",
+    "fillRatePercent": "fillRate * 100"
+  },
+  "outputs": {
+    "primary": "cslPercent",
+    "breakdown": [
+      "fillRatePercent",
+      "safetyStock",
+      "z"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

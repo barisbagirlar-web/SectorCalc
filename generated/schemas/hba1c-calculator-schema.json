@@ -1,0 +1,61 @@
+{
+  "toolName": "hba1c-calculator",
+  "inputs": [
+    {
+      "id": "glucose",
+      "label": "Average Blood Glucose",
+      "type": "number",
+      "unit": "mg/dL or mmol/L",
+      "default": 120,
+      "businessContext": "Average blood glucose level over the past 2-3 months."
+    },
+    {
+      "id": "unit",
+      "label": "Glucose Unit",
+      "type": "number",
+      "unit": "0=mg/dL, 1=mmol/L",
+      "default": 0,
+      "businessContext": "Select the unit: 0 for mg/dL, 1 for mmol/L."
+    },
+    {
+      "id": "confidence",
+      "label": "Confidence Level",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Confidence level for uncertainty range calculation."
+    },
+    {
+      "id": "measurementUncertainty",
+      "label": "Measurement Uncertainty",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Typical measurement uncertainty of HbA1c assay method."
+    }
+  ],
+  "formulas": {
+    "eAG_mgdl": "unit == 0 ? glucose : glucose * 18.0182",
+    "eAG_mmol": "unit == 0 ? glucose / 18.0182 : glucose",
+    "hba1cPercent": "(eAG_mgdl + 46.7) / 28.7",
+    "hba1cMmolMol": "10.93 * eAG_mmol - 23.5",
+    "rangeLow": "hba1cPercent * (1 - measurementUncertainty / 100)",
+    "rangeHigh": "hba1cPercent * (1 + measurementUncertainty / 100)"
+  },
+  "outputs": {
+    "primary": "hba1cPercent",
+    "breakdown": [
+      "hba1cMmolMol",
+      "eAG_mgdl",
+      "eAG_mmol",
+      "rangeLow",
+      "rangeHigh"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

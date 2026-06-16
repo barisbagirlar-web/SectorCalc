@@ -1,0 +1,55 @@
+{
+  "toolName": "gre-score-calculator",
+  "inputs": [
+    {
+      "id": "verbalCorrect",
+      "label": "Verbal Correct Answers",
+      "type": "number",
+      "unit": "correct",
+      "default": 20,
+      "businessContext": "Number of correct answers in the Verbal Reasoning section (out of 40)."
+    },
+    {
+      "id": "verbalTotal",
+      "label": "Verbal Total Questions",
+      "type": "number",
+      "unit": "questions",
+      "default": 40,
+      "businessContext": "Total number of questions in the Verbal Reasoning section (typically 40)."
+    },
+    {
+      "id": "quantCorrect",
+      "label": "Quantitative Correct Answers",
+      "type": "number",
+      "unit": "correct",
+      "default": 20,
+      "businessContext": "Number of correct answers in the Quantitative Reasoning section (out of 40)."
+    },
+    {
+      "id": "quantTotal",
+      "label": "Quantitative Total Questions",
+      "type": "number",
+      "unit": "questions",
+      "default": 40,
+      "businessContext": "Total number of questions in the Quantitative Reasoning section (typically 40)."
+    }
+  ],
+  "formulas": {
+    "verbalScaled": "130 + (verbalCorrect/verbalTotal)*40",
+    "quantScaled": "130 + (quantCorrect/quantTotal)*40",
+    "totalScore": "verbalScaled + quantScaled"
+  },
+  "outputs": {
+    "primary": "'Total GRE Score: ' + totalScore",
+    "breakdown": [
+      "'Verbal Reasoning: ' + verbalScaled + '/170'",
+      "'Quantitative Reasoning: ' + quantScaled + '/170'"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

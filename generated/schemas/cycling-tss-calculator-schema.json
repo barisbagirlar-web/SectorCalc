@@ -1,0 +1,55 @@
+{
+  "toolName": "cycling-tss-calculator",
+  "inputs": [
+    {
+      "id": "durationMinutes",
+      "label": "Antrenman Süresi (dakika)",
+      "type": "number",
+      "unit": "dk",
+      "default": 60,
+      "businessContext": "Toplam sürüş süresi dakika cinsinden."
+    },
+    {
+      "id": "normalizedPower",
+      "label": "Normalize Güç (NP)",
+      "type": "number",
+      "unit": "watt",
+      "default": 200,
+      "businessContext": "Sürüşün normalize gücü, watt cinsinden. Değişken çabaların fizyolojik maliyetini yansıtır."
+    },
+    {
+      "id": "ftp",
+      "label": "Fonksiyonel Eşik Gücü (FTP)",
+      "type": "number",
+      "unit": "watt",
+      "default": 250,
+      "businessContext": "Bir saat boyunca sürdürülebilen maksimum ortalama güç watt cinsinden."
+    },
+    {
+      "id": "averagePower",
+      "label": "Ortalama Güç",
+      "type": "number",
+      "unit": "watt",
+      "default": 0,
+      "businessContext": "Sürüşün aritmetik ortalama gücü. Değişkenlik Endeksi (VI) hesaplamak için isteğe bağlı."
+    }
+  ],
+  "formulas": {
+    "tss": "(durationMinutes * 60 * normalizedPower * (normalizedPower / ftp)) / (ftp * 3600) * 100",
+    "intensityFactor": "normalizedPower / ftp",
+    "variabilityIndex": "averagePower > 0 ? normalizedPower / averagePower : 0"
+  },
+  "outputs": {
+    "primary": "tss",
+    "breakdown": [
+      "intensityFactor",
+      "variabilityIndex"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

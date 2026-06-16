@@ -1,0 +1,55 @@
+{
+  "toolName": "runoff-calculator",
+  "inputs": [
+    {
+      "id": "catchmentArea",
+      "label": "Catchment Area",
+      "type": "number",
+      "unit": "m²",
+      "defaultValue": 1000,
+      "businessContext": "The surface area of the catchment contributing to runoff."
+    },
+    {
+      "id": "runoffCoefficient",
+      "label": "Runoff Coefficient (C)",
+      "type": "number",
+      "unit": "",
+      "defaultValue": 0.5,
+      "businessContext": "Dimensionless coefficient representing the fraction of rainfall that becomes runoff, depending on surface type and slope."
+    },
+    {
+      "id": "rainfallIntensity",
+      "label": "Rainfall Intensity (I)",
+      "type": "number",
+      "unit": "mm/h",
+      "defaultValue": 50,
+      "businessContext": "Design rainfall intensity in millimeters per hour, typically derived from IDF curves for the specified duration and return period."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "defaultValue": 1.1,
+      "businessContext": "Multiplier applied to the calculated runoff to account for uncertainties and future changes in catchment conditions."
+    }
+  ],
+  "formulas": {
+    "runoffBase": "runoffCoefficient * rainfallIntensity * catchmentArea / 3600",
+    "runoffLps": "runoffBase * safetyFactor",
+    "runoffM3s": "runoffLps / 1000"
+  },
+  "outputs": {
+    "primary": "runoffLps",
+    "breakdown": [
+      "runoffLps",
+      "runoffM3s"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

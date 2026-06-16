@@ -1,0 +1,57 @@
+{
+  "toolName": "buoyancy-calculator",
+  "inputs": [
+    {
+      "id": "objectMass",
+      "label": "Object Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Mass of the object to be submerged"
+    },
+    {
+      "id": "objectVolume",
+      "label": "Object Volume",
+      "type": "number",
+      "unit": "m³",
+      "default": 0.5,
+      "businessContext": "Total volume of the object"
+    },
+    {
+      "id": "fluidDensity",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of the fluid in which the object is submerged"
+    },
+    {
+      "id": "gravitationalAcceleration",
+      "label": "Gravitational Acceleration",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Acceleration due to gravity, typically 9.81 m/s² on Earth"
+    }
+  ],
+  "formulas": {
+    "weight": "objectMass * gravitationalAcceleration",
+    "buoyantForce": "fluidDensity * objectVolume * gravitationalAcceleration",
+    "netForce": "buoyantForce - weight",
+    "floatCondition": "netForce > 0 ? 'Floats' : (netForce < 0 ? 'Sinks' : 'Neutral')"
+  },
+  "outputs": {
+    "primary": "netForce",
+    "breakdown": [
+      "weight",
+      "buoyantForce",
+      "floatCondition"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

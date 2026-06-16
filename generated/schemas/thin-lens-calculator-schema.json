@@ -1,0 +1,55 @@
+{
+  "toolName": "thin-lens-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Refractive Index n",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Refractive index of the lens material (dimensionless)."
+    },
+    {
+      "id": "R1",
+      "label": "Radius of Curvature R1",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Radius of curvature of the first lens surface. Sign convention: positive if center of curvature is to the right of the vertex."
+    },
+    {
+      "id": "R2",
+      "label": "Radius of Curvature R2",
+      "type": "number",
+      "unit": "mm",
+      "default": -100,
+      "businessContext": "Radius of curvature of the second lens surface. Sign convention: positive if center of curvature is to the right of the vertex."
+    },
+    {
+      "id": "u",
+      "label": "Object Distance u",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "businessContext": "Distance from the object to the lens, measured along the optical axis. Sign convention: positive if object is on the incident light side (real object)."
+    }
+  ],
+  "formulas": {
+    "focalLength_mm": "1 / ((n - 1) * (1/R1 - 1/R2))",
+    "imageDistance_mm": "1 / (1/focalLength_mm - 1/u)",
+    "magnification": "-imageDistance_mm / u"
+  },
+  "outputs": {
+    "primary": "focalLength_mm",
+    "breakdown": [
+      "imageDistance_mm",
+      "magnification"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

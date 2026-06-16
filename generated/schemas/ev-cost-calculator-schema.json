@@ -1,0 +1,64 @@
+{
+  "toolName": "ev-cost-calculator",
+  "inputs": [
+    {
+      "id": "electricity_price",
+      "label": "Electricity Price",
+      "type": "number",
+      "unit": "Currency/kWh",
+      "default": 0.15,
+      "businessContext": "Cost of electricity per kilowatt-hour."
+    },
+    {
+      "id": "charging_efficiency",
+      "label": "Charging Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Efficiency of the charging process, as a percentage."
+    },
+    {
+      "id": "vehicle_efficiency",
+      "label": "Vehicle Efficiency",
+      "type": "number",
+      "unit": "kWh/100km",
+      "default": 18,
+      "businessContext": "Energy consumption of the vehicle per 100 kilometers."
+    },
+    {
+      "id": "daily_distance",
+      "label": "Daily Driving Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 50,
+      "businessContext": "Average distance driven per day."
+    },
+    {
+      "id": "maintenance_cost_per_km",
+      "label": "Maintenance Cost per km",
+      "type": "number",
+      "unit": "Currency/km",
+      "default": 0.05,
+      "businessContext": "Estimated maintenance and repair cost per kilometer driven."
+    }
+  ],
+  "formulas": {
+    "energy_per_day": "daily_distance / 100 * vehicle_efficiency * (100 / charging_efficiency)",
+    "energy_cost_per_day": "energy_per_day * electricity_price",
+    "maintenance_cost_per_day": "daily_distance * maintenance_cost_per_km",
+    "total_cost_per_day": "energy_cost_per_day + maintenance_cost_per_day"
+  },
+  "outputs": {
+    "primary": "total_cost_per_day",
+    "breakdown": [
+      "energy_cost_per_day",
+      "maintenance_cost_per_day"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

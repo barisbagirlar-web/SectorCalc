@@ -1,0 +1,71 @@
+{
+  "toolName": "bar-to-psi-calculator",
+  "inputs": [
+    {
+      "id": "pressureBar",
+      "label": "Pressure (bar)",
+      "type": "number",
+      "unit": "bar",
+      "default": 1,
+      "businessContext": "Pressure value to convert from bar to psi."
+    },
+    {
+      "id": "refType",
+      "label": "Reference Type",
+      "type": "number",
+      "unit": "none",
+      "default": 1,
+      "businessContext": "0 for absolute pressure, 1 for gauge pressure. If gauge, atmospheric pressure is added to obtain absolute pressure before conversion."
+    },
+    {
+      "id": "atmBar",
+      "label": "Atmospheric Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 1.01325,
+      "businessContext": "Standard atmospheric pressure at sea level. Used only when reference type is gauge."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "digits",
+      "default": 2,
+      "businessContext": "Number of decimal places for the converted psi value."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "psi/bar",
+      "default": 14.503773773,
+      "businessContext": "Custom conversion factor (default is 1 bar = 14.503773773 psi). Modify only if a different definition is required."
+    },
+    {
+      "id": "tempC",
+      "label": "Measurement Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Ambient temperature at the measurement point (for documentation only, does not affect the conversion)."
+    }
+  ],
+  "formulas": {
+    "absoluteBar": "(refType === 1 ? (pressureBar + atmBar) : pressureBar)",
+    "exactPsi": "absoluteBar * conversionFactor",
+    "psi": "Math.round(exactPsi * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "psi",
+    "breakdown": [
+      "absoluteBar",
+      "exactPsi"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

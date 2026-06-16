@@ -1,0 +1,74 @@
+{
+  "toolName": "unit-vector-calculator",
+  "inputs": [
+    {
+      "id": "startX",
+      "label": "Start X",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "X-coordinate of the vector start point"
+    },
+    {
+      "id": "startY",
+      "label": "Start Y",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y-coordinate of the vector start point"
+    },
+    {
+      "id": "startZ",
+      "label": "Start Z",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Z-coordinate of the vector start point"
+    },
+    {
+      "id": "endX",
+      "label": "End X",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "X-coordinate of the vector end point"
+    },
+    {
+      "id": "endY",
+      "label": "End Y",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y-coordinate of the vector end point"
+    },
+    {
+      "id": "endZ",
+      "label": "End Z",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Z-coordinate of the vector end point"
+    }
+  ],
+  "formulas": {
+    "deltaX": "endX - startX",
+    "deltaY": "endY - startY",
+    "deltaZ": "endZ - startZ",
+    "magnitude": "Math.sqrt(deltaX**2 + deltaY**2 + deltaZ**2)"
+  },
+  "outputs": {
+    "primary": "magnitude === 0 ? 'Undefined (zero vector)' : '(' + (deltaX/magnitude).toFixed(4) + ', ' + (deltaY/magnitude).toFixed(4) + ', ' + (deltaZ/magnitude).toFixed(4) + ')'",
+    "breakdown": [
+      "magnitude === 0 ? 'N/A' : (deltaX / magnitude).toFixed(4)",
+      "magnitude === 0 ? 'N/A' : (deltaY / magnitude).toFixed(4)",
+      "magnitude === 0 ? 'N/A' : (deltaZ / magnitude).toFixed(4)",
+      "magnitude === 0 ? '0' : magnitude.toFixed(4)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

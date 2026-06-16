@@ -1,0 +1,70 @@
+{
+  "toolName": "low-birth-weight-risk-calculator",
+  "inputs": [
+    {
+      "id": "maternalAge",
+      "label": "Maternal Age",
+      "type": "number",
+      "unit": "years",
+      "default": 28,
+      "businessContext": "Age of the mother at delivery"
+    },
+    {
+      "id": "gestationalAge",
+      "label": "Gestational Age",
+      "type": "number",
+      "unit": "weeks",
+      "default": 40,
+      "businessContext": "Weeks of gestation at delivery"
+    },
+    {
+      "id": "prePregnancyBMI",
+      "label": "Pre-pregnancy BMI",
+      "type": "number",
+      "unit": "kg/m²",
+      "default": 22,
+      "businessContext": "Body mass index before pregnancy"
+    },
+    {
+      "id": "smoking",
+      "label": "Cigarettes per Day",
+      "type": "number",
+      "unit": "cigarettes/day",
+      "default": 0,
+      "businessContext": "Average number of cigarettes smoked per day during pregnancy"
+    },
+    {
+      "id": "previousLBW",
+      "label": "Previous Low Birth Weight",
+      "type": "number",
+      "unit": "0 or 1",
+      "default": 0,
+      "businessContext": "History of previous low birth weight delivery (1 if yes, 0 if no)"
+    },
+    {
+      "id": "parity",
+      "label": "Parity",
+      "type": "number",
+      "unit": "count",
+      "default": 1,
+      "businessContext": "Number of previous live births"
+    }
+  ],
+  "formulas": {
+    "linearPredictor": "-3.5 + 0.05 * maternalAge - 0.1 * gestationalAge - 0.03 * prePregnancyBMI + 0.5 * smoking + 1.5 * previousLBW + 0.2 * parity",
+    "riskProbability": "1 / (1 + Math.exp(-(linearPredictor)))"
+  },
+  "outputs": {
+    "primary": "riskProbability",
+    "breakdown": [
+      "linearPredictor",
+      "riskProbability"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

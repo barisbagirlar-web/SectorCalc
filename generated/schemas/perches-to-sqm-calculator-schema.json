@@ -1,0 +1,69 @@
+{
+  "toolName": "perches-to-sqm-calculator",
+  "inputs": [
+    {
+      "id": "perches",
+      "label": "Area in perches",
+      "type": "number",
+      "unit": "perch",
+      "default": 0,
+      "businessContext": "Land area measurement in perches (1 perch = 25.29285264 m²)"
+    },
+    {
+      "id": "factor",
+      "label": "Conversion factor (sqm per perch)",
+      "type": "number",
+      "unit": "m²/perch",
+      "default": 25.29285264,
+      "businessContext": "Standard conversion factor; can be overridden for historical variants"
+    },
+    {
+      "id": "knownSqm",
+      "label": "Verify reverse: known area in sqm",
+      "type": "number",
+      "unit": "m²",
+      "default": 0,
+      "businessContext": "Optional input to compute equivalent perches for validation"
+    },
+    {
+      "id": "offset",
+      "label": "Offset adjustment (sqm)",
+      "type": "number",
+      "unit": "m²",
+      "default": 0,
+      "businessContext": "Calibration offset added to the result"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal precision for display",
+      "type": "number",
+      "unit": "decimals",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding display (not used in raw calculation)"
+    }
+  ],
+  "formulas": {
+    "primary": "perches * factor + offset",
+    "breakdown": [
+      "knownSqm / factor"
+    ]
+  },
+  "outputs": {
+    "primary": {
+      "label": "Result in m²",
+      "unit": "m²"
+    },
+    "breakdown": [
+      {
+        "label": "Reverse: perches from known sqm",
+        "unit": "perch"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,80 @@
+{
+  "toolName": "lh-surge-calculator",
+  "inputs": [
+    {
+      "id": "flowVelocity",
+      "label": "Akış Hızı",
+      "type": "number",
+      "unit": "m/s",
+      "default": 2,
+      "businessContext": "Boru içindeki akışkan hızı (genelde su için 1-3 m/s)"
+    },
+    {
+      "id": "pipeDiameter",
+      "label": "Boru Çapı",
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "businessContext": "Boru iç çapı (metre cinsinden)"
+    },
+    {
+      "id": "pipeLength",
+      "label": "Boru Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "businessContext": "Basınç dalgasının ilerlediği toplam boru uzunluğu"
+    },
+    {
+      "id": "valveCloseTime",
+      "label": "Vana Kapanma Süresi",
+      "type": "number",
+      "unit": "s",
+      "default": 1,
+      "businessContext": "Vananın tamamen kapanması için geçen süre"
+    },
+    {
+      "id": "waveSpeed",
+      "label": "Basınç Dalga Hızı",
+      "type": "number",
+      "unit": "m/s",
+      "default": 1200,
+      "businessContext": "Ortamdaki ses hızı / su darbesi dalga hızı (su için ~1200 m/s)"
+    },
+    {
+      "id": "fluidDensity",
+      "label": "Akışkan Yoğunluğu",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Akışkanın yoğunluğu (su için 1000 kg/m³)"
+    },
+    {
+      "id": "wallThickness",
+      "label": "Boru Et Kalınlığı",
+      "type": "number",
+      "unit": "m",
+      "default": 0.01,
+      "businessContext": "Boru cidar kalınlığı (gerilim hesabı için gerekli)"
+    }
+  ],
+  "formulas": {
+    "surgePressurePa": "fluidDensity * waveSpeed * flowVelocity * Math.min(1, (2 * pipeLength) / (waveSpeed * valveCloseTime))",
+    "hoopStressPa": "(surgePressurePa * pipeDiameter) / (2 * wallThickness)",
+    "surgePressureBar": "surgePressurePa / 100000"
+  },
+  "outputs": {
+    "primary": "surgePressureBar",
+    "breakdown": [
+      "surgePressurePa",
+      "hoopStressPa",
+      "surgePressureBar"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

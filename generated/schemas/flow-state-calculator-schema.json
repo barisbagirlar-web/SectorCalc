@@ -1,0 +1,53 @@
+{
+  "toolName": "flow-state-calculator",
+  "inputs": [
+    {
+      "id": "density",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Yoğunluk, akışkanın birim hacim başına kütlesidir."
+    },
+    {
+      "id": "velocity",
+      "label": "Flow Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 1,
+      "businessContext": "Akışkanın boru içindeki ortalama hızıdır."
+    },
+    {
+      "id": "diameter",
+      "label": "Pipe Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0.01,
+      "businessContext": "Boru iç çapıdır."
+    },
+    {
+      "id": "dynamicViscosity",
+      "label": "Dynamic Viscosity",
+      "type": "number",
+      "unit": "Pa·s",
+      "default": 0.001,
+      "businessContext": "Akışkanın akmaya karşı direncinin ölçüsüdür."
+    }
+  ],
+  "formulas": {
+    "reynoldsNumber": "density * velocity * diameter / dynamicViscosity",
+    "flowState": "reynoldsNumber < 2300 ? 'Laminar' : reynoldsNumber > 4000 ? 'Turbulent' : 'Transitional'"
+  },
+  "outputs": {
+    "primary": "reynoldsNumber",
+    "breakdown": [
+      "flowState"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

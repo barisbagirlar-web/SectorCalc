@@ -1,0 +1,65 @@
+{
+  "toolName": "sewing-thread-calculator",
+  "inputs": [
+    {
+      "id": "seamLength",
+      "label": "Seam Length",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Total length of seams in the garment (meters)"
+    },
+    {
+      "id": "stitchesPerCm",
+      "label": "Stitches per cm",
+      "type": "number",
+      "unit": "stitches/cm",
+      "default": 4,
+      "businessContext": "Stitch density (stitches per centimeter)"
+    },
+    {
+      "id": "threadConsumptionPerStitch",
+      "label": "Thread Consumption per Stitch",
+      "type": "number",
+      "unit": "cm",
+      "default": 0.75,
+      "businessContext": "Average thread consumed per stitch (cm)"
+    },
+    {
+      "id": "numberOfGarments",
+      "label": "Number of Garments",
+      "type": "number",
+      "unit": "pieces",
+      "default": 1,
+      "businessContext": "Total number of garments to be produced"
+    },
+    {
+      "id": "wastePercentage",
+      "label": "Waste Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Waste factor for thread breakage, bobbin changes, etc."
+    }
+  ],
+  "formulas": {
+    "totalThreadPerGarment": "seamLength * stitchesPerCm * threadConsumptionPerStitch",
+    "totalWithoutWaste": "totalThreadPerGarment * numberOfGarments",
+    "wasteAddition": "totalWithoutWaste * wastePercentage / 100",
+    "totalThreadWithWaste": "totalWithoutWaste + wasteAddition"
+  },
+  "outputs": {
+    "primary": "totalThreadWithWaste",
+    "breakdown": [
+      "totalThreadPerGarment",
+      "totalWithoutWaste",
+      "wasteAddition"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

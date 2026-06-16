@@ -1,0 +1,65 @@
+{
+  "toolName": "fuel-cost-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "businessContext": "Total distance to be traveled"
+    },
+    {
+      "id": "fuelConsumption",
+      "label": "Fuel Consumption (L/100km)",
+      "type": "number",
+      "unit": "L/100km",
+      "default": 7,
+      "businessContext": "Vehicle's fuel consumption rate per 100 km"
+    },
+    {
+      "id": "fuelPrice",
+      "label": "Fuel Price (per L)",
+      "type": "number",
+      "unit": "currency/L",
+      "default": 1.5,
+      "businessContext": "Current fuel price per liter"
+    },
+    {
+      "id": "trips",
+      "label": "Number of Trips",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiply by number of trips to obtain total cost"
+    },
+    {
+      "id": "extraCost",
+      "label": "Additional Cost per Trip",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Any fixed additional cost per trip (e.g., tolls, maintenance)"
+    }
+  ],
+  "formulas": {
+    "totalFuelConsumed": "(distance * fuelConsumption / 100) * trips",
+    "fuelCost": "((distance * fuelConsumption / 100) * trips) * fuelPrice",
+    "extraCostTotal": "extraCost * trips",
+    "totalCost": "((distance * fuelConsumption / 100) * trips) * fuelPrice + (extraCost * trips)"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "fuelCost",
+      "extraCostTotal",
+      "totalFuelConsumed"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

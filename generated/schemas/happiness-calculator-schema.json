@@ -1,0 +1,79 @@
+{
+  "toolName": "happiness-calculator",
+  "inputs": [
+    {
+      "id": "health",
+      "label": "Health Score",
+      "type": "number",
+      "unit": "score",
+      "default": 50,
+      "businessContext": "Self-assessed physical and mental health (0-100)"
+    },
+    {
+      "id": "wealth",
+      "label": "Wealth Score",
+      "type": "number",
+      "unit": "score",
+      "default": 50,
+      "businessContext": "Financial stability and satisfaction (0-100)"
+    },
+    {
+      "id": "relationships",
+      "label": "Relationships Score",
+      "type": "number",
+      "unit": "score",
+      "default": 50,
+      "businessContext": "Quality of personal and social connections (0-100)"
+    },
+    {
+      "id": "career",
+      "label": "Career Satisfaction Score",
+      "type": "number",
+      "unit": "score",
+      "default": 50,
+      "businessContext": "Job fulfillment and professional growth (0-100)"
+    },
+    {
+      "id": "leisure",
+      "label": "Leisure Score",
+      "type": "number",
+      "unit": "score",
+      "default": 50,
+      "businessContext": "Amount and quality of free time and hobbies (0-100)"
+    },
+    {
+      "id": "environment",
+      "label": "Environment Score",
+      "type": "number",
+      "unit": "score",
+      "default": 50,
+      "businessContext": "Living conditions and surroundings (0-100)"
+    }
+  ],
+  "formulas": {
+    "happinessScore": "health*0.25 + wealth*0.2 + relationships*0.2 + career*0.15 + leisure*0.1 + environment*0.1",
+    "healthContribution": "health * 0.25",
+    "wealthContribution": "wealth * 0.2",
+    "relationshipsContribution": "relationships * 0.2",
+    "careerContribution": "career * 0.15",
+    "leisureContribution": "leisure * 0.1",
+    "environmentContribution": "environment * 0.1"
+  },
+  "outputs": {
+    "primary": "happinessScore",
+    "breakdown": [
+      "healthContribution",
+      "wealthContribution",
+      "relationshipsContribution",
+      "careerContribution",
+      "leisureContribution",
+      "environmentContribution"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

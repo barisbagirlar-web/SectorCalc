@@ -1,0 +1,63 @@
+{
+  "toolName": "cycling-distance-calculator",
+  "inputs": [
+    {
+      "id": "wheelDiameter",
+      "label": "Tekerlek Çapı (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 700,
+      "businessContext": "Bisiklet tekerleğinin dış çapı, lastik dahil (mm)"
+    },
+    {
+      "id": "cadence",
+      "label": "Pedal Devri (rpm)",
+      "type": "number",
+      "unit": "rpm",
+      "default": 80,
+      "businessContext": "Dakikadaki pedal çevirme sayısı"
+    },
+    {
+      "id": "frontTeeth",
+      "label": "Ön Dişli Sayısı",
+      "type": "number",
+      "unit": "diş",
+      "default": 50,
+      "businessContext": "Aynakol dişlisi üzerindeki diş sayısı"
+    },
+    {
+      "id": "rearTeeth",
+      "label": "Arka Dişli Sayısı",
+      "type": "number",
+      "unit": "diş",
+      "default": 15,
+      "businessContext": "Rubie dişlisi üzerindeki diş sayısı"
+    },
+    {
+      "id": "timeMinutes",
+      "label": "Süre (dk)",
+      "type": "number",
+      "unit": "dk",
+      "default": 60,
+      "businessContext": "Toplam sürüş süresi (dakika)"
+    }
+  ],
+  "formulas": {
+    "distance": "((cadence * (frontTeeth / rearTeeth) * timeMinutes) * (Math.PI * wheelDiameter)) / 1000000",
+    "wheelCircumference": "Math.PI * wheelDiameter",
+    "totalRotations": "cadence * (frontTeeth / rearTeeth) * timeMinutes"
+  },
+  "outputs": {
+    "primary": "distance",
+    "breakdown": [
+      "wheelCircumference",
+      "totalRotations"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

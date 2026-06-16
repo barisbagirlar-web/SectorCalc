@@ -1,0 +1,57 @@
+{
+  "toolName": "binary-base-converter-calculator",
+  "inputs": [
+    {
+      "id": "decimalValue",
+      "label": "Decimal Number",
+      "type": "number",
+      "unit": "",
+      "default": 42,
+      "businessContext": "The integer number to convert to binary, octal, and hexadecimal."
+    },
+    {
+      "id": "binaryBits",
+      "label": "Binary Bits",
+      "type": "number",
+      "unit": "bits",
+      "default": 8,
+      "businessContext": "Number of bits for binary output (padded with leading zeros)."
+    },
+    {
+      "id": "octalDigits",
+      "label": "Octal Digits",
+      "type": "number",
+      "unit": "digits",
+      "default": 3,
+      "businessContext": "Number of digits for octal output."
+    },
+    {
+      "id": "hexDigits",
+      "label": "Hexadecimal Digits",
+      "type": "number",
+      "unit": "digits",
+      "default": 4,
+      "businessContext": "Number of digits for hexadecimal output."
+    }
+  ],
+  "formulas": {
+    "binary": "(decimalValue >= 0 ? '' : '-') + Math.abs(decimalValue).toString(2).padStart(binaryBits, '0')",
+    "octal": "(decimalValue >= 0 ? '' : '-') + Math.abs(decimalValue).toString(8).padStart(octalDigits, '0')",
+    "hex": "(decimalValue >= 0 ? '' : '-') + Math.abs(decimalValue).toString(16).toUpperCase().padStart(hexDigits, '0')",
+    "decimal": "decimalValue.toString()"
+  },
+  "outputs": {
+    "primary": "binary",
+    "breakdown": [
+      "octal",
+      "hex",
+      "decimal"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

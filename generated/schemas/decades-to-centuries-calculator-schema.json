@@ -1,0 +1,75 @@
+{
+  "toolName": "decades-to-centuries-calculator",
+  "inputs": [
+    {
+      "id": "decades",
+      "label": "Süre (on yıl)",
+      "type": "number",
+      "unit": "on yıl",
+      "default": 1,
+      "businessContext": "Dönüştürülecek on yıl miktarı"
+    },
+    {
+      "id": "precision",
+      "label": "Hassasiyet (ondalık basamak)",
+      "type": "number",
+      "unit": "basamak",
+      "default": 3,
+      "businessContext": "Hesaplama sonucu ondalık basamak sayısı"
+    },
+    {
+      "id": "confidenceLevel",
+      "label": "Güven Aralığı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "İstatistiksel güven aralığı yüzdesi"
+    },
+    {
+      "id": "measurementError",
+      "label": "Ölçüm Hatası (on yıl)",
+      "type": "number",
+      "unit": "on yıl",
+      "default": 0.01,
+      "businessContext": "On yıl cinsinden ölçüm belirsizliği (±)"
+    },
+    {
+      "id": "roundingMethod",
+      "label": "Yuvarlama Metodu (0=round,1=floor,2=ceil)",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "0: yuvarla, 1: aşağı yuvarla, 2: yukarı yuvarla"
+    },
+    {
+      "id": "ambientTemp",
+      "label": "Ölçüm Sıcaklığı (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Ölçümün yapıldığı ortam sıcaklığı (izlenebilirlik için)"
+    }
+  ],
+  "formulas": {
+    "rawCenturies": "decades / 10",
+    "convertedCenturies": "roundingMethod == 0 ? Math.round(rawCenturies * Math.pow(10, precision)) / Math.pow(10, precision) : roundingMethod == 1 ? Math.floor(rawCenturies * Math.pow(10, precision)) / Math.pow(10, precision) : Math.ceil(rawCenturies * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "rawLower": "(decades - Math.abs(measurementError)) / 10",
+    "rawUpper": "(decades + Math.abs(measurementError)) / 10",
+    "lowerBound": "roundingMethod == 0 ? Math.round(rawLower * Math.pow(10, precision)) / Math.pow(10, precision) : roundingMethod == 1 ? Math.floor(rawLower * Math.pow(10, precision)) / Math.pow(10, precision) : Math.ceil(rawLower * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "upperBound": "roundingMethod == 0 ? Math.round(rawUpper * Math.pow(10, precision)) / Math.pow(10, precision) : roundingMethod == 1 ? Math.floor(rawUpper * Math.pow(10, precision)) / Math.pow(10, precision) : Math.ceil(rawUpper * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "convertedCenturies",
+    "breakdown": [
+      "rawCenturies",
+      "lowerBound",
+      "upperBound"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

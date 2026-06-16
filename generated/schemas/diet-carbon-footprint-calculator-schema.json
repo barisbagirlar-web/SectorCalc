@@ -1,0 +1,79 @@
+{
+  "toolName": "diet-carbon-footprint-calculator",
+  "inputs": [
+    {
+      "id": "meat",
+      "label": "Red Meat Consumption",
+      "type": "number",
+      "unit": "kg/week",
+      "default": 0.5,
+      "businessContext": "Beef, lamb, and pork have high carbon footprint due to methane emissions and land use. Input weekly consumption."
+    },
+    {
+      "id": "poultry",
+      "label": "Poultry Consumption",
+      "type": "number",
+      "unit": "kg/week",
+      "default": 0.5,
+      "businessContext": "Chicken, turkey, etc. have moderate carbon footprint compared to red meat."
+    },
+    {
+      "id": "dairy",
+      "label": "Dairy Consumption (Milk Equiv.)",
+      "type": "number",
+      "unit": "kg/week",
+      "default": 3,
+      "businessContext": "Includes milk, cheese, yogurt. Emissions from enteric fermentation, manure, and feed production."
+    },
+    {
+      "id": "plant",
+      "label": "Fruits & Vegetables",
+      "type": "number",
+      "unit": "kg/week",
+      "default": 5,
+      "businessContext": "Fresh produce has relatively low carbon footprint, but transport and refrigeration contribute."
+    },
+    {
+      "id": "grains",
+      "label": "Grains & Starches",
+      "type": "number",
+      "unit": "kg/week",
+      "default": 3,
+      "businessContext": "Wheat, rice, maize, etc. Staple foods with moderate emissions from cultivation and processing."
+    },
+    {
+      "id": "foodWaste",
+      "label": "Food Waste",
+      "type": "number",
+      "unit": "kg/week",
+      "default": 1,
+      "businessContext": "Edible food discarded. Embodies production emissions and generates methane in landfills."
+    }
+  ],
+  "formulas": {
+    "meatCO2": "meat * 25",
+    "poultryCO2": "poultry * 6",
+    "dairyCO2": "dairy * 1.5",
+    "plantCO2": "plant * 0.4",
+    "grainsCO2": "grains * 1.2",
+    "wasteCO2": "foodWaste * 2.5",
+    "totalWeeklyCO2": "meatCO2 + poultryCO2 + dairyCO2 + plantCO2 + grainsCO2 + wasteCO2"
+  },
+  "outputs": {
+    "primary": "totalWeeklyCO2",
+    "breakdown": [
+      "meatCO2",
+      "poultryCO2",
+      "dairyCO2",
+      "plantCO2",
+      "grainsCO2",
+      "wasteCO2"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

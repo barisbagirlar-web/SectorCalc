@@ -1,0 +1,80 @@
+{
+  "toolName": "expanded-form-calculator",
+  "inputs": [
+    {
+      "id": "labor",
+      "label": "Labor Cost",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "Direct labor cost in EUR"
+    },
+    {
+      "id": "material",
+      "label": "Material Cost",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "Direct material cost in EUR"
+    },
+    {
+      "id": "overhead",
+      "label": "Overhead Cost",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "Overhead cost allocated to the product"
+    },
+    {
+      "id": "discountPercent",
+      "label": "Discount Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Discount given on subtotal as percentage"
+    },
+    {
+      "id": "profitMargin",
+      "label": "Profit Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Desired profit margin as percentage of cost after discount"
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "businessContext": "Tax rate applied to taxable amount"
+    }
+  ],
+  "formulas": {
+    "subtotal": "labor + material + overhead",
+    "discountAmount": "subtotal * discountPercent / 100",
+    "costAfterDiscount": "subtotal - discountAmount",
+    "profitAmount": "costAfterDiscount * profitMargin / 100",
+    "taxableAmount": "costAfterDiscount + profitAmount",
+    "taxAmount": "taxableAmount * taxRate / 100",
+    "total": "taxableAmount + taxAmount"
+  },
+  "outputs": {
+    "primary": "total",
+    "breakdown": [
+      "Subtotal (Labor + Material + Overhead)",
+      "Discount",
+      "Cost After Discount",
+      "Profit",
+      "Taxable Amount",
+      "Tax",
+      "Total"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

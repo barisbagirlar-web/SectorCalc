@@ -1,0 +1,56 @@
+{
+  "toolName": "mixing-ratio-calculator",
+  "inputs": [
+    {
+      "id": "ratioA",
+      "label": "Part A",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Parts of component A in the mixing ratio"
+    },
+    {
+      "id": "ratioB",
+      "label": "Part B",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Parts of component B in the mixing ratio"
+    },
+    {
+      "id": "totalQuantity",
+      "label": "Total Mixture Quantity",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Desired total quantity of the mixture (e.g., in kg or L)"
+    },
+    {
+      "id": "wastePercent",
+      "label": "Waste Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Additional waste or overage percentage (0-100)"
+    }
+  ],
+  "formulas": {
+    "totalParts": "ratioA + ratioB",
+    "effectiveTotal": "totalQuantity * (1 + wastePercent / 100)",
+    "amountA": "effectiveTotal * ratioA / totalParts",
+    "amountB": "effectiveTotal * ratioB / totalParts"
+  },
+  "outputs": {
+    "primary": "amountA",
+    "breakdown": [
+      "amountA",
+      "amountB"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

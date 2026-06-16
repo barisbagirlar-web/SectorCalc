@@ -1,0 +1,67 @@
+{
+  "toolName": "loan-affordability-calculator",
+  "inputs": [
+    {
+      "id": "monthlyIncome",
+      "label": "Monthly Net Income",
+      "type": "number",
+      "unit": "EUR",
+      "default": 5000,
+      "businessContext": "Total monthly net income of the borrower after taxes."
+    },
+    {
+      "id": "monthlyExpenses",
+      "label": "Monthly Expenses",
+      "type": "number",
+      "unit": "EUR",
+      "default": 2000,
+      "businessContext": "Total monthly living expenses excluding any loan payments."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual nominal interest rate for the loan."
+    },
+    {
+      "id": "loanTermYears",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "The repayment period in years."
+    },
+    {
+      "id": "loanAmount",
+      "label": "Desired Loan Amount",
+      "type": "number",
+      "unit": "EUR",
+      "default": 200000,
+      "businessContext": "The total loan amount the borrower wishes to take."
+    }
+  ],
+  "formulas": {
+    "monthlyInterestRate": "annualInterestRate / 100 / 12",
+    "numberOfPayments": "loanTermYears * 12",
+    "monthlyPayment": "loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1)",
+    "netIncome": "monthlyIncome - monthlyExpenses",
+    "maxAffordableLoan": "netIncome * (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments)) / monthlyInterestRate",
+    "affordabilityRatio": "loanAmount / maxAffordableLoan"
+  },
+  "outputs": {
+    "primary": "affordabilityRatio",
+    "breakdown": [
+      "netIncome",
+      "monthlyPayment",
+      "maxAffordableLoan"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

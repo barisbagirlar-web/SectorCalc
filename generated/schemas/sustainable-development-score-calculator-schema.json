@@ -1,0 +1,69 @@
+{
+  "toolName": "sustainable-development-score-calculator",
+  "inputs": [
+    {
+      "id": "energyPerUnit",
+      "label": "Energy Consumption per Unit",
+      "type": "number",
+      "unit": "kWh/unit",
+      "default": 10,
+      "businessContext": "Total energy consumed per production unit"
+    },
+    {
+      "id": "waterPerUnit",
+      "label": "Water Consumption per Unit",
+      "type": "number",
+      "unit": "L/unit",
+      "default": 50,
+      "businessContext": "Total water usage per production unit"
+    },
+    {
+      "id": "wastePerUnit",
+      "label": "Waste Generation per Unit",
+      "type": "number",
+      "unit": "kg/unit",
+      "default": 2,
+      "businessContext": "Total waste produced per production unit"
+    },
+    {
+      "id": "renewablePct",
+      "label": "Renewable Energy Share",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Share of energy from renewable sources"
+    },
+    {
+      "id": "recycledPct",
+      "label": "Recycled Material Content",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Percentage of recycled materials used in production"
+    }
+  ],
+  "formulas": {
+    "sustainabilityScore": "Math.max(0, Math.min(100, ((1 - energyPerUnit / 50) * 100 + (1 - waterPerUnit / 100) * 100 + (1 - wastePerUnit / 5) * 100 + renewablePct + recycledPct) / 5))",
+    "energyScore": "Math.max(0, Math.min(100, (1 - energyPerUnit / 50) * 100))",
+    "waterScore": "Math.max(0, Math.min(100, (1 - waterPerUnit / 100) * 100))",
+    "wasteScore": "Math.max(0, Math.min(100, (1 - wastePerUnit / 5) * 100))",
+    "renewableScore": "Math.max(0, Math.min(100, renewablePct))",
+    "recycledScore": "Math.max(0, Math.min(100, recycledPct))"
+  },
+  "outputs": {
+    "primary": "sustainabilityScore",
+    "breakdown": [
+      "energyScore",
+      "waterScore",
+      "wasteScore",
+      "renewableScore",
+      "recycledScore"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

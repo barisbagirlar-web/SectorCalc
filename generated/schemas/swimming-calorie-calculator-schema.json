@@ -1,0 +1,55 @@
+{
+  "toolName": "swimming-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "The weight of the swimmer in kilograms"
+    },
+    {
+      "id": "durationMinutes",
+      "label": "Swimming Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 30,
+      "businessContext": "Total time spent swimming in minutes"
+    },
+    {
+      "id": "metValue",
+      "label": "MET Value",
+      "type": "number",
+      "unit": "MET",
+      "default": 8,
+      "businessContext": "Metabolic Equivalent of Task for swimming stroke (e.g., 6-10)"
+    },
+    {
+      "id": "calorieBurnRate",
+      "label": "Calorie Burn Rate Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Individual metabolism factor to adjust calorie burn (0.8-1.2, default 1)"
+    }
+  ],
+  "formulas": {
+    "totalCalories": "metValue * weight * (durationMinutes / 60) * calorieBurnRate",
+    "caloriesPerMinute": "totalCalories / durationMinutes",
+    "caloriesPerHour": "caloriesPerMinute * 60"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "caloriesPerMinute",
+      "caloriesPerHour"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

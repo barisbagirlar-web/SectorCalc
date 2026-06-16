@@ -1,0 +1,73 @@
+{
+  "toolName": "sofa-score-calculator",
+  "inputs": [
+    {
+      "id": "respScore",
+      "label": "Respiratory Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "SOFA respiratory component score (0-4 based on PaO2/FiO2 ratio)"
+    },
+    {
+      "id": "coagScore",
+      "label": "Coagulation Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "SOFA coagulation component score (0-4 based on platelet count)"
+    },
+    {
+      "id": "liverScore",
+      "label": "Liver Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "SOFA liver component score (0-4 based on bilirubin level)"
+    },
+    {
+      "id": "cvScore",
+      "label": "Cardiovascular Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "SOFA cardiovascular component score (0-4 based on mean arterial pressure and vasopressor dosage)"
+    },
+    {
+      "id": "cnsScore",
+      "label": "CNS Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "SOFA central nervous system score (0-4 based on Glasgow Coma Scale)"
+    },
+    {
+      "id": "renalScore",
+      "label": "Renal Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "SOFA renal component score (0-4 based on creatinine level or urine output)"
+    }
+  ],
+  "formulas": {
+    "totalSOFA": "respScore + coagScore + liverScore + cvScore + cnsScore + renalScore"
+  },
+  "outputs": {
+    "primary": "totalSOFA",
+    "breakdown": [
+      "respScore",
+      "coagScore",
+      "liverScore",
+      "cvScore",
+      "cnsScore",
+      "renalScore"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

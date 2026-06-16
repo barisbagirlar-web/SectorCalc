@@ -1,0 +1,54 @@
+{
+  "toolName": "long-term-care-insurance-calculator",
+  "inputs": [
+    {
+      "id": "dailyBenefit",
+      "label": "Daily Benefit Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 150,
+      "businessContext": "The amount paid per day of care"
+    },
+    {
+      "id": "benefitPeriodYears",
+      "label": "Benefit Period (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 3,
+      "businessContext": "Maximum number of years benefits are paid"
+    },
+    {
+      "id": "eliminationDays",
+      "label": "Elimination Period (Days)",
+      "type": "number",
+      "unit": "days",
+      "default": 90,
+      "businessContext": "Waiting period before benefits start"
+    },
+    {
+      "id": "inflationProtection",
+      "label": "Annual Inflation Protection",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "Yearly percentage increase in daily benefit (informative, not used in core calculation)"
+    }
+  ],
+  "formulas": {
+    "totalEligibleDays": "Math.max(0, (benefitPeriodYears * 365) - eliminationDays)",
+    "totalBenefit": "dailyBenefit * totalEligibleDays"
+  },
+  "outputs": {
+    "primary": "totalBenefit",
+    "breakdown": [
+      "totalEligibleDays",
+      "dailyBenefit"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

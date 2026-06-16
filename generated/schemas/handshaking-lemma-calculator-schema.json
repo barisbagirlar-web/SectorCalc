@@ -1,0 +1,71 @@
+{
+  "toolName": "handshaking-lemma-calculator",
+  "inputs": [
+    {
+      "id": "v1",
+      "label": "Vertex 1 Degree",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Degree of vertex 1 in the graph"
+    },
+    {
+      "id": "v2",
+      "label": "Vertex 2 Degree",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Degree of vertex 2 in the graph"
+    },
+    {
+      "id": "v3",
+      "label": "Vertex 3 Degree",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Degree of vertex 3 in the graph"
+    },
+    {
+      "id": "v4",
+      "label": "Vertex 4 Degree",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Degree of vertex 4 in the graph"
+    },
+    {
+      "id": "v5",
+      "label": "Vertex 5 Degree",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Degree of vertex 5 in the graph"
+    },
+    {
+      "id": "v6",
+      "label": "Vertex 6 Degree",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Degree of vertex 6 in the graph"
+    }
+  ],
+  "formulas": {
+    "sum": "v1 + v2 + v3 + v4 + v5 + v6",
+    "edges": "sum / 2",
+    "isValid": "sum % 2 === 0 ? 1 : 0"
+  },
+  "outputs": {
+    "primary": "edges",
+    "breakdown": [
+      "sum",
+      "isValid"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

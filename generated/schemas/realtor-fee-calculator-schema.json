@@ -1,0 +1,58 @@
+{
+  "toolName": "realtor-fee-calculator",
+  "inputs": [
+    {
+      "id": "salePrice",
+      "label": "Property Sale Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 300000,
+      "businessContext": "The total sale price of the property"
+    },
+    {
+      "id": "commissionRate",
+      "label": "Commission Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 6,
+      "businessContext": "The percentage commission charged by the realtor(s)"
+    },
+    {
+      "id": "additionalFixedFee",
+      "label": "Additional Fixed Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Any extra fixed costs (e.g., marketing, administration) added to the total fee"
+    },
+    {
+      "id": "splitRatio",
+      "label": "Agent Split Ratio",
+      "type": "number",
+      "unit": "decimal (0 to 1)",
+      "default": 0.5,
+      "businessContext": "Proportion of total fee going to Agent 1; (1-ratio) goes to Agent 2. Use 1 for a single agent."
+    }
+  ],
+  "formulas": {
+    "totalCommission": "salePrice * commissionRate / 100",
+    "totalFee": "totalCommission + additionalFixedFee",
+    "agent1Fee": "totalFee * splitRatio",
+    "agent2Fee": "totalFee * (1 - splitRatio)"
+  },
+  "outputs": {
+    "primary": "totalFee",
+    "breakdown": [
+      "totalCommission",
+      "additionalFixedFee",
+      "agent1Fee",
+      "agent2Fee"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

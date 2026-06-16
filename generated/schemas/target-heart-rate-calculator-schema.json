@@ -1,0 +1,56 @@
+{
+  "toolName": "target-heart-rate-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "User's age in years"
+    },
+    {
+      "id": "restingHeartRate",
+      "label": "Resting Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 70,
+      "businessContext": "User's resting heart rate in beats per minute"
+    },
+    {
+      "id": "intensityMin",
+      "label": "Minimum Intensity",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Lower bound of desired training intensity as a percentage"
+    },
+    {
+      "id": "intensityMax",
+      "label": "Maximum Intensity",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Upper bound of desired training intensity as a percentage"
+    }
+  ],
+  "formulas": {
+    "maxHeartRate": "220 - age",
+    "heartRateReserve": "maxHeartRate - restingHeartRate",
+    "targetMin": "heartRateReserve * (intensityMin / 100) + restingHeartRate",
+    "targetMax": "heartRateReserve * (intensityMax / 100) + restingHeartRate"
+  },
+  "outputs": {
+    "primary": "Your target heart rate zone is {targetMin} – {targetMax} bpm",
+    "breakdown": [
+      "Maximum Heart Rate: {maxHeartRate} bpm",
+      "Heart Rate Reserve: {heartRateReserve} bpm"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

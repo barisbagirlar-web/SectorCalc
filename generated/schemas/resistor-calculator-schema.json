@@ -1,0 +1,63 @@
+{
+  "toolName": "resistor-calculator",
+  "inputs": [
+    {
+      "id": "r1",
+      "label": "Resistor 1 (Ω)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 0,
+      "businessContext": "First resistor value in ohms"
+    },
+    {
+      "id": "r2",
+      "label": "Resistor 2 (Ω)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 0,
+      "businessContext": "Second resistor value in ohms"
+    },
+    {
+      "id": "r3",
+      "label": "Resistor 3 (Ω)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 0,
+      "businessContext": "Third resistor value in ohms"
+    },
+    {
+      "id": "r4",
+      "label": "Resistor 4 (Ω)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 0,
+      "businessContext": "Fourth resistor value in ohms"
+    },
+    {
+      "id": "connection",
+      "label": "Connection Type (1=Series, 2=Parallel)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Select series (1) or parallel (2) connection"
+    }
+  ],
+  "formulas": {
+    "seriesEquivalent": "r1 + r2 + r3 + r4",
+    "parallelEquivalent": "(r1 === 0 || r2 === 0 || r3 === 0 || r4 === 0) ? 0 : 1 / (1/r1 + 1/r2 + 1/r3 + 1/r4)",
+    "totalResistance": "connection === 1 ? r1 + r2 + r3 + r4 : ((r1 === 0 || r2 === 0 || r3 === 0 || r4 === 0) ? 0 : 1 / (1/r1 + 1/r2 + 1/r3 + 1/r4))"
+  },
+  "outputs": {
+    "primary": "totalResistance",
+    "breakdown": [
+      "seriesEquivalent",
+      "parallelEquivalent"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

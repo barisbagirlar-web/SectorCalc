@@ -1,0 +1,54 @@
+{
+  "toolName": "sum-of-years-digits-depreciation-calculator",
+  "inputs": [
+    {
+      "id": "cost",
+      "label": "Asset Cost",
+      "type": "number",
+      "unit": "$",
+      "default": 10000,
+      "businessContext": "Initial purchase price of the asset"
+    },
+    {
+      "id": "salvageValue",
+      "label": "Salvage Value",
+      "type": "number",
+      "unit": "$",
+      "default": 1000,
+      "businessContext": "Estimated residual value at end of useful life"
+    },
+    {
+      "id": "usefulLife",
+      "label": "Useful Life",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Total expected lifespan of the asset in years"
+    },
+    {
+      "id": "year",
+      "label": "Year of Depreciation",
+      "type": "number",
+      "unit": "year number",
+      "default": 1,
+      "businessContext": "The specific year for which depreciation expense is calculated (1-indexed)"
+    }
+  ],
+  "formulas": {
+    "depreciation": "(cost - salvageValue) * (usefulLife - year + 1) / (usefulLife * (usefulLife + 1) / 2)",
+    "bookValueEnd": "cost - (cost - salvageValue) * (year * (2 * usefulLife - year + 1) / 2) / (usefulLife * (usefulLife + 1) / 2)"
+  },
+  "outputs": {
+    "primary": "depreciation",
+    "breakdown": [
+      "depreciation",
+      "bookValueEnd"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

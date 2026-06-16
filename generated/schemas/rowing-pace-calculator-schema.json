@@ -1,0 +1,58 @@
+{
+  "toolName": "rowing-pace-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 2000,
+      "businessContext": "Distance rowed in meters"
+    },
+    {
+      "id": "time_minutes",
+      "label": "Time (minutes)",
+      "type": "number",
+      "unit": "min",
+      "default": 0,
+      "businessContext": "Minutes part of total time"
+    },
+    {
+      "id": "time_seconds",
+      "label": "Time (seconds)",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Seconds part of total time"
+    },
+    {
+      "id": "target_distance",
+      "label": "Target Distance (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 2000,
+      "businessContext": "Target distance for time projection"
+    }
+  ],
+  "formulas": {
+    "total_time_seconds": "time_minutes * 60 + time_seconds",
+    "pace_500m_seconds": "total_time_seconds * 500 / distance",
+    "projected_time_seconds": "pace_500m_seconds * target_distance / 500",
+    "speed_ms": "distance / total_time_seconds",
+    "speed_kmh": "speed_ms * 3.6"
+  },
+  "outputs": {
+    "primary": "pace_500m_seconds",
+    "breakdown": [
+      "projected_time_seconds",
+      "speed_ms",
+      "speed_kmh"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

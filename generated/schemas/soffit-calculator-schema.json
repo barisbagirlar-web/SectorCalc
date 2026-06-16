@@ -1,0 +1,67 @@
+{
+  "toolName": "soffit-calculator",
+  "inputs": [
+    {
+      "id": "runLength",
+      "label": "Length of Eaves",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Total linear length of eaves where soffit will be installed"
+    },
+    {
+      "id": "overhangWidth",
+      "label": "Overhang Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Depth from fascia to wall (soffit width)"
+    },
+    {
+      "id": "panelLength",
+      "label": "Panel Length",
+      "type": "number",
+      "unit": "m",
+      "default": 2.44,
+      "businessContext": "Length of a single soffit panel"
+    },
+    {
+      "id": "panelWidth",
+      "label": "Panel Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "businessContext": "Width of a single soffit panel (visible face)"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Additional percentage for cuts and material waste"
+    }
+  ],
+  "formulas": {
+    "total_area": "runLength * overhangWidth",
+    "area_with_waste": "runLength * overhangWidth * (1 + wasteFactor / 100)",
+    "panels_exact": "(runLength * overhangWidth * (1 + wasteFactor / 100)) / (panelLength * panelWidth)",
+    "panels_rounded_up": "Math.ceil((runLength * overhangWidth * (1 + wasteFactor / 100)) / (panelLength * panelWidth))",
+    "total_panels": "Math.ceil((runLength * overhangWidth * (1 + wasteFactor / 100)) / (panelLength * panelWidth))"
+  },
+  "outputs": {
+    "primary": "total_panels",
+    "breakdown": [
+      "total_area",
+      "area_with_waste",
+      "panels_exact",
+      "panels_rounded_up"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

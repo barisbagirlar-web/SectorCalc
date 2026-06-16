@@ -1,0 +1,55 @@
+{
+  "toolName": "velocity-calculator",
+  "inputs": [
+    {
+      "id": "initialVelocity",
+      "label": "Initial Velocity (u)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Starting velocity of the object"
+    },
+    {
+      "id": "acceleration",
+      "label": "Acceleration (a)",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 0,
+      "businessContext": "Constant acceleration applied"
+    },
+    {
+      "id": "time",
+      "label": "Time (t)",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Time interval for the motion"
+    },
+    {
+      "id": "distance",
+      "label": "Distance (s)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Optional: known distance traveled, for comparison with calculated value"
+    }
+  ],
+  "formulas": {
+    "finalVelocity": "initialVelocity + acceleration * time",
+    "distanceTravelled": "initialVelocity * time + 0.5 * acceleration * time ** 2",
+    "averageVelocity": "initialVelocity + 0.5 * acceleration * time"
+  },
+  "outputs": {
+    "primary": "finalVelocity",
+    "breakdown": [
+      "distanceTravelled",
+      "averageVelocity"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

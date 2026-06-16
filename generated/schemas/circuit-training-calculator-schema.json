@@ -1,0 +1,55 @@
+{
+  "toolName": "circuit-training-calculator",
+  "inputs": [
+    {
+      "id": "sourceVoltage",
+      "label": "Source Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 12,
+      "businessContext": "Source voltage in volts"
+    },
+    {
+      "id": "resistor1",
+      "label": "Resistor 1",
+      "type": "number",
+      "unit": "Ω",
+      "default": 100,
+      "businessContext": "Resistance 1 in ohms"
+    },
+    {
+      "id": "resistor2",
+      "label": "Resistor 2",
+      "type": "number",
+      "unit": "Ω",
+      "default": 200,
+      "businessContext": "Resistance 2 in ohms"
+    },
+    {
+      "id": "connectionType",
+      "label": "Connection Type",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 = Series, 2 = Parallel"
+    }
+  ],
+  "formulas": {
+    "totalResistance": "connectionType === 1 ? resistor1 + resistor2 : 1 / (1 / resistor1 + 1 / resistor2)",
+    "totalCurrent": "sourceVoltage / totalResistance",
+    "totalPower": "sourceVoltage * totalCurrent"
+  },
+  "outputs": {
+    "primary": "Total Current (A)",
+    "breakdown": [
+      "Total Resistance (Ω)",
+      "Total Power (W)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "light-years-to-km-calculator",
+  "inputs": [
+    {
+      "id": "lightYears",
+      "label": "Distance in Light-Years",
+      "type": "number",
+      "unit": "ly",
+      "default": 1,
+      "businessContext": "Astronomical distance input"
+    },
+    {
+      "id": "significantDigits",
+      "label": "Significant Digits",
+      "type": "number",
+      "unit": "count",
+      "default": 6,
+      "businessContext": "Precision for output formatting"
+    },
+    {
+      "id": "outputFormat",
+      "label": "Output Format",
+      "type": "number",
+      "unit": "toggle",
+      "default": 0,
+      "businessContext": "0 = standard, 1 = scientific notation"
+    },
+    {
+      "id": "roundingMode",
+      "label": "Rounding Mode",
+      "type": "number",
+      "unit": "mode",
+      "default": 0,
+      "businessContext": "0 = half-up, 1 = floor, 2 = ceiling"
+    }
+  ],
+  "formulas": {
+    "kmRaw": "lightYears * 9.461e12",
+    "kmRounded": "(roundingMode === 0) ? Math.round(kmRaw * Math.pow(10, significantDigits - Math.floor(Math.log10(Math.abs(kmRaw))) - 1)) / Math.pow(10, significantDigits - Math.floor(Math.log10(Math.abs(kmRaw))) - 1) : (roundingMode === 1) ? Math.floor(kmRaw * Math.pow(10, significantDigits - Math.floor(Math.log10(Math.abs(kmRaw))) - 1)) / Math.pow(10, significantDigits - Math.floor(Math.log10(Math.abs(kmRaw))) - 1) : Math.ceil(kmRaw * Math.pow(10, significantDigits - Math.floor(Math.log10(Math.abs(kmRaw))) - 1)) / Math.pow(10, significantDigits - Math.floor(Math.log10(Math.abs(kmRaw))) - 1)",
+    "outputValue": "outputFormat === 0 ? kmRounded : kmRounded.toExponential(significantDigits - 1)"
+  },
+  "outputs": {
+    "primary": "outputValue",
+    "breakdown": [
+      "kmRaw",
+      "kmRounded"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

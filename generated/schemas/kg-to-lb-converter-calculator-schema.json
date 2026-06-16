@@ -1,0 +1,308 @@
+{
+  "slug": "kg-to-lb-converter",
+  "name": "Kilograms to Pounds Converter",
+  "description": "Industrial-grade mass conversion tool with precision validation, loss analysis, and confidence-adjusted outputs compliant with ISO 80000-1 and WERC standards.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis"
+  ],
+  "inputs": [
+    {
+      "id": "mass_kg",
+      "label": "Mass in Kilograms",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Input mass value in kilograms for conversion to pounds. Used in logistics, manufacturing, and trade.",
+      "label_i18n": {
+        "en": "Mass in Kilograms"
+      },
+      "businessContext_i18n": {
+        "en": "Input mass value in kilograms for conversion to pounds. Used in logistics, manufacturing, and trade."
+      }
+    },
+    {
+      "id": "precision_level",
+      "label": "Precision Level",
+      "type": "select",
+      "unit": "decimal places",
+      "default": "2",
+      "min": 0,
+      "max": 6,
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "businessContext": "Select number of decimal places for output rounding, per ISO 80000-1 rounding rules.",
+      "label_i18n": {
+        "en": "Precision Level"
+      },
+      "businessContext_i18n": {
+        "en": "Select number of decimal places for output rounding, per ISO 80000-1 rounding rules."
+      }
+    },
+    {
+      "id": "use_industry_rounding",
+      "label": "Use Industry Rounding (WERC)",
+      "type": "boolean",
+      "unit": "boolean",
+      "default": true,
+      "min": null,
+      "max": null,
+      "businessContext": "Apply WERC standard rounding (0.5 up) for trade compliance.",
+      "label_i18n": {
+        "en": "Use Industry Rounding (WERC)"
+      },
+      "businessContext_i18n": {
+        "en": "Apply WERC standard rounding (0.5 up) for trade compliance."
+      }
+    },
+    {
+      "id": "measurement_uncertainty",
+      "label": "Measurement Uncertainty (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Estimated uncertainty in the input measurement, used for confidence adjustment (ISO/IEC Guide 98-3).",
+      "label_i18n": {
+        "en": "Measurement Uncertainty (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated uncertainty in the input measurement, used for confidence adjustment (ISO/IEC Guide 98-3)."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "mass_non_negative",
+        "condition": "mass_kg >= 0",
+        "message": "Mass must be non-negative."
+      },
+      {
+        "id": "mass_max_limit",
+        "condition": "mass_kg <= 1000000",
+        "message": "Mass exceeds maximum allowed value (1,000,000 kg)."
+      },
+      {
+        "id": "uncertainty_range",
+        "condition": "measurement_uncertainty >= 0 AND measurement_uncertainty <= 10",
+        "message": "Measurement uncertainty must be between 0% and 10%."
+      },
+      {
+        "id": "precision_integer",
+        "condition": "precision_level IN [0,1,2,3,4,5,6]",
+        "message": "Precision level must be an integer from 0 to 6."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_mass_alert",
+        "condition": "mass_kg > 50000",
+        "severity": "warning",
+        "message": "Mass exceeds 50,000 kg; verify handling capacity."
+      },
+      {
+        "id": "high_uncertainty_alert",
+        "condition": "measurement_uncertainty > 5",
+        "severity": "critical",
+        "message": "Measurement uncertainty >5%; results may be unreliable."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "raw_conversion",
+      "name": "Raw Conversion (kg to lb)",
+      "description": "Standard conversion factor: 1 kg = 2.20462262185 lb (ISO 80000-1).",
+      "equation": "raw_lb = mass_kg * 2.20462262185",
+      "inputs": [
+        "mass_kg"
+      ],
+      "output": "raw_lb"
+    },
+    {
+      "id": "rounding_application",
+      "name": "Rounding Application",
+      "description": "Apply rounding based on precision level and industry standard.",
+      "equation": "IF use_industry_rounding THEN rounded_lb = ROUND_HALF_UP(raw_lb, precision_level) ELSE rounded_lb = ROUND_HALF_EVEN(raw_lb, precision_level)",
+      "inputs": [
+        "raw_lb",
+        "precision_level",
+        "use_industry_rounding"
+      ],
+      "output": "rounded_lb"
+    },
+    {
+      "id": "uncertainty_adjustment",
+      "name": "Uncertainty Adjustment",
+      "description": "Adjust output for measurement uncertainty (coverage factor k=2 for 95% confidence).",
+      "equation": "uncertainty_lb = rounded_lb * (measurement_uncertainty / 100) * 2",
+      "inputs": [
+        "rounded_lb",
+        "measurement_uncertainty"
+      ],
+      "output": "uncertainty_lb"
+    },
+    {
+      "id": "confidence_interval_lower",
+      "name": "Lower Confidence Bound",
+      "description": "Lower bound of 95% confidence interval.",
+      "equation": "lower_bound_lb = rounded_lb - uncertainty_lb",
+      "inputs": [
+        "rounded_lb",
+        "uncertainty_lb"
+      ],
+      "output": "lower_bound_lb"
+    },
+    {
+      "id": "confidence_interval_upper",
+      "name": "Upper Confidence Bound",
+      "description": "Upper bound of 95% confidence interval.",
+      "equation": "upper_bound_lb = rounded_lb + uncertainty_lb",
+      "inputs": [
+        "rounded_lb",
+        "uncertainty_lb"
+      ],
+      "output": "upper_bound_lb"
+    },
+    {
+      "id": "data_confidence_score",
+      "name": "Data Confidence Score",
+      "description": "Normalized confidence score (0-1) based on uncertainty.",
+      "equation": "confidence_score = MAX(0, 1 - (measurement_uncertainty / 10))",
+      "inputs": [
+        "measurement_uncertainty"
+      ],
+      "output": "confidence_score"
+    },
+    {
+      "id": "primary_result",
+      "name": "Primary Result (Adjusted Mass in lb)",
+      "description": "Final output: rounded value with confidence adjustment factor applied for conservative estimate.",
+      "equation": "primary_lb = rounded_lb * (1 - (measurement_uncertainty / 100))",
+      "inputs": [
+        "rounded_lb",
+        "measurement_uncertainty"
+      ],
+      "output": "primary_lb"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "primary_lb",
+      "label": "Adjusted Mass (lb)",
+      "unit": "lb",
+      "description": "Primary converted mass in pounds, adjusted for measurement uncertainty (conservative estimate).",
+      "value": null
+    },
+    "breakdown": {
+      "id": "breakdown",
+      "label": "Conversion Breakdown",
+      "description": "Detailed component values of the conversion process.",
+      "components": {
+        "raw_lb": {
+          "label": "Raw Pounds",
+          "unit": "lb",
+          "description": "Unrounded conversion result.",
+          "value": null
+        },
+        "rounded_lb": {
+          "label": "Rounded Pounds",
+          "unit": "lb",
+          "description": "Rounded conversion result per selected precision.",
+          "value": null
+        },
+        "uncertainty_lb": {
+          "label": "Uncertainty Margin (95% CI)",
+          "unit": "lb",
+          "description": "Half-width of 95% confidence interval.",
+          "value": null
+        },
+        "lower_bound_lb": {
+          "label": "Lower Bound (95% CI)",
+          "unit": "lb",
+          "description": "Lower confidence bound.",
+          "value": null
+        },
+        "upper_bound_lb": {
+          "label": "Upper Bound (95% CI)",
+          "unit": "lb",
+          "description": "Upper confidence bound.",
+          "value": null
+        },
+        "confidence_score": {
+          "label": "Data Confidence Score",
+          "unit": "0-1",
+          "description": "Normalized confidence score based on uncertainty.",
+          "value": null
+        }
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "rounding_loss",
+        "label": "Rounding Loss",
+        "description": "Difference between raw and rounded value due to precision truncation.",
+        "value": null,
+        "unit": "lb"
+      },
+      {
+        "id": "uncertainty_loss",
+        "label": "Uncertainty Loss",
+        "description": "Reduction applied to primary result due to measurement uncertainty.",
+        "value": null,
+        "unit": "lb"
+      },
+      {
+        "id": "non_compliance_risk",
+        "label": "Non-Compliance Risk",
+        "description": "Potential discrepancy if industry rounding is not used (WERC standard).",
+        "value": null,
+        "unit": "lb"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_verify_mass",
+        "label": "Verify Input Mass",
+        "description": "If mass > 50,000 kg, confirm with calibrated scale (ISO 17025).",
+        "priority": "high"
+      },
+      {
+        "id": "action_reduce_uncertainty",
+        "label": "Reduce Measurement Uncertainty",
+        "description": "If uncertainty > 5%, recalibrate equipment or use multiple measurements.",
+        "priority": "medium"
+      },
+      {
+        "id": "action_use_industry_rounding",
+        "label": "Enable Industry Rounding",
+        "description": "For trade compliance, ensure WERC rounding is active.",
+        "priority": "low"
+      },
+      {
+        "id": "action_export_report",
+        "label": "Export Full Report",
+        "description": "Use premium feature to export PDF/CSV for audit trail.",
+        "priority": "optional"
+      }
+    ],
+    "dataConfidenceAdjusted": null
+  },
+  "toolName": "kg-to-lb-converter-calculator",
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "suds-calculator",
+  "inputs": [
+    {
+      "id": "catchmentArea",
+      "label": "Catchment Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 1000,
+      "businessContext": "Total impervious area draining to the SUDS feature."
+    },
+    {
+      "id": "rainfallIntensity",
+      "label": "Design Rainfall Intensity",
+      "type": "number",
+      "unit": "mm/hr",
+      "default": 50,
+      "businessContext": "Intensity for the design storm event, typically from IDF curves."
+    },
+    {
+      "id": "runoffCoefficient",
+      "label": "Runoff Coefficient",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.9,
+      "businessContext": "Ratio of runoff to rainfall, based on surface type."
+    },
+    {
+      "id": "stormDuration",
+      "label": "Storm Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 60,
+      "businessContext": "Duration of the design storm event."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.2,
+      "businessContext": "Factor of safety to account for uncertainties."
+    }
+  ],
+  "formulas": {
+    "durationHours": "stormDuration / 60",
+    "rainfallDepthM": "(rainfallIntensity * durationHours) / 1000",
+    "runoffVolume": "catchmentArea * rainfallDepthM * runoffCoefficient",
+    "requiredStorage": "runoffVolume * safetyFactor"
+  },
+  "outputs": {
+    "primary": "requiredStorage",
+    "breakdown": [
+      "runoffVolume",
+      "rainfallDepthM",
+      "durationHours"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

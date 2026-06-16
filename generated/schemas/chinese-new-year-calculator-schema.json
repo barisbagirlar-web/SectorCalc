@@ -1,0 +1,71 @@
+{
+  "toolName": "chinese-new-year-calculator",
+  "inputs": [
+    {
+      "id": "baseSalary",
+      "label": "Base Salary",
+      "type": "number",
+      "unit": "currency",
+      "default": 50000,
+      "businessContext": "Monthly base salary of the employee"
+    },
+    {
+      "id": "bonusMonths",
+      "label": "Bonus Months",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of months' salary as Chinese New Year bonus (typically 1)"
+    },
+    {
+      "id": "yearsOfService",
+      "label": "Years of Service",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Total years of service for loyalty bonus calculation"
+    },
+    {
+      "id": "dependents",
+      "label": "Dependents",
+      "type": "number",
+      "unit": "persons",
+      "default": 0,
+      "businessContext": "Number of dependents for family allowance bonus"
+    },
+    {
+      "id": "overtimeHours",
+      "label": "Overtime Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 0,
+      "businessContext": "Overtime hours worked in the bonus period"
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "/",
+      "default": 0.2,
+      "businessContext": "Applicable tax rate as a decimal (e.g., 0.2 for 20%)"
+    }
+  ],
+  "formulas": {
+    "grossBonus": "baseSalary * bonusMonths + yearsOfService * 500 + dependents * 300 + overtimeHours * 30",
+    "taxAmount": "grossBonus * taxRate",
+    "netBonus": "grossBonus - taxAmount"
+  },
+  "outputs": {
+    "primary": "netBonus",
+    "breakdown": [
+      "grossBonus",
+      "taxAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

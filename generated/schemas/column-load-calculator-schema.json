@@ -1,0 +1,82 @@
+{
+  "toolName": "column-load-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Column Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 3000,
+      "businessContext": "Unbraced length of the column"
+    },
+    {
+      "id": "area",
+      "label": "Cross-sectional Area",
+      "type": "number",
+      "unit": "mm²",
+      "default": 5000,
+      "businessContext": "Area of the column cross-section"
+    },
+    {
+      "id": "inertia",
+      "label": "Moment of Inertia",
+      "type": "number",
+      "unit": "mm⁴",
+      "default": 1000000,
+      "businessContext": "Minimum moment of inertia about buckling axis"
+    },
+    {
+      "id": "elasticModulus",
+      "label": "Modulus of Elasticity",
+      "type": "number",
+      "unit": "GPa",
+      "default": 200,
+      "businessContext": "Young's modulus of the material"
+    },
+    {
+      "id": "yieldStrength",
+      "label": "Yield Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 250,
+      "businessContext": "Yield stress of the material"
+    },
+    {
+      "id": "effectiveLengthFactor",
+      "label": "Effective Length Factor K",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Effective length factor (e.g., 1.0 for pinned-pinned, 2.0 for fixed-free)"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Factor of safety for design load"
+    }
+  ],
+  "formulas": {
+    "radiusOfGyration": "Math.sqrt(inertia/area)",
+    "slendernessRatio": "(effectiveLengthFactor*length) / radiusOfGyration",
+    "criticalBucklingLoad": "(Math.PI**2 * elasticModulus * 1000 * inertia) / (effectiveLengthFactor*length)**2",
+    "yieldLoad": "area*yieldStrength",
+    "designLoad": "Math.min(yieldLoad, criticalBucklingLoad)/safetyFactor"
+  },
+  "outputs": {
+    "primary": "designLoad",
+    "breakdown": [
+      "criticalBucklingLoad",
+      "yieldLoad",
+      "slendernessRatio"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

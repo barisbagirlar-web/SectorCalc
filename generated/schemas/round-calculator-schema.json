@@ -1,0 +1,61 @@
+{
+  "toolName": "round-calculator",
+  "inputs": [
+    {
+      "id": "diameter",
+      "label": "Çap (Diameter)",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Yuvarlak çubuğun çapı"
+    },
+    {
+      "id": "length",
+      "label": "Uzunluk (Length)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "businessContext": "Yuvarlak çubuğun uzunluğu"
+    },
+    {
+      "id": "density",
+      "label": "Yoğunluk (Density)",
+      "type": "number",
+      "unit": "g/cm³",
+      "default": 7.85,
+      "businessContext": "Malzeme yoğunluğu (örn. çelik: 7.85 g/cm³)"
+    },
+    {
+      "id": "quantity",
+      "label": "Adet (Quantity)",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Çubuk sayısı"
+    }
+  ],
+  "formulas": {
+    "weightPerBar": "3.141592653589793 * diameter**2 * length * density / 4000000",
+    "volumePerBar": "3.141592653589793 * diameter**2 * length / 4000",
+    "surfaceAreaPerBar": "(3.141592653589793 * diameter**2 / 2 + 3.141592653589793 * diameter * length) / 100",
+    "totalWeight": "(3.141592653589793 * diameter**2 * length * density / 4000000) * quantity",
+    "totalVolume": "(3.141592653589793 * diameter**2 * length / 4000) * quantity",
+    "totalSurfaceArea": "((3.141592653589793 * diameter**2 / 2 + 3.141592653589793 * diameter * length) / 100) * quantity"
+  },
+  "outputs": {
+    "primary": "totalWeight",
+    "breakdown": [
+      "weightPerBar",
+      "volumePerBar",
+      "surfaceAreaPerBar",
+      "totalVolume",
+      "totalSurfaceArea"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,54 @@
+{
+  "toolName": "wells-pe-calculator",
+  "inputs": [
+    {
+      "id": "mudDensity",
+      "label": "Sondaj Çamur Yoğunluğu",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1200,
+      "businessContext": "Sondaj sıvısının statik yoğunluğu."
+    },
+    {
+      "id": "trueVerticalDepth",
+      "label": "Gerçek Dikey Derinlik (TVD)",
+      "type": "number",
+      "unit": "m",
+      "default": 1000,
+      "businessContext": "Kuyunun gerçek dikey derinliği."
+    },
+    {
+      "id": "annularPressureLoss",
+      "label": "Halka Boşluğu Basınç Kaybı",
+      "type": "number",
+      "unit": "Pa",
+      "default": 500000,
+      "businessContext": "Halka boşluğundaki sürtünme basınç kaybı."
+    },
+    {
+      "id": "gravity",
+      "label": "Yerçekimi İvmesi",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Standart yerçekimi ivmesi, genellikle 9.81 m/s²."
+    }
+  ],
+  "formulas": {
+    "ecd_kgm3": "mudDensity + annularPressureLoss / (gravity * trueVerticalDepth)",
+    "ecd_ppg": "(mudDensity + annularPressureLoss / (gravity * trueVerticalDepth)) * 0.0083454"
+  },
+  "outputs": {
+    "primary": "ecd_kgm3",
+    "breakdown": [
+      "ecd_kgm3",
+      "ecd_ppg"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,54 @@
+{
+  "toolName": "percentage-point-calculator",
+  "inputs": [
+    {
+      "id": "percentageA",
+      "label": "Percentage A",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "The first percentage value for comparison"
+    },
+    {
+      "id": "percentageB",
+      "label": "Percentage B",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "The second percentage value for comparison"
+    },
+    {
+      "id": "absolute",
+      "label": "Use Absolute Value",
+      "type": "number",
+      "unit": "binary (0=no, 1=yes)",
+      "default": 1,
+      "businessContext": "Set to 1 to calculate absolute difference, 0 for signed difference"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places in the result"
+    }
+  ],
+  "formulas": {
+    "difference": "(inputs.absolute === 1 ? Math.abs(inputs.percentageA - inputs.percentageB) : (inputs.percentageA - inputs.percentageB))",
+    "differenceRounded": "Math.round((inputs.absolute === 1 ? Math.abs(inputs.percentageA - inputs.percentageB) : (inputs.percentageA - inputs.percentageB)) * Math.pow(10, inputs.decimalPlaces)) / Math.pow(10, inputs.decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "differenceRounded",
+    "breakdown": [
+      "difference",
+      "differenceRounded"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

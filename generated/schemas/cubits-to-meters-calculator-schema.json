@@ -1,0 +1,55 @@
+{
+  "toolName": "cubits-to-meters-calculator",
+  "inputs": [
+    {
+      "id": "cubits",
+      "label": "Cubits",
+      "type": "number",
+      "unit": "cubit",
+      "default": 1,
+      "businessContext": "Enter the number of cubits to convert."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor (m per cubit)",
+      "type": "number",
+      "unit": "m/cubit",
+      "default": 0.4572,
+      "businessContext": "Standard conversion factor: 1 cubit = 0.4572 m. Adjust if using a different definition."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for display (affects breakdown rounding)."
+    },
+    {
+      "id": "roundingMethod",
+      "label": "Rounding Method",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0: standard (not implemented in formula; for future use), 1: floor, 2: ceil. Currently only raw value computed."
+    }
+  ],
+  "formulas": {
+    "rawMeters": "cubits * conversionFactor"
+  },
+  "outputs": {
+    "primary": "rawMeters",
+    "breakdown": [
+      "cubits",
+      "conversionFactor",
+      "decimalPlaces",
+      "roundingMethod"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

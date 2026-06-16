@@ -1,0 +1,59 @@
+{
+  "toolName": "mpa-to-psi-calculator",
+  "inputs": [
+    {
+      "id": "mpa1",
+      "label": "Pressure Reading 1",
+      "type": "number",
+      "unit": "MPa",
+      "default": 0,
+      "businessContext": "First pressure sensor reading in megapascals"
+    },
+    {
+      "id": "mpa2",
+      "label": "Pressure Reading 2",
+      "type": "number",
+      "unit": "MPa",
+      "default": 0,
+      "businessContext": "Second pressure sensor reading in megapascals"
+    },
+    {
+      "id": "mpa3",
+      "label": "Pressure Reading 3",
+      "type": "number",
+      "unit": "MPa",
+      "default": 0,
+      "businessContext": "Third pressure sensor reading in megapascals"
+    },
+    {
+      "id": "mpa4",
+      "label": "Pressure Reading 4",
+      "type": "number",
+      "unit": "MPa",
+      "default": 0,
+      "businessContext": "Fourth pressure sensor reading in megapascals"
+    }
+  ],
+  "formulas": {
+    "psi1": "mpa1 * 145.03773773",
+    "psi2": "mpa2 * 145.03773773",
+    "psi3": "mpa3 * 145.03773773",
+    "psi4": "mpa4 * 145.03773773",
+    "averagePSI": "(psi1 + psi2 + psi3 + psi4) / 4"
+  },
+  "outputs": {
+    "primary": "averagePSI",
+    "breakdown": [
+      "psi1",
+      "psi2",
+      "psi3",
+      "psi4"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,38 @@
+{
+  "toolName": "celsius-to-fahrenheit",
+  "inputs": [
+    {
+      "id": "celsius",
+      "label": "Celsius",
+      "type": "number",
+      "unit": "°C",
+      "default": 0,
+      "businessContext": "Temperature in Celsius scale"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "digits",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding"
+    }
+  ],
+  "formulas": {
+    "fahrenheit": "celsius * 9 / 5 + 32",
+    "roundedFahrenheit": "Math.round(fahrenheit * 10 ** precision) / 10 ** precision"
+  },
+  "outputs": {
+    "primary": "roundedFahrenheit",
+    "breakdown": [
+      "fahrenheit = celsius * 9 / 5 + 32",
+      "roundedFahrenheit = Math.round(fahrenheit * 10 ** precision) / 10 ** precision"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

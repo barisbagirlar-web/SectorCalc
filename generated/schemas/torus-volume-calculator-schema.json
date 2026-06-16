@@ -1,0 +1,55 @@
+{
+  "toolName": "torus-volume-calculator",
+  "inputs": [
+    {
+      "id": "majorRadius",
+      "label": "Büyük Yarıçap (R)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Torusun merkezinden tüp merkezine olan mesafe"
+    },
+    {
+      "id": "minorRadius",
+      "label": "Küçük Yarıçap (r)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Tüpün yarıçapı"
+    },
+    {
+      "id": "density",
+      "label": "Malzeme Yoğunluğu",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 0,
+      "businessContext": "Ağırlık hesabı için opsiyonel; 0 ise atlanır"
+    },
+    {
+      "id": "precision",
+      "label": "Ondalık Basamak",
+      "type": "number",
+      "unit": "adet",
+      "default": 2,
+      "businessContext": "Sonuçlarda gösterilecek ondalık basamak sayısı"
+    }
+  ],
+  "formulas": {
+    "volume": "Math.round(2 * Math.PI ** 2 * majorRadius * minorRadius ** 2 * 10**precision) / 10**precision",
+    "surfaceArea": "Math.round(4 * Math.PI ** 2 * majorRadius * minorRadius * 10**precision) / 10**precision",
+    "mass": "density > 0 ? Math.round(2 * Math.PI ** 2 * majorRadius * minorRadius ** 2 * density * 10**precision) / 10**precision : 0"
+  },
+  "outputs": {
+    "primary": "volume",
+    "breakdown": [
+      "surfaceArea",
+      "mass"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

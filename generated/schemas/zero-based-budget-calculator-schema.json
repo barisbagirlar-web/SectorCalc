@@ -1,0 +1,81 @@
+{
+  "toolName": "zero-based-budget-calculator",
+  "inputs": [
+    {
+      "id": "totalIncome",
+      "label": "Toplam Aylık Net Gelir",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Evinize giren tüm aylık net gelir (maaş, ek gelir, vb.)"
+    },
+    {
+      "id": "housing",
+      "label": "Barınma Giderleri",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Kira, mortgage, aidat, sigorta vb. toplamı"
+    },
+    {
+      "id": "food",
+      "label": "Gıda Giderleri",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Market alışverişi, dışarıda yemek, vb. aylık toplam"
+    },
+    {
+      "id": "transport",
+      "label": "Ulaşım Giderleri",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Yakıt, toplu taşıma, araç bakım vb."
+    },
+    {
+      "id": "savings",
+      "label": "Tasarruf & Yatırım",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Acil durum fonu, emeklilik, yatırım hesapları"
+    },
+    {
+      "id": "discretionary",
+      "label": "Kişisel Harcamalar",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Eğlence, abonelikler, giyim, hobiler vb."
+    }
+  ],
+  "formulas": {
+    "totalIncome": "totalIncome",
+    "totalExpenses": "housing + food + transport + savings + discretionary",
+    "balance": "totalIncome - (housing + food + transport + savings + discretionary)",
+    "housing": "housing",
+    "food": "food",
+    "transport": "transport",
+    "savings": "savings",
+    "discretionary": "discretionary"
+  },
+  "outputs": {
+    "primary": "balance",
+    "breakdown": [
+      "totalIncome",
+      "totalExpenses",
+      "housing",
+      "food",
+      "transport",
+      "savings",
+      "discretionary"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

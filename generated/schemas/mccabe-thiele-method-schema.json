@@ -1,0 +1,80 @@
+{
+  "toolName": "mccabe-thiele-method",
+  "inputs": [
+    {
+      "id": "xd",
+      "label": "Distillate mole fraction (xD)",
+      "type": "number",
+      "unit": "mol/mol",
+      "default": 0.95,
+      "businessContext": "Mole fraction of more volatile component in distillate"
+    },
+    {
+      "id": "xb",
+      "label": "Bottoms mole fraction (xB)",
+      "type": "number",
+      "unit": "mol/mol",
+      "default": 0.05,
+      "businessContext": "Mole fraction of more volatile component in bottoms"
+    },
+    {
+      "id": "xf",
+      "label": "Feed mole fraction (xF)",
+      "type": "number",
+      "unit": "mol/mol",
+      "default": 0.5,
+      "businessContext": "Mole fraction of more volatile component in feed"
+    },
+    {
+      "id": "r",
+      "label": "Reflux ratio (R)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.5,
+      "businessContext": "Ratio of liquid returned to column to distillate removed"
+    },
+    {
+      "id": "alpha",
+      "label": "Relative volatility (α)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 2.5,
+      "businessContext": "Relative volatility of more volatile component"
+    },
+    {
+      "id": "q",
+      "label": "Feed quality (q)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Fraction of feed that is liquid (1 for saturated liquid, 0 for saturated vapor)"
+    }
+  ],
+  "formulas": {
+    "nMin": "Math.log((xd*(1-xb))/(xb*(1-xd)))/Math.log(alpha)",
+    "rMin": "(xd - xf)/(xf - xb) * (1 - xb)/(1 - xd)",
+    "nActual": "(r - rMin)/(r + 1) * nMin + nMin",
+    "feedLineSlope": "q/(q-1)",
+    "feedLineIntercept": "xf/(1-q)",
+    "operatingLineSlope": "r/(r+1)",
+    "operatingLineIntercept": "xd/(r+1)"
+  },
+  "outputs": {
+    "primary": "nActual",
+    "breakdown": [
+      "nMin: Minimum number of theoretical stages",
+      "rMin: Minimum reflux ratio",
+      "nActual: Actual number of theoretical stages",
+      "feedLineSlope: Slope of feed line",
+      "feedLineIntercept: Intercept of feed line",
+      "operatingLineSlope: Slope of operating line (rectifying section)",
+      "operatingLineIntercept: Intercept of operating line (rectifying section)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

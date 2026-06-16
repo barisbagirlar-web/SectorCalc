@@ -1,0 +1,81 @@
+{
+  "toolName": "winsorized-mean-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "Data Point 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Measurement value"
+    },
+    {
+      "id": "x2",
+      "label": "Data Point 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Measurement value"
+    },
+    {
+      "id": "x3",
+      "label": "Data Point 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Measurement value"
+    },
+    {
+      "id": "x4",
+      "label": "Data Point 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Measurement value"
+    },
+    {
+      "id": "x5",
+      "label": "Data Point 5",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Measurement value"
+    },
+    {
+      "id": "x6",
+      "label": "Data Point 6",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Measurement value"
+    },
+    {
+      "id": "winPercent",
+      "label": "Winsorization Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage of extreme values to winsorize on each tail (0-50)"
+    }
+  ],
+  "formulas": {
+    "sorted": "[x1, x2, x3, x4, x5, x6].sort((a,b)=>a-b)",
+    "n": "sorted.length",
+    "k": "Math.floor(n * winPercent / 100)",
+    "winsorizedMean": "sorted.reduce((sum, val, i) => i < k ? sum + sorted[k] : (i >= n - k ? sum + sorted[n - k - 1] : sum + val), 0) / n",
+    "originalMean": "sorted.reduce((a,b)=>a+b,0)/n"
+  },
+  "outputs": {
+    "primary": "winsorizedMean",
+    "breakdown": [
+      "originalMean",
+      "k"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

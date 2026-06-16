@@ -1,0 +1,67 @@
+{
+  "toolName": "graph-coloring-calculator",
+  "inputs": [
+    {
+      "id": "measurement",
+      "label": "Measurement Value",
+      "type": "number",
+      "unit": "units",
+      "default": 10,
+      "businessContext": "Process measurement to evaluate"
+    },
+    {
+      "id": "target",
+      "label": "Target Value",
+      "type": "number",
+      "unit": "units",
+      "default": 10,
+      "businessContext": "Nominal target value"
+    },
+    {
+      "id": "lowerSpec",
+      "label": "Lower Specification Limit",
+      "type": "number",
+      "unit": "units",
+      "default": 8,
+      "businessContext": "Minimum acceptable value"
+    },
+    {
+      "id": "upperSpec",
+      "label": "Upper Specification Limit",
+      "type": "number",
+      "unit": "units",
+      "default": 12,
+      "businessContext": "Maximum acceptable value"
+    },
+    {
+      "id": "warningFraction",
+      "label": "Warning Zone Fraction",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Fraction of spec half-range defining green zone around target (0-1)"
+    }
+  ],
+  "formulas": {
+    "specHalfRange": "(upperSpec - lowerSpec) / 2",
+    "warningHalfWidth": "specHalfRange * warningFraction",
+    "isWithinSpec": "(measurement >= lowerSpec && measurement <= upperSpec) ? 1 : 0",
+    "isGood": "(measurement >= target - warningHalfWidth && measurement <= target + warningHalfWidth) ? 1 : 0",
+    "colorCode": "isWithinSpec ? (isGood ? 2 : 1) : 0",
+    "deviation": "measurement - target",
+    "percentDeviation": "((measurement - target) / specHalfRange) * 100"
+  },
+  "outputs": {
+    "primary": "colorCode",
+    "breakdown": [
+      "deviation",
+      "percentDeviation"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

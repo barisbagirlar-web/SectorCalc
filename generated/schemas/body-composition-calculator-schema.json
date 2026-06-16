@@ -1,0 +1,81 @@
+{
+  "toolName": "body-composition-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms (e.g., from scale measurement)."
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Body height in centimeters."
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age in years (for reference only; Navy formula does not use age)."
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "0 for female, 1 for male (required for U.S. Navy body fat formula)."
+    },
+    {
+      "id": "waist",
+      "label": "Waist Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 80,
+      "businessContext": "Waist circumference measured at the navel level (required for Navy formula)."
+    },
+    {
+      "id": "hip",
+      "label": "Hip Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 90,
+      "businessContext": "Hip circumference at the widest point (required for female Navy formula)."
+    },
+    {
+      "id": "neck",
+      "label": "Neck Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 38,
+      "businessContext": "Neck circumference measured just below the larynx (required for Navy formula)."
+    }
+  ],
+  "formulas": {
+    "bodyFatPercentage": "((gender === 1) ? (86.010 * Math.log(waist - neck)/Math.LN10 - 70.041 * Math.log(height)/Math.LN10 + 36.76) : (163.205 * Math.log(waist + hip - neck)/Math.LN10 - 97.684 * Math.log(height)/Math.LN10 - 78.387))",
+    "bmi": "weight / ((height/100) ** 2)",
+    "leanBodyMass": "weight * (1 - (((gender === 1) ? (86.010 * Math.log(waist - neck)/Math.LN10 - 70.041 * Math.log(height)/Math.LN10 + 36.76) : (163.205 * Math.log(waist + hip - neck)/Math.LN10 - 97.684 * Math.log(height)/Math.LN10 - 78.387)) / 100))",
+    "fatMass": "weight * (((gender === 1) ? (86.010 * Math.log(waist - neck)/Math.LN10 - 70.041 * Math.log(height)/Math.LN10 + 36.76) : (163.205 * Math.log(waist + hip - neck)/Math.LN10 - 97.684 * Math.log(height)/Math.LN10 - 78.387)) / 100)"
+  },
+  "outputs": {
+    "primary": "bodyFatPercentage",
+    "breakdown": [
+      "bmi",
+      "leanBodyMass",
+      "fatMass"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

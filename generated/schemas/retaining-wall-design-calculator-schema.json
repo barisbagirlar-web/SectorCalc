@@ -1,0 +1,78 @@
+{
+  "toolName": "retaining-wall-design-calculator",
+  "inputs": [
+    {
+      "id": "H",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Vertical height of the retaining wall from base to top."
+    },
+    {
+      "id": "gamma",
+      "label": "Soil Unit Weight",
+      "type": "number",
+      "unit": "kN/m³",
+      "default": 18,
+      "businessContext": "Unit weight of the backfill soil."
+    },
+    {
+      "id": "phi",
+      "label": "Angle of Internal Friction",
+      "type": "number",
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Effective angle of internal friction of the backfill soil."
+    },
+    {
+      "id": "q",
+      "label": "Surcharge Load",
+      "type": "number",
+      "unit": "kN/m²",
+      "default": 10,
+      "businessContext": "Uniform surcharge load on the backfill surface."
+    }
+  ],
+  "formulas": {
+    "ka": "Math.tan(Math.PI/4 - (phi * Math.PI/180)/2) ** 2",
+    "pa": "0.5 * ka * gamma * H * H",
+    "pq": "ka * q * H",
+    "ptotal": "pa + pq",
+    "M": "pa * (H/3) + pq * (H/2)"
+  },
+  "outputs": {
+    "primary": {
+      "id": "ptotal",
+      "label": "Total Lateral Force",
+      "unit": "kN/m",
+      "businessContext": "Total horizontal force acting on the wall per meter length."
+    },
+    "breakdown": [
+      {
+        "id": "pa",
+        "label": "Active Soil Force",
+        "unit": "kN/m",
+        "businessContext": "Horizontal force due to active earth pressure from soil."
+      },
+      {
+        "id": "pq",
+        "label": "Surcharge Force",
+        "unit": "kN/m",
+        "businessContext": "Horizontal force due to surcharge load."
+      },
+      {
+        "id": "M",
+        "label": "Overturning Moment at Base",
+        "unit": "kN·m/m",
+        "businessContext": "Resultant overturning moment about the base of the wall per meter length."
+      }
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

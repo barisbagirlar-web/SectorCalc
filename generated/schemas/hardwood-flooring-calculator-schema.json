@@ -1,0 +1,75 @@
+{
+  "toolName": "hardwood-flooring-calculator",
+  "inputs": [
+    {
+      "id": "roomLength",
+      "label": "Room Length",
+      "type": "number",
+      "unit": "ft",
+      "default": 15,
+      "businessContext": "Length of the room in feet"
+    },
+    {
+      "id": "roomWidth",
+      "label": "Room Width",
+      "type": "number",
+      "unit": "ft",
+      "default": 12,
+      "businessContext": "Width of the room in feet"
+    },
+    {
+      "id": "plankLength",
+      "label": "Plank Length",
+      "type": "number",
+      "unit": "in",
+      "default": 48,
+      "businessContext": "Length of a single hardwood plank in inches"
+    },
+    {
+      "id": "plankWidth",
+      "label": "Plank Width",
+      "type": "number",
+      "unit": "in",
+      "default": 6,
+      "businessContext": "Width of a single hardwood plank in inches"
+    },
+    {
+      "id": "pricePerSqFt",
+      "label": "Price per Square Foot",
+      "type": "number",
+      "unit": "USD/sqft",
+      "default": 5,
+      "businessContext": "Cost of hardwood flooring per square foot in USD"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage of extra material to account for cuts and waste"
+    }
+  ],
+  "formulas": {
+    "roomArea": "roomLength * roomWidth",
+    "plankAreaSqFt": "(plankLength * plankWidth) / 144",
+    "totalPlanks": "Math.ceil(roomArea * (1 + wasteFactor / 100) / plankAreaSqFt)",
+    "totalMaterialArea": "totalPlanks * plankAreaSqFt",
+    "totalCost": "totalMaterialArea * pricePerSqFt"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "roomArea",
+      "totalMaterialArea",
+      "totalPlanks",
+      "totalCost"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

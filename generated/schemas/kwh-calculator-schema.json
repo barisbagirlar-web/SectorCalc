@@ -1,0 +1,67 @@
+{
+  "toolName": "kwh-calculator",
+  "inputs": [
+    {
+      "id": "powerRating",
+      "label": "Power Rating",
+      "type": "number",
+      "unit": "W",
+      "default": 1000,
+      "businessContext": "Rated power consumption of a single device in watts."
+    },
+    {
+      "id": "numberOfDevices",
+      "label": "Number of Devices",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of identical devices operating concurrently."
+    },
+    {
+      "id": "usageHoursPerDay",
+      "label": "Usage Hours per Day",
+      "type": "number",
+      "unit": "h/day",
+      "default": 8,
+      "businessContext": "Average daily operating hours of the device(s)."
+    },
+    {
+      "id": "daysPerMonth",
+      "label": "Days per Month",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Number of operating days per month, typically 30 for estimation."
+    },
+    {
+      "id": "electricityRate",
+      "label": "Electricity Rate",
+      "type": "number",
+      "unit": "€/kWh",
+      "default": 0.15,
+      "businessContext": "Cost per kilowatt-hour in euros (adjust to local currency)."
+    }
+  ],
+  "formulas": {
+    "dailyEnergyKWh": "(powerRating * numberOfDevices * usageHoursPerDay) / 1000",
+    "monthlyEnergyKWh": "dailyEnergyKWh * daysPerMonth",
+    "yearlyEnergyKWh": "dailyEnergyKWh * 365",
+    "monthlyCost": "monthlyEnergyKWh * electricityRate",
+    "yearlyCost": "yearlyEnergyKWh * electricityRate"
+  },
+  "outputs": {
+    "primary": "monthlyEnergyKWh",
+    "breakdown": [
+      "dailyEnergyKWh",
+      "monthlyCost",
+      "yearlyEnergyKWh",
+      "yearlyCost"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

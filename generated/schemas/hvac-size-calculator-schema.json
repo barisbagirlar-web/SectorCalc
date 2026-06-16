@@ -1,0 +1,79 @@
+{
+  "toolName": "hvac-size-calculator",
+  "inputs": [
+    {
+      "id": "room_area",
+      "label": "Room Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 20,
+      "businessContext": "Total floor area of the room to be conditioned"
+    },
+    {
+      "id": "ceiling_height",
+      "label": "Ceiling Height",
+      "type": "number",
+      "unit": "m",
+      "default": 2.5,
+      "businessContext": "Average ceiling height of the room"
+    },
+    {
+      "id": "number_of_occupants",
+      "label": "Number of Occupants",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Maximum number of people typically present in the room"
+    },
+    {
+      "id": "window_area",
+      "label": "Window Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 5,
+      "businessContext": "Total glazed area of windows and external doors"
+    },
+    {
+      "id": "insulation_factor",
+      "label": "Insulation Quality",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Insulation level: 1=Good, 2=Average, 3=Poor"
+    },
+    {
+      "id": "outdoor_temperature",
+      "label": "Outdoor Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 35,
+      "businessContext": "Design outdoor air temperature (summer peak)"
+    },
+    {
+      "id": "indoor_temperature",
+      "label": "Indoor Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 24,
+      "businessContext": "Desired indoor set-point temperature"
+    }
+  ],
+  "formulas": {
+    "sensible_heat_gain_kw": "(room_area * ceiling_height * (outdoor_temperature - indoor_temperature) * insulation_factor * 0.1 + window_area * (outdoor_temperature - indoor_temperature) * 5 + number_of_occupants * 75 + room_area * 10) / 1000",
+    "latent_heat_gain_kw": "(number_of_occupants * 75) / 1000",
+    "required_cooling_capacity_kw": "(room_area * ceiling_height * (outdoor_temperature - indoor_temperature) * insulation_factor * 0.1 + window_area * (outdoor_temperature - indoor_temperature) * 5 + number_of_occupants * 150 + room_area * 10) / 1000"
+  },
+  "outputs": {
+    "primary": "required_cooling_capacity_kw",
+    "breakdown": [
+      "sensible_heat_gain_kw",
+      "latent_heat_gain_kw"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

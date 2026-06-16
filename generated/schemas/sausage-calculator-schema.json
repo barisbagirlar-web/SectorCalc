@@ -1,0 +1,73 @@
+{
+  "toolName": "sausage-calculator",
+  "inputs": [
+    {
+      "id": "totalWeight",
+      "label": "Total Sausage Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Desired total weight of sausage product."
+    },
+    {
+      "id": "fatPercentage",
+      "label": "Fat Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Target fat content in the sausage mix."
+    },
+    {
+      "id": "meatCost",
+      "label": "Meat Cost",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 5,
+      "businessContext": "Cost per kilogram of lean meat."
+    },
+    {
+      "id": "fatCost",
+      "label": "Fat Cost",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 2,
+      "businessContext": "Cost per kilogram of fat."
+    },
+    {
+      "id": "casingDiameter",
+      "label": "Casing Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 30,
+      "businessContext": "Diameter of sausage casing."
+    },
+    {
+      "id": "casingCost",
+      "label": "Casing Cost",
+      "type": "number",
+      "unit": "USD/m",
+      "default": 0.5,
+      "businessContext": "Cost per meter of casing material."
+    }
+  ],
+  "formulas": {
+    "meatWeight": "totalWeight * (1 - fatPercentage / 100)",
+    "fatWeight": "totalWeight * (fatPercentage / 100)",
+    "casingLength": "(4000 * totalWeight) / (Math.PI * Math.pow(casingDiameter, 2))",
+    "totalCost": "meatWeight * meatCost + fatWeight * fatCost + casingLength * casingCost"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "meatWeight",
+      "fatWeight",
+      "casingLength"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

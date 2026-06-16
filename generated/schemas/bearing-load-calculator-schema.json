@@ -1,0 +1,79 @@
+{
+  "toolName": "bearing-load-calculator",
+  "inputs": [
+    {
+      "id": "radialLoad",
+      "label": "Radial Load (Fr)",
+      "type": "number",
+      "unit": "N",
+      "default": 1000,
+      "businessContext": "The radial force acting on the bearing"
+    },
+    {
+      "id": "axialLoad",
+      "label": "Axial Load (Fa)",
+      "type": "number",
+      "unit": "N",
+      "default": 500,
+      "businessContext": "The axial force acting on the bearing"
+    },
+    {
+      "id": "Xfactor",
+      "label": "Radial Factor (X)",
+      "type": "number",
+      "unit": "none",
+      "default": 0.56,
+      "businessContext": "Radial load factor from bearing tables"
+    },
+    {
+      "id": "Yfactor",
+      "label": "Axial Factor (Y)",
+      "type": "number",
+      "unit": "none",
+      "default": 1.5,
+      "businessContext": "Axial load factor from bearing tables"
+    },
+    {
+      "id": "dynamicLoadRating",
+      "label": "Dynamic Load Rating (C)",
+      "type": "number",
+      "unit": "N",
+      "default": 5000,
+      "businessContext": "Basic dynamic load rating of the bearing"
+    },
+    {
+      "id": "exponent",
+      "label": "Life Exponent (p)",
+      "type": "number",
+      "unit": "none",
+      "default": 3,
+      "businessContext": "Exponent for life formula: 3 for ball bearings, 10/3 for roller bearings"
+    },
+    {
+      "id": "speed",
+      "label": "Rotational Speed (n)",
+      "type": "number",
+      "unit": "RPM",
+      "default": 1500,
+      "businessContext": "Rotational speed of the bearing in revolutions per minute"
+    }
+  ],
+  "formulas": {
+    "equivalentLoad": "Xfactor * radialLoad + Yfactor * axialLoad",
+    "bearingLifeRevolutions": "(dynamicLoadRating / equivalentLoad) ** exponent",
+    "bearingLifeHours": "bearingLifeRevolutions * 1000000 / (60 * speed)"
+  },
+  "outputs": {
+    "primary": "bearingLifeHours",
+    "breakdown": [
+      "equivalentLoad",
+      "bearingLifeRevolutions"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

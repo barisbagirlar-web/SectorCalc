@@ -1,0 +1,55 @@
+{
+  "toolName": "crossfit-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Vücut Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Kullanıcının vücut ağırlığı (kg)"
+    },
+    {
+      "id": "duration",
+      "label": "Antrenman Süresi",
+      "type": "number",
+      "unit": "dk",
+      "default": 30,
+      "businessContext": "CrossFit antrenman süresi (dakika)"
+    },
+    {
+      "id": "met",
+      "label": "MET Değeri",
+      "type": "number",
+      "unit": "MET",
+      "default": 8,
+      "businessContext": "CrossFit için metabolik eşdeğer (MET) değeri; tipik olarak 8-10 arası"
+    },
+    {
+      "id": "intensity_modifier",
+      "label": "Yoğunluk Katsayısı",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Antrenman yoğunluğuna bağlı kalori düzeltme yüzdesi (%100 normal)"
+    }
+  ],
+  "formulas": {
+    "total_calories": "met * weight * (duration / 60) * (intensity_modifier / 100)",
+    "unmodified_calories": "met * weight * (duration / 60)",
+    "calories_per_minute": "met * weight / 60 * (intensity_modifier / 100)"
+  },
+  "outputs": {
+    "primary": "total_calories",
+    "breakdown": [
+      "unmodified_calories",
+      "calories_per_minute"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,79 @@
+{
+  "toolName": "mediterranean-diet-calculator",
+  "inputs": [
+    {
+      "id": "oliveOil",
+      "label": "Günlük Zeytinyağı Tüketimi",
+      "type": "number",
+      "unit": "g",
+      "default": 30,
+      "businessContext": "Günlük zeytinyağı tüketim miktarı (gram)"
+    },
+    {
+      "id": "vegetables",
+      "label": "Günlük Sebze Porsiyonu",
+      "type": "number",
+      "unit": "porsiyon",
+      "default": 3,
+      "businessContext": "Günlük tüketilen sebze porsiyonu"
+    },
+    {
+      "id": "fruit",
+      "label": "Günlük Meyve Porsiyonu",
+      "type": "number",
+      "unit": "porsiyon",
+      "default": 2,
+      "businessContext": "Günlük tüketilen meyve porsiyonu"
+    },
+    {
+      "id": "fish",
+      "label": "Haftalık Balık Tüketimi",
+      "type": "number",
+      "unit": "porsiyon",
+      "default": 2,
+      "businessContext": "Haftalık balık tüketim porsiyonu"
+    },
+    {
+      "id": "legumes",
+      "label": "Haftalık Bakliyat Tüketimi",
+      "type": "number",
+      "unit": "porsiyon",
+      "default": 3,
+      "businessContext": "Haftalık bakliyat tüketim porsiyonu"
+    },
+    {
+      "id": "wholeGrains",
+      "label": "Günlük Tam Tahıl Porsiyonu",
+      "type": "number",
+      "unit": "porsiyon",
+      "default": 3,
+      "businessContext": "Günlük tüketilen tam tahıl porsiyonu"
+    }
+  ],
+  "formulas": {
+    "oliveOilScore": "oliveOil >= 30 ? 1 : 0",
+    "vegetablesScore": "vegetables >= 3 ? 1 : 0",
+    "fruitScore": "fruit >= 2 ? 1 : 0",
+    "fishScore": "fish >= 2 ? 1 : 0",
+    "legumesScore": "legumes >= 3 ? 1 : 0",
+    "wholeGrainScore": "wholeGrains >= 3 ? 1 : 0",
+    "dietScore": "(oliveOil >= 30 ? 1 : 0) + (vegetables >= 3 ? 1 : 0) + (fruit >= 2 ? 1 : 0) + (fish >= 2 ? 1 : 0) + (legumes >= 3 ? 1 : 0) + (wholeGrains >= 3 ? 1 : 0)"
+  },
+  "outputs": {
+    "primary": "dietScore",
+    "breakdown": [
+      "oliveOilScore",
+      "vegetablesScore",
+      "fruitScore",
+      "fishScore",
+      "legumesScore",
+      "wholeGrainScore"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

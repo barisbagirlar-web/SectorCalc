@@ -1,0 +1,59 @@
+{
+  "toolName": "glasgow-coma-scale-calculator",
+  "inputs": [
+    {
+      "id": "eye",
+      "label": "Eye Opening",
+      "type": "number",
+      "unit": "points",
+      "default": 4,
+      "businessContext": "Best eye opening response (1-4)"
+    },
+    {
+      "id": "verbal",
+      "label": "Verbal Response",
+      "type": "number",
+      "unit": "points",
+      "default": 5,
+      "businessContext": "Best verbal response (1-5)"
+    },
+    {
+      "id": "motor",
+      "label": "Motor Response",
+      "type": "number",
+      "unit": "points",
+      "default": 6,
+      "businessContext": "Best motor response (1-6)"
+    },
+    {
+      "id": "modifier",
+      "label": "Score Modifier",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Adjustment for confounding factors (e.g., intubation). Typically 0."
+    }
+  ],
+  "formulas": {
+    "totalScore": "eye + verbal + motor + modifier",
+    "eyeScore": "eye",
+    "verbalScore": "verbal",
+    "motorScore": "motor",
+    "modifierScore": "modifier"
+  },
+  "outputs": {
+    "primary": "totalScore",
+    "breakdown": [
+      "eyeScore",
+      "verbalScore",
+      "motorScore",
+      "modifierScore"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

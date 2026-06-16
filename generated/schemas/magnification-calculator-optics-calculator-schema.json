@@ -1,0 +1,37 @@
+{
+  "toolName": "magnification-calculator-optics-calculator",
+  "inputs": [
+    {
+      "id": "focalLength",
+      "label": "Focal Length (f)",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Focal length of the lens. Positive for converging, negative for diverging."
+    },
+    {
+      "id": "objectDistance",
+      "label": "Object Distance (do)",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Distance from the object to the lens. Positive if on the incoming light side."
+    }
+  ],
+  "formulas": {
+    "imageDistance": "(focalLength * objectDistance) / (objectDistance - focalLength)",
+    "magnification": "- imageDistance / objectDistance"
+  },
+  "outputs": {
+    "primary": "magnification",
+    "breakdown": [
+      "imageDistance"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "therms-to-btu-calculator",
+  "inputs": [
+    {
+      "id": "quantity",
+      "label": "Quantity (therms)",
+      "type": "number",
+      "unit": "therms",
+      "default": 1,
+      "businessContext": "Amount of energy in therms to be converted to BTU."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "BTU/therm",
+      "default": 100000,
+      "businessContext": "Standard conversion factor from therms to BTU (1 therm = 100,000 BTU)."
+    },
+    {
+      "id": "energyContentAdjustment",
+      "label": "Energy Content Adjustment",
+      "type": "number",
+      "unit": "BTU/therm",
+      "default": 0,
+      "businessContext": "Adjustment to the conversion factor for fuel-specific energy content variations, if any."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 0,
+      "businessContext": "Number of decimal places to round the output."
+    },
+    {
+      "id": "outputUnitFactor",
+      "label": "Output Unit Scale Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Factor to convert BTU to desired output unit (e.g., 1 for BTU, 1e-6 for MMBTU)."
+    }
+  ],
+  "formulas": {
+    "adjustedFactor": "conversionFactor + energyContentAdjustment",
+    "rawBtu": "quantity * (conversionFactor + energyContentAdjustment)",
+    "scaledOutput": "rawBtu * outputUnitFactor",
+    "primaryResult": "Math.round(scaledOutput * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "primaryResult",
+    "breakdown": [
+      "adjustedFactor",
+      "rawBtu",
+      "scaledOutput"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

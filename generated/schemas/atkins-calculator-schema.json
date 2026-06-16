@@ -1,0 +1,67 @@
+{
+  "toolName": "atkins-calculator",
+  "inputs": [
+    {
+      "id": "totalCarbohydrates",
+      "label": "Total Carbohydrates",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Total carbohydrates in grams as listed on nutrition label"
+    },
+    {
+      "id": "dietaryFiber",
+      "label": "Dietary Fiber",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Dietary fiber in grams, subtracted from total carbs for net impact"
+    },
+    {
+      "id": "sugarAlcohols",
+      "label": "Sugar Alcohols",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Sugar alcohols in grams, half are subtracted due to partial absorption"
+    },
+    {
+      "id": "protein",
+      "label": "Protein",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Protein content in grams, contributes 4 kcal per gram"
+    },
+    {
+      "id": "fat",
+      "label": "Fat",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Fat content in grams, contributes 9 kcal per gram"
+    }
+  ],
+  "formulas": {
+    "netCarbs": "totalCarbohydrates - dietaryFiber - (sugarAlcohols / 2)",
+    "proteinCalories": "protein * 4",
+    "fatCalories": "fat * 9",
+    "carbCalories": "netCarbs * 4",
+    "totalCalories": "proteinCalories + fatCalories + carbCalories"
+  },
+  "outputs": {
+    "primary": "netCarbs",
+    "breakdown": [
+      "totalCalories",
+      "proteinCalories",
+      "fatCalories",
+      "carbCalories"
+    ]
+  },
+  "category": "Perakende & Gıda",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

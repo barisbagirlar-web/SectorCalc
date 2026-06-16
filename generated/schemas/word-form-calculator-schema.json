@@ -1,0 +1,57 @@
+{
+  "toolName": "word-form-calculator",
+  "inputs": [
+    {
+      "id": "totalWords",
+      "label": "Total Words",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "businessContext": "Count of words in the document"
+    },
+    {
+      "id": "totalSentences",
+      "label": "Total Sentences",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "businessContext": "Count of sentences"
+    },
+    {
+      "id": "totalSyllables",
+      "label": "Total Syllables",
+      "type": "number",
+      "unit": "adet",
+      "default": 150,
+      "businessContext": "Count of syllables"
+    },
+    {
+      "id": "complexWords",
+      "label": "Complex Words (≥3 syllables)",
+      "type": "number",
+      "unit": "adet",
+      "default": 20,
+      "businessContext": "Number of words with 3 or more syllables"
+    }
+  ],
+  "formulas": {
+    "wordsPerSentence": "totalWords / totalSentences",
+    "syllablesPerWord": "totalSyllables / totalWords",
+    "fleschReadingEase": "206.835 - 1.015 * (totalWords / totalSentences) - 84.6 * (totalSyllables / totalWords)",
+    "fleschKincaidGrade": "0.39 * (totalWords / totalSentences) + 11.8 * (totalSyllables / totalWords) - 15.59",
+    "percentComplexWords": "(complexWords / totalWords) * 100"
+  },
+  "outputs": {
+    "primary": "fleschReadingEase",
+    "breakdown": [
+      "fleschKincaidGrade",
+      "percentComplexWords"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

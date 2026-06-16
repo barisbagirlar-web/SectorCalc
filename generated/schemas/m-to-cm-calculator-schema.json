@@ -1,0 +1,56 @@
+{
+  "toolName": "m-to-cm-calculator",
+  "inputs": [
+    {
+      "id": "meter_value",
+      "label": "Meter Value",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "The length measurement in meters."
+    },
+    {
+      "id": "conversion_factor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "cm/m",
+      "default": 100,
+      "businessContext": "Calibration factor. Standard is 100 cm/m. Adjust if using non-standard units."
+    },
+    {
+      "id": "uncertainty_percent",
+      "label": "Measurement Uncertainty (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Relative uncertainty of the measurement, for error propagation."
+    },
+    {
+      "id": "decimal_places",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for output rounding."
+    }
+  ],
+  "formulas": {
+    "centimeter_value": "meter_value * conversion_factor",
+    "uncertainty_cm": "(uncertainty_percent / 100) * centimeter_value",
+    "rounded_cm": "Math.round(centimeter_value * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)"
+  },
+  "outputs": {
+    "primary": "{{rounded_cm}} cm",
+    "breakdown": [
+      "Raw conversion: {{centimeter_value}} cm",
+      "Uncertainty: ±{{uncertainty_cm}} cm",
+      "Rounded to {{decimal_places}} decimal places"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

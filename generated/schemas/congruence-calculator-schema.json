@@ -1,0 +1,55 @@
+{
+  "toolName": "congruence-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "First Number (a)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The first integer to compare."
+    },
+    {
+      "id": "b",
+      "label": "Second Number (b)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The second integer to compare."
+    },
+    {
+      "id": "modulus",
+      "label": "Modulus",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Modulus for the congruence relation."
+    },
+    {
+      "id": "shift",
+      "label": "Shift",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Value added to a before checking congruence."
+    }
+  ],
+  "formulas": {
+    "primary": "((((a + shift) % modulus) + modulus) % modulus) === (((b % modulus) + modulus) % modulus) ? 'Congruent' : 'Not Congruent'",
+    "breakdown[0]": "'Remainder of ('+a+' + '+shift+') mod '+modulus+' = ' + (((a + shift) % modulus + modulus) % modulus)",
+    "breakdown[1]": "'Remainder of '+b+' mod '+modulus+' = ' + ((b % modulus + modulus) % modulus)"
+  },
+  "outputs": {
+    "primary": "...",
+    "breakdown": [
+      "...",
+      "..."
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

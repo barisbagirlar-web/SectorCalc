@@ -1,0 +1,75 @@
+{
+  "toolName": "dropshipping-profit-calculator",
+  "inputs": [
+    {
+      "id": "sellingPrice",
+      "label": "Selling Price per Unit",
+      "type": "number",
+      "unit": "currency",
+      "default": 50,
+      "businessContext": "The price at which the product is sold to customers"
+    },
+    {
+      "id": "costPrice",
+      "label": "Cost Price per Unit",
+      "type": "number",
+      "unit": "currency",
+      "default": 30,
+      "businessContext": "The price paid to the supplier per unit"
+    },
+    {
+      "id": "shippingCost",
+      "label": "Shipping Cost per Unit",
+      "type": "number",
+      "unit": "currency",
+      "default": 5,
+      "businessContext": "The shipping cost incurred per unit delivered"
+    },
+    {
+      "id": "orderVolume",
+      "label": "Monthly Order Volume",
+      "type": "number",
+      "unit": "orders/month",
+      "default": 100,
+      "businessContext": "Number of orders processed per month"
+    },
+    {
+      "id": "fixedCosts",
+      "label": "Monthly Fixed Costs",
+      "type": "number",
+      "unit": "currency/month",
+      "default": 200,
+      "businessContext": "Fixed operational costs per month (e.g., store subscriptions, marketing)"
+    },
+    {
+      "id": "feePercentage",
+      "label": "Payment Gateway Fee",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "Transaction fee as a percentage of the selling price"
+    }
+  ],
+  "formulas": {
+    "revenue": "sellingPrice * orderVolume",
+    "totalCOGS": "(costPrice + shippingCost) * orderVolume",
+    "totalFees": "sellingPrice * (feePercentage / 100) * orderVolume",
+    "grossProfit": "revenue - totalCOGS",
+    "netProfit": "grossProfit - totalFees - fixedCosts",
+    "netProfitMargin": "(netProfit / revenue) * 100"
+  },
+  "outputs": {
+    "primary": "netProfit",
+    "breakdown": [
+      "grossProfit",
+      "totalFees",
+      "netProfitMargin"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

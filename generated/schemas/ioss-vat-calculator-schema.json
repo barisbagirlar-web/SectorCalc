@@ -1,0 +1,47 @@
+{
+  "toolName": "ioss-vat-calculator",
+  "inputs": [
+    {
+      "id": "netPrice",
+      "label": "Net Item Price",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "The net price of the goods, excluding VAT and shipping."
+    },
+    {
+      "id": "shippingCost",
+      "label": "Shipping Cost",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "The net shipping cost, excluding VAT."
+    },
+    {
+      "id": "vatRate",
+      "label": "VAT Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 21,
+      "businessContext": "The applicable VAT rate (e.g., 21 for 21%)."
+    }
+  ],
+  "formulas": {
+    "totalExcl": "netPrice + shippingCost",
+    "vatAmount": "totalExcl * vatRate / 100",
+    "totalIncl": "totalExcl + vatAmount"
+  },
+  "outputs": {
+    "primary": "totalIncl",
+    "breakdown": [
+      "vatAmount",
+      "totalExcl"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

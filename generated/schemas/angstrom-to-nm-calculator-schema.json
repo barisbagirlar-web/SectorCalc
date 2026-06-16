@@ -1,0 +1,29 @@
+{
+  "toolName": "angstrom-to-nm-calculator",
+  "inputs": [
+    {
+      "id": "angstromValue",
+      "label": "Value in Angstroms",
+      "type": "number",
+      "unit": "Å",
+      "default": 1,
+      "businessContext": "Wavelength or atomic scale measurement"
+    }
+  ],
+  "formulas": {
+    "nanoMeters": "angstromValue * 0.1"
+  },
+  "outputs": {
+    "primary": "nanoMeters",
+    "breakdown": [
+      "Conversion factor: 1 Å = 0.1 nm",
+      "Result: angstromValue * 0.1 = nanoMeters nm"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

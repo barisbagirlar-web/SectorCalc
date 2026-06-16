@@ -1,0 +1,74 @@
+{
+  "toolName": "kruskal-wallis-test-calculator",
+  "inputs": [
+    {
+      "id": "n1",
+      "label": "Grup 1 Örneklem Büyüklüğü",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "businessContext": "Birinci grubun örneklem büyüklüğü (n1)"
+    },
+    {
+      "id": "n2",
+      "label": "Grup 2 Örneklem Büyüklüğü",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "businessContext": "İkinci grubun örneklem büyüklüğü (n2)"
+    },
+    {
+      "id": "n3",
+      "label": "Grup 3 Örneklem Büyüklüğü",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "businessContext": "Üçüncü grubun örneklem büyüklüğü (n3)"
+    },
+    {
+      "id": "R1",
+      "label": "Grup 1 Sıra Toplamı",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "Birinci grubun sıra toplamı (R1)"
+    },
+    {
+      "id": "R2",
+      "label": "Grup 2 Sıra Toplamı",
+      "type": "number",
+      "unit": "",
+      "default": 150,
+      "businessContext": "İkinci grubun sıra toplamı (R2)"
+    },
+    {
+      "id": "R3",
+      "label": "Grup 3 Sıra Toplamı",
+      "type": "number",
+      "unit": "",
+      "default": 200,
+      "businessContext": "Üçüncü grubun sıra toplamı (R3)"
+    }
+  ],
+  "formulas": {
+    "N": "n1 + n2 + n3",
+    "sum_R2_n": "Math.pow(R1,2)/n1 + Math.pow(R2,2)/n2 + Math.pow(R3,2)/n3",
+    "H": "12/(N*(N+1)) * sum_R2_n - 3*(N+1)",
+    "df": "3 - 1"
+  },
+  "outputs": {
+    "primary": "H",
+    "breakdown": [
+      "N",
+      "sum_R2_n",
+      "H",
+      "df"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,328 @@
+{
+  "slug": "hp-to-kw-converter",
+  "title": "Horsepower to Kilowatt Converter",
+  "description": "Industrial-grade conversion tool with efficiency analysis, loss drivers, and actionable recommendations based on ISO 80000-4 and IEC 60034 standards.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis"
+  ],
+  "inputs": [
+    {
+      "id": "horsepower",
+      "label": "Horsepower (HP)",
+      "type": "number",
+      "unit": "hp",
+      "default": 100,
+      "min": 0.1,
+      "max": 10000,
+      "businessContext": "Mechanical power rating of motor or engine. Typical range for industrial motors: 0.5–5000 hp.",
+      "label_i18n": {
+        "en": "Horsepower (HP)"
+      },
+      "businessContext_i18n": {
+        "en": "Mechanical power rating of motor or engine. Typical range for industrial motors: 0.5–5000 hp."
+      }
+    },
+    {
+      "id": "hp_type",
+      "label": "Horsepower Type",
+      "type": "select",
+      "unit": "",
+      "default": "mechanical",
+      "options": [
+        {
+          "value": "mechanical",
+          "label": "Mechanical (Imperial) HP"
+        },
+        {
+          "value": "metric",
+          "label": "Metric HP (PS)"
+        },
+        {
+          "value": "electrical",
+          "label": "Electrical HP"
+        }
+      ],
+      "businessContext": "Different horsepower definitions affect conversion factor. Mechanical HP = 745.7 W, Metric HP = 735.5 W, Electrical HP = 746 W.",
+      "label_i18n": {
+        "en": "Horsepower Type"
+      },
+      "businessContext_i18n": {
+        "en": "Different horsepower definitions affect conversion factor. Mechanical HP = 745.7 W, Metric HP = 735.5 W, Electrical HP = 746 W."
+      }
+    },
+    {
+      "id": "motor_efficiency",
+      "label": "Motor Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 50,
+      "max": 99.9,
+      "businessContext": "Efficiency of the motor at rated load. Typical IE3 motors: 90–95%, IE4: 95–97%.",
+      "label_i18n": {
+        "en": "Motor Efficiency"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency of the motor at rated load. Typical IE3 motors: 90–95%, IE4: 95–97%."
+      }
+    },
+    {
+      "id": "load_factor",
+      "label": "Load Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "min": 10,
+      "max": 100,
+      "businessContext": "Percentage of rated load at which the motor operates. Underloaded motors reduce efficiency.",
+      "label_i18n": {
+        "en": "Load Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of rated load at which the motor operates. Underloaded motors reduce efficiency."
+      }
+    },
+    {
+      "id": "power_factor",
+      "label": "Power Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.85,
+      "min": 0.5,
+      "max": 1,
+      "step": 0.01,
+      "businessContext": "Ratio of real power to apparent power. Typical industrial motors: 0.8–0.95 lagging.",
+      "label_i18n": {
+        "en": "Power Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Ratio of real power to apparent power. Typical industrial motors: 0.8–0.95 lagging."
+      }
+    },
+    {
+      "id": "operating_hours_per_year",
+      "label": "Operating Hours per Year",
+      "type": "number",
+      "unit": "hours/year",
+      "default": 8000,
+      "min": 0,
+      "max": 8760,
+      "businessContext": "Annual runtime for energy cost calculations. Common values: 2000 (single shift), 4000 (two shifts), 8000 (continuous).",
+      "label_i18n": {
+        "en": "Operating Hours per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Annual runtime for energy cost calculations. Common values: 2000 (single shift), 4000 (two shifts), 8000 (continuous)."
+      }
+    },
+    {
+      "id": "electricity_cost_per_kwh",
+      "label": "Electricity Cost",
+      "type": "number",
+      "unit": "$/kWh",
+      "default": 0.12,
+      "min": 0.01,
+      "max": 1,
+      "step": 0.001,
+      "businessContext": "Average industrial electricity rate. Range: $0.05–$0.30 in most regions.",
+      "label_i18n": {
+        "en": "Electricity Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Average industrial electricity rate. Range: $0.05–$0.30 in most regions."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "efficiency_power_factor_consistency",
+        "condition": "motor_efficiency > 95 AND power_factor < 0.8",
+        "message": "High efficiency motors typically have power factor >= 0.8. Verify input values.",
+        "severity": "warning"
+      },
+      {
+        "id": "load_factor_efficiency_penalty",
+        "condition": "load_factor < 50",
+        "message": "Motor operating below 50% load. Efficiency may drop significantly. Consider downsizing.",
+        "severity": "warning"
+      },
+      {
+        "id": "hp_type_conversion_check",
+        "condition": "hp_type == 'metric' AND horsepower > 5000",
+        "message": "Metric HP values above 5000 are rare. Confirm input.",
+        "severity": "info"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "low_efficiency_alert",
+        "condition": "motor_efficiency < 80",
+        "message": "Motor efficiency below 80% – consider replacement with IE3/IE4 motor.",
+        "severity": "critical"
+      },
+      {
+        "id": "high_power_factor_alert",
+        "condition": "power_factor < 0.7",
+        "message": "Power factor below 0.7 – potential penalty charges. Consider power factor correction.",
+        "severity": "critical"
+      },
+      {
+        "id": "excessive_energy_cost_alert",
+        "condition": "annual_energy_cost > 50000",
+        "message": "Annual energy cost exceeds $50,000 – investigate energy savings opportunities.",
+        "severity": "warning"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "conversion_factor",
+      "description": "Determine conversion factor based on HP type",
+      "formula": "CASE hp_type WHEN 'mechanical' THEN 0.7457 WHEN 'metric' THEN 0.7355 WHEN 'electrical' THEN 0.746 END",
+      "unit": "kW/hp"
+    },
+    {
+      "id": "input_power_kw",
+      "description": "Convert horsepower to input kilowatts (shaft power)",
+      "formula": "horsepower * conversion_factor",
+      "unit": "kW"
+    },
+    {
+      "id": "electrical_input_power",
+      "description": "Calculate electrical power drawn from supply considering efficiency and load factor",
+      "formula": "(input_power_kw / (motor_efficiency / 100)) * (load_factor / 100)",
+      "unit": "kW"
+    },
+    {
+      "id": "apparent_power_kva",
+      "description": "Calculate apparent power (kVA) from real power and power factor",
+      "formula": "electrical_input_power / power_factor",
+      "unit": "kVA"
+    },
+    {
+      "id": "annual_energy_consumption",
+      "description": "Total energy consumed per year",
+      "formula": "electrical_input_power * operating_hours_per_year",
+      "unit": "kWh/year"
+    },
+    {
+      "id": "annual_energy_cost",
+      "description": "Total annual electricity cost",
+      "formula": "annual_energy_consumption * electricity_cost_per_kwh",
+      "unit": "$/year"
+    },
+    {
+      "id": "primary_result",
+      "description": "Primary result: equivalent kilowatt rating (shaft power) adjusted for load factor",
+      "formula": "input_power_kw * (load_factor / 100)",
+      "unit": "kW"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "equivalent_kw",
+      "label": "Equivalent Kilowatts (Shaft Power)",
+      "value": null,
+      "unit": "kW",
+      "description": "Mechanical output power in kilowatts at given load factor."
+    },
+    "breakdown": {
+      "input_hp": {
+        "label": "Input Horsepower",
+        "value": null,
+        "unit": "hp"
+      },
+      "conversion_factor_used": {
+        "label": "Conversion Factor",
+        "value": null,
+        "unit": "kW/hp"
+      },
+      "shaft_power_kw": {
+        "label": "Shaft Power (100% load)",
+        "value": null,
+        "unit": "kW"
+      },
+      "electrical_input_power": {
+        "label": "Electrical Input Power",
+        "value": null,
+        "unit": "kW"
+      },
+      "apparent_power": {
+        "label": "Apparent Power",
+        "value": null,
+        "unit": "kVA"
+      },
+      "annual_energy_consumption": {
+        "label": "Annual Energy Consumption",
+        "value": null,
+        "unit": "kWh"
+      },
+      "annual_energy_cost": {
+        "label": "Annual Energy Cost",
+        "value": null,
+        "unit": "$"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "motor_winding_losses",
+        "description": "I²R losses in stator and rotor windings",
+        "estimated_percentage": "20–40% of total losses",
+        "impact": "Increases with load and temperature"
+      },
+      {
+        "id": "core_losses",
+        "description": "Hysteresis and eddy current losses in iron core",
+        "estimated_percentage": "15–25% of total losses",
+        "impact": "Constant with load, depends on voltage and frequency"
+      },
+      {
+        "id": "friction_and_windage",
+        "description": "Bearing friction and air resistance",
+        "estimated_percentage": "5–15% of total losses",
+        "impact": "Increases with speed"
+      },
+      {
+        "id": "stray_load_losses",
+        "description": "Leakage flux and harmonic losses",
+        "estimated_percentage": "5–10% of total losses",
+        "impact": "Varies with design and load"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_upsize_motor",
+        "condition": "load_factor < 50",
+        "description": "Consider replacing motor with a smaller, more efficient unit to match actual load.",
+        "expected_savings": "Up to 15% reduction in energy losses"
+      },
+      {
+        "id": "action_power_factor_correction",
+        "condition": "power_factor < 0.8",
+        "description": "Install power factor correction capacitors to reduce reactive power and avoid utility penalties.",
+        "expected_savings": "Reduction in kVA demand charges"
+      },
+      {
+        "id": "action_upgrade_efficiency",
+        "condition": "motor_efficiency < 90",
+        "description": "Replace motor with IE4 (Super Premium Efficiency) class motor.",
+        "expected_savings": "5–10% reduction in energy consumption"
+      },
+      {
+        "id": "action_vfd_installation",
+        "condition": "load_factor < 80 AND operating_hours_per_year > 4000",
+        "description": "Install variable frequency drive to match motor speed to load requirements.",
+        "expected_savings": "20–50% energy savings for variable torque loads"
+      }
+    ],
+    "dataConfidenceAdjusted": 0.92
+  },
+  "toolName": "hp-to-kw-converter-calculator",
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "radian-to-degree-calculator",
+  "inputs": [
+    {
+      "id": "radian",
+      "label": "Radyan Değeri",
+      "type": "number",
+      "unit": "rad",
+      "default": 0,
+      "businessContext": "Dönüştürülecek açının radyan cinsinden değeri"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Dönüşüm Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 57.29577951308232,
+      "businessContext": "Radyandan dereceye dönüşüm sabiti (180/π)"
+    },
+    {
+      "id": "degreeOffset",
+      "label": "Derece Ofseti",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Dönüşüm sonucuna eklenecek ek derece miktarı"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Ondalık Basamak",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı"
+    }
+  ],
+  "formulas": {
+    "rawDegree": "radian * conversionFactor + degreeOffset",
+    "primary": "Math.round(rawDegree * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "rawDegree",
+      "radian",
+      "conversionFactor",
+      "degreeOffset",
+      "decimalPlaces"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

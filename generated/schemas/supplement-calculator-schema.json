@@ -1,0 +1,55 @@
+{
+  "toolName": "supplement-calculator",
+  "inputs": [
+    {
+      "id": "baseWeight",
+      "label": "Base Material Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Weight of the base material in kg"
+    },
+    {
+      "id": "baseConc",
+      "label": "Base Concentration",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Initial concentration of the target substance in the base material (%)"
+    },
+    {
+      "id": "desiredConc",
+      "label": "Desired Concentration",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Target final concentration of the mixture (%)"
+    },
+    {
+      "id": "suppConc",
+      "label": "Supplement Concentration",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Concentration of the target substance in the supplement (%)"
+    }
+  ],
+  "formulas": {
+    "supplementWeight": "baseWeight * (desiredConc - baseConc) / (suppConc - desiredConc)",
+    "totalWeight": "baseWeight + supplementWeight",
+    "finalConc": "(baseWeight * baseConc + supplementWeight * suppConc) / totalWeight"
+  },
+  "outputs": {
+    "primary": "supplementWeight",
+    "breakdown": [
+      "totalWeight",
+      "finalConc"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

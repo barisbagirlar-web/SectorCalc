@@ -1,0 +1,71 @@
+{
+  "toolName": "protein-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Total body weight in kilograms"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Height in centimeters for lean mass estimation"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age in years (for context, not used in core calculation)"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "0 for female, 1 for male; used in lean mass formula"
+    },
+    {
+      "id": "proteinFactor",
+      "label": "Protein Factor",
+      "type": "number",
+      "unit": "g/kg",
+      "default": 1.2,
+      "businessContext": "Daily protein requirement per kg (0.8 for sedentary, 1.2-1.7 for active, 2.2 for muscle gain)"
+    },
+    {
+      "id": "useLeanMass",
+      "label": "Use Lean Body Mass",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 to base on total weight, 1 to base on estimated lean body mass"
+    }
+  ],
+  "formulas": {
+    "leanMass": "gender == 1 ? 0.407 * weight + 0.267 * height - 19.2 : 0.252 * weight + 0.473 * height - 48.3",
+    "baseWeight": "useLeanMass == 1 ? leanMass : weight",
+    "proteinRequirement": "baseWeight * proteinFactor"
+  },
+  "outputs": {
+    "primary": "proteinRequirement",
+    "breakdown": [
+      "leanMass",
+      "baseWeight"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

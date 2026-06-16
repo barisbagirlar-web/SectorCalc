@@ -1,0 +1,63 @@
+{
+  "toolName": "hdl-calculator",
+  "inputs": [
+    {
+      "id": "totalCholesterol",
+      "label": "Total Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 200,
+      "businessContext": "Total cholesterol level from a blood lipid panel"
+    },
+    {
+      "id": "hdlCholesterol",
+      "label": "HDL Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 50,
+      "businessContext": "High-density lipoprotein (good) cholesterol"
+    },
+    {
+      "id": "ldlCholesterol",
+      "label": "LDL Cholesterol (Direct)",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 100,
+      "businessContext": "Low-density lipoprotein cholesterol (direct measurement), optional for Friedewald comparison"
+    },
+    {
+      "id": "triglycerides",
+      "label": "Triglycerides",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 150,
+      "businessContext": "Triglycerides level, used in VLDL and Friedewald calculation"
+    }
+  ],
+  "formulas": {
+    "nonHDL": "totalCholesterol - hdlCholesterol",
+    "cholHDLratio": "totalCholesterol / hdlCholesterol",
+    "ldlHDLratio": "ldlCholesterol / hdlCholesterol",
+    "trigsHDLratio": "triglycerides / hdlCholesterol",
+    "vldl": "triglycerides / 5",
+    "calculatedLdl": "totalCholesterol - hdlCholesterol - (triglycerides / 5)",
+    "ldlDifference": "ldlCholesterol - (totalCholesterol - hdlCholesterol - (triglycerides / 5))"
+  },
+  "outputs": {
+    "primary": "cholHDLratio",
+    "breakdown": [
+      "nonHDL",
+      "ldlHDLratio",
+      "trigsHDLratio",
+      "vldl",
+      "calculatedLdl",
+      "ldlDifference"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

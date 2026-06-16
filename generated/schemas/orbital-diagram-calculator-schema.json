@@ -1,0 +1,63 @@
+{
+  "toolName": "orbital-diagram-calculator",
+  "inputs": [
+    {
+      "id": "semiMajorAxis",
+      "label": "Semi-Major Axis",
+      "type": "number",
+      "unit": "km",
+      "default": 7000,
+      "businessContext": "The semi-major axis of the orbit."
+    },
+    {
+      "id": "eccentricity",
+      "label": "Eccentricity",
+      "type": "number",
+      "unit": "",
+      "default": 0.001,
+      "businessContext": "Orbit eccentricity (0 ≤ e < 1 for elliptical)."
+    },
+    {
+      "id": "mu",
+      "label": "Gravitational Parameter",
+      "type": "number",
+      "unit": "km³/s²",
+      "default": 398600.4418,
+      "businessContext": "Standard gravitational parameter of central body."
+    },
+    {
+      "id": "trueAnomaly",
+      "label": "True Anomaly",
+      "type": "number",
+      "unit": "deg",
+      "default": 0,
+      "businessContext": "Angle from periapsis to current position."
+    }
+  ],
+  "formulas": {
+    "orbitalPeriod": "2 * Math.PI * Math.sqrt(Math.pow(semiMajorAxis, 3) / mu)",
+    "periapsisDistance": "semiMajorAxis * (1 - eccentricity)",
+    "apoapsisDistance": "semiMajorAxis * (1 + eccentricity)",
+    "specificOrbitalEnergy": "-mu / (2 * semiMajorAxis)",
+    "specificAngularMomentum": "Math.sqrt(mu * semiMajorAxis * (1 - Math.pow(eccentricity, 2)))",
+    "currentRadius": "(semiMajorAxis * (1 - Math.pow(eccentricity, 2))) / (1 + eccentricity * Math.cos(trueAnomaly * Math.PI / 180))",
+    "currentVelocity": "Math.sqrt(mu * (2 / ((semiMajorAxis * (1 - Math.pow(eccentricity, 2))) / (1 + eccentricity * Math.cos(trueAnomaly * Math.PI / 180))) - 1 / semiMajorAxis))"
+  },
+  "outputs": {
+    "primary": "orbitalPeriod",
+    "breakdown": [
+      "periapsisDistance",
+      "apoapsisDistance",
+      "specificOrbitalEnergy",
+      "specificAngularMomentum",
+      "currentRadius",
+      "currentVelocity"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

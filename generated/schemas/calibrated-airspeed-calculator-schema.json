@@ -1,0 +1,63 @@
+{
+  "toolName": "calibrated-airspeed-calculator",
+  "inputs": [
+    {
+      "id": "totalPressure",
+      "label": "Total Pressure (Pt)",
+      "type": "number",
+      "unit": "Pa",
+      "default": 101325,
+      "businessContext": "Pitot tube total pressure reading"
+    },
+    {
+      "id": "staticPressure",
+      "label": "Static Pressure (Ps)",
+      "type": "number",
+      "unit": "Pa",
+      "default": 101325,
+      "businessContext": "Static port pressure reading"
+    },
+    {
+      "id": "referencePressure",
+      "label": "Reference Pressure (P₀)",
+      "type": "number",
+      "unit": "Pa",
+      "default": 101325,
+      "businessContext": "Standard sea level pressure (101325 Pa) used for calibration. Adjustable for non-standard conditions."
+    },
+    {
+      "id": "airDensity",
+      "label": "Air Density (ρ₀)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1.225,
+      "businessContext": "Sea level standard air density (1.225 kg/m³). Adjustable for calibration."
+    },
+    {
+      "id": "gamma",
+      "label": "Specific Heat Ratio (γ)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.4,
+      "businessContext": "Ratio of specific heats for air (1.4 standard)."
+    }
+  ],
+  "formulas": {
+    "CAS_mps": "Math.sqrt( (2 * gamma / (gamma - 1)) * (referencePressure / airDensity) * ( Math.pow( (Math.max(totalPressure - staticPressure, 0) / referencePressure + 1), ((gamma - 1) / gamma) ) - 1 ) )",
+    "CAS_kts": "Math.sqrt( (2 * gamma / (gamma - 1)) * (referencePressure / airDensity) * ( Math.pow( (Math.max(totalPressure - staticPressure, 0) / referencePressure + 1), ((gamma - 1) / gamma) ) - 1 ) ) * 1.94384",
+    "CAS_kmh": "Math.sqrt( (2 * gamma / (gamma - 1)) * (referencePressure / airDensity) * ( Math.pow( (Math.max(totalPressure - staticPressure, 0) / referencePressure + 1), ((gamma - 1) / gamma) ) - 1 ) ) * 3.6"
+  },
+  "outputs": {
+    "primary": "CAS_kts",
+    "breakdown": [
+      "CAS_mps",
+      "CAS_kmh"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

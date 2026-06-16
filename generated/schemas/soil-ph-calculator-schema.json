@@ -1,0 +1,64 @@
+{
+  "toolName": "soil-ph-calculator",
+  "inputs": [
+    {
+      "id": "reading_mv",
+      "label": "Sample mV Reading",
+      "type": "number",
+      "unit": "mV",
+      "default": 0,
+      "businessContext": "Millivolt reading of soil-water suspension from pH electrode"
+    },
+    {
+      "id": "reference_mv",
+      "label": "Reference mV Reading",
+      "type": "number",
+      "unit": "mV",
+      "default": 0,
+      "businessContext": "Millivolt reading of known pH buffer solution"
+    },
+    {
+      "id": "buffer_ph",
+      "label": "Buffer pH",
+      "type": "number",
+      "unit": "pH",
+      "default": 7,
+      "businessContext": "pH value of the reference buffer solution"
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "Temperature of the samples and buffers (assumed equal)"
+    },
+    {
+      "id": "slope_percent",
+      "label": "Slope %",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Electrode slope percentage relative to theoretical Nernstian slope (100% = 59.16 mV/pH at 25°C)"
+    }
+  ],
+  "formulas": {
+    "theoretical_slope": "59.16 * ((temperature + 273.15) / 298.15) * (slope_percent / 100)",
+    "mv_offset": "reference_mv - theoretical_slope * buffer_ph",
+    "sample_ph": "(reading_mv - mv_offset) / theoretical_slope"
+  },
+  "outputs": {
+    "primary": "sample_ph",
+    "breakdown": [
+      "theoretical_slope",
+      "mv_offset",
+      "sample_ph"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

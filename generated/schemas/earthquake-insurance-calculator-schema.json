@@ -1,0 +1,68 @@
+{
+  "toolName": "earthquake-insurance-calculator",
+  "inputs": [
+    {
+      "id": "buildingValue",
+      "label": "Bina Değeri (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 500000,
+      "businessContext": "Sigorta edilecek binanın toplam değeri"
+    },
+    {
+      "id": "seismicZone",
+      "label": "Deprem Bölgesi Katsayısı",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Binanın bulunduğu deprem bölgesine göre risk katsayısı (0.5-2.0)"
+    },
+    {
+      "id": "constructionType",
+      "label": "Yapı Tipi Katsayısı",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Binanın yapı malzemesi ve taşıyıcı sistemine göre risk katsayısı (betonarme=1.0, çelik=0.8, ahşap=1.5, vs.)"
+    },
+    {
+      "id": "buildingAge",
+      "label": "Bina Yaşı (yıl)",
+      "type": "number",
+      "unit": "yıl",
+      "default": 10,
+      "businessContext": "Binanın yaşı, yıpranma ve dayanıklılık faktörüne etki eder"
+    },
+    {
+      "id": "deductible",
+      "label": "Muafiyet Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Hasar durumunda sigortalının karşılayacağı oran, prim indirimine yansır"
+    }
+  ],
+  "formulas": {
+    "basePremium": "0.002 * buildingValue",
+    "riskFactor": "seismicZone * constructionType",
+    "riskAdjustedPremium": "basePremium * riskFactor",
+    "ageFactor": "1 + buildingAge * 0.01",
+    "ageAdjustedPremium": "riskAdjustedPremium * ageFactor",
+    "deductibleFactor": "1 - deductible / 100",
+    "finalPremium": "ageAdjustedPremium * deductibleFactor"
+  },
+  "outputs": {
+    "primary": "finalPremium",
+    "breakdown": [
+      "basePremium",
+      "riskAdjustedPremium",
+      "ageAdjustedPremium"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

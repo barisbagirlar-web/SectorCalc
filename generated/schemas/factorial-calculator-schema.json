@@ -1,0 +1,53 @@
+{
+  "toolName": "factorial-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Number (n)",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "The non-negative integer for which factorial is to be calculated."
+    },
+    {
+      "id": "reserved1",
+      "label": "Reserved 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Reserved for future use."
+    },
+    {
+      "id": "reserved2",
+      "label": "Reserved 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Reserved for future use."
+    },
+    {
+      "id": "reserved3",
+      "label": "Reserved 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Reserved for future use."
+    }
+  ],
+  "formulas": {
+    "factorial": "inputs.n < 0 ? NaN : (function f(n) { return n<=1 ? 1 : n * f(n-1); })(Math.floor(inputs.n))",
+    "steps": "inputs.n < 0 ? 'Invalid input for factorial' : (inputs.n < 2 ? '1! = 1' : (Math.floor(inputs.n) + '! = ' + Array.from({length: Math.floor(inputs.n)}, (_, i) => Math.floor(inputs.n) - i).join(' × ') + ' = ' + (function f(n) { return n<=1 ? 1 : n * f(n-1); })(Math.floor(inputs.n))))"
+  },
+  "outputs": {
+    "primary": "factorial",
+    "breakdown": [
+      "steps"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

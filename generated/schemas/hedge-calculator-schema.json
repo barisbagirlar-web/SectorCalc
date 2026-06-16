@@ -1,0 +1,79 @@
+{
+  "toolName": "hedge-calculator",
+  "inputs": [
+    {
+      "id": "spotPrice",
+      "label": "Spot Price",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 100,
+      "businessContext": "Current market price of the underlying asset per unit."
+    },
+    {
+      "id": "futuresPrice",
+      "label": "Futures Price",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 105,
+      "businessContext": "Futures contract price for delivery at a future date."
+    },
+    {
+      "id": "spotVol",
+      "label": "Spot Volatility (σ)",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.25,
+      "businessContext": "Annualized standard deviation of spot price returns."
+    },
+    {
+      "id": "futuresVol",
+      "label": "Futures Volatility (σ)",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.2,
+      "businessContext": "Annualized standard deviation of futures price returns."
+    },
+    {
+      "id": "correlation",
+      "label": "Correlation",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.9,
+      "businessContext": "Correlation coefficient between spot and futures returns."
+    },
+    {
+      "id": "exposureUnits",
+      "label": "Exposure (Units)",
+      "type": "number",
+      "unit": "units",
+      "default": 10000,
+      "businessContext": "Total quantity of the asset to hedge (e.g., bushels, barrels)."
+    },
+    {
+      "id": "contractSize",
+      "label": "Contract Size",
+      "type": "number",
+      "unit": "units/contract",
+      "default": 5000,
+      "businessContext": "Number of units of the underlying asset per futures contract."
+    }
+  ],
+  "formulas": {
+    "optimalHedgeRatio": "correlation * (spotVol / futuresVol)",
+    "totalHedgeUnits": "optimalHedgeRatio * exposureUnits",
+    "numberOfContracts": "totalHedgeUnits / contractSize"
+  },
+  "outputs": {
+    "primary": "numberOfContracts",
+    "breakdown": [
+      "optimalHedgeRatio",
+      "totalHedgeUnits"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,60 @@
+{
+  "toolName": "trapezoid-area-calculator",
+  "inputs": [
+    {
+      "id": "base1",
+      "label": "Base 1",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Length of the first parallel side of the trapezoid"
+    },
+    {
+      "id": "base2",
+      "label": "Base 2",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Length of the second parallel side of the trapezoid"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Perpendicular distance between the two bases"
+    },
+    {
+      "id": "outputUnitSelection",
+      "label": "Output Unit",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for mm², 2 for cm², 3 for m²"
+    }
+  ],
+  "formulas": {
+    "sumOfBases": "base1 + base2",
+    "halfSumOfBases": "sumOfBases / 2",
+    "area": "halfSumOfBases * height",
+    "conversionFactor": "outputUnitSelection === 1 ? 1 : (outputUnitSelection === 2 ? 0.01 : (outputUnitSelection === 3 ? 0.000001 : 1))",
+    "finalArea": "area * conversionFactor"
+  },
+  "outputs": {
+    "primary": "finalArea",
+    "breakdown": [
+      "sumOfBases",
+      "halfSumOfBases",
+      "area",
+      "conversionFactor",
+      "finalArea"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

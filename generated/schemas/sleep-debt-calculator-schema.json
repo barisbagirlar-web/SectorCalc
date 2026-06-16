@@ -1,0 +1,97 @@
+{
+  "toolName": "sleep-debt-calculator",
+  "inputs": [
+    {
+      "id": "requiredSleepPerDay",
+      "label": "Required Sleep per Day (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Ideal sleep duration recommended for an adult to maintain cognitive and physical performance."
+    },
+    {
+      "id": "actualSleepDay1",
+      "label": "Actual Sleep Day 1 (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Hours of sleep obtained on Monday (first day of assessment period)."
+    },
+    {
+      "id": "actualSleepDay2",
+      "label": "Actual Sleep Day 2 (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Hours of sleep obtained on Tuesday."
+    },
+    {
+      "id": "actualSleepDay3",
+      "label": "Actual Sleep Day 3 (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Hours of sleep obtained on Wednesday."
+    },
+    {
+      "id": "actualSleepDay4",
+      "label": "Actual Sleep Day 4 (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Hours of sleep obtained on Thursday."
+    },
+    {
+      "id": "actualSleepDay5",
+      "label": "Actual Sleep Day 5 (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Hours of sleep obtained on Friday."
+    },
+    {
+      "id": "actualSleepDay6",
+      "label": "Actual Sleep Day 6 (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Hours of sleep obtained on Saturday."
+    },
+    {
+      "id": "actualSleepDay7",
+      "label": "Actual Sleep Day 7 (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Hours of sleep obtained on Sunday."
+    }
+  ],
+  "formulas": {
+    "totalSleepDebt": "Math.max(requiredSleepPerDay - actualSleepDay1, 0) + Math.max(requiredSleepPerDay - actualSleepDay2, 0) + Math.max(requiredSleepPerDay - actualSleepDay3, 0) + Math.max(requiredSleepPerDay - actualSleepDay4, 0) + Math.max(requiredSleepPerDay - actualSleepDay5, 0) + Math.max(requiredSleepPerDay - actualSleepDay6, 0) + Math.max(requiredSleepPerDay - actualSleepDay7, 0)",
+    "day1Debt": "Math.max(requiredSleepPerDay - actualSleepDay1, 0)",
+    "day2Debt": "Math.max(requiredSleepPerDay - actualSleepDay2, 0)",
+    "day3Debt": "Math.max(requiredSleepPerDay - actualSleepDay3, 0)",
+    "day4Debt": "Math.max(requiredSleepPerDay - actualSleepDay4, 0)",
+    "day5Debt": "Math.max(requiredSleepPerDay - actualSleepDay5, 0)",
+    "day6Debt": "Math.max(requiredSleepPerDay - actualSleepDay6, 0)",
+    "day7Debt": "Math.max(requiredSleepPerDay - actualSleepDay7, 0)"
+  },
+  "outputs": {
+    "primary": "totalSleepDebt",
+    "breakdown": [
+      "day1Debt",
+      "day2Debt",
+      "day3Debt",
+      "day4Debt",
+      "day5Debt",
+      "day6Debt",
+      "day7Debt"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,77 @@
+{
+  "toolName": "cups-to-ml-calculator",
+  "inputs": [
+    {
+      "id": "cups",
+      "label": "Volume in cups",
+      "type": "number",
+      "unit": "cups",
+      "default": 1,
+      "businessContext": "Input volume in US customary cups"
+    },
+    {
+      "id": "cupSize",
+      "label": "Cup size",
+      "type": "number",
+      "unit": "ml/cup",
+      "default": 236.588,
+      "businessContext": "Milliliters per cup (US customary: 236.588, US legal: 240, Metric: 250)"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal precision",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding"
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch multiplier",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Factor for scaling to multiple batches or portions"
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Temperature for potential thermal expansion correction (currently not used in formula)"
+    },
+    {
+      "id": "altitude",
+      "label": "Altitude",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Altitude for potential pressure adjustment (currently not used in formula)"
+    }
+  ],
+  "formulas": {
+    "millilitersUnrounded": "cups * cupSize * batchSize + 0 * temperature + 0 * altitude",
+    "milliliters": "Math.round(millilitersUnrounded * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": {
+      "id": "milliliters",
+      "label": "Converted volume",
+      "unit": "ml"
+    },
+    "breakdown": [
+      "Input: {cups} cups",
+      "Cup size: {cupSize} ml/cup",
+      "Batch scaling: {batchSize} x",
+      "Unrounded: {cups} × {cupSize} × {batchSize} = {millilitersUnrounded} ml",
+      "Rounded to {precision} decimal(s): {milliliters} ml"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

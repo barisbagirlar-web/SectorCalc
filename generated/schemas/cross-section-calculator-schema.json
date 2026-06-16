@@ -1,0 +1,43 @@
+{
+  "toolName": "cross-section-calculator",
+  "inputs": [
+    {
+      "id": "width",
+      "label": "Kesit Genişliği",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Dikdörtgen kesitin mm cinsinden genişliği"
+    },
+    {
+      "id": "height",
+      "label": "Kesit Yüksekliği",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "businessContext": "Dikdörtgen kesitin mm cinsinden yüksekliği"
+    }
+  ],
+  "formulas": {
+    "area": "width * height",
+    "momentOfInertiaX": "width * Math.pow(height, 3) / 12",
+    "momentOfInertiaY": "Math.pow(width, 3) * height / 12",
+    "sectionModulusX": "width * Math.pow(height, 2) / 6",
+    "sectionModulusY": "Math.pow(width, 2) * height / 6"
+  },
+  "outputs": {
+    "primary": "area",
+    "breakdown": [
+      "momentOfInertiaX",
+      "momentOfInertiaY",
+      "sectionModulusX",
+      "sectionModulusY"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

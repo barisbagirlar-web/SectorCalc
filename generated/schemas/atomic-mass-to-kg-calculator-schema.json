@@ -1,0 +1,65 @@
+{
+  "toolName": "atomic-mass-to-kg-calculator",
+  "inputs": [
+    {
+      "id": "atomicMassU",
+      "label": "Atomik Kütle (u)",
+      "type": "number",
+      "unit": "u",
+      "default": 1,
+      "businessContext": "Tek bir atom veya molekülün kütlesi, atomik kütle birimi (u) cinsinden."
+    },
+    {
+      "id": "numberOfEntities",
+      "label": "Varlık Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 6.02214076e+23,
+      "businessContext": "Dönüştürülecek toplam atom/molekül sayısı."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Dönüşüm Faktörü (u → kg)",
+      "type": "number",
+      "unit": "kg/u",
+      "default": 1.6605390666e-27,
+      "businessContext": "1 atomik kütle biriminin kilogram cinsinden karşılığı (CODATA 2018)."
+    },
+    {
+      "id": "batchSize",
+      "label": "Parti Büyüklüğü (İsteğe bağlı)",
+      "type": "number",
+      "unit": "parti",
+      "default": 1,
+      "businessContext": "Eğer birden fazla parti varsa çarpan olarak kullanılır."
+    },
+    {
+      "id": "outputUnitMultiplier",
+      "label": "Çıktı Birim Çarpanı",
+      "type": "number",
+      "unit": "çarpan",
+      "default": 1,
+      "businessContext": "Çıktı birimini kg'dan başka bir birime dönüştürmek için çarpan (örn: 1000 g için, 1000000 mg için)."
+    }
+  ],
+  "formulas": {
+    "mass_Kg": "atomicMassU * numberOfEntities * conversionFactor * batchSize",
+    "mass_Grams": "atomicMassU * numberOfEntities * conversionFactor * batchSize * 1000",
+    "numberOfMoles": "numberOfEntities / 602214076000000000000000",
+    "totalMass": "atomicMassU * numberOfEntities * conversionFactor * batchSize * outputUnitMultiplier"
+  },
+  "outputs": {
+    "primary": "totalMass",
+    "breakdown": [
+      "mass_Kg",
+      "mass_Grams",
+      "numberOfMoles"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

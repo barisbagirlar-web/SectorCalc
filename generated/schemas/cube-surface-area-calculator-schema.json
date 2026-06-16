@@ -1,0 +1,67 @@
+{
+  "toolName": "cube-surface-area-calculator",
+  "inputs": [
+    {
+      "id": "sideLength",
+      "label": "Edge Length",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Length of one edge of the cube in meters."
+    },
+    {
+      "id": "quantity",
+      "label": "Number of Cubes",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of identical cubes to calculate total surface area for."
+    },
+    {
+      "id": "exposedFaces",
+      "label": "Exposed Faces per Cube",
+      "type": "number",
+      "unit": "faces",
+      "default": 6,
+      "businessContext": "Number of faces exposed per cube (default 6 for full cube; e.g., 5 if one face is on the ground)."
+    },
+    {
+      "id": "unitConversionFactor",
+      "label": "Unit Conversion Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier to convert m² to desired area unit (e.g., 1 for m², 10000 for cm², 10.7639 for ft²)."
+    },
+    {
+      "id": "safetyMargin",
+      "label": "Safety Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage added to total area to account for waste, errors, or overage."
+    }
+  ],
+  "formulas": {
+    "primary": "quantity * exposedFaces * (sideLength ** 2) * unitConversionFactor * (1 + safetyMargin/100)",
+    "breakdown": [
+      "faceArea = sideLength ** 2",
+      "baseArea = quantity * exposedFaces * faceArea * unitConversionFactor",
+      "totalSurfaceArea = baseArea * (1 + safetyMargin/100)"
+    ]
+  },
+  "outputs": {
+    "primary": "quantity * exposedFaces * (sideLength ** 2) * unitConversionFactor * (1 + safetyMargin/100)",
+    "breakdown": [
+      "faceArea = sideLength ** 2",
+      "baseArea = quantity * exposedFaces * faceArea * unitConversionFactor",
+      "totalSurfaceArea = baseArea * (1 + safetyMargin/100)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,64 @@
+{
+  "toolName": "mosaic-calculator",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "Kaplama Alanı",
+      "type": "number",
+      "unit": "m²",
+      "default": 1,
+      "businessContext": "Mozaik döşenecek toplam alan"
+    },
+    {
+      "id": "tileLength",
+      "label": "Karo Uzunluğu",
+      "type": "number",
+      "unit": "cm",
+      "default": 2,
+      "businessContext": "Bir karonun boyu"
+    },
+    {
+      "id": "tileWidth",
+      "label": "Karo Genişliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 2,
+      "businessContext": "Bir karonun eni"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Fire Faktörü",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Kesim ve zayiat için eklenen yüzde"
+    },
+    {
+      "id": "costPerTile",
+      "label": "Karo Başına Maliyet",
+      "type": "number",
+      "unit": "currency",
+      "default": 0.1,
+      "businessContext": "Karo birim fiyatı (para birimi cinsinden)"
+    }
+  ],
+  "formulas": {
+    "totalTilesWithoutWaste": "area / ((tileLength / 100) * (tileWidth / 100))",
+    "totalTilesWithWaste": "totalTilesWithoutWaste * (1 + wasteFactor / 100)",
+    "wasteTiles": "totalTilesWithWaste - totalTilesWithoutWaste",
+    "totalCost": "totalTilesWithWaste * costPerTile"
+  },
+  "outputs": {
+    "primary": "totalTilesWithWaste",
+    "breakdown": [
+      "wasteTiles",
+      "totalCost"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

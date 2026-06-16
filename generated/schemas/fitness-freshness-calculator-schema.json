@@ -1,0 +1,55 @@
+{
+  "toolName": "fitness-freshness-calculator",
+  "inputs": [
+    {
+      "id": "machineAge",
+      "label": "Machine Age",
+      "type": "number",
+      "unit": "yrs",
+      "default": 5,
+      "businessContext": "Age of the machine in years"
+    },
+    {
+      "id": "maintenanceFrequency",
+      "label": "Maintenance Frequency",
+      "type": "number",
+      "unit": "per year",
+      "default": 12,
+      "businessContext": "Number of maintenance visits per year"
+    },
+    {
+      "id": "productShelfLife",
+      "label": "Product Shelf Life",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Total shelf life of the product in days"
+    },
+    {
+      "id": "productAge",
+      "label": "Product Current Age",
+      "type": "number",
+      "unit": "days",
+      "default": 10,
+      "businessContext": "Current age of the product since production"
+    }
+  ],
+  "formulas": {
+    "machineFitness": "Math.max(0, Math.min(100, 100 - machineAge * 5 + maintenanceFrequency * 2))",
+    "productFreshness": "Math.max(0, Math.min(100, (1 - productAge / productShelfLife) * 100))",
+    "overallFitnessFreshness": "(machineFitness + productFreshness) / 2"
+  },
+  "outputs": {
+    "primary": "overallFitnessFreshness",
+    "breakdown": [
+      "machineFitness",
+      "productFreshness"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

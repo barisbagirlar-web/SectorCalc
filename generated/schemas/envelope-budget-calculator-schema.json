@@ -1,0 +1,57 @@
+{
+  "toolName": "envelope-budget-calculator",
+  "inputs": [
+    {
+      "id": "totalIncome",
+      "label": "Aylık Net Gelir",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Aylık toplam net gelir (maaş, yan gelir vb.)"
+    },
+    {
+      "id": "needsPct",
+      "label": "İhtiyaçlar Yüzdesi",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Kira, fatura, gıda gibi zorunlu harcamalar için ayrılan yüzde"
+    },
+    {
+      "id": "wantsPct",
+      "label": "İstekler Yüzdesi",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Eğlence, tatil, dışarıda yemek gibi isteğe bağlı harcamalar için ayrılan yüzde"
+    },
+    {
+      "id": "savingsPct",
+      "label": "Tasarruf Yüzdesi",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Birikim, yatırım veya borç ödeme için ayrılan yüzde"
+    }
+  ],
+  "formulas": {
+    "needsAmount": "totalIncome * needsPct / 100",
+    "wantsAmount": "totalIncome * wantsPct / 100",
+    "savingsAmount": "totalIncome * savingsPct / 100",
+    "totalAllocated": "needsAmount + wantsAmount + savingsAmount"
+  },
+  "outputs": {
+    "primary": "totalAllocated",
+    "breakdown": [
+      "needsAmount",
+      "wantsAmount",
+      "savingsAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

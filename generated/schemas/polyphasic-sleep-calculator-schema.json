@@ -1,0 +1,57 @@
+{
+  "toolName": "polyphasic-sleep-calculator",
+  "inputs": [
+    {
+      "id": "coreSleepDuration",
+      "label": "Core Sleep Duration (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 3,
+      "businessContext": "The main sleep block duration in hours, usually 2-4 hours in polyphasic schedules."
+    },
+    {
+      "id": "numberOfNaps",
+      "label": "Number of Naps",
+      "type": "number",
+      "unit": "naps/day",
+      "default": 4,
+      "businessContext": "Total number of short nap periods per day (typically 1-6)."
+    },
+    {
+      "id": "napDuration",
+      "label": "Nap Duration (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 20,
+      "businessContext": "Length of each nap in minutes (common ranges: 15-25 min)."
+    },
+    {
+      "id": "sleepGoal",
+      "label": "Sleep Goal (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Your desired total sleep target for comparison (standard is 7-9 hours)."
+    }
+  ],
+  "formulas": {
+    "coreSleepDuration": "coreSleepDuration",
+    "napSleepHours": "(numberOfNaps * napDuration) / 60",
+    "totalSleepHours": "coreSleepDuration + ((numberOfNaps * napDuration) / 60)",
+    "sleepDeficit": "Math.max(0, sleepGoal - (coreSleepDuration + ((numberOfNaps * napDuration) / 60)))"
+  },
+  "outputs": {
+    "primary": "totalSleepHours",
+    "breakdown": [
+      "coreSleepDuration",
+      "napSleepHours",
+      "sleepDeficit"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

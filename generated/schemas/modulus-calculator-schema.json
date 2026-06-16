@@ -1,0 +1,55 @@
+{
+  "toolName": "modulus-calculator",
+  "inputs": [
+    {
+      "id": "totalQuantity",
+      "label": "Toplam Miktar",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "businessContext": "Üretilecek veya bölünecek toplam ürün/parça sayısı."
+    },
+    {
+      "id": "batchSize",
+      "label": "Parti Büyüklüğü",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "businessContext": "Her bir partide yer alan ürün/parça sayısı."
+    },
+    {
+      "id": "targetRemainder",
+      "label": "Hedef Kalan",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Mod işlemi sonucuyla karşılaştırılacak kalan değer; eşleşme kontrolü için."
+    },
+    {
+      "id": "offset",
+      "label": "Başlangıç Kaydırma",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Toplam miktara eklenecek sabit kaydırma; örneğin başlangıç artığı varsa."
+    }
+  ],
+  "formulas": {
+    "remainder": "(totalQuantity + offset) % batchSize",
+    "quotient": "Math.floor((totalQuantity + offset) / batchSize)",
+    "match": "((totalQuantity + offset) % batchSize) === targetRemainder ? 1 : 0"
+  },
+  "outputs": {
+    "primary": "remainder",
+    "breakdown": [
+      "quotient",
+      "match"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

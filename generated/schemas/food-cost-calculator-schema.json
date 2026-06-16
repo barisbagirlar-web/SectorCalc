@@ -1,0 +1,74 @@
+{
+  "toolName": "food-cost-calculator",
+  "inputs": [
+    {
+      "id": "ingredientCost",
+      "label": "Ham madde maliyeti",
+      "type": "number",
+      "unit": "TRY/parti",
+      "default": 0,
+      "businessContext": "Bir parti yemek için gerekli tüm ham maddelerin toplam maliyeti"
+    },
+    {
+      "id": "laborCost",
+      "label": "İşçilik maliyeti",
+      "type": "number",
+      "unit": "TRY/parti",
+      "default": 0,
+      "businessContext": "Bir parti yemek üretimi için ayrılan işçilik maliyeti"
+    },
+    {
+      "id": "overheadCost",
+      "label": "Genel gider maliyeti",
+      "type": "number",
+      "unit": "TRY/parti",
+      "default": 0,
+      "businessContext": "Bir parti yemek üretimine düşen kira, enerji, su gibi genel giderler"
+    },
+    {
+      "id": "numberOfServings",
+      "label": "Porsiyon sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Bir parti yemekten elde edilen toplam porsiyon adedi"
+    },
+    {
+      "id": "desiredProfitMargin",
+      "label": "Hedef kâr marjı",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Satış fiyatı üzerinden hedeflenen kâr oranı"
+    },
+    {
+      "id": "wastePercentage",
+      "label": "Fire oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Hazırlık ve servis sırasında oluşan malzeme kaybı yüzdesi"
+    }
+  ],
+  "formulas": {
+    "totalCost": "ingredientCost + laborCost + overheadCost",
+    "costPerServing": "totalCost / numberOfServings",
+    "costWithWaste": "costPerServing * (1 + wastePercentage / 100)",
+    "sellingPrice": "costWithWaste / (1 - desiredProfitMargin / 100)",
+    "profitPerServing": "sellingPrice - costWithWaste",
+    "profitMarginCheck": "(profitPerServing / sellingPrice) * 100"
+  },
+  "outputs": {
+    "primary": "sellingPrice",
+    "breakdown": [
+      "totalCost",
+      "costPerServing"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

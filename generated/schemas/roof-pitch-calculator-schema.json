@@ -1,0 +1,63 @@
+{
+  "toolName": "roof-pitch-calculator",
+  "inputs": [
+    {
+      "id": "rise",
+      "label": "Rise",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Vertical height from top of wall plate to ridge."
+    },
+    {
+      "id": "span",
+      "label": "Span (Building Width)",
+      "type": "number",
+      "unit": "m",
+      "default": 8,
+      "businessContext": "Total horizontal width of the building (from outside of one wall to outside of opposite wall), equal to 2 × run."
+    },
+    {
+      "id": "length",
+      "label": "Roof Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of the roof along the ridge (perpendicular to the span)."
+    },
+    {
+      "id": "overhang",
+      "label": "Eave Overhang",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Additional horizontal projection of the roof beyond the wall."
+    }
+  ],
+  "formulas": {
+    "run": "span / 2",
+    "pitchRatio": "rise / run",
+    "pitchAngleDeg": "Math.atan(pitchRatio) * 180 / Math.PI",
+    "slopePercent": "pitchRatio * 100",
+    "pitchImperial": "pitchRatio * 12",
+    "rafterLength": "Math.sqrt(rise**2 + run**2) + overhang / Math.cos(Math.atan(pitchRatio))",
+    "roofAreaOneSide": "rafterLength * length",
+    "totalRoofArea": "2 * roofAreaOneSide"
+  },
+  "outputs": {
+    "primary": "pitchAngleDeg",
+    "breakdown": [
+      "pitchRatio",
+      "slopePercent",
+      "pitchImperial",
+      "rafterLength",
+      "totalRoofArea"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

@@ -1,0 +1,54 @@
+{
+  "toolName": "pint-to-liter-converter-calculator",
+  "inputs": [
+    {
+      "id": "pints",
+      "label": "Pints",
+      "type": "number",
+      "unit": "pt",
+      "default": 0,
+      "businessContext": "Volume in pints to be converted"
+    },
+    {
+      "id": "conversionType",
+      "label": "Conversion Type",
+      "type": "number",
+      "unit": "(1=UK, 2=US liq, 3=US dry)",
+      "default": 1,
+      "businessContext": "Selection of pint definition; 1 for UK pint, 2 for US liquid pint, 3 for US dry pint"
+    },
+    {
+      "id": "batchId",
+      "label": "Batch ID",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Batch identifier for traceability (does not affect calculation)"
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Temperature at which volume is measured (for potential thermal correction, not used in current formula)"
+    }
+  ],
+  "formulas": {
+    "liters": "const factor = conversionType === 1 ? 0.56826125 : conversionType === 2 ? 0.473176473 : 0.5506104713575; return pints * factor;",
+    "breakdown": "const factor = conversionType === 1 ? 0.56826125 : conversionType === 2 ? 0.473176473 : 0.5506104713575; const typeName = conversionType === 1 ? 'UK' : conversionType === 2 ? 'US liquid' : 'US dry'; return [`Conversion factor: ${factor} L/pt (${typeName})`, `Pints converted: ${pints} pt`];"
+  },
+  "outputs": {
+    "primary": "liters",
+    "breakdown": [
+      "conversionFactorInfo",
+      "pintsInfo"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

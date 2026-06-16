@@ -1,0 +1,59 @@
+{
+  "toolName": "pizza-size-calculator",
+  "inputs": [
+    {
+      "id": "diameter1",
+      "label": "Pizza 1 Diameter",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "Diameter of first pizza"
+    },
+    {
+      "id": "price1",
+      "label": "Pizza 1 Price",
+      "type": "number",
+      "unit": "EUR",
+      "default": 10,
+      "businessContext": "Price of first pizza"
+    },
+    {
+      "id": "diameter2",
+      "label": "Pizza 2 Diameter",
+      "type": "number",
+      "unit": "cm",
+      "default": 40,
+      "businessContext": "Diameter of second pizza"
+    },
+    {
+      "id": "price2",
+      "label": "Pizza 2 Price",
+      "type": "number",
+      "unit": "EUR",
+      "default": 15,
+      "businessContext": "Price of second pizza"
+    }
+  ],
+  "formulas": {
+    "area1": "Math.PI * (diameter1/2)**2",
+    "area2": "Math.PI * (diameter2/2)**2",
+    "pricePerArea1": "price1 / area1",
+    "pricePerArea2": "price2 / area2",
+    "valueRatio": "(price2 * diameter1**2) / (price1 * diameter2**2)"
+  },
+  "outputs": {
+    "primary": "valueRatio",
+    "breakdown": [
+      "area1",
+      "area2",
+      "pricePerArea1",
+      "pricePerArea2"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

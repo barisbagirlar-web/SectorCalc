@@ -1,0 +1,55 @@
+{
+  "toolName": "us-men-suit-size-to-eu-calculator",
+  "inputs": [
+    {
+      "id": "usJacketSize",
+      "label": "US Jacket Size",
+      "type": "number",
+      "unit": "size",
+      "default": 40,
+      "businessContext": "Enter the US men's suit jacket size (chest measurement in inches). Standard sizes: 36, 38, 40, 42, etc."
+    },
+    {
+      "id": "usWaistSize",
+      "label": "US Pants Waist (inches)",
+      "type": "number",
+      "unit": "in",
+      "default": 32,
+      "businessContext": "Optional: Enter the US pants waist size in inches for conversion."
+    },
+    {
+      "id": "usInseam",
+      "label": "US Pants Inseam (inches)",
+      "type": "number",
+      "unit": "in",
+      "default": 34,
+      "businessContext": "Optional: Enter the US pants inseam length in inches."
+    },
+    {
+      "id": "conversionOffset",
+      "label": "Jacket Size Offset",
+      "type": "number",
+      "unit": "size",
+      "default": 10,
+      "businessContext": "The conversion offset from US to EU jacket size (EU = US + offset). Standard is 10. Adjust if needed."
+    }
+  ],
+  "formulas": {
+    "EUJacket": "usJacketSize + conversionOffset",
+    "EUWaistCm": "usWaistSize * 2.54",
+    "EUInseamCm": "usInseam * 2.54"
+  },
+  "outputs": {
+    "primary": "EU Jacket Size: ${EUJacket}",
+    "breakdown": [
+      "EU Waist: ${EUWaistCm} cm",
+      "EU Inseam: ${EUInseamCm} cm"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

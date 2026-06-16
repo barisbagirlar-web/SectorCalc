@@ -1,0 +1,69 @@
+{
+  "toolName": "correction-factor-calculator",
+  "inputs": [
+    {
+      "id": "measuredVolume",
+      "label": "Measured Volume",
+      "type": "number",
+      "unit": "m³",
+      "default": 1000,
+      "businessContext": "Gerçek çalışma koşullarında ölçülen hacim"
+    },
+    {
+      "id": "measuredTemperature",
+      "label": "Measured Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Gerçek çalışma sıcaklığı"
+    },
+    {
+      "id": "measuredPressure",
+      "label": "Measured Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 1.01325,
+      "businessContext": "Gerçek çalışma basıncı (mutlak)"
+    },
+    {
+      "id": "standardTemperature",
+      "label": "Standard Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 0,
+      "businessContext": "Referans standart sıcaklık"
+    },
+    {
+      "id": "standardPressure",
+      "label": "Standard Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 1.01325,
+      "businessContext": "Referans standart basınç (mutlak)"
+    },
+    {
+      "id": "compressibilityFactor",
+      "label": "Compressibility Factor (Z)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Gaz sıkıştırılabilirlik faktörü (ideal gaz için 1)"
+    }
+  ],
+  "formulas": {
+    "correctionFactor": "(measuredPressure * (standardTemperature + 273.15)) / (standardPressure * (measuredTemperature + 273.15) * compressibilityFactor)",
+    "correctedVolume": "measuredVolume * correctionFactor"
+  },
+  "outputs": {
+    "primary": "correctionFactor",
+    "breakdown": [
+      "correctedVolume"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

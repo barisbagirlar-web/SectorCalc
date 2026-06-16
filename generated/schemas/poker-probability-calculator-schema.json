@@ -1,0 +1,57 @@
+{
+  "toolName": "poker-probability-calculator",
+  "inputs": [
+    {
+      "id": "knownCards",
+      "label": "Known Cards",
+      "type": "number",
+      "unit": "cards",
+      "default": 2,
+      "businessContext": "Number of cards you have seen, including your hole cards and any community cards."
+    },
+    {
+      "id": "deckSize",
+      "label": "Deck Size",
+      "type": "number",
+      "unit": "cards",
+      "default": 52,
+      "businessContext": "Total number of cards in the deck."
+    },
+    {
+      "id": "outs",
+      "label": "Outs",
+      "type": "number",
+      "unit": "cards",
+      "default": 4,
+      "businessContext": "Number of cards in the remaining deck that will improve your hand to a winner."
+    },
+    {
+      "id": "draws",
+      "label": "Cards to Draw",
+      "type": "number",
+      "unit": "cards",
+      "default": 1,
+      "businessContext": "Number of upcoming community cards to be dealt (e.g., 1 for turn only, 2 for turn and river)."
+    }
+  ],
+  "formulas": {
+    "remaining": "deckSize - knownCards",
+    "missProb": "((remaining - outs) / remaining) ** draws",
+    "winProbability": "(1 - missProb) * 100",
+    "lossProbability": "missProb * 100",
+    "oddsAgainst": "missProb / (1 - missProb)"
+  },
+  "outputs": {
+    "primary": "winProbability",
+    "breakdown": [
+      "lossProbability",
+      "oddsAgainst"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

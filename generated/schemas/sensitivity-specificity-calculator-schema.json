@@ -1,0 +1,59 @@
+{
+  "toolName": "sensitivity-specificity-calculator",
+  "inputs": [
+    {
+      "id": "truePositive",
+      "label": "Doğru Pozitif (DP)",
+      "type": "number",
+      "unit": "adet",
+      "default": 80,
+      "businessContext": "Testin pozitif olarak belirlediği gerçek pozitif vaka sayısı."
+    },
+    {
+      "id": "falsePositive",
+      "label": "Yanlış Pozitif (YP)",
+      "type": "number",
+      "unit": "adet",
+      "default": 20,
+      "businessContext": "Testin pozitif olarak belirlediği fakat gerçekte negatif olan vaka sayısı."
+    },
+    {
+      "id": "falseNegative",
+      "label": "Yanlış Negatif (YN)",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "businessContext": "Testin negatif olarak belirlediği fakat gerçekte pozitif olan vaka sayısı."
+    },
+    {
+      "id": "trueNegative",
+      "label": "Doğru Negatif (DN)",
+      "type": "number",
+      "unit": "adet",
+      "default": 90,
+      "businessContext": "Testin negatif olarak belirlediği gerçek negatif vaka sayısı."
+    }
+  ],
+  "formulas": {
+    "sensitivity": "truePositive / (truePositive + falseNegative)",
+    "specificity": "trueNegative / (trueNegative + falsePositive)",
+    "ppv": "truePositive / (truePositive + falsePositive)",
+    "npv": "trueNegative / (trueNegative + falseNegative)",
+    "accuracy": "(truePositive + trueNegative) / (truePositive + falsePositive + falseNegative + trueNegative)"
+  },
+  "outputs": {
+    "primary": "sensitivity",
+    "breakdown": [
+      "specificity",
+      "ppv",
+      "npv",
+      "accuracy"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

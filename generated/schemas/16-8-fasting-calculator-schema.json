@@ -1,0 +1,80 @@
+{
+  "toolName": "16-8-fasting-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User's body weight in kilograms."
+    },
+    {
+      "id": "height",
+      "label": "Height (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "User's height in centimeters."
+    },
+    {
+      "id": "age",
+      "label": "Age (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "User's age in years."
+    },
+    {
+      "id": "sex",
+      "label": "Sex (0=Female, 1=Male)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "0 for female, 1 for male."
+    },
+    {
+      "id": "fastingHours",
+      "label": "Fasting Duration (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 16,
+      "businessContext": "Number of hours spent fasting."
+    }
+  ],
+  "formulas": {
+    "bmr": "sex ? (66.47 + 13.75 * weight + 5.003 * height - 6.755 * age) : (655.1 + 9.563 * weight + 1.85 * height - 4.676 * age)",
+    "caloriesBurned": "(bmr / 24) * fastingHours",
+    "estimatedFatLoss": "caloriesBurned / 7700"
+  },
+  "outputs": {
+    "primary": {
+      "id": "estimatedFatLoss",
+      "label": "Estimated Fat Loss",
+      "unit": "kg"
+    },
+    "breakdown": [
+      {
+        "id": "bmr",
+        "label": "Basal Metabolic Rate (BMR)",
+        "unit": "kcal/day"
+      },
+      {
+        "id": "caloriesBurned",
+        "label": "Calories Burned During Fasting",
+        "unit": "kcal"
+      },
+      {
+        "id": "estimatedFatLoss",
+        "label": "Estimated Fat Loss",
+        "unit": "kg"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

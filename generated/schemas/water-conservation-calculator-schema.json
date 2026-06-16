@@ -1,0 +1,65 @@
+{
+  "toolName": "water-conservation-calculator",
+  "inputs": [
+    {
+      "id": "currentConsumption",
+      "label": "Current Water Consumption",
+      "type": "number",
+      "unit": "m³",
+      "default": 1000,
+      "businessContext": "Total water usage in the current period"
+    },
+    {
+      "id": "baselineConsumption",
+      "label": "Baseline Water Consumption",
+      "type": "number",
+      "unit": "m³",
+      "default": 1200,
+      "businessContext": "Water consumption in a reference period for comparison"
+    },
+    {
+      "id": "waterCostPerCubicMeter",
+      "label": "Water Cost per m³",
+      "type": "number",
+      "unit": "currency/m³",
+      "default": 2.5,
+      "businessContext": "Unit cost of water supply"
+    },
+    {
+      "id": "leakagePercentage",
+      "label": "Leakage Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Estimated percentage of water lost due to leaks"
+    },
+    {
+      "id": "efficiencyImprovementPercentage",
+      "label": "Efficiency Improvement Target",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Target percentage reduction in water use through efficiency measures"
+    }
+  ],
+  "formulas": {
+    "waterWasteFromLeaks": "currentConsumption * (leakagePercentage / 100)",
+    "efficiencySavings": "baselineConsumption * (efficiencyImprovementPercentage / 100)",
+    "totalPotentialWaterSavings": "efficiencySavings + waterWasteFromLeaks",
+    "costSavings": "totalPotentialWaterSavings * waterCostPerCubicMeter"
+  },
+  "outputs": {
+    "primary": "totalPotentialWaterSavings",
+    "breakdown": [
+      "efficiencySavings",
+      "waterWasteFromLeaks",
+      "costSavings"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

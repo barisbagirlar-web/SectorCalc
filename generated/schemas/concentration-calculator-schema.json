@@ -1,0 +1,55 @@
+{
+  "toolName": "concentration-calculator",
+  "inputs": [
+    {
+      "id": "volume1",
+      "label": "Çözelti 1 Hacmi (L)",
+      "type": "number",
+      "unit": "L",
+      "default": 1,
+      "businessContext": "Birinci çözeltinin litre cinsinden hacmi"
+    },
+    {
+      "id": "concentration1",
+      "label": "Çözelti 1 Konsantrasyonu (mol/L)",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 1,
+      "businessContext": "Birinci çözeltinin molar konsantrasyonu"
+    },
+    {
+      "id": "volume2",
+      "label": "Çözelti 2 Hacmi (L)",
+      "type": "number",
+      "unit": "L",
+      "default": 0,
+      "businessContext": "İkinci çözeltinin litre cinsinden hacmi (sıfır olabilir)"
+    },
+    {
+      "id": "concentration2",
+      "label": "Çözelti 2 Konsantrasyonu (mol/L)",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0,
+      "businessContext": "İkinci çözeltinin molar konsantrasyonu (sıfır olabilir)"
+    }
+  ],
+  "formulas": {
+    "totalMoles": "volume1 * concentration1 + volume2 * concentration2",
+    "totalVolume": "volume1 + volume2",
+    "finalConcentration": "totalMoles / totalVolume"
+  },
+  "outputs": {
+    "primary": "finalConcentration",
+    "breakdown": [
+      "totalMoles",
+      "totalVolume"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

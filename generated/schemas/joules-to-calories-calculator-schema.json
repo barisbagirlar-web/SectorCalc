@@ -1,0 +1,56 @@
+{
+  "toolName": "joules-to-calories-calculator",
+  "inputs": [
+    {
+      "id": "joules",
+      "label": "Energy in Joules",
+      "type": "number",
+      "unit": "J",
+      "default": 1000,
+      "businessContext": "Enter the amount of energy in joules that you wish to convert into calories. Typical applications include food energy labeling, engineering thermal calculations, or scientific energy unit conversions."
+    },
+    {
+      "id": "calorie_type",
+      "label": "Calorie Standard",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Select the conversion standard: 1 = Thermochemical (4.184 J/cal), 2 = 4°C calorie (4.204 J/cal), 3 = 15°C calorie (4.1855 J/cal), 4 = International Steam Table (4.1868 J/cal), 5 = Mean calorie (4.190 J/cal). Used to ensure compliance with specific industry or regulatory definitions."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Defines the number of decimal places in the final calorie output. Important for reporting accuracy in quality control or nutritional labeling (e.g., 0 for whole numbers, 2 for typical food labels)."
+    },
+    {
+      "id": "round_method",
+      "label": "Rounding Method",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 = round to nearest (standard mathematical rounding), 1 = floor (always round down), 2 = ceil (always round up). Selection may depend on regulatory rounding rules or internal manufacturing conventions."
+    }
+  ],
+  "formulas": {
+    "conversion_factor": "calorie_type == 1 ? 4.184 : (calorie_type == 2 ? 4.204 : (calorie_type == 3 ? 4.1855 : (calorie_type == 4 ? 4.1868 : 4.190)))",
+    "calories_precise": "joules / conversion_factor",
+    "calories": "round_method == 0 ? Math.round(calories_precise * Math.pow(10, precision)) / Math.pow(10, precision) : (round_method == 1 ? Math.floor(calories_precise * Math.pow(10, precision)) / Math.pow(10, precision) : Math.ceil(calories_precise * Math.pow(10, precision)) / Math.pow(10, precision))"
+  },
+  "outputs": {
+    "primary": "calories",
+    "breakdown": [
+      "conversion_factor",
+      "calories_precise",
+      "calories"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

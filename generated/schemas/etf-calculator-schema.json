@@ -1,0 +1,80 @@
+{
+  "toolName": "etf-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Başlangıç Yatırımı",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Yatırımın başlangıçta yatırılan toplam tutar."
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Aylık Katkı",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "businessContext": "Her ay düzenli olarak yatırılan tutar."
+    },
+    {
+      "id": "annualReturnRate",
+      "label": "Yıllık Getiri Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "businessContext": "ETF'nin beklenen yıllık nominal getiri oranı."
+    },
+    {
+      "id": "investmentPeriod",
+      "label": "Yatırım Süresi",
+      "type": "number",
+      "unit": "yıl",
+      "default": 20,
+      "businessContext": "Yatırımın devam edeceği toplam süre."
+    },
+    {
+      "id": "expenseRatio",
+      "label": "Yıllık Gider Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "businessContext": "ETF yönetim ücreti ve diğer yıllık giderleri kapsayan oran."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Enflasyon Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Uzun vadeli ortalama yıllık enflasyon oranı."
+    }
+  ],
+  "formulas": {
+    "netAnnualRate": "(annualReturnRate - expenseRatio) / 100",
+    "monthlyRate": "Math.pow(1 + netAnnualRate, 1/12) - 1",
+    "totalMonths": "investmentPeriod * 12",
+    "futureValueInitial": "initialInvestment * Math.pow(1 + monthlyRate, totalMonths)",
+    "futureValueContributions": "monthlyContribution * ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate)",
+    "totalNominal": "futureValueInitial + futureValueContributions",
+    "totalContributions": "initialInvestment + (monthlyContribution * totalMonths)",
+    "totalNominalReturn": "totalNominal - totalContributions",
+    "realFutureValue": "totalNominal / Math.pow(1 + inflationRate/100, investmentPeriod)",
+    "realReturn": "realFutureValue - totalContributions"
+  },
+  "outputs": {
+    "primary": "totalNominal",
+    "breakdown": [
+      "totalContributions",
+      "totalNominalReturn",
+      "realFutureValue",
+      "realReturn"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

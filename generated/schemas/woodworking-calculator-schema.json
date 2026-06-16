@@ -1,0 +1,84 @@
+{
+  "toolName": "woodworking-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Parça Uzunluğu (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "businessContext": "İşlenecek ahşap parçanın uzunluğu"
+    },
+    {
+      "id": "width",
+      "label": "Parça Genişliği (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 500,
+      "businessContext": "İşlenecek ahşap parçanın genişliği"
+    },
+    {
+      "id": "thickness",
+      "label": "Parça Kalınlığı (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 18,
+      "businessContext": "Ahşap malzemenin kalınlığı"
+    },
+    {
+      "id": "quantity",
+      "label": "Parça Adedi",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "businessContext": "Üretilecek parça sayısı"
+    },
+    {
+      "id": "wastePercent",
+      "label": "Fire Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Kesim ve işleme sırasında oluşan fire yüzdesi"
+    },
+    {
+      "id": "density",
+      "label": "Yoğunluk (kg/m³)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 700,
+      "businessContext": "Ahşap malzemenin yoğunluğu (ör: çam ~500, meşe ~700)"
+    },
+    {
+      "id": "costPerM3",
+      "label": "Birim Maliyet (TL/m³)",
+      "type": "number",
+      "unit": "TL/m³",
+      "default": 12000,
+      "businessContext": "Ahşap malzemenin metreküp başına maliyeti"
+    }
+  ],
+  "formulas": {
+    "volumePerPiece": "length * width * thickness / 1e9",
+    "totalVolume": "volumePerPiece * quantity",
+    "totalVolumeWithWaste": "totalVolume * (1 + wastePercent / 100)",
+    "totalWeight": "totalVolumeWithWaste * density",
+    "totalCost": "totalVolumeWithWaste * costPerM3"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "volumePerPiece",
+      "totalVolume",
+      "totalVolumeWithWaste",
+      "totalWeight",
+      "totalCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

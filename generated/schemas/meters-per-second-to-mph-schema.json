@@ -1,0 +1,28 @@
+{
+  "toolName": "meters-per-second-to-mph",
+  "inputs": [
+    {
+      "id": "speed_mps",
+      "label": "Speed (m/s)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 10,
+      "businessContext": "Speed in meters per second"
+    }
+  ],
+  "formulas": {
+    "speed_mph": "speed_mps * 2.23694"
+  },
+  "outputs": {
+    "primary": "speed_mph",
+    "breakdown": [
+      "speed_mps * 2.23694 = speed_mph"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

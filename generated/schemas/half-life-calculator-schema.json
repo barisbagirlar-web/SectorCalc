@@ -1,0 +1,59 @@
+{
+  "toolName": "half-life-calculator",
+  "inputs": [
+    {
+      "id": "initialAmount",
+      "label": "Initial Amount",
+      "type": "number",
+      "unit": "g",
+      "default": 100,
+      "businessContext": "Initial quantity of substance before decay begins"
+    },
+    {
+      "id": "halfLife",
+      "label": "Half-Life",
+      "type": "number",
+      "unit": "time_unit",
+      "default": 10,
+      "businessContext": "Time required for half of the substance to decay"
+    },
+    {
+      "id": "elapsedTime",
+      "label": "Elapsed Time",
+      "type": "number",
+      "unit": "time_unit",
+      "default": 10,
+      "businessContext": "Time passed since initial measurement"
+    },
+    {
+      "id": "targetAmount",
+      "label": "Target Amount",
+      "type": "number",
+      "unit": "g",
+      "default": 50,
+      "businessContext": "Desired remaining quantity to compute required time"
+    }
+  ],
+  "formulas": {
+    "remainingAmount": "initialAmount * (0.5 ** (elapsedTime / halfLife))",
+    "decayConstant": "Math.log(2) / halfLife",
+    "numberOfHalfLives": "elapsedTime / halfLife",
+    "fractionRemaining": "0.5 ** (elapsedTime / halfLife)",
+    "timeToReachTarget": "halfLife * (Math.log(initialAmount / targetAmount) / Math.log(2))"
+  },
+  "outputs": {
+    "primary": "remainingAmount",
+    "breakdown": [
+      "decayConstant",
+      "numberOfHalfLives",
+      "fractionRemaining",
+      "timeToReachTarget"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,56 @@
+{
+  "toolName": "pka-calculator",
+  "inputs": [
+    {
+      "id": "acidConcentration",
+      "label": "Asit Konsantrasyonu",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.1,
+      "businessContext": "Zayıf asidin başlangıç konsantrasyonu"
+    },
+    {
+      "id": "measuredpH",
+      "label": "Ölçülen pH",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Çözeltinin ölçülen pH değeri"
+    },
+    {
+      "id": "knownKa",
+      "label": "Bilinen Ka Değeri",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0,
+      "businessContext": "Asit ayrışma sabiti biliniyorsa, doğrudan hesaplama için girin (opsiyonel)"
+    },
+    {
+      "id": "temperature",
+      "label": "Sıcaklık",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "Çözelti sıcaklığı (hesaplamayı etkilemez, kayıt amaçlı)"
+    }
+  ],
+  "formulas": {
+    "computedHplus": "Math.pow(10, -measuredpH)",
+    "computedKa": "knownKa > 0 ? knownKa : Math.pow( Math.pow(10, -measuredpH), 2 ) / (acidConcentration - Math.pow(10, -measuredpH))",
+    "computedPka": "knownKa > 0 ? -Math.log(knownKa)/Math.LN10 : -Math.log( Math.pow( Math.pow(10, -measuredpH), 2 ) / (acidConcentration - Math.pow(10, -measuredpH)) ) / Math.LN10"
+  },
+  "outputs": {
+    "primary": "computedPka",
+    "breakdown": [
+      "computedHplus",
+      "computedKa",
+      "computedPka"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

@@ -1,0 +1,82 @@
+{
+  "toolName": "electroplating-calculator",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "Surface Area",
+      "type": "number",
+      "unit": "cm²",
+      "default": 100,
+      "businessContext": "total area to be plated"
+    },
+    {
+      "id": "thickness",
+      "label": "Plating Thickness",
+      "type": "number",
+      "unit": "µm",
+      "default": 10,
+      "businessContext": "desired coating thickness"
+    },
+    {
+      "id": "currentDensity",
+      "label": "Current Density",
+      "type": "number",
+      "unit": "A/dm²",
+      "default": 2,
+      "businessContext": "applied current per unit area"
+    },
+    {
+      "id": "efficiency",
+      "label": "Cathode Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "percentage of current used for metal deposition"
+    },
+    {
+      "id": "density",
+      "label": "Metal Density",
+      "type": "number",
+      "unit": "g/cm³",
+      "default": 8.96,
+      "businessContext": "density of plating metal"
+    },
+    {
+      "id": "atomicWeight",
+      "label": "Atomic Weight",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 63.55,
+      "businessContext": "molar mass of metal"
+    },
+    {
+      "id": "valence",
+      "label": "Valence",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "number of electrons transferred per ion"
+    }
+  ],
+  "formulas": {
+    "areaDm2": "inputs.area / 100",
+    "current": "inputs.currentDensity * areaDm2",
+    "mass": "inputs.area * (inputs.thickness / 10000) * inputs.density",
+    "timeSeconds": "(mass * inputs.valence * 96485) / (current * inputs.atomicWeight * (inputs.efficiency / 100))",
+    "time": "timeSeconds / 60",
+    "charge": "current * timeSeconds"
+  },
+  "outputs": {
+    "primary": "time",
+    "breakdown": [
+      "mass",
+      "charge",
+      "current"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

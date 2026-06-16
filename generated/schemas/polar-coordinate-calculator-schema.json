@@ -1,0 +1,39 @@
+{
+  "toolName": "polar-coordinate-calculator",
+  "inputs": [
+    {
+      "id": "radius",
+      "label": "Radius (r)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Radial distance from origin"
+    },
+    {
+      "id": "angle",
+      "label": "Angle (θ)",
+      "type": "number",
+      "unit": "deg",
+      "default": 45,
+      "businessContext": "Angle measured from positive x-axis"
+    }
+  ],
+  "formulas": {
+    "x": "radius * Math.cos(angle * Math.PI / 180)",
+    "y": "radius * Math.sin(angle * Math.PI / 180)",
+    "angleRad": "angle * Math.PI / 180"
+  },
+  "outputs": {
+    "primary": "Cartesian coordinates (x, y)",
+    "breakdown": [
+      "x = radius * cos(θ)",
+      "y = radius * sin(θ)"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

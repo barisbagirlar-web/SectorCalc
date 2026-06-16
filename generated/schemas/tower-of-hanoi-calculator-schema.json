@@ -1,0 +1,57 @@
+{
+  "toolName": "tower-of-hanoi-calculator",
+  "inputs": [
+    {
+      "id": "diskSayisi",
+      "label": "Disk Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 3,
+      "businessContext": "Hanoi kulelerindeki disk sayısı"
+    },
+    {
+      "id": "manuelSure",
+      "label": "Manuel Hamle Süresi",
+      "type": "number",
+      "unit": "saniye",
+      "default": 5,
+      "businessContext": "İnsan eliyle yapılan bir hamlenin süresi"
+    },
+    {
+      "id": "otomatikSure",
+      "label": "Otomatik Hamle Süresi",
+      "type": "number",
+      "unit": "saniye",
+      "default": 1,
+      "businessContext": "Robotik kol ile yapılan bir hamlenin süresi"
+    },
+    {
+      "id": "mod",
+      "label": "Mod",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0: Manuel, 1: Otomatik"
+    }
+  ],
+  "formulas": {
+    "moves": "2 ** diskSayisi - 1",
+    "manuelToplamSure": "moves * manuelSure",
+    "otomatikToplamSure": "moves * otomatikSure",
+    "totalSure": "manuelToplamSure * (1 - mod) + otomatikToplamSure * mod",
+    "totalSureMinutes": "totalSure / 60"
+  },
+  "outputs": {
+    "primary": "moves",
+    "breakdown": [
+      "totalSure",
+      "totalSureMinutes"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

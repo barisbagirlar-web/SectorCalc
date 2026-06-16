@@ -1,0 +1,75 @@
+{
+  "toolName": "retaining-wall-drainage-calculator",
+  "inputs": [
+    {
+      "id": "wallHeight",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Height of retaining wall from base to top."
+    },
+    {
+      "id": "wallLength",
+      "label": "Wall Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of wall section being drained."
+    },
+    {
+      "id": "soilPermeability",
+      "label": "Soil Permeability (k)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0.00001,
+      "businessContext": "Hydraulic conductivity of backfill soil. Fine sand ~1e-5, gravel ~1e-3."
+    },
+    {
+      "id": "pipeDiameter",
+      "label": "Drain Pipe Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Inner diameter of drainage pipe."
+    },
+    {
+      "id": "pipeSlope",
+      "label": "Pipe Slope",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "businessContext": "Slope of drain pipe as percentage (e.g., 1 = 1%)."
+    },
+    {
+      "id": "manningN",
+      "label": "Manning's n",
+      "type": "number",
+      "unit": "",
+      "default": 0.013,
+      "businessContext": "Roughness coefficient for pipe material (e.g., concrete=0.013, corrugated metal=0.024)."
+    }
+  ],
+  "formulas": {
+    "inflowRate": "soilPermeability * wallHeight * wallLength",
+    "pipeDiameterM": "pipeDiameter / 1000",
+    "pipeSlopeDec": "pipeSlope / 100",
+    "pipeArea": "Math.PI * Math.pow(pipeDiameterM/2, 2)",
+    "hydraulicRadius": "pipeDiameterM / 4",
+    "pipeCapacity": "(1 / manningN) * pipeArea * Math.pow(hydraulicRadius, 2/3) * Math.pow(pipeSlopeDec, 0.5)",
+    "safetyFactor": "pipeCapacity / inflowRate"
+  },
+  "outputs": {
+    "primary": "safetyFactor",
+    "breakdown": [
+      "inflowRate",
+      "pipeCapacity"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

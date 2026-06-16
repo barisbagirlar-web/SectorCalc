@@ -1,0 +1,91 @@
+{
+  "toolName": "final-grade-calculator",
+  "inputs": [
+    {
+      "id": "homeworkScore",
+      "label": "Homework Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Total points earned in homework"
+    },
+    {
+      "id": "homeworkWeight",
+      "label": "Homework Weight",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Weight of homework in final grade (as %)"
+    },
+    {
+      "id": "midtermScore",
+      "label": "Midterm Exam Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Score on the midterm exam"
+    },
+    {
+      "id": "midtermWeight",
+      "label": "Midterm Weight",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Weight of midterm in final grade (%)"
+    },
+    {
+      "id": "finalExamScore",
+      "label": "Final Exam Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Score on the final exam"
+    },
+    {
+      "id": "finalExamWeight",
+      "label": "Final Exam Weight",
+      "type": "number",
+      "unit": "%",
+      "default": 35,
+      "businessContext": "Weight of final exam (%)"
+    },
+    {
+      "id": "projectScore",
+      "label": "Project Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Score earned on the project"
+    },
+    {
+      "id": "projectWeight",
+      "label": "Project Weight",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Weight of project in final grade (%)"
+    }
+  ],
+  "formulas": {
+    "weightedHomework": "homeworkScore * homeworkWeight",
+    "weightedMidterm": "midtermScore * midtermWeight",
+    "weightedFinalExam": "finalExamScore * finalExamWeight",
+    "weightedProject": "projectScore * projectWeight",
+    "finalGrade": "(homeworkScore * homeworkWeight + midtermScore * midtermWeight + finalExamScore * finalExamWeight + projectScore * projectWeight) / (homeworkWeight + midtermWeight + finalExamWeight + projectWeight)"
+  },
+  "outputs": {
+    "primary": "finalGrade",
+    "breakdown": [
+      "weightedHomework",
+      "weightedMidterm",
+      "weightedFinalExam",
+      "weightedProject"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,72 @@
+{
+  "toolName": "cone-volume-calculator",
+  "inputs": [
+    {
+      "id": "radius",
+      "label": "Base Radius",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Radius of the circular base of the cone."
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Perpendicular height from base to apex."
+    },
+    {
+      "id": "slantHeight",
+      "label": "Slant Height (optional, 0 to auto-calc)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Slant height along lateral surface; if 0, it will be computed as sqrt(radius^2 + height^2)."
+    },
+    {
+      "id": "diameter",
+      "label": "Base Diameter (alternative to radius)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Diameter of base; if >0, radius is overridden as diameter/2."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding outputs."
+    },
+    {
+      "id": "calcSurface",
+      "label": "Include Surface Area (1=yes, 0=no)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "If 1, outputs also include lateral surface area and total surface area."
+    }
+  ],
+  "formulas": {
+    "volume": "Number(((1/3) * Math.PI * (inputs.diameter > 0 ? inputs.diameter/2 : inputs.radius)**2 * inputs.height).toFixed(inputs.precision))",
+    "lateralSurface": "Number((Math.PI * (inputs.diameter > 0 ? inputs.diameter/2 : inputs.radius) * (inputs.slantHeight > 0 ? inputs.slantHeight : Math.sqrt((inputs.diameter > 0 ? inputs.diameter/2 : inputs.radius)**2 + inputs.height**2))).toFixed(inputs.precision))",
+    "totalSurface": "Number((Math.PI * (inputs.diameter > 0 ? inputs.diameter/2 : inputs.radius) * ((inputs.diameter > 0 ? inputs.diameter/2 : inputs.radius) + (inputs.slantHeight > 0 ? inputs.slantHeight : Math.sqrt((inputs.diameter > 0 ? inputs.diameter/2 : inputs.radius)**2 + inputs.height**2)))).toFixed(inputs.precision))"
+  },
+  "outputs": {
+    "primary": "volume",
+    "breakdown": [
+      "volume",
+      "lateralSurface",
+      "totalSurface"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

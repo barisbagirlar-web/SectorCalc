@@ -1,0 +1,64 @@
+{
+  "toolName": "coffee-caffeine-calculator",
+  "inputs": [
+    {
+      "id": "cupVolumeMl",
+      "label": "Cup Volume",
+      "type": "number",
+      "unit": "ml",
+      "default": 240,
+      "businessContext": "Volume of one cup in milliliters."
+    },
+    {
+      "id": "caffeineMgPer100ml",
+      "label": "Caffeine per 100ml",
+      "type": "number",
+      "unit": "mg/100ml",
+      "default": 40,
+      "businessContext": "Caffeine content per 100ml for the coffee type (e.g., drip: 40-60, espresso: 212 per 100ml)."
+    },
+    {
+      "id": "numberOfCups",
+      "label": "Number of Cups",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Total number of cups consumed."
+    },
+    {
+      "id": "brewStrengthFactor",
+      "label": "Brew Strength Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for brew strength (1 = standard, >1 stronger, <1 weaker)."
+    },
+    {
+      "id": "isDecaf",
+      "label": "Decaf",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 = regular coffee, 1 = decaf (removes 97% caffeine)."
+    }
+  ],
+  "formulas": {
+    "caffeinePerCupMg": "(cupVolumeMl / 100) * caffeineMgPer100ml * brewStrengthFactor",
+    "totalBeforeDecaf": "(cupVolumeMl / 100) * caffeineMgPer100ml * brewStrengthFactor * numberOfCups",
+    "decafReductionMg": "(cupVolumeMl / 100) * caffeineMgPer100ml * brewStrengthFactor * numberOfCups * (isDecaf * 0.97)",
+    "totalCaffeineMg": "(cupVolumeMl / 100) * caffeineMgPer100ml * brewStrengthFactor * numberOfCups * (1 - isDecaf * 0.97)"
+  },
+  "outputs": {
+    "primary": "totalCaffeineMg",
+    "breakdown": [
+      "caffeinePerCupMg",
+      "decafReductionMg"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

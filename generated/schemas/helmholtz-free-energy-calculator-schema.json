@@ -1,0 +1,57 @@
+{
+  "toolName": "helmholtz-free-energy-calculator",
+  "inputs": [
+    {
+      "id": "internalEnergy",
+      "label": "Internal Energy (U)",
+      "type": "number",
+      "unit": "kJ",
+      "default": 0,
+      "businessContext": "Total internal energy of the thermodynamic system."
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature (T)",
+      "type": "number",
+      "unit": "K",
+      "default": 298.15,
+      "businessContext": "Absolute temperature in Kelvin."
+    },
+    {
+      "id": "entropy",
+      "label": "Entropy (S)",
+      "type": "number",
+      "unit": "kJ/K",
+      "default": 0,
+      "businessContext": "Entropy of the system."
+    },
+    {
+      "id": "moles",
+      "label": "Amount of Substance (n)",
+      "type": "number",
+      "unit": "mol",
+      "default": 1,
+      "businessContext": "Amount of substance in moles. Default is 1 for total system calculations."
+    }
+  ],
+  "formulas": {
+    "internalEnergyTerm": "internalEnergy",
+    "entropyProduct": "temperature * entropy",
+    "helmholtzFreeEnergy": "internalEnergy - temperature * entropy",
+    "molarHelmholtzFreeEnergy": "(internalEnergy - temperature * entropy) / moles"
+  },
+  "outputs": {
+    "primary": "helmholtzFreeEnergy",
+    "breakdown": [
+      "internalEnergyTerm",
+      "entropyProduct",
+      "molarHelmholtzFreeEnergy"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

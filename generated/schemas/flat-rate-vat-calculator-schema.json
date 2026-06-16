@@ -1,0 +1,56 @@
+{
+  "toolName": "flat-rate-vat-calculator",
+  "inputs": [
+    {
+      "id": "grossTurnover",
+      "label": "Gross Turnover (incl. VAT)",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "businessContext": "Total revenue including VAT charged to customers."
+    },
+    {
+      "id": "flatRatePercentage",
+      "label": "Flat Rate Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 13,
+      "businessContext": "The flat rate percentage applied to your business category."
+    },
+    {
+      "id": "standardVatRate",
+      "label": "Standard VAT Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "The standard VAT rate you charge on sales."
+    }
+  ],
+  "formulas": {
+    "vatPayable": "grossTurnover * flatRatePercentage / 100",
+    "vatCharged": "grossTurnover * standardVatRate / (100 + standardVatRate)",
+    "surplus": "(grossTurnover * standardVatRate / (100 + standardVatRate)) - (grossTurnover * flatRatePercentage / 100)"
+  },
+  "outputs": {
+    "primary": {
+      "label": "Flat Rate VAT Payable",
+      "formula": "vatPayable"
+    },
+    "breakdown": [
+      {
+        "label": "VAT Charged to Customers",
+        "formula": "vatCharged"
+      },
+      {
+        "label": "Scheme Surplus",
+        "formula": "surplus"
+      }
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

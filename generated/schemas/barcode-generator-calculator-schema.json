@@ -1,0 +1,65 @@
+{
+  "toolName": "barcode-generator-calculator",
+  "inputs": [
+    {
+      "id": "dataLength",
+      "label": "Data Length (characters)",
+      "type": "number",
+      "unit": "characters",
+      "default": 10,
+      "businessContext": "Number of alphanumeric characters to encode"
+    },
+    {
+      "id": "moduleWidth",
+      "label": "Module Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.25,
+      "businessContext": "Width of the narrowest element (X-dimension)"
+    },
+    {
+      "id": "quietZoneLeft",
+      "label": "Left Quiet Zone",
+      "type": "number",
+      "unit": "modules",
+      "default": 10,
+      "businessContext": "Left quiet zone width in modules"
+    },
+    {
+      "id": "quietZoneRight",
+      "label": "Right Quiet Zone",
+      "type": "number",
+      "unit": "modules",
+      "default": 10,
+      "businessContext": "Right quiet zone width in modules"
+    }
+  ],
+  "formulas": {
+    "totalModules": "quietZoneLeft + quietZoneRight + 11 + 11 * dataLength + 11 + 13",
+    "barcodeWidth": "totalModules * moduleWidth",
+    "leftQuietWidth": "quietZoneLeft * moduleWidth",
+    "rightQuietWidth": "quietZoneRight * moduleWidth",
+    "dataWidth": "11 * dataLength * moduleWidth",
+    "startWidth": "11 * moduleWidth",
+    "checkWidth": "11 * moduleWidth",
+    "stopWidth": "13 * moduleWidth"
+  },
+  "outputs": {
+    "primary": "barcodeWidth",
+    "breakdown": [
+      "totalModules",
+      "leftQuietWidth",
+      "rightQuietWidth",
+      "dataWidth",
+      "startWidth",
+      "checkWidth",
+      "stopWidth"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

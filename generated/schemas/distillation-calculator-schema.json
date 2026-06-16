@@ -1,0 +1,65 @@
+{
+  "toolName": "distillation-calculator",
+  "inputs": [
+    {
+      "id": "feedFlow",
+      "label": "Feed Flow Rate",
+      "type": "number",
+      "unit": "kmol/h",
+      "default": 100,
+      "businessContext": "Besleme akış hızı (F)"
+    },
+    {
+      "id": "feedComposition",
+      "label": "Feed Composition",
+      "type": "number",
+      "unit": "mol/mol",
+      "default": 0.5,
+      "businessContext": "Besleme bileşimi (hafif bileşen mol kesri, xF)"
+    },
+    {
+      "id": "distillateComposition",
+      "label": "Distillate Composition",
+      "type": "number",
+      "unit": "mol/mol",
+      "default": 0.95,
+      "businessContext": "Üst ürün bileşimi (xD)"
+    },
+    {
+      "id": "bottomsComposition",
+      "label": "Bottoms Composition",
+      "type": "number",
+      "unit": "mol/mol",
+      "default": 0.05,
+      "businessContext": "Dip ürün bileşimi (xB)"
+    },
+    {
+      "id": "relativeVolatility",
+      "label": "Relative Volatility",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 2.5,
+      "businessContext": "Bağıl uçuculuk (alfa)"
+    }
+  ],
+  "formulas": {
+    "distillateFlowRate": "feedFlow * (feedComposition - bottomsComposition) / (distillateComposition - bottomsComposition)",
+    "bottomFlowRate": "feedFlow * (distillateComposition - feedComposition) / (distillateComposition - bottomsComposition)",
+    "minimumRefluxRatio": "(1 / (relativeVolatility - 1)) * ((distillateComposition / feedComposition) - relativeVolatility * (1 - distillateComposition) / (1 - feedComposition))",
+    "minimumTheoreticalPlates": "Math.log((distillateComposition / (1 - distillateComposition)) * ((1 - bottomsComposition) / bottomsComposition)) / Math.log(relativeVolatility)"
+  },
+  "outputs": {
+    "primary": "distillateFlowRate",
+    "breakdown": [
+      "bottomFlowRate",
+      "minimumRefluxRatio",
+      "minimumTheoreticalPlates"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

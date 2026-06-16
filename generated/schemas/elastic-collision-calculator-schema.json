@@ -1,0 +1,57 @@
+{
+  "toolName": "elastic-collision-calculator",
+  "inputs": [
+    {
+      "id": "m1",
+      "label": "Mass 1",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Mass of the first object"
+    },
+    {
+      "id": "m2",
+      "label": "Mass 2",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Mass of the second object"
+    },
+    {
+      "id": "v1i",
+      "label": "Initial Velocity 1",
+      "type": "number",
+      "unit": "m/s",
+      "default": 10,
+      "businessContext": "Initial velocity of the first object"
+    },
+    {
+      "id": "v2i",
+      "label": "Initial Velocity 2",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Initial velocity of the second object"
+    }
+  ],
+  "formulas": {
+    "v1f": "((m1 - m2) / (m1 + m2)) * v1i + (2 * m2 / (m1 + m2)) * v2i",
+    "v2f": "(2 * m1 / (m1 + m2)) * v1i + ((m2 - m1) / (m1 + m2)) * v2i",
+    "KE_before": "0.5 * m1 * v1i**2 + 0.5 * m2 * v2i**2",
+    "KE_after": "0.5 * m1 * v1f**2 + 0.5 * m2 * v2f**2"
+  },
+  "outputs": {
+    "primary": "v1f",
+    "breakdown": [
+      "v2f",
+      "KE_before",
+      "KE_after"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

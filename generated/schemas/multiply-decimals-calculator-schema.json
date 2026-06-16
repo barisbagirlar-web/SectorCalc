@@ -1,0 +1,54 @@
+{
+  "toolName": "multiply-decimals-calculator",
+  "inputs": [
+    {
+      "id": "inputA",
+      "label": "First Decimal Number",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Enter the first decimal number to multiply"
+    },
+    {
+      "id": "inputB",
+      "label": "Second Decimal Number",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Enter the second decimal number to multiply"
+    },
+    {
+      "id": "multiplierAdjustment",
+      "label": "Multiplier Adjustment Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Optional adjustment factor (e.g., for unit conversion, set to 1 for direct multiplication)"
+    },
+    {
+      "id": "roundingPrecision",
+      "label": "Decimal Places for Rounding",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places to round the final result"
+    }
+  ],
+  "formulas": {
+    "unroundedProduct": "inputA * inputB * multiplierAdjustment",
+    "roundedProduct": "Math.round((inputA * inputB * multiplierAdjustment) * Math.pow(10, roundingPrecision)) / Math.pow(10, roundingPrecision)"
+  },
+  "outputs": {
+    "primary": "roundedProduct",
+    "breakdown": [
+      "unroundedProduct",
+      "roundedProduct"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

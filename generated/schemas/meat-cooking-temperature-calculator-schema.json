@@ -1,0 +1,63 @@
+{
+  "toolName": "meat-cooking-temperature-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Meat Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Weight of the meat in kilograms."
+    },
+    {
+      "id": "startTemp",
+      "label": "Starting Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Internal temperature of meat before cooking."
+    },
+    {
+      "id": "targetTemp",
+      "label": "Target Internal Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 70,
+      "businessContext": "Desired final internal temperature."
+    },
+    {
+      "id": "ovenTemp",
+      "label": "Oven Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 180,
+      "businessContext": "Temperature of the oven or cooking environment."
+    },
+    {
+      "id": "thermalFactor",
+      "label": "Thermal Factor",
+      "type": "number",
+      "unit": "min·kg⁻²/³",
+      "default": 20,
+      "businessContext": "Empirical constant: ≈20 for beef, ≈25 for pork, ≈15 for poultry. Accounts for shape and thermal properties."
+    }
+  ],
+  "formulas": {
+    "tempRatio": "(ovenTemp - startTemp) / (ovenTemp - targetTemp)",
+    "logFactor": "Math.log((ovenTemp - startTemp) / (ovenTemp - targetTemp))",
+    "cookingTime": "thermalFactor * Math.pow(weight, 2/3) * Math.log((ovenTemp - startTemp) / (ovenTemp - targetTemp))"
+  },
+  "outputs": {
+    "primary": "cookingTime",
+    "breakdown": [
+      "tempRatio",
+      "logFactor"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

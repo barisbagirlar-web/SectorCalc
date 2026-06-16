@@ -1,0 +1,72 @@
+{
+  "toolName": "gaussian-elimination-calculator",
+  "inputs": [
+    {
+      "id": "a11",
+      "label": "A[1,1]",
+      "type": "number",
+      "unit": "unitless",
+      "default": 1,
+      "businessContext": "Coefficient of x1 in first equation"
+    },
+    {
+      "id": "a12",
+      "label": "A[1,2]",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0,
+      "businessContext": "Coefficient of x2 in first equation"
+    },
+    {
+      "id": "b1",
+      "label": "b1",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0,
+      "businessContext": "Right-hand side of first equation"
+    },
+    {
+      "id": "a21",
+      "label": "A[2,1]",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0,
+      "businessContext": "Coefficient of x1 in second equation"
+    },
+    {
+      "id": "a22",
+      "label": "A[2,2]",
+      "type": "number",
+      "unit": "unitless",
+      "default": 1,
+      "businessContext": "Coefficient of x2 in second equation"
+    },
+    {
+      "id": "b2",
+      "label": "b2",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0,
+      "businessContext": "Right-hand side of second equation"
+    }
+  ],
+  "formulas": {
+    "det": "a11*a22 - a12*a21",
+    "x1": "(b1*a22 - a12*b2) / det",
+    "x2": "(a11*b2 - b1*a21) / det"
+  },
+  "outputs": {
+    "primary": "Solution: x1 = {{x1}}, x2 = {{x2}}",
+    "breakdown": [
+      "Determinant: {{det}}",
+      "x1 = {{x1}}",
+      "x2 = {{x2}}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

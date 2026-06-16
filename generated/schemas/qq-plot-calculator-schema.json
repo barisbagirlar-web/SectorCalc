@@ -1,0 +1,62 @@
+{
+  "toolName": "qq-plot-calculator",
+  "inputs": [
+    {
+      "id": "sampleMean",
+      "label": "Sample Mean",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The average value of the sample dataset"
+    },
+    {
+      "id": "sampleStdDev",
+      "label": "Sample Standard Deviation",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The standard deviation of the sample dataset"
+    },
+    {
+      "id": "sampleValue",
+      "label": "Sample Value",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "A single data point from the sample to be plotted"
+    },
+    {
+      "id": "referenceMean",
+      "label": "Reference Mean",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The mean of the reference (theoretical) distribution"
+    },
+    {
+      "id": "referenceStdDev",
+      "label": "Reference Standard Deviation",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The standard deviation of the reference distribution"
+    }
+  ],
+  "formulas": {
+    "sampleZ": "(sampleValue - sampleMean) / sampleStdDev",
+    "referenceQuantile": "referenceMean + referenceStdDev * ((sampleValue - sampleMean) / sampleStdDev)"
+  },
+  "outputs": {
+    "primary": "referenceQuantile",
+    "breakdown": [
+      "sampleZ",
+      "referenceQuantile"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

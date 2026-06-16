@@ -1,0 +1,75 @@
+{
+  "toolName": "tolac-calculator",
+  "inputs": [
+    {
+      "id": "laborRate",
+      "label": "Saatlik İşçilik Ücreti",
+      "type": "number",
+      "unit": "EUR/saat",
+      "default": 25,
+      "businessContext": "Bir işçinin saatlik maliyeti (brüt)"
+    },
+    {
+      "id": "machineRate",
+      "label": "Makine Saatlik Maliyeti",
+      "type": "number",
+      "unit": "EUR/saat",
+      "default": 50,
+      "businessContext": "Makinenin amortisman, enerji, bakım dahil saatlik maliyeti"
+    },
+    {
+      "id": "cycleTime",
+      "label": "Birim Çevrim Süresi",
+      "type": "number",
+      "unit": "dakika",
+      "default": 5,
+      "businessContext": "Bir birim ürünün işlenme süresi (operasyon süresi)"
+    },
+    {
+      "id": "batchSize",
+      "label": "Parti Büyüklüğü",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "businessContext": "Bir partide üretilen toplam ürün sayısı"
+    },
+    {
+      "id": "materialCostPerUnit",
+      "label": "Birim Malzeme Maliyeti",
+      "type": "number",
+      "unit": "EUR/adet",
+      "default": 10,
+      "businessContext": "Ürün başına hammadde ve sarf malzeme maliyeti"
+    },
+    {
+      "id": "overheadPercentage",
+      "label": "Genel Gider Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "İşçilik üzerinden hesaplanan genel üretim giderleri yüzdesi"
+    }
+  ],
+  "formulas": {
+    "laborCostPerUnit": "(laborRate * cycleTime) / 60",
+    "machineCostPerUnit": "(machineRate * cycleTime) / 60",
+    "overheadCostPerUnit": "laborCostPerUnit * (overheadPercentage / 100)",
+    "materialCostPerUnit": "materialCostPerUnit",
+    "totalCostPerUnit": "laborCostPerUnit + machineCostPerUnit + overheadCostPerUnit + materialCostPerUnit"
+  },
+  "outputs": {
+    "primary": "totalCostPerUnit",
+    "breakdown": [
+      "laborCostPerUnit",
+      "machineCostPerUnit",
+      "overheadCostPerUnit",
+      "materialCostPerUnit"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

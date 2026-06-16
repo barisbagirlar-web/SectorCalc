@@ -1,0 +1,78 @@
+{
+  "toolName": "gasket-calculator",
+  "inputs": [
+    {
+      "id": "innerDiameter",
+      "label": "İç Çap",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Conta iç çapı (mm)"
+    },
+    {
+      "id": "outerDiameter",
+      "label": "Dış Çap",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Conta dış çapı (mm)"
+    },
+    {
+      "id": "designPressure",
+      "label": "Tasarım Basıncı",
+      "type": "number",
+      "unit": "bar",
+      "default": 16,
+      "businessContext": "Sistem tasarım basıncı (bar)"
+    },
+    {
+      "id": "gasketFactor",
+      "label": "Conta Faktörü (m)",
+      "type": "number",
+      "unit": "",
+      "default": 2.5,
+      "businessContext": "ASME contası faktörü (boyutsuz)"
+    },
+    {
+      "id": "seatingStress",
+      "label": "Oturma Gerilimi (y)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 20,
+      "businessContext": "Conta oturma gerilimi (MPa)"
+    },
+    {
+      "id": "boltCount",
+      "label": "Civata Sayısı",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Flanştaki toplam civata sayısı"
+    }
+  ],
+  "formulas": {
+    "pressureMPa": "designPressure * 0.1",
+    "meanDiam": "(innerDiameter + outerDiameter) / 2",
+    "effWidth": "(outerDiameter - innerDiameter) / 2",
+    "operatingForce": "(Math.PI * meanDiam**2 * pressureMPa / 4) + (2 * effWidth * Math.PI * meanDiam * gasketFactor * pressureMPa)",
+    "seatingForce": "Math.PI * effWidth * meanDiam * seatingStress",
+    "maxTotalForce": "Math.max(operatingForce, seatingForce)",
+    "operatingForcePerBolt": "operatingForce / boltCount",
+    "seatingForcePerBolt": "seatingForce / boltCount",
+    "maxForcePerBolt": "maxTotalForce / boltCount",
+    "effectiveArea": "Math.PI / 4 * (outerDiameter**2 - innerDiameter**2)"
+  },
+  "outputs": {
+    "primary": "(maxTotalForce / 1000).toFixed(2) + ' kN'",
+    "breakdown": [
+      "('Çalışma Yükü: ' + (operatingForce / 1000).toFixed(2) + ' kN')",
+      "('Oturma Yükü: ' + (seatingForce / 1000).toFixed(2) + ' kN')"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

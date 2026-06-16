@@ -1,0 +1,60 @@
+{
+  "toolName": "mebibytes-to-megabytes-calculator",
+  "inputs": [
+    {
+      "id": "mebibytes",
+      "label": "Mebibytes (MiB)",
+      "type": "number",
+      "unit": "MiB",
+      "default": 1,
+      "businessContext": "Quantity in mebibytes to be converted"
+    },
+    {
+      "id": "binaryBase",
+      "label": "Binary Base Exponent (2^n)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 20,
+      "businessContext": "Exponent for binary base; standard MiB uses 20"
+    },
+    {
+      "id": "metricBase",
+      "label": "Metric Base Exponent (10^n)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 6,
+      "businessContext": "Exponent for metric base; standard MB uses 6"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 2,
+      "businessContext": "Number of decimal places to round the result"
+    }
+  ],
+  "formulas": {
+    "factor": "Math.pow(2, binaryBase) / Math.pow(10, metricBase)",
+    "megabytes": "mebibytes * factor",
+    "roundedMegabytes": "Math.round(megabytes * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": {
+      "value": "roundedMegabytes",
+      "unit": "MB",
+      "label": "Megabytes"
+    },
+    "breakdown": [
+      "Conversion factor: 2^{binaryBase} / 10^{metricBase} = {factor}",
+      "Raw value: {mebibytes} MiB × {factor} = {megabytes} MB",
+      "Rounded to {precision} decimal places: {roundedMegabytes} MB"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

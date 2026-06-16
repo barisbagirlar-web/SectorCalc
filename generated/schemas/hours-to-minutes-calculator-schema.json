@@ -1,0 +1,54 @@
+{
+  "toolName": "hours-to-minutes-calculator",
+  "inputs": [
+    {
+      "id": "hours",
+      "label": "Saat",
+      "type": "number",
+      "unit": "h",
+      "default": 1,
+      "businessContext": "Süre girdisi (saat)"
+    },
+    {
+      "id": "batchSize",
+      "label": "Parti Büyüklüğü",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "İşlenen parti miktarı"
+    },
+    {
+      "id": "machineCount",
+      "label": "Makine Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Operasyondaki makine adedi"
+    },
+    {
+      "id": "adjustmentPercent",
+      "label": "Ayarlama Yüzdesi",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Kayıp veya kazanç faktörü (%)"
+    }
+  ],
+  "formulas": {
+    "baseMinutes": "inputs.hours * 60",
+    "totalMinutes": "baseMinutes * inputs.batchSize * inputs.machineCount * (1 + inputs.adjustmentPercent / 100)"
+  },
+  "outputs": {
+    "primary": "Toplam Dakika",
+    "breakdown": [
+      "Saf Dakika (Saatten Dönüşüm)",
+      "Toplam Dakika (Parti, Makine ve Ayarlama Dahil)"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

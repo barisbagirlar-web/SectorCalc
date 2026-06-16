@@ -1,0 +1,89 @@
+{
+  "toolName": "sedimentation-calculator",
+  "inputs": [
+    {
+      "id": "particleDiameter",
+      "label": "Partikül Çapı",
+      "type": "number",
+      "unit": "m",
+      "default": 0.0001,
+      "businessContext": "Tipik çap 0.1 mm"
+    },
+    {
+      "id": "particleDensity",
+      "label": "Partikül Yoğunluğu",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 2600,
+      "businessContext": "Silis kumu ≈ 2600 kg/m³"
+    },
+    {
+      "id": "fluidDensity",
+      "label": "Akışkan Yoğunluğu",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Su = 1000 kg/m³"
+    },
+    {
+      "id": "fluidViscosity",
+      "label": "Akışkan Dinamik Viskozitesi",
+      "type": "number",
+      "unit": "Pa·s",
+      "default": 0.001,
+      "businessContext": "Su için ≈ 0.001 Pa·s (20°C)"
+    },
+    {
+      "id": "flowRate",
+      "label": "Debi",
+      "type": "number",
+      "unit": "m³/s",
+      "default": 0.1,
+      "businessContext": "Tesis tasarım debisi"
+    },
+    {
+      "id": "basinLength",
+      "label": "Havuz Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 20,
+      "businessContext": "Çökeltim havuzu boyu"
+    },
+    {
+      "id": "basinWidth",
+      "label": "Havuz Genişliği",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Çökeltim havuzu eni"
+    },
+    {
+      "id": "basinDepth",
+      "label": "Havuz Derinliği",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Tipik derinlik 2-4 m"
+    }
+  ],
+  "formulas": {
+    "settlingVelocity": "((9.81) * (particleDensity - fluidDensity) * (particleDiameter ** 2)) / (18 * fluidViscosity)",
+    "overflowRate": "flowRate / (basinLength * basinWidth)",
+    "detentionTime": "(basinLength * basinWidth * basinDepth) / flowRate",
+    "reynoldsNumber": "(fluidDensity * ((9.81) * (particleDensity - fluidDensity) * (particleDiameter ** 2)) / (18 * fluidViscosity) * particleDiameter) / fluidViscosity"
+  },
+  "outputs": {
+    "primary": "overflowRate",
+    "breakdown": [
+      "settlingVelocity",
+      "detentionTime",
+      "reynoldsNumber"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

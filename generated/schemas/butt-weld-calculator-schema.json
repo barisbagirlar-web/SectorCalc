@@ -1,0 +1,63 @@
+{
+  "toolName": "butt-weld-calculator",
+  "inputs": [
+    {
+      "id": "plateThickness",
+      "label": "Plate Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Material thickness to be welded"
+    },
+    {
+      "id": "rootGap",
+      "label": "Root Gap",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "businessContext": "Gap between plate edges"
+    },
+    {
+      "id": "includedAngle",
+      "label": "Included Angle",
+      "type": "number",
+      "unit": "deg",
+      "default": 60,
+      "businessContext": "Total groove angle (V-groove)"
+    },
+    {
+      "id": "weldLength",
+      "label": "Weld Length",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Total length of weld"
+    },
+    {
+      "id": "metalDensity",
+      "label": "Filler Metal Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "businessContext": "Density of filler material (e.g., steel 7850)"
+    }
+  ],
+  "formulas": {
+    "crossSectionalArea": "(plateThickness * rootGap) + (Math.pow(plateThickness, 2) * Math.tan((includedAngle / 2) * Math.PI / 180))",
+    "fillerVolume": "crossSectionalArea / 1e6 * weldLength",
+    "totalFillerWeight": "fillerVolume * metalDensity"
+  },
+  "outputs": {
+    "primary": "totalFillerWeight",
+    "breakdown": [
+      "crossSectionalArea",
+      "fillerVolume"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

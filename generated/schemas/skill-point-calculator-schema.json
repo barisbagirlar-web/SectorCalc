@@ -1,0 +1,79 @@
+{
+  "toolName": "skill-point-calculator",
+  "inputs": [
+    {
+      "id": "currentSkillLevel",
+      "label": "Current Skill Level",
+      "type": "number",
+      "unit": "points",
+      "default": 50,
+      "businessContext": "Current assessed skill level of the worker (0-100)"
+    },
+    {
+      "id": "trainingHours",
+      "label": "Training Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 0,
+      "businessContext": "Total hours of completed training"
+    },
+    {
+      "id": "experienceYears",
+      "label": "Years of Experience",
+      "type": "number",
+      "unit": "years",
+      "default": 0,
+      "businessContext": "Total years of relevant work experience"
+    },
+    {
+      "id": "taskComplexity",
+      "label": "Task Complexity",
+      "type": "number",
+      "unit": "scale (1-10)",
+      "default": 5,
+      "businessContext": "Average complexity of tasks performed (1=low, 10=high)"
+    },
+    {
+      "id": "certifications",
+      "label": "Certifications",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Number of relevant certifications held"
+    },
+    {
+      "id": "errorRate",
+      "label": "Error Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Average error rate in task execution (0-100%)"
+    }
+  ],
+  "formulas": {
+    "baseSkill": "currentSkillLevel",
+    "trainingImpact": "trainingHours * 0.1",
+    "experienceImpact": "experienceYears * 5",
+    "certificationImpact": "certifications * 3",
+    "errorPenalty": "errorRate * 2",
+    "complexityFactor": "taskComplexity / 10",
+    "skillPoints": "(currentSkillLevel + (trainingHours * 0.1) + (experienceYears * 5) + (certifications * 3) - (errorRate * 2)) * (taskComplexity / 10)"
+  },
+  "outputs": {
+    "primary": "skillPoints",
+    "breakdown": [
+      "baseSkill",
+      "trainingImpact",
+      "experienceImpact",
+      "certificationImpact",
+      "errorPenalty",
+      "complexityFactor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

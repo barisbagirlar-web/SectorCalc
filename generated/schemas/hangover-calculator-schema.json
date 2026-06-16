@@ -1,0 +1,73 @@
+{
+  "toolName": "hangover-calculator",
+  "inputs": [
+    {
+      "id": "alcohol_grams",
+      "label": "Alkol Miktarı",
+      "type": "number",
+      "unit": "g",
+      "default": 100,
+      "businessContext": "Toplam tüketilen alkol miktarı (gram)"
+    },
+    {
+      "id": "body_weight",
+      "label": "Vücut Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Kişinin vücut ağırlığı"
+    },
+    {
+      "id": "hours",
+      "label": "İçki Süresi",
+      "type": "number",
+      "unit": "saat",
+      "default": 4,
+      "businessContext": "İçki içme süresi"
+    },
+    {
+      "id": "gender",
+      "label": "Cinsiyet",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Cinsiyet (0: Kadın, 1: Erkek)"
+    },
+    {
+      "id": "food_intake",
+      "label": "Yemek Tüketimi",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Yemek tüketimi (0: aç karnına, 1: tok)"
+    },
+    {
+      "id": "hydration",
+      "label": "Hidrasyon Durumu",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Hidrasyon seviyesi (0: susuz, 1: tam hidrasyon)"
+    }
+  ],
+  "formulas": {
+    "bac": "Math.max(0, alcohol_grams / (body_weight * (0.55 + 0.15 * gender)) - 0.015 * hours)",
+    "dehydration_factor": "1 - hydration",
+    "food_impact": "1 - food_intake",
+    "hangover_score": "bac * 20 + dehydration_factor * 10 + food_impact * 10"
+  },
+  "outputs": {
+    "primary": "hangover_score",
+    "breakdown": [
+      "bac",
+      "dehydration_factor",
+      "food_impact"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

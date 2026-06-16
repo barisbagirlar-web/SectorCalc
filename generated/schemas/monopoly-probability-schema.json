@@ -1,0 +1,76 @@
+{
+  "toolName": "monopoly-probability",
+  "inputs": [
+    {
+      "id": "numPlayers",
+      "label": "Number of Players",
+      "type": "number",
+      "unit": "players",
+      "default": 4,
+      "businessContext": "Total players in the game"
+    },
+    {
+      "id": "diceSides",
+      "label": "Dice Sides",
+      "type": "number",
+      "unit": "sides",
+      "default": 6,
+      "businessContext": "Number of sides on each die"
+    },
+    {
+      "id": "numDice",
+      "label": "Number of Dice",
+      "type": "number",
+      "unit": "dice",
+      "default": 2,
+      "businessContext": "Number of dice rolled per turn"
+    },
+    {
+      "id": "boardSpaces",
+      "label": "Board Spaces",
+      "type": "number",
+      "unit": "spaces",
+      "default": 40,
+      "businessContext": "Total spaces on the Monopoly board"
+    },
+    {
+      "id": "targetSpace",
+      "label": "Target Space",
+      "type": "number",
+      "unit": "space number",
+      "default": 10,
+      "businessContext": "Space number to land on (0-based from GO)"
+    },
+    {
+      "id": "turns",
+      "label": "Number of Turns",
+      "type": "number",
+      "unit": "turns",
+      "default": 10,
+      "businessContext": "Number of turns to simulate"
+    }
+  ],
+  "formulas": {
+    "meanRoll": "numDice * (diceSides + 1) / 2",
+    "stdRoll": "Math.sqrt(numDice * (diceSides * diceSides - 1) / 12)",
+    "probLandOnTargetOneTurn": "1 / boardSpaces",
+    "probNotLandOnTargetOneTurn": "1 - probLandOnTargetOneTurn",
+    "probLandAtLeastOnce": "1 - Math.pow(probNotLandOnTargetOneTurn, turns)",
+    "expectedLandings": "turns / boardSpaces"
+  },
+  "outputs": {
+    "primary": "Probability of landing on target space at least once",
+    "breakdown": [
+      "Mean dice roll per turn",
+      "Standard deviation of dice roll",
+      "Probability per turn",
+      "Expected number of landings"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

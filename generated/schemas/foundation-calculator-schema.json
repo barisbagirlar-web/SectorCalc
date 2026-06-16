@@ -1,0 +1,72 @@
+{
+  "toolName": "foundation-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Foundation Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of the foundation in meters"
+    },
+    {
+      "id": "width",
+      "label": "Foundation Width",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Width of the foundation in meters"
+    },
+    {
+      "id": "depth",
+      "label": "Foundation Depth",
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "businessContext": "Depth (thickness) of the foundation in meters"
+    },
+    {
+      "id": "concreteDensity",
+      "label": "Concrete Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 2400,
+      "businessContext": "Density of concrete (typically 2400 kg/m³ for normal weight concrete)"
+    },
+    {
+      "id": "rebarRatio",
+      "label": "Rebar Ratio",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.01,
+      "businessContext": "Volumetric ratio of reinforcement steel (e.g., 0.01 for 1%)"
+    },
+    {
+      "id": "steelDensity",
+      "label": "Steel Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "businessContext": "Density of reinforcing steel (typically 7850 kg/m³)"
+    }
+  ],
+  "formulas": {
+    "concreteVolume": "(inputs) => inputs.length * inputs.width * inputs.depth",
+    "concreteWeight": "(inputs) => this.concreteVolume(inputs) * inputs.concreteDensity",
+    "rebarWeight": "(inputs) => this.concreteVolume(inputs) * inputs.rebarRatio * inputs.steelDensity",
+    "totalWeight": "(inputs) => this.concreteWeight(inputs) + this.rebarWeight(inputs)"
+  },
+  "outputs": {
+    "primary": "concreteVolume",
+    "breakdown": [
+      "concreteWeight",
+      "rebarWeight"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

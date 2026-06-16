@@ -1,0 +1,86 @@
+{
+  "toolName": "trigonometry-calculator",
+  "inputs": [
+    {
+      "id": "angle",
+      "label": "Angle (x)",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Input angle in degrees for trigonometric and sinusoidal function evaluation."
+    },
+    {
+      "id": "amplitude",
+      "label": "Amplitude (A)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Amplitude of the sinusoidal function."
+    },
+    {
+      "id": "frequency",
+      "label": "Frequency (B)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Frequency factor, radians per degree."
+    },
+    {
+      "id": "phase",
+      "label": "Phase Shift (C)",
+      "type": "number",
+      "unit": "rad",
+      "default": 0,
+      "businessContext": "Phase shift in radians."
+    },
+    {
+      "id": "verticalShift",
+      "label": "Vertical Shift (D)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Vertical shift of the sinusoidal function."
+    }
+  ],
+  "formulas": {
+    "x_rad": "angle * Math.PI / 180",
+    "sinValue": "Math.sin(x_rad)",
+    "cosValue": "Math.cos(x_rad)",
+    "tanValue": "Math.tan(x_rad)",
+    "y": "amplitude * Math.sin(frequency * x_rad + phase) + verticalShift"
+  },
+  "outputs": {
+    "primary": {
+      "id": "y",
+      "label": "Sinusoidal Output",
+      "unit": "",
+      "formula": "y"
+    },
+    "breakdown": [
+      {
+        "id": "sin",
+        "label": "sin(x)",
+        "unit": "",
+        "formula": "sinValue"
+      },
+      {
+        "id": "cos",
+        "label": "cos(x)",
+        "unit": "",
+        "formula": "cosValue"
+      },
+      {
+        "id": "tan",
+        "label": "tan(x)",
+        "unit": "",
+        "formula": "tanValue"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

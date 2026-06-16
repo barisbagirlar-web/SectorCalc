@@ -1,0 +1,54 @@
+{
+  "toolName": "rock-climbing-calculator",
+  "inputs": [
+    {
+      "id": "climberMass",
+      "label": "Climber Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "Mass of the climber including all gear carried."
+    },
+    {
+      "id": "ropeLength",
+      "label": "Rope Length Out",
+      "type": "number",
+      "unit": "m",
+      "default": 30,
+      "businessContext": "Total length of rope paid out from belay device to climber."
+    },
+    {
+      "id": "fallLength",
+      "label": "Length of Fall",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Vertical distance the climber falls before rope begins to catch."
+    },
+    {
+      "id": "ropeImpactForceRating",
+      "label": "Rope Impact Force Rating",
+      "type": "number",
+      "unit": "kN",
+      "default": 8.5,
+      "businessContext": "Maximum impact force measured for a standard UIAA fall (80 kg, fall factor 1.77) as specified by the rope manufacturer."
+    }
+  ],
+  "formulas": {
+    "fallFactor": "fallLength / ropeLength",
+    "impactForce": "ropeImpactForceRating * (climberMass / 80) * Math.sqrt(fallFactor / 1.77)"
+  },
+  "outputs": {
+    "primary": "impactForce",
+    "breakdown": [
+      "fallFactor",
+      "impactForce"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

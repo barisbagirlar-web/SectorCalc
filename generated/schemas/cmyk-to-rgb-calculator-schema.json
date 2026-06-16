@@ -1,0 +1,57 @@
+{
+  "toolName": "cmyk-to-rgb-calculator",
+  "inputs": [
+    {
+      "id": "cyan",
+      "label": "Cyan",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Cyan component percentage (0-100)"
+    },
+    {
+      "id": "magenta",
+      "label": "Magenta",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Magenta component percentage (0-100)"
+    },
+    {
+      "id": "yellow",
+      "label": "Yellow",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Yellow component percentage (0-100)"
+    },
+    {
+      "id": "black",
+      "label": "Black (Key)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Black (Key) component percentage (0-100)"
+    }
+  ],
+  "formulas": {
+    "r": "Math.round(255 * (1 - cyan / 100) * (1 - black / 100))",
+    "g": "Math.round(255 * (1 - magenta / 100) * (1 - black / 100))",
+    "b": "Math.round(255 * (1 - yellow / 100) * (1 - black / 100))",
+    "rgbString": "`rgb(${r}, ${g}, ${b})`"
+  },
+  "outputs": {
+    "primary": "rgbString",
+    "breakdown": [
+      "r",
+      "g",
+      "b"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

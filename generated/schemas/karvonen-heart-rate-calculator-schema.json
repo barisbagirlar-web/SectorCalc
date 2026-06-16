@@ -1,0 +1,62 @@
+{
+  "toolName": "karvonen-heart-rate-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age for estimating maximum heart rate (220 - age) if max HR is not directly measured"
+    },
+    {
+      "id": "restingHR",
+      "label": "Resting Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 60,
+      "businessContext": "Resting heart rate measured in the morning"
+    },
+    {
+      "id": "maxHR",
+      "label": "Maximum Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 190,
+      "businessContext": "Maximum heart rate; if unknown, use 220 - age"
+    },
+    {
+      "id": "intensityLow",
+      "label": "Intensity Lower Limit",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "businessContext": "Lower percentage of heart rate reserve for the target training zone"
+    },
+    {
+      "id": "intensityHigh",
+      "label": "Intensity Upper Limit",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Upper percentage of heart rate reserve for the target training zone"
+    }
+  ],
+  "formulas": {
+    "targetHeartRateLow": "((maxHR - restingHR) * (intensityLow / 100)) + restingHR",
+    "targetHeartRateHigh": "((maxHR - restingHR) * (intensityHigh / 100)) + restingHR"
+  },
+  "outputs": {
+    "primary": "Target heart rate zone: {targetHeartRateLow} - {targetHeartRateHigh} bpm",
+    "breakdown": [
+      "targetHeartRateLow",
+      "targetHeartRateHigh"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

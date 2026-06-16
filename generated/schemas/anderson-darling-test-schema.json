@@ -1,0 +1,56 @@
+{
+  "toolName": "anderson-darling-test",
+  "inputs": [
+    {
+      "id": "sampleSize",
+      "label": "Sample Size (n)",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "businessContext": "Number of data points in the sample"
+    },
+    {
+      "id": "sortedData",
+      "label": "Sorted Data (comma-separated)",
+      "type": "number",
+      "unit": "value",
+      "default": "1,2,3,4,5,6,7,8,9,10",
+      "businessContext": "Sample values sorted in ascending order"
+    },
+    {
+      "id": "mean",
+      "label": "Mean (μ)",
+      "type": "number",
+      "unit": "value",
+      "default": 5.5,
+      "businessContext": "Mean of the hypothesized normal distribution"
+    },
+    {
+      "id": "stdDev",
+      "label": "Standard Deviation (σ)",
+      "type": "number",
+      "unit": "value",
+      "default": 2.872,
+      "businessContext": "Standard deviation of the hypothesized normal distribution"
+    }
+  ],
+  "formulas": {
+    "computeZ": "let data = inputs.sortedData.split(',').map(Number); let n = inputs.sampleSize; let mean = inputs.mean; let std = inputs.stdDev; let z = data.map(x => (x - mean) / std); return z;",
+    "computeCDF": "let z = computeZ(); return z.map(zi => 0.5 * (1 + Math.erf(zi / Math.sqrt(2))));",
+    "computeAD": "let cdf = computeCDF(); let n = inputs.sampleSize; let sum = 0; for (let i = 0; i < n; i++) { let term = (2 * (i + 1) - 1) * (Math.log(cdf[i]) + Math.log(1 - cdf[n - 1 - i])); sum += term; } let ad = -n - (1 / n) * sum; return ad;",
+    "computeAdjustedAD": "let ad = computeAD(); let n = inputs.sampleSize; let adj = ad * (1 + 0.75 / n + 2.25 / (n * n)); return adj;"
+  },
+  "outputs": {
+    "primary": "Adjusted Anderson-Darling Statistic",
+    "breakdown": [
+      "Anderson-Darling Statistic (A²)",
+      "Adjusted Anderson-Darling Statistic"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

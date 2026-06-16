@@ -1,0 +1,74 @@
+{
+  "toolName": "age-calculator",
+  "inputs": [
+    {
+      "id": "birthYear",
+      "label": "Doğum Yılı",
+      "type": "number",
+      "unit": "year",
+      "default": 1990,
+      "businessContext": "Kişinin doğum yılını giriniz."
+    },
+    {
+      "id": "birthMonth",
+      "label": "Doğum Ayı",
+      "type": "number",
+      "unit": "month",
+      "default": 1,
+      "businessContext": "1-12 arası değer giriniz (1=Ocak)."
+    },
+    {
+      "id": "birthDay",
+      "label": "Doğum Günü",
+      "type": "number",
+      "unit": "day",
+      "default": 1,
+      "businessContext": "1-31 arası değer giriniz."
+    },
+    {
+      "id": "referenceYear",
+      "label": "Referans Yılı",
+      "type": "number",
+      "unit": "year",
+      "default": 2025,
+      "businessContext": "Yaşın hesaplanacağı referans yıl."
+    },
+    {
+      "id": "referenceMonth",
+      "label": "Referans Ayı",
+      "type": "number",
+      "unit": "month",
+      "default": 1,
+      "businessContext": "1-12 arası değer giriniz (1=Ocak)."
+    },
+    {
+      "id": "referenceDay",
+      "label": "Referans Günü",
+      "type": "number",
+      "unit": "day",
+      "default": 1,
+      "businessContext": "1-31 arası değer giriniz."
+    }
+  ],
+  "formulas": {
+    "ageInDays": "Math.floor((new Date(referenceYear, referenceMonth - 1, referenceDay) - new Date(birthYear, birthMonth - 1, birthDay)) / 86400000)",
+    "ageInYears": "ageInDays / 365.25",
+    "ageInMonths": "ageInDays / 30.4375",
+    "ageInWeeks": "ageInDays / 7",
+    "ageInHours": "ageInDays * 24"
+  },
+  "outputs": {
+    "primary": "ageInYears",
+    "breakdown": [
+      "ageInDays",
+      "ageInMonths",
+      "ageInWeeks"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

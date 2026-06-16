@@ -1,0 +1,64 @@
+{
+  "toolName": "degrees-to-arcseconds-calculator",
+  "inputs": [
+    {
+      "id": "decimalDegrees",
+      "label": "Decimal Degrees",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Enter the angle in decimal degrees if known. Leave 0 to use degrees, minutes, seconds."
+    },
+    {
+      "id": "degrees",
+      "label": "Degrees",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Whole degrees part."
+    },
+    {
+      "id": "minutes",
+      "label": "Minutes",
+      "type": "number",
+      "unit": "arcmin",
+      "default": 0,
+      "businessContext": "Arcminutes. 1 arcminute = 1/60 degree."
+    },
+    {
+      "id": "seconds",
+      "label": "Seconds",
+      "type": "number",
+      "unit": "arcsec",
+      "default": 0,
+      "businessContext": "Arcseconds. 1 arcsecond = 1/60 arcminute."
+    },
+    {
+      "id": "precision",
+      "label": "Output Precision",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 2,
+      "businessContext": "Number of decimal places in the output."
+    }
+  ],
+  "formulas": {
+    "totalArcseconds": "(decimalDegrees != null && decimalDegrees != 0) ? decimalDegrees * 3600 : (degrees * 3600 + minutes * 60 + seconds)",
+    "primaryOutput": "Math.round(totalArcseconds * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "decimalEquivalent": "'Decimal degrees: ' + ( (decimalDegrees != null && decimalDegrees != 0) ? decimalDegrees : (degrees + minutes/60 + seconds/3600) ).toFixed(precision) + '°'",
+    "dmsRepresentation": "Math.floor(totalArcseconds / 3600) + '° ' + Math.floor((totalArcseconds % 3600) / 60) + \"' \" + (Math.round((totalArcseconds % 60) * Math.pow(10, precision)) / Math.pow(10, precision)) + \"''\""
+  },
+  "outputs": {
+    "primary": "primaryOutput",
+    "breakdown": [
+      "decimalEquivalent",
+      "dmsRepresentation"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "mbps-to-gbps-calculator",
+  "inputs": [
+    {
+      "id": "mbpsValue",
+      "label": "Speed in Mbps",
+      "type": "number",
+      "unit": "Mbps",
+      "default": 1000,
+      "businessContext": "Measured or nominal data rate in megabits per second."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "Mbps per Gbps",
+      "default": 1000,
+      "businessContext": "Standard conversion: 1 Gbps = 1000 Mbps. Adjust for non-standard units."
+    },
+    {
+      "id": "decimalPrecision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Output precision in decimal places for reporting consistency."
+    },
+    {
+      "id": "calibrationOffset",
+      "label": "Calibration Offset (Mbps)",
+      "type": "number",
+      "unit": "Mbps",
+      "default": 0,
+      "businessContext": "Calibration correction value added to the input. Typically 0 for uncalibrated readings."
+    },
+    {
+      "id": "measurementId",
+      "label": "Measurement ID",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "For traceability to measurement records, set to 0 if not applicable."
+    }
+  ],
+  "formulas": {
+    "adjustedMbps": "mbpsValue + calibrationOffset",
+    "rawGbps": "(mbpsValue + calibrationOffset) / conversionFactor",
+    "primaryGbps": "Math.round(((mbpsValue + calibrationOffset) / conversionFactor) * Math.pow(10, decimalPrecision)) / Math.pow(10, decimalPrecision)"
+  },
+  "outputs": {
+    "primary": "primaryGbps",
+    "breakdown": [
+      "adjustedMbps",
+      "rawGbps"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

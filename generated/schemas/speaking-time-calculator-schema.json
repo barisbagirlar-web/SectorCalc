@@ -1,0 +1,55 @@
+{
+  "toolName": "speaking-time-calculator",
+  "inputs": [
+    {
+      "id": "totalWords",
+      "label": "Total Words",
+      "type": "number",
+      "unit": "words",
+      "default": 1000,
+      "businessContext": "Number of words in the speech or text to be spoken."
+    },
+    {
+      "id": "slowWPM",
+      "label": "Slow Speaking Rate",
+      "type": "number",
+      "unit": "words/min",
+      "default": 120,
+      "businessContext": "Speaking rate for a slow-paced delivery."
+    },
+    {
+      "id": "normalWPM",
+      "label": "Normal Speaking Rate",
+      "type": "number",
+      "unit": "words/min",
+      "default": 150,
+      "businessContext": "Average or normal speaking rate."
+    },
+    {
+      "id": "fastWPM",
+      "label": "Fast Speaking Rate",
+      "type": "number",
+      "unit": "words/min",
+      "default": 180,
+      "businessContext": "Speaking rate for a fast-paced delivery."
+    }
+  ],
+  "formulas": {
+    "slowTime": "totalWords / slowWPM",
+    "normalTime": "totalWords / normalWPM",
+    "fastTime": "totalWords / fastWPM"
+  },
+  "outputs": {
+    "primary": "normalTime",
+    "breakdown": [
+      "slowTime",
+      "fastTime"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

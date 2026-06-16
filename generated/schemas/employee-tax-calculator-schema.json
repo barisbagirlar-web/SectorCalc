@@ -1,0 +1,55 @@
+{
+  "toolName": "employee-tax-calculator",
+  "inputs": [
+    {
+      "id": "grossSalary",
+      "label": "Gross Monthly Salary",
+      "type": "number",
+      "unit": "currency",
+      "default": 5000,
+      "businessContext": "Employee's gross monthly income before deductions"
+    },
+    {
+      "id": "taxAllowance",
+      "label": "Tax Allowance",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "businessContext": "Monthly tax-free allowance"
+    },
+    {
+      "id": "socialSecurityRate",
+      "label": "Social Security Rate",
+      "type": "number",
+      "unit": "percent",
+      "default": 5,
+      "businessContext": "Employee social security contribution rate"
+    },
+    {
+      "id": "incomeTaxRate",
+      "label": "Income Tax Rate",
+      "type": "number",
+      "unit": "percent",
+      "default": 20,
+      "businessContext": "Marginal income tax rate"
+    }
+  ],
+  "formulas": {
+    "netSalary": "grossSalary - (grossSalary - taxAllowance) * (incomeTaxRate / 100) - grossSalary * (socialSecurityRate / 100)",
+    "incomeTax": "(grossSalary - taxAllowance) * (incomeTaxRate / 100)",
+    "socialSecurity": "grossSalary * (socialSecurityRate / 100)"
+  },
+  "outputs": {
+    "primary": "netSalary",
+    "breakdown": [
+      "incomeTax",
+      "socialSecurity"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

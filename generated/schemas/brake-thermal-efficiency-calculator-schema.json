@@ -1,0 +1,54 @@
+{
+  "toolName": "brake-thermal-efficiency-calculator",
+  "inputs": [
+    {
+      "id": "brakePower",
+      "label": "Brake Power",
+      "type": "number",
+      "unit": "kW",
+      "default": 100,
+      "businessContext": "Measured brake power from engine dynamometer."
+    },
+    {
+      "id": "fuelMassFlow",
+      "label": "Fuel Mass Flow Rate",
+      "type": "number",
+      "unit": "kg/h",
+      "default": 20,
+      "businessContext": "Fuel consumption rate measured by fuel flow meter."
+    },
+    {
+      "id": "lhv",
+      "label": "Lower Heating Value",
+      "type": "number",
+      "unit": "kJ/kg",
+      "default": 42000,
+      "businessContext": "Lower heating value of the fuel (energy content)."
+    },
+    {
+      "id": "correctionFactor",
+      "label": "Efficiency Correction Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier to account for environmental or measurement corrections (default 1 for no correction)."
+    }
+  ],
+  "formulas": {
+    "energyInput": "(fuelMassFlow * lhv) / 3600",
+    "efficiency": "(brakePower / energyInput) * 100 * correctionFactor"
+  },
+  "outputs": {
+    "primary": "efficiency",
+    "breakdown": [
+      "energyInput",
+      "brakePower"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

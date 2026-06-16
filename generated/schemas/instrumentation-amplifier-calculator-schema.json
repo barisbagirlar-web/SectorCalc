@@ -1,0 +1,63 @@
+{
+  "toolName": "instrumentation-amplifier-calculator",
+  "inputs": [
+    {
+      "id": "r1",
+      "label": "R1 (Gain Resistor)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 1000,
+      "businessContext": "Value of the gain-setting resistor in the instrumentation amplifier circuit. Adjusted to set the desired gain."
+    },
+    {
+      "id": "r2",
+      "label": "R2 (Feedback Resistor)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 10000,
+      "businessContext": "Value of the two feedback resistors (typically equal) in the first stage of the instrumentation amplifier. Usually matched for symmetry."
+    },
+    {
+      "id": "vinPlus",
+      "label": "Vin+",
+      "type": "number",
+      "unit": "V",
+      "default": 0.01,
+      "businessContext": "Non-inverting input voltage. Typically a small differential signal plus common-mode."
+    },
+    {
+      "id": "vinMinus",
+      "label": "Vin-",
+      "type": "number",
+      "unit": "V",
+      "default": 0,
+      "businessContext": "Inverting input voltage. The differential voltage is Vin+ minus Vin-."
+    },
+    {
+      "id": "vref",
+      "label": "Vref",
+      "type": "number",
+      "unit": "V",
+      "default": 0,
+      "businessContext": "Reference voltage applied to the output stage, allowing level shifting of the output."
+    }
+  ],
+  "formulas": {
+    "gain": "1 + 2 * r2 / r1",
+    "vd": "vinPlus - vinMinus",
+    "vout": "(1 + 2 * r2 / r1) * (vinPlus - vinMinus) + vref"
+  },
+  "outputs": {
+    "primary": "vout",
+    "breakdown": [
+      "vd",
+      "gain"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

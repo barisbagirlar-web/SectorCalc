@@ -1,0 +1,55 @@
+{
+  "toolName": "persian-calendar-calculator",
+  "inputs": [
+    {
+      "id": "persianYear",
+      "label": "Persian Year",
+      "type": "number",
+      "unit": "yr",
+      "default": 1402,
+      "businessContext": "The year in the Persian/Jalali calendar (e.g., 1402)."
+    },
+    {
+      "id": "persianMonth",
+      "label": "Persian Month",
+      "type": "number",
+      "unit": "mo",
+      "default": 1,
+      "businessContext": "Month number (1-12) in the Persian calendar."
+    },
+    {
+      "id": "persianDay",
+      "label": "Persian Day",
+      "type": "number",
+      "unit": "d",
+      "default": 1,
+      "businessContext": "Day of the month (1-31) in the Persian calendar."
+    },
+    {
+      "id": "dayFraction",
+      "label": "Day Fraction",
+      "type": "number",
+      "unit": "d",
+      "default": 0,
+      "businessContext": "Decimal fraction of a day (0-1) for precise Julian Day Number."
+    }
+  ],
+  "formulas": {
+    "julianDay": "365 * (persianYear - 1) + 30 * (persianMonth - 1) + (persianDay - 1) + dayFraction",
+    "daysFromYear": "365 * (persianYear - 1)",
+    "daysFromMonth": "30 * (persianMonth - 1)"
+  },
+  "outputs": {
+    "primary": "julianDay",
+    "breakdown": [
+      "daysFromYear",
+      "daysFromMonth"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

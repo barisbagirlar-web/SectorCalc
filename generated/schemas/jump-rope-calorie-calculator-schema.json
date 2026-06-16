@@ -1,0 +1,55 @@
+{
+  "toolName": "jump-rope-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User's body weight in kilograms. Used to compute energy expenditure."
+    },
+    {
+      "id": "duration",
+      "label": "Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Total time spent jumping rope in minutes."
+    },
+    {
+      "id": "jumpsPerMinute",
+      "label": "Jumps per Minute",
+      "type": "number",
+      "unit": "jpm",
+      "default": 120,
+      "businessContext": "Average number of rope skips per minute. Influences intensity (MET)."
+    },
+    {
+      "id": "efficiencyFactor",
+      "label": "Efficiency Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Individual fitness variation multiplier (1.0 = average, >1 = higher calorie burn)."
+    }
+  ],
+  "formulas": {
+    "met": "jumpsPerMinute / 13.636",
+    "caloriesPerMinute": "met * weight * 3.5 / 200 * efficiencyFactor",
+    "caloriesBurned": "caloriesPerMinute * duration"
+  },
+  "outputs": {
+    "primary": "caloriesBurned",
+    "breakdown": [
+      "met",
+      "caloriesPerMinute"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

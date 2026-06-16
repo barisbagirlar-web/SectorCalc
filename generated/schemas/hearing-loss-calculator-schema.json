@@ -1,0 +1,56 @@
+{
+  "toolName": "hearing-loss-calculator",
+  "inputs": [
+    {
+      "id": "noise_level",
+      "label": "Noise Level",
+      "type": "number",
+      "unit": "dBA",
+      "default": 85,
+      "businessContext": "Average noise level during exposure in decibels A-weighted"
+    },
+    {
+      "id": "exposure_hours",
+      "label": "Daily Exposure Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Number of hours per day exposed to noise"
+    },
+    {
+      "id": "years_exposed",
+      "label": "Years of Exposure",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Total years of occupational noise exposure"
+    },
+    {
+      "id": "age",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the person for presbycusis estimation"
+    }
+  ],
+  "formulas": {
+    "twa": "(noise_level + 10 * (Math.log(exposure_hours / 8) / Math.LN10))",
+    "nihl": "Math.max(0, (twa - 80) * years_exposed * 0.05)",
+    "age_loss": "0.5 * Math.max(0, age - 18)",
+    "total_hearing_loss": "nihl + age_loss"
+  },
+  "outputs": {
+    "primary": "total_hearing_loss",
+    "breakdown": [
+      "nihl",
+      "age_loss"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

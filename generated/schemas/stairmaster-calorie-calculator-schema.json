@@ -1,0 +1,63 @@
+{
+  "toolName": "stairmaster-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User's body weight in kilograms for accurate metabolic and mechanical work calculations"
+    },
+    {
+      "id": "duration",
+      "label": "Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Total exercise duration in minutes"
+    },
+    {
+      "id": "met",
+      "label": "MET Value",
+      "type": "number",
+      "unit": "MET",
+      "default": 5.5,
+      "businessContext": "Metabolic Equivalent of Task representing intensity; 5.5 typical for moderate stair stepping"
+    },
+    {
+      "id": "stepHeight",
+      "label": "Step Height",
+      "type": "number",
+      "unit": "m",
+      "default": 0.17,
+      "businessContext": "Height of each step in meters (typical stair riser height)"
+    },
+    {
+      "id": "stepsPerMinute",
+      "label": "Steps per Minute",
+      "type": "number",
+      "unit": "steps/min",
+      "default": 60,
+      "businessContext": "Average stepping rate during exercise"
+    }
+  ],
+  "formulas": {
+    "totalCalories": "met * weight * (duration / 60)",
+    "caloriesPerMinute": "met * weight / 60",
+    "mechanicalWorkCalories": "(weight * 9.81 * stepHeight * stepsPerMinute * duration) / 4184"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "caloriesPerMinute",
+      "mechanicalWorkCalories"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

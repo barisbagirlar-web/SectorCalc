@@ -1,0 +1,56 @@
+{
+  "toolName": "youngs-modulus-calculator",
+  "inputs": [
+    {
+      "id": "force",
+      "label": "Uygulanan Kuvvet",
+      "type": "number",
+      "unit": "N",
+      "default": 1000,
+      "businessContext": "Çekme testinde uygulanan kuvvet"
+    },
+    {
+      "id": "originalLength",
+      "label": "Orijinal Uzunluk",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Malzemenin başlangıçtaki boyu"
+    },
+    {
+      "id": "diameter",
+      "label": "Çap",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Silindirik numunenin çapı (dairesel kesit için)"
+    },
+    {
+      "id": "elongation",
+      "label": "Uzama Miktarı",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.1,
+      "businessContext": "Kuvvet altında meydana gelen uzama"
+    }
+  ],
+  "formulas": {
+    "area": "Math.PI * Math.pow(diameter/2, 2)",
+    "stress": "force / area",
+    "strain": "elongation / originalLength",
+    "youngsModulus": "stress / strain"
+  },
+  "outputs": {
+    "primary": "youngsModulus",
+    "breakdown": [
+      "stress",
+      "strain"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

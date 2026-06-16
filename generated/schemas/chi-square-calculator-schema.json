@@ -1,0 +1,68 @@
+{
+  "toolName": "chi-square-calculator",
+  "inputs": [
+    {
+      "id": "cell11",
+      "label": "Cell (1,1) Observed",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Observed frequency for the first row, first column"
+    },
+    {
+      "id": "cell12",
+      "label": "Cell (1,2) Observed",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Observed frequency for the first row, second column"
+    },
+    {
+      "id": "cell21",
+      "label": "Cell (2,1) Observed",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Observed frequency for the second row, first column"
+    },
+    {
+      "id": "cell22",
+      "label": "Cell (2,2) Observed",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Observed frequency for the second row, second column"
+    }
+  ],
+  "formulas": {
+    "total": "cell11 + cell12 + cell21 + cell22",
+    "row1Total": "cell11 + cell12",
+    "row2Total": "cell21 + cell22",
+    "col1Total": "cell11 + cell21",
+    "col2Total": "cell12 + cell22",
+    "expected11": "(row1Total * col1Total) / total",
+    "expected12": "(row1Total * col2Total) / total",
+    "expected21": "(row2Total * col1Total) / total",
+    "expected22": "(row2Total * col2Total) / total",
+    "chiSq11": "(cell11 - expected11) ** 2 / expected11",
+    "chiSq12": "(cell12 - expected12) ** 2 / expected12",
+    "chiSq21": "(cell21 - expected21) ** 2 / expected21",
+    "chiSq22": "(cell22 - expected22) ** 2 / expected22",
+    "chiSquare": "chiSq11 + chiSq12 + chiSq21 + chiSq22"
+  },
+  "outputs": {
+    "primary": "chiSquare",
+    "breakdown": [
+      "chiSq11",
+      "chiSq12",
+      "chiSq21",
+      "chiSq22"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

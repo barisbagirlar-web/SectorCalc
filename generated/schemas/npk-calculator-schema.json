@@ -1,0 +1,57 @@
+{
+  "toolName": "npk-calculator",
+  "inputs": [
+    {
+      "id": "nPercent",
+      "label": "Azot (N) %",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Gübre içerisindeki azot yüzdesi"
+    },
+    {
+      "id": "pPercent",
+      "label": "Fosfor (P2O5) %",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Gübre içerisindeki fosfor yüzdesi"
+    },
+    {
+      "id": "kPercent",
+      "label": "Potasyum (K2O) %",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Gübre içerisindeki potasyum yüzdesi"
+    },
+    {
+      "id": "totalWeight",
+      "label": "Toplam Gübre Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 50,
+      "businessContext": "Kullanılacak toplam gübre miktarı"
+    }
+  ],
+  "formulas": {
+    "totalNutrientWeight": "(nPercent/100)*totalWeight + (pPercent/100)*totalWeight + (kPercent/100)*totalWeight",
+    "nWeight": "(nPercent/100)*totalWeight",
+    "pWeight": "(pPercent/100)*totalWeight",
+    "kWeight": "(kPercent/100)*totalWeight"
+  },
+  "outputs": {
+    "primary": "totalNutrientWeight",
+    "breakdown": [
+      "nWeight",
+      "pWeight",
+      "kWeight"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

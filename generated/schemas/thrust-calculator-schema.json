@@ -1,0 +1,63 @@
+{
+  "toolName": "thrust-calculator",
+  "inputs": [
+    {
+      "id": "massFlowRate",
+      "label": "Mass Flow Rate",
+      "type": "number",
+      "unit": "kg/s",
+      "default": 1,
+      "businessContext": "The rate at which mass is expelled from the propulsion system."
+    },
+    {
+      "id": "exhaustVelocity",
+      "label": "Exhaust Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 1000,
+      "businessContext": "The velocity of the exhaust gases relative to the engine."
+    },
+    {
+      "id": "exitPressure",
+      "label": "Exit Pressure",
+      "type": "number",
+      "unit": "Pa",
+      "default": 101325,
+      "businessContext": "The static pressure at the nozzle exit plane."
+    },
+    {
+      "id": "ambientPressure",
+      "label": "Ambient Pressure",
+      "type": "number",
+      "unit": "Pa",
+      "default": 101325,
+      "businessContext": "The pressure of the surrounding environment."
+    },
+    {
+      "id": "exitArea",
+      "label": "Exit Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 0.01,
+      "businessContext": "The cross-sectional area of the nozzle exit."
+    }
+  ],
+  "formulas": {
+    "momentumThrust": "massFlowRate * exhaustVelocity",
+    "pressureThrust": "(exitPressure - ambientPressure) * exitArea",
+    "totalThrust": "massFlowRate * exhaustVelocity + (exitPressure - ambientPressure) * exitArea"
+  },
+  "outputs": {
+    "primary": "totalThrust",
+    "breakdown": [
+      "momentumThrust",
+      "pressureThrust"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

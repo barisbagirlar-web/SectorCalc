@@ -1,0 +1,70 @@
+{
+  "toolName": "chandrasekhar-limit-calculator",
+  "inputs": [
+    {
+      "id": "mu_e",
+      "label": "Mean Molecular Weight per Electron μₑ",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 2,
+      "businessContext": "For white dwarfs, μₑ ≈ 2 for carbon/oxygen; use 2.15 for helium."
+    },
+    {
+      "id": "m_H",
+      "label": "Proton Mass m_H",
+      "type": "number",
+      "unit": "kg",
+      "default": 1.67262192369e-27,
+      "businessContext": "Mass of a proton, standard value."
+    },
+    {
+      "id": "hbar",
+      "label": "Reduced Planck Constant ħ",
+      "type": "number",
+      "unit": "J·s",
+      "default": 1.054571817e-34,
+      "businessContext": "ħ = h/(2π), Planck's constant over 2π."
+    },
+    {
+      "id": "c",
+      "label": "Speed of Light c",
+      "type": "number",
+      "unit": "m/s",
+      "default": 299792458,
+      "businessContext": "Speed of light in vacuum by definition."
+    },
+    {
+      "id": "G",
+      "label": "Gravitational Constant G",
+      "type": "number",
+      "unit": "m^3·kg^-1·s^-2",
+      "default": 6.6743e-11,
+      "businessContext": "Newtonian gravitational constant."
+    },
+    {
+      "id": "solar_mass",
+      "label": "Solar Mass M_⊙",
+      "type": "number",
+      "unit": "kg",
+      "default": 1.989e+30,
+      "businessContext": "Solar mass used for output conversion."
+    }
+  ],
+  "formulas": {
+    "m_ch_kg": "2.018236 * Math.sqrt(3 * Math.PI) / 2 * Math.pow((hbar * c / G), 1.5) * Math.pow(1 / (mu_e * m_H), 2)",
+    "m_ch_solar": "m_ch_kg / solar_mass"
+  },
+  "outputs": {
+    "primary": "m_ch_solar",
+    "breakdown": [
+      "m_ch_kg",
+      "m_ch_solar"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

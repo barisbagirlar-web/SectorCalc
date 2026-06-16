@@ -1,0 +1,67 @@
+{
+  "toolName": "mma-weight-cut-calculator",
+  "inputs": [
+    {
+      "id": "current_weight",
+      "label": "Current Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "The fighter's weight before cutting, in kilograms."
+    },
+    {
+      "id": "body_fat_pct",
+      "label": "Body Fat %",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Current body fat percentage."
+    },
+    {
+      "id": "target_weight",
+      "label": "Target Fight Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "The target weight to make, in kilograms."
+    },
+    {
+      "id": "dehydration_pct",
+      "label": "Max Dehydration %",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Maximum safe dehydration as percentage of current body weight (5% is common extreme)."
+    },
+    {
+      "id": "time_to_fight",
+      "label": "Days Until Weigh-in",
+      "type": "number",
+      "unit": "days",
+      "default": 7,
+      "businessContext": "Number of days until the official weigh-in."
+    }
+  ],
+  "formulas": {
+    "deficit_ratio": "(current_weight - target_weight) / (current_weight * dehydration_pct / 100)",
+    "max_water_cut_kg": "current_weight * dehydration_pct / 100",
+    "weight_to_lose_kg": "current_weight - target_weight",
+    "lean_mass_kg": "current_weight * (1 - body_fat_pct / 100)",
+    "fat_mass_kg": "current_weight * body_fat_pct / 100"
+  },
+  "outputs": {
+    "primary": "deficit_ratio",
+    "breakdown": [
+      "max_water_cut_kg",
+      "weight_to_lose_kg",
+      "lean_mass_kg",
+      "fat_mass_kg"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

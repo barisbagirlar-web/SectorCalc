@@ -1,0 +1,55 @@
+{
+  "toolName": "pca-calculator",
+  "inputs": [
+    {
+      "id": "varianceX",
+      "label": "Variance of X",
+      "type": "number",
+      "unit": "unitless",
+      "default": 1,
+      "businessContext": "Variance of the first variable"
+    },
+    {
+      "id": "varianceY",
+      "label": "Variance of Y",
+      "type": "number",
+      "unit": "unitless",
+      "default": 1,
+      "businessContext": "Variance of the second variable"
+    },
+    {
+      "id": "covarianceXY",
+      "label": "Covariance(X, Y)",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0,
+      "businessContext": "Covariance between X and Y"
+    },
+    {
+      "id": "scaling",
+      "label": "Scaling Factor",
+      "type": "number",
+      "unit": "unitless",
+      "default": 1,
+      "businessContext": "Multiplier applied to all matrix entries before eigendecomposition"
+    }
+  ],
+  "formulas": {
+    "eigenvalue1": "(scaling * (varianceX + varianceY + Math.sqrt((varianceX - varianceY) ** 2 + 4 * covarianceXY ** 2))) / 2",
+    "eigenvalue2": "(scaling * (varianceX + varianceY - Math.sqrt((varianceX - varianceY) ** 2 + 4 * covarianceXY ** 2))) / 2",
+    "proportionExplained": "eigenvalue1 / (eigenvalue1 + eigenvalue2)"
+  },
+  "outputs": {
+    "primary": "eigenvalue1",
+    "breakdown": [
+      "eigenvalue2",
+      "proportionExplained"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,58 @@
+{
+  "toolName": "critical-hit-calculator",
+  "inputs": [
+    {
+      "id": "base-critical-rate",
+      "label": "Base Critical Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Base probability of a critical event per operation"
+    },
+    {
+      "id": "critical-modifier",
+      "label": "Critical Modifier",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Additional probability from stress factors or conditions"
+    },
+    {
+      "id": "crit-damage-multiplier",
+      "label": "Critical Damage Multiplier",
+      "type": "number",
+      "unit": "x",
+      "default": 1.5,
+      "businessContext": "Severity factor when a critical event occurs"
+    },
+    {
+      "id": "number-of-attacks",
+      "label": "Number of Operations",
+      "type": "number",
+      "unit": "operations",
+      "default": 10,
+      "businessContext": "Total independent operations or trials"
+    }
+  ],
+  "formulas": {
+    "effectiveCritRate": "(baseCriticalRate + criticalModifier) / 100",
+    "expectedCritHits": "effectiveCritRate * numberOfAttacks",
+    "probabilityAtLeastOne": "1 - Math.pow(1 - effectiveCritRate, numberOfAttacks)",
+    "probabilityAtLeastOnePercent": "probabilityAtLeastOne * 100",
+    "expectedDamageMultiplier": "1 + effectiveCritRate * (critDamageMultiplier - 1)"
+  },
+  "outputs": {
+    "primary": "probabilityAtLeastOnePercent",
+    "breakdown": [
+      "effectiveCritRate",
+      "expectedCritHits",
+      "expectedDamageMultiplier"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

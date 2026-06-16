@@ -1,0 +1,36 @@
+{
+  "toolName": "body-surface-area",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Patient weight in kilograms"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Patient height in centimeters"
+    }
+  ],
+  "formulas": {
+    "bsa": "Math.sqrt((weight * height) / 3600)"
+  },
+  "outputs": {
+    "primary": "bsa",
+    "breakdown": [
+      "Mosteller formula: BSA (m²) = sqrt( (weight_kg * height_cm) / 3600 )"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

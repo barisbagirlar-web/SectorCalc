@@ -1,0 +1,59 @@
+{
+  "toolName": "breast-milk-calculator",
+  "inputs": [
+    {
+      "id": "babyWeight",
+      "label": "Baby Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 3.5,
+      "businessContext": "Current weight of the infant"
+    },
+    {
+      "id": "dailyMilkPerKg",
+      "label": "Daily Milk per kg",
+      "type": "number",
+      "unit": "ml/kg",
+      "default": 150,
+      "businessContext": "Recommended daily milk intake per kg of body weight"
+    },
+    {
+      "id": "feedingsPerDay",
+      "label": "Feedings per Day",
+      "type": "number",
+      "unit": "times/day",
+      "default": 8,
+      "businessContext": "Average number of feeding sessions per day"
+    },
+    {
+      "id": "milkPerSession",
+      "label": "Milk per Session",
+      "type": "number",
+      "unit": "ml",
+      "default": 90,
+      "businessContext": "Amount of breast milk per feeding session"
+    }
+  ],
+  "formulas": {
+    "dailyNeeded": "babyWeight * dailyMilkPerKg",
+    "dailySupplied": "milkPerSession * feedingsPerDay",
+    "deficit": "dailySupplied - dailyNeeded",
+    "perFeedingNeeded": "dailyNeeded / feedingsPerDay",
+    "perFeedingSupplied": "milkPerSession"
+  },
+  "outputs": {
+    "primary": "deficit",
+    "breakdown": [
+      "dailyNeeded",
+      "dailySupplied",
+      "perFeedingNeeded",
+      "perFeedingSupplied"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

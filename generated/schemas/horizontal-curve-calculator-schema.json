@@ -1,0 +1,73 @@
+{
+  "toolName": "horizontal-curve-calculator",
+  "inputs": [
+    {
+      "id": "designSpeed",
+      "label": "Design Speed (V)",
+      "type": "number",
+      "unit": "km/h",
+      "default": 60,
+      "businessContext": "Design speed of the road"
+    },
+    {
+      "id": "superelevation",
+      "label": "Superelevation (e)",
+      "type": "number",
+      "unit": "%",
+      "default": 6,
+      "businessContext": "Superelevation rate in percent"
+    },
+    {
+      "id": "frictionFactor",
+      "label": "Side Friction Factor (f)",
+      "type": "number",
+      "unit": "",
+      "default": 0.15,
+      "businessContext": "Side friction factor (typically 0.1-0.2)"
+    },
+    {
+      "id": "centralAngle",
+      "label": "Central Angle (Δ)",
+      "type": "number",
+      "unit": "deg",
+      "default": 90,
+      "businessContext": "Central or deflection angle of the curve"
+    },
+    {
+      "id": "stationPI",
+      "label": "Station at PI",
+      "type": "number",
+      "unit": "m",
+      "default": 1000,
+      "businessContext": "Station of Point of Intersection (PI)"
+    }
+  ],
+  "formulas": {
+    "radius": "Math.pow(designSpeed, 2) / (127 * (superelevation / 100 + frictionFactor))",
+    "tangent": "radius * Math.tan(centralAngle * Math.PI / 360)",
+    "curveLength": "(Math.PI * radius * centralAngle) / 180",
+    "chord": "2 * radius * Math.sin(centralAngle * Math.PI / 360)",
+    "externalDistance": "radius * (1 / Math.cos(centralAngle * Math.PI / 360) - 1)",
+    "middleOrdinate": "radius * (1 - Math.cos(centralAngle * Math.PI / 360))",
+    "stationPC": "stationPI - tangent",
+    "stationPT": "stationPC + curveLength"
+  },
+  "outputs": {
+    "primary": "curveLength",
+    "breakdown": [
+      "radius",
+      "tangent",
+      "chord",
+      "externalDistance",
+      "middleOrdinate",
+      "stationPC",
+      "stationPT"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

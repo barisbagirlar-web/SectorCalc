@@ -1,0 +1,96 @@
+{
+  "toolName": "water-usage-calculator",
+  "inputs": [
+    {
+      "id": "numberOfPeople",
+      "label": "Number of People",
+      "type": "number",
+      "unit": "people",
+      "default": 4,
+      "businessContext": "Total number of individuals using water (family, employees, etc.)"
+    },
+    {
+      "id": "showerMinutesPerDay",
+      "label": "Shower Minutes per Day per Person",
+      "type": "number",
+      "unit": "minutes",
+      "default": 5,
+      "businessContext": "Average shower duration per person per day in minutes"
+    },
+    {
+      "id": "flowRateShower",
+      "label": "Shower Flow Rate",
+      "type": "number",
+      "unit": "L/min",
+      "default": 9,
+      "businessContext": "Water flow rate of the shower head in liters per minute"
+    },
+    {
+      "id": "toiletFlushesPerDay",
+      "label": "Toilet Flushes per Day per Person",
+      "type": "number",
+      "unit": "flushes",
+      "default": 5,
+      "businessContext": "Average number of toilet flushes per person per day"
+    },
+    {
+      "id": "flushVolume",
+      "label": "Flush Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 6,
+      "businessContext": "Water volume per toilet flush in liters (modern dual-flush ~6L)"
+    },
+    {
+      "id": "washingMachineLoadsPerWeek",
+      "label": "Washing Machine Loads per Week",
+      "type": "number",
+      "unit": "loads",
+      "default": 5,
+      "businessContext": "Number of washing machine cycles per week (total for all people)"
+    },
+    {
+      "id": "waterPerLoad",
+      "label": "Water per Load",
+      "type": "number",
+      "unit": "L",
+      "default": 50,
+      "businessContext": "Water consumption per washing machine cycle in liters"
+    },
+    {
+      "id": "otherDailyUsage",
+      "label": "Other Daily Usage per Person",
+      "type": "number",
+      "unit": "L",
+      "default": 30,
+      "businessContext": "Additional water usage per person per day (drinking, cooking, cleaning, etc.)"
+    }
+  ],
+  "formulas": {
+    "showerUsagePerPersonPerDay": "showerMinutesPerDay * flowRateShower",
+    "toiletUsagePerPersonPerDay": "toiletFlushesPerDay * flushVolume",
+    "laundryUsagePerPersonPerDay": "(washingMachineLoadsPerWeek * waterPerLoad) / 7",
+    "totalUsagePerPersonPerDay": "showerUsagePerPersonPerDay + toiletUsagePerPersonPerDay + laundryUsagePerPersonPerDay + otherDailyUsage",
+    "totalUsagePerDay": "totalUsagePerPersonPerDay * numberOfPeople",
+    "totalUsagePerMonth": "totalUsagePerDay * 30",
+    "totalUsagePerYear": "totalUsagePerDay * 365"
+  },
+  "outputs": {
+    "primary": "totalUsagePerDay",
+    "breakdown": [
+      "totalUsagePerPersonPerDay",
+      "showerUsagePerPersonPerDay",
+      "toiletUsagePerPersonPerDay",
+      "laundryUsagePerPersonPerDay",
+      "otherDailyUsage",
+      "totalUsagePerMonth",
+      "totalUsagePerYear"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

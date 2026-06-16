@@ -1,0 +1,69 @@
+{
+  "toolName": "braces-calculator",
+  "inputs": [
+    {
+      "id": "span",
+      "label": "Açıklık (Span)",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Yatay mesafe"
+    },
+    {
+      "id": "height",
+      "label": "Yükseklik (Height)",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Dikey mesafe"
+    },
+    {
+      "id": "bays",
+      "label": "Bölme Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 4,
+      "businessContext": "Brace takılacak bölme sayısı"
+    },
+    {
+      "id": "crossSectionArea",
+      "label": "Kesit Alanı",
+      "type": "number",
+      "unit": "m²",
+      "default": 0.001,
+      "businessContext": "Bir brace'in enine kesit alanı"
+    },
+    {
+      "id": "materialDensity",
+      "label": "Malzeme Yoğunluğu",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "businessContext": "Brace malzemesinin yoğunluğu (ör. çelik)"
+    }
+  ],
+  "formulas": {
+    "braceLength": "Math.sqrt(span**2 + height**2)",
+    "angleDeg": "Math.atan(height / span) * (180 / Math.PI)",
+    "totalBraceLength": "braceLength * bays",
+    "braceVolume": "braceLength * crossSectionArea",
+    "braceWeight": "braceVolume * materialDensity",
+    "totalWeight": "braceWeight * bays"
+  },
+  "outputs": {
+    "primary": "totalWeight",
+    "breakdown": [
+      "braceLength",
+      "angleDeg",
+      "totalBraceLength",
+      "braceVolume",
+      "braceWeight"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "volume-percent-calculator",
+  "inputs": [
+    {
+      "id": "soluteVolume",
+      "label": "Solute Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 0,
+      "businessContext": "Volume of the solute (substance being dissolved)."
+    },
+    {
+      "id": "solutionVolume",
+      "label": "Solution Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 1,
+      "businessContext": "Total volume of the solution (solute + solvent)."
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Temperature at which volumes are measured. Not used in calculation; ensure volumes are at same temperature."
+    },
+    {
+      "id": "pressure",
+      "label": "Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 1.01325,
+      "businessContext": "Ambient pressure. Not used for incompressible liquids."
+    }
+  ],
+  "formulas": {
+    "volumePercent": "(soluteVolume / solutionVolume) * 100",
+    "soluteVolumeOut": "soluteVolume",
+    "solutionVolumeOut": "solutionVolume"
+  },
+  "outputs": {
+    "primary": "volumePercent",
+    "breakdown": [
+      "soluteVolumeOut",
+      "solutionVolumeOut"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

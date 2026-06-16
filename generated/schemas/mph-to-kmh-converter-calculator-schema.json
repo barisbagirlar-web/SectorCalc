@@ -1,0 +1,57 @@
+{
+  "toolName": "mph-to-kmh-converter-calculator",
+  "inputs": [
+    {
+      "id": "mphValue",
+      "label": "Speed (mph)",
+      "type": "number",
+      "unit": "mph",
+      "default": 60,
+      "businessContext": "The speed in miles per hour to be converted."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the result."
+    },
+    {
+      "id": "outputUnit",
+      "label": "Target Unit",
+      "type": "number",
+      "unit": "code",
+      "default": 0,
+      "businessContext": "0: km/h, 1: m/s, 2: knots"
+    },
+    {
+      "id": "roundingMode",
+      "label": "Rounding Mode",
+      "type": "number",
+      "unit": "code",
+      "default": 0,
+      "businessContext": "0: standard rounding, 1: floor, 2: ceil"
+    }
+  ],
+  "formulas": {
+    "rawValue": "mphValue * (outputUnit === 0 ? 1.609344 : outputUnit === 1 ? 0.44704 : 0.868976)",
+    "conversionFactorUsed": "outputUnit === 0 ? 1.609344 : outputUnit === 1 ? 0.44704 : 0.868976",
+    "convertedSpeed": "(roundingMode === 0 ? Math.round : roundingMode === 1 ? Math.floor : Math.ceil)(rawValue * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "formattedResult": "convertedSpeed + ' ' + (outputUnit === 0 ? 'km/h' : outputUnit === 1 ? 'm/s' : 'knots')"
+  },
+  "outputs": {
+    "primary": "convertedSpeed",
+    "breakdown": [
+      "rawValue",
+      "conversionFactorUsed",
+      "formattedResult"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

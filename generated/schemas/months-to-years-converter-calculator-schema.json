@@ -1,0 +1,55 @@
+{
+  "toolName": "months-to-years-converter-calculator",
+  "inputs": [
+    {
+      "id": "months",
+      "label": "Months",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "businessContext": "Total number of months to convert to years"
+    },
+    {
+      "id": "monthsPerYear",
+      "label": "Months per Year",
+      "type": "number",
+      "unit": "months/year",
+      "default": 12,
+      "businessContext": "Number of months in a year (typically 12)"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Number of decimal places for the years output"
+    },
+    {
+      "id": "outputMode",
+      "label": "Output Mode",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 = decimal years only, 1 = years and months breakdown (not used in primary)"
+    }
+  ],
+  "formulas": {
+    "yearsRounded": "Math.round((months / monthsPerYear) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "yearsPart": "Math.floor(months / monthsPerYear)",
+    "monthsPart": "months % monthsPerYear"
+  },
+  "outputs": {
+    "primary": "yearsRounded",
+    "breakdown": [
+      "yearsPart",
+      "monthsPart"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

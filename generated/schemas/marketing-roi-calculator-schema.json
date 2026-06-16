@@ -1,0 +1,55 @@
+{
+  "toolName": "marketing-roi-calculator",
+  "inputs": [
+    {
+      "id": "marketingCost",
+      "label": "Total Marketing Cost",
+      "type": "number",
+      "unit": "$",
+      "default": 10000,
+      "businessContext": "Total amount spent on the marketing campaign."
+    },
+    {
+      "id": "numberOfLeads",
+      "label": "Number of Leads Generated",
+      "type": "number",
+      "unit": "leads",
+      "default": 500,
+      "businessContext": "Total number of leads or prospects generated from the campaign."
+    },
+    {
+      "id": "conversionRate",
+      "label": "Conversion Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of leads that convert into paying customers."
+    },
+    {
+      "id": "averageSaleRevenue",
+      "label": "Average Revenue per Sale",
+      "type": "number",
+      "unit": "$",
+      "default": 200,
+      "businessContext": "Average revenue generated from a single sale."
+    }
+  ],
+  "formulas": {
+    "revenue": "numberOfLeads * (conversionRate / 100) * averageSaleRevenue",
+    "netProfit": "numberOfLeads * (conversionRate / 100) * averageSaleRevenue - marketingCost",
+    "roi": "((numberOfLeads * (conversionRate / 100) * averageSaleRevenue - marketingCost) / marketingCost) * 100"
+  },
+  "outputs": {
+    "primary": "roi",
+    "breakdown": [
+      "revenue",
+      "netProfit"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,62 @@
+{
+  "toolName": "volumetric-flow-rate-calculator",
+  "inputs": [
+    {
+      "id": "innerDiameter",
+      "label": "Inner Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Boru iç çapı"
+    },
+    {
+      "id": "velocity",
+      "label": "Flow Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Akışkan hızı"
+    },
+    {
+      "id": "crossSectionArea",
+      "label": "Cross-Sectional Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 0,
+      "businessContext": "Kesit alanı (çap yerine kullanılabilir)"
+    },
+    {
+      "id": "fluidDensity",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 0,
+      "businessContext": "Akışkan yoğunluğu (kütlesel debi dönüşümü için)"
+    },
+    {
+      "id": "massFlowRate",
+      "label": "Mass Flow Rate",
+      "type": "number",
+      "unit": "kg/s",
+      "default": 0,
+      "businessContext": "Kütlesel debi (hacimsel debiye dönüştürülür)"
+    }
+  ],
+  "formulas": {
+    "flowRateFromAreaVelocity": "velocity * (crossSectionArea > 0 ? crossSectionArea : (innerDiameter > 0 ? Math.PI * (innerDiameter / 2000) ** 2 : 0))",
+    "flowRateFromMass": "fluidDensity > 0 ? massFlowRate / fluidDensity : 0"
+  },
+  "outputs": {
+    "primary": "flowRateFromAreaVelocity",
+    "breakdown": [
+      "flowRateFromAreaVelocity",
+      "flowRateFromMass"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

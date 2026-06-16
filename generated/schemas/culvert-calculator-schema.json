@@ -1,0 +1,66 @@
+{
+  "toolName": "culvert-calculator",
+  "inputs": [
+    {
+      "id": "D",
+      "label": "Culvert Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "The internal diameter of the circular culvert."
+    },
+    {
+      "id": "Cd",
+      "label": "Discharge Coefficient",
+      "type": "number",
+      "unit": "",
+      "default": 0.62,
+      "businessContext": "Coefficient of discharge for the culvert inlet, typically 0.6-0.8."
+    },
+    {
+      "id": "H",
+      "label": "Effective Head",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Difference between upstream water surface elevation and the center of the culvert outlet (for outlet control) or inlet (for inlet control). For submerged inlet control, H = HW - D/2."
+    },
+    {
+      "id": "g",
+      "label": "Gravitational Acceleration",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Standard gravity, can be adjusted if needed."
+    },
+    {
+      "id": "n",
+      "label": "Number of Barrels",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of identical culvert barrels in parallel."
+    }
+  ],
+  "formulas": {
+    "area": "(Math.PI * D * D) / 4",
+    "v_theory": "Math.sqrt(2 * g * H)",
+    "Q_single": "Cd * area * v_theory",
+    "Q_total": "n * Q_single"
+  },
+  "outputs": {
+    "primary": "Q_total",
+    "breakdown": [
+      "\"Cross-sectional Area: \" + area + \" m²\"",
+      "\"Theoretical Velocity: \" + v_theory + \" m/s\"",
+      "\"Single Barrel Discharge: \" + Q_single + \" m³/s\"",
+      "\"Total Discharge: \" + Q_total + \" m³/s\""
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

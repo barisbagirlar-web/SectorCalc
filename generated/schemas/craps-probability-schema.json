@@ -1,0 +1,57 @@
+{
+  "toolName": "craps-probability",
+  "inputs": [
+    {
+      "id": "point",
+      "label": "Point Number",
+      "type": "number",
+      "unit": "",
+      "default": 6,
+      "businessContext": "The point established on the come-out roll (4,5,6,8,9,10)."
+    },
+    {
+      "id": "rolls",
+      "label": "Number of Rolls",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of dice rolls to simulate or calculate probability for."
+    },
+    {
+      "id": "betAmount",
+      "label": "Bet Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 10,
+      "businessContext": "Amount wagered on the pass line or point."
+    },
+    {
+      "id": "payoutOdds",
+      "label": "Payout Odds (e.g., 2 for 2:1)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Payout multiplier for winning bet (e.g., 1 for even money, 2 for 2:1)."
+    }
+  ],
+  "formulas": {
+    "winProbability": "point === 6 || point === 8 ? 5/11 : point === 5 || point === 9 ? 4/10 : point === 4 || point === 10 ? 3/9 : 0",
+    "loseProbability": "1 - winProbability",
+    "expectedValue": "betAmount * (payoutOdds * winProbability - loseProbability)",
+    "winChanceAfterNRolls": "1 - (1 - winProbability) ** rolls"
+  },
+  "outputs": {
+    "primary": "expectedValue",
+    "breakdown": [
+      "winProbability",
+      "loseProbability",
+      "winChanceAfterNRolls"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

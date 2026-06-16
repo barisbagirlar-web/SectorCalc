@@ -1,0 +1,70 @@
+{
+  "toolName": "frost-date-calculator",
+  "inputs": [
+    {
+      "id": "latitude",
+      "label": "Latitude (°)",
+      "type": "number",
+      "unit": "°",
+      "default": 40,
+      "businessContext": "Geographic latitude of the location (positive for north, negative for south)"
+    },
+    {
+      "id": "elevation",
+      "label": "Elevation",
+      "type": "number",
+      "unit": "m",
+      "default": 200,
+      "businessContext": "Elevation above sea level in meters"
+    },
+    {
+      "id": "avgMarchTemp",
+      "label": "Average March Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 5,
+      "businessContext": "Historical average temperature for March in Celsius"
+    },
+    {
+      "id": "proximityToWater",
+      "label": "Proximity to Water",
+      "type": "number",
+      "unit": "index (0-1)",
+      "default": 0.5,
+      "businessContext": "Index indicating proximity to large water bodies (0 = far inland, 1 = coastal)"
+    },
+    {
+      "id": "yearOffset",
+      "label": "Year Offset from 2000",
+      "type": "number",
+      "unit": "years",
+      "default": 25,
+      "businessContext": "Number of years since 2000 to account for climate trends"
+    }
+  ],
+  "formulas": {
+    "baseDay": "90",
+    "latEffect": "latitude * 1.5",
+    "elevEffect": "elevation * 0.005",
+    "tempEffect": "(10 - avgMarchTemp) * 3",
+    "waterEffect": "proximityToWater * -15",
+    "yearEffect": "yearOffset * -0.5",
+    "lastFrostDay": "baseDay + latEffect + elevEffect + tempEffect + waterEffect + yearEffect"
+  },
+  "outputs": {
+    "primary": "lastFrostDay",
+    "breakdown": [
+      "latEffect",
+      "elevEffect",
+      "tempEffect",
+      "waterEffect",
+      "yearEffect"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

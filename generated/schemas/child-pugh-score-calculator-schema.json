@@ -1,0 +1,71 @@
+{
+  "toolName": "child-pugh-score-calculator",
+  "inputs": [
+    {
+      "id": "totalBilirubin",
+      "label": "Total Bilirubin",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 0.5,
+      "businessContext": "Enter total bilirubin in mg/dL"
+    },
+    {
+      "id": "serumAlbumin",
+      "label": "Serum Albumin",
+      "type": "number",
+      "unit": "g/dL",
+      "default": 4,
+      "businessContext": "Enter serum albumin in g/dL"
+    },
+    {
+      "id": "inr",
+      "label": "INR",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Enter international normalized ratio (INR)"
+    },
+    {
+      "id": "ascites",
+      "label": "Ascites",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Enter ascites grade: 0=none, 1=slight, 2=moderate/severe"
+    },
+    {
+      "id": "encephalopathy",
+      "label": "Hepatic Encephalopathy",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Enter encephalopathy grade: 0=none, 1=grade I-II, 2=grade III-IV"
+    }
+  ],
+  "formulas": {
+    "bilirubinPoints": "totalBilirubin < 2 ? 1 : (totalBilirubin <= 3 ? 2 : 3)",
+    "albuminPoints": "serumAlbumin > 3.5 ? 1 : (serumAlbumin >= 2.8 ? 2 : 3)",
+    "inrPoints": "inr < 1.7 ? 1 : (inr <= 2.3 ? 2 : 3)",
+    "ascitesPoints": "ascites + 1",
+    "encephalopathyPoints": "encephalopathy + 1",
+    "totalScore": "bilirubinPoints + albuminPoints + inrPoints + ascitesPoints + encephalopathyPoints",
+    "childPughClass": "totalScore <= 6 ? 'A' : (totalScore <= 9 ? 'B' : 'C')"
+  },
+  "outputs": {
+    "primary": "totalScore",
+    "breakdown": [
+      "bilirubinPoints",
+      "albuminPoints",
+      "inrPoints",
+      "ascitesPoints",
+      "encephalopathyPoints",
+      "childPughClass"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

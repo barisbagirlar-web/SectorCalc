@@ -1,0 +1,75 @@
+{
+  "toolName": "closing-costs-calculator",
+  "inputs": [
+    {
+      "id": "propertyPrice",
+      "label": "Property Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 300000,
+      "businessContext": "Purchase price of the property"
+    },
+    {
+      "id": "downPaymentRate",
+      "label": "Down Payment Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Percentage of property price paid upfront"
+    },
+    {
+      "id": "originationFeeRate",
+      "label": "Loan Origination Fee Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "businessContext": "Lender's fee as percentage of loan amount"
+    },
+    {
+      "id": "appraisalFee",
+      "label": "Appraisal Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "businessContext": "Cost of professional property appraisal"
+    },
+    {
+      "id": "titleInsurance",
+      "label": "Title Insurance",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000,
+      "businessContext": "Insurance protecting against title defects"
+    },
+    {
+      "id": "recordingFees",
+      "label": "Recording Fees",
+      "type": "number",
+      "unit": "USD",
+      "default": 200,
+      "businessContext": "Government fees for recording the deed"
+    }
+  ],
+  "formulas": {
+    "downPayment": "propertyPrice * downPaymentRate / 100",
+    "loanAmount": "propertyPrice - downPayment",
+    "originationFee": "loanAmount * originationFeeRate / 100",
+    "totalClosingCosts": "downPayment + originationFee + appraisalFee + titleInsurance + recordingFees"
+  },
+  "outputs": {
+    "primary": "totalClosingCosts",
+    "breakdown": [
+      "downPayment",
+      "originationFee",
+      "appraisalFee",
+      "titleInsurance",
+      "recordingFees"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

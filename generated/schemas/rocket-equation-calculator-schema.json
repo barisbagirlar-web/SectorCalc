@@ -1,0 +1,57 @@
+{
+  "toolName": "rocket-equation-calculator",
+  "inputs": [
+    {
+      "id": "initialMass",
+      "label": "Initial Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Total mass of the rocket at launch, including propellant (wet mass)."
+    },
+    {
+      "id": "finalMass",
+      "label": "Final Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Mass of the rocket after propellant is expended (dry mass)."
+    },
+    {
+      "id": "specificImpulse",
+      "label": "Specific Impulse",
+      "type": "number",
+      "unit": "s",
+      "default": 300,
+      "businessContext": "Engine efficiency: thrust per weight flow rate of propellant at Earth's surface."
+    },
+    {
+      "id": "gravity",
+      "label": "Standard Gravity",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Acceleration due to gravity, used to convert specific impulse to exhaust velocity."
+    }
+  ],
+  "formulas": {
+    "exhaustVelocity": "specificImpulse * gravity",
+    "massRatio": "initialMass / finalMass",
+    "propellantMass": "initialMass - finalMass",
+    "deltaV": "specificImpulse * gravity * Math.log(initialMass / finalMass)"
+  },
+  "outputs": {
+    "primary": "deltaV",
+    "breakdown": [
+      "massRatio",
+      "exhaustVelocity",
+      "propellantMass"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

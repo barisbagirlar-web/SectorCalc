@@ -1,0 +1,57 @@
+{
+  "toolName": "espresso-calculator",
+  "inputs": [
+    {
+      "id": "dosePerShot",
+      "label": "Shot Başına Kahve Dozu",
+      "type": "number",
+      "unit": "g",
+      "default": 18,
+      "businessContext": "Bir shot espresso için kullanılan kahve miktarı (gram)"
+    },
+    {
+      "id": "coffeeBagPrice",
+      "label": "Kahve Paketi Fiyatı",
+      "type": "number",
+      "unit": "EUR",
+      "default": 10,
+      "businessContext": "Bir paket kahvenin toplam maliyeti"
+    },
+    {
+      "id": "bagWeight",
+      "label": "Paket Ağırlığı",
+      "type": "number",
+      "unit": "g",
+      "default": 1000,
+      "businessContext": "Kahve paketinin net ağırlığı"
+    },
+    {
+      "id": "wastePercentage",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Öğütme ve hazırlık sırasında oluşan kahve kaybı yüzdesi"
+    }
+  ],
+  "formulas": {
+    "totalUsableCoffee": "bagWeight * (1 - wastePercentage / 100)",
+    "shotsPerBag": "totalUsableCoffee / dosePerShot",
+    "costPerGram": "coffeeBagPrice / bagWeight",
+    "costPerShot": "coffeeBagPrice / shotsPerBag"
+  },
+  "outputs": {
+    "primary": "costPerShot",
+    "breakdown": [
+      "shotsPerBag",
+      "costPerGram",
+      "totalUsableCoffee"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

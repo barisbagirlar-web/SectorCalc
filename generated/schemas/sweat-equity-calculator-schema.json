@@ -1,0 +1,56 @@
+{
+  "toolName": "sweat-equity-calculator",
+  "inputs": [
+    {
+      "id": "preMoneyValuation",
+      "label": "Pre-Money Valuation",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "businessContext": "Company valuation before any investment or sweat equity."
+    },
+    {
+      "id": "cashInvestment",
+      "label": "Cash Investment",
+      "type": "number",
+      "unit": "USD",
+      "default": 200000,
+      "businessContext": "Total cash investment from other parties."
+    },
+    {
+      "id": "hoursWorked",
+      "label": "Hours Worked",
+      "type": "number",
+      "unit": "hours",
+      "default": 2000,
+      "businessContext": "Total hours contributed as sweat equity."
+    },
+    {
+      "id": "hourlyRate",
+      "label": "Hourly Rate",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 50,
+      "businessContext": "Market hourly rate for the contributor's skills."
+    }
+  ],
+  "formulas": {
+    "sweatValue": "hoursWorked * hourlyRate",
+    "postMoneyValuation": "preMoneyValuation + cashInvestment + sweatValue",
+    "equityPercentage": "(sweatValue / postMoneyValuation) * 100"
+  },
+  "outputs": {
+    "primary": "equityPercentage",
+    "breakdown": [
+      "sweatValue",
+      "postMoneyValuation",
+      "equityPercentage"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

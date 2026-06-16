@@ -1,0 +1,72 @@
+{
+  "toolName": "act-percentile-calculator",
+  "inputs": [
+    {
+      "id": "english",
+      "label": "English Score",
+      "type": "number",
+      "unit": "points (1-36)",
+      "default": 20,
+      "businessContext": "ACT English test score, range 1–36"
+    },
+    {
+      "id": "math",
+      "label": "Mathematics Score",
+      "type": "number",
+      "unit": "points (1-36)",
+      "default": 20,
+      "businessContext": "ACT Mathematics test score, range 1–36"
+    },
+    {
+      "id": "reading",
+      "label": "Reading Score",
+      "type": "number",
+      "unit": "points (1-36)",
+      "default": 20,
+      "businessContext": "ACT Reading test score, range 1–36"
+    },
+    {
+      "id": "science",
+      "label": "Science Score",
+      "type": "number",
+      "unit": "points (1-36)",
+      "default": 20,
+      "businessContext": "ACT Science test score, range 1–36"
+    },
+    {
+      "id": "distributionMean",
+      "label": "Score Distribution Mean",
+      "type": "number",
+      "unit": "points",
+      "default": 20.8,
+      "businessContext": "Mean of the national ACT composite score distribution (default 20.8 from 2023 data)"
+    },
+    {
+      "id": "distributionStd",
+      "label": "Score Distribution Standard Deviation",
+      "type": "number",
+      "unit": "points",
+      "default": 5.6,
+      "businessContext": "Standard deviation of the national ACT composite score distribution (default 5.6 from 2023 data)"
+    }
+  ],
+  "formulas": {
+    "compositeScore": "Math.round((english + math + reading + science) / 4)",
+    "zScore": "(compositeScore - distributionMean) / distributionStd",
+    "percentile": "Math.min(99.9, Math.max(0.1, 100 / (1 + Math.exp(-1.7 * zScore))))"
+  },
+  "outputs": {
+    "primary": "percentile",
+    "breakdown": [
+      "compositeScore",
+      "zScore",
+      "percentile"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

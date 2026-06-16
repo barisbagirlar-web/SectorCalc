@@ -1,0 +1,65 @@
+{
+  "toolName": "ellipse-equation-calculator",
+  "inputs": [
+    {
+      "id": "centerX",
+      "label": "Center X (h)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "X-coordinate of the ellipse center."
+    },
+    {
+      "id": "centerY",
+      "label": "Center Y (k)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Y-coordinate of the ellipse center."
+    },
+    {
+      "id": "semiMajor",
+      "label": "Semi-major axis (a)",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Length of the semi-major axis."
+    },
+    {
+      "id": "semiMinor",
+      "label": "Semi-minor axis (b)",
+      "type": "number",
+      "unit": "mm",
+      "default": 3,
+      "businessContext": "Length of the semi-minor axis."
+    },
+    {
+      "id": "rotation",
+      "label": "Rotation angle (θ)",
+      "type": "number",
+      "unit": "deg",
+      "default": 0,
+      "businessContext": "Rotation angle of the ellipse axes relative to coordinate axes."
+    }
+  ],
+  "formulas": {
+    "area": "Math.PI * semiMajor * semiMinor",
+    "perimeter": "Math.PI * (3 * (semiMajor + semiMinor) - Math.sqrt((3 * semiMajor + semiMinor) * (semiMajor + 3 * semiMinor)))",
+    "eccentricity": "Math.sqrt(1 - Math.pow(Math.min(semiMajor, semiMinor), 2) / Math.pow(Math.max(semiMajor, semiMinor), 2))",
+    "fociDistance": "Math.sqrt(Math.abs(Math.pow(semiMajor, 2) - Math.pow(semiMinor, 2)))"
+  },
+  "outputs": {
+    "primary": "area",
+    "breakdown": [
+      "perimeter",
+      "eccentricity",
+      "fociDistance"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

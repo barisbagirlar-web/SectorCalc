@@ -1,0 +1,68 @@
+{
+  "toolName": "short-tons-to-kg-calculator",
+  "inputs": [
+    {
+      "id": "item1_tons",
+      "label": "Item 1 Weight",
+      "type": "number",
+      "unit": "short tons",
+      "default": 0,
+      "businessContext": "Weight of first item in short tons"
+    },
+    {
+      "id": "item2_tons",
+      "label": "Item 2 Weight",
+      "type": "number",
+      "unit": "short tons",
+      "default": 0,
+      "businessContext": "Weight of second item in short tons"
+    },
+    {
+      "id": "item3_tons",
+      "label": "Item 3 Weight",
+      "type": "number",
+      "unit": "short tons",
+      "default": 0,
+      "businessContext": "Weight of third item in short tons"
+    },
+    {
+      "id": "item4_tons",
+      "label": "Item 4 Weight",
+      "type": "number",
+      "unit": "short tons",
+      "default": 0,
+      "businessContext": "Weight of fourth item in short tons"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for output rounding"
+    }
+  ],
+  "formulas": {
+    "item1_kg": "item1_tons * 907.18474",
+    "item2_kg": "item2_tons * 907.18474",
+    "item3_kg": "item3_tons * 907.18474",
+    "item4_kg": "item4_tons * 907.18474",
+    "total_kg": "item1_kg + item2_kg + item3_kg + item4_kg",
+    "rounded_total": "Math.round(total_kg * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "rounded_total",
+    "breakdown": [
+      "'Item 1: ' + item1_kg.toFixed(precision) + ' kg'",
+      "'Item 2: ' + item2_kg.toFixed(precision) + ' kg'",
+      "'Item 3: ' + item3_kg.toFixed(precision) + ' kg'",
+      "'Item 4: ' + item4_kg.toFixed(precision) + ' kg'"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,54 @@
+{
+  "toolName": "non-exercise-activity-thermogenesis-calculator",
+  "inputs": [
+    {
+      "id": "tdee",
+      "label": "Total Daily Energy Expenditure",
+      "type": "number",
+      "unit": "kcal",
+      "default": 2000,
+      "businessContext": "Total calories burned per day from all activities and bodily functions"
+    },
+    {
+      "id": "bmr",
+      "label": "Basal Metabolic Rate",
+      "type": "number",
+      "unit": "kcal",
+      "default": 1500,
+      "businessContext": "Calories burned at rest to maintain vital functions"
+    },
+    {
+      "id": "tef",
+      "label": "Thermic Effect of Food",
+      "type": "number",
+      "unit": "kcal",
+      "default": 200,
+      "businessContext": "Energy expended during digestion, absorption, and metabolism of food"
+    },
+    {
+      "id": "exercise",
+      "label": "Exercise Activity Thermogenesis",
+      "type": "number",
+      "unit": "kcal",
+      "default": 150,
+      "businessContext": "Calories burned through planned physical exercise"
+    }
+  ],
+  "formulas": {
+    "neat": "tdee - bmr - tef - exercise",
+    "neatPercentage": "(neat / tdee) * 100"
+  },
+  "outputs": {
+    "primary": "neat",
+    "breakdown": [
+      "neat",
+      "neatPercentage"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

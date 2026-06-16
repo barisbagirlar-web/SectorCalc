@@ -1,0 +1,55 @@
+{
+  "toolName": "coupon-calculator",
+  "inputs": [
+    {
+      "id": "faceValue",
+      "label": "Face Value",
+      "type": "number",
+      "unit": "$",
+      "default": 1000,
+      "businessContext": "The par or principal amount of the bond"
+    },
+    {
+      "id": "couponRate",
+      "label": "Coupon Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual coupon rate as a percentage of face value"
+    },
+    {
+      "id": "frequency",
+      "label": "Payment Frequency",
+      "type": "number",
+      "unit": "times/year",
+      "default": 2,
+      "businessContext": "Number of coupon payments per year (e.g., 2 for semi-annual)"
+    },
+    {
+      "id": "yearsToMaturity",
+      "label": "Years to Maturity",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Remaining time until bond matures"
+    }
+  ],
+  "formulas": {
+    "periodicCoupon": "(faceValue * (couponRate / 100)) / frequency",
+    "annualCoupon": "faceValue * (couponRate / 100)",
+    "totalCoupons": "faceValue * (couponRate / 100) * yearsToMaturity"
+  },
+  "outputs": {
+    "primary": "periodicCoupon",
+    "breakdown": [
+      "annualCoupon",
+      "totalCoupons"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,81 @@
+{
+  "toolName": "double-integral-calculator",
+  "inputs": [
+    {
+      "id": "xLower",
+      "label": "x Lower Bound",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Lower limit of outer integration variable x"
+    },
+    {
+      "id": "xUpper",
+      "label": "x Upper Bound",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Upper limit of outer integration variable x"
+    },
+    {
+      "id": "yLower",
+      "label": "y Lower Bound",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Lower limit of inner integration variable y"
+    },
+    {
+      "id": "yUpper",
+      "label": "y Upper Bound",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Upper limit of inner integration variable y"
+    },
+    {
+      "id": "coefA",
+      "label": "Coefficient A (x²)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient for x² term in f(x,y) = Ax² + By² + C"
+    },
+    {
+      "id": "coefB",
+      "label": "Coefficient B (y²)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient for y² term"
+    },
+    {
+      "id": "constantC",
+      "label": "Constant C",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Constant term"
+    }
+  ],
+  "formulas": {
+    "xTerm": "(coefA/3)*(Math.pow(xUpper,3)-Math.pow(xLower,3))*(yUpper-yLower)",
+    "yTerm": "(coefB/3)*(Math.pow(yUpper,3)-Math.pow(yLower,3))*(xUpper-xLower)",
+    "constTerm": "constantC*(xUpper-xLower)*(yUpper-yLower)",
+    "integral": "(coefA/3)*(Math.pow(xUpper,3)-Math.pow(xLower,3))*(yUpper-yLower) + (coefB/3)*(Math.pow(yUpper,3)-Math.pow(yLower,3))*(xUpper-xLower) + constantC*(xUpper-xLower)*(yUpper-yLower)"
+  },
+  "outputs": {
+    "primary": "integral",
+    "breakdown": [
+      "xTerm",
+      "yTerm",
+      "constTerm"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

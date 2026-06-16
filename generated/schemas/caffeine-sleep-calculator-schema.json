@@ -1,0 +1,55 @@
+{
+  "toolName": "caffeine-sleep-calculator",
+  "inputs": [
+    {
+      "id": "caffeineDose",
+      "label": "Caffeine Dose",
+      "type": "number",
+      "unit": "mg",
+      "default": 200,
+      "businessContext": "Amount of caffeine consumed in milligrams. Typical cup of coffee: ~100 mg."
+    },
+    {
+      "id": "halfLife",
+      "label": "Caffeine Half-life",
+      "type": "number",
+      "unit": "hrs",
+      "default": 5,
+      "businessContext": "Elimination half-life of caffeine. Default 5 hours for healthy adults."
+    },
+    {
+      "id": "hoursBeforeSleep",
+      "label": "Time Until Sleep",
+      "type": "number",
+      "unit": "hrs",
+      "default": 8,
+      "businessContext": "Number of hours from caffeine consumption to desired bedtime."
+    },
+    {
+      "id": "toleranceFactor",
+      "label": "Tolerance Factor",
+      "type": "number",
+      "unit": "factor",
+      "default": 1,
+      "businessContext": "Individual tolerance multiplier: 1=normal, <1 more sensitive, >1 higher tolerance."
+    }
+  ],
+  "formulas": {
+    "caffeineRemainingAtBedtime": "caffeineDose * Math.pow(0.5, hoursBeforeSleep / halfLife)",
+    "percentEliminated": "((caffeineDose - caffeineRemainingAtBedtime) / caffeineDose) * 100",
+    "adjustedCaffeineRemaining": "caffeineRemainingAtBedtime * toleranceFactor"
+  },
+  "outputs": {
+    "primary": "caffeineRemainingAtBedtime",
+    "breakdown": [
+      "percentEliminated",
+      "adjustedCaffeineRemaining"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

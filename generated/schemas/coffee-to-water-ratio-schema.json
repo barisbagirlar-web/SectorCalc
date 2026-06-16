@@ -1,0 +1,59 @@
+{
+  "toolName": "coffee-to-water-ratio",
+  "inputs": [
+    {
+      "id": "coffeeWeight",
+      "label": "Coffee Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 20,
+      "businessContext": "Weight of ground coffee used for brewing"
+    },
+    {
+      "id": "waterVolume",
+      "label": "Water Volume",
+      "type": "number",
+      "unit": "ml",
+      "default": 300,
+      "businessContext": "Volume of water used for brewing"
+    },
+    {
+      "id": "absorptionFactor",
+      "label": "Absorption Factor",
+      "type": "number",
+      "unit": "g water/g coffee",
+      "default": 2,
+      "businessContext": "Water retained by coffee grounds per gram of coffee; typical range 1.5–2.5"
+    },
+    {
+      "id": "targetRatio",
+      "label": "Target Brew Ratio",
+      "type": "number",
+      "unit": "g water/g coffee",
+      "default": 15,
+      "businessContext": "Desired ratio of water to coffee, e.g., 15 for a 1:15 brew"
+    }
+  ],
+  "formulas": {
+    "actualRatio": "waterVolume / coffeeWeight",
+    "brewYield": "waterVolume - coffeeWeight * absorptionFactor",
+    "ratioDeviation": "Math.abs(waterVolume / coffeeWeight - targetRatio)",
+    "targetAchieved": "Math.abs(waterVolume / coffeeWeight - targetRatio) < 0.01"
+  },
+  "outputs": {
+    "primary": "actualRatio",
+    "breakdown": [
+      "'Target Ratio: ' + targetRatio",
+      "'Actual Ratio: ' + actualRatio",
+      "'Ratio Deviation: ' + ratioDeviation",
+      "'Target Achieved: ' + (targetAchieved ? 'Yes' : 'No')",
+      "'Brew Yield (ml): ' + brewYield"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

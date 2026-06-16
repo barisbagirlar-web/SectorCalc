@@ -1,0 +1,71 @@
+{
+  "toolName": "fuel-efficiency-converter-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "km/mi",
+      "default": 100,
+      "businessContext": "Distance traveled"
+    },
+    {
+      "id": "distanceUnit",
+      "label": "Distance Unit",
+      "type": "number",
+      "unit": "index",
+      "default": 0,
+      "businessContext": "0: km, 1: miles"
+    },
+    {
+      "id": "fuelUsed",
+      "label": "Fuel Used",
+      "type": "number",
+      "unit": "L/gal",
+      "default": 10,
+      "businessContext": "Fuel consumed"
+    },
+    {
+      "id": "fuelUnit",
+      "label": "Fuel Unit",
+      "type": "number",
+      "unit": "index",
+      "default": 0,
+      "businessContext": "0: liters, 1: US gal, 2: UK gal"
+    },
+    {
+      "id": "outputUnit",
+      "label": "Output Unit",
+      "type": "number",
+      "unit": "index",
+      "default": 0,
+      "businessContext": "0: L/100km, 1: km/L, 2: MPG US, 3: MPG UK, 4: G/100mi US"
+    }
+  ],
+  "formulas": {
+    "distanceKm": "distanceUnit == 1 ? distance * 1.60934 : distance",
+    "fuelLiters": "fuelUnit == 1 ? fuelUsed * 3.78541 : (fuelUnit == 2 ? fuelUsed * 4.54609 : fuelUsed)",
+    "eff_Lper100km": "(fuelLiters / distanceKm) * 100",
+    "eff_kmPerL": "distanceKm / fuelLiters",
+    "eff_mpgUS": "(distanceKm / 1.60934) / (fuelLiters / 3.78541)",
+    "eff_mpgUK": "(distanceKm / 1.60934) / (fuelLiters / 4.54609)",
+    "eff_galsPer100miUS": "((fuelLiters / 3.78541) / (distanceKm / 1.60934)) * 100",
+    "results": "[eff_Lper100km, eff_kmPerL, eff_mpgUS, eff_mpgUK, eff_galsPer100miUS]"
+  },
+  "outputs": {
+    "primary": "results[outputUnit]",
+    "breakdown": [
+      "eff_Lper100km",
+      "eff_kmPerL",
+      "eff_mpgUS",
+      "eff_mpgUK",
+      "eff_galsPer100miUS"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

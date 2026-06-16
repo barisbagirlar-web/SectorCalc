@@ -1,0 +1,59 @@
+{
+  "toolName": "50-percent-rule-calculator",
+  "inputs": [
+    {
+      "id": "monthlyRent",
+      "label": "Aylık Kira Geliri",
+      "type": "number",
+      "unit": "TL/ay",
+      "default": 0,
+      "businessContext": "Mülkün aylık brüt kira geliri (ana kiracıdan elde edilen)."
+    },
+    {
+      "id": "otherMonthlyIncome",
+      "label": "Diğer Aylık Gelirler",
+      "type": "number",
+      "unit": "TL/ay",
+      "default": 0,
+      "businessContext": "Otopark, çamaşırhane, depo kirası gibi ek gelirlerin toplamı."
+    },
+    {
+      "id": "expensePercentage",
+      "label": "Gider Yüzdesi",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "İşletme giderlerinin efektif brüt gelire oranı (ipotek hariç). 50% kuralına göre varsayılan."
+    },
+    {
+      "id": "vacancyRate",
+      "label": "Boşluk Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Kiracı boşluğu ve tahsilat kaybı nedeniyle gelir kaybı oranı."
+    }
+  ],
+  "formulas": {
+    "grossMonthlyIncome": "monthlyRent + otherMonthlyIncome",
+    "effectiveGrossIncome": "grossMonthlyIncome * (1 - vacancyRate / 100)",
+    "monthlyOperatingExpenses": "effectiveGrossIncome * (expensePercentage / 100)",
+    "monthlyNetOperatingIncome": "effectiveGrossIncome - monthlyOperatingExpenses",
+    "annualNetOperatingIncome": "monthlyNetOperatingIncome * 12"
+  },
+  "outputs": {
+    "primary": "annualNetOperatingIncome",
+    "breakdown": [
+      "grossMonthlyIncome",
+      "effectiveGrossIncome",
+      "monthlyOperatingExpenses",
+      "monthlyNetOperatingIncome"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

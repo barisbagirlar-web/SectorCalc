@@ -1,0 +1,61 @@
+{
+  "toolName": "octal-calculator",
+  "inputs": [
+    {
+      "id": "octalValue1",
+      "label": "Sekizlik Sayı 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0-7 arası rakamlar içeren sekizlik tabanda bir sayı. Örneğin 12 (onluk 10'a karşılık gelir). Geçersiz rakam (8,9) kullanılırsa sonuç hatalı olur."
+    },
+    {
+      "id": "octalValue2",
+      "label": "Sekizlik Sayı 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0-7 arası rakamlar içeren sekizlik tabanda bir sayı. Örneğin 12 (onluk 10'a karşılık gelir). Geçersiz rakam (8,9) kullanılırsa sonuç hatalı olur."
+    },
+    {
+      "id": "octalValue3",
+      "label": "Sekizlik Sayı 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0-7 arası rakamlar içeren sekizlik tabanda bir sayı. Örneğin 12 (onluk 10'a karşılık gelir). Geçersiz rakam (8,9) kullanılırsa sonuç hatalı olur."
+    },
+    {
+      "id": "octalValue4",
+      "label": "Sekizlik Sayı 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0-7 arası rakamlar içeren sekizlik tabanda bir sayı. Örneğin 12 (onluk 10'a karşılık gelir). Geçersiz rakam (8,9) kullanılırsa sonuç hatalı olur."
+    }
+  ],
+  "formulas": {
+    "decimal1": "parseInt(octalValue1.toString(), 8) || 0",
+    "decimal2": "parseInt(octalValue2.toString(), 8) || 0",
+    "decimal3": "parseInt(octalValue3.toString(), 8) || 0",
+    "decimal4": "parseInt(octalValue4.toString(), 8) || 0",
+    "decimalSum": "decimal1 + decimal2 + decimal3 + decimal4",
+    "octalSum": "(decimal1 + decimal2 + decimal3 + decimal4).toString(8)"
+  },
+  "outputs": {
+    "primary": "octalSum",
+    "breakdown": [
+      "decimal1",
+      "decimal2",
+      "decimal3",
+      "decimal4",
+      "decimalSum"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

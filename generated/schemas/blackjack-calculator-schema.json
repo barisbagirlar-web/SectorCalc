@@ -1,0 +1,55 @@
+{
+  "toolName": "blackjack-calculator",
+  "inputs": [
+    {
+      "id": "lambdaA",
+      "label": "Defect Rate A (per unit)",
+      "type": "number",
+      "unit": "defects/unit",
+      "default": 0.02,
+      "businessContext": "Average number of Type A defects per unit (Poisson rate)"
+    },
+    {
+      "id": "lambdaB",
+      "label": "Defect Rate B (per unit)",
+      "type": "number",
+      "unit": "defects/unit",
+      "default": 0.015,
+      "businessContext": "Average number of Type B defects per unit (Poisson rate)"
+    },
+    {
+      "id": "lotSize",
+      "label": "Lot Size",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "businessContext": "Number of units in the production lot"
+    },
+    {
+      "id": "costPerBlackjack",
+      "label": "Cost per Blackjack Event",
+      "type": "number",
+      "unit": "EUR",
+      "default": 500,
+      "businessContext": "Financial cost incurred when a unit has both defects"
+    }
+  ],
+  "formulas": {
+    "probabilityPerUnit": "(1 - Math.exp(-lambdaA)) * (1 - Math.exp(-lambdaB))",
+    "expectedBlackjackUnits": "lotSize * probabilityPerUnit",
+    "totalExpectedCost": "expectedBlackjackUnits * costPerBlackjack"
+  },
+  "outputs": {
+    "primary": "totalExpectedCost",
+    "breakdown": [
+      "probabilityPerUnit",
+      "expectedBlackjackUnits"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

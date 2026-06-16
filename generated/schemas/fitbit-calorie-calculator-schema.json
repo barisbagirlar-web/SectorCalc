@@ -1,0 +1,63 @@
+{
+  "toolName": "fitbit-calorie-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the individual for basal metabolic rate calculation"
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Body height in centimeters"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "0: female, 1: male",
+      "default": 1,
+      "businessContext": "Biological gender for selecting the appropriate BMR formula"
+    },
+    {
+      "id": "activityLevel",
+      "label": "Activity Level",
+      "type": "number",
+      "unit": "factor",
+      "default": 1.55,
+      "businessContext": "Physical activity multiplier (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 very active, 1.9 extra active)"
+    }
+  ],
+  "formulas": {
+    "bmr": "gender === 0 ? 10 * weight + 6.25 * height - 5 * age - 161 : 10 * weight + 6.25 * height - 5 * age - 5",
+    "tdee": "bmr * activityLevel",
+    "caloriesFromActivity": "tdee - bmr"
+  },
+  "outputs": {
+    "primary": "tdee",
+    "breakdown": [
+      "bmr",
+      "caloriesFromActivity"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

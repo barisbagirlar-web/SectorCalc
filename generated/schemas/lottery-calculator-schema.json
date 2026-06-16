@@ -1,0 +1,65 @@
+{
+  "toolName": "lottery-calculator",
+  "inputs": [
+    {
+      "id": "totalTickets",
+      "label": "Total Combinations/Tickets",
+      "type": "number",
+      "unit": "tickets",
+      "default": 14000000,
+      "businessContext": "Total number of unique possible outcomes (e.g., 1 in 14 million for 6/49 lottery)"
+    },
+    {
+      "id": "ticketsPurchased",
+      "label": "Tickets Purchased",
+      "type": "number",
+      "unit": "tickets",
+      "default": 1,
+      "businessContext": "Number of tickets/lines you buy"
+    },
+    {
+      "id": "ticketCost",
+      "label": "Cost per Ticket",
+      "type": "number",
+      "unit": "currency",
+      "default": 2,
+      "businessContext": "Price per ticket/entry"
+    },
+    {
+      "id": "prizeAmount",
+      "label": "Jackpot/Prize Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000000,
+      "businessContext": "Total prize money for the top prize"
+    },
+    {
+      "id": "numberOfPrizes",
+      "label": "Number of Top Prizes",
+      "type": "number",
+      "unit": "prizes",
+      "default": 1,
+      "businessContext": "Number of top prizes available (e.g., 1 jackpot)"
+    }
+  ],
+  "formulas": {
+    "winProbability": "ticketsPurchased / totalTickets",
+    "totalCost": "ticketsPurchased * ticketCost",
+    "expectedReturn": "(prizeAmount * numberOfPrizes * ticketsPurchased) / totalTickets",
+    "netExpected": "expectedReturn - totalCost"
+  },
+  "outputs": {
+    "primary": "netExpected",
+    "breakdown": [
+      "winProbability",
+      "totalCost",
+      "expectedReturn"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,59 @@
+{
+  "toolName": "sinclair-calculator",
+  "inputs": [
+    {
+      "id": "bodyweight",
+      "label": "Body Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "The lifter's body weight in kilograms."
+    },
+    {
+      "id": "snatch",
+      "label": "Snatch (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 120,
+      "businessContext": "Weight lifted in the snatch discipline."
+    },
+    {
+      "id": "cleanAndJerk",
+      "label": "Clean & Jerk (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 150,
+      "businessContext": "Weight lifted in the clean and jerk discipline."
+    },
+    {
+      "id": "gender",
+      "label": "Gender (0=Male, 1=Female)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 for male athletes, 1 for female athletes."
+    }
+  ],
+  "formulas": {
+    "total": "snatch + cleanAndJerk",
+    "A": "gender === 0 ? 0.784780654 : 0.933700289",
+    "b": "gender === 0 ? 193.609 : 153.655",
+    "X": "Math.log10(bodyweight / b)",
+    "coefficient": "Math.pow(10, A * Math.pow(X, 2))",
+    "sinclairTotal": "total * coefficient"
+  },
+  "outputs": {
+    "primary": "sinclairTotal",
+    "breakdown": [
+      "total",
+      "coefficient",
+      "sinclairTotal"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

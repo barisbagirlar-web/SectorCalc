@@ -1,0 +1,76 @@
+{
+  "toolName": "stock-calculator",
+  "inputs": [
+    {
+      "id": "annualDemand",
+      "label": "Yıllık Talep",
+      "type": "number",
+      "unit": "adet/yıl",
+      "default": 1000,
+      "businessContext": "Ürünün yıllık talep miktarı"
+    },
+    {
+      "id": "orderingCost",
+      "label": "Sipariş Maliyeti",
+      "type": "number",
+      "unit": "para birimi/sipariş",
+      "default": 50,
+      "businessContext": "Her sipariş için sabit maliyet"
+    },
+    {
+      "id": "holdingCost",
+      "label": "Stokta Tutma Maliyeti",
+      "type": "number",
+      "unit": "para birimi/adet/yıl",
+      "default": 2,
+      "businessContext": "Bir adet ürünü bir yıl stokta tutma maliyeti"
+    },
+    {
+      "id": "unitCost",
+      "label": "Birim Maliyet",
+      "type": "number",
+      "unit": "para birimi/adet",
+      "default": 0,
+      "businessContext": "Ürün başına satın alma maliyeti (opsiyonel)"
+    },
+    {
+      "id": "leadTimeDays",
+      "label": "Tedarik Süresi",
+      "type": "number",
+      "unit": "gün",
+      "default": 7,
+      "businessContext": "Sipariş verilmesi ile teslim alınması arasındaki süre (gün)"
+    },
+    {
+      "id": "workingDaysPerYear",
+      "label": "Yıllık Çalışma Günü",
+      "type": "number",
+      "unit": "gün",
+      "default": 250,
+      "businessContext": "Yıldaki çalışma günü sayısı"
+    }
+  ],
+  "formulas": {
+    "eoq": "Math.sqrt((2 * annualDemand * orderingCost) / holdingCost)",
+    "dailyDemand": "annualDemand / workingDaysPerYear",
+    "reorderPoint": "dailyDemand * leadTimeDays",
+    "ordersPerYear": "annualDemand / eoq",
+    "averageInventory": "eoq / 2",
+    "totalAnnualCost": "annualDemand * unitCost + (ordersPerYear * orderingCost) + (averageInventory * holdingCost)"
+  },
+  "outputs": {
+    "primary": "eoq",
+    "breakdown": [
+      "reorderPoint",
+      "ordersPerYear",
+      "averageInventory",
+      "totalAnnualCost"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

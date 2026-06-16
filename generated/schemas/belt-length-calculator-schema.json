@@ -1,0 +1,57 @@
+{
+  "toolName": "belt-length-calculator",
+  "inputs": [
+    {
+      "id": "large_diameter",
+      "label": "Large Pulley Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "businessContext": "Diameter of the larger pulley. Use pitch diameter if available."
+    },
+    {
+      "id": "small_diameter",
+      "label": "Small Pulley Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Diameter of the smaller pulley."
+    },
+    {
+      "id": "center_distance",
+      "label": "Center Distance",
+      "type": "number",
+      "unit": "mm",
+      "default": 500,
+      "businessContext": "Distance between the centers of the two pulleys."
+    },
+    {
+      "id": "configuration",
+      "label": "Belt Configuration",
+      "type": "number",
+      "unit": "none",
+      "default": 0,
+      "businessContext": "0 for open belt drive (pulleys rotate same direction), 1 for crossed belt drive (pulleys rotate opposite directions)."
+    }
+  ],
+  "formulas": {
+    "straight_length": "2 * center_distance",
+    "arc_length": "Math.PI * (large_diameter + small_diameter) / 2",
+    "correction_length": "configuration === 0 ? ((large_diameter - small_diameter) ** 2) / (4 * center_distance) : ((large_diameter + small_diameter) ** 2) / (4 * center_distance)",
+    "belt_length": "straight_length + arc_length + correction_length"
+  },
+  "outputs": {
+    "primary": "belt_length",
+    "breakdown": [
+      "straight_length",
+      "arc_length",
+      "correction_length"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

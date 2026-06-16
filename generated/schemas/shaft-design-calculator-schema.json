@@ -1,0 +1,67 @@
+{
+  "toolName": "shaft-design-calculator",
+  "inputs": [
+    {
+      "id": "torque",
+      "label": "Torque",
+      "type": "number",
+      "unit": "Nm",
+      "default": 100,
+      "businessContext": "Applied torsional moment on shaft."
+    },
+    {
+      "id": "bendingMoment",
+      "label": "Bending Moment",
+      "type": "number",
+      "unit": "Nm",
+      "default": 50,
+      "businessContext": "Maximum bending moment on shaft."
+    },
+    {
+      "id": "diameter",
+      "label": "Shaft Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 30,
+      "businessContext": "Diameter of the shaft at the critical section."
+    },
+    {
+      "id": "yieldStrength",
+      "label": "Material Yield Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 250,
+      "businessContext": "Yield strength of shaft material."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Required safety factor against yielding."
+    }
+  ],
+  "formulas": {
+    "bendingStress": "(bendingMoment * 1000 * 32) / (Math.PI * Math.pow(diameter, 3))",
+    "torsionalShear": "(torque * 1000 * 16) / (Math.PI * Math.pow(diameter, 3))",
+    "vonMises": "Math.sqrt(Math.pow(bendingStress, 2) + 3 * Math.pow(torsionalShear, 2))",
+    "allowable": "yieldStrength / safetyFactor",
+    "margin": "((allowable - vonMises) / allowable) * 100"
+  },
+  "outputs": {
+    "primary": "margin",
+    "breakdown": [
+      "bendingStress",
+      "torsionalShear",
+      "vonMises",
+      "allowable"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

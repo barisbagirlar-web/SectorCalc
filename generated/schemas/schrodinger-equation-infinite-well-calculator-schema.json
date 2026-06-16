@@ -1,0 +1,63 @@
+{
+  "toolName": "schrodinger-equation-infinite-well-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Quantum Number n",
+      "type": "number",
+      "unit": "(dimensionless)",
+      "default": 1,
+      "businessContext": "Principal quantum number (n = 1, 2, 3, ...) indicating the energy level of the particle."
+    },
+    {
+      "id": "m",
+      "label": "Particle Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 9.10938356e-31,
+      "businessContext": "Mass of the particle confined in the infinite well (e.g., electron mass)."
+    },
+    {
+      "id": "L",
+      "label": "Box Length",
+      "type": "number",
+      "unit": "m",
+      "default": 1e-9,
+      "businessContext": "Width of the one-dimensional infinite potential well."
+    },
+    {
+      "id": "x",
+      "label": "Position x",
+      "type": "number",
+      "unit": "m",
+      "default": 5e-10,
+      "businessContext": "Position inside the well (0 < x < L) at which the wavefunction is evaluated."
+    },
+    {
+      "id": "hbar",
+      "label": "Reduced Planck Constant",
+      "type": "number",
+      "unit": "J·s",
+      "default": 1.054571817e-34,
+      "businessContext": "Reduced Planck constant (ħ = h/2π)."
+    }
+  ],
+  "formulas": {
+    "energy": "(Math.pow(n, 2) * Math.pow(Math.PI, 2) * Math.pow(hbar, 2)) / (2 * m * Math.pow(L, 2))",
+    "wavefunction": "Math.sqrt(2 / L) * Math.sin(n * Math.PI * x / L)",
+    "probabilityDensity": "(2 / L) * Math.pow(Math.sin(n * Math.PI * x / L), 2)"
+  },
+  "outputs": {
+    "primary": "energy",
+    "breakdown": [
+      "wavefunction",
+      "probabilityDensity"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

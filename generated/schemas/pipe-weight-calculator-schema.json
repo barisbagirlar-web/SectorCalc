@@ -1,0 +1,63 @@
+{
+  "toolName": "pipe-weight-calculator",
+  "inputs": [
+    {
+      "id": "outerDiameter",
+      "label": "Outer Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 219.1,
+      "businessContext": "Pipe outer diameter in millimeters. Standard sizes: 21.3mm to 219.1mm."
+    },
+    {
+      "id": "wallThickness",
+      "label": "Wall Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 8.18,
+      "businessContext": "Wall thickness in millimeters. Varies by schedule."
+    },
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "m",
+      "default": 6,
+      "businessContext": "Pipe length in meters. Commonly 6m or 12m."
+    },
+    {
+      "id": "density",
+      "label": "Material Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "businessContext": "Material density in kg/m³. Steel: 7850, aluminum: 2700, PVC: 1400."
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of pipe pieces."
+    }
+  ],
+  "formulas": {
+    "crossSectionalArea": "Math.PI * wallThickness * (outerDiameter - wallThickness)",
+    "linearMass": "Math.PI * wallThickness * (outerDiameter - wallThickness) * density / 1e6",
+    "weight": "Math.PI * wallThickness * (outerDiameter - wallThickness) * density * length * quantity / 1e6"
+  },
+  "outputs": {
+    "primary": "weight",
+    "breakdown": [
+      "linearMass",
+      "crossSectionalArea"
+    ]
+  },
+  "premiumRequired": false,
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

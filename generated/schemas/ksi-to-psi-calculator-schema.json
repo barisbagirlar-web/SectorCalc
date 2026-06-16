@@ -1,0 +1,63 @@
+{
+  "toolName": "ksi-to-psi-calculator",
+  "inputs": [
+    {
+      "id": "nominal_pressure_ksi",
+      "label": "Nominal Pressure",
+      "type": "number",
+      "unit": "ksi",
+      "default": 0,
+      "businessContext": "Design pressure in ksi from specification"
+    },
+    {
+      "id": "safety_factor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "ASME/VdTÜV safety factor"
+    },
+    {
+      "id": "temperature_derating",
+      "label": "Temperature Derating",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Derating due to elevated temperature"
+    },
+    {
+      "id": "ambient_pressure_psi",
+      "label": "Ambient Pressure",
+      "type": "number",
+      "unit": "psi",
+      "default": 14.7,
+      "businessContext": "Atmospheric or ambient pressure"
+    },
+    {
+      "id": "allowable_stress_ksi",
+      "label": "Allowable Stress",
+      "type": "number",
+      "unit": "ksi",
+      "default": 30,
+      "businessContext": "Material allowable stress at temperature"
+    }
+  ],
+  "formulas": {
+    "total_pressure_psi": "nominal_pressure_ksi * 1000 * safety_factor * temperature_derating",
+    "design_pressure_psi": "total_pressure_psi - ambient_pressure_psi",
+    "utilization_ratio": "(design_pressure_psi / 1000) / allowable_stress_ksi"
+  },
+  "outputs": {
+    "primary": "design_pressure_psi",
+    "breakdown": [
+      "total_pressure_psi",
+      "utilization_ratio"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

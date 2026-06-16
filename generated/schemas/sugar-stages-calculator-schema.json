@@ -1,0 +1,82 @@
+{
+  "toolName": "sugar-stages-calculator",
+  "inputs": [
+    {
+      "id": "brix",
+      "label": "Brix (°Bx)",
+      "type": "number",
+      "unit": "°Bx",
+      "default": 75,
+      "businessContext": "Sakkaroz konsantrasyonu (Brix derecesi)"
+    },
+    {
+      "id": "purity",
+      "label": "Saflık (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Şeker likörünün saflığı"
+    },
+    {
+      "id": "temperature",
+      "label": "Sıcaklık (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 65,
+      "businessContext": "Kaynatma kütlesinin sıcaklığı"
+    },
+    {
+      "id": "seedSize",
+      "label": "Tohum Kristal Boyutu (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.5,
+      "businessContext": "Eklenen tohum kristallerinin boyutu"
+    },
+    {
+      "id": "seedMass",
+      "label": "Tohum Kristal Kütlesi (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Eklenen tohum kristallerinin kütlesi"
+    },
+    {
+      "id": "vacuumPressure",
+      "label": "Vakum Basıncı (kPa)",
+      "type": "number",
+      "unit": "kPa",
+      "default": -90,
+      "businessContext": "Vakum panosundaki basınç (negatif gösterge)"
+    },
+    {
+      "id": "residenceTime",
+      "label": "Bekleme Süresi (saat)",
+      "type": "number",
+      "unit": "saat",
+      "default": 4,
+      "businessContext": "Kristal büyüme süresi"
+    }
+  ],
+  "formulas": {
+    "supersaturation": "(brix * purity) / (temperature * 100)",
+    "crystalYield": "seedMass * supersaturation * residenceTime / 10",
+    "crystalYieldPercent": "(crystalYield / (crystalYield + 1000)) * 100",
+    "finalCrystalSize": "seedSize * (1 + supersaturation * residenceTime * 0.1)",
+    "evaporationRate": "(100 + vacuumPressure) * (temperature / 100) * 0.5"
+  },
+  "outputs": {
+    "primary": "crystalYieldPercent",
+    "breakdown": [
+      "supersaturation",
+      "finalCrystalSize",
+      "evaporationRate"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

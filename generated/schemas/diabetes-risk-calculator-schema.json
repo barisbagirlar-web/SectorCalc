@@ -1,0 +1,79 @@
+{
+  "toolName": "diabetes-risk-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 45,
+      "businessContext": "Patient age"
+    },
+    {
+      "id": "bmi",
+      "label": "BMI",
+      "type": "number",
+      "unit": "kg/m^2",
+      "default": 25,
+      "businessContext": "Body Mass Index"
+    },
+    {
+      "id": "fastingGlucose",
+      "label": "Fasting Glucose",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 100,
+      "businessContext": "Fasting blood glucose level"
+    },
+    {
+      "id": "hba1c",
+      "label": "HbA1c",
+      "type": "number",
+      "unit": "%",
+      "default": 5.5,
+      "businessContext": "Glycated hemoglobin (A1C)"
+    },
+    {
+      "id": "familyHistory",
+      "label": "Family History",
+      "type": "number",
+      "unit": "boolean",
+      "default": 0,
+      "businessContext": "Family history of diabetes (0=no, 1=yes)"
+    },
+    {
+      "id": "physicalActivity",
+      "label": "Physical Activity",
+      "type": "number",
+      "unit": "boolean",
+      "default": 1,
+      "businessContext": "Regular physical activity (0=sedentary, 1=active)"
+    }
+  ],
+  "formulas": {
+    "ageContribution": "0.1 * age",
+    "bmiContribution": "0.5 * bmi",
+    "fastingGlucoseContribution": "0.3 * fastingGlucose",
+    "hba1cContribution": "1.5 * hba1c",
+    "familyHistoryContribution": "2 * familyHistory",
+    "physicalActivityContribution": "-1 * physicalActivity",
+    "riskScore": "0.1 * age + 0.5 * bmi + 0.3 * fastingGlucose + 1.5 * hba1c + 2 * familyHistory - 1 * physicalActivity"
+  },
+  "outputs": {
+    "primary": "riskScore",
+    "breakdown": [
+      "ageContribution",
+      "bmiContribution",
+      "fastingGlucoseContribution",
+      "hba1cContribution",
+      "familyHistoryContribution",
+      "physicalActivityContribution"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

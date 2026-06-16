@@ -1,0 +1,59 @@
+{
+  "toolName": "cycling-gear-ratio-calculator",
+  "inputs": [
+    {
+      "id": "chainringTeeth",
+      "label": "Chainring Teeth",
+      "type": "number",
+      "unit": "teeth",
+      "default": 50,
+      "businessContext": "Number of teeth on the front chainring."
+    },
+    {
+      "id": "cassetteTeeth",
+      "label": "Cassette Teeth",
+      "type": "number",
+      "unit": "teeth",
+      "default": 12,
+      "businessContext": "Number of teeth on the selected rear sprocket."
+    },
+    {
+      "id": "wheelDiameter",
+      "label": "Wheel Diameter (with tire)",
+      "type": "number",
+      "unit": "mm",
+      "default": 700,
+      "businessContext": "Outer diameter of the wheel including tire, in millimeters. Typical 700c road bike is ~700mm."
+    },
+    {
+      "id": "cadence",
+      "label": "Cadence",
+      "type": "number",
+      "unit": "rpm",
+      "default": 90,
+      "businessContext": "Pedaling cadence in revolutions per minute."
+    }
+  ],
+  "formulas": {
+    "gearRatio": "chainringTeeth / cassetteTeeth",
+    "gearInches": "(chainringTeeth / cassetteTeeth) * (wheelDiameter / 25.4)",
+    "development": "(Math.PI * wheelDiameter / 1000) * (chainringTeeth / cassetteTeeth)",
+    "speedKmh": "(Math.PI * wheelDiameter * chainringTeeth * cadence * 60) / (cassetteTeeth * 1000000)",
+    "speedMph": "(chainringTeeth / cassetteTeeth) * (wheelDiameter / 25.4) * Math.PI * cadence * 60 / 63360"
+  },
+  "outputs": {
+    "primary": "Speed (km/h)",
+    "breakdown": [
+      "Gear Ratio",
+      "Gear Inches",
+      "Development (m)",
+      "Speed (mph)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

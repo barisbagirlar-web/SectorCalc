@@ -1,0 +1,55 @@
+{
+  "toolName": "exponential-calculator",
+  "inputs": [
+    {
+      "id": "initialValue",
+      "label": "Initial Value (a)",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "businessContext": "Starting quantity before exponential change."
+    },
+    {
+      "id": "rateConstant",
+      "label": "Rate Constant (k)",
+      "type": "number",
+      "unit": "per time",
+      "default": 0.1,
+      "businessContext": "Continuous growth (positive) or decay (negative) rate per unit time."
+    },
+    {
+      "id": "time",
+      "label": "Time (t)",
+      "type": "number",
+      "unit": "time",
+      "default": 1,
+      "businessContext": "Elapsed time for the exponential process."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "digits",
+      "default": 4,
+      "businessContext": "Rounding precision for the final result."
+    }
+  ],
+  "formulas": {
+    "exponent": "rateConstant * time",
+    "expFactor": "Math.exp(rateConstant * time)",
+    "finalValue": "Math.round(initialValue * Math.exp(rateConstant * time) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "finalValue",
+    "breakdown": [
+      "exponent",
+      "expFactor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,72 @@
+{
+  "toolName": "social-security-early-retirement-calculator",
+  "inputs": [
+    {
+      "id": "birthYear",
+      "label": "Birth Year",
+      "type": "number",
+      "unit": "year",
+      "default": 1960,
+      "businessContext": "Your birth year determines your full retirement age (FRA). Enter year as integer (e.g., 1965)."
+    },
+    {
+      "id": "earlyRetirementAge",
+      "label": "Early Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 62,
+      "businessContext": "The age at which you plan to start receiving benefits (minimum 62, maximum 70). Use decimal for months (e.g., 62 and 6 months = 62.5)."
+    },
+    {
+      "id": "monthlyBenefitAtFRA",
+      "label": "Monthly Benefit at Full Retirement Age",
+      "type": "number",
+      "unit": "USD",
+      "default": 1500,
+      "businessContext": "The monthly benefit you would receive if you wait until full retirement age (primary insurance amount)."
+    },
+    {
+      "id": "scalingFactor",
+      "label": "Cost-of-Living Adjustment Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier to adjust for COLA (1 = no adjustment). Usually 1 for current benefit calculations."
+    }
+  ],
+  "formulas": {
+    "fullRetirementAge": {
+      "description": "Determine FRA based on birth year according to Social Security rules.",
+      "expression": "birthYear >= 1960 ? 67 : birthYear >= 1955 ? 66 + (birthYear - 1954) * (2/12) : birthYear >= 1943 ? 66 : birthYear >= 1938 ? 65 + (birthYear - 1937) * (2/12) : 65"
+    },
+    "monthsEarly": {
+      "description": "Number of months before FRA that benefits are claimed.",
+      "expression": "(fullRetirementAge - earlyRetirementAge) * 12"
+    },
+    "reductionFactor": {
+      "description": "Reduction factor applied to PIA for early claiming.",
+      "expression": "Math.min(monthsEarly, 36) * (5/9/100) + Math.max(0, monthsEarly - 36) * (5/12/100)"
+    },
+    "reducedMonthlyBenefit": {
+      "description": "Monthly benefit at early retirement age, adjusted by COLA scaling.",
+      "expression": "monthlyBenefitAtFRA * (1 - reductionFactor) * scalingFactor"
+    },
+    "reductionPercentage": {
+      "description": "Percentage reduction from FRA benefit.",
+      "expression": "reductionFactor * 100"
+    }
+  },
+  "outputs": {
+    "primary": "reducedMonthlyBenefit",
+    "breakdown": [
+      "reductionPercentage",
+      "monthsEarly"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "indicated-horsepower-calculator",
+  "inputs": [
+    {
+      "id": "pressure",
+      "label": "Mean Effective Pressure (IMEP)",
+      "type": "number",
+      "unit": "psi",
+      "default": 100,
+      "businessContext": "Indicated mean effective pressure inside the cylinder during the power stroke."
+    },
+    {
+      "id": "bore",
+      "label": "Cylinder Bore Diameter",
+      "type": "number",
+      "unit": "in",
+      "default": 4,
+      "businessContext": "Internal diameter of the engine cylinder."
+    },
+    {
+      "id": "stroke",
+      "label": "Stroke Length",
+      "type": "number",
+      "unit": "in",
+      "default": 4,
+      "businessContext": "Distance the piston travels from top dead center to bottom dead center."
+    },
+    {
+      "id": "speed",
+      "label": "Engine Speed",
+      "type": "number",
+      "unit": "rpm",
+      "default": 3000,
+      "businessContext": "Crankshaft rotational speed in revolutions per minute."
+    },
+    {
+      "id": "cylinders",
+      "label": "Number of Cylinders",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Total number of cylinders in the engine."
+    },
+    {
+      "id": "cycles",
+      "label": "Strokes per Cycle",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Number of strokes to complete a cycle: 2 for two-stroke, 4 for four-stroke engine."
+    }
+  ],
+  "formulas": {
+    "pistonArea": "Math.PI * bore * bore / 4",
+    "strokeFt": "stroke / 12",
+    "powerStrokesPerMinute": "speed * cylinders * 2 / cycles",
+    "indicatedHorsepower": "pressure * strokeFt * pistonArea * powerStrokesPerMinute / 33000"
+  },
+  "outputs": {
+    "primary": "indicatedHorsepower",
+    "breakdown": [
+      "pistonArea",
+      "strokeFt",
+      "powerStrokesPerMinute"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

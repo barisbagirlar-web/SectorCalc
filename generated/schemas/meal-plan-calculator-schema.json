@@ -1,0 +1,78 @@
+{
+  "toolName": "meal-plan-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 35,
+      "businessContext": "Worker age in years"
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Height in centimeters"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "binary (0=female, 1=male)",
+      "default": 1,
+      "businessContext": "Biological sex for BMR calculation"
+    },
+    {
+      "id": "activityFactor",
+      "label": "Activity Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.55,
+      "businessContext": "Physical activity level (1.2=sedentary, 1.55=moderate, 1.9=heavy)"
+    },
+    {
+      "id": "costPerCalorie",
+      "label": "Cost per Calorie",
+      "type": "number",
+      "unit": "TRY/cal",
+      "default": 0.005,
+      "businessContext": "Average food cost per calorie in Turkish Lira"
+    }
+  ],
+  "formulas": {
+    "BMR": "10*weight + 6.25*height - 5*age + (gender === 1 ? 5 : -161)",
+    "TDEE": "BMR * activityFactor",
+    "proteinG": "weight * 1.5",
+    "fatG": "(TDEE * 0.25) / 9",
+    "carbsG": "(TDEE - (proteinG*4 + fatG*9)) / 4",
+    "dailyCost": "TDEE * costPerCalorie",
+    "weeklyCost": "dailyCost * 7"
+  },
+  "outputs": {
+    "primary": "dailyCost",
+    "breakdown": [
+      "TDEE",
+      "proteinG",
+      "fatG",
+      "carbsG",
+      "weeklyCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

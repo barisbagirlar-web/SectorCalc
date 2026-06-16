@@ -1,0 +1,85 @@
+{
+  "toolName": "how-long-to-lose-weight-calculator",
+  "inputs": [
+    {
+      "id": "currentWeight_kg",
+      "label": "Current Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "User's current body weight in kilograms."
+    },
+    {
+      "id": "goalWeight_kg",
+      "label": "Goal Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Target body weight in kilograms."
+    },
+    {
+      "id": "height_cm",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "User's height in centimeters, used for BMR calculation."
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "User's age in years, used for BMR calculation."
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for male, 0 for female. Used in BMR formula."
+    },
+    {
+      "id": "activityLevel",
+      "label": "Activity Level",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.2,
+      "businessContext": "Physical activity factor: 1.2 sedentary, 1.375 lightly active, 1.55 moderately active, 1.725 very active, 1.9 extra active."
+    },
+    {
+      "id": "dailyCalorieIntake",
+      "label": "Daily Calorie Intake",
+      "type": "number",
+      "unit": "kcal/day",
+      "default": 2000,
+      "businessContext": "Average daily calorie consumption."
+    }
+  ],
+  "formulas": {
+    "weightDiff_kg": "currentWeight_kg - goalWeight_kg",
+    "bmr": "gender === 1 ? (10 * currentWeight_kg + 6.25 * height_cm - 5 * age + 5) : (10 * currentWeight_kg + 6.25 * height_cm - 5 * age - 161)",
+    "tdee": "bmr * activityLevel",
+    "calorieDeficit": "tdee - dailyCalorieIntake",
+    "estimatedDays": "Math.round((weightDiff_kg * 7700) / calorieDeficit)",
+    "estimatedWeeks": "estimatedDays / 7",
+    "estimatedMonths": "estimatedDays / 30.4375"
+  },
+  "outputs": {
+    "primary": "estimatedDays",
+    "breakdown": [
+      "weightDiff_kg",
+      "calorieDeficit",
+      "estimatedWeeks",
+      "estimatedMonths"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

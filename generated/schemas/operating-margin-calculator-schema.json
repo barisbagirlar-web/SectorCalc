@@ -1,0 +1,54 @@
+{
+  "toolName": "operating-margin-calculator",
+  "inputs": [
+    {
+      "id": "revenue",
+      "label": "Revenue",
+      "type": "number",
+      "unit": "$",
+      "default": 500000,
+      "businessContext": "Total sales or revenue from operations"
+    },
+    {
+      "id": "cogs",
+      "label": "Cost of Goods Sold (COGS)",
+      "type": "number",
+      "unit": "$",
+      "default": 300000,
+      "businessContext": "Direct costs attributable to production"
+    },
+    {
+      "id": "opex",
+      "label": "Operating Expenses",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "Selling, General & Administrative Expenses and other operating costs"
+    },
+    {
+      "id": "otherIncome",
+      "label": "Other Operating Income",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Any other income directly from operations (negative if expense)"
+    }
+  ],
+  "formulas": {
+    "operatingIncome": "revenue - cogs - opex + otherIncome",
+    "operatingMargin": "(operatingIncome / revenue) * 100"
+  },
+  "outputs": {
+    "primary": "operatingMargin",
+    "breakdown": [
+      "operatingIncome",
+      "operatingMargin"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

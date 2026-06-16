@@ -1,0 +1,57 @@
+{
+  "toolName": "time-unit-converter-calculator",
+  "inputs": [
+    {
+      "id": "days",
+      "label": "Days",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Number of days to convert"
+    },
+    {
+      "id": "hours",
+      "label": "Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 0,
+      "businessContext": "Number of hours to convert"
+    },
+    {
+      "id": "minutes",
+      "label": "Minutes",
+      "type": "number",
+      "unit": "minutes",
+      "default": 0,
+      "businessContext": "Number of minutes to convert"
+    },
+    {
+      "id": "seconds",
+      "label": "Seconds",
+      "type": "number",
+      "unit": "seconds",
+      "default": 0,
+      "businessContext": "Number of seconds to convert"
+    }
+  ],
+  "formulas": {
+    "totalSeconds": "days * 86400 + hours * 3600 + minutes * 60 + seconds",
+    "totalMinutes": "(days * 86400 + hours * 3600 + minutes * 60 + seconds) / 60",
+    "totalHours": "(days * 86400 + hours * 3600 + minutes * 60 + seconds) / 3600",
+    "totalDays": "(days * 86400 + hours * 3600 + minutes * 60 + seconds) / 86400"
+  },
+  "outputs": {
+    "primary": "totalSeconds",
+    "breakdown": [
+      "totalMinutes",
+      "totalHours",
+      "totalDays"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

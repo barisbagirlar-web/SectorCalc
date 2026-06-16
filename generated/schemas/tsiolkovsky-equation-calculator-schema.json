@@ -1,0 +1,55 @@
+{
+  "toolName": "tsiolkovsky-equation-calculator",
+  "inputs": [
+    {
+      "id": "exhaustVelocity",
+      "label": "Effective Exhaust Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 3000,
+      "businessContext": "Velocity of exhaust gases relative to the rocket, typically 2000-4500 m/s for chemical rockets."
+    },
+    {
+      "id": "initialMass",
+      "label": "Initial Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 50000,
+      "businessContext": "Total mass of the rocket at launch including propellant."
+    },
+    {
+      "id": "finalMass",
+      "label": "Final Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 10000,
+      "businessContext": "Mass of the rocket after propellant is burned, excluding any discarded stages."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Design safety factor applied to delta-V calculation, normally 1.0 (no margin)."
+    }
+  ],
+  "formulas": {
+    "massRatio": "initialMass / finalMass",
+    "theoreticalDeltaV": "exhaustVelocity * Math.log(massRatio)",
+    "deltaV": "safetyFactor * theoreticalDeltaV"
+  },
+  "outputs": {
+    "primary": "deltaV",
+    "breakdown": [
+      "massRatio",
+      "theoreticalDeltaV"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

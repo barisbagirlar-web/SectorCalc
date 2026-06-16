@@ -1,0 +1,55 @@
+{
+  "toolName": "process-economics-npv-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Initial Capital Investment",
+      "type": "number",
+      "unit": "currency",
+      "default": 100000,
+      "businessContext": "The upfront capital cost required for the process improvement or new equipment."
+    },
+    {
+      "id": "annualCostSavings",
+      "label": "Annual Cost Savings",
+      "type": "number",
+      "unit": "currency",
+      "default": 25000,
+      "businessContext": "Expected annual reduction in operating costs (e.g., labor, materials, energy) from the investment."
+    },
+    {
+      "id": "projectLife",
+      "label": "Project Life",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "The number of years over which the investment will generate savings."
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "businessContext": "The annual discount rate reflecting the cost of capital or required rate of return."
+    }
+  ],
+  "formulas": {
+    "netPresentValue": "annualCostSavings * ((1 - (1 + discountRate/100) ** (-projectLife)) / (discountRate/100)) - initialInvestment",
+    "paybackPeriod": "initialInvestment / annualCostSavings",
+    "annualROI": "(annualCostSavings / initialInvestment) * 100"
+  },
+  "outputs": {
+    "primary": "netPresentValue",
+    "breakdown": [
+      "paybackPeriod",
+      "annualROI"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

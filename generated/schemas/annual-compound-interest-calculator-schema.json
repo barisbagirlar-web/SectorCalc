@@ -1,0 +1,61 @@
+{
+  "toolName": "annual-compound-interest-calculator",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "businessContext": "The initial amount of money invested or saved."
+    },
+    {
+      "id": "annualRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "The yearly nominal interest rate."
+    },
+    {
+      "id": "years",
+      "label": "Number of Years",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "The investment duration in years."
+    },
+    {
+      "id": "compoundFreq",
+      "label": "Compounding Frequency",
+      "type": "number",
+      "unit": "times/year",
+      "default": 1,
+      "businessContext": "Number of times interest is compounded per year. e.g., 1 for annual, 12 for monthly."
+    }
+  ],
+  "formulas": {
+    "finalAmount": {
+      "formula": "principal * ((1 + (annualRate / 100) / compoundFreq) ** (years * compoundFreq))"
+    },
+    "totalInterest": {
+      "formula": "finalAmount - principal"
+    },
+    "effectiveAnnualRate": {
+      "formula": "(((1 + (annualRate / 100) / compoundFreq) ** compoundFreq) - 1) * 100"
+    }
+  },
+  "outputs": {
+    "primary": "finalAmount",
+    "breakdown": [
+      "totalInterest",
+      "effectiveAnnualRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "rice-calculator",
+  "inputs": [
+    {
+      "id": "uncookedRiceWeight",
+      "label": "Uncooked Rice Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 200,
+      "businessContext": "Weight of uncooked rice to be cooked"
+    },
+    {
+      "id": "waterRatio",
+      "label": "Water to Rice Ratio",
+      "type": "number",
+      "unit": "ratio",
+      "default": 2,
+      "businessContext": "Ratio of water volume to rice weight (e.g., 2 for 2 ml water per 1 g rice)"
+    },
+    {
+      "id": "yieldFactor",
+      "label": "Cooked Yield Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 2.5,
+      "businessContext": "How many times the uncooked weight the cooked rice becomes (typical: 2.5-3)"
+    },
+    {
+      "id": "servingSize",
+      "label": "Serving Size per Person",
+      "type": "number",
+      "unit": "g",
+      "default": 150,
+      "businessContext": "Amount of cooked rice per serving"
+    }
+  ],
+  "formulas": {
+    "servings": "uncookedRiceWeight * yieldFactor / servingSize",
+    "cookedRice": "uncookedRiceWeight * yieldFactor",
+    "waterNeeded": "uncookedRiceWeight * waterRatio"
+  },
+  "outputs": {
+    "primary": "servings",
+    "breakdown": [
+      "cookedRice",
+      "waterNeeded"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

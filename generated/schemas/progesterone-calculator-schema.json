@@ -1,0 +1,54 @@
+{
+  "toolName": "progesterone-calculator",
+  "inputs": [
+    {
+      "id": "progesteroneNgPerMl",
+      "label": "Progesterone (ng/mL)",
+      "type": "number",
+      "unit": "ng/mL",
+      "default": 1,
+      "businessContext": "Measured progesterone concentration in nanograms per milliliter."
+    },
+    {
+      "id": "molecularWeight",
+      "label": "Molecular Weight (g/mol)",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 314.46,
+      "businessContext": "Molecular weight of progesterone (default 314.46 g/mol)."
+    },
+    {
+      "id": "dilutionFactor",
+      "label": "Dilution Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Dilution factor applied to the sample (1 if undiluted)."
+    },
+    {
+      "id": "volumeSample",
+      "label": "Sample Volume (mL)",
+      "type": "number",
+      "unit": "mL",
+      "default": 1,
+      "businessContext": "Volume of the sample in milliliters."
+    }
+  ],
+  "formulas": {
+    "progesterone_nmol_per_L": "(progesteroneNgPerMl * dilutionFactor * 1000) / molecularWeight",
+    "total_progesterone_nmol": "(progesteroneNgPerMl * dilutionFactor * volumeSample) / molecularWeight"
+  },
+  "outputs": {
+    "primary": "progesterone_nmol_per_L",
+    "breakdown": [
+      "progesterone_nmol_per_L",
+      "total_progesterone_nmol"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,70 @@
+{
+  "toolName": "troy-pounds-to-kg-calculator",
+  "inputs": [
+    {
+      "id": "troyPounds",
+      "label": "Troy Pound Amount",
+      "type": "number",
+      "unit": "troy lb",
+      "default": 1,
+      "businessContext": "Weight in troy pounds to be converted to kilograms"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "places",
+      "default": 4,
+      "businessContext": "Number of decimal places for rounded outputs"
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "items",
+      "default": 1,
+      "businessContext": "Number of identical items to calculate total weight for"
+    },
+    {
+      "id": "scaleCalibrationFactor",
+      "label": "Calibration Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Multiplicative calibration correction factor for the weighing scale"
+    },
+    {
+      "id": "measurementUncertainty",
+      "label": "Measurement Uncertainty (±%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0.1,
+      "businessContext": "Relative measurement uncertainty percentage for conformance bounds"
+    }
+  ],
+  "formulas": {
+    "conversionFactor": "0.3732417216",
+    "rawKg": "troyPounds * 0.3732417216 * scaleCalibrationFactor * batchSize",
+    "lower": "rawKg * (1 - measurementUncertainty / 100)",
+    "upper": "rawKg * (1 + measurementUncertainty / 100)",
+    "kgRounded": "Math.round((rawKg + Number.EPSILON) * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "lowerRounded": "Math.round((lower + Number.EPSILON) * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "upperRounded": "Math.round((upper + Number.EPSILON) * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "conversionInfo": "'Conversion factor: 1 troy lb = 0.3732417216 kg'"
+  },
+  "outputs": {
+    "primary": "kgRounded",
+    "breakdown": [
+      "lowerRounded",
+      "upperRounded",
+      "rawKg",
+      "conversionInfo"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

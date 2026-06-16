@@ -1,0 +1,53 @@
+{
+  "toolName": "business-debt-service-coverage-ratio-calculator",
+  "inputs": [
+    {
+      "id": "netOperatingIncome",
+      "label": "Net Operating Income",
+      "type": "number",
+      "unit": "currency",
+      "default": 100000,
+      "businessContext": "Annual net operating income from core business operations, before debt service and taxes."
+    },
+    {
+      "id": "principalRepayments",
+      "label": "Principal Repayments",
+      "type": "number",
+      "unit": "currency",
+      "default": 20000,
+      "businessContext": "Annual principal repayments on all business debts (loans, mortgages, etc.)."
+    },
+    {
+      "id": "interestPayments",
+      "label": "Interest Payments",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "Annual interest payments on all business debts."
+    },
+    {
+      "id": "leasePayments",
+      "label": "Lease Payments",
+      "type": "number",
+      "unit": "currency",
+      "default": 5000,
+      "businessContext": "Annual lease payments considered as debt obligations. Enter 0 if none."
+    }
+  ],
+  "formulas": {
+    "totalDebtService": "inputs.principalRepayments + inputs.interestPayments + inputs.leasePayments",
+    "dscr": "inputs.netOperatingIncome / (inputs.principalRepayments + inputs.interestPayments + inputs.leasePayments)"
+  },
+  "outputs": {
+    "primary": "dscr",
+    "breakdown": [
+      "totalDebtService"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

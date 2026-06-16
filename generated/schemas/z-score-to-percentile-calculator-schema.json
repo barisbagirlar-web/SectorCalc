@@ -1,0 +1,74 @@
+{
+  "toolName": "z-score-to-percentile-calculator",
+  "inputs": [
+    {
+      "id": "zScore",
+      "label": "Z-score",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Standard normal deviate (used if rawScoreProvided is 0)"
+    },
+    {
+      "id": "mean",
+      "label": "Mean",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Population mean for raw score conversion"
+    },
+    {
+      "id": "stdDev",
+      "label": "Standard Deviation",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Population standard deviation (must be > 0)"
+    },
+    {
+      "id": "rawScore",
+      "label": "Raw Score",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Raw value to convert to Z-score"
+    },
+    {
+      "id": "rawScoreProvided",
+      "label": "Use Raw Score?",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Set to 1 to compute Z-score from raw score, mean, stdDev; 0 to use given Z-score"
+    },
+    {
+      "id": "tail",
+      "label": "Tail",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 = lower tail (cumulative), 1 = upper tail (1 - cumulative)"
+    }
+  ],
+  "formulas": {
+    "zComputed": "rawScoreProvided === 1 ? (rawScore - mean) / stdDev : zScore",
+    "absZ": "Math.abs(zComputed) / Math.sqrt(2)",
+    "t": "1 / (1 + 0.3275911 * absZ)",
+    "y": "1 - (((((1.061405429 * t - 1.453152027) * t + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-absZ * absZ))",
+    "cdf": "0.5 * (1 + (zComputed < 0 ? -1 : 1) * y)",
+    "percentile": "tail === 1 ? (1 - cdf) : cdf"
+  },
+  "outputs": {
+    "primary": "percentile",
+    "breakdown": [
+      "zComputed",
+      "cdf"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

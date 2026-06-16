@@ -1,0 +1,71 @@
+{
+  "toolName": "stone-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Uzunluk",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Proje alanının uzunluğu"
+    },
+    {
+      "id": "width",
+      "label": "Genişlik",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Proje alanının genişliği"
+    },
+    {
+      "id": "depth",
+      "label": "Derinlik",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Agrega tabakasının derinliği"
+    },
+    {
+      "id": "density",
+      "label": "Yoğunluk",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1600,
+      "businessContext": "Kullanılan taşın yoğunluğu"
+    },
+    {
+      "id": "costPerTon",
+      "label": "Ton Başına Maliyet",
+      "type": "number",
+      "unit": "TL/ton",
+      "default": 150,
+      "businessContext": "Agreganın ton başına satın alma maliyeti"
+    },
+    {
+      "id": "wastagePercent",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Operasyonel fire oranı yüzdesi"
+    }
+  ],
+  "formulas": {
+    "volumeM3": "length * width * depth / 100 * (1 + wastagePercent / 100)",
+    "weightTons": "volumeM3 * density / 1000",
+    "totalCost": "weightTons * costPerTon"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "volumeM3",
+      "weightTons"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

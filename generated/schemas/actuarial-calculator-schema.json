@@ -1,0 +1,57 @@
+{
+  "toolName": "actuarial-calculator",
+  "inputs": [
+    {
+      "id": "sumAssured",
+      "label": "Sum Assured",
+      "type": "number",
+      "unit": "EUR",
+      "default": 100000,
+      "businessContext": "The amount payable upon the death of the insured"
+    },
+    {
+      "id": "mortalityRate",
+      "label": "Annual Mortality Rate",
+      "type": "number",
+      "unit": "probability",
+      "default": 0.005,
+      "businessContext": "The probability that the insured dies within one year, used to calculate expected claim costs"
+    },
+    {
+      "id": "interestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.03,
+      "businessContext": "The risk‑free discount rate used to compute present values of future benefits"
+    },
+    {
+      "id": "term",
+      "label": "Policy Term",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "The number of years the insurance coverage remains in force"
+    }
+  ],
+  "formulas": {
+    "netSinglePremium": "sumAssured * mortalityRate * (1/(1+interestRate)) * (1 - Math.pow((1-mortalityRate)*(1/(1+interestRate)), term)) / (1 - (1-mortalityRate)*(1/(1+interestRate)))",
+    "discountFactor": "1/(1+interestRate)",
+    "mortalityRiskCost": "sumAssured * mortalityRate",
+    "termAnnuityPresentValueFactor": "(1/(1+interestRate)) * (1 - Math.pow((1-mortalityRate)*(1/(1+interestRate)), term)) / (1 - (1-mortalityRate)*(1/(1+interestRate)))"
+  },
+  "outputs": {
+    "primary": "netSinglePremium",
+    "breakdown": [
+      "discountFactor",
+      "mortalityRiskCost",
+      "termAnnuityPresentValueFactor"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,62 @@
+{
+  "toolName": "battery-capacity-calculator",
+  "inputs": [
+    {
+      "id": "loadPower",
+      "label": "Load Power",
+      "type": "number",
+      "unit": "W",
+      "default": 100,
+      "businessContext": "Total power consumption of the load"
+    },
+    {
+      "id": "backupTime",
+      "label": "Backup Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 1,
+      "businessContext": "Desired backup time"
+    },
+    {
+      "id": "voltage",
+      "label": "System Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 12,
+      "businessContext": "Nominal voltage of battery bank"
+    },
+    {
+      "id": "efficiency",
+      "label": "System Efficiency",
+      "type": "number",
+      "unit": "",
+      "default": 0.9,
+      "businessContext": "Combined efficiency of inverter and cabling (0-1)"
+    },
+    {
+      "id": "depthOfDischarge",
+      "label": "Depth of Discharge (DoD)",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "businessContext": "Maximum discharge depth (e.g., 0.8 means 80% usable)"
+    }
+  ],
+  "formulas": {
+    "capacityAh": "(loadPower * backupTime) / (voltage * efficiency * depthOfDischarge)",
+    "energyWh": "(loadPower * backupTime) / (efficiency * depthOfDischarge)"
+  },
+  "outputs": {
+    "primary": "Required battery capacity: ${capacityAh.toFixed(2)} Ah",
+    "breakdown": [
+      "Required energy: ${energyWh.toFixed(2)} Wh",
+      "Battery capacity: ${capacityAh.toFixed(2)} Ah"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

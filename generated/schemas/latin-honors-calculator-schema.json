@@ -1,0 +1,75 @@
+{
+  "toolName": "latin-honors-calculator",
+  "inputs": [
+    {
+      "id": "gpa",
+      "label": "Cumulative GPA",
+      "type": "number",
+      "unit": "scale of 4.0",
+      "default": 3.5,
+      "businessContext": "Student's cumulative grade point average on a 4.0 scale"
+    },
+    {
+      "id": "cumLaudeMin",
+      "label": "Cum Laude Threshold",
+      "type": "number",
+      "unit": "GPA",
+      "default": 3.5,
+      "businessContext": "Minimum GPA required for Cum Laude honors"
+    },
+    {
+      "id": "magnaMin",
+      "label": "Magna Cum Laude Threshold",
+      "type": "number",
+      "unit": "GPA",
+      "default": 3.7,
+      "businessContext": "Minimum GPA for Magna Cum Laude honors"
+    },
+    {
+      "id": "summaMin",
+      "label": "Summa Cum Laude Threshold",
+      "type": "number",
+      "unit": "GPA",
+      "default": 3.9,
+      "businessContext": "Minimum GPA for Summa Cum Laude honors"
+    },
+    {
+      "id": "totalCredits",
+      "label": "Total Credits Completed",
+      "type": "number",
+      "unit": "credits",
+      "default": 120,
+      "businessContext": "Total credit hours completed by the student"
+    },
+    {
+      "id": "creditsRequired",
+      "label": "Credits Required for Honors",
+      "type": "number",
+      "unit": "credits",
+      "default": 120,
+      "businessContext": "Minimum total credits required to be eligible for Latin honors"
+    }
+  ],
+  "formulas": {
+    "honors": "(totalCredits >= creditsRequired) ? (gpa >= summaMin ? \"Summa Cum Laude\" : gpa >= magnaMin ? \"Magna Cum Laude\" : gpa >= cumLaudeMin ? \"Cum Laude\" : \"No Latin Honors\") : \"Insufficient credits for Latin Honors\"",
+    "cumLaudeStatus": "(gpa >= cumLaudeMin && totalCredits >= creditsRequired) ? \"Cum Laude: Eligible\" : \"Cum Laude: Not Eligible\"",
+    "magnaStatus": "(gpa >= magnaMin && totalCredits >= creditsRequired) ? \"Magna Cum Laude: Eligible\" : \"Magna Cum Laude: Not Eligible\"",
+    "summaStatus": "(gpa >= summaMin && totalCredits >= creditsRequired) ? \"Summa Cum Laude: Eligible\" : \"Summa Cum Laude: Not Eligible\"",
+    "thresholdsInfo": "\"Thresholds: Cum Laude >= \" + cumLaudeMin + \", Magna >= \" + magnaMin + \", Summa >= \" + summaMin + \". Credits required: \" + creditsRequired"
+  },
+  "outputs": {
+    "primary": "honors",
+    "breakdown": [
+      "cumLaudeStatus",
+      "magnaStatus",
+      "summaStatus",
+      "thresholdsInfo"
+    ]
+  },
+  "category": "Finans & İK",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

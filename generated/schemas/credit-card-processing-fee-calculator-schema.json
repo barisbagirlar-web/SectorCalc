@@ -1,0 +1,65 @@
+{
+  "toolName": "credit-card-processing-fee-calculator",
+  "inputs": [
+    {
+      "id": "transactionAmount",
+      "label": "Transaction Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "Total amount charged to the customer for the transaction."
+    },
+    {
+      "id": "processingRate",
+      "label": "Processing Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2.9,
+      "businessContext": "Percentage fee charged by the processor on the transaction amount."
+    },
+    {
+      "id": "perTransactionFee",
+      "label": "Per-Transaction Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 0.3,
+      "businessContext": "Fixed fee charged per transaction by the processor."
+    },
+    {
+      "id": "monthlyStatementFee",
+      "label": "Monthly Statement Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 10,
+      "businessContext": "Fixed monthly fee for account maintenance, distributed across transactions."
+    },
+    {
+      "id": "numberOfTransactions",
+      "label": "Number of Monthly Transactions",
+      "type": "number",
+      "unit": "transactions",
+      "default": 100,
+      "businessContext": "Total number of transactions processed per month."
+    }
+  ],
+  "formulas": {
+    "totalFee": "transactionAmount * processingRate / 100 + perTransactionFee + monthlyStatementFee / numberOfTransactions",
+    "netAmount": "transactionAmount - totalFee",
+    "effectiveRate": "(totalFee / transactionAmount) * 100",
+    "monthlyTotalFee": "totalFee * numberOfTransactions"
+  },
+  "outputs": {
+    "primary": "netAmount",
+    "breakdown": [
+      "totalFee",
+      "effectiveRate",
+      "monthlyTotalFee"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,79 @@
+{
+  "toolName": "soil-bearing-capacity-calculator",
+  "inputs": [
+    {
+      "id": "cohesion",
+      "label": "Cohesion (c)",
+      "type": "number",
+      "unit": "kPa",
+      "default": 0,
+      "businessContext": "Soil cohesion intercept, typically from 0 for sands to 150 kPa for hard clay."
+    },
+    {
+      "id": "frictionAngle",
+      "label": "Angle of Internal Friction (φ)",
+      "type": "number",
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Effective friction angle of soil. Common range 20-45°."
+    },
+    {
+      "id": "unitWeight",
+      "label": "Unit Weight of Soil (γ)",
+      "type": "number",
+      "unit": "kN/m³",
+      "default": 18,
+      "businessContext": "From 14 kN/m³ for soft clays to 22 kN/m³ for dense sand/gravel."
+    },
+    {
+      "id": "foundationDepth",
+      "label": "Depth of Foundation (Df)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Depth of footing base below ground surface."
+    },
+    {
+      "id": "foundationWidth",
+      "label": "Width of Foundation (B)",
+      "type": "number",
+      "unit": "m",
+      "default": 1.5,
+      "businessContext": "Width of continuous strip footing, or equivalent diameter of circular footing."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor (FS)",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Factor of safety typically 2.5–4 for permanent structures."
+    }
+  ],
+  "formulas": {
+    "φ_rad": "frictionAngle * Math.PI / 180",
+    "Nq": "Math.tan(Math.PI/4 + φ_rad/2) ** 2 * Math.exp(Math.PI * Math.tan(φ_rad))",
+    "Nc": "(φ_rad === 0) ? 5.14 : ((Nq - 1) / Math.tan(φ_rad))",
+    "Nγ": "2 * (Nq + 1) * Math.tan(φ_rad)",
+    "ultimateBearingCapacity": "cohesion * Nc + unitWeight * foundationDepth * Nq + 0.5 * unitWeight * foundationWidth * Nγ",
+    "allowableBearingCapacity": "ultimateBearingCapacity / safetyFactor",
+    "cohesionTerm": "cohesion * Nc",
+    "surchargeTerm": "unitWeight * foundationDepth * Nq",
+    "selfWeightTerm": "0.5 * unitWeight * foundationWidth * Nγ"
+  },
+  "outputs": {
+    "primary": "allowableBearingCapacity",
+    "breakdown": [
+      "ultimateBearingCapacity",
+      "cohesionTerm",
+      "surchargeTerm",
+      "selfWeightTerm"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

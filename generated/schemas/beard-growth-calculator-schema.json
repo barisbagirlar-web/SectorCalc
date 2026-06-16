@@ -1,0 +1,65 @@
+{
+  "toolName": "beard-growth-calculator",
+  "inputs": [
+    {
+      "id": "current_length",
+      "label": "Current Beard Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Measured length of existing beard in millimeters."
+    },
+    {
+      "id": "desired_length",
+      "label": "Desired Beard Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 30,
+      "businessContext": "Target beard length in millimeters."
+    },
+    {
+      "id": "growth_rate",
+      "label": "Average Daily Growth Rate",
+      "type": "number",
+      "unit": "mm/day",
+      "default": 0.4,
+      "businessContext": "Average beard growth rate per day. Typical range 0.3-0.5 mm/day."
+    },
+    {
+      "id": "resting_days",
+      "label": "Resting Days per Month",
+      "type": "number",
+      "unit": "days",
+      "default": 2,
+      "businessContext": "Number of days per month when beard does not grow (e.g., due to shaving cycles or rest phases)."
+    },
+    {
+      "id": "genetic_factor",
+      "label": "Genetic Growth Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Factor accounting for genetic variations (1.0 = average, >1 faster growth)."
+    }
+  ],
+  "formulas": {
+    "lengthNeeded": "desired_length - current_length",
+    "daysRequired": "lengthNeeded / (growth_rate * genetic_factor)",
+    "monthsRequired": "daysRequired / 30.44",
+    "monthlyGrowth": "(30 - resting_days) * growth_rate * genetic_factor"
+  },
+  "outputs": {
+    "primary": "daysRequired",
+    "breakdown": [
+      "monthlyGrowth",
+      "monthsRequired",
+      "lengthNeeded"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

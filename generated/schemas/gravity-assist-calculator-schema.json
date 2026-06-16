@@ -1,0 +1,70 @@
+{
+  "toolName": "gravity-assist-calculator",
+  "inputs": [
+    {
+      "id": "v_planet",
+      "label": "Planet Orbital Speed",
+      "type": "number",
+      "unit": "km/s",
+      "default": 29.8,
+      "businessContext": "The orbital speed of the planet relative to the Sun."
+    },
+    {
+      "id": "v_inf",
+      "label": "Hyperbolic Excess Speed",
+      "type": "number",
+      "unit": "km/s",
+      "default": 3,
+      "businessContext": "The spacecraft's speed relative to the planet at an infinite distance (approach velocity)."
+    },
+    {
+      "id": "r_p",
+      "label": "Periapsis Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 6671,
+      "businessContext": "Distance from planet center at closest approach."
+    },
+    {
+      "id": "mu",
+      "label": "Gravitational Parameter",
+      "type": "number",
+      "unit": "km³/s²",
+      "default": 398600.4418,
+      "businessContext": "Standard gravitational parameter (GM) of the planet."
+    }
+  ],
+  "formulas": {
+    "delta": "2 * Math.asin(1 / (1 + (r_p * Math.pow(v_inf, 2)) / mu))",
+    "v_out": "Math.sqrt(Math.pow(v_planet, 2) + Math.pow(v_inf, 2) + 2 * v_planet * v_inf * Math.cos(delta))",
+    "dv": "2 * v_inf * Math.sin(delta / 2)"
+  },
+  "outputs": {
+    "primary": {
+      "id": "v_out",
+      "label": "Resulting Heliocentric Speed",
+      "unit": "km/s",
+      "formula": "v_out"
+    },
+    "breakdown": [
+      {
+        "id": "delta",
+        "label": "Deflection Angle",
+        "unit": "rad",
+        "formula": "delta"
+      },
+      {
+        "id": "dv",
+        "label": "Delta-V Relative to Planet",
+        "unit": "km/s",
+        "formula": "dv"
+      }
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,62 @@
+{
+  "toolName": "blood-glucose-calculator",
+  "inputs": [
+    {
+      "id": "mode",
+      "label": "Calculation Mode",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1: Unit Conversion (mg/dL <-> mmol/L), 2: HbA1c to eAG (mg/dL), 3: eAG (mg/dL) to HbA1c"
+    },
+    {
+      "id": "value1",
+      "label": "Input Value",
+      "type": "number",
+      "unit": "mg/dL or mmol/L or %",
+      "default": 100,
+      "businessContext": "The blood glucose value to convert or calculate from; unit depends on mode and unitFrom"
+    },
+    {
+      "id": "unitFrom",
+      "label": "Input Unit",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for mg/dL, 2 for mmol/L (used in mode 1; in other modes, assume input units accordingly)"
+    },
+    {
+      "id": "unitTo",
+      "label": "Target Unit",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "1 for mg/dL, 2 for mmol/L (used in mode 1)"
+    },
+    {
+      "id": "fasting",
+      "label": "Fasting State",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 if fasting, 0 if non-fasting (for reference only, does not affect calculation)"
+    }
+  ],
+  "formulas": {
+    "result": "(mode===1 ? (unitFrom===1 ? (unitTo===2 ? value1/18.0182 : value1) : (unitTo===1 ? value1*18.0182 : value1)) : mode===2 ? 28.7*value1 - 46.7 : (value1 + 46.7)/28.7)"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": [
+      "Unit conversion: mg/dL to mmol/L: divide by 18.0182; mmol/L to mg/dL: multiply by 18.0182",
+      "HbA1c to eAG (mg/dL): 28.7 * HbA1c - 46.7",
+      "eAG (mg/dL) to HbA1c: (eAG + 46.7) / 28.7"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

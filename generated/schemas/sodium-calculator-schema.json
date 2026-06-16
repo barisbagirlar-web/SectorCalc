@@ -1,0 +1,58 @@
+{
+  "toolName": "sodium-calculator",
+  "inputs": [
+    {
+      "id": "compoundMass",
+      "label": "Compound Mass",
+      "type": "number",
+      "unit": "g",
+      "default": 100,
+      "businessContext": "Total mass of the sodium-containing compound"
+    },
+    {
+      "id": "purity",
+      "label": "Purity",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Purity percentage of the compound (0-100)"
+    },
+    {
+      "id": "sodiumAtomsPerMolecule",
+      "label": "Sodium Atoms per Molecule",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of sodium atoms in one molecule of the compound"
+    },
+    {
+      "id": "molarMassCompound",
+      "label": "Molar Mass of Compound",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 58.44,
+      "businessContext": "Molar mass of the compound (e.g., NaCl: 58.44 g/mol)"
+    },
+    {
+      "id": "sodiumMolarMass",
+      "label": "Molar Mass of Sodium",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 22.99,
+      "businessContext": "Standard atomic mass of sodium (22.99 g/mol)"
+    }
+  ],
+  "formulas": {
+    "sodiumMass": "compoundMass * (purity / 100) * (sodiumAtomsPerMolecule * sodiumMolarMass / molarMassCompound)",
+    "percentageSodium": "(sodiumAtomsPerMolecule * sodiumMolarMass / molarMassCompound) * 100"
+  },
+  "outputs": {
+    "primary": "sodiumMass",
+    "breakdown": [
+      "percentageSodium"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false
+}

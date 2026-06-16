@@ -1,0 +1,65 @@
+{
+  "toolName": "business-carbon-footprint-calculator",
+  "inputs": [
+    {
+      "id": "electricityUsage",
+      "label": "Electricity Usage",
+      "type": "number",
+      "unit": "kWh",
+      "default": 0,
+      "businessContext": "Annual electricity consumption from the grid"
+    },
+    {
+      "id": "naturalGasUsage",
+      "label": "Natural Gas Usage",
+      "type": "number",
+      "unit": "m³",
+      "default": 0,
+      "businessContext": "Annual natural gas consumption for heating/processes"
+    },
+    {
+      "id": "vehicleFuel",
+      "label": "Vehicle Fuel Usage",
+      "type": "number",
+      "unit": "L",
+      "default": 0,
+      "businessContext": "Annual fuel consumption by company-owned vehicles (petrol/diesel)"
+    },
+    {
+      "id": "businessFlights",
+      "label": "Business Air Travel",
+      "type": "number",
+      "unit": "km",
+      "default": 0,
+      "businessContext": "Total distance travelled by air for business purposes"
+    },
+    {
+      "id": "wasteGenerated",
+      "label": "Waste Generated",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Total waste sent to landfill annually"
+    }
+  ],
+  "formulas": {
+    "scope1Emissions": "naturalGasUsage * 1.9 + vehicleFuel * 2.5",
+    "scope2Emissions": "electricityUsage * 0.5",
+    "scope3Emissions": "businessFlights * 0.15 + wasteGenerated * 1.0",
+    "totalCarbonFootprint": "scope1Emissions + scope2Emissions + scope3Emissions"
+  },
+  "outputs": {
+    "primary": "totalCarbonFootprint",
+    "breakdown": [
+      "scope1Emissions",
+      "scope2Emissions",
+      "scope3Emissions"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

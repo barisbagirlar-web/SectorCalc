@@ -1,0 +1,91 @@
+{
+  "toolName": "traveling-salesman-route-distance-calculator",
+  "inputs": [
+    {
+      "id": "ax",
+      "label": "A X",
+      "type": "number",
+      "unit": "km",
+      "default": 0,
+      "businessContext": "x-coordinate of city A"
+    },
+    {
+      "id": "ay",
+      "label": "A Y",
+      "type": "number",
+      "unit": "km",
+      "default": 0,
+      "businessContext": "y-coordinate of city A"
+    },
+    {
+      "id": "bx",
+      "label": "B X",
+      "type": "number",
+      "unit": "km",
+      "default": 0,
+      "businessContext": "x-coordinate of city B"
+    },
+    {
+      "id": "by",
+      "label": "B Y",
+      "type": "number",
+      "unit": "km",
+      "default": 0,
+      "businessContext": "y-coordinate of city B"
+    },
+    {
+      "id": "cx",
+      "label": "C X",
+      "type": "number",
+      "unit": "km",
+      "default": 0,
+      "businessContext": "x-coordinate of city C"
+    },
+    {
+      "id": "cy",
+      "label": "C Y",
+      "type": "number",
+      "unit": "km",
+      "default": 0,
+      "businessContext": "y-coordinate of city C"
+    },
+    {
+      "id": "dx",
+      "label": "D X",
+      "type": "number",
+      "unit": "km",
+      "default": 0,
+      "businessContext": "x-coordinate of city D"
+    },
+    {
+      "id": "dy",
+      "label": "D Y",
+      "type": "number",
+      "unit": "km",
+      "default": 0,
+      "businessContext": "y-coordinate of city D"
+    }
+  ],
+  "formulas": {
+    "dAB": "Math.sqrt((bx - ax) ** 2 + (by - ay) ** 2)",
+    "dBC": "Math.sqrt((cx - bx) ** 2 + (cy - by) ** 2)",
+    "dCD": "Math.sqrt((dx - cx) ** 2 + (dy - cy) ** 2)",
+    "dDA": "Math.sqrt((ax - dx) ** 2 + (ay - dy) ** 2)",
+    "totalDistance": "dAB + dBC + dCD + dDA"
+  },
+  "outputs": {
+    "primary": "totalDistance",
+    "breakdown": [
+      "dAB",
+      "dBC",
+      "dCD",
+      "dDA"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

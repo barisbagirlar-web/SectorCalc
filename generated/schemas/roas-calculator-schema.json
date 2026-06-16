@@ -1,0 +1,57 @@
+{
+  "toolName": "roas-calculator",
+  "inputs": [
+    {
+      "id": "spendA",
+      "label": "Platform A Spend",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Advertising cost on platform A"
+    },
+    {
+      "id": "spendB",
+      "label": "Platform B Spend",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Advertising cost on platform B"
+    },
+    {
+      "id": "revenueA",
+      "label": "Revenue from Platform A",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Revenue generated from platform A campaigns"
+    },
+    {
+      "id": "revenueB",
+      "label": "Revenue from Platform B",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Revenue generated from platform B campaigns"
+    }
+  ],
+  "formulas": {
+    "totalSpend": "spendA + spendB",
+    "totalRevenue": "revenueA + revenueB",
+    "roas": "totalRevenue / totalSpend",
+    "roasPercentage": "roas * 100"
+  },
+  "outputs": {
+    "primary": "roas",
+    "breakdown": [
+      "totalSpend",
+      "totalRevenue",
+      "roasPercentage"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

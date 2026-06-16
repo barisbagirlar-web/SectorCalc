@@ -1,0 +1,63 @@
+{
+  "toolName": "ionization-energy-calculator",
+  "inputs": [
+    {
+      "id": "atomicNumber",
+      "label": "Atomic Number (Z)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of protons in the nucleus."
+    },
+    {
+      "id": "principalQuantumNumber",
+      "label": "Principal Quantum Number (n)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Principal quantum number of the electron being removed (1 for ground state)."
+    },
+    {
+      "id": "screeningConstant",
+      "label": "Screening Constant (S)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Shielding constant from inner electrons (0 for hydrogen-like atoms)."
+    },
+    {
+      "id": "rydbergEnergy",
+      "label": "Rydberg Energy",
+      "type": "number",
+      "unit": "eV",
+      "default": 13.6,
+      "businessContext": "Rydberg energy constant (energy required to ionize a hydrogen atom from ground state)."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor (eV to kJ/mol)",
+      "type": "number",
+      "unit": "",
+      "default": 96.485,
+      "businessContext": "Factor to convert electronvolts to kilojoules per mole (1 eV = 96.485 kJ/mol)."
+    }
+  ],
+  "formulas": {
+    "effectiveNuclearCharge": "atomicNumber - screeningConstant",
+    "ionizationEnergy_eV": "rydbergEnergy * (effectiveNuclearCharge ** 2) / (principalQuantumNumber ** 2)",
+    "ionizationEnergy_kJ_per_mol": "ionizationEnergy_eV * conversionFactor"
+  },
+  "outputs": {
+    "primary": "ionizationEnergy_eV",
+    "breakdown": [
+      "Ionization Energy: {ionizationEnergy_eV} eV",
+      "Equivalent: {ionizationEnergy_kJ_per_mol} kJ/mol"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

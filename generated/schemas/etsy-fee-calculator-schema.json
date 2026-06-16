@@ -1,0 +1,59 @@
+{
+  "toolName": "etsy-fee-calculator",
+  "inputs": [
+    {
+      "id": "itemPrice",
+      "label": "Item Price (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 20,
+      "businessContext": "Selling price per item"
+    },
+    {
+      "id": "shippingPrice",
+      "label": "Shipping Price (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 5,
+      "businessContext": "Shipping cost charged to buyer per item"
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "items",
+      "default": 1,
+      "businessContext": "Number of items sold"
+    },
+    {
+      "id": "itemCost",
+      "label": "Item Cost (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 10,
+      "businessContext": "Cost of goods sold per item"
+    }
+  ],
+  "formulas": {
+    "listingFees": "quantity * 0.20",
+    "transactionFees": "(itemPrice + shippingPrice) * quantity * 0.065",
+    "paymentProcessingFees": "((itemPrice + shippingPrice) * quantity * 0.03) + 0.25",
+    "totalFees": "listingFees + transactionFees + paymentProcessingFees",
+    "netProfit": "(itemPrice * quantity) - totalFees - (itemCost * quantity)"
+  },
+  "outputs": {
+    "primary": "totalFees",
+    "breakdown": [
+      "listingFees",
+      "transactionFees",
+      "paymentProcessingFees",
+      "netProfit"
+    ]
+  },
+  "category": "Perakende & Gıda",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

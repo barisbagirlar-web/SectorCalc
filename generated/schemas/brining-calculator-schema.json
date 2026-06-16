@@ -1,0 +1,57 @@
+{
+  "toolName": "brining-calculator",
+  "inputs": [
+    {
+      "id": "waterVolume",
+      "label": "Su Miktarı",
+      "type": "number",
+      "unit": "litre",
+      "default": 1,
+      "businessContext": "Tuzlu su çözeltisi için kullanılacak su miktarı"
+    },
+    {
+      "id": "desiredSaltPercent",
+      "label": "Hedef Tuz Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Arzu edilen ağırlıkça tuz yüzdesi"
+    },
+    {
+      "id": "desiredSugarPercent",
+      "label": "Hedef Şeker Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "İsteğe bağlı eklenen ağırlıkça şeker yüzdesi"
+    },
+    {
+      "id": "waterDensity",
+      "label": "Su Yoğunluğu",
+      "type": "number",
+      "unit": "g/mL",
+      "default": 1,
+      "businessContext": "Su yoğunluğu (genelde 1 g/mL)"
+    }
+  ],
+  "formulas": {
+    "waterWeight": "inputs.waterVolume * 1000 * inputs.waterDensity",
+    "totalSolutePercent": "inputs.desiredSaltPercent + inputs.desiredSugarPercent",
+    "requiredSalt": "(inputs.desiredSaltPercent / 100) * waterWeight / (1 - totalSolutePercent / 100)",
+    "requiredSugar": "(inputs.desiredSugarPercent / 100) * waterWeight / (1 - totalSolutePercent / 100)",
+    "totalBrineWeight": "waterWeight + requiredSalt + requiredSugar"
+  },
+  "outputs": {
+    "primary": "requiredSalt",
+    "breakdown": [
+      "requiredSugar",
+      "totalBrineWeight"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

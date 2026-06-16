@@ -1,0 +1,73 @@
+{
+  "toolName": "page-count-calculator",
+  "inputs": [
+    {
+      "id": "totalWords",
+      "label": "Toplam Kelime Sayısı",
+      "type": "number",
+      "unit": "kelime",
+      "default": 2000,
+      "businessContext": "Belgedeki toplam kelime adedi"
+    },
+    {
+      "id": "wordsPerPage",
+      "label": "Sayfa Başına Kelime",
+      "type": "number",
+      "unit": "kelime/sayfa",
+      "default": 250,
+      "businessContext": "Bir sayfaya sığan ortalama kelime sayısı (yazı tipi, boyut, aralıklara göre değişir)"
+    },
+    {
+      "id": "imagesFullPage",
+      "label": "Tam Sayfa Görsel",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Tam sayfa kaplayan görsel sayısı"
+    },
+    {
+      "id": "imagesHalfPage",
+      "label": "Yarım Sayfa Görsel",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Yarım sayfa kaplayan görsel sayısı"
+    },
+    {
+      "id": "tablesFullPage",
+      "label": "Tam Sayfa Tablo",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Tam sayfa kaplayan tablo sayısı"
+    },
+    {
+      "id": "tablesHalfPage",
+      "label": "Yarım Sayfa Tablo",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Yarım sayfa kaplayan tablo sayısı"
+    }
+  ],
+  "formulas": {
+    "textPages": "totalWords / wordsPerPage",
+    "imagePages": "imagesFullPage + 0.5 * imagesHalfPage",
+    "tablePages": "tablesFullPage + 0.5 * tablesHalfPage",
+    "totalEstimatedPages": "textPages + imagePages + tablePages"
+  },
+  "outputs": {
+    "primary": "totalEstimatedPages",
+    "breakdown": [
+      "textPages",
+      "imagePages",
+      "tablePages"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

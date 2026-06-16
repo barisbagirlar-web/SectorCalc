@@ -1,0 +1,57 @@
+{
+  "toolName": "minutes-to-hours-calculator",
+  "inputs": [
+    {
+      "id": "inputMinutes",
+      "label": "Minutes",
+      "type": "number",
+      "unit": "min",
+      "default": 60,
+      "businessContext": "Total duration in minutes to convert to hours"
+    },
+    {
+      "id": "decPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the primary decimal hour output"
+    },
+    {
+      "id": "fmt",
+      "label": "Output Format (0=Decimal, 1=HH:MM)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Indicates if output should be decimal hours (0) or hours and minutes (1)"
+    },
+    {
+      "id": "rndMode",
+      "label": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Rounding method applied to the decimal hour output"
+    }
+  ],
+  "formulas": {
+    "primary": "rndMode == 0 ? Math.round(inputMinutes/60 * Math.pow(10, decPlaces)) / Math.pow(10, decPlaces) : (rndMode == 1 ? Math.floor(inputMinutes/60 * Math.pow(10, decPlaces)) / Math.pow(10, decPlaces) : Math.ceil(inputMinutes/60 * Math.pow(10, decPlaces)) / Math.pow(10, decPlaces))",
+    "breakdown": [
+      "Math.floor(inputMinutes / 60)",
+      "inputMinutes % 60"
+    ]
+  },
+  "outputs": {
+    "primary": "decimal hours",
+    "breakdown": [
+      "hours",
+      "minutes"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

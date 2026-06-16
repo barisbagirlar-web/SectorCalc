@@ -1,0 +1,77 @@
+{
+  "toolName": "hubbles-law-calculator",
+  "inputs": [
+    {
+      "id": "redshift",
+      "label": "Redshift (z)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.1,
+      "businessContext": "Measured redshift of the galaxy from spectral lines"
+    },
+    {
+      "id": "hubbleConstant",
+      "label": "Hubble Constant (H0)",
+      "type": "number",
+      "unit": "km/s/Mpc",
+      "default": 70,
+      "businessContext": "Current expansion rate of the universe"
+    },
+    {
+      "id": "speedOfLight",
+      "label": "Speed of Light (c)",
+      "type": "number",
+      "unit": "km/s",
+      "default": 299792.458,
+      "businessContext": "Constant speed of light in vacuum"
+    },
+    {
+      "id": "matterDensity",
+      "label": "Matter Density Parameter (Ωm)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.3,
+      "businessContext": "Cosmological density parameter for matter"
+    },
+    {
+      "id": "darkEnergyDensity",
+      "label": "Dark Energy Density Parameter (ΩΛ)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.7,
+      "businessContext": "Cosmological density parameter for dark energy"
+    },
+    {
+      "id": "curvatureDensity",
+      "label": "Curvature Density Parameter (Ωk)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Cosmological density parameter for curvature"
+    }
+  ],
+  "formulas": {
+    "recessionalVelocity": "speedOfLight * ((redshift + 1)**2 - 1) / ((redshift + 1)**2 + 1)",
+    "distanceMpc": "recessionalVelocity / hubbleConstant",
+    "distanceLy": "distanceMpc * 3.261563777",
+    "lookbackTimeGyr": "distanceMpc / (hubbleConstant * 1.022712165e-3)",
+    "comovingDistance": "distanceMpc * (1 + redshift)",
+    "luminosityDistance": "comovingDistance * (1 + redshift)"
+  },
+  "outputs": {
+    "primary": "distanceMpc",
+    "breakdown": [
+      "recessionalVelocity",
+      "distanceLy",
+      "lookbackTimeGyr",
+      "comovingDistance",
+      "luminosityDistance"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

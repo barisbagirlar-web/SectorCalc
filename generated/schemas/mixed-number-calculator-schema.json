@@ -1,0 +1,85 @@
+{
+  "toolName": "mixed-number-calculator",
+  "inputs": [
+    {
+      "id": "op",
+      "label": "Operation",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1: Add, 2: Subtract, 3: Multiply, 4: Divide"
+    },
+    {
+      "id": "whole1",
+      "label": "First Whole Number",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Whole part of first mixed number"
+    },
+    {
+      "id": "num1",
+      "label": "First Numerator",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Numerator of first fraction"
+    },
+    {
+      "id": "den1",
+      "label": "First Denominator",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Denominator of first fraction"
+    },
+    {
+      "id": "whole2",
+      "label": "Second Whole Number",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Whole part of second mixed number"
+    },
+    {
+      "id": "num2",
+      "label": "Second Numerator",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Numerator of second fraction"
+    },
+    {
+      "id": "den2",
+      "label": "Second Denominator",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Denominator of second fraction"
+    }
+  ],
+  "formulas": {
+    "improper1": "(whole1 * den1 + num1) / den1",
+    "improper2": "(whole2 * den2 + num2) / den2",
+    "decimalResult": "op == 1 ? improper1 + improper2 : op == 2 ? improper1 - improper2 : op == 3 ? improper1 * improper2 : improper1 / improper2",
+    "step1": "`First mixed number: ${whole1} ${num1}/${den1} = ${improper1.toFixed(4)}`",
+    "step2": "`Second mixed number: ${whole2} ${num2}/${den2} = ${improper2.toFixed(4)}`",
+    "step3": "`Operation: ${op == 1 ? 'Addition' : op == 2 ? 'Subtraction' : op == 3 ? 'Multiplication' : 'Division'}`",
+    "step4": "`Result: ${improper1.toFixed(4)} ${op == 1 ? '+' : op == 2 ? '-' : op == 3 ? '×' : '÷'} ${improper2.toFixed(4)} = ${decimalResult.toFixed(4)}`"
+  },
+  "outputs": {
+    "primary": "decimalResult",
+    "breakdown": [
+      "step1",
+      "step2",
+      "step3",
+      "step4"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

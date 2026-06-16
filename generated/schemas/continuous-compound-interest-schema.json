@@ -1,0 +1,45 @@
+{
+  "toolName": "continuous-compound-interest",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Principal (P)",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000,
+      "businessContext": "Initial investment amount"
+    },
+    {
+      "id": "rate",
+      "label": "Annual Interest Rate (r)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual interest rate in percent, e.g., 5 for 5%"
+    },
+    {
+      "id": "time",
+      "label": "Time (t)",
+      "type": "number",
+      "unit": "years",
+      "default": 1,
+      "businessContext": "Time period in years"
+    }
+  ],
+  "formulas": {
+    "finalAmount": "principal * Math.exp(rate / 100 * time)",
+    "totalInterest": "finalAmount - principal"
+  },
+  "outputs": {
+    "primary": "finalAmount",
+    "breakdown": [
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

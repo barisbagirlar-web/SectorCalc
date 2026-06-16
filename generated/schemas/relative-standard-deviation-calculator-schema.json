@@ -1,0 +1,63 @@
+{
+  "toolName": "relative-standard-deviation-calculator",
+  "inputs": [
+    {
+      "id": "value1",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First individual measurement value from a dataset for RSD calculation."
+    },
+    {
+      "id": "value2",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second individual measurement value from a dataset for RSD calculation."
+    },
+    {
+      "id": "value3",
+      "label": "Value 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Third individual measurement value from a dataset for RSD calculation."
+    },
+    {
+      "id": "value4",
+      "label": "Value 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fourth individual measurement value from a dataset for RSD calculation."
+    },
+    {
+      "id": "value5",
+      "label": "Value 5",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fifth individual measurement value from a dataset for RSD calculation."
+    }
+  ],
+  "formulas": {
+    "mean": "(value1 + value2 + value3 + value4 + value5) / 5",
+    "stdDev": "Math.sqrt( ( (value1 - mean) ** 2 + (value2 - mean) ** 2 + (value3 - mean) ** 2 + (value4 - mean) ** 2 + (value5 - mean) ** 2 ) / 4 )",
+    "rsd": "(stdDev / mean) * 100"
+  },
+  "outputs": {
+    "primary": "rsd",
+    "breakdown": [
+      "mean",
+      "stdDev"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "pregnancy-test-calculator",
+  "inputs": [
+    {
+      "id": "lmpDayOfYear",
+      "label": "Last Menstrual Period Day of Year",
+      "type": "number",
+      "unit": "days",
+      "default": 1,
+      "businessContext": "The day of the year (1-365) when the last menstrual period started."
+    },
+    {
+      "id": "currentDayOfYear",
+      "label": "Current Day of Year",
+      "type": "number",
+      "unit": "days",
+      "default": 1,
+      "businessContext": "The current day of the year (1-365) for calculating pregnancy week."
+    },
+    {
+      "id": "cycleLength",
+      "label": "Average Cycle Length",
+      "type": "number",
+      "unit": "days",
+      "default": 28,
+      "businessContext": "The average length of the menstrual cycle in days, used to adjust due date."
+    },
+    {
+      "id": "gestationOverride",
+      "label": "Gestation Length Override",
+      "type": "number",
+      "unit": "days",
+      "default": 280,
+      "businessContext": "Override for the standard 280-day gestation period, if your healthcare provider advises a different duration."
+    }
+  ],
+  "formulas": {
+    "weeksPregnant": "Math.floor((currentDayOfYear - lmpDayOfYear) / 7)",
+    "estimatedDueDay": "(lmpDayOfYear + gestationOverride + (cycleLength - 28)) % 365",
+    "daysUntilDue": "(estimatedDueDay - currentDayOfYear + 365) % 365"
+  },
+  "outputs": {
+    "primary": "weeksPregnant",
+    "breakdown": [
+      "estimatedDueDay",
+      "daysUntilDue"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

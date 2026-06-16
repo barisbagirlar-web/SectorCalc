@@ -1,0 +1,72 @@
+{
+  "toolName": "sports-card-calculator",
+  "inputs": [
+    {
+      "id": "purchasePrice",
+      "label": "Purchase Price",
+      "type": "number",
+      "unit": "€",
+      "default": 100,
+      "businessContext": "The price you paid to acquire the sports card."
+    },
+    {
+      "id": "salePrice",
+      "label": "Sale Price",
+      "type": "number",
+      "unit": "€",
+      "default": 150,
+      "businessContext": "The final selling price of the sports card."
+    },
+    {
+      "id": "gradingCost",
+      "label": "Grading Cost",
+      "type": "number",
+      "unit": "€",
+      "default": 20,
+      "businessContext": "Cost of professional grading service for the card."
+    },
+    {
+      "id": "shippingCost",
+      "label": "Shipping Cost",
+      "type": "number",
+      "unit": "€",
+      "default": 10,
+      "businessContext": "Total shipping and handling costs for the transaction."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Applicable sales tax rate as a percentage of the sale price."
+    }
+  ],
+  "formulas": {
+    "totalInvestment": "purchasePrice + gradingCost + shippingCost",
+    "totalRevenue": "salePrice",
+    "grossProfit": "salePrice - purchasePrice - gradingCost - shippingCost",
+    "taxAmount": "salePrice * taxRate / 100",
+    "netProfit": "grossProfit - taxAmount",
+    "profitMargin": "salePrice !== 0 ? (netProfit / salePrice) * 100 : 0",
+    "roi": "totalInvestment !== 0 ? (netProfit / totalInvestment) * 100 : 0"
+  },
+  "outputs": {
+    "primary": "netProfit",
+    "breakdown": [
+      "totalInvestment",
+      "totalRevenue",
+      "grossProfit",
+      "taxAmount",
+      "netProfit",
+      "profitMargin",
+      "roi"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

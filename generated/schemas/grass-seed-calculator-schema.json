@@ -1,0 +1,81 @@
+{
+  "toolName": "grass-seed-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Uzunluk",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Alan uzunluğu"
+    },
+    {
+      "id": "width",
+      "label": "Genişlik",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Alan genişliği"
+    },
+    {
+      "id": "seedingRate",
+      "label": "Tohumlama Oranı",
+      "type": "number",
+      "unit": "g/m²",
+      "default": 30,
+      "businessContext": "Metrekare başına tohum gram miktarı"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Fire Faktörü",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Uygulama kaybı yüzdesi"
+    },
+    {
+      "id": "germinationRate",
+      "label": "Çimlenme Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Tohumların çimlenme yüzdesi"
+    },
+    {
+      "id": "seedPurity",
+      "label": "Tohum Saflığı",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Tohum karışımının saflık yüzdesi"
+    },
+    {
+      "id": "overseedingFactor",
+      "label": "Yeniden Tohumlama Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Yeniden tohumlama çarpanı (1 = yeni çim, >1 = mevcut çime ek tohumlama)"
+    }
+  ],
+  "formulas": {
+    "area": "length * width",
+    "baseSeedGrams": "area * seedingRate",
+    "adjustedSeedGrams": "baseSeedGrams / (germinationRate / 100) / (seedPurity / 100) * (1 + wasteFactor / 100) * overseedingFactor",
+    "totalSeedKg": "adjustedSeedGrams / 1000"
+  },
+  "outputs": {
+    "primary": "totalSeedKg",
+    "breakdown": [
+      "area",
+      "baseSeedGrams",
+      "adjustedSeedGrams"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

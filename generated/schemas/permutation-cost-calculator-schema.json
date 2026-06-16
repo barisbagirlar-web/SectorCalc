@@ -1,0 +1,63 @@
+{
+  "toolName": "permutation-cost-calculator",
+  "inputs": [
+    {
+      "id": "totalItems",
+      "label": "Total Distinct Items",
+      "type": "number",
+      "unit": "items",
+      "default": 10,
+      "businessContext": "Number of distinct items to be arranged."
+    },
+    {
+      "id": "itemsToArrange",
+      "label": "Items to Arrange",
+      "type": "number",
+      "unit": "items",
+      "default": 3,
+      "businessContext": "Number of items to select for arrangement."
+    },
+    {
+      "id": "costPerPermutation",
+      "label": "Cost per Permutation",
+      "type": "number",
+      "unit": "currency",
+      "default": 0.5,
+      "businessContext": "Cost incurred for each possible permutation (e.g., changeover cost)."
+    },
+    {
+      "id": "setupCost",
+      "label": "Setup Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "Fixed setup cost independent of permutations."
+    },
+    {
+      "id": "discountPercent",
+      "label": "Discount Percentage",
+      "type": "number",
+      "unit": "percent",
+      "default": 0,
+      "businessContext": "Discount on total cost (0-100)."
+    }
+  ],
+  "formulas": {
+    "numberOfPermutations": "totalItems ** itemsToArrange",
+    "costBeforeDiscount": "numberOfPermutations * costPerPermutation + setupCost",
+    "totalCost": "costBeforeDiscount * (1 - discountPercent / 100)"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "numberOfPermutations",
+      "costBeforeDiscount"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

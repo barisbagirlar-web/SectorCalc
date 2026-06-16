@@ -1,0 +1,57 @@
+{
+  "toolName": "foundation-shade-calculator",
+  "inputs": [
+    {
+      "id": "skinDepth",
+      "label": "Skin Depth",
+      "type": "number",
+      "unit": "scale",
+      "default": 5,
+      "businessContext": "Fair to deep scale 0-10"
+    },
+    {
+      "id": "skinUndertone",
+      "label": "Skin Undertone",
+      "type": "number",
+      "unit": "scale",
+      "default": 5,
+      "businessContext": "Cool to warm scale 0-10"
+    },
+    {
+      "id": "coveragePreference",
+      "label": "Coverage Preference",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Sheer to full coverage 0-10"
+    },
+    {
+      "id": "lightingCondition",
+      "label": "Lighting Condition",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Indoor dim to outdoor bright 0-10"
+    }
+  ],
+  "formulas": {
+    "recommendedShade": "Math.round(skinDepth * 10 + skinUndertone + ((coveragePreference - 5) / 10) * 2 + ((lightingCondition - 5) / 10) * 2)",
+    "baseShade": "skinDepth * 10 + skinUndertone",
+    "coverageAdjustment": "((coveragePreference - 5) / 10) * 2",
+    "lightingAdjustment": "((lightingCondition - 5) / 10) * 2"
+  },
+  "outputs": {
+    "primary": "recommendedShade",
+    "breakdown": [
+      "baseShade",
+      "coverageAdjustment",
+      "lightingAdjustment"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

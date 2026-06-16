@@ -1,0 +1,55 @@
+{
+  "toolName": "soap-making-calculator",
+  "inputs": [
+    {
+      "id": "oilWeight",
+      "label": "Total Oil Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 1000,
+      "businessContext": "Weight of all oils in the recipe"
+    },
+    {
+      "id": "sapValue",
+      "label": "SAP Value (NaOH)",
+      "type": "number",
+      "unit": "mg/g",
+      "default": 135.5,
+      "businessContext": "Milligrams of NaOH required to saponify 1 gram of oil blend"
+    },
+    {
+      "id": "superfat",
+      "label": "Superfat Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of oils left unsaponified for conditioning"
+    },
+    {
+      "id": "waterPercent",
+      "label": "Water as % of Oils",
+      "type": "number",
+      "unit": "%",
+      "default": 38,
+      "businessContext": "Weight of water relative to total oil weight"
+    }
+  ],
+  "formulas": {
+    "lyeWeight": "(oilWeight * sapValue / 1000) * (1 - superfat / 100)",
+    "waterWeight": "oilWeight * (waterPercent / 100)",
+    "totalWeight": "oilWeight + lyeWeight + waterWeight"
+  },
+  "outputs": {
+    "primary": "lyeWeight",
+    "breakdown": [
+      "waterWeight",
+      "totalWeight"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

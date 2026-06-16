@@ -1,0 +1,69 @@
+{
+  "toolName": "thick-wall-vessel-calculator",
+  "inputs": [
+    {
+      "id": "insideDiameter",
+      "label": "Inside Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Inner diameter of the thick wall vessel"
+    },
+    {
+      "id": "outsideDiameter",
+      "label": "Outside Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "businessContext": "Outer diameter of the thick wall vessel"
+    },
+    {
+      "id": "internalPressure",
+      "label": "Internal Pressure",
+      "type": "number",
+      "unit": "MPa",
+      "default": 10,
+      "businessContext": "Pressure inside the vessel"
+    },
+    {
+      "id": "externalPressure",
+      "label": "External Pressure",
+      "type": "number",
+      "unit": "MPa",
+      "default": 0,
+      "businessContext": "Pressure outside the vessel, typically 0"
+    },
+    {
+      "id": "yieldStrength",
+      "label": "Yield Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 250,
+      "businessContext": "Material yield strength for safety factor calculation (0 to omit)"
+    }
+  ],
+  "formulas": {
+    "ri": "insideDiameter / 2",
+    "ro": "outsideDiameter / 2",
+    "hoopStressInner": "((internalPressure * ri ** 2 - externalPressure * ro ** 2) / (ro ** 2 - ri ** 2)) + ((internalPressure - externalPressure) * ro ** 2 / (ro ** 2 - ri ** 2))",
+    "radialStressInner": "-internalPressure",
+    "longitudinalStress": "(internalPressure * ri ** 2 - externalPressure * ro ** 2) / (ro ** 2 - ri ** 2)",
+    "vonMises": "Math.sqrt(0.5 * ((hoopStressInner - radialStressInner) ** 2 + (radialStressInner - longitudinalStress) ** 2 + (longitudinalStress - hoopStressInner) ** 2))",
+    "safetyFactor": "yieldStrength > 0 ? yieldStrength / vonMises : null"
+  },
+  "outputs": {
+    "primary": "hoopStressInner",
+    "breakdown": [
+      "radialStressInner",
+      "longitudinalStress",
+      "vonMises",
+      "safetyFactor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

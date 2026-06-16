@@ -1,0 +1,57 @@
+{
+  "toolName": "mirror-equation-calculator",
+  "inputs": [
+    {
+      "id": "objectDistance",
+      "label": "Object Distance (p)",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Distance from the object to the mirror. Positive for real objects (in front of the mirror)."
+    },
+    {
+      "id": "radiusOfCurvature",
+      "label": "Radius of Curvature (R)",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "Radius of curvature of the mirror. Positive for concave mirrors, negative for convex mirrors (use absolute value and set mirror type)."
+    },
+    {
+      "id": "mirrorTypeSign",
+      "label": "Mirror Type (Concave=1, Convex=-1)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for concave (converging) mirror, -1 for convex (diverging) mirror. Used to set the sign of the focal length."
+    },
+    {
+      "id": "objectHeight",
+      "label": "Object Height (h₀)",
+      "type": "number",
+      "unit": "cm",
+      "default": 2,
+      "businessContext": "Height of the object. Positive if upright relative to the optical axis."
+    }
+  ],
+  "formulas": {
+    "focalLength": "mirrorTypeSign * Math.abs(radiusOfCurvature) / 2",
+    "imageDistance": "1 / (1 / focalLength - 1 / objectDistance)",
+    "magnification": "-(imageDistance / objectDistance)",
+    "imageHeight": "magnification * objectHeight"
+  },
+  "outputs": {
+    "primary": "imageDistance",
+    "breakdown": [
+      "focalLength",
+      "magnification",
+      "imageHeight"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

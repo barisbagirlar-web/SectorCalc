@@ -1,0 +1,57 @@
+{
+  "toolName": "shakes-to-nanoseconds-calculator",
+  "inputs": [
+    {
+      "id": "shakes",
+      "label": "Shakes",
+      "type": "number",
+      "unit": "shake",
+      "default": 1,
+      "businessContext": "Enter the number of shakes to convert."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "digits",
+      "default": 2,
+      "businessContext": "Number of decimal places to round the result."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor (ns/shake)",
+      "type": "number",
+      "unit": "ns/shake",
+      "default": 10,
+      "businessContext": "Standard conversion: 1 shake = 10 nanoseconds. Change if needed."
+    },
+    {
+      "id": "outputScale",
+      "label": "Output Scale Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Multiply the resulting nanoseconds by this factor, e.g., 1e3 for picoseconds, 1e-3 for microseconds."
+    }
+  ],
+  "formulas": {
+    "exactNanoseconds": "shakes * conversionFactor",
+    "roundedNanoseconds": "Math.round(exactNanoseconds * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "scaledResult": "roundedNanoseconds * outputScale"
+  },
+  "outputs": {
+    "primary": "scaledResult",
+    "breakdown": [
+      "shakes",
+      "exactNanoseconds",
+      "roundedNanoseconds",
+      "scaledResult"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "feet-to-inches-calculator",
+  "inputs": [
+    {
+      "id": "feet",
+      "label": "Feet",
+      "type": "number",
+      "unit": "ft",
+      "default": 0,
+      "businessContext": "Whole feet value"
+    },
+    {
+      "id": "inches",
+      "label": "Inches",
+      "type": "number",
+      "unit": "in",
+      "default": 0,
+      "businessContext": "Additional whole inches"
+    },
+    {
+      "id": "fractionNumerator",
+      "label": "Fractional Inch Numerator",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Numerator for fractional inch (e.g., 1 for 1/2)"
+    },
+    {
+      "id": "fractionDenominator",
+      "label": "Fractional Inch Denominator",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Denominator for fractional inch (e.g., 2 for 1/2)"
+    }
+  ],
+  "formulas": {
+    "totalInches": "feet * 12 + inches + (fractionNumerator / fractionDenominator)",
+    "feetInInches": "feet * 12",
+    "additionalInches": "inches",
+    "fractionInches": "fractionNumerator / fractionDenominator"
+  },
+  "outputs": {
+    "primary": "totalInches",
+    "breakdown": [
+      "feetInInches",
+      "additionalInches",
+      "fractionInches"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

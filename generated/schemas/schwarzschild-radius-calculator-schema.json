@@ -1,0 +1,56 @@
+{
+  "toolName": "schwarzschild-radius-calculator",
+  "inputs": [
+    {
+      "id": "massInKg",
+      "label": "Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 1.989e+30,
+      "businessContext": "Mass of the object."
+    },
+    {
+      "id": "gravitationalConstant",
+      "label": "Gravitational Constant",
+      "type": "number",
+      "unit": "m³/(kg·s²)",
+      "default": 6.6743e-11,
+      "businessContext": "Newton's gravitational constant."
+    },
+    {
+      "id": "speedOfLight",
+      "label": "Speed of Light",
+      "type": "number",
+      "unit": "m/s",
+      "default": 299792458,
+      "businessContext": "Speed of light in vacuum."
+    },
+    {
+      "id": "outputUnitFactor",
+      "label": "Output Unit Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Multiplier to convert meters to desired unit (e.g., 100 for cm, 0.001 for km)."
+    }
+  ],
+  "formulas": {
+    "radiusMeters": "(2 * massInKg * gravitationalConstant) / (speedOfLight * speedOfLight)",
+    "primaryOutput": "radiusMeters * outputUnitFactor",
+    "breakdownMeters": "radiusMeters",
+    "breakdownKm": "radiusMeters / 1000"
+  },
+  "outputs": {
+    "primary": "primaryOutput",
+    "breakdown": [
+      "breakdownMeters",
+      "breakdownKm"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

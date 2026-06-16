@@ -1,0 +1,56 @@
+{
+  "toolName": "opportunity-cost-calculator",
+  "inputs": [
+    {
+      "id": "investmentAmount",
+      "label": "Yatırım Tutarı",
+      "type": "number",
+      "unit": "TL",
+      "default": 100000,
+      "businessContext": "Mevcut yatırımın başlangıç tutarı"
+    },
+    {
+      "id": "currentReturnRate",
+      "label": "Mevcut Getiri Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Mevcut yatırımın yıllık getiri oranı"
+    },
+    {
+      "id": "alternativeReturnRate",
+      "label": "Alternatif Getiri Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "businessContext": "Alternatif yatırımın yıllık getiri oranı"
+    },
+    {
+      "id": "timePeriod",
+      "label": "Vade",
+      "type": "number",
+      "unit": "Yıl",
+      "default": 1,
+      "businessContext": "Yatırım süresi (yıl)"
+    }
+  ],
+  "formulas": {
+    "currentReturn": "investmentAmount * currentReturnRate / 100 * timePeriod",
+    "alternativeReturn": "investmentAmount * alternativeReturnRate / 100 * timePeriod",
+    "opportunityCost": "alternativeReturn - currentReturn"
+  },
+  "outputs": {
+    "primary": "opportunityCost",
+    "breakdown": [
+      "currentReturn",
+      "alternativeReturn",
+      "opportunityCost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

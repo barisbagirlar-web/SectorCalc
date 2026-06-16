@@ -1,0 +1,65 @@
+{
+  "toolName": "mr-money-mustache-calculator",
+  "inputs": [
+    {
+      "id": "annualIncome",
+      "label": "Annual Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Total annual after-tax income"
+    },
+    {
+      "id": "annualExpenses",
+      "label": "Annual Expenses",
+      "type": "number",
+      "unit": "USD",
+      "default": 40000,
+      "businessContext": "Total annual living expenses"
+    },
+    {
+      "id": "currentPortfolio",
+      "label": "Current Portfolio",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Current invested portfolio value"
+    },
+    {
+      "id": "expectedReturn",
+      "label": "Expected Return",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected annual real investment return (after inflation)"
+    },
+    {
+      "id": "safeWithdrawalRate",
+      "label": "Safe Withdrawal Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "businessContext": "Safe withdrawal rate for retirement (e.g., 4% rule)"
+    }
+  ],
+  "formulas": {
+    "annualSavings": "annualIncome - annualExpenses",
+    "savingsRate": "(annualIncome - annualExpenses) / annualIncome",
+    "futurePortfolioNeeded": "annualExpenses / (safeWithdrawalRate / 100)",
+    "yearsToFI": "Math.log((futurePortfolioNeeded * (expectedReturn / 100) + annualSavings) / (currentPortfolio * (expectedReturn / 100) + annualSavings)) / Math.log(1 + expectedReturn / 100)"
+  },
+  "outputs": {
+    "primary": "yearsToFI",
+    "breakdown": [
+      "annualSavings",
+      "savingsRate",
+      "futurePortfolioNeeded"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

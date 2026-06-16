@@ -1,0 +1,63 @@
+{
+  "toolName": "nicotine-calculator",
+  "inputs": [
+    {
+      "id": "targetNicotine",
+      "label": "Target Nicotine Strength",
+      "type": "number",
+      "unit": "mg/ml",
+      "default": 6,
+      "businessContext": "Desired nicotine concentration in the final e-liquid"
+    },
+    {
+      "id": "finalVolume",
+      "label": "Final Volume",
+      "type": "number",
+      "unit": "ml",
+      "default": 100,
+      "businessContext": "Total volume of e-liquid to prepare"
+    },
+    {
+      "id": "baseNicotine",
+      "label": "Nicotine Base Concentration",
+      "type": "number",
+      "unit": "mg/ml",
+      "default": 100,
+      "businessContext": "Nicotine concentration of the base liquid"
+    },
+    {
+      "id": "baseVG",
+      "label": "Base VG%",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "VG percentage in nicotine base (rest is PG)"
+    },
+    {
+      "id": "desiredVG",
+      "label": "Desired VG%",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Target VG percentage in the final mix"
+    }
+  ],
+  "formulas": {
+    "requiredBaseVolume": "(targetNicotine * finalVolume) / baseNicotine",
+    "additionalPG": "(finalVolume * (100 - desiredVG) / 100) - (((targetNicotine * finalVolume) / baseNicotine) * (100 - baseVG) / 100)",
+    "additionalVG": "(finalVolume * desiredVG / 100) - (((targetNicotine * finalVolume) / baseNicotine) * baseVG / 100)"
+  },
+  "outputs": {
+    "primary": "requiredBaseVolume",
+    "breakdown": [
+      "additionalPG",
+      "additionalVG"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

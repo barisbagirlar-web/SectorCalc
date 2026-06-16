@@ -1,0 +1,90 @@
+{
+  "toolName": "passing-sight-distance-calculator",
+  "inputs": [
+    {
+      "id": "initialSpeed",
+      "label": "Initial Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 80,
+      "businessContext": "Speed of the passing vehicle before maneuver"
+    },
+    {
+      "id": "targetSpeed",
+      "label": "Target Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 100,
+      "businessContext": "Speed after acceleration for passing"
+    },
+    {
+      "id": "acceleration",
+      "label": "Acceleration",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 1.5,
+      "businessContext": "Acceleration rate of vehicle"
+    },
+    {
+      "id": "timeConstant",
+      "label": "Constant Speed Duration",
+      "type": "number",
+      "unit": "s",
+      "default": 3,
+      "businessContext": "Duration traveling at constant target speed in opposing lane"
+    },
+    {
+      "id": "perceptionReactionTime",
+      "label": "Perception-Reaction Time",
+      "type": "number",
+      "unit": "s",
+      "default": 1.5,
+      "businessContext": "Time to perceive and react before starting acceleration"
+    },
+    {
+      "id": "clearanceDistance",
+      "label": "Clearance Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 30,
+      "businessContext": "Safety clearance distance between passing and opposing vehicle"
+    },
+    {
+      "id": "opposingSpeed",
+      "label": "Opposing Vehicle Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 80,
+      "businessContext": "Estimated speed of oncoming vehicle"
+    }
+  ],
+  "formulas": {
+    "vInitial": "initialSpeed / 3.6",
+    "vTarget": "targetSpeed / 3.6",
+    "vOpp": "opposingSpeed / 3.6",
+    "tAcc": "(vTarget - vInitial) / acceleration",
+    "t2": "tAcc + timeConstant",
+    "d1": "vInitial * perceptionReactionTime",
+    "dAcc": "vInitial * tAcc + 0.5 * acceleration * tAcc ** 2",
+    "dConst": "vTarget * timeConstant",
+    "d2": "dAcc + dConst",
+    "d3": "clearanceDistance",
+    "d4": "vOpp * (2/3) * t2",
+    "passingSightDistance": "d1 + d2 + d3 + d4"
+  },
+  "outputs": {
+    "primary": "passingSightDistance",
+    "breakdown": [
+      "d1",
+      "d2",
+      "d3",
+      "d4"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

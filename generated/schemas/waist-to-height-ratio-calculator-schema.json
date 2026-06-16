@@ -1,0 +1,56 @@
+{
+  "toolName": "waist-to-height-ratio-calculator",
+  "inputs": [
+    {
+      "id": "waist",
+      "label": "Waist Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 80,
+      "businessContext": "Measured at the narrowest point, in cm"
+    },
+    {
+      "id": "waistUnit",
+      "label": "Waist Unit",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 for cm, 1 for inches"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Measured without shoes, in cm"
+    },
+    {
+      "id": "heightUnit",
+      "label": "Height Unit",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 for cm, 1 for inches"
+    }
+  ],
+  "formulas": {
+    "waistCm": "waistUnit == 1 ? waist * 2.54 : waist",
+    "heightCm": "heightUnit == 1 ? height * 2.54 : height",
+    "ratio": "waistCm / heightCm"
+  },
+  "outputs": {
+    "primary": "ratio",
+    "breakdown": [
+      "waistCm",
+      "heightCm",
+      "ratio"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

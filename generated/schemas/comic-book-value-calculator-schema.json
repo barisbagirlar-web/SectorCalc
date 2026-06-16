@@ -1,0 +1,67 @@
+{
+  "toolName": "comic-book-value-calculator",
+  "inputs": [
+    {
+      "id": "conditionScore",
+      "label": "Condition Score (0-10)",
+      "type": "number",
+      "unit": "score",
+      "default": 7.5,
+      "businessContext": "Professional grading score per CGC scale (10 = Gem Mint)"
+    },
+    {
+      "id": "ageYears",
+      "label": "Age (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Years since publication"
+    },
+    {
+      "id": "initialValue",
+      "label": "Initial Cover Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 1.99,
+      "businessContext": "Original cover price in US dollars"
+    },
+    {
+      "id": "rarityIndex",
+      "label": "Rarity Index (1-100)",
+      "type": "number",
+      "unit": "index",
+      "default": 50,
+      "businessContext": "Rarity score: 1 for common, 100 for extremely rare"
+    },
+    {
+      "id": "demandIndex",
+      "label": "Demand Index (1-100)",
+      "type": "number",
+      "unit": "index",
+      "default": 50,
+      "businessContext": "Market demand score: 1 low, 100 high"
+    }
+  ],
+  "formulas": {
+    "conditionFactor": "Math.pow(inputs.conditionScore / 10, 2)",
+    "ageFactor": "Math.exp(inputs.ageYears * 0.02)",
+    "rarityFactor": "0.5 + inputs.rarityIndex / 200",
+    "demandFactor": "0.5 + inputs.demandIndex / 200",
+    "estimatedValue": "inputs.initialValue * Math.pow(inputs.conditionScore / 10, 2) * Math.exp(inputs.ageYears * 0.02) * (0.5 + inputs.rarityIndex / 200) * (0.5 + inputs.demandIndex / 200)"
+  },
+  "outputs": {
+    "primary": "estimatedValue",
+    "breakdown": [
+      "conditionFactor",
+      "ageFactor",
+      "rarityFactor",
+      "demandFactor"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

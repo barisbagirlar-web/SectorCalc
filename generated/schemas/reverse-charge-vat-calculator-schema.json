@@ -1,0 +1,55 @@
+{
+  "toolName": "reverse-charge-vat-calculator",
+  "inputs": [
+    {
+      "id": "invoiceNet",
+      "label": "Invoice Net Amount",
+      "type": "number",
+      "unit": "EUR",
+      "default": 1000,
+      "businessContext": "Net amount on the supplier's invoice in foreign currency."
+    },
+    {
+      "id": "exchangeRate",
+      "label": "Exchange Rate",
+      "type": "number",
+      "unit": "local/foreign",
+      "default": 1,
+      "businessContext": "Exchange rate to convert foreign currency to local currency for VAT calculation."
+    },
+    {
+      "id": "vatRate",
+      "label": "Domestic VAT Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Your domestic VAT rate applicable to the received service."
+    },
+    {
+      "id": "isCrossBorder",
+      "label": "Cross-Border Transaction",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 if the service is from a foreign supplier, 0 if domestic reverse charge."
+    }
+  ],
+  "formulas": {
+    "netAmountLocal": "invoiceNet * exchangeRate",
+    "vatToReport": "netAmountLocal * vatRate / 100",
+    "totalPayableToSupplier": "invoiceNet"
+  },
+  "outputs": {
+    "primary": "vatToReport",
+    "breakdown": [
+      "netAmountLocal",
+      "totalPayableToSupplier"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

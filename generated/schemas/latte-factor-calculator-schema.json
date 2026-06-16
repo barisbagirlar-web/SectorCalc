@@ -1,0 +1,57 @@
+{
+  "toolName": "latte-factor-calculator",
+  "inputs": [
+    {
+      "id": "dailyExpense",
+      "label": "Daily Expense Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 5,
+      "businessContext": "The amount you spend daily on the item you're eliminating"
+    },
+    {
+      "id": "daysPerWeek",
+      "label": "Days per Week",
+      "type": "number",
+      "unit": "days/week",
+      "default": 5,
+      "businessContext": "Number of days per week you make this purchase"
+    },
+    {
+      "id": "years",
+      "label": "Investment Horizon",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Number of years you plan to invest the saved money"
+    },
+    {
+      "id": "annualReturnRate",
+      "label": "Expected Annual Return",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected annual return rate on investment (e.g., 7 for 7%)"
+    }
+  ],
+  "formulas": {
+    "annualContribution": "dailyExpense * daysPerWeek * 52",
+    "totalContributions": "annualContribution * years",
+    "futureValue": "annualContribution * ((1 + (annualReturnRate/100))**years - 1) / (annualReturnRate/100)",
+    "interestEarned": "futureValue - totalContributions"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": [
+      "annualContribution",
+      "totalContributions",
+      "interestEarned"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

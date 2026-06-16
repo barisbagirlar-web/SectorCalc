@@ -1,0 +1,55 @@
+{
+  "toolName": "boolean-algebra-calculator",
+  "inputs": [
+    {
+      "id": "A",
+      "label": "Variable A",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Boolean input (0 or 1)"
+    },
+    {
+      "id": "B",
+      "label": "Variable B",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Boolean input (0 or 1)"
+    },
+    {
+      "id": "C",
+      "label": "Variable C",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Boolean input (0 or 1)"
+    },
+    {
+      "id": "D",
+      "label": "Variable D",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Boolean input (0 or 1)"
+    }
+  ],
+  "formulas": {
+    "AND_AB": "A * B",
+    "XOR_CD": "C + D - 2 * C * D",
+    "result": "AND_AB + XOR_CD - AND_AB * XOR_CD"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": [
+      "AND_AB",
+      "XOR_CD"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

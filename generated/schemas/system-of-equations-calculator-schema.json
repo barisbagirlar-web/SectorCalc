@@ -1,0 +1,71 @@
+{
+  "toolName": "system-of-equations-calculator",
+  "inputs": [
+    {
+      "id": "machineHoursPerUnitProd1",
+      "label": "Machine Hours per Unit - Product 1",
+      "type": "number",
+      "unit": "hours/unit",
+      "default": 2,
+      "businessContext": "The machine hours required to produce one unit of Product 1."
+    },
+    {
+      "id": "machineHoursPerUnitProd2",
+      "label": "Machine Hours per Unit - Product 2",
+      "type": "number",
+      "unit": "hours/unit",
+      "default": 4,
+      "businessContext": "The machine hours required to produce one unit of Product 2."
+    },
+    {
+      "id": "totalMachineHours",
+      "label": "Total Machine Hours Available",
+      "type": "number",
+      "unit": "hours",
+      "default": 100,
+      "businessContext": "The total machine hours available for production."
+    },
+    {
+      "id": "materialPerUnitProd1",
+      "label": "Material per Unit - Product 1",
+      "type": "number",
+      "unit": "kg/unit",
+      "default": 3,
+      "businessContext": "The amount of material required to produce one unit of Product 1."
+    },
+    {
+      "id": "materialPerUnitProd2",
+      "label": "Material per Unit - Product 2",
+      "type": "number",
+      "unit": "kg/unit",
+      "default": 1,
+      "businessContext": "The amount of material required to produce one unit of Product 2."
+    },
+    {
+      "id": "totalMaterial",
+      "label": "Total Material Available",
+      "type": "number",
+      "unit": "kg",
+      "default": 60,
+      "businessContext": "The total amount of material available for production."
+    }
+  ],
+  "formulas": {
+    "determinant": "(machineHoursPerUnitProd1 * materialPerUnitProd2) - (machineHoursPerUnitProd2 * materialPerUnitProd1)",
+    "product1Quantity": "((totalMachineHours * materialPerUnitProd2) - (totalMaterial * machineHoursPerUnitProd2)) / determinant",
+    "product2Quantity": "((machineHoursPerUnitProd1 * totalMaterial) - (materialPerUnitProd1 * totalMachineHours)) / determinant"
+  },
+  "outputs": {
+    "primary": "product1Quantity",
+    "breakdown": [
+      "product2Quantity",
+      "determinant"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

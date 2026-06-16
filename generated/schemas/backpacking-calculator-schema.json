@@ -1,0 +1,79 @@
+{
+  "toolName": "backpacking-calculator",
+  "inputs": [
+    {
+      "id": "days",
+      "label": "Trip Duration",
+      "type": "number",
+      "unit": "days",
+      "default": 3,
+      "businessContext": "Duration of backpacking trip"
+    },
+    {
+      "id": "distancePerDay",
+      "label": "Daily Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 15,
+      "businessContext": "Planned hiking distance per day"
+    },
+    {
+      "id": "elevationGain",
+      "label": "Daily Elevation Gain",
+      "type": "number",
+      "unit": "m",
+      "default": 500,
+      "businessContext": "Average elevation gain per day"
+    },
+    {
+      "id": "baseWeight",
+      "label": "Base Pack Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Weight of all gear excluding food and water"
+    },
+    {
+      "id": "foodPerDay",
+      "label": "Daily Food Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 0.8,
+      "businessContext": "Weight of food carried per day"
+    },
+    {
+      "id": "waterPerDay",
+      "label": "Daily Water Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 2,
+      "businessContext": "Weight of water carried per day (1 L ≈ 1 kg)"
+    },
+    {
+      "id": "hikerWeight",
+      "label": "Hiker Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Hiker's body weight used for calorie estimation"
+    }
+  ],
+  "formulas": {
+    "totalWeight": "baseWeight + (foodPerDay + waterPerDay) * days",
+    "dailyCalories": "0.726 * hikerWeight * distancePerDay + 0.1 * hikerWeight * elevationGain",
+    "consumablesWeight": "(foodPerDay + waterPerDay) * days"
+  },
+  "outputs": {
+    "primary": "totalWeight",
+    "breakdown": [
+      "dailyCalories",
+      "consumablesWeight"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

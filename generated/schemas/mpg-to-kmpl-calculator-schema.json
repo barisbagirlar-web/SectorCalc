@@ -1,0 +1,55 @@
+{
+  "toolName": "mpg-to-kmpl-calculator",
+  "inputs": [
+    {
+      "id": "mpg",
+      "label": "Fuel Efficiency (mpg)",
+      "type": "number",
+      "unit": "mile/gallon",
+      "default": 30,
+      "businessContext": "Fuel consumption rate in miles per gallon"
+    },
+    {
+      "id": "gallonType",
+      "label": "Gallon Type",
+      "type": "number",
+      "unit": "0=US, 1=UK",
+      "default": 0,
+      "businessContext": "Specify whether using US or UK gallon"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "count",
+      "default": 2,
+      "businessContext": "Number of decimal places for output rounding"
+    },
+    {
+      "id": "customLitersPerGallon",
+      "label": "Custom Liters per Gallon (0 to use default)",
+      "type": "number",
+      "unit": "liter/gallon",
+      "default": 0,
+      "businessContext": "Override liter conversion; set to 0 to use standard based on gallon type"
+    }
+  ],
+  "formulas": {
+    "litersUsed": "(input.customLitersPerGallon > 0) ? input.customLitersPerGallon : (input.gallonType === 1 ? 4.54609 : 3.785411784)",
+    "kmPerLiterExact": "input.mpg * 1.609344 / litersUsed",
+    "roundedKmPerLiter": "Math.round(kmPerLiterExact * Math.pow(10, input.decimalPlaces)) / Math.pow(10, input.decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "roundedKmPerLiter",
+    "breakdown": [
+      "litersUsed",
+      "kmPerLiterExact"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

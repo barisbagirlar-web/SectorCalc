@@ -1,0 +1,73 @@
+{
+  "toolName": "de-moivres-theorem-calculator",
+  "inputs": [
+    {
+      "id": "r",
+      "label": "Magnitude (r)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Polar form magnitude of complex number"
+    },
+    {
+      "id": "theta",
+      "label": "Angle (θ)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Angle from positive real axis"
+    },
+    {
+      "id": "angleUnit",
+      "label": "Angle unit (0=rad, 1=deg)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Select 0 for radians or 1 for degrees"
+    },
+    {
+      "id": "n",
+      "label": "Exponent (n)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Power to which the complex number is raised"
+    },
+    {
+      "id": "decimals",
+      "label": "Decimal places",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Number of decimal places for output"
+    }
+  ],
+  "formulas": {
+    "thetaRad": "(angleUnit === 1) ? theta * Math.PI / 180 : theta",
+    "nTheta": "n * thetaRad",
+    "cosNTheta": "Math.cos(nTheta)",
+    "sinNTheta": "Math.sin(nTheta)",
+    "power": "Math.pow(r, n)",
+    "real": "Math.round(power * cosNTheta * Math.pow(10, decimals)) / Math.pow(10, decimals)",
+    "imag": "Math.round(power * sinNTheta * Math.pow(10, decimals)) / Math.pow(10, decimals)",
+    "result": "real + ' + i' + imag"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": [
+      "thetaRad",
+      "power",
+      "nTheta",
+      "cosNTheta",
+      "sinNTheta",
+      "real",
+      "imag"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

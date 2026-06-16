@@ -1,0 +1,56 @@
+{
+  "toolName": "cholesterol-calculator",
+  "inputs": [
+    {
+      "id": "totalCholesterol",
+      "label": "Total Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 200,
+      "businessContext": "Total cholesterol measured from blood test (mg/dL)"
+    },
+    {
+      "id": "hdlCholesterol",
+      "label": "HDL Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 50,
+      "businessContext": "High-density lipoprotein cholesterol (mg/dL)"
+    },
+    {
+      "id": "triglycerides",
+      "label": "Triglycerides",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 150,
+      "businessContext": "Triglycerides level from blood test (mg/dL)"
+    },
+    {
+      "id": "ldlCholesterol",
+      "label": "LDL Cholesterol (optional)",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": null,
+      "businessContext": "Low-density lipoprotein cholesterol, if known; otherwise computed from other values"
+    }
+  ],
+  "formulas": {
+    "ldl": "ldlCholesterol == null ? totalCholesterol - hdlCholesterol - triglycerides / 5 : ldlCholesterol",
+    "vldl": "triglycerides / 5",
+    "nonHDL": "totalCholesterol - hdlCholesterol"
+  },
+  "outputs": {
+    "primary": "ldl",
+    "breakdown": [
+      "ldl",
+      "vldl",
+      "nonHDL"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

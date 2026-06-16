@@ -1,0 +1,55 @@
+{
+  "toolName": "torr-to-psi-calculator",
+  "inputs": [
+    {
+      "id": "torrValue",
+      "label": "Basınç (Torr)",
+      "type": "number",
+      "unit": "Torr",
+      "default": 760,
+      "businessContext": "Ölçülen veya hesaplanan torr cinsinden basınç değeri."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Dönüşüm Faktörü (psi/Torr)",
+      "type": "number",
+      "unit": "psi/Torr",
+      "default": 0.01933677,
+      "businessContext": "Standart dönüşüm faktörü; kalibrasyon ihtiyacına göre ayarlanabilir."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Ondalık Basamak Sayısı",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Sonuç gösteriminde istenen ondalık hane sayısı."
+    },
+    {
+      "id": "offset",
+      "label": "Kalibrasyon Ofseti (psi)",
+      "type": "number",
+      "unit": "psi",
+      "default": 0,
+      "businessContext": "Sıfır ayarı veya kaydırma düzeltmesi için eklenen ofset."
+    }
+  ],
+  "formulas": {
+    "intermediatePsi": "torrValue * conversionFactor",
+    "adjustedPsi": "torrValue * conversionFactor + offset",
+    "roundedPsi": "Math.round((torrValue * conversionFactor + offset) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "roundedPsi",
+    "breakdown": [
+      "intermediatePsi",
+      "adjustedPsi"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,71 @@
+{
+  "toolName": "class-rank-calculator",
+  "inputs": [
+    {
+      "id": "studentScore",
+      "label": "Student Score",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The raw score of the student (e.g., GPA, exam mark)."
+    },
+    {
+      "id": "totalStudents",
+      "label": "Total Students",
+      "type": "number",
+      "unit": "students",
+      "default": 1,
+      "businessContext": "Total number of students in the comparison group."
+    },
+    {
+      "id": "lowerCount",
+      "label": "Number of Students with Lower Scores",
+      "type": "number",
+      "unit": "students",
+      "default": 0,
+      "businessContext": "Count of students who scored below the student."
+    },
+    {
+      "id": "sameCount",
+      "label": "Number of Students with Same Score",
+      "type": "number",
+      "unit": "students",
+      "default": 0,
+      "businessContext": "Count of students who scored exactly the same as the student."
+    },
+    {
+      "id": "minScore",
+      "label": "Minimum Possible Score",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The lowest possible score in the scale (e.g., 0)."
+    },
+    {
+      "id": "maxScore",
+      "label": "Maximum Possible Score",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "The highest possible score in the scale (e.g., 100)."
+    }
+  ],
+  "formulas": {
+    "normalizedScore": "(studentScore - minScore) / (maxScore - minScore)",
+    "percentileRank": "(lowerCount + 0.5 * sameCount) / totalStudents * 100",
+    "rankPosition": "lowerCount + 1"
+  },
+  "outputs": {
+    "primary": "percentileRank",
+    "breakdown": [
+      "normalizedScore",
+      "rankPosition"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

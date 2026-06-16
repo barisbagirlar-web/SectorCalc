@@ -1,0 +1,56 @@
+{
+  "toolName": "hexadecimal-calculator",
+  "inputs": [
+    {
+      "id": "operandA",
+      "label": "First Operand (Decimal)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Enter the first decimal number for the arithmetic operation."
+    },
+    {
+      "id": "operandB",
+      "label": "Second Operand (Decimal)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Enter the second decimal number for the arithmetic operation."
+    },
+    {
+      "id": "operation",
+      "label": "Operation Code",
+      "type": "number",
+      "unit": "code",
+      "default": 1,
+      "businessContext": "1: Addition (+), 2: Subtraction (-), 3: Multiplication (*), 4: Division (/)."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "digits",
+      "default": 0,
+      "businessContext": "Number of decimal places for the result (applies to division). 0 for integer."
+    }
+  ],
+  "formulas": {
+    "decimalResult": "operation === 1 ? operandA + operandB : operation === 2 ? operandA - operandB : operation === 3 ? operandA * operandB : operation === 4 ? (operandB !== 0 ? operandA / operandB : 'Error: Division by zero') : 'Error: Invalid operation'",
+    "roundedResult": "typeof decimalResult === 'number' ? parseFloat(decimalResult.toFixed(precision)) : decimalResult",
+    "hexResult": "typeof roundedResult === 'number' ? roundedResult.toString(16).toUpperCase() : roundedResult",
+    "operationName": "operation === 1 ? 'Addition' : operation === 2 ? 'Subtraction' : operation === 3 ? 'Multiplication' : operation === 4 ? 'Division' : 'Unknown'"
+  },
+  "outputs": {
+    "primary": "hexResult",
+    "breakdown": [
+      "roundedResult",
+      "operationName"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,75 @@
+{
+  "toolName": "consulting-rate-calculator",
+  "inputs": [
+    {
+      "id": "consultantDailyRate",
+      "label": "Consultant Daily Rate",
+      "type": "number",
+      "unit": "EUR/day",
+      "default": 800,
+      "businessContext": "The base daily rate charged by the consultant."
+    },
+    {
+      "id": "overheadPercentage",
+      "label": "Overhead Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Percentage added to cover administrative and operational overhead costs."
+    },
+    {
+      "id": "profitMarginPercentage",
+      "label": "Profit Margin Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Target net profit margin desired on top of all costs."
+    },
+    {
+      "id": "daysWorked",
+      "label": "Days Worked",
+      "type": "number",
+      "unit": "days",
+      "default": 5,
+      "businessContext": "Total number of working days for the consulting engagement."
+    },
+    {
+      "id": "additionalExpenses",
+      "label": "Additional Expenses",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "Any extra reimbursable expenses such as travel, accommodation, or materials."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 19,
+      "businessContext": "VAT or other applicable consumption tax rate on the final invoice amount."
+    }
+  ],
+  "formulas": {
+    "totalCost": "consultantDailyRate * daysWorked + additionalExpenses",
+    "overheadAmount": "totalCost * (overheadPercentage / 100)",
+    "costIncludingOverhead": "totalCost + overheadAmount",
+    "profitAmount": "costIncludingOverhead * (profitMarginPercentage / 100)",
+    "netInvoiceAmount": "costIncludingOverhead + profitAmount",
+    "taxAmount": "netInvoiceAmount * (taxRate / 100)",
+    "grossInvoiceAmount": "netInvoiceAmount + taxAmount"
+  },
+  "outputs": {
+    "primary": "grossInvoiceAmount",
+    "breakdown": [
+      "netInvoiceAmount",
+      "taxAmount"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

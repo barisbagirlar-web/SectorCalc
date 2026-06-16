@@ -1,0 +1,63 @@
+{
+  "toolName": "linear-progression-calculator",
+  "inputs": [
+    {
+      "id": "firstTerm",
+      "label": "First Term (a)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The initial value of the arithmetic progression."
+    },
+    {
+      "id": "commonDifference",
+      "label": "Common Difference (d)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The constant increment between consecutive terms."
+    },
+    {
+      "id": "numberOfTerms",
+      "label": "Number of Terms (n)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The total count of terms in the sequence."
+    },
+    {
+      "id": "termPosition",
+      "label": "Term Position (k)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The position of the term to find (1-indexed)."
+    },
+    {
+      "id": "decimals",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the results."
+    }
+  ],
+  "formulas": {
+    "nthTerm": "Math.round((firstTerm + (numberOfTerms - 1) * commonDifference) * Math.pow(10, decimals)) / Math.pow(10, decimals)",
+    "sumOfTerms": "Math.round(((numberOfTerms / 2) * (2 * firstTerm + (numberOfTerms - 1) * commonDifference)) * Math.pow(10, decimals)) / Math.pow(10, decimals)",
+    "kthTerm": "Math.round((firstTerm + (termPosition - 1) * commonDifference) * Math.pow(10, decimals)) / Math.pow(10, decimals)"
+  },
+  "outputs": {
+    "primary": "nthTerm",
+    "breakdown": [
+      "sumOfTerms",
+      "kthTerm"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

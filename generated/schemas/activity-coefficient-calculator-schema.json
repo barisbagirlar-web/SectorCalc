@@ -1,0 +1,53 @@
+{
+  "toolName": "activity-coefficient-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "Mole fraction component 1",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Mole fraction of the first component in the binary mixture (dimensionless)."
+    },
+    {
+      "id": "T",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 298.15,
+      "businessContext": "System temperature in Kelvin."
+    },
+    {
+      "id": "T0",
+      "label": "Reference temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 298.15,
+      "businessContext": "Reference temperature at which the Margules parameter is defined."
+    },
+    {
+      "id": "A",
+      "label": "Margules parameter A",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Two-suffix Margules interaction parameter (dimensionless)."
+    }
+  ],
+  "formulas": {
+    "gamma1": "Math.exp(A * (T0 / T) * (1 - x1) ** 2)",
+    "gamma2": "Math.exp(A * (T0 / T) * x1 ** 2)"
+  },
+  "outputs": {
+    "primary": "gamma1",
+    "breakdown": [
+      "gamma2"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,54 @@
+{
+  "toolName": "sand-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Uzunluk",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Alanın uzunluğu (metre)"
+    },
+    {
+      "id": "width",
+      "label": "Genişlik",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Alanın genişliği (metre)"
+    },
+    {
+      "id": "depth",
+      "label": "Derinlik",
+      "type": "number",
+      "unit": "cm",
+      "default": 5,
+      "businessContext": "Kum yüksekliği (santimetre)"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Sıkışma ve fire için ek yüzde"
+    }
+  ],
+  "formulas": {
+    "volume": "length * width * (depth / 100) * (1 + wasteFactor / 100)",
+    "weight": "volume * 1.6"
+  },
+  "outputs": {
+    "primary": "weight",
+    "breakdown": [
+      "volume",
+      "weight"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

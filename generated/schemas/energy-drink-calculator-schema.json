@@ -1,0 +1,75 @@
+{
+  "toolName": "energy-drink-calculator",
+  "inputs": [
+    {
+      "id": "volume",
+      "label": "Can Volume",
+      "type": "number",
+      "unit": "ml",
+      "default": 250,
+      "businessContext": "Volume of one can or bottle in milliliters"
+    },
+    {
+      "id": "caffeinePer100ml",
+      "label": "Caffeine per 100ml",
+      "type": "number",
+      "unit": "mg/100ml",
+      "default": 32,
+      "businessContext": "Caffeine content per 100 ml, typically found on nutrition label"
+    },
+    {
+      "id": "sugarPer100ml",
+      "label": "Sugar per 100ml",
+      "type": "number",
+      "unit": "g/100ml",
+      "default": 11,
+      "businessContext": "Sugar content per 100 ml, as listed on the product"
+    },
+    {
+      "id": "caloriesPer100ml",
+      "label": "Calories per 100ml",
+      "type": "number",
+      "unit": "kcal/100ml",
+      "default": 45,
+      "businessContext": "Energy content in kilocalories per 100 ml"
+    },
+    {
+      "id": "cansPerPack",
+      "label": "Cans per Pack",
+      "type": "number",
+      "unit": "cans",
+      "default": 4,
+      "businessContext": "Number of cans or bottles in a multipack"
+    },
+    {
+      "id": "pricePerPack",
+      "label": "Price per Pack",
+      "type": "number",
+      "unit": "€",
+      "default": 5.99,
+      "businessContext": "Retail price for the entire pack in euros"
+    }
+  ],
+  "formulas": {
+    "totalCaffeine": "(volume / 100) * caffeinePer100ml",
+    "totalSugar": "(volume / 100) * sugarPer100ml",
+    "totalCalories": "(volume / 100) * caloriesPer100ml",
+    "costPerCan": "pricePerPack / cansPerPack",
+    "costPer100ml": "(pricePerPack / cansPerPack / volume) * 100"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "totalCaffeine",
+      "totalSugar",
+      "costPerCan",
+      "costPer100ml"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

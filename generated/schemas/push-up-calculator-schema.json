@@ -1,0 +1,71 @@
+{
+  "toolName": "push-up-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Object Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Mass of the object to be pushed up the incline."
+    },
+    {
+      "id": "angle",
+      "label": "Incline Angle",
+      "type": "number",
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Angle of the inclined plane relative to horizontal."
+    },
+    {
+      "id": "mu",
+      "label": "Friction Coefficient",
+      "type": "number",
+      "unit": "",
+      "default": 0.3,
+      "businessContext": "Coefficient of friction between the object and the surface."
+    },
+    {
+      "id": "distance",
+      "label": "Push Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Distance the object is pushed along the incline."
+    },
+    {
+      "id": "time",
+      "label": "Push Time",
+      "type": "number",
+      "unit": "s",
+      "default": 10,
+      "businessContext": "Time taken to push the object the given distance."
+    },
+    {
+      "id": "g",
+      "label": "Gravitational Acceleration",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Acceleration due to gravity (standard Earth gravity)."
+    }
+  ],
+  "formulas": {
+    "pushForce": "mass * g * (Math.sin(angle * Math.PI / 180) + mu * Math.cos(angle * Math.PI / 180))",
+    "work": "mass * g * (Math.sin(angle * Math.PI / 180) + mu * Math.cos(angle * Math.PI / 180)) * distance",
+    "power": "mass * g * (Math.sin(angle * Math.PI / 180) + mu * Math.cos(angle * Math.PI / 180)) * distance / time"
+  },
+  "outputs": {
+    "primary": "pushForce",
+    "breakdown": [
+      "work",
+      "power"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

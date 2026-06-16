@@ -1,0 +1,55 @@
+{
+  "toolName": "wing-loading-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Aircraft Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Total weight of the aircraft including payload and fuel"
+    },
+    {
+      "id": "wingArea",
+      "label": "Wing Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 20,
+      "businessContext": "Total planform wing area"
+    },
+    {
+      "id": "airDensity",
+      "label": "Air Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1.225,
+      "businessContext": "Density of air at current altitude"
+    },
+    {
+      "id": "liftCoefficient",
+      "label": "Maximum Lift Coefficient (CL_max)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.5,
+      "businessContext": "Maximum lift coefficient of the airfoil"
+    }
+  ],
+  "formulas": {
+    "wingLoadingMetric": "weight / wingArea",
+    "wingLoadingImperial": "(weight * 2.20462) / (wingArea * 10.7639)",
+    "stallSpeedKMH": "Math.sqrt((2 * weight * 9.81) / (airDensity * wingArea * liftCoefficient)) * 3.6"
+  },
+  "outputs": {
+    "primary": "wingLoadingMetric",
+    "breakdown": [
+      "wingLoadingImperial",
+      "stallSpeedKMH"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

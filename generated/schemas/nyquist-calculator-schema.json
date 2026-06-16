@@ -1,0 +1,59 @@
+{
+  "toolName": "nyquist-calculator",
+  "inputs": [
+    {
+      "id": "maxFrequency",
+      "label": "Maximum Signal Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 500,
+      "businessContext": "The highest frequency component expected in the signal to be sampled or analyzed."
+    },
+    {
+      "id": "samplingFrequency",
+      "label": "Sampling Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 2000,
+      "businessContext": "The rate at which the data acquisition system samples the signal."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Margin Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "businessContext": "Engineering safety factor to provide a margin against aliasing; typically 1.2 to 2.0."
+    },
+    {
+      "id": "desiredUtilization",
+      "label": "Desired Nyquist Utilization",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "The target percentage of the Nyquist frequency that the maximum signal frequency should occupy for optimal setup."
+    }
+  ],
+  "formulas": {
+    "nyquistFrequency": "samplingFrequency / 2",
+    "requiredSamplingRate": "2 * maxFrequency * safetyFactor",
+    "actualUtilization": "samplingFrequency > 0 ? (maxFrequency / (samplingFrequency / 2)) * 100 : 0",
+    "recommendedSamplingForDesiredUtilization": "desiredUtilization > 0 ? (200 * maxFrequency) / desiredUtilization : 0",
+    "isAdequate": "(samplingFrequency >= 2 * maxFrequency * safetyFactor) ? 1 : 0"
+  },
+  "outputs": {
+    "primary": "nyquistFrequency",
+    "breakdown": [
+      "requiredSamplingRate",
+      "actualUtilization",
+      "recommendedSamplingForDesiredUtilization",
+      "isAdequate"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

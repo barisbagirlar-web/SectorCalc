@@ -1,0 +1,73 @@
+{
+  "toolName": "small-business-grants-calculator",
+  "inputs": [
+    {
+      "id": "avgAnnualRevenue",
+      "label": "Average Annual Revenue",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "Total revenue averaged over last 3 years"
+    },
+    {
+      "id": "numEmployees",
+      "label": "Number of Employees",
+      "type": "number",
+      "unit": "people",
+      "default": 10,
+      "businessContext": "Full-time equivalent employees"
+    },
+    {
+      "id": "projectCost",
+      "label": "Total Project Cost",
+      "type": "number",
+      "unit": "$",
+      "default": 50000,
+      "businessContext": "Estimated cost of the project for which grant is sought"
+    },
+    {
+      "id": "matchingFunds",
+      "label": "Matching Funds Provided",
+      "type": "number",
+      "unit": "$",
+      "default": 10000,
+      "businessContext": "Business's own contribution towards the project"
+    },
+    {
+      "id": "isMinorityOwned",
+      "label": "Minority-Owned Business (1=Yes, 0=No)",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "At least 51% minority-owned"
+    },
+    {
+      "id": "isWomanOwned",
+      "label": "Woman-Owned Business (1=Yes, 0=No)",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "At least 51% woman-owned"
+    }
+  ],
+  "formulas": {
+    "baseGrant": "Math.min(inputs.projectCost * 0.5, Math.min(inputs.avgAnnualRevenue * 0.1, 50000))",
+    "diversityMultiplier": "1 + 0.1 * inputs.isMinorityOwned + 0.1 * inputs.isWomanOwned",
+    "adjustedGrant": "baseGrant * diversityMultiplier",
+    "finalGrant": "Math.min(adjustedGrant, inputs.projectCost - inputs.matchingFunds)"
+  },
+  "outputs": {
+    "primary": "finalGrant",
+    "breakdown": [
+      "baseGrant",
+      "diversityMultiplier",
+      "adjustedGrant"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,53 @@
+{
+  "toolName": "yards-to-feet-calculator",
+  "inputs": [
+    {
+      "id": "yards",
+      "label": "Yards",
+      "type": "number",
+      "unit": "yd",
+      "default": 1,
+      "businessContext": "Length measured in yards to be converted to feet"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "ft/yd",
+      "default": 3,
+      "businessContext": "Standard conversion factor from yards to feet; 3 feet per yard"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "decimals",
+      "default": 2,
+      "businessContext": "Number of decimal places to round the result; must be integer ≥ 0"
+    },
+    {
+      "id": "roundingMethod",
+      "label": "Rounding Method",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 = Standard round, 1 = Floor (round down), 2 = Ceil (round up)"
+    }
+  ],
+  "formulas": {
+    "primary": "roundingMethod == 0 ? Math.round(yards * conversionFactor * Math.pow(10, precision)) / Math.pow(10, precision) : roundingMethod == 1 ? Math.floor(yards * conversionFactor * Math.pow(10, precision)) / Math.pow(10, precision) : Math.ceil(yards * conversionFactor * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "yards * conversionFactor",
+      "conversionFactor"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

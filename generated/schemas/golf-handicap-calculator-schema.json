@@ -1,0 +1,62 @@
+{
+  "toolName": "golf-handicap-calculator",
+  "inputs": [
+    {
+      "id": "grossScore",
+      "label": "Gross Score",
+      "type": "number",
+      "unit": "strokes",
+      "default": 85,
+      "businessContext": "Your actual strokes for the round, before any adjustments."
+    },
+    {
+      "id": "courseRating",
+      "label": "Course Rating",
+      "type": "number",
+      "unit": "rating",
+      "default": 72,
+      "businessContext": "The USGA Course Rating from the tee you played, typically between 67 and 77."
+    },
+    {
+      "id": "slopeRating",
+      "label": "Slope Rating",
+      "type": "number",
+      "unit": "rating",
+      "default": 113,
+      "businessContext": "The USGA Slope Rating, indicates relative difficulty for bogey golfers compared to scratch golfers, range 55-155."
+    },
+    {
+      "id": "par",
+      "label": "Par",
+      "type": "number",
+      "unit": "strokes",
+      "default": 72,
+      "businessContext": "The total par for the course, needed for Course Handicap calculation."
+    },
+    {
+      "id": "handicapIndex",
+      "label": "Handicap Index",
+      "type": "number",
+      "unit": "index",
+      "default": 0,
+      "businessContext": "Your current Handicap Index, if known, to calculate Course Handicap."
+    }
+  ],
+  "formulas": {
+    "differential": "(grossScore - courseRating) * 113 / slopeRating",
+    "courseHandicap": "handicapIndex * (slopeRating / 113) + (courseRating - par)"
+  },
+  "outputs": {
+    "primary": "differential",
+    "breakdown": [
+      "differential",
+      "courseHandicap"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

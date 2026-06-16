@@ -1,0 +1,84 @@
+{
+  "toolName": "cleaning-cost-calculator",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "Cleaning Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "businessContext": "Total area to be cleaned in square meters"
+    },
+    {
+      "id": "frequency",
+      "label": "Cleaning Frequency",
+      "type": "number",
+      "unit": "per month",
+      "default": 4,
+      "businessContext": "Number of times cleaning is performed per month"
+    },
+    {
+      "id": "laborRate",
+      "label": "Labor Hourly Rate",
+      "type": "number",
+      "unit": "currency/hour",
+      "default": 50,
+      "businessContext": "Cost of labor per hour"
+    },
+    {
+      "id": "laborTime",
+      "label": "Labor Time per m²",
+      "type": "number",
+      "unit": "hours/m²",
+      "default": 0.1,
+      "businessContext": "Time required to clean one square meter"
+    },
+    {
+      "id": "materialCost",
+      "label": "Material Cost per m²",
+      "type": "number",
+      "unit": "currency/m²",
+      "default": 2,
+      "businessContext": "Cost of cleaning materials per square meter"
+    },
+    {
+      "id": "equipmentCost",
+      "label": "Equipment Fixed Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "Fixed monthly cost for equipment (depreciation, rental, etc.)"
+    },
+    {
+      "id": "overheadMargin",
+      "label": "Overhead Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Overhead and profit margin percentage"
+    }
+  ],
+  "formulas": {
+    "laborCost": "area * frequency * laborTime * laborRate",
+    "materialCost": "area * frequency * materialCost",
+    "equipmentCost": "equipmentCost",
+    "subtotal": "laborCost + materialCost + equipmentCost",
+    "overheadAmount": "subtotal * (overheadMargin / 100)",
+    "totalMonthlyCost": "subtotal + overheadAmount"
+  },
+  "outputs": {
+    "primary": "totalMonthlyCost",
+    "breakdown": [
+      "laborCost",
+      "materialCost",
+      "equipmentCost",
+      "overheadAmount"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

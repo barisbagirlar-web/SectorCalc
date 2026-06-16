@@ -1,0 +1,55 @@
+{
+  "toolName": "focal-length-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Refractive Index (n)",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Refractive index of the lens material (e.g., 1.5 for typical glass)"
+    },
+    {
+      "id": "R1",
+      "label": "Radius of Curvature 1 (R1)",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Radius of curvature of the first lens surface; positive if center of curvature is to the right"
+    },
+    {
+      "id": "R2",
+      "label": "Radius of Curvature 2 (R2)",
+      "type": "number",
+      "unit": "mm",
+      "default": -100,
+      "businessContext": "Radius of curvature of the second lens surface; positive if center of curvature is to the right"
+    },
+    {
+      "id": "d",
+      "label": "Center Thickness (d)",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Thickness of the lens at its optical center"
+    }
+  ],
+  "formulas": {
+    "focalLength": "1 / ((n - 1) * (1 / R1 - 1 / R2 + (n - 1) * d / (n * R1 * R2)))",
+    "frontFocalLength": "focalLength * (1 - (n - 1) * d / (n * R1))",
+    "backFocalLength": "focalLength * (1 - (n - 1) * d / (n * R2))"
+  },
+  "outputs": {
+    "primary": "focalLength",
+    "breakdown": [
+      "frontFocalLength",
+      "backFocalLength"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

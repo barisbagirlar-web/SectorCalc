@@ -1,0 +1,32 @@
+{
+  "toolName": "mad-calculator",
+  "inputs": [
+    {
+      "id": "data_points",
+      "label": "Data Points (comma-separated)",
+      "type": "number",
+      "unit": "",
+      "default": "10,12,23,23,16,23,21,16",
+      "businessContext": "Enter the dataset values separated by commas."
+    }
+  ],
+  "formulas": {
+    "mean": "dataPoints.reduce((a,b)=>a+b,0)/dataPoints.length",
+    "absoluteDeviations": "dataPoints.map(x=>Math.abs(x-mean))",
+    "mad": "absoluteDeviations.reduce((a,b)=>a+b,0)/dataPoints.length"
+  },
+  "outputs": {
+    "primary": "Mean Absolute Deviation (MAD)",
+    "breakdown": [
+      "Mean of dataset",
+      "Absolute deviations from mean",
+      "MAD value"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

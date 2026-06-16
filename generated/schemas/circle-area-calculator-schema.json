@@ -1,0 +1,65 @@
+{
+  "toolName": "circle-area-calculator",
+  "inputs": [
+    {
+      "id": "radius",
+      "label": "Radius",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "The radius of the circle in meters. If you provide diameter, leave 0."
+    },
+    {
+      "id": "diameter",
+      "label": "Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "The diameter of the circle in meters. If you provide radius, leave 0."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "count",
+      "default": 2,
+      "businessContext": "Number of decimal digits for the output area."
+    },
+    {
+      "id": "scaleFactor",
+      "label": "Scale Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Multiplier for the area, useful for unit conversions or scaling."
+    },
+    {
+      "id": "pricePerUnitArea",
+      "label": "Price per Unit Area",
+      "type": "number",
+      "unit": "currency/m²",
+      "default": 0,
+      "businessContext": "If cost is needed, enter the price per square meter."
+    }
+  ],
+  "formulas": {
+    "effectiveRadius": "inputs.radius !== 0 ? inputs.radius : inputs.diameter/2",
+    "area": "Math.PI * effectiveRadius ** 2 * inputs.scaleFactor",
+    "circumference": "2 * Math.PI * effectiveRadius",
+    "cost": "area * inputs.pricePerUnitArea"
+  },
+  "outputs": {
+    "primary": "area",
+    "breakdown": [
+      "effectiveRadius",
+      "circumference",
+      "cost"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

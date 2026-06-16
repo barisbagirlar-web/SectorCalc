@@ -1,0 +1,55 @@
+{
+  "toolName": "crown-molding-calculator",
+  "inputs": [
+    {
+      "id": "springAngle",
+      "label": "Spring Angle",
+      "type": "number",
+      "unit": "°",
+      "default": 38,
+      "businessContext": "Typical spring angle of crown molding (angle between molding and wall)"
+    },
+    {
+      "id": "cornerAngle",
+      "label": "Corner Angle",
+      "type": "number",
+      "unit": "°",
+      "default": 90,
+      "businessContext": "Angle of the corner (e.g., 90° for standard inside/outside corner)"
+    },
+    {
+      "id": "wallLength",
+      "label": "Wall Length",
+      "type": "number",
+      "unit": "ft",
+      "default": 10,
+      "businessContext": "Length of one wall to be fitted with molding"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Additional material percentage for waste and cutting errors"
+    }
+  ],
+  "formulas": {
+    "miterAngle": "Math.atan( Math.sin(springAngle * Math.PI/180) / Math.tan(cornerAngle/2 * Math.PI/180) ) * 180/Math.PI",
+    "bevelAngle": "Math.asin( Math.cos(springAngle * Math.PI/180) * Math.cos(cornerAngle/2 * Math.PI/180) ) * 180/Math.PI",
+    "totalMoldingLength": "wallLength * 2 * (1 + wasteFactor/100)"
+  },
+  "outputs": {
+    "primary": "miterAngle",
+    "breakdown": [
+      "bevelAngle",
+      "totalMoldingLength"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

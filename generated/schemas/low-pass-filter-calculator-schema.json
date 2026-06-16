@@ -1,0 +1,67 @@
+{
+  "toolName": "low-pass-filter-calculator",
+  "inputs": [
+    {
+      "id": "r",
+      "label": "Resistance (R)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 1000,
+      "businessContext": "Resistor value in ohms"
+    },
+    {
+      "id": "r_tol",
+      "label": "Resistance Tolerance",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Resistor tolerance (±%)"
+    },
+    {
+      "id": "c",
+      "label": "Capacitance (C)",
+      "type": "number",
+      "unit": "F",
+      "default": 0.000001,
+      "businessContext": "Capacitor value in farads"
+    },
+    {
+      "id": "c_tol",
+      "label": "Capacitance Tolerance",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Capacitor tolerance (±%)"
+    },
+    {
+      "id": "fin",
+      "label": "Input Signal Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 100,
+      "businessContext": "Frequency of the input signal for attenuation calculation"
+    }
+  ],
+  "formulas": {
+    "fc": "1 / (2 * Math.PI * r * c)",
+    "tau": "r * c",
+    "attenuation": "-10 * (Math.log(1 + (2 * Math.PI * r * c * fin) ** 2) / Math.log(10))",
+    "fc_min": "1 / (2 * Math.PI * r * (1 + r_tol/100) * c * (1 + c_tol/100))",
+    "fc_max": "1 / (2 * Math.PI * r * (1 - r_tol/100) * c * (1 - c_tol/100))"
+  },
+  "outputs": {
+    "primary": "fc",
+    "breakdown": [
+      "tau",
+      "attenuation",
+      "fc_min",
+      "fc_max"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

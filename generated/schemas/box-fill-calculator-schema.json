@@ -1,0 +1,76 @@
+{
+  "toolName": "box-fill-calculator",
+  "inputs": [
+    {
+      "id": "number14AWG",
+      "label": "Number of 14 AWG Conductors",
+      "type": "number",
+      "unit": "pcs",
+      "default": 0,
+      "businessContext": "Enter count of 14 AWG conductors"
+    },
+    {
+      "id": "number12AWG",
+      "label": "Number of 12 AWG Conductors",
+      "type": "number",
+      "unit": "pcs",
+      "default": 0,
+      "businessContext": "Enter count of 12 AWG conductors"
+    },
+    {
+      "id": "number10AWG",
+      "label": "Number of 10 AWG Conductors",
+      "type": "number",
+      "unit": "pcs",
+      "default": 0,
+      "businessContext": "Enter count of 10 AWG conductors"
+    },
+    {
+      "id": "numberOfDevices",
+      "label": "Number of Devices",
+      "type": "number",
+      "unit": "pcs",
+      "default": 0,
+      "businessContext": "Each device (switch/receptacle) counts as 2 of the largest conductor volume"
+    },
+    {
+      "id": "numberOfClamps",
+      "label": "Number of Internal Cable Clamps",
+      "type": "number",
+      "unit": "pcs",
+      "default": 0,
+      "businessContext": "Each clamp counts as 1 of the largest conductor volume"
+    },
+    {
+      "id": "equipmentGroundPresent",
+      "label": "Equipment Ground Present",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Set 1 if equipment grounding conductors are present (they count as 1 of the largest volume), else 0"
+    }
+  ],
+  "formulas": {
+    "volumeLargest": "(number10AWG > 0 ? 2.5 : (number12AWG > 0 ? 2.25 : (number14AWG > 0 ? 2.0 : 0)))",
+    "conductorVolume": "number14AWG * 2.0 + number12AWG * 2.25 + number10AWG * 2.5",
+    "deviceVolume": "numberOfDevices * 2 * volumeLargest",
+    "clampVolume": "numberOfClamps * volumeLargest",
+    "groundVolume": "equipmentGroundPresent * volumeLargest",
+    "totalVolume": "conductorVolume + deviceVolume + clampVolume + groundVolume"
+  },
+  "outputs": {
+    "primary": "totalVolume",
+    "breakdown": [
+      "conductorVolume",
+      "deviceVolume",
+      "clampVolume",
+      "groundVolume"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

@@ -1,0 +1,56 @@
+{
+  "toolName": "surfing-calculator",
+  "inputs": [
+    {
+      "id": "waveHeight",
+      "label": "Wave Height (H)",
+      "type": "number",
+      "unit": "m",
+      "default": 1.5,
+      "businessContext": "Significant wave height measured by buoy or wave radar."
+    },
+    {
+      "id": "wavePeriod",
+      "label": "Wave Period (T)",
+      "type": "number",
+      "unit": "s",
+      "default": 8,
+      "businessContext": "Peak wave period from spectral analysis."
+    },
+    {
+      "id": "waterDensity",
+      "label": "Water Density (ρ)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1025,
+      "businessContext": "Density of seawater, typically 1025 kg/m³."
+    },
+    {
+      "id": "gravity",
+      "label": "Gravity (g)",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Standard gravitational acceleration."
+    }
+  ],
+  "formulas": {
+    "wavePowerPerMeter": "(waterDensity * gravity ** 2 * waveHeight ** 2 * wavePeriod) / (16 * Math.PI)"
+  },
+  "outputs": {
+    "primary": "wave_power_per_meter = (ρ * g² * H² * T) / (16π) [W/m]",
+    "breakdown": [
+      "H_squared = waveHeight²",
+      "g_squared = gravity²",
+      "numerator = waterDensity * g_squared * H_squared * wavePeriod",
+      "denominator = 16 * π",
+      "wave_power_per_meter = numerator / denominator"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

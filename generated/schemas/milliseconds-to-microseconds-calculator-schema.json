@@ -1,0 +1,55 @@
+{
+  "toolName": "milliseconds-to-microseconds-calculator",
+  "inputs": [
+    {
+      "id": "milliseconds",
+      "label": "Milisaniye Değeri",
+      "type": "number",
+      "unit": "ms",
+      "default": 0,
+      "businessContext": "Dönüştürülecek ana süre ölçümü"
+    },
+    {
+      "id": "calibrationOffset",
+      "label": "Kalibrasyon Ofseti",
+      "type": "number",
+      "unit": "µs",
+      "default": 0,
+      "businessContext": "Sensör kaynaklı sistematik hata düzeltmesi"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Emniyet Faktörü",
+      "type": "number",
+      "unit": "çarpan",
+      "default": 1,
+      "businessContext": "Güvenlik veya tolerans marjı"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Ondalık Basamak",
+      "type": "number",
+      "unit": "adet",
+      "default": 2,
+      "businessContext": "Çıktı gösterim hassasiyeti"
+    }
+  ],
+  "formulas": {
+    "conversionFactor": "1000",
+    "rawMicroseconds": "(milliseconds * 1000 + calibrationOffset) * safetyFactor",
+    "microseconds": "Math.round(rawMicroseconds * (10 ** decimalPlaces)) / (10 ** decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "microseconds",
+    "breakdown": [
+      "rawMicroseconds",
+      "conversionFactor"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

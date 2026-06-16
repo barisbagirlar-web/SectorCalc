@@ -1,0 +1,55 @@
+{
+  "toolName": "eisenhower-matrix-calculator",
+  "inputs": [
+    {
+      "id": "urgency",
+      "label": "Urgency Score (1-10)",
+      "type": "number",
+      "unit": "score",
+      "default": 5,
+      "businessContext": "Rating of how urgent the task is, 1 being not urgent, 10 extremely urgent."
+    },
+    {
+      "id": "importance",
+      "label": "Importance Score (1-10)",
+      "type": "number",
+      "unit": "score",
+      "default": 5,
+      "businessContext": "Rating of how important the task is, 1 being not important, 10 extremely important."
+    },
+    {
+      "id": "weightUrgency",
+      "label": "Urgency Weight",
+      "type": "number",
+      "unit": "factor",
+      "default": 0.5,
+      "businessContext": "Weight assigned to urgency in the priority score calculation. Typically between 0 and 1."
+    },
+    {
+      "id": "weightImportance",
+      "label": "Importance Weight",
+      "type": "number",
+      "unit": "factor",
+      "default": 0.5,
+      "businessContext": "Weight assigned to importance in the priority score calculation. Typically between 0 and 1."
+    }
+  ],
+  "formulas": {
+    "urgencyComponent": "urgency * weightUrgency",
+    "importanceComponent": "importance * weightImportance",
+    "totalScore": "urgencyComponent + importanceComponent"
+  },
+  "outputs": {
+    "primary": "totalScore",
+    "breakdown": [
+      "urgencyComponent",
+      "importanceComponent"
+    ]
+  },
+  "category": "Finans & İK",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

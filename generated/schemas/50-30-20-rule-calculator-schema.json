@@ -1,0 +1,56 @@
+{
+  "toolName": "50-30-20-rule-calculator",
+  "inputs": [
+    {
+      "id": "monthlyIncome",
+      "label": "Monthly After-Tax Income",
+      "type": "number",
+      "unit": "currency",
+      "default": 5000,
+      "businessContext": "Total monthly income after deductions and taxes."
+    },
+    {
+      "id": "needsPercentage",
+      "label": "Needs Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Percentage of income for essential needs (housing, food, utilities)."
+    },
+    {
+      "id": "wantsPercentage",
+      "label": "Wants Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Percentage of income for non-essential wants (entertainment, dining out)."
+    },
+    {
+      "id": "savingsPercentage",
+      "label": "Savings & Debt Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Percentage of income for savings, investments, or debt repayment."
+    }
+  ],
+  "formulas": {
+    "needsAmount": "monthlyIncome * needsPercentage / 100",
+    "wantsAmount": "monthlyIncome * wantsPercentage / 100",
+    "savingsAmount": "monthlyIncome * savingsPercentage / 100"
+  },
+  "outputs": {
+    "primary": "Your 50/30/20 Budget Allocation",
+    "breakdown": [
+      "Needs: ${needsAmount}",
+      "Wants: ${wantsAmount}",
+      "Savings: ${savingsAmount}"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

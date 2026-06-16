@@ -1,0 +1,63 @@
+{
+  "toolName": "stokes-law-calculator",
+  "inputs": [
+    {
+      "id": "particleDensity",
+      "label": "Particle Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 2500,
+      "businessContext": "Density of the solid particles."
+    },
+    {
+      "id": "fluidDensity",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of the fluid."
+    },
+    {
+      "id": "dynamicViscosity",
+      "label": "Dynamic Viscosity",
+      "type": "number",
+      "unit": "Pa·s",
+      "default": 0.001,
+      "businessContext": "Dynamic viscosity of the fluid."
+    },
+    {
+      "id": "particleDiameter",
+      "label": "Particle Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0.001,
+      "businessContext": "Diameter of the spherical particle."
+    },
+    {
+      "id": "gravity",
+      "label": "Gravitational Acceleration",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Acceleration due to gravity."
+    }
+  ],
+  "formulas": {
+    "densityDifference": "particleDensity - fluidDensity",
+    "particleRadius": "particleDiameter / 2",
+    "settlingVelocity": "(2/9) * densityDifference * gravity * particleRadius ** 2 / dynamicViscosity"
+  },
+  "outputs": {
+    "primary": "settlingVelocity",
+    "breakdown": [
+      "densityDifference",
+      "particleRadius"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,67 @@
+{
+  "toolName": "pregnancy-weight-gain-calculator",
+  "inputs": [
+    {
+      "id": "prePregnancyWeight",
+      "label": "Pre-pregnancy Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 60,
+      "businessContext": "Weight before pregnancy"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 165,
+      "businessContext": "Height for BMI calculation"
+    },
+    {
+      "id": "currentWeight",
+      "label": "Current Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 65,
+      "businessContext": "Current weight during pregnancy"
+    },
+    {
+      "id": "currentWeek",
+      "label": "Current Week of Pregnancy",
+      "type": "number",
+      "unit": "weeks",
+      "default": 20,
+      "businessContext": "Current gestational week"
+    }
+  ],
+  "formulas": {
+    "bmi": "prePregnancyWeight / ((height / 100) ** 2)",
+    "bmiCategory": "bmi < 18.5 ? 'Underweight' : bmi < 25 ? 'Normal weight' : bmi < 30 ? 'Overweight' : 'Obese'",
+    "totalMinGain": "bmi < 18.5 ? 12.5 : bmi < 25 ? 11.5 : bmi < 30 ? 7 : 5",
+    "totalMaxGain": "bmi < 18.5 ? 18 : bmi < 25 ? 16 : bmi < 30 ? 11.5 : 9",
+    "minGainCurrent": "totalMinGain * (currentWeek / 40)",
+    "maxGainCurrent": "totalMaxGain * (currentWeek / 40)",
+    "recommendedMinWeight": "prePregnancyWeight + minGainCurrent",
+    "recommendedMaxWeight": "prePregnancyWeight + maxGainCurrent",
+    "weightGained": "currentWeight - prePregnancyWeight",
+    "status": "currentWeight >= recommendedMinWeight && currentWeight <= recommendedMaxWeight ? 'Within recommended range' : (currentWeight < recommendedMinWeight ? 'Below recommended range' : 'Above recommended range')"
+  },
+  "outputs": {
+    "primary": "status",
+    "breakdown": [
+      "Current Weight: ${currentWeight} kg",
+      "Recommended Weight Range: ${recommendedMinWeight.toFixed(1)} - ${recommendedMaxWeight.toFixed(1)} kg",
+      "BMI: ${bmi.toFixed(1)}",
+      "BMI Category: ${bmiCategory}",
+      "Total Recommended Gain: ${totalMinGain} - ${totalMaxGain} kg",
+      "Weight Gained So Far: ${weightGained} kg",
+      "Status: ${status}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

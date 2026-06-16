@@ -1,0 +1,81 @@
+{
+  "toolName": "gcse-calculator",
+  "inputs": [
+    {
+      "id": "wallLength",
+      "label": "Wall Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "The horizontal length of the wall in meters."
+    },
+    {
+      "id": "wallHeight",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 2.5,
+      "businessContext": "The height of the wall from base to top in meters."
+    },
+    {
+      "id": "leafCount",
+      "label": "Number of Leaves",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The thickness of the wall in terms of brick leaves (1 for half-brick, 2 for full brick, etc.)."
+    },
+    {
+      "id": "brickLength",
+      "label": "Brick Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 215,
+      "businessContext": "Standard brick length (e.g., 215mm for UK format)."
+    },
+    {
+      "id": "brickHeight",
+      "label": "Brick Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 65,
+      "businessContext": "Standard brick height (e.g., 65mm for UK format)."
+    },
+    {
+      "id": "mortarThickness",
+      "label": "Mortar Joint Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Typical mortar joint thickness between bricks (e.g., 10mm)."
+    },
+    {
+      "id": "wastagePercent",
+      "label": "Wastage Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Allowance for cutting and breakage as a percentage (e.g., 5% => extra 5%)."
+    }
+  ],
+  "formulas": {
+    "wallArea": "wallLength * wallHeight * leafCount",
+    "brickArea": "(brickLength/1000 + mortarThickness/1000) * (brickHeight/1000 + mortarThickness/1000)",
+    "baseBricks": "wallArea / brickArea",
+    "totalBricks": "baseBricks * (1 + wastagePercent/100)"
+  },
+  "outputs": {
+    "primary": "totalBricks",
+    "breakdown": [
+      "wallArea",
+      "brickArea",
+      "baseBricks"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

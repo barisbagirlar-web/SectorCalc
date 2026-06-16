@@ -1,0 +1,71 @@
+{
+  "toolName": "gym-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User's body weight in kilograms."
+    },
+    {
+      "id": "duration",
+      "label": "Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 30,
+      "businessContext": "Duration of the exercise session in minutes."
+    },
+    {
+      "id": "met",
+      "label": "MET Value",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Metabolic Equivalent of Task for the specific exercise."
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "User's age in years."
+    },
+    {
+      "id": "gender",
+      "label": "Gender (0=female, 1=male)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Gender factor for BMR adjustment."
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 175,
+      "businessContext": "User's height in centimeters."
+    }
+  ],
+  "formulas": {
+    "bmr": "10 * weight + 6.25 * height - 5 * age + (gender === 1 ? 5 : -161)",
+    "caloriesBurned": "met * 3.5 * weight / 200 * duration",
+    "totalCalories": "caloriesBurned + bmr / 1440 * duration"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "caloriesBurned",
+      "bmr"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

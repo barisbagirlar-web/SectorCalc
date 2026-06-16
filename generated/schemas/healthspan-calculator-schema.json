@@ -1,0 +1,76 @@
+{
+  "toolName": "healthspan-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "The individual's current age."
+    },
+    {
+      "id": "smokingYears",
+      "label": "Smoking Years",
+      "type": "number",
+      "unit": "years",
+      "default": 0,
+      "businessContext": "Number of years the individual has smoked."
+    },
+    {
+      "id": "bmi",
+      "label": "BMI",
+      "type": "number",
+      "unit": "kg/m²",
+      "default": 25,
+      "businessContext": "Body Mass Index."
+    },
+    {
+      "id": "exerciseHoursPerWeek",
+      "label": "Exercise Hours per Week",
+      "type": "number",
+      "unit": "hours",
+      "default": 3,
+      "businessContext": "Number of hours spent exercising per week."
+    },
+    {
+      "id": "dietQualityScore",
+      "label": "Diet Quality Score",
+      "type": "number",
+      "unit": "score (0-100)",
+      "default": 70,
+      "businessContext": "A score between 0 and 100 indicating diet quality."
+    },
+    {
+      "id": "alcoholUnitsPerWeek",
+      "label": "Alcohol Units per Week",
+      "type": "number",
+      "unit": "units",
+      "default": 2,
+      "businessContext": "Number of alcohol units consumed per week."
+    }
+  ],
+  "formulas": {
+    "baseRemainingYears": "80 - currentAge",
+    "smokingImpact": "Math.log(1 + smokingYears) * 2",
+    "bmiImpact": "bmi > 25 ? Math.log(1 + (bmi - 25)) * 1.5 : 0",
+    "exerciseGain": "Math.sqrt(exerciseHoursPerWeek) * 1.2",
+    "dietGain": "(dietQualityScore - 50) / 10",
+    "alcoholLoss": "alcoholUnitsPerWeek * 0.5",
+    "adjustedHealthspan": "Math.max(0, baseRemainingYears - smokingImpact - bmiImpact + exerciseGain + dietGain - alcoholLoss)"
+  },
+  "outputs": {
+    "primary": "adjustedHealthspan",
+    "breakdown": [
+      "baseRemainingYears",
+      "smokingImpact",
+      "bmiImpact",
+      "exerciseGain",
+      "dietGain",
+      "alcoholLoss"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false
+}

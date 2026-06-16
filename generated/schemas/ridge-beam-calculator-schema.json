@@ -1,0 +1,75 @@
+{
+  "toolName": "ridge-beam-calculator",
+  "inputs": [
+    {
+      "id": "span",
+      "label": "Span",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Clear span between supports of the ridge beam."
+    },
+    {
+      "id": "load_per_meter",
+      "label": "Uniform Load",
+      "type": "number",
+      "unit": "kN/m",
+      "default": 5,
+      "businessContext": "Total uniform load (dead + live) acting on the ridge beam per meter length."
+    },
+    {
+      "id": "fb",
+      "label": "Allowable Bending Stress",
+      "type": "number",
+      "unit": "MPa",
+      "default": 10,
+      "businessContext": "Allowable bending stress for the selected wood species, adjusted for conditions."
+    },
+    {
+      "id": "beam_width",
+      "label": "Beam Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Nominal width of the ridge beam cross-section."
+    },
+    {
+      "id": "beam_depth",
+      "label": "Beam Depth",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "businessContext": "Nominal depth of the ridge beam cross-section."
+    },
+    {
+      "id": "safety_factor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Additional safety factor to account for uncertainties (≥1.0)."
+    }
+  ],
+  "formulas": {
+    "max_bending_moment": "(load_per_meter * span ** 2) / 8",
+    "section_modulus_required": "(max_bending_moment * 1e6) / fb",
+    "actual_section_modulus": "(beam_width * beam_depth ** 2) / 6",
+    "utilization_ratio": "(section_modulus_required / actual_section_modulus) * safety_factor",
+    "pass_fail": "utilization_ratio <= 1 ? 'Pass' : 'Fail'"
+  },
+  "outputs": {
+    "primary": "pass_fail",
+    "breakdown": [
+      "max_bending_moment",
+      "section_modulus_required",
+      "actual_section_modulus",
+      "utilization_ratio"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

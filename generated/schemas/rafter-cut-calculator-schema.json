@@ -1,0 +1,61 @@
+{
+  "toolName": "rafter-cut-calculator",
+  "inputs": [
+    {
+      "id": "roofPitch",
+      "label": "Roof Pitch",
+      "type": "number",
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Angle of the roof slope measured from horizontal."
+    },
+    {
+      "id": "buildingWidth",
+      "label": "Building Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 6000,
+      "businessContext": "Total external width of the building (span)."
+    },
+    {
+      "id": "overhang",
+      "label": "Overhang",
+      "type": "number",
+      "unit": "mm",
+      "default": 500,
+      "businessContext": "Horizontal projection of the rafter beyond the wall plate."
+    },
+    {
+      "id": "rafterDepth",
+      "label": "Rafter Depth",
+      "type": "number",
+      "unit": "mm",
+      "default": 150,
+      "businessContext": "Vertical depth of the rafter board (for birdsmouth calculations)."
+    }
+  ],
+  "formulas": {
+    "rafterLength": "(buildingWidth / 2 + overhang) / Math.cos(roofPitch * Math.PI / 180)",
+    "totalRun": "buildingWidth / 2 + overhang",
+    "rise": "(buildingWidth / 2 + overhang) * Math.tan(roofPitch * Math.PI / 180)",
+    "seatCutDepth": "rafterDepth / 3",
+    "heelHeight": "rafterDepth * 2 / 3",
+    "plumbCutAngle": "roofPitch"
+  },
+  "outputs": {
+    "primary": "rafterLength",
+    "breakdown": [
+      "totalRun",
+      "rise",
+      "seatCutDepth",
+      "heelHeight",
+      "plumbCutAngle"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

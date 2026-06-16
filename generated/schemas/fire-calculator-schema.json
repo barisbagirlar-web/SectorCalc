@@ -1,0 +1,91 @@
+{
+  "toolName": "fire-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Your current age."
+    },
+    {
+      "id": "retirementAge",
+      "label": "Target Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 45,
+      "businessContext": "Age at which you plan to retire."
+    },
+    {
+      "id": "lifeExpectancy",
+      "label": "Life Expectancy",
+      "type": "number",
+      "unit": "years",
+      "default": 85,
+      "businessContext": "Expected lifespan for planning."
+    },
+    {
+      "id": "annualExpenses",
+      "label": "Annual Expenses in Retirement",
+      "type": "number",
+      "unit": "currency",
+      "default": 40000,
+      "businessContext": "Estimated yearly spending after retirement."
+    },
+    {
+      "id": "currentSavings",
+      "label": "Current Savings",
+      "type": "number",
+      "unit": "currency",
+      "default": 100000,
+      "businessContext": "Total current retirement savings."
+    },
+    {
+      "id": "annualContribution",
+      "label": "Annual Contribution",
+      "type": "number",
+      "unit": "currency",
+      "default": 20000,
+      "businessContext": "Amount saved each year until retirement."
+    },
+    {
+      "id": "expectedReturn",
+      "label": "Expected Annual Return",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected average annual investment return."
+    },
+    {
+      "id": "withdrawalRate",
+      "label": "Safe Withdrawal Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "businessContext": "Percentage of savings you can withdraw annually."
+    }
+  ],
+  "formulas": {
+    "yearsToRetirement": "retirementAge - currentAge",
+    "futureValueOfSavings": "currentSavings * (1 + expectedReturn/100) ** yearsToRetirement + annualContribution * ((1 + expectedReturn/100) ** yearsToRetirement - 1) / (expectedReturn/100)",
+    "requiredSavings": "annualExpenses / (withdrawalRate/100)",
+    "retirementYears": "lifeExpectancy - retirementAge",
+    "savingsAtRetirement": "futureValueOfSavings",
+    "isFeasible": "savingsAtRetirement >= requiredSavings ? 1 : 0"
+  },
+  "outputs": {
+    "primary": "savingsAtRetirement",
+    "breakdown": [
+      "requiredSavings",
+      "yearsToRetirement",
+      "isFeasible"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

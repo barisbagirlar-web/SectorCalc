@@ -1,0 +1,62 @@
+{
+  "toolName": "polynomial-regression",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Veri Sayısı (n)",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Gözlem sayısı"
+    },
+    {
+      "id": "sumX",
+      "label": "x Toplamı (Σx)",
+      "type": "number",
+      "unit": "",
+      "default": 55,
+      "businessContext": "Bağımsız değişkenin toplamı"
+    },
+    {
+      "id": "sumY",
+      "label": "y Toplamı (Σy)",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "Bağımlı değişkenin toplamı"
+    },
+    {
+      "id": "sumXY",
+      "label": "x·y Toplamı (Σxy)",
+      "type": "number",
+      "unit": "",
+      "default": 600,
+      "businessContext": "Bağımsız ve bağımlı değişkenin çarpımlarının toplamı"
+    },
+    {
+      "id": "sumX2",
+      "label": "x² Toplamı (Σx²)",
+      "type": "number",
+      "unit": "",
+      "default": 385,
+      "businessContext": "Bağımsız değişkenin karelerinin toplamı"
+    }
+  ],
+  "formulas": {
+    "b": "(n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX)",
+    "a": "(sumY - b * sumX) / n"
+  },
+  "outputs": {
+    "primary": "Regresyon Denklemi: y = ${a.toFixed(4)} + ${b.toFixed(4)}·x",
+    "breakdown": [
+      "Eğim (b): ${b.toFixed(4)}",
+      "Kesişim (a): ${a.toFixed(4)}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

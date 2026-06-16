@@ -1,0 +1,62 @@
+{
+  "toolName": "inhg-to-psi-calculator",
+  "inputs": [
+    {
+      "id": "pressure_inhg",
+      "label": "Pressure (inHg)",
+      "type": "number",
+      "unit": "inHg",
+      "default": 29.92,
+      "businessContext": "The measured pressure in inches of mercury."
+    },
+    {
+      "id": "conversion_factor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "psi/inHg",
+      "default": 0.491154,
+      "businessContext": "Standard conversion factor from inHg to psi (1 inHg = 0.491154 psi)."
+    },
+    {
+      "id": "decimal_places",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Number of decimal places for rounding the result."
+    },
+    {
+      "id": "altitude_ft",
+      "label": "Altitude (feet)",
+      "type": "number",
+      "unit": "ft",
+      "default": 0,
+      "businessContext": "Altitude above sea level, provided for informational context (not used in conversion)."
+    },
+    {
+      "id": "temperature_f",
+      "label": "Temperature (°F)",
+      "type": "number",
+      "unit": "°F",
+      "default": 32,
+      "businessContext": "Temperature of the mercury column, provided for informational context (not used in standard conversion)."
+    }
+  ],
+  "formulas": {
+    "pressure_psi_raw": "pressure_inhg * conversion_factor",
+    "pressure_psi": "Math.round(pressure_psi_raw * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)"
+  },
+  "outputs": {
+    "primary": "pressure_psi",
+    "breakdown": [
+      "pressure_psi_raw = pressure_inhg * conversion_factor",
+      "pressure_psi = round(pressure_psi_raw, decimal_places)"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,59 @@
+{
+  "toolName": "probability-gacha-calculator",
+  "inputs": [
+    {
+      "id": "attempts",
+      "label": "Number of Attempts",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Number of pulls or trials."
+    },
+    {
+      "id": "probability",
+      "label": "Success Probability",
+      "type": "number",
+      "unit": "",
+      "default": 0.05,
+      "businessContext": "Probability of success per attempt (0 to 1). Must be > 0."
+    },
+    {
+      "id": "cost",
+      "label": "Cost per Attempt",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "Cost of each pull in in-game currency."
+    },
+    {
+      "id": "guarantee",
+      "label": "Guarantee Threshold",
+      "type": "number",
+      "unit": "attempts",
+      "default": 0,
+      "businessContext": "Number of consecutive failures after which next pull is guaranteed success. 0 means no guarantee."
+    }
+  ],
+  "formulas": {
+    "probabilityAtLeastOne": "1 - Math.pow(1 - probability, attempts)",
+    "probabilityZero": "Math.pow(1 - probability, attempts)",
+    "expectedAttempts": "1 / probability",
+    "expectedCost": "(1 / probability) * cost",
+    "worstCaseCost": "guarantee * cost"
+  },
+  "outputs": {
+    "primary": "probabilityAtLeastOne",
+    "breakdown": [
+      "probabilityZero",
+      "expectedAttempts",
+      "expectedCost",
+      "worstCaseCost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

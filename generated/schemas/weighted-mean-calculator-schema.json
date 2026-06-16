@@ -1,0 +1,87 @@
+{
+  "toolName": "weighted-mean-calculator",
+  "inputs": [
+    {
+      "id": "value1",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "unit",
+      "default": 0,
+      "businessContext": "First numerical value in the dataset."
+    },
+    {
+      "id": "weight1",
+      "label": "Weight 1",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Weight for the first value, indicating its relative importance."
+    },
+    {
+      "id": "value2",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "unit",
+      "default": 0,
+      "businessContext": "Second numerical value in the dataset."
+    },
+    {
+      "id": "weight2",
+      "label": "Weight 2",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Weight for the second value."
+    },
+    {
+      "id": "value3",
+      "label": "Value 3",
+      "type": "number",
+      "unit": "unit",
+      "default": 0,
+      "businessContext": "Third numerical value in the dataset."
+    },
+    {
+      "id": "weight3",
+      "label": "Weight 3",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Weight for the third value."
+    },
+    {
+      "id": "value4",
+      "label": "Value 4",
+      "type": "number",
+      "unit": "unit",
+      "default": 0,
+      "businessContext": "Fourth numerical value in the dataset."
+    },
+    {
+      "id": "weight4",
+      "label": "Weight 4",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Weight for the fourth value."
+    }
+  ],
+  "formulas": {
+    "weightedMean": "(value1*weight1 + value2*weight2 + value3*weight3 + value4*weight4) / (weight1+weight2+weight3+weight4)",
+    "sumWeightedValues": "value1*weight1 + value2*weight2 + value3*weight3 + value4*weight4",
+    "sumWeights": "weight1+weight2+weight3+weight4"
+  },
+  "outputs": {
+    "primary": "weightedMean",
+    "breakdown": [
+      "sumWeightedValues",
+      "sumWeights"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

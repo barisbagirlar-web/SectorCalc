@@ -1,0 +1,31 @@
+{
+  "toolName": "japanese-calendar-calculator",
+  "inputs": [
+    {
+      "id": "gregorianYear",
+      "label": "Gregorian Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2025,
+      "businessContext": "The Gregorian calendar year to be converted into the Japanese era format."
+    }
+  ],
+  "formulas": {
+    "eraStart": "(gregorianYear >= 2019) ? 2019 : (gregorianYear >= 1989) ? 1989 : (gregorianYear >= 1926) ? 1926 : (gregorianYear >= 1912) ? 1912 : (gregorianYear >= 1868) ? 1868 : 0",
+    "eraName": "(gregorianYear >= 2019) ? 'Reiwa' : (gregorianYear >= 1989) ? 'Heisei' : (gregorianYear >= 1926) ? 'Showa' : (gregorianYear >= 1912) ? 'Taisho' : (gregorianYear >= 1868) ? 'Meiji' : 'Unknown'",
+    "eraYear": "gregorianYear - eraStart + 1"
+  },
+  "outputs": {
+    "primary": "${eraName} ${eraYear}",
+    "breakdown": [
+      "Gregorian Year: ${gregorianYear}",
+      "Era Start Year: ${eraStart}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

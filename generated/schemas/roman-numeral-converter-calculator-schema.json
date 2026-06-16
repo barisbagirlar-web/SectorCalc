@@ -1,0 +1,86 @@
+{
+  "toolName": "roman-numeral-converter-calculator",
+  "inputs": [
+    {
+      "id": "s1",
+      "label": "Symbol 1 (leftmost)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Value of the first Roman numeral symbol (e.g., M=1000, C=100, X=10, I=1). Enter 0 if unused."
+    },
+    {
+      "id": "s2",
+      "label": "Symbol 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Value of the second symbol. Enter 0 if unused."
+    },
+    {
+      "id": "s3",
+      "label": "Symbol 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Value of the third symbol. Enter 0 if unused."
+    },
+    {
+      "id": "s4",
+      "label": "Symbol 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Value of the fourth symbol. Enter 0 if unused."
+    },
+    {
+      "id": "s5",
+      "label": "Symbol 5",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Value of the fifth symbol. Enter 0 if unused."
+    },
+    {
+      "id": "s6",
+      "label": "Symbol 6",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Value of the sixth symbol. Enter 0 if unused."
+    },
+    {
+      "id": "s7",
+      "label": "Symbol 7",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Value of the seventh symbol. Enter 0 if unused."
+    },
+    {
+      "id": "s8",
+      "label": "Symbol 8 (rightmost)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Value of the eighth symbol. Enter 0 if unused."
+    }
+  ],
+  "formulas": {
+    "arabic": "((s1 < s2 ? -s1 : s1) + (s2 < s3 ? -s2 : s2) + (s3 < s4 ? -s3 : s3) + (s4 < s5 ? -s4 : s4) + (s5 < s6 ? -s5 : s5) + (s6 < s7 ? -s6 : s6) + (s7 < s8 ? -s7 : s7) + s8)"
+  },
+  "outputs": {
+    "primary": "arabic",
+    "breakdown": [
+      "Step 1: Enter the values of Roman numeral symbols (I=1, V=5, X=10, L=50, C=100, D=500, M=1000) in order from left to right.",
+      "Step 2: The calculator applies subtractive notation: for each pair, if a symbol is smaller than the next, its value is subtracted; otherwise it is added.",
+      "Step 3: The final result is the equivalent Arabic number."
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

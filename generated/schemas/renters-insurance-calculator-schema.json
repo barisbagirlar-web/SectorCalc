@@ -1,0 +1,67 @@
+{
+  "toolName": "renters-insurance-calculator",
+  "inputs": [
+    {
+      "id": "personalPropertyValue",
+      "label": "Personal Property Value",
+      "type": "number",
+      "unit": "$",
+      "default": 30000,
+      "businessContext": "Estimated value of personal belongings to be insured."
+    },
+    {
+      "id": "liabilityCoverage",
+      "label": "Liability Coverage",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "Amount of liability protection desired."
+    },
+    {
+      "id": "deductible",
+      "label": "Deductible",
+      "type": "number",
+      "unit": "$",
+      "default": 1000,
+      "businessContext": "Amount you pay out-of-pocket before insurance kicks in."
+    },
+    {
+      "id": "locationRiskFactor",
+      "label": "Location Risk Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier based on crime rate and disaster risk (1.0 = average)."
+    },
+    {
+      "id": "securityDiscount",
+      "label": "Security System Discount",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Discount percentage off premium for having an approved security system."
+    }
+  ],
+  "formulas": {
+    "totalBasePremium": "(personalPropertyValue * 0.01) + (liabilityCoverage * 0.002)",
+    "riskAdjustedPremium": "totalBasePremium * locationRiskFactor",
+    "discountAmount": "riskAdjustedPremium * (securityDiscount / 100)",
+    "finalAnnualPremium": "riskAdjustedPremium - discountAmount",
+    "monthlyPremium": "finalAnnualPremium / 12",
+    "totalCoverage": "personalPropertyValue + liabilityCoverage"
+  },
+  "outputs": {
+    "primary": "finalAnnualPremium",
+    "breakdown": [
+      "monthlyPremium",
+      "totalCoverage",
+      "deductible"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

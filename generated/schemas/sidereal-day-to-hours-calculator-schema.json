@@ -1,0 +1,55 @@
+{
+  "toolName": "sidereal-day-to-hours-calculator",
+  "inputs": [
+    {
+      "id": "siderealDays",
+      "label": "Number of Sidereal Days",
+      "type": "number",
+      "unit": "sidereal days",
+      "default": 1,
+      "businessContext": "Quantity of sidereal days to convert to standard hours"
+    },
+    {
+      "id": "hours",
+      "label": "Hours per Sidereal Day",
+      "type": "number",
+      "unit": "hours",
+      "default": 23,
+      "businessContext": "Hours component of one sidereal day"
+    },
+    {
+      "id": "minutes",
+      "label": "Minutes per Sidereal Day",
+      "type": "number",
+      "unit": "minutes",
+      "default": 56,
+      "businessContext": "Minutes component of one sidereal day"
+    },
+    {
+      "id": "seconds",
+      "label": "Seconds per Sidereal Day",
+      "type": "number",
+      "unit": "seconds",
+      "default": 4.0916,
+      "businessContext": "Seconds component of one sidereal day"
+    }
+  ],
+  "formulas": {
+    "totalHours": "siderealDays * (hours + minutes/60 + seconds/3600)",
+    "siderealDayLengthHours": "hours + minutes/60 + seconds/3600",
+    "verboseResult": "siderealDays + ' sidereal days = ' + (siderealDays * (hours + minutes/60 + seconds/3600)).toFixed(6) + ' hours'"
+  },
+  "outputs": {
+    "primary": "totalHours",
+    "breakdown": [
+      "siderealDayLengthHours",
+      "verboseResult"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

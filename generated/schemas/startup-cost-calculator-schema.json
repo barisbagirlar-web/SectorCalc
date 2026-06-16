@@ -1,0 +1,79 @@
+{
+  "toolName": "startup-cost-calculator",
+  "inputs": [
+    {
+      "id": "equipmentCost",
+      "label": "Equipment Cost",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Cost of machinery, computers, furniture, and other equipment."
+    },
+    {
+      "id": "legalAndPermitCost",
+      "label": "Legal & Permit Cost",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Legal fees, business registration, permits, and licenses."
+    },
+    {
+      "id": "depositCost",
+      "label": "Deposit Cost",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Rental deposits, utility deposits, and other refundable deposits."
+    },
+    {
+      "id": "initialInventoryCost",
+      "label": "Initial Inventory Cost",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Cost of initial stock, raw materials, or finished goods."
+    },
+    {
+      "id": "marketingLaunchCost",
+      "label": "Marketing Launch Cost",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Marketing, advertising, and promotional expenses for launch."
+    },
+    {
+      "id": "workingCapital",
+      "label": "Working Capital",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Cash reserve to cover initial operating expenses before revenue."
+    }
+  ],
+  "formulas": {
+    "totalStartupCost": "equipmentCost + legalAndPermitCost + depositCost + initialInventoryCost + marketingLaunchCost + workingCapital",
+    "equipmentCostOut": "equipmentCost",
+    "legalCostOut": "legalAndPermitCost",
+    "depositCostOut": "depositCost",
+    "initialInventoryOut": "initialInventoryCost",
+    "marketingLaunchOut": "marketingLaunchCost",
+    "workingCapitalOut": "workingCapital"
+  },
+  "outputs": {
+    "primary": "totalStartupCost",
+    "breakdown": [
+      "equipmentCostOut",
+      "legalCostOut",
+      "depositCostOut",
+      "initialInventoryOut",
+      "marketingLaunchOut",
+      "workingCapitalOut"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

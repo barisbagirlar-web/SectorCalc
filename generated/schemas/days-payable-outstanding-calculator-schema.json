@@ -1,0 +1,55 @@
+{
+  "toolName": "days-payable-outstanding-calculator",
+  "inputs": [
+    {
+      "id": "apBegin",
+      "label": "Accounts Payable (Beginning)",
+      "type": "number",
+      "unit": "USD",
+      "default": 80000,
+      "businessContext": "Beginning balance of accounts payable from the balance sheet at the start of the period."
+    },
+    {
+      "id": "apEnd",
+      "label": "Accounts Payable (Ending)",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Ending balance of accounts payable from the balance sheet at the end of the period."
+    },
+    {
+      "id": "cogs",
+      "label": "Cost of Goods Sold (COGS)",
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "businessContext": "Total cost of goods sold during the period, from the income statement."
+    },
+    {
+      "id": "days",
+      "label": "Number of Days in Period",
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "businessContext": "Number of calendar days in the measurement period (e.g., 365 for annual, 90 for quarterly)."
+    }
+  ],
+  "formulas": {
+    "averageAP": "(apBegin + apEnd) / 2",
+    "dpo": "((apBegin + apEnd) / 2) / cogs * days",
+    "apTurnover": "cogs / ((apBegin + apEnd) / 2)"
+  },
+  "outputs": {
+    "primary": "dpo",
+    "breakdown": [
+      "averageAP",
+      "apTurnover"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "sat-score-calculator",
+  "inputs": [
+    {
+      "id": "readingRaw",
+      "label": "Reading Raw Score",
+      "type": "number",
+      "unit": "questions",
+      "default": 0,
+      "businessContext": "Number of correct answers in the Reading section (max 52)"
+    },
+    {
+      "id": "writingRaw",
+      "label": "Writing & Language Raw Score",
+      "type": "number",
+      "unit": "questions",
+      "default": 0,
+      "businessContext": "Number of correct answers in the Writing & Language section (max 44)"
+    },
+    {
+      "id": "mathNoCalcRaw",
+      "label": "Math No Calculator Raw Score",
+      "type": "number",
+      "unit": "questions",
+      "default": 0,
+      "businessContext": "Number of correct answers in the Math No Calculator section (max 20)"
+    },
+    {
+      "id": "mathCalcRaw",
+      "label": "Math Calculator Raw Score",
+      "type": "number",
+      "unit": "questions",
+      "default": 0,
+      "businessContext": "Number of correct answers in the Math Calculator section (max 38)"
+    }
+  ],
+  "formulas": {
+    "ebrwScore": "Math.round((10 + (readingRaw / 52) * 30) + (10 + (writingRaw / 44) * 30)) * 10",
+    "mathScore": "Math.round(200 + ((mathNoCalcRaw + mathCalcRaw) / 58) * 600)",
+    "totalSATScore": "ebrwScore + mathScore"
+  },
+  "outputs": {
+    "primary": "totalSATScore",
+    "breakdown": [
+      "ebrwScore",
+      "mathScore"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,59 @@
+{
+  "toolName": "critical-point-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "a (x³ coefficient)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient of the cubic term in f(x)=ax³+bx²+cx+d"
+    },
+    {
+      "id": "b",
+      "label": "b (x² coefficient)",
+      "type": "number",
+      "unit": "",
+      "default": -2,
+      "businessContext": "Coefficient of the quadratic term"
+    },
+    {
+      "id": "c",
+      "label": "c (x coefficient)",
+      "type": "number",
+      "unit": "",
+      "default": -3,
+      "businessContext": "Coefficient of the linear term"
+    },
+    {
+      "id": "d",
+      "label": "d (constant)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Constant term, does not affect critical points"
+    }
+  ],
+  "formulas": {
+    "discriminant": "4*b*b - 12*a*c",
+    "hasReal": "discriminant >= 0",
+    "x1": "hasReal ? (-2*b + Math.sqrt(discriminant)) / (6*a) : NaN",
+    "x2": "hasReal ? (-2*b - Math.sqrt(discriminant)) / (6*a) : NaN",
+    "primary": "hasReal ? (discriminant === 0 ? 'One real critical point: x = ' + x1 : 'Two real critical points: x₁ = ' + x1 + ', x₂ = ' + x2) : 'No real critical points'"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "discriminant",
+      "x1",
+      "x2",
+      "hasReal"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

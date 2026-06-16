@@ -1,0 +1,73 @@
+{
+  "toolName": "nanoseconds-to-picoseconds-calculator",
+  "inputs": [
+    {
+      "id": "nanoseconds",
+      "label": "Nanoseconds (ns)",
+      "type": "number",
+      "unit": "ns",
+      "default": 0,
+      "businessContext": "Input time value in nanoseconds, e.g., from an oscilloscope measurement or timing circuit."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "ps/ns",
+      "default": 1000,
+      "businessContext": "Number of picoseconds per nanosecond. Standard is 1000 ps/ns."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Number of decimal places for the formatted output. Set according to measurement precision."
+    },
+    {
+      "id": "scale",
+      "label": "Scale Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for the converted value, e.g., for array measurements or normalization."
+    },
+    {
+      "id": "offset",
+      "label": "Offset (ps)",
+      "type": "number",
+      "unit": "ps",
+      "default": 0,
+      "businessContext": "Additive offset applied after conversion and scaling. Useful for calibration adjustments."
+    },
+    {
+      "id": "scientificNotation",
+      "label": "Scientific Notation (0/1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Toggle scientific notation for the formatted output: 0 = off (fixed), 1 = on."
+    }
+  ],
+  "formulas": {
+    "rawPicoseconds": "nanoseconds * conversionFactor",
+    "scaledPicoseconds": "rawPicoseconds * scale",
+    "finalPicoseconds": "scaledPicoseconds + offset",
+    "formattedResult": "scientificNotation === 1 ? Number(finalPicoseconds).toExponential(decimalPlaces) : Number(finalPicoseconds).toFixed(decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "finalPicoseconds",
+    "breakdown": [
+      "rawPicoseconds",
+      "scaledPicoseconds",
+      "formattedResult"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

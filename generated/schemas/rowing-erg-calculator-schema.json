@@ -1,0 +1,69 @@
+{
+  "toolName": "rowing-erg-calculator",
+  "inputs": [
+    {
+      "id": "time",
+      "label": "Time",
+      "type": "number",
+      "unit": "sec",
+      "default": 0,
+      "businessContext": "Total workout time in seconds"
+    },
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Total distance rowed in meters"
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Rower's body weight in kilograms"
+    },
+    {
+      "id": "strokeRate",
+      "label": "Stroke Rate",
+      "type": "number",
+      "unit": "spm",
+      "default": 20,
+      "businessContext": "Average strokes per minute during the session"
+    },
+    {
+      "id": "dragFactor",
+      "label": "Drag Factor",
+      "type": "number",
+      "unit": "",
+      "default": 120,
+      "businessContext": "The damper setting and overall drag factor of the rowing ergometer"
+    }
+  ],
+  "formulas": {
+    "split": "(time > 0 && distance > 0) ? (time / distance) * 500 : 0",
+    "power": "(time > 0 && distance > 0) ? 2.80 / ((time / distance) * 500) ** 3 : 0",
+    "pace": "(time > 0 && distance > 0) ? ((time / distance) * 500) / 60 : 0",
+    "speed": "(time > 0) ? distance / time : 0",
+    "distancePerStroke": "(time > 0 && distance > 0 && strokeRate > 0) ? (distance * 60) / (time * strokeRate) : 0",
+    "powerPerWeight": "(time > 0 && distance > 0 && weight > 0) ? (2.80 / ((time / distance) * 500) ** 3) / weight : 0"
+  },
+  "outputs": {
+    "primary": "power",
+    "breakdown": [
+      "split",
+      "pace",
+      "speed",
+      "distancePerStroke",
+      "powerPerWeight"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

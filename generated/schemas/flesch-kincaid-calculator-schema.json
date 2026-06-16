@@ -1,0 +1,55 @@
+{
+  "toolName": "flesch-kincaid-calculator",
+  "inputs": [
+    {
+      "id": "totalWords",
+      "label": "Total Words",
+      "type": "number",
+      "unit": "words",
+      "default": 0,
+      "businessContext": "Total number of words in the text to analyze."
+    },
+    {
+      "id": "totalSentences",
+      "label": "Total Sentences",
+      "type": "number",
+      "unit": "sentences",
+      "default": 0,
+      "businessContext": "Total number of sentences in the text."
+    },
+    {
+      "id": "totalSyllables",
+      "label": "Total Syllables",
+      "type": "number",
+      "unit": "syllables",
+      "default": 0,
+      "businessContext": "Total number of syllables across all words."
+    },
+    {
+      "id": "totalCharacters",
+      "label": "Total Characters (with spaces)",
+      "type": "number",
+      "unit": "characters",
+      "default": 0,
+      "businessContext": "Total character count including spaces; used to compute average characters per word."
+    }
+  ],
+  "formulas": {
+    "readingEaseScore": "206.835 - 1.015 * (totalWords / totalSentences) - 84.6 * (totalSyllables / totalWords)",
+    "gradeLevel": "0.39 * (totalWords / totalSentences) + 11.8 * (totalSyllables / totalWords) - 15.59",
+    "averageCharactersPerWord": "totalCharacters / totalWords"
+  },
+  "outputs": {
+    "primary": "readingEaseScore",
+    "breakdown": [
+      "gradeLevel",
+      "averageCharactersPerWord"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "euromillions-calculator",
+  "inputs": [
+    {
+      "id": "ticketCost",
+      "label": "Ticket Cost per Line",
+      "type": "number",
+      "unit": "EUR",
+      "default": 2.5,
+      "businessContext": "Standard cost of one EuroMillions ticket line in euros. Default 2.50 EUR."
+    },
+    {
+      "id": "linesPerDraw",
+      "label": "Lines per Draw",
+      "type": "number",
+      "unit": "lines",
+      "default": 1,
+      "businessContext": "Number of lines played per draw. Default 1."
+    },
+    {
+      "id": "drawsPerWeek",
+      "label": "Draws per Week",
+      "type": "number",
+      "unit": "draws/week",
+      "default": 2,
+      "businessContext": "Number of EuroMillions draws per week (typically 2 on Tuesday and Friday)."
+    },
+    {
+      "id": "weeks",
+      "label": "Number of Weeks",
+      "type": "number",
+      "unit": "weeks",
+      "default": 1,
+      "businessContext": "Number of weeks of continuous play."
+    },
+    {
+      "id": "bulkDiscount",
+      "label": "Bulk Discount",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage discount for multi-draw or subscription purchases (0-100)."
+    }
+  ],
+  "formulas": {
+    "totalTickets": "linesPerDraw * drawsPerWeek * weeks",
+    "costBeforeDiscount": "ticketCost * totalTickets",
+    "totalCost": "costBeforeDiscount * (1 - bulkDiscount / 100)"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "costBeforeDiscount",
+      "totalTickets"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

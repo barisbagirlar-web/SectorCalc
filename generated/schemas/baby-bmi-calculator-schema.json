@@ -1,0 +1,54 @@
+{
+  "toolName": "baby-bmi-calculator",
+  "inputs": [
+    {
+      "id": "weight_kg",
+      "label": "Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": null,
+      "businessContext": "Baby's weight in kilograms"
+    },
+    {
+      "id": "length_cm",
+      "label": "Length (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": null,
+      "businessContext": "Baby's length in centimeters"
+    },
+    {
+      "id": "weight_lb",
+      "label": "Weight (lb)",
+      "type": "number",
+      "unit": "lb",
+      "default": null,
+      "businessContext": "Baby's weight in pounds"
+    },
+    {
+      "id": "length_in",
+      "label": "Length (in)",
+      "type": "number",
+      "unit": "in",
+      "default": null,
+      "businessContext": "Baby's length in inches"
+    }
+  ],
+  "formulas": {
+    "bmi": "weight_kg != null && length_cm != null ? weight_kg / Math.pow(length_cm/100, 2) : (weight_lb != null && length_in != null ? (weight_lb/2.20462) / Math.pow((length_in*2.54)/100, 2) : null)"
+  },
+  "outputs": {
+    "primary": "bmi",
+    "breakdown": [
+      "BMI = weight (kg) / (length (m))²",
+      "If using metric: BMI = weight_kg / (length_cm/100)²",
+      "If using imperial: BMI = (weight_lb / 2.20462) / ((length_in * 2.54 / 100)²)"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "cohort-analysis-calculator",
+  "inputs": [
+    {
+      "id": "cohortASize",
+      "label": "Cohort A Size",
+      "type": "number",
+      "unit": "users",
+      "default": 1000,
+      "businessContext": "Initial number of users in Cohort A"
+    },
+    {
+      "id": "cohortBSize",
+      "label": "Cohort B Size",
+      "type": "number",
+      "unit": "users",
+      "default": 800,
+      "businessContext": "Initial number of users in Cohort B"
+    },
+    {
+      "id": "retentionRateA",
+      "label": "Retention Rate A",
+      "type": "number",
+      "unit": "%/period",
+      "default": 80,
+      "businessContext": "Period-over-period retention rate for Cohort A (as percentage)"
+    },
+    {
+      "id": "retentionRateB",
+      "label": "Retention Rate B",
+      "type": "number",
+      "unit": "%/period",
+      "default": 75,
+      "businessContext": "Period-over-period retention rate for Cohort B (as percentage)"
+    },
+    {
+      "id": "periods",
+      "label": "Number of Periods",
+      "type": "number",
+      "unit": "periods",
+      "default": 12,
+      "businessContext": "Time periods to project (e.g., months)"
+    }
+  ],
+  "formulas": {
+    "retainedA": "cohortASize * Math.pow(retentionRateA / 100, periods)",
+    "retainedB": "cohortBSize * Math.pow(retentionRateB / 100, periods)",
+    "totalRetained": "retainedA + retainedB"
+  },
+  "outputs": {
+    "primary": "totalRetained",
+    "breakdown": [
+      "retainedA",
+      "retainedB"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

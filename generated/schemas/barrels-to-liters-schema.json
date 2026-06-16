@@ -1,0 +1,39 @@
+{
+  "toolName": "barrels-to-liters",
+  "inputs": [
+    {
+      "id": "barrels",
+      "label": "Barrels (US oil)",
+      "type": "number",
+      "unit": "bbl",
+      "default": 1,
+      "businessContext": "Number of US oil barrels to convert"
+    },
+    {
+      "id": "barrelType",
+      "label": "Barrel type",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1=US oil (42 gal), 2=US liquid (31.5 gal), 3=UK imperial (36 gal)"
+    }
+  ],
+  "formulas": {
+    "liters": "barrels * (barrelType === 1 ? 158.987294928 : barrelType === 2 ? 119.240471196 : 163.65924)",
+    "gallons": "barrels * (barrelType === 1 ? 42 : barrelType === 2 ? 31.5 : 36)",
+    "cubicMeters": "liters / 1000"
+  },
+  "outputs": {
+    "primary": "liters",
+    "breakdown": [
+      "gallons",
+      "cubicMeters"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

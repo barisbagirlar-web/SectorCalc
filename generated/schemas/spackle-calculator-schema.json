@@ -1,0 +1,82 @@
+{
+  "toolName": "spackle-calculator",
+  "inputs": [
+    {
+      "id": "areaToCover",
+      "label": "Wall Area (m²)",
+      "type": "number",
+      "unit": "m²",
+      "default": 10,
+      "businessContext": "Total surface area that requires spackling"
+    },
+    {
+      "id": "numberOfHoles",
+      "label": "Number of Holes",
+      "type": "number",
+      "unit": "",
+      "default": 50,
+      "businessContext": "Approximate count of holes to fill"
+    },
+    {
+      "id": "holeDiameter",
+      "label": "Average Hole Diameter (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Diameter of typical holes in millimeters"
+    },
+    {
+      "id": "holeDepth",
+      "label": "Average Hole Depth (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 3,
+      "businessContext": "Depth of typical holes in millimeters"
+    },
+    {
+      "id": "spackleDensity",
+      "label": "Spackle Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1500,
+      "businessContext": "Density of the spackle compound used"
+    },
+    {
+      "id": "containerSize",
+      "label": "Container Size (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 5,
+      "businessContext": "Net weight of a single spackle container"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Extra material to account for waste and spillage"
+    }
+  ],
+  "formulas": {
+    "volumePerHole": "Math.PI * Math.pow((holeDiameter / 2 / 1000), 2) * (holeDepth / 1000)",
+    "totalVolume": "numberOfHoles * volumePerHole",
+    "spackleWeightKg": "totalVolume * spackleDensity",
+    "totalWithWaste": "spackleWeightKg * (1 + wasteFactor / 100)",
+    "containersNeeded": "totalWithWaste / containerSize"
+  },
+  "outputs": {
+    "primary": "totalWithWaste",
+    "breakdown": [
+      "volumePerHole",
+      "totalVolume",
+      "containersNeeded"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

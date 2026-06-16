@@ -1,0 +1,67 @@
+{
+  "toolName": "billionaire-calculator",
+  "inputs": [
+    {
+      "id": "currentNetWorth",
+      "label": "Mevcut Net Varlık ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "Mevcut birikim ve yatırımların toplam değeri"
+    },
+    {
+      "id": "annualIncome",
+      "label": "Yıllık Gelir ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "Yıllık toplam gelir (vergiler hariç)"
+    },
+    {
+      "id": "savingsRate",
+      "label": "Tasarruf Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Gelirin yatırıma ayrılan yüzdesi"
+    },
+    {
+      "id": "annualReturn",
+      "label": "Yıllık Getiri (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Yatırım portföyünün ortalama yıllık nominal getirisi"
+    },
+    {
+      "id": "desiredNetWorth",
+      "label": "Hedef Net Varlık ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 1000000000,
+      "businessContext": "Ulaşılmak istenen servet miktarı (varsayılan 1 milyar)"
+    }
+  ],
+  "formulas": {
+    "r": "annualReturn / 100",
+    "S": "annualIncome * (savingsRate / 100)",
+    "yearsToBillionaire": "Math.log((desiredNetWorth * r + S) / (currentNetWorth * r + S)) / Math.log(1 + r)",
+    "annualSavings": "S",
+    "totalContributions": "S * yearsToBillionaire",
+    "totalInterestEarned": "desiredNetWorth - currentNetWorth - (S * yearsToBillionaire)"
+  },
+  "outputs": {
+    "primary": "yearsToBillionaire",
+    "breakdown": [
+      "annualSavings",
+      "totalContributions",
+      "totalInterestEarned"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,52 @@
+{
+  "toolName": "mass-flow-rate-orifice-calculator",
+  "inputs": [
+    {
+      "id": "dischargeCoefficient",
+      "label": "Discharge Coefficient (C)",
+      "type": "number",
+      "unit": "",
+      "default": 0.62,
+      "businessContext": "Discharge coefficient accounting for flow contraction and friction losses, typically 0.6-0.7 for orifice plates."
+    },
+    {
+      "id": "orificeArea",
+      "label": "Orifice Area (A)",
+      "type": "number",
+      "unit": "m²",
+      "default": 0.01,
+      "businessContext": "Cross-sectional area of the orifice or restriction."
+    },
+    {
+      "id": "fluidDensity",
+      "label": "Fluid Density (ρ)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of the fluid. For water at 20°C, 998 kg/m³."
+    },
+    {
+      "id": "pressureDifference",
+      "label": "Pressure Difference (ΔP)",
+      "type": "number",
+      "unit": "Pa",
+      "default": 10000,
+      "businessContext": "Differential pressure across the orifice, measured in Pascals."
+    }
+  ],
+  "formulas": {
+    "massFlowRate": "dischargeCoefficient * orificeArea * Math.sqrt(2 * fluidDensity * pressureDifference)"
+  },
+  "outputs": {
+    "primary": "massFlowRate",
+    "breakdown": [
+      "massFlowRate"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

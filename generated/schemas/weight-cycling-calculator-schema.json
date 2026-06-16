@@ -1,0 +1,89 @@
+{
+  "toolName": "weight-cycling-calculator",
+  "inputs": [
+    {
+      "id": "initialWeight",
+      "label": "Initial Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Starting weight before cycling"
+    },
+    {
+      "id": "finalWeight",
+      "label": "Final Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "Target weight after cycling period"
+    },
+    {
+      "id": "cyclesPerDay",
+      "label": "Cycles per Day",
+      "type": "number",
+      "unit": "cycles/day",
+      "default": 3,
+      "businessContext": "Number of weight cycles performed daily"
+    },
+    {
+      "id": "days",
+      "label": "Days",
+      "type": "number",
+      "unit": "days",
+      "default": 7,
+      "businessContext": "Duration of cycling program"
+    },
+    {
+      "id": "energyPerCycle",
+      "label": "Energy per Cycle",
+      "type": "number",
+      "unit": "kWh",
+      "default": 0.5,
+      "businessContext": "Energy consumed per weight cycle"
+    },
+    {
+      "id": "cycleEfficiency",
+      "label": "Cycle Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Efficiency of weight cycling process"
+    }
+  ],
+  "formulas": {
+    "totalCycles": "cyclesPerDay * days",
+    "averageCycleWeight": "(initialWeight + finalWeight) / 2",
+    "totalWeightCycled": "(initialWeight + finalWeight) / 2 * cyclesPerDay * days",
+    "totalEnergyConsumption": "cyclesPerDay * days * energyPerCycle / (cycleEfficiency / 100)"
+  },
+  "outputs": {
+    "primary": {
+      "id": "totalWeightCycled",
+      "label": "Total Weight Cycled",
+      "unit": "kg"
+    },
+    "breakdown": [
+      {
+        "id": "averageCycleWeight",
+        "label": "Average Cycle Weight",
+        "unit": "kg"
+      },
+      {
+        "id": "totalCycles",
+        "label": "Total Cycles",
+        "unit": "cycles"
+      },
+      {
+        "id": "totalEnergyConsumption",
+        "label": "Total Energy Consumption",
+        "unit": "kWh"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

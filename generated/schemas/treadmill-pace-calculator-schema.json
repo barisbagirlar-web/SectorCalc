@@ -1,0 +1,58 @@
+{
+  "toolName": "treadmill-pace-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Mesafe (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 5,
+      "businessContext": "Koşu bandında katedilen mesafe"
+    },
+    {
+      "id": "hours",
+      "label": "Saat",
+      "type": "number",
+      "unit": "saat",
+      "default": 0,
+      "businessContext": "Koşu süresinin saat kısmı"
+    },
+    {
+      "id": "minutes",
+      "label": "Dakika",
+      "type": "number",
+      "unit": "dk",
+      "default": 30,
+      "businessContext": "Koşu süresinin dakika kısmı"
+    },
+    {
+      "id": "seconds",
+      "label": "Saniye",
+      "type": "number",
+      "unit": "sn",
+      "default": 0,
+      "businessContext": "Koşu süresinin saniye kısmı"
+    }
+  ],
+  "formulas": {
+    "totalSeconds": "hours * 3600 + minutes * 60 + seconds",
+    "paceSecondsPerKm": "totalSeconds / distance",
+    "paceMinPerKm": "paceSecondsPerKm / 60",
+    "speedKmh": "(distance * 3600) / totalSeconds",
+    "paceMinPerMile": "paceSecondsPerKm * 1.60934 / 60",
+    "paceDisplay": "Math.floor(paceMinPerKm) + ':' + (paceSecondsPerKm % 60 < 10 ? '0' : '') + (paceSecondsPerKm % 60) + ' min/km'"
+  },
+  "outputs": {
+    "primary": "paceDisplay",
+    "breakdown": [
+      "speedKmh km/sa",
+      "paceMinPerMile dk/mil"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

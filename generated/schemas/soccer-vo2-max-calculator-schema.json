@@ -1,0 +1,54 @@
+{
+  "toolName": "soccer-vo2-max-calculator",
+  "inputs": [
+    {
+      "id": "testType",
+      "label": "Test Type",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 for Shuttle Run (20m), 1 for Yo-Yo Intermittent Recovery Test Level 1"
+    },
+    {
+      "id": "maxSpeed",
+      "label": "Maximum Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 12,
+      "businessContext": "Speed at the last completed stage of the shuttle run test."
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 25,
+      "businessContext": "Age of the athlete."
+    },
+    {
+      "id": "distance",
+      "label": "Distance Covered",
+      "type": "number",
+      "unit": "m",
+      "default": 2000,
+      "businessContext": "Total distance covered during the Yo-Yo IR1 test."
+    }
+  ],
+  "formulas": {
+    "vo2max": "testType === 0 ? (31.025 + 3.238 * maxSpeed - 3.248 * age + 0.1536 * maxSpeed * age) : (distance * 0.0084 + 36.4)"
+  },
+  "outputs": {
+    "primary": "vo2max",
+    "unit": "ml/kg/min",
+    "breakdown": [
+      "Shuttle Run (20m) Formula: VO2max = 31.025 + 3.238 * maxSpeed - 3.248 * age + 0.1536 * maxSpeed * age",
+      "Yo-Yo IR1 Formula: VO2max = distance * 0.0084 + 36.4"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

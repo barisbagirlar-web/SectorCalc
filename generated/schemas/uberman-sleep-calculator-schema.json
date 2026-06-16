@@ -1,0 +1,57 @@
+{
+  "toolName": "uberman-sleep-calculator",
+  "inputs": [
+    {
+      "id": "napDuration",
+      "label": "Nap Duration (min)",
+      "type": "number",
+      "unit": "min",
+      "default": 20,
+      "businessContext": "Typical nap length in the Uberman cycle is 20 minutes. Adjust for personal adaptation."
+    },
+    {
+      "id": "intervalBetweenNaps",
+      "label": "Interval Between Naps (h)",
+      "type": "number",
+      "unit": "h",
+      "default": 4,
+      "businessContext": "The awake time between consecutive naps, in hours. Standard Uberman schedule uses 4-hour intervals."
+    },
+    {
+      "id": "numberOfNaps",
+      "label": "Number of Naps per Day",
+      "type": "number",
+      "unit": "count",
+      "default": 6,
+      "businessContext": "Total number of naps taken in a 24-hour period. Standard Uberman schedule includes 6 naps per day."
+    },
+    {
+      "id": "startHour",
+      "label": "Start Hour (24h)",
+      "type": "number",
+      "unit": "h",
+      "default": 0,
+      "businessContext": "The starting hour of the first nap in decimal format (e.g., 8.5 for 8:30 AM)."
+    }
+  ],
+  "formulas": {
+    "totalSleep": "napDuration * numberOfNaps / 60",
+    "totalSchedule": "(napDuration / 60 + intervalBetweenNaps) * numberOfNaps",
+    "freeTime": "24 - ((napDuration / 60 + intervalBetweenNaps) * numberOfNaps)",
+    "lastNapEnd": "(startHour + (napDuration / 60 + intervalBetweenNaps) * numberOfNaps) % 24"
+  },
+  "outputs": {
+    "primary": "totalSleep",
+    "breakdown": [
+      "totalSchedule",
+      "freeTime",
+      "lastNapEnd"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

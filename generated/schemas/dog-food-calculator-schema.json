@@ -1,0 +1,55 @@
+{
+  "toolName": "dog-food-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Dog Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 20,
+      "businessContext": "The weight of the dog in kilograms."
+    },
+    {
+      "id": "activityFactor",
+      "label": "Activity Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.6,
+      "businessContext": "Multiplier based on activity level: 1.2 for sedentary, 1.6 for typical, 2.0 for high activity."
+    },
+    {
+      "id": "ageMultiplier",
+      "label": "Age Multiplier",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Life stage adjustment: 1.8 for puppy, 1.0 for adult, 0.8 for senior."
+    },
+    {
+      "id": "foodEnergyDensity",
+      "label": "Food Energy Density",
+      "type": "number",
+      "unit": "kcal/100g",
+      "default": 350,
+      "businessContext": "Energy content of the dog food in kilocalories per 100 grams, as stated on packaging."
+    }
+  ],
+  "formulas": {
+    "rer": "70 * Math.pow(weight, 0.75)",
+    "der": "rer * activityFactor * ageMultiplier",
+    "dailyFoodGrams": "der * 100 / foodEnergyDensity"
+  },
+  "outputs": {
+    "primary": "dailyFoodGrams",
+    "breakdown": [
+      "rer",
+      "der"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

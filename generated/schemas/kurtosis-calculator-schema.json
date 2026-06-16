@@ -1,0 +1,54 @@
+{
+  "toolName": "kurtosis-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Sample Size (n)",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Number of data points in the sample or population"
+    },
+    {
+      "id": "sumSquared",
+      "label": "Sum of Squared Deviations",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Sum of (xi - mean)²"
+    },
+    {
+      "id": "sumFourth",
+      "label": "Sum of Fourth Power Deviations",
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "businessContext": "Sum of (xi - mean)⁴"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Number of decimal places for output rounding"
+    }
+  ],
+  "formulas": {
+    "kurtosis": "parseFloat(((sumFourth / n) / Math.pow(sumSquared / n, 2)).toFixed(decimalPlaces))",
+    "excessKurtosis": "parseFloat((((sumFourth / n) / Math.pow(sumSquared / n, 2)) - 3).toFixed(decimalPlaces))"
+  },
+  "outputs": {
+    "primary": "excessKurtosis",
+    "breakdown": [
+      "kurtosis",
+      "excessKurtosis"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

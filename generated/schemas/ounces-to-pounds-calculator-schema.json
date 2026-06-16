@@ -1,0 +1,55 @@
+{
+  "toolName": "ounces-to-pounds-calculator",
+  "inputs": [
+    {
+      "id": "ounces",
+      "label": "Ounces per Unit",
+      "type": "number",
+      "unit": "oz",
+      "default": 0,
+      "businessContext": "The weight of a single item in ounces."
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of identical items."
+    },
+    {
+      "id": "tare",
+      "label": "Packaging Weight",
+      "type": "number",
+      "unit": "oz",
+      "default": 0,
+      "businessContext": "Additional packaging weight in ounces."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "oz/lb",
+      "default": 16,
+      "businessContext": "Ounces per pound. Standard is 16. Override only if using a different standard."
+    }
+  ],
+  "formulas": {
+    "totalOunces": "ounces * quantity + tare",
+    "pounds": "totalOunces / conversionFactor",
+    "conversionFactorUsed": "conversionFactor"
+  },
+  "outputs": {
+    "primary": "pounds",
+    "breakdown": [
+      "totalOunces",
+      "conversionFactorUsed"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

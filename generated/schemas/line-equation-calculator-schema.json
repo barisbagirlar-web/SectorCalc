@@ -1,0 +1,65 @@
+{
+  "toolName": "line-equation-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "X₁",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First point x-coordinate"
+    },
+    {
+      "id": "y1",
+      "label": "Y₁",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First point y-coordinate"
+    },
+    {
+      "id": "x2",
+      "label": "X₂",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second point x-coordinate"
+    },
+    {
+      "id": "y2",
+      "label": "Y₂",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second point y-coordinate"
+    },
+    {
+      "id": "x_val",
+      "label": "X Value",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Evaluate line at this x"
+    }
+  ],
+  "formulas": {
+    "slope": "(y2 - y1) / (x2 - x1)",
+    "intercept": "y1 - slope * x1",
+    "angle": "Math.atan(slope) * (180 / Math.PI)",
+    "y_at_x": "slope * x_val + intercept"
+  },
+  "outputs": {
+    "primary": "slope",
+    "breakdown": [
+      "intercept",
+      "angle",
+      "y_at_x"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "hamilton-depression-rating-calculator",
+  "inputs": [
+    {
+      "id": "depth",
+      "label": "Maksimum Depresyon Derinliği (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.1,
+      "businessContext": "Ölçülen en derin çukur derinliği"
+    },
+    {
+      "id": "area",
+      "label": "Depresyon Alanı (mm²)",
+      "type": "number",
+      "unit": "mm²",
+      "default": 10,
+      "businessContext": "Depresyonun yüzey alanı"
+    },
+    {
+      "id": "count",
+      "label": "Depresyon Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Tespit edilen toplam depresyon adedi"
+    },
+    {
+      "id": "sharpness",
+      "label": "Kenar Keskinliği (1-5)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Depresyon kenarlarının keskinlik derecesi (1: yuvarlak, 5: keskin)"
+    },
+    {
+      "id": "materialFactor",
+      "label": "Malzeme Direnç Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Malzemenin depresyona karşı direncini gösteren katsayı (0.5-2.0)"
+    }
+  ],
+  "formulas": {
+    "totalScore": "depth * area * (1 + (count - 1) * 0.5) * sharpness / materialFactor",
+    "severityIndex": "Math.min(totalScore / 1000, 10)",
+    "depthEffect": "depth * area * sharpness / materialFactor",
+    "countMultiplier": "1 + (count - 1) * 0.5"
+  },
+  "outputs": {
+    "primary": "severityIndex",
+    "breakdown": [
+      "totalScore",
+      "depthEffect",
+      "countMultiplier"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

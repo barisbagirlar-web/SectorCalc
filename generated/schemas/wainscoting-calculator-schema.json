@@ -1,0 +1,73 @@
+{
+  "toolName": "wainscoting-calculator",
+  "inputs": [
+    {
+      "id": "wallLength",
+      "label": "Wall Length",
+      "type": "number",
+      "unit": "ft",
+      "default": 12,
+      "businessContext": "Total length of the wall where wainscoting will be installed."
+    },
+    {
+      "id": "wainscotingHeight",
+      "label": "Wainscoting Height",
+      "type": "number",
+      "unit": "ft",
+      "default": 3,
+      "businessContext": "Height of the wainscoting paneling from floor to top rail."
+    },
+    {
+      "id": "panelWidth",
+      "label": "Panel Width",
+      "type": "number",
+      "unit": "ft",
+      "default": 2,
+      "businessContext": "Width of each individual wainscoting panel (excluding stiles)."
+    },
+    {
+      "id": "stileWidth",
+      "label": "Stile Width",
+      "type": "number",
+      "unit": "ft",
+      "default": 0.25,
+      "businessContext": "Width of the vertical trim pieces separating panels (includes end stiles)."
+    },
+    {
+      "id": "sheetLength",
+      "label": "Plywood Sheet Length",
+      "type": "number",
+      "unit": "ft",
+      "default": 8,
+      "businessContext": "Length of a standard plywood sheet (typically 8 ft)."
+    },
+    {
+      "id": "sheetWidth",
+      "label": "Plywood Sheet Width",
+      "type": "number",
+      "unit": "ft",
+      "default": 4,
+      "businessContext": "Width of a standard plywood sheet (typically 4 ft)."
+    }
+  ],
+  "formulas": {
+    "nPanels": "Math.floor((wallLength - stileWidth) / (panelWidth + stileWidth))",
+    "nStiles": "nPanels + 1",
+    "totalTrimLength": "2 * wallLength + nStiles * wainscotingHeight",
+    "plywoodSheets": "Math.ceil(nPanels * panelWidth * wainscotingHeight / (sheetLength * sheetWidth))"
+  },
+  "outputs": {
+    "primary": "nPanels",
+    "breakdown": [
+      "nStiles",
+      "totalTrimLength",
+      "plywoodSheets"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

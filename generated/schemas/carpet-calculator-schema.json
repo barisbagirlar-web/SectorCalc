@@ -1,0 +1,73 @@
+{
+  "toolName": "carpet-calculator",
+  "inputs": [
+    {
+      "id": "roomLength",
+      "label": "Oda Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Halı döşenecek odanın ana yöndeki uzunluğu (metre)."
+    },
+    {
+      "id": "roomWidth",
+      "label": "Oda Genişliği",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Halı döşenecek odanın enlemesine genişliği (metre)."
+    },
+    {
+      "id": "carpetRollWidth",
+      "label": "Halı Rulo Eni",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Standart halı rulo genişliği; piyasada 3, 4, 5 m olabilir."
+    },
+    {
+      "id": "carpetPricePerSqm",
+      "label": "Halı Birim Fiyatı",
+      "type": "number",
+      "unit": "TRY/m²",
+      "default": 50,
+      "businessContext": "Seçilen halının metrekare başına satış fiyatı."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Kesim, desen uydurma ve ek yerleri için ayrılan ilave malzeme yüzdesi."
+    },
+    {
+      "id": "installationCostPerSqm",
+      "label": "Döşeme İşçilik Bedeli",
+      "type": "number",
+      "unit": "TRY/m²",
+      "default": 20,
+      "businessContext": "Halının serilmesi için usta tarafından metrekare başına alınan işçilik ücreti."
+    }
+  ],
+  "formulas": {
+    "totalCarpetArea": "roomLength * roomWidth * (1 + wasteFactor / 100)",
+    "materialCost": "totalCarpetArea * carpetPricePerSqm",
+    "installationCost": "roomLength * roomWidth * installationCostPerSqm",
+    "totalCost": "materialCost + installationCost"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "materialCost",
+      "installationCost",
+      "totalCarpetArea"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

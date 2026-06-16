@@ -1,0 +1,64 @@
+// Auto-generated from divisor-calculator-schema.json
+import * as z from 'zod';
+
+export interface Divisor_calculatorInput {
+  gear1Teeth: number;
+  gear2Teeth: number;
+  gear3Teeth: number;
+  gear4Teeth: number;
+  gear5Teeth: number;
+  gear6Teeth: number;
+}
+
+export const Divisor_calculatorInputSchema = z.object({
+  gear1Teeth: z.number().default(20),
+  gear2Teeth: z.number().default(40),
+  gear3Teeth: z.number().default(20),
+  gear4Teeth: z.number().default(60),
+  gear5Teeth: z.number().default(20),
+  gear6Teeth: z.number().default(80),
+});
+
+function evaluateAllFormulas(input: Divisor_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.gear2Teeth * input.gear4Teeth * input.gear6Teeth) / (input.gear1Teeth * input.gear3Teeth * input.gear5Teeth); results["overallGearRatio"] = Number.isFinite(v) ? v : 0; } catch { results["overallGearRatio"] = 0; }
+  try { const v = input.gear2Teeth / input.gear1Teeth; results["stage1Ratio"] = Number.isFinite(v) ? v : 0; } catch { results["stage1Ratio"] = 0; }
+  try { const v = input.gear4Teeth / input.gear3Teeth; results["stage2Ratio"] = Number.isFinite(v) ? v : 0; } catch { results["stage2Ratio"] = 0; }
+  try { const v = input.gear6Teeth / input.gear5Teeth; results["stage3Ratio"] = Number.isFinite(v) ? v : 0; } catch { results["stage3Ratio"] = 0; }
+  return results;
+}
+
+
+export function calculateDivisor_calculator(input: Divisor_calculatorInput): Divisor_calculatorOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values["overallGearRatio"] ?? 0;
+  const breakdown = {
+    
+  };
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    premiumRequired: false,
+    premiumFeatures: [],
+  };
+}
+
+
+export interface Divisor_calculatorOutput {
+  totalWasteCost: number;
+  breakdown: {  };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+}

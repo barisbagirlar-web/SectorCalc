@@ -1,0 +1,58 @@
+{
+  "toolName": "operating-lease-calculator",
+  "inputs": [
+    {
+      "id": "assetCost",
+      "label": "Asset Cost",
+      "type": "number",
+      "unit": "EUR",
+      "default": 50000,
+      "businessContext": "Initial purchase price of the asset."
+    },
+    {
+      "id": "residualValue",
+      "label": "Residual Value",
+      "type": "number",
+      "unit": "EUR",
+      "default": 10000,
+      "businessContext": "Estimated value of the asset at end of lease."
+    },
+    {
+      "id": "leaseTerm",
+      "label": "Lease Term",
+      "type": "number",
+      "unit": "months",
+      "default": 36,
+      "businessContext": "Duration of the lease in months."
+    },
+    {
+      "id": "interestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual interest rate for lease financing."
+    }
+  ],
+  "formulas": {
+    "monthlyInterestRate": "interestRate / 100 / 12",
+    "pvResidual": "residualValue / Math.pow(1 + monthlyInterestRate, leaseTerm)",
+    "pvAnnuityFactor": "(1 - Math.pow(1 + monthlyInterestRate, -leaseTerm)) / monthlyInterestRate",
+    "monthlyPayment": "(assetCost - pvResidual) / pvAnnuityFactor",
+    "totalLeaseCost": "monthlyPayment * leaseTerm",
+    "totalInterest": "totalLeaseCost - (assetCost - residualValue)"
+  },
+  "outputs": {
+    "primary": "monthlyPayment",
+    "breakdown": [
+      "totalLeaseCost",
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

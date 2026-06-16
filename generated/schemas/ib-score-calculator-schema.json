@@ -1,0 +1,69 @@
+{
+  "toolName": "ib-score-calculator",
+  "inputs": [
+    {
+      "id": "productivityScore",
+      "label": "Productivity Score",
+      "type": "number",
+      "unit": "score",
+      "default": 75,
+      "businessContext": "Productivity performance rating (0-100)"
+    },
+    {
+      "id": "qualityScore",
+      "label": "Quality Score",
+      "type": "number",
+      "unit": "score",
+      "default": 80,
+      "businessContext": "Quality assurance rating (0-100)"
+    },
+    {
+      "id": "deliveryScore",
+      "label": "On-Time Delivery Score",
+      "type": "number",
+      "unit": "score",
+      "default": 90,
+      "businessContext": "Delivery adherence rating (0-100)"
+    },
+    {
+      "id": "safetyScore",
+      "label": "Safety Compliance Score",
+      "type": "number",
+      "unit": "score",
+      "default": 85,
+      "businessContext": "Workplace safety rating (0-100)"
+    },
+    {
+      "id": "costScore",
+      "label": "Cost Efficiency Score",
+      "type": "number",
+      "unit": "score",
+      "default": 70,
+      "businessContext": "Operational cost performance rating (0-100)"
+    }
+  ],
+  "formulas": {
+    "prodWeighted": "productivityScore * 0.25",
+    "qualWeighted": "qualityScore * 0.30",
+    "delivWeighted": "deliveryScore * 0.20",
+    "safeWeighted": "safetyScore * 0.15",
+    "costWeighted": "costScore * 0.10",
+    "totalScore": "prodWeighted + qualWeighted + delivWeighted + safeWeighted + costWeighted"
+  },
+  "outputs": {
+    "primary": "totalScore",
+    "breakdown": [
+      "prodWeighted",
+      "qualWeighted",
+      "delivWeighted",
+      "safeWeighted",
+      "costWeighted"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

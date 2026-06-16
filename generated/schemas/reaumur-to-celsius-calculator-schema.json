@@ -1,0 +1,56 @@
+{
+  "toolName": "reaumur-to-celsius-calculator",
+  "inputs": [
+    {
+      "id": "reaumur",
+      "label": "Réaumur Temperature",
+      "type": "number",
+      "unit": "°Ré",
+      "default": 0,
+      "businessContext": "The temperature value measured in degrees Réaumur to be converted to Celsius."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output result. Ensures compliance with reporting precision requirements."
+    },
+    {
+      "id": "measurementUncertainty",
+      "label": "Measurement Uncertainty (±)",
+      "type": "number",
+      "unit": "°Ré",
+      "default": 0,
+      "businessContext": "The estimated uncertainty of the Réaumur measurement, for quality assurance documentation."
+    },
+    {
+      "id": "calibrationOffset",
+      "label": "Calibration Offset",
+      "type": "number",
+      "unit": "°Ré",
+      "default": 0,
+      "businessContext": "Optional offset to correct for systematic error in the measurement device, as per calibration certificate."
+    }
+  ],
+  "formulas": {
+    "celsiusRaw": "(reaumur + calibrationOffset) * 1.25",
+    "celsius": "Math.round(((reaumur + calibrationOffset) * 1.25) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "uncertaintyCelsius": "measurementUncertainty * 1.25"
+  },
+  "outputs": {
+    "primary": "celsius",
+    "breakdown": [
+      "celsius",
+      "celsiusRaw",
+      "uncertaintyCelsius"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

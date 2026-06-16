@@ -1,0 +1,70 @@
+{
+  "toolName": "keto-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Total body weight in kilograms"
+    },
+    {
+      "id": "bodyFat",
+      "label": "Body Fat Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Estimated body fat percentage (e.g., 25 for 25%)"
+    },
+    {
+      "id": "gender",
+      "label": "Gender (1=Male, 0=Female)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for male, 0 for female"
+    },
+    {
+      "id": "activityLevel",
+      "label": "Activity Level Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1.55,
+      "businessContext": "1.2: Sedentary, 1.375: Lightly Active, 1.55: Moderately Active, 1.725: Very Active, 1.9: Extra Active"
+    },
+    {
+      "id": "deficitPercent",
+      "label": "Caloric Deficit",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Percentage to reduce maintenance calories (0=maintenance, 20=20% deficit for weight loss)"
+    }
+  ],
+  "formulas": {
+    "leanBodyMass": "weight * (1 - bodyFat / 100)",
+    "bmr": "370 + 21.6 * leanBodyMass",
+    "tdee": "bmr * activityLevel",
+    "dailyCalories": "tdee * (1 - deficitPercent / 100)",
+    "proteinGrams": "leanBodyMass * 1.6",
+    "netCarbs": "20",
+    "proteinCalories": "proteinGrams * 4",
+    "carbsCalories": "netCarbs * 4",
+    "fatCalories": "Math.max(0, dailyCalories - proteinCalories - carbsCalories)",
+    "fatGrams": "fatCalories / 9"
+  },
+  "outputs": {
+    "primary": "dailyCalories",
+    "breakdown": [
+      "fatGrams",
+      "proteinGrams",
+      "netCarbs",
+      "leanBodyMass",
+      "bmr"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false
+}

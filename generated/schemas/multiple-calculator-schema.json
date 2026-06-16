@@ -1,0 +1,73 @@
+{
+  "toolName": "multiple-calculator",
+  "inputs": [
+    {
+      "id": "quantity",
+      "label": "Production Quantity",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "businessContext": "Number of units to be produced"
+    },
+    {
+      "id": "materialCostPerUnit",
+      "label": "Material Cost per Unit",
+      "type": "number",
+      "unit": "currency",
+      "default": 10,
+      "businessContext": "Cost of raw materials per unit"
+    },
+    {
+      "id": "laborCostPerUnit",
+      "label": "Labor Cost per Unit",
+      "type": "number",
+      "unit": "currency",
+      "default": 5,
+      "businessContext": "Direct labor cost per unit"
+    },
+    {
+      "id": "overheadFixed",
+      "label": "Fixed Overhead Costs",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "businessContext": "Total fixed overhead costs for the production run"
+    },
+    {
+      "id": "profitMarginPercent",
+      "label": "Profit Margin (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Desired profit margin as percentage of cost"
+    },
+    {
+      "id": "taxRatePercent",
+      "label": "Tax Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "businessContext": "Applicable sales tax rate"
+    }
+  ],
+  "formulas": {
+    "totalCost": "(materialCostPerUnit + laborCostPerUnit) * quantity + overheadFixed",
+    "costPerUnit": "((materialCostPerUnit + laborCostPerUnit) * quantity + overheadFixed) / quantity",
+    "sellingPrice": "((materialCostPerUnit + laborCostPerUnit) * quantity + overheadFixed) / quantity * (1 + profitMarginPercent / 100) * (1 + taxRatePercent / 100)",
+    "profitPerUnit": "((materialCostPerUnit + laborCostPerUnit) * quantity + overheadFixed) / quantity * (profitMarginPercent / 100)"
+  },
+  "outputs": {
+    "primary": "costPerUnit",
+    "breakdown": [
+      "totalCost",
+      "sellingPrice",
+      "profitPerUnit"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

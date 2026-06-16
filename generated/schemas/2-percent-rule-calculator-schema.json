@@ -1,0 +1,57 @@
+{
+  "toolName": "2-percent-rule-calculator",
+  "inputs": [
+    {
+      "id": "propertyPrice",
+      "label": "Property Price",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "Listing or agreed price of property"
+    },
+    {
+      "id": "closingCosts",
+      "label": "Closing Costs",
+      "type": "number",
+      "unit": "$",
+      "default": 5000,
+      "businessContext": "Additional acquisition costs (taxes, legal fees, commissions)"
+    },
+    {
+      "id": "monthlyRent",
+      "label": "Monthly Rent",
+      "type": "number",
+      "unit": "$",
+      "default": 2000,
+      "businessContext": "Expected gross monthly rental income"
+    },
+    {
+      "id": "targetPercent",
+      "label": "Target Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Threshold for the 2% rule (typically 2%)"
+    }
+  ],
+  "formulas": {
+    "meetsRule": "(monthlyRent / (propertyPrice + closingCosts)) * 100 >= targetPercent",
+    "actualPercent": "(monthlyRent / (propertyPrice + closingCosts)) * 100",
+    "requiredRent": "(propertyPrice + closingCosts) * targetPercent / 100",
+    "maxPrice": "(monthlyRent / (targetPercent / 100)) - closingCosts"
+  },
+  "outputs": {
+    "primary": "meetsRule",
+    "breakdown": [
+      "actualPercent",
+      "requiredRent",
+      "maxPrice"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "blackjack-probability-calculator",
+  "inputs": [
+    {
+      "id": "numberOfDecks",
+      "label": "Number of Decks",
+      "type": "number",
+      "unit": "deck",
+      "default": 6,
+      "businessContext": "Number of decks in the shoe, typically 1-8."
+    },
+    {
+      "id": "acesRemaining",
+      "label": "Aces Remaining",
+      "type": "number",
+      "unit": "cards",
+      "default": 24,
+      "businessContext": "Number of aces left in the shoe."
+    },
+    {
+      "id": "tensRemaining",
+      "label": "Ten-value Cards Remaining",
+      "type": "number",
+      "unit": "cards",
+      "default": 96,
+      "businessContext": "Number of 10, J, Q, K left in the shoe."
+    },
+    {
+      "id": "otherCardsRemaining",
+      "label": "Other Cards Remaining",
+      "type": "number",
+      "unit": "cards",
+      "default": 192,
+      "businessContext": "Number of 2-9 cards left in the shoe."
+    }
+  ],
+  "formulas": {
+    "blackjackProbability": "((acesRemaining / (acesRemaining + tensRemaining + otherCardsRemaining)) * (tensRemaining / (acesRemaining + tensRemaining + otherCardsRemaining - 1)) + (tensRemaining / (acesRemaining + tensRemaining + otherCardsRemaining)) * (acesRemaining / (acesRemaining + tensRemaining + otherCardsRemaining - 1))) * 100",
+    "aceThenTenProbability": "(acesRemaining / (acesRemaining + tensRemaining + otherCardsRemaining)) * (tensRemaining / (acesRemaining + tensRemaining + otherCardsRemaining - 1)) * 100",
+    "tenThenAceProbability": "(tensRemaining / (acesRemaining + tensRemaining + otherCardsRemaining)) * (acesRemaining / (acesRemaining + tensRemaining + otherCardsRemaining - 1)) * 100"
+  },
+  "outputs": {
+    "primary": "blackjackProbability",
+    "breakdown": [
+      "aceThenTenProbability",
+      "tenThenAceProbability"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,53 @@
+{
+  "toolName": "week-number-calculator",
+  "inputs": [
+    {
+      "id": "year",
+      "label": "Yıl",
+      "type": "number",
+      "unit": "",
+      "default": 2025,
+      "businessContext": "Hafta numarası hesaplanacak yıl"
+    },
+    {
+      "id": "month",
+      "label": "Ay",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Hafta numarası hesaplanacak ay (1-12)"
+    },
+    {
+      "id": "day",
+      "label": "Gün",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Hafta numarası hesaplanacak gün (1-31)"
+    },
+    {
+      "id": "weekStartDay",
+      "label": "Hafta Başlangıç Günü",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Haftanın başladığı gün (0=Pazar, 1=Pazartesi, ..., 6=Cumartesi)"
+    }
+  ],
+  "formulas": {
+    "dayOfYear": "Math.floor((Date.UTC(year, month-1, day) - Date.UTC(year, 0, 0)) / 86400000)",
+    "weekNumber": "Math.ceil((dayOfYear + (weekStartDay - new Date(year, 0, 1).getDay() + 7) % 7) / 7)"
+  },
+  "outputs": {
+    "primary": "weekNumber",
+    "breakdown": [
+      "dayOfYear"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

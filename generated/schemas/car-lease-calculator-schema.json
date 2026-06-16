@@ -1,0 +1,83 @@
+{
+  "toolName": "car-lease-calculator",
+  "inputs": [
+    {
+      "id": "carPrice",
+      "label": "Car Price",
+      "type": "number",
+      "unit": "€",
+      "default": 30000,
+      "businessContext": "Net price of the vehicle"
+    },
+    {
+      "id": "residualValue",
+      "label": "Residual Value",
+      "type": "number",
+      "unit": "€",
+      "default": 15000,
+      "businessContext": "Estimated value at lease end"
+    },
+    {
+      "id": "moneyFactor",
+      "label": "Money Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.0025,
+      "businessContext": "Interest rate factor (money factor = APR / 2400)"
+    },
+    {
+      "id": "leaseTerm",
+      "label": "Lease Term",
+      "type": "number",
+      "unit": "months",
+      "default": 36,
+      "businessContext": "Duration of the lease"
+    },
+    {
+      "id": "downPayment",
+      "label": "Down Payment",
+      "type": "number",
+      "unit": "€",
+      "default": 2000,
+      "businessContext": "Initial payment"
+    },
+    {
+      "id": "salesTaxRate",
+      "label": "Sales Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "businessContext": "Tax rate applied to monthly payment"
+    },
+    {
+      "id": "acquisitionFee",
+      "label": "Acquisition Fee",
+      "type": "number",
+      "unit": "€",
+      "default": 500,
+      "businessContext": "One-time fee at lease start"
+    }
+  ],
+  "formulas": {
+    "netCapCost": "carPrice - downPayment + acquisitionFee",
+    "depreciationFee": "(netCapCost - residualValue) / leaseTerm",
+    "financeFee": "(netCapCost + residualValue) * moneyFactor",
+    "monthlyPaymentBeforeTax": "depreciationFee + financeFee",
+    "monthlyPayment": "monthlyPaymentBeforeTax * (1 + salesTaxRate / 100)",
+    "totalLeaseCost": "monthlyPayment * leaseTerm + downPayment + acquisitionFee"
+  },
+  "outputs": {
+    "primary": "monthlyPayment",
+    "breakdown": [
+      "totalLeaseCost",
+      "depreciationFee",
+      "financeFee"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

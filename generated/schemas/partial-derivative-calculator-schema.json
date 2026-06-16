@@ -1,0 +1,59 @@
+{
+  "toolName": "partial-derivative-calculator",
+  "inputs": [
+    {
+      "id": "F",
+      "label": "Kuvvet (F)",
+      "type": "number",
+      "unit": "N",
+      "default": 1000,
+      "businessContext": "Uygulanan kuvvet"
+    },
+    {
+      "id": "L",
+      "label": "Uzunluk (L)",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Kiriş uzunluğu"
+    },
+    {
+      "id": "b",
+      "label": "Genişlik (b)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Kesit genişliği"
+    },
+    {
+      "id": "h",
+      "label": "Yükseklik (h)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.2,
+      "businessContext": "Kesit yüksekliği"
+    }
+  ],
+  "formulas": {
+    "primary": "6 * F * L / (b * h**2)",
+    "breakdown0": "6 * L / (b * h**2)",
+    "breakdown1": "6 * F / (b * h**2)",
+    "breakdown2": "-6 * F * L / (b**2 * h**2)",
+    "breakdown3": "-12 * F * L / (b * h**3)"
+  },
+  "outputs": {
+    "primary": "Eğilme Gerilmesi σ (Pa)",
+    "breakdown": [
+      "∂σ/∂F (Pa/N)",
+      "∂σ/∂L (Pa/m)",
+      "∂σ/∂b (Pa/m)",
+      "∂σ/∂h (Pa/m)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

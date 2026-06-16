@@ -1,0 +1,61 @@
+{
+  "toolName": "rockport-walk-test-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the individual in years"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Gender: 0 for female, 1 for male"
+    },
+    {
+      "id": "walkingTime",
+      "label": "Walking Time",
+      "type": "number",
+      "unit": "minutes",
+      "default": 15,
+      "businessContext": "Time to walk 1 mile in minutes"
+    },
+    {
+      "id": "heartRate",
+      "label": "Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 120,
+      "businessContext": "Heart rate immediately after completing the walk in beats per minute"
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms"
+    }
+  ],
+  "formulas": {
+    "weightLbs": "weight * 2.20462",
+    "vo2max": "132.853 - (0.0769 * weightLbs) - (0.3877 * age) + (6.315 * gender) - (3.2649 * walkingTime) - (0.1565 * heartRate)"
+  },
+  "outputs": {
+    "primary": "vo2max",
+    "breakdown": [
+      "weightLbs"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

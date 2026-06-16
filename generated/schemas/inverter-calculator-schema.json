@@ -1,0 +1,65 @@
+{
+  "toolName": "inverter-calculator",
+  "inputs": [
+    {
+      "id": "outputPowerKW",
+      "label": "Output Power (kW)",
+      "type": "number",
+      "unit": "kW",
+      "default": 1,
+      "businessContext": "Desired AC output power in kilowatts"
+    },
+    {
+      "id": "inputDcVoltage",
+      "label": "Input DC Voltage (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 48,
+      "businessContext": "Nominal DC input voltage from source"
+    },
+    {
+      "id": "outputAcVoltage",
+      "label": "Output AC Voltage (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 230,
+      "businessContext": "Nominal AC output voltage (line-to-neutral for single-phase)"
+    },
+    {
+      "id": "efficiency",
+      "label": "Inverter Efficiency (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Typical efficiency of inverter (90-98%)"
+    },
+    {
+      "id": "powerFactor",
+      "label": "Power Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "businessContext": "Load power factor (cos φ), typically 0.8 for motors"
+    }
+  ],
+  "formulas": {
+    "dcPowerKW": "outputPowerKW / (efficiency / 100)",
+    "dcCurrentA": "(outputPowerKW / (efficiency / 100)) * 1000 / inputDcVoltage",
+    "apparentPowerKVA": "outputPowerKW / powerFactor",
+    "acCurrentA": "(outputPowerKW / powerFactor) * 1000 / outputAcVoltage"
+  },
+  "outputs": {
+    "primary": "dcPowerKW",
+    "breakdown": [
+      "dcCurrentA",
+      "apparentPowerKVA",
+      "acCurrentA"
+    ]
+  },
+  "premiumRequired": false,
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

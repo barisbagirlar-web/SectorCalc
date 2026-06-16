@@ -1,0 +1,57 @@
+{
+  "toolName": "prism-surface-area-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Length of the rectangular prism base"
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Width of the rectangular prism base"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "businessContext": "Height (prism height) of the prism"
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of identical prisms"
+    }
+  ],
+  "formulas": {
+    "baseAreasTotal": "2 * length * width",
+    "lateralArea": "2 * (length + width) * height",
+    "surfaceAreaPerItem": "baseAreasTotal + lateralArea",
+    "totalSurfaceAreaAll": "surfaceAreaPerItem * quantity"
+  },
+  "outputs": {
+    "primary": "totalSurfaceAreaAll",
+    "breakdown": [
+      "surfaceAreaPerItem",
+      "baseAreasTotal",
+      "lateralArea"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

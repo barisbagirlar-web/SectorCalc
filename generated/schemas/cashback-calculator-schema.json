@@ -1,0 +1,63 @@
+{
+  "toolName": "cashback-calculator",
+  "inputs": [
+    {
+      "id": "purchaseAmount",
+      "label": "Satın Alma Tutarı",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Toplam satış faturası tutarı (TL)"
+    },
+    {
+      "id": "cashbackRate",
+      "label": "Nakit İade Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Nakit iade yüzdesi"
+    },
+    {
+      "id": "minSpend",
+      "label": "Minimum Harcama",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Nakit iade kazanmak için gerekli minimum harcama limiti"
+    },
+    {
+      "id": "maxCashback",
+      "label": "Maksimum İade Limiti",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Maksimum nakit iade miktarı (0 = limitsiz)"
+    },
+    {
+      "id": "campaignMultiplier",
+      "label": "Kampanya Çarpanı",
+      "type": "number",
+      "unit": "çarpan",
+      "default": 1,
+      "businessContext": "Özel dönem kampanya katsayısı"
+    }
+  ],
+  "formulas": {
+    "cashbackAmount": "purchaseAmount >= minSpend ? Math.min(purchaseAmount * (cashbackRate / 100) * campaignMultiplier, maxCashback || Infinity) : 0",
+    "baseCashback": "purchaseAmount * (cashbackRate / 100) * campaignMultiplier",
+    "qualifyingSpend": "purchaseAmount >= minSpend ? purchaseAmount : 0"
+  },
+  "outputs": {
+    "primary": "cashbackAmount",
+    "breakdown": [
+      "baseCashback",
+      "qualifyingSpend"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "tesla-calculator",
+  "inputs": [
+    {
+      "id": "numberOfTurns",
+      "label": "Number of Turns",
+      "type": "number",
+      "unit": "turns",
+      "default": 100,
+      "businessContext": "Total number of wire turns in the solenoid coil"
+    },
+    {
+      "id": "current",
+      "label": "Current",
+      "type": "number",
+      "unit": "A",
+      "default": 10,
+      "businessContext": "Current flowing through the coil"
+    },
+    {
+      "id": "coilLength",
+      "label": "Coil Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Length of the solenoid coil"
+    },
+    {
+      "id": "relativePermeability",
+      "label": "Relative Permeability",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Relative magnetic permeability of the core material (1 for air/vacuum)"
+    }
+  ],
+  "formulas": {
+    "magneticFluxDensity": "4 * Math.PI * 1e-7 * relativePermeability * numberOfTurns * current / coilLength",
+    "magneticFluxDensityGauss": "magneticFluxDensity * 10000",
+    "magnetomotiveForce": "numberOfTurns * current",
+    "magneticFieldStrength": "numberOfTurns * current / coilLength"
+  },
+  "outputs": {
+    "primary": "magneticFluxDensity",
+    "breakdown": [
+      "magneticFluxDensityGauss",
+      "magnetomotiveForce",
+      "magneticFieldStrength"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

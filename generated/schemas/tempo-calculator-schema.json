@@ -1,0 +1,55 @@
+{
+  "toolName": "tempo-calculator",
+  "inputs": [
+    {
+      "id": "availableTimePerShift",
+      "label": "Vardiya Başına Net Çalışma Süresi",
+      "type": "number",
+      "unit": "saat",
+      "default": 8,
+      "businessContext": "Molalar düşüldükten sonraki net çalışma süresi"
+    },
+    {
+      "id": "shiftsPerDay",
+      "label": "Günlük Vardiya Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Günlük vardiya sayısı"
+    },
+    {
+      "id": "demandPerDay",
+      "label": "Günlük Talep Miktarı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1000,
+      "businessContext": "Müşterinin günlük talep ettiği ürün adedi"
+    },
+    {
+      "id": "efficiencyFactor",
+      "label": "Verimlilik Faktörü",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Planlı duruşlar, arızalar vb. kayıpları yansıtan verimlilik oranı"
+    }
+  ],
+  "formulas": {
+    "taktTime": "(availableTimePerShift * shiftsPerDay * 3600 * efficiencyFactor / 100) / demandPerDay",
+    "tempoHour": "demandPerDay / (availableTimePerShift * shiftsPerDay * efficiencyFactor / 100)",
+    "netTimeSeconds": "availableTimePerShift * shiftsPerDay * 3600 * efficiencyFactor / 100"
+  },
+  "outputs": {
+    "primary": "taktTime",
+    "breakdown": [
+      "tempoHour",
+      "netTimeSeconds"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

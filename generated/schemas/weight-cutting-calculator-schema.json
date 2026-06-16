@@ -1,0 +1,63 @@
+{
+  "toolName": "weight-cutting-calculator",
+  "inputs": [
+    {
+      "id": "density",
+      "label": "Material Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "businessContext": "Density of the material in kilograms per cubic meter. Common steel density is 7850 kg/m³."
+    },
+    {
+      "id": "initialLength",
+      "label": "Initial Length",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Total length of the sheet or bar before cutting in meters."
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Width of the material in meters."
+    },
+    {
+      "id": "thickness",
+      "label": "Thickness",
+      "type": "number",
+      "unit": "m",
+      "default": 0.01,
+      "businessContext": "Thickness of the material in meters."
+    },
+    {
+      "id": "desiredWeight",
+      "label": "Desired Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Target weight after cutting in kilograms."
+    }
+  ],
+  "formulas": {
+    "cutLength": "initialLength - (desiredWeight / (density * width * thickness))",
+    "finalWeight": "desiredWeight",
+    "scrapWeight": "(density * initialLength * width * thickness) - desiredWeight"
+  },
+  "outputs": {
+    "primary": "cutLength",
+    "breakdown": [
+      "finalWeight",
+      "scrapWeight"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

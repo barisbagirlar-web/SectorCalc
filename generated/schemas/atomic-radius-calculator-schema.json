@@ -1,0 +1,59 @@
+{
+  "toolName": "atomic-radius-calculator",
+  "inputs": [
+    {
+      "id": "density",
+      "label": "Density",
+      "type": "number",
+      "unit": "g/cm³",
+      "default": 7.87,
+      "businessContext": "The density of the material in grams per cubic centimeter."
+    },
+    {
+      "id": "molarMass",
+      "label": "Molar Mass",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 55.845,
+      "businessContext": "The molar mass of the element in grams per mole."
+    },
+    {
+      "id": "structureType",
+      "label": "Crystal Structure",
+      "type": "number",
+      "unit": "index",
+      "default": 2,
+      "businessContext": "Crystal structure index: 0=Custom packing factor, 1=Simple Cubic, 2=BCC, 3=FCC, 4=HCP."
+    },
+    {
+      "id": "manualPackingFactor",
+      "label": "Custom Packing Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.74,
+      "businessContext": "Used only if structure type is 0. Typical values: 0.52 (SC), 0.68 (BCC), 0.74 (FCC/HCP)."
+    }
+  ],
+  "formulas": {
+    "avogadro": 6.02214076e+23,
+    "volumePerAtom": "molarMass / (density * avogadro)",
+    "packingFactorUsed": "structureType == 0 ? manualPackingFactor : (structureType == 1 ? 0.52 : structureType == 2 ? 0.68 : structureType == 3 ? 0.74 : 0.74)",
+    "atomicVolume": "packingFactorUsed * volumePerAtom",
+    "atomicRadiusCm": "Math.pow(3 * atomicVolume / (4 * Math.PI), 1/3)",
+    "atomicRadius": "atomicRadiusCm * 1e10"
+  },
+  "outputs": {
+    "primary": "atomicRadius",
+    "breakdown": [
+      "volumePerAtom",
+      "atomicVolume",
+      "packingFactorUsed"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

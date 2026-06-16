@@ -1,0 +1,64 @@
+{
+  "toolName": "debt-to-capital-ratio-calculator",
+  "inputs": [
+    {
+      "id": "totalDebt",
+      "label": "Total Debt",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Total interest-bearing debt (short-term + long-term)"
+    },
+    {
+      "id": "commonStock",
+      "label": "Common Stock",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Common stock equity"
+    },
+    {
+      "id": "preferredStock",
+      "label": "Preferred Stock",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Preferred stock equity"
+    },
+    {
+      "id": "retainedEarnings",
+      "label": "Retained Earnings",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Accumulated retained earnings"
+    },
+    {
+      "id": "otherEquity",
+      "label": "Other Equity",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Other comprehensive equity components"
+    }
+  ],
+  "formulas": {
+    "totalEquity": "commonStock + preferredStock + retainedEarnings + otherEquity",
+    "totalCapital": "totalDebt + totalEquity",
+    "debtToCapitalRatio": "(totalDebt / totalCapital) * 100"
+  },
+  "outputs": {
+    "primary": "debtToCapitalRatio",
+    "breakdown": [
+      "totalDebt",
+      "totalEquity",
+      "totalCapital"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

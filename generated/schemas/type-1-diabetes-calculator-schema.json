@@ -1,0 +1,71 @@
+{
+  "toolName": "type-1-diabetes-calculator",
+  "inputs": [
+    {
+      "id": "bloodGlucose",
+      "label": "Current Blood Glucose",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 120,
+      "businessContext": "Measured blood glucose level prior to meal"
+    },
+    {
+      "id": "targetGlucose",
+      "label": "Target Blood Glucose",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 100,
+      "businessContext": "Desired blood glucose level after insulin"
+    },
+    {
+      "id": "insulinSensitivity",
+      "label": "Insulin Sensitivity Factor",
+      "type": "number",
+      "unit": "mg/dL per U",
+      "default": 50,
+      "businessContext": "Drop in blood glucose per unit of rapid-acting insulin"
+    },
+    {
+      "id": "carbIntake",
+      "label": "Carbohydrate Intake",
+      "type": "number",
+      "unit": "g",
+      "default": 50,
+      "businessContext": "Grams of carbohydrates planned to be consumed"
+    },
+    {
+      "id": "insulinCarbRatio",
+      "label": "Insulin-to-Carb Ratio",
+      "type": "number",
+      "unit": "g per U",
+      "default": 10,
+      "businessContext": "Grams of carbohydrates covered by 1 unit of insulin"
+    },
+    {
+      "id": "activeInsulin",
+      "label": "Active Insulin On Board",
+      "type": "number",
+      "unit": "U",
+      "default": 0,
+      "businessContext": "Units of insulin still active from previous boluses"
+    }
+  ],
+  "formulas": {
+    "correctionBolus": "Math.max(0, (bloodGlucose - targetGlucose) / insulinSensitivity)",
+    "carbBolus": "carbIntake / insulinCarbRatio",
+    "totalBolus": "Math.max(0, carbBolus + correctionBolus - activeInsulin)"
+  },
+  "outputs": {
+    "primary": "totalBolus",
+    "breakdown": [
+      "correctionBolus",
+      "carbBolus"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

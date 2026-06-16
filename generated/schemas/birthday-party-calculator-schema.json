@@ -1,0 +1,89 @@
+{
+  "toolName": "birthday-party-calculator",
+  "inputs": [
+    {
+      "id": "guestCount",
+      "label": "Number of Guests",
+      "type": "number",
+      "unit": "persons",
+      "default": 20,
+      "businessContext": "Total number of invited guests"
+    },
+    {
+      "id": "foodCostPerGuest",
+      "label": "Food Cost per Guest",
+      "type": "number",
+      "unit": "USD",
+      "default": 15,
+      "businessContext": "Average cost of food per person"
+    },
+    {
+      "id": "drinkCostPerGuest",
+      "label": "Drink Cost per Guest",
+      "type": "number",
+      "unit": "USD",
+      "default": 8,
+      "businessContext": "Average cost of beverages per person"
+    },
+    {
+      "id": "decorationCost",
+      "label": "Decoration Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "Total cost for decorations"
+    },
+    {
+      "id": "entertainmentCost",
+      "label": "Entertainment Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 200,
+      "businessContext": "Cost for music, games, or hired entertainers"
+    },
+    {
+      "id": "venueRental",
+      "label": "Venue Rental",
+      "type": "number",
+      "unit": "USD",
+      "default": 300,
+      "businessContext": "Cost to rent the party venue"
+    },
+    {
+      "id": "cakeCost",
+      "label": "Cake Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "businessContext": "Cost of birthday cake"
+    },
+    {
+      "id": "miscCost",
+      "label": "Miscellaneous Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "businessContext": "Any other costs not listed"
+    }
+  ],
+  "formulas": {
+    "totalFoodCost": "guestCount * foodCostPerGuest",
+    "totalDrinkCost": "guestCount * drinkCostPerGuest",
+    "totalCost": "totalFoodCost + totalDrinkCost + decorationCost + entertainmentCost + venueRental + cakeCost + miscCost",
+    "costPerGuest": "totalCost / guestCount"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "totalFoodCost",
+      "totalDrinkCost",
+      "costPerGuest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

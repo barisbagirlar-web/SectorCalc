@@ -1,0 +1,49 @@
+{
+  "toolName": "lbtt-calculator-scotland",
+  "inputs": [
+    {
+      "id": "purchasePrice",
+      "label": "Purchase Price (£)",
+      "type": "number",
+      "unit": "GBP",
+      "default": 0,
+      "businessContext": "Total price paid for the property"
+    },
+    {
+      "id": "isFirstTimeBuyer",
+      "label": "First Time Buyer? (1=Yes, 0=No)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "1 if buyer is a first-time buyer, else 0"
+    },
+    {
+      "id": "isAdditionalDwelling",
+      "label": "Additional Dwelling? (1=Yes, 0=No)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "1 if property is an additional dwelling (ADS), else 0"
+    }
+  ],
+  "formulas": {
+    "standardTax": "let p = purchasePrice; let tax = 0; if (p > 145000) { if (p > 250000) { tax += (Math.min(p, 325000) - 250000) * 0.05; } if (p > 325000) { tax += (Math.min(p, 750000) - 325000) * 0.10; } if (p > 750000) { tax += (p - 750000) * 0.12; } tax += (Math.min(p, 250000) - 145000) * 0.02; } tax",
+    "firstTimeBuyerRelief": "let p = purchasePrice; if (p <= 175000) { return 0; } let tax = 0; if (p > 250000) { tax += (Math.min(p, 325000) - 250000) * 0.05; } if (p > 325000) { tax += (Math.min(p, 750000) - 325000) * 0.10; } if (p > 750000) { tax += (p - 750000) * 0.12; } tax += (Math.min(p, 250000) - 145000) * 0.02; tax",
+    "adsSurcharge": "let p = purchasePrice; let surcharge = 0; if (p <= 145000) { surcharge = p * 0.04; } else if (p <= 250000) { surcharge = 145000 * 0.04 + (p - 145000) * 0.06; } else if (p <= 325000) { surcharge = 145000 * 0.04 + (250000 - 145000) * 0.06 + (p - 250000) * 0.09; } else if (p <= 750000) { surcharge = 145000 * 0.04 + (250000 - 145000) * 0.06 + (325000 - 250000) * 0.09 + (p - 325000) * 0.14; } else { surcharge = 145000 * 0.04 + (250000 - 145000) * 0.06 + (325000 - 250000) * 0.09 + (750000 - 325000) * 0.14 + (p - 750000) * 0.16; } surcharge",
+    "totalTax": "let base = isFirstTimeBuyer === 1 ? firstTimeBuyerRelief : standardTax; let ads = isAdditionalDwelling === 1 ? adsSurcharge : 0; base + ads"
+  },
+  "outputs": {
+    "primary": "Total LBTT Due (£)",
+    "breakdown": [
+      "Standard Tax (£)",
+      "First-Time Buyer Relief (£)",
+      "ADS Surcharge (£)"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

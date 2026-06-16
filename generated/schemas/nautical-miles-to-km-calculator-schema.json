@@ -1,0 +1,56 @@
+{
+  "toolName": "nautical-miles-to-km-calculator",
+  "inputs": [
+    {
+      "id": "nauticalMiles",
+      "label": "Deniz Mili",
+      "type": "number",
+      "unit": "NM",
+      "default": 0,
+      "businessContext": "Dönüştürülecek deniz mili miktarı"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Dönüşüm Faktörü",
+      "type": "number",
+      "unit": "km/NM",
+      "default": 1.852,
+      "businessContext": "Uluslararası standart dönüşüm katsayısı (1 NM = 1.852 km). Müşteriye özel durumlar için değiştirilebilir."
+    },
+    {
+      "id": "numberOfTrips",
+      "label": "Sefer Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Aynı mesafenin tekrar sayısı; toplu mesafe hesabı için kullanılır."
+    },
+    {
+      "id": "precision",
+      "label": "Ondalık Basamak",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Sonuçta gösterilecek ondalık basamak adedi (0–6)"
+    }
+  ],
+  "formulas": {
+    "rawKm": "nauticalMiles * conversionFactor * numberOfTrips",
+    "km": "Math.round(rawKm * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "km",
+    "breakdown": [
+      "nauticalMiles",
+      "conversionFactor",
+      "rawKm",
+      "km"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

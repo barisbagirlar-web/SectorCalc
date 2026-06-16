@@ -1,0 +1,55 @@
+{
+  "toolName": "micrograms-to-mg-converter-calculator",
+  "inputs": [
+    {
+      "id": "micrograms",
+      "label": "Micrograms (µg)",
+      "type": "number",
+      "unit": "µg",
+      "default": 1000,
+      "businessContext": "Amount of substance in micrograms per unit."
+    },
+    {
+      "id": "numberOfUnits",
+      "label": "Number of Units",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "businessContext": "Number of units (e.g., tablets, capsules) in the batch."
+    },
+    {
+      "id": "purity",
+      "label": "Purity (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Purity or assay percentage of the active ingredient."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Safety or overage factor to adjust total amount."
+    }
+  ],
+  "formulas": {
+    "milligramsPerUnit": "micrograms / 1000",
+    "totalMilligrams": "(micrograms / 1000) * numberOfUnits * (purity / 100) * safetyFactor",
+    "totalMicrograms": "micrograms * numberOfUnits * (purity / 100) * safetyFactor"
+  },
+  "outputs": {
+    "primary": "totalMilligrams",
+    "breakdown": [
+      "milligramsPerUnit",
+      "totalMicrograms"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

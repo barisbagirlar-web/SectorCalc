@@ -1,0 +1,55 @@
+{
+  "toolName": "square-yards-to-sqm-calculator",
+  "inputs": [
+    {
+      "id": "lengthYards",
+      "label": "Length (yards)",
+      "type": "number",
+      "unit": "yd",
+      "default": 1,
+      "businessContext": "Length of the area in yards"
+    },
+    {
+      "id": "widthYards",
+      "label": "Width (yards)",
+      "type": "number",
+      "unit": "yd",
+      "default": 1,
+      "businessContext": "Width of the area in yards"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 2,
+      "businessContext": "Number of decimal places for output"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "m²/yd²",
+      "default": 0.83612736,
+      "businessContext": "Conversion factor from square yards to square meters. ISO standard: 1 yd² = 0.83612736 m²"
+    }
+  ],
+  "formulas": {
+    "areaSqm": "(lengthYards * widthYards) * conversionFactor",
+    "areaSqYards": "lengthYards * widthYards",
+    "conversionFactorUsed": "conversionFactor"
+  },
+  "outputs": {
+    "primary": "areaSqm",
+    "breakdown": [
+      "areaSqYards",
+      "conversionFactorUsed"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

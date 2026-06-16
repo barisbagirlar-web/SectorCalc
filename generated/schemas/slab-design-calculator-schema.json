@@ -1,0 +1,86 @@
+{
+  "toolName": "slab-design-calculator",
+  "inputs": [
+    {
+      "id": "span",
+      "label": "Span Length",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Clear span of the slab (simply supported)"
+    },
+    {
+      "id": "live_load",
+      "label": "Live Load",
+      "type": "number",
+      "unit": "kN/m²",
+      "default": 3,
+      "businessContext": "Imposed load (occupancy)"
+    },
+    {
+      "id": "dead_load",
+      "label": "Dead Load (excluding self-weight)",
+      "type": "number",
+      "unit": "kN/m²",
+      "default": 1.5,
+      "businessContext": "Superimposed dead load (finishes, services)"
+    },
+    {
+      "id": "thickness",
+      "label": "Slab Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 150,
+      "businessContext": "Total depth of slab"
+    },
+    {
+      "id": "concrete_strength",
+      "label": "Concrete Characteristic Strength (fck)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 25,
+      "businessContext": "28-day cylinder compressive strength"
+    },
+    {
+      "id": "steel_yield",
+      "label": "Steel Yield Strength (fyk)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 500,
+      "businessContext": "Characteristic yield strength of reinforcement"
+    },
+    {
+      "id": "cover",
+      "label": "Concrete Cover",
+      "type": "number",
+      "unit": "mm",
+      "default": 25,
+      "businessContext": "Clear cover to reinforcement"
+    }
+  ],
+  "formulas": {
+    "self_weight": "thickness * 25 / 1000",
+    "total_dead": "dead_load + self_weight",
+    "factored_load": "1.35 * total_dead + 1.5 * live_load",
+    "factored_moment": "factored_load * span * span / 8",
+    "d": "thickness - cover - 5",
+    "K": "factored_moment * 1e6 / (1000 * d * d * concrete_strength)",
+    "lever_arm": "d * Math.min(0.95, 0.5 + Math.sqrt(0.25 - K / 1.134))",
+    "required_area": "(factored_moment * 1e6) / (0.87 * steel_yield * lever_arm)",
+    "steel_ratio": "required_area / (1000 * d)"
+  },
+  "outputs": {
+    "primary": "required_area",
+    "breakdown": [
+      "factored_moment",
+      "steel_ratio",
+      "lever_arm"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

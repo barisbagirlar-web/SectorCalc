@@ -1,0 +1,55 @@
+{
+  "toolName": "information-ratio-calculator",
+  "inputs": [
+    {
+      "id": "portfolioReturn",
+      "label": "Portfolio Return",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Yatırım portföyünün dönemsel getirisi."
+    },
+    {
+      "id": "benchmarkReturn",
+      "label": "Benchmark Return",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "businessContext": "Karşılaştırma ölçütünün dönemsel getirisi."
+    },
+    {
+      "id": "trackingError",
+      "label": "Tracking Error",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Aktif getirinin standart sapması."
+    },
+    {
+      "id": "periodsPerYear",
+      "label": "Annualization Factor",
+      "type": "number",
+      "unit": "periods/year",
+      "default": 12,
+      "businessContext": "Yıllıklandırma için dönem sayısı (örn. aylık:12, günlük:252)."
+    }
+  ],
+  "formulas": {
+    "informationRatio": "(portfolioReturn - benchmarkReturn) / trackingError * Math.sqrt(periodsPerYear)",
+    "activeReturn": "portfolioReturn - benchmarkReturn",
+    "annualizedActiveReturn": "(portfolioReturn - benchmarkReturn) * Math.sqrt(periodsPerYear)"
+  },
+  "outputs": {
+    "primary": "informationRatio",
+    "breakdown": [
+      "activeReturn",
+      "annualizedActiveReturn"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

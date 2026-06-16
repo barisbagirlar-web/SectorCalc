@@ -1,0 +1,61 @@
+{
+  "toolName": "eigenvalue-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "a11",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Top-left element of 2x2 matrix"
+    },
+    {
+      "id": "b",
+      "label": "a12",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Top-right element of 2x2 matrix"
+    },
+    {
+      "id": "c",
+      "label": "a21",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Bottom-left element of 2x2 matrix"
+    },
+    {
+      "id": "d",
+      "label": "a22",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Bottom-right element of 2x2 matrix"
+    }
+  ],
+  "formulas": {
+    "primary": "((a + d) + Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2 + ', ' + ((a + d) - Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2",
+    "trace": "a + d",
+    "determinant": "a * d - b * c",
+    "discriminant": "Math.pow(a + d, 2) - 4 * (a * d - b * c)",
+    "eigenvalue1": "((a + d) + Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2",
+    "eigenvalue2": "((a + d) - Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2"
+  },
+  "outputs": {
+    "primary": "((a + d) + Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2 + ', ' + ((a + d) - Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2",
+    "breakdown": [
+      "a + d",
+      "a * d - b * c",
+      "Math.pow(a + d, 2) - 4 * (a * d - b * c)",
+      "((a + d) + Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2",
+      "((a + d) - Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

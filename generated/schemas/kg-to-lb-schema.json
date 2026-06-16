@@ -1,0 +1,28 @@
+{
+  "toolName": "kg-to-lb",
+  "inputs": [
+    {
+      "id": "kg",
+      "label": "Kilogram (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Ağırlık değeri kilogram cinsinden"
+    }
+  ],
+  "formulas": {
+    "lb": "kg * 2.20462"
+  },
+  "outputs": {
+    "primary": "lb",
+    "breakdown": [
+      "lb"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

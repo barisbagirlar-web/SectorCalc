@@ -1,0 +1,55 @@
+{
+  "toolName": "megabytes-to-gigabytes-calculator",
+  "inputs": [
+    {
+      "id": "megabytes",
+      "label": "Megabytes (MB)",
+      "type": "number",
+      "unit": "MB",
+      "default": 0,
+      "businessContext": "The amount of data in megabytes to convert."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "MB/GB",
+      "default": 1024,
+      "businessContext": "Use 1024 for binary (IEC) or 1000 for SI standard."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places for the primary output."
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "items",
+      "default": 1,
+      "businessContext": "Multiply the result by this factor for batch conversions (e.g., number of files)."
+    }
+  ],
+  "formulas": {
+    "exactGigabytes": "megabytes / conversionFactor",
+    "gigabytes": "Math.round((megabytes / conversionFactor) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) * batchSize",
+    "terabytes": "Math.round((megabytes / conversionFactor) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) * batchSize / 1024"
+  },
+  "outputs": {
+    "primary": "gigabytes",
+    "breakdown": [
+      "exactGigabytes",
+      "terabytes"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

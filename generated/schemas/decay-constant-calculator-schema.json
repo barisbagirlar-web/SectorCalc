@@ -1,0 +1,74 @@
+{
+  "toolName": "decay-constant-calculator",
+  "inputs": [
+    {
+      "id": "halfLife",
+      "label": "Half-life",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Half-life of the radioactive substance"
+    },
+    {
+      "id": "meanLifetime",
+      "label": "Mean Lifetime",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Average lifetime (tau)"
+    },
+    {
+      "id": "initialQuantity",
+      "label": "Initial Quantity",
+      "type": "number",
+      "unit": "atoms",
+      "default": 0,
+      "businessContext": "Initial amount of substance"
+    },
+    {
+      "id": "finalQuantity",
+      "label": "Final Quantity",
+      "type": "number",
+      "unit": "atoms",
+      "default": 0,
+      "businessContext": "Final amount after time t"
+    },
+    {
+      "id": "timeElapsed",
+      "label": "Time Elapsed",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Elapsed time between measurements"
+    },
+    {
+      "id": "timeUnitConversion",
+      "label": "Time Unit Conversion Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Multiplier to convert time units (e.g., 1 for seconds, 60 for minutes, 3600 for hours, 86400 for days) to get decay constant in desired reciprocal time unit. Output will be in 1/(converted unit)."
+    }
+  ],
+  "formulas": {
+    "lambdaRaw": "(halfLife > 0 ? Math.log(2) / halfLife : (meanLifetime > 0 ? 1 / meanLifetime : (initialQuantity > 0 && finalQuantity > 0 && timeElapsed > 0 ? -Math.log(finalQuantity / initialQuantity) / timeElapsed : 0)))",
+    "decayConstant": "lambdaRaw * timeUnitConversion",
+    "halfLifeBased": "halfLife > 0 ? Math.log(2) / halfLife * timeUnitConversion : null",
+    "meanLifetimeBased": "meanLifetime > 0 ? 1 / meanLifetime * timeUnitConversion : null",
+    "quantityBased": "initialQuantity > 0 && finalQuantity > 0 && timeElapsed > 0 ? -Math.log(finalQuantity / initialQuantity) / timeElapsed * timeUnitConversion : null"
+  },
+  "outputs": {
+    "primary": "decayConstant",
+    "breakdown": [
+      "halfLifeBased",
+      "meanLifetimeBased",
+      "quantityBased"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

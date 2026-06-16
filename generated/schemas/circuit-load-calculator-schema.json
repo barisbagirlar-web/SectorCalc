@@ -1,0 +1,73 @@
+{
+  "toolName": "circuit-load-calculator",
+  "inputs": [
+    {
+      "id": "voltage",
+      "label": "Gerilim (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 230,
+      "businessContext": "Devre gerilimi"
+    },
+    {
+      "id": "currentPerDevice",
+      "label": "Cihaz Başına Akım (A)",
+      "type": "number",
+      "unit": "A",
+      "default": 1,
+      "businessContext": "Her bir cihazın çektiği akım"
+    },
+    {
+      "id": "powerFactor",
+      "label": "Güç Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "businessContext": "Yükün güç faktörü (0-1 arası)"
+    },
+    {
+      "id": "numberOfDevices",
+      "label": "Cihaz Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Paralel bağlı cihaz sayısı"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Emniyet Katsayısı",
+      "type": "number",
+      "unit": "",
+      "default": 1.25,
+      "businessContext": "Sürekli yük için NEC %125 kuralı"
+    },
+    {
+      "id": "breakerRating",
+      "label": "Sigorta Akımı (A)",
+      "type": "number",
+      "unit": "A",
+      "default": 16,
+      "businessContext": "Devre kesici nominal akımı"
+    }
+  ],
+  "formulas": {
+    "totalCurrent": "numberOfDevices * currentPerDevice * safetyFactor",
+    "totalApparentPower": "voltage * totalCurrent",
+    "totalRealPower": "totalApparentPower * powerFactor",
+    "loadPercentage": "breakerRating > 0 ? (totalCurrent / breakerRating * 100) : null"
+  },
+  "outputs": {
+    "primary": "totalRealPower",
+    "breakdown": [
+      "totalCurrent",
+      "totalApparentPower",
+      "loadPercentage"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

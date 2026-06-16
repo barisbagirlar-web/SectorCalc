@@ -1,0 +1,90 @@
+{
+  "toolName": "coffee-calculator",
+  "inputs": [
+    {
+      "id": "coffeeBeans",
+      "label": "Coffee Beans Used",
+      "type": "number",
+      "unit": "grams",
+      "default": 15,
+      "businessContext": "Average grams of coffee beans per cup."
+    },
+    {
+      "id": "waterAmount",
+      "label": "Water Used",
+      "type": "number",
+      "unit": "ml",
+      "default": 250,
+      "businessContext": "Water volume per cup."
+    },
+    {
+      "id": "beanCostPerKg",
+      "label": "Bean Cost",
+      "type": "number",
+      "unit": "currency/kg",
+      "default": 20,
+      "businessContext": "Cost of coffee beans per kilogram."
+    },
+    {
+      "id": "electricityCostPerKwh",
+      "label": "Electricity Cost",
+      "type": "number",
+      "unit": "currency/kWh",
+      "default": 0.15,
+      "businessContext": "Cost of electricity per kilowatt-hour."
+    },
+    {
+      "id": "machinePowerWatts",
+      "label": "Machine Power",
+      "type": "number",
+      "unit": "watts",
+      "default": 1000,
+      "businessContext": "Power consumption of coffee machine."
+    },
+    {
+      "id": "brewTimeMinutes",
+      "label": "Brew Time",
+      "type": "number",
+      "unit": "minutes",
+      "default": 3,
+      "businessContext": "Time to brew one cup."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "Labor Cost",
+      "type": "number",
+      "unit": "currency/hour",
+      "default": 12,
+      "businessContext": "Barista labor cost per hour."
+    },
+    {
+      "id": "overheadFactor",
+      "label": "Overhead %",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Overhead costs as percentage of direct costs."
+    }
+  ],
+  "formulas": {
+    "coffeeCost": "(coffeeBeans / 1000) * beanCostPerKg",
+    "energyCost": "((machinePowerWatts * (brewTimeMinutes / 60)) / 1000) * electricityCostPerKwh",
+    "laborCost": "(brewTimeMinutes / 60) * laborCostPerHour",
+    "totalDirectCost": "coffeeCost + energyCost + laborCost",
+    "totalCost": "totalDirectCost * (1 + (overheadFactor / 100))"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "coffeeCost",
+      "energyCost",
+      "laborCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

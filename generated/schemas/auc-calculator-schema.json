@@ -1,0 +1,89 @@
+{
+  "toolName": "auc-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "X1",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "First time point"
+    },
+    {
+      "id": "y1",
+      "label": "Y1",
+      "type": "number",
+      "unit": "unit",
+      "default": 0,
+      "businessContext": "First value"
+    },
+    {
+      "id": "x2",
+      "label": "X2",
+      "type": "number",
+      "unit": "s",
+      "default": 1,
+      "businessContext": "Second time point"
+    },
+    {
+      "id": "y2",
+      "label": "Y2",
+      "type": "number",
+      "unit": "unit",
+      "default": 2,
+      "businessContext": "Second value"
+    },
+    {
+      "id": "x3",
+      "label": "X3",
+      "type": "number",
+      "unit": "s",
+      "default": 2,
+      "businessContext": "Third time point"
+    },
+    {
+      "id": "y3",
+      "label": "Y3",
+      "type": "number",
+      "unit": "unit",
+      "default": 4,
+      "businessContext": "Third value"
+    },
+    {
+      "id": "x4",
+      "label": "X4",
+      "type": "number",
+      "unit": "s",
+      "default": 3,
+      "businessContext": "Fourth time point"
+    },
+    {
+      "id": "y4",
+      "label": "Y4",
+      "type": "number",
+      "unit": "unit",
+      "default": 6,
+      "businessContext": "Fourth value"
+    }
+  ],
+  "formulas": {
+    "area1": "(x2 - x1) * (y1 + y2) / 2",
+    "area2": "(x3 - x2) * (y2 + y3) / 2",
+    "area3": "(x4 - x3) * (y3 + y4) / 2",
+    "totalArea": "area1 + area2 + area3"
+  },
+  "outputs": {
+    "primary": "totalArea",
+    "breakdown": [
+      "area1",
+      "area2",
+      "area3"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

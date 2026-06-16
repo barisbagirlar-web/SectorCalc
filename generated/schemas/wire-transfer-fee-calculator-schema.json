@@ -1,0 +1,70 @@
+{
+  "toolName": "wire-transfer-fee-calculator",
+  "inputs": [
+    {
+      "id": "transferAmount",
+      "label": "Transfer Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000,
+      "businessContext": "The principal amount to be transferred in US dollars."
+    },
+    {
+      "id": "flatFeeSender",
+      "label": "Sender's Flat Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 15,
+      "businessContext": "Fixed fee charged by the sending bank."
+    },
+    {
+      "id": "percentageFeeSender",
+      "label": "Sender's Percentage Fee",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage fee charged by the sending bank on the transfer amount."
+    },
+    {
+      "id": "flatFeeIntermediary",
+      "label": "Intermediary Bank Flat Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Fixed fee charged by any intermediary bank, typically for international transfers."
+    },
+    {
+      "id": "flatFeeReceiver",
+      "label": "Receiver's Flat Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Fixed fee charged by the receiving bank."
+    },
+    {
+      "id": "isInternational",
+      "label": "International Transfer",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "Set to 1 if the transfer is international (involves intermediary/receiver fees), 0 for domestic."
+    }
+  ],
+  "formulas": {
+    "totalFee": "flatFeeSender + (transferAmount * percentageFeeSender / 100) + (isInternational ? (flatFeeIntermediary + flatFeeReceiver) : 0)",
+    "totalCost": "transferAmount + totalFee"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "totalFee",
+      "transferAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

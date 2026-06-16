@@ -1,0 +1,63 @@
+{
+  "toolName": "wind-turbine-calculator",
+  "inputs": [
+    {
+      "id": "diameter",
+      "label": "Rotor Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "businessContext": "The overall diameter of the rotor swept area, a primary design parameter affecting power capture."
+    },
+    {
+      "id": "airDensity",
+      "label": "Air Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1.225,
+      "businessContext": "Standard sea-level air density; can vary with altitude and temperature."
+    },
+    {
+      "id": "windSpeed",
+      "label": "Wind Speed",
+      "type": "number",
+      "unit": "m/s",
+      "default": 12,
+      "businessContext": "Mean wind speed at hub height; typically the rated wind speed of the turbine."
+    },
+    {
+      "id": "cp",
+      "label": "Power Coefficient (Cp)",
+      "type": "number",
+      "unit": "",
+      "default": 0.45,
+      "businessContext": "Turbine power coefficient, limited by the Betz limit (~0.593); accounts for aerodynamic losses."
+    },
+    {
+      "id": "efficiency",
+      "label": "Drive‑Train Efficiency",
+      "type": "number",
+      "unit": "",
+      "default": 0.95,
+      "businessContext": "Combined mechanical and electrical efficiency of the gearbox and generator."
+    }
+  ],
+  "formulas": {
+    "sweptArea": "Math.PI * Math.pow(diameter / 2, 2)",
+    "rawWindPower": "0.5 * airDensity * sweeptArea * Math.pow(windSpeed, 3) / 1000",
+    "turbinePower": "rawWindPower * cp * efficiency"
+  },
+  "outputs": {
+    "primary": "turbinePower",
+    "breakdown": [
+      "sweptArea",
+      "rawWindPower"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

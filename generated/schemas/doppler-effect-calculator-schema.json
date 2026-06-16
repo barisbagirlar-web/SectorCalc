@@ -1,0 +1,56 @@
+{
+  "toolName": "doppler-effect-calculator",
+  "inputs": [
+    {
+      "id": "sourceFrequency",
+      "label": "Source Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1000,
+      "businessContext": "Frequency emitted by the source in Hertz"
+    },
+    {
+      "id": "waveSpeed",
+      "label": "Wave Speed",
+      "type": "number",
+      "unit": "m/s",
+      "default": 343,
+      "businessContext": "Speed of sound in the medium (e.g., 343 m/s in air at 20°C)"
+    },
+    {
+      "id": "sourceVelocity",
+      "label": "Source Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Velocity of the source relative to the medium; positive when moving towards the observer"
+    },
+    {
+      "id": "observerVelocity",
+      "label": "Observer Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Velocity of the observer relative to the medium; positive when moving towards the source"
+    }
+  ],
+  "formulas": {
+    "numerator": "waveSpeed + observerVelocity",
+    "denominator": "waveSpeed - sourceVelocity",
+    "observedFrequency": "sourceFrequency * numerator / denominator"
+  },
+  "outputs": {
+    "primary": "observedFrequency",
+    "breakdown": [
+      "numerator",
+      "denominator",
+      "observedFrequency"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

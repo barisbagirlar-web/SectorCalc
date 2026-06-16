@@ -1,0 +1,100 @@
+{
+  "toolName": "passive-earth-pressure-calculator",
+  "inputs": [
+    {
+      "id": "soilUnitWeight",
+      "label": "Soil Unit Weight (γ)",
+      "type": "number",
+      "unit": "kN/m³",
+      "default": 18,
+      "businessContext": "Weight of soil per unit volume"
+    },
+    {
+      "id": "heightOfWall",
+      "label": "Height of Retaining Wall (H)",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Vertical height of the retaining wall"
+    },
+    {
+      "id": "frictionAngle",
+      "label": "Internal Friction Angle (φ)",
+      "type": "number",
+      "unit": "degrees",
+      "default": 30,
+      "businessContext": "Angle of internal friction of the backfill soil"
+    },
+    {
+      "id": "cohesion",
+      "label": "Cohesion (c)",
+      "type": "number",
+      "unit": "kPa",
+      "default": 0,
+      "businessContext": "Cohesion intercept of the soil"
+    },
+    {
+      "id": "surcharge",
+      "label": "Surcharge Pressure (q)",
+      "type": "number",
+      "unit": "kN/m²",
+      "default": 0,
+      "businessContext": "Uniform surcharge load on the backfill surface"
+    }
+  ],
+  "formulas": {
+    "frictionAngleRad": "inputs.frictionAngle * Math.PI / 180",
+    "kp": "Math.pow(Math.tan(Math.PI/4 + frictionAngleRad/2), 2)",
+    "passivePressureBase": "kp * (inputs.soilUnitWeight * inputs.heightOfWall + inputs.surcharge) + 2 * inputs.cohesion * Math.sqrt(kp)",
+    "forceFromSoil": "0.5 * inputs.soilUnitWeight * inputs.heightOfWall * inputs.heightOfWall * kp",
+    "forceFromSurcharge": "inputs.surcharge * inputs.heightOfWall * kp",
+    "forceFromCohesion": "2 * inputs.cohesion * inputs.heightOfWall * Math.sqrt(kp)",
+    "totalPassiveForce": "forceFromSoil + forceFromSurcharge + forceFromCohesion"
+  },
+  "outputs": {
+    "primary": {
+      "id": "totalPassiveForce",
+      "label": "Passive Earth Pressure Force",
+      "unit": "kN/m",
+      "value": "totalPassiveForce"
+    },
+    "breakdown": [
+      {
+        "id": "kp",
+        "label": "Passive Pressure Coefficient (Kp)",
+        "unit": "dimensionless",
+        "value": "kp"
+      },
+      {
+        "id": "passivePressureBase",
+        "label": "Passive Pressure at Base",
+        "unit": "kPa",
+        "value": "passivePressureBase"
+      },
+      {
+        "id": "forceFromSoil",
+        "label": "Force Contribution from Soil Weight",
+        "unit": "kN/m",
+        "value": "forceFromSoil"
+      },
+      {
+        "id": "forceFromSurcharge",
+        "label": "Force Contribution from Surcharge",
+        "unit": "kN/m",
+        "value": "forceFromSurcharge"
+      },
+      {
+        "id": "forceFromCohesion",
+        "label": "Force Contribution from Cohesion",
+        "unit": "kN/m",
+        "value": "forceFromCohesion"
+      }
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

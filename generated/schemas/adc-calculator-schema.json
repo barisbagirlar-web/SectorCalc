@@ -1,0 +1,57 @@
+{
+  "toolName": "adc-calculator",
+  "inputs": [
+    {
+      "id": "resolutionBits",
+      "label": "Çözünürlük (bit)",
+      "type": "number",
+      "unit": "bit",
+      "default": 12,
+      "businessContext": "ADC'nin bit çözünürlüğü"
+    },
+    {
+      "id": "referenceVoltage",
+      "label": "Referans Gerilimi",
+      "type": "number",
+      "unit": "V",
+      "default": 3.3,
+      "businessContext": "Tam ölçek referans gerilimi"
+    },
+    {
+      "id": "inputVoltage",
+      "label": "Giriş Gerilimi",
+      "type": "number",
+      "unit": "V",
+      "default": 1.65,
+      "businessContext": "Dönüştürülecek analog giriş gerilimi"
+    },
+    {
+      "id": "gain",
+      "label": "Kazanç",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Sinyal kazancı"
+    }
+  ],
+  "formulas": {
+    "lsb": "referenceVoltage / Math.pow(2, resolutionBits)",
+    "digitalCode": "Math.floor((inputVoltage * gain) / referenceVoltage * Math.pow(2, resolutionBits))",
+    "quantizationError": "(inputVoltage * gain) - Math.floor((inputVoltage * gain) / referenceVoltage * Math.pow(2, resolutionBits)) * (referenceVoltage / Math.pow(2, resolutionBits))",
+    "reconvertedVoltage": "Math.floor((inputVoltage * gain) / referenceVoltage * Math.pow(2, resolutionBits)) * (referenceVoltage / Math.pow(2, resolutionBits))"
+  },
+  "outputs": {
+    "primary": "digitalCode",
+    "breakdown": [
+      "lsb",
+      "quantizationError",
+      "reconvertedVoltage"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

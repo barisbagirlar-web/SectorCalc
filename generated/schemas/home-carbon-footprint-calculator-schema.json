@@ -1,0 +1,59 @@
+{
+  "toolName": "home-carbon-footprint-calculator",
+  "inputs": [
+    {
+      "id": "electricityAnnual",
+      "label": "Annual Electricity Consumption",
+      "type": "number",
+      "unit": "kWh",
+      "default": 3500,
+      "businessContext": "Total electricity used in a year, typically found on utility bills or annual energy statements."
+    },
+    {
+      "id": "gasAnnual",
+      "label": "Annual Natural Gas Consumption",
+      "type": "number",
+      "unit": "therms",
+      "default": 400,
+      "businessContext": "Total natural gas consumed in a year for heating, cooking, etc., from gas utility bills."
+    },
+    {
+      "id": "carMilesAnnual",
+      "label": "Annual Car Travel",
+      "type": "number",
+      "unit": "miles",
+      "default": 12000,
+      "businessContext": "Total miles driven per year in a typical gasoline-powered car (average fuel economy ~25 mpg)."
+    },
+    {
+      "id": "airTravelAnnual",
+      "label": "Annual Air Travel",
+      "type": "number",
+      "unit": "km",
+      "default": 5000,
+      "businessContext": "Total distance flown per year as a passenger, including all flights (long-haul average emission factor)."
+    }
+  ],
+  "formulas": {
+    "electricityEmissions": "electricityAnnual * 0.92",
+    "gasEmissions": "gasAnnual * 5.3",
+    "carEmissions": "carMilesAnnual * 0.355",
+    "airEmissions": "airTravelAnnual * 0.115",
+    "total": "electricityEmissions + gasEmissions + carEmissions + airEmissions"
+  },
+  "outputs": {
+    "primary": "total",
+    "breakdown": [
+      "electricityEmissions",
+      "gasEmissions",
+      "carEmissions",
+      "airEmissions"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

@@ -1,0 +1,56 @@
+{
+  "toolName": "work-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Mass of the object in kilograms"
+    },
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Distance moved along the incline in meters"
+    },
+    {
+      "id": "angle",
+      "label": "Incline Angle",
+      "type": "number",
+      "unit": "degrees",
+      "default": 30,
+      "businessContext": "Angle of the incline relative to horizontal"
+    },
+    {
+      "id": "frictionCoefficient",
+      "label": "Friction Coefficient",
+      "type": "number",
+      "unit": "",
+      "default": 0.1,
+      "businessContext": "Coefficient of kinetic friction (dimensionless)"
+    }
+  ],
+  "formulas": {
+    "angleRad": "angle * Math.PI / 180",
+    "workAgainstGravity": "mass * 9.81 * distance * Math.sin(angleRad)",
+    "workAgainstFriction": "frictionCoefficient * mass * 9.81 * Math.cos(angleRad) * distance",
+    "totalWork": "workAgainstGravity + workAgainstFriction"
+  },
+  "outputs": {
+    "primary": "totalWork",
+    "breakdown": [
+      "workAgainstGravity",
+      "workAgainstFriction"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

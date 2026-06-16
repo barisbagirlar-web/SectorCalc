@@ -1,0 +1,63 @@
+{
+  "toolName": "carb-to-insulin-ratio-calculator",
+  "inputs": [
+    {
+      "id": "carbs",
+      "label": "Total Carbohydrates",
+      "type": "number",
+      "unit": "g",
+      "default": 50,
+      "businessContext": "Amount of carbohydrates in the meal to be consumed."
+    },
+    {
+      "id": "icr",
+      "label": "Insulin-to-Carb Ratio",
+      "type": "number",
+      "unit": "g/U",
+      "default": 10,
+      "businessContext": "Grams of carbohydrate covered by one unit of rapid-acting insulin."
+    },
+    {
+      "id": "current_bg",
+      "label": "Current Blood Glucose",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 150,
+      "businessContext": "Pre-meal capillary blood glucose measurement."
+    },
+    {
+      "id": "target_bg",
+      "label": "Target Blood Glucose",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 100,
+      "businessContext": "Individualized post-prandial blood glucose goal."
+    },
+    {
+      "id": "isf",
+      "label": "Insulin Sensitivity Factor",
+      "type": "number",
+      "unit": "mg/dL per U",
+      "default": 50,
+      "businessContext": "Expected drop in blood glucose per unit of insulin (correction factor)."
+    }
+  ],
+  "formulas": {
+    "meal_dose": "carbs / icr",
+    "correction_dose": "Math.max(0, (current_bg - target_bg) / isf)",
+    "total_insulin": "carbs / icr + Math.max(0, (current_bg - target_bg) / isf)"
+  },
+  "outputs": {
+    "primary": "Total Insulin Dose (U)",
+    "breakdown": [
+      "Meal Insulin Dose (U)",
+      "Correction Insulin Dose (U)"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

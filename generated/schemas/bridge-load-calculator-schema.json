@@ -1,0 +1,65 @@
+{
+  "toolName": "bridge-load-calculator",
+  "inputs": [
+    {
+      "id": "spanLength",
+      "label": "Span Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "The distance between the supports of the bridge beam."
+    },
+    {
+      "id": "beamWidth",
+      "label": "Beam Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "businessContext": "Cross-sectional width of the bridge beam."
+    },
+    {
+      "id": "beamHeight",
+      "label": "Beam Height",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Cross-sectional height (depth) of the bridge beam."
+    },
+    {
+      "id": "materialStrength",
+      "label": "Material Ultimate Tensile Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 400,
+      "businessContext": "Ultimate tensile strength of the beam material."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.5,
+      "businessContext": "Factor of safety applied to material strength for allowable stress."
+    }
+  ],
+  "formulas": {
+    "primary": "4 * ((materialStrength * 1e6 / safetyFactor) * beamWidth * beamHeight ** 2 / 6) / spanLength / 1000",
+    "breakdown": [
+      "materialStrength * 1e6 / safetyFactor",
+      "(materialStrength * 1e6 / safetyFactor) * beamWidth * beamHeight ** 2 / 6"
+    ]
+  },
+  "outputs": {
+    "primary": "Maximum Safe Load (kN)",
+    "breakdown": [
+      "Allowable Stress (Pa)",
+      "Maximum Bending Moment (Nm)"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

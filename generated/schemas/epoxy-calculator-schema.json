@@ -1,0 +1,56 @@
+{
+  "toolName": "epoxy-calculator",
+  "inputs": [
+    {
+      "id": "desiredWeight",
+      "label": "Desired Epoxy Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "The total weight of the epoxy mixture needed before waste."
+    },
+    {
+      "id": "resinRatio",
+      "label": "Resin Ratio (parts)",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "Parts of resin in the mixing ratio."
+    },
+    {
+      "id": "hardenerRatio",
+      "label": "Hardener Ratio (parts)",
+      "type": "number",
+      "unit": "",
+      "default": 25,
+      "businessContext": "Parts of hardener in the mixing ratio."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Additional percentage to account for waste and spillage."
+    }
+  ],
+  "formulas": {
+    "totalParts": "resinRatio + hardenerRatio",
+    "adjustedWeight": "desiredWeight * (1 + wasteFactor/100)",
+    "resinWeight": "adjustedWeight * resinRatio / totalParts",
+    "hardenerWeight": "adjustedWeight * hardenerRatio / totalParts"
+  },
+  "outputs": {
+    "primary": "adjustedWeight",
+    "breakdown": [
+      "resinWeight",
+      "hardenerWeight"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

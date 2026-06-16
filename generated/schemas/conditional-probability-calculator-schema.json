@@ -1,0 +1,63 @@
+{
+  "toolName": "conditional-probability-calculator",
+  "inputs": [
+    {
+      "id": "mode",
+      "label": "Input Mode",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "0: Direct probability inputs (P(A∩B), P(B)). 1: Frequency/count inputs (e.g., from quality control samples)."
+    },
+    {
+      "id": "pIntersection",
+      "label": "P(A ∩ B)",
+      "type": "number",
+      "unit": "probability",
+      "default": 0.3,
+      "businessContext": "Probability of both events A and B occurring."
+    },
+    {
+      "id": "pB",
+      "label": "P(B)",
+      "type": "number",
+      "unit": "probability",
+      "default": 0.5,
+      "businessContext": "Probability of event B."
+    },
+    {
+      "id": "countBoth",
+      "label": "Count of A ∩ B",
+      "type": "number",
+      "unit": "count",
+      "default": 30,
+      "businessContext": "Number of occurrences where both A and B occur."
+    },
+    {
+      "id": "countB",
+      "label": "Count of B",
+      "type": "number",
+      "unit": "count",
+      "default": 50,
+      "businessContext": "Total number of occurrences of event B."
+    }
+  ],
+  "formulas": {
+    "numerator": "mode === 0 ? pIntersection : countBoth",
+    "denominator": "mode === 0 ? pB : countB",
+    "conditionalProbability": "numerator / denominator"
+  },
+  "outputs": {
+    "primary": "conditionalProbability",
+    "breakdown": [
+      "numerator",
+      "denominator"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

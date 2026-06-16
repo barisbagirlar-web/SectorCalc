@@ -1,0 +1,62 @@
+{
+  "toolName": "yagi-calculator",
+  "inputs": [
+    {
+      "id": "frequency",
+      "label": "Frekans",
+      "type": "number",
+      "unit": "MHz",
+      "default": 144,
+      "businessContext": "Çalışma frekansı (MHz)"
+    },
+    {
+      "id": "numElements",
+      "label": "Eleman Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 3,
+      "businessContext": "Reflektör ve sürücü dahil toplam eleman sayısı"
+    },
+    {
+      "id": "velocityFactor",
+      "label": "Hız Faktörü",
+      "type": "number",
+      "unit": "birimsiz",
+      "default": 0.95,
+      "businessContext": "Kabuk etkisi düzeltme katsayısı, genelde 0.95"
+    },
+    {
+      "id": "spacingFactor",
+      "label": "Aralık Katsayısı",
+      "type": "number",
+      "unit": "birimsiz",
+      "default": 0.2,
+      "businessContext": "Elemanlar arası dalga boyu oranı (ör. 0.2λ)"
+    }
+  ],
+  "formulas": {
+    "wavelength": "300 / frequency",
+    "drivenElement": "0.5 * wavelength * velocityFactor",
+    "reflectorLength": "drivenElement * 1.05",
+    "director1": "numElements > 2 ? drivenElement * Math.pow(0.95, 1) : 0",
+    "director2": "numElements > 3 ? drivenElement * Math.pow(0.95, 2) : 0",
+    "director3": "numElements > 4 ? drivenElement * Math.pow(0.95, 3) : 0",
+    "boomLength": "(numElements - 1) * spacingFactor * wavelength"
+  },
+  "outputs": {
+    "primary": "boomLength",
+    "breakdown": [
+      "drivenElement",
+      "reflectorLength",
+      "director1",
+      "director2",
+      "director3"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

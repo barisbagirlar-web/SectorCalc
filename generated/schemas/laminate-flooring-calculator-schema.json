@@ -1,0 +1,72 @@
+{
+  "toolName": "laminate-flooring-calculator",
+  "inputs": [
+    {
+      "id": "roomLength",
+      "label": "Room Length",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Length of the room in meters"
+    },
+    {
+      "id": "roomWidth",
+      "label": "Room Width",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Width of the room in meters"
+    },
+    {
+      "id": "plankLength",
+      "label": "Plank Length",
+      "type": "number",
+      "unit": "m",
+      "default": 1.29,
+      "businessContext": "Length of a single laminate plank in meters"
+    },
+    {
+      "id": "plankWidth",
+      "label": "Plank Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.192,
+      "businessContext": "Width of a single laminate plank in meters"
+    },
+    {
+      "id": "wastePercentage",
+      "label": "Waste Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Extra material to compensate for cuts and waste"
+    }
+  ],
+  "formulas": {
+    "roomArea": "roomLength * roomWidth",
+    "plankArea": "plankLength * plankWidth",
+    "rows": "Math.ceil(roomWidth / plankWidth)",
+    "planksPerRow": "Math.ceil(roomLength / plankLength)",
+    "baseTotal": "rows * planksPerRow",
+    "totalWithWaste": "Math.ceil(baseTotal * (1 + wastePercentage / 100))",
+    "wasteArea": "totalWithWaste * plankArea - roomArea"
+  },
+  "outputs": {
+    "primary": "totalWithWaste",
+    "breakdown": [
+      "rows",
+      "planksPerRow",
+      "baseTotal",
+      "totalWithWaste",
+      "wasteArea",
+      "roomArea",
+      "plankArea"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

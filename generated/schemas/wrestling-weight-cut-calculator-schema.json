@@ -1,0 +1,65 @@
+{
+  "toolName": "wrestling-weight-cut-calculator",
+  "inputs": [
+    {
+      "id": "currentWeight",
+      "label": "Current Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "Athlete's body weight before weight cut"
+    },
+    {
+      "id": "targetWeight",
+      "label": "Target Weight Class",
+      "type": "number",
+      "unit": "kg",
+      "default": 75,
+      "businessContext": "Maximum allowed weight for competition"
+    },
+    {
+      "id": "hoursUntilWeighIn",
+      "label": "Time Until Weigh-in",
+      "type": "number",
+      "unit": "hr",
+      "default": 24,
+      "businessContext": "Hours until official weigh-in"
+    },
+    {
+      "id": "bodyFatPercentage",
+      "label": "Body Fat Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Estimated body fat percentage"
+    },
+    {
+      "id": "maxDehydrationPercentage",
+      "label": "Safe Dehydration Limit",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Maximum safe water loss as % of body weight (typically 2-5%)"
+    }
+  ],
+  "formulas": {
+    "requiredWeightLoss": "currentWeight - targetWeight",
+    "maxSafeWaterLoss": "currentWeight * maxDehydrationPercentage / 100",
+    "excessWeight": "Math.max(0, requiredWeightLoss - maxSafeWaterLoss)",
+    "cutRatePerHour": "requiredWeightLoss / hoursUntilWeighIn"
+  },
+  "outputs": {
+    "primary": "requiredWeightLoss",
+    "breakdown": [
+      "maxSafeWaterLoss",
+      "excessWeight",
+      "cutRatePerHour"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "mph-to-knots-calculator",
+  "inputs": [
+    {
+      "id": "mph",
+      "label": "Speed in mph",
+      "type": "number",
+      "unit": "mph",
+      "default": 60,
+      "businessContext": "The speed to convert from miles per hour."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.868976,
+      "businessContext": "The factor to multiply mph by to get knots. 1 mph = 0.868976 knots (standard). Editable for calibration."
+    },
+    {
+      "id": "decimals",
+      "label": "Decimal places",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of decimal places to round the output knots."
+    },
+    {
+      "id": "knownKnots",
+      "label": "Known knots (for QC)",
+      "type": "number",
+      "unit": "knots",
+      "default": 0,
+      "businessContext": "Optional known value in knots to validate conversion accuracy."
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "knots",
+      "default": 0.01,
+      "businessContext": "Maximum allowed deviation between computed and known knots for quality check."
+    }
+  ],
+  "formulas": {
+    "exactKnots": "mph * conversionFactor",
+    "knots": "Math.round(exactKnots * Math.pow(10, decimals)) / Math.pow(10, decimals)",
+    "deviation": "knownKnots > 0 ? Math.abs(knots - knownKnots) : null",
+    "withinTolerance": "knownKnots > 0 ? deviation <= tolerance : true"
+  },
+  "outputs": {
+    "primary": "knots",
+    "breakdown": [
+      "exactKnots",
+      "deviation",
+      "withinTolerance"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

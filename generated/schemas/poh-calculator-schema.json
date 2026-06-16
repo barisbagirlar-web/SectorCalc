@@ -1,0 +1,57 @@
+{
+  "toolName": "poh-calculator",
+  "inputs": [
+    {
+      "id": "ohConcentration",
+      "label": "Hydroxide Concentration",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 1e-7,
+      "businessContext": "Concentration of hydroxide ions [OH-] in moles per liter. Typical values range from 1e-14 to 1e0."
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "Temperature in degrees Celsius. Used to calculate water autoionization constant pKw. Standard pOH assumes 25°C where Kw = 1e-14."
+    },
+    {
+      "id": "sampleVolume",
+      "label": "Sample Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 1,
+      "businessContext": "Volume of the aqueous sample in liters. For reference and scaling calculations."
+    },
+    {
+      "id": "measurementUncertainty",
+      "label": "Measurement Uncertainty",
+      "type": "number",
+      "unit": "%",
+      "default": 0.1,
+      "businessContext": "Relative uncertainty of the hydroxide measurement, expressed as a percentage. For quality assurance documentation."
+    }
+  ],
+  "formulas": {
+    "pOH": "-Math.log(ohConcentration)/Math.log(10)",
+    "pKw": "14 - 0.045 * (temperature - 25)",
+    "pH": "(14 - 0.045 * (temperature - 25)) + Math.log(ohConcentration)/Math.log(10)",
+    "hConcentration": "10 ** (-((14 - 0.045 * (temperature - 25)) + Math.log(ohConcentration)/Math.log(10)))"
+  },
+  "outputs": {
+    "primary": "pOH",
+    "breakdown": [
+      "pH",
+      "pKw",
+      "hConcentration"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

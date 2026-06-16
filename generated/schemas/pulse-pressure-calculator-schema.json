@@ -1,0 +1,59 @@
+{
+  "toolName": "pulse-pressure-calculator",
+  "inputs": [
+    {
+      "id": "systolicBP",
+      "label": "Systolic Blood Pressure",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 120,
+      "businessContext": "Measured systolic pressure in the brachial artery using a validated oscillometric device."
+    },
+    {
+      "id": "diastolicBP",
+      "label": "Diastolic Blood Pressure",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 80,
+      "businessContext": "Measured diastolic pressure, Korotkoff phase V."
+    },
+    {
+      "id": "heartRate",
+      "label": "Resting Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 70,
+      "businessContext": "Palpated or electronically measured pulse rate per minute, at rest for at least 5 minutes."
+    },
+    {
+      "id": "age",
+      "label": "Patient Age",
+      "type": "number",
+      "unit": "years",
+      "default": 50,
+      "businessContext": "Age of the patient for normalization of expected pulse pressure."
+    }
+  ],
+  "formulas": {
+    "pulsePressure": "systolicBP - diastolicBP",
+    "meanArterialPressure": "diastolicBP + pulsePressure / 3",
+    "ratePressureProduct": "systolicBP * heartRate",
+    "expectedPulsePressure": "35 + 0.4 * age",
+    "pulsePressureDeviation": "pulsePressure - expectedPulsePressure"
+  },
+  "outputs": {
+    "primary": "pulsePressure",
+    "breakdown": [
+      "meanArterialPressure",
+      "ratePressureProduct",
+      "expectedPulsePressure",
+      "pulsePressureDeviation"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

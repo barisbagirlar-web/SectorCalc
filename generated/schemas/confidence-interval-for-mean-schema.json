@@ -1,0 +1,56 @@
+{
+  "toolName": "confidence-interval-for-mean",
+  "inputs": [
+    {
+      "id": "sampleMean",
+      "label": "Sample Mean",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "The average value from the sample data."
+    },
+    {
+      "id": "sampleStdDev",
+      "label": "Sample Standard Deviation",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "businessContext": "The standard deviation of the sample."
+    },
+    {
+      "id": "sampleSize",
+      "label": "Sample Size",
+      "type": "number",
+      "unit": "count",
+      "default": 30,
+      "businessContext": "Number of observations in the sample."
+    },
+    {
+      "id": "confidenceLevel",
+      "label": "Confidence Level",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.95,
+      "businessContext": "Desired confidence level (e.g., 0.95 for 95%)."
+    }
+  ],
+  "formulas": {
+    "zScore": "if (confidenceLevel === 0.90) { 1.645 } else if (confidenceLevel === 0.95) { 1.96 } else if (confidenceLevel === 0.99) { 2.576 } else { 1.96 }",
+    "marginOfError": "zScore * sampleStdDev / Math.sqrt(sampleSize)",
+    "lowerBound": "sampleMean - marginOfError",
+    "upperBound": "sampleMean + marginOfError"
+  },
+  "outputs": {
+    "primary": "Confidence Interval: [lowerBound, upperBound]",
+    "breakdown": [
+      "Margin of Error: marginOfError",
+      "Z-Score: zScore"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

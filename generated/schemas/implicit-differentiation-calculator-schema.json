@@ -1,0 +1,87 @@
+{
+  "toolName": "implicit-differentiation-calculator",
+  "inputs": [
+    {
+      "id": "coeff_x2",
+      "label": "a (x² coefficient)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient of x² in F(x,y)=a·x²+b·y²+c·xy+d·x+e·y+f=0"
+    },
+    {
+      "id": "coeff_y2",
+      "label": "b (y² coefficient)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient of y²"
+    },
+    {
+      "id": "coeff_xy",
+      "label": "c (xy coefficient)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of xy"
+    },
+    {
+      "id": "coeff_x",
+      "label": "d (x coefficient)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of x"
+    },
+    {
+      "id": "coeff_y",
+      "label": "e (y coefficient)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of y"
+    },
+    {
+      "id": "const",
+      "label": "f (constant)",
+      "type": "number",
+      "unit": "",
+      "default": -1,
+      "businessContext": "Constant term"
+    },
+    {
+      "id": "x",
+      "label": "x",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "x-coordinate at which to evaluate derivative"
+    },
+    {
+      "id": "y",
+      "label": "y",
+      "type": "number",
+      "unit": "",
+      "default": 0.8660254037844386,
+      "businessContext": "y-coordinate at which to evaluate derivative"
+    }
+  ],
+  "formulas": {
+    "partialX": "2 * coeff_x2 * x + coeff_xy * y + coeff_x",
+    "partialY": "2 * coeff_y2 * y + coeff_xy * x + coeff_y",
+    "derivative": "-partialX / partialY"
+  },
+  "outputs": {
+    "primary": "derivative",
+    "breakdown": [
+      "partialX",
+      "partialY"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

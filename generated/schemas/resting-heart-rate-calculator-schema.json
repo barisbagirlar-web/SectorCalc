@@ -1,0 +1,57 @@
+{
+  "toolName": "resting-heart-rate-calculator",
+  "inputs": [
+    {
+      "id": "beats",
+      "label": "Heartbeats Counted",
+      "type": "number",
+      "unit": "beats",
+      "default": 20,
+      "businessContext": "Number of pulse beats counted over the measurement period."
+    },
+    {
+      "id": "seconds",
+      "label": "Measurement Duration",
+      "type": "number",
+      "unit": "seconds",
+      "default": 15,
+      "businessContext": "Time in seconds over which the beats were counted."
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the person for reference comparison."
+    },
+    {
+      "id": "fitnessLevel",
+      "label": "Fitness Level",
+      "type": "number",
+      "unit": "1-10",
+      "default": 5,
+      "businessContext": "Self-assessed fitness level from 1 (sedentary) to 10 (elite athlete). Used for interpretation."
+    }
+  ],
+  "formulas": {
+    "restingHeartRate": "(beats / seconds) * 60",
+    "restingHeartRateRounded": "Math.round(restingHeartRate)",
+    "classification": "(restingHeartRate < 60 ? 'Athletic' : restingHeartRate < 80 ? 'Normal' : 'Elevated')",
+    "breakdown1": "`A resting heart rate of ${restingHeartRateRounded} bpm is considered ${classification.toLowerCase()}.`",
+    "breakdown2Text": "'Normal resting heart rate ranges from 60 to 100 bpm for adults. Athletes may have 40-60 bpm.'"
+  },
+  "outputs": {
+    "primary": "restingHeartRateRounded + ' bpm'",
+    "breakdown": [
+      "breakdown1",
+      "breakdown2Text"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

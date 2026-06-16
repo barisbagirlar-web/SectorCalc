@@ -1,0 +1,77 @@
+{
+  "toolName": "keplers-laws-calculator",
+  "inputs": [
+    {
+      "id": "semiMajorAxis",
+      "label": "Semi-Major Axis (a)",
+      "type": "number",
+      "unit": "AU",
+      "default": 1,
+      "businessContext": "Average distance from the Sun in astronomical units."
+    },
+    {
+      "id": "orbitalPeriod",
+      "label": "Orbital Period (T)",
+      "type": "number",
+      "unit": "years",
+      "default": 1,
+      "businessContext": "Time to complete one orbit in Earth years."
+    },
+    {
+      "id": "eccentricity",
+      "label": "Eccentricity (e)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Orbital shape parameter (0=circle, <1=ellipse)."
+    },
+    {
+      "id": "massCentralBody",
+      "label": "Mass of Central Body (M)",
+      "type": "number",
+      "unit": "solar masses",
+      "default": 1,
+      "businessContext": "Mass of the central object in solar masses."
+    },
+    {
+      "id": "distanceAtPerihelion",
+      "label": "Distance at Perihelion (r_p)",
+      "type": "number",
+      "unit": "AU",
+      "default": 0.5,
+      "businessContext": "Closest approach distance to the Sun."
+    },
+    {
+      "id": "distanceAtAphelion",
+      "label": "Distance at Aphelion (r_a)",
+      "type": "number",
+      "unit": "AU",
+      "default": 1.5,
+      "businessContext": "Farthest distance from the Sun."
+    }
+  ],
+  "formulas": {
+    "keplerThirdLaw": "Math.sqrt(semiMajorAxis**3 / massCentralBody)",
+    "orbitalPeriodFromSemiMajorAxis": "Math.sqrt(semiMajorAxis**3 / massCentralBody)",
+    "semiMajorAxisFromPeriod": "(orbitalPeriod**2 * massCentralBody)**(1/3)",
+    "eccentricityFromDistances": "(distanceAtAphelion - distanceAtPerihelion) / (distanceAtAphelion + distanceAtPerihelion)",
+    "areaSweptPerTime": "0.5 * Math.sqrt(massCentralBody * semiMajorAxis * (1 - eccentricity**2))"
+  },
+  "outputs": {
+    "primary": "Orbital Period (T) = {keplerThirdLaw} years",
+    "breakdown": [
+      "Semi-Major Axis (a) = {semiMajorAxis} AU",
+      "Eccentricity (e) = {eccentricity}",
+      "Mass of Central Body (M) = {massCentralBody} solar masses",
+      "Distance at Perihelion (r_p) = {distanceAtPerihelion} AU",
+      "Distance at Aphelion (r_a) = {distanceAtAphelion} AU",
+      "Area Swept per Time = {areaSweptPerTime} AU²/year"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

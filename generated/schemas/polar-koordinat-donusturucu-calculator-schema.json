@@ -1,0 +1,62 @@
+{
+  "toolName": "polar-koordinat-donusturucu-calculator",
+  "inputs": [
+    {
+      "id": "conversionType",
+      "label": "Dönüşüm Tipi (1: Kartezyen→Polar, 2: Polar→Kartezyen)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Dönüşüm yönünü belirler: 1 Kartezyen'den Polar'a, 2 Polar'dan Kartezyen'e"
+    },
+    {
+      "id": "x",
+      "label": "X koordinatı",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Kartezyen sistemde yatay bileşen (boyutsuz)"
+    },
+    {
+      "id": "y",
+      "label": "Y koordinatı",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Kartezyen sistemde düşey bileşen (boyutsuz)"
+    },
+    {
+      "id": "r",
+      "label": "Radyal uzaklık (r)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Polar koordinatlarda orijine uzaklık"
+    },
+    {
+      "id": "theta",
+      "label": "Açı (θ)",
+      "type": "number",
+      "unit": "derece",
+      "default": 0,
+      "businessContext": "Polar açı, derece cinsinden pozitif x eksenine göre"
+    }
+  ],
+  "formulas": {
+    "primary": "conversionType === 1 ? `Polar: r = ${Math.sqrt(x*x+y*y).toFixed(4)}, θ = ${(Math.atan2(y,x)*180/Math.PI).toFixed(2)}°` : `Kartezyen: x = ${(r*Math.cos(theta*Math.PI/180)).toFixed(4)}, y = ${(r*Math.sin(theta*Math.PI/180)).toFixed(4)}`",
+    "breakdown": "conversionType === 1 ? [`r = ${Math.sqrt(x*x+y*y).toFixed(4)}`, `θ = ${(Math.atan2(y,x)*180/Math.PI).toFixed(2)}°`] : [`x = ${(r*Math.cos(theta*Math.PI/180)).toFixed(4)}`, `y = ${(r*Math.sin(theta*Math.PI/180)).toFixed(4)}`]"
+  },
+  "outputs": {
+    "primary": "Dönüşüm sonucunu ana çıktı olarak gösterir",
+    "breakdown": [
+      "Bileşen değerlerini ayrı ayrı listeler",
+      "Hesaplama detayı sağlar"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

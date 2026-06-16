@@ -1,0 +1,55 @@
+{
+  "toolName": "weight-training-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Trainee body weight in kilograms."
+    },
+    {
+      "id": "duration",
+      "label": "Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Total duration of the weight training session in minutes."
+    },
+    {
+      "id": "intensity",
+      "label": "Intensity",
+      "type": "number",
+      "unit": "scale (1-10)",
+      "default": 5,
+      "businessContext": "Perceived intensity of the training on a scale of 1 (light) to 10 (maximal). Used to estimate MET."
+    },
+    {
+      "id": "restPeriod",
+      "label": "Average Rest Period",
+      "type": "number",
+      "unit": "min",
+      "default": 2,
+      "businessContext": "Average rest period between sets in minutes, for future use."
+    }
+  ],
+  "formulas": {
+    "Total Calories Burned": "((weight * (intensity * 0.6 + 2) * 3.5) / 200) * duration",
+    "Calories per Minute": "((weight * (intensity * 0.6 + 2) * 3.5) / 200)",
+    "MET-minutes": "(intensity * 0.6 + 2) * duration"
+  },
+  "outputs": {
+    "primary": "Total Calories Burned",
+    "breakdown": [
+      "Calories per Minute",
+      "MET-minutes"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

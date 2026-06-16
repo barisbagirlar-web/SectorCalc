@@ -1,0 +1,375 @@
+{
+  "slug": "cutting-parameters-tool-life",
+  "title": "Cutting Parameters Tool Life Calculator",
+  "description": "Calculates tool life based on cutting speed, feed rate, depth of cut, and material properties, with adjustments for process reliability and hidden loss drivers.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-machine comparison",
+    "Custom material database"
+  ],
+  "inputs": [
+    {
+      "id": "cutting_speed",
+      "label": "Cutting Speed",
+      "type": "number",
+      "unit": "m/min",
+      "default": 150,
+      "min": 10,
+      "max": 500,
+      "businessContext": "Surface speed of the workpiece relative to the cutting tool, based on ISO 3685.",
+      "label_i18n": {
+        "en": "Cutting Speed"
+      },
+      "businessContext_i18n": {
+        "en": "Surface speed of the workpiece relative to the cutting tool, based on ISO 3685."
+      }
+    },
+    {
+      "id": "feed_rate",
+      "label": "Feed Rate",
+      "type": "number",
+      "unit": "mm/rev",
+      "default": 0.2,
+      "min": 0.05,
+      "max": 1,
+      "businessContext": "Linear distance the tool advances per revolution, affects chip load and tool wear.",
+      "label_i18n": {
+        "en": "Feed Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Linear distance the tool advances per revolution, affects chip load and tool wear."
+      }
+    },
+    {
+      "id": "depth_of_cut",
+      "label": "Depth of Cut",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "min": 0.1,
+      "max": 10,
+      "businessContext": "Radial or axial engagement of the tool, influences cutting forces and heat generation.",
+      "label_i18n": {
+        "en": "Depth of Cut"
+      },
+      "businessContext_i18n": {
+        "en": "Radial or axial engagement of the tool, influences cutting forces and heat generation."
+      }
+    },
+    {
+      "id": "tool_material",
+      "label": "Tool Material",
+      "type": "select",
+      "unit": "",
+      "default": "carbide",
+      "min": null,
+      "max": null,
+      "businessContext": "Material of the cutting tool, affects wear resistance and optimal cutting parameters.",
+      "options": [
+        "high_speed_steel",
+        "carbide",
+        "ceramic",
+        "cbn",
+        "diamond"
+      ],
+      "label_i18n": {
+        "en": "Tool Material"
+      },
+      "businessContext_i18n": {
+        "en": "Material of the cutting tool, affects wear resistance and optimal cutting parameters."
+      }
+    },
+    {
+      "id": "workpiece_material",
+      "label": "Workpiece Material",
+      "type": "select",
+      "unit": "",
+      "default": "steel",
+      "min": null,
+      "max": null,
+      "businessContext": "Material being machined, determines machinability rating and recommended speeds.",
+      "options": [
+        "steel",
+        "stainless_steel",
+        "aluminum",
+        "titanium",
+        "cast_iron",
+        "superalloy"
+      ],
+      "label_i18n": {
+        "en": "Workpiece Material"
+      },
+      "businessContext_i18n": {
+        "en": "Material being machined, determines machinability rating and recommended speeds."
+      }
+    },
+    {
+      "id": "coolant_used",
+      "label": "Coolant Used",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "min": null,
+      "max": null,
+      "businessContext": "Indicates if coolant is applied, reduces thermal stress and extends tool life.",
+      "label_i18n": {
+        "en": "Coolant Used"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates if coolant is applied, reduces thermal stress and extends tool life."
+      }
+    },
+    {
+      "id": "machine_stability_factor",
+      "label": "Machine Stability Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0.5,
+      "max": 1.5,
+      "businessContext": "Factor representing machine rigidity and vibration damping, based on condition monitoring data.",
+      "label_i18n": {
+        "en": "Machine Stability Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor representing machine rigidity and vibration damping, based on condition monitoring data."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_speed_feed_ratio",
+        "condition": "cutting_speed / feed_rate < 500",
+        "message": "Cutting speed to feed rate ratio is too low, risk of built-up edge formation."
+      },
+      {
+        "id": "rule_depth_material",
+        "condition": "depth_of_cut > 5.0 && workpiece_material == 'superalloy'",
+        "message": "Depth of cut exceeds recommended limit for superalloys, tool failure likely."
+      },
+      {
+        "id": "rule_coolant_ceramic",
+        "condition": "tool_material == 'ceramic' && coolant_used == true",
+        "message": "Ceramic tools should not be used with coolant due to thermal shock risk."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_tool_life_warning",
+        "condition": "primaryResult < 10",
+        "level": "warning",
+        "message": "Tool life is critically low (<10 minutes), consider reducing cutting speed or feed."
+      },
+      {
+        "id": "threshold_tool_life_alert",
+        "condition": "primaryResult < 5",
+        "level": "alert",
+        "message": "Immediate action required: tool life below 5 minutes, stop machining and review parameters."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "base_tool_life",
+      "name": "Base Tool Life (Taylor's Equation)",
+      "description": "Calculates theoretical tool life using Taylor's extended equation with material-specific constants.",
+      "formula": "T_base = (C / (cutting_speed ^ n)) * (1 / (feed_rate ^ m)) * (1 / (depth_of_cut ^ p))",
+      "parameters": {
+        "C": "Material-dependent constant (e.g., steel: 300, aluminum: 600)",
+        "n": "Speed exponent (typically 0.2-0.5)",
+        "m": "Feed exponent (typically 0.1-0.3)",
+        "p": "Depth exponent (typically 0.1-0.2)"
+      },
+      "dependencies": [
+        "cutting_speed",
+        "feed_rate",
+        "depth_of_cut",
+        "workpiece_material"
+      ]
+    },
+    {
+      "id": "material_adjustment",
+      "name": "Material Adjustment Factor",
+      "description": "Adjusts base tool life based on workpiece material machinability rating.",
+      "formula": "K_material = machinability_rating(workpiece_material)",
+      "parameters": {
+        "machinability_rating": "steel:1.0, stainless_steel:0.6, aluminum:3.0, titanium:0.4, cast_iron:1.2, superalloy:0.3"
+      },
+      "dependencies": [
+        "workpiece_material"
+      ]
+    },
+    {
+      "id": "tool_material_adjustment",
+      "name": "Tool Material Adjustment Factor",
+      "description": "Adjusts tool life based on tool material wear resistance.",
+      "formula": "K_tool = tool_factor(tool_material)",
+      "parameters": {
+        "tool_factor": "high_speed_steel:0.5, carbide:1.0, ceramic:1.5, cbn:2.0, diamond:2.5"
+      },
+      "dependencies": [
+        "tool_material"
+      ]
+    },
+    {
+      "id": "coolant_adjustment",
+      "name": "Coolant Adjustment Factor",
+      "description": "Adjusts tool life based on coolant usage.",
+      "formula": "K_coolant = coolant_used ? 1.3 : 1.0",
+      "dependencies": [
+        "coolant_used"
+      ]
+    },
+    {
+      "id": "machine_stability_adjustment",
+      "name": "Machine Stability Adjustment",
+      "description": "Adjusts tool life based on machine condition and stability.",
+      "formula": "K_machine = machine_stability_factor",
+      "dependencies": [
+        "machine_stability_factor"
+      ]
+    },
+    {
+      "id": "adjusted_tool_life",
+      "name": "Adjusted Tool Life",
+      "description": "Combines all adjustment factors to compute final tool life in minutes.",
+      "formula": "T_adjusted = T_base * K_material * K_tool * K_coolant * K_machine",
+      "dependencies": [
+        "base_tool_life",
+        "material_adjustment",
+        "tool_material_adjustment",
+        "coolant_adjustment",
+        "machine_stability_adjustment"
+      ]
+    },
+    {
+      "id": "primary_result",
+      "name": "Primary Result (Tool Life)",
+      "description": "Final tool life in minutes, rounded to two decimal places.",
+      "formula": "primaryResult = round(T_adjusted, 2)",
+      "dependencies": [
+        "adjusted_tool_life"
+      ]
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "tool_life_minutes",
+      "label": "Tool Life",
+      "unit": "minutes",
+      "value": null,
+      "description": "Estimated tool life under given cutting parameters."
+    },
+    "breakdown": {
+      "base_tool_life": {
+        "id": "base_tool_life",
+        "label": "Base Tool Life (Taylor)",
+        "unit": "minutes",
+        "value": null,
+        "description": "Theoretical tool life from Taylor's equation."
+      },
+      "material_adjustment_factor": {
+        "id": "material_adjustment_factor",
+        "label": "Material Adjustment Factor",
+        "unit": "",
+        "value": null,
+        "description": "Multiplier based on workpiece material."
+      },
+      "tool_material_adjustment_factor": {
+        "id": "tool_material_adjustment_factor",
+        "label": "Tool Material Adjustment Factor",
+        "unit": "",
+        "value": null,
+        "description": "Multiplier based on tool material."
+      },
+      "coolant_adjustment_factor": {
+        "id": "coolant_adjustment_factor",
+        "label": "Coolant Adjustment Factor",
+        "unit": "",
+        "value": null,
+        "description": "Multiplier based on coolant usage."
+      },
+      "machine_stability_adjustment_factor": {
+        "id": "machine_stability_adjustment_factor",
+        "label": "Machine Stability Factor",
+        "unit": "",
+        "value": null,
+        "description": "Multiplier based on machine condition."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "vibration_induced_wear",
+        "label": "Vibration-Induced Wear",
+        "description": "Excessive vibration accelerates flank wear and chipping, reducing tool life by up to 30%.",
+        "impact": "high"
+      },
+      {
+        "id": "thermal_cracking_risk",
+        "label": "Thermal Cracking Risk",
+        "description": "Intermittent cutting or improper coolant application can cause thermal cracks, especially in ceramics.",
+        "impact": "medium"
+      },
+      {
+        "id": "built_up_edge_formation",
+        "label": "Built-Up Edge Formation",
+        "description": "Low cutting speeds and sticky materials cause material adhesion, degrading surface finish and tool life.",
+        "impact": "medium"
+      },
+      {
+        "id": "tool_micro_chipping",
+        "label": "Tool Micro-Chipping",
+        "description": "High feed rates and unstable conditions lead to micro-chipping of the cutting edge.",
+        "impact": "high"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_cutting_speed",
+        "label": "Reduce Cutting Speed",
+        "description": "Decrease cutting speed by 10-15% to extend tool life, especially if current speed is near upper limit.",
+        "condition": "cutting_speed > 200"
+      },
+      {
+        "id": "optimize_feed_rate",
+        "label": "Optimize Feed Rate",
+        "description": "Adjust feed rate to balance chip load and tool wear; consider reducing if >0.3 mm/rev.",
+        "condition": "feed_rate > 0.3"
+      },
+      {
+        "id": "apply_coolant",
+        "label": "Apply Coolant",
+        "description": "Ensure coolant is used to reduce thermal stress and flush chips away from cutting zone.",
+        "condition": "coolant_used == false"
+      },
+      {
+        "id": "check_machine_stability",
+        "label": "Check Machine Stability",
+        "description": "Inspect machine for wear, backlash, or vibration issues; consider maintenance if stability factor <0.8.",
+        "condition": "machine_stability_factor < 0.8"
+      },
+      {
+        "id": "use_stronger_tool_material",
+        "label": "Use Stronger Tool Material",
+        "description": "Switch to a more wear-resistant tool material (e.g., carbide to ceramic) if tool life is below target.",
+        "condition": "primaryResult < 15"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_score",
+      "label": "Data Confidence Score",
+      "unit": "%",
+      "value": null,
+      "description": "Confidence level in the calculated tool life based on input accuracy and process variability.",
+      "calculation": "base_confidence = 85; if coolant_used == false then -5; if machine_stability_factor < 0.8 then -10; if workpiece_material == 'superalloy' then -5; final = max(50, base_confidence - deductions)"
+    }
+  },
+  "toolName": "cutting-parameters-tool-life-calculator",
+  "catalogCategory": "manufacturing-workshop",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

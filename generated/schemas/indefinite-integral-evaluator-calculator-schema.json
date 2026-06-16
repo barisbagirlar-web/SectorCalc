@@ -1,0 +1,98 @@
+{
+  "toolName": "indefinite-integral-evaluator-calculator",
+  "inputs": [
+    {
+      "id": "a5",
+      "label": "a₅ (x⁵ coefficient)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of the x⁵ term in the polynomial"
+    },
+    {
+      "id": "a4",
+      "label": "a₄ (x⁴ coefficient)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of the x⁴ term"
+    },
+    {
+      "id": "a3",
+      "label": "a₃ (x³ coefficient)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of the x³ term"
+    },
+    {
+      "id": "a2",
+      "label": "a₂ (x² coefficient)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of the x² term"
+    },
+    {
+      "id": "a1",
+      "label": "a₁ (x coefficient)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of the x term"
+    },
+    {
+      "id": "a0",
+      "label": "a₀ (constant term)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Constant term of the polynomial"
+    },
+    {
+      "id": "x",
+      "label": "x (evaluation point)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Point at which the antiderivative is evaluated"
+    },
+    {
+      "id": "C",
+      "label": "C (integration constant)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Arbitrary constant of integration"
+    }
+  ],
+  "formulas": {
+    "term6": "inputs.a5 / 6 * Math.pow(inputs.x, 6)",
+    "term5": "inputs.a4 / 5 * Math.pow(inputs.x, 5)",
+    "term4": "inputs.a3 / 4 * Math.pow(inputs.x, 4)",
+    "term3": "inputs.a2 / 3 * Math.pow(inputs.x, 3)",
+    "term2": "inputs.a1 / 2 * Math.pow(inputs.x, 2)",
+    "term1": "inputs.a0 * inputs.x",
+    "termC": "inputs.C",
+    "total": "term6 + term5 + term4 + term3 + term2 + term1 + termC"
+  },
+  "outputs": {
+    "primary": "total",
+    "breakdown": [
+      "Integrated term a₅x⁵ → (a₅/6)x⁶ evaluated: term6",
+      "Integrated term a₄x⁴ → (a₄/5)x⁵ evaluated: term5",
+      "Integrated term a₃x³ → (a₃/4)x⁴ evaluated: term4",
+      "Integrated term a₂x² → (a₂/3)x³ evaluated: term3",
+      "Integrated term a₁x → (a₁/2)x² evaluated: term2",
+      "Integrated constant a₀ → a₀x evaluated: term1",
+      "Added integration constant C: termC",
+      "Total antiderivative value: total"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

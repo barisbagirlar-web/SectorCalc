@@ -1,0 +1,67 @@
+{
+  "toolName": "hess-yasasi-hesaplayici-calculator",
+  "inputs": [
+    {
+      "id": "number_of_steps",
+      "label": "Adım Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 4,
+      "businessContext": "Hess Yasası ile toplam entalpi değişimini hesaplamak için kullanılacak reaksiyon adımı sayısı (en fazla 4)."
+    },
+    {
+      "id": "step1_dH",
+      "label": "1. Adım ΔH",
+      "type": "number",
+      "unit": "kJ/mol",
+      "default": 0,
+      "businessContext": "Birinci reaksiyon adımının entalpi değişimi."
+    },
+    {
+      "id": "step2_dH",
+      "label": "2. Adım ΔH",
+      "type": "number",
+      "unit": "kJ/mol",
+      "default": 0,
+      "businessContext": "İkinci reaksiyon adımının entalpi değişimi."
+    },
+    {
+      "id": "step3_dH",
+      "label": "3. Adım ΔH",
+      "type": "number",
+      "unit": "kJ/mol",
+      "default": 0,
+      "businessContext": "Üçüncü reaksiyon adımının entalpi değişimi."
+    },
+    {
+      "id": "step4_dH",
+      "label": "4. Adım ΔH",
+      "type": "number",
+      "unit": "kJ/mol",
+      "default": 0,
+      "businessContext": "Dördüncü reaksiyon adımının entalpi değişimi."
+    }
+  ],
+  "formulas": {
+    "step1_eff": "step1_dH * (number_of_steps >= 1 ? 1 : 0)",
+    "step2_eff": "step2_dH * (number_of_steps >= 2 ? 1 : 0)",
+    "step3_eff": "step3_dH * (number_of_steps >= 3 ? 1 : 0)",
+    "step4_eff": "step4_dH * (number_of_steps >= 4 ? 1 : 0)",
+    "total": "step1_eff + step2_eff + step3_eff + step4_eff"
+  },
+  "outputs": {
+    "primary": "Toplam entalpi değişimi (ΔH_toplam): {total} kJ/mol",
+    "breakdown": [
+      "1. adım katkısı: {step1_eff} kJ/mol",
+      "2. adım katkısı: {step2_eff} kJ/mol",
+      "3. adım katkısı: {step3_eff} kJ/mol",
+      "4. adım katkısı: {step4_eff} kJ/mol"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

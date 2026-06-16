@@ -1,0 +1,63 @@
+{
+  "toolName": "precision-calculator",
+  "inputs": [
+    {
+      "id": "usl",
+      "label": "Upper Specification Limit (USL)",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "The maximum allowable value for a characteristic"
+    },
+    {
+      "id": "lsl",
+      "label": "Lower Specification Limit (LSL)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "The minimum allowable value for a characteristic"
+    },
+    {
+      "id": "target",
+      "label": "Target Value",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "The ideal or nominal value"
+    },
+    {
+      "id": "mean",
+      "label": "Process Mean",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "The arithmetic mean of the process output"
+    },
+    {
+      "id": "stddev",
+      "label": "Process Standard Deviation",
+      "type": "number",
+      "unit": "mm",
+      "default": 1,
+      "businessContext": "The standard deviation of the process output, measuring spread"
+    }
+  ],
+  "formulas": {
+    "cp": "(usl - lsl) / (6 * stddev)",
+    "cpk": "Math.min((usl - mean), (mean - lsl)) / (3 * stddev)",
+    "cpm": "(usl - lsl) / (6 * Math.sqrt(stddev**2 + (mean - target)**2))"
+  },
+  "outputs": {
+    "primary": "cpk",
+    "breakdown": [
+      "cp",
+      "cpm"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

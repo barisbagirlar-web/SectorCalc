@@ -1,0 +1,71 @@
+{
+  "toolName": "parlay-calculator",
+  "inputs": [
+    {
+      "id": "stake",
+      "label": "Stake",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "Amount wagered"
+    },
+    {
+      "id": "odds1",
+      "label": "Leg 1 Odds",
+      "type": "number",
+      "unit": "decimal",
+      "default": 1,
+      "businessContext": "Decimal odds for first selection"
+    },
+    {
+      "id": "odds2",
+      "label": "Leg 2 Odds",
+      "type": "number",
+      "unit": "decimal",
+      "default": 1,
+      "businessContext": "Decimal odds for second selection"
+    },
+    {
+      "id": "odds3",
+      "label": "Leg 3 Odds",
+      "type": "number",
+      "unit": "decimal",
+      "default": 1,
+      "businessContext": "Decimal odds for third selection"
+    },
+    {
+      "id": "odds4",
+      "label": "Leg 4 Odds",
+      "type": "number",
+      "unit": "decimal",
+      "default": 1,
+      "businessContext": "Decimal odds for fourth selection"
+    },
+    {
+      "id": "odds5",
+      "label": "Leg 5 Odds",
+      "type": "number",
+      "unit": "decimal",
+      "default": 1,
+      "businessContext": "Decimal odds for fifth selection"
+    }
+  ],
+  "formulas": {
+    "totalPayout": "stake * odds1 * odds2 * odds3 * odds4 * odds5",
+    "totalOdds": "odds1 * odds2 * odds3 * odds4 * odds5",
+    "potentialProfit": "totalPayout - stake"
+  },
+  "outputs": {
+    "primary": "totalPayout",
+    "breakdown": [
+      "totalOdds",
+      "potentialProfit"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

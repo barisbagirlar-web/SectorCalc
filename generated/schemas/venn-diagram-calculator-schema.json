@@ -1,0 +1,95 @@
+{
+  "toolName": "venn-diagram-calculator",
+  "inputs": [
+    {
+      "id": "sizeA",
+      "label": "Set A size",
+      "type": "number",
+      "unit": "items",
+      "default": 0,
+      "businessContext": "Number of elements uniquely belonging to set A, including overlaps"
+    },
+    {
+      "id": "sizeB",
+      "label": "Set B size",
+      "type": "number",
+      "unit": "items",
+      "default": 0,
+      "businessContext": "Number of elements uniquely belonging to set B, including overlaps"
+    },
+    {
+      "id": "sizeC",
+      "label": "Set C size",
+      "type": "number",
+      "unit": "items",
+      "default": 0,
+      "businessContext": "Number of elements uniquely belonging to set C, including overlaps"
+    },
+    {
+      "id": "intersectAB",
+      "label": "A ∩ B size",
+      "type": "number",
+      "unit": "items",
+      "default": 0,
+      "businessContext": "Number of elements common to sets A and B, possibly also in C"
+    },
+    {
+      "id": "intersectAC",
+      "label": "A ∩ C size",
+      "type": "number",
+      "unit": "items",
+      "default": 0,
+      "businessContext": "Number of elements common to sets A and C, possibly also in B"
+    },
+    {
+      "id": "intersectBC",
+      "label": "B ∩ C size",
+      "type": "number",
+      "unit": "items",
+      "default": 0,
+      "businessContext": "Number of elements common to sets B and C, possibly also in A"
+    },
+    {
+      "id": "intersectABC",
+      "label": "A ∩ B ∩ C size",
+      "type": "number",
+      "unit": "items",
+      "default": 0,
+      "businessContext": "Number of elements common to all three sets A, B, and C"
+    },
+    {
+      "id": "universal",
+      "label": "Universal set size",
+      "type": "number",
+      "unit": "items",
+      "default": 0,
+      "businessContext": "Total number of elements in the entire universe, including those outside A, B, and C"
+    }
+  ],
+  "formulas": {
+    "unionSize": "sizeA + sizeB + sizeC - intersectAB - intersectAC - intersectBC + intersectABC",
+    "onlyA": "sizeA - intersectAB - intersectAC + intersectABC",
+    "onlyB": "sizeB - intersectAB - intersectBC + intersectABC",
+    "onlyC": "sizeC - intersectAC - intersectBC + intersectABC",
+    "exactlyTwo": "intersectAB + intersectAC + intersectBC - 3 * intersectABC",
+    "allThree": "intersectABC",
+    "none": "universal - (sizeA + sizeB + sizeC - intersectAB - intersectAC - intersectBC + intersectABC)"
+  },
+  "outputs": {
+    "primary": "unionSize",
+    "breakdown": [
+      "onlyA",
+      "onlyB",
+      "onlyC",
+      "exactlyTwo",
+      "allThree",
+      "none"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

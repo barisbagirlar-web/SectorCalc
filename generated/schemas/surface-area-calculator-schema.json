@@ -1,0 +1,69 @@
+{
+  "toolName": "surface-area-calculator",
+  "inputs": [
+    {
+      "id": "bottomLength",
+      "label": "Bottom Length (a)",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Length of the bottom rectangle"
+    },
+    {
+      "id": "bottomWidth",
+      "label": "Bottom Width (b)",
+      "type": "number",
+      "unit": "m",
+      "default": 1.5,
+      "businessContext": "Width of the bottom rectangle"
+    },
+    {
+      "id": "topLength",
+      "label": "Top Length (c)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Length of the top rectangle"
+    },
+    {
+      "id": "topWidth",
+      "label": "Top Width (d)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.8,
+      "businessContext": "Width of the top rectangle"
+    },
+    {
+      "id": "height",
+      "label": "Height (h)",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Vertical height between bottom and top rectangles"
+    }
+  ],
+  "formulas": {
+    "bottomArea": "bottomLength * bottomWidth",
+    "topArea": "topLength * topWidth",
+    "slantHeightLength": "Math.sqrt(Math.pow(height, 2) + Math.pow((bottomWidth - topWidth) / 2, 2))",
+    "slantHeightWidth": "Math.sqrt(Math.pow(height, 2) + Math.pow((bottomLength - topLength) / 2, 2))",
+    "lateralAreaLength": "(bottomLength + topLength) * slantHeightLength",
+    "lateralAreaWidth": "(bottomWidth + topWidth) * slantHeightWidth",
+    "totalSurfaceArea": "bottomArea + topArea + lateralAreaLength + lateralAreaWidth"
+  },
+  "outputs": {
+    "primary": "totalSurfaceArea",
+    "breakdown": [
+      "bottomArea",
+      "topArea",
+      "lateralAreaLength",
+      "lateralAreaWidth"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

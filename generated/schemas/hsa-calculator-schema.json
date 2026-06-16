@@ -1,0 +1,81 @@
+{
+  "toolName": "hsa-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Your current age for determining the investment horizon until retirement."
+    },
+    {
+      "id": "annualContribution",
+      "label": "Annual Contribution",
+      "type": "number",
+      "unit": "USD",
+      "default": 3600,
+      "businessContext": "Amount you contribute annually to your HSA from your own funds."
+    },
+    {
+      "id": "initialBalance",
+      "label": "Initial Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Current balance already in the HSA account."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "percent",
+      "default": 5,
+      "businessContext": "Expected average annual rate of return on HSA investments (before inflation)."
+    },
+    {
+      "id": "taxRate",
+      "label": "Marginal Tax Rate",
+      "type": "number",
+      "unit": "percent",
+      "default": 22,
+      "businessContext": "Your federal marginal income tax rate used to estimate tax savings on contributions."
+    },
+    {
+      "id": "yearsUntilRetirement",
+      "label": "Years Until Retirement",
+      "type": "number",
+      "unit": "years",
+      "default": 35,
+      "businessContext": "Number of years you plan to contribute before retirement."
+    },
+    {
+      "id": "employerContribution",
+      "label": "Employer Contribution",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Annual contribution from your employer to your HSA, if any."
+    }
+  ],
+  "formulas": {
+    "totalFutureValue": "initialBalance * Math.pow(1 + annualInterestRate/100, yearsUntilRetirement) + (annualInterestRate/100 === 0 ? (annualContribution + employerContribution) * yearsUntilRetirement : (annualContribution + employerContribution) * (Math.pow(1 + annualInterestRate/100, yearsUntilRetirement) - 1) / (annualInterestRate/100))",
+    "totalContributions": "(annualContribution + employerContribution) * yearsUntilRetirement",
+    "taxSavings": "((annualContribution + employerContribution) * yearsUntilRetirement) * (taxRate/100)",
+    "interestEarned": "totalFutureValue - initialBalance - totalContributions"
+  },
+  "outputs": {
+    "primary": "totalFutureValue",
+    "breakdown": [
+      "totalContributions",
+      "taxSavings",
+      "interestEarned"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

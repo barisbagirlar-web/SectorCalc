@@ -1,0 +1,63 @@
+{
+  "toolName": "safety-stock-calculator",
+  "inputs": [
+    {
+      "id": "serviceLevelZ",
+      "label": "Service Level Z-score",
+      "type": "number",
+      "unit": "",
+      "default": 1.65,
+      "businessContext": "Safety stock calculation"
+    },
+    {
+      "id": "demandAvg",
+      "label": "Average Demand",
+      "type": "number",
+      "unit": "pcs",
+      "default": 100,
+      "businessContext": "Demand per time period"
+    },
+    {
+      "id": "demandStdDev",
+      "label": "Demand Standard Deviation",
+      "type": "number",
+      "unit": "pcs",
+      "default": 20,
+      "businessContext": "Demand variability"
+    },
+    {
+      "id": "leadTime",
+      "label": "Average Lead Time",
+      "type": "number",
+      "unit": "days",
+      "default": 5,
+      "businessContext": "Replenishment lead time"
+    },
+    {
+      "id": "leadTimeStdDev",
+      "label": "Lead Time Standard Deviation",
+      "type": "number",
+      "unit": "days",
+      "default": 1,
+      "businessContext": "Lead time variability"
+    }
+  ],
+  "formulas": {
+    "safetyStock": "serviceLevelZ * Math.sqrt( leadTime * Math.pow(demandStdDev,2) + Math.pow(demandAvg,2) * Math.pow(leadTimeStdDev,2) )",
+    "demandVariabilityComponent": "serviceLevelZ * demandStdDev * Math.sqrt(leadTime)",
+    "leadTimeVariabilityComponent": "serviceLevelZ * demandAvg * leadTimeStdDev"
+  },
+  "outputs": {
+    "primary": "safetyStock",
+    "breakdown": [
+      "demandVariabilityComponent",
+      "leadTimeVariabilityComponent"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

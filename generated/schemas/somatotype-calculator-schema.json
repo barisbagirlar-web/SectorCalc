@@ -1,0 +1,88 @@
+{
+  "toolName": "somatotype-calculator",
+  "inputs": [
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 175,
+      "businessContext": "User's height in centimeters"
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User's weight in kilograms"
+    },
+    {
+      "id": "skinfold_triceps",
+      "label": "Triceps Skinfold",
+      "type": "number",
+      "unit": "mm",
+      "default": 12,
+      "businessContext": "Triceps skinfold thickness measurement"
+    },
+    {
+      "id": "skinfold_subscapular",
+      "label": "Subscapular Skinfold",
+      "type": "number",
+      "unit": "mm",
+      "default": 15,
+      "businessContext": "Subscapular skinfold thickness measurement"
+    },
+    {
+      "id": "skinfold_suprailiac",
+      "label": "Suprailiac Skinfold",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Suprailiac skinfold thickness measurement"
+    },
+    {
+      "id": "skinfold_calf",
+      "label": "Calf Skinfold",
+      "type": "number",
+      "unit": "mm",
+      "default": 8,
+      "businessContext": "Calf skinfold thickness measurement"
+    },
+    {
+      "id": "humerus_breadth",
+      "label": "Humerus Breadth",
+      "type": "number",
+      "unit": "cm",
+      "default": 6.5,
+      "businessContext": "Breadth of the humerus bone"
+    },
+    {
+      "id": "femur_breadth",
+      "label": "Femur Breadth",
+      "type": "number",
+      "unit": "cm",
+      "default": 9.5,
+      "businessContext": "Breadth of the femur bone"
+    }
+  ],
+  "formulas": {
+    "endomorphy": "-0.7182 + 0.1451 * (skinfold_triceps + skinfold_subscapular + skinfold_suprailiac) - 0.00068 * ((skinfold_triceps + skinfold_subscapular + skinfold_suprailiac) ** 2) + 0.0000014 * ((skinfold_triceps + skinfold_subscapular + skinfold_suprailiac) ** 3)",
+    "mesomorphy": "0.858 * humerus_breadth + 0.601 * femur_breadth + 0.188 * (skinfold_triceps + skinfold_calf) + 0.161 * (skinfold_subscapular + skinfold_suprailiac) - 0.131 * height + 4.5",
+    "ectomorphy": "if (height / Math.cbrt(weight) > 40.75) { ecto = 0.732 * (height / Math.cbrt(weight)) - 28.58 } else if (height / Math.cbrt(weight) >= 38.25) { ecto = 0.463 * (height / Math.cbrt(weight)) - 17.63 } else { ecto = 0.1 }"
+  },
+  "outputs": {
+    "primary": "Somatotype",
+    "breakdown": [
+      "Endomorphy: {endomorphy}",
+      "Mesomorphy: {mesomorphy}",
+      "Ectomorphy: {ectomorphy}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

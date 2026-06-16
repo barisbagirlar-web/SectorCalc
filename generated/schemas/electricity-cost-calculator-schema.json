@@ -1,0 +1,71 @@
+{
+  "toolName": "electricity-cost-calculator",
+  "inputs": [
+    {
+      "id": "powerConsumption",
+      "label": "Power Consumption",
+      "type": "number",
+      "unit": "kW",
+      "default": 10,
+      "businessContext": "Average power draw of the equipment or facility in kilowatts."
+    },
+    {
+      "id": "operatingHoursPerDay",
+      "label": "Operating Hours per Day",
+      "type": "number",
+      "unit": "h",
+      "default": 8,
+      "businessContext": "Number of hours the equipment operates each day."
+    },
+    {
+      "id": "operatingDaysPerMonth",
+      "label": "Operating Days per Month",
+      "type": "number",
+      "unit": "days",
+      "default": 22,
+      "businessContext": "Typical number of operating days in a month."
+    },
+    {
+      "id": "electricityRate",
+      "label": "Electricity Rate",
+      "type": "number",
+      "unit": "$/kWh",
+      "default": 0.12,
+      "businessContext": "Cost per kilowatt-hour of energy consumed."
+    },
+    {
+      "id": "peakDemand",
+      "label": "Peak Demand",
+      "type": "number",
+      "unit": "kW",
+      "default": 0,
+      "businessContext": "Highest average demand in kW during a 15-minute interval in the billing period. Set to 0 if no demand charge."
+    },
+    {
+      "id": "demandChargeRate",
+      "label": "Demand Charge Rate",
+      "type": "number",
+      "unit": "$/kW",
+      "default": 0,
+      "businessContext": "Cost per kW of peak demand. Set to 0 if no demand charge."
+    }
+  ],
+  "formulas": {
+    "energyCost": "powerConsumption * operatingHoursPerDay * operatingDaysPerMonth * electricityRate",
+    "demandCost": "peakDemand * demandChargeRate",
+    "totalMonthlyCost": "(powerConsumption * operatingHoursPerDay * operatingDaysPerMonth * electricityRate) + (peakDemand * demandChargeRate)"
+  },
+  "outputs": {
+    "primary": "totalMonthlyCost",
+    "breakdown": [
+      "energyCost",
+      "demandCost"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

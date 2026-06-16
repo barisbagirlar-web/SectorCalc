@@ -1,0 +1,65 @@
+{
+  "toolName": "ounces-to-grams-calculator",
+  "inputs": [
+    {
+      "id": "ounces",
+      "label": "Ounces",
+      "type": "number",
+      "unit": "oz",
+      "default": 1,
+      "businessContext": "Weight in avoirdupois ounces (1 oz = 28.349523125 g)."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "g/oz",
+      "default": 28.349523125,
+      "businessContext": "Grams per ounce. Override for troy ounce (31.1034768 g) or other standards."
+    },
+    {
+      "id": "measurementUncertaintyOunces",
+      "label": "Measurement Uncertainty (± oz)",
+      "type": "number",
+      "unit": "oz",
+      "default": 0.001,
+      "businessContext": "Uncertainty of the weighing device in ounces, for propagating error into grams."
+    },
+    {
+      "id": "outputPrecision",
+      "label": "Output Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Desired number of decimal places for the displayed converted value (informational, not used in raw computation)."
+    },
+    {
+      "id": "batchMultiplier",
+      "label": "Batch Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Factor to scale the conversion for multiple identical items (e.g., number of units in a batch)."
+    }
+  ],
+  "formulas": {
+    "totalGrams": "ounces * conversionFactor * batchMultiplier",
+    "rawConversion": "ounces * conversionFactor",
+    "gramsInBatch": "ounces * conversionFactor * batchMultiplier",
+    "expandedUncertainty": "measurementUncertaintyOunces * conversionFactor * batchMultiplier"
+  },
+  "outputs": {
+    "primary": "totalGrams",
+    "breakdown": [
+      "rawConversion",
+      "gramsInBatch",
+      "expandedUncertainty"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

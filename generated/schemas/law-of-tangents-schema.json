@@ -1,0 +1,48 @@
+{
+  "toolName": "law-of-tangents",
+  "inputs": [
+    {
+      "id": "side_a",
+      "label": "Side a",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Length of side a opposite angle A"
+    },
+    {
+      "id": "side_b",
+      "label": "Side b",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Length of side b opposite angle B"
+    },
+    {
+      "id": "angle_C",
+      "label": "Angle C",
+      "type": "number",
+      "unit": "°",
+      "default": 60,
+      "businessContext": "Angle between sides a and b (in degrees)"
+    }
+  ],
+  "formulas": {
+    "angle_A": "Math.atan2(side_a * Math.sin(angle_C * Math.PI / 180), side_b - side_a * Math.cos(angle_C * Math.PI / 180)) * 180 / Math.PI",
+    "angle_B": "180 - angle_A - angle_C",
+    "side_c": "Math.sqrt(side_a**2 + side_b**2 - 2 * side_a * side_b * Math.cos(angle_C * Math.PI / 180))"
+  },
+  "outputs": {
+    "primary": "angle_A",
+    "breakdown": [
+      "angle_A = {angle_A}°",
+      "angle_B = {angle_B}°",
+      "side_c = {side_c} m"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

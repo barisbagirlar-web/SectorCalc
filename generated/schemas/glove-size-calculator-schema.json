@@ -1,0 +1,49 @@
+{
+  "toolName": "glove-size-calculator",
+  "inputs": [
+    {
+      "id": "handCircumferenceCm",
+      "label": "El Çevresi (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 20,
+      "businessContext": "El ayasının en geniş yerinden ölçülen çevre uzunluğu"
+    },
+    {
+      "id": "handLengthCm",
+      "label": "El Uzunluğu (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 18.5,
+      "businessContext": "Orta parmak ucundan bilek kıvrımına kadar olan mesafe"
+    }
+  ],
+  "formulas": {
+    "circumferenceInch": "handCircumferenceCm / 2.54",
+    "lengthInch": "handLengthCm / 2.54",
+    "averageInch": "(circumferenceInch + lengthInch) / 2",
+    "roundedSize": "Math.round(averageInch * 2) / 2"
+  },
+  "outputs": {
+    "primary": {
+      "label": "Eldiven Numarası",
+      "value": "roundedSize"
+    },
+    "breakdown": [
+      {
+        "label": "El Çevresi (inç)",
+        "value": "circumferenceInch"
+      },
+      {
+        "label": "El Uzunluğu (inç)",
+        "value": "lengthInch"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

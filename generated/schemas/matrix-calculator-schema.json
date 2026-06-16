@@ -1,0 +1,57 @@
+{
+  "toolName": "matrix-calculator",
+  "inputs": [
+    {
+      "id": "a11",
+      "label": "a₁₁",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Matrisin 1. satır 1. sütun elemanı"
+    },
+    {
+      "id": "a12",
+      "label": "a₁₂",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Matrisin 1. satır 2. sütun elemanı"
+    },
+    {
+      "id": "a21",
+      "label": "a₂₁",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Matrisin 2. satır 1. sütun elemanı"
+    },
+    {
+      "id": "a22",
+      "label": "a₂₂",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Matrisin 2. satır 2. sütun elemanı"
+    }
+  ],
+  "formulas": {
+    "determinant": "a11*a22 - a12*a21",
+    "trace": "a11 + a22",
+    "eigenvalue1": "((a11 + a22) + Math.sqrt((a11 + a22)**2 - 4*(a11*a22 - a12*a21))) / 2",
+    "eigenvalue2": "((a11 + a22) - Math.sqrt((a11 + a22)**2 - 4*(a11*a22 - a12*a21))) / 2"
+  },
+  "outputs": {
+    "primary": "determinant",
+    "breakdown": [
+      "trace",
+      "eigenvalue1",
+      "eigenvalue2"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

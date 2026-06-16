@@ -1,0 +1,71 @@
+{
+  "toolName": "ev-charging-calculator",
+  "inputs": [
+    {
+      "id": "batteryCapacity",
+      "label": "Battery Capacity",
+      "type": "number",
+      "unit": "kWh",
+      "default": 75,
+      "businessContext": "The total usable battery capacity of the electric vehicle."
+    },
+    {
+      "id": "currentCharge",
+      "label": "Current Charge",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "The current state of charge as a percentage of battery capacity."
+    },
+    {
+      "id": "desiredCharge",
+      "label": "Desired Charge",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "The target state of charge after charging session."
+    },
+    {
+      "id": "chargingPower",
+      "label": "Charging Power",
+      "type": "number",
+      "unit": "kW",
+      "default": 50,
+      "businessContext": "The charging power of the charging station."
+    },
+    {
+      "id": "electricityCost",
+      "label": "Electricity Cost",
+      "type": "number",
+      "unit": "currency/kWh",
+      "default": 0.15,
+      "businessContext": "Cost of electricity per kWh."
+    },
+    {
+      "id": "efficiency",
+      "label": "Charging Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Charging efficiency, including conversion losses."
+    }
+  ],
+  "formulas": {
+    "charging-time": "(((batteryCapacity * (desiredCharge - currentCharge) / 100) * (100 / efficiency)) / chargingPower)",
+    "energy-required": "((batteryCapacity * (desiredCharge - currentCharge) / 100) * (100 / efficiency))",
+    "total-cost": "(((batteryCapacity * (desiredCharge - currentCharge) / 100) * (100 / efficiency)) * electricityCost)"
+  },
+  "outputs": {
+    "primary": "charging-time",
+    "breakdown": [
+      "energy-required",
+      "total-cost"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

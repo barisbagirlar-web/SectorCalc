@@ -1,0 +1,64 @@
+{
+  "toolName": "stock-return-calculator",
+  "inputs": [
+    {
+      "id": "numberOfShares",
+      "label": "Number of Shares",
+      "type": "number",
+      "unit": "shares",
+      "default": 100,
+      "businessContext": "The total number of shares purchased in the stock."
+    },
+    {
+      "id": "purchasePrice",
+      "label": "Purchase Price per Share",
+      "type": "number",
+      "unit": "currency",
+      "default": 50,
+      "businessContext": "The price at which each share was bought."
+    },
+    {
+      "id": "sellingPrice",
+      "label": "Selling Price per Share",
+      "type": "number",
+      "unit": "currency",
+      "default": 60,
+      "businessContext": "The price at which each share was sold."
+    },
+    {
+      "id": "dividends",
+      "label": "Total Dividends Received",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Sum of all dividends paid per share over the holding period."
+    },
+    {
+      "id": "holdingPeriodYears",
+      "label": "Holding Period",
+      "type": "number",
+      "unit": "years",
+      "default": 1,
+      "businessContext": "The length of time the stock was held, in years."
+    }
+  ],
+  "formulas": {
+    "totalInvestmentCost": "numberOfShares * purchasePrice",
+    "totalReturnAmount": "numberOfShares * sellingPrice + dividends - numberOfShares * purchasePrice",
+    "returnPercentage": "((numberOfShares * sellingPrice + dividends - numberOfShares * purchasePrice) / (numberOfShares * purchasePrice)) * 100",
+    "annualizedReturnPercentage": "(((numberOfShares * sellingPrice + dividends) / (numberOfShares * purchasePrice)) ** (1 / holdingPeriodYears) - 1) * 100"
+  },
+  "outputs": {
+    "primary": "returnPercentage",
+    "breakdown": [
+      "annualizedReturnPercentage",
+      "totalReturnAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

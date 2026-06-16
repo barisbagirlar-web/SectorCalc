@@ -1,0 +1,72 @@
+{
+  "toolName": "ebit-calculator",
+  "inputs": [
+    {
+      "id": "revenue",
+      "label": "Revenue",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total sales revenue from primary business operations"
+    },
+    {
+      "id": "cogs",
+      "label": "Cost of Goods Sold",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Direct costs attributable to the production of goods sold"
+    },
+    {
+      "id": "sga",
+      "label": "Selling, General & Administrative Expenses",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Indirect operating expenses including sales, marketing, and administrative costs"
+    },
+    {
+      "id": "rd",
+      "label": "Research & Development Expenses",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Expenditures for innovation, product development, and process improvements"
+    },
+    {
+      "id": "da",
+      "label": "Depreciation & Amortization",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Systematic allocation of tangible and intangible asset costs over useful lives"
+    },
+    {
+      "id": "otherOpEx",
+      "label": "Other Operating Expenses",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Additional operating costs not captured in SG&A, R&D, or D&A"
+    }
+  ],
+  "formulas": {
+    "grossProfit": "revenue - cogs",
+    "totalOpEx": "sga + rd + da + otherOpEx",
+    "ebit": "grossProfit - totalOpEx"
+  },
+  "outputs": {
+    "primary": "ebit",
+    "breakdown": [
+      "grossProfit",
+      "totalOpEx",
+      "ebit"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

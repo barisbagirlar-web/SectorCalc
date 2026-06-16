@@ -1,0 +1,73 @@
+{
+  "toolName": "drink-calculator",
+  "inputs": [
+    {
+      "id": "spiritVol",
+      "label": "Spirit Volume",
+      "type": "number",
+      "unit": "ml",
+      "default": 50,
+      "businessContext": "Amount of base spirit in ml"
+    },
+    {
+      "id": "spiritCostPerL",
+      "label": "Spirit Cost per Litre",
+      "type": "number",
+      "unit": "€/L",
+      "default": 20,
+      "businessContext": "Cost of base spirit per litre"
+    },
+    {
+      "id": "mixerVol",
+      "label": "Mixer Volume",
+      "type": "number",
+      "unit": "ml",
+      "default": 150,
+      "businessContext": "Volume of mixer (e.g., soda, juice) in ml"
+    },
+    {
+      "id": "mixerCostPerL",
+      "label": "Mixer Cost per Litre",
+      "type": "number",
+      "unit": "€/L",
+      "default": 2,
+      "businessContext": "Cost of mixer per litre"
+    },
+    {
+      "id": "otherCost",
+      "label": "Other Costs",
+      "type": "number",
+      "unit": "€",
+      "default": 0.1,
+      "businessContext": "Cost of garnishes, syrups, ice, etc. per drink"
+    },
+    {
+      "id": "marginPercent",
+      "label": "Profit Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Target profit margin percentage on selling price"
+    }
+  ],
+  "formulas": {
+    "totalVolume": "spiritVol + mixerVol",
+    "totalCost": "(spiritVol / 1000) * spiritCostPerL + (mixerVol / 1000) * mixerCostPerL + otherCost",
+    "sellingPrice": "totalCost / (1 - marginPercent / 100)",
+    "costPerMl": "totalCost / totalVolume"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "sellingPrice",
+      "totalVolume",
+      "costPerMl"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

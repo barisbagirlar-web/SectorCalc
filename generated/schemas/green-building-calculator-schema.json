@@ -1,0 +1,73 @@
+{
+  "toolName": "green-building-calculator",
+  "inputs": [
+    {
+      "id": "floorArea",
+      "label": "Toplam Kapalı Alan",
+      "type": "number",
+      "unit": "m²",
+      "default": 1000,
+      "businessContext": "Binanın toplam kapalı alanı"
+    },
+    {
+      "id": "electricity",
+      "label": "Yıllık Elektrik Tüketimi",
+      "type": "number",
+      "unit": "kWh",
+      "default": 50000,
+      "businessContext": "Şebekeden çekilen yıllık elektrik enerjisi"
+    },
+    {
+      "id": "gridFactor",
+      "label": "Elektrik Emisyon Faktörü",
+      "type": "number",
+      "unit": "kgCO₂/kWh",
+      "default": 0.475,
+      "businessContext": "Şebeke elektriği için karbon emisyon faktörü"
+    },
+    {
+      "id": "gas",
+      "label": "Yıllık Doğalgaz Tüketimi",
+      "type": "number",
+      "unit": "m³",
+      "default": 10000,
+      "businessContext": "Yıllık doğalgaz tüketim miktarı"
+    },
+    {
+      "id": "gasFactor",
+      "label": "Doğalgaz Emisyon Faktörü",
+      "type": "number",
+      "unit": "kgCO₂/m³",
+      "default": 0.184,
+      "businessContext": "Doğalgazın standart emisyon faktörü"
+    },
+    {
+      "id": "renewable",
+      "label": "Yerinde Yenilenebilir Enerji",
+      "type": "number",
+      "unit": "kWh",
+      "default": 10000,
+      "businessContext": "Binada üretilen ve tüketilen yenilenebilir enerji"
+    }
+  ],
+  "formulas": {
+    "electricityCarbon": "electricity * gridFactor",
+    "gasCarbon": "gas * gasFactor",
+    "renewableSaved": "renewable * gridFactor",
+    "netCarbon": "electricity * gridFactor + gas * gasFactor - renewable * gridFactor"
+  },
+  "outputs": {
+    "primary": "netCarbon",
+    "breakdown": [
+      "electricityCarbon",
+      "gasCarbon",
+      "renewableSaved"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

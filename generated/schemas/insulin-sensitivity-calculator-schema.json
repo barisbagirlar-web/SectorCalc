@@ -1,0 +1,96 @@
+{
+  "toolName": "insulin-sensitivity-calculator",
+  "inputs": [
+    {
+      "id": "rawMaterialCost",
+      "label": "Raw Material Cost",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 10,
+      "businessContext": "Cost of raw materials per unit of insulin produced"
+    },
+    {
+      "id": "laborCost",
+      "label": "Labor Cost",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 5,
+      "businessContext": "Labor cost per unit of insulin produced"
+    },
+    {
+      "id": "energyCost",
+      "label": "Energy Cost",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 2,
+      "businessContext": "Energy cost per unit of insulin produced"
+    },
+    {
+      "id": "overheadCost",
+      "label": "Overhead Cost",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 3,
+      "businessContext": "Overhead cost per unit of insulin produced"
+    },
+    {
+      "id": "sensitivityRaw",
+      "label": "Sensitivity to Raw Material",
+      "type": "number",
+      "unit": "",
+      "default": 0.3,
+      "businessContext": "Elasticity of total cost with respect to raw material cost (decimal)"
+    },
+    {
+      "id": "sensitivityLabor",
+      "label": "Sensitivity to Labor",
+      "type": "number",
+      "unit": "",
+      "default": 0.2,
+      "businessContext": "Elasticity of total cost with respect to labor cost (decimal)"
+    },
+    {
+      "id": "sensitivityEnergy",
+      "label": "Sensitivity to Energy",
+      "type": "number",
+      "unit": "",
+      "default": 0.1,
+      "businessContext": "Elasticity of total cost with respect to energy cost (decimal)"
+    },
+    {
+      "id": "sensitivityOverhead",
+      "label": "Sensitivity to Overhead",
+      "type": "number",
+      "unit": "",
+      "default": 0.15,
+      "businessContext": "Elasticity of total cost with respect to overhead cost (decimal)"
+    }
+  ],
+  "formulas": {
+    "totalBaseline": "rawMaterialCost + laborCost + energyCost + overheadCost",
+    "costShareRaw": "rawMaterialCost / totalBaseline",
+    "costShareLabor": "laborCost / totalBaseline",
+    "costShareEnergy": "energyCost / totalBaseline",
+    "costShareOverhead": "overheadCost / totalBaseline",
+    "rawSensitivityContribution": "costShareRaw * sensitivityRaw",
+    "laborSensitivityContribution": "costShareLabor * sensitivityLabor",
+    "energySensitivityContribution": "costShareEnergy * sensitivityEnergy",
+    "overheadSensitivityContribution": "costShareOverhead * sensitivityOverhead",
+    "totalSensitivityScore": "rawSensitivityContribution + laborSensitivityContribution + energySensitivityContribution + overheadSensitivityContribution"
+  },
+  "outputs": {
+    "primary": "totalSensitivityScore",
+    "breakdown": [
+      "rawSensitivityContribution",
+      "laborSensitivityContribution",
+      "energySensitivityContribution",
+      "overheadSensitivityContribution"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

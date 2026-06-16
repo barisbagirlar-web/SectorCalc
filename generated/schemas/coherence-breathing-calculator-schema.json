@@ -1,0 +1,80 @@
+{
+  "toolName": "coherence-breathing-calculator",
+  "inputs": [
+    {
+      "id": "breathingRate",
+      "label": "Target Breathing Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 5,
+      "businessContext": "Desired breathing cycles per minute (typically 5-6 for coherence)"
+    },
+    {
+      "id": "ratio",
+      "label": "Inhale/Exhale Ratio",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.5,
+      "businessContext": "Ratio of inhale duration to exhale duration (e.g., 0.5 means inhale is half of exhale)"
+    },
+    {
+      "id": "duration",
+      "label": "Practice Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 10,
+      "businessContext": "Total duration of the practice session"
+    },
+    {
+      "id": "restingRate",
+      "label": "Resting Breathing Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 12,
+      "businessContext": "Your typical resting breathing rate for comparison"
+    }
+  ],
+  "formulas": {
+    "breathCycle": "60 / breathingRate",
+    "inhaleDuration": "breathCycle * ratio / (1 + ratio)",
+    "exhaleDuration": "breathCycle / (1 + ratio)",
+    "totalCycles": "duration * breathingRate",
+    "coherenceScore": "Math.min(100, Math.max(0, 100 * (1 - Math.abs(breathingRate - 5) / 10) * (1 - Math.abs(ratio - 0.5) / 2)))"
+  },
+  "outputs": {
+    "primary": {
+      "id": "coherenceScore",
+      "label": "Coherence Score",
+      "unit": "%",
+      "threshold": ">80 is optimal"
+    },
+    "breakdown": [
+      {
+        "id": "inhaleDuration",
+        "label": "Inhale Duration",
+        "unit": "s"
+      },
+      {
+        "id": "exhaleDuration",
+        "label": "Exhale Duration",
+        "unit": "s"
+      },
+      {
+        "id": "totalCycles",
+        "label": "Total Cycles",
+        "unit": "cycles"
+      },
+      {
+        "id": "breathCycle",
+        "label": "Breath Cycle Duration",
+        "unit": "s"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

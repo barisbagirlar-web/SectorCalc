@@ -1,0 +1,71 @@
+{
+  "toolName": "lhopitals-rule-calculator",
+  "inputs": [
+    {
+      "id": "numerator_coeff",
+      "label": "Numerator Coefficient",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Coefficient of the highest power term in the numerator polynomial."
+    },
+    {
+      "id": "numerator_power",
+      "label": "Numerator Power",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 2,
+      "businessContext": "Exponent of x in the numerator polynomial."
+    },
+    {
+      "id": "denominator_coeff",
+      "label": "Denominator Coefficient",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Coefficient of the highest power term in the denominator polynomial."
+    },
+    {
+      "id": "denominator_power",
+      "label": "Denominator Power",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Exponent of x in the denominator polynomial."
+    },
+    {
+      "id": "limit_point",
+      "label": "Limit Point (x→a)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "The value that x approaches in the limit."
+    },
+    {
+      "id": "iterations",
+      "label": "L'Hopital Iterations",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Number of times to apply L'Hopital's rule (differentiate numerator and denominator)."
+    }
+  ],
+  "formulas": {
+    "numerator_derivative": "numerator_coeff * numerator_power * (limit_point ** (numerator_power - 1))",
+    "denominator_derivative": "denominator_coeff * denominator_power * (limit_point ** (denominator_power - 1))",
+    "limit_value": "numerator_derivative / denominator_derivative"
+  },
+  "outputs": {
+    "primary": "limit_value",
+    "breakdown": [
+      "numerator_derivative",
+      "denominator_derivative"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "moca-calculator",
+  "inputs": [
+    {
+      "id": "mean",
+      "label": "Process Mean",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The arithmetic mean of the process measurements from the capability study."
+    },
+    {
+      "id": "stddev",
+      "label": "Standard Deviation",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The standard deviation (overall or within) of the process. Use long-term for Pp/Ppk; short-term for Cp/Cpk."
+    },
+    {
+      "id": "usl",
+      "label": "Upper Specification Limit (USL)",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "The upper tolerance boundary; parts above this are defective."
+    },
+    {
+      "id": "lsl",
+      "label": "Lower Specification Limit (LSL)",
+      "type": "number",
+      "unit": "",
+      "default": -3,
+      "businessContext": "The lower tolerance boundary; parts below this are defective."
+    }
+  ],
+  "formulas": {
+    "Cp": "(usl - lsl) / (6 * stddev)",
+    "CPU": "(usl - mean) / (3 * stddev)",
+    "CPL": "(mean - lsl) / (3 * stddev)",
+    "Cpk": "Math.min((usl - mean) / (3 * stddev), (mean - lsl) / (3 * stddev))"
+  },
+  "outputs": {
+    "primary": "Cpk",
+    "breakdown": [
+      "Cp",
+      "CPU",
+      "CPL"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

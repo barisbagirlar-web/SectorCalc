@@ -1,0 +1,67 @@
+{
+  "toolName": "harvard-citation-generator-calculator",
+  "inputs": [
+    {
+      "id": "materialCost",
+      "label": "Material Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "Cost of raw materials"
+    },
+    {
+      "id": "laborHours",
+      "label": "Labor Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Total labor hours required"
+    },
+    {
+      "id": "hourlyRate",
+      "label": "Hourly Rate",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 25,
+      "businessContext": "Labor cost per hour"
+    },
+    {
+      "id": "overheadPercentage",
+      "label": "Overhead %",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Overhead cost as percentage of direct costs"
+    },
+    {
+      "id": "profitMarginPercentage",
+      "label": "Profit Margin %",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Desired profit margin percentage"
+    }
+  ],
+  "formulas": {
+    "laborCost": "laborHours * hourlyRate",
+    "directCost": "materialCost + laborCost",
+    "overheadCost": "directCost * overheadPercentage / 100",
+    "totalCost": "directCost + overheadCost",
+    "sellingPrice": "totalCost * (1 + profitMarginPercentage / 100)"
+  },
+  "outputs": {
+    "primary": "sellingPrice",
+    "breakdown": [
+      "materialCost",
+      "laborCost",
+      "overheadCost",
+      "totalCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

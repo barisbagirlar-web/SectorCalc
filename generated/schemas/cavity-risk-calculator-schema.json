@@ -1,0 +1,77 @@
+{
+  "toolName": "cavity-risk-calculator",
+  "inputs": [
+    {
+      "id": "meltTemp",
+      "label": "Eriyik Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "default": 720,
+      "businessContext": "Metal eriyik sıcaklığı, gaz çözünürlüğünü ve akışkanlığı etkiler. Yüksek sıcaklık gözenek riskini artırabilir."
+    },
+    {
+      "id": "moldTemp",
+      "label": "Kalıp Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "default": 180,
+      "businessContext": "Kalıp sıcaklığı katılaşma hızını belirler. Uygun olmayan kalıp sıcaklığı çekme boşluklarına yol açar."
+    },
+    {
+      "id": "injectionPressure",
+      "label": "Enjeksiyon Basıncı",
+      "type": "number",
+      "unit": "MPa",
+      "default": 100,
+      "businessContext": "Basınç, metalin kalıbı tam doldurmasını sağlar. Düşük basınç boşluk oluşumuna neden olur."
+    },
+    {
+      "id": "coolingRate",
+      "label": "Soğuma Hızı",
+      "type": "number",
+      "unit": "°C/s",
+      "default": 50,
+      "businessContext": "Hızlı soğuma, metalin besleme yapamadan katılaşmasına ve mikro boşluklara yol açabilir."
+    },
+    {
+      "id": "alloyPurity",
+      "label": "Alaşım Saflığı",
+      "type": "number",
+      "unit": "%",
+      "default": 99.5,
+      "businessContext": "Safsızlıklar gaz kabarcıklarına ve yapısal kusurlara neden olur. Saflık arttıkça risk azalır."
+    },
+    {
+      "id": "ventingEfficiency",
+      "label": "Havalandırma Verimi",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Havalandırma, kalıp içindeki havanın tahliyesini sağlar. Yetersiz havalandırma gaz sıkışmasına bağlı boşluklar oluşturur."
+    }
+  ],
+  "formulas": {
+    "thermalFactor": "Math.exp(-0.01 * (meltTemp - 700)) + Math.sqrt(Math.abs(moldTemp - 200)) / 10",
+    "pressureFactor": "Math.max(0, 1 - (injectionPressure / 150))",
+    "purityFactor": "1 - (alloyPurity / 100)",
+    "coolingRisk": "Math.log(1 + coolingRate) / Math.log(10)",
+    "ventingFactor": "1 - (ventingEfficiency / 100)",
+    "cavityRiskIndex": "((Math.exp(-0.01 * (meltTemp - 700)) + Math.sqrt(Math.abs(moldTemp - 200)) / 10) * Math.max(0, 1 - (injectionPressure / 150)) * (1 - (alloyPurity / 100)) * (Math.log(1 + coolingRate) / Math.log(10)) * (1 - (ventingEfficiency / 100))) * 100"
+  },
+  "outputs": {
+    "primary": "cavityRiskIndex",
+    "breakdown": [
+      "thermalFactor",
+      "pressureFactor",
+      "purityFactor",
+      "coolingRisk",
+      "ventingFactor"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

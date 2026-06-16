@@ -1,0 +1,54 @@
+{
+  "toolName": "height-predictor-calculator",
+  "inputs": [
+    {
+      "id": "motherHeight",
+      "label": "Mother's Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 165,
+      "businessContext": "Height of the biological mother in centimeters."
+    },
+    {
+      "id": "fatherHeight",
+      "label": "Father's Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 175,
+      "businessContext": "Height of the biological father in centimeters."
+    },
+    {
+      "id": "gender",
+      "label": "Child's Gender",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 for girl, 1 for boy. Used to apply gender-specific mid-parental height formula."
+    },
+    {
+      "id": "currentHeight",
+      "label": "Current Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Current measured height of the child in centimeters. Used to adjust prediction toward the mid-parental height."
+    }
+  ],
+  "formulas": {
+    "midParentalHeight": "gender * (motherHeight + 13 + fatherHeight) / 2 + (1 - gender) * (fatherHeight - 13 + motherHeight) / 2",
+    "predictedHeight": "(midParentalHeight + currentHeight) / 2"
+  },
+  "outputs": {
+    "primary": "predictedHeight",
+    "breakdown": [
+      "midParentalHeight",
+      "predictedHeight"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

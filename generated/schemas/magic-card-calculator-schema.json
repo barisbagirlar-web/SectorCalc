@@ -1,0 +1,83 @@
+{
+  "toolName": "magic-card-calculator",
+  "inputs": [
+    {
+      "id": "cardLength",
+      "label": "Kart Uzunluğu",
+      "type": "number",
+      "unit": "mm",
+      "default": 85.6,
+      "businessContext": "Kartın uzun kenarı"
+    },
+    {
+      "id": "cardWidth",
+      "label": "Kart Genişliği",
+      "type": "number",
+      "unit": "mm",
+      "default": 54,
+      "businessContext": "Kartın kısa kenarı"
+    },
+    {
+      "id": "cardThickness",
+      "label": "Kart Kalınlığı",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.76,
+      "businessContext": "Kart kalınlığı"
+    },
+    {
+      "id": "materialDensity",
+      "label": "Malzeme Yoğunluğu",
+      "type": "number",
+      "unit": "g/cm³",
+      "default": 1.35,
+      "businessContext": "PVC malzeme yoğunluğu"
+    },
+    {
+      "id": "materialCostPerKg",
+      "label": "Malzeme Birim Fiyatı",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 10,
+      "businessContext": "Hammadde kilogram fiyatı"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Üretim firesi yüzdesi"
+    },
+    {
+      "id": "batchSize",
+      "label": "Parti Büyüklüğü",
+      "type": "number",
+      "unit": "adet",
+      "default": 1000,
+      "businessContext": "Hesaplanacak kart adedi"
+    }
+  ],
+  "formulas": {
+    "areaCm2": "(cardLength * cardWidth) / 100",
+    "volumeCm3": "areaCm2 * (cardThickness / 10)",
+    "massKg": "(volumeCm3 * materialDensity) / 1000",
+    "materialCostPerCard": "massKg * materialCostPerKg",
+    "effectiveCostPerCard": "materialCostPerCard * (1 + (wasteFactor / 100))",
+    "wasteCost": "effectiveCostPerCard - materialCostPerCard",
+    "totalCost": "effectiveCostPerCard * batchSize"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "materialCostPerCard",
+      "wasteCost"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

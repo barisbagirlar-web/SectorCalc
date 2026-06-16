@@ -1,0 +1,63 @@
+{
+  "toolName": "exterior-angle-calculator",
+  "inputs": [
+    {
+      "id": "sides",
+      "label": "Number of Sides",
+      "type": "number",
+      "unit": "sides",
+      "default": 0,
+      "businessContext": "Number of sides of the regular polygon"
+    },
+    {
+      "id": "interiorAngle",
+      "label": "Interior Angle",
+      "type": "number",
+      "unit": "degrees",
+      "default": 0,
+      "businessContext": "Each interior angle of the polygon"
+    },
+    {
+      "id": "sumInteriorAngles",
+      "label": "Sum of Interior Angles",
+      "type": "number",
+      "unit": "degrees",
+      "default": 0,
+      "businessContext": "Total sum of all interior angles"
+    },
+    {
+      "id": "exteriorAngleGiven",
+      "label": "Exterior Angle (if known)",
+      "type": "number",
+      "unit": "degrees",
+      "default": 0,
+      "businessContext": "Pre-known exterior angle for verification"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding output"
+    }
+  ],
+  "formulas": {
+    "exteriorAngle": "Math.round((sides > 0 ? 360/sides : interiorAngle > 0 ? 180 - interiorAngle : sumInteriorAngles > 0 ? 360/((sumInteriorAngles/180)+2) : exteriorAngleGiven > 0 ? exteriorAngleGiven : 0) * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "interiorAngle": "Math.round((180 - exteriorAngle) * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "sumExteriorAngles": "Math.round(360 * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "exteriorAngle",
+    "breakdown": [
+      "interiorAngle",
+      "sumExteriorAngles"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

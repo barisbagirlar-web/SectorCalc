@@ -1,0 +1,85 @@
+{
+  "toolName": "pet-life-expectancy-calculator",
+  "inputs": [
+    {
+      "id": "baseLifespan",
+      "label": "Base Lifespan",
+      "type": "number",
+      "unit": "years",
+      "default": 12,
+      "businessContext": "Average lifespan for species"
+    },
+    {
+      "id": "weight",
+      "label": "Pet Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Current weight"
+    },
+    {
+      "id": "idealWeight",
+      "label": "Ideal Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Ideal weight for breed/species"
+    },
+    {
+      "id": "activityLevel",
+      "label": "Activity Level (0-10)",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Daily activity score"
+    },
+    {
+      "id": "dietQuality",
+      "label": "Diet Quality (0-10)",
+      "type": "number",
+      "unit": "",
+      "default": 7,
+      "businessContext": "Quality of nutrition"
+    },
+    {
+      "id": "vetVisits",
+      "label": "Vet Visits per Year",
+      "type": "number",
+      "unit": "visits",
+      "default": 2,
+      "businessContext": "Annual veterinary check-ups"
+    },
+    {
+      "id": "sterilized",
+      "label": "Sterilized (0/1)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 if sterilized, 0 otherwise"
+    }
+  ],
+  "formulas": {
+    "weightMultiplier": "1 - 0.02 * Math.abs(weight - idealWeight)",
+    "activityMultiplier": "0.8 + (activityLevel / 10) * 0.2",
+    "dietMultiplier": "0.7 + (dietQuality / 10) * 0.3",
+    "vetMultiplier": "Math.min(1, 0.9 + vetVisits * 0.025)",
+    "sterilizationMultiplier": "1 + 0.1 * sterilized",
+    "lifeExpectancy": "baseLifespan * weightMultiplier * activityMultiplier * dietMultiplier * vetMultiplier * sterilizationMultiplier"
+  },
+  "outputs": {
+    "primary": "lifeExpectancy",
+    "breakdown": [
+      "weightMultiplier",
+      "activityMultiplier",
+      "dietMultiplier",
+      "vetMultiplier",
+      "sterilizationMultiplier"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

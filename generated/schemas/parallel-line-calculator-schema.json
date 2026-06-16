@@ -1,0 +1,61 @@
+{
+  "toolName": "parallel-line-calculator",
+  "inputs": [
+    {
+      "id": "R1",
+      "label": "Resistor R1",
+      "type": "number",
+      "unit": "Ω",
+      "default": 1,
+      "businessContext": "Resistance value of the first resistor in the parallel network."
+    },
+    {
+      "id": "R2",
+      "label": "Resistor R2",
+      "type": "number",
+      "unit": "Ω",
+      "default": 1,
+      "businessContext": "Resistance value of the second resistor in the parallel network."
+    },
+    {
+      "id": "R3",
+      "label": "Resistor R3",
+      "type": "number",
+      "unit": "Ω",
+      "default": 1,
+      "businessContext": "Resistance value of the third resistor in the parallel network."
+    },
+    {
+      "id": "R4",
+      "label": "Resistor R4",
+      "type": "number",
+      "unit": "Ω",
+      "default": 1,
+      "businessContext": "Resistance value of the fourth resistor in the parallel network."
+    }
+  ],
+  "formulas": {
+    "equivalentResistance": "1 / (1/inputs.R1 + 1/inputs.R2 + 1/inputs.R3 + 1/inputs.R4)",
+    "conductanceR1": "1 / inputs.R1",
+    "conductanceR2": "1 / inputs.R2",
+    "conductanceR3": "1 / inputs.R3",
+    "conductanceR4": "1 / inputs.R4",
+    "totalConductance": "1/inputs.R1 + 1/inputs.R2 + 1/inputs.R3 + 1/inputs.R4"
+  },
+  "outputs": {
+    "primary": "equivalentResistance",
+    "breakdown": [
+      "conductanceR1",
+      "conductanceR2",
+      "conductanceR3",
+      "conductanceR4",
+      "totalConductance"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

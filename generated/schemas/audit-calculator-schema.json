@@ -1,0 +1,65 @@
+{
+  "toolName": "audit-calculator",
+  "inputs": [
+    {
+      "id": "populationSize",
+      "label": "Population Size",
+      "type": "number",
+      "unit": "items",
+      "default": 1000,
+      "businessContext": "Total number of items in the population to be audited."
+    },
+    {
+      "id": "zScore",
+      "label": "Z-Score",
+      "type": "number",
+      "unit": "",
+      "default": 1.96,
+      "businessContext": "Z-score corresponding to the desired confidence level (e.g., 1.96 for 95%)."
+    },
+    {
+      "id": "marginOfError",
+      "label": "Margin of Error",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Acceptable margin of error as a percentage (e.g., 5 for ±5%)."
+    },
+    {
+      "id": "proportion",
+      "label": "Estimated Proportion",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Estimated proportion of an attribute present in the population (0 to 1). Use 0.5 for maximum variability."
+    },
+    {
+      "id": "responseRate",
+      "label": "Expected Response Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Expected response rate to adjust sample size for non-response (e.g., 80 for 80%)."
+    }
+  ],
+  "formulas": {
+    "sampleSize": "var n0 = (zScore**2 * proportion * (1 - proportion)) / ((marginOfError / 100) ** 2); var n = n0 / (1 + (n0 - 1) / populationSize); n / (responseRate / 100);",
+    "uncorrectedSampleSize": "(zScore**2 * proportion * (1 - proportion)) / ((marginOfError / 100) ** 2);",
+    "finitePopulationCorrectionFactor": "1 / (1 + (((zScore**2 * proportion * (1 - proportion)) / ((marginOfError / 100) ** 2) - 1) / populationSize));",
+    "adjustedSampleSize": "var n0 = (zScore**2 * proportion * (1 - proportion)) / ((marginOfError / 100) ** 2); n0 / (1 + (n0 - 1) / populationSize);"
+  },
+  "outputs": {
+    "primary": "sampleSize",
+    "breakdown": [
+      "uncorrectedSampleSize",
+      "finitePopulationCorrectionFactor",
+      "adjustedSampleSize"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

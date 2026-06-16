@@ -1,0 +1,63 @@
+{
+  "toolName": "email-click-rate-calculator",
+  "inputs": [
+    {
+      "id": "totalClicks",
+      "label": "Total Clicks",
+      "type": "number",
+      "unit": "clicks",
+      "default": 0,
+      "businessContext": "Total number of unique clicks on links in the email campaign."
+    },
+    {
+      "id": "totalDelivered",
+      "label": "Total Delivered Emails",
+      "type": "number",
+      "unit": "emails",
+      "default": 0,
+      "businessContext": "Total number of emails successfully delivered to recipients' inboxes."
+    },
+    {
+      "id": "totalOpens",
+      "label": "Total Opens",
+      "type": "number",
+      "unit": "opens",
+      "default": 0,
+      "businessContext": "Total number of times the email was opened (optional, for click-to-open rate)."
+    },
+    {
+      "id": "totalSent",
+      "label": "Total Sent Emails",
+      "type": "number",
+      "unit": "emails",
+      "default": 0,
+      "businessContext": "Total number of emails sent in the campaign."
+    },
+    {
+      "id": "bouncedEmails",
+      "label": "Bounced Emails",
+      "type": "number",
+      "unit": "emails",
+      "default": 0,
+      "businessContext": "Number of emails that were not delivered due to hard or soft bounces."
+    }
+  ],
+  "formulas": {
+    "clickRate": "(totalClicks / totalDelivered) * 100",
+    "clickToOpenRate": "(totalClicks / totalOpens) * 100",
+    "deliveryRate": "((totalSent - bouncedEmails) / totalSent) * 100"
+  },
+  "outputs": {
+    "primary": "clickRate",
+    "breakdown": [
+      "clickToOpenRate",
+      "deliveryRate"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

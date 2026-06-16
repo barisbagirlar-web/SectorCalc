@@ -1,0 +1,30 @@
+{
+  "toolName": "catalan-number-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "n (non-negative integer)",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Index of the Catalan number to compute"
+    }
+  ],
+  "formulas": {
+    "catalanNumber": "Math.round(Math.exp(2 * n * Math.log(2) - (n + 0.5) * Math.log(n + 1) - (n + 0.5) * Math.log(n + 2) + 0.5 * Math.log(2 * Math.PI)))",
+    "catalanExact": "n === 0 ? 1 : Math.round(Math.exp(2 * n * Math.log(2) - (n + 0.5) * Math.log(n + 1) - (n + 0.5) * Math.log(n + 2) + 0.5 * Math.log(2 * Math.PI)))"
+  },
+  "outputs": {
+    "primary": "Catalan number C_n",
+    "breakdown": [
+      "C_n = (2n)! / (n! * (n+1)!)",
+      "Approximation using Stirling's formula"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

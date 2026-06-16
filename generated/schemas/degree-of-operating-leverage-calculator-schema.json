@@ -1,0 +1,57 @@
+{
+  "toolName": "degree-of-operating-leverage-calculator",
+  "inputs": [
+    {
+      "id": "quantity",
+      "label": "Miktar",
+      "type": "number",
+      "unit": "adet",
+      "default": 1000,
+      "businessContext": "Satılan ürün miktarı"
+    },
+    {
+      "id": "pricePerUnit",
+      "label": "Birim Satış Fiyatı",
+      "type": "number",
+      "unit": "TL/adet",
+      "default": 50,
+      "businessContext": "Ürün başına satış fiyatı"
+    },
+    {
+      "id": "variableCostPerUnit",
+      "label": "Birim Değişken Maliyet",
+      "type": "number",
+      "unit": "TL/adet",
+      "default": 30,
+      "businessContext": "Ürün başına değişken maliyet"
+    },
+    {
+      "id": "fixedCosts",
+      "label": "Sabit Maliyetler",
+      "type": "number",
+      "unit": "TL",
+      "default": 10000,
+      "businessContext": "Toplam sabit işletme maliyetleri"
+    }
+  ],
+  "formulas": {
+    "contributionMarginPerUnit": "pricePerUnit - variableCostPerUnit",
+    "totalContributionMargin": "quantity * contributionMarginPerUnit",
+    "operatingIncome": "totalContributionMargin - fixedCosts",
+    "degreeOfOperatingLeverage": "totalContributionMargin / operatingIncome"
+  },
+  "outputs": {
+    "primary": "degreeOfOperatingLeverage",
+    "breakdown": [
+      "contributionMarginPerUnit",
+      "totalContributionMargin",
+      "operatingIncome"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

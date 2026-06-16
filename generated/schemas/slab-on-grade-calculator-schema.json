@@ -1,0 +1,65 @@
+{
+  "toolName": "slab-on-grade-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Slab Length",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Length of slab"
+    },
+    {
+      "id": "width",
+      "label": "Slab Width",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Width of slab"
+    },
+    {
+      "id": "thickness",
+      "label": "Slab Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Thickness of slab"
+    },
+    {
+      "id": "concreteCost",
+      "label": "Concrete Cost per m³",
+      "type": "number",
+      "unit": "EUR/m³",
+      "default": 100,
+      "businessContext": "Cost of ready-mix concrete"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of waste"
+    }
+  ],
+  "formulas": {
+    "volumeWithoutWaste": "length * width * (thickness / 1000)",
+    "wasteMultiplier": "1 + (wasteFactor / 100)",
+    "concreteVolume": "volumeWithoutWaste * wasteMultiplier",
+    "concreteCostTotal": "concreteVolume * concreteCost",
+    "totalCost": "concreteCostTotal"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "concreteVolume",
+      "concreteCostTotal"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

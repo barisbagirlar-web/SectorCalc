@@ -1,0 +1,79 @@
+{
+  "toolName": "cardiovascular-risk-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 50,
+      "businessContext": "Hastanın yaşı (yıl)"
+    },
+    {
+      "id": "gender",
+      "label": "Cinsiyet (Erkek:1, Kadın:0)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Cinsiyet (1: Erkek, 0: Kadın)"
+    },
+    {
+      "id": "totalCholesterol",
+      "label": "Total Kolesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 200,
+      "businessContext": "Total kolesterol seviyesi (mg/dL)"
+    },
+    {
+      "id": "hdl",
+      "label": "HDL Kolesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 50,
+      "businessContext": "HDL kolesterol seviyesi (mg/dL)"
+    },
+    {
+      "id": "systolicBP",
+      "label": "Sistolik Kan Basıncı",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 120,
+      "businessContext": "Sistolik kan basıncı (mmHg)"
+    },
+    {
+      "id": "smoking",
+      "label": "Sigara (Evet:1, Hayır:0)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sigara içme durumu (1: Evet, 0: Hayır)"
+    },
+    {
+      "id": "diabetes",
+      "label": "Diyabet (Var:1, Yok:0)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Diyabet varlığı (1: Var, 0: Yok)"
+    }
+  ],
+  "formulas": {
+    "logit": "gender == 1 ? (-4.376 + 0.048 * age + 0.001 * totalCholesterol - 0.0007 * hdl + 0.013 * systolicBP + 0.55 * smoking + 0.85 * diabetes) : (-4.376 + 0.034 * age + 0.001 * totalCholesterol - 0.0007 * hdl + 0.013 * systolicBP + 0.55 * smoking + 0.85 * diabetes)",
+    "riskProbability": "1 / (1 + Math.exp(-logit))",
+    "riskCategory": "riskProbability < 0.1 ? 'Düşük' : (riskProbability < 0.2 ? 'Orta' : 'Yüksek')"
+  },
+  "outputs": {
+    "primary": "riskProbability",
+    "breakdown": [
+      "logit",
+      "riskCategory"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,56 @@
+{
+  "toolName": "foot-pounds-to-joules-calculator",
+  "inputs": [
+    {
+      "id": "foot_pounds",
+      "label": "Foot-Pounds (ft·lb)",
+      "type": "number",
+      "unit": "ft·lb",
+      "default": 1,
+      "businessContext": "The energy or torque value in foot-pounds to convert."
+    },
+    {
+      "id": "conversion_factor",
+      "label": "Conversion Factor (J/ft·lb)",
+      "type": "number",
+      "unit": "J/(ft·lb)",
+      "default": 1.3558179483314003,
+      "businessContext": "Standard conversion factor. Modify only if using a different calibration."
+    },
+    {
+      "id": "decimal_places",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "count",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output value."
+    },
+    {
+      "id": "uncertainty_percent",
+      "label": "Measurement Uncertainty (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Estimated measurement uncertainty as a percentage of the converted value."
+    }
+  ],
+  "formulas": {
+    "joules_exact": "foot_pounds * conversion_factor",
+    "joules_rounded": "Math.round(joules_exact * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)",
+    "uncertainty": "joules_exact * (uncertainty_percent / 100)"
+  },
+  "outputs": {
+    "primary": "joules_rounded + ' J'",
+    "breakdown": [
+      "'Exact conversion: ' + joules_exact + ' J'",
+      "'Rounded to ' + decimal_places + ' decimal places: ' + joules_rounded + ' J'",
+      "'Measurement uncertainty: ±' + uncertainty + ' J'"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

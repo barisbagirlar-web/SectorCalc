@@ -1,0 +1,53 @@
+{
+  "toolName": "cfm-calculator",
+  "inputs": [
+    {
+      "id": "airVelocity",
+      "label": "Air Velocity (FPM)",
+      "type": "number",
+      "unit": "FPM",
+      "default": 500,
+      "businessContext": "The speed of air moving through the duct, typically measured in feet per minute."
+    },
+    {
+      "id": "ductWidth",
+      "label": "Duct Width (inches)",
+      "type": "number",
+      "unit": "in",
+      "default": 12,
+      "businessContext": "Width of the rectangular duct."
+    },
+    {
+      "id": "ductHeight",
+      "label": "Duct Height (inches)",
+      "type": "number",
+      "unit": "in",
+      "default": 8,
+      "businessContext": "Height of the rectangular duct."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.1,
+      "businessContext": "Multiplier to account for duct leakage and system inefficiencies, typically 1.1 to 1.2."
+    }
+  ],
+  "formulas": {
+    "areaSqft": "ductWidth * ductHeight / 144",
+    "cfm": "airVelocity * areaSqft * safetyFactor"
+  },
+  "outputs": {
+    "primary": "cfm",
+    "breakdown": [
+      "areaSqft"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

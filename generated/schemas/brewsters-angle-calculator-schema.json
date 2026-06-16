@@ -1,0 +1,71 @@
+{
+  "toolName": "brewsters-angle-calculator",
+  "inputs": [
+    {
+      "id": "n1",
+      "label": "Refractive Index (n1)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Incident medium refractive index (e.g., air = 1.0)"
+    },
+    {
+      "id": "n2",
+      "label": "Refractive Index (n2)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.5,
+      "businessContext": "Refracting medium refractive index (e.g., glass = 1.5)"
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Operating temperature of the medium"
+    },
+    {
+      "id": "temp_coefficient",
+      "label": "Temperature Coefficient of n2",
+      "type": "number",
+      "unit": "1/°C",
+      "default": 0.0001,
+      "businessContext": "Linear temperature coefficient for n2"
+    },
+    {
+      "id": "reference_temp",
+      "label": "Reference Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Reference temperature at which n2 is defined"
+    },
+    {
+      "id": "angle_unit",
+      "label": "Angle Unit",
+      "type": "number",
+      "unit": "0=deg, 1=rad",
+      "default": 0,
+      "businessContext": "Output angle unit: 0 for degrees, 1 for radians"
+    }
+  ],
+  "formulas": {
+    "corrected_n2": "n2 + temp_coefficient * (temperature - reference_temp)",
+    "brewster_rad": "Math.atan(corrected_n2 / n1)",
+    "brewster_angle": "angle_unit === 0 ? brewster_rad * 180 / Math.PI : brewster_rad"
+  },
+  "outputs": {
+    "primary": "brewster_angle",
+    "breakdown": [
+      "corrected_n2",
+      "brewster_rad"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

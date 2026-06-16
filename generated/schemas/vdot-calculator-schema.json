@@ -1,0 +1,63 @@
+{
+  "toolName": "vdot-calculator",
+  "inputs": [
+    {
+      "id": "frekans",
+      "label": "Titreşim Frekansı (Hz)",
+      "type": "number",
+      "unit": "Hz",
+      "default": 50,
+      "businessContext": "Makinanın çalışma frekansı"
+    },
+    {
+      "id": "genlik",
+      "label": "Genlik (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.5,
+      "businessContext": "Ölçülen titreşim genliği"
+    },
+    {
+      "id": "sonumleme",
+      "label": "Sönümleme Katsayısı",
+      "type": "number",
+      "unit": "",
+      "default": 0.05,
+      "businessContext": "Sistem sönümleme karakteristiği"
+    },
+    {
+      "id": "malzemeFaktoru",
+      "label": "Malzeme Faktörü (GPa)",
+      "type": "number",
+      "unit": "GPa",
+      "default": 210,
+      "businessContext": "Kullanılan malzemenin elastisite modülü"
+    },
+    {
+      "id": "guvenlikFaktoru",
+      "label": "Güvenlik Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Operasyonel güvenlik payı"
+    }
+  ],
+  "formulas": {
+    "vdot": "(2 * Math.PI * frekans * genlik) / (sonumleme * malzemeFaktoru * guvenlikFaktoru)",
+    "limit": 10,
+    "acceptable": "vdot <= limit ? 'Evet' : 'Hayır'"
+  },
+  "outputs": {
+    "primary": "VDOT: ${vdot.toFixed(2)} mm/s",
+    "breakdown": [
+      "Frekans: ${frekans} Hz, Genlik: ${genlik} mm, Sönümleme: ${sonumleme}, Malzeme Faktörü: ${malzemeFaktoru} GPa, Güvenlik: ${guvenlikFaktoru}",
+      "Hesaplanan VDOT: ${vdot.toFixed(4)} mm/s, Limit: ${limit} mm/s, Uygunluk: ${acceptable}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

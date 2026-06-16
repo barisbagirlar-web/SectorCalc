@@ -1,0 +1,70 @@
+{
+  "toolName": "original-price-calculator",
+  "inputs": [
+    {
+      "id": "finalPrice",
+      "label": "Final Price",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "Total price paid by customer including all surcharges and taxes."
+    },
+    {
+      "id": "rawMaterialSurcharge",
+      "label": "Raw Material Surcharge",
+      "type": "number",
+      "unit": "currency",
+      "default": 5,
+      "businessContext": "Additional cost per unit for raw materials."
+    },
+    {
+      "id": "laborSurcharge",
+      "label": "Labor Surcharge",
+      "type": "number",
+      "unit": "currency",
+      "default": 3,
+      "businessContext": "Additional labor cost per unit."
+    },
+    {
+      "id": "overheadPercentage",
+      "label": "Overhead Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Factory overhead as percentage of base cost."
+    },
+    {
+      "id": "profitMarginPercentage",
+      "label": "Profit Margin Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Profit margin applied after overhead."
+    },
+    {
+      "id": "vatPercentage",
+      "label": "VAT Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "businessContext": "Value Added Tax percentage."
+    }
+  ],
+  "formulas": {
+    "basePriceBeforeOverhead": "finalPrice / ((1 + vatPercentage / 100) * (1 + profitMarginPercentage / 100))",
+    "originalBaseCost": "basePriceBeforeOverhead / (1 + overheadPercentage / 100) - rawMaterialSurcharge - laborSurcharge"
+  },
+  "outputs": {
+    "primary": "originalBaseCost",
+    "breakdown": [
+      "basePriceBeforeOverhead",
+      "originalBaseCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

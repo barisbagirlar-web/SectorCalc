@@ -1,0 +1,47 @@
+{
+  "toolName": "kc-calculator",
+  "inputs": [
+    {
+      "id": "d10",
+      "label": "D10 (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.1,
+      "businessContext": "Effective particle size at 10% passing"
+    },
+    {
+      "id": "d30",
+      "label": "D30 (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.5,
+      "businessContext": "Particle size at 30% passing"
+    },
+    {
+      "id": "d60",
+      "label": "D60 (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1,
+      "businessContext": "Particle size at 60% passing"
+    }
+  ],
+  "formulas": {
+    "primary": "(d30 ** 2) / (d10 * d60)",
+    "numerator": "d30 ** 2",
+    "denominator": "d10 * d60"
+  },
+  "outputs": {
+    "primary": "Kc (Coefficient of Curvature)",
+    "breakdown": [
+      "Numerator (D30²)",
+      "Denominator (D10 × D60)"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

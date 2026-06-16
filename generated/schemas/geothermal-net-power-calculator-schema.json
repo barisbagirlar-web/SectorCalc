@@ -1,0 +1,70 @@
+{
+  "toolName": "geothermal-net-power-calculator",
+  "inputs": [
+    {
+      "id": "massFlowRate",
+      "label": "Mass Flow Rate",
+      "type": "number",
+      "unit": "kg/s",
+      "default": 50,
+      "businessContext": "The mass flow rate of geothermal fluid from the production well."
+    },
+    {
+      "id": "specificHeat",
+      "label": "Specific Heat Capacity",
+      "type": "number",
+      "unit": "J/(kg·K)",
+      "default": 4200,
+      "businessContext": "Specific heat capacity of the geothermal fluid (water)."
+    },
+    {
+      "id": "inletTemp",
+      "label": "Inlet Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 150,
+      "businessContext": "Temperature of the geothermal fluid at the wellhead."
+    },
+    {
+      "id": "outletTemp",
+      "label": "Outlet Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 80,
+      "businessContext": "Temperature of the geothermal fluid after heat extraction (reinjection temperature)."
+    },
+    {
+      "id": "conversionEfficiency",
+      "label": "Conversion Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 12,
+      "businessContext": "Efficiency of converting thermal energy to electricity (typical binary plant 10-15%)."
+    },
+    {
+      "id": "parasiticLoad",
+      "label": "Parasitic Load",
+      "type": "number",
+      "unit": "kW",
+      "default": 100,
+      "businessContext": "Power consumed by pumps and auxiliary equipment."
+    }
+  ],
+  "formulas": {
+    "grossPower": "massFlowRate * specificHeat * (inletTemp - outletTemp) * (conversionEfficiency / 100) / 1000",
+    "netPower": "grossPower - parasiticLoad"
+  },
+  "outputs": {
+    "primary": "netPower",
+    "breakdown": [
+      "grossPower",
+      "parasiticLoad"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

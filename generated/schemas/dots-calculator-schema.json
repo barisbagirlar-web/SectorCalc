@@ -1,0 +1,55 @@
+{
+  "toolName": "dots-calculator",
+  "inputs": [
+    {
+      "id": "regularHours",
+      "label": "Regular Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 8,
+      "businessContext": "Standard working hours per day"
+    },
+    {
+      "id": "overtimeHours",
+      "label": "Overtime Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 2,
+      "businessContext": "Overtime hours worked"
+    },
+    {
+      "id": "regularRate",
+      "label": "Regular Rate",
+      "type": "number",
+      "unit": "currency/h",
+      "default": 50,
+      "businessContext": "Hourly pay rate for regular hours"
+    },
+    {
+      "id": "overtimeMultiplier",
+      "label": "Overtime Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Multiplier applied to regular rate for overtime"
+    }
+  ],
+  "formulas": {
+    "primary": "regularHours * regularRate + overtimeHours * regularRate * overtimeMultiplier",
+    "regularPay": "regularHours * regularRate",
+    "overtimePay": "overtimeHours * regularRate * overtimeMultiplier"
+  },
+  "outputs": {
+    "primary": "Total Daily Pay",
+    "breakdown": [
+      "Regular Pay",
+      "Overtime Pay"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

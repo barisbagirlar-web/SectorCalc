@@ -1,0 +1,99 @@
+{
+  "toolName": "roc-curve-calculator",
+  "inputs": [
+    {
+      "id": "tpr1",
+      "label": "Point 1 TPR",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "True Positive Rate (Sensitivity) for ROC point 1"
+    },
+    {
+      "id": "fpr1",
+      "label": "Point 1 FPR",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "False Positive Rate (1-Specificity) for ROC point 1"
+    },
+    {
+      "id": "tpr2",
+      "label": "Point 2 TPR",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "True Positive Rate (Sensitivity) for ROC point 2"
+    },
+    {
+      "id": "fpr2",
+      "label": "Point 2 FPR",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "False Positive Rate (1-Specificity) for ROC point 2"
+    },
+    {
+      "id": "tpr3",
+      "label": "Point 3 TPR",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "True Positive Rate (Sensitivity) for ROC point 3"
+    },
+    {
+      "id": "fpr3",
+      "label": "Point 3 FPR",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "False Positive Rate (1-Specificity) for ROC point 3"
+    },
+    {
+      "id": "tpr4",
+      "label": "Point 4 TPR",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "True Positive Rate (Sensitivity) for ROC point 4"
+    },
+    {
+      "id": "fpr4",
+      "label": "Point 4 FPR",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "False Positive Rate (1-Specificity) for ROC point 4"
+    }
+  ],
+  "formulas": {
+    "auc": "0.5 * ((fpr2 - fpr1) * (tpr2 + tpr1) + (fpr3 - fpr2) * (tpr3 + tpr2) + (fpr4 - fpr3) * (tpr4 + tpr3))",
+    "tpr1_out": "tpr1",
+    "fpr1_out": "fpr1",
+    "tpr2_out": "tpr2",
+    "fpr2_out": "fpr2",
+    "tpr3_out": "tpr3",
+    "fpr3_out": "fpr3",
+    "tpr4_out": "tpr4",
+    "fpr4_out": "fpr4"
+  },
+  "outputs": {
+    "primary": "auc",
+    "breakdown": [
+      "tpr1_out",
+      "fpr1_out",
+      "tpr2_out",
+      "fpr2_out",
+      "tpr3_out",
+      "fpr3_out",
+      "tpr4_out",
+      "fpr4_out"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

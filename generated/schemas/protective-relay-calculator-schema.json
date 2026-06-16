@@ -1,0 +1,79 @@
+{
+  "toolName": "protective-relay-calculator",
+  "inputs": [
+    {
+      "id": "ct_ratio",
+      "label": "CT Ratio",
+      "type": "number",
+      "unit": "",
+      "default": 40,
+      "businessContext": "Current transformer ratio (primary to secondary)"
+    },
+    {
+      "id": "relay_pickup",
+      "label": "Relay Pickup Current",
+      "type": "number",
+      "unit": "A",
+      "default": 5,
+      "businessContext": "Relay pickup setting in Amps at secondary side"
+    },
+    {
+      "id": "fault_current_primary",
+      "label": "Primary Fault Current",
+      "type": "number",
+      "unit": "A",
+      "default": 1000,
+      "businessContext": "Fault current in the primary circuit"
+    },
+    {
+      "id": "tms",
+      "label": "Time Multiplier Setting (TMS)",
+      "type": "number",
+      "unit": "",
+      "default": 0.1,
+      "businessContext": "Time multiplier setting of the relay"
+    },
+    {
+      "id": "curve_constant_k",
+      "label": "Curve Constant k",
+      "type": "number",
+      "unit": "",
+      "default": 0.14,
+      "businessContext": "k factor for the IEC inverse-time curve equation"
+    },
+    {
+      "id": "curve_constant_alpha",
+      "label": "Curve Constant α",
+      "type": "number",
+      "unit": "",
+      "default": 0.02,
+      "businessContext": "α exponent for the IEC inverse-time curve equation"
+    },
+    {
+      "id": "curve_constant_c",
+      "label": "Curve Constant c",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "c additive constant for the IEC inverse-time curve equation"
+    }
+  ],
+  "formulas": {
+    "secondary_fault_current": "fault_current_primary / ct_ratio",
+    "plug_setting_multiple": "(fault_current_primary / ct_ratio) / relay_pickup",
+    "trip_time": "tms * (curve_constant_k / (Math.pow((fault_current_primary / ct_ratio) / relay_pickup, curve_constant_alpha) - 1) + curve_constant_c)"
+  },
+  "outputs": {
+    "primary": "trip_time",
+    "breakdown": [
+      "secondary_fault_current",
+      "plug_setting_multiple"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

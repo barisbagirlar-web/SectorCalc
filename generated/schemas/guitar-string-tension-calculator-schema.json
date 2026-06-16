@@ -1,0 +1,54 @@
+{
+  "toolName": "guitar-string-tension-calculator",
+  "inputs": [
+    {
+      "id": "scaleLength",
+      "label": "Scale Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0.648,
+      "businessContext": "Distance from nut to bridge (vibrating string length)"
+    },
+    {
+      "id": "stringDiameter",
+      "label": "String Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.254,
+      "businessContext": "Diameter of the string (e.g., 0.010 inch ≈ 0.254 mm)"
+    },
+    {
+      "id": "materialDensity",
+      "label": "Material Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "businessContext": "Density of string material (steel ≈ 7850 kg/m³, nickel ≈ 8900 kg/m³)"
+    },
+    {
+      "id": "targetFrequency",
+      "label": "Target Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 329.63,
+      "businessContext": "Desired pitch frequency (e.g., E4 = 329.63 Hz for high E string)"
+    }
+  ],
+  "formulas": {
+    "mu": "materialDensity * Math.PI * (stringDiameter / 2000) ** 2",
+    "tension": "4 * scaleLength ** 2 * targetFrequency ** 2 * mu"
+  },
+  "outputs": {
+    "primary": "tension",
+    "breakdown": [
+      "mu",
+      "tension"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

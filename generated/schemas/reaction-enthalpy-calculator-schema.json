@@ -1,0 +1,71 @@
+{
+  "toolName": "reaction-enthalpy-calculator",
+  "inputs": [
+    {
+      "id": "deltaHref",
+      "label": "Referans Sıcaklıktaki Tepkime Entalpisi (ΔH°)",
+      "type": "number",
+      "unit": "kJ",
+      "default": 0,
+      "businessContext": "Standart reaksiyon entalpisi, genellikle 298 K'deki değer"
+    },
+    {
+      "id": "Tref",
+      "label": "Referans Sıcaklık (T_ref)",
+      "type": "number",
+      "unit": "K",
+      "default": 298.15,
+      "businessContext": "Referans sıcaklık, genellikle 298.15 K"
+    },
+    {
+      "id": "T",
+      "label": "Hedef Sıcaklık (T)",
+      "type": "number",
+      "unit": "K",
+      "default": 298.15,
+      "businessContext": "Reaksiyonun gerçekleştiği sıcaklık"
+    },
+    {
+      "id": "cpProducts",
+      "label": "Ürünlerin Isı Kapasitesi Toplamı (ΣCp_ürünler)",
+      "type": "number",
+      "unit": "kJ/K",
+      "default": 0,
+      "businessContext": "Ürünlerin sabit basınçtaki ısı kapasitelerinin stokiyometrik katsayılarla çarpılmış toplamı"
+    },
+    {
+      "id": "cpReactants",
+      "label": "Reaktantların Isı Kapasitesi Toplamı (ΣCp_reaktantlar)",
+      "type": "number",
+      "unit": "kJ/K",
+      "default": 0,
+      "businessContext": "Reaktantların sabit basınçtaki ısı kapasitelerinin stokiyometrik katsayılarla çarpılmış toplamı"
+    },
+    {
+      "id": "moles",
+      "label": "Mol Sayısı (n)",
+      "type": "number",
+      "unit": "mol",
+      "default": 1,
+      "businessContext": "Reaksiyonun kaç mol üzerinden gerçekleştiği (ölçek faktörü)"
+    }
+  ],
+  "formulas": {
+    "deltaCp": "cpProducts - cpReactants",
+    "enthalpyCorrection": "deltaCp * (T - Tref)",
+    "reactionEnthalpy": "moles * (deltaHref + enthalpyCorrection)"
+  },
+  "outputs": {
+    "primary": "reactionEnthalpy",
+    "breakdown": [
+      "deltaCp",
+      "enthalpyCorrection"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

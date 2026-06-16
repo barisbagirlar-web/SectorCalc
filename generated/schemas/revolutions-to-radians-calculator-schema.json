@@ -1,0 +1,63 @@
+{
+  "toolName": "revolutions-to-radians-calculator",
+  "inputs": [
+    {
+      "id": "rev",
+      "label": "Revolutions",
+      "type": "number",
+      "unit": "rev",
+      "default": 1,
+      "businessContext": "Number of complete rotations of the input shaft."
+    },
+    {
+      "id": "gearRatio",
+      "label": "Gear Ratio",
+      "type": "number",
+      "unit": "ratio",
+      "default": 1,
+      "businessContext": "Gear ratio multiplier applied to input revolutions."
+    },
+    {
+      "id": "phaseOffsetRev",
+      "label": "Phase Offset (Rev)",
+      "type": "number",
+      "unit": "rev",
+      "default": 0,
+      "businessContext": "Initial phase offset in revolutions."
+    },
+    {
+      "id": "radPerRev",
+      "label": "Radians per Revolution",
+      "type": "number",
+      "unit": "rad/rev",
+      "default": 6.283185307179586,
+      "businessContext": "Conversion constant (default 2π)."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "places",
+      "default": 6,
+      "businessContext": "Number of decimal places for output precision."
+    }
+  ],
+  "formulas": {
+    "effectiveRevolutions": "inputs.rev * inputs.gearRatio",
+    "offsetRadians": "inputs.phaseOffsetRev * inputs.radPerRev",
+    "totalRadians": "Math.round(((inputs.rev * inputs.gearRatio + inputs.phaseOffsetRev) * inputs.radPerRev) * Math.pow(10, inputs.decimalPlaces)) / Math.pow(10, inputs.decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "totalRadians",
+    "breakdown": [
+      "effectiveRevolutions",
+      "offsetRadians"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

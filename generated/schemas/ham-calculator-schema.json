@@ -1,0 +1,89 @@
+{
+  "toolName": "ham-calculator",
+  "inputs": [
+    {
+      "id": "raw_material_cost",
+      "label": "Raw Material Cost (per kg)",
+      "type": "number",
+      "unit": "€/kg",
+      "default": 5,
+      "businessContext": "Cost of raw ham per kilogram"
+    },
+    {
+      "id": "processing_time",
+      "label": "Processing Time (per kg)",
+      "type": "number",
+      "unit": "hours",
+      "default": 0.5,
+      "businessContext": "Time required to process one kilogram of ham"
+    },
+    {
+      "id": "labor_cost_per_hour",
+      "label": "Labor Cost per Hour",
+      "type": "number",
+      "unit": "€/hour",
+      "default": 20,
+      "businessContext": "Hourly wage for processing labor"
+    },
+    {
+      "id": "energy_cost_per_kwh",
+      "label": "Energy Cost per kWh",
+      "type": "number",
+      "unit": "€/kWh",
+      "default": 0.15,
+      "businessContext": "Cost of electricity per kilowatt-hour"
+    },
+    {
+      "id": "energy_consumption_per_kg",
+      "label": "Energy Consumption per kg",
+      "type": "number",
+      "unit": "kWh/kg",
+      "default": 2,
+      "businessContext": "Energy used to process one kilogram of ham"
+    },
+    {
+      "id": "yield_percentage",
+      "label": "Yield Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Percentage of usable ham after processing"
+    },
+    {
+      "id": "packaging_cost_per_kg",
+      "label": "Packaging Cost per kg",
+      "type": "number",
+      "unit": "€/kg",
+      "default": 0.5,
+      "businessContext": "Cost of packaging per kilogram of finished ham"
+    },
+    {
+      "id": "overhead_percentage",
+      "label": "Overhead Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Overhead costs as a percentage of direct costs"
+    }
+  ],
+  "formulas": {
+    "total_direct_cost": "raw_material_cost + (processing_time * labor_cost_per_hour) + (energy_consumption_per_kg * energy_cost_per_kwh) + packaging_cost_per_kg",
+    "adjusted_cost_for_yield": "total_direct_cost / (yield_percentage / 100)",
+    "overhead_cost": "adjusted_cost_for_yield * (overhead_percentage / 100)",
+    "total_cost_per_kg": "adjusted_cost_for_yield + overhead_cost"
+  },
+  "outputs": {
+    "primary": "Total Cost per kg of finished ham",
+    "breakdown": [
+      "Total Direct Cost per kg (before yield adjustment)",
+      "Adjusted Cost per kg (accounting for yield loss)",
+      "Overhead Cost per kg"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

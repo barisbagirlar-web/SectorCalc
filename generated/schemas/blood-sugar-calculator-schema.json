@@ -1,0 +1,57 @@
+{
+  "toolName": "blood-sugar-calculator",
+  "inputs": [
+    {
+      "id": "fasting_bs",
+      "label": "Fasting Blood Sugar",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 0,
+      "businessContext": "Patient's fasting blood glucose level (measured after 8-12 hours of no caloric intake)"
+    },
+    {
+      "id": "postprandial_bs",
+      "label": "Postprandial Blood Sugar",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 0,
+      "businessContext": "Patient's blood glucose level 2 hours after meal"
+    },
+    {
+      "id": "random_bs",
+      "label": "Random Blood Sugar",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 0,
+      "businessContext": "Patient's random blood glucose level at any time of day"
+    },
+    {
+      "id": "a1c",
+      "label": "HbA1c",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Glycated hemoglobin percentage, reflecting average blood glucose over past 2-3 months"
+    }
+  ],
+  "formulas": {
+    "avg_bs_mgdl": "(fasting_bs + postprandial_bs + random_bs) / 3",
+    "avg_bs_mmol": "avg_bs_mgdl / 18.0182",
+    "estimated_a1c": "(avg_bs_mgdl + 46.7) / 28.7",
+    "eag_from_a1c": "28.7 * a1c - 46.7"
+  },
+  "outputs": {
+    "primary": "Average Blood Sugar: ${avg_bs_mgdl} mg/dL",
+    "breakdown": [
+      "Estimated HbA1c: ${estimated_a1c}%",
+      "eAG from A1c: ${eag_from_a1c} mg/dL",
+      "Blood Sugar in mmol/L: ${avg_bs_mmol} mmol/L"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

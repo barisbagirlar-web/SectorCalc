@@ -1,0 +1,75 @@
+{
+  "toolName": "eoq-calculator",
+  "inputs": [
+    {
+      "id": "annualDemand",
+      "label": "Yıllık Talep",
+      "type": "number",
+      "unit": "adet",
+      "default": 10000,
+      "businessContext": "Yıllık satılan veya kullanılan ürün miktarı"
+    },
+    {
+      "id": "orderingCost",
+      "label": "Sipariş Maliyeti",
+      "type": "number",
+      "unit": "TL/sipariş",
+      "default": 100,
+      "businessContext": "Bir sipariş verildiğinde oluşan sabit maliyet (nakliye, işleme vb.)"
+    },
+    {
+      "id": "holdingCost",
+      "label": "Elde Tutma Maliyeti",
+      "type": "number",
+      "unit": "TL/birim/yıl",
+      "default": 5,
+      "businessContext": "Bir birim stoğun yıllık depolama, sigorta, bozulma vb. maliyeti"
+    },
+    {
+      "id": "unitCost",
+      "label": "Birim Maliyet",
+      "type": "number",
+      "unit": "TL/birim",
+      "default": 0,
+      "businessContext": "Birim başına satın alma maliyeti (toplam maliyete eklenir, isteğe bağlı)"
+    },
+    {
+      "id": "leadTimeDays",
+      "label": "Tedarik Süresi",
+      "type": "number",
+      "unit": "gün",
+      "default": 5,
+      "businessContext": "Siparişin teslim edilme süresi (yeniden sipariş noktası için)"
+    },
+    {
+      "id": "workingDaysPerYear",
+      "label": "Yıllık Çalışma Günü",
+      "type": "number",
+      "unit": "gün/yıl",
+      "default": 250,
+      "businessContext": "Yıllık çalışma gün sayısı (talebin dağılımı için)"
+    }
+  ],
+  "formulas": {
+    "eoq": "Math.sqrt((2 * annualDemand * orderingCost) / holdingCost)",
+    "totalOrderingCost": "(annualDemand / eoq) * orderingCost",
+    "totalHoldingCost": "(eoq / 2) * holdingCost",
+    "totalCost": "(annualDemand / eoq) * orderingCost + (eoq / 2) * holdingCost + annualDemand * unitCost",
+    "reorderPoint": "(annualDemand / workingDaysPerYear) * leadTimeDays"
+  },
+  "outputs": {
+    "primary": "eoq",
+    "breakdown": [
+      "totalOrderingCost",
+      "totalHoldingCost",
+      "totalCost",
+      "reorderPoint"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

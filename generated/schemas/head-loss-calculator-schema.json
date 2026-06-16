@@ -1,0 +1,74 @@
+{
+  "toolName": "head-loss-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Pipe Length",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "businessContext": "Length of the pipe section"
+    },
+    {
+      "id": "diameter",
+      "label": "Pipe Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Internal diameter of the pipe"
+    },
+    {
+      "id": "flowRate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "m³/s",
+      "default": 0.01,
+      "businessContext": "Volumetric flow rate through the pipe"
+    },
+    {
+      "id": "roughness",
+      "label": "Pipe Roughness (Absolute)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.00015,
+      "businessContext": "Absolute surface roughness of the pipe material"
+    },
+    {
+      "id": "kinematicViscosity",
+      "label": "Kinematic Viscosity",
+      "type": "number",
+      "unit": "m²/s",
+      "default": 0.000001,
+      "businessContext": "Kinematic viscosity of the fluid (1e-6 for water at 20°C)"
+    },
+    {
+      "id": "gravity",
+      "label": "Gravity Acceleration",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Acceleration due to gravity (standard 9.81 m/s²)"
+    }
+  ],
+  "formulas": {
+    "area": "Math.PI * (diameter/2) ** 2",
+    "velocity": "flowRate / area",
+    "reynolds": "velocity * diameter / kinematicViscosity",
+    "frictionFactor": "reynolds < 2300 ? 64/reynolds : 0.25 / (Math.log10( (roughness/diameter)/3.7 + 5.74/reynolds**0.9 )) ** 2",
+    "headLoss": "frictionFactor * (length/diameter) * (velocity**2 / (2*gravity))"
+  },
+  "outputs": {
+    "primary": "headLoss",
+    "breakdown": [
+      "velocity",
+      "reynolds",
+      "frictionFactor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

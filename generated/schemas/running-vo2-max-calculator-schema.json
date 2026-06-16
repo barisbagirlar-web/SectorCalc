@@ -1,0 +1,55 @@
+{
+  "toolName": "running-vo2-max-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Athlete's age in years for normative reference (optional)"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "0 for female, 1 for male. Used for normative classification if implemented."
+    },
+    {
+      "id": "distance",
+      "label": "Distance in 12 minutes",
+      "type": "number",
+      "unit": "meters",
+      "default": 2000,
+      "businessContext": "Total distance covered during a 12-minute run (Cooper test)."
+    },
+    {
+      "id": "bodyWeight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Athlete's body weight in kilograms, used to compute absolute VO2 max."
+    }
+  ],
+  "formulas": {
+    "vo2max": "(distance - 504.9) / 44.73",
+    "absoluteVO2": "vo2max * bodyWeight / 1000",
+    "speed": "distance / 12"
+  },
+  "outputs": {
+    "primary": "vo2max",
+    "breakdown": [
+      "absoluteVO2",
+      "speed"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

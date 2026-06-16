@@ -1,0 +1,62 @@
+{
+  "toolName": "golf-course-handicap-calculator",
+  "inputs": [
+    {
+      "id": "adjustedGrossScore",
+      "label": "Adjusted Gross Score",
+      "type": "number",
+      "unit": "strokes",
+      "default": 85,
+      "businessContext": "Player's adjusted gross score for the round (actual strokes taken after any adjustments)."
+    },
+    {
+      "id": "courseRating",
+      "label": "Course Rating",
+      "type": "number",
+      "unit": "",
+      "default": 72,
+      "businessContext": "Course rating from scorecard, representing difficulty for a scratch golfer."
+    },
+    {
+      "id": "slopeRating",
+      "label": "Slope Rating",
+      "type": "number",
+      "unit": "",
+      "default": 130,
+      "businessContext": "Slope rating from scorecard (typically 55-155), indicating relative difficulty for bogey golfers."
+    },
+    {
+      "id": "par",
+      "label": "Par",
+      "type": "number",
+      "unit": "strokes",
+      "default": 72,
+      "businessContext": "Par for the course, used in course handicap calculation."
+    },
+    {
+      "id": "handicapIndex",
+      "label": "Handicap Index",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Player's current Handicap Index (for course handicap calculation; set to 0 if unknown)."
+    }
+  ],
+  "formulas": {
+    "handicapDifferential": "(adjustedGrossScore - courseRating) * 113 / slopeRating",
+    "courseHandicap": "handicapIndex * (slopeRating / 113) + (courseRating - par)"
+  },
+  "outputs": {
+    "primary": "handicapDifferential",
+    "breakdown": [
+      "handicapDifferential",
+      "courseHandicap"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "inflation-calculator",
+  "inputs": [
+    {
+      "id": "present-value",
+      "label": "Present Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "Bugünkü para miktarı."
+    },
+    {
+      "id": "inflation-rate",
+      "label": "Annual Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Yıllık enflasyon oranı."
+    },
+    {
+      "id": "years",
+      "label": "Number of Years",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Enflasyonun uygulanacağı süre."
+    },
+    {
+      "id": "frequency",
+      "label": "Compounding Frequency",
+      "type": "number",
+      "unit": "times/year",
+      "default": 1,
+      "businessContext": "Yıllık bileşikleme sıklığı."
+    }
+  ],
+  "formulas": {
+    "futureValue": "presentValue * Math.pow(1 + inflationRate / 100 / frequency, years * frequency)",
+    "inflationImpact": "futureValue - presentValue",
+    "realValueReductionPercent": "(1 - presentValue / futureValue) * 100"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": [
+      "inflationImpact",
+      "realValueReductionPercent"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

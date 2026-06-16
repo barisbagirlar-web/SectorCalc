@@ -1,0 +1,70 @@
+{
+  "toolName": "profit-margin-calculator",
+  "inputs": [
+    {
+      "id": "totalRevenue",
+      "label": "Total Revenue",
+      "type": "number",
+      "unit": "EUR",
+      "default": 100000,
+      "businessContext": "Toplam gelir (satış gelirleri)"
+    },
+    {
+      "id": "costOfGoodsSold",
+      "label": "Cost of Goods Sold (COGS)",
+      "type": "number",
+      "unit": "EUR",
+      "default": 60000,
+      "businessContext": "Satılan malın maliyeti (direkt giderler)"
+    },
+    {
+      "id": "operatingExpenses",
+      "label": "Operating Expenses",
+      "type": "number",
+      "unit": "EUR",
+      "default": 20000,
+      "businessContext": "Faaliyet giderleri (kira, personel, pazarlama vb.)"
+    },
+    {
+      "id": "otherExpenses",
+      "label": "Other Expenses",
+      "type": "number",
+      "unit": "EUR",
+      "default": 5000,
+      "businessContext": "Diğer giderler (faiz, amortisman vb.)"
+    },
+    {
+      "id": "taxExpense",
+      "label": "Tax Expense",
+      "type": "number",
+      "unit": "EUR",
+      "default": 5000,
+      "businessContext": "Vergi gideri"
+    }
+  ],
+  "formulas": {
+    "grossProfit": "totalRevenue - costOfGoodsSold",
+    "grossMargin": "(totalRevenue - costOfGoodsSold) / totalRevenue * 100",
+    "operatingProfit": "totalRevenue - costOfGoodsSold - operatingExpenses",
+    "operatingMargin": "(totalRevenue - costOfGoodsSold - operatingExpenses) / totalRevenue * 100",
+    "profitBeforeTax": "totalRevenue - costOfGoodsSold - operatingExpenses - otherExpenses",
+    "preTaxMargin": "(totalRevenue - costOfGoodsSold - operatingExpenses - otherExpenses) / totalRevenue * 100",
+    "netProfit": "totalRevenue - costOfGoodsSold - operatingExpenses - otherExpenses - taxExpense",
+    "netMargin": "(totalRevenue - costOfGoodsSold - operatingExpenses - otherExpenses - taxExpense) / totalRevenue * 100"
+  },
+  "outputs": {
+    "primary": "netMargin",
+    "breakdown": [
+      "grossMargin",
+      "operatingMargin",
+      "preTaxMargin",
+      "netMargin"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

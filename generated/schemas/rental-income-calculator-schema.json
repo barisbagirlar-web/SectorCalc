@@ -1,0 +1,79 @@
+{
+  "toolName": "rental-income-calculator",
+  "inputs": [
+    {
+      "id": "monthlyRent",
+      "label": "Monthly Rent",
+      "type": "number",
+      "unit": "USD",
+      "default": 1500,
+      "businessContext": "The monthly rental income from the property."
+    },
+    {
+      "id": "occupancyRate",
+      "label": "Occupancy Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Expected occupancy rate as a percentage of the year."
+    },
+    {
+      "id": "managementFeePercent",
+      "label": "Management Fee (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage of gross income for property management."
+    },
+    {
+      "id": "maintenanceMonthly",
+      "label": "Monthly Maintenance",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "Estimated monthly maintenance and repair costs."
+    },
+    {
+      "id": "insuranceMonthly",
+      "label": "Monthly Insurance",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "businessContext": "Monthly insurance premium."
+    },
+    {
+      "id": "propertyTaxAnnual",
+      "label": "Annual Property Tax",
+      "type": "number",
+      "unit": "USD",
+      "default": 2000,
+      "businessContext": "Annual property tax amount."
+    }
+  ],
+  "formulas": {
+    "grossAnnualIncome": "monthlyRent * 12 * (occupancyRate / 100)",
+    "managementFees": "grossAnnualIncome * (managementFeePercent / 100)",
+    "totalMaintenance": "maintenanceMonthly * 12",
+    "totalInsurance": "insuranceMonthly * 12",
+    "totalExpenses": "managementFees + totalMaintenance + totalInsurance + propertyTaxAnnual",
+    "netAnnualIncome": "grossAnnualIncome - totalExpenses",
+    "netMonthlyIncome": "netAnnualIncome / 12"
+  },
+  "outputs": {
+    "primary": "netAnnualIncome",
+    "breakdown": [
+      "grossAnnualIncome",
+      "totalExpenses",
+      "managementFees",
+      "totalMaintenance",
+      "totalInsurance",
+      "propertyTaxAnnual"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

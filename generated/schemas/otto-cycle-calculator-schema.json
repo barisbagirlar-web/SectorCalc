@@ -1,0 +1,75 @@
+{
+  "toolName": "otto-cycle-calculator",
+  "inputs": [
+    {
+      "id": "compressionRatio",
+      "label": "Compression Ratio (r)",
+      "type": "number",
+      "unit": "",
+      "default": 8,
+      "businessContext": "Ratio of cylinder volume before compression (BDC) to volume after compression (TDC)"
+    },
+    {
+      "id": "specificHeatRatio",
+      "label": "Specific Heat Ratio (k)",
+      "type": "number",
+      "unit": "",
+      "default": 1.4,
+      "businessContext": "Adiabatic index (cp/cv) of the working fluid, typically 1.4 for air"
+    },
+    {
+      "id": "initialTemperature",
+      "label": "Initial Temperature (T1)",
+      "type": "number",
+      "unit": "K",
+      "default": 300,
+      "businessContext": "Temperature at the start of compression stroke"
+    },
+    {
+      "id": "initialPressure",
+      "label": "Initial Pressure (P1)",
+      "type": "number",
+      "unit": "kPa",
+      "default": 100,
+      "businessContext": "Pressure at the start of compression stroke (intake pressure)"
+    },
+    {
+      "id": "maxTemperature",
+      "label": "Maximum Temperature (T3)",
+      "type": "number",
+      "unit": "K",
+      "default": 2000,
+      "businessContext": "Temperature after constant volume heat addition (combustion)"
+    },
+    {
+      "id": "specificHeatCv",
+      "label": "Specific Heat (Cv)",
+      "type": "number",
+      "unit": "kJ/(kg·K)",
+      "default": 0.718,
+      "businessContext": "Specific heat at constant volume of the working fluid (air ≈ 0.718 kJ/kg·K)"
+    }
+  ],
+  "formulas": {
+    "thermalefficiency": "(1 - 1 / Math.pow(compressionRatio, specificHeatRatio - 1)) * 100",
+    "temperatureAfterCompression": "initialTemperature * Math.pow(compressionRatio, specificHeatRatio - 1)",
+    "temperatureAfterExpansion": "maxTemperature / Math.pow(compressionRatio, specificHeatRatio - 1)",
+    "pressureAfterCompression": "initialPressure * Math.pow(compressionRatio, specificHeatRatio)",
+    "netWorkPerMass": "specificHeatCv * (maxTemperature - initialTemperature * Math.pow(compressionRatio, specificHeatRatio - 1) - maxTemperature / Math.pow(compressionRatio, specificHeatRatio - 1) + initialTemperature)",
+    "heatAdditionPerMass": "specificHeatCv * (maxTemperature - initialTemperature * Math.pow(compressionRatio, specificHeatRatio - 1))"
+  },
+  "outputs": {
+    "primary": "thermalefficiency",
+    "breakdown": [
+      "temperatureAfterCompression",
+      "temperatureAfterExpansion",
+      "netWorkPerMass"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,85 @@
+{
+  "toolName": "parallelogram-area-calculator",
+  "inputs": [
+    {
+      "id": "base",
+      "label": "Base length",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Length of the base of the parallelogram."
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Perpendicular distance between bases."
+    },
+    {
+      "id": "side",
+      "label": "Side length",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Length of the adjacent side. Used if base and height not provided."
+    },
+    {
+      "id": "angle",
+      "label": "Angle between base and side",
+      "type": "number",
+      "unit": "degrees",
+      "default": 0,
+      "businessContext": "Angle between base and side. Used for alternative area calculation."
+    },
+    {
+      "id": "diagonal1",
+      "label": "Diagonal 1",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "First diagonal length."
+    },
+    {
+      "id": "diagonal2",
+      "label": "Diagonal 2",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Second diagonal length."
+    },
+    {
+      "id": "angleDiagonals",
+      "label": "Angle between diagonals",
+      "type": "number",
+      "unit": "degrees",
+      "default": 0,
+      "businessContext": "Angle between the diagonals. Used for alternative area calculation."
+    }
+  ],
+  "formulas": {
+    "area": "(base > 0 && height > 0) ? (base * height) : ((base > 0 && side > 0 && angle > 0) ? (base * side * Math.sin(angle * Math.PI / 180)) : ((diagonal1 > 0 && diagonal2 > 0 && angleDiagonals > 0) ? (0.5 * diagonal1 * diagonal2 * Math.sin(angleDiagonals * Math.PI / 180)) : 0))"
+  },
+  "outputs": {
+    "primary": {
+      "id": "area",
+      "label": "Parallelogram Area",
+      "unit": "m²",
+      "type": "number"
+    },
+    "breakdown": [
+      "Calculate area using available inputs:",
+      "If base and height provided: area = base × height.",
+      "If base, side, and angle provided: area = base × side × sin(angle).",
+      "If diagonals and angle between diagonals provided: area = 0.5 × diagonal1 × diagonal2 × sin(angle).",
+      "Result in square meters (m²)."
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "trip-cost-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "businessContext": "Total trip distance in kilometers."
+    },
+    {
+      "id": "fuelEfficiency",
+      "label": "Fuel Efficiency",
+      "type": "number",
+      "unit": "L/100km",
+      "default": 8,
+      "businessContext": "Average fuel consumption of the vehicle in liters per 100 kilometers."
+    },
+    {
+      "id": "fuelPrice",
+      "label": "Fuel Price",
+      "type": "number",
+      "unit": "USD/L",
+      "default": 1.5,
+      "businessContext": "Current price of fuel per liter in USD."
+    },
+    {
+      "id": "tolls",
+      "label": "Tolls",
+      "type": "number",
+      "unit": "USD",
+      "default": 10,
+      "businessContext": "Total toll fees for the trip in USD."
+    },
+    {
+      "id": "otherCosts",
+      "label": "Other Costs",
+      "type": "number",
+      "unit": "USD",
+      "default": 5,
+      "businessContext": "Additional costs such as parking, food, etc. in USD."
+    }
+  ],
+  "formulas": {
+    "fuelCost": "(distance / 100) * fuelEfficiency * fuelPrice",
+    "tollsCost": "tolls",
+    "otherCostsAmount": "otherCosts",
+    "totalCost": "fuelCost + tollsCost + otherCostsAmount"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "fuelCost",
+      "tollsCost",
+      "otherCostsAmount"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,75 @@
+{
+  "toolName": "aquaponics-calculator",
+  "inputs": [
+    {
+      "id": "fishCount",
+      "label": "Balık Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "businessContext": "Havuzdaki toplam balık sayısı"
+    },
+    {
+      "id": "fishWeight",
+      "label": "Ortalama Balık Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 0.5,
+      "businessContext": "Balık başına ortalama ağırlık"
+    },
+    {
+      "id": "feedRate",
+      "label": "Günlük Yemleme Oranı",
+      "type": "number",
+      "unit": "%/gün",
+      "default": 2,
+      "businessContext": "Günlük vücut ağırlığının yüzdesi olarak yem miktarı"
+    },
+    {
+      "id": "feedProtein",
+      "label": "Yem Proteini",
+      "type": "number",
+      "unit": "%",
+      "default": 35,
+      "businessContext": "Yemdeki protein yüzdesi"
+    },
+    {
+      "id": "plantNitrogenUptake",
+      "label": "Bitki Azot Alımı",
+      "type": "number",
+      "unit": "g/m²/gün",
+      "default": 1.5,
+      "businessContext": "Birim alan başına günlük azot alımı"
+    },
+    {
+      "id": "fishDensity",
+      "label": "Balık Yoğunluğu",
+      "type": "number",
+      "unit": "balık/m³",
+      "default": 30,
+      "businessContext": "Metreküp başına balık sayısı"
+    }
+  ],
+  "formulas": {
+    "dailyFeed": "fishCount * fishWeight * feedRate / 100",
+    "tanProduction": "dailyFeed * feedProtein",
+    "requiredPlantArea": "tanProduction / plantNitrogenUptake",
+    "fishTankVolume": "fishCount / fishDensity * 1000",
+    "recirculationFlow": "fishTankVolume / 60"
+  },
+  "outputs": {
+    "primary": "requiredPlantArea",
+    "breakdown": [
+      "fishTankVolume",
+      "dailyFeed",
+      "tanProduction",
+      "recirculationFlow"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

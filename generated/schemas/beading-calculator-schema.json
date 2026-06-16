@@ -1,0 +1,76 @@
+{
+  "toolName": "beading-calculator",
+  "inputs": [
+    {
+      "id": "plateThickness",
+      "label": "Plaka Kalınlığı",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Kaynaklı parça kalınlığı"
+    },
+    {
+      "id": "rootGap",
+      "label": "Kök Aralığı",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "businessContext": "Kaynak ağzı kök aralığı"
+    },
+    {
+      "id": "bevelAngle",
+      "label": "Pah Açısı",
+      "type": "number",
+      "unit": "derece",
+      "default": 60,
+      "businessContext": "V-kaynak ağzı açısı"
+    },
+    {
+      "id": "reinforcementHeight",
+      "label": "Takviye Yüksekliği",
+      "type": "number",
+      "unit": "mm",
+      "default": 1.5,
+      "businessContext": "Kaynak tepesi takviye yüksekliği"
+    },
+    {
+      "id": "weldLength",
+      "label": "Kaynak Uzunluğu",
+      "type": "number",
+      "unit": "mm",
+      "default": 500,
+      "businessContext": "Toplam kaynak dikiş boyu"
+    },
+    {
+      "id": "materialDensity",
+      "label": "Malzeme Yoğunluğu",
+      "type": "number",
+      "unit": "g/cm³",
+      "default": 7.85,
+      "businessContext": "Kaynak metalinin yoğunluğu (çelik: 7.85)"
+    }
+  ],
+  "formulas": {
+    "weldWidth": "rootGap + 2 * plateThickness * (Math.sin((bevelAngle/2) * Math.PI / 180) / Math.cos((bevelAngle/2) * Math.PI / 180))",
+    "grooveArea": "rootGap * plateThickness + plateThickness * plateThickness * (Math.sin((bevelAngle/2) * Math.PI / 180) / Math.cos((bevelAngle/2) * Math.PI / 180))",
+    "reinforcementArea": "0.67 * reinforcementHeight * weldWidth",
+    "crossSectionalArea": "grooveArea + reinforcementArea",
+    "volume": "crossSectionalArea * weldLength",
+    "weldWeight": "volume * materialDensity / 1000000"
+  },
+  "outputs": {
+    "primary": "weldWeight",
+    "breakdown": [
+      "crossSectionalArea",
+      "volume",
+      "grooveArea",
+      "reinforcementArea"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "ivf-due-date-calculator",
+  "inputs": [
+    {
+      "id": "transferYear",
+      "label": "Transfer Yıl",
+      "type": "number",
+      "unit": "yıl",
+      "default": 2024,
+      "businessContext": "Embriyo transferinin yapıldığı yıl"
+    },
+    {
+      "id": "transferMonth",
+      "label": "Transfer Ay",
+      "type": "number",
+      "unit": "ay",
+      "default": 1,
+      "businessContext": "Embriyo transfer ayı (1-12)"
+    },
+    {
+      "id": "transferDay",
+      "label": "Transfer Gün",
+      "type": "number",
+      "unit": "gün",
+      "default": 1,
+      "businessContext": "Embriyo transfer günü (1-31)"
+    },
+    {
+      "id": "embryoAge",
+      "label": "Embriyo Yaşı",
+      "type": "number",
+      "unit": "gün",
+      "default": 3,
+      "businessContext": "Transfer anındaki embriyo yaşı (örn. 3 veya 5 gün)"
+    }
+  ],
+  "formulas": {
+    "transferTimestamp": "new Date(transferYear, transferMonth - 1, transferDay).getTime()",
+    "daysToAdd": "266 - embryoAge",
+    "dueDateTimestamp": "new Date(transferYear, transferMonth - 1, transferDay).getTime() + ((266 - embryoAge) * 86400000)"
+  },
+  "outputs": {
+    "primary": "dueDateTimestamp",
+    "breakdown": [
+      "transferTimestamp",
+      "daysToAdd"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

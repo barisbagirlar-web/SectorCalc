@@ -1,0 +1,57 @@
+{
+  "toolName": "social-security-delayed-retirement-calculator",
+  "inputs": [
+    {
+      "id": "fullRetirementAge",
+      "label": "Full Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 67,
+      "businessContext": "The age at which you can receive full Social Security retirement benefits."
+    },
+    {
+      "id": "plannedRetirementAge",
+      "label": "Planned Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 70,
+      "businessContext": "The age at which you plan to start claiming benefits."
+    },
+    {
+      "id": "primaryInsuranceAmount",
+      "label": "Primary Insurance Amount (PIA)",
+      "type": "number",
+      "unit": "USD/month",
+      "default": 2000,
+      "businessContext": "Your monthly benefit at full retirement age."
+    },
+    {
+      "id": "annualDelayCreditRate",
+      "label": "Annual Delay Credit Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "businessContext": "The percentage increase in benefits for each year of delay past full retirement age."
+    }
+  ],
+  "formulas": {
+    "delayYears": "plannedRetirementAge - fullRetirementAge",
+    "benefitIncreaseFactor": "1 + (delayYears * annualDelayCreditRate / 100)",
+    "newMonthlyBenefit": "primaryInsuranceAmount * benefitIncreaseFactor",
+    "percentageIncrease": "(benefitIncreaseFactor - 1) * 100"
+  },
+  "outputs": {
+    "primary": "newMonthlyBenefit",
+    "breakdown": [
+      "delayYears",
+      "benefitIncreaseFactor",
+      "percentageIncrease"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

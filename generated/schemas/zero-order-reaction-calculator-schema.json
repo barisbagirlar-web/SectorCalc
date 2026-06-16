@@ -1,0 +1,55 @@
+{
+  "toolName": "zero-order-reaction-calculator",
+  "inputs": [
+    {
+      "id": "initialConcentration",
+      "label": "Initial Concentration",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 1,
+      "businessContext": "Initial concentration of the reactant before the reaction starts."
+    },
+    {
+      "id": "rateConstant",
+      "label": "Rate Constant",
+      "type": "number",
+      "unit": "mol/(L·s)",
+      "default": 0.01,
+      "businessContext": "Zero-order rate constant, representing the consumption rate per unit time."
+    },
+    {
+      "id": "time",
+      "label": "Reaction Time",
+      "type": "number",
+      "unit": "s",
+      "default": 100,
+      "businessContext": "The time elapsed since the start of the reaction."
+    },
+    {
+      "id": "targetConcentration",
+      "label": "Target Concentration",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.5,
+      "businessContext": "Desired concentration of the reactant to calculate the required reaction time."
+    }
+  ],
+  "formulas": {
+    "remainingConcentration": "initialConcentration - rateConstant * time",
+    "halfLife": "initialConcentration / (2 * rateConstant)",
+    "timeToTarget": "(initialConcentration - targetConcentration) / rateConstant"
+  },
+  "outputs": {
+    "primary": "remainingConcentration",
+    "breakdown": [
+      "halfLife",
+      "timeToTarget"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

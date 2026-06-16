@@ -1,0 +1,91 @@
+{
+  "toolName": "prime-factorization-builder-calculator",
+  "inputs": [
+    {
+      "id": "prime1",
+      "label": "Prime Factor 1",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "First prime number"
+    },
+    {
+      "id": "exponent1",
+      "label": "Exponent 1",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Exponent for the first prime"
+    },
+    {
+      "id": "prime2",
+      "label": "Prime Factor 2",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Second prime number"
+    },
+    {
+      "id": "exponent2",
+      "label": "Exponent 2",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Exponent for the second prime"
+    },
+    {
+      "id": "prime3",
+      "label": "Prime Factor 3",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Third prime number"
+    },
+    {
+      "id": "exponent3",
+      "label": "Exponent 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Exponent for the third prime"
+    },
+    {
+      "id": "prime4",
+      "label": "Prime Factor 4",
+      "type": "number",
+      "unit": "",
+      "default": 7,
+      "businessContext": "Fourth prime number"
+    },
+    {
+      "id": "exponent4",
+      "label": "Exponent 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Exponent for the fourth prime"
+    }
+  ],
+  "formulas": {
+    "product": "(prime1 ** exponent1) * (prime2 ** exponent2) * (prime3 ** exponent3) * (prime4 ** exponent4)",
+    "term1": "prime1 ** exponent1",
+    "term2": "prime2 ** exponent2",
+    "term3": "prime3 ** exponent3",
+    "term4": "prime4 ** exponent4"
+  },
+  "outputs": {
+    "primary": "product",
+    "breakdown": [
+      "term1",
+      "term2",
+      "term3",
+      "term4"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

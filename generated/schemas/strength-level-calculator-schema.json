@@ -1,0 +1,63 @@
+{
+  "toolName": "strength-level-calculator",
+  "inputs": [
+    {
+      "id": "bodyWeight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 75,
+      "businessContext": "User's body weight in kilograms"
+    },
+    {
+      "id": "liftWeight",
+      "label": "Lifted Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Weight lifted during the exercise in kilograms"
+    },
+    {
+      "id": "reps",
+      "label": "Repetitions",
+      "type": "number",
+      "unit": "reps",
+      "default": 5,
+      "businessContext": "Number of repetitions performed"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the user for classification reference"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "code",
+      "default": 0,
+      "businessContext": "0 for male, 1 for female"
+    }
+  ],
+  "formulas": {
+    "estimated1RM": "liftWeight*(1+reps/30)",
+    "relativeStrength": "(liftWeight*(1+reps/30))/bodyWeight",
+    "strengthLevel": "gender===0?((liftWeight*(1+reps/30))/bodyWeight>=2?'Elite':(liftWeight*(1+reps/30))/bodyWeight>=1.5?'Advanced':(liftWeight*(1+reps/30))/bodyWeight>=1.25?'Intermediate':(liftWeight*(1+reps/30))/bodyWeight>=1?'Novice':'Beginner'):((liftWeight*(1+reps/30))/bodyWeight>=1.5?'Elite':(liftWeight*(1+reps/30))/bodyWeight>=1?'Advanced':(liftWeight*(1+reps/30))/bodyWeight>=0.75?'Intermediate':(liftWeight*(1+reps/30))/bodyWeight>=0.5?'Novice':'Beginner')"
+  },
+  "outputs": {
+    "primary": "strengthLevel",
+    "breakdown": [
+      "estimated1RM",
+      "relativeStrength"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

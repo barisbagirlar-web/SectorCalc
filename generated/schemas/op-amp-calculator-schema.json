@@ -1,0 +1,63 @@
+{
+  "toolName": "op-amp-calculator",
+  "inputs": [
+    {
+      "id": "vin",
+      "label": "Input Voltage (Vin)",
+      "type": "number",
+      "unit": "V",
+      "default": 1,
+      "businessContext": "Input signal voltage from sensor or source (peak or DC)"
+    },
+    {
+      "id": "rin",
+      "label": "Input Resistance (Rin)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 1000,
+      "businessContext": "Resistance from non-inverting terminal to ground; sets input impedance"
+    },
+    {
+      "id": "rf",
+      "label": "Feedback Resistance (Rf)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 1000,
+      "businessContext": "Feedback resistor between output and inverting input for gain setting"
+    },
+    {
+      "id": "vcc",
+      "label": "Positive Supply (Vcc)",
+      "type": "number",
+      "unit": "V",
+      "default": 12,
+      "businessContext": "Positive supply rail; output cannot exceed Vcc - 1.5V (typical)"
+    },
+    {
+      "id": "vee",
+      "label": "Negative Supply (Vee)",
+      "type": "number",
+      "unit": "V",
+      "default": 0,
+      "businessContext": "Negative supply rail; for single supply this is ground (0V)"
+    }
+  ],
+  "formulas": {
+    "gain": "1 + (rf / rin)",
+    "vout_ideal": "vin * (1 + (rf / rin))",
+    "vout": "Math.min(vcc - 1.5, Math.max(vee + 0.5, vin * (1 + rf / rin)))"
+  },
+  "outputs": {
+    "primary": "vout",
+    "breakdown": [
+      "gain",
+      "vout_ideal"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

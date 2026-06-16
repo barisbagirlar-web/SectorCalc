@@ -1,0 +1,65 @@
+{
+  "toolName": "pascal-to-psi-calculator",
+  "inputs": [
+    {
+      "id": "pressurePascals",
+      "label": "Pressure Reading (Pa)",
+      "type": "number",
+      "unit": "Pa",
+      "default": 101325,
+      "businessContext": "Actual pressure reading from sensor in pascals."
+    },
+    {
+      "id": "calibrationFactor",
+      "label": "Calibration Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Multiplier for sensor calibration, typically 0.95-1.05."
+    },
+    {
+      "id": "sensorMaxPa",
+      "label": "Sensor Full Scale (Pa)",
+      "type": "number",
+      "unit": "Pa",
+      "default": 100000,
+      "businessContext": "Maximum pressure rating of the sensor."
+    },
+    {
+      "id": "sensorAccuracyClass",
+      "label": "Sensor Accuracy Class",
+      "type": "number",
+      "unit": "% FS",
+      "default": 0.5,
+      "businessContext": "Accuracy as a percentage of full scale (e.g., 0.5 for 0.5% FS)."
+    },
+    {
+      "id": "outputDecimals",
+      "label": "Output Decimal Places",
+      "type": "number",
+      "unit": "digits",
+      "default": 4,
+      "businessContext": "Number of decimal digits for psi output; must be integer >=0."
+    }
+  ],
+  "formulas": {
+    "rawPsi": "pressurePascals / 6894.76 * calibrationFactor",
+    "uncertaintyPsi": "(sensorMaxPa * sensorAccuracyClass / 100) / 6894.76",
+    "relativeUncertaintyPercent": "rawPsi !== 0 ? (uncertaintyPsi / rawPsi) * 100 : 0",
+    "primaryOutput": "Math.round(rawPsi * Math.pow(10, outputDecimals)) / Math.pow(10, outputDecimals)"
+  },
+  "outputs": {
+    "primary": "primaryOutput",
+    "breakdown": [
+      "rawPsi",
+      "uncertaintyPsi",
+      "relativeUncertaintyPercent"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

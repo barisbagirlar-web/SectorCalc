@@ -1,0 +1,73 @@
+{
+  "toolName": "mead-calculator",
+  "inputs": [
+    {
+      "id": "batchVolumeL",
+      "label": "Parti Hacmi (L)",
+      "type": "number",
+      "unit": "litre",
+      "default": 20,
+      "businessContext": "Üretilecek toplam şıra hacmi"
+    },
+    {
+      "id": "targetABV",
+      "label": "Hedef Alkol Oranı (% ABV)",
+      "type": "number",
+      "unit": "%",
+      "default": 12,
+      "businessContext": "Hedeflenen alkol derecesi"
+    },
+    {
+      "id": "honeySugarContent",
+      "label": "Bal Şeker Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Balın içerdiği şeker yüzdesi, tipik %78-85"
+    },
+    {
+      "id": "yieldFactor",
+      "label": "Fermantasyon Verimi (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Mayanın şekeri alkole dönüştürme verimi, %100 teorik tam dönüşüm"
+    },
+    {
+      "id": "honeyDensity",
+      "label": "Bal Yoğunluğu",
+      "type": "number",
+      "unit": "kg/L",
+      "default": 1.36,
+      "businessContext": "Balın yoğunluğu, genelde 1.36 kg/L"
+    },
+    {
+      "id": "waterDensity",
+      "label": "Su Yoğunluğu",
+      "type": "number",
+      "unit": "kg/L",
+      "default": 1,
+      "businessContext": "Suyun yoğunluğu, 1 kg/L"
+    }
+  ],
+  "formulas": {
+    "primary": "((targetABV/100 * batchVolumeL) * 0.789 / 0.484) / (honeySugarContent/100 * yieldFactor/100)",
+    "breakdown": [
+      "batchVolumeL - (((targetABV/100 * batchVolumeL) * 0.789 / 0.484) / (honeySugarContent/100 * yieldFactor/100)) / honeyDensity",
+      "targetABV/100 * batchVolumeL"
+    ]
+  },
+  "outputs": {
+    "primary": "Bal Miktarı (kg)",
+    "breakdown": [
+      "Su Miktarı (L)",
+      "Alkol Miktarı (L)"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

@@ -1,0 +1,47 @@
+{
+  "toolName": "dbscan-calculator",
+  "inputs": [
+    {
+      "id": "epsilon",
+      "label": "Epsilon (ε)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Komşuluk yarıçapı (maksimum mesafe)"
+    },
+    {
+      "id": "minPoints",
+      "label": "Minimum Nokta (MinPts)",
+      "type": "number",
+      "unit": "adet",
+      "default": 5,
+      "businessContext": "Yoğun bölge için minimum nokta sayısı"
+    },
+    {
+      "id": "neighborCount",
+      "label": "Komşu Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 4,
+      "businessContext": "ε yarıçapı içindeki nokta sayısı"
+    }
+  ],
+  "formulas": {
+    "density": "neighborCount / (Math.PI * epsilon ** 2)",
+    "area": "Math.PI * epsilon ** 2",
+    "neighborCountOut": "neighborCount"
+  },
+  "outputs": {
+    "primary": "density",
+    "breakdown": [
+      "area",
+      "neighborCountOut"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

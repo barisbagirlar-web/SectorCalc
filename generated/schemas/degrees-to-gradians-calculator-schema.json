@@ -1,0 +1,73 @@
+{
+  "toolName": "degrees-to-gradians-calculator",
+  "inputs": [
+    {
+      "id": "decimalDegrees",
+      "label": "Decimal Degrees",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Angle in decimal degrees if not using DMS"
+    },
+    {
+      "id": "useDMS",
+      "label": "Use DMS Input",
+      "type": "number",
+      "unit": "boolean (0 or 1)",
+      "default": 0,
+      "businessContext": "Set to 1 to input angle as degrees, minutes, seconds"
+    },
+    {
+      "id": "degreesDMS",
+      "label": "Degrees",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Whole degrees part (DMS)"
+    },
+    {
+      "id": "minutes",
+      "label": "Minutes",
+      "type": "number",
+      "unit": "'",
+      "default": 0,
+      "businessContext": "Minutes part (DMS)"
+    },
+    {
+      "id": "seconds",
+      "label": "Seconds",
+      "type": "number",
+      "unit": "''",
+      "default": 0,
+      "businessContext": "Seconds part (DMS)"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 4,
+      "businessContext": "Number of decimal places for output rounding"
+    }
+  ],
+  "formulas": {
+    "totalDegrees": "useDMS === 1 ? (degreesDMS + minutes/60 + seconds/3600) : decimalDegrees",
+    "conversionFactor": "10/9",
+    "gradians": "totalDegrees * conversionFactor",
+    "roundedGradians": "Math.round(gradians * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "roundedGradians",
+    "breakdown": [
+      "totalDegrees",
+      "conversionFactor",
+      "gradians"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,80 @@
+{
+  "toolName": "excavation-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Uzunluk",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Kazı alanının uzunluğu"
+    },
+    {
+      "id": "width",
+      "label": "Genişlik",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Kazı alanının genişliği"
+    },
+    {
+      "id": "depth",
+      "label": "Derinlik",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Kazı derinliği"
+    },
+    {
+      "id": "swellFactor",
+      "label": "Kabarma Faktörü",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Toprağın kabarma yüzdesi (genişleme faktörü)"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Kazı sırasında oluşan fire (ziyan) yüzdesi"
+    }
+  ],
+  "formulas": {
+    "originalVolume": "length * width * depth",
+    "swellVolume": "originalVolume * (1 + swellFactor/100)",
+    "totalExcavationVolume": "swellVolume * (1 + wasteFactor/100)"
+  },
+  "outputs": {
+    "primary": {
+      "id": "totalExcavationVolume",
+      "label": "Toplam Kazı Hacmi",
+      "unit": "m³"
+    },
+    "breakdown": [
+      {
+        "id": "originalVolume",
+        "label": "Bank Hacmi (Yerinde)",
+        "unit": "m³"
+      },
+      {
+        "id": "swellVolume",
+        "label": "Kabarma Hacmi",
+        "unit": "m³"
+      },
+      {
+        "id": "wasteVolume",
+        "label": "İlave Fire Hacmi",
+        "unit": "m³"
+      }
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

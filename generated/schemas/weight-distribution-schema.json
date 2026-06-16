@@ -1,0 +1,56 @@
+{
+  "toolName": "weight-distribution",
+  "inputs": [
+    {
+      "id": "totalWeight",
+      "label": "Total Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Total weight of the load or vehicle"
+    },
+    {
+      "id": "frontAxleDist",
+      "label": "Distance from Front Axle to COG (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 2.5,
+      "businessContext": "Horizontal distance from front axle to center of gravity"
+    },
+    {
+      "id": "rearAxleDist",
+      "label": "Distance from Rear Axle to COG (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 1.5,
+      "businessContext": "Horizontal distance from rear axle to center of gravity"
+    },
+    {
+      "id": "wheelbase",
+      "label": "Wheelbase (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Distance between front and rear axles"
+    }
+  ],
+  "formulas": {
+    "frontAxleLoad": "totalWeight * (rearAxleDist / wheelbase)",
+    "rearAxleLoad": "totalWeight * (frontAxleDist / wheelbase)",
+    "frontAxlePercent": "(frontAxleLoad / totalWeight) * 100",
+    "rearAxlePercent": "(rearAxleLoad / totalWeight) * 100"
+  },
+  "outputs": {
+    "primary": "Front Axle Load: {frontAxleLoad} kg, Rear Axle Load: {rearAxleLoad} kg",
+    "breakdown": [
+      "Front Axle Load: {frontAxleLoad} kg ({frontAxlePercent}%)",
+      "Rear Axle Load: {rearAxleLoad} kg ({rearAxlePercent}%)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

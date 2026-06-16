@@ -1,0 +1,69 @@
+{
+  "toolName": "geneva-score-calculator",
+  "inputs": [
+    {
+      "id": "dimensionalAccuracy",
+      "label": "Boyutsal Doğruluk Puanı",
+      "type": "number",
+      "unit": "mm sapma",
+      "default": 0.05,
+      "businessContext": "Parçanın hedef ölçülerden sapma miktarı, mm cinsinden. Daha düşük değer daha iyi doğruluk."
+    },
+    {
+      "id": "surfaceRoughness",
+      "label": "Yüzey Pürüzlülüğü Puanı",
+      "type": "number",
+      "unit": "Ra µm",
+      "default": 0.8,
+      "businessContext": "Yüzey pürüzlülüğü Ra cinsinden, mikrometre. Daha düşük değer daha iyi yüzey kalitesi."
+    },
+    {
+      "id": "hardnessValue",
+      "label": "Sertlik Değeri Puanı",
+      "type": "number",
+      "unit": "HRC",
+      "default": 60,
+      "businessContext": "Rockwell C sertlik değeri. İstenen spesifikasyona uygunluk gösterir."
+    },
+    {
+      "id": "materialConsistency",
+      "label": "Malzeme Homojenlik Puanı",
+      "type": "number",
+      "unit": "% uyum",
+      "default": 95,
+      "businessContext": "Malzeme bileşiminin standarda uyum yüzdesi. 100 ideal."
+    },
+    {
+      "id": "visualDefects",
+      "label": "Görsel Hata Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Parça üzerinde tespit edilen görsel hata sayısı. Daha düşük daha iyi."
+    }
+  ],
+  "formulas": {
+    "dimensionalScore": "100 * Math.exp(-dimensionalAccuracy / 0.1)",
+    "surfaceScore": "100 * Math.exp(-surfaceRoughness / 0.4)",
+    "hardnessScore": "hardnessValue >= 58 ? 100 : 80",
+    "consistencyScore": "materialConsistency",
+    "visualScore": "100 * Math.exp(-visualDefects / 2)",
+    "genevaScore": "0.25 * dimensionalScore + 0.25 * surfaceScore + 0.2 * hardnessScore + 0.15 * consistencyScore + 0.15 * visualScore"
+  },
+  "outputs": {
+    "primary": "genevaScore",
+    "breakdown": [
+      "dimensionalScore",
+      "surfaceScore",
+      "hardnessScore",
+      "consistencyScore",
+      "visualScore"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

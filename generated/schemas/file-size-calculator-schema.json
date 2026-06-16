@@ -1,0 +1,76 @@
+{
+  "toolName": "file-size-calculator",
+  "inputs": [
+    {
+      "id": "numberOfFiles",
+      "label": "Number of Files",
+      "type": "number",
+      "unit": "files",
+      "default": 100,
+      "businessContext": "Total count of files to store or transfer"
+    },
+    {
+      "id": "sizePerFileMB",
+      "label": "Size per File",
+      "type": "number",
+      "unit": "MB",
+      "default": 10,
+      "businessContext": "Average size of each file in megabytes"
+    },
+    {
+      "id": "redundancyFactor",
+      "label": "Redundancy Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.2,
+      "businessContext": "Storage overhead factor for redundancy, e.g., RAID 5 = 1.2"
+    },
+    {
+      "id": "compressionRatio",
+      "label": "Compression Ratio",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.8,
+      "businessContext": "Expected compression ratio between 0 and 1 (1 = no compression)"
+    },
+    {
+      "id": "overheadPerFileKB",
+      "label": "Filesystem Overhead",
+      "type": "number",
+      "unit": "KB",
+      "default": 4,
+      "businessContext": "Filesystem metadata overhead per file in kilobytes"
+    },
+    {
+      "id": "transferSpeedMbps",
+      "label": "Network Transfer Speed",
+      "type": "number",
+      "unit": "Mbps",
+      "default": 100,
+      "businessContext": "Network speed in megabits per second for download/upload time estimation"
+    }
+  ],
+  "formulas": {
+    "totalUncompressedMB": "numberOfFiles * sizePerFileMB",
+    "overheadTotalMB": "(overheadPerFileKB / 1024) * numberOfFiles",
+    "totalWithOverheadMB": "totalUncompressedMB + overheadTotalMB",
+    "totalCompressedMB": "totalWithOverheadMB * compressionRatio",
+    "storageRequiredGB": "totalCompressedMB * redundancyFactor / 1024",
+    "downloadTimeSeconds": "(storageRequiredGB * (1024**3) * 8) / (transferSpeedMbps * (10**6))",
+    "downloadTimeMinutes": "downloadTimeSeconds / 60"
+  },
+  "outputs": {
+    "primary": "storageRequiredGB",
+    "breakdown": [
+      "totalUncompressedMB",
+      "totalCompressedMB",
+      "downloadTimeMinutes"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

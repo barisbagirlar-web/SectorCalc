@@ -1,0 +1,66 @@
+{
+  "toolName": "torsion-spring-calculator",
+  "inputs": [
+    {
+      "id": "wireDiameter",
+      "label": "Wire Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 1,
+      "businessContext": "Wire diameter of the torsion spring (mm)."
+    },
+    {
+      "id": "meanDiameter",
+      "label": "Mean Coil Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Mean diameter of the spring coil (mm)."
+    },
+    {
+      "id": "activeCoils",
+      "label": "Active Coils",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Number of active coils in the spring."
+    },
+    {
+      "id": "deflectionAngle",
+      "label": "Deflection Angle",
+      "type": "number",
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Angular deflection from free position (degrees)."
+    },
+    {
+      "id": "shearModulus",
+      "label": "Shear Modulus",
+      "type": "number",
+      "unit": "MPa",
+      "default": 79300,
+      "businessContext": "Shear modulus of the spring material (e.g., steel ≈ 79 300 MPa)."
+    }
+  ],
+  "formulas": {
+    "springIndex": "meanDiameter / wireDiameter",
+    "springRate": "(shearModulus * wireDiameter**4) / (3667 * meanDiameter * activeCoils)",
+    "torque": "springRate * deflectionAngle",
+    "uncorrectedStress": "(32 * torque) / (Math.PI * wireDiameter**3)",
+    "wahlFactor": "(4 * springIndex**2 - springIndex - 1) / (4 * springIndex * (springIndex - 1))",
+    "correctedStress": "uncorrectedStress * wahlFactor"
+  },
+  "outputs": {
+    "primary": "torque",
+    "breakdown": [
+      "springRate",
+      "correctedStress"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

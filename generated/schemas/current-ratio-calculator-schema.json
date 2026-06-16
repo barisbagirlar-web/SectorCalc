@@ -1,0 +1,79 @@
+{
+  "toolName": "current-ratio-calculator",
+  "inputs": [
+    {
+      "id": "cash",
+      "label": "Cash & Equivalents",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Cash on hand and highly liquid short-term investments"
+    },
+    {
+      "id": "receivables",
+      "label": "Accounts Receivable",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Money owed by customers for goods or services delivered"
+    },
+    {
+      "id": "inventory",
+      "label": "Inventory",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Raw materials, work-in-progress, and finished goods held for sale"
+    },
+    {
+      "id": "otherCurrentAssets",
+      "label": "Other Current Assets",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Any other short-term assets not included above, such as prepaid expenses"
+    },
+    {
+      "id": "payables",
+      "label": "Accounts Payable",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Money owed to suppliers for goods and services purchased on credit"
+    },
+    {
+      "id": "shortTermDebt",
+      "label": "Short-Term Debt",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Borrowings and current portion of long-term debt due within one year"
+    },
+    {
+      "id": "otherCurrentLiabilities",
+      "label": "Other Current Liabilities",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Other obligations due within one year, such as accrued expenses, taxes payable"
+    }
+  ],
+  "formulas": {
+    "totalCurrentAssets": "cash + receivables + inventory + otherCurrentAssets",
+    "totalCurrentLiabilities": "payables + shortTermDebt + otherCurrentLiabilities",
+    "currentRatio": "totalCurrentAssets / totalCurrentLiabilities"
+  },
+  "outputs": {
+    "primary": "currentRatio",
+    "breakdown": [
+      "totalCurrentAssets",
+      "totalCurrentLiabilities"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

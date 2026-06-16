@@ -1,0 +1,84 @@
+{
+  "toolName": "sustainable-development-calculator",
+  "inputs": [
+    {
+      "id": "energy_consumption",
+      "label": "Energy Consumption (kWh)",
+      "type": "number",
+      "unit": "kWh",
+      "default": 1000,
+      "businessContext": "Total energy used in production"
+    },
+    {
+      "id": "renewable_energy_share",
+      "label": "Renewable Energy Share (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Percentage of energy from renewable sources"
+    },
+    {
+      "id": "water_usage",
+      "label": "Water Usage (m³)",
+      "type": "number",
+      "unit": "m³",
+      "default": 500,
+      "businessContext": "Total water consumed in process"
+    },
+    {
+      "id": "waste_generated",
+      "label": "Waste Generated (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 200,
+      "businessContext": "Total waste produced"
+    },
+    {
+      "id": "recycled_waste",
+      "label": "Recycled Waste (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 50,
+      "businessContext": "Waste sent for recycling"
+    },
+    {
+      "id": "co2_emissions",
+      "label": "CO2 Emissions (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 3000,
+      "businessContext": "Total carbon dioxide emissions"
+    },
+    {
+      "id": "production_units",
+      "label": "Production Units",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "businessContext": "Number of units produced"
+    }
+  ],
+  "formulas": {
+    "energy_intensity": "energy_consumption / production_units",
+    "renewable_energy_ratio": "renewable_energy_share / 100",
+    "water_intensity": "water_usage / production_units",
+    "waste_recycling_rate": "recycled_waste / waste_generated",
+    "co2_intensity": "co2_emissions / production_units",
+    "sustainability_score": "(renewable_energy_ratio * 25) + ((1 - water_intensity / 10) * 25) + (waste_recycling_rate * 25) + ((1 - co2_intensity / 100) * 25)"
+  },
+  "outputs": {
+    "primary": "sustainability_score",
+    "breakdown": [
+      "energy_intensity",
+      "water_intensity",
+      "waste_recycling_rate",
+      "co2_intensity"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

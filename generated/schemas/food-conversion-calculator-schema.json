@@ -1,0 +1,67 @@
+{
+  "toolName": "food-conversion-calculator",
+  "inputs": [
+    {
+      "id": "volumeMl",
+      "label": "Volume (ml)",
+      "type": "number",
+      "unit": "ml",
+      "default": 250,
+      "businessContext": "Total volume of ingredient in milliliters."
+    },
+    {
+      "id": "densityGml",
+      "label": "Density (g/ml)",
+      "type": "number",
+      "unit": "g/ml",
+      "default": 1,
+      "businessContext": "Density of the ingredient. Water: 1 g/ml."
+    },
+    {
+      "id": "numberOfServings",
+      "label": "Number of Servings",
+      "type": "number",
+      "unit": "servings",
+      "default": 1,
+      "businessContext": "Number of servings the volume is divided into."
+    },
+    {
+      "id": "caloriesPerGram",
+      "label": "Calories per gram",
+      "type": "number",
+      "unit": "cal/g",
+      "default": 0.04,
+      "businessContext": "Caloric content per gram of ingredient."
+    },
+    {
+      "id": "cupFactor",
+      "label": "Cup Conversion Factor (ml/cup)",
+      "type": "number",
+      "unit": "ml/cup",
+      "default": 236.588,
+      "businessContext": "Number of milliliters in one standard cup."
+    }
+  ],
+  "formulas": {
+    "totalWeightGrams": "volumeMl * densityGml",
+    "weightPerServingGrams": "totalWeightGrams / numberOfServings",
+    "totalCalories": "totalWeightGrams * caloriesPerGram",
+    "caloriesPerServing": "totalCalories / numberOfServings",
+    "totalCups": "volumeMl / cupFactor"
+  },
+  "outputs": {
+    "primary": "totalWeightGrams",
+    "breakdown": [
+      "weightPerServingGrams",
+      "totalCalories",
+      "caloriesPerServing",
+      "totalCups"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

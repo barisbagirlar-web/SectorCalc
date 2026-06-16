@@ -1,0 +1,54 @@
+{
+  "toolName": "sharpe-orani-hesaplayici-calculator",
+  "inputs": [
+    {
+      "id": "expectedReturn",
+      "label": "Beklenen Getiri (Dönem, %)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Portföyün hesaplama dönemindeki yüzde getirisi"
+    },
+    {
+      "id": "riskFreeRate",
+      "label": "Risksiz Getiri (Dönem, %)",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "businessContext": "Aynı dönem için risksiz faiz oranı (ör. devlet tahvili)"
+    },
+    {
+      "id": "standardDeviation",
+      "label": "Portföy Standart Sapması (Dönem, %)",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "Portföy getirisinin aynı dönemdeki oynaklığı/değişkenliği"
+    },
+    {
+      "id": "periodsPerYear",
+      "label": "Yıllık Dönem Sayısı",
+      "type": "number",
+      "unit": "adet/yıl",
+      "default": 12,
+      "businessContext": "Bir yıldaki hesaplama dönemlerinin sayısı (örn. aylık için 12, günlük için 252)"
+    }
+  ],
+  "formulas": {
+    "excessReturn": "expectedReturn - riskFreeRate",
+    "annualSharpeRatio": "((expectedReturn - riskFreeRate) * Math.sqrt(periodsPerYear)) / standardDeviation"
+  },
+  "outputs": {
+    "primary": "annualSharpeRatio",
+    "breakdown": [
+      "excessReturn",
+      "annualSharpeRatio"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

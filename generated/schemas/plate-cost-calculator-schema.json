@@ -1,0 +1,81 @@
+{
+  "toolName": "plate-cost-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "businessContext": "The length of the plate in millimeters."
+    },
+    {
+      "id": "width",
+      "label": "Width (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 500,
+      "businessContext": "The width of the plate in millimeters."
+    },
+    {
+      "id": "thickness",
+      "label": "Thickness (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "The thickness of the plate in millimeters."
+    },
+    {
+      "id": "density",
+      "label": "Material Density (kg/m³)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "businessContext": "Density of the plate material in kilograms per cubic meter."
+    },
+    {
+      "id": "costPerKg",
+      "label": "Material Cost per kg",
+      "type": "number",
+      "unit": "currency/kg",
+      "default": 2.5,
+      "businessContext": "Unit cost of the material per kilogram in local currency."
+    },
+    {
+      "id": "overheadPercent",
+      "label": "Manufacturing Overhead (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Percentage overhead applied to material cost to cover manufacturing, labor, and other indirect costs."
+    },
+    {
+      "id": "wastePercent",
+      "label": "Waste Factor (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of material expected to be wasted due to offcuts or defects."
+    }
+  ],
+  "formulas": {
+    "rawMaterialCost": "(length * width * thickness / 1e9) * density * costPerKg",
+    "materialCostWithWaste": "rawMaterialCost * (1 + wastePercent / 100)",
+    "overheadAmount": "materialCostWithWaste * (overheadPercent / 100)",
+    "totalCost": "materialCostWithWaste + overheadAmount"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "rawMaterialCost",
+      "materialCostWithWaste",
+      "overheadAmount"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

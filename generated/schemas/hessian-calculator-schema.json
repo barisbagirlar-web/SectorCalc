@@ -1,0 +1,69 @@
+{
+  "toolName": "hessian-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "Coefficient a",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient for sin(x) term"
+    },
+    {
+      "id": "b",
+      "label": "Coefficient b",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient for cos(y) term"
+    },
+    {
+      "id": "c",
+      "label": "Coefficient c",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient for cross term x*y"
+    },
+    {
+      "id": "x",
+      "label": "X value",
+      "type": "number",
+      "unit": "rad",
+      "default": 0,
+      "businessContext": "Point of evaluation (x coordinate)"
+    },
+    {
+      "id": "y",
+      "label": "Y value",
+      "type": "number",
+      "unit": "rad",
+      "default": 0,
+      "businessContext": "Point of evaluation (y coordinate)"
+    }
+  ],
+  "formulas": {
+    "f_xx": "-a * Math.sin(x)",
+    "f_yy": "-b * Math.cos(y)",
+    "f_xy": "c",
+    "determinant": "f_xx * f_yy - f_xy**2",
+    "eigenvalue1": "(f_xx + f_yy)/2 + Math.sqrt(((f_xx - f_yy)/2)**2 + f_xy**2)",
+    "eigenvalue2": "(f_xx + f_yy)/2 - Math.sqrt(((f_xx - f_yy)/2)**2 + f_xy**2)"
+  },
+  "outputs": {
+    "primary": "determinant",
+    "breakdown": [
+      "f_xx",
+      "f_yy",
+      "f_xy",
+      "eigenvalue1",
+      "eigenvalue2"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

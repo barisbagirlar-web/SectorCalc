@@ -1,0 +1,386 @@
+{
+  "slug": "cleaning-bid-optimizer",
+  "title": "Cleaning Bid Optimizer",
+  "description": "Industrial-grade tool for optimizing cleaning service bids based on labor, materials, equipment, overhead, and profit margin, with built-in waste reduction and quality adjustment factors.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-site comparison",
+    "Custom KPI dashboard"
+  ],
+  "inputs": [
+    {
+      "id": "total_sq_ft",
+      "label": "Total Area (sq ft)",
+      "type": "number",
+      "unit": "sq ft",
+      "default": 10000,
+      "min": 100,
+      "max": 1000000,
+      "businessContext": "Total cleanable floor area in square feet. Basis for all labor and material calculations.",
+      "label_i18n": {
+        "en": "Total Area (sq ft)"
+      },
+      "businessContext_i18n": {
+        "en": "Total cleanable floor area in square feet. Basis for all labor and material calculations."
+      }
+    },
+    {
+      "id": "cleaning_frequency",
+      "label": "Cleaning Frequency per Week",
+      "type": "number",
+      "unit": "times/week",
+      "default": 5,
+      "min": 1,
+      "max": 7,
+      "businessContext": "Number of times the facility is cleaned per week. Affects labor and consumable usage.",
+      "label_i18n": {
+        "en": "Cleaning Frequency per Week"
+      },
+      "businessContext_i18n": {
+        "en": "Number of times the facility is cleaned per week. Affects labor and consumable usage."
+      }
+    },
+    {
+      "id": "labor_rate_per_hour",
+      "label": "Labor Rate ($/hour)",
+      "type": "number",
+      "unit": "$/hour",
+      "default": 15,
+      "min": 7.25,
+      "max": 50,
+      "businessContext": "Hourly wage for cleaning staff. Includes base pay, not burden.",
+      "label_i18n": {
+        "en": "Labor Rate ($/hour)"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly wage for cleaning staff. Includes base pay, not burden."
+      }
+    },
+    {
+      "id": "labor_burden_percent",
+      "label": "Labor Burden (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 0,
+      "max": 60,
+      "businessContext": "Percentage added to labor rate for taxes, insurance, benefits. Typical range 15-35%.",
+      "label_i18n": {
+        "en": "Labor Burden (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage added to labor rate for taxes, insurance, benefits. Typical range 15-35%."
+      }
+    },
+    {
+      "id": "productivity_sqft_per_hour",
+      "label": "Productivity Rate (sq ft/hour)",
+      "type": "number",
+      "unit": "sq ft/hour",
+      "default": 2000,
+      "min": 500,
+      "max": 5000,
+      "businessContext": "Average area cleaned per person per hour. Based on industry benchmarks (ISSA, BSCAI).",
+      "label_i18n": {
+        "en": "Productivity Rate (sq ft/hour)"
+      },
+      "businessContext_i18n": {
+        "en": "Average area cleaned per person per hour. Based on industry benchmarks (ISSA, BSCAI)."
+      }
+    },
+    {
+      "id": "material_cost_per_sqft",
+      "label": "Material Cost ($/sq ft)",
+      "type": "number",
+      "unit": "$/sq ft",
+      "default": 0.02,
+      "min": 0.005,
+      "max": 0.1,
+      "businessContext": "Cost of cleaning chemicals, paper, and consumables per square foot per cleaning.",
+      "label_i18n": {
+        "en": "Material Cost ($/sq ft)"
+      },
+      "businessContext_i18n": {
+        "en": "Cost of cleaning chemicals, paper, and consumables per square foot per cleaning."
+      }
+    },
+    {
+      "id": "equipment_cost_per_sqft",
+      "label": "Equipment Cost ($/sq ft)",
+      "type": "number",
+      "unit": "$/sq ft",
+      "default": 0.01,
+      "min": 0.001,
+      "max": 0.05,
+      "businessContext": "Amortized equipment cost (mops, vacuums, buffers) per square foot per cleaning.",
+      "label_i18n": {
+        "en": "Equipment Cost ($/sq ft)"
+      },
+      "businessContext_i18n": {
+        "en": "Amortized equipment cost (mops, vacuums, buffers) per square foot per cleaning."
+      }
+    },
+    {
+      "id": "overhead_percent",
+      "label": "Overhead (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Indirect costs (management, office, insurance) as percentage of direct costs.",
+      "label_i18n": {
+        "en": "Overhead (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Indirect costs (management, office, insurance) as percentage of direct costs."
+      }
+    },
+    {
+      "id": "desired_margin_percent",
+      "label": "Desired Profit Margin (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 40,
+      "businessContext": "Target net profit margin on the bid.",
+      "label_i18n": {
+        "en": "Desired Profit Margin (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Target net profit margin on the bid."
+      }
+    },
+    {
+      "id": "waste_factor_percent",
+      "label": "Waste Factor (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 20,
+      "businessContext": "Allowance for material waste, rework, and inefficiency (Lean Six Sigma waste reduction).",
+      "label_i18n": {
+        "en": "Waste Factor (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Allowance for material waste, rework, and inefficiency (Lean Six Sigma waste reduction)."
+      }
+    },
+    {
+      "id": "quality_level",
+      "label": "Quality Level",
+      "type": "select",
+      "unit": "",
+      "default": "standard",
+      "options": [
+        "economy",
+        "standard",
+        "premium",
+        "healthcare"
+      ],
+      "businessContext": "Service quality tier. Affects labor productivity and material usage. Healthcare adds 15% to labor.",
+      "label_i18n": {
+        "en": "Quality Level"
+      },
+      "businessContext_i18n": {
+        "en": "Service quality tier. Affects labor productivity and material usage. Healthcare adds 15% to labor."
+      }
+    },
+    {
+      "id": "use_lean_methods",
+      "label": "Use Lean Methods (5S, Standard Work)",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "businessContext": "If true, applies 10% productivity improvement via Lean techniques.",
+      "label_i18n": {
+        "en": "Use Lean Methods (5S, Standard Work)"
+      },
+      "businessContext_i18n": {
+        "en": "If true, applies 10% productivity improvement via Lean techniques."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "labor_rate_minimum_wage",
+        "condition": "labor_rate_per_hour < 7.25",
+        "message": "Labor rate must be at least federal minimum wage ($7.25)."
+      },
+      {
+        "id": "productivity_range",
+        "condition": "productivity_sqft_per_hour < 500 || productivity_sqft_per_hour > 5000",
+        "message": "Productivity rate out of typical range (500-5000 sq ft/hour)."
+      },
+      {
+        "id": "quality_productivity_adjust",
+        "condition": "quality_level == 'healthcare' && productivity_sqft_per_hour > 3000",
+        "message": "Healthcare quality level requires productivity <= 3000 sq ft/hour for compliance."
+      },
+      {
+        "id": "waste_factor_lean_conflict",
+        "condition": "use_lean_methods == true && waste_factor_percent > 10",
+        "message": "Lean methods should reduce waste; consider lowering waste factor to <=10%."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "bid_too_low",
+        "condition": "primary_result < 0.05 * total_sq_ft",
+        "level": "warning",
+        "message": "Bid price seems very low relative to area. Check inputs."
+      },
+      {
+        "id": "margin_too_high",
+        "condition": "desired_margin_percent > 30",
+        "level": "info",
+        "message": "High margin may reduce competitiveness."
+      },
+      {
+        "id": "labor_burden_high",
+        "condition": "labor_burden_percent > 40",
+        "level": "warning",
+        "message": "Labor burden above typical maximum (40%). Verify."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "effective_labor_rate",
+      "description": "Labor rate including burden",
+      "formula": "labor_rate_per_hour * (1 + labor_burden_percent / 100)"
+    },
+    {
+      "id": "adjusted_productivity",
+      "description": "Productivity adjusted for quality level and lean methods",
+      "formula": "productivity_sqft_per_hour * (1 - (quality_level == 'healthcare' ? 0.15 : quality_level == 'premium' ? 0.10 : quality_level == 'economy' ? 0.05 : 0)) * (use_lean_methods ? 1.10 : 1.00)"
+    },
+    {
+      "id": "labor_cost_per_cleaning",
+      "description": "Total labor cost per cleaning event",
+      "formula": "(total_sq_ft / adjusted_productivity) * effective_labor_rate"
+    },
+    {
+      "id": "material_cost_per_cleaning",
+      "description": "Material cost per cleaning including waste factor",
+      "formula": "total_sq_ft * material_cost_per_sqft * (1 + waste_factor_percent / 100)"
+    },
+    {
+      "id": "equipment_cost_per_cleaning",
+      "description": "Equipment cost per cleaning",
+      "formula": "total_sq_ft * equipment_cost_per_sqft"
+    },
+    {
+      "id": "total_direct_cost_per_cleaning",
+      "description": "Sum of direct costs per cleaning",
+      "formula": "labor_cost_per_cleaning + material_cost_per_cleaning + equipment_cost_per_cleaning"
+    },
+    {
+      "id": "weekly_cost",
+      "description": "Total weekly cost including overhead",
+      "formula": "total_direct_cost_per_cleaning * cleaning_frequency * (1 + overhead_percent / 100)"
+    },
+    {
+      "id": "primary_result",
+      "description": "Final bid price per week with desired profit margin",
+      "formula": "weekly_cost / (1 - desired_margin_percent / 100)"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "weekly_bid_price",
+      "label": "Weekly Bid Price ($)",
+      "unit": "$/week",
+      "description": "Recommended weekly bid price including all costs and profit margin."
+    },
+    "breakdown": {
+      "labor_cost_per_cleaning": {
+        "label": "Labor Cost per Cleaning",
+        "unit": "$"
+      },
+      "material_cost_per_cleaning": {
+        "label": "Material Cost per Cleaning",
+        "unit": "$"
+      },
+      "equipment_cost_per_cleaning": {
+        "label": "Equipment Cost per Cleaning",
+        "unit": "$"
+      },
+      "total_direct_cost_per_cleaning": {
+        "label": "Total Direct Cost per Cleaning",
+        "unit": "$"
+      },
+      "weekly_overhead": {
+        "label": "Weekly Overhead",
+        "unit": "$"
+      },
+      "weekly_profit": {
+        "label": "Weekly Profit",
+        "unit": "$"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "excessive_waste",
+        "label": "Excessive Waste Factor",
+        "description": "Waste factor above 5% may indicate process inefficiency.",
+        "impact": "high"
+      },
+      {
+        "id": "low_productivity",
+        "label": "Low Productivity Rate",
+        "description": "Productivity below 1500 sq ft/hour may indicate poor methods or training.",
+        "impact": "medium"
+      },
+      {
+        "id": "high_labor_burden",
+        "label": "High Labor Burden",
+        "description": "Burden above 30% reduces competitiveness.",
+        "impact": "medium"
+      },
+      {
+        "id": "quality_mismatch",
+        "label": "Quality Level vs. Productivity Mismatch",
+        "description": "Healthcare quality with high productivity may compromise standards.",
+        "impact": "high"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "implement_5S",
+        "label": "Implement 5S and Standard Work",
+        "description": "Adopt Lean methods to improve productivity by 10% and reduce waste.",
+        "expectedImpact": "Reduce labor cost by ~9%"
+      },
+      {
+        "id": "reduce_waste",
+        "label": "Reduce Waste Factor to 3%",
+        "description": "Negotiate bulk purchasing and train staff on material usage.",
+        "expectedImpact": "Reduce material cost by 2%"
+      },
+      {
+        "id": "review_quality_tier",
+        "label": "Review Quality Tier Selection",
+        "description": "If healthcare not required, consider standard tier to lower labor cost.",
+        "expectedImpact": "Reduce labor cost by up to 15%"
+      },
+      {
+        "id": "optimize_frequency",
+        "label": "Optimize Cleaning Frequency",
+        "description": "Evaluate if daily cleaning is necessary; reducing to 3x/week can cut costs by 40%.",
+        "expectedImpact": "Significant cost reduction"
+      }
+    ],
+    "dataConfidenceAdjusted": 0.92
+  },
+  "toolName": "cleaning-bid-optimizer-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

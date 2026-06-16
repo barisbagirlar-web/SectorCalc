@@ -1,0 +1,57 @@
+{
+  "toolName": "one-percent-rule-calculator",
+  "inputs": [
+    {
+      "id": "purchasePrice",
+      "label": "Purchase Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "The price of the property"
+    },
+    {
+      "id": "renovationCost",
+      "label": "Renovation Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "businessContext": "Estimated cost of renovations"
+    },
+    {
+      "id": "closingCosts",
+      "label": "Closing Costs",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "businessContext": "Closing costs and fees"
+    },
+    {
+      "id": "monthlyRent",
+      "label": "Monthly Rent",
+      "type": "number",
+      "unit": "USD",
+      "default": 1200,
+      "businessContext": "Expected monthly rental income"
+    }
+  ],
+  "formulas": {
+    "totalInvestment": "purchasePrice + renovationCost + closingCosts",
+    "onePercent": "totalInvestment * 0.01",
+    "gap": "monthlyRent - onePercent",
+    "meetsRule": "gap >= 0 ? 1 : 0"
+  },
+  "outputs": {
+    "primary": "gap",
+    "breakdown": [
+      "totalInvestment",
+      "onePercent",
+      "meetsRule"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

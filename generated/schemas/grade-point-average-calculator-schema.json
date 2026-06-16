@@ -1,0 +1,87 @@
+{
+  "toolName": "grade-point-average-calculator",
+  "inputs": [
+    {
+      "id": "credit1",
+      "label": "Course 1 Credits",
+      "type": "number",
+      "unit": "credit",
+      "default": 0,
+      "businessContext": "Credit hours for the first course"
+    },
+    {
+      "id": "grade1",
+      "label": "Course 1 Grade",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "Grade points earned in the first course (e.g., 4.0 scale)"
+    },
+    {
+      "id": "credit2",
+      "label": "Course 2 Credits",
+      "type": "number",
+      "unit": "credit",
+      "default": 0,
+      "businessContext": "Credit hours for the second course"
+    },
+    {
+      "id": "grade2",
+      "label": "Course 2 Grade",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "Grade points earned in the second course"
+    },
+    {
+      "id": "credit3",
+      "label": "Course 3 Credits",
+      "type": "number",
+      "unit": "credit",
+      "default": 0,
+      "businessContext": "Credit hours for the third course"
+    },
+    {
+      "id": "grade3",
+      "label": "Course 3 Grade",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "Grade points earned in the third course"
+    },
+    {
+      "id": "credit4",
+      "label": "Course 4 Credits",
+      "type": "number",
+      "unit": "credit",
+      "default": 0,
+      "businessContext": "Credit hours for the fourth course"
+    },
+    {
+      "id": "grade4",
+      "label": "Course 4 Grade",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "Grade points earned in the fourth course"
+    }
+  ],
+  "formulas": {
+    "gpa": "(credit1*grade1 + credit2*grade2 + credit3*grade3 + credit4*grade4) / (credit1+credit2+credit3+credit4)",
+    "totalGradePoints": "credit1*grade1 + credit2*grade2 + credit3*grade3 + credit4*grade4",
+    "totalCredits": "credit1+credit2+credit3+credit4"
+  },
+  "outputs": {
+    "primary": "gpa",
+    "breakdown": [
+      "totalGradePoints",
+      "totalCredits"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

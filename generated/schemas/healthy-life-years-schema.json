@@ -1,0 +1,88 @@
+{
+  "toolName": "healthy-life-years",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "The age of the equipment since commissioning."
+    },
+    {
+      "id": "expectedLifespan",
+      "label": "Expected Lifespan",
+      "type": "number",
+      "unit": "years",
+      "default": 15,
+      "businessContext": "Manufacturer-rated lifespan under nominal conditions."
+    },
+    {
+      "id": "maintenanceFactor",
+      "label": "Maintenance Quality Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Quality of performed maintenance (1=standard, >1 better, <1 worse)."
+    },
+    {
+      "id": "usageIntensity",
+      "label": "Usage Intensity",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Actual usage relative to nominal capacity (100% is nominal)."
+    },
+    {
+      "id": "loadFactor",
+      "label": "Average Load Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Average load relative to rated capacity (100% is rated)."
+    },
+    {
+      "id": "environmentSeverity",
+      "label": "Environment Severity",
+      "type": "number",
+      "unit": "scale (0–1)",
+      "default": 0,
+      "businessContext": "Severity of operating environment (0=ideal, 1=extremely harsh)."
+    },
+    {
+      "id": "downtimeFrequency",
+      "label": "Unplanned Downtime Frequency",
+      "type": "number",
+      "unit": "events/year",
+      "default": 2,
+      "businessContext": "Number of unplanned downtime events per year."
+    }
+  ],
+  "formulas": {
+    "adjustedLifespan": "(expectedLifespan - currentAge) * maintenanceFactor",
+    "stressFactor": "(usageIntensity/100) * (loadFactor/100) * (1 + environmentSeverity) * (1 + downtimeFrequency/50)",
+    "healthyLifeRemaining": "adjustedLifespan / stressFactor"
+  },
+  "outputs": {
+    "primary": {
+      "id": "healthyLifeRemaining",
+      "label": "Remaining Healthy Life Years",
+      "unit": "years"
+    },
+    "breakdown": [
+      {
+        "id": "adjustedLifespan",
+        "label": "Adjusted Lifespan",
+        "unit": "years"
+      },
+      {
+        "id": "stressFactor",
+        "label": "Stress Factor",
+        "unit": ""
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false
+}

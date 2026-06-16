@@ -1,0 +1,57 @@
+{
+  "toolName": "feet-to-miles-calculator",
+  "inputs": [
+    {
+      "id": "feetValue",
+      "label": "Feet",
+      "type": "number",
+      "unit": "ft",
+      "default": 1000,
+      "businessContext": "Distance in feet to convert to miles."
+    },
+    {
+      "id": "feetPerMile",
+      "label": "Feet per Mile",
+      "type": "number",
+      "unit": "ft/mi",
+      "default": 5280,
+      "businessContext": "Conversion factor: 1 mile = 5280 feet (international foot)."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding the output miles."
+    },
+    {
+      "id": "milesValue",
+      "label": "Miles (Reverse)",
+      "type": "number",
+      "unit": "mi",
+      "default": 0,
+      "businessContext": "Optional miles value for reverse conversion to feet. If non-zero, the reverse feet will be displayed in breakdown."
+    }
+  ],
+  "formulas": {
+    "miles": "Math.round((feetValue / feetPerMile) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "feetDisplay": "feetValue",
+    "feetPerMileDisplay": "feetPerMile",
+    "reverseFeet": "milesValue * feetPerMile"
+  },
+  "outputs": {
+    "primary": "miles",
+    "breakdown": [
+      "feetDisplay",
+      "feetPerMileDisplay",
+      "reverseFeet"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

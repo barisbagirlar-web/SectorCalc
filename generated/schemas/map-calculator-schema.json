@@ -1,0 +1,37 @@
+{
+  "toolName": "map-calculator",
+  "inputs": [
+    {
+      "id": "sbp",
+      "label": "Systolic Blood Pressure",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 120,
+      "businessContext": "Systolic pressure during heart contraction"
+    },
+    {
+      "id": "dbp",
+      "label": "Diastolic Blood Pressure",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 80,
+      "businessContext": "Diastolic pressure during heart relaxation"
+    }
+  ],
+  "formulas": {
+    "map": "(2 * dbp + sbp) / 3"
+  },
+  "outputs": {
+    "primary": "Mean Arterial Pressure (MAP)",
+    "breakdown": [
+      "MAP = (2 * DBP + SBP) / 3",
+      "Pulse Pressure = SBP - DBP"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

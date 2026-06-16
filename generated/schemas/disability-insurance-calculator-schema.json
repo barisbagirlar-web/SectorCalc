@@ -1,0 +1,72 @@
+{
+  "toolName": "disability-insurance-calculator",
+  "inputs": [
+    {
+      "id": "annualIncome",
+      "label": "Annual Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Gross annual income before disability"
+    },
+    {
+      "id": "replacementRatio",
+      "label": "Income Replacement Ratio",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "businessContext": "Percentage of income replaced by disability insurance"
+    },
+    {
+      "id": "benefitPeriodYears",
+      "label": "Benefit Period",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Duration of disability benefit payments"
+    },
+    {
+      "id": "waitingPeriodMonths",
+      "label": "Waiting Period",
+      "type": "number",
+      "unit": "months",
+      "default": 3,
+      "businessContext": "Time after disability before benefits start"
+    },
+    {
+      "id": "discountRate",
+      "label": "Annual Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "Rate used to calculate present value"
+    },
+    {
+      "id": "inflationRate",
+      "label": "Annual Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Expected inflation rate for benefit escalation (optional)"
+    }
+  ],
+  "formulas": {
+    "monthlyBenefit": "(annualIncome * (replacementRatio / 100)) / 12",
+    "monthlyDiscountRate": "Math.pow(1 + discountRate / 100, 1/12) - 1",
+    "totalBenefitsUndiscounted": "monthlyBenefit * benefitPeriodYears * 12",
+    "presentValue": "monthlyBenefit * ((1 - Math.pow(1 + monthlyDiscountRate, -benefitPeriodYears * 12)) / monthlyDiscountRate) * Math.pow(1 + monthlyDiscountRate, -waitingPeriodMonths)"
+  },
+  "outputs": {
+    "primary": "presentValue",
+    "breakdown": [
+      "monthlyBenefit",
+      "totalBenefitsUndiscounted"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

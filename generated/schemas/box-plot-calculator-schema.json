@@ -1,0 +1,67 @@
+{
+  "toolName": "box-plot-calculator",
+  "inputs": [
+    {
+      "id": "min",
+      "label": "Minimum",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Minimum value in the dataset."
+    },
+    {
+      "id": "q1",
+      "label": "First Quartile (Q1)",
+      "type": "number",
+      "unit": "",
+      "default": 25,
+      "businessContext": "First quartile (25th percentile) - median of lower half."
+    },
+    {
+      "id": "median",
+      "label": "Median (Q2)",
+      "type": "number",
+      "unit": "",
+      "default": 50,
+      "businessContext": "Second quartile (50th percentile) - median."
+    },
+    {
+      "id": "q3",
+      "label": "Third Quartile (Q3)",
+      "type": "number",
+      "unit": "",
+      "default": 75,
+      "businessContext": "Third quartile (75th percentile) - median of upper half."
+    },
+    {
+      "id": "max",
+      "label": "Maximum",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "Maximum value in the dataset."
+    }
+  ],
+  "formulas": {
+    "iqr": "q3 - q1",
+    "lowerFence": "q1 - 1.5 * (q3 - q1)",
+    "upperFence": "q3 + 1.5 * (q3 - q1)",
+    "minOutlier": "min < (q1 - 1.5 * (q3 - q1))",
+    "maxOutlier": "max > (q3 + 1.5 * (q3 - q1))"
+  },
+  "outputs": {
+    "primary": "q3 - q1",
+    "breakdown": [
+      "q1 - 1.5 * (q3 - q1)",
+      "q3 + 1.5 * (q3 - q1)",
+      "min < (q1 - 1.5 * (q3 - q1))",
+      "max > (q3 + 1.5 * (q3 - q1))"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

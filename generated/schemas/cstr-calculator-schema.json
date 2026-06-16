@@ -1,0 +1,55 @@
+{
+  "toolName": "cstr-calculator",
+  "inputs": [
+    {
+      "id": "volumetricFlowRate",
+      "label": "Volumetric Flow Rate (v0)",
+      "type": "number",
+      "unit": "L/s",
+      "default": 10,
+      "businessContext": "Inlet volumetric flow rate of the reactant stream."
+    },
+    {
+      "id": "inletConcentration",
+      "label": "Inlet Concentration (CA0)",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 1,
+      "businessContext": "Concentration of reactant A in the feed."
+    },
+    {
+      "id": "rateConstant",
+      "label": "Rate Constant (k)",
+      "type": "number",
+      "unit": "1/s",
+      "default": 0.1,
+      "businessContext": "First-order reaction rate constant."
+    },
+    {
+      "id": "conversion",
+      "label": "Conversion (X)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.8,
+      "businessContext": "Required fractional conversion of reactant A."
+    }
+  ],
+  "formulas": {
+    "volume": "volumetricFlowRate * conversion / (rateConstant * (1 - conversion))",
+    "residenceTime": "conversion / (rateConstant * (1 - conversion))",
+    "outletConcentration": "inletConcentration * (1 - conversion)"
+  },
+  "outputs": {
+    "primary": "volume",
+    "breakdown": [
+      "residenceTime",
+      "outletConcentration"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

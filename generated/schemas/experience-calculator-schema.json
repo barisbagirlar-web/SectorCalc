@@ -1,0 +1,48 @@
+{
+  "toolName": "experience-calculator",
+  "inputs": [
+    {
+      "id": "firstUnitTime",
+      "label": "İlk Birim Zamanı",
+      "type": "number",
+      "unit": "saat",
+      "default": 10,
+      "businessContext": "İlk birimin üretim süresi. Öğrenme eğrisi hesaplamalarında temel değerdir."
+    },
+    {
+      "id": "learningRate",
+      "label": "Öğrenme Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Birikimli üretim iki katına çıktığında birim zamanındaki düşüş yüzdesi. Tipik değerler 70-90 arasındadır."
+    },
+    {
+      "id": "cumulativeUnits",
+      "label": "Toplam Birim Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "businessContext": "Deneyim kazanımının hesaplanacağı kümülatif birim adedi."
+    }
+  ],
+  "formulas": {
+    "b": "Math.log(learningRate / 100) / Math.log(2)",
+    "totalTimeApprox": "firstUnitTime * ((cumulativeUnits + 0.5) ** (b + 1) - 0.5 ** (b + 1)) / (b + 1)",
+    "avgTime": "totalTimeApprox / cumulativeUnits",
+    "timeLastUnit": "firstUnitTime * cumulativeUnits ** b"
+  },
+  "outputs": {
+    "primary": "avgTime",
+    "breakdown": [
+      "totalTimeApprox",
+      "timeLastUnit"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

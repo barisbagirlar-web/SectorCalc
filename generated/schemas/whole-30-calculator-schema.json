@@ -1,0 +1,61 @@
+{
+  "toolName": "whole-30-calculator",
+  "inputs": [
+    {
+      "id": "sugar",
+      "label": "Added Sugar",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Amount of added sugar per serving; any >0 indicates non-compliance"
+    },
+    {
+      "id": "alcohol",
+      "label": "Alcohol",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Alcohol content; any >0 non-compliant"
+    },
+    {
+      "id": "grain",
+      "label": "Contains Grains",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Flag: 0=No, 1=Yes; non-compliant if 1"
+    },
+    {
+      "id": "legume",
+      "label": "Contains Legumes",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Flag: 0=No, 1=Yes"
+    },
+    {
+      "id": "dairy",
+      "label": "Contains Dairy",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Flag: 0=No, 1=Yes"
+    }
+  ],
+  "formulas": {
+    "isCompliant": "(sugar <= 0 && alcohol <= 0 && grain === 0 && legume === 0 && dairy === 0) ? 1 : 0",
+    "violationCount": "(sugar > 0 ? 1 : 0) + (alcohol > 0 ? 1 : 0) + grain + legume + dairy"
+  },
+  "outputs": {
+    "primary": "isCompliant",
+    "breakdown": [
+      "violationCount"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,75 @@
+{
+  "toolName": "distance-modulus-calculator",
+  "inputs": [
+    {
+      "id": "apparentMagnitude",
+      "label": "Apparent Magnitude (m)",
+      "type": "number",
+      "unit": "mag",
+      "default": 0,
+      "businessContext": "The observed brightness of the celestial object"
+    },
+    {
+      "id": "apparentMagnitudeError",
+      "label": "Apparent Magnitude Error",
+      "type": "number",
+      "unit": "mag",
+      "default": 0.01,
+      "businessContext": "1-sigma uncertainty in m"
+    },
+    {
+      "id": "absoluteMagnitude",
+      "label": "Absolute Magnitude (M)",
+      "type": "number",
+      "unit": "mag",
+      "default": 0,
+      "businessContext": "The intrinsic brightness of the object"
+    },
+    {
+      "id": "absoluteMagnitudeError",
+      "label": "Absolute Magnitude Error",
+      "type": "number",
+      "unit": "mag",
+      "default": 0.1,
+      "businessContext": "1-sigma uncertainty in M"
+    },
+    {
+      "id": "extinction",
+      "label": "Extinction (A)",
+      "type": "number",
+      "unit": "mag",
+      "default": 0,
+      "businessContext": "Interstellar extinction in the observed band"
+    },
+    {
+      "id": "extinctionError",
+      "label": "Extinction Error",
+      "type": "number",
+      "unit": "mag",
+      "default": 0,
+      "businessContext": "1-sigma uncertainty in A"
+    }
+  ],
+  "formulas": {
+    "distanceModulus": "apparentMagnitude - absoluteMagnitude - extinction",
+    "distanceParsecs": "Math.pow(10, (distanceModulus + 5) / 5)",
+    "distanceLightYears": "distanceParsecs * 3.261563777",
+    "distanceModulusError": "Math.sqrt(Math.pow(apparentMagnitudeError, 2) + Math.pow(absoluteMagnitudeError, 2) + Math.pow(extinctionError, 2))",
+    "distanceError": "(Math.log(10) / 5) * distanceParsecs * distanceModulusError"
+  },
+  "outputs": {
+    "primary": "distanceModulus",
+    "breakdown": [
+      "distanceParsecs",
+      "distanceLightYears",
+      "distanceModulusError",
+      "distanceError"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

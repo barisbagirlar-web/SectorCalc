@@ -1,0 +1,65 @@
+{
+  "toolName": "arbitrage-calculator",
+  "inputs": [
+    {
+      "id": "buyPrice",
+      "label": "Buy Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "The price per unit at which the asset is purchased."
+    },
+    {
+      "id": "sellPrice",
+      "label": "Sell Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 105,
+      "businessContext": "The price per unit at which the asset is sold."
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "units",
+      "default": 10,
+      "businessContext": "The number of units traded in the arbitrage transaction."
+    },
+    {
+      "id": "buyFee",
+      "label": "Buy Transaction Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 5,
+      "businessContext": "Fixed fee incurred when buying the asset."
+    },
+    {
+      "id": "sellFee",
+      "label": "Sell Transaction Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 5,
+      "businessContext": "Fixed fee incurred when selling the asset."
+    }
+  ],
+  "formulas": {
+    "grossProfit": "(sellPrice - buyPrice) * quantity",
+    "totalCosts": "buyFee + sellFee",
+    "netProfit": "(sellPrice - buyPrice) * quantity - buyFee - sellFee",
+    "breakEvenVolume": "(buyFee + sellFee) / (sellPrice - buyPrice)"
+  },
+  "outputs": {
+    "primary": "netProfit",
+    "breakdown": [
+      "grossProfit",
+      "totalCosts",
+      "breakEvenVolume"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

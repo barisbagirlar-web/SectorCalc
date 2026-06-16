@@ -1,0 +1,39 @@
+{
+  "toolName": "one-rep-max-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight Lifted",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "The weight you lifted for the given number of repetitions."
+    },
+    {
+      "id": "reps",
+      "label": "Repetitions",
+      "type": "number",
+      "unit": "reps",
+      "default": 5,
+      "businessContext": "The number of repetitions you performed with the given weight (must be greater than 1 for Epley)."
+    }
+  ],
+  "formulas": {
+    "epley": "weight * (1 + reps / 30)",
+    "brzycki": "weight * (36 / (37 - reps))",
+    "lombardi": "weight * reps ** 0.1"
+  },
+  "outputs": {
+    "primary": "epley",
+    "breakdown": [
+      "brzycki",
+      "lombardi"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

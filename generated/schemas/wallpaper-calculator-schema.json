@@ -1,0 +1,81 @@
+{
+  "toolName": "wallpaper-calculator",
+  "inputs": [
+    {
+      "id": "wallWidth",
+      "label": "Wall Width (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Total width of the wall to be covered"
+    },
+    {
+      "id": "wallHeight",
+      "label": "Wall Height (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 2.5,
+      "businessContext": "Height of the wall from floor to ceiling"
+    },
+    {
+      "id": "rollWidth",
+      "label": "Roll Width (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.53,
+      "businessContext": "Standard wallpaper roll width"
+    },
+    {
+      "id": "rollLength",
+      "label": "Roll Length (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Standard wallpaper roll length"
+    },
+    {
+      "id": "patternRepeat",
+      "label": "Pattern Repeat (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Vertical pattern repeat distance; 0 if no pattern"
+    },
+    {
+      "id": "wastePercent",
+      "label": "Waste Percentage (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Estimated waste due to cutting and matching"
+    }
+  ],
+  "formulas": {
+    "wallArea": "wallWidth * wallHeight",
+    "usableRollLength": "rollLength - (patternRepeat > 0 ? (rollLength % patternRepeat) : 0)",
+    "stripsPerRoll": "Math.floor(usableRollLength / (wallHeight + patternRepeat))",
+    "totalStrips": "Math.ceil(wallWidth / rollWidth)",
+    "rollsNeeded": "Math.ceil(totalStrips / stripsPerRoll)",
+    "totalArea": "wallWidth * wallHeight",
+    "totalRollArea": "rollsNeeded * rollWidth * rollLength",
+    "wasteArea": "totalRollArea - totalArea",
+    "wastePercentActual": "(wasteArea / totalRollArea) * 100"
+  },
+  "outputs": {
+    "primary": "rollsNeeded",
+    "breakdown": [
+      "totalStrips",
+      "stripsPerRoll",
+      "totalArea",
+      "totalRollArea",
+      "wasteArea",
+      "wastePercentActual"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

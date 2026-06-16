@@ -1,0 +1,63 @@
+{
+  "toolName": "net-profit-calculator",
+  "inputs": [
+    {
+      "id": "revenue",
+      "label": "Total Revenue",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Total sales income before any deductions."
+    },
+    {
+      "id": "cogs",
+      "label": "Cost of Goods Sold",
+      "type": "number",
+      "unit": "USD",
+      "default": 60000,
+      "businessContext": "Direct costs attributable to the production of goods sold."
+    },
+    {
+      "id": "operatingExpenses",
+      "label": "Operating Expenses",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "businessContext": "Expenses incurred from normal business operations like rent, utilities, salaries."
+    },
+    {
+      "id": "interestExpense",
+      "label": "Interest Expense",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "businessContext": "Cost of borrowing money."
+    },
+    {
+      "id": "taxExpense",
+      "label": "Tax Expense",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Income tax owed based on taxable income."
+    }
+  ],
+  "formulas": {
+    "grossProfit": "revenue - cogs",
+    "totalExpenses": "operatingExpenses + interestExpense + taxExpense",
+    "netProfit": "grossProfit - totalExpenses"
+  },
+  "outputs": {
+    "primary": "netProfit",
+    "breakdown": [
+      "grossProfit",
+      "totalExpenses"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

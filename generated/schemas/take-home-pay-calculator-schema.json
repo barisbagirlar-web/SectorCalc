@@ -1,0 +1,59 @@
+{
+  "toolName": "take-home-pay-calculator",
+  "inputs": [
+    {
+      "id": "grossSalary",
+      "label": "Gross Monthly Salary",
+      "type": "number",
+      "unit": "currency",
+      "default": 5000,
+      "businessContext": "The total monthly salary before any deductions."
+    },
+    {
+      "id": "incomeTaxRate",
+      "label": "Income Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Effective income tax rate applied to gross salary."
+    },
+    {
+      "id": "socialSecurityRate",
+      "label": "Social Security Contribution Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Employee's social security contribution rate."
+    },
+    {
+      "id": "otherDeductions",
+      "label": "Other Fixed Deductions",
+      "type": "number",
+      "unit": "currency",
+      "default": 200,
+      "businessContext": "Any other fixed monthly deductions (e.g., health insurance, union dues)."
+    }
+  ],
+  "formulas": {
+    "taxAmount": "grossSalary * (incomeTaxRate / 100)",
+    "socialSecurityAmount": "grossSalary * (socialSecurityRate / 100)",
+    "otherDeductionsAmount": "otherDeductions",
+    "totalDeductions": "taxAmount + socialSecurityAmount + otherDeductions",
+    "netPay": "grossSalary - totalDeductions"
+  },
+  "outputs": {
+    "primary": "netPay",
+    "breakdown": [
+      "taxAmount",
+      "socialSecurityAmount",
+      "otherDeductionsAmount",
+      "totalDeductions"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

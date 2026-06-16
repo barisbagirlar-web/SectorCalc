@@ -1,0 +1,83 @@
+{
+  "toolName": "muscle-gain-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Vücut ağırlığı (kg)"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 175,
+      "businessContext": "Boy (cm)"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 25,
+      "businessContext": "Yaş (yıl)"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "(0=Female, 1=Male)",
+      "default": 1,
+      "businessContext": "Cinsiyet: 0 kadın, 1 erkek"
+    },
+    {
+      "id": "activityLevel",
+      "label": "Activity Level",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.55,
+      "businessContext": "Aktivite seviyesi çarpanı (1.2: sedanter, 1.55: orta, 1.9: çok aktif)"
+    },
+    {
+      "id": "calorieSurplus",
+      "label": "Daily Calorie Surplus",
+      "type": "number",
+      "unit": "kcal",
+      "default": 300,
+      "businessContext": "Günlük kalori fazlası (kcal/gün)"
+    },
+    {
+      "id": "proteinIntake",
+      "label": "Daily Protein Intake",
+      "type": "number",
+      "unit": "g",
+      "default": 160,
+      "businessContext": "Günlük protein alımı (g/gün)"
+    }
+  ],
+  "formulas": {
+    "bmr": "gender * (10*weight + 6.25*height - 5*age + 5) + (1-gender) * (10*weight + 6.25*height - 5*age - 161)",
+    "tdee": "bmr * activityLevel",
+    "proteinEfficiency": "Math.min(proteinIntake / (2.2 * weight), 1)",
+    "maxMuscleGain": "0.5",
+    "muscleGainMonthly": "Math.min((calorieSurplus * 30 / 7700) * proteinEfficiency, maxMuscleGain)"
+  },
+  "outputs": {
+    "primary": "muscleGainMonthly",
+    "breakdown": [
+      "bmr",
+      "tdee",
+      "proteinEfficiency",
+      "maxMuscleGain"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

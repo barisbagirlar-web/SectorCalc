@@ -1,0 +1,87 @@
+{
+  "toolName": "led-savings-calculator",
+  "inputs": [
+    {
+      "id": "currentBulbWattage",
+      "label": "Current Bulb Wattage",
+      "type": "number",
+      "unit": "W",
+      "default": 60,
+      "businessContext": "Power consumption of existing bulb"
+    },
+    {
+      "id": "ledBulbWattage",
+      "label": "LED Bulb Wattage",
+      "type": "number",
+      "unit": "W",
+      "default": 10,
+      "businessContext": "Power consumption of LED replacement"
+    },
+    {
+      "id": "numberOfBulbs",
+      "label": "Number of Bulbs",
+      "type": "number",
+      "unit": "pcs",
+      "default": 10,
+      "businessContext": "Total count of bulbs to replace"
+    },
+    {
+      "id": "dailyUsageHours",
+      "label": "Daily Usage Hours",
+      "type": "number",
+      "unit": "h/day",
+      "default": 8,
+      "businessContext": "Average hours per day bulbs are on"
+    },
+    {
+      "id": "electricityRate",
+      "label": "Electricity Rate",
+      "type": "number",
+      "unit": "currency/kWh",
+      "default": 0.12,
+      "businessContext": "Cost of electricity per kilowatt-hour"
+    },
+    {
+      "id": "daysPerYear",
+      "label": "Days of Operation per Year",
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "businessContext": "Number of days bulbs are used annually"
+    },
+    {
+      "id": "currentBulbCost",
+      "label": "Current Bulb Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 1,
+      "businessContext": "Cost of one existing bulb"
+    },
+    {
+      "id": "ledBulbCost",
+      "label": "LED Bulb Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 5,
+      "businessContext": "Cost of one LED bulb"
+    }
+  ],
+  "formulas": {
+    "annualEnergySavings": "(currentBulbWattage - ledBulbWattage) * numberOfBulbs * dailyUsageHours * daysPerYear / 1000",
+    "annualCostSavings": "annualEnergySavings * electricityRate",
+    "paybackPeriod": "annualCostSavings > 0 ? (ledBulbCost - currentBulbCost) * numberOfBulbs / annualCostSavings : null"
+  },
+  "outputs": {
+    "primary": "Annual Savings: ${annualCostSavings.toFixed(2)} currency",
+    "breakdown": [
+      "Energy Savings: ${annualEnergySavings.toFixed(2)} kWh/year",
+      "Payback Period: ${paybackPeriod !== null ? paybackPeriod.toFixed(2) + ' years' : 'N/A'}"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

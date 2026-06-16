@@ -1,0 +1,55 @@
+{
+  "toolName": "ml-to-cups-calculator",
+  "inputs": [
+    {
+      "id": "milliliters",
+      "label": "Volume in Milliliters",
+      "type": "number",
+      "unit": "ml",
+      "default": 0,
+      "businessContext": "The volume of liquid to convert, in milliliters."
+    },
+    {
+      "id": "cupSize",
+      "label": "Cup Size",
+      "type": "number",
+      "unit": "ml",
+      "default": 236.5882365,
+      "businessContext": "Standard cup size in milliliters. Defaults to US customary cup."
+    },
+    {
+      "id": "decimals",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output. Must be an integer between 0 and 10."
+    },
+    {
+      "id": "quantity",
+      "label": "Number of Items",
+      "type": "number",
+      "unit": "items",
+      "default": 1,
+      "businessContext": "Number of identical volumes to convert (e.g., bottles, batches)."
+    }
+  ],
+  "formulas": {
+    "totalMl": "milliliters * quantity",
+    "rawCups": "totalMl / cupSize",
+    "roundedCups": "Math.round(rawCups * Math.pow(10, decimals)) / Math.pow(10, decimals)"
+  },
+  "outputs": {
+    "primary": "roundedCups",
+    "breakdown": [
+      "rawCups",
+      "totalMl"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

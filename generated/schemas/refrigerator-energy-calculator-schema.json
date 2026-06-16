@@ -1,0 +1,57 @@
+{
+  "toolName": "refrigerator-energy-calculator",
+  "inputs": [
+    {
+      "id": "compressorPower",
+      "label": "Compressor Power",
+      "type": "number",
+      "unit": "W",
+      "default": 150,
+      "businessContext": "Rated power consumption of the refrigerator compressor when active"
+    },
+    {
+      "id": "dutyCycle",
+      "label": "Duty Cycle",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Percentage of time the compressor runs"
+    },
+    {
+      "id": "daysPerYear",
+      "label": "Operating Days per Year",
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "businessContext": "Number of days the refrigerator is in operation annually"
+    },
+    {
+      "id": "costPerKwh",
+      "label": "Electricity Cost",
+      "type": "number",
+      "unit": "currency/kWh",
+      "default": 0.15,
+      "businessContext": "Cost of electricity per kilowatt-hour"
+    }
+  ],
+  "formulas": {
+    "annualEnergyKwh": "(compressorPower * dutyCycle / 100 * 24 * daysPerYear) / 1000",
+    "annualCost": "annualEnergyKwh * costPerKwh",
+    "monthlyCost": "annualCost / 12",
+    "dailyCost": "annualCost / daysPerYear"
+  },
+  "outputs": {
+    "primary": "Annual Energy: ${annualEnergyKwh.toFixed(2)} kWh",
+    "breakdown": [
+      "Annual Cost: ${annualCost.toFixed(2)}",
+      "Monthly Cost: ${monthlyCost.toFixed(2)}",
+      "Daily Cost: ${dailyCost.toFixed(4)}"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

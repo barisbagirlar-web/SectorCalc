@@ -1,0 +1,66 @@
+{
+  "toolName": "envelope-size-calculator",
+  "inputs": [
+    {
+      "id": "width",
+      "label": "Envelope Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 229,
+      "businessContext": "Width of the envelope in millimeters"
+    },
+    {
+      "id": "height",
+      "label": "Envelope Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 162,
+      "businessContext": "Height of the envelope in millimeters"
+    },
+    {
+      "id": "flapLength",
+      "label": "Flap Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 30,
+      "businessContext": "Length of the envelope flap in millimeters"
+    },
+    {
+      "id": "paperThickness",
+      "label": "Paper Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.1,
+      "businessContext": "Thickness of the paper used in millimeters"
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1000,
+      "businessContext": "Number of envelopes to be produced"
+    }
+  ],
+  "formulas": {
+    "totalPaperArea": "((width + 2 * flapLength) * (height + flapLength)) * quantity",
+    "totalPaperVolume": "totalPaperArea * paperThickness",
+    "envelopeSurfaceArea": "2 * (width * height + width * flapLength + height * flapLength)",
+    "totalSurfaceArea": "envelopeSurfaceArea * quantity"
+  },
+  "outputs": {
+    "primary": "totalPaperArea",
+    "breakdown": [
+      "totalPaperArea",
+      "totalPaperVolume",
+      "envelopeSurfaceArea",
+      "totalSurfaceArea"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

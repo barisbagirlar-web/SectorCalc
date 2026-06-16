@@ -1,0 +1,53 @@
+{
+  "toolName": "miles-to-meters-calculator",
+  "inputs": [
+    {
+      "id": "miles",
+      "label": "Distance in Miles",
+      "type": "number",
+      "unit": "mi",
+      "default": 1,
+      "businessContext": "Input distance to convert"
+    },
+    {
+      "id": "conversion_factor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "m/mi",
+      "default": 1609.344,
+      "businessContext": "Standard international mile to meter conversion factor"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "decimals",
+      "default": 2,
+      "businessContext": "Number of decimal places in output"
+    },
+    {
+      "id": "rounding_mode",
+      "label": "Rounding Mode (0=round, 1=floor, 2=ceil)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Rounding method: 0 rounds to nearest, 1 always rounds down, 2 always rounds up"
+    }
+  ],
+  "formulas": {
+    "raw_meters": "miles * conversion_factor",
+    "rounded_meters": "rounding_mode === 0 ? Math.round(raw_meters * Math.pow(10, precision)) / Math.pow(10, precision) : rounding_mode === 1 ? Math.floor(raw_meters * Math.pow(10, precision)) / Math.pow(10, precision) : Math.ceil(raw_meters * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "rounded_meters",
+    "breakdown": [
+      "raw_meters"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "fin-efficiency-calculator",
+  "inputs": [
+    {
+      "id": "finLength",
+      "label": "Fin Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Length of the fin from base to tip"
+    },
+    {
+      "id": "finThickness",
+      "label": "Fin Thickness",
+      "type": "number",
+      "unit": "m",
+      "default": 0.001,
+      "businessContext": "Thickness of the fin cross-section"
+    },
+    {
+      "id": "finWidth",
+      "label": "Fin Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.05,
+      "businessContext": "Width of the fin (perpendicular to flow, typically larger than thickness)"
+    },
+    {
+      "id": "heatTransferCoefficient",
+      "label": "Heat Transfer Coefficient",
+      "type": "number",
+      "unit": "W/(m²·K)",
+      "default": 25,
+      "businessContext": "Convective heat transfer coefficient on fin surface"
+    },
+    {
+      "id": "thermalConductivity",
+      "label": "Thermal Conductivity",
+      "type": "number",
+      "unit": "W/(m·K)",
+      "default": 200,
+      "businessContext": "Thermal conductivity of fin material"
+    }
+  ],
+  "formulas": {
+    "mValue": "Math.sqrt(2 * heatTransferCoefficient / (thermalConductivity * finThickness))",
+    "correctedLength": "finLength + finThickness / 2",
+    "finEfficiency": "Math.tanh( Math.sqrt(2 * heatTransferCoefficient / (thermalConductivity * finThickness)) * (finLength + finThickness / 2) ) / ( Math.sqrt(2 * heatTransferCoefficient / (thermalConductivity * finThickness)) * (finLength + finThickness / 2) )"
+  },
+  "outputs": {
+    "primary": "finEfficiency",
+    "breakdown": [
+      "mValue",
+      "correctedLength"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

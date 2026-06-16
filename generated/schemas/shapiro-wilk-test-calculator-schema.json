@@ -1,0 +1,73 @@
+{
+  "toolName": "shapiro-wilk-test-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "Smallest Value",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Smallest sample data point (ordered)"
+    },
+    {
+      "id": "x2",
+      "label": "Second Smallest",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second smallest sample data point"
+    },
+    {
+      "id": "x3",
+      "label": "Median Value",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Median or third smallest sample data point"
+    },
+    {
+      "id": "x4",
+      "label": "Second Largest",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second largest sample data point"
+    },
+    {
+      "id": "x5",
+      "label": "Largest Value",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Largest sample data point"
+    }
+  ],
+  "formulas": {
+    "mean": "(x1 + x2 + x3 + x4 + x5) / 5",
+    "SS": "Math.pow(x1 - mean, 2) + Math.pow(x2 - mean, 2) + Math.pow(x3 - mean, 2) + Math.pow(x4 - mean, 2) + Math.pow(x5 - mean, 2)",
+    "sum_ax": "-0.5739*x1 - 0.3291*x2 + 0*x3 + 0.3291*x4 + 0.5739*x5",
+    "W": "Math.pow(sum_ax, 2) / SS"
+  },
+  "outputs": {
+    "primary": {
+      "id": "shapiroWilkStat",
+      "label": "Shapiro-Wilk W Statistic",
+      "value": "W",
+      "unit": ""
+    },
+    "breakdown": [
+      {
+        "id": "normalityConclusion",
+        "label": "Normality Conclusion at α=0.05",
+        "value": "W > 0.762 ? 'Data appears normal (fail to reject H0)' : 'Data does not appear normal (reject H0)'",
+        "unit": ""
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

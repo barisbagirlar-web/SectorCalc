@@ -1,0 +1,94 @@
+{
+  "toolName": "concrete-mix-calculator",
+  "inputs": [
+    {
+      "id": "concreteVolume",
+      "label": "Concrete Volume",
+      "type": "number",
+      "unit": "m³",
+      "default": 1,
+      "businessContext": "Required volume of concrete in cubic meters."
+    },
+    {
+      "id": "cementRatio",
+      "label": "Cement Ratio",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "Part of cement in the concrete mix ratio (e.g., 1 for 1:2:4)."
+    },
+    {
+      "id": "sandRatio",
+      "label": "Sand Ratio",
+      "type": "number",
+      "unit": "-",
+      "default": 1.5,
+      "businessContext": "Part of sand in the concrete mix ratio."
+    },
+    {
+      "id": "aggregateRatio",
+      "label": "Aggregate Ratio",
+      "type": "number",
+      "unit": "-",
+      "default": 3,
+      "businessContext": "Part of aggregate (coarse aggregate) in the mix ratio."
+    },
+    {
+      "id": "waterCementRatio",
+      "label": "Water-Cement Ratio",
+      "type": "number",
+      "unit": "-",
+      "default": 0.5,
+      "businessContext": "Ratio of water to cement by weight for desired workability."
+    },
+    {
+      "id": "dryFactor",
+      "label": "Dry Volume Factor",
+      "type": "number",
+      "unit": "-",
+      "default": 1.54,
+      "businessContext": "Multiplication factor to convert wet volume to dry volume, accounting for air voids."
+    },
+    {
+      "id": "wastagePercent",
+      "label": "Wastage %",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of extra material to account for handling and compaction losses."
+    }
+  ],
+  "formulas": {
+    "sumRatio": "cementRatio + sandRatio + aggregateRatio",
+    "dryVolume": "concreteVolume * dryFactor",
+    "cementVolume": "(cementRatio / sumRatio) * dryVolume",
+    "cementWeightBase": "cementVolume * 1440",
+    "sandVolume": "(sandRatio / sumRatio) * dryVolume",
+    "sandWeightBase": "sandVolume * 1600",
+    "aggregateVolume": "(aggregateRatio / sumRatio) * dryVolume",
+    "aggregateWeightBase": "aggregateVolume * 1500",
+    "waterWeightBase": "cementWeightBase * waterCementRatio",
+    "wastageFactor": "1 + wastagePercent / 100",
+    "cementWeight": "cementWeightBase * wastageFactor",
+    "sandWeight": "sandWeightBase * wastageFactor",
+    "aggregateWeight": "aggregateWeightBase * wastageFactor",
+    "waterWeight": "waterWeightBase * wastageFactor",
+    "totalDryWeight": "cementWeight + sandWeight + aggregateWeight",
+    "totalMixWeight": "totalDryWeight + waterWeight"
+  },
+  "outputs": {
+    "primary": "totalMixWeight",
+    "breakdown": [
+      "cementWeight",
+      "sandWeight",
+      "aggregateWeight",
+      "waterWeight"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

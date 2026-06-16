@@ -1,0 +1,72 @@
+{
+  "toolName": "kelvin-to-celsius-calculator",
+  "inputs": [
+    {
+      "id": "kelvin",
+      "label": "Temperature (K)",
+      "type": "number",
+      "unit": "K",
+      "default": 273.15,
+      "businessContext": "Raw temperature reading in Kelvin from sensor or process."
+    },
+    {
+      "id": "offset",
+      "label": "Calibration Offset (K)",
+      "type": "number",
+      "unit": "K",
+      "default": 0,
+      "businessContext": "Systematic error correction in Kelvin, added to the input before conversion."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for output rounding, as per quality control requirements."
+    },
+    {
+      "id": "timestamp",
+      "label": "Measurement Time (Unix ms)",
+      "type": "number",
+      "unit": "ms",
+      "default": 1700000000000,
+      "businessContext": "Timestamp of the measurement for traceability (ISO 9001 7.5.2)."
+    },
+    {
+      "id": "ambient_c",
+      "label": "Ambient Temperature (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "For reference, not used in primary conversion but logged."
+    },
+    {
+      "id": "humidity",
+      "label": "Relative Humidity (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Environmental condition for calibration context (not used in conversion)."
+    }
+  ],
+  "formulas": {
+    "kelvin_adjusted": "inputs.kelvin + inputs.offset",
+    "celsius": "kelvin_adjusted - 273.15",
+    "roundedCelsius": "Math.round(celsius * Math.pow(10, inputs.precision)) / Math.pow(10, inputs.precision)"
+  },
+  "outputs": {
+    "primary": "roundedCelsius",
+    "breakdown": [
+      "kelvin_adjusted",
+      "celsius",
+      "roundedCelsius"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

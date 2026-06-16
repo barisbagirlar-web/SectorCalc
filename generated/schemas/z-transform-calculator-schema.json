@@ -1,0 +1,67 @@
+{
+  "toolName": "z-transform-calculator",
+  "inputs": [
+    {
+      "id": "a0",
+      "label": "a0 (x[0])",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient for n=0"
+    },
+    {
+      "id": "a1",
+      "label": "a1 (x[1])",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient for n=1"
+    },
+    {
+      "id": "a2",
+      "label": "a2 (x[2])",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient for n=2"
+    },
+    {
+      "id": "a3",
+      "label": "a3 (x[3])",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient for n=3"
+    },
+    {
+      "id": "z",
+      "label": "z (Real)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Real-valued z for evaluation"
+    }
+  ],
+  "formulas": {
+    "X_z": "a0 + a1 / z + a2 / (z**2) + a3 / (z**3)",
+    "term0": "a0",
+    "term1": "a1 / z",
+    "term2": "a2 / (z**2)",
+    "term3": "a3 / (z**3)"
+  },
+  "outputs": {
+    "primary": "X_z",
+    "breakdown": [
+      "term0",
+      "term1",
+      "term2",
+      "term3"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

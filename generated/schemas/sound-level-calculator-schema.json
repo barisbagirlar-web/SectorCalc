@@ -1,0 +1,69 @@
+{
+  "toolName": "sound-level-calculator",
+  "inputs": [
+    {
+      "id": "spl1",
+      "label": "Sound Pressure Level 1",
+      "type": "number",
+      "unit": "dB",
+      "default": 80,
+      "businessContext": "SPL of first source"
+    },
+    {
+      "id": "spl2",
+      "label": "Sound Pressure Level 2",
+      "type": "number",
+      "unit": "dB",
+      "default": 0,
+      "businessContext": "SPL of second source (set 0 if not used)"
+    },
+    {
+      "id": "spl3",
+      "label": "Sound Pressure Level 3",
+      "type": "number",
+      "unit": "dB",
+      "default": 0,
+      "businessContext": "SPL of third source (set 0 if not used)"
+    },
+    {
+      "id": "spl4",
+      "label": "Sound Pressure Level 4",
+      "type": "number",
+      "unit": "dB",
+      "default": 0,
+      "businessContext": "SPL of fourth source (set 0 if not used)"
+    },
+    {
+      "id": "spl5",
+      "label": "Sound Pressure Level 5",
+      "type": "number",
+      "unit": "dB",
+      "default": 0,
+      "businessContext": "SPL of fifth source (set 0 if not used)"
+    }
+  ],
+  "formulas": {
+    "totalSoundPressureLevel": "10 * Math.log10( Math.pow(10, spl1/10) + Math.pow(10, spl2/10) + Math.pow(10, spl3/10) + Math.pow(10, spl4/10) + Math.pow(10, spl5/10) )",
+    "spl1Result": "\"SPL 1: \" + spl1 + \" dB\"",
+    "spl2Result": "\"SPL 2: \" + spl2 + \" dB\"",
+    "spl3Result": "\"SPL 3: \" + spl3 + \" dB\"",
+    "spl4Result": "\"SPL 4: \" + spl4 + \" dB\"",
+    "spl5Result": "\"SPL 5: \" + spl5 + \" dB\""
+  },
+  "outputs": {
+    "primary": "totalSoundPressureLevel",
+    "breakdown": [
+      "spl1Result",
+      "spl2Result",
+      "spl3Result",
+      "spl4Result",
+      "spl5Result"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

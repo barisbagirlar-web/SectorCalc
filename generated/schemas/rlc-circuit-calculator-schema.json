@@ -1,0 +1,69 @@
+{
+  "toolName": "rlc-circuit-calculator",
+  "inputs": [
+    {
+      "id": "resistance",
+      "label": "Resistance",
+      "type": "number",
+      "unit": "Ω",
+      "default": 100,
+      "businessContext": "Total series resistance in ohms."
+    },
+    {
+      "id": "inductance",
+      "label": "Inductance",
+      "type": "number",
+      "unit": "H",
+      "default": 0.1,
+      "businessContext": "Inductance in henries."
+    },
+    {
+      "id": "capacitance",
+      "label": "Capacitance",
+      "type": "number",
+      "unit": "F",
+      "default": 0.000001,
+      "businessContext": "Capacitance in farads."
+    },
+    {
+      "id": "frequency",
+      "label": "Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1000,
+      "businessContext": "AC signal frequency in hertz."
+    },
+    {
+      "id": "voltage",
+      "label": "Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 10,
+      "businessContext": "RMS voltage of the source in volts."
+    }
+  ],
+  "formulas": {
+    "resonantFrequency": "1 / (2 * Math.PI * Math.sqrt(inductance * capacitance))",
+    "impedance": "Math.sqrt(resistance**2 + (2*Math.PI*frequency*inductance - 1/(2*Math.PI*frequency*capacitance))**2)",
+    "current": "voltage / Math.sqrt(resistance**2 + (2*Math.PI*frequency*inductance - 1/(2*Math.PI*frequency*capacitance))**2)",
+    "phaseAngle": "Math.atan2(2*Math.PI*frequency*inductance - 1/(2*Math.PI*frequency*capacitance), resistance) * 180 / Math.PI",
+    "qualityFactor": "(1 / resistance) * Math.sqrt(inductance / capacitance)",
+    "bandwidth": "resistance / (2 * Math.PI * inductance)"
+  },
+  "outputs": {
+    "primary": "resonantFrequency",
+    "breakdown": [
+      "impedance",
+      "current",
+      "phaseAngle",
+      "qualityFactor",
+      "bandwidth"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

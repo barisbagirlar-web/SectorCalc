@@ -1,0 +1,65 @@
+{
+  "toolName": "backsplash-calculator",
+  "inputs": [
+    {
+      "id": "backsplashWidth",
+      "label": "Backsplash Width",
+      "type": "number",
+      "unit": "cm",
+      "default": 200,
+      "businessContext": "Width of the backsplash area"
+    },
+    {
+      "id": "backsplashHeight",
+      "label": "Backsplash Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 60,
+      "businessContext": "Height of the backsplash area"
+    },
+    {
+      "id": "tileWidth",
+      "label": "Tile Width",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Width of a single tile"
+    },
+    {
+      "id": "tileHeight",
+      "label": "Tile Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Height of a single tile"
+    },
+    {
+      "id": "wastePercentage",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage added for cuts and breakage"
+    }
+  ],
+  "formulas": {
+    "totalAreaM2": "(backsplashWidth * backsplashHeight) / 10000",
+    "wasteAreaM2": "totalAreaM2 * (wastePercentage / 100)",
+    "totalAreaWithWasteM2": "totalAreaM2 * (1 + wastePercentage / 100)",
+    "exactTilesNeeded": "(backsplashWidth * backsplashHeight) / (tileWidth * tileHeight) * (1 + wastePercentage / 100)"
+  },
+  "outputs": {
+    "primary": "exactTilesNeeded",
+    "breakdown": [
+      "totalAreaM2",
+      "wasteAreaM2",
+      "totalAreaWithWasteM2"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

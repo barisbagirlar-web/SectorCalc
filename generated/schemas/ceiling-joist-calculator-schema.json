@@ -1,0 +1,75 @@
+{
+  "toolName": "ceiling-joist-calculator",
+  "inputs": [
+    {
+      "id": "span",
+      "label": "Joist Span",
+      "type": "number",
+      "unit": "ft",
+      "default": 12,
+      "businessContext": "Distance between supports in feet"
+    },
+    {
+      "id": "spacing",
+      "label": "Joist Spacing",
+      "type": "number",
+      "unit": "in",
+      "default": 16,
+      "businessContext": "Center-to-center distance between joists in inches"
+    },
+    {
+      "id": "liveLoad",
+      "label": "Live Load",
+      "type": "number",
+      "unit": "psf",
+      "default": 40,
+      "businessContext": "Design live load (e.g., 40 psf for residential)"
+    },
+    {
+      "id": "deadLoad",
+      "label": "Dead Load",
+      "type": "number",
+      "unit": "psf",
+      "default": 10,
+      "businessContext": "Dead load including joist weight, ceiling, etc."
+    },
+    {
+      "id": "eModulus",
+      "label": "Modulus of Elasticity",
+      "type": "number",
+      "unit": "psi",
+      "default": 1600000,
+      "businessContext": "E value for joist material (e.g., 1,600,000 psi for SPF)"
+    },
+    {
+      "id": "iValue",
+      "label": "Moment of Inertia",
+      "type": "number",
+      "unit": "in^4",
+      "default": 47.6,
+      "businessContext": "I value for joist cross-section (e.g., 47.6 in^4 for a 2x10)"
+    }
+  ],
+  "formulas": {
+    "totalLoad": "liveLoad + deadLoad",
+    "uniformLoad": "(liveLoad + deadLoad) * spacing / 144",
+    "deflection": "(5 * ((liveLoad + deadLoad) * spacing / 144) * Math.pow(span * 12, 4)) / (384 * eModulus * iValue)",
+    "allowableDeflection": "span * 12 / 240",
+    "isSafe": "(((5 * ((liveLoad + deadLoad) * spacing / 144) * Math.pow(span * 12, 4)) / (384 * eModulus * iValue)) <= (span * 12 / 240)) ? 1 : 0"
+  },
+  "outputs": {
+    "primary": "deflection",
+    "breakdown": [
+      "totalLoad",
+      "uniformLoad",
+      "allowableDeflection",
+      "isSafe"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

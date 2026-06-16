@@ -1,0 +1,55 @@
+{
+  "toolName": "pet-food-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Pet Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "The weight of the pet in kilograms."
+    },
+    {
+      "id": "activityFactor",
+      "label": "Activity Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Multiplier for activity level (e.g., 1.2 for sedentary, 1.5 moderate, 1.8 active)."
+    },
+    {
+      "id": "caloricDensity",
+      "label": "Caloric Density",
+      "type": "number",
+      "unit": "kcal/kg",
+      "default": 3500,
+      "businessContext": "Energy density of the food in kilocalories per kilogram (common for dry food: 3000-4000 kcal/kg)."
+    },
+    {
+      "id": "mealsPerDay",
+      "label": "Meals Per Day",
+      "type": "number",
+      "unit": "meals",
+      "default": 2,
+      "businessContext": "Number of meals the pet eats daily."
+    }
+  ],
+  "formulas": {
+    "dailyCalories": "70 * Math.pow(inputs.weight, 0.75) * inputs.activityFactor",
+    "dailyFoodGrams": "1000 * 70 * Math.pow(inputs.weight, 0.75) * inputs.activityFactor / inputs.caloricDensity",
+    "foodPerMealGrams": "1000 * 70 * Math.pow(inputs.weight, 0.75) * inputs.activityFactor / inputs.caloricDensity / inputs.mealsPerDay"
+  },
+  "outputs": {
+    "primary": "dailyFoodGrams",
+    "breakdown": [
+      "dailyCalories",
+      "foodPerMealGrams"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

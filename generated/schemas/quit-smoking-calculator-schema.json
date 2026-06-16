@@ -1,0 +1,67 @@
+{
+  "toolName": "quit-smoking-calculator",
+  "inputs": [
+    {
+      "id": "cigarettesPerDay",
+      "label": "Cigarettes per Day",
+      "type": "number",
+      "unit": "cigarettes/day",
+      "default": 20,
+      "businessContext": "Average number of cigarettes smoked per day."
+    },
+    {
+      "id": "costPerPack",
+      "label": "Cost per Pack",
+      "type": "number",
+      "unit": "USD",
+      "default": 10,
+      "businessContext": "Cost of one pack of cigarettes."
+    },
+    {
+      "id": "packSize",
+      "label": "Cigarettes per Pack",
+      "type": "number",
+      "unit": "cigarettes",
+      "default": 20,
+      "businessContext": "Number of cigarettes in a standard pack."
+    },
+    {
+      "id": "yearsSmoked",
+      "label": "Years Smoked",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Total number of years the user has smoked."
+    },
+    {
+      "id": "avgCigLifeLost",
+      "label": "Life Lost per Cigarette",
+      "type": "number",
+      "unit": "minutes",
+      "default": 11,
+      "businessContext": "Estimated life shortening per cigarette based on medical research."
+    }
+  ],
+  "formulas": {
+    "dailySavings": "(cigarettesPerDay / packSize) * costPerPack",
+    "monthlySavings": "(cigarettesPerDay / packSize) * costPerPack * 30",
+    "annualSavings": "(cigarettesPerDay / packSize) * costPerPack * 365",
+    "lifeGainedPerYear": "(cigarettesPerDay * 365 * avgCigLifeLost) / 525600",
+    "pastLifeLostYears": "(cigarettesPerDay * 365 * yearsSmoked * avgCigLifeLost) / 525600"
+  },
+  "outputs": {
+    "primary": "annualSavings",
+    "breakdown": [
+      "dailySavings",
+      "monthlySavings",
+      "lifeGainedPerYear",
+      "pastLifeLostYears"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

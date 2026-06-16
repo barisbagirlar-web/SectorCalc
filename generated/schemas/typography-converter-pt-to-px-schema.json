@@ -1,0 +1,56 @@
+{
+  "toolName": "typography-converter-pt-to-px",
+  "inputs": [
+    {
+      "id": "pointSize",
+      "label": "Point Size (pt)",
+      "type": "number",
+      "unit": "pt",
+      "default": 12,
+      "businessContext": "Font size in points, typically used in print design."
+    },
+    {
+      "id": "ppi",
+      "label": "Pixels Per Inch (PPI)",
+      "type": "number",
+      "unit": "ppi",
+      "default": 96,
+      "businessContext": "Screen resolution; common values: 72 (Mac), 96 (Windows), 300 (print)."
+    },
+    {
+      "id": "baseFontSize",
+      "label": "Base Font Size (px)",
+      "type": "number",
+      "unit": "px",
+      "default": 16,
+      "businessContext": "Reference pixel size for relative conversions (e.g., em/rem)."
+    },
+    {
+      "id": "scaleFactor",
+      "label": "Scale Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for responsive scaling (e.g., 1.25 for major third)."
+    }
+  ],
+  "formulas": {
+    "pxFromPt": "pointSize * ppi / 72",
+    "scaledPx": "pxFromPt * scaleFactor",
+    "remValue": "scaledPx / baseFontSize"
+  },
+  "outputs": {
+    "primary": "scaledPx",
+    "breakdown": [
+      "pxFromPt = pointSize * ppi / 72",
+      "scaledPx = pxFromPt * scaleFactor",
+      "remValue = scaledPx / baseFontSize"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

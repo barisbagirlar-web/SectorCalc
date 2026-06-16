@@ -1,0 +1,65 @@
+{
+  "toolName": "startup-valuation-calculator",
+  "inputs": [
+    {
+      "id": "projectedRevenue",
+      "label": "Projected Revenue at Exit",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000000,
+      "businessContext": "The projected annual revenue of the startup at the time of exit (e.g., 5 years from now)."
+    },
+    {
+      "id": "netProfitMargin",
+      "label": "Net Profit Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Expected net profit margin at exit, expressed as a percentage."
+    },
+    {
+      "id": "peRatio",
+      "label": "P/E Ratio",
+      "type": "number",
+      "unit": "x",
+      "default": 20,
+      "businessContext": "Price-to-earnings ratio typical for comparable public companies in the sector."
+    },
+    {
+      "id": "requiredROI",
+      "label": "Required ROI",
+      "type": "number",
+      "unit": "x",
+      "default": 3,
+      "businessContext": "Target return multiple for the investor (e.g., 3x means the investor aims to triple their investment)."
+    },
+    {
+      "id": "investmentAmount",
+      "label": "Investment Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "businessContext": "The amount of capital being invested in the startup."
+    }
+  ],
+  "formulas": {
+    "exitValue": "projectedRevenue * (netProfitMargin / 100) * peRatio",
+    "postMoney": "exitValue / requiredROI",
+    "preMoney": "postMoney - investmentAmount",
+    "ownershipPercent": "(investmentAmount / postMoney) * 100"
+  },
+  "outputs": {
+    "primary": "Post-Money Valuation",
+    "breakdown": [
+      "Pre-Money Valuation",
+      "Exit Value",
+      "Investor Ownership %"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,62 @@
+{
+  "toolName": "rmd-calculator",
+  "inputs": [
+    {
+      "id": "accountBalance",
+      "label": "Account Balance (IRA Balance)",
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "businessContext": "Total balance in the retirement account as of December 31 of the previous year."
+    },
+    {
+      "id": "age",
+      "label": "Age (Current Year Age)",
+      "type": "number",
+      "unit": "years",
+      "default": 73,
+      "businessContext": "Age of the account owner as of the current year. Used to determine the life expectancy factor."
+    },
+    {
+      "id": "spouseAge",
+      "label": "Spouse Age (if applicable)",
+      "type": "number",
+      "unit": "years",
+      "default": 70,
+      "businessContext": "Age of spouse if the account owner is married and spouse is the sole beneficiary. Used for joint life expectancy factor."
+    },
+    {
+      "id": "beneficiaryType",
+      "label": "Beneficiary Type",
+      "type": "number",
+      "unit": "code",
+      "default": 1,
+      "businessContext": "1 = Spouse sole beneficiary, 2 = Non-spouse beneficiary, 3 = No designated beneficiary. Determines which life expectancy table to use."
+    },
+    {
+      "id": "lifeExpectancyFactor",
+      "label": "Life Expectancy Factor (Override)",
+      "type": "number",
+      "unit": "years",
+      "default": 0,
+      "businessContext": "Optional override for the life expectancy factor. If 0, the factor is calculated based on age and beneficiary type using IRS tables."
+    }
+  ],
+  "formulas": {
+    "lifeExpectancyFactorCalc": "age <= 72 ? 0 : (beneficiaryType === 1 ? (spouseAge >= age ? 27.4 : 25.6) : (beneficiaryType === 2 ? 10.0 : 12.2))",
+    "rmdAmount": "lifeExpectancyFactor > 0 ? accountBalance / lifeExpectancyFactor : (lifeExpectancyFactorCalc > 0 ? accountBalance / lifeExpectancyFactorCalc : 0)"
+  },
+  "outputs": {
+    "primary": "rmdAmount",
+    "breakdown": [
+      "lifeExpectancyFactorCalc",
+      "rmdAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

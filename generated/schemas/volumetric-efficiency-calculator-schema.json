@@ -1,0 +1,64 @@
+{
+  "toolName": "volumetric-efficiency-calculator",
+  "inputs": [
+    {
+      "id": "bore",
+      "label": "Bore (cylinder diameter)",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Cylinder bore diameter in millimeters"
+    },
+    {
+      "id": "stroke",
+      "label": "Stroke length",
+      "type": "number",
+      "unit": "mm",
+      "default": 120,
+      "businessContext": "Piston stroke length in millimeters"
+    },
+    {
+      "id": "cylinders",
+      "label": "Number of cylinders",
+      "type": "number",
+      "unit": "count",
+      "default": 4,
+      "businessContext": "Number of cylinders in the pump/compressor"
+    },
+    {
+      "id": "speed",
+      "label": "Rotational speed",
+      "type": "number",
+      "unit": "RPM",
+      "default": 1500,
+      "businessContext": "Shaft rotational speed in revolutions per minute"
+    },
+    {
+      "id": "actualFlow",
+      "label": "Actual flow rate",
+      "type": "number",
+      "unit": "L/min",
+      "default": 500,
+      "businessContext": "Measured actual flow rate in liters per minute"
+    }
+  ],
+  "formulas": {
+    "sweptVolumePerCylinderL": "(Math.PI/4) * Math.pow(bore, 2) * stroke / 1000000",
+    "sweptVolumePerRevolutionL": "sweptVolumePerCylinderL * cylinders",
+    "theoreticalFlowLPerMin": "sweptVolumePerRevolutionL * speed",
+    "volumetricEfficiency": "(actualFlow / theoreticalFlowLPerMin) * 100"
+  },
+  "outputs": {
+    "primary": "volumetricEfficiency",
+    "breakdown": [
+      "sweptVolumePerRevolutionL",
+      "theoreticalFlowLPerMin"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

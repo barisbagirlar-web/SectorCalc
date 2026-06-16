@@ -1,0 +1,55 @@
+{
+  "toolName": "kilocalories-to-joules-calculator",
+  "inputs": [
+    {
+      "id": "kcal",
+      "label": "Energy in Kilocalories",
+      "type": "number",
+      "unit": "kcal",
+      "default": 100,
+      "businessContext": "Amount of energy to convert from kilocalories"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output joules value"
+    },
+    {
+      "id": "joulePerKcal",
+      "label": "Joules per Kilocalorie",
+      "type": "number",
+      "unit": "J/kcal",
+      "default": 4184,
+      "businessContext": "Conversion factor: 1 kilocalorie equals this many joules (standard 4184 J/kcal)"
+    },
+    {
+      "id": "scale",
+      "label": "Scale Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplicative scale factor applied to the conversion result (default 1)"
+    }
+  ],
+  "formulas": {
+    "joules": "Math.round(kcal * joulePerKcal * scale * 10**precision) / 10**precision",
+    "rawJoules": "kcal * joulePerKcal * scale",
+    "conversionFactorUsed": "joulePerKcal"
+  },
+  "outputs": {
+    "primary": "joules",
+    "breakdown": [
+      "rawJoules",
+      "conversionFactorUsed"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

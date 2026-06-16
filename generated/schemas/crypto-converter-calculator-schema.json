@@ -1,0 +1,58 @@
+{
+  "toolName": "crypto-converter-calculator",
+  "inputs": [
+    {
+      "id": "amount",
+      "label": "Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000,
+      "businessContext": "Amount to convert"
+    },
+    {
+      "id": "exchangeRate",
+      "label": "Exchange Rate",
+      "type": "number",
+      "unit": "BTC/USD",
+      "default": 0.000025,
+      "businessContext": "Current exchange rate"
+    },
+    {
+      "id": "feePercent",
+      "label": "Conversion Fee (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 1.5,
+      "businessContext": "Percentage fee for conversion"
+    },
+    {
+      "id": "spread",
+      "label": "Spread (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0.1,
+      "businessContext": "Spread added to exchange rate"
+    }
+  ],
+  "formulas": {
+    "rateAfterSpread": "exchangeRate * (1 + spread/100)",
+    "convertedAmount": "amount * rateAfterSpread",
+    "feeAmount": "convertedAmount * (feePercent/100)",
+    "finalAmount": "convertedAmount - feeAmount"
+  },
+  "outputs": {
+    "primary": "Converted amount: ${finalAmount.toFixed(8)} BTC",
+    "breakdown": [
+      "Entered amount: ${amount} USD",
+      "Rate after spread: ${rateAfterSpread.toFixed(8)} BTC/USD",
+      "Fee deducted: ${feeAmount.toFixed(8)} BTC",
+      "Final amount: ${finalAmount.toFixed(8)} BTC"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

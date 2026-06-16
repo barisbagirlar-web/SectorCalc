@@ -1,0 +1,77 @@
+{
+  "toolName": "vector-multiplication-calculator",
+  "inputs": [
+    {
+      "id": "ax",
+      "label": "Vector A - X component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "X-component of first vector in Cartesian coordinate system"
+    },
+    {
+      "id": "ay",
+      "label": "Vector A - Y component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Y-component of first vector"
+    },
+    {
+      "id": "az",
+      "label": "Vector A - Z component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Z-component of first vector"
+    },
+    {
+      "id": "bx",
+      "label": "Vector B - X component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "X-component of second vector"
+    },
+    {
+      "id": "by",
+      "label": "Vector B - Y component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Y-component of second vector"
+    },
+    {
+      "id": "bz",
+      "label": "Vector B - Z component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Z-component of second vector"
+    }
+  ],
+  "formulas": {
+    "dotProduct": "ax*bx + ay*by + az*bz",
+    "crossProductX": "ay*bz - az*by",
+    "crossProductY": "az*bx - ax*bz",
+    "crossProductZ": "ax*by - ay*bx",
+    "crossProductMagnitude": "Math.sqrt((ay*bz - az*by)**2 + (az*bx - ax*bz)**2 + (ax*by - ay*bx)**2)",
+    "angleBetween": "Math.acos((ax*bx + ay*by + az*bz) / (Math.sqrt(ax**2 + ay**2 + az**2) * Math.sqrt(bx**2 + by**2 + bz**2))) * (180 / Math.PI)"
+  },
+  "outputs": {
+    "primary": "dotProduct",
+    "breakdown": [
+      "crossProductX",
+      "crossProductY",
+      "crossProductZ",
+      "crossProductMagnitude",
+      "angleBetween"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

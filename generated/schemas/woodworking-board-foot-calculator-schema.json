@@ -1,0 +1,71 @@
+{
+  "toolName": "woodworking-board-foot-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "inch",
+      "default": 96,
+      "businessContext": "Board length in inches"
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "type": "number",
+      "unit": "inch",
+      "default": 6,
+      "businessContext": "Board width in inches"
+    },
+    {
+      "id": "thickness",
+      "label": "Thickness",
+      "type": "number",
+      "unit": "inch",
+      "default": 1,
+      "businessContext": "Board thickness in inches (nominal or actual)"
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "pieces",
+      "default": 1,
+      "businessContext": "Number of identical boards"
+    },
+    {
+      "id": "waste",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Additional material percentage for cutting waste, defects, etc."
+    },
+    {
+      "id": "price",
+      "label": "Price per Board Foot",
+      "type": "number",
+      "unit": "currency/BF",
+      "default": 0,
+      "businessContext": "Optional: cost per board foot (set to 0 if only board feet needed)"
+    }
+  ],
+  "formulas": {
+    "boardFeetPerPiece": "length * width * thickness / 144",
+    "totalBoardFeet": "boardFeetPerPiece * quantity * (1 + waste / 100)",
+    "totalCost": "totalBoardFeet * price"
+  },
+  "outputs": {
+    "primary": "totalBoardFeet",
+    "breakdown": [
+      "boardFeetPerPiece",
+      "totalCost"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Atölye & Tamir",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "karnofsky-score-calculator",
+  "inputs": [
+    {
+      "id": "functionalCapacity",
+      "label": "Functional Capacity (0-10)",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Patient's ability to perform normal daily activities independently."
+    },
+    {
+      "id": "selfCare",
+      "label": "Self-Care (0-10)",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Ability to handle personal care without assistance."
+    },
+    {
+      "id": "diseaseSymptoms",
+      "label": "Disease Symptoms (0-10)",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Severity of disease-related symptoms, higher means fewer symptoms."
+    },
+    {
+      "id": "nutritionalStatus",
+      "label": "Nutritional Status (0-10)",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Adequacy of nutritional intake and weight maintenance."
+    },
+    {
+      "id": "mentalStatus",
+      "label": "Mental Status (0-10)",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Cognitive clarity and emotional well-being."
+    }
+  ],
+  "formulas": {
+    "rawScore": "functionalCapacity + selfCare + diseaseSymptoms + nutritionalStatus + mentalStatus",
+    "adjustedScore": "(functionalCapacity + selfCare + diseaseSymptoms + nutritionalStatus + mentalStatus) * 2",
+    "karnofskyScore": "Math.min(100, Math.max(0, Math.round((functionalCapacity + selfCare + diseaseSymptoms + nutritionalStatus + mentalStatus) * 2)))"
+  },
+  "outputs": {
+    "primary": "karnofskyScore",
+    "breakdown": [
+      "rawScore",
+      "adjustedScore"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

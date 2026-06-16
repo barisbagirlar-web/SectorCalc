@@ -1,0 +1,55 @@
+{
+  "toolName": "silhouette-score-calculator",
+  "inputs": [
+    {
+      "id": "a1",
+      "label": "Point 1 Intra-cluster Distance (a)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Mean distance from point 1 to other points in its own cluster."
+    },
+    {
+      "id": "b1",
+      "label": "Point 1 Nearest-cluster Distance (b)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Mean distance from point 1 to points in the nearest neighboring cluster."
+    },
+    {
+      "id": "a2",
+      "label": "Point 2 Intra-cluster Distance (a)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Mean distance from point 2 to other points in its own cluster."
+    },
+    {
+      "id": "b2",
+      "label": "Point 2 Nearest-cluster Distance (b)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Mean distance from point 2 to points in the nearest neighboring cluster."
+    }
+  ],
+  "formulas": {
+    "silhouette1": "(b1 - a1) / (Math.max(a1, b1) + 1e-9)",
+    "silhouette2": "(b2 - a2) / (Math.max(a2, b2) + 1e-9)",
+    "avgSilhouette": "(silhouette1 + silhouette2) / 2"
+  },
+  "outputs": {
+    "primary": "avgSilhouette",
+    "breakdown": [
+      "silhouette1",
+      "silhouette2"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

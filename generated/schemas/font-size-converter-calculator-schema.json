@@ -1,0 +1,71 @@
+{
+  "toolName": "font-size-converter-calculator",
+  "inputs": [
+    {
+      "id": "fontSizePt",
+      "label": "Font Size (Points)",
+      "type": "number",
+      "unit": "pt",
+      "default": 12,
+      "businessContext": "The font size in points (1 pt = 1/72 inch). Standard sizes: 10, 11, 12, 14."
+    },
+    {
+      "id": "ppi",
+      "label": "Screen PPI",
+      "type": "number",
+      "unit": "ppi",
+      "default": 96,
+      "businessContext": "Pixel density (pixels per inch) of the target display. Common: 96 (Windows), 72 (Mac)."
+    },
+    {
+      "id": "baseFontSizePx",
+      "label": "Base Font Size (Pixels)",
+      "type": "number",
+      "unit": "px",
+      "default": 16,
+      "businessContext": "Browser default root font size in pixels, used for em/percentage calculation. Typically 16px."
+    },
+    {
+      "id": "rootFontSizePx",
+      "label": "Root Font Size (Pixels)",
+      "type": "number",
+      "unit": "px",
+      "default": 16,
+      "businessContext": "Explicit root element font size for rem calculation. Default equals base font size."
+    },
+    {
+      "id": "customScale",
+      "label": "Custom Scaling Ratio",
+      "type": "number",
+      "unit": "ratio",
+      "default": 1,
+      "businessContext": "Additional multiplicative factor for custom-converted size (e.g., 1.2 for 120%)."
+    }
+  ],
+  "formulas": {
+    "px": "fontSizePt * ppi / 72",
+    "em": "px / baseFontSizePx",
+    "rem": "px / rootFontSizePx",
+    "percentage": "(px / baseFontSizePx) * 100",
+    "mm": "fontSizePt * 0.3528",
+    "inches": "fontSizePt / 72",
+    "customPx": "px * customScale"
+  },
+  "outputs": {
+    "primary": "px",
+    "breakdown": [
+      "em",
+      "rem",
+      "percentage",
+      "mm",
+      "inches",
+      "customPx"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

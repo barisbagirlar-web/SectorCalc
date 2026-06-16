@@ -1,0 +1,87 @@
+{
+  "toolName": "equilibrium-constant-calculator",
+  "inputs": [
+    {
+      "id": "c_A",
+      "label": "Concentration of A",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.1,
+      "businessContext": "Equilibrium concentration of reactant A"
+    },
+    {
+      "id": "c_B",
+      "label": "Concentration of B",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.1,
+      "businessContext": "Equilibrium concentration of reactant B"
+    },
+    {
+      "id": "c_C",
+      "label": "Concentration of C",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.1,
+      "businessContext": "Equilibrium concentration of product C"
+    },
+    {
+      "id": "c_D",
+      "label": "Concentration of D",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.1,
+      "businessContext": "Equilibrium concentration of product D"
+    },
+    {
+      "id": "a",
+      "label": "Coefficient a",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Stoichiometric coefficient of A"
+    },
+    {
+      "id": "b",
+      "label": "Coefficient b",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Stoichiometric coefficient of B"
+    },
+    {
+      "id": "c",
+      "label": "Coefficient c",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Stoichiometric coefficient of C"
+    },
+    {
+      "id": "d",
+      "label": "Coefficient d",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Stoichiometric coefficient of D"
+    }
+  ],
+  "formulas": {
+    "equilibriumConstant": "Math.pow(c_C, c) * Math.pow(c_D, d) / (Math.pow(c_A, a) * Math.pow(c_B, b))",
+    "numerator": "Math.pow(c_C, c) * Math.pow(c_D, d)",
+    "denominator": "Math.pow(c_A, a) * Math.pow(c_B, b)"
+  },
+  "outputs": {
+    "primary": "equilibriumConstant",
+    "breakdown": [
+      "numerator",
+      "denominator"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

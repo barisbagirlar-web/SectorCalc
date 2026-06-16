@@ -1,0 +1,63 @@
+{
+  "toolName": "gestational-diabetes-glucose-monitoring-calculator",
+  "inputs": [
+    {
+      "id": "bloodGlucose",
+      "label": "Blood Glucose",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 100,
+      "businessContext": "Measured blood glucose concentration for diabetes management"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0.0555,
+      "businessContext": "Conversion constant from mg/dL to mmol/L used in laboratory reporting"
+    },
+    {
+      "id": "timeSinceMeal",
+      "label": "Time Since Last Meal",
+      "type": "number",
+      "unit": "hours",
+      "default": 2,
+      "businessContext": "Time elapsed since last meal to adjust for postprandial variation"
+    },
+    {
+      "id": "targetLow",
+      "label": "Target Low Glucose",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 70,
+      "businessContext": "Lower therapeutic target for glucose level in gestational diabetes"
+    },
+    {
+      "id": "targetHigh",
+      "label": "Target High Glucose",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 140,
+      "businessContext": "Upper therapeutic target for glucose level in gestational diabetes"
+    }
+  ],
+  "formulas": {
+    "glucoseScore": "(bloodGlucose - targetLow) / (targetHigh - targetLow)",
+    "glucoseMmol": "bloodGlucose * conversionFactor",
+    "adjustedGlucose": "bloodGlucose / (1 + ((2 - timeSinceMeal) + Math.sqrt((2 - timeSinceMeal)*(2 - timeSinceMeal))) / 2 * 0.2)"
+  },
+  "outputs": {
+    "primary": "glucoseScore",
+    "breakdown": [
+      "glucoseMmol",
+      "adjustedGlucose"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "tablespoon-to-teaspoon-calculator",
+  "inputs": [
+    {
+      "id": "tablespoons",
+      "label": "Tablespoons",
+      "type": "number",
+      "unit": "tbsp",
+      "default": 1,
+      "businessContext": "Amount of substance in tablespoons"
+    },
+    {
+      "id": "conversionRate",
+      "label": "Conversion Rate",
+      "type": "number",
+      "unit": "tsp/tbsp",
+      "default": 3,
+      "businessContext": "Number of teaspoons per tablespoon (standard US: 3)"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for output"
+    },
+    {
+      "id": "batchMultiplier",
+      "label": "Batch Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiply by number of batches for total teaspoons"
+    }
+  ],
+  "formulas": {
+    "teaspoonsRounded": "Math.round( (tablespoons * conversionRate * batchMultiplier) * Math.pow(10, precision) ) / Math.pow(10, precision)",
+    "rawTeaspoons": "tablespoons * conversionRate * batchMultiplier",
+    "conversionRateUsed": "conversionRate",
+    "batchMultiplierUsed": "batchMultiplier"
+  },
+  "outputs": {
+    "primary": "teaspoonsRounded",
+    "breakdown": [
+      "rawTeaspoons",
+      "conversionRateUsed",
+      "batchMultiplierUsed"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

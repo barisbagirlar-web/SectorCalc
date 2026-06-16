@@ -1,0 +1,55 @@
+{
+  "toolName": "butterworth-filter-calculator",
+  "inputs": [
+    {
+      "id": "order",
+      "label": "Filter Order (n)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Order of the Butterworth filter (positive integer). Higher order gives steeper roll-off."
+    },
+    {
+      "id": "cutoffHz",
+      "label": "Cutoff Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1000,
+      "businessContext": "Cutoff frequency at -3 dB point."
+    },
+    {
+      "id": "frequencyHz",
+      "label": "Frequency of Interest",
+      "type": "number",
+      "unit": "Hz",
+      "default": 2000,
+      "businessContext": "Frequency at which to evaluate the filter response."
+    },
+    {
+      "id": "gain",
+      "label": "Passband Gain",
+      "type": "number",
+      "unit": "V/V",
+      "default": 1,
+      "businessContext": "Linear gain in the passband (for active filters). Typically 1 for unity-gain Sallen-Key."
+    }
+  ],
+  "formulas": {
+    "attenuationFactor": "1 / Math.sqrt(1 + Math.pow(frequencyHz / cutoffHz, 2 * order))",
+    "magnitude": "gain * attenuationFactor",
+    "attenuation_dB": "20 * Math.log10(magnitude)"
+  },
+  "outputs": {
+    "primary": "attenuation_dB",
+    "breakdown": [
+      "attenuationFactor",
+      "magnitude"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

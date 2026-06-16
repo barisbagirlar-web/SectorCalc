@@ -1,0 +1,59 @@
+{
+  "toolName": "baby-length-calculator",
+  "inputs": [
+    {
+      "id": "ageMonths",
+      "label": "Age (months)",
+      "type": "number",
+      "unit": "months",
+      "default": 6,
+      "businessContext": "Baby's age in months, used for length estimation based on standard growth curves."
+    },
+    {
+      "id": "weightKg",
+      "label": "Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 7.5,
+      "businessContext": "Baby's weight in kilograms, a supplementary predictor for length."
+    },
+    {
+      "id": "genderCode",
+      "label": "Gender (0=girl, 1=boy)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Gender code (0 for female, 1 for male) to apply length offset."
+    },
+    {
+      "id": "prematureWeeks",
+      "label": "Premature (weeks)",
+      "type": "number",
+      "unit": "weeks",
+      "default": 0,
+      "businessContext": "Number of weeks born early; used to correct age for prematurity adjustment."
+    }
+  ],
+  "formulas": {
+    "correctedAge": "ageMonths - (prematureWeeks / 4.345)",
+    "ageComponent": "45 + 2.5 * correctedAge",
+    "weightComponent": "0.8 * weightKg",
+    "genderComponent": "genderCode * 1.0",
+    "estimatedLength": "ageComponent + weightComponent + genderComponent"
+  },
+  "outputs": {
+    "primary": "estimatedLength",
+    "breakdown": [
+      "correctedAge",
+      "ageComponent",
+      "weightComponent",
+      "genderComponent"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

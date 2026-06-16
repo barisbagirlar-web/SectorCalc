@@ -1,0 +1,77 @@
+{
+  "toolName": "age-in-seconds-calculator",
+  "inputs": [
+    {
+      "id": "birthYear",
+      "label": "Doğum Yılı",
+      "type": "number",
+      "unit": "yıl",
+      "default": 1990,
+      "businessContext": "Kullanıcının doğum yılı"
+    },
+    {
+      "id": "birthMonth",
+      "label": "Doğum Ayı",
+      "type": "number",
+      "unit": "ay",
+      "default": 1,
+      "businessContext": "Kullanıcının doğum ayı (1-12)"
+    },
+    {
+      "id": "birthDay",
+      "label": "Doğum Günü",
+      "type": "number",
+      "unit": "gün",
+      "default": 1,
+      "businessContext": "Kullanıcının doğum günü (1-31)"
+    },
+    {
+      "id": "currentYear",
+      "label": "Mevcut Yıl",
+      "type": "number",
+      "unit": "yıl",
+      "default": 2025,
+      "businessContext": "Hesaplama yapılan yıl"
+    },
+    {
+      "id": "currentMonth",
+      "label": "Mevcut Ay",
+      "type": "number",
+      "unit": "ay",
+      "default": 1,
+      "businessContext": "Hesaplama yapılan ay (1-12)"
+    },
+    {
+      "id": "currentDay",
+      "label": "Mevcut Gün",
+      "type": "number",
+      "unit": "gün",
+      "default": 1,
+      "businessContext": "Hesaplama yapılan gün (1-31)"
+    }
+  ],
+  "formulas": {
+    "totalDays": "(currentYear - birthYear) * 365.25 + (currentMonth - birthMonth) * 30.4375 + (currentDay - birthDay)",
+    "ageInSeconds": "totalDays * 86400"
+  },
+  "outputs": {
+    "primary": {
+      "id": "ageInSeconds",
+      "label": "Yaş (saniye)",
+      "unit": "saniye"
+    },
+    "breakdown": [
+      {
+        "id": "totalDays",
+        "label": "Toplam Gün",
+        "unit": "gün"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

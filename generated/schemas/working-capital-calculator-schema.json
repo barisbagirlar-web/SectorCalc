@@ -1,0 +1,75 @@
+{
+  "toolName": "working-capital-calculator",
+  "inputs": [
+    {
+      "id": "cash",
+      "label": "Cash & Cash Equivalents",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Current Assets"
+    },
+    {
+      "id": "receivables",
+      "label": "Accounts Receivable",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Current Assets"
+    },
+    {
+      "id": "inventory",
+      "label": "Inventory",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Current Assets"
+    },
+    {
+      "id": "payables",
+      "label": "Accounts Payable",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Current Liabilities"
+    },
+    {
+      "id": "shortTermDebt",
+      "label": "Short-Term Debt",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Current Liabilities"
+    }
+  ],
+  "formulas": {
+    "currentAssets": "cash + receivables + inventory",
+    "currentLiabilities": "payables + shortTermDebt",
+    "workingCapital": "currentAssets - currentLiabilities"
+  },
+  "outputs": {
+    "primary": {
+      "id": "workingCapital",
+      "label": "Working Capital",
+      "unit": "USD"
+    },
+    "breakdown": [
+      {
+        "id": "currentAssets",
+        "label": "Total Current Assets",
+        "unit": "USD"
+      },
+      {
+        "id": "currentLiabilities",
+        "label": "Total Current Liabilities",
+        "unit": "USD"
+      }
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

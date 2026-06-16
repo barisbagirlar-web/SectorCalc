@@ -1,0 +1,59 @@
+{
+  "toolName": "medicare-part-b-calculator",
+  "inputs": [
+    {
+      "id": "magi",
+      "label": "Modified Adjusted Gross Income (MAGI)",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 0,
+      "businessContext": "Annual income used to determine Income Related Monthly Adjustment Amount (IRMAA)"
+    },
+    {
+      "id": "filingStatus",
+      "label": "Filing Status",
+      "type": "number",
+      "unit": "code (0 = single/individual, 1 = married filing jointly)",
+      "default": 0,
+      "businessContext": "IRS tax filing status that determines IRMAA brackets"
+    },
+    {
+      "id": "standardPremium",
+      "label": "Standard Part B Monthly Premium",
+      "type": "number",
+      "unit": "USD/month",
+      "default": 174.7,
+      "businessContext": "Current year base monthly premium without adjustments"
+    },
+    {
+      "id": "lateEnrollmentMonths",
+      "label": "Late Enrollment Period in Months",
+      "type": "number",
+      "unit": "months",
+      "default": 0,
+      "businessContext": "Number of months past Initial Enrollment Period without Part B or creditable coverage; used to compute penalty"
+    }
+  ],
+  "formulas": {
+    "surcharge": "filingStatus === 0 ? (magi <= 103000 ? 0 : magi <= 129000 ? 69.90 : magi <= 161000 ? 174.70 : magi <= 193000 ? 279.50 : magi <= 500000 ? 384.30 : 419.30) : (magi <= 206000 ? 0 : magi <= 258000 ? 69.90 : magi <= 322000 ? 174.70 : magi <= 386000 ? 279.50 : magi <= 750000 ? 384.30 : 419.30)",
+    "latePenaltyFactor": "1 + 0.1 * Math.floor(lateEnrollmentMonths / 12)",
+    "basePremium": "standardPremium",
+    "monthlyPremium": "(standardPremium + surcharge) * latePenaltyFactor",
+    "annualCost": "monthlyPremium * 12"
+  },
+  "outputs": {
+    "primary": "monthlyPremium",
+    "breakdown": [
+      "basePremium",
+      "surcharge",
+      "latePenaltyFactor",
+      "annualCost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

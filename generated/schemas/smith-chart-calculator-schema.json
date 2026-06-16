@@ -1,0 +1,68 @@
+{
+  "toolName": "smith-chart-calculator",
+  "inputs": [
+    {
+      "id": "loadResistance",
+      "label": "Load Resistance (R_L)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 50,
+      "businessContext": "Resistance of the load impedance."
+    },
+    {
+      "id": "loadReactance",
+      "label": "Load Reactance (X_L)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 0,
+      "businessContext": "Reactance of the load impedance (positive inductive, negative capacitive)."
+    },
+    {
+      "id": "characteristicImpedance",
+      "label": "Characteristic Impedance (Z₀)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 50,
+      "businessContext": "Characteristic impedance of the transmission line."
+    },
+    {
+      "id": "distanceWavelengths",
+      "label": "Electrical Distance (d)",
+      "type": "number",
+      "unit": "λ",
+      "default": 0,
+      "businessContext": "Distance from load in wavelengths (0 to 0.5)."
+    }
+  ],
+  "formulas": {
+    "r": "loadResistance / characteristicImpedance",
+    "x": "loadReactance / characteristicImpedance",
+    "mag": "Math.sqrt((Math.pow(r-1,2)+Math.pow(x,2))/(Math.pow(r+1,2)+Math.pow(x,2)))",
+    "angleRad": "Math.atan2(x, r-1) - Math.atan2(x, r+1)",
+    "angleDeg": "angleRad * 180 / Math.PI",
+    "vswr": "(1+mag)/(1-mag)",
+    "realG": "mag * Math.cos(angleRad - 4*Math.PI*distanceWavelengths)",
+    "imagG": "mag * Math.sin(angleRad - 4*Math.PI*distanceWavelengths)",
+    "denMag2": "Math.pow(1-realG,2)+Math.pow(imagG,2)",
+    "inputImpedanceReal": "characteristicImpedance * ( (1 - Math.pow(realG,2) - Math.pow(imagG,2)) / denMag2 )",
+    "inputImpedanceImag": "characteristicImpedance * ( 2*imagG / denMag2 )",
+    "reflectionCoefficientMagnitude": "mag",
+    "reflectionCoefficientAngleDeg": "angleDeg - 720*distanceWavelengths",
+    "VSWR": "vswr"
+  },
+  "outputs": {
+    "primary": "inputImpedanceReal",
+    "breakdown": [
+      "inputImpedanceImag",
+      "reflectionCoefficientMagnitude",
+      "reflectionCoefficientAngleDeg",
+      "VSWR"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

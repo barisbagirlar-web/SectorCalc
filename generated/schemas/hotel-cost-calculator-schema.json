@@ -1,0 +1,83 @@
+{
+  "toolName": "hotel-cost-calculator",
+  "inputs": [
+    {
+      "id": "nights",
+      "label": "Number of Nights",
+      "type": "number",
+      "unit": "nights",
+      "default": 1,
+      "businessContext": "Total number of nights stayed"
+    },
+    {
+      "id": "roomRate",
+      "label": "Room Rate per Night",
+      "type": "number",
+      "unit": "€",
+      "default": 100,
+      "businessContext": "Cost per night for the room"
+    },
+    {
+      "id": "guests",
+      "label": "Number of Guests",
+      "type": "number",
+      "unit": "guests",
+      "default": 1,
+      "businessContext": "Number of people staying"
+    },
+    {
+      "id": "mealsPerDay",
+      "label": "Meals per Day",
+      "type": "number",
+      "unit": "meals",
+      "default": 3,
+      "businessContext": "Average number of meals per person per day"
+    },
+    {
+      "id": "mealCost",
+      "label": "Average Meal Cost",
+      "type": "number",
+      "unit": "€",
+      "default": 15,
+      "businessContext": "Average cost per meal per person"
+    },
+    {
+      "id": "transportCost",
+      "label": "Total Transport Cost",
+      "type": "number",
+      "unit": "€",
+      "default": 50,
+      "businessContext": "Total transportation expenses"
+    },
+    {
+      "id": "otherCost",
+      "label": "Other Expenses",
+      "type": "number",
+      "unit": "€",
+      "default": 0,
+      "businessContext": "Any additional costs"
+    }
+  ],
+  "formulas": {
+    "roomTotal": "nights * roomRate",
+    "mealTotal": "nights * guests * mealsPerDay * mealCost",
+    "totalCost": "roomTotal + mealTotal + transportCost + otherCost",
+    "averagePerNight": "totalCost / nights",
+    "averagePerGuestPerNight": "totalCost / nights / guests"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "roomTotal",
+      "mealTotal",
+      "averagePerNight",
+      "averagePerGuestPerNight"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

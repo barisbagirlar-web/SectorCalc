@@ -1,0 +1,55 @@
+{
+  "toolName": "walking-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Weight of the person in kilograms."
+    },
+    {
+      "id": "duration",
+      "label": "Walking Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Duration of walking activity in minutes."
+    },
+    {
+      "id": "speed",
+      "label": "Walking Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 5,
+      "businessContext": "Average walking speed in kilometers per hour."
+    },
+    {
+      "id": "grade",
+      "label": "Incline Grade",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Incline grade of the walking surface as a percentage (0% for flat)."
+    }
+  ],
+  "formulas": {
+    "VO2": "3.5 + ((speed * 1000 / 60) * 0.1) + ((grade / 100) * (speed * 1000 / 60) * 1.8)",
+    "MET": "VO2 / 3.5",
+    "calories": "MET * weight * (duration / 60)"
+  },
+  "outputs": {
+    "primary": "calories",
+    "breakdown": [
+      "VO2",
+      "MET"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

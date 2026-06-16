@@ -1,0 +1,56 @@
+{
+  "toolName": "taper-calculator",
+  "inputs": [
+    {
+      "id": "largeDiameter",
+      "label": "Large Diameter (D)",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "The larger diameter of the tapered section"
+    },
+    {
+      "id": "smallDiameter",
+      "label": "Small Diameter (d)",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "The smaller diameter of the tapered section"
+    },
+    {
+      "id": "length",
+      "label": "Length (L)",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "businessContext": "The length over which the taper is measured"
+    },
+    {
+      "id": "referenceLength",
+      "label": "Reference Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "A standard length over which to compute the diameter reduction (e.g., 100 mm)"
+    }
+  ],
+  "formulas": {
+    "taperRatio": "(largeDiameter - smallDiameter) / length",
+    "taperPerRefLength": "((largeDiameter - smallDiameter) / length) * referenceLength",
+    "taperAngleDeg": "2 * Math.atan((largeDiameter - smallDiameter) / (2 * length)) * (180 / Math.PI)"
+  },
+  "outputs": {
+    "primary": "taperRatio",
+    "breakdown": [
+      "taperRatio",
+      "taperPerRefLength",
+      "taperAngleDeg"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Atölye & Tamir",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

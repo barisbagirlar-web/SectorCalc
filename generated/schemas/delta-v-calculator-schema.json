@@ -1,0 +1,57 @@
+{
+  "toolName": "delta-v-calculator",
+  "inputs": [
+    {
+      "id": "initialMass",
+      "label": "Initial Mass (m0)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Total mass of the vehicle including propellant before burn."
+    },
+    {
+      "id": "finalMass",
+      "label": "Final Mass (mf)",
+      "type": "number",
+      "unit": "kg",
+      "default": 500,
+      "businessContext": "Mass of the vehicle after propellant is expended."
+    },
+    {
+      "id": "specificImpulse",
+      "label": "Specific Impulse (Isp)",
+      "type": "number",
+      "unit": "s",
+      "default": 300,
+      "businessContext": "Measure of engine efficiency, thrust per weight flow rate."
+    },
+    {
+      "id": "gravity",
+      "label": "Standard Gravity (g0)",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Acceleration due to gravity at sea level, used to convert specific impulse to exhaust velocity."
+    }
+  ],
+  "formulas": {
+    "massRatio": "initialMass / finalMass",
+    "exhaustVelocity": "specificImpulse * gravity",
+    "logMassRatio": "Math.log(massRatio)",
+    "deltaV": "exhaustVelocity * logMassRatio"
+  },
+  "outputs": {
+    "primary": "deltaV",
+    "breakdown": [
+      "massRatio",
+      "exhaustVelocity",
+      "logMassRatio"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

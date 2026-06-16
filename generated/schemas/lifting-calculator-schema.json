@@ -1,0 +1,71 @@
+{
+  "toolName": "lifting-calculator",
+  "inputs": [
+    {
+      "id": "loadWeight",
+      "label": "Yük Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Kaldırılacak yükün ağırlığı (kg)"
+    },
+    {
+      "id": "numberOfLegs",
+      "label": "Sapan Ayağı Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 4,
+      "businessContext": "Kaldırma aparatındaki sapan ayak sayısı"
+    },
+    {
+      "id": "slingAngle",
+      "label": "Sapan Açısı (düşeyle)",
+      "type": "number",
+      "unit": "derece",
+      "default": 60,
+      "businessContext": "Sapanın düşeyle yaptığı açı (0-90 arası)"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Emniyet Katsayısı",
+      "type": "number",
+      "unit": "kat",
+      "default": 5,
+      "businessContext": "Kaldırma ekipmanı için emniyet katsayısı (genellikle 4-7)"
+    },
+    {
+      "id": "dynamicFactor",
+      "label": "Darbe Faktörü",
+      "type": "number",
+      "unit": "kat",
+      "default": 1.1,
+      "businessContext": "Ani hareketlerden kaynaklanan ek yük faktörü (genellikle 1.1-1.3)"
+    },
+    {
+      "id": "loadDistributionFactor",
+      "label": "Yük Dağılım Faktörü",
+      "type": "number",
+      "unit": "oran",
+      "default": 1,
+      "businessContext": "Asimetrik yük dağılımını hesaba katmak için faktör (1.0 simetrik dağılım)"
+    }
+  ],
+  "formulas": {
+    "verticalLoad": "loadWeight * safetyFactor * dynamicFactor * loadDistributionFactor",
+    "tensionPerLeg": "(loadWeight * safetyFactor * dynamicFactor * loadDistributionFactor) / (numberOfLegs * Math.cos(slingAngle * Math.PI / 180))",
+    "requiredCraneCapacity": "loadWeight * safetyFactor * dynamicFactor * loadDistributionFactor"
+  },
+  "outputs": {
+    "primary": "requiredCraneCapacity",
+    "breakdown": [
+      "tensionPerLeg",
+      "verticalLoad"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

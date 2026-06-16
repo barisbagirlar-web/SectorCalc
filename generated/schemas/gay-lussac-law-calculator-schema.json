@@ -1,0 +1,57 @@
+{
+  "toolName": "gay-lussac-law-calculator",
+  "inputs": [
+    {
+      "id": "p1",
+      "label": "Initial Pressure (P₁)",
+      "type": "number",
+      "unit": "Pa",
+      "default": 101325,
+      "businessContext": "Initial absolute pressure of the gas. Enter 0 if unknown."
+    },
+    {
+      "id": "t1",
+      "label": "Initial Temperature (T₁)",
+      "type": "number",
+      "unit": "K",
+      "default": 273.15,
+      "businessContext": "Initial absolute temperature of the gas. Enter 0 if unknown."
+    },
+    {
+      "id": "p2",
+      "label": "Final Pressure (P₂)",
+      "type": "number",
+      "unit": "Pa",
+      "default": 0,
+      "businessContext": "Final absolute pressure of the gas. Enter 0 if unknown."
+    },
+    {
+      "id": "t2",
+      "label": "Final Temperature (T₂)",
+      "type": "number",
+      "unit": "K",
+      "default": 373.15,
+      "businessContext": "Final absolute temperature of the gas. Enter 0 if unknown."
+    }
+  ],
+  "formulas": {
+    "calculated_value": "p1 === 0 ? (p2 * t1 / t2) : (t1 === 0 ? (p1 * t2 / p2) : (p2 === 0 ? (p1 * t2 / t1) : (p2 * t1 / p1)))"
+  },
+  "outputs": {
+    "primary": "calculated_value",
+    "breakdown": [
+      "Gay-Lussac Law: P₁/T₁ = P₂/T₂ (constant volume and mass)",
+      "Substitute known values and solve for the unknown.",
+      "If you are solving for P₁: P₁ = P₂ * T₁ / T₂",
+      "If solving for T₁: T₁ = P₁ * T₂ / P₂",
+      "If solving for P₂: P₂ = P₁ * T₂ / T₁",
+      "If solving for T₂: T₂ = P₂ * T₁ / P₁"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

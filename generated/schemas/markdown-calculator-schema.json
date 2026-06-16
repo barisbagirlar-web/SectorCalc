@@ -1,0 +1,69 @@
+{
+  "toolName": "markdown-calculator",
+  "inputs": [
+    {
+      "id": "originalPrice",
+      "label": "Original Unit Price",
+      "type": "number",
+      "unit": "EUR",
+      "default": 100,
+      "businessContext": "List price before any discount"
+    },
+    {
+      "id": "markdownPercentage",
+      "label": "Markdown Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Discount percentage applied to original price"
+    },
+    {
+      "id": "fixedDiscount",
+      "label": "Fixed Discount per Unit",
+      "type": "number",
+      "unit": "EUR",
+      "default": 5,
+      "businessContext": "Fixed amount off after percentage discount"
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "pcs",
+      "default": 10,
+      "businessContext": "Number of items purchased"
+    },
+    {
+      "id": "vatRate",
+      "label": "VAT Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Value Added Tax percentage"
+    }
+  ],
+  "formulas": {
+    "unitPriceAfterPercentage": "originalPrice * (1 - markdownPercentage/100)",
+    "unitPriceAfterFixed": "unitPriceAfterPercentage - fixedDiscount",
+    "totalExclVat": "unitPriceAfterFixed * quantity",
+    "vatAmount": "totalExclVat * vatRate/100",
+    "totalInclVat": "totalExclVat + vatAmount",
+    "totalSavings": "(originalPrice * quantity) - totalExclVat"
+  },
+  "outputs": {
+    "primary": "totalInclVat",
+    "breakdown": [
+      "unitPriceAfterPercentage",
+      "unitPriceAfterFixed",
+      "totalExclVat",
+      "vatAmount",
+      "totalSavings"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

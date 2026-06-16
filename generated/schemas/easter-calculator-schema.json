@@ -1,0 +1,66 @@
+{
+  "toolName": "easter-calculator",
+  "inputs": [
+    {
+      "id": "year",
+      "label": "Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2023,
+      "businessContext": "Gregorian year for which to calculate Easter date"
+    },
+    {
+      "id": "daysToAdd",
+      "label": "Days Adjustment",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Number of days to shift the computed Easter date"
+    },
+    {
+      "id": "algorithmVersion",
+      "label": "Algorithm Version",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Version of the computus algorithm (1 = Gregorian, 2 = Julian, not used in formula)"
+    },
+    {
+      "id": "moonPhaseOffset",
+      "label": "Moon Phase Offset",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Offset in days to adjust the paschal full moon calculation"
+    }
+  ],
+  "formulas": {
+    "a": "year % 19",
+    "b": "Math.floor(year / 100)",
+    "c": "year % 100",
+    "d": "Math.floor(b / 4)",
+    "e": "b % 4",
+    "f": "Math.floor((b + 8) / 25)",
+    "g": "Math.floor((b - f + 1) / 3)",
+    "h": "(19 * a + b - d - g + 15 + moonPhaseOffset) % 30",
+    "i": "Math.floor(c / 4)",
+    "k": "c % 4",
+    "l": "(32 + 2 * e + 2 * i - h - k) % 7",
+    "m": "Math.floor((a + 11 * h + 22 * l) / 451)",
+    "month": "Math.floor((h + l - 7 * m + 114) / 31)",
+    "day": "((h + l - 7 * m + 114) % 31) + 1 + daysToAdd"
+  },
+  "outputs": {
+    "primary": "'Easter: ' + month + '/' + day + '/' + year",
+    "breakdown": [
+      "month",
+      "day"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

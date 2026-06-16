@@ -1,0 +1,59 @@
+{
+  "toolName": "decimal-odds-calculator",
+  "inputs": [
+    {
+      "id": "decimalOdds",
+      "label": "Decimal Odds",
+      "type": "number",
+      "unit": "x",
+      "default": 2,
+      "businessContext": "Decimal odds represent the total payout per unit stake, including original stake. E.g., 2.0 means double your money."
+    },
+    {
+      "id": "stake",
+      "label": "Stake Amount",
+      "type": "number",
+      "unit": "€",
+      "default": 100,
+      "businessContext": "The amount of money placed as a bet."
+    },
+    {
+      "id": "margin",
+      "label": "Bookmaker Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Bookmaker's profit margin applied to odds, expressed as a percentage. E.g., 5% margin reduces true probability."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate on Winnings",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Applicable tax rate on net winnings (profit), if any. E.g., 10% for 10% tax."
+    }
+  ],
+  "formulas": {
+    "totalReturn": "stake * decimalOdds",
+    "profitBeforeTax": "stake * decimalOdds - stake",
+    "profitAfterTax": "(stake * decimalOdds - stake) * (1 - taxRate / 100)",
+    "impliedProbability": "1 / decimalOdds",
+    "fairDecimalOdds": "1 / ((1 / decimalOdds) / (1 + margin / 100))"
+  },
+  "outputs": {
+    "primary": "totalReturn",
+    "breakdown": [
+      "profitBeforeTax",
+      "profitAfterTax",
+      "impliedProbability",
+      "fairDecimalOdds"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

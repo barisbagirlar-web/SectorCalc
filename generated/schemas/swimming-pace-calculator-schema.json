@@ -1,0 +1,58 @@
+{
+  "toolName": "swimming-pace-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "meters",
+      "default": 100,
+      "businessContext": "Total distance swum in meters"
+    },
+    {
+      "id": "timeMinutes",
+      "label": "Time (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 2,
+      "businessContext": "Total time in minutes"
+    },
+    {
+      "id": "timeSeconds",
+      "label": "Time (seconds)",
+      "type": "number",
+      "unit": "seconds",
+      "default": 0,
+      "businessContext": "Additional seconds component of total time"
+    },
+    {
+      "id": "poolLength",
+      "label": "Pool Length",
+      "type": "number",
+      "unit": "meters",
+      "default": 25,
+      "businessContext": "Length of the swimming pool in meters"
+    }
+  ],
+  "formulas": {
+    "totalTimeSeconds": "timeMinutes * 60 + timeSeconds",
+    "pacePer100m": "totalTimeSeconds / (distance / 100)",
+    "pacePerLap": "totalTimeSeconds / (distance / poolLength)",
+    "speedMps": "distance / totalTimeSeconds",
+    "speedKmph": "speedMps * 3.6"
+  },
+  "outputs": {
+    "primary": "pacePer100m",
+    "breakdown": [
+      "Pace per 100m: {pacePer100m} seconds",
+      "Pace per lap: {pacePerLap} seconds",
+      "Speed: {speedKmph} km/h"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,67 @@
+{
+  "toolName": "odds-calculator",
+  "inputs": [
+    {
+      "id": "homeProb",
+      "label": "Home Win Probability",
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "businessContext": "Estimated probability of home team winning, as percentage."
+    },
+    {
+      "id": "drawProb",
+      "label": "Draw Probability",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Estimated probability of a draw, as percentage."
+    },
+    {
+      "id": "awayProb",
+      "label": "Away Win Probability",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Estimated probability of away team winning, as percentage."
+    },
+    {
+      "id": "margin",
+      "label": "Margin (Overround)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Bookmaker margin as percentage over fair odds (e.g., 5% overround)."
+    }
+  ],
+  "formulas": {
+    "fairHomeDecimal": "homeProb > 0 ? 100 / homeProb : 0",
+    "fairDrawDecimal": "drawProb > 0 ? 100 / drawProb : 0",
+    "fairAwayDecimal": "awayProb > 0 ? 100 / awayProb : 0",
+    "marginFactor": "1 + margin / 100",
+    "homeOdds": "fairHomeDecimal / marginFactor",
+    "drawOdds": "fairDrawDecimal / marginFactor",
+    "awayOdds": "fairAwayDecimal / marginFactor",
+    "impliedHomeProb": "homeOdds > 0 ? 100 / homeOdds : 0",
+    "impliedDrawProb": "drawOdds > 0 ? 100 / drawOdds : 0",
+    "impliedAwayProb": "awayOdds > 0 ? 100 / awayOdds : 0",
+    "overround": "(impliedHomeProb + impliedDrawProb + impliedAwayProb) - 100"
+  },
+  "outputs": {
+    "primary": "overround",
+    "breakdown": [
+      "homeOdds",
+      "drawOdds",
+      "awayOdds",
+      "impliedHomeProb",
+      "impliedDrawProb",
+      "impliedAwayProb"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

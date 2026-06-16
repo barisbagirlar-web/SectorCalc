@@ -1,0 +1,53 @@
+{
+  "toolName": "body-water-percentage-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms"
+    },
+    {
+      "id": "height",
+      "label": "Height (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Height in centimeters"
+    },
+    {
+      "id": "age",
+      "label": "Age (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age in years"
+    },
+    {
+      "id": "gender",
+      "label": "Gender (0: Female, 1: Male)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Gender code: 0 for female, 1 for male"
+    }
+  ],
+  "formulas": {
+    "totalBodyWater": "(1 - gender) * (-2.097 + 0.1069 * height + 0.2466 * weight) + gender * (2.447 - 0.09156 * age + 0.1074 * height + 0.3362 * weight)",
+    "bodyWaterPercentage": "(((1 - gender) * (-2.097 + 0.1069 * height + 0.2466 * weight) + gender * (2.447 - 0.09156 * age + 0.1074 * height + 0.3362 * weight)) / weight) * 100"
+  },
+  "outputs": {
+    "primary": "bodyWaterPercentage",
+    "breakdown": [
+      "totalBodyWater"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,66 @@
+{
+  "toolName": "storage-calculator-video-calculator",
+  "inputs": [
+    {
+      "id": "numCameras",
+      "label": "Number of Cameras",
+      "type": "number",
+      "unit": "adet",
+      "default": 4,
+      "businessContext": "Total IP cameras in system"
+    },
+    {
+      "id": "bitrate",
+      "label": "Average Bitrate per Camera",
+      "type": "number",
+      "unit": "Mbps",
+      "default": 4,
+      "businessContext": "Estimated bitrate per camera (depends on resolution, fps, compression)"
+    },
+    {
+      "id": "recordingHours",
+      "label": "Recording Hours per Day",
+      "type": "number",
+      "unit": "saat/gün",
+      "default": 24,
+      "businessContext": "Daily recording duration per camera"
+    },
+    {
+      "id": "retentionDays",
+      "label": "Retention Period",
+      "type": "number",
+      "unit": "gün",
+      "default": 30,
+      "businessContext": "Number of days to keep footage"
+    },
+    {
+      "id": "overheadPercent",
+      "label": "Storage Overhead",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Additional capacity for RAID, formatting, and system"
+    }
+  ],
+  "formulas": {
+    "dailyGBPerCamera": "bitrate * recordingHours * 3600 / (8 * 1024)",
+    "dailyGBTotal": "dailyGBPerCamera * numCameras",
+    "totalGB": "numCameras * bitrate * recordingHours * 3600 * retentionDays / (8 * 1024)",
+    "totalWithOverhead": "totalGB * (1 + overheadPercent / 100)",
+    "totalTB": "totalWithOverhead / 1024"
+  },
+  "outputs": {
+    "primary": "totalTB",
+    "breakdown": [
+      "totalWithOverhead",
+      "dailyGBTotal",
+      "dailyGBPerCamera"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

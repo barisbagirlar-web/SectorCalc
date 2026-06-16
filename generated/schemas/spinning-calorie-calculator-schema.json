@@ -1,0 +1,79 @@
+{
+  "toolName": "spinning-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User's body weight in kilograms."
+    },
+    {
+      "id": "duration",
+      "label": "Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 30,
+      "businessContext": "Duration of the spinning session."
+    },
+    {
+      "id": "met",
+      "label": "MET Value",
+      "type": "number",
+      "unit": "MET",
+      "default": 8.5,
+      "businessContext": "Metabolic Equivalent of Task for spinning, indicating exercise intensity."
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "User's age for more accurate estimation."
+    },
+    {
+      "id": "restingHR",
+      "label": "Resting Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 70,
+      "businessContext": "User's resting heart rate for heart rate based calculation."
+    },
+    {
+      "id": "averageHR",
+      "label": "Average Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 150,
+      "businessContext": "Average heart rate during exercise."
+    },
+    {
+      "id": "gender",
+      "label": "Gender (1=Male, 0=Female)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "User's gender: 1 for male, 0 for female."
+    }
+  ],
+  "formulas": {
+    "caloriesBurned": "weight * met * (duration / 60)",
+    "metBasedCalories": "weight * met * (duration / 60)",
+    "hrBasedCalories": "gender === 1 ? ((age * 0.2017) + (weight * 0.09036) + (averageHR * 0.6309) - 55.0969) * duration / 4.184 : ((age * 0.074) + (weight * 0.05741) + (averageHR * 0.4472) - 20.4022) * duration / 4.184"
+  },
+  "outputs": {
+    "primary": "caloriesBurned",
+    "breakdown": [
+      "metBasedCalories",
+      "hrBasedCalories"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

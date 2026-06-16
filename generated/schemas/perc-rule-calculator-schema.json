@@ -1,0 +1,65 @@
+{
+  "toolName": "perc-rule-calculator",
+  "inputs": [
+    {
+      "id": "plannedTime",
+      "label": "Planned Production Time",
+      "type": "number",
+      "unit": "min",
+      "default": 480,
+      "businessContext": "Total time planned for production including breaks and expected downtime."
+    },
+    {
+      "id": "operatingTime",
+      "label": "Operating Time",
+      "type": "number",
+      "unit": "min",
+      "default": 460,
+      "businessContext": "Actual time the machine was running and producing."
+    },
+    {
+      "id": "idealCycleTime",
+      "label": "Ideal Cycle Time",
+      "type": "number",
+      "unit": "sec/unit",
+      "default": 30,
+      "businessContext": "The theoretical fastest time to produce one unit."
+    },
+    {
+      "id": "totalUnits",
+      "label": "Total Units Produced",
+      "type": "number",
+      "unit": "units",
+      "default": 900,
+      "businessContext": "Total number of units produced, including defective ones."
+    },
+    {
+      "id": "defects",
+      "label": "Defective Units",
+      "type": "number",
+      "unit": "units",
+      "default": 10,
+      "businessContext": "Units that do not meet quality standards."
+    }
+  ],
+  "formulas": {
+    "availability": "operatingTime / plannedTime",
+    "performance": "(idealCycleTime * totalUnits) / (operatingTime * 60)",
+    "quality": "(totalUnits - defects) / totalUnits",
+    "oee": "availability * performance * quality"
+  },
+  "outputs": {
+    "primary": "oee",
+    "breakdown": [
+      "availability",
+      "performance",
+      "quality"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

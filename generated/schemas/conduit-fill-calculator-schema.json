@@ -1,0 +1,71 @@
+{
+  "toolName": "conduit-fill-calculator",
+  "inputs": [
+    {
+      "id": "conduitInnerDiameter",
+      "label": "Conduit Inner Diameter",
+      "type": "number",
+      "unit": "in",
+      "default": 1,
+      "businessContext": "Internal diameter of the conduit in inches."
+    },
+    {
+      "id": "cableOuterDiameter",
+      "label": "Cable Outer Diameter",
+      "type": "number",
+      "unit": "in",
+      "default": 0.25,
+      "businessContext": "Outer diameter of a single conductor cable in inches."
+    },
+    {
+      "id": "numberOfConductors",
+      "label": "Number of Conductors",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Total number of conductors to be pulled, identical size."
+    },
+    {
+      "id": "conduitFillLimitPercent",
+      "label": "Custom Fill Limit (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Optionally override NEC fill limit; set to 0 for automatic NEC rule."
+    },
+    {
+      "id": "safetyMarginPercent",
+      "label": "Safety Margin (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Additional derating or future growth margin on fill percent."
+    }
+  ],
+  "formulas": {
+    "conduitArea": "Math.PI * Math.pow(conduitInnerDiameter / 2, 2)",
+    "cableArea": "Math.PI * Math.pow(cableOuterDiameter / 2, 2)",
+    "totalCableArea": "numberOfConductors * cableArea",
+    "fillPercentage": "(totalCableArea / conduitArea) * 100",
+    "allowedFillPercent": "conduitFillLimitPercent > 0 ? conduitFillLimitPercent - safetyMarginPercent : (numberOfConductors === 1 ? 53 : numberOfConductors === 2 ? 31 : 40) - safetyMarginPercent",
+    "allowedCableArea": "(allowedFillPercent / 100) * conduitArea",
+    "maxAllowedConductors": "Math.floor(allowedCableArea / cableArea)",
+    "isCompliant": "fillPercentage <= allowedFillPercent",
+    "remainingArea": "allowedCableArea - totalCableArea"
+  },
+  "outputs": {
+    "primary": "fillPercentage",
+    "breakdown": [
+      "allowedFillPercent",
+      "maxAllowedConductors",
+      "remainingArea",
+      "isCompliant"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

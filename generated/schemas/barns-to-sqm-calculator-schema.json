@@ -1,0 +1,55 @@
+{
+  "toolName": "barns-to-sqm-calculator",
+  "inputs": [
+    {
+      "id": "barns",
+      "label": "Barns",
+      "type": "number",
+      "unit": "b",
+      "default": 1,
+      "businessContext": "The number of barns to convert."
+    },
+    {
+      "id": "multiplier",
+      "label": "Scale Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier to apply after conversion."
+    },
+    {
+      "id": "constant",
+      "label": "Offset",
+      "type": "number",
+      "unit": "m²",
+      "default": 0,
+      "businessContext": "Additive constant in square meters."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 6,
+      "businessContext": "Number of decimal places for rounding."
+    }
+  ],
+  "formulas": {
+    "rawConversion": "barns * 1e-28",
+    "scaled": "(barns * 1e-28) * multiplier + constant",
+    "sqm": "Math.round(((barns * 1e-28) * multiplier + constant) * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "sqm",
+    "breakdown": [
+      "rawConversion",
+      "scaled"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

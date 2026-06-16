@@ -1,0 +1,63 @@
+{
+  "toolName": "buffer-calculator",
+  "inputs": [
+    {
+      "id": "average_daily_demand",
+      "label": "Average Daily Demand",
+      "type": "number",
+      "unit": "units/day",
+      "default": 100,
+      "businessContext": "The steady-state average daily usage rate derived from historical demand data."
+    },
+    {
+      "id": "demand_standard_deviation",
+      "label": "Demand Standard Deviation",
+      "type": "number",
+      "unit": "units/day",
+      "default": 20,
+      "businessContext": "Variability of daily demand, measured as standard deviation, reflecting forecast error."
+    },
+    {
+      "id": "average_lead_time_days",
+      "label": "Average Lead Time",
+      "type": "number",
+      "unit": "days",
+      "default": 5,
+      "businessContext": "Mean replenishment lead time from supplier, in days."
+    },
+    {
+      "id": "lead_time_standard_deviation",
+      "label": "Lead Time Standard Deviation",
+      "type": "number",
+      "unit": "days",
+      "default": 1,
+      "businessContext": "Variability of lead time, measured as standard deviation, reflecting supply uncertainty."
+    },
+    {
+      "id": "service_level_z",
+      "label": "Service Level (Z-score)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.65,
+      "businessContext": "Z-score corresponding to desired service level (e.g., 1.65 for 95% fill rate). Must be positive."
+    }
+  ],
+  "formulas": {
+    "primary": "service_level_z * Math.sqrt(average_lead_time_days * Math.pow(demand_standard_deviation,2) + Math.pow(average_daily_demand,2) * Math.pow(lead_time_standard_deviation,2))",
+    "demandVariabilityComponent": "service_level_z * demand_standard_deviation * Math.sqrt(average_lead_time_days)",
+    "leadTimeVariabilityComponent": "service_level_z * average_daily_demand * lead_time_standard_deviation"
+  },
+  "outputs": {
+    "primary": "bufferStock",
+    "breakdown": [
+      "demandVariabilityComponent",
+      "leadTimeVariabilityComponent"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

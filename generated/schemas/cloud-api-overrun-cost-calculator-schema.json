@@ -1,0 +1,439 @@
+{
+  "slug": "cloud-api-overrun-cost",
+  "title": "Cloud API Overrun Cost Calculator",
+  "description": "Calculates the total cost impact of API overrun events in cloud services, incorporating latency penalties, retry costs, data egress, and SLA breach compensation. Aligns with ISO 9001, Six Sigma DMAIC, and WERC cost-to-serve standards.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-region comparison",
+    "Automated SLA compliance report"
+  ],
+  "inputs": [
+    {
+      "id": "api_call_volume",
+      "label": "Monthly API Call Volume",
+      "type": "number",
+      "unit": "calls",
+      "default": 1000000,
+      "min": 1000,
+      "max": 1000000000,
+      "businessContext": "Total number of API calls made per month, including successful and overrun calls.",
+      "label_i18n": {
+        "en": "Monthly API Call Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of API calls made per month, including successful and overrun calls."
+      }
+    },
+    {
+      "id": "overrun_rate",
+      "label": "Overrun Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of API calls that exceed the agreed response time threshold (e.g., >200ms).",
+      "label_i18n": {
+        "en": "Overrun Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of API calls that exceed the agreed response time threshold (e.g., >200ms)."
+      }
+    },
+    {
+      "id": "avg_overrun_duration",
+      "label": "Average Overrun Duration",
+      "type": "number",
+      "unit": "ms",
+      "default": 500,
+      "min": 1,
+      "max": 30000,
+      "businessContext": "Average extra time beyond the SLA threshold for overrun calls.",
+      "label_i18n": {
+        "en": "Average Overrun Duration"
+      },
+      "businessContext_i18n": {
+        "en": "Average extra time beyond the SLA threshold for overrun calls."
+      }
+    },
+    {
+      "id": "cost_per_call",
+      "label": "Cost per API Call",
+      "type": "number",
+      "unit": "USD",
+      "default": 0.0002,
+      "min": 0.00001,
+      "max": 1,
+      "businessContext": "Direct cost per API call (compute, network, storage).",
+      "label_i18n": {
+        "en": "Cost per API Call"
+      },
+      "businessContext_i18n": {
+        "en": "Direct cost per API call (compute, network, storage)."
+      }
+    },
+    {
+      "id": "retry_cost_per_call",
+      "label": "Retry Cost per Call",
+      "type": "number",
+      "unit": "USD",
+      "default": 0.0005,
+      "min": 0.00001,
+      "max": 2,
+      "businessContext": "Additional cost incurred when a call is retried due to timeout or error.",
+      "label_i18n": {
+        "en": "Retry Cost per Call"
+      },
+      "businessContext_i18n": {
+        "en": "Additional cost incurred when a call is retried due to timeout or error."
+      }
+    },
+    {
+      "id": "retry_rate",
+      "label": "Retry Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of overrun calls that trigger a retry.",
+      "label_i18n": {
+        "en": "Retry Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of overrun calls that trigger a retry."
+      }
+    },
+    {
+      "id": "data_egress_gb",
+      "label": "Monthly Data Egress",
+      "type": "number",
+      "unit": "GB",
+      "default": 500,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Total data transferred out of the cloud per month.",
+      "label_i18n": {
+        "en": "Monthly Data Egress"
+      },
+      "businessContext_i18n": {
+        "en": "Total data transferred out of the cloud per month."
+      }
+    },
+    {
+      "id": "egress_cost_per_gb",
+      "label": "Egress Cost per GB",
+      "type": "number",
+      "unit": "USD",
+      "default": 0.09,
+      "min": 0.01,
+      "max": 0.5,
+      "businessContext": "Cost per GB of data egress (varies by provider and region).",
+      "label_i18n": {
+        "en": "Egress Cost per GB"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per GB of data egress (varies by provider and region)."
+      }
+    },
+    {
+      "id": "sla_penalty_percentage",
+      "label": "SLA Penalty Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of monthly service fee credited as penalty if SLA is breached.",
+      "label_i18n": {
+        "en": "SLA Penalty Percentage"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of monthly service fee credited as penalty if SLA is breached."
+      }
+    },
+    {
+      "id": "monthly_service_fee",
+      "label": "Monthly Service Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "min": 100,
+      "max": 1000000,
+      "businessContext": "Base monthly fee paid to the cloud provider.",
+      "label_i18n": {
+        "en": "Monthly Service Fee"
+      },
+      "businessContext_i18n": {
+        "en": "Base monthly fee paid to the cloud provider."
+      }
+    },
+    {
+      "id": "overrun_threshold_ms",
+      "label": "Overrun Threshold (SLA)",
+      "type": "number",
+      "unit": "ms",
+      "default": 200,
+      "min": 10,
+      "max": 5000,
+      "businessContext": "Maximum acceptable response time per the SLA.",
+      "label_i18n": {
+        "en": "Overrun Threshold (SLA)"
+      },
+      "businessContext_i18n": {
+        "en": "Maximum acceptable response time per the SLA."
+      }
+    },
+    {
+      "id": "region",
+      "label": "Cloud Region",
+      "type": "select",
+      "unit": "",
+      "default": "us-east-1",
+      "min": null,
+      "max": null,
+      "options": [
+        "us-east-1",
+        "us-west-2",
+        "eu-west-1",
+        "ap-southeast-1"
+      ],
+      "businessContext": "Geographic region of the cloud service, affects egress costs and latency.",
+      "label_i18n": {
+        "en": "Cloud Region"
+      },
+      "businessContext_i18n": {
+        "en": "Geographic region of the cloud service, affects egress costs and latency."
+      }
+    },
+    {
+      "id": "include_hidden_costs",
+      "label": "Include Hidden Costs (e.g., opportunity loss)",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "min": null,
+      "max": null,
+      "businessContext": "If true, adds estimated hidden costs like customer churn and brand impact.",
+      "label_i18n": {
+        "en": "Include Hidden Costs (e.g., opportunity loss)"
+      },
+      "businessContext_i18n": {
+        "en": "If true, adds estimated hidden costs like customer churn and brand impact."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "overrun_rate_range",
+        "condition": "overrun_rate >= 0 AND overrun_rate <= 100",
+        "message": "Overrun rate must be between 0% and 100%."
+      },
+      {
+        "id": "retry_rate_range",
+        "condition": "retry_rate >= 0 AND retry_rate <= 100",
+        "message": "Retry rate must be between 0% and 100%."
+      },
+      {
+        "id": "sla_penalty_range",
+        "condition": "sla_penalty_percentage >= 0 AND sla_penalty_percentage <= 100",
+        "message": "SLA penalty percentage must be between 0% and 100%."
+      },
+      {
+        "id": "overrun_duration_positive",
+        "condition": "avg_overrun_duration > 0",
+        "message": "Average overrun duration must be greater than 0 ms."
+      },
+      {
+        "id": "cost_non_negative",
+        "condition": "cost_per_call >= 0 AND retry_cost_per_call >= 0 AND egress_cost_per_gb >= 0 AND monthly_service_fee >= 0",
+        "message": "All cost inputs must be non-negative."
+      },
+      {
+        "id": "conditional_retry_rate",
+        "condition": "IF overrun_rate = 0 THEN retry_rate = 0",
+        "message": "If overrun rate is 0%, retry rate must also be 0%."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_overrun_cost",
+        "condition": "total_overrun_cost > 10000",
+        "alert": "Total overrun cost exceeds $10,000. Immediate review recommended."
+      },
+      {
+        "id": "high_retry_cost",
+        "condition": "retry_cost > 5000",
+        "alert": "Retry cost exceeds $5,000. Consider optimizing retry logic."
+      },
+      {
+        "id": "sla_breach_risk",
+        "condition": "overrun_rate > 10",
+        "alert": "Overrun rate above 10% indicates high SLA breach risk."
+      },
+      {
+        "id": "egress_spike",
+        "condition": "data_egress_gb > 10000",
+        "alert": "Data egress exceeds 10 TB. Review data transfer patterns."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "overrun_call_volume",
+      "label": "Overrun Call Volume",
+      "description": "Number of API calls that exceed the SLA threshold.",
+      "expression": "api_call_volume * (overrun_rate / 100)",
+      "unit": "calls"
+    },
+    {
+      "id": "direct_overrun_cost",
+      "label": "Direct Overrun Cost",
+      "description": "Direct cost of overrun calls at standard rate.",
+      "expression": "overrun_call_volume * cost_per_call",
+      "unit": "USD"
+    },
+    {
+      "id": "retry_cost",
+      "label": "Retry Cost",
+      "description": "Additional cost from retries triggered by overrun calls.",
+      "expression": "overrun_call_volume * (retry_rate / 100) * retry_cost_per_call",
+      "unit": "USD"
+    },
+    {
+      "id": "egress_overrun_cost",
+      "label": "Egress Overrun Cost",
+      "description": "Extra egress cost due to retries and larger payloads from overrun calls.",
+      "expression": "data_egress_gb * egress_cost_per_gb * (overrun_rate / 100) * 0.5",
+      "unit": "USD",
+      "note": "Assumes 50% of egress is attributable to overrun events."
+    },
+    {
+      "id": "sla_penalty_cost",
+      "label": "SLA Penalty Cost",
+      "description": "Penalty incurred if overrun rate exceeds SLA threshold.",
+      "expression": "IF(overrun_rate > 0, monthly_service_fee * (sla_penalty_percentage / 100), 0)",
+      "unit": "USD"
+    },
+    {
+      "id": "hidden_loss_drivers",
+      "label": "Hidden Loss Drivers",
+      "description": "Estimated hidden costs (customer churn, brand impact) if enabled.",
+      "expression": "IF(include_hidden_costs = true, (direct_overrun_cost + retry_cost) * 0.3, 0)",
+      "unit": "USD",
+      "note": "30% uplift based on industry studies (Lean Six Sigma)."
+    },
+    {
+      "id": "total_overrun_cost",
+      "label": "Total Overrun Cost",
+      "description": "Primary result: total monthly cost impact of API overruns.",
+      "expression": "direct_overrun_cost + retry_cost + egress_overrun_cost + sla_penalty_cost + hidden_loss_drivers",
+      "unit": "USD"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_overrun_cost",
+      "label": "Total Overrun Cost",
+      "unit": "USD",
+      "description": "Aggregate monthly cost from API overruns including direct, retry, egress, SLA penalties, and hidden losses."
+    },
+    "breakdown": {
+      "direct_overrun_cost": {
+        "id": "direct_overrun_cost",
+        "label": "Direct Overrun Cost",
+        "unit": "USD"
+      },
+      "retry_cost": {
+        "id": "retry_cost",
+        "label": "Retry Cost",
+        "unit": "USD"
+      },
+      "egress_overrun_cost": {
+        "id": "egress_overrun_cost",
+        "label": "Egress Overrun Cost",
+        "unit": "USD"
+      },
+      "sla_penalty_cost": {
+        "id": "sla_penalty_cost",
+        "label": "SLA Penalty Cost",
+        "unit": "USD"
+      },
+      "hidden_loss_drivers": {
+        "id": "hidden_loss_drivers",
+        "label": "Hidden Loss Drivers",
+        "unit": "USD"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "customer_churn_impact",
+        "label": "Customer Churn Impact",
+        "description": "Estimated revenue loss from customers leaving due to poor API performance.",
+        "unit": "USD",
+        "value": null
+      },
+      {
+        "id": "brand_reputation_cost",
+        "label": "Brand Reputation Cost",
+        "description": "Long-term cost of negative brand perception from frequent overruns.",
+        "unit": "USD",
+        "value": null
+      },
+      {
+        "id": "operational_overhead",
+        "label": "Operational Overhead",
+        "description": "Extra engineering time spent debugging and mitigating overruns.",
+        "unit": "USD",
+        "value": null
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "optimize_api_endpoints",
+        "label": "Optimize API Endpoints",
+        "description": "Review and refactor slow endpoints to reduce overrun rate.",
+        "expectedImpact": "Reduces overrun_rate by 20-40%."
+      },
+      {
+        "id": "implement_caching",
+        "label": "Implement Caching",
+        "description": "Use CDN or in-memory cache to reduce call volume and latency.",
+        "expectedImpact": "Reduces api_call_volume by 15-30%."
+      },
+      {
+        "id": "adjust_retry_policy",
+        "label": "Adjust Retry Policy",
+        "description": "Use exponential backoff and limit retries to reduce retry_cost.",
+        "expectedImpact": "Reduces retry_rate by 50-70%."
+      },
+      {
+        "id": "negotiate_sla",
+        "label": "Negotiate SLA Terms",
+        "description": "Work with provider to adjust penalty thresholds or reduce fees.",
+        "expectedImpact": "Reduces sla_penalty_cost by 10-30%."
+      },
+      {
+        "id": "monitor_egress",
+        "label": "Monitor Data Egress",
+        "description": "Analyze egress patterns and compress data to lower egress_overrun_cost.",
+        "expectedImpact": "Reduces egress_cost_per_gb by 10-20%."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "dataConfidenceAdjusted",
+      "label": "Data Confidence Adjusted Total",
+      "unit": "USD",
+      "description": "Total overrun cost adjusted for data quality and confidence level (e.g., ±15% uncertainty).",
+      "value": null
+    }
+  },
+  "toolName": "cloud-api-overrun-cost-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

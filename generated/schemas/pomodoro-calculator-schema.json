@@ -1,0 +1,73 @@
+{
+  "toolName": "pomodoro-calculator",
+  "inputs": [
+    {
+      "id": "numberOfPomodoros",
+      "label": "Number of Pomodoros",
+      "type": "number",
+      "unit": "pomodoros",
+      "default": 1,
+      "businessContext": "How many pomodoro sessions you want to complete."
+    },
+    {
+      "id": "workDuration",
+      "label": "Work Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 25,
+      "businessContext": "Length of one pomodoro work session."
+    },
+    {
+      "id": "shortBreakDuration",
+      "label": "Short Break Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 5,
+      "businessContext": "Length of short break after each pomodoro, except before a long break."
+    },
+    {
+      "id": "longBreakDuration",
+      "label": "Long Break Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 15,
+      "businessContext": "Length of long break after completing a set of pomodoros."
+    },
+    {
+      "id": "pomodorosBeforeLongBreak",
+      "label": "Pomodoros Before Long Break",
+      "type": "number",
+      "unit": "pomodoros",
+      "default": 4,
+      "businessContext": "Number of pomodoro sessions before a long break is taken."
+    },
+    {
+      "id": "startTimeMinutes",
+      "label": "Start Time (minutes from midnight)",
+      "type": "number",
+      "unit": "min",
+      "default": 480,
+      "businessContext": "Time of day when you start the first pomodoro, in minutes from midnight (e.g., 8:00 AM = 480)."
+    }
+  ],
+  "formulas": {
+    "totalWorkTime": "numberOfPomodoros * workDuration",
+    "numberOfLongBreaks": "Math.floor((numberOfPomodoros - 1) / pomodorosBeforeLongBreak)",
+    "numberOfShortBreaks": "numberOfPomodoros - 1 - numberOfLongBreaks",
+    "totalBreakTime": "numberOfShortBreaks * shortBreakDuration + numberOfLongBreaks * longBreakDuration",
+    "estimatedEndMinutes": "startTimeMinutes + totalWorkTime + totalBreakTime"
+  },
+  "outputs": {
+    "primary": "estimatedEndMinutes",
+    "breakdown": [
+      "totalWorkTime",
+      "totalBreakTime"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

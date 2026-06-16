@@ -1,0 +1,74 @@
+{
+  "toolName": "serving-size-calculator",
+  "inputs": [
+    {
+      "id": "totalWeight",
+      "label": "Total Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 500,
+      "businessContext": "Total weight of the food package"
+    },
+    {
+      "id": "totalCalories",
+      "label": "Total Calories",
+      "type": "number",
+      "unit": "kcal",
+      "default": 2000,
+      "businessContext": "Total energy content"
+    },
+    {
+      "id": "totalProtein",
+      "label": "Total Protein",
+      "type": "number",
+      "unit": "g",
+      "default": 50,
+      "businessContext": "Total protein content"
+    },
+    {
+      "id": "totalCarbs",
+      "label": "Total Carbohydrates",
+      "type": "number",
+      "unit": "g",
+      "default": 200,
+      "businessContext": "Total carbohydrate content"
+    },
+    {
+      "id": "totalFat",
+      "label": "Total Fat",
+      "type": "number",
+      "unit": "g",
+      "default": 70,
+      "businessContext": "Total fat content"
+    },
+    {
+      "id": "servings",
+      "label": "Number of Servings",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Number of servings per container"
+    }
+  ],
+  "formulas": {
+    "servingWeight": "totalWeight / servings",
+    "servingCalories": "totalCalories / servings",
+    "servingProtein": "totalProtein / servings",
+    "servingCarbs": "totalCarbs / servings",
+    "servingFat": "totalFat / servings"
+  },
+  "outputs": {
+    "primary": "Per serving: ${servingWeight}g, ${servingCalories} kcal",
+    "breakdown": [
+      "Protein: ${servingProtein}g",
+      "Carbs: ${servingCarbs}g",
+      "Fat: ${servingFat}g"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

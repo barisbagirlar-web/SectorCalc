@@ -1,0 +1,63 @@
+{
+  "toolName": "hoa-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Kütle (m)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Isıtılan veya soğutulan maddenin kütlesi (kg)"
+    },
+    {
+      "id": "specificHeat",
+      "label": "Özgül Isı (c)",
+      "type": "number",
+      "unit": "J/(kg·K)",
+      "default": 4184,
+      "businessContext": "Malzemenin özgül ısı kapasitesi (J/(kg·K)), su için 4184"
+    },
+    {
+      "id": "initialTemperature",
+      "label": "Başlangıç Sıcaklığı (T₁)",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Başlangıç sıcaklık değeri (°C)"
+    },
+    {
+      "id": "finalTemperature",
+      "label": "Bitiş Sıcaklığı (T₂)",
+      "type": "number",
+      "unit": "°C",
+      "default": 100,
+      "businessContext": "Hedef veya son sıcaklık değeri (°C)"
+    },
+    {
+      "id": "heatLossFactor",
+      "label": "Isı Kaybı Faktörü",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Ortam, yalıtım vb. kaynaklı yüzdesel ısı kaybı (0–100)"
+    }
+  ],
+  "formulas": {
+    "temperatureDifference": "finalTemperature - initialTemperature",
+    "idealHeat": "mass * specificHeat * (finalTemperature - initialTemperature)",
+    "actualHeat": "mass * specificHeat * (finalTemperature - initialTemperature) * (1 - heatLossFactor / 100)"
+  },
+  "outputs": {
+    "primary": "actualHeat",
+    "breakdown": [
+      "temperatureDifference",
+      "idealHeat"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

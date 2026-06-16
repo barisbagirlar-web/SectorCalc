@@ -1,0 +1,64 @@
+{
+  "toolName": "world-clock-calculator",
+  "inputs": [
+    {
+      "id": "localHour",
+      "label": "Local Hour (0-23)",
+      "type": "number",
+      "unit": "hours",
+      "default": 12,
+      "businessContext": "The hour component of the local time (24-hour format)"
+    },
+    {
+      "id": "localMinute",
+      "label": "Local Minute (0-59)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 0,
+      "businessContext": "The minute component of the local time"
+    },
+    {
+      "id": "sourceUTCOffset",
+      "label": "Source UTC Offset (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 0,
+      "businessContext": "UTC offset of the source location in hours (e.g., 3 for UTC+3, -5 for UTC-5)"
+    },
+    {
+      "id": "targetUTCOffset",
+      "label": "Target UTC Offset (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 1,
+      "businessContext": "UTC offset of the target location in hours"
+    }
+  ],
+  "formulas": {
+    "totalLocalMinutes": "localHour * 60 + localMinute",
+    "totalUTCMinutes": "totalLocalMinutes - sourceUTCOffset * 60",
+    "totalTargetMinutes": "totalUTCMinutes + targetUTCOffset * 60",
+    "targetTotalMinutesMod": "((totalTargetMinutes % 1440) + 1440) % 1440",
+    "targetHour": "Math.floor(targetTotalMinutesMod / 60)",
+    "targetMinute": "targetTotalMinutesMod % 60",
+    "dayDiff": "Math.floor(totalTargetMinutes / 1440)",
+    "dayChange": "dayDiff > 0 ? '+' + dayDiff + ' day(s)' : dayDiff < 0 ? dayDiff + ' day(s)' : 'Same day'",
+    "targetTimeString": "targetHour.toString().padStart(2,'0') + ':' + targetMinute.toString().padStart(2,'0')",
+    "sourceString": "localHour.toString().padStart(2,'0') + ':' + localMinute.toString().padStart(2,'0') + ' (UTC' + (sourceUTCOffset >= 0 ? '+' + sourceUTCOffset : sourceUTCOffset) + ')'",
+    "targetString": "targetTimeString + ' (UTC' + (targetUTCOffset >= 0 ? '+' + targetUTCOffset : targetUTCOffset) + ')'"
+  },
+  "outputs": {
+    "primary": "targetTimeString + ' (' + dayChange + ')'",
+    "breakdown": [
+      "'Source: ' + sourceString",
+      "'Target: ' + targetString",
+      "'Day Change: ' + dayChange"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "swimming-swolf-calculator",
+  "inputs": [
+    {
+      "id": "timeMinutes",
+      "label": "Time (minutes)",
+      "type": "number",
+      "unit": "min",
+      "default": 0,
+      "businessContext": "Minutes portion of total swim time"
+    },
+    {
+      "id": "timeSeconds",
+      "label": "Time (seconds)",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Seconds portion of total swim time"
+    },
+    {
+      "id": "totalStrokes",
+      "label": "Total strokes",
+      "type": "number",
+      "unit": "strokes",
+      "default": 0,
+      "businessContext": "Total number of strokes over the entire swim"
+    },
+    {
+      "id": "numberOfLengths",
+      "label": "Number of lengths",
+      "type": "number",
+      "unit": "lengths",
+      "default": 1,
+      "businessContext": "Number of pool lengths swam"
+    }
+  ],
+  "formulas": {
+    "swolf": "(timeMinutes*60 + timeSeconds)/numberOfLengths + totalStrokes/numberOfLengths",
+    "timePerLength": "(timeMinutes*60 + timeSeconds)/numberOfLengths",
+    "strokesPerLength": "totalStrokes/numberOfLengths",
+    "totalTimeSeconds": "timeMinutes*60 + timeSeconds"
+  },
+  "outputs": {
+    "primary": "swolf",
+    "breakdown": [
+      "timePerLength",
+      "strokesPerLength",
+      "totalTimeSeconds"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

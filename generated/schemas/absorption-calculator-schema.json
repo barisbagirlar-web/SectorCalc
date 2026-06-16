@@ -1,0 +1,55 @@
+{
+  "toolName": "absorption-calculator",
+  "inputs": [
+    {
+      "id": "budgetedOverhead",
+      "label": "Bütçelenen Genel Üretim Gideri",
+      "type": "number",
+      "unit": "TL",
+      "default": 100000,
+      "businessContext": "Bütçelenen sabit genel üretim gideri tutarı"
+    },
+    {
+      "id": "budgetedActivity",
+      "label": "Bütçelenen Faaliyet Düzeyi",
+      "type": "number",
+      "unit": "saat",
+      "default": 10000,
+      "businessContext": "Bütçe döneminde planlanan makine çalışma saati"
+    },
+    {
+      "id": "actualActivity",
+      "label": "Gerçekleşen Faaliyet Düzeyi",
+      "type": "number",
+      "unit": "saat",
+      "default": 9500,
+      "businessContext": "Gerçekleşen makine çalışma saati"
+    },
+    {
+      "id": "actualOverhead",
+      "label": "Gerçekleşen Genel Üretim Gideri",
+      "type": "number",
+      "unit": "TL",
+      "default": 105000,
+      "businessContext": "Gerçekleşen sabit genel üretim gideri tutarı"
+    }
+  ],
+  "formulas": {
+    "absorptionRate": "budgetedOverhead / budgetedActivity",
+    "overheadAbsorbed": "absorptionRate * actualActivity",
+    "overUnderAbsorbed": "actualOverhead - overheadAbsorbed"
+  },
+  "outputs": {
+    "primary": "absorptionRate",
+    "breakdown": [
+      "overheadAbsorbed",
+      "overUnderAbsorbed"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

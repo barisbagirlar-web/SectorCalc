@@ -1,0 +1,56 @@
+{
+  "toolName": "rl-time-constant-calculator",
+  "inputs": [
+    {
+      "id": "resistance",
+      "label": "Nominal Resistance",
+      "type": "number",
+      "unit": "Ω",
+      "default": 1000,
+      "businessContext": "Resistance value of the resistor"
+    },
+    {
+      "id": "resistanceTolerance",
+      "label": "Resistance Tolerance",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Tolerance of the resistor in percent"
+    },
+    {
+      "id": "inductance",
+      "label": "Nominal Inductance",
+      "type": "number",
+      "unit": "H",
+      "default": 0.001,
+      "businessContext": "Inductance value of the inductor"
+    },
+    {
+      "id": "inductanceTolerance",
+      "label": "Inductance Tolerance",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Tolerance of the inductor in percent"
+    }
+  ],
+  "formulas": {
+    "tauNominal": "inductance / resistance",
+    "tauMax": "(inductance * (1 + inductanceTolerance / 100)) / (resistance * (1 - resistanceTolerance / 100))",
+    "tauMin": "(inductance * (1 - inductanceTolerance / 100)) / (resistance * (1 + resistanceTolerance / 100))"
+  },
+  "outputs": {
+    "primary": "Time Constant (Nominal): ${tauNominal.toFixed(6)} s",
+    "breakdown": [
+      "Maximum Time Constant: ${tauMax.toFixed(6)} s",
+      "Minimum Time Constant: ${tauMin.toFixed(6)} s",
+      "Tolerance Range: ±${((tauMax - tauMin) / (2 * tauNominal) * 100).toFixed(2)}%"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "cell-potential-calculator",
+  "inputs": [
+    {
+      "id": "cathodeStandardPotential",
+      "label": "Cathode Standard Reduction Potential (E°_cathode)",
+      "type": "number",
+      "unit": "V",
+      "default": 0.34,
+      "businessContext": "Standard reduction potential of the cathode half-reaction, e.g., Cu²⁺ + 2e⁻ → Cu is 0.34 V."
+    },
+    {
+      "id": "anodeStandardPotential",
+      "label": "Anode Standard Reduction Potential (E°_anode)",
+      "type": "number",
+      "unit": "V",
+      "default": -0.76,
+      "businessContext": "Standard reduction potential of the anode half-reaction, e.g., Zn²⁺ + 2e⁻ → Zn is -0.76 V."
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature (T)",
+      "type": "number",
+      "unit": "K",
+      "default": 298.15,
+      "businessContext": "Temperature in Kelvin. Standard conditions are 298.15 K (25°C)."
+    },
+    {
+      "id": "numberOfElectrons",
+      "label": "Number of Electrons Transferred (n)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 2,
+      "businessContext": "Number of moles of electrons transferred according to the balanced redox reaction."
+    },
+    {
+      "id": "reactionQuotient",
+      "label": "Reaction Quotient (Q)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Ratio of product activities to reactant activities at given concentrations/pressures. For aA + bB → cC + dD, Q = [C]^c[D]^d / [A]^a[B]^b."
+    }
+  ],
+  "formulas": {
+    "standardCellPotential": "cathodeStandardPotential - anodeStandardPotential",
+    "nernstCorrection": "(8.314 * temperature / (numberOfElectrons * 96485)) * Math.log(reactionQuotient)",
+    "cellPotential": "standardCellPotential - nernstCorrection"
+  },
+  "outputs": {
+    "primary": "cellPotential",
+    "breakdown": [
+      "standardCellPotential",
+      "nernstCorrection"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

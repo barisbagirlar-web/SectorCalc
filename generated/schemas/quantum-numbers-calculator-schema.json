@@ -1,0 +1,59 @@
+{
+  "toolName": "quantum-numbers-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Principal Quantum Number",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Principal quantum number, positive integer (n = 1, 2, 3, ...)"
+    },
+    {
+      "id": "l",
+      "label": "Azimuthal Quantum Number",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Azimuthal quantum number, integer from 0 to n-1"
+    },
+    {
+      "id": "ml",
+      "label": "Magnetic Quantum Number",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Magnetic quantum number, integer from -l to +l"
+    },
+    {
+      "id": "ms",
+      "label": "Spin Quantum Number",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Spin quantum number, +1/2 or -1/2"
+    }
+  ],
+  "formulas": {
+    "isValid": "n > 0 && n % 1 === 0 && l >= 0 && l <= n - 1 && l % 1 === 0 && ml >= -l && ml <= l && ml % 1 === 0 && (ms === 0.5 || ms === -0.5) ? 1 : 0",
+    "is_n_valid": "n > 0 && n % 1 === 0 ? 1 : 0",
+    "is_l_valid": "l >= 0 && l <= n - 1 && l % 1 === 0 ? 1 : 0",
+    "is_ml_valid": "ml >= -l && ml <= l && ml % 1 === 0 ? 1 : 0",
+    "is_ms_valid": "(ms === 0.5 || ms === -0.5) ? 1 : 0"
+  },
+  "outputs": {
+    "primary": "isValid",
+    "breakdown": [
+      "is_n_valid",
+      "is_l_valid",
+      "is_ml_valid",
+      "is_ms_valid"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

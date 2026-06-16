@@ -1,0 +1,55 @@
+{
+  "toolName": "thinset-calculator",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "Area to Tile",
+      "type": "number",
+      "unit": "m²",
+      "default": 10,
+      "businessContext": "Total surface area to be tiled, in square meters."
+    },
+    {
+      "id": "notchSize",
+      "label": "Trowel Notch Size",
+      "type": "number",
+      "unit": "mm",
+      "default": 6,
+      "businessContext": "Size of the square-notched trowel used, determines adhesive coverage rate."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Additional percentage for waste, cuts, and spillage."
+    },
+    {
+      "id": "bagWeight",
+      "label": "Bag Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 20,
+      "businessContext": "Net weight of a single thinset mortar bag."
+    }
+  ],
+  "formulas": {
+    "coverageRate": "notchSize * 0.4 + 0.8",
+    "totalKgs": "area * (notchSize * 0.4 + 0.8) * (1 + wasteFactor/100)",
+    "bagsNeeded": "Math.ceil(totalKgs / bagWeight)"
+  },
+  "outputs": {
+    "primary": "totalKgs",
+    "breakdown": [
+      "bagsNeeded",
+      "coverageRate"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

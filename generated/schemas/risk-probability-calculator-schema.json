@@ -1,0 +1,75 @@
+{
+  "toolName": "risk-probability-calculator",
+  "inputs": [
+    {
+      "id": "failureRate",
+      "label": "Failure Rate (λ)",
+      "type": "number",
+      "unit": "/hour",
+      "default": 0.001,
+      "businessContext": "Base failure rate of the component or system"
+    },
+    {
+      "id": "missionTime",
+      "label": "Mission Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 24,
+      "businessContext": "Duration of operation or mission"
+    },
+    {
+      "id": "stressFactor",
+      "label": "Environmental Stress Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.5,
+      "businessContext": "Factor increasing failure rate due to harsh conditions"
+    },
+    {
+      "id": "maintenanceFactor",
+      "label": "Maintenance Quality Factor",
+      "type": "number",
+      "unit": "multiplier (0-1)",
+      "default": 0.9,
+      "businessContext": "Factor representing maintenance effectiveness; higher reduces failure rate"
+    },
+    {
+      "id": "detectionProbability",
+      "label": "Fault Detection Probability",
+      "type": "number",
+      "unit": "fraction (0-1)",
+      "default": 0.8,
+      "businessContext": "Probability that a fault is detected before it leads to failure"
+    },
+    {
+      "id": "redundancyLevel",
+      "label": "Redundancy Level",
+      "type": "number",
+      "unit": "count",
+      "default": 1,
+      "businessContext": "Number of independent redundant components in parallel (1 means no redundancy)"
+    }
+  ],
+  "formulas": {
+    "effectiveFailureRate": "failureRate * stressFactor / maintenanceFactor",
+    "componentFailureProb": "1 - Math.exp(-effectiveFailureRate * missionTime)",
+    "systemFailureProb": "Math.pow(componentFailureProb, redundancyLevel)",
+    "riskProbability": "systemFailureProb * (1 - detectionProbability)",
+    "primaryResult": "riskProbability * 100"
+  },
+  "outputs": {
+    "primary": "primaryResult",
+    "breakdown": [
+      "effectiveFailureRate",
+      "componentFailureProb",
+      "systemFailureProb",
+      "riskProbability"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

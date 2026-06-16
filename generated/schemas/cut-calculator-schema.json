@@ -1,0 +1,68 @@
+{
+  "toolName": "cut-calculator",
+  "inputs": [
+    {
+      "id": "stockLength",
+      "label": "Stock Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 2000,
+      "businessContext": "Total length of raw material available for cutting."
+    },
+    {
+      "id": "partLength",
+      "label": "Part Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Desired length of each cut piece."
+    },
+    {
+      "id": "kerf",
+      "label": "Kerf Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "businessContext": "Material removed by the cutting process (e.g., blade thickness, laser kerf)."
+    },
+    {
+      "id": "endTrim",
+      "label": "End Trim",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Additional trim from each end of the stock to ensure squareness. Deducted from usable length."
+    },
+    {
+      "id": "requiredQuantity",
+      "label": "Required Quantity",
+      "type": "number",
+      "unit": "pcs",
+      "default": 0,
+      "businessContext": "Total number of pieces needed. If >0, calculates the number of stocks and total material required. Set to 0 for single-stock optimization only."
+    }
+  ],
+  "formulas": {
+    "usableLength": "stockLength - 2 * endTrim",
+    "piecesPerStock": "Math.floor((usableLength + kerf) / (partLength + kerf))",
+    "wasteLength": "usableLength - (piecesPerStock * partLength + (piecesPerStock - 1) * kerf)",
+    "wastePercentage": "(wasteLength / usableLength) * 100",
+    "stocksNeeded": "requiredQuantity > 0 ? Math.ceil(requiredQuantity / piecesPerStock) : 0",
+    "totalMaterialNeeded": "requiredQuantity > 0 ? stocksNeeded * stockLength : 0"
+  },
+  "outputs": {
+    "primary": "piecesPerStock",
+    "breakdown": [
+      "wasteLength",
+      "wastePercentage",
+      "stocksNeeded",
+      "totalMaterialNeeded"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

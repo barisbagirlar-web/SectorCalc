@@ -1,0 +1,71 @@
+{
+  "toolName": "knitting-calculator",
+  "inputs": [
+    {
+      "id": "fabricWidth",
+      "label": "Fabric Width",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Enter the width of the fabric panel in centimeters."
+    },
+    {
+      "id": "fabricLength",
+      "label": "Fabric Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Enter the length of the fabric panel in centimeters."
+    },
+    {
+      "id": "stitchGauge",
+      "label": "Stitch Gauge",
+      "type": "number",
+      "unit": "stitches/cm",
+      "default": 5,
+      "businessContext": "Enter the number of stitches per centimeter in the width direction."
+    },
+    {
+      "id": "rowGauge",
+      "label": "Row Gauge",
+      "type": "number",
+      "unit": "rows/cm",
+      "default": 7,
+      "businessContext": "Enter the number of rows per centimeter in the length direction."
+    },
+    {
+      "id": "yarnPerStitch",
+      "label": "Yarn per Stitch",
+      "type": "number",
+      "unit": "cm",
+      "default": 1.5,
+      "businessContext": "Enter the length of yarn consumed per stitch in centimeters."
+    },
+    {
+      "id": "yarnDensity",
+      "label": "Yarn Linear Density",
+      "type": "number",
+      "unit": "tex",
+      "default": 50,
+      "businessContext": "Enter the yarn linear density in tex (grams per 1000 meters)."
+    }
+  ],
+  "formulas": {
+    "totalStitches": "fabricWidth * stitchGauge * fabricLength * rowGauge",
+    "totalYarnLength": "(totalStitches * yarnPerStitch) / 100",
+    "totalYarnWeight": "totalYarnLength * (yarnDensity / 1000)"
+  },
+  "outputs": {
+    "primary": "totalYarnLength",
+    "breakdown": [
+      "totalStitches",
+      "totalYarnWeight"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "tennis-racquet-calculator",
+  "inputs": [
+    {
+      "id": "racquetMass",
+      "label": "Racquet Mass (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 300,
+      "businessContext": "Mevcut raket kütlesi"
+    },
+    {
+      "id": "racquetBalance",
+      "label": "Racquet Balance (cm from butt)",
+      "type": "number",
+      "unit": "cm",
+      "default": 32,
+      "businessContext": "Mevcut raket denge noktasının butt'a uzaklığı"
+    },
+    {
+      "id": "racquetSwingWeight",
+      "label": "Racquet Swing Weight (kg·cm²)",
+      "type": "number",
+      "unit": "kg·cm²",
+      "default": 320,
+      "businessContext": "Mevcut raket salınım ağırlığı"
+    },
+    {
+      "id": "addedMass",
+      "label": "Added Mass (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 5,
+      "businessContext": "Eklenecek ağırlık"
+    },
+    {
+      "id": "addedPosition",
+      "label": "Added Position (cm from butt)",
+      "type": "number",
+      "unit": "cm",
+      "default": 68.5,
+      "businessContext": "Ağırlığın ekleneceği konum (butt'a uzaklık)"
+    }
+  ],
+  "formulas": {
+    "newMass": "racquetMass + addedMass",
+    "newBalance": "(racquetMass * racquetBalance + addedMass * addedPosition) / (racquetMass + addedMass)",
+    "newSwingWeight": "racquetSwingWeight + (addedMass / 1000) * Math.pow(addedPosition - 10, 2)"
+  },
+  "outputs": {
+    "primary": "newSwingWeight",
+    "breakdown": [
+      "newMass",
+      "newBalance"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

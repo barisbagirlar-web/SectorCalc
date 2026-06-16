@@ -1,0 +1,365 @@
+{
+  "slug": "cut-fill-balance-optimizer",
+  "title": "Cut-Fill Balance Optimizer",
+  "description": "Industrial-grade earthwork balancing tool for mass haul optimization, minimizing rehandle and haul costs using lean construction and Six Sigma principles.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario comparison",
+    "Automated haul route optimization"
+  ],
+  "inputs": [
+    {
+      "id": "cutVolume",
+      "label": "Cut Volume",
+      "type": "number",
+      "unit": "m³",
+      "default": 10000,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Total volume of material to be excavated from cut areas, measured in bank cubic meters (BCM).",
+      "label_i18n": {
+        "en": "Cut Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total volume of material to be excavated from cut areas, measured in bank cubic meters (BCM)."
+      }
+    },
+    {
+      "id": "fillVolume",
+      "label": "Fill Volume",
+      "type": "number",
+      "unit": "m³",
+      "default": 8000,
+      "min": 0,
+      "max": 1000000,
+      "businessContext": "Total volume of material required for fill/embankment areas, measured in compacted cubic meters (CCM).",
+      "label_i18n": {
+        "en": "Fill Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total volume of material required for fill/embankment areas, measured in compacted cubic meters (CCM)."
+      }
+    },
+    {
+      "id": "swellFactor",
+      "label": "Swell Factor",
+      "type": "number",
+      "unit": "ratio",
+      "default": 1.25,
+      "min": 1,
+      "max": 1.5,
+      "businessContext": "Factor accounting for volume increase when material is excavated (loose state vs. bank state). Typical range 1.1–1.4.",
+      "label_i18n": {
+        "en": "Swell Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor accounting for volume increase when material is excavated (loose state vs. bank state). Typical range 1.1–1.4."
+      }
+    },
+    {
+      "id": "shrinkageFactor",
+      "label": "Shrinkage Factor",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.85,
+      "min": 0.7,
+      "max": 1,
+      "businessContext": "Factor accounting for volume decrease when material is compacted (compacted state vs. bank state). Typical range 0.75–0.95.",
+      "label_i18n": {
+        "en": "Shrinkage Factor"
+      },
+      "businessContext_i18n": {
+        "en": "Factor accounting for volume decrease when material is compacted (compacted state vs. bank state). Typical range 0.75–0.95."
+      }
+    },
+    {
+      "id": "haulDistance",
+      "label": "Average Haul Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 5,
+      "min": 0.1,
+      "max": 100,
+      "businessContext": "Average one-way distance from cut to fill areas, used for cost and fuel calculations.",
+      "label_i18n": {
+        "en": "Average Haul Distance"
+      },
+      "businessContext_i18n": {
+        "en": "Average one-way distance from cut to fill areas, used for cost and fuel calculations."
+      }
+    },
+    {
+      "id": "unitHaulCost",
+      "label": "Unit Haul Cost",
+      "type": "number",
+      "unit": "USD/m³/km",
+      "default": 0.5,
+      "min": 0.1,
+      "max": 10,
+      "businessContext": "Cost per cubic meter per kilometer of hauling material, including fuel, labor, and equipment depreciation.",
+      "label_i18n": {
+        "en": "Unit Haul Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per cubic meter per kilometer of hauling material, including fuel, labor, and equipment depreciation."
+      }
+    },
+    {
+      "id": "wasteDisposalCost",
+      "label": "Waste Disposal Cost",
+      "type": "number",
+      "unit": "USD/m³",
+      "default": 3,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Cost per cubic meter for disposing excess material at a designated waste site.",
+      "label_i18n": {
+        "en": "Waste Disposal Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per cubic meter for disposing excess material at a designated waste site."
+      }
+    },
+    {
+      "id": "borrowCost",
+      "label": "Borrow Material Cost",
+      "type": "number",
+      "unit": "USD/m³",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Cost per cubic meter to import material from a borrow pit to meet fill deficit.",
+      "label_i18n": {
+        "en": "Borrow Material Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per cubic meter to import material from a borrow pit to meet fill deficit."
+      }
+    },
+    {
+      "id": "materialType",
+      "label": "Material Type",
+      "type": "select",
+      "options": [
+        "Common Earth",
+        "Rock",
+        "Sand & Gravel",
+        "Clay"
+      ],
+      "default": "Common Earth",
+      "businessContext": "Type of material being moved, affects swell/shrinkage factors and handling difficulty.",
+      "label_i18n": {
+        "en": "Material Type"
+      },
+      "businessContext_i18n": {
+        "en": "Type of material being moved, affects swell/shrinkage factors and handling difficulty."
+      }
+    },
+    {
+      "id": "useOptimizedHaulRoutes",
+      "label": "Use Optimized Haul Routes",
+      "type": "boolean",
+      "default": true,
+      "businessContext": "If enabled, the tool applies lean logistics principles to minimize haul distance and idle time.",
+      "label_i18n": {
+        "en": "Use Optimized Haul Routes"
+      },
+      "businessContext_i18n": {
+        "en": "If enabled, the tool applies lean logistics principles to minimize haul distance and idle time."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "cutFillRatioCheck",
+        "condition": "cutVolume > 0 AND fillVolume > 0",
+        "message": "Both cut and fill volumes must be greater than zero for a valid balance calculation."
+      },
+      {
+        "id": "swellShrinkConsistency",
+        "condition": "swellFactor >= 1.0 AND shrinkageFactor <= 1.0",
+        "message": "Swell factor must be >= 1.0 and shrinkage factor <= 1.0 to reflect physical reality."
+      },
+      {
+        "id": "haulCostPositive",
+        "condition": "unitHaulCost > 0",
+        "message": "Unit haul cost must be positive."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "excessCutWarning",
+        "condition": "cutVolume > fillVolume * 1.3",
+        "level": "warning",
+        "message": "Cut volume exceeds fill volume by more than 30%. Consider waste disposal or design adjustment."
+      },
+      {
+        "id": "excessFillWarning",
+        "condition": "fillVolume > cutVolume * 1.3",
+        "level": "warning",
+        "message": "Fill volume exceeds cut volume by more than 30%. Consider borrow material or design adjustment."
+      },
+      {
+        "id": "highHaulCostAlert",
+        "condition": "unitHaulCost * haulDistance > 5.0",
+        "level": "alert",
+        "message": "Haul cost per cubic meter exceeds $5.00. Investigate alternative routes or equipment."
+      },
+      {
+        "id": "balanceRatioCritical",
+        "condition": "ABS(cutVolume - fillVolume) / MAX(cutVolume, fillVolume) > 0.5",
+        "level": "critical",
+        "message": "Cut-fill imbalance exceeds 50%. Major rehandle or import/export expected."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "adjustedCutVolume",
+      "label": "Adjusted Cut Volume (Bank to Compacted)",
+      "description": "Converts cut volume from bank state to compacted state using shrinkage factor.",
+      "formula": "cutVolume * shrinkageFactor",
+      "unit": "m³ (compacted)"
+    },
+    {
+      "id": "adjustedFillVolume",
+      "label": "Adjusted Fill Volume (Bank to Loose for Haul)",
+      "description": "Converts fill volume from compacted state to loose state using swell factor for haul cost calculation.",
+      "formula": "fillVolume * swellFactor",
+      "unit": "m³ (loose)"
+    },
+    {
+      "id": "netBalance",
+      "label": "Net Balance (Compacted Basis)",
+      "description": "Difference between adjusted cut and fill volumes on a compacted basis.",
+      "formula": "adjustedCutVolume - fillVolume",
+      "unit": "m³ (compacted)"
+    },
+    {
+      "id": "excessCutVolume",
+      "label": "Excess Cut Volume (Waste)",
+      "description": "Volume of cut material that cannot be used for fill, requiring disposal.",
+      "formula": "MAX(0, netBalance)",
+      "unit": "m³ (compacted)"
+    },
+    {
+      "id": "deficitFillVolume",
+      "label": "Deficit Fill Volume (Borrow)",
+      "description": "Volume of fill material that must be imported from borrow pits.",
+      "formula": "MAX(0, -netBalance)",
+      "unit": "m³ (compacted)"
+    },
+    {
+      "id": "totalHaulVolume",
+      "label": "Total Haul Volume (Loose Basis)",
+      "description": "Total volume of material to be hauled, considering both cut-to-fill and borrow/waste movements.",
+      "formula": "MIN(adjustedCutVolume, fillVolume) * swellFactor + (excessCutVolume * swellFactor) + (deficitFillVolume * swellFactor)",
+      "unit": "m³ (loose)"
+    },
+    {
+      "id": "totalCost",
+      "label": "Total Earthwork Cost",
+      "description": "Primary result: total cost including haul, waste disposal, and borrow material.",
+      "formula": "(totalHaulVolume * unitHaulCost * haulDistance) + (excessCutVolume * wasteDisposalCost) + (deficitFillVolume * borrowCost)",
+      "unit": "USD"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "totalCost",
+      "label": "Total Earthwork Cost",
+      "unit": "USD",
+      "description": "Aggregate cost of cut-fill balance operations including haul, waste, and borrow."
+    },
+    "breakdown": {
+      "haulCost": {
+        "id": "haulCost",
+        "label": "Haul Cost",
+        "unit": "USD",
+        "description": "Cost of transporting material from cut to fill and to/from waste/borrow sites."
+      },
+      "wasteCost": {
+        "id": "wasteCost",
+        "label": "Waste Disposal Cost",
+        "unit": "USD",
+        "description": "Cost of disposing excess cut material."
+      },
+      "borrowCost": {
+        "id": "borrowCost",
+        "label": "Borrow Material Cost",
+        "unit": "USD",
+        "description": "Cost of importing material to meet fill deficit."
+      },
+      "netBalance": {
+        "id": "netBalance",
+        "label": "Net Balance (Compacted)",
+        "unit": "m³",
+        "description": "Positive indicates excess cut, negative indicates deficit fill."
+      },
+      "totalHaulVolume": {
+        "id": "totalHaulVolume",
+        "label": "Total Haul Volume (Loose)",
+        "unit": "m³",
+        "description": "Total loose volume moved."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "rehandleRatio",
+        "label": "Rehandle Ratio",
+        "unit": "ratio",
+        "description": "Ratio of material moved more than once (e.g., stockpiled then hauled). High values indicate inefficiency.",
+        "value": "0.0"
+      },
+      {
+        "id": "idleEquipmentTime",
+        "label": "Idle Equipment Time",
+        "unit": "hours",
+        "description": "Estimated total idle time due to imbalance, based on standard cycle times.",
+        "value": "0.0"
+      },
+      {
+        "id": "fuelWasteFactor",
+        "label": "Fuel Waste Factor",
+        "unit": "ratio",
+        "description": "Additional fuel consumption due to suboptimal haul routes (1.0 = optimal).",
+        "value": "1.0"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduceHaulDistance",
+        "label": "Optimize Haul Routes",
+        "description": "Use GPS and site layout to reduce average haul distance by at least 10%.",
+        "expectedImpact": "Reduces haul cost proportionally."
+      },
+      {
+        "id": "adjustCutFillDesign",
+        "label": "Revise Cut/Fill Design",
+        "description": "If net balance > 20% of total volume, consider regrading to reduce waste or borrow.",
+        "expectedImpact": "Lowers waste and borrow costs."
+      },
+      {
+        "id": "useOnSiteProcessing",
+        "label": "On-Site Material Processing",
+        "description": "Crush rock or treat clay on-site to improve material usability and reduce borrow.",
+        "expectedImpact": "Reduces borrow cost and haul volume."
+      },
+      {
+        "id": "implementLeanHaul",
+        "label": "Implement Lean Haul Practices",
+        "description": "Apply Six Sigma DMAIC to reduce cycle time variability and equipment idle time.",
+        "expectedImpact": "Improves productivity and reduces fuel waste."
+      }
+    ],
+    "dataConfidenceAdjusted": 0.85
+  },
+  "toolName": "cut-fill-balance-optimizer-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

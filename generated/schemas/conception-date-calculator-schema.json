@@ -1,0 +1,54 @@
+{
+  "toolName": "conception-date-calculator",
+  "inputs": [
+    {
+      "id": "targetDateDays",
+      "label": "Target Date (days from epoch)",
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "businessContext": "The deadline or target completion date expressed as number of days from a reference date (e.g., 2024-01-01)."
+    },
+    {
+      "id": "plannedDurationDays",
+      "label": "Planned Duration",
+      "type": "number",
+      "unit": "days",
+      "default": 100,
+      "businessContext": "The estimated total work duration in calendar days."
+    },
+    {
+      "id": "bufferDays",
+      "label": "Buffer Days",
+      "type": "number",
+      "unit": "days",
+      "default": 10,
+      "businessContext": "Additional safety margin in days."
+    },
+    {
+      "id": "efficiencyFactor",
+      "label": "Efficiency Factor",
+      "type": "number",
+      "unit": "ratio",
+      "default": 1,
+      "businessContext": "Productivity factor; 1 = 100% efficiency. A value less than 1 increases effective duration."
+    }
+  ],
+  "formulas": {
+    "effectiveDuration": "plannedDurationDays / efficiencyFactor",
+    "conceptionDate": "targetDateDays - effectiveDuration - bufferDays"
+  },
+  "outputs": {
+    "primary": "conceptionDate",
+    "breakdown": [
+      "effectiveDuration",
+      "conceptionDate"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

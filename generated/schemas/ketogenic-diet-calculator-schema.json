@@ -1,0 +1,56 @@
+{
+  "toolName": "ketogenic-diet-calculator",
+  "inputs": [
+    {
+      "id": "totalCalories",
+      "label": "Total Daily Calories",
+      "type": "number",
+      "unit": "kcal",
+      "default": 2000,
+      "businessContext": "Total daily caloric intake target for an individual or total batch energy content for a ketogenic product."
+    },
+    {
+      "id": "fatPercentage",
+      "label": "Fat Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Percentage of total calories from fat. Standard ketogenic ratio is 70-75%."
+    },
+    {
+      "id": "proteinPercentage",
+      "label": "Protein Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Percentage of total calories from protein. Standard ketogenic ratio is 20-25%."
+    },
+    {
+      "id": "carbPercentage",
+      "label": "Carbohydrate Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage of total calories from carbohydrates. Standard ketogenic ratio is 5-10%."
+    }
+  ],
+  "formulas": {
+    "fatGrams": "(totalCalories * fatPercentage / 100) / 9",
+    "proteinGrams": "(totalCalories * proteinPercentage / 100) / 4",
+    "carbGrams": "(totalCalories * carbPercentage / 100) / 4"
+  },
+  "outputs": {
+    "primary": "fatGrams",
+    "breakdown": [
+      "fatGrams",
+      "proteinGrams",
+      "carbGrams"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

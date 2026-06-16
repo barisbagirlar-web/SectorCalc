@@ -1,0 +1,55 @@
+{
+  "toolName": "welding-heat-input-calculator",
+  "inputs": [
+    {
+      "id": "voltage",
+      "label": "Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 25,
+      "businessContext": "Arc voltage during welding, measured at the power source terminals. Affects total energy input."
+    },
+    {
+      "id": "current",
+      "label": "Current",
+      "type": "number",
+      "unit": "A",
+      "default": 200,
+      "businessContext": "Welding current, typically measured with a clamp meter. Higher current increases heat input."
+    },
+    {
+      "id": "travelSpeed",
+      "label": "Travel Speed",
+      "type": "number",
+      "unit": "mm/min",
+      "default": 300,
+      "businessContext": "Speed of the welding torch along the joint. Faster speeds reduce heat input per unit length."
+    },
+    {
+      "id": "efficiency",
+      "label": "Arc Efficiency",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "businessContext": "Thermal efficiency factor of the welding process (e.g., 0.8 for SMAW, 0.9 for GMAW, 1.0 for SAW)."
+    }
+  ],
+  "formulas": {
+    "heatInput": "(voltage * current * 60 * efficiency) / (travelSpeed * 1000)",
+    "effectiveHeatRate": "(voltage * current * efficiency * 60) / 1000",
+    "powerInput": "voltage * current"
+  },
+  "outputs": {
+    "primary": "heatInput",
+    "breakdown": [
+      "powerInput",
+      "effectiveHeatRate"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

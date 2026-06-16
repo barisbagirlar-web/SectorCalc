@@ -1,0 +1,59 @@
+{
+  "toolName": "compton-scattering-calculator",
+  "inputs": [
+    {
+      "id": "incidentEnergy",
+      "label": "Incident Photon Energy",
+      "type": "number",
+      "unit": "keV",
+      "default": 100,
+      "businessContext": "Energy of incoming photon before scattering"
+    },
+    {
+      "id": "incidentWavelength",
+      "label": "Incident Photon Wavelength",
+      "type": "number",
+      "unit": "nm",
+      "default": 0,
+      "businessContext": "Wavelength of incoming photon (if known); overrides energy when provided"
+    },
+    {
+      "id": "scatteringAngle",
+      "label": "Scattering Angle",
+      "type": "number",
+      "unit": "°",
+      "default": 90,
+      "businessContext": "Angle between incident and scattered photon directions"
+    },
+    {
+      "id": "electronRestEnergy",
+      "label": "Electron Rest Energy",
+      "type": "number",
+      "unit": "keV",
+      "default": 511,
+      "businessContext": "Rest mass energy of the scattering particle (electron: 511 keV)"
+    }
+  ],
+  "formulas": {
+    "thetaRad": "scatteringAngle * Math.PI / 180",
+    "incidentEnergyKeV": "(incidentWavelength > 0) ? (1.24 / incidentWavelength) : incidentEnergy",
+    "scatteredEnergyKeV": "incidentEnergyKeV / (1 + (incidentEnergyKeV / electronRestEnergy) * (1 - Math.cos(thetaRad)))",
+    "electronEnergyKeV": "incidentEnergyKeV - scatteredEnergyKeV",
+    "incidentWavelengthNm": "(incidentWavelength > 0) ? incidentWavelength : (1.24 / incidentEnergyKeV)",
+    "scatteredWavelengthNm": "1.24 / scatteredEnergyKeV"
+  },
+  "outputs": {
+    "primary": "scatteredEnergyKeV",
+    "breakdown": [
+      "electronEnergyKeV",
+      "scatteredWavelengthNm",
+      "incidentWavelengthNm"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

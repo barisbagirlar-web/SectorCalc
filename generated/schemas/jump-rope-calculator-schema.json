@@ -1,0 +1,55 @@
+{
+  "toolName": "jump-rope-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Kullanıcı Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Kullanıcının kilogram cinsinden vücut ağırlığı. Daha yüksek ağırlık, daha fazla kalori yakımına yol açar."
+    },
+    {
+      "id": "jumpRate",
+      "label": "Zıplama Hızı",
+      "type": "number",
+      "unit": "zıplama/dk",
+      "default": 100,
+      "businessContext": "Dakika başına ortalama ip atlama sayısı. Daha yüksek hız, egzersiz yoğunluğunu artırır."
+    },
+    {
+      "id": "duration",
+      "label": "Egzersiz Süresi",
+      "type": "number",
+      "unit": "dk",
+      "default": 30,
+      "businessContext": "Toplam ip atlama egzersizi süresi (dakika). Süre arttıkça toplam kalori ve zıplama sayısı artar."
+    },
+    {
+      "id": "MET",
+      "label": "MET Değeri",
+      "type": "number",
+      "unit": "",
+      "default": 11.8,
+      "businessContext": "Egzersizin metabolik eşdeğeri. İp atlama için tipik değer 11.8'dir. Yoğunluğa bağlı olarak değişebilir."
+    }
+  ],
+  "formulas": {
+    "totalJumps": "jumpRate * duration",
+    "caloriesBurned": "(MET * weight * 3.5 * duration) / 200",
+    "caloriesPerMinute": "(MET * weight * 3.5) / 200"
+  },
+  "outputs": {
+    "primary": "caloriesBurned",
+    "breakdown": [
+      "totalJumps",
+      "caloriesPerMinute"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

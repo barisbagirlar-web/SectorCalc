@@ -1,0 +1,63 @@
+{
+  "toolName": "diabetic-calculator",
+  "inputs": [
+    {
+      "id": "carbs",
+      "label": "Karbonhidrat (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Tüketilecek karbonhidrat miktarı"
+    },
+    {
+      "id": "currentBG",
+      "label": "Anlık Kan Şekeri",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 120,
+      "businessContext": "Ölçülen anlık kan şekeri seviyesi"
+    },
+    {
+      "id": "targetBG",
+      "label": "Hedef Kan Şekeri",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 100,
+      "businessContext": "Ulaşılmak istenen ideal kan şekeri"
+    },
+    {
+      "id": "insulinToCarbRatio",
+      "label": "İnsülin-Karbonhidrat Oranı",
+      "type": "number",
+      "unit": "g/Ü",
+      "default": 15,
+      "businessContext": "1 ünite insülinin etki ettiği karbonhidrat gramı"
+    },
+    {
+      "id": "insulinSensitivity",
+      "label": "İnsülin Duyarlılık Faktörü",
+      "type": "number",
+      "unit": "mg/dL/Ü",
+      "default": 50,
+      "businessContext": "1 ünite insülinin düşürdüğü kan şekeri miktarı"
+    }
+  ],
+  "formulas": {
+    "carbInsulin": "carbs / insulinToCarbRatio",
+    "correctionInsulin": "(currentBG - targetBG) / insulinSensitivity",
+    "totalInsulin": "carbInsulin + correctionInsulin"
+  },
+  "outputs": {
+    "primary": "totalInsulin",
+    "breakdown": [
+      "carbInsulin",
+      "correctionInsulin"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

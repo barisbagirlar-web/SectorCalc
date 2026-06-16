@@ -1,0 +1,56 @@
+{
+  "toolName": "confidence-interval-calculator",
+  "inputs": [
+    {
+      "id": "sample_mean",
+      "label": "Sample Mean (x̄)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The arithmetic average of your sample observations."
+    },
+    {
+      "id": "standard_deviation",
+      "label": "Standard Deviation (σ or s)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Population or sample standard deviation, measuring data dispersion."
+    },
+    {
+      "id": "sample_size",
+      "label": "Sample Size (n)",
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "businessContext": "Number of independent observations in the sample."
+    },
+    {
+      "id": "critical_value",
+      "label": "Critical Value (z or t)",
+      "type": "number",
+      "unit": "",
+      "default": 1.96,
+      "businessContext": "Z-score or t-score corresponding to the desired confidence level (e.g., 1.96 for 95% confidence)."
+    }
+  ],
+  "formulas": {
+    "margin_of_error": "critical_value * standard_deviation / Math.sqrt(sample_size)",
+    "lower_bound": "sample_mean - margin_of_error",
+    "upper_bound": "sample_mean + margin_of_error"
+  },
+  "outputs": {
+    "primary": "Confidence Interval: ({lower_bound}, {upper_bound})",
+    "breakdown": [
+      "Margin of Error: {margin_of_error}",
+      "Lower Bound: {lower_bound}",
+      "Upper Bound: {upper_bound}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

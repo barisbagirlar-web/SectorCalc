@@ -1,0 +1,67 @@
+{
+  "toolName": "fit-calculator",
+  "inputs": [
+    {
+      "id": "nominalDiameter",
+      "label": "Nominal Çap",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Mil ve delik için ortak nominal çap"
+    },
+    {
+      "id": "holeUpperDev",
+      "label": "Delik Üst Sapma",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.025,
+      "businessContext": "Delik tolerans üst sınır sapması (örn. H7 için +0.025mm)"
+    },
+    {
+      "id": "holeLowerDev",
+      "label": "Delik Alt Sapma",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Delik tolerans alt sınır sapması (örn. H7 için 0)"
+    },
+    {
+      "id": "shaftUpperDev",
+      "label": "Mil Üst Sapma",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Mil tolerans üst sınır sapması (örn. h6 için 0)"
+    },
+    {
+      "id": "shaftLowerDev",
+      "label": "Mil Alt Sapma",
+      "type": "number",
+      "unit": "mm",
+      "default": -0.016,
+      "businessContext": "Mil tolerans alt sınır sapması (örn. h6 için -0.016mm)"
+    }
+  ],
+  "formulas": {
+    "holeMax": "nominalDiameter + holeUpperDev",
+    "holeMin": "nominalDiameter + holeLowerDev",
+    "shaftMax": "nominalDiameter + shaftUpperDev",
+    "shaftMin": "nominalDiameter + shaftLowerDev",
+    "maxClearance": "holeMax - shaftMin",
+    "minClearance": "holeMin - shaftMax",
+    "fitTypeCode": "minClearance > 0 ? 1 : (maxClearance < 0 ? 3 : 2)"
+  },
+  "outputs": {
+    "primary": "maxClearance",
+    "breakdown": [
+      "minClearance",
+      "fitTypeCode"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "guitar-string-gauge-calculator",
+  "inputs": [
+    {
+      "id": "scaleLength",
+      "label": "Scale Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 648,
+      "businessContext": "Distance from nut to bridge saddle, typically 628-660 mm for electric guitars."
+    },
+    {
+      "id": "frequency",
+      "label": "Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 82.41,
+      "businessContext": "Target pitch frequency, e.g., E2=82.41 Hz, A2=110 Hz."
+    },
+    {
+      "id": "stringDiameter",
+      "label": "String Diameter (Gauge)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1.17,
+      "businessContext": "String diameter, e.g., 0.046 inch ≈ 1.17 mm."
+    },
+    {
+      "id": "density",
+      "label": "Material Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "businessContext": "Volumetric mass density, steel ≈ 7850 kg/m³."
+    }
+  ],
+  "formulas": {
+    "massPerUnitLength": "density * Math.PI * (stringDiameter/2000) ** 2",
+    "tension": "massPerUnitLength * (2 * (scaleLength/1000) * frequency) ** 2",
+    "waveSpeed": "2 * (scaleLength/1000) * frequency"
+  },
+  "outputs": {
+    "primary": "tension",
+    "breakdown": [
+      "massPerUnitLength",
+      "waveSpeed"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,85 @@
+{
+  "toolName": "xirr-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "currency",
+      "default": -10000,
+      "businessContext": "Initial amount invested (negative for outflow)."
+    },
+    {
+      "id": "initialDate",
+      "label": "Initial Date (days from start)",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Number of days from the start date to the initial investment date."
+    },
+    {
+      "id": "cf1Amount",
+      "label": "Cash Flow 1 Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Amount of the first intermediate cash flow (positive for inflow, negative for outflow)."
+    },
+    {
+      "id": "cf1Days",
+      "label": "Cash Flow 1 Days",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Number of days to the first intermediate cash flow."
+    },
+    {
+      "id": "cf2Amount",
+      "label": "Cash Flow 2 Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Amount of the second intermediate cash flow."
+    },
+    {
+      "id": "cf2Days",
+      "label": "Cash Flow 2 Days",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Number of days to the second intermediate cash flow."
+    },
+    {
+      "id": "finalValue",
+      "label": "Final Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 11000,
+      "businessContext": "Final value or cash flow at the end of the investment (typically positive)."
+    },
+    {
+      "id": "finalDays",
+      "label": "Final Days",
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "businessContext": "Number of days from start to the final cash flow."
+    }
+  ],
+  "formulas": {
+    "npv": "function(r){var c=[initialInvestment,cf1Amount,cf2Amount,finalValue],d=[initialDate,cf1Days,cf2Days,finalDays],d0=d[0],n=0;for(var i=0;i<c.length;i++){n+=c[i]/Math.pow(1+r,(d[i]-d0)/365);}return n;}",
+    "xirr": "function(){var r=0.1;for(var i=0;i<100;i++){var f=npv(r);var df=0;var c=[initialInvestment,cf1Amount,cf2Amount,finalValue],d=[initialDate,cf1Days,cf2Days,finalDays],d0=d[0];for(var j=0;j<c.length;j++){var t=(d[j]-d0)/365;df-=t*c[j]/Math.pow(1+r,t+1);}if(Math.abs(f)<1e-6)break;r-=f/df;}return r;}"
+  },
+  "outputs": {
+    "primary": "xirr",
+    "breakdown": [
+      "npv(xirr)"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

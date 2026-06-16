@@ -1,0 +1,95 @@
+{
+  "toolName": "how-much-house-can-i-afford-calculator",
+  "inputs": [
+    {
+      "id": "annualIncome",
+      "label": "Annual Gross Income ($)",
+      "type": "number",
+      "unit": "USD",
+      "default": 80000,
+      "businessContext": "Total yearly pre-tax income of the household."
+    },
+    {
+      "id": "monthlyDebts",
+      "label": "Other Monthly Debts ($)",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "businessContext": "Monthly payments for existing debts (auto loan, student loans, credit cards, etc.)."
+    },
+    {
+      "id": "downPayment",
+      "label": "Down Payment ($)",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "businessContext": "Available cash for down payment."
+    },
+    {
+      "id": "interestRate",
+      "label": "Mortgage Interest Rate (% APR)",
+      "type": "number",
+      "unit": "%",
+      "default": 6.5,
+      "businessContext": "Annual interest rate (APR) for the mortgage."
+    },
+    {
+      "id": "loanTerm",
+      "label": "Loan Term (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Length of the mortgage in years."
+    },
+    {
+      "id": "propertyTaxRate",
+      "label": "Property Tax Rate (% of home value)",
+      "type": "number",
+      "unit": "%",
+      "default": 1.2,
+      "businessContext": "Annual property tax rate as percentage of the home's assessed value."
+    },
+    {
+      "id": "insuranceRate",
+      "label": "Homeowners Insurance Rate (% of home value)",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "businessContext": "Annual insurance premium rate as percentage of home value."
+    },
+    {
+      "id": "monthlyHOA",
+      "label": "Monthly HOA Fee ($)",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Monthly homeowners association fee."
+    }
+  ],
+  "formulas": {
+    "monthlyIncome": "annualIncome / 12",
+    "maxTotalMonthlyDebt": "monthlyIncome * 0.36",
+    "maxHousingExpense": "monthlyIncome * 0.28",
+    "availableForPITIandHOA": "Math.min(maxTotalMonthlyDebt - monthlyDebts, maxHousingExpense)",
+    "r": "interestRate / 100 / 12",
+    "n": "loanTerm * 12",
+    "monthlyPaymentFactor": "(r * (1 + r) ** n) / ((1 + r) ** n - 1)",
+    "monthlyTaxInsuranceRate": "(propertyTaxRate / 100 + insuranceRate / 100) / 12",
+    "maxAffordableHousePrice": "Math.max(0, (availableForPITIandHOA + downPayment * monthlyPaymentFactor - monthlyHOA) / (monthlyPaymentFactor + monthlyTaxInsuranceRate))",
+    "maxLoanAmount": "Math.max(0, maxAffordableHousePrice - downPayment)",
+    "monthlyPayment": "availableForPITIandHOA"
+  },
+  "outputs": {
+    "primary": "maxAffordableHousePrice",
+    "breakdown": [
+      "maxLoanAmount",
+      "monthlyPayment"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

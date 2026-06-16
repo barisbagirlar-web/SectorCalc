@@ -1,0 +1,62 @@
+// Auto-generated from coffee-caffeine-calculator-schema.json
+import * as z from 'zod';
+
+export interface Coffee_caffeine_calculatorInput {
+  cupVolumeMl: number;
+  caffeineMgPer100ml: number;
+  numberOfCups: number;
+  brewStrengthFactor: number;
+  isDecaf: number;
+}
+
+export const Coffee_caffeine_calculatorInputSchema = z.object({
+  cupVolumeMl: z.number().default(240),
+  caffeineMgPer100ml: z.number().default(40),
+  numberOfCups: z.number().default(1),
+  brewStrengthFactor: z.number().default(1),
+  isDecaf: z.number().default(0),
+});
+
+function evaluateAllFormulas(input: Coffee_caffeine_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.cupVolumeMl / 100) * input.caffeineMgPer100ml * input.brewStrengthFactor; results["caffeinePerCupMg"] = Number.isFinite(v) ? v : 0; } catch { results["caffeinePerCupMg"] = 0; }
+  try { const v = (input.cupVolumeMl / 100) * input.caffeineMgPer100ml * input.brewStrengthFactor * input.numberOfCups; results["totalBeforeDecaf"] = Number.isFinite(v) ? v : 0; } catch { results["totalBeforeDecaf"] = 0; }
+  try { const v = (input.cupVolumeMl / 100) * input.caffeineMgPer100ml * input.brewStrengthFactor * input.numberOfCups * (input.isDecaf * 0.97); results["decafReductionMg"] = Number.isFinite(v) ? v : 0; } catch { results["decafReductionMg"] = 0; }
+  try { const v = (input.cupVolumeMl / 100) * input.caffeineMgPer100ml * input.brewStrengthFactor * input.numberOfCups * (1 - input.isDecaf * 0.97); results["totalCaffeineMg"] = Number.isFinite(v) ? v : 0; } catch { results["totalCaffeineMg"] = 0; }
+  return results;
+}
+
+
+export function calculateCoffee_caffeine_calculator(input: Coffee_caffeine_calculatorInput): Coffee_caffeine_calculatorOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values["totalCaffeineMg"] ?? 0;
+  const breakdown = {
+    
+  };
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    premiumRequired: false,
+    premiumFeatures: [],
+  };
+}
+
+
+export interface Coffee_caffeine_calculatorOutput {
+  totalWasteCost: number;
+  breakdown: {  };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+}

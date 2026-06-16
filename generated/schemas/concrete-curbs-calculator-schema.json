@@ -1,0 +1,73 @@
+{
+  "toolName": "concrete-curbs-calculator",
+  "inputs": [
+    {
+      "id": "curbLength",
+      "label": "Curb Length (per piece)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Length of a single concrete curb section"
+    },
+    {
+      "id": "curbWidth",
+      "label": "Curb Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.15,
+      "businessContext": "Width of the curb cross-section"
+    },
+    {
+      "id": "curbHeight",
+      "label": "Curb Height",
+      "type": "number",
+      "unit": "m",
+      "default": 0.2,
+      "businessContext": "Height of the curb cross-section"
+    },
+    {
+      "id": "curbCount",
+      "label": "Number of Curbs",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "Total count of curb pieces to produce or install"
+    },
+    {
+      "id": "concreteDensity",
+      "label": "Concrete Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 2400,
+      "businessContext": "Standard reinforced concrete density"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage allowance for material loss, spillage, or over-excavation"
+    }
+  ],
+  "formulas": {
+    "volumePerCurb": "curbLength * curbWidth * curbHeight",
+    "totalVolume": "curbLength * curbWidth * curbHeight * curbCount * (1 + wasteFactor / 100)",
+    "totalWeightKg": "curbLength * curbWidth * curbHeight * curbCount * (1 + wasteFactor / 100) * concreteDensity",
+    "totalWeightTon": "curbLength * curbWidth * curbHeight * curbCount * (1 + wasteFactor / 100) * concreteDensity / 1000"
+  },
+  "outputs": {
+    "primary": "totalWeightTon",
+    "breakdown": [
+      "volumePerCurb",
+      "totalVolume",
+      "totalWeightKg"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

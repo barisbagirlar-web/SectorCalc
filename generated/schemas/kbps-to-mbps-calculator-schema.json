@@ -1,0 +1,56 @@
+{
+  "toolName": "kbps-to-mbps-calculator",
+  "inputs": [
+    {
+      "id": "kbps",
+      "label": "Kilobits per second (kbps)",
+      "type": "number",
+      "unit": "kbps",
+      "default": 1024,
+      "businessContext": "Data transfer rate in kilobits per second."
+    },
+    {
+      "id": "conversionStandard",
+      "label": "Conversion Standard",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Select the base for kilo to mega conversion. 0 for SI (1000), 1 for binary (1024)."
+    },
+    {
+      "id": "networkOverhead",
+      "label": "Network Overhead (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Additional overhead percentage to add to the rate. E.g., 5 for 5% overhead."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places in the result."
+    }
+  ],
+  "formulas": {
+    "adjustedKbps": "kbps * (1 + networkOverhead / 100)",
+    "base": "conversionStandard === 0 ? 1000 : 1024",
+    "rawMbps": "adjustedKbps / base",
+    "mbps": "Math.round(rawMbps * 10 ** precision) / 10 ** precision"
+  },
+  "outputs": {
+    "primary": "mbps",
+    "breakdown": [
+      "adjustedKbps",
+      "rawMbps"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

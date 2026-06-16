@@ -1,0 +1,48 @@
+{
+  "toolName": "charles-law-calculator",
+  "inputs": [
+    {
+      "id": "initialVolume",
+      "label": "Initial Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 1,
+      "businessContext": "Volume of gas at initial state"
+    },
+    {
+      "id": "initialTemperature",
+      "label": "Initial Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 273.15,
+      "businessContext": "Absolute temperature at initial state"
+    },
+    {
+      "id": "finalTemperature",
+      "label": "Final Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 373.15,
+      "businessContext": "Absolute temperature at final state"
+    }
+  ],
+  "formulas": {
+    "finalVolume": "initialVolume * finalTemperature / initialTemperature",
+    "volumeChange": "finalVolume - initialVolume",
+    "volumeChangePercent": "(volumeChange / initialVolume) * 100"
+  },
+  "outputs": {
+    "primary": "finalVolume",
+    "breakdown": [
+      "finalVolume = initialVolume * finalTemperature / initialTemperature",
+      "volumeChange = finalVolume - initialVolume",
+      "volumeChangePercent = (volumeChange / initialVolume) * 100"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "critical-speed-calculator",
+  "inputs": [
+    {
+      "id": "shaftLength",
+      "label": "Shaft Length (L)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Length of the shaft between supports."
+    },
+    {
+      "id": "shaftDiameter",
+      "label": "Shaft Diameter (D)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.05,
+      "businessContext": "Diameter of the solid cylindrical shaft."
+    },
+    {
+      "id": "youngsModulus",
+      "label": "Young's Modulus (E)",
+      "type": "number",
+      "unit": "Pa",
+      "default": 210000000000,
+      "businessContext": "Material's modulus of elasticity, e.g., steel ~210 GPa."
+    },
+    {
+      "id": "density",
+      "label": "Material Density (ρ)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "businessContext": "Density of the shaft material, e.g., steel ~7850 kg/m³."
+    },
+    {
+      "id": "supportFactor",
+      "label": "Support Factor (C)",
+      "type": "number",
+      "unit": "",
+      "default": 3.141592653589793,
+      "businessContext": "Dimensionless factor based on end conditions: π for pinned-pinned, 4.730 for fixed-fixed, 3.927 for fixed-pinned, 1.875 for fixed-free."
+    }
+  ],
+  "formulas": {
+    "crossSectionArea": "Math.PI * (shaftDiameter/2) ** 2",
+    "momentOfInertia": "Math.PI/64 * shaftDiameter ** 4",
+    "massPerUnitLength": "density * crossSectionArea",
+    "angularFrequency": "(supportFactor / shaftLength) ** 2 * Math.sqrt(youngsModulus * momentOfInertia / massPerUnitLength)",
+    "criticalSpeedRPM": "angularFrequency * 30 / Math.PI"
+  },
+  "outputs": {
+    "primary": "criticalSpeedRPM",
+    "breakdown": [
+      "angularFrequency",
+      "criticalSpeedRPM"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

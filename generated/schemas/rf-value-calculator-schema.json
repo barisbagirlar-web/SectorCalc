@@ -1,0 +1,57 @@
+{
+  "toolName": "rf-value-calculator",
+  "inputs": [
+    {
+      "id": "solventDistance",
+      "label": "Solvent Front Distance",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Distance from baseline to solvent front"
+    },
+    {
+      "id": "spotDistance1",
+      "label": "Spot 1 Distance",
+      "type": "number",
+      "unit": "cm",
+      "default": 5,
+      "businessContext": "Distance from baseline to center of spot 1"
+    },
+    {
+      "id": "spotDistance2",
+      "label": "Spot 2 Distance",
+      "type": "number",
+      "unit": "cm",
+      "default": 5.2,
+      "businessContext": "Distance from baseline to center of spot 2"
+    },
+    {
+      "id": "spotDistance3",
+      "label": "Spot 3 Distance",
+      "type": "number",
+      "unit": "cm",
+      "default": 4.9,
+      "businessContext": "Distance from baseline to center of spot 3"
+    }
+  ],
+  "formulas": {
+    "rf1": "spotDistance1 / solventDistance",
+    "rf2": "spotDistance2 / solventDistance",
+    "rf3": "spotDistance3 / solventDistance",
+    "averageRf": "(spotDistance1 / solventDistance + spotDistance2 / solventDistance + spotDistance3 / solventDistance) / 3"
+  },
+  "outputs": {
+    "primary": "averageRf",
+    "breakdown": [
+      "rf1",
+      "rf2",
+      "rf3"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

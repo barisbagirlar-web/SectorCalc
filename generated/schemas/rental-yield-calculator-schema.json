@@ -1,0 +1,55 @@
+{
+  "toolName": "rental-yield-calculator",
+  "inputs": [
+    {
+      "id": "purchasePrice",
+      "label": "Property Purchase Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 200000,
+      "businessContext": "Total acquisition cost of the property."
+    },
+    {
+      "id": "monthlyRent",
+      "label": "Monthly Rental Income",
+      "type": "number",
+      "unit": "USD/month",
+      "default": 1500,
+      "businessContext": "Expected monthly rent from the property."
+    },
+    {
+      "id": "annualExpenses",
+      "label": "Total Annual Expenses",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 3000,
+      "businessContext": "Sum of all yearly costs (maintenance, taxes, insurance, management fees, etc.)."
+    },
+    {
+      "id": "vacancyRate",
+      "label": "Vacancy Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Estimated percentage of time the property is vacant and not generating rent."
+    }
+  ],
+  "formulas": {
+    "grossYield": "(monthlyRent * 12 / purchasePrice) * 100",
+    "netYield": "((monthlyRent * 12 * (1 - vacancyRate / 100) - annualExpenses) / purchasePrice) * 100",
+    "cashFlowMonthly": "(monthlyRent * 12 * (1 - vacancyRate / 100) - annualExpenses) / 12"
+  },
+  "outputs": {
+    "primary": "netYield",
+    "breakdown": [
+      "grossYield",
+      "cashFlowMonthly"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

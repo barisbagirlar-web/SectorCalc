@@ -1,0 +1,83 @@
+{
+  "toolName": "profitability-index-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "The upfront cost of the investment project."
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Annual discount rate used to calculate present value of future cash flows."
+    },
+    {
+      "id": "cashFlowYear1",
+      "label": "Cash Flow Year 1",
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "businessContext": "Net cash inflow expected at the end of Year 1."
+    },
+    {
+      "id": "cashFlowYear2",
+      "label": "Cash Flow Year 2",
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "businessContext": "Net cash inflow expected at the end of Year 2."
+    },
+    {
+      "id": "cashFlowYear3",
+      "label": "Cash Flow Year 3",
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "businessContext": "Net cash inflow expected at the end of Year 3."
+    },
+    {
+      "id": "cashFlowYear4",
+      "label": "Cash Flow Year 4",
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "businessContext": "Net cash inflow expected at the end of Year 4."
+    },
+    {
+      "id": "cashFlowYear5",
+      "label": "Cash Flow Year 5",
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "businessContext": "Net cash inflow expected at the end of Year 5."
+    }
+  ],
+  "formulas": {
+    "presentValueYear1": "cashFlowYear1 / Math.pow(1 + discountRate/100, 1)",
+    "presentValueYear2": "cashFlowYear2 / Math.pow(1 + discountRate/100, 2)",
+    "presentValueYear3": "cashFlowYear3 / Math.pow(1 + discountRate/100, 3)",
+    "presentValueYear4": "cashFlowYear4 / Math.pow(1 + discountRate/100, 4)",
+    "presentValueYear5": "cashFlowYear5 / Math.pow(1 + discountRate/100, 5)",
+    "totalPresentValue": "presentValueYear1 + presentValueYear2 + presentValueYear3 + presentValueYear4 + presentValueYear5",
+    "profitabilityIndex": "totalPresentValue / initialInvestment"
+  },
+  "outputs": {
+    "primary": "profitabilityIndex",
+    "breakdown": [
+      "totalPresentValue",
+      "initialInvestment"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

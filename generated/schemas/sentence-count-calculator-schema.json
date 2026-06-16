@@ -1,0 +1,91 @@
+{
+  "toolName": "sentence-count-calculator",
+  "inputs": [
+    {
+      "id": "totalWords",
+      "label": "Total Words",
+      "type": "number",
+      "unit": "words",
+      "default": 0,
+      "businessContext": "Total number of words in the text."
+    },
+    {
+      "id": "avgWordsPerSentence",
+      "label": "Avg Words per Sentence",
+      "type": "number",
+      "unit": "words/sentence",
+      "default": 15,
+      "businessContext": "Average number of words per sentence (typically 15-20)."
+    },
+    {
+      "id": "totalCharacters",
+      "label": "Total Characters",
+      "type": "number",
+      "unit": "chars",
+      "default": 0,
+      "businessContext": "Total number of characters including spaces."
+    },
+    {
+      "id": "avgCharsPerSentence",
+      "label": "Avg Chars per Sentence",
+      "type": "number",
+      "unit": "chars/sentence",
+      "default": 100,
+      "businessContext": "Average characters per sentence."
+    },
+    {
+      "id": "totalParagraphs",
+      "label": "Total Paragraphs",
+      "type": "number",
+      "unit": "paragraphs",
+      "default": 0,
+      "businessContext": "Total number of paragraphs."
+    },
+    {
+      "id": "avgSentencesPerParagraph",
+      "label": "Avg Sentences per Paragraph",
+      "type": "number",
+      "unit": "sentences/paragraph",
+      "default": 3,
+      "businessContext": "Average sentences per paragraph."
+    },
+    {
+      "id": "lineCount",
+      "label": "Line Count",
+      "type": "number",
+      "unit": "lines",
+      "default": 0,
+      "businessContext": "Total number of lines (if line-based formatting)."
+    },
+    {
+      "id": "wordsPerLine",
+      "label": "Words per Line",
+      "type": "number",
+      "unit": "words/line",
+      "default": 10,
+      "businessContext": "Average words per line."
+    }
+  ],
+  "formulas": {
+    "estimateFromWords": "totalWords / avgWordsPerSentence",
+    "estimateFromChars": "totalCharacters / avgCharsPerSentence",
+    "estimateFromParagraphs": "totalParagraphs * avgSentencesPerParagraph",
+    "estimateFromLines": "(lineCount * wordsPerLine) / avgWordsPerSentence",
+    "estimatedSentenceCount": "(totalWords > 0 ? totalWords / avgWordsPerSentence : (totalCharacters > 0 ? totalCharacters / avgCharsPerSentence : (totalParagraphs > 0 ? totalParagraphs * avgSentencesPerParagraph : (lineCount > 0 ? lineCount * wordsPerLine / avgWordsPerSentence : 0))))"
+  },
+  "outputs": {
+    "primary": "estimatedSentenceCount",
+    "breakdown": [
+      "estimateFromWords",
+      "estimateFromChars",
+      "estimateFromParagraphs",
+      "estimateFromLines"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

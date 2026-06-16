@@ -1,0 +1,57 @@
+{
+  "toolName": "business-loan-calculator",
+  "inputs": [
+    {
+      "id": "loanAmount",
+      "label": "Loan Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 50000,
+      "businessContext": "Total business loan principal requested."
+    },
+    {
+      "id": "annualRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 7.5,
+      "businessContext": "Nominal annual interest rate quoted by lender."
+    },
+    {
+      "id": "termYears",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Repayment period in years."
+    },
+    {
+      "id": "originationFee",
+      "label": "Origination Fee",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "businessContext": "One-time fee charged as percentage of loan amount."
+    }
+  ],
+  "formulas": {
+    "monthlyPayment": "(loanAmount * (annualRate/100/12) * Math.pow(1+(annualRate/100/12), termYears*12)) / (Math.pow(1+(annualRate/100/12), termYears*12) - 1)",
+    "totalPayment": "((loanAmount * (annualRate/100/12) * Math.pow(1+(annualRate/100/12), termYears*12)) / (Math.pow(1+(annualRate/100/12), termYears*12) - 1)) * termYears*12",
+    "totalInterest": "(((loanAmount * (annualRate/100/12) * Math.pow(1+(annualRate/100/12), termYears*12)) / (Math.pow(1+(annualRate/100/12), termYears*12) - 1)) * termYears*12) - loanAmount",
+    "totalCost": "(((loanAmount * (annualRate/100/12) * Math.pow(1+(annualRate/100/12), termYears*12)) / (Math.pow(1+(annualRate/100/12), termYears*12) - 1)) * termYears*12) + (loanAmount * originationFee/100)"
+  },
+  "outputs": {
+    "primary": "monthlyPayment",
+    "breakdown": [
+      "totalPayment",
+      "totalInterest",
+      "totalCost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

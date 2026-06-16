@@ -1,0 +1,76 @@
+{
+  "toolName": "simple-ira-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Current age of the individual"
+    },
+    {
+      "id": "retirementAge",
+      "label": "Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 65,
+      "businessContext": "Planned retirement age"
+    },
+    {
+      "id": "annualContribution",
+      "label": "Annual Contribution",
+      "type": "number",
+      "unit": "USD",
+      "default": 6000,
+      "businessContext": "Annual contribution amount"
+    },
+    {
+      "id": "currentBalance",
+      "label": "Current IRA Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Current IRA balance"
+    },
+    {
+      "id": "annualReturnRate",
+      "label": "Expected Annual Return (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected average annual return rate (e.g., 7 for 7%)"
+    },
+    {
+      "id": "inflationRate",
+      "label": "Expected Inflation Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2.5,
+      "businessContext": "Expected average inflation rate (e.g., 2.5 for 2.5%)"
+    }
+  ],
+  "formulas": {
+    "yearsToRetirement": "inputs.retirementAge - inputs.currentAge",
+    "futureValueCurrent": "inputs.currentBalance * Math.pow(1 + inputs.annualReturnRate/100, yearsToRetirement)",
+    "futureValueContributions": "inputs.annualReturnRate === 0 ? inputs.annualContribution * yearsToRetirement : inputs.annualContribution * ((Math.pow(1 + inputs.annualReturnRate/100, yearsToRetirement) - 1) / (inputs.annualReturnRate/100))",
+    "nominalBalance": "futureValueCurrent + futureValueContributions",
+    "realBalance": "nominalBalance / Math.pow(1 + inputs.inflationRate/100, yearsToRetirement)",
+    "contributions": "inputs.currentBalance + inputs.annualContribution * yearsToRetirement",
+    "earnings": "nominalBalance - contributions"
+  },
+  "outputs": {
+    "primary": "nominalBalance",
+    "breakdown": [
+      "realBalance",
+      "contributions",
+      "earnings"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

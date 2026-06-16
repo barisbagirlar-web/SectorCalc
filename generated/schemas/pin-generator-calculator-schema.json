@@ -1,0 +1,55 @@
+{
+  "toolName": "pin-generator-calculator",
+  "inputs": [
+    {
+      "id": "pinLength",
+      "label": "PIN Length",
+      "type": "number",
+      "unit": "digits",
+      "default": 4,
+      "businessContext": "Number of digits in the generated PIN"
+    },
+    {
+      "id": "seed",
+      "label": "Seed Number",
+      "type": "number",
+      "unit": "",
+      "default": 123456,
+      "businessContext": "Unique numeric seed for PIN derivation"
+    },
+    {
+      "id": "multiplier",
+      "label": "Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 7919,
+      "businessContext": "Prime multiplier for pseudo-random extraction"
+    },
+    {
+      "id": "shiftFactor",
+      "label": "Shift Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Offset to create different PINs from same seed"
+    }
+  ],
+  "formulas": {
+    "pinCalculation": "Math.floor(Math.abs(Math.sin(seed * multiplier + shiftFactor)) * Math.pow(10, pinLength + 3)) % Math.pow(10, pinLength)"
+  },
+  "outputs": {
+    "primary": "pinCalculation",
+    "breakdown": [
+      "Calculate absolute sine of (seed * multiplier + shiftFactor)",
+      "Multiply by 10^(pinLength+3)",
+      "Take integer part (floor)",
+      "Modulo 10^pinLength to constrain to desired digit range"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

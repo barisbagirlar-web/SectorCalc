@@ -1,0 +1,60 @@
+{
+  "toolName": "tangent-calculator",
+  "inputs": [
+    {
+      "id": "angle",
+      "label": "Angle",
+      "type": "number",
+      "unit": "deg or rad",
+      "default": 45,
+      "businessContext": "Angle value. If using degrees, unitRadians should be 0; if radians, set unitRadians to 1."
+    },
+    {
+      "id": "unitRadians",
+      "label": "Use Radians",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Set to 1 if the angle is in radians; set to 0 for degrees."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Number of decimal places for the output tangent."
+    },
+    {
+      "id": "computeDouble",
+      "label": "Compute tan(2θ)?",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Set to 1 to compute tangent of double the angle (2θ); 0 for tan(θ)."
+    }
+  ],
+  "formulas": {
+    "thetaRad": "(unitRadians == 1) ? angle : angle * Math.PI / 180",
+    "effectiveAngle": "(computeDouble == 1) ? 2 * thetaRad : thetaRad",
+    "tanExact": "Math.tan(effectiveAngle)",
+    "roundedTan": "Math.round(tanExact * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "sinValue": "Math.sin(effectiveAngle)",
+    "cosValue": "Math.cos(effectiveAngle)"
+  },
+  "outputs": {
+    "primary": "roundedTan",
+    "breakdown": [
+      "thetaRad",
+      "sinValue",
+      "cosValue",
+      "tanExact"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

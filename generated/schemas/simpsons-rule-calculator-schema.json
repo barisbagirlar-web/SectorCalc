@@ -1,0 +1,64 @@
+{
+  "toolName": "simpsons-rule-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "Lower limit (a)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Integration lower bound"
+    },
+    {
+      "id": "b",
+      "label": "Upper limit (b)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Integration upper bound"
+    },
+    {
+      "id": "n",
+      "label": "Number of subintervals (n)",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Must be even for Simpson's rule"
+    },
+    {
+      "id": "functionType",
+      "label": "Function type",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1: sin(x), 2: cos(x), 3: x^2, 4: sqrt(x), 5: exp(x), 6: log(x)"
+    }
+  ],
+  "formulas": {
+    "h": "(b - a) / n",
+    "x_i": "a + i * h",
+    "sumOdd": "sum_{i=1,3,5,...}^{n-1} f(x_i)",
+    "sumEven": "sum_{i=2,4,6,...}^{n-2} f(x_i)",
+    "f_at_a": "f(a)",
+    "f_at_b": "f(b)",
+    "integral": "(h / 3) * (f_at_a + f_at_b + 4 * sumOdd + 2 * sumEven)",
+    "f": "function(x) { if (functionType === 1) return Math.sin(x); if (functionType === 2) return Math.cos(x); if (functionType === 3) return x * x; if (functionType === 4) return Math.sqrt(x); if (functionType === 5) return Math.exp(x); if (functionType === 6) return Math.log(x); return 0; }"
+  },
+  "outputs": {
+    "primary": "integral",
+    "breakdown": [
+      "h = (b - a) / n",
+      "f(a) = sin(a) or cos(a) or a^2 or sqrt(a) or exp(a) or log(a)",
+      "f(b) = sin(b) or cos(b) or b^2 or sqrt(b) or exp(b) or log(b)",
+      "Sum of odd-indexed f(x_i)",
+      "Sum of even-indexed f(x_i)",
+      "Integral ≈ (h/3) * [f(a) + f(b) + 4*sumOdd + 2*sumEven]"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,68 @@
+{
+  "toolName": "sod-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length (ft)",
+      "type": "number",
+      "unit": "ft",
+      "default": 0,
+      "businessContext": "Length of the area to be covered with sod in feet."
+    },
+    {
+      "id": "width",
+      "label": "Width (ft)",
+      "type": "number",
+      "unit": "ft",
+      "default": 0,
+      "businessContext": "Width of the area to be covered with sod in feet."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Additional percentage of sod to account for cutting and fitting waste."
+    },
+    {
+      "id": "rollCoverage",
+      "label": "Coverage per Roll (sq ft)",
+      "type": "number",
+      "unit": "sq ft",
+      "default": 10,
+      "businessContext": "Area covered by a single roll of sod in square feet."
+    },
+    {
+      "id": "pricePerRoll",
+      "label": "Price per Roll ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Unit cost of one roll of sod in dollars."
+    }
+  ],
+  "formulas": {
+    "area": "length * width",
+    "wasteArea": "area * wasteFactor / 100",
+    "netArea": "area + wasteArea",
+    "rollsNeeded": "Math.ceil(netArea / rollCoverage)",
+    "totalCost": "rollsNeeded * pricePerRoll"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "area",
+      "wasteArea",
+      "netArea",
+      "rollsNeeded",
+      "totalCost"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

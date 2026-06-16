@@ -1,0 +1,75 @@
+{
+  "toolName": "adaptive-thermogenesis-calculator",
+  "inputs": [
+    {
+      "id": "bee",
+      "label": "Bazal Enerji Harcaması",
+      "type": "number",
+      "unit": "kcal/gün",
+      "default": 2000,
+      "businessContext": "Bireyin dinlenim durumundaki günlük enerji tüketimi"
+    },
+    {
+      "id": "energyIntake",
+      "label": "Günlük Enerji Alımı",
+      "type": "number",
+      "unit": "kcal/gün",
+      "default": 1500,
+      "businessContext": "Diyet sırasında alınan ortalama günlük enerji"
+    },
+    {
+      "id": "duration",
+      "label": "Diyet Süresi",
+      "type": "number",
+      "unit": "gün",
+      "default": 30,
+      "businessContext": "Kalori açığının uygulandığı süre"
+    },
+    {
+      "id": "weight",
+      "label": "Vücut Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Diyet öncesi veya mevcut vücut ağırlığı"
+    },
+    {
+      "id": "tau",
+      "label": "Adaptasyon Zaman Sabiti",
+      "type": "number",
+      "unit": "gün",
+      "default": 14,
+      "businessContext": "Termojenik adaptasyonun yarılanma süresi (genellikle 7-14 gün)"
+    },
+    {
+      "id": "fatFreeMass",
+      "label": "Yağsız Vücut Kütlesi",
+      "type": "number",
+      "unit": "kg",
+      "default": 50,
+      "businessContext": "Kas, kemik ve organlar gibi metabolik olarak aktif dokuların toplamı"
+    }
+  ],
+  "formulas": {
+    "initialDeficit": "bee - energyIntake",
+    "adaptationFactor": "1 - Math.exp(-duration / tau)",
+    "weightFactor": "Math.sqrt(weight / 70)",
+    "ffmFactor": "fatFreeMass / weight",
+    "adaptiveThermogenesis": "(bee - energyIntake) * (1 - Math.exp(-duration / tau)) * Math.sqrt(weight / 70) * (fatFreeMass / weight)"
+  },
+  "outputs": {
+    "primary": "adaptiveThermogenesis",
+    "breakdown": [
+      "initialDeficit",
+      "adaptationFactor",
+      "weightFactor",
+      "ffmFactor"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "climbing-grade-calculator",
+  "inputs": [
+    {
+      "id": "horizontalDistance",
+      "label": "Horizontal Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "businessContext": "The horizontal run of the slope."
+    },
+    {
+      "id": "verticalRise",
+      "label": "Vertical Rise",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "The vertical height gained along the slope."
+    },
+    {
+      "id": "angleInput",
+      "label": "Angle (optional)",
+      "type": "number",
+      "unit": "degrees",
+      "default": 0,
+      "businessContext": "Known angle of the slope; set to 0 to compute from rise/run."
+    },
+    {
+      "id": "slopeLengthInput",
+      "label": "Slope Length (optional)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Known length of the slope (hypotenuse); set to 0 to compute from rise/run."
+    }
+  ],
+  "formulas": {
+    "gradePercent": "(verticalRise / horizontalDistance) * 100",
+    "angleDeg": "Math.atan(verticalRise / horizontalDistance) * (180 / Math.PI)",
+    "slopeRatioRunToRise": "horizontalDistance / verticalRise",
+    "slopeLength": "Math.sqrt(Math.pow(horizontalDistance, 2) + Math.pow(verticalRise, 2))"
+  },
+  "outputs": {
+    "primary": "gradePercent",
+    "breakdown": [
+      "angleDeg",
+      "slopeRatioRunToRise",
+      "slopeLength"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

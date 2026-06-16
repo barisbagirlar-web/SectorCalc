@@ -1,0 +1,89 @@
+{
+  "toolName": "cat-percentile-calculator",
+  "inputs": [
+    {
+      "id": "overall_rank",
+      "label": "Overall Rank",
+      "type": "number",
+      "unit": "(1-N)",
+      "default": 1,
+      "businessContext": "Candidate's All India Rank"
+    },
+    {
+      "id": "total_candidates",
+      "label": "Total Candidates",
+      "type": "number",
+      "unit": "count",
+      "default": 200000,
+      "businessContext": "Total number of test-takers"
+    },
+    {
+      "id": "qa_rank",
+      "label": "QA Section Rank",
+      "type": "number",
+      "unit": "(1-N)",
+      "default": 1,
+      "businessContext": "Rank in Quantitative Aptitude section"
+    },
+    {
+      "id": "qa_total",
+      "label": "QA Total Candidates",
+      "type": "number",
+      "unit": "count",
+      "default": 200000,
+      "businessContext": "Total candidates who appeared for QA"
+    },
+    {
+      "id": "varc_rank",
+      "label": "VARC Section Rank",
+      "type": "number",
+      "unit": "(1-N)",
+      "default": 1,
+      "businessContext": "Rank in Verbal Ability and Reading Comprehension"
+    },
+    {
+      "id": "varc_total",
+      "label": "VARC Total Candidates",
+      "type": "number",
+      "unit": "count",
+      "default": 200000,
+      "businessContext": "Total candidates for VARC"
+    },
+    {
+      "id": "lrdi_rank",
+      "label": "LRDI Section Rank",
+      "type": "number",
+      "unit": "(1-N)",
+      "default": 1,
+      "businessContext": "Rank in Data Interpretation & Logical Reasoning"
+    },
+    {
+      "id": "lrdi_total",
+      "label": "LRDI Total Candidates",
+      "type": "number",
+      "unit": "count",
+      "default": 200000,
+      "businessContext": "Total candidates for LRDI"
+    }
+  ],
+  "formulas": {
+    "overall_percentile": "(1 - (overall_rank / total_candidates)) * 100",
+    "qa_percentile": "(1 - (qa_rank / qa_total)) * 100",
+    "varc_percentile": "(1 - (varc_rank / varc_total)) * 100",
+    "lrdi_percentile": "(1 - (lrdi_rank / lrdi_total)) * 100"
+  },
+  "outputs": {
+    "primary": "Overall Percentile: <%= overall_percentile.toFixed(2) %>%",
+    "breakdown": [
+      "QA Percentile: <%= qa_percentile.toFixed(2) %>%",
+      "VARC Percentile: <%= varc_percentile.toFixed(2) %>%",
+      "LRDI Percentile: <%= lrdi_percentile.toFixed(2) %>%"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

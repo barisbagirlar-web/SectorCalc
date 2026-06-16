@@ -1,0 +1,63 @@
+{
+  "toolName": "mrs-calculator",
+  "inputs": [
+    {
+      "id": "orderQuantity",
+      "label": "Sipariş Miktarı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1000,
+      "businessContext": "Üretim için toplam sipariş miktarı"
+    },
+    {
+      "id": "unitWeight",
+      "label": "Birim Ağırlık",
+      "type": "number",
+      "unit": "kg/adet",
+      "default": 2.5,
+      "businessContext": "Her bir ürünün ağırlığı"
+    },
+    {
+      "id": "scrapRate",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Üretim sürecinde beklenen fire yüzdesi"
+    },
+    {
+      "id": "machineEfficiency",
+      "label": "Makine Verimi",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Makinelerin ortalama verimliliği"
+    },
+    {
+      "id": "materialCostPerKg",
+      "label": "Hammadde Maliyeti",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 12.5,
+      "businessContext": "Kg başına hammadde maliyeti"
+    }
+  ],
+  "formulas": {
+    "totalMaterialWeight": "orderQuantity * unitWeight * (1 + scrapRate / 100)",
+    "effectiveMaterialWeight": "totalMaterialWeight / (machineEfficiency / 100)",
+    "totalCost": "effectiveMaterialWeight * materialCostPerKg"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "totalMaterialWeight",
+      "effectiveMaterialWeight"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

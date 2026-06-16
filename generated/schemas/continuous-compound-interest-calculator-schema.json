@@ -1,0 +1,56 @@
+{
+  "toolName": "continuous-compound-interest-calculator",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Principal",
+      "type": "number",
+      "unit": "$",
+      "default": 1000,
+      "businessContext": "The initial amount of money invested or borrowed."
+    },
+    {
+      "id": "annualRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "The annual nominal interest rate as a percentage (e.g., 5 means 5%)."
+    },
+    {
+      "id": "time",
+      "label": "Time",
+      "type": "number",
+      "unit": "years",
+      "default": 1,
+      "businessContext": "The length of time the money is invested or borrowed for, in years."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "The number of decimal places to display in the results."
+    }
+  ],
+  "formulas": {
+    "futureValue": "principal * Math.exp(annualRate / 100 * time)",
+    "interestEarned": "futureValue - principal",
+    "roundedFutureValue": "Math.round(futureValue * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "roundedInterestEarned": "Math.round(interestEarned * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "After ${time} years, your investment will be worth $${roundedFutureValue}.",
+    "breakdown": [
+      "Initial principal: $${principal}",
+      "Interest earned: $${roundedInterestEarned}"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

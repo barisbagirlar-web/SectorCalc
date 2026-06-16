@@ -1,0 +1,58 @@
+{
+  "toolName": "pounds-to-stones-calculator",
+  "inputs": [
+    {
+      "id": "pounds",
+      "label": "Pounds",
+      "type": "number",
+      "unit": "lb",
+      "default": 0,
+      "businessContext": "The weight in pounds to convert to stones"
+    },
+    {
+      "id": "ounces",
+      "label": "Ounces",
+      "type": "number",
+      "unit": "oz",
+      "default": 0,
+      "businessContext": "Additional ounces to add to the pounds before conversion; 16 ounces = 1 pound"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the primary decimal stones output"
+    },
+    {
+      "id": "stoneWeight",
+      "label": "Stone Definition (lb)",
+      "type": "number",
+      "unit": "lb",
+      "default": 14,
+      "businessContext": "Number of pounds in one stone (commonly 14), allows for historical or contextual variations"
+    }
+  ],
+  "formulas": {
+    "totalPounds": "pounds + (ounces / 16)",
+    "decimalStones": "totalPounds / stoneWeight",
+    "wholeStones": "Math.floor(decimalStones)",
+    "remainingPounds": "(decimalStones - wholeStones) * stoneWeight",
+    "roundedDecimalStones": "parseFloat(decimalStones.toFixed(precision))",
+    "roundedRemainingPounds": "parseFloat(remainingPounds.toFixed(2))"
+  },
+  "outputs": {
+    "primary": "roundedDecimalStones",
+    "breakdown": [
+      "wholeStones",
+      "roundedRemainingPounds"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

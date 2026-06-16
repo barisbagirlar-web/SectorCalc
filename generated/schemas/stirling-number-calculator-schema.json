@@ -1,0 +1,48 @@
+{
+  "toolName": "stirling-number-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "n (set size)",
+      "type": "number",
+      "unit": "integer",
+      "default": 5,
+      "businessContext": "Total number of elements in the set"
+    },
+    {
+      "id": "k",
+      "label": "k (number of subsets)",
+      "type": "number",
+      "unit": "integer",
+      "default": 2,
+      "businessContext": "Number of non-empty subsets to partition into"
+    },
+    {
+      "id": "type",
+      "label": "Type (1=first kind, 2=second kind)",
+      "type": "number",
+      "unit": "enum",
+      "default": 2,
+      "businessContext": "Select 1 for Stirling numbers of the first kind, 2 for second kind"
+    }
+  ],
+  "formulas": {
+    "stirlingSecond": "function stirlingSecond(n,k){if(k===0||k>n)return 0;if(k===1||k===n)return 1;let sum=0;for(let i=0;i<=k;i++){sum+=((i%2===0?1:-1)*comb(k,i)*Math.pow(k-i,n))}return sum/fact(k)}",
+    "stirlingFirst": "function stirlingFirst(n,k){if(k===0||k>n)return 0;if(k===n)return 1;if(k===1)return fact(n-1);return stirlingFirst(n-1,k-1)+(n-1)*stirlingFirst(n-1,k)}",
+    "fact": "function fact(x){if(x<=1)return 1;let r=1;for(let i=2;i<=x;i++)r*=i;return r}",
+    "comb": "function comb(n,k){if(k<0||k>n)return 0;if(k===0||k===n)return 1;let r=1;for(let i=1;i<=k;i++){r=r*(n-i+1)/i}return r}"
+  },
+  "outputs": {
+    "primary": "Stirling number S(n,k)",
+    "breakdown": [
+      "Combinatorial interpretation",
+      "Intermediate factorial values"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

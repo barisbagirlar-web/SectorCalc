@@ -1,0 +1,55 @@
+{
+  "toolName": "mortality-calculator",
+  "inputs": [
+    {
+      "id": "deaths",
+      "label": "Number of Deaths",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Total observed deaths in the cohort or population during the time period."
+    },
+    {
+      "id": "population",
+      "label": "Total Population at Risk",
+      "type": "number",
+      "unit": "individuals",
+      "default": 100000,
+      "businessContext": "The average number of individuals at risk of death during the period."
+    },
+    {
+      "id": "period",
+      "label": "Observation Period",
+      "type": "number",
+      "unit": "years",
+      "default": 1,
+      "businessContext": "The length of time over which deaths and population exposure are measured."
+    },
+    {
+      "id": "multiplier",
+      "label": "Rate Multiplier",
+      "type": "number",
+      "unit": "per",
+      "default": 100000,
+      "businessContext": "Standard scaling factor for mortality rate (e.g., deaths per 100,000)."
+    }
+  ],
+  "formulas": {
+    "personYears": "population * period",
+    "crudeRate": "deaths / (population * period)",
+    "mortalityRate": "(deaths / (population * period)) * multiplier"
+  },
+  "outputs": {
+    "primary": "mortalityRate",
+    "breakdown": [
+      "personYears",
+      "crudeRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

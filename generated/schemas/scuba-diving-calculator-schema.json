@@ -1,0 +1,73 @@
+{
+  "toolName": "scuba-diving-calculator",
+  "inputs": [
+    {
+      "id": "tankVolume",
+      "label": "Tank Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 12,
+      "businessContext": "The volume of the scuba cylinder in liters."
+    },
+    {
+      "id": "startPressure",
+      "label": "Starting Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 200,
+      "businessContext": "The pressure of the full tank."
+    },
+    {
+      "id": "reservePressure",
+      "label": "Reserve Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 50,
+      "businessContext": "The pressure at which the dive should be ended, typically for safety reserve."
+    },
+    {
+      "id": "diveDepth",
+      "label": "Average Dive Depth",
+      "type": "number",
+      "unit": "m",
+      "default": 18,
+      "businessContext": "The planned average depth of the dive."
+    },
+    {
+      "id": "sacRate",
+      "label": "Surface Air Consumption",
+      "type": "number",
+      "unit": "L/min",
+      "default": 20,
+      "businessContext": "The diver's personal surface air consumption rate."
+    },
+    {
+      "id": "waterDensity",
+      "label": "Water Density Factor",
+      "type": "number",
+      "unit": "atm/bar per 10m",
+      "default": 1.03,
+      "businessContext": "1.00 for freshwater, 1.03 for saltwater; reflects pressure increase per 10m depth."
+    }
+  ],
+  "formulas": {
+    "ambientPressure": "1 + (diveDepth / 10) * waterDensity",
+    "totalGas": "(startPressure - reservePressure) * tankVolume",
+    "breathingRateDepth": "sacRate * ambientPressure",
+    "maxDiveTime": "totalGas / breathingRateDepth"
+  },
+  "outputs": {
+    "primary": "maxDiveTime",
+    "breakdown": [
+      "ambientPressure",
+      "totalGas",
+      "breathingRateDepth"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

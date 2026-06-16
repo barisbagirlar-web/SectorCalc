@@ -1,0 +1,75 @@
+{
+  "toolName": "stat-calculator",
+  "inputs": [
+    {
+      "id": "value1",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Data point for statistical analysis (e.g., measurement, test result)"
+    },
+    {
+      "id": "value2",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Data point for statistical analysis (e.g., measurement, test result)"
+    },
+    {
+      "id": "value3",
+      "label": "Value 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Data point for statistical analysis (e.g., measurement, test result)"
+    },
+    {
+      "id": "value4",
+      "label": "Value 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Data point for statistical analysis (e.g., measurement, test result)"
+    },
+    {
+      "id": "value5",
+      "label": "Value 5",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Data point for statistical analysis (e.g., measurement, test result)"
+    }
+  ],
+  "formulas": {
+    "sum": "value1 + value2 + value3 + value4 + value5",
+    "count": "5",
+    "mean": "(value1 + value2 + value3 + value4 + value5) / 5",
+    "variance": "((value1 - mean) ** 2 + (value2 - mean) ** 2 + (value3 - mean) ** 2 + (value4 - mean) ** 2 + (value5 - mean) ** 2) / 4",
+    "standardDeviation": "Math.sqrt(variance)",
+    "min": "Math.min(value1, value2, value3, value4, value5)",
+    "max": "Math.max(value1, value2, value3, value4, value5)",
+    "range": "max - min",
+    "coefficientOfVariation": "standardDeviation / mean"
+  },
+  "outputs": {
+    "primary": "mean",
+    "breakdown": [
+      "standardDeviation",
+      "variance",
+      "min",
+      "max",
+      "range",
+      "sum",
+      "count",
+      "coefficientOfVariation"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

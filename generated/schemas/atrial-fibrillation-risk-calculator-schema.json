@@ -1,0 +1,85 @@
+{
+  "toolName": "atrial-fibrillation-risk-calculator",
+  "inputs": [
+    {
+      "id": "congestiveHeartFailure",
+      "label": "Congestive Heart Failure",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "Presence of congestive heart failure (0=No, 1=Yes)"
+    },
+    {
+      "id": "hypertension",
+      "label": "Hypertension",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "Diagnosed hypertension (0=No, 1=Yes)"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 65,
+      "businessContext": "Patient age in years"
+    },
+    {
+      "id": "diabetes",
+      "label": "Diabetes",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "Diagnosed diabetes mellitus (0=No, 1=Yes)"
+    },
+    {
+      "id": "priorStrokeOrTIA",
+      "label": "Prior Stroke or TIA",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "History of stroke or transient ischemic attack (0=No, 1=Yes)"
+    },
+    {
+      "id": "vascularDisease",
+      "label": "Vascular Disease",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "Presence of vascular disease (0=No, 1=Yes)"
+    },
+    {
+      "id": "sex",
+      "label": "Sex (Female=1)",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "Patient sex (0=Male, 1=Female)"
+    }
+  ],
+  "formulas": {
+    "chfPoints": "congestiveHeartFailure",
+    "htnPoints": "hypertension",
+    "agePoints": "age >= 75 ? 2 : (age >= 65 ? 1 : 0)",
+    "dmPoints": "diabetes",
+    "strokePoints": "priorStrokeOrTIA || vascularDisease ? 2 : 0",
+    "sexPoints": "sex",
+    "riskScore": "chfPoints + htnPoints + agePoints + dmPoints + strokePoints + sexPoints",
+    "pointsBreakdown": "`CHF: ${chfPoints}, HTN: ${htnPoints}, Age: ${agePoints}, DM: ${dmPoints}, Stroke/TIA/Vasc: ${strokePoints}, Sex: ${sexPoints}`",
+    "riskCategory": "riskScore == 0 ? 'Low risk' : riskScore == 1 ? 'Moderate risk' : 'High risk'"
+  },
+  "outputs": {
+    "primary": "riskScore",
+    "breakdown": [
+      "pointsBreakdown",
+      "riskCategory"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "scope-2-emissions-calculator",
+  "inputs": [
+    {
+      "id": "electricityKwh",
+      "label": "Electricity Consumption",
+      "type": "number",
+      "unit": "kWh",
+      "default": 0,
+      "businessContext": "Annual grid or purchased electricity consumption."
+    },
+    {
+      "id": "locationFactor",
+      "label": "Location-Based Emission Factor",
+      "type": "number",
+      "unit": "kgCO2e/kWh",
+      "default": 0.5,
+      "businessContext": "Grid average emission factor from national or regional authority."
+    },
+    {
+      "id": "marketFactor",
+      "label": "Market-Based Emission Factor",
+      "type": "number",
+      "unit": "kgCO2e/kWh",
+      "default": 0.4,
+      "businessContext": "Supplier-specific or residual mix emission factor."
+    },
+    {
+      "id": "heatMwh",
+      "label": "Purchased Heat Consumption",
+      "type": "number",
+      "unit": "MWh",
+      "default": 0,
+      "businessContext": "Annual purchased heat/steam/cooling converted to MWh."
+    },
+    {
+      "id": "heatFactor",
+      "label": "Heat Emission Factor",
+      "type": "number",
+      "unit": "kgCO2e/MWh",
+      "default": 200,
+      "businessContext": "Emission factor for purchased heat/steam/cooling."
+    }
+  ],
+  "formulas": {
+    "totalLocationBased": "electricityKwh * locationFactor + heatMwh * heatFactor",
+    "totalMarketBased": "electricityKwh * marketFactor + heatMwh * heatFactor",
+    "electricityLocationBased": "electricityKwh * locationFactor",
+    "electricityMarketBased": "electricityKwh * marketFactor",
+    "heatEmissions": "heatMwh * heatFactor"
+  },
+  "outputs": {
+    "primary": "totalLocationBased",
+    "breakdown": [
+      "totalMarketBased",
+      "heatEmissions"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

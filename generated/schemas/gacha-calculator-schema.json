@@ -1,0 +1,58 @@
+{
+  "toolName": "gacha-calculator",
+  "inputs": [
+    {
+      "id": "costPerPull",
+      "label": "Tek Çekim Maliyeti",
+      "type": "number",
+      "unit": "TRY",
+      "default": 10,
+      "businessContext": "Bir gacha çekiminin birim maliyeti."
+    },
+    {
+      "id": "baseProbability",
+      "label": "Temel Başarı Olasılığı",
+      "type": "number",
+      "unit": "%",
+      "default": 0.6,
+      "businessContext": "Her bir çekimde başarılı sonuç alma olasılığı (yüzde)."
+    },
+    {
+      "id": "hardPityAt",
+      "label": "Garanti Eşiği (Çekim Sayısı)",
+      "type": "number",
+      "unit": "adet",
+      "default": 90,
+      "businessContext": "Bu çekim sayısına ulaşıldığında başarı garanti olur. 0 ise garanti yok."
+    },
+    {
+      "id": "desiredSuccesses",
+      "label": "Hedef Başarı Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Elde edilmek istenen başarılı sonuç sayısı."
+    }
+  ],
+  "formulas": {
+    "pDecimal": "baseProbability / 100",
+    "q": "1 - pDecimal",
+    "hardPityPulls": "hardPityAt",
+    "expectedPullsOne": "hardPityPulls > 0 ? (1 - Math.pow(q, hardPityPulls)) / pDecimal : 1 / pDecimal",
+    "totalPulls": "expectedPullsOne * desiredSuccesses",
+    "totalCost": "totalPulls * costPerPull"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "expectedPullsOne",
+      "totalPulls"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

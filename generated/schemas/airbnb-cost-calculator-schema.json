@@ -1,0 +1,97 @@
+{
+  "toolName": "airbnb-cost-calculator",
+  "inputs": [
+    {
+      "id": "nightlyRate",
+      "label": "Nightly Rate",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "The base price per night for the listing"
+    },
+    {
+      "id": "numNights",
+      "label": "Number of Nights",
+      "type": "number",
+      "unit": "nights",
+      "default": 1,
+      "businessContext": "Duration of stay"
+    },
+    {
+      "id": "cleaningFee",
+      "label": "Cleaning Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "businessContext": "One-time cleaning fee charged per booking"
+    },
+    {
+      "id": "serviceFeeRate",
+      "label": "Service Fee Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 14,
+      "businessContext": "Airbnb host service fee percentage"
+    },
+    {
+      "id": "occupancyTaxRate",
+      "label": "Occupancy Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Local occupancy / transient tax percentage"
+    },
+    {
+      "id": "extraGuestFee",
+      "label": "Additional Guest Fee (per guest per night)",
+      "type": "number",
+      "unit": "USD",
+      "default": 20,
+      "businessContext": "Fee per extra guest per night beyond base occupancy"
+    },
+    {
+      "id": "extraGuests",
+      "label": "Number of Extra Guests",
+      "type": "number",
+      "unit": "guests",
+      "default": 0,
+      "businessContext": "Number of guests exceeding the base occupancy (e.g., beyond 2)"
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage discount applied to the total (e.g., long-stay discount)"
+    }
+  ],
+  "formulas": {
+    "nightlyTotal": "nightlyRate * numNights",
+    "extraGuestCost": "extraGuestFee * extraGuests * numNights",
+    "subtotal": "nightlyTotal + cleaningFee + extraGuestCost",
+    "serviceFee": "subtotal * (serviceFeeRate / 100)",
+    "taxableAmount": "subtotal + serviceFee",
+    "tax": "taxableAmount * (occupancyTaxRate / 100)",
+    "totalBeforeDiscount": "taxableAmount + tax",
+    "discountAmount": "totalBeforeDiscount * (discountRate / 100)",
+    "totalCost": "totalBeforeDiscount - discountAmount"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "nightlyTotal",
+      "cleaningFee",
+      "extraGuestCost",
+      "serviceFee",
+      "tax",
+      "discountAmount"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

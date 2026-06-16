@@ -1,0 +1,56 @@
+{
+  "toolName": "container-calculator",
+  "inputs": [
+    {
+      "id": "totalQuantity",
+      "label": "Toplam Adet",
+      "type": "number",
+      "unit": "adet",
+      "default": 1000,
+      "businessContext": "Sevk edilecek toplam birim sayısı"
+    },
+    {
+      "id": "itemsPerPallet",
+      "label": "Palet Başına Adet",
+      "type": "number",
+      "unit": "adet/palet",
+      "default": 50,
+      "businessContext": "Bir palete sığan birim sayısı"
+    },
+    {
+      "id": "palletsPerContainer",
+      "label": "Konteyner Başına Palet",
+      "type": "number",
+      "unit": "palet/konteyner",
+      "default": 20,
+      "businessContext": "Bir konteynere yüklenebilen palet sayısı (ör: 20 palet = TEU)"
+    },
+    {
+      "id": "reservePercent",
+      "label": "Yedek Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Hasar, kayıp vb. için ek yedek yüzdesi"
+    }
+  ],
+  "formulas": {
+    "palletsNeeded": "Math.ceil(totalQuantity / itemsPerPallet)",
+    "containersWithoutReserve": "Math.ceil(palletsNeeded / palletsPerContainer)",
+    "containersWithReserve": "Math.ceil(containersWithoutReserve * (1 + reservePercent / 100))"
+  },
+  "outputs": {
+    "primary": "Gerekli Konteyner Sayısı: ${containersWithReserve}",
+    "breakdown": [
+      "İhtiyaç Duyulan Palet: ${palletsNeeded}",
+      "Yedeksiz Konteyner: ${containersWithoutReserve}",
+      "Yedekli Konteyner: ${containersWithReserve}"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "turbine-calculator",
+  "inputs": [
+    {
+      "id": "airDensity",
+      "label": "Hava Yoğunluğu",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1.225,
+      "businessContext": "Deniz seviyesinde 15°C'de standart hava yoğunluğu. Rakım ve sıcaklığa göre değişir."
+    },
+    {
+      "id": "rotorDiameter",
+      "label": "Rotor Çapı",
+      "type": "number",
+      "unit": "m",
+      "default": 80,
+      "businessContext": "Türbin kanatlarının süpürdüğü dairenin çapı."
+    },
+    {
+      "id": "windSpeed",
+      "label": "Rüzgar Hızı",
+      "type": "number",
+      "unit": "m/s",
+      "default": 12,
+      "businessContext": "Kanat yüksekliğindeki ortalama rüzgar hızı."
+    },
+    {
+      "id": "efficiency",
+      "label": "Verimlilik",
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "businessContext": "Türbinin genel aerodinamik ve mekanik verimliliği. Tipik olarak %35-45 arası."
+    }
+  ],
+  "formulas": {
+    "sweptArea": "Math.PI * (rotorDiameter / 2) ** 2",
+    "rawPower": "0.5 * airDensity * sweptArea * Math.pow(windSpeed, 3) / 1000",
+    "power": "rawPower * efficiency / 100"
+  },
+  "outputs": {
+    "primary": "Güç: ${power} kW",
+    "breakdown": [
+      "Süpürme Alanı: ${sweptArea} m²",
+      "Ham Güç (Verimsiz): ${rawPower} kW"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

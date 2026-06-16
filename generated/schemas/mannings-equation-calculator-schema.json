@@ -1,0 +1,54 @@
+{
+  "toolName": "mannings-equation-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Manning's Roughness Coefficient (n)",
+      "type": "number",
+      "unit": "",
+      "default": 0.013,
+      "businessContext": "Boyutsuz pürüzlülük katsayısı. Beton, toprak kanal veya doğal akarsu tipine göre seçilir."
+    },
+    {
+      "id": "R",
+      "label": "Hydraulic Radius (R)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Akış kesit alanının ıslak çevreye oranı (A/P)."
+    },
+    {
+      "id": "S",
+      "label": "Channel Slope (S)",
+      "type": "number",
+      "unit": "m/m",
+      "default": 0.001,
+      "businessContext": "Kanal taban eğimi (düşey/yatay)."
+    },
+    {
+      "id": "A",
+      "label": "Cross-sectional Flow Area (A)",
+      "type": "number",
+      "unit": "m²",
+      "default": 5,
+      "businessContext": "Akışın dolu kesit alanı."
+    }
+  ],
+  "formulas": {
+    "V": "((1 / n) * Math.pow(R, 2/3) * Math.sqrt(S))",
+    "Q": "((1 / n) * A * Math.pow(R, 2/3) * Math.sqrt(S))"
+  },
+  "outputs": {
+    "primary": "Q",
+    "breakdown": [
+      "V",
+      "Q"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,78 @@
+{
+  "toolName": "cholesky-decomposition-calculator",
+  "inputs": [
+    {
+      "id": "a11",
+      "label": "A(1,1)",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Top-left element of symmetric positive-definite matrix A"
+    },
+    {
+      "id": "a12",
+      "label": "A(1,2) = A(2,1)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "First row, second column (symmetry assumed)"
+    },
+    {
+      "id": "a13",
+      "label": "A(1,3) = A(3,1)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "First row, third column"
+    },
+    {
+      "id": "a22",
+      "label": "A(2,2)",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Second diagonal element"
+    },
+    {
+      "id": "a23",
+      "label": "A(2,3) = A(3,2)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Second row, third column"
+    },
+    {
+      "id": "a33",
+      "label": "A(3,3)",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Bottom-right element"
+    }
+  ],
+  "formulas": {
+    "l11": "Math.sqrt(a11)",
+    "l21": "a12 / l11",
+    "l31": "a13 / l11",
+    "l22": "Math.sqrt(a22 - Math.pow(l21, 2))",
+    "l32": "(a23 - l21 * l31) / l22",
+    "l33": "Math.sqrt(a33 - Math.pow(l31, 2) - Math.pow(l32, 2))"
+  },
+  "outputs": {
+    "primary": "L = [[${l11}, 0, 0], [${l21}, ${l22}, 0], [${l31}, ${l32}, ${l33}]]",
+    "breakdown": [
+      "l11 = ${l11}",
+      "l21 = ${l21}",
+      "l31 = ${l31}",
+      "l22 = ${l22}",
+      "l32 = ${l32}",
+      "l33 = ${l33}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

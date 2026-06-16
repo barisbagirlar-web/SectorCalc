@@ -1,0 +1,59 @@
+{
+  "toolName": "apa-citation-generator-calculator",
+  "inputs": [
+    {
+      "id": "currentYear",
+      "label": "Current Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2024,
+      "businessContext": "The current year for age calculation."
+    },
+    {
+      "id": "publicationYear",
+      "label": "Publication Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2020,
+      "businessContext": "The year the cited work was published."
+    },
+    {
+      "id": "authorCount",
+      "label": "Number of Authors",
+      "type": "number",
+      "unit": "count",
+      "default": 1,
+      "businessContext": "The total number of authors of the cited work."
+    },
+    {
+      "id": "citationCount",
+      "label": "Citation Count",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "businessContext": "Number of times the work has been cited, for impact estimation."
+    }
+  ],
+  "formulas": {
+    "age": "currentYear - publicationYear",
+    "timeDecayFactor": "Math.exp(- (currentYear - publicationYear) / 10)",
+    "authorImpact": "authorCount",
+    "citationImpact": "Math.log(citationCount + 1)",
+    "relevanceScore": "Math.exp(- (currentYear - publicationYear) / 10) * authorCount * Math.log(citationCount + 1)"
+  },
+  "outputs": {
+    "primary": "relevanceScore",
+    "breakdown": [
+      "age",
+      "timeDecayFactor",
+      "authorImpact",
+      "citationImpact"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

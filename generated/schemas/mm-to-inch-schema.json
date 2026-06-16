@@ -1,0 +1,30 @@
+{
+  "toolName": "mm-to-inch",
+  "inputs": [
+    {
+      "id": "mm",
+      "label": "Milimetre (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 25.4,
+      "businessContext": "Uzunluk değeri milimetre cinsinden"
+    }
+  ],
+  "formulas": {
+    "inch": "mm / 25.4",
+    "inchFraction": "Math.floor(inch) + ' ' + Math.round((inch % 1) * 16) + '/16'"
+  },
+  "outputs": {
+    "primary": "inch",
+    "breakdown": [
+      "inch",
+      "inchFraction"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

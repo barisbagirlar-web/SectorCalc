@@ -1,0 +1,65 @@
+{
+  "toolName": "tinnitus-calculator",
+  "inputs": [
+    {
+      "id": "noiseLevel_dBA",
+      "label": "Gürültü Seviyesi (dBA)",
+      "type": "number",
+      "unit": "dBA",
+      "default": 85,
+      "businessContext": "Çalışma ortamındaki ortalama gürültü seviyesi"
+    },
+    {
+      "id": "exposureDuration_h",
+      "label": "Günlük Maruziyet Süresi",
+      "type": "number",
+      "unit": "saat",
+      "default": 8,
+      "businessContext": "Çalışanın gürültüye maruz kaldığı günlük süre"
+    },
+    {
+      "id": "age_years",
+      "label": "Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 40,
+      "businessContext": "Çalışanın yaşı"
+    },
+    {
+      "id": "exposureYears",
+      "label": "Maruziyet Yılı",
+      "type": "number",
+      "unit": "yıl",
+      "default": 10,
+      "businessContext": "Toplam gürültü maruziyet yılı"
+    },
+    {
+      "id": "hearingProtection_dB",
+      "label": "İşitme Koruyucu NRR",
+      "type": "number",
+      "unit": "dB",
+      "default": 0,
+      "businessContext": "Kullanılan işitme koruyucunun Gürültü Azaltma Değeri (NRR)"
+    }
+  ],
+  "formulas": {
+    "adjustedNoiseLevel": "noiseLevel_dBA - (hearingProtection_dB > 0 ? (hearingProtection_dB - 7) / 2 : 0)",
+    "permissibleTime": "8 / Math.pow(2, (adjustedNoiseLevel - 85) / 3)",
+    "dailyDosePercent": "(exposureDuration_h / permissibleTime) * 100",
+    "tinnitusRiskScore": "dailyDosePercent * (age_years / 40) * (exposureYears / 10)"
+  },
+  "outputs": {
+    "primary": "tinnitusRiskScore",
+    "breakdown": [
+      "adjustedNoiseLevel",
+      "permissibleTime",
+      "dailyDosePercent"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,66 @@
+{
+  "toolName": "myfitnesspal-macro-calculator",
+  "inputs": [
+    {
+      "id": "totalCalories",
+      "label": "Daily Calorie Goal",
+      "type": "number",
+      "unit": "kcal",
+      "default": 2000,
+      "businessContext": "Total daily energy intake goal in kilocalories."
+    },
+    {
+      "id": "proteinPercent",
+      "label": "Protein (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Desired percentage of total calories from protein."
+    },
+    {
+      "id": "carbPercent",
+      "label": "Carbohydrates (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "businessContext": "Desired percentage of total calories from carbohydrates."
+    },
+    {
+      "id": "fatPercent",
+      "label": "Fat (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Desired percentage of total calories from fat."
+    },
+    {
+      "id": "fiberGrams",
+      "label": "Fiber Target",
+      "type": "number",
+      "unit": "g",
+      "default": 25,
+      "businessContext": "Daily target for dietary fiber in grams."
+    }
+  ],
+  "formulas": {
+    "proteinGrams": "totalCalories * proteinPercent / 400",
+    "carbsGrams": "totalCalories * carbPercent / 400",
+    "fatGrams": "totalCalories * fatPercent / 900",
+    "fiberGrams": "fiberGrams"
+  },
+  "outputs": {
+    "primary": "Your daily macro targets based on {{totalCalories}} kcal.",
+    "breakdown": [
+      "Protein: {{proteinGrams}} g ({{proteinPercent}}% of calories)",
+      "Carbohydrates: {{carbsGrams}} g ({{carbPercent}}% of calories)",
+      "Fat: {{fatGrams}} g ({{fatPercent}}% of calories)",
+      "Fiber: {{fiberGrams}} g"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

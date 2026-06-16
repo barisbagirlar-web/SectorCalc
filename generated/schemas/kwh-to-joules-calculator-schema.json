@@ -1,0 +1,64 @@
+{
+  "toolName": "kwh-to-joules-calculator",
+  "inputs": [
+    {
+      "id": "kwh",
+      "label": "Enerji (kWh)",
+      "type": "number",
+      "unit": "kWh",
+      "default": 1,
+      "businessContext": "Doğrudan kWh cinsinden enerji değeri"
+    },
+    {
+      "id": "power_kw",
+      "label": "Güç (kW)",
+      "type": "number",
+      "unit": "kW",
+      "default": 0,
+      "businessContext": "Alternatif hesaplama: Güç değeri"
+    },
+    {
+      "id": "time_h",
+      "label": "Zaman (saat)",
+      "type": "number",
+      "unit": "h",
+      "default": 0,
+      "businessContext": "Alternatif hesaplama: Süre"
+    },
+    {
+      "id": "conversion_factor",
+      "label": "Dönüşüm Katsayısı",
+      "type": "number",
+      "unit": "J/kWh",
+      "default": 3600000,
+      "businessContext": "Dönüşüm katsayısı (varsayılan 3.6e6)"
+    },
+    {
+      "id": "precision",
+      "label": "Ondalık Basamak",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Sonuç yuvarlama"
+    }
+  ],
+  "formulas": {
+    "energy_kwh": "kwh > 0 ? kwh : power_kw * time_h",
+    "energy_joules": "energy_kwh * conversion_factor",
+    "rounded_joules": "Math.round(energy_joules * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "rounded_joules",
+    "breakdown": [
+      "energy_kwh",
+      "energy_joules",
+      "conversion_factor"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

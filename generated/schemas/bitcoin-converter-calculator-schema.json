@@ -1,0 +1,63 @@
+{
+  "toolName": "bitcoin-converter-calculator",
+  "inputs": [
+    {
+      "id": "btcAmount",
+      "label": "Bitcoin Amount",
+      "type": "number",
+      "unit": "BTC",
+      "default": 0,
+      "businessContext": "Enter the amount of Bitcoin to convert to USD. Set to 0 if converting USD to BTC."
+    },
+    {
+      "id": "usdAmount",
+      "label": "USD Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Enter the amount of USD to convert to Bitcoin. Set to 0 if converting BTC to USD."
+    },
+    {
+      "id": "btcPrice",
+      "label": "BTC Market Price",
+      "type": "number",
+      "unit": "USD/BTC",
+      "default": 30000,
+      "businessContext": "Current market price of 1 Bitcoin in USD."
+    },
+    {
+      "id": "feePercent",
+      "label": "Transaction Fee (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "businessContext": "Percentage fee charged per transaction (e.g., 0.5 for 0.5%)."
+    },
+    {
+      "id": "fixedFee",
+      "label": "Fixed Fee (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Fixed fee in USD added per transaction."
+    }
+  ],
+  "formulas": {
+    "convertedAmount": "(btcAmount !== 0) ? (btcAmount * btcPrice * (1 - feePercent/100) - fixedFee) : ((usdAmount + fixedFee) / (btcPrice * (1 - feePercent/100)))",
+    "grossValue": "btcAmount * btcPrice",
+    "totalFees": "(btcAmount !== 0) ? (btcAmount * btcPrice * (feePercent/100) + fixedFee) : ((usdAmount + fixedFee) * (feePercent/100) + fixedFee)"
+  },
+  "outputs": {
+    "primary": "convertedAmount",
+    "breakdown": [
+      "grossValue",
+      "totalFees"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

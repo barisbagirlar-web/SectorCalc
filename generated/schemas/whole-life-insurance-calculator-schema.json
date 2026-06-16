@@ -1,0 +1,57 @@
+{
+  "toolName": "whole-life-insurance-calculator",
+  "inputs": [
+    {
+      "id": "sumAssured",
+      "label": "Sum Assured (Death Benefit)",
+      "type": "number",
+      "unit": "currency",
+      "default": 100000,
+      "businessContext": "The amount paid upon death of the insured."
+    },
+    {
+      "id": "mortalityRate",
+      "label": "Annual Mortality Rate",
+      "type": "number",
+      "unit": "decimal fraction",
+      "default": 0.01,
+      "businessContext": "The probability that the insured will die within the next year."
+    },
+    {
+      "id": "interestRate",
+      "label": "Annual Discount Rate (i)",
+      "type": "number",
+      "unit": "decimal fraction",
+      "default": 0.05,
+      "businessContext": "The interest rate used for discounting future benefits."
+    },
+    {
+      "id": "expenseLoading",
+      "label": "Expense Loading",
+      "type": "number",
+      "unit": "percentage",
+      "default": 0.1,
+      "businessContext": "Loading factor for expenses, as a decimal (e.g., 0.1 for 10%)."
+    }
+  ],
+  "formulas": {
+    "Net Single Premium": "sumAssured * mortalityRate / (interestRate + mortalityRate)",
+    "Annual Net Premium": "sumAssured * mortalityRate / (1 + interestRate)",
+    "Gross Single Premium": "sumAssured * mortalityRate / (interestRate + mortalityRate) * (1 + expenseLoading)",
+    "Gross Annual Premium": "sumAssured * mortalityRate / (1 + interestRate) * (1 + expenseLoading)"
+  },
+  "outputs": {
+    "primary": "Gross Annual Premium",
+    "breakdown": [
+      "Net Single Premium",
+      "Annual Net Premium",
+      "Gross Single Premium"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,74 @@
+{
+  "toolName": "cylindrical-coordinate-calculator",
+  "inputs": [
+    {
+      "id": "direction",
+      "label": "Conversion Direction",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "0 for Cylindrical to Cartesian, 1 for Cartesian to Cylindrical"
+    },
+    {
+      "id": "r",
+      "label": "Radius (r)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Radial distance in cylindrical coordinates"
+    },
+    {
+      "id": "theta",
+      "label": "Azimuth (θ)",
+      "type": "number",
+      "unit": "deg",
+      "default": 0,
+      "businessContext": "Angle in degrees, measured from positive x-axis"
+    },
+    {
+      "id": "x",
+      "label": "X-coordinate",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "X-coordinate in Cartesian system"
+    },
+    {
+      "id": "y",
+      "label": "Y-coordinate",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y-coordinate in Cartesian system"
+    },
+    {
+      "id": "z",
+      "label": "Z-coordinate",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Z-coordinate (common to both coordinate systems)"
+    }
+  ],
+  "formulas": {
+    "thetaRad": "theta * Math.PI / 180",
+    "xResult": "r * Math.cos(thetaRad)",
+    "yResult": "r * Math.sin(thetaRad)",
+    "rResult": "Math.sqrt(x**2 + y**2)",
+    "thetaDeg": "Math.atan2(y, x) * 180 / Math.PI"
+  },
+  "outputs": {
+    "primary": "direction === 0 ? `Cartesian: x = ${xResult.toFixed(4)}, y = ${yResult.toFixed(4)}, z = ${z.toFixed(4)}` : `Cylindrical: r = ${rResult.toFixed(4)}, θ = ${thetaDeg.toFixed(4)}°, z = ${z.toFixed(4)}`",
+    "breakdown": [
+      "direction === 0 ? `Step 1: Convert θ from degrees to radians: θ_rad = ${theta}° × π/180 = ${thetaRad.toFixed(4)} rad` : `Step 1: Compute r = √(x² + y²) = √(${x}² + ${y}²) = ${rResult.toFixed(4)}`",
+      "direction === 0 ? `Step 2: x = r·cos(θ_rad) = ${r} × cos(${thetaRad.toFixed(4)}) = ${xResult.toFixed(4)}` : `Step 2: θ = atan2(y, x) = atan2(${y}, ${x}) = ${thetaDeg.toFixed(4)}°`",
+      "direction === 0 ? `Step 3: y = r·sin(θ_rad) = ${r} × sin(${thetaRad.toFixed(4)}) = ${yResult.toFixed(4)}` : `Step 3: Z-coordinate remains unchanged: z = ${z.toFixed(4)}`"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

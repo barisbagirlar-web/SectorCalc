@@ -1,0 +1,65 @@
+{
+  "toolName": "twilight-calculator",
+  "inputs": [
+    {
+      "id": "full_power",
+      "label": "Full Power Consumption",
+      "type": "number",
+      "unit": "W",
+      "default": 100,
+      "businessContext": "Nominal güç tüketimi (Watt)"
+    },
+    {
+      "id": "dimming_percent",
+      "label": "Dimming Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Karartma yüzdesi"
+    },
+    {
+      "id": "exponent",
+      "label": "Dimming Curve Exponent",
+      "type": "number",
+      "unit": "",
+      "default": 2.2,
+      "businessContext": "LED sönümlendirme eğrisi üssü"
+    },
+    {
+      "id": "operating_hours",
+      "label": "Daily Operating Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 12,
+      "businessContext": "Günlük çalışma saati"
+    },
+    {
+      "id": "cost_per_kwh",
+      "label": "Electricity Cost",
+      "type": "number",
+      "unit": "₺/kWh",
+      "default": 0.15,
+      "businessContext": "Elektrik birim fiyatı"
+    }
+  ],
+  "formulas": {
+    "dimming_factor": "(dimming_percent / 100) ** exponent",
+    "actual_power": "full_power * dimming_factor",
+    "daily_energy_saved_wh": "(full_power - actual_power) * operating_hours",
+    "daily_cost_savings": "daily_energy_saved_wh * cost_per_kwh / 1000"
+  },
+  "outputs": {
+    "primary": "daily_cost_savings",
+    "breakdown": [
+      "actual_power",
+      "daily_energy_saved_wh",
+      "dimming_factor"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

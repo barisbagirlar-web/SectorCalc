@@ -1,0 +1,55 @@
+{
+  "toolName": "k-means-calculator",
+  "inputs": [
+    {
+      "id": "value1",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First data value for mean calculation"
+    },
+    {
+      "id": "value2",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second data value for mean calculation"
+    },
+    {
+      "id": "value3",
+      "label": "Value 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Third data value for mean calculation"
+    },
+    {
+      "id": "value4",
+      "label": "Value 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fourth data value for mean calculation"
+    }
+  ],
+  "formulas": {
+    "sum": "value1 + value2 + value3 + value4",
+    "count": "4",
+    "mean": "(value1 + value2 + value3 + value4) / 4"
+  },
+  "outputs": {
+    "primary": "mean",
+    "breakdown": [
+      "sum",
+      "count"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

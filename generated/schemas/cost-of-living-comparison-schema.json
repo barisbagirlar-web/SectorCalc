@@ -1,0 +1,57 @@
+{
+  "toolName": "cost-of-living-comparison",
+  "inputs": [
+    {
+      "id": "currentCostIndex",
+      "label": "Current City Cost Index",
+      "type": "number",
+      "unit": "index",
+      "default": 100,
+      "businessContext": "Cost of living index for the current city (base 100)"
+    },
+    {
+      "id": "newCostIndex",
+      "label": "New City Cost Index",
+      "type": "number",
+      "unit": "index",
+      "default": 120,
+      "businessContext": "Cost of living index for the new city (base 100)"
+    },
+    {
+      "id": "currentSalary",
+      "label": "Current Annual Salary",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Current annual gross salary in the current city"
+    },
+    {
+      "id": "currentMonthlyExpenses",
+      "label": "Current Monthly Expenses",
+      "type": "number",
+      "unit": "USD",
+      "default": 3000,
+      "businessContext": "Current average monthly expenses in the current city"
+    }
+  ],
+  "formulas": {
+    "equivalentSalary": "currentSalary * (newCostIndex / currentCostIndex)",
+    "equivalentMonthlyExpenses": "currentMonthlyExpenses * (newCostIndex / currentCostIndex)",
+    "percentageChange": "((newCostIndex - currentCostIndex) / currentCostIndex) * 100",
+    "differenceAmount": "equivalentSalary - currentSalary"
+  },
+  "outputs": {
+    "primary": "equivalentSalary",
+    "breakdown": [
+      "equivalentMonthlyExpenses",
+      "percentageChange",
+      "differenceAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

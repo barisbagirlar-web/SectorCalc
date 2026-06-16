@@ -1,0 +1,55 @@
+{
+  "toolName": "muscle-up-calculator",
+  "inputs": [
+    {
+      "id": "bodyWeight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User's body weight in kilograms."
+    },
+    {
+      "id": "pullUpMax",
+      "label": "Max Pull-Up Reps",
+      "type": "number",
+      "unit": "reps",
+      "default": 10,
+      "businessContext": "Maximum consecutive pull-ups performed."
+    },
+    {
+      "id": "dipMax",
+      "label": "Max Dip Reps",
+      "type": "number",
+      "unit": "reps",
+      "default": 10,
+      "businessContext": "Maximum consecutive dips performed."
+    },
+    {
+      "id": "barHeight",
+      "label": "Bar Height",
+      "type": "number",
+      "unit": "m",
+      "default": 2.2,
+      "businessContext": "Height of the pull-up bar from ground."
+    }
+  ],
+  "formulas": {
+    "pullingPower": "bodyWeight * pullUpMax / 10",
+    "pushingPower": "bodyWeight * dipMax / 10",
+    "muscleUpIndex": "Math.sqrt(pullingPower * pushingPower) / barHeight"
+  },
+  "outputs": {
+    "primary": "muscleUpIndex",
+    "breakdown": [
+      "pullingPower",
+      "pushingPower"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

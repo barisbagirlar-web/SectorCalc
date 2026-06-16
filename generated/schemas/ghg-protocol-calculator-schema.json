@@ -1,0 +1,73 @@
+{
+  "toolName": "ghg-protocol-calculator",
+  "inputs": [
+    {
+      "id": "electricityKwh",
+      "label": "Electricity Consumption",
+      "type": "number",
+      "unit": "kWh",
+      "default": 1000,
+      "businessContext": "Annual electricity usage"
+    },
+    {
+      "id": "electricityFactor",
+      "label": "Electricity Emission Factor",
+      "type": "number",
+      "unit": "kg CO2e/kWh",
+      "default": 0.5,
+      "businessContext": "Grid emission factor"
+    },
+    {
+      "id": "naturalGasM3",
+      "label": "Natural Gas Consumption",
+      "type": "number",
+      "unit": "m³",
+      "default": 500,
+      "businessContext": "Annual natural gas usage"
+    },
+    {
+      "id": "naturalGasFactor",
+      "label": "Natural Gas Emission Factor",
+      "type": "number",
+      "unit": "kg CO2e/m³",
+      "default": 2,
+      "businessContext": "Emission factor for natural gas"
+    },
+    {
+      "id": "fuelLiters",
+      "label": "Fuel Consumption",
+      "type": "number",
+      "unit": "L",
+      "default": 2000,
+      "businessContext": "Annual fuel usage for vehicles"
+    },
+    {
+      "id": "fuelFactor",
+      "label": "Fuel Emission Factor",
+      "type": "number",
+      "unit": "kg CO2e/L",
+      "default": 2.3,
+      "businessContext": "Emission factor for gasoline/diesel"
+    }
+  ],
+  "formulas": {
+    "electricityEmissions": "electricityKwh * electricityFactor",
+    "naturalGasEmissions": "naturalGasM3 * naturalGasFactor",
+    "fuelEmissions": "fuelLiters * fuelFactor",
+    "totalEmissions": "electricityEmissions + naturalGasEmissions + fuelEmissions"
+  },
+  "outputs": {
+    "primary": "totalEmissions",
+    "breakdown": [
+      "electricityEmissions",
+      "naturalGasEmissions",
+      "fuelEmissions"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

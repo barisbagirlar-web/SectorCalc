@@ -1,0 +1,63 @@
+{
+  "toolName": "hiking-calorie-calculator",
+  "inputs": [
+    {
+      "id": "bodyWeight",
+      "label": "Vücut Ağırlığı (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Yürüyüşçünün vücut ağırlığı (kg cinsinden)"
+    },
+    {
+      "id": "packWeight",
+      "label": "Sırt Çantası Ağırlığı (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Sırt çantası ve ekipmanın toplam ağırlığı"
+    },
+    {
+      "id": "distance",
+      "label": "Mesafe (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "Toplam yürüyüş mesafesi"
+    },
+    {
+      "id": "elevationGain",
+      "label": "Yükseklik Kazancı (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 500,
+      "businessContext": "Toplam pozitif yükseklik kazanımı"
+    },
+    {
+      "id": "terrainFactor",
+      "label": "Arazi Zorluk Faktörü",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 1.2,
+      "businessContext": "Arazi zorluğu için çarpan: 1.0 asfalt, 1.2 çakıl, 1.5 engebeli"
+    }
+  ],
+  "formulas": {
+    "totalCalories": "(bodyWeight + packWeight) * (distance * 0.8 + elevationGain * 0.0094) * terrainFactor",
+    "horizontalCalories": "(bodyWeight + packWeight) * distance * 0.8 * terrainFactor",
+    "verticalCalories": "(bodyWeight + packWeight) * elevationGain * 0.0094 * terrainFactor"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "horizontalCalories",
+      "verticalCalories"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

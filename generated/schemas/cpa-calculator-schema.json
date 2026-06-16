@@ -1,0 +1,62 @@
+{
+  "toolName": "cpa-calculator",
+  "inputs": [
+    {
+      "id": "marketingCost",
+      "label": "Pazarlama Maliyeti",
+      "type": "number",
+      "unit": "EUR",
+      "default": 10000,
+      "businessContext": "Dönem içindeki toplam pazarlama harcamaları (reklam, kampanya vb.)"
+    },
+    {
+      "id": "salesCost",
+      "label": "Satış Maliyeti",
+      "type": "number",
+      "unit": "EUR",
+      "default": 5000,
+      "businessContext": "Satış personeli, ekipman ve diğer satış giderleri"
+    },
+    {
+      "id": "overheadCost",
+      "label": "Genel Gider Payı",
+      "type": "number",
+      "unit": "EUR",
+      "default": 2000,
+      "businessContext": "Müşteri edinimi için ayrılan genel yönetim gider payı"
+    },
+    {
+      "id": "otherCost",
+      "label": "Diğer Maliyetler",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "Yazılım, danışmanlık gibi ek edinim maliyetleri"
+    },
+    {
+      "id": "acquiredCustomers",
+      "label": "Kazanılan Müşteri Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "businessContext": "İlgili dönemde kazanılan yeni müşteri sayısı"
+    }
+  ],
+  "formulas": {
+    "totalCost": "marketingCost + salesCost + overheadCost + otherCost",
+    "cpa": "acquiredCustomers === 0 ? 0 : (totalCost / acquiredCustomers)"
+  },
+  "outputs": {
+    "primary": "cpa",
+    "breakdown": [
+      "totalCost",
+      "acquiredCustomers"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

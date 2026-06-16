@@ -1,0 +1,56 @@
+{
+  "toolName": "imperial-gallons-to-us-gallons-calculator",
+  "inputs": [
+    {
+      "id": "imperialGallons",
+      "label": "Imperial Gallons",
+      "type": "number",
+      "unit": "gal (imp)",
+      "default": 1,
+      "businessContext": "The volume in imperial gallons to convert."
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "businessContext": "Number of batches or containers being converted."
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Allowable measurement tolerance as percentage."
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Ambient temperature for density correction (if applicable)."
+    }
+  ],
+  "formulas": {
+    "conversionFactor": "1.2009499255",
+    "usGallonsNominal": "imperialGallons * batchSize * conversionFactor",
+    "usGallonsMin": "usGallonsNominal * (1 - tolerance / 100)",
+    "usGallonsMax": "usGallonsNominal * (1 + tolerance / 100)"
+  },
+  "outputs": {
+    "primary": "usGallonsNominal",
+    "breakdown": [
+      "usGallonsMin",
+      "usGallonsMax"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

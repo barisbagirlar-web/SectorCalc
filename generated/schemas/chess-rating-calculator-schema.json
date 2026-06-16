@@ -1,0 +1,55 @@
+{
+  "toolName": "chess-rating-calculator",
+  "inputs": [
+    {
+      "id": "currentRating",
+      "label": "Mevcut ELO Puanı",
+      "type": "number",
+      "unit": "",
+      "default": 1200,
+      "businessContext": "Oyuncunun mevcut ELO derecesi"
+    },
+    {
+      "id": "opponentRating",
+      "label": "Rakip ELO Puanı",
+      "type": "number",
+      "unit": "",
+      "default": 1200,
+      "businessContext": "Rakip oyuncunun ELO derecesi"
+    },
+    {
+      "id": "result",
+      "label": "Maç Sonucu",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Maç sonucu: 1 (galibiyet), 0.5 (beraberlik), 0 (mağlubiyet)"
+    },
+    {
+      "id": "kFactor",
+      "label": "K Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 32,
+      "businessContext": "Gelişim katsayısı, genellikle 20-40 arası"
+    }
+  ],
+  "formulas": {
+    "expectedScore": "1 / (1 + 10 ** ((opponentRating - currentRating) / 400))",
+    "ratingChange": "kFactor * (result - expectedScore)",
+    "newRating": "currentRating + ratingChange"
+  },
+  "outputs": {
+    "primary": "newRating",
+    "breakdown": [
+      "expectedScore",
+      "ratingChange"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

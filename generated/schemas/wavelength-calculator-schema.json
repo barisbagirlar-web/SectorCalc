@@ -1,0 +1,65 @@
+{
+  "toolName": "wavelength-calculator",
+  "inputs": [
+    {
+      "id": "frequency",
+      "label": "Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1000000000,
+      "businessContext": "Frequency of the wave in hertz."
+    },
+    {
+      "id": "waveSpeed",
+      "label": "Propagation Speed",
+      "type": "number",
+      "unit": "m/s",
+      "default": 299792458,
+      "businessContext": "Speed of the wave in the medium. Defaults to speed of light in vacuum."
+    },
+    {
+      "id": "energy",
+      "label": "Photon Energy",
+      "type": "number",
+      "unit": "J",
+      "default": 4e-19,
+      "businessContext": "Energy of a single photon, if applicable. For electromagnetic waves only."
+    },
+    {
+      "id": "planckConstant",
+      "label": "Planck Constant",
+      "type": "number",
+      "unit": "J·s",
+      "default": 6.62607015e-34,
+      "businessContext": "Planck constant (h). Used to relate photon energy to frequency."
+    },
+    {
+      "id": "refractiveIndex",
+      "label": "Refractive Index",
+      "type": "number",
+      "unit": "unitless",
+      "default": 1,
+      "businessContext": "Refractive index of the medium. 1 for vacuum or air approximation."
+    }
+  ],
+  "formulas": {
+    "primary": "waveSpeed / frequency",
+    "period": "1 / frequency",
+    "wavelength_energy": "(planckConstant * waveSpeed) / energy",
+    "wavelength_medium": "(waveSpeed / frequency) / refractiveIndex"
+  },
+  "outputs": {
+    "primary": "Wavelength (vacuum)",
+    "breakdown": [
+      "period",
+      "wavelength_energy",
+      "wavelength_medium"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,59 @@
+{
+  "toolName": "characteristic-impedance-calculator",
+  "inputs": [
+    {
+      "id": "epsilon_r",
+      "label": "Dielektrik Sabiti (εr)",
+      "type": "number",
+      "unit": "",
+      "default": 2.25,
+      "businessContext": "Bağıl dielektrik geçirgenlik"
+    },
+    {
+      "id": "mu_r",
+      "label": "Manyetik Geçirgenlik (μr)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Bağıl manyetik geçirgenlik"
+    },
+    {
+      "id": "D",
+      "label": "Dış İletken İç Çapı (D)",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Dış iletkenin iç çapı"
+    },
+    {
+      "id": "d",
+      "label": "İç İletken Dış Çapı (d)",
+      "type": "number",
+      "unit": "mm",
+      "default": 2.8,
+      "businessContext": "İç iletkenin dış çapı"
+    }
+  ],
+  "formulas": {
+    "epsilon0": "8.854187817e-12",
+    "mu0": "4 * Math.PI * 1e-7",
+    "epsilon": "epsilon0 * epsilon_r",
+    "mu": "mu0 * mu_r",
+    "impedanceFactor": "Math.sqrt(mu / epsilon) / (2 * Math.PI)",
+    "logRatio": "Math.log(D / d)",
+    "characteristicImpedance": "impedanceFactor * logRatio"
+  },
+  "outputs": {
+    "primary": "characteristicImpedance",
+    "breakdown": [
+      "impedanceFactor",
+      "logRatio"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

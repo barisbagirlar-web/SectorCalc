@@ -1,0 +1,63 @@
+{
+  "toolName": "unicode-calculator",
+  "inputs": [
+    {
+      "id": "charCount",
+      "label": "Karakter Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1000,
+      "businessContext": "İşlenecek toplam Unicode karakter sayısı"
+    },
+    {
+      "id": "encoding",
+      "label": "Kodlama Seçimi",
+      "type": "number",
+      "unit": "seçim",
+      "default": 1,
+      "businessContext": "1: UTF-8 (ortalama 2 byte), 2: UTF-16 (2 byte), 3: UTF-32 (4 byte)"
+    },
+    {
+      "id": "overhead",
+      "label": "Ek Yük",
+      "type": "number",
+      "unit": "byte",
+      "default": 0,
+      "businessContext": "Her bir metin öbeği için ek protokol/metadata byte"
+    },
+    {
+      "id": "lineCount",
+      "label": "Öbek Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Kaç ayrı metin öbeği (satır/parça) olduğu"
+    },
+    {
+      "id": "costPerMB",
+      "label": "MB Maliyeti",
+      "type": "number",
+      "unit": "TL/MB",
+      "default": 0.05,
+      "businessContext": "1 MB veri depolama veya iletim maliyeti"
+    }
+  ],
+  "formulas": {
+    "totalBytes": "charCount * (encoding == 1 ? 2 : encoding == 2 ? 2 : 4) + overhead * lineCount",
+    "totalMB": "totalBytes / (1024 * 1024)",
+    "totalCost": "totalMB * costPerMB"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "totalBytes",
+      "totalMB"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

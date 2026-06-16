@@ -1,0 +1,59 @@
+{
+  "toolName": "frequency-wavelength-calculator",
+  "inputs": [
+    {
+      "id": "frequency",
+      "label": "Frequency (f)",
+      "type": "number",
+      "unit": "Hz",
+      "default": 100000000,
+      "businessContext": "Wave frequency in Hertz."
+    },
+    {
+      "id": "speedVacuum",
+      "label": "Speed in Vacuum (c)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 299792458,
+      "businessContext": "Speed of light in vacuum."
+    },
+    {
+      "id": "refractiveIndex",
+      "label": "Refractive Index (n)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Refractive index of the medium. For vacuum, n=1."
+    },
+    {
+      "id": "planckConstant",
+      "label": "Planck's Constant (h)",
+      "type": "number",
+      "unit": "J·s",
+      "default": 6.62607015e-34,
+      "businessContext": "Planck's constant for quantum energy calculation."
+    }
+  ],
+  "formulas": {
+    "wavelength": "(speedVacuum / refractiveIndex) / frequency",
+    "energy": "planckConstant * frequency",
+    "angularFrequency": "2 * Math.PI * frequency",
+    "waveNumber": "(2 * Math.PI * frequency * refractiveIndex) / speedVacuum",
+    "actualSpeed": "speedVacuum / refractiveIndex"
+  },
+  "outputs": {
+    "primary": "wavelength",
+    "breakdown": [
+      "energy",
+      "angularFrequency",
+      "waveNumber",
+      "actualSpeed"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

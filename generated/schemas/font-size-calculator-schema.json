@@ -1,0 +1,63 @@
+{
+  "toolName": "font-size-calculator",
+  "inputs": [
+    {
+      "id": "viewingDistance",
+      "label": "Viewing Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Distance from the viewer to the text or display in meters."
+    },
+    {
+      "id": "visualAcuity",
+      "label": "Visual Acuity",
+      "type": "number",
+      "unit": "arcmin",
+      "default": 5,
+      "businessContext": "Required visual angle for text height, in arcminutes (5 arcmin = 20/20 vision)."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.2,
+      "businessContext": "Multiplication factor for non-ideal conditions (e.g., lighting, motion)."
+    },
+    {
+      "id": "pointConversion",
+      "label": "Point Conversion",
+      "type": "number",
+      "unit": "mm/point",
+      "default": 0.3528,
+      "businessContext": "Conversion factor from millimeters to typographic points (1 point = 0.3528 mm)."
+    },
+    {
+      "id": "pixelDensity",
+      "label": "Pixel Density",
+      "type": "number",
+      "unit": "ppi",
+      "default": 96,
+      "businessContext": "Screen resolution in pixels per inch for pixel size estimation."
+    }
+  ],
+  "formulas": {
+    "recommendedHeight_mm": "viewingDistance * 1000 * Math.tan((visualAcuity / 60) * Math.PI / 180) * safetyFactor",
+    "fontSizePt": "recommendedHeight_mm / pointConversion",
+    "fontSizePx": "(recommendedHeight_mm / 25.4) * pixelDensity"
+  },
+  "outputs": {
+    "primary": "fontSizePt.toFixed(1) + ' pt'",
+    "breakdown": [
+      "'Text height: ' + recommendedHeight_mm.toFixed(2) + ' mm'",
+      "'Pixel size: ' + fontSizePx.toFixed(2) + ' px'"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,77 @@
+{
+  "toolName": "column-design-calculator",
+  "inputs": [
+    {
+      "id": "P",
+      "label": "Eksenel Yük (Axial Load)",
+      "type": "number",
+      "unit": "kN",
+      "default": 100,
+      "businessContext": "Kolon üzerine uygulanan eksenel basınç yükü."
+    },
+    {
+      "id": "L",
+      "label": "Etkili Uzunluk (Effective Length)",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Kolonun burkulma boyu, uç bağlantı koşullarına bağlıdır."
+    },
+    {
+      "id": "E",
+      "label": "Elastisite Modülü (Modulus of Elasticity)",
+      "type": "number",
+      "unit": "GPa",
+      "default": 200,
+      "businessContext": "Malzemenin elastikiyet modülü; çelik için ~200 GPa."
+    },
+    {
+      "id": "I",
+      "label": "Atalet Momenti (Moment of Inertia)",
+      "type": "number",
+      "unit": "cm⁴",
+      "default": 1000,
+      "businessContext": "Kesitin zayıf eksene göre alan atalet momenti."
+    },
+    {
+      "id": "A",
+      "label": "Kesit Alanı (Cross-Sectional Area)",
+      "type": "number",
+      "unit": "cm²",
+      "default": 50,
+      "businessContext": "Kolon kesitinin toplam alanı."
+    },
+    {
+      "id": "Fy",
+      "label": "Akma Dayanımı (Yield Strength)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 250,
+      "businessContext": "Malzemenin akma mukavemeti; yapı çeliği için tipik 235-355 MPa."
+    },
+    {
+      "id": "SF",
+      "label": "Güvenlik Faktörü (Safety Factor)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Tasarımda istenen güvenlik katsayısı."
+    }
+  ],
+  "formulas": {},
+  "outputs": {
+    "primary": "Math.min(Math.PI ** 2 * E * I / (100 * L ** 2), A * Fy / (10 * SF))",
+    "breakdown": [
+      "Math.PI ** 2 * E * I / (100 * L ** 2)",
+      "A * Fy / (10 * SF)",
+      "100 * L / Math.sqrt(I / A)",
+      "P / Math.min(Math.PI ** 2 * E * I / (100 * L ** 2), A * Fy / (10 * SF))"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

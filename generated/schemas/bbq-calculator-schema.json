@@ -1,0 +1,63 @@
+{
+  "toolName": "bbq-calculator",
+  "inputs": [
+    {
+      "id": "guests",
+      "label": "Number of Guests",
+      "type": "number",
+      "unit": "persons",
+      "default": 10,
+      "businessContext": "Total number of people attending the BBQ"
+    },
+    {
+      "id": "meatPerPerson",
+      "label": "Meat per Person",
+      "type": "number",
+      "unit": "g",
+      "default": 300,
+      "businessContext": "Average cooked meat consumption per person in grams"
+    },
+    {
+      "id": "sidesPerPerson",
+      "label": "Sides per Person",
+      "type": "number",
+      "unit": "g",
+      "default": 200,
+      "businessContext": "Average side dish (salads, bread) consumption per person in grams"
+    },
+    {
+      "id": "cookingLoss",
+      "label": "Cooking Loss Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Percentage of weight lost during cooking due to moisture and fat rendering"
+    },
+    {
+      "id": "butcherYield",
+      "label": "Butcher Yield",
+      "type": "number",
+      "unit": "%",
+      "default": 75,
+      "businessContext": "Edible meat yield from raw purchase weight after trimming bone and skin"
+    }
+  ],
+  "formulas": {
+    "totalRawMeatNeeded": "guests * meatPerPerson / (butcherYield / 100) / (1 - cookingLoss / 100)",
+    "cookedMeatWeight": "guests * meatPerPerson",
+    "totalSidesWeight": "guests * sidesPerPerson"
+  },
+  "outputs": {
+    "primary": "totalRawMeatNeeded",
+    "breakdown": [
+      "cookedMeatWeight",
+      "totalSidesWeight"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

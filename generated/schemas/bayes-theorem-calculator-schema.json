@@ -1,0 +1,59 @@
+{
+  "toolName": "bayes-theorem-calculator",
+  "inputs": [
+    {
+      "id": "prior",
+      "label": "P(A) - Prior Probability",
+      "type": "number",
+      "unit": "",
+      "default": 0.01,
+      "businessContext": "Base rate or prevalence of the condition (between 0 and 1)"
+    },
+    {
+      "id": "sensitivity",
+      "label": "P(B|A) - Sensitivity",
+      "type": "number",
+      "unit": "",
+      "default": 0.95,
+      "businessContext": "True positive rate: probability of a positive test given condition present (between 0 and 1)"
+    },
+    {
+      "id": "specificity",
+      "label": "P(¬B|¬A) - Specificity",
+      "type": "number",
+      "unit": "",
+      "default": 0.98,
+      "businessContext": "True negative rate: probability of a negative test given condition absent (between 0 and 1)"
+    },
+    {
+      "id": "testResult",
+      "label": "Test Result (1=Positive, 0=Negative)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Indicate whether the observed test result is positive (1) or negative (0)."
+    }
+  ],
+  "formulas": {
+    "falsePositiveRate": "1 - specificity",
+    "falseNegativeRate": "1 - sensitivity",
+    "numerator": "testResult == 1 ? sensitivity * prior : falseNegativeRate * prior",
+    "denominator": "testResult == 1 ? (sensitivity * prior + falsePositiveRate * (1 - prior)) : (falseNegativeRate * prior + specificity * (1 - prior))",
+    "posterior": "testResult == 1 ? (sensitivity * prior) / (sensitivity * prior + falsePositiveRate * (1 - prior)) : (falseNegativeRate * prior) / (falseNegativeRate * prior + specificity * (1 - prior))"
+  },
+  "outputs": {
+    "primary": "posterior",
+    "breakdown": [
+      "numerator",
+      "denominator",
+      "falsePositiveRate",
+      "falseNegativeRate"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

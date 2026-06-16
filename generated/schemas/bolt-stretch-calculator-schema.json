@@ -1,0 +1,55 @@
+{
+  "toolName": "bolt-stretch-calculator",
+  "inputs": [
+    {
+      "id": "preload",
+      "label": "Preload Force",
+      "type": "number",
+      "unit": "N",
+      "default": 50000,
+      "businessContext": "The tensile force applied to the bolt during tightening, typically achieved by torque or tension."
+    },
+    {
+      "id": "gripLength",
+      "label": "Grip Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "The length of the bolt between the nut and the bolt head, or the clamped length."
+    },
+    {
+      "id": "area",
+      "label": "Tensile Stress Area",
+      "type": "number",
+      "unit": "mm²",
+      "default": 58,
+      "businessContext": "The effective cross-sectional area of the bolt thread under tension."
+    },
+    {
+      "id": "modulus",
+      "label": "Modulus of Elasticity",
+      "type": "number",
+      "unit": "N/mm²",
+      "default": 200000,
+      "businessContext": "Young's modulus of the bolt material, e.g., 200,000 N/mm² for steel."
+    }
+  ],
+  "formulas": {
+    "stretch": "preload * gripLength / (area * modulus)",
+    "stress": "preload / area",
+    "strain": "stress / modulus"
+  },
+  "outputs": {
+    "primary": "stretch",
+    "breakdown": [
+      "stress",
+      "strain"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

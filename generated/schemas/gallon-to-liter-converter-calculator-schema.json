@@ -1,0 +1,74 @@
+{
+  "toolName": "gallon-to-liter-converter-calculator",
+  "inputs": [
+    {
+      "id": "containerCount",
+      "label": "Konteyner Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Konteyner sayısı"
+    },
+    {
+      "id": "gallonsPerContainer",
+      "label": "Konteyner Başına Galon",
+      "type": "number",
+      "unit": "gal",
+      "default": 0,
+      "businessContext": "Konteyner başına galon"
+    },
+    {
+      "id": "unitType",
+      "label": "Galon Tipi",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0: ABD galonu, 1: İngiliz galonu"
+    },
+    {
+      "id": "customFactor",
+      "label": "Özel Dönüşüm Faktörü",
+      "type": "number",
+      "unit": "L/gal",
+      "default": 0,
+      "businessContext": "0 ise birim tipine göre standart faktör kullanılır"
+    },
+    {
+      "id": "wastePercentage",
+      "label": "Fire Yüzdesi",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Proses firesini yüzde olarak girin (ör. 5)"
+    },
+    {
+      "id": "outputDecimals",
+      "label": "Ondalık Basamak Sayısı",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı"
+    }
+  ],
+  "formulas": {
+    "standardFactor": "unitType === 0 ? 3.78541 : 4.54609",
+    "effectiveFactor": "customFactor > 0 ? customFactor : standardFactor",
+    "totalGallons": "containerCount * gallonsPerContainer",
+    "totalLiters": "totalGallons * effectiveFactor * (1 + wastePercentage / 100)",
+    "roundedLiters": "Math.round(totalLiters * Math.pow(10, outputDecimals)) / Math.pow(10, outputDecimals)"
+  },
+  "outputs": {
+    "primary": "roundedLiters",
+    "breakdown": [
+      "totalGallons",
+      "effectiveFactor",
+      "totalLiters"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

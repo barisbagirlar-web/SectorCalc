@@ -1,0 +1,55 @@
+{
+  "toolName": "mach-to-mph-calculator",
+  "inputs": [
+    {
+      "id": "mach",
+      "label": "Mach Number",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "The ratio of true airspeed to the speed of sound."
+    },
+    {
+      "id": "temperature",
+      "label": "Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 15,
+      "businessContext": "Outside air temperature in Celsius. Used if 'Use ISA' is 0."
+    },
+    {
+      "id": "altitude",
+      "label": "Altitude",
+      "type": "number",
+      "unit": "ft",
+      "default": 0,
+      "businessContext": "Altitude above sea level. Required for ISA temperature calculation."
+    },
+    {
+      "id": "useISA",
+      "label": "Use ISA Temperature",
+      "type": "number",
+      "unit": "0=No, 1=Yes",
+      "default": 0,
+      "businessContext": "Set to 1 to calculate standard temperature from altitude. Otherwise, use the input temperature."
+    }
+  ],
+  "formulas": {
+    "temperatureEffective": "temperature + useISA * ((15 - 0.00198 * altitude) - temperature)",
+    "speedOfSoundMph": "761.2 * Math.sqrt((temperatureEffective + 273.15) / 288.15)",
+    "milesPerHour": "mach * speedOfSoundMph"
+  },
+  "outputs": {
+    "primary": "milesPerHour",
+    "breakdown": [
+      "speedOfSoundMph",
+      "temperatureEffective"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

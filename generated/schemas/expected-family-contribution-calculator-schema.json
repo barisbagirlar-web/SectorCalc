@@ -1,0 +1,98 @@
+{
+  "toolName": "expected-family-contribution-calculator",
+  "inputs": [
+    {
+      "id": "parent_agi",
+      "label": "Parent Adjusted Gross Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total annual income of parents before taxes and deductions"
+    },
+    {
+      "id": "parent_assets",
+      "label": "Parent Non-Retirement Assets",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Cash, savings, investments, and other non-retirement assets of parents"
+    },
+    {
+      "id": "student_income",
+      "label": "Student Annual Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Student's total annual income from work, gifts, and other sources"
+    },
+    {
+      "id": "student_assets",
+      "label": "Student Assets",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Student's cash, savings, and other investments"
+    },
+    {
+      "id": "household_size",
+      "label": "Household Size",
+      "type": "number",
+      "unit": "people",
+      "default": 4,
+      "businessContext": "Number of people living in the household, including the student"
+    },
+    {
+      "id": "number_in_college",
+      "label": "Number in College",
+      "type": "number",
+      "unit": "people",
+      "default": 1,
+      "businessContext": "Number of household members attending college at least half-time"
+    },
+    {
+      "id": "state_tax_rate",
+      "label": "State Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Estimated state income tax rate for allowance calculation"
+    },
+    {
+      "id": "age_older_parent",
+      "label": "Age of Older Parent",
+      "type": "number",
+      "unit": "years",
+      "default": 45,
+      "businessContext": "Age of the older parent, used to determine asset protection allowance"
+    }
+  ],
+  "formulas": {
+    "ipa": "15000 + 5000 * (max(0, household_size - 1)) + 3000 * (max(0, number_in_college - 1))",
+    "apa": "age_older_parent < 26 ? 0 : (age_older_parent >= 65 ? 100000 : (age_older_parent - 25) * 2500)",
+    "federal_tax": "parent_agi * 0.15",
+    "state_tax": "parent_agi * (state_tax_rate / 100)",
+    "fica": "parent_agi * 0.0765",
+    "available_income": "parent_agi - federal_tax - state_tax - fica - ipa",
+    "parent_income_contribution": "max(0, available_income * 0.25)",
+    "parent_asset_contribution": "max(0, (parent_assets - apa) * 0.12)",
+    "total_parent_contribution": "(parent_income_contribution + parent_asset_contribution) / number_in_college",
+    "student_income_allowance": "6000",
+    "student_income_contribution": "max(0, (student_income - student_income_allowance) * 0.5)",
+    "student_asset_contribution": "student_assets * 0.2",
+    "total_student_contribution": "student_income_contribution + student_asset_contribution",
+    "efc": "ceil(total_parent_contribution + total_student_contribution)"
+  },
+  "outputs": {
+    "primary": "efc",
+    "breakdown": [
+      "total_parent_contribution",
+      "total_student_contribution"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

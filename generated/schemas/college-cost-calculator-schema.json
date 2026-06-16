@@ -1,0 +1,71 @@
+{
+  "toolName": "college-cost-calculator",
+  "inputs": [
+    {
+      "id": "tuition",
+      "label": "Annual Tuition",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "businessContext": "Annual tuition and fees charged by the college"
+    },
+    {
+      "id": "living",
+      "label": "Annual Living Expenses",
+      "type": "number",
+      "unit": "USD",
+      "default": 15000,
+      "businessContext": "Annual cost of housing, food, transportation, and personal expenses"
+    },
+    {
+      "id": "books",
+      "label": "Annual Books & Supplies",
+      "type": "number",
+      "unit": "USD",
+      "default": 2000,
+      "businessContext": "Annual cost of textbooks, supplies, and equipment"
+    },
+    {
+      "id": "years",
+      "label": "Duration of Study",
+      "type": "number",
+      "unit": "years",
+      "default": 4,
+      "businessContext": "Expected number of years to complete the program"
+    },
+    {
+      "id": "inflation",
+      "label": "Annual Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "Expected annual increase in college costs"
+    },
+    {
+      "id": "scholarship",
+      "label": "Annual Scholarship",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Annual amount of scholarships or grants that do not need repayment"
+    }
+  ],
+  "formulas": {
+    "grossTotal": "(() => { let sum = 0; for (let i = 0; i < years; i++) { sum += (tuition + living + books) * Math.pow(1 + inflation/100, i); } return sum; })()",
+    "totalScholarship": "scholarship * years",
+    "netCost": "Math.max(0, grossTotal - totalScholarship)"
+  },
+  "outputs": {
+    "primary": "netCost",
+    "breakdown": [
+      "grossTotal",
+      "totalScholarship"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

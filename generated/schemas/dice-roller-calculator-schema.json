@@ -1,0 +1,59 @@
+{
+  "toolName": "dice-roller-calculator",
+  "inputs": [
+    {
+      "id": "diceCount",
+      "label": "Number of Dice",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "How many dice are rolled"
+    },
+    {
+      "id": "sides",
+      "label": "Sides per Die",
+      "type": "number",
+      "unit": "",
+      "default": 6,
+      "businessContext": "Number of faces on each die"
+    },
+    {
+      "id": "target",
+      "label": "Target Number",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Minimum roll needed to succeed on a single die"
+    },
+    {
+      "id": "modifier",
+      "label": "Modifier",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Flat bonus added to total expected sum"
+    }
+  ],
+  "formulas": {
+    "expectedSum": "diceCount * (1 + sides) / 2 + modifier",
+    "averagePerDie": "(1 + sides) / 2",
+    "successProbability": "((sides - target + 1) / sides) ** diceCount",
+    "failureProbability": "1 - ((sides - target + 1) / sides) ** diceCount",
+    "expectedSuccesses": "diceCount * (sides - target + 1) / sides"
+  },
+  "outputs": {
+    "primary": "expectedSum",
+    "breakdown": [
+      "successProbability",
+      "expectedSuccesses",
+      "averagePerDie",
+      "failureProbability"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

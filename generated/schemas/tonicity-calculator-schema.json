@@ -1,0 +1,73 @@
+{
+  "toolName": "tonicity-calculator",
+  "inputs": [
+    {
+      "id": "volume",
+      "label": "Volume (mL)",
+      "type": "number",
+      "unit": "mL",
+      "default": 100,
+      "businessContext": "Total volume of the solution in milliliters."
+    },
+    {
+      "id": "targetConc",
+      "label": "Target concentration (g/100mL)",
+      "type": "number",
+      "unit": "g/100mL",
+      "default": 0.9,
+      "businessContext": "Desired sodium chloride concentration for isotonicity (typically 0.9% w/v)."
+    },
+    {
+      "id": "drug1Amt",
+      "label": "Drug 1 amount (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Mass of the first active ingredient in grams."
+    },
+    {
+      "id": "drug1E",
+      "label": "Drug 1 E-value",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Sodium chloride equivalent of the first drug (g NaCl per g drug)."
+    },
+    {
+      "id": "drug2Amt",
+      "label": "Drug 2 amount (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Mass of the second active ingredient in grams."
+    },
+    {
+      "id": "drug2E",
+      "label": "Drug 2 E-value",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Sodium chloride equivalent of the second drug (g NaCl per g drug)."
+    }
+  ],
+  "formulas": {
+    "equivalentNaCl1": "drug1Amt * drug1E",
+    "equivalentNaCl2": "drug2Amt * drug2E",
+    "totalEquivalent": "equivalentNaCl1 + equivalentNaCl2",
+    "requiredTotalNaCl": "volume * targetConc / 100",
+    "requiredNaCl": "requiredTotalNaCl - totalEquivalent"
+  },
+  "outputs": {
+    "primary": "requiredNaCl",
+    "breakdown": [
+      "totalEquivalent",
+      "requiredTotalNaCl"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

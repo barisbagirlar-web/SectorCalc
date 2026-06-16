@@ -1,0 +1,81 @@
+{
+  "toolName": "fft-calculator",
+  "inputs": [
+    {
+      "id": "shaftSpeed",
+      "label": "Shaft Speed (RPM)",
+      "type": "number",
+      "unit": "RPM",
+      "default": 1500,
+      "businessContext": "Rotational speed of the shaft in revolutions per minute."
+    },
+    {
+      "id": "numBalls",
+      "label": "Number of Balls",
+      "type": "number",
+      "unit": "pcs",
+      "default": 9,
+      "businessContext": "Number of rolling elements in the bearing."
+    },
+    {
+      "id": "ballDiameter",
+      "label": "Ball Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 12,
+      "businessContext": "Diameter of a single rolling element."
+    },
+    {
+      "id": "pitchDiameter",
+      "label": "Pitch Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 60,
+      "businessContext": "Diameter of the circle passing through the centers of the rolling elements."
+    },
+    {
+      "id": "contactAngle",
+      "label": "Contact Angle",
+      "type": "number",
+      "unit": "deg",
+      "default": 15,
+      "businessContext": "Angular contact angle of the bearing in degrees."
+    }
+  ],
+  "formulas": {
+    "bpfo": "( numBalls / 2 ) * ( 1 - ( ballDiameter / pitchDiameter ) * Math.cos( contactAngle * Math.PI / 180 ) ) * shaftSpeed / 60",
+    "bpfi": "( numBalls / 2 ) * ( 1 + ( ballDiameter / pitchDiameter ) * Math.cos( contactAngle * Math.PI / 180 ) ) * shaftSpeed / 60",
+    "ftf": "( 1 / 2 ) * ( 1 - ( ballDiameter / pitchDiameter ) * Math.cos( contactAngle * Math.PI / 180 ) ) * shaftSpeed / 60",
+    "bsf": "( pitchDiameter / ( 2 * ballDiameter ) ) * ( 1 - Math.pow( ballDiameter / pitchDiameter, 2 ) * Math.pow( Math.cos( contactAngle * Math.PI / 180 ), 2 ) ) * shaftSpeed / 60"
+  },
+  "outputs": {
+    "primary": {
+      "id": "bpfo",
+      "label": "Ball Pass Frequency Outer Race",
+      "unit": "Hz"
+    },
+    "breakdown": [
+      {
+        "id": "bpfi",
+        "label": "Ball Pass Frequency Inner Race",
+        "unit": "Hz"
+      },
+      {
+        "id": "ftf",
+        "label": "Fundamental Train Frequency",
+        "unit": "Hz"
+      },
+      {
+        "id": "bsf",
+        "label": "Ball Spin Frequency",
+        "unit": "Hz"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

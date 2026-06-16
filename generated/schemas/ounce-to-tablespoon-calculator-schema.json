@@ -1,0 +1,56 @@
+{
+  "toolName": "ounce-to-tablespoon-calculator",
+  "inputs": [
+    {
+      "id": "fluidOunces",
+      "label": "Fluid Ounces",
+      "type": "number",
+      "unit": "fl oz",
+      "default": 1,
+      "businessContext": "Amount of liquid in fluid ounces (US)."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Tablespoons per Fluid Ounce",
+      "type": "number",
+      "unit": "tbsp/fl oz",
+      "default": 2,
+      "businessContext": "Standard US conversion factor. Adjust for imperial or other standards."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places to round the result."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Additional percentage to add for safety margin (e.g., 5 for 5%)."
+    }
+  ],
+  "formulas": {
+    "rawTablespoons": "fluidOunces * conversionFactor",
+    "adjustedTablespoons": "rawTablespoons * (1 + safetyFactor / 100)",
+    "roundedTablespoons": "Math.round(adjustedTablespoons * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "roundedTablespoons",
+    "breakdown": [
+      "rawTablespoons",
+      "adjustedTablespoons",
+      "roundedTablespoons"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

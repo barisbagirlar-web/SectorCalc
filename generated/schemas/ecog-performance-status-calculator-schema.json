@@ -1,0 +1,63 @@
+{
+  "toolName": "ecog-performance-status-calculator",
+  "inputs": [
+    {
+      "id": "vibrationLevel",
+      "label": "Titreşim Seviyesi",
+      "type": "number",
+      "unit": "mm/s",
+      "default": 2.5,
+      "businessContext": "Ekipman titreşim RMS değeri"
+    },
+    {
+      "id": "temperature",
+      "label": "Sıcaklık",
+      "type": "number",
+      "unit": "°C",
+      "default": 60,
+      "businessContext": "Ekipman çalışma sıcaklığı"
+    },
+    {
+      "id": "runtimeHours",
+      "label": "Çalışma Süresi",
+      "type": "number",
+      "unit": "saat",
+      "default": 2000,
+      "businessContext": "Son bakımdan sonra çalışma saati"
+    },
+    {
+      "id": "oilQuality",
+      "label": "Yağ Kalitesi",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Yağ kalite endeksi (0-100)"
+    },
+    {
+      "id": "noiseLevel",
+      "label": "Gürültü Seviyesi",
+      "type": "number",
+      "unit": "dB",
+      "default": 85,
+      "businessContext": "Ortalama gürültü seviyesi"
+    }
+  ],
+  "formulas": {
+    "conditionScore": "vibrationLevel/10*0.3 + temperature/100*0.2 + runtimeHours/5000*0.2 + oilQuality/100*0.15 + noiseLevel/120*0.15",
+    "healthPercentage": "100 - conditionScore*100",
+    "ecogGrade": "conditionScore < 0.2 ? 0 : conditionScore < 0.4 ? 1 : conditionScore < 0.6 ? 2 : conditionScore < 0.8 ? 3 : conditionScore < 1.0 ? 4 : 5"
+  },
+  "outputs": {
+    "primary": "ecogGrade",
+    "breakdown": [
+      "conditionScore",
+      "healthPercentage"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

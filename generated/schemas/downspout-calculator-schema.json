@@ -1,0 +1,65 @@
+{
+  "toolName": "downspout-calculator",
+  "inputs": [
+    {
+      "id": "roofLength",
+      "label": "Roof Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of the roof area draining to the downspout."
+    },
+    {
+      "id": "roofWidth",
+      "label": "Roof Width",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Width of the roof area draining to the downspout."
+    },
+    {
+      "id": "rainfallIntensity",
+      "label": "Rainfall Intensity",
+      "type": "number",
+      "unit": "mm/hr",
+      "default": 50,
+      "businessContext": "Design rainfall intensity for the geographical location."
+    },
+    {
+      "id": "downspoutDiameter",
+      "label": "Downspout Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Inner diameter of the downspout pipe."
+    },
+    {
+      "id": "efficiencyFactor",
+      "label": "Efficiency Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Reduction factor accounting for bends, obstructions, and installation imperfections."
+    }
+  ],
+  "formulas": {
+    "totalFlow": "roofWidth * roofLength * rainfallIntensity / 3600",
+    "downspoutCapacity": "(Math.PI * efficiencyFactor * downspoutDiameter ** 2) / 400000",
+    "numberDownspouts": "Math.ceil(totalFlow / downspoutCapacity)",
+    "requiredDownspoutsFloat": "totalFlow / downspoutCapacity"
+  },
+  "outputs": {
+    "primary": "numberDownspouts",
+    "breakdown": [
+      "totalFlow",
+      "downspoutCapacity",
+      "requiredDownspoutsFloat"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

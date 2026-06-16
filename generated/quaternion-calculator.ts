@@ -1,0 +1,71 @@
+// Auto-generated from quaternion-calculator-schema.json
+import * as z from 'zod';
+
+export interface Quaternion_calculatorInput {
+  q0: number;
+  q1: number;
+  q2: number;
+  q3: number;
+  p0: number;
+  p1: number;
+  p2: number;
+  p3: number;
+}
+
+export const Quaternion_calculatorInputSchema = z.object({
+  q0: z.number().default(1),
+  q1: z.number().default(0),
+  q2: z.number().default(0),
+  q3: z.number().default(0),
+  p0: z.number().default(1),
+  p1: z.number().default(0),
+  p2: z.number().default(0),
+  p3: z.number().default(0),
+});
+
+function evaluateAllFormulas(input: Quaternion_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.q0*input.p0 - input.q1*input.p1 - input.q2*input.p2 - input.q3*input.p3; results["productW"] = Number.isFinite(v) ? v : 0; } catch { results["productW"] = 0; }
+  try { const v = input.q0*input.p1 + input.q1*input.p0 + input.q2*input.p3 - input.q3*input.p2; results["productX"] = Number.isFinite(v) ? v : 0; } catch { results["productX"] = 0; }
+  try { const v = input.q0*input.p2 - input.q1*input.p3 + input.q2*input.p0 + input.q3*input.p1; results["productY"] = Number.isFinite(v) ? v : 0; } catch { results["productY"] = 0; }
+  try { const v = input.q0*input.p3 + input.q1*input.p2 - input.q2*input.p1 + input.q3*input.p0; results["productZ"] = Number.isFinite(v) ? v : 0; } catch { results["productZ"] = 0; }
+  try { const v = Math.sqrt(input.q0*input.q0 + input.q1*input.q1 + input.q2*input.q2 + input.q3*input.q3); results["normQ"] = Number.isFinite(v) ? v : 0; } catch { results["normQ"] = 0; }
+  try { const v = Math.sqrt(input.p0*input.p0 + input.p1*input.p1 + input.p2*input.p2 + input.p3*input.p3); results["normP"] = Number.isFinite(v) ? v : 0; } catch { results["normP"] = 0; }
+  try { const v = "(" + (input.q0*input.p0 - input.q1*input.p1 - input.q2*input.p2 - input.q3*input.p3) + ", " + (input.q0*input.p1 + input.q1*input.p0 + input.q2*input.p3 - input.q3*input.p2) + ", " + (input.q0*input.p2 - input.q1*input.p3 + input.q2*input.p0 + input.q3*input.p1) + ", " + (input.q0*input.p3 + input.q1*input.p2 - input.q2*input.p1 + input.q3*input.p0) + ")"; results["productString"] = Number.isFinite(v) ? v : 0; } catch { results["productString"] = 0; }
+  return results;
+}
+
+
+export function calculateQuaternion_calculator(input: Quaternion_calculatorInput): Quaternion_calculatorOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values["productString"] ?? 0;
+  const breakdown = {
+    
+  };
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    premiumRequired: false,
+    premiumFeatures: [],
+  };
+}
+
+
+export interface Quaternion_calculatorOutput {
+  totalWasteCost: number;
+  breakdown: {  };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+}

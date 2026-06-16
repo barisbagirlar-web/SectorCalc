@@ -1,0 +1,75 @@
+{
+  "toolName": "predicate-logic-calculator",
+  "inputs": [
+    {
+      "id": "value1",
+      "label": "Ölçüm 1",
+      "type": "number",
+      "unit": "birim",
+      "default": 10,
+      "businessContext": "İlk ölçüm değeri"
+    },
+    {
+      "id": "threshold1",
+      "label": "Eşik 1",
+      "type": "number",
+      "unit": "birim",
+      "default": 5,
+      "businessContext": "1. ölçüm için minimum kabul değeri"
+    },
+    {
+      "id": "value2",
+      "label": "Ölçüm 2",
+      "type": "number",
+      "unit": "birim",
+      "default": 20,
+      "businessContext": "İkinci ölçüm değeri"
+    },
+    {
+      "id": "threshold2",
+      "label": "Eşik 2",
+      "type": "number",
+      "unit": "birim",
+      "default": 15,
+      "businessContext": "2. ölçüm için minimum kabul değeri"
+    },
+    {
+      "id": "value3",
+      "label": "Ölçüm 3",
+      "type": "number",
+      "unit": "birim",
+      "default": 30,
+      "businessContext": "Üçüncü ölçüm değeri"
+    },
+    {
+      "id": "threshold3",
+      "label": "Eşik 3",
+      "type": "number",
+      "unit": "birim",
+      "default": 25,
+      "businessContext": "3. ölçüm için minimum kabul değeri"
+    }
+  ],
+  "formulas": {
+    "primary": "(value1 > threshold1 && value2 > threshold2 && value3 > threshold3) ? 1 : 0",
+    "breakdown": [
+      "(value1 > threshold1) ? 1 : 0",
+      "(value2 > threshold2) ? 1 : 0",
+      "(value3 > threshold3) ? 1 : 0"
+    ]
+  },
+  "outputs": {
+    "primary": "(value1 > threshold1 && value2 > threshold2 && value3 > threshold3) ? 1 : 0",
+    "breakdown": [
+      "(value1 > threshold1) ? 1 : 0",
+      "(value2 > threshold2) ? 1 : 0",
+      "(value3 > threshold3) ? 1 : 0"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

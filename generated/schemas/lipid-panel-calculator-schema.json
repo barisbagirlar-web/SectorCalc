@@ -1,0 +1,59 @@
+{
+  "toolName": "lipid-panel-calculator",
+  "inputs": [
+    {
+      "id": "totalCholesterol",
+      "label": "Total Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 200,
+      "businessContext": "Total cholesterol level measured in mg/dL."
+    },
+    {
+      "id": "hdlCholesterol",
+      "label": "HDL Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 50,
+      "businessContext": "High-density lipoprotein cholesterol."
+    },
+    {
+      "id": "triglycerides",
+      "label": "Triglycerides",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 150,
+      "businessContext": "Triglyceride level; Friedewald formula valid if <400 mg/dL."
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Patient age in years (used for reference, not in calculation)."
+    }
+  ],
+  "formulas": {
+    "Total Cholesterol": "totalCholesterol",
+    "HDL": "hdlCholesterol",
+    "Triglycerides": "triglycerides",
+    "VLDL": "triglycerides / 5",
+    "LDL": "totalCholesterol - hdlCholesterol - (triglycerides / 5)"
+  },
+  "outputs": {
+    "primary": "LDL",
+    "breakdown": [
+      "Total Cholesterol",
+      "HDL",
+      "Triglycerides",
+      "VLDL"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,58 @@
+{
+  "toolName": "law-of-sines-calculator",
+  "inputs": [
+    {
+      "id": "sideA",
+      "label": "Side a",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of side opposite angle A (in meters)"
+    },
+    {
+      "id": "angleA",
+      "label": "Angle A",
+      "type": "number",
+      "unit": "deg",
+      "default": 30,
+      "businessContext": "Angle opposite side a (in degrees)"
+    },
+    {
+      "id": "angleB",
+      "label": "Angle B",
+      "type": "number",
+      "unit": "deg",
+      "default": 45,
+      "businessContext": "Angle opposite side b (target side, in degrees)"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for output rounding"
+    }
+  ],
+  "formulas": {
+    "sideB_raw": "sideA * Math.sin(angleB * Math.PI / 180) / Math.sin(angleA * Math.PI / 180)",
+    "angleC": "180 - angleA - angleB",
+    "sideC_raw": "sideA * Math.sin(angleC * Math.PI / 180) / Math.sin(angleA * Math.PI / 180)",
+    "lawOfSinesRatio": "sideA / Math.sin(angleA * Math.PI / 180)"
+  },
+  "outputs": {
+    "primary": "Math.round(sideB_raw * 10**precision) / 10**precision",
+    "breakdown": [
+      "Raw side b: sideB_raw",
+      "Angle C: angleC°",
+      "Side c: Math.round(sideC_raw * 10**precision) / 10**precision",
+      "Law of Sines Ratio (a/sin A): lawOfSinesRatio"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

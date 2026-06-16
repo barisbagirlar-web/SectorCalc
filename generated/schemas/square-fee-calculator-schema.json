@@ -1,0 +1,67 @@
+{
+  "toolName": "square-fee-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "The length of the rectangular area in meters."
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "The width of the rectangular area in meters."
+    },
+    {
+      "id": "pricePerSquareMeter",
+      "label": "Price per Square Meter",
+      "type": "number",
+      "unit": "$/m²",
+      "default": 100,
+      "businessContext": "The cost per square meter for the area."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Applicable tax rate as a percentage."
+    },
+    {
+      "id": "serviceFee",
+      "label": "Service Fee",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Fixed service charge additional to the area cost."
+    }
+  ],
+  "formulas": {
+    "area": "length * width",
+    "subtotal": "area * pricePerSquareMeter",
+    "taxAmount": "subtotal * (taxRate / 100)",
+    "serviceFee": "serviceFee",
+    "totalFee": "subtotal + taxAmount + serviceFee"
+  },
+  "outputs": {
+    "primary": "totalFee",
+    "breakdown": [
+      "area",
+      "subtotal",
+      "taxAmount",
+      "serviceFee"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

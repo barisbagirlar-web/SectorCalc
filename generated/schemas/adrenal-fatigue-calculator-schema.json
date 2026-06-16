@@ -1,0 +1,93 @@
+{
+  "toolName": "adrenal-fatigue-calculator",
+  "inputs": [
+    {
+      "id": "shift_length",
+      "label": "Shift Length",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Duration of a single work shift in hours."
+    },
+    {
+      "id": "consecutive_shifts",
+      "label": "Consecutive Shifts",
+      "type": "number",
+      "unit": "count",
+      "default": 5,
+      "businessContext": "Number of consecutive work days without a day off."
+    },
+    {
+      "id": "rest_between_shifts",
+      "label": "Rest Between Shifts",
+      "type": "number",
+      "unit": "hours",
+      "default": 16,
+      "businessContext": "Average rest time between end of one shift and start of next."
+    },
+    {
+      "id": "noise_level",
+      "label": "Noise Level",
+      "type": "number",
+      "unit": "dB",
+      "default": 70,
+      "businessContext": "Average workplace noise exposure in decibels."
+    },
+    {
+      "id": "temperature",
+      "label": "Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 22,
+      "businessContext": "Workplace temperature in Celsius."
+    },
+    {
+      "id": "load_factor",
+      "label": "Workload Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Physical and mental workload intensity factor (1.0 = normal, >1.0 = high)."
+    }
+  ],
+  "formulas": {
+    "fatigue_index": "(shift_length * load_factor * Math.log(noise_level + 1) * Math.sqrt(temperature ** 2 + 1) / (rest_between_shifts + 1)) + consecutive_shifts * 2",
+    "shift_contribution": "shift_length * load_factor / (rest_between_shifts + 1) * 10",
+    "environment_contribution": "Math.log(noise_level + 1) * Math.sqrt(temperature ** 2 + 1) * 5",
+    "cumulative_contribution": "consecutive_shifts * 2"
+  },
+  "outputs": {
+    "primary": {
+      "id": "fatigue_index",
+      "label": "Adrenal Fatigue Index",
+      "unit": "points",
+      "description": "Composite score indicating risk of adrenal fatigue; higher points indicate greater risk."
+    },
+    "breakdown": [
+      {
+        "id": "shift_contribution",
+        "label": "Shift Contribution",
+        "unit": "points",
+        "description": "Contribution from shift length and workload relative to rest."
+      },
+      {
+        "id": "environment_contribution",
+        "label": "Environment Contribution",
+        "unit": "points",
+        "description": "Contribution from noise and temperature stressors."
+      },
+      {
+        "id": "cumulative_contribution",
+        "label": "Cumulative Contribution",
+        "unit": "points",
+        "description": "Contribution from consecutive work days accumulation."
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

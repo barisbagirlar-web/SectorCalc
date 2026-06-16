@@ -1,0 +1,57 @@
+{
+  "toolName": "unix-timestamp-calculator",
+  "inputs": [
+    {
+      "id": "days",
+      "label": "Days",
+      "type": "number",
+      "unit": "d",
+      "default": 0,
+      "businessContext": "Number of whole days since Unix epoch (January 1, 1970)."
+    },
+    {
+      "id": "hours",
+      "label": "Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 0,
+      "businessContext": "Remaining hours of the day (0-23)."
+    },
+    {
+      "id": "minutes",
+      "label": "Minutes",
+      "type": "number",
+      "unit": "min",
+      "default": 0,
+      "businessContext": "Remaining minutes of the hour (0-59)."
+    },
+    {
+      "id": "seconds",
+      "label": "Seconds",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Remaining seconds of the minute (0-59)."
+    }
+  ],
+  "formulas": {
+    "totalTimestamp": "days * 86400 + hours * 3600 + minutes * 60 + seconds",
+    "totalDays": "totalTimestamp / 86400",
+    "totalHours": "totalTimestamp / 3600",
+    "totalMinutes": "totalTimestamp / 60"
+  },
+  "outputs": {
+    "primary": "totalTimestamp",
+    "breakdown": [
+      "totalDays",
+      "totalHours",
+      "totalMinutes"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

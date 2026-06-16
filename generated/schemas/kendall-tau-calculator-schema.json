@@ -1,0 +1,63 @@
+{
+  "toolName": "kendall-tau-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Gözlem Sayısı (n)",
+      "type": "number",
+      "unit": "adet",
+      "default": 5,
+      "businessContext": "Karşılaştırılan sıralı veri çiftlerinin sayısı"
+    },
+    {
+      "id": "P",
+      "label": "Uyumlu Çiftler (P)",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "businessContext": "Her iki sıralamada aynı yönde olan gözlem çifti sayısı"
+    },
+    {
+      "id": "Q",
+      "label": "Uyumsuz Çiftler (Q)",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Her iki sıralamada ters yönde olan gözlem çifti sayısı"
+    },
+    {
+      "id": "T",
+      "label": "X Tied Çiftler (T)",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Sadece X sıralamasında eşit olan çift sayısı"
+    },
+    {
+      "id": "U",
+      "label": "Y Tied Çiftler (U)",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Sadece Y sıralamasında eşit olan çift sayısı"
+    }
+  ],
+  "formulas": {
+    "tau": "((P+Q+T)*(P+Q+U) === 0) ? 0 : (P - Q) / Math.sqrt((P+Q+T)*(P+Q+U))",
+    "numerator": "P - Q",
+    "denominator": "Math.sqrt((P+Q+T)*(P+Q+U))"
+  },
+  "outputs": {
+    "primary": "tau",
+    "breakdown": [
+      "numerator",
+      "denominator"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

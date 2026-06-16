@@ -1,0 +1,66 @@
+{
+  "toolName": "fraction-to-percent-calculator",
+  "inputs": [
+    {
+      "id": "numerator",
+      "label": "Numerator",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Top part of the fraction (dividend)."
+    },
+    {
+      "id": "denominator",
+      "label": "Denominator",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Bottom part of the fraction (divisor). Must be non-zero."
+    },
+    {
+      "id": "wholeNumber",
+      "label": "Whole Number",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Whole number part for mixed fractions (optional)."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places in the final percentage."
+    },
+    {
+      "id": "roundingMode",
+      "label": "Rounding Mode",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 = standard rounding (half up), 1 = floor, 2 = ceil, 3 = truncate."
+    }
+  ],
+  "formulas": {
+    "decimal": "wholeNumber + numerator / denominator",
+    "rawPercent": "decimal * 100",
+    "factor": "Math.pow(10, decimalPlaces)",
+    "scaled": "rawPercent * factor",
+    "primaryPercent": "roundingMode === 0 ? Math.round(scaled) / factor : roundingMode === 1 ? Math.floor(scaled) / factor : roundingMode === 2 ? Math.ceil(scaled) / factor : Math.trunc(scaled) / factor"
+  },
+  "outputs": {
+    "primary": "primaryPercent",
+    "breakdown": [
+      "Fraction to decimal conversion",
+      "Raw percentage (before rounding)",
+      "Final percentage (rounded)"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

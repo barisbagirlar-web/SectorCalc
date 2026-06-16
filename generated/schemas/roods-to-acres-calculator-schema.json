@@ -1,0 +1,53 @@
+{
+  "toolName": "roods-to-acres-calculator",
+  "inputs": [
+    {
+      "id": "roods",
+      "label": "Roods",
+      "type": "number",
+      "unit": "roods",
+      "default": 1,
+      "businessContext": "The whole roods value"
+    },
+    {
+      "id": "perches",
+      "label": "Perches",
+      "type": "number",
+      "unit": "perches",
+      "default": 0,
+      "businessContext": "Additional perches (1 rood = 40 perches)"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Number of decimal places for output display (0–10)"
+    },
+    {
+      "id": "roundingMode",
+      "label": "Rounding Mode",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 = nearest, 1 = up (ceiling), 2 = down (floor), 3 = truncate"
+    }
+  ],
+  "formulas": {
+    "totalRoods": "roods + perches / 40",
+    "acres": "totalRoods * 0.25"
+  },
+  "outputs": {
+    "primary": "acres",
+    "breakdown": [
+      "totalRoods"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,72 @@
+{
+  "toolName": "mortgage-points-calculator",
+  "inputs": [
+    {
+      "id": "loanAmount",
+      "label": "Loan Amount",
+      "type": "number",
+      "unit": "$",
+      "default": 300000,
+      "businessContext": "Total principal of the mortgage"
+    },
+    {
+      "id": "baseInterestRate",
+      "label": "Base Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 6.5,
+      "businessContext": "Annual interest rate without points"
+    },
+    {
+      "id": "pointsPurchased",
+      "label": "Points Purchased",
+      "type": "number",
+      "unit": "points",
+      "default": 2,
+      "businessContext": "Number of discount points (each point costs 1% of loan amount)"
+    },
+    {
+      "id": "rateReductionPerPoint",
+      "label": "Rate Reduction per Point",
+      "type": "number",
+      "unit": "%",
+      "default": 0.25,
+      "businessContext": "Reduction in interest rate per point"
+    },
+    {
+      "id": "loanTermYears",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Duration of the mortgage in years"
+    }
+  ],
+  "formulas": {
+    "monthlyRateBase": "baseInterestRate / 100 / 12",
+    "monthlyRateWithPoints": "(baseInterestRate - pointsPurchased * rateReductionPerPoint) / 100 / 12",
+    "n": "loanTermYears * 12",
+    "monthlyPaymentBase": "loanAmount * (monthlyRateBase * Math.pow(1 + monthlyRateBase, n)) / (Math.pow(1 + monthlyRateBase, n) - 1)",
+    "monthlyPaymentWithPoints": "loanAmount * (monthlyRateWithPoints * Math.pow(1 + monthlyRateWithPoints, n)) / (Math.pow(1 + monthlyRateWithPoints, n) - 1)",
+    "upfrontCost": "loanAmount * pointsPurchased * 0.01",
+    "monthlySavings": "monthlyPaymentBase - monthlyPaymentWithPoints",
+    "monthsToBreakEven": "upfrontCost / monthlySavings",
+    "totalSavings": "monthlySavings * n - upfrontCost"
+  },
+  "outputs": {
+    "primary": "monthsToBreakEven",
+    "breakdown": [
+      "monthlyPaymentWithoutPoints",
+      "monthlyPaymentWithPoints",
+      "upfrontCost",
+      "monthlySavings",
+      "totalSavings"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

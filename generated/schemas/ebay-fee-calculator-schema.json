@@ -1,0 +1,74 @@
+{
+  "toolName": "ebay-fee-calculator",
+  "inputs": [
+    {
+      "id": "salePrice",
+      "label": "Sale Price",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "The final price at which the item was sold, excluding shipping."
+    },
+    {
+      "id": "shippingCost",
+      "label": "Shipping Cost",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "The shipping cost charged to the buyer."
+    },
+    {
+      "id": "finalValueFeeRate",
+      "label": "Final Value Fee Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "The percentage of the total sale amount (item price + shipping) charged as final value fee."
+    },
+    {
+      "id": "fixedFinalValueFee",
+      "label": "Fixed Final Value Fee",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0.3,
+      "businessContext": "A fixed fee per order charged on top of the percentage-based final value fee."
+    },
+    {
+      "id": "insertionFee",
+      "label": "Insertion Fee",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0.35,
+      "businessContext": "The fee charged for listing the item. First few listings may be free."
+    },
+    {
+      "id": "listingUpgradeFee",
+      "label": "Listing Upgrade Fee",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "Any additional fees for listing upgrades (e.g., bold title, subtitle, gallery plus)."
+    }
+  ],
+  "formulas": {
+    "totalSaleAmount": "salePrice + shippingCost",
+    "finalValueFee": "totalSaleAmount * (finalValueFeeRate / 100) + fixedFinalValueFee",
+    "totalEbayFees": "finalValueFee + insertionFee + listingUpgradeFee",
+    "netPayout": "totalSaleAmount - totalEbayFees"
+  },
+  "outputs": {
+    "primary": "netPayout",
+    "breakdown": [
+      "totalEbayFees",
+      "finalValueFee",
+      "insertionFee",
+      "listingUpgradeFee"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

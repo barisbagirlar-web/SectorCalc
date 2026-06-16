@@ -1,0 +1,71 @@
+{
+  "toolName": "joint-compound-calculator",
+  "inputs": [
+    {
+      "id": "numSheets",
+      "label": "Number of Drywall Sheets",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "businessContext": "Total number of drywall sheets to be taped and finished."
+    },
+    {
+      "id": "jointLength",
+      "label": "Average Joint Length per Sheet",
+      "type": "number",
+      "unit": "m",
+      "default": 3.6,
+      "businessContext": "Average linear length of joints per sheet (including butt and tapered joints)."
+    },
+    {
+      "id": "jointWidth",
+      "label": "Joint Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 150,
+      "businessContext": "Width of the joint compound application area across the joint."
+    },
+    {
+      "id": "thickness",
+      "label": "Compound Thickness per Coat",
+      "type": "number",
+      "unit": "mm",
+      "default": 1.5,
+      "businessContext": "Applied wet thickness of joint compound per coat."
+    },
+    {
+      "id": "numCoats",
+      "label": "Number of Coats",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Number of coats applied (e.g., tape coat, fill coat, finish coat)."
+    },
+    {
+      "id": "coverageFactor",
+      "label": "Coverage Factor",
+      "type": "number",
+      "unit": "m²·mm/kg",
+      "default": 1.2,
+      "businessContext": "Manufacturer-specified coverage rate per mm thickness per kg of compound."
+    }
+  ],
+  "formulas": {
+    "totalJointArea": "numSheets * jointLength * (jointWidth / 1000) * numCoats",
+    "totalThickness": "thickness * numCoats",
+    "totalCompound": "(numSheets * jointLength * (jointWidth / 1000) * thickness * numCoats) / coverageFactor"
+  },
+  "outputs": {
+    "primary": "totalCompound",
+    "breakdown": [
+      "totalJointArea",
+      "totalThickness"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

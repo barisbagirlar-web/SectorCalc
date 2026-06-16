@@ -1,0 +1,57 @@
+{
+  "toolName": "poker-equity-calculator",
+  "inputs": [
+    {
+      "id": "outs",
+      "label": "Outs",
+      "type": "number",
+      "unit": "outs",
+      "default": 9,
+      "businessContext": "Number of cards that complete your winning hand."
+    },
+    {
+      "id": "streets",
+      "label": "Streets to Come",
+      "type": "number",
+      "unit": "streets",
+      "default": 2,
+      "businessContext": "Number of community cards remaining (1 for river only, 2 for turn and river)."
+    },
+    {
+      "id": "potSize",
+      "label": "Pot Size",
+      "type": "number",
+      "unit": "chips",
+      "default": 100,
+      "businessContext": "Current size of the pot before calling."
+    },
+    {
+      "id": "betToCall",
+      "label": "Bet to Call",
+      "type": "number",
+      "unit": "chips",
+      "default": 50,
+      "businessContext": "Amount you must call to stay in the hand."
+    }
+  ],
+  "formulas": {
+    "Expected Value (EV)": "((streets === 2 ? Math.min(outs * 4, 99) : Math.min(outs * 2, 99)) / 100) * (potSize + betToCall) - (1 - (streets === 2 ? Math.min(outs * 4, 99) : Math.min(outs * 2, 99)) / 100) * betToCall",
+    "Equity (%)": "streets === 2 ? Math.min(outs * 4, 99) : Math.min(outs * 2, 99)",
+    "Pot Odds (%)": "(betToCall / (potSize + betToCall)) * 100",
+    "Break-even Equity (%)": "(betToCall / (potSize + 2 * betToCall)) * 100"
+  },
+  "outputs": {
+    "primary": "Expected Value (EV)",
+    "breakdown": [
+      "Equity (%)",
+      "Pot Odds (%)",
+      "Break-even Equity (%)"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

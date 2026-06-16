@@ -1,0 +1,393 @@
+{
+  "slug": "scaffolding-rental-optimizer",
+  "title": "Scaffolding Rental Optimizer",
+  "description": "Industrial-grade tool to optimize scaffolding rental costs, utilization, and logistics using Lean, Six Sigma, and WERC standards.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-site comparison",
+    "Automated reorder suggestions"
+  ],
+  "inputs": [
+    {
+      "id": "project_duration_days",
+      "label": "Project Duration (days)",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "min": 1,
+      "max": 365,
+      "businessContext": "Total planned duration of scaffolding usage on site.",
+      "label_i18n": {
+        "en": "Project Duration (days)"
+      },
+      "businessContext_i18n": {
+        "en": "Total planned duration of scaffolding usage on site."
+      }
+    },
+    {
+      "id": "total_scaffold_area_sqm",
+      "label": "Total Scaffold Area (sqm)",
+      "type": "number",
+      "unit": "sqm",
+      "default": 500,
+      "min": 10,
+      "max": 10000,
+      "businessContext": "Total surface area of scaffolding required.",
+      "label_i18n": {
+        "en": "Total Scaffold Area (sqm)"
+      },
+      "businessContext_i18n": {
+        "en": "Total surface area of scaffolding required."
+      }
+    },
+    {
+      "id": "rental_rate_per_sqm_per_day",
+      "label": "Rental Rate per sqm per day",
+      "type": "number",
+      "unit": "currency/sqm/day",
+      "default": 2.5,
+      "min": 0.5,
+      "max": 20,
+      "businessContext": "Daily rental cost per square meter of scaffolding.",
+      "label_i18n": {
+        "en": "Rental Rate per sqm per day"
+      },
+      "businessContext_i18n": {
+        "en": "Daily rental cost per square meter of scaffolding."
+      }
+    },
+    {
+      "id": "transport_cost_per_trip",
+      "label": "Transport Cost per Trip",
+      "type": "number",
+      "unit": "currency",
+      "default": 200,
+      "min": 50,
+      "max": 2000,
+      "businessContext": "Cost per delivery or pickup trip for scaffolding materials.",
+      "label_i18n": {
+        "en": "Transport Cost per Trip"
+      },
+      "businessContext_i18n": {
+        "en": "Cost per delivery or pickup trip for scaffolding materials."
+      }
+    },
+    {
+      "id": "number_of_trips",
+      "label": "Number of Transport Trips",
+      "type": "number",
+      "unit": "trips",
+      "default": 4,
+      "min": 1,
+      "max": 50,
+      "businessContext": "Total trips for delivery and return of scaffolding.",
+      "label_i18n": {
+        "en": "Number of Transport Trips"
+      },
+      "businessContext_i18n": {
+        "en": "Total trips for delivery and return of scaffolding."
+      }
+    },
+    {
+      "id": "labor_cost_per_hour",
+      "label": "Labor Cost per Hour",
+      "type": "number",
+      "unit": "currency/hour",
+      "default": 35,
+      "min": 10,
+      "max": 100,
+      "businessContext": "Hourly wage for scaffolding erectors/dismantlers.",
+      "label_i18n": {
+        "en": "Labor Cost per Hour"
+      },
+      "businessContext_i18n": {
+        "en": "Hourly wage for scaffolding erectors/dismantlers."
+      }
+    },
+    {
+      "id": "erection_hours_per_sqm",
+      "label": "Erection Hours per sqm",
+      "type": "number",
+      "unit": "hours/sqm",
+      "default": 0.3,
+      "min": 0.1,
+      "max": 1,
+      "businessContext": "Standard labor hours to erect one square meter of scaffolding.",
+      "label_i18n": {
+        "en": "Erection Hours per sqm"
+      },
+      "businessContext_i18n": {
+        "en": "Standard labor hours to erect one square meter of scaffolding."
+      }
+    },
+    {
+      "id": "dismantle_hours_per_sqm",
+      "label": "Dismantle Hours per sqm",
+      "type": "number",
+      "unit": "hours/sqm",
+      "default": 0.2,
+      "min": 0.05,
+      "max": 0.8,
+      "businessContext": "Standard labor hours to dismantle one square meter.",
+      "label_i18n": {
+        "en": "Dismantle Hours per sqm"
+      },
+      "businessContext_i18n": {
+        "en": "Standard labor hours to dismantle one square meter."
+      }
+    },
+    {
+      "id": "utilization_rate",
+      "label": "Utilization Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 10,
+      "max": 100,
+      "businessContext": "Percentage of time scaffolding is actively used vs idle.",
+      "label_i18n": {
+        "en": "Utilization Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of time scaffolding is actively used vs idle."
+      }
+    },
+    {
+      "id": "waste_factor",
+      "label": "Waste Factor (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 20,
+      "businessContext": "Estimated material loss or damage during project.",
+      "label_i18n": {
+        "en": "Waste Factor (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated material loss or damage during project."
+      }
+    },
+    {
+      "id": "region",
+      "label": "Region",
+      "type": "select",
+      "unit": "",
+      "default": "US",
+      "min": null,
+      "max": null,
+      "options": [
+        "US",
+        "EU",
+        "Asia",
+        "Other"
+      ],
+      "businessContext": "Geographic region affecting labor rates and standards.",
+      "label_i18n": {
+        "en": "Region"
+      },
+      "businessContext_i18n": {
+        "en": "Geographic region affecting labor rates and standards."
+      }
+    },
+    {
+      "id": "include_insurance",
+      "label": "Include Insurance Cost",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "min": null,
+      "max": null,
+      "businessContext": "Whether to include insurance premium in total cost.",
+      "label_i18n": {
+        "en": "Include Insurance Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Whether to include insurance premium in total cost."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "utilization_range",
+        "condition": "utilization_rate < 50",
+        "message": "Utilization rate below 50% indicates significant idle time; consider reducing rental duration or consolidating work phases."
+      },
+      {
+        "id": "waste_alert",
+        "condition": "waste_factor > 10",
+        "message": "Waste factor exceeds 10%; investigate material handling and storage practices (Lean principle)."
+      },
+      {
+        "id": "duration_short",
+        "condition": "project_duration_days < 7",
+        "message": "Very short project; consider daily rental or alternative access methods."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "cost_overrun",
+        "condition": "total_cost > 50000",
+        "alert": "Total cost exceeds $50,000; consider value engineering or alternative suppliers."
+      },
+      {
+        "id": "low_utilization",
+        "condition": "utilization_rate < 60",
+        "alert": "Utilization below 60%; potential for cost reduction through better scheduling (Six Sigma DMAIC)."
+      },
+      {
+        "id": "high_labor_ratio",
+        "condition": "labor_cost / total_cost > 0.4",
+        "alert": "Labor cost exceeds 40% of total; evaluate crew efficiency or prefabrication options."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "net_scaffold_area",
+      "label": "Net Scaffold Area",
+      "description": "Area adjusted for waste factor.",
+      "formula": "total_scaffold_area_sqm * (1 + waste_factor / 100)",
+      "unit": "sqm"
+    },
+    {
+      "id": "rental_cost",
+      "label": "Rental Cost",
+      "description": "Total rental cost for the project duration.",
+      "formula": "net_scaffold_area * rental_rate_per_sqm_per_day * project_duration_days",
+      "unit": "currency"
+    },
+    {
+      "id": "transport_cost",
+      "label": "Transport Cost",
+      "description": "Total cost for all transport trips.",
+      "formula": "transport_cost_per_trip * number_of_trips",
+      "unit": "currency"
+    },
+    {
+      "id": "labor_cost",
+      "label": "Labor Cost",
+      "description": "Total labor cost for erection and dismantle.",
+      "formula": "total_scaffold_area_sqm * (erection_hours_per_sqm + dismantle_hours_per_sqm) * labor_cost_per_hour",
+      "unit": "currency"
+    },
+    {
+      "id": "insurance_cost",
+      "label": "Insurance Cost",
+      "description": "Insurance cost if included (estimated as 2% of rental cost).",
+      "formula": "include_insurance ? rental_cost * 0.02 : 0",
+      "unit": "currency"
+    },
+    {
+      "id": "total_cost",
+      "label": "Total Cost",
+      "description": "Sum of all direct costs.",
+      "formula": "rental_cost + transport_cost + labor_cost + insurance_cost",
+      "unit": "currency"
+    },
+    {
+      "id": "cost_per_sqm",
+      "label": "Cost per sqm",
+      "description": "Total cost normalized per square meter.",
+      "formula": "total_cost / total_scaffold_area_sqm",
+      "unit": "currency/sqm"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "total_cost",
+      "label": "Total Scaffolding Rental Cost",
+      "value": null,
+      "unit": "currency",
+      "description": "Optimized total cost considering utilization and waste."
+    },
+    "breakdown": {
+      "rental_cost": {
+        "label": "Rental Cost",
+        "value": null,
+        "unit": "currency"
+      },
+      "transport_cost": {
+        "label": "Transport Cost",
+        "value": null,
+        "unit": "currency"
+      },
+      "labor_cost": {
+        "label": "Labor Cost",
+        "value": null,
+        "unit": "currency"
+      },
+      "insurance_cost": {
+        "label": "Insurance Cost",
+        "value": null,
+        "unit": "currency"
+      },
+      "cost_per_sqm": {
+        "label": "Cost per sqm",
+        "value": null,
+        "unit": "currency/sqm"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "idle_time_loss",
+        "label": "Idle Time Loss",
+        "description": "Cost of unused scaffolding due to low utilization.",
+        "formula": "rental_cost * (1 - utilization_rate / 100)",
+        "unit": "currency"
+      },
+      {
+        "id": "waste_loss",
+        "label": "Waste Loss",
+        "description": "Cost of material waste.",
+        "formula": "rental_cost * (waste_factor / 100)",
+        "unit": "currency"
+      },
+      {
+        "id": "inefficiency_loss",
+        "label": "Inefficiency Loss",
+        "description": "Additional labor cost if erection hours exceed benchmark (0.25 hrs/sqm).",
+        "formula": "total_scaffold_area_sqm * max(0, erection_hours_per_sqm - 0.25) * labor_cost_per_hour",
+        "unit": "currency"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "increase_utilization",
+        "action": "Increase utilization rate to above 80% by consolidating work schedules.",
+        "expected_savings": "Up to 20% of rental cost"
+      },
+      {
+        "id": "reduce_waste",
+        "action": "Implement 5S methodology to reduce waste factor below 5%.",
+        "expected_savings": "Up to 10% of rental cost"
+      },
+      {
+        "id": "optimize_transport",
+        "action": "Combine deliveries to reduce number of trips by 25%.",
+        "expected_savings": "Up to 25% of transport cost"
+      },
+      {
+        "id": "prefabrication",
+        "action": "Consider prefabricated scaffolding modules to reduce labor hours.",
+        "expected_savings": "Up to 15% of labor cost"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_score",
+      "label": "Data Confidence Score",
+      "value": null,
+      "unit": "%",
+      "description": "Adjusted confidence based on input variability and completeness (ISO 9001:2015 data quality).",
+      "calculation": "min(100, 100 - (waste_factor * 2) - (5 * (1 - utilization_rate/100)) - (10 * (erection_hours_per_sqm > 0.4 ? 1 : 0)))"
+    }
+  },
+  "toolName": "scaffolding-rental-optimizer-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,79 @@
+{
+  "toolName": "baby-cost-calculator",
+  "inputs": [
+    {
+      "id": "months",
+      "label": "Number of Months",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "businessContext": "Duration for cost calculation"
+    },
+    {
+      "id": "monthlyDiapers",
+      "label": "Monthly Diapers Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 80,
+      "businessContext": "Estimated cost of diapers per month"
+    },
+    {
+      "id": "monthlyFormula",
+      "label": "Monthly Formula/Food Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 120,
+      "businessContext": "Estimated cost for baby formula or food per month"
+    },
+    {
+      "id": "monthlyClothing",
+      "label": "Monthly Clothing Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "businessContext": "Estimated clothing expenses per month"
+    },
+    {
+      "id": "monthlyChildcare",
+      "label": "Monthly Childcare Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "businessContext": "Daycare or nanny cost per month"
+    },
+    {
+      "id": "monthlyMedical",
+      "label": "Monthly Medical Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "Health insurance premiums and out-of-pocket medical per month"
+    },
+    {
+      "id": "oneTimeCosts",
+      "label": "One-Time Costs",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000,
+      "businessContext": "Total one-time expenses like crib, stroller, car seat, etc."
+    }
+  ],
+  "formulas": {
+    "totalMonthly": "monthlyDiapers + monthlyFormula + monthlyClothing + monthlyChildcare + monthlyMedical",
+    "oneTimeExpenses": "oneTimeCosts",
+    "totalCost": "totalMonthly * months + oneTimeCosts"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "totalMonthly",
+      "oneTimeExpenses"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

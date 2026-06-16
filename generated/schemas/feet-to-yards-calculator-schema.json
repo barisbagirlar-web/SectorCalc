@@ -1,0 +1,76 @@
+{
+  "toolName": "feet-to-yards-calculator",
+  "inputs": [
+    {
+      "id": "length_feet",
+      "label": "Length in Feet",
+      "type": "number",
+      "unit": "ft",
+      "default": 1,
+      "businessContext": "The length measured in feet to be converted to yards."
+    },
+    {
+      "id": "waste_percent",
+      "label": "Waste Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Additional material waste factor as a percentage to account for cutting, damage, or spillage."
+    },
+    {
+      "id": "safety_margin_percent",
+      "label": "Safety Margin Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Safety margin as a percentage to cover measurement errors or unforeseen requirements."
+    },
+    {
+      "id": "quantity",
+      "label": "Number of Units",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "The number of identical pieces or sections measured in feet, for total material estimation."
+    },
+    {
+      "id": "cost_per_yard",
+      "label": "Cost per Yard",
+      "type": "number",
+      "unit": "currency/yd",
+      "default": 0,
+      "businessContext": "Unit cost per yard of material, used to calculate total cost."
+    },
+    {
+      "id": "decimal_places",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "dp",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding the output values."
+    }
+  ],
+  "formulas": {
+    "raw_yards": "length_feet / 3",
+    "waste_yards": "raw_yards * waste_percent / 100",
+    "safety_yards": "raw_yards * safety_margin_percent / 100",
+    "total_yards": "Math.round(((raw_yards + waste_yards + safety_yards) * quantity) * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)",
+    "total_cost": "total_yards * cost_per_yard"
+  },
+  "outputs": {
+    "primary": "total_yards",
+    "breakdown": [
+      "raw_yards",
+      "waste_yards",
+      "safety_yards",
+      "total_yards",
+      "total_cost"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

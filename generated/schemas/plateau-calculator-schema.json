@@ -1,0 +1,63 @@
+{
+  "toolName": "plateau-calculator",
+  "inputs": [
+    {
+      "id": "plateau",
+      "label": "Plateau Value",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "businessContext": "The asymptote value the system approaches"
+    },
+    {
+      "id": "initialValue",
+      "label": "Initial Value",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "businessContext": "Starting value at time zero"
+    },
+    {
+      "id": "rateConstant",
+      "label": "Rate Constant",
+      "type": "number",
+      "unit": "1/time",
+      "default": 0.2,
+      "businessContext": "Rate of approach to plateau (higher means faster)"
+    },
+    {
+      "id": "currentTime",
+      "label": "Time",
+      "type": "number",
+      "unit": "time",
+      "default": 10,
+      "businessContext": "Time at which to calculate current value"
+    },
+    {
+      "id": "targetPercentage",
+      "label": "Target Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Desired percentage of plateau to reach"
+    }
+  ],
+  "formulas": {
+    "currentValue": "plateau - (plateau - initialValue) * Math.exp(-rateConstant * currentTime)",
+    "percentageOfPlateau": "(currentValue / plateau) * 100",
+    "timeToTarget": "-Math.log((plateau - plateau * (targetPercentage/100)) / (plateau - initialValue)) / rateConstant"
+  },
+  "outputs": {
+    "primary": "currentValue",
+    "breakdown": [
+      "percentageOfPlateau",
+      "timeToTarget"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

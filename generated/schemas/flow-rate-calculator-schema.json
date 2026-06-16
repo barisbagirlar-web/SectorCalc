@@ -1,0 +1,56 @@
+{
+  "toolName": "flow-rate-calculator",
+  "inputs": [
+    {
+      "id": "d",
+      "label": "Pipe Inner Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Inner diameter of the pipe"
+    },
+    {
+      "id": "v",
+      "label": "Flow Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 1,
+      "businessContext": "Average fluid velocity"
+    },
+    {
+      "id": "rho",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of the fluid"
+    },
+    {
+      "id": "mu",
+      "label": "Dynamic Viscosity",
+      "type": "number",
+      "unit": "Pa·s",
+      "default": 0.001,
+      "businessContext": "Dynamic viscosity of the fluid"
+    }
+  ],
+  "formulas": {
+    "A": "Math.PI * (d/2) ** 2",
+    "Q": "A * v",
+    "m_dot": "rho * Q",
+    "Re": "(rho * v * d) / mu"
+  },
+  "outputs": {
+    "primary": "Q",
+    "breakdown": [
+      "m_dot",
+      "Re"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

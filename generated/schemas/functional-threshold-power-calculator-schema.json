@@ -1,0 +1,53 @@
+{
+  "toolName": "functional-threshold-power-calculator",
+  "inputs": [
+    {
+      "id": "avgPower20min",
+      "label": "20 Dakika Ortalama Güç",
+      "type": "number",
+      "unit": "W",
+      "default": 250,
+      "businessContext": "20 dakikalık maksimum eforda üretilen ortalama güç (watt)"
+    },
+    {
+      "id": "weight",
+      "label": "Sürücü Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Sürücünün ağırlığı (kilogram)"
+    },
+    {
+      "id": "factor",
+      "label": "Ayarlama Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 0.95,
+      "businessContext": "FTP hesaplamak için kullanılan katsayı (standart 20 dk testi için 0.95)"
+    },
+    {
+      "id": "testDuration",
+      "label": "Test Süresi",
+      "type": "number",
+      "unit": "dk",
+      "default": 20,
+      "businessContext": "Testin süresi (dakika), referans amaçlıdır, hesaplamayı etkilemez"
+    }
+  ],
+  "formulas": {
+    "ftp": "avgPower20min * factor",
+    "powerToWeight": "avgPower20min * factor / weight"
+  },
+  "outputs": {
+    "primary": "ftp",
+    "breakdown": [
+      "powerToWeight"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,56 @@
+{
+  "toolName": "coefficient-of-variation-calculator",
+  "inputs": [
+    {
+      "id": "measurement1",
+      "label": "Measurement 1",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "First measurement value"
+    },
+    {
+      "id": "measurement2",
+      "label": "Measurement 2",
+      "type": "number",
+      "unit": "",
+      "default": 12,
+      "businessContext": "Second measurement value"
+    },
+    {
+      "id": "measurement3",
+      "label": "Measurement 3",
+      "type": "number",
+      "unit": "",
+      "default": 9,
+      "businessContext": "Third measurement value"
+    },
+    {
+      "id": "measurement4",
+      "label": "Measurement 4",
+      "type": "number",
+      "unit": "",
+      "default": 11,
+      "businessContext": "Fourth measurement value"
+    }
+  ],
+  "formulas": {
+    "mean": "(measurement1 + measurement2 + measurement3 + measurement4) / 4",
+    "variance": "(Math.pow(measurement1 - mean, 2) + Math.pow(measurement2 - mean, 2) + Math.pow(measurement3 - mean, 2) + Math.pow(measurement4 - mean, 2)) / 3",
+    "standard_deviation": "Math.sqrt(variance)",
+    "coefficient_of_variation": "(standard_deviation / mean) * 100"
+  },
+  "outputs": {
+    "primary": "coefficient_of_variation",
+    "breakdown": [
+      "mean",
+      "standard_deviation"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

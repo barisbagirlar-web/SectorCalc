@@ -1,0 +1,55 @@
+{
+  "toolName": "at-rest-earth-pressure-calculator",
+  "inputs": [
+    {
+      "id": "sigma_v",
+      "label": "Efektif Düşey Gerilme (σ'ᵥ)",
+      "type": "number",
+      "unit": "kPa",
+      "default": 100,
+      "businessContext": "Effective vertical stress at the point of interest."
+    },
+    {
+      "id": "phi",
+      "label": "İçsel Sürtünme Açısı (φ)",
+      "type": "number",
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Effective friction angle of the soil."
+    },
+    {
+      "id": "OCR",
+      "label": "Ön Konsolidasyon Oranı (OCR)",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "Overconsolidation ratio (OCR > 1 for overconsolidated soils)."
+    },
+    {
+      "id": "SF",
+      "label": "Güvenlik Faktörü",
+      "type": "number",
+      "unit": "-",
+      "default": 1.5,
+      "businessContext": "Factor of safety for design."
+    }
+  ],
+  "formulas": {
+    "K0": "(1 - Math.sin(phi * Math.PI/180)) * Math.pow(OCR, Math.sin(phi * Math.PI/180))",
+    "sigma_h": "K0 * sigma_v",
+    "sigma_h_design": "sigma_h * SF"
+  },
+  "outputs": {
+    "primary": "sigma_h_design",
+    "breakdown": [
+      "K0",
+      "sigma_h"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

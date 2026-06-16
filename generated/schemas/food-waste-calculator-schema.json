@@ -1,0 +1,56 @@
+{
+  "toolName": "food-waste-calculator",
+  "inputs": [
+    {
+      "id": "totalFoodProduced",
+      "label": "Total Food Produced",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Total amount of food prepared or produced in the period."
+    },
+    {
+      "id": "totalFoodWasted",
+      "label": "Total Food Wasted",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Total food discarded or not consumed."
+    },
+    {
+      "id": "costPerKg",
+      "label": "Cost per kg",
+      "type": "number",
+      "unit": "currency/kg",
+      "default": 0,
+      "businessContext": "Average cost of food ingredients per kilogram."
+    },
+    {
+      "id": "mealsServed",
+      "label": "Meals Served",
+      "type": "number",
+      "unit": "meals",
+      "default": 0,
+      "businessContext": "Number of meals served from the produced food."
+    }
+  ],
+  "formulas": {
+    "totalWasteCost": "totalFoodWasted * costPerKg",
+    "wastePercentage": "totalFoodProduced !== 0 ? (totalFoodWasted / totalFoodProduced) * 100 : 0",
+    "wastePerMealKg": "mealsServed !== 0 ? totalFoodWasted / mealsServed : 0",
+    "wasteCostPerMeal": "mealsServed !== 0 ? (totalFoodWasted * costPerKg) / mealsServed : 0"
+  },
+  "outputs": {
+    "primary": "totalWasteCost",
+    "breakdown": [
+      "wastePercentage",
+      "wasteCostPerMeal"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

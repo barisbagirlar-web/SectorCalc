@@ -1,0 +1,63 @@
+{
+  "toolName": "parts-per-billion-calculator",
+  "inputs": [
+    {
+      "id": "solute_mass_mg",
+      "label": "Mass of Solute",
+      "type": "number",
+      "unit": "mg",
+      "default": 0,
+      "businessContext": "Mass of the solute substance in milligrams, used for mass/volume calculations."
+    },
+    {
+      "id": "solution_volume_L",
+      "label": "Solution Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 0,
+      "businessContext": "Total volume of the liquid solution in liters."
+    },
+    {
+      "id": "solution_density_kg_per_L",
+      "label": "Solution Density",
+      "type": "number",
+      "unit": "kg/L",
+      "default": 1,
+      "businessContext": "Density of the solution; default is 1 kg/L for water."
+    },
+    {
+      "id": "gas_solute_volume_mL",
+      "label": "Gas Solute Volume",
+      "type": "number",
+      "unit": "mL",
+      "default": 0,
+      "businessContext": "Volume of the solute gas in milliliters, for gas-phase ppb calculations."
+    },
+    {
+      "id": "total_gas_volume_L",
+      "label": "Total Gas Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 0,
+      "businessContext": "Total volume of the gas mixture in liters."
+    }
+  ],
+  "formulas": {
+    "compute": "function(inputs) { const ppm_mass = inputs.solute_mass_mg && inputs.solution_volume_L ? (inputs.solute_mass_mg / (inputs.solution_volume_L * inputs.solution_density_kg_per_L)) : 0; const ppb_mass = ppm_mass * 1000; const mg_per_L = inputs.solution_volume_L ? inputs.solute_mass_mg / inputs.solution_volume_L : 0; const ppm_mass_exact = inputs.solution_density_kg_per_L ? mg_per_L / inputs.solution_density_kg_per_L : 0; const ppb_gas = inputs.gas_solute_volume_mL && inputs.total_gas_volume_L ? (inputs.gas_solute_volume_mL / (inputs.total_gas_volume_L * 1000)) * 1e9 : 0; const ppb = (inputs.solute_mass_mg || inputs.gas_solute_volume_mL) ? (ppb_mass || ppb_gas) : 0; return { ppb: ppb, mass_based_ppb: ppb_mass, gas_based_ppb: ppb_gas, concentration_mg_per_L: mg_per_L, concentration_ppm: ppm_mass_exact }; }"
+  },
+  "outputs": {
+    "primary": "ppb",
+    "breakdown": [
+      "mass_based_ppb",
+      "gas_based_ppb",
+      "concentration_mg_per_L",
+      "concentration_ppm"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

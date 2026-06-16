@@ -1,0 +1,84 @@
+{
+  "toolName": "tariff-calculator",
+  "inputs": [
+    {
+      "id": "consumption",
+      "label": "Consumption",
+      "type": "number",
+      "unit": "kWh",
+      "default": 1000,
+      "businessContext": "Total energy consumption in kilowatt-hours for the billing period"
+    },
+    {
+      "id": "peakRate",
+      "label": "Peak Rate",
+      "type": "number",
+      "unit": "€/kWh",
+      "default": 0.15,
+      "businessContext": "Price per kilowatt-hour during peak usage hours"
+    },
+    {
+      "id": "offPeakRate",
+      "label": "Off-Peak Rate",
+      "type": "number",
+      "unit": "€/kWh",
+      "default": 0.1,
+      "businessContext": "Price per kilowatt-hour during off-peak usage hours"
+    },
+    {
+      "id": "peakUsage",
+      "label": "Peak Usage Fraction",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "businessContext": "Estimated percentage of total consumption that occurs during peak hours (0-100)"
+    },
+    {
+      "id": "standingCharge",
+      "label": "Standing Charge",
+      "type": "number",
+      "unit": "€/day",
+      "default": 0.5,
+      "businessContext": "Fixed daily charge applied by the energy supplier regardless of consumption"
+    },
+    {
+      "id": "days",
+      "label": "Billing Days",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Number of days in the billing period"
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Value-added tax (VAT) or similar tax percentage applied to the subtotal"
+    }
+  ],
+  "formulas": {
+    "peakEnergyFraction": "peakUsage / 100",
+    "peakEnergy": "consumption * peakEnergyFraction",
+    "offPeakEnergy": "consumption - peakEnergy",
+    "energyCost": "peakEnergy * peakRate + offPeakEnergy * offPeakRate",
+    "standingCost": "standingCharge * days",
+    "subtotal": "energyCost + standingCost",
+    "taxAmount": "subtotal * (taxRate / 100)",
+    "total": "subtotal + taxAmount"
+  },
+  "outputs": {
+    "primary": "total",
+    "breakdown": [
+      "subtotal",
+      "taxAmount"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

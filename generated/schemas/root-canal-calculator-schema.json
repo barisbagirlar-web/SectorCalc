@@ -1,0 +1,56 @@
+{
+  "toolName": "root-canal-calculator",
+  "inputs": [
+    {
+      "id": "apicalDiameter",
+      "label": "Apikal Çap (D0)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.15,
+      "businessContext": "Kök kanalının apikal bölgesindeki başlangıç çapı, genellikle 0.10-0.30 mm arası."
+    },
+    {
+      "id": "d16Diameter",
+      "label": "D16 Çapı",
+      "type": "number",
+      "unit": "mm",
+      "default": 1,
+      "businessContext": "Aletin 16 mm gerisindeki çapı (standart ISO aletler için tipik 1.0 mm)."
+    },
+    {
+      "id": "workingLength",
+      "label": "Çalışma Boyu",
+      "type": "number",
+      "unit": "mm",
+      "default": 22,
+      "businessContext": "Referans noktasından apikale kadar olan çalışma uzunluğu."
+    },
+    {
+      "id": "desiredOrificeDiameter",
+      "label": "Hedef Koronal Çap",
+      "type": "number",
+      "unit": "mm",
+      "default": 1.2,
+      "businessContext": "İstenen koronal genişlik (orifis çapı)."
+    }
+  ],
+  "formulas": {
+    "taper": "(d16Diameter - apicalDiameter) / 16",
+    "actualOrificeDiameter": "apicalDiameter + taper * workingLength",
+    "requiredTaper": "(desiredOrificeDiameter - apicalDiameter) / workingLength",
+    "canalVolume": "Math.PI * workingLength / 12 * (Math.pow(actualOrificeDiameter, 2) + actualOrificeDiameter * apicalDiameter + Math.pow(apicalDiameter, 2))"
+  },
+  "outputs": {
+    "primary": "actualOrificeDiameter",
+    "breakdown": [
+      "requiredTaper",
+      "canalVolume"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

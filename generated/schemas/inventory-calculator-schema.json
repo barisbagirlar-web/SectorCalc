@@ -1,0 +1,65 @@
+{
+  "toolName": "inventory-calculator",
+  "inputs": [
+    {
+      "id": "annualDemand",
+      "label": "Yıllık Talep",
+      "type": "number",
+      "unit": "units",
+      "default": 1200,
+      "businessContext": "Yıllık talep miktarı (adet)"
+    },
+    {
+      "id": "orderingCost",
+      "label": "Sipariş Maliyeti",
+      "type": "number",
+      "unit": "TRY",
+      "default": 50,
+      "businessContext": "Sipariş başına maliyet (TL)"
+    },
+    {
+      "id": "holdingCost",
+      "label": "Birim Elde Tutma Maliyeti",
+      "type": "number",
+      "unit": "TRY/unit/year",
+      "default": 2,
+      "businessContext": "Yıllık birim başına elde tutma maliyeti"
+    },
+    {
+      "id": "dailyDemand",
+      "label": "Günlük Talep",
+      "type": "number",
+      "unit": "units/day",
+      "default": 5,
+      "businessContext": "Günlük ortalama talep miktarı"
+    },
+    {
+      "id": "leadTimeDays",
+      "label": "Tedarik Süresi",
+      "type": "number",
+      "unit": "days",
+      "default": 5,
+      "businessContext": "Siparişin teslim süresi (gün)"
+    }
+  ],
+  "formulas": {
+    "economicOrderQuantity": "Math.sqrt((2 * annualDemand * orderingCost) / holdingCost)",
+    "reorderPoint": "dailyDemand * leadTimeDays",
+    "totalAnnualCost": "(annualDemand / economicOrderQuantity) * orderingCost + (economicOrderQuantity / 2) * holdingCost",
+    "inventoryTurnover": "annualDemand / (economicOrderQuantity / 2)"
+  },
+  "outputs": {
+    "primary": "economicOrderQuantity",
+    "breakdown": [
+      "reorderPoint",
+      "totalAnnualCost",
+      "inventoryTurnover"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

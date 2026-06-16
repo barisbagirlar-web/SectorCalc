@@ -1,0 +1,65 @@
+// Auto-generated from football-40-yard-dash-calculator-schema.json
+import * as z from 'zod';
+
+export interface Football_40_yard_dash_calculatorInput {
+  distance_yards: number;
+  time_seconds: number;
+  weight_lbs: number;
+  wind_mph: number;
+}
+
+export const Football_40_yard_dash_calculatorInputSchema = z.object({
+  distance_yards: z.number().default(40),
+  time_seconds: z.number().default(4.5),
+  weight_lbs: z.number().default(220),
+  wind_mph: z.number().default(0),
+});
+
+function evaluateAllFormulas(input: Football_40_yard_dash_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.distance_yards * 0.9144; results["distance_m"] = Number.isFinite(v) ? v : 0; } catch { results["distance_m"] = 0; }
+  try { const v = input.time_seconds * (1 - 0.001 * input.wind_mph); results["time_eff"] = Number.isFinite(v) ? v : 0; } catch { results["time_eff"] = 0; }
+  try { const v = (input.distance_yards * 3600) / ((results["time_eff"] ?? 0) * 1760); results["speed_mph"] = Number.isFinite(v) ? v : 0; } catch { results["speed_mph"] = 0; }
+  try { const v = (results["speed_mph"] ?? 0) * 1.60934; results["speed_kmh"] = Number.isFinite(v) ? v : 0; } catch { results["speed_kmh"] = 0; }
+  try { const v = (results["distance_m"] ?? 0) / (results["time_eff"] ?? 0); results["speed_ms"] = Number.isFinite(v) ? v : 0; } catch { results["speed_ms"] = 0; }
+  try { const v = input.weight_lbs * 0.453592; results["mass_kg"] = Number.isFinite(v) ? v : 0; } catch { results["mass_kg"] = 0; }
+  try { const v = (2 * (results["distance_m"] ?? 0)) / ((results["time_eff"] ?? 0) * (results["time_eff"] ?? 0)); results["acceleration_mps2"] = Number.isFinite(v) ? v : 0; } catch { results["acceleration_mps2"] = 0; }
+  try { const v = (2 * (results["mass_kg"] ?? 0) * (results["distance_m"] ?? 0) * (results["distance_m"] ?? 0)) / ((results["time_eff"] ?? 0) * (results["time_eff"] ?? 0) * (results["time_eff"] ?? 0)); results["power_watts"] = Number.isFinite(v) ? v : 0; } catch { results["power_watts"] = 0; }
+  try { const v = (results["power_watts"] ?? 0) / 745.7; results["power_hp"] = Number.isFinite(v) ? v : 0; } catch { results["power_hp"] = 0; }
+  return results;
+}
+
+
+export function calculateFootball_40_yard_dash_calculator(input: Football_40_yard_dash_calculatorInput): Football_40_yard_dash_calculatorOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values["speed_mph"] ?? 0;
+  const breakdown = {
+    
+  };
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    premiumRequired: false,
+    premiumFeatures: [],
+  };
+}
+
+
+export interface Football_40_yard_dash_calculatorOutput {
+  totalWasteCost: number;
+  breakdown: {  };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+}

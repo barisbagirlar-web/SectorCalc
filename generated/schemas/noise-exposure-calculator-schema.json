@@ -1,0 +1,75 @@
+{
+  "toolName": "noise-exposure-calculator",
+  "inputs": [
+    {
+      "id": "noiseLevel",
+      "label": "Noise Level",
+      "type": "number",
+      "unit": "dB(A)",
+      "default": 90,
+      "businessContext": "Measured continuous noise level in A-weighted decibels"
+    },
+    {
+      "id": "exposureTime",
+      "label": "Exposure Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Total daily noise exposure duration"
+    },
+    {
+      "id": "exchangeRate",
+      "label": "Exchange Rate",
+      "type": "number",
+      "unit": "dB",
+      "default": 3,
+      "businessContext": "Decibel exchange rate (3 for equal energy, 5 for OSHA)"
+    },
+    {
+      "id": "criterionLevel",
+      "label": "Criterion Level",
+      "type": "number",
+      "unit": "dB(A)",
+      "default": 85,
+      "businessContext": "Permissible noise level for an 8-hour shift"
+    },
+    {
+      "id": "thresholdLevel",
+      "label": "Threshold Level",
+      "type": "number",
+      "unit": "dB(A)",
+      "default": 0,
+      "businessContext": "Level below which noise is ignored (0 = no threshold)"
+    }
+  ],
+  "formulas": {
+    "dose": "noiseLevel < thresholdLevel ? 0 : (exposureTime / (8 / Math.pow(2, (noiseLevel - criterionLevel) / exchangeRate))) * 100",
+    "twa": "dose === 0 ? 0 : exchangeRate * (Math.log(dose / 100) / Math.LN2) + criterionLevel",
+    "allowableTime": "noiseLevel < thresholdLevel ? Infinity : 8 / Math.pow(2, (noiseLevel - criterionLevel) / exchangeRate)"
+  },
+  "outputs": {
+    "primary": {
+      "id": "dose",
+      "label": "Noise Dose",
+      "unit": "%"
+    },
+    "breakdown": [
+      {
+        "id": "twa",
+        "label": "Time-Weighted Average",
+        "unit": "dB(A)"
+      },
+      {
+        "id": "allowableTime",
+        "label": "Allowable Exposure Time",
+        "unit": "hours"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

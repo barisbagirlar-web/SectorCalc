@@ -1,0 +1,55 @@
+{
+  "toolName": "decibel-calculator",
+  "inputs": [
+    {
+      "id": "powerRef",
+      "label": "Reference Power",
+      "type": "number",
+      "unit": "W",
+      "default": 1,
+      "businessContext": "The reference power level (e.g., 1 mW = 0.001 W for dBm)"
+    },
+    {
+      "id": "powerMeas",
+      "label": "Measured Power",
+      "type": "number",
+      "unit": "W",
+      "default": 2,
+      "businessContext": "The measured power level"
+    },
+    {
+      "id": "ampRef",
+      "label": "Reference Amplitude",
+      "type": "number",
+      "unit": "V",
+      "default": 1,
+      "businessContext": "The reference amplitude (voltage, pressure) in linear units"
+    },
+    {
+      "id": "ampMeas",
+      "label": "Measured Amplitude",
+      "type": "number",
+      "unit": "V",
+      "default": 2,
+      "businessContext": "The measured amplitude"
+    }
+  ],
+  "formulas": {
+    "powerDecibel": "10 * Math.log10(powerMeas / powerRef)",
+    "amplitudeDecibel": "20 * Math.log10(ampMeas / ampRef)",
+    "powerRatio": "powerMeas / powerRef"
+  },
+  "outputs": {
+    "primary": "powerDecibel",
+    "breakdown": [
+      "amplitudeDecibel",
+      "powerRatio"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

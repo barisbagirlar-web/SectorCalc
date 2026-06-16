@@ -1,0 +1,75 @@
+{
+  "toolName": "cinder-block-calculator",
+  "inputs": [
+    {
+      "id": "wallLength",
+      "label": "Wall Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Total horizontal length of the wall in meters."
+    },
+    {
+      "id": "wallHeight",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Vertical height of the wall in meters."
+    },
+    {
+      "id": "blockLength",
+      "label": "Block Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0.4,
+      "businessContext": "Length of one cinder block in meters (typically 0.4 m)."
+    },
+    {
+      "id": "blockHeight",
+      "label": "Block Height",
+      "type": "number",
+      "unit": "m",
+      "default": 0.2,
+      "businessContext": "Height of one cinder block in meters (typically 0.2 m)."
+    },
+    {
+      "id": "mortarJointThickness",
+      "label": "Mortar Joint Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Thickness of mortar joint between blocks in millimeters."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of extra blocks to account for cutting and breakage."
+    }
+  ],
+  "formulas": {
+    "netWallArea": "wallLength * wallHeight",
+    "effectiveBlockLength": "blockLength + (mortarJointThickness / 1000)",
+    "effectiveBlockHeight": "blockHeight + (mortarJointThickness / 1000)",
+    "blockFaceArea": "effectiveBlockLength * effectiveBlockHeight",
+    "netBlocksExact": "netWallArea / blockFaceArea",
+    "totalBlocksExact": "netBlocksExact * (1 + wasteFactor / 100)",
+    "wasteBlocksExact": "totalBlocksExact - netBlocksExact"
+  },
+  "outputs": {
+    "primary": "totalBlocksExact",
+    "breakdown": [
+      "netBlocksExact",
+      "wasteBlocksExact"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

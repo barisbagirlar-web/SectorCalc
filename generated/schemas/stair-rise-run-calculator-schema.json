@@ -1,0 +1,80 @@
+{
+  "toolName": "stair-rise-run-calculator",
+  "inputs": [
+    {
+      "id": "totalRise",
+      "label": "Total Rise (Floor-to-Floor Height)",
+      "type": "number",
+      "unit": "mm",
+      "default": 2800,
+      "businessContext": "The total vertical height between finished floor levels."
+    },
+    {
+      "id": "totalRun",
+      "label": "Total Run Available",
+      "type": "number",
+      "unit": "mm",
+      "default": 3500,
+      "businessContext": "The total horizontal distance available for the staircase."
+    },
+    {
+      "id": "maxRiserHeight",
+      "label": "Maximum Riser Height (Code)",
+      "type": "number",
+      "unit": "mm",
+      "default": 190,
+      "businessContext": "The maximum allowed riser height as per local building regulations."
+    },
+    {
+      "id": "minTreadDepth",
+      "label": "Minimum Tread Depth (Code)",
+      "type": "number",
+      "unit": "mm",
+      "default": 250,
+      "businessContext": "The minimum required tread depth (going) as per local building regulations."
+    },
+    {
+      "id": "desiredRise",
+      "label": "Desired Riser Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 175,
+      "businessContext": "The preferred riser height for comfort, typically between 150-190 mm."
+    },
+    {
+      "id": "nosing",
+      "label": "Nosing Overhang",
+      "type": "number",
+      "unit": "mm",
+      "default": 25,
+      "businessContext": "The distance the tread extends beyond the riser face. Used for precise tread dimensioning."
+    }
+  ],
+  "formulas": {
+    "numSteps": "Math.ceil(totalRise / desiredRise)",
+    "actualRiser": "totalRise / numSteps",
+    "treadDepth": "totalRun / (numSteps - 1)",
+    "primaryOutput": "'Rise: ' + actualRiser.toFixed(1) + ' mm, Tread: ' + treadDepth.toFixed(1) + ' mm, Steps: ' + numSteps",
+    "breakdown_0": "'Rise per step: ' + actualRiser.toFixed(1) + ' mm'",
+    "breakdown_1": "'Tread depth: ' + treadDepth.toFixed(1) + ' mm'",
+    "breakdown_2": "'Number of risers: ' + numSteps",
+    "breakdown_3": "'Number of treads: ' + (numSteps - 1)",
+    "breakdown_4": "'Stair angle: ' + (Math.atan(totalRise / totalRun) * 180 / Math.PI).toFixed(2) + '°'"
+  },
+  "outputs": {
+    "primary": "primaryOutput",
+    "breakdown": [
+      "breakdown_0",
+      "breakdown_1",
+      "breakdown_2",
+      "breakdown_3",
+      "breakdown_4"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

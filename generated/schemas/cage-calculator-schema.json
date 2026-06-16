@@ -1,0 +1,73 @@
+{
+  "toolName": "cage-calculator",
+  "inputs": [
+    {
+      "id": "rawMaterialUnitCost",
+      "label": "Raw Material Unit Cost",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Cost of raw materials per unit"
+    },
+    {
+      "id": "laborUnitCost",
+      "label": "Labor Unit Cost",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Direct labor cost per unit"
+    },
+    {
+      "id": "overheadUnitCost",
+      "label": "Overhead Unit Cost",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Manufacturing overhead per unit"
+    },
+    {
+      "id": "sellingPricePerUnit",
+      "label": "Selling Price Per Unit",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Selling price per unit"
+    },
+    {
+      "id": "unitsProduced",
+      "label": "Units Produced",
+      "type": "number",
+      "unit": "adet",
+      "default": 1000,
+      "businessContext": "Number of units produced"
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Corporate tax rate percentage"
+    }
+  ],
+  "formulas": {
+    "totalCostPerUnit": "rawMaterialUnitCost + laborUnitCost + overheadUnitCost",
+    "totalCost": "totalCostPerUnit * unitsProduced",
+    "totalRevenue": "sellingPricePerUnit * unitsProduced",
+    "grossProfit": "totalRevenue - totalCost",
+    "netProfit": "grossProfit * (1 - taxRate / 100)"
+  },
+  "outputs": {
+    "primary": "netProfit",
+    "breakdown": [
+      "grossProfit",
+      "totalCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

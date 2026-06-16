@@ -1,0 +1,66 @@
+{
+  "toolName": "black-scholes-calculator",
+  "inputs": [
+    {
+      "id": "S",
+      "label": "Current Stock Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "Current market price of the underlying stock"
+    },
+    {
+      "id": "K",
+      "label": "Strike Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "Exercise price of the option"
+    },
+    {
+      "id": "r",
+      "label": "Risk-Free Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual risk-free interest rate for continuous compounding"
+    },
+    {
+      "id": "sigma",
+      "label": "Volatility",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Annualized implied volatility of the underlying stock"
+    },
+    {
+      "id": "T",
+      "label": "Time to Maturity",
+      "type": "number",
+      "unit": "years",
+      "default": 1,
+      "businessContext": "Time remaining until option expiration"
+    }
+  ],
+  "formulas": {
+    "normcdf": "function(x) { var a1 = 0.254829592; var a2 = -0.284496736; var a3 = 1.421413741; var a4 = -1.453152027; var a5 = 1.061405429; var p = 0.3275911; var sign = x < 0 ? -1 : 1; x = Math.abs(x) / Math.sqrt(2); var t = 1.0 / (1.0 + p * x); var y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x); return 0.5 * (1.0 + sign * y); }",
+    "d1": "(Math.log(S / K) + (r / 100 + ((sigma / 100) ** 2) / 2) * T) / ((sigma / 100) * Math.sqrt(T))",
+    "d2": "d1 - (sigma / 100) * Math.sqrt(T)",
+    "call": "S * normcdf(d1) - K * Math.exp(-(r / 100) * T) * normcdf(d2)",
+    "put": "K * Math.exp(-(r / 100) * T) * normcdf(-d2) - S * normcdf(-d1)"
+  },
+  "outputs": {
+    "primary": "callPrice",
+    "breakdown": [
+      "putPrice",
+      "d1",
+      "d2"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

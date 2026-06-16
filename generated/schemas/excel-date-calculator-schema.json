@@ -1,0 +1,55 @@
+{
+  "toolName": "excel-date-calculator",
+  "inputs": [
+    {
+      "id": "startSerial",
+      "label": "Başlangıç Tarihi Seri Numarası",
+      "type": "number",
+      "unit": "Excel seri no",
+      "default": 44927,
+      "businessContext": "Başlangıç tarihinin Excel seri numarası (örn. 44927 = 2023-01-01)"
+    },
+    {
+      "id": "endSerial",
+      "label": "Bitiş Tarihi Seri Numarası",
+      "type": "number",
+      "unit": "Excel seri no",
+      "default": 44927,
+      "businessContext": "Bitiş tarihinin Excel seri numarası"
+    },
+    {
+      "id": "daysOffset",
+      "label": "Gün Kaydırma",
+      "type": "number",
+      "unit": "gün",
+      "default": 0,
+      "businessContext": "Başlangıç tarihine eklenecek (pozitif) veya çıkarılacak (negatif) gün sayısı"
+    },
+    {
+      "id": "adjustStart",
+      "label": "Başlangıcı Dahil Et",
+      "type": "number",
+      "unit": "bayrak (0/1)",
+      "default": 0,
+      "businessContext": "Gün farkı hesaplamasında başlangıç gününü dahil et: 0 = Hayır, 1 = Evet"
+    }
+  ],
+  "formulas": {
+    "daysDifference": "endSerial - startSerial + adjustStart",
+    "projectedDateSerial": "startSerial + daysOffset",
+    "rawDifference": "endSerial - startSerial"
+  },
+  "outputs": {
+    "primary": "daysDifference",
+    "breakdown": [
+      "projectedDateSerial",
+      "rawDifference"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

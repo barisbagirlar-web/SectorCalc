@@ -1,0 +1,67 @@
+{
+  "toolName": "acute-chronic-workload-ratio-calculator",
+  "inputs": [
+    {
+      "id": "acuteLoad",
+      "label": "Akut Yük (Toplam)",
+      "type": "number",
+      "unit": "makine saati",
+      "default": 100,
+      "businessContext": "Kısa dönemde (ör. 7 gün) oluşan toplam iş yükü"
+    },
+    {
+      "id": "acutePeriodDays",
+      "label": "Akut Dönem (Gün)",
+      "type": "number",
+      "unit": "gün",
+      "default": 7,
+      "businessContext": "Akut yükün ölçüldüğü gün sayısı"
+    },
+    {
+      "id": "chronicLoad",
+      "label": "Kronik Yük (Toplam)",
+      "type": "number",
+      "unit": "makine saati",
+      "default": 400,
+      "businessContext": "Uzun dönemde (ör. 28 gün) oluşan toplam iş yükü"
+    },
+    {
+      "id": "chronicPeriodDays",
+      "label": "Kronik Dönem (Gün)",
+      "type": "number",
+      "unit": "gün",
+      "default": 28,
+      "businessContext": "Kronik yükün ölçüldüğü gün sayısı"
+    },
+    {
+      "id": "acwrThreshold",
+      "label": "Eşik Değer",
+      "type": "number",
+      "unit": "oran",
+      "default": 1.5,
+      "businessContext": "Riskli kabul edilen ACWR eşik değeri (genelde 1.5)"
+    }
+  ],
+  "formulas": {
+    "acuteDailyLoad": "acuteLoad / acutePeriodDays",
+    "chronicDailyLoad": "chronicLoad / chronicPeriodDays",
+    "acwr": "acuteDailyLoad / chronicDailyLoad",
+    "isOverThreshold": "acwr > acwrThreshold",
+    "status": "isOverThreshold ? 'YÜKSEK RİSK' : 'DÜŞÜK RİSK'"
+  },
+  "outputs": {
+    "primary": "Acute Chronic Workload Ratio",
+    "breakdown": [
+      "Akut Günlük Ortalama",
+      "Kronik Günlük Ortalama",
+      "ACWR Değeri",
+      "Risk Durumu"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

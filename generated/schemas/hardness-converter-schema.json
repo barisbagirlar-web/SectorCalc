@@ -1,0 +1,43 @@
+{
+  "toolName": "hardness-converter",
+  "inputs": [
+    {
+      "id": "hardnessValue",
+      "label": "Sertlik Değeri",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Ölçülen sertlik değeri (girdiğiniz skalada)"
+    },
+    {
+      "id": "scaleFrom",
+      "label": "Sertlik Skalası",
+      "type": "number",
+      "unit": "skala kodu",
+      "default": 1,
+      "businessContext": "1: Brinell HB, 2: Rockwell HRC, 3: Vickers HV, 4: Rockwell HRB, 5: Rockwell HRA"
+    }
+  ],
+  "formulas": {
+    "HRC": "scaleFrom == 1 ? (Math.sqrt(hardnessValue) * 1.5 - 10) : (scaleFrom == 2 ? hardnessValue : (scaleFrom == 3 ? (hardnessValue / 30 * 1.2) : (scaleFrom == 4 ? (hardnessValue * 0.8 - 20) : (scaleFrom == 5 ? (hardnessValue * 0.9 - 15) : 0))))",
+    "HB": "scaleFrom == 1 ? hardnessValue : (scaleFrom == 2 ? Math.pow((hardnessValue + 10) / 1.5, 2) : (scaleFrom == 3 ? hardnessValue * 0.8 : (scaleFrom == 4 ? (hardnessValue + 20) / 0.8 : (scaleFrom == 5 ? (hardnessValue + 15) / 0.9 : 0))))",
+    "HV": "scaleFrom == 1 ? hardnessValue / 0.8 : (scaleFrom == 2 ? (hardnessValue / 1.2) * 30 : (scaleFrom == 3 ? hardnessValue : (scaleFrom == 4 ? (hardnessValue * 0.7 + 10) * 30 : (scaleFrom == 5 ? (hardnessValue * 0.8 + 12) * 30 : 0))))",
+    "HRB": "scaleFrom == 1 ? (hardnessValue * 0.8 - 20) : (scaleFrom == 2 ? hardnessValue : (scaleFrom == 3 ? (hardnessValue / 30 * 0.7 + 10) : (scaleFrom == 4 ? hardnessValue : (scaleFrom == 5 ? hardnessValue * 1.1 + 5 : 0))))",
+    "HRA": "scaleFrom == 1 ? (hardnessValue * 0.9 - 15) : (scaleFrom == 2 ? hardnessValue : (scaleFrom == 3 ? (hardnessValue / 30 * 0.8 + 12) : (scaleFrom == 4 ? (hardnessValue - 5) / 1.1 : (scaleFrom == 5 ? hardnessValue : 0))))"
+  },
+  "outputs": {
+    "primary": "HRC",
+    "breakdown": [
+      "HB",
+      "HV",
+      "HRB",
+      "HRA"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

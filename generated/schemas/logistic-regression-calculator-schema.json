@@ -1,0 +1,79 @@
+{
+  "toolName": "logistic-regression-calculator",
+  "inputs": [
+    {
+      "id": "intercept",
+      "label": "Kesme Terimi (b0)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Tüm tahmin değişkenleri sıfır olduğunda log-odds değeri."
+    },
+    {
+      "id": "coef1",
+      "label": "Katsayı 1 (b1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Birinci tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi."
+    },
+    {
+      "id": "value1",
+      "label": "Değer 1 (x1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Birinci tahmin değişkeninin gerçek değeri."
+    },
+    {
+      "id": "coef2",
+      "label": "Katsayı 2 (b2)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "İkinci tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi."
+    },
+    {
+      "id": "value2",
+      "label": "Değer 2 (x2)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "İkinci tahmin değişkeninin gerçek değeri."
+    },
+    {
+      "id": "coef3",
+      "label": "Katsayı 3 (b3)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Üçüncü tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi."
+    },
+    {
+      "id": "value3",
+      "label": "Değer 3 (x3)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Üçüncü tahmin değişkeninin gerçek değeri."
+    }
+  ],
+  "formulas": {
+    "linearCombination": "intercept + coef1 * value1 + coef2 * value2 + coef3 * value3",
+    "probability": "1 / (1 + Math.exp(-linearCombination))",
+    "odds": "Math.exp(linearCombination)"
+  },
+  "outputs": {
+    "primary": "probability",
+    "breakdown": [
+      "linearCombination",
+      "odds"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

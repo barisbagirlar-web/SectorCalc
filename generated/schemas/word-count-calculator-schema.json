@@ -1,0 +1,73 @@
+{
+  "toolName": "word-count-calculator",
+  "inputs": [
+    {
+      "id": "totalCharacters",
+      "label": "Total Characters (including spaces)",
+      "type": "number",
+      "unit": "chars",
+      "default": 0,
+      "businessContext": "The total number of characters in the text, including spaces and punctuation."
+    },
+    {
+      "id": "totalWordsManual",
+      "label": "Total Words (if known, otherwise leave 0)",
+      "type": "number",
+      "unit": "words",
+      "default": 0,
+      "businessContext": "If you already know the exact word count, enter it here; otherwise, it will be estimated."
+    },
+    {
+      "id": "averageWordLength",
+      "label": "Average Word Length",
+      "type": "number",
+      "unit": "chars/word",
+      "default": 5,
+      "businessContext": "Typical average word length in English is about 5 characters. Adjust based on language/content."
+    },
+    {
+      "id": "readingSpeed",
+      "label": "Reading Speed",
+      "type": "number",
+      "unit": "wpm",
+      "default": 200,
+      "businessContext": "Average reading speed for adults is around 200-250 words per minute."
+    },
+    {
+      "id": "totalPages",
+      "label": "Total Pages",
+      "type": "number",
+      "unit": "pages",
+      "default": 0,
+      "businessContext": "If known, number of pages, used for page-based estimates (average 250-300 words per page)."
+    },
+    {
+      "id": "wordsPerPage",
+      "label": "Words Per Page",
+      "type": "number",
+      "unit": "words/page",
+      "default": 275,
+      "businessContext": "Standard words per page assuming double-spaced, 12pt font."
+    }
+  ],
+  "formulas": {
+    "estimatedWordCountFromChars": "totalCharacters / averageWordLength",
+    "estimatedWordCountFromPages": "totalPages * wordsPerPage",
+    "wordCount": "totalWordsManual > 0 ? totalWordsManual : (totalPages > 0 ? totalPages * wordsPerPage : totalCharacters / averageWordLength)",
+    "readingTimeMinutes": "wordCount / readingSpeed",
+    "charactersCount": "totalCharacters"
+  },
+  "outputs": {
+    "primary": "wordCount",
+    "breakdown": [
+      "readingTimeMinutes",
+      "charactersCount"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

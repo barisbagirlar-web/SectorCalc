@@ -1,0 +1,59 @@
+{
+  "toolName": "student-loan-calculator",
+  "inputs": [
+    {
+      "id": "loanAmount",
+      "label": "Loan Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "businessContext": "Total principal amount borrowed for education expenses"
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 4.5,
+      "businessContext": "Fixed annual interest rate on the student loan"
+    },
+    {
+      "id": "loanTermYears",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Repayment period in years after any deferment ends"
+    },
+    {
+      "id": "defermentMonths",
+      "label": "Deferment Period",
+      "type": "number",
+      "unit": "months",
+      "default": 6,
+      "businessContext": "Number of months before repayment starts, during which interest accrues and capitalizes"
+    }
+  ],
+  "formulas": {
+    "monthlyRate": "annualInterestRate / 100 / 12",
+    "effectivePrincipal": "loanAmount * (1 + monthlyRate) ** defermentMonths",
+    "n": "loanTermYears * 12",
+    "monthlyPayment": "effectivePrincipal * monthlyRate * (1 + monthlyRate) ** n / ((1 + monthlyRate) ** n - 1)",
+    "totalPayment": "monthlyPayment * n",
+    "totalInterest": "totalPayment - effectivePrincipal"
+  },
+  "outputs": {
+    "primary": "monthlyPayment",
+    "breakdown": [
+      "totalPayment",
+      "totalInterest",
+      "effectivePrincipal"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

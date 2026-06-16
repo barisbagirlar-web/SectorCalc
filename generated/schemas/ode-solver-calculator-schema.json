@@ -1,0 +1,71 @@
+{
+  "toolName": "ode-solver-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "Coefficient a (dy/dt = a·y + b)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Rate constant in first-order linear ODE"
+    },
+    {
+      "id": "b",
+      "label": "Constant term b",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Forcing term in the ODE"
+    },
+    {
+      "id": "t0",
+      "label": "Initial time",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Start time for the integration"
+    },
+    {
+      "id": "y0",
+      "label": "Initial value y(t0)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Initial condition at t0"
+    },
+    {
+      "id": "h",
+      "label": "Step size",
+      "type": "number",
+      "unit": "s",
+      "default": 0.1,
+      "businessContext": "Time increment for numerical approximation"
+    },
+    {
+      "id": "n",
+      "label": "Number of steps",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Total integration steps to reach final time"
+    }
+  ],
+  "formulas": {
+    "t_final": "t0 + n * h",
+    "constant_C": "y0 + b / a",
+    "y_final": "constant_C * Math.exp(a * (t_final - t0)) - (b / a)"
+  },
+  "outputs": {
+    "primary": "y_final",
+    "breakdown": [
+      "t_final",
+      "constant_C"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

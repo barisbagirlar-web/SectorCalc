@@ -1,0 +1,65 @@
+{
+  "toolName": "starting-strength-calculator",
+  "inputs": [
+    {
+      "id": "bodyWeight",
+      "label": "Vücut Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "Liftçi vücut ağırlığı"
+    },
+    {
+      "id": "squatMax",
+      "label": "Squat Maksimum",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Squat 1RM veya 5RM tahmini"
+    },
+    {
+      "id": "benchMax",
+      "label": "Bench Press Maksimum",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "Bench press maksimum"
+    },
+    {
+      "id": "deadliftMax",
+      "label": "Deadlift Maksimum",
+      "type": "number",
+      "unit": "kg",
+      "default": 140,
+      "businessContext": "Deadlift maksimum"
+    },
+    {
+      "id": "pressMax",
+      "label": "Overhead Press Maksimum",
+      "type": "number",
+      "unit": "kg",
+      "default": 50,
+      "businessContext": "Press maksimum"
+    }
+  ],
+  "formulas": {
+    "startingSquat": "Math.round(squatMax * 0.9 / 2.5) * 2.5",
+    "startingBench": "Math.round(benchMax * 0.9 / 2.5) * 2.5",
+    "startingDeadlift": "Math.round(deadliftMax * 0.9 / 2.5) * 2.5",
+    "startingPress": "Math.round(pressMax * 0.9 / 2.5) * 2.5"
+  },
+  "outputs": {
+    "primary": "Squat başlangıç: ${startingSquat} kg",
+    "breakdown": [
+      "Bench: ${startingBench} kg",
+      "Deadlift: ${startingDeadlift} kg",
+      "Press: ${startingPress} kg"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

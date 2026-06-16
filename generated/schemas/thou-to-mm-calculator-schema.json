@@ -1,0 +1,63 @@
+{
+  "toolName": "thou-to-mm-calculator",
+  "inputs": [
+    {
+      "id": "nominalThou",
+      "label": "Nominal Dimension",
+      "type": "number",
+      "unit": "thou",
+      "default": 0,
+      "businessContext": "Nominal dimension in thou (thousandths of an inch) to be converted"
+    },
+    {
+      "id": "upperToleranceThou",
+      "label": "Upper Tolerance",
+      "type": "number",
+      "unit": "thou",
+      "default": 0,
+      "businessContext": "Upper tolerance limit in thou"
+    },
+    {
+      "id": "lowerToleranceThou",
+      "label": "Lower Tolerance",
+      "type": "number",
+      "unit": "thou",
+      "default": 0,
+      "businessContext": "Lower tolerance limit in thou (use negative value if below nominal)"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "mm/thou",
+      "default": 0.0254,
+      "businessContext": "Fixed conversion factor from thou to millimeters (1 thou = 0.0254 mm)"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Number of decimal places for rounding results"
+    }
+  ],
+  "formulas": {
+    "nominalMM": "Math.round(nominalThou * conversionFactor * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "upperMM": "Math.round(upperToleranceThou * conversionFactor * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "lowerMM": "Math.round(lowerToleranceThou * conversionFactor * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "nominalMM",
+    "breakdown": [
+      "upperMM",
+      "lowerMM"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

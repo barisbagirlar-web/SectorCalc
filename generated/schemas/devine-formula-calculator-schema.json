@@ -1,0 +1,57 @@
+{
+  "toolName": "devine-formula-calculator",
+  "inputs": [
+    {
+      "id": "height",
+      "label": "Boy (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Kişinin santimetre cinsinden boy uzunluğu"
+    },
+    {
+      "id": "sex",
+      "label": "Cinsiyet (0:Kadın, 1:Erkek)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 kadın, 1 erkek olarak cinsiyet seçimi"
+    },
+    {
+      "id": "age",
+      "label": "Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 30,
+      "businessContext": "Kişinin yaşı (referans amaçlı)"
+    },
+    {
+      "id": "currentWeight",
+      "label": "Mevcut Ağırlık",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Kişinin mevcut ağırlığı (karşılaştırma için)"
+    }
+  ],
+  "formulas": {
+    "heightInInches": "height / 2.54",
+    "baseWeight": "sex == 1 ? 50 : 45.5",
+    "addition": "2.3 * (heightInInches - 60)",
+    "idealWeight": "baseWeight + addition"
+  },
+  "outputs": {
+    "primary": "idealWeight",
+    "breakdown": [
+      "heightInInches",
+      "baseWeight",
+      "addition"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

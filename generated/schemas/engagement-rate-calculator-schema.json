@@ -1,0 +1,63 @@
+{
+  "toolName": "engagement-rate-calculator",
+  "inputs": [
+    {
+      "id": "likes",
+      "label": "Likes",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Number of likes received"
+    },
+    {
+      "id": "comments",
+      "label": "Comments",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Number of comments received"
+    },
+    {
+      "id": "shares",
+      "label": "Shares",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Number of shares/reposts"
+    },
+    {
+      "id": "totalImpressions",
+      "label": "Total Impressions",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Total number of times content was seen"
+    },
+    {
+      "id": "totalFollowers",
+      "label": "Total Followers",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Total number of followers/audience"
+    }
+  ],
+  "formulas": {
+    "totalEngagements": "likes + comments + shares",
+    "engagementRateByImpressions": "totalImpressions > 0 ? (totalEngagements / totalImpressions) * 100 : 0",
+    "engagementRateByFollowers": "totalFollowers > 0 ? (totalEngagements / totalFollowers) * 100 : 0"
+  },
+  "outputs": {
+    "primary": "engagementRateByImpressions",
+    "breakdown": [
+      "engagementRateByFollowers",
+      "totalEngagements"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

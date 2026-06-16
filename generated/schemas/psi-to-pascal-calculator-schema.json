@@ -1,0 +1,55 @@
+{
+  "toolName": "psi-to-pascal-calculator",
+  "inputs": [
+    {
+      "id": "psi_value",
+      "label": "Pressure in PSI",
+      "type": "number",
+      "unit": "psi",
+      "default": 0,
+      "businessContext": "The pressure value in pounds per square inch to convert."
+    },
+    {
+      "id": "conversion_factor",
+      "label": "Conversion Factor (psi to Pa)",
+      "type": "number",
+      "unit": "Pa/psi",
+      "default": 6894.76,
+      "businessContext": "Standard conversion factor from PSI to Pascals. Calibrated per ISO 80000-4."
+    },
+    {
+      "id": "calibration_offset",
+      "label": "Calibration Offset",
+      "type": "number",
+      "unit": "Pa",
+      "default": 0,
+      "businessContext": "Additive offset for sensor calibration, per ISO 17025."
+    },
+    {
+      "id": "decimal_places",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output result, for industrial reporting."
+    }
+  ],
+  "formulas": {
+    "raw_pascal": "psi_value * conversion_factor",
+    "pascal_with_offset": "raw_pascal + calibration_offset",
+    "pascal_value": "Math.round(pascal_with_offset * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)"
+  },
+  "outputs": {
+    "primary": "pascal_value",
+    "breakdown": [
+      "raw_pascal",
+      "pascal_with_offset"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

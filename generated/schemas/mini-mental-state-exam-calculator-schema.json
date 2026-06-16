@@ -1,0 +1,69 @@
+{
+  "toolName": "mini-mental-state-exam-calculator",
+  "inputs": [
+    {
+      "id": "orientation",
+      "label": "Orientation Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Score for orientation to time and place (0-10 points)"
+    },
+    {
+      "id": "registration",
+      "label": "Registration Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Score for registration of three words (0-3 points)"
+    },
+    {
+      "id": "attention",
+      "label": "Attention and Calculation Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Score for attention and calculation (serial sevens or spelling backwards) (0-5 points)"
+    },
+    {
+      "id": "recall",
+      "label": "Recall Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Score for delayed recall of three words (0-3 points)"
+    },
+    {
+      "id": "language",
+      "label": "Language Score",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Score for language tasks including naming, repetition, comprehension, reading, writing, and drawing (0-9 points)"
+    }
+  ],
+  "formulas": {
+    "totalScore": "orientation + registration + attention + recall + language",
+    "orientation": "orientation",
+    "registration": "registration",
+    "attention": "attention",
+    "recall": "recall",
+    "language": "language"
+  },
+  "outputs": {
+    "primary": "totalScore",
+    "breakdown": [
+      "orientation",
+      "registration",
+      "attention",
+      "recall",
+      "language"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

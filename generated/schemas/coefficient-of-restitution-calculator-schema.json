@@ -1,0 +1,55 @@
+{
+  "toolName": "coefficient-of-restitution-calculator",
+  "inputs": [
+    {
+      "id": "v1i",
+      "label": "Initial Velocity Object 1",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Initial velocity of the first object before collision."
+    },
+    {
+      "id": "v2i",
+      "label": "Initial Velocity Object 2",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Initial velocity of the second object before collision."
+    },
+    {
+      "id": "v1f",
+      "label": "Final Velocity Object 1",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Final velocity of the first object after collision."
+    },
+    {
+      "id": "v2f",
+      "label": "Final Velocity Object 2",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Final velocity of the second object after collision."
+    }
+  ],
+  "formulas": {
+    "relative_speed_before": "Math.abs(v1i - v2i)",
+    "relative_speed_after": "Math.abs(v1f - v2f)",
+    "coefficient_of_restitution": "relative_speed_before !== 0 ? relative_speed_after / relative_speed_before : null"
+  },
+  "outputs": {
+    "primary": "coefficient_of_restitution",
+    "breakdown": [
+      "relative_speed_after",
+      "relative_speed_before"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

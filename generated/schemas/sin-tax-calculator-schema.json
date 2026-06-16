@@ -1,0 +1,57 @@
+{
+  "toolName": "sin-tax-calculator",
+  "inputs": [
+    {
+      "id": "basePrice",
+      "label": "Vergisiz Birim Fiyat",
+      "type": "number",
+      "unit": "TRY",
+      "default": 100,
+      "businessContext": "Ürünün vergi öncesi birim fiyatı"
+    },
+    {
+      "id": "sinTaxRate",
+      "label": "ÖTV Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Özel Tüketim Vergisi oranı"
+    },
+    {
+      "id": "vatRate",
+      "label": "KDV Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "businessContext": "Katma Değer Vergisi oranı"
+    },
+    {
+      "id": "quantity",
+      "label": "Miktar",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Ürün miktarı"
+    }
+  ],
+  "formulas": {
+    "totalPrice": "quantity * basePrice * (1 + sinTaxRate / 100) * (1 + vatRate / 100)",
+    "sinTaxAmount": "quantity * basePrice * sinTaxRate / 100",
+    "vatAmount": "quantity * basePrice * (1 + sinTaxRate / 100) * vatRate / 100",
+    "totalBeforeVat": "quantity * basePrice * (1 + sinTaxRate / 100)"
+  },
+  "outputs": {
+    "primary": "totalPrice",
+    "breakdown": [
+      "sinTaxAmount",
+      "vatAmount",
+      "totalBeforeVat"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

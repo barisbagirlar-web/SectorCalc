@@ -1,0 +1,69 @@
+{
+  "toolName": "recycling-calculator",
+  "inputs": [
+    {
+      "id": "totalWaste",
+      "label": "Toplam Atık (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Üretim sürecinde oluşan toplam atık miktarı"
+    },
+    {
+      "id": "recycledAmount",
+      "label": "Geri Dönüştürülen Miktar (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 300,
+      "businessContext": "Geri dönüşüme gönderilen atık miktarı"
+    },
+    {
+      "id": "contaminationRate",
+      "label": "Kirlilik Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Geri dönüştürülen malzemedeki kirlilik oranı"
+    },
+    {
+      "id": "disposalCostPerKg",
+      "label": "Bertaraf Maliyeti (TL/kg)",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 0.5,
+      "businessContext": "Atığın kg başına bertaraf maliyeti"
+    },
+    {
+      "id": "revenuePerKg",
+      "label": "Geri Dönüşüm Geliri (TL/kg)",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 1.2,
+      "businessContext": "Geri dönüştürülen malzemenin kg başına satış geliri"
+    }
+  ],
+  "formulas": {
+    "effectiveRecycledWeight": "recycledAmount * (1 - contaminationRate / 100)",
+    "recyclingRate": "((recycledAmount * (1 - contaminationRate / 100)) / totalWaste) * 100",
+    "disposalWeight": "totalWaste - (recycledAmount * (1 - contaminationRate / 100))",
+    "costSavings": "(recycledAmount * (1 - contaminationRate / 100)) * disposalCostPerKg",
+    "revenueGenerated": "(recycledAmount * (1 - contaminationRate / 100)) * revenuePerKg",
+    "netSavings": "(recycledAmount * (1 - contaminationRate / 100)) * (disposalCostPerKg + revenuePerKg)"
+  },
+  "outputs": {
+    "primary": "recyclingRate",
+    "breakdown": [
+      "effectiveRecycledWeight",
+      "disposalWeight",
+      "costSavings",
+      "revenueGenerated",
+      "netSavings"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

@@ -1,0 +1,58 @@
+{
+  "toolName": "gas-mileage-calculator",
+  "inputs": [
+    {
+      "id": "startOdometer",
+      "label": "Start Odometer",
+      "type": "number",
+      "unit": "miles",
+      "default": 0,
+      "businessContext": "Initial odometer reading before trip"
+    },
+    {
+      "id": "endOdometer",
+      "label": "End Odometer",
+      "type": "number",
+      "unit": "miles",
+      "default": 0,
+      "businessContext": "Final odometer reading after trip"
+    },
+    {
+      "id": "fuelGallons",
+      "label": "Fuel Used",
+      "type": "number",
+      "unit": "gallons",
+      "default": 0,
+      "businessContext": "Volume of fuel consumed during trip"
+    },
+    {
+      "id": "fuelPricePerGallon",
+      "label": "Fuel Price",
+      "type": "number",
+      "unit": "USD/gallon",
+      "default": 0,
+      "businessContext": "Price of fuel per gallon for cost calculation"
+    }
+  ],
+  "formulas": {
+    "mpg": "(endOdometer - startOdometer) / fuelGallons",
+    "costPerMile": "(fuelGallons * fuelPricePerGallon) / (endOdometer - startOdometer)",
+    "totalDistance": "endOdometer - startOdometer",
+    "fuelCostTotal": "fuelGallons * fuelPricePerGallon"
+  },
+  "outputs": {
+    "primary": "mpg",
+    "breakdown": [
+      "mpg",
+      "costPerMile",
+      "totalDistance",
+      "fuelCostTotal"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "beehive-tank-calculator",
+  "inputs": [
+    {
+      "id": "diameter",
+      "label": "Tank Çapı",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Beehive tank inner diameter"
+    },
+    {
+      "id": "heightCylinder",
+      "label": "Silindir Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Height of the cylindrical section"
+    },
+    {
+      "id": "wallThickness",
+      "label": "Et Kalınlığı",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Tank wall thickness for material calculation"
+    },
+    {
+      "id": "materialDensity",
+      "label": "Malzeme Yoğunluğu",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "businessContext": "Density of tank material (e.g., steel)"
+    },
+    {
+      "id": "materialCost",
+      "label": "Birim Malzeme Maliyeti",
+      "type": "number",
+      "unit": "TRY/kg",
+      "default": 10,
+      "businessContext": "Cost per kg of material"
+    }
+  ],
+  "formulas": {
+    "radius": "diameter / 2",
+    "volumeCylinder": "Math.PI * (diameter/2)**2 * heightCylinder",
+    "volumeHemisphere": "(2/3) * Math.PI * (diameter/2)**3",
+    "totalVolume": "volumeCylinder + volumeHemisphere",
+    "surfaceAreaCylinder": "2 * Math.PI * (diameter/2) * heightCylinder",
+    "surfaceAreaHemisphere": "2 * Math.PI * (diameter/2)**2",
+    "totalSurfaceArea": "surfaceAreaCylinder + surfaceAreaHemisphere",
+    "materialVolume": "totalSurfaceArea * (wallThickness / 1000)",
+    "materialWeight": "materialVolume * materialDensity",
+    "materialCostTotal": "materialWeight * materialCost"
+  },
+  "outputs": {
+    "primary": "Toplam Hacim (m³)",
+    "breakdown": [
+      "Silindir Hacmi (m³)",
+      "Kubbe Hacmi (m³)",
+      "Yüzey Alanı (m²)",
+      "Malzeme Ağırlığı (kg)",
+      "Malzeme Maliyeti (TRY)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

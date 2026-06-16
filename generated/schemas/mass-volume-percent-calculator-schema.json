@@ -1,0 +1,57 @@
+{
+  "toolName": "mass-volume-percent-calculator",
+  "inputs": [
+    {
+      "id": "massSolute_g",
+      "label": "Mass of Solute (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Mass of the solute in grams."
+    },
+    {
+      "id": "massSolute_kg",
+      "label": "Mass of Solute (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Mass of the solute in kilograms."
+    },
+    {
+      "id": "volumeSolution_mL",
+      "label": "Volume of Solution (mL)",
+      "type": "number",
+      "unit": "mL",
+      "default": 0,
+      "businessContext": "Volume of the solution in milliliters."
+    },
+    {
+      "id": "volumeSolution_L",
+      "label": "Volume of Solution (L)",
+      "type": "number",
+      "unit": "L",
+      "default": 0,
+      "businessContext": "Volume of the solution in liters."
+    }
+  ],
+  "formulas": {
+    "totalMass_g": "massSolute_g + massSolute_kg * 1000",
+    "totalVolume_mL": "volumeSolution_mL + volumeSolution_L * 1000",
+    "percent": "totalMass_g / totalVolume_mL * 100",
+    "ratio": "totalMass_g / totalVolume_mL"
+  },
+  "outputs": {
+    "primary": "percent",
+    "breakdown": [
+      "totalMass_g",
+      "totalVolume_mL",
+      "ratio"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

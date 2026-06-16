@@ -1,0 +1,65 @@
+{
+  "toolName": "horsepower-calculator",
+  "inputs": [
+    {
+      "id": "voltage",
+      "label": "Voltage (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 400,
+      "businessContext": "Nominal line-to-line voltage from motor nameplate, typically 400 V for three-phase industrial motors."
+    },
+    {
+      "id": "current",
+      "label": "Current (A)",
+      "type": "number",
+      "unit": "A",
+      "default": 10,
+      "businessContext": "Full-load amperage (FLA) from motor nameplate."
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency (decimal)",
+      "type": "number",
+      "unit": "",
+      "default": 0.9,
+      "businessContext": "Motor efficiency as a decimal fraction, e.g., 0.9 for 90% per ISO 1217 or manufacturer data."
+    },
+    {
+      "id": "powerFactor",
+      "label": "Power Factor (decimal)",
+      "type": "number",
+      "unit": "",
+      "default": 0.85,
+      "businessContext": "Motor power factor under full load, typically 0.8–0.9 for induction motors."
+    },
+    {
+      "id": "phaseFactor",
+      "label": "Phase Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.732,
+      "businessContext": "1.0 for single-phase, √3 ≈ 1.732 for balanced three-phase. Default reflects common three-phase industrial supply."
+    }
+  ],
+  "formulas": {
+    "hp": "(voltage * current * efficiency * powerFactor * phaseFactor) / 746",
+    "inputPowerVA": "voltage * current * phaseFactor",
+    "actualPowerW": "voltage * current * powerFactor * phaseFactor",
+    "kw": "((voltage * current * efficiency * powerFactor * phaseFactor) / 746) * 0.7457"
+  },
+  "outputs": {
+    "primary": "hp",
+    "breakdown": [
+      "inputPowerVA",
+      "actualPowerW",
+      "kw"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,71 @@
+{
+  "toolName": "vaping-calculator",
+  "inputs": [
+    {
+      "id": "wireDiameter",
+      "label": "Wire Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.4,
+      "businessContext": "Diameter of the resistance wire used in the coil."
+    },
+    {
+      "id": "innerDiameter",
+      "label": "Inner Coil Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 3,
+      "businessContext": "Inner diameter of the coil, typically the jig or drill bit size."
+    },
+    {
+      "id": "numberOfWraps",
+      "label": "Number of Wraps",
+      "type": "number",
+      "unit": "",
+      "default": 6,
+      "businessContext": "Full wraps of the coil."
+    },
+    {
+      "id": "legLength",
+      "label": "Leg Length (per leg)",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Length of each leg from coil to attachment post."
+    },
+    {
+      "id": "resistivity",
+      "label": "Resistivity",
+      "type": "number",
+      "unit": "Ω·m",
+      "default": 0.00000145,
+      "businessContext": "Electrical resistivity of the wire material (e.g., Kanthal A1: 1.45×10⁻⁶ Ω·m)."
+    },
+    {
+      "id": "voltage",
+      "label": "Applied Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 4.2,
+      "businessContext": "Output voltage of the battery or regulated mod."
+    }
+  ],
+  "formulas": {
+    "resistance": "resistivity * ((numberOfWraps * Math.PI * (innerDiameter + wireDiameter) + 2 * legLength) / 1000) / (Math.PI * Math.pow(wireDiameter / 2, 2) * 0.000001)",
+    "current": "voltage / resistance",
+    "power": "voltage * voltage / resistance"
+  },
+  "outputs": {
+    "primary": "resistance",
+    "breakdown": [
+      "current",
+      "power"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "metric-tons-to-pounds-calculator",
+  "inputs": [
+    {
+      "id": "metric_tons",
+      "label": "Metric Tons per Unit",
+      "type": "number",
+      "unit": "t",
+      "default": 0,
+      "businessContext": "Mass of a single unit in metric tons"
+    },
+    {
+      "id": "number_of_units",
+      "label": "Number of Units",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Total number of items, containers, or batches"
+    },
+    {
+      "id": "waste_factor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Additional percentage for waste, safety, or overage"
+    },
+    {
+      "id": "conversion_factor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "lb/t",
+      "default": 2204.62262185,
+      "businessContext": "Pounds per metric ton (fixed standard)"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places to round the primary output"
+    }
+  ],
+  "formulas": {
+    "pounds_rounded": "Math.round(metric_tons * number_of_units * (1 + waste_factor / 100) * conversion_factor * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "ounces": "metric_tons * number_of_units * (1 + waste_factor / 100) * conversion_factor * 16",
+    "kilograms": "metric_tons * number_of_units * (1 + waste_factor / 100) * 1000"
+  },
+  "outputs": {
+    "primary": "pounds_rounded",
+    "breakdown": [
+      "ounces",
+      "kilograms"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

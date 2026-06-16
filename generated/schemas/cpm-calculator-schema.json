@@ -1,0 +1,90 @@
+{
+  "toolName": "cpm-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "businessContext": "Total distance to be traveled."
+    },
+    {
+      "id": "fuelConsumption",
+      "label": "Fuel Consumption",
+      "type": "number",
+      "unit": "L/100km",
+      "default": 10,
+      "businessContext": "Vehicle fuel consumption rate."
+    },
+    {
+      "id": "fuelPrice",
+      "label": "Fuel Price",
+      "type": "number",
+      "unit": "$/L",
+      "default": 1.5,
+      "businessContext": "Price of fuel per liter."
+    },
+    {
+      "id": "maintenanceCostPerKm",
+      "label": "Maintenance Cost per km",
+      "type": "number",
+      "unit": "$/km",
+      "default": 0.05,
+      "businessContext": "Average maintenance cost per kilometer."
+    },
+    {
+      "id": "driverWagePerHour",
+      "label": "Driver Wage per Hour",
+      "type": "number",
+      "unit": "$/h",
+      "default": 25,
+      "businessContext": "Hourly wage of the driver."
+    },
+    {
+      "id": "averageSpeed",
+      "label": "Average Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 60,
+      "businessContext": "Expected average speed during the trip."
+    },
+    {
+      "id": "tollCost",
+      "label": "Toll Cost",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Total toll costs for the trip."
+    },
+    {
+      "id": "otherCosts",
+      "label": "Other Costs",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Any additional costs (permits, loading/unloading, etc.)."
+    }
+  ],
+  "formulas": {
+    "fuelCostPerKm": "(fuelConsumption / 100) * fuelPrice",
+    "driverCostPerKm": "driverWagePerHour / averageSpeed",
+    "totalCostPerKm": "fuelCostPerKm + maintenanceCostPerKm + driverCostPerKm",
+    "totalCost": "totalCostPerKm * distance + tollCost + otherCosts"
+  },
+  "outputs": {
+    "primary": "totalCostPerKm",
+    "breakdown": [
+      "fuelCostPerKm",
+      "maintenanceCostPerKm",
+      "driverCostPerKm",
+      "totalCost"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "pet-weight-calculator",
+  "inputs": [
+    {
+      "id": "body_length",
+      "label": "Vücut Uzunluğu (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "Omuzdan kuyruk dibine kadar ölçülen uzunluk."
+    },
+    {
+      "id": "chest_girth",
+      "label": "Göğüs Çevresi (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 40,
+      "businessContext": "Ön bacakların hemen arkasından alınan çevre ölçüsü."
+    },
+    {
+      "id": "age_months",
+      "label": "Yaş (Ay)",
+      "type": "number",
+      "unit": "ay",
+      "default": 12,
+      "businessContext": "Evcil hayvanın ay cinsinden yaşı. 12 aydan küçükse büyüme faktörü uygulanır."
+    },
+    {
+      "id": "condition_factor",
+      "label": "Kondisyon Faktörü (1-5)",
+      "type": "number",
+      "unit": "1-5",
+      "default": 3,
+      "businessContext": "Vücut kondisyon skoru: 1 çok zayıf, 3 ideal, 5 obez. Ağırlık buna göre ayarlanır."
+    }
+  ],
+  "formulas": {
+    "baseWeight": "(body_length * chest_girth) / 200",
+    "ageFactor": "age_months < 12 ? (age_months / 12) : 1",
+    "targetWeight": "baseWeight * ageFactor * (condition_factor / 3)",
+    "healthyLower": "targetWeight * 0.85",
+    "healthyUpper": "targetWeight * 1.15"
+  },
+  "outputs": {
+    "primary": "targetWeight.toFixed(1) + ' kg'",
+    "breakdown": [
+      "'Sağlıklı ağırlık aralığı: ' + healthyLower.toFixed(1) + ' - ' + healthyUpper.toFixed(1) + ' kg'",
+      "'İdeal kondisyon skoru 3 için tahmini ağırlık: ' + targetWeight.toFixed(1) + ' kg'"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

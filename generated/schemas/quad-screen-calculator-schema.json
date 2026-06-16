@@ -1,0 +1,67 @@
+{
+  "toolName": "quad-screen-calculator",
+  "inputs": [
+    {
+      "id": "screenDiagonal",
+      "label": "Screen Diagonal",
+      "type": "number",
+      "unit": "inch",
+      "default": 24,
+      "businessContext": "Diagonal size of one screen in inches."
+    },
+    {
+      "id": "aspectWidth",
+      "label": "Aspect Width",
+      "type": "number",
+      "unit": "ratio",
+      "default": 16,
+      "businessContext": "Width part of aspect ratio (e.g., 16 for 16:9)."
+    },
+    {
+      "id": "aspectHeight",
+      "label": "Aspect Height",
+      "type": "number",
+      "unit": "ratio",
+      "default": 9,
+      "businessContext": "Height part of aspect ratio (e.g., 9 for 16:9)."
+    },
+    {
+      "id": "numberOfScreens",
+      "label": "Number of Screens",
+      "type": "number",
+      "unit": "units",
+      "default": 4,
+      "businessContext": "Number of screens in the quad setup."
+    },
+    {
+      "id": "costPerScreen",
+      "label": "Cost per Screen",
+      "type": "number",
+      "unit": "USD",
+      "default": 200,
+      "businessContext": "Purchase cost per individual screen."
+    }
+  ],
+  "formulas": {
+    "screenWidth": "screenDiagonal * aspectWidth / Math.sqrt(aspectWidth**2 + aspectHeight**2)",
+    "screenHeight": "screenDiagonal * aspectHeight / Math.sqrt(aspectWidth**2 + aspectHeight**2)",
+    "screenArea": "screenWidth * screenHeight",
+    "totalArea": "screenArea * numberOfScreens",
+    "totalCost": "costPerScreen * numberOfScreens"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "screenWidth",
+      "screenHeight",
+      "screenArea",
+      "totalArea"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

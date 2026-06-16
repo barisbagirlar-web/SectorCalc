@@ -1,0 +1,83 @@
+{
+  "toolName": "roth-conversion-calculator",
+  "inputs": [
+    {
+      "id": "currentBalance",
+      "label": "Current Traditional IRA Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Total pre-tax balance in traditional IRA account before conversion."
+    },
+    {
+      "id": "amountToConvert",
+      "label": "Amount to Convert",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Portion of the traditional IRA balance to convert to a Roth IRA; cannot exceed currentBalance."
+    },
+    {
+      "id": "currentTaxRate",
+      "label": "Current Marginal Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 24,
+      "businessContext": "Expected income tax rate in the year of conversion, expressed as a percentage."
+    },
+    {
+      "id": "expectedRetirementTaxRate",
+      "label": "Expected Retirement Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 24,
+      "businessContext": "Estimated marginal tax rate during retirement when traditional IRA withdrawals will be taxed."
+    },
+    {
+      "id": "yearsToRetirement",
+      "label": "Years to Retirement",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "Number of years until retirement, during which converted funds grow tax-free."
+    },
+    {
+      "id": "annualReturnRate",
+      "label": "Expected Annual Return",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Assumed average annual investment return before inflation."
+    }
+  ],
+  "formulas": {
+    "convertAfterTaxValue": "amountToConvert * (1 - currentTaxRate / 100) * Math.pow(1 + annualReturnRate / 100, yearsToRetirement)",
+    "noConvertAfterTaxValue": "amountToConvert * Math.pow(1 + annualReturnRate / 100, yearsToRetirement) * (1 - expectedRetirementTaxRate / 100)",
+    "conversionBenefit": "convertAfterTaxValue - noConvertAfterTaxValue"
+  },
+  "outputs": {
+    "primary": {
+      "id": "conversionBenefit",
+      "label": "Conversion Benefit (Future Dollars)",
+      "unit": "USD"
+    },
+    "breakdown": [
+      {
+        "id": "convertAfterTaxValue",
+        "label": "Roth Conversion After-Tax Value",
+        "unit": "USD"
+      },
+      {
+        "id": "noConvertAfterTaxValue",
+        "label": "Traditional IRA After-Tax Value",
+        "unit": "USD"
+      }
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

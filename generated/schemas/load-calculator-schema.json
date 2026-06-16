@@ -1,0 +1,65 @@
+{
+  "toolName": "load-calculator",
+  "inputs": [
+    {
+      "id": "voltage",
+      "label": "Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 230,
+      "businessContext": "Nominal system voltage (V)"
+    },
+    {
+      "id": "current",
+      "label": "Current",
+      "type": "number",
+      "unit": "A",
+      "default": 10,
+      "businessContext": "Load current in amperes (A)"
+    },
+    {
+      "id": "powerFactor",
+      "label": "Power Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.9,
+      "businessContext": "Power factor of the load (0-1)"
+    },
+    {
+      "id": "phaseCount",
+      "label": "Phase Count",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Number of phases (1 for single-phase, 3 for three-phase)"
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Efficiency of the load equipment in percentage (%)"
+    }
+  ],
+  "formulas": {
+    "apparentPower": "phaseCount === 1 ? voltage * current : phaseCount === 3 ? voltage * current * Math.sqrt(3) : 0",
+    "activePower": "apparentPower * powerFactor",
+    "reactivePower": "apparentPower * Math.sin(Math.acos(powerFactor))",
+    "outputPower": "activePower * (efficiency / 100)"
+  },
+  "outputs": {
+    "primary": "apparentPower",
+    "breakdown": [
+      "activePower",
+      "reactivePower",
+      "outputPower"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

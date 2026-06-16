@@ -1,0 +1,55 @@
+{
+  "toolName": "nanograms-to-micrograms-calculator",
+  "inputs": [
+    {
+      "id": "nanograms",
+      "label": "Nanograms",
+      "type": "number",
+      "unit": "ng",
+      "default": 0,
+      "businessContext": "Per-item mass in nanograms (1 ng = 1e-9 g)"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "ng/µg",
+      "default": 1000,
+      "businessContext": "Number of nanograms in one microgram (standard: 1000)"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Number of decimal places for the final result"
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "items",
+      "default": 1,
+      "businessContext": "Number of items in the batch (total mass = per-item mass × batch size)"
+    }
+  ],
+  "formulas": {
+    "totalNanograms": "nanograms * batchSize",
+    "rawMicrograms": "totalNanograms / conversionFactor",
+    "micrograms": "Math.round(rawMicrograms * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "micrograms",
+    "breakdown": [
+      "totalNanograms",
+      "rawMicrograms"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

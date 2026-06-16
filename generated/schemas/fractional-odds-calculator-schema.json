@@ -1,0 +1,61 @@
+{
+  "toolName": "fractional-odds-calculator",
+  "inputs": [
+    {
+      "id": "numerator",
+      "label": "Numerator (a in a/b)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The first number in fractional odds (e.g., 5 in 5/1)."
+    },
+    {
+      "id": "denominator",
+      "label": "Denominator (b in a/b)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The second number in fractional odds (e.g., 1 in 5/1)."
+    },
+    {
+      "id": "stake",
+      "label": "Stake Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 10,
+      "businessContext": "The amount wagered."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate on Winnings",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Applicable tax percentage on net profit (0 for no tax)."
+    }
+  ],
+  "formulas": {
+    "profit": "stake * (numerator / denominator)",
+    "totalPayoutBeforeTax": "stake * (1 + numerator / denominator)",
+    "decimalOdds": "1 + numerator / denominator",
+    "impliedProbability": "(denominator / (numerator + denominator)) * 100",
+    "netProfitAfterTax": "(stake * (numerator / denominator)) * (1 - taxRate / 100)",
+    "netTotalPayoutAfterTax": "stake + (stake * (numerator / denominator)) * (1 - taxRate / 100)"
+  },
+  "outputs": {
+    "primary": "totalPayoutBeforeTax",
+    "breakdown": [
+      "profit",
+      "decimalOdds",
+      "impliedProbability",
+      "netProfitAfterTax",
+      "netTotalPayoutAfterTax"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

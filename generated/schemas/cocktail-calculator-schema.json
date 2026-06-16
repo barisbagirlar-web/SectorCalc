@@ -1,0 +1,86 @@
+{
+  "toolName": "cocktail-calculator",
+  "inputs": [
+    {
+      "id": "numberOfCocktails",
+      "label": "Number of Cocktails",
+      "type": "number",
+      "unit": "servings",
+      "default": 10,
+      "businessContext": "Total number of cocktails to prepare"
+    },
+    {
+      "id": "drinkVolume",
+      "label": "Drink Volume per Cocktail",
+      "type": "number",
+      "unit": "ml",
+      "default": 200,
+      "businessContext": "Volume of each cocktail"
+    },
+    {
+      "id": "ingredient1Part",
+      "label": "Ingredient 1 Proportion",
+      "type": "number",
+      "unit": "part",
+      "default": 2,
+      "businessContext": "Parts of first ingredient in the recipe"
+    },
+    {
+      "id": "ingredient2Part",
+      "label": "Ingredient 2 Proportion",
+      "type": "number",
+      "unit": "part",
+      "default": 1,
+      "businessContext": "Parts of second ingredient"
+    },
+    {
+      "id": "ingredient3Part",
+      "label": "Ingredient 3 Proportion",
+      "type": "number",
+      "unit": "part",
+      "default": 1.5,
+      "businessContext": "Parts of third ingredient"
+    },
+    {
+      "id": "ingredient4Part",
+      "label": "Ingredient 4 Proportion",
+      "type": "number",
+      "unit": "part",
+      "default": 0,
+      "businessContext": "Parts of fourth ingredient (optional)"
+    },
+    {
+      "id": "wastagePercentage",
+      "label": "Wastage Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Extra volume to account for spillage/waste"
+    }
+  ],
+  "formulas": {
+    "totalParts": "inputs.ingredient1Part + inputs.ingredient2Part + inputs.ingredient3Part + inputs.ingredient4Part",
+    "totalVolume": "inputs.numberOfCocktails * inputs.drinkVolume",
+    "totalVolumeWithWastage": "totalVolume * (1 + (inputs.wastagePercentage / 100))",
+    "volumePerPart": "totalVolumeWithWastage / totalParts",
+    "ingredient1Total": "inputs.ingredient1Part * volumePerPart",
+    "ingredient2Total": "inputs.ingredient2Part * volumePerPart",
+    "ingredient3Total": "inputs.ingredient3Part * volumePerPart",
+    "ingredient4Total": "inputs.ingredient4Part * volumePerPart"
+  },
+  "outputs": {
+    "primary": "totalVolumeWithWastage",
+    "breakdown": [
+      "ingredient1Total",
+      "ingredient2Total",
+      "ingredient3Total",
+      "ingredient4Total"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

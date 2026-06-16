@@ -1,0 +1,65 @@
+{
+  "toolName": "morning-sickness-calculator",
+  "inputs": [
+    {
+      "id": "machine_age_years",
+      "label": "Machine Age",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Age of the equipment in years."
+    },
+    {
+      "id": "downtime_hours",
+      "label": "Downtime Duration",
+      "type": "number",
+      "unit": "hours",
+      "default": 12,
+      "businessContext": "Duration of the last shutdown/downtime in hours."
+    },
+    {
+      "id": "ambient_temperature_celsius",
+      "label": "Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Ambient temperature at restart time in degrees Celsius."
+    },
+    {
+      "id": "cold_starts_per_day",
+      "label": "Cold Starts per Day",
+      "type": "number",
+      "unit": "starts/day",
+      "default": 1,
+      "businessContext": "Average number of cold starts per day."
+    },
+    {
+      "id": "severity_factor",
+      "label": "Severity Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Company-specific multiplier to adjust severity (e.g., based on equipment criticality)."
+    }
+  ],
+  "formulas": {
+    "age_contribution": "1 - Math.exp(-machine_age_years / 10)",
+    "downtime_factor": "downtime_hours / (downtime_hours + 24)",
+    "temp_factor": "Math.exp(-ambient_temperature_celsius / 30)",
+    "msi": "(age_contribution * 0.3 + downtime_factor * 0.4 + temp_factor * 0.3) * cold_starts_per_day * severity_factor"
+  },
+  "outputs": {
+    "primary": "msi",
+    "breakdown": [
+      "age_contribution",
+      "downtime_factor",
+      "temp_factor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Atölye & Tamir",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

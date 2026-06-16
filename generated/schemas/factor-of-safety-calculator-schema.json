@@ -1,0 +1,80 @@
+{
+  "toolName": "factor-of-safety-calculator",
+  "inputs": [
+    {
+      "id": "appliedForce",
+      "label": "Applied Force",
+      "type": "number",
+      "unit": "N",
+      "default": 10000,
+      "businessContext": "The external force acting on the component, e.g., tension, compression, or shear."
+    },
+    {
+      "id": "crossSectionArea",
+      "label": "Cross-Sectional Area",
+      "type": "number",
+      "unit": "mm²",
+      "default": 50,
+      "businessContext": "The effective cross-sectional area resisting the force."
+    },
+    {
+      "id": "yieldStrength",
+      "label": "Material Yield Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 250,
+      "businessContext": "Stress at which material begins to deform plastically, typically from material datasheet."
+    },
+    {
+      "id": "ultimateTensileStrength",
+      "label": "Ultimate Tensile Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 400,
+      "businessContext": "Maximum stress material can withstand while being stretched or pulled before breaking."
+    },
+    {
+      "id": "designFactor",
+      "label": "Required Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "The minimum allowable factor of safety as per design standards, used for pass/fail check."
+    },
+    {
+      "id": "stressConcentrationFactor",
+      "label": "Stress Concentration Factor (Kt)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Factor accounting for geometric discontinuities. For basic analysis, set to 1."
+    }
+  ],
+  "formulas": {
+    "workingStress": "appliedForce / crossSectionArea * stressConcentrationFactor",
+    "fosYield": "yieldStrength / workingStress",
+    "fosUltimate": "ultimateTensileStrength / workingStress",
+    "marginYield": "fosYield - 1",
+    "passFailYield": "fosYield >= designFactor ? 'Pass' : 'Fail'",
+    "primaryOutput": "`FOS (Yield): ${fosYield.toFixed(2)}`",
+    "breakdown1": "`FOS (Ultimate): ${fosUltimate.toFixed(2)}`",
+    "breakdown2": "`Working Stress: ${workingStress.toFixed(2)} MPa`",
+    "breakdown3": "`Margin of Safety: ${marginYield.toFixed(2)}`",
+    "breakdown4": "`Design Check: ${passFailYield}`"
+  },
+  "outputs": {
+    "primary": "primaryOutput",
+    "breakdown": [
+      "breakdown1",
+      "breakdown2",
+      "breakdown3",
+      "breakdown4"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

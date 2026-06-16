@@ -1,0 +1,77 @@
+{
+  "toolName": "brick-veneer-calculator",
+  "inputs": [
+    {
+      "id": "wallWidth",
+      "label": "Wall Width",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Width of the wall to be veneered"
+    },
+    {
+      "id": "wallHeight",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Height of the wall"
+    },
+    {
+      "id": "brickLength",
+      "label": "Brick Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 230,
+      "businessContext": "Length of a single brick"
+    },
+    {
+      "id": "brickHeight",
+      "label": "Brick Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 76,
+      "businessContext": "Height of a single brick"
+    },
+    {
+      "id": "mortarJoint",
+      "label": "Mortar Joint Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Thickness of mortar joint between bricks"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of additional bricks to account for cutting and breakage"
+    }
+  ],
+  "formulas": {
+    "primary": "Math.ceil( (wallWidth * wallHeight) / ((brickLength + mortarJoint) * (brickHeight + mortarJoint) / 1000000) * (1 + wasteFactor / 100) )",
+    "breakdown": [
+      "wallWidth * wallHeight",
+      "(brickLength + mortarJoint) * (brickHeight + mortarJoint) / 1000000",
+      "wallWidth * wallHeight / ((brickLength + mortarJoint) * (brickHeight + mortarJoint) / 1000000)",
+      "wallWidth * wallHeight / ((brickLength + mortarJoint) * (brickHeight + mortarJoint) / 1000000) * wasteFactor / 100"
+    ]
+  },
+  "outputs": {
+    "primary": "totalBricks",
+    "breakdown": [
+      "wallArea",
+      "brickAreaWithMortar",
+      "bricksWithoutWaste",
+      "wasteBricks"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

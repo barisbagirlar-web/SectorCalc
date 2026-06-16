@@ -1,0 +1,55 @@
+{
+  "toolName": "growing-perpetuity-calculator",
+  "inputs": [
+    {
+      "id": "initialCashFlow",
+      "label": "İlk Nakit Akışı",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "businessContext": "İlk dönem sonunda elde edilmesi beklenen nakit akışı (genellikle bir sonraki yıl)"
+    },
+    {
+      "id": "discountRate",
+      "label": "İskonto Oranı",
+      "type": "number",
+      "unit": "percentage",
+      "default": 10,
+      "businessContext": "Yatırımcının beklenen getiri oranı veya sermaye maliyeti, iskonto oranı olarak kullanılır"
+    },
+    {
+      "id": "growthRate",
+      "label": "Büyüme Oranı",
+      "type": "number",
+      "unit": "percentage",
+      "default": 3,
+      "businessContext": "Nakit akışlarının her dönemdeki sabit büyüme oranı, iskonto oranından küçük olmalıdır"
+    },
+    {
+      "id": "timingFlag",
+      "label": "Ödeme Zamanlaması",
+      "type": "number",
+      "unit": "binary (0=Dönem Sonu, 1=Dönem Başı)",
+      "default": 0,
+      "businessContext": "Nakit akışlarının dönem sonunda mı (0) yoksa dönem başında mı (1) gerçekleştiğini belirtir"
+    }
+  ],
+  "formulas": {
+    "discountRateMinusGrowth": "(discountRate - growthRate) / 100",
+    "presentValueBeforeTiming": "initialCashFlow / discountRateMinusGrowth",
+    "presentValue": "timingFlag === 1 ? presentValueBeforeTiming * (1 + discountRate/100) : presentValueBeforeTiming"
+  },
+  "outputs": {
+    "primary": "presentValue",
+    "breakdown": [
+      "discountRateMinusGrowth",
+      "presentValueBeforeTiming"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

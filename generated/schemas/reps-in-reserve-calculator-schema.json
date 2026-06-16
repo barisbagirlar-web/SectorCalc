@@ -1,0 +1,63 @@
+{
+  "toolName": "reps-in-reserve-calculator",
+  "inputs": [
+    {
+      "id": "totalLifespan",
+      "label": "Toplam Ömür (Tekrar)",
+      "type": "number",
+      "unit": "adet",
+      "default": 10000,
+      "businessContext": "Takım veya bileşenin toplam kullanılabilir tekrar sayısı."
+    },
+    {
+      "id": "currentUsage",
+      "label": "Mevcut Kullanım (Tekrar)",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Şu ana kadar yapılan tekrar sayısı."
+    },
+    {
+      "id": "dailyUsageRate",
+      "label": "Günlük Kullanım Oranı",
+      "type": "number",
+      "unit": "adet/gün",
+      "default": 100,
+      "businessContext": "Günlük ortalama tekrar sayısı."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Güvenlik Faktörü (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Ömür üzerindeki güvenlik marjı yüzdesi."
+    },
+    {
+      "id": "plannedProduction",
+      "label": "Planlanan Üretim (Tekrar)",
+      "type": "number",
+      "unit": "adet",
+      "default": 5000,
+      "businessContext": "Gelecek dönemde ihtiyaç duyulan toplam tekrar sayısı."
+    }
+  ],
+  "formulas": {
+    "remainingReps": "totalLifespan * (1 - safetyFactor / 100) - currentUsage",
+    "daysRemaining": "(totalLifespan * (1 - safetyFactor / 100) - currentUsage) / dailyUsageRate",
+    "utilizationPercentage": "currentUsage / (totalLifespan * (1 - safetyFactor / 100)) * 100"
+  },
+  "outputs": {
+    "primary": "remainingReps",
+    "breakdown": [
+      "daysRemaining",
+      "utilizationPercentage"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

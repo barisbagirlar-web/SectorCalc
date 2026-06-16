@@ -1,0 +1,69 @@
+{
+  "toolName": "water-footprint-calculator",
+  "inputs": [
+    {
+      "id": "directWater",
+      "label": "Direct Water Use",
+      "type": "number",
+      "unit": "m³/year",
+      "default": 100,
+      "businessContext": "Annual direct water consumption from taps, irrigation, etc."
+    },
+    {
+      "id": "foodConsumption",
+      "label": "Food Consumption",
+      "type": "number",
+      "unit": "kg/year",
+      "default": 500,
+      "businessContext": "Annual food consumption, average water footprint per kg is 2.5 m³/kg (global average)"
+    },
+    {
+      "id": "electricityConsumption",
+      "label": "Electricity Consumption",
+      "type": "number",
+      "unit": "kWh/year",
+      "default": 3000,
+      "businessContext": "Annual electricity use, water footprint approx 0.01 m³/kWh (cooling, hydropower)"
+    },
+    {
+      "id": "fuelConsumption",
+      "label": "Fuel Consumption",
+      "type": "number",
+      "unit": "L/year",
+      "default": 1000,
+      "businessContext": "Annual fuel use (petrol/diesel), water footprint approx 0.02 m³/L (extraction, refining)"
+    },
+    {
+      "id": "wastewater",
+      "label": "Wastewater Discharge",
+      "type": "number",
+      "unit": "m³/year",
+      "default": 50,
+      "businessContext": "Annual wastewater volume requiring treatment, equivalent grey water footprint"
+    }
+  ],
+  "formulas": {
+    "directFootprint": "directWater",
+    "foodFootprint": "foodConsumption * 2.5",
+    "electricityFootprint": "electricityConsumption * 0.01",
+    "fuelFootprint": "fuelConsumption * 0.02",
+    "wastewaterFootprint": "wastewater",
+    "totalWaterFootprint": "directFootprint + foodFootprint + electricityFootprint + fuelFootprint + wastewaterFootprint"
+  },
+  "outputs": {
+    "primary": "totalWaterFootprint",
+    "breakdown": [
+      "directFootprint",
+      "foodFootprint",
+      "electricityFootprint",
+      "fuelFootprint",
+      "wastewaterFootprint"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

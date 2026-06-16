@@ -1,0 +1,64 @@
+{
+  "toolName": "number-base-converter-calculator",
+  "inputs": [
+    {
+      "id": "decimalValue",
+      "label": "Decimal Number",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The decimal integer to be converted into other bases."
+    },
+    {
+      "id": "targetBase1",
+      "label": "Base 1",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "First target base for conversion (2-36)."
+    },
+    {
+      "id": "targetBase2",
+      "label": "Base 2",
+      "type": "number",
+      "unit": "",
+      "default": 8,
+      "businessContext": "Second target base for conversion (2-36)."
+    },
+    {
+      "id": "targetBase3",
+      "label": "Base 3",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Third target base for conversion (2-36)."
+    },
+    {
+      "id": "targetBase4",
+      "label": "Base 4",
+      "type": "number",
+      "unit": "",
+      "default": 16,
+      "businessContext": "Fourth target base for conversion (2-36)."
+    }
+  ],
+  "formulas": {
+    "primary": "decimalValue + ' (base 10) = ' + (decimalValue).toString(targetBase1).toUpperCase() + ' (base ' + targetBase1 + ')'",
+    "breakdown": "[(decimalValue).toString(targetBase1).toUpperCase(), (decimalValue).toString(targetBase2).toUpperCase(), (decimalValue).toString(targetBase3).toUpperCase(), (decimalValue).toString(targetBase4).toUpperCase()]"
+  },
+  "outputs": {
+    "primary": "Conversion summary (Decimal -> Base 1)",
+    "breakdown": [
+      "Result in Base 1",
+      "Result in Base 2",
+      "Result in Base 3",
+      "Result in Base 4"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

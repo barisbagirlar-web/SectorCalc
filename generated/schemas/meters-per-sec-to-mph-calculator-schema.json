@@ -1,0 +1,55 @@
+{
+  "toolName": "meters-per-sec-to-mph-calculator",
+  "inputs": [
+    {
+      "id": "speed_ms",
+      "label": "Speed (m/s)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 1,
+      "businessContext": "Input speed in meters per second"
+    },
+    {
+      "id": "factor_m_to_mi",
+      "label": "Meters to Miles Factor",
+      "type": "number",
+      "unit": "mi/m",
+      "default": 0.000621371,
+      "businessContext": "Conversion factor from meters to miles"
+    },
+    {
+      "id": "factor_s_to_h",
+      "label": "Seconds to Hours Factor",
+      "type": "number",
+      "unit": "s/h",
+      "default": 3600,
+      "businessContext": "Conversion factor from seconds to hours"
+    },
+    {
+      "id": "decimal_places",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding output"
+    }
+  ],
+  "formulas": {
+    "speed_mps": "speed_ms * factor_m_to_mi",
+    "speed_mph_unrounded": "speed_ms * factor_m_to_mi * factor_s_to_h",
+    "speed_mph_rounded": "Math.round(speed_ms * factor_m_to_mi * factor_s_to_h * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)"
+  },
+  "outputs": {
+    "primary": "speed_mph_rounded",
+    "breakdown": [
+      "speed_mps",
+      "speed_mph_unrounded"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

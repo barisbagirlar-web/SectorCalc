@@ -1,0 +1,73 @@
+{
+  "toolName": "pneumatic-calculator",
+  "inputs": [
+    {
+      "id": "boreDiameter",
+      "label": "Bore Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Inner diameter of the pneumatic cylinder bore"
+    },
+    {
+      "id": "rodDiameter",
+      "label": "Rod Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 20,
+      "businessContext": "Diameter of the piston rod (0 for rodless cylinder)"
+    },
+    {
+      "id": "pressure",
+      "label": "Working Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 6,
+      "businessContext": "Gauge pressure of compressed air supply"
+    },
+    {
+      "id": "stroke",
+      "label": "Stroke Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Distance the piston travels per cycle"
+    },
+    {
+      "id": "cyclesPerMinute",
+      "label": "Cycles per Minute",
+      "type": "number",
+      "unit": "cycles/min",
+      "default": 30,
+      "businessContext": "Operating frequency"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Recommended additional force percentage for selection"
+    }
+  ],
+  "formulas": {
+    "forceExtend": "pressure * Math.PI * Math.pow(boreDiameter / 2, 2) * 0.1",
+    "forceRetract": "pressure * (Math.PI * Math.pow(boreDiameter / 2, 2) - Math.PI * Math.pow(rodDiameter / 2, 2)) * 0.1",
+    "freeAirPerMinute": "((Math.PI * Math.pow(boreDiameter / 2, 2) * stroke + (Math.PI * Math.pow(boreDiameter / 2, 2) - Math.PI * Math.pow(rodDiameter / 2, 2)) * stroke) / 1000000) * (pressure + 1) * cyclesPerMinute",
+    "recommendedForce": "pressure * Math.PI * Math.pow(boreDiameter / 2, 2) * 0.1 * (1 + safetyFactor / 100)"
+  },
+  "outputs": {
+    "primary": "forceExtend",
+    "breakdown": [
+      "forceRetract",
+      "freeAirPerMinute",
+      "recommendedForce"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

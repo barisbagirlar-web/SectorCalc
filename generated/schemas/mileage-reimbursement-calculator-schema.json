@@ -1,0 +1,67 @@
+{
+  "toolName": "mileage-reimbursement-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "businessContext": "Total distance traveled for business purposes"
+    },
+    {
+      "id": "ratePerKm",
+      "label": "Reimbursement Rate (€/km)",
+      "type": "number",
+      "unit": "€/km",
+      "default": 0.5,
+      "businessContext": "Rate per kilometer as per company policy or tax authority"
+    },
+    {
+      "id": "tolls",
+      "label": "Tolls (€)",
+      "type": "number",
+      "unit": "€",
+      "default": 0,
+      "businessContext": "Total toll fees paid during the trip"
+    },
+    {
+      "id": "parking",
+      "label": "Parking Fees (€)",
+      "type": "number",
+      "unit": "€",
+      "default": 0,
+      "businessContext": "Total parking fees incurred"
+    },
+    {
+      "id": "flatAllowance",
+      "label": "Flat Allowance (€)",
+      "type": "number",
+      "unit": "€",
+      "default": 0,
+      "businessContext": "Any fixed allowance for the trip (e.g., meal per diem included in mileage claim)"
+    }
+  ],
+  "formulas": {
+    "totalReimbursement": "distance * ratePerKm + tolls + parking + flatAllowance",
+    "mileageCost": "distance * ratePerKm",
+    "tolls": "tolls",
+    "parking": "parking",
+    "flatAllowance": "flatAllowance"
+  },
+  "outputs": {
+    "primary": "totalReimbursement",
+    "breakdown": [
+      "mileageCost",
+      "tolls",
+      "parking",
+      "flatAllowance"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

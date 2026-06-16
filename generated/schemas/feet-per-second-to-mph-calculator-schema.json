@@ -1,0 +1,54 @@
+{
+  "toolName": "feet-per-second-to-mph-calculator",
+  "inputs": [
+    {
+      "id": "feetPerSecond",
+      "label": "Hız (ft/s)",
+      "type": "number",
+      "unit": "ft/s",
+      "default": 1,
+      "businessContext": "Dönüştürülecek hız değeri, feet/saniye cinsinden"
+    },
+    {
+      "id": "precision",
+      "label": "Ondalık Hassasiyet",
+      "type": "number",
+      "unit": "basamak",
+      "default": 2,
+      "businessContext": "Çıktıdaki ondalık basamak sayısı"
+    },
+    {
+      "id": "calibrationOffset",
+      "label": "Kalibrasyon Ofseti",
+      "type": "number",
+      "unit": "ft/s",
+      "default": 0,
+      "businessContext": "Girişe eklenecek sabit ofset (kalibrasyon için)"
+    },
+    {
+      "id": "outputUnitScaling",
+      "label": "Çıktı Birim Ölçekleme",
+      "type": "number",
+      "unit": "çarpan",
+      "default": 1,
+      "businessContext": "mph'yi başka bir birime dönüştürmek için çarpan; mph için 1"
+    }
+  ],
+  "formulas": {
+    "convertToMph": "const mph = (feetPerSecond + calibrationOffset) * (3600 / 5280) * outputUnitScaling; return +mph.toFixed(precision);"
+  },
+  "outputs": {
+    "primary": "convertToMph",
+    "breakdown": [
+      "adjustedSpeed = feetPerSecond + calibrationOffset",
+      "mphRaw = adjustedSpeed * (3600 / 5280) * outputUnitScaling",
+      "round(mphRaw, precision)"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

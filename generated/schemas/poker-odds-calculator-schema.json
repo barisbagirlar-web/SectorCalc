@@ -1,0 +1,92 @@
+{
+  "toolName": "poker-odds-calculator",
+  "inputs": [
+    {
+      "id": "numberOfOuts",
+      "label": "Number of Outs",
+      "type": "number",
+      "unit": "cards",
+      "default": 9,
+      "businessContext": "Number of cards that will improve your hand to a winner"
+    },
+    {
+      "id": "currentPot",
+      "label": "Current Pot Size",
+      "type": "number",
+      "unit": "chips",
+      "default": 100,
+      "businessContext": "Total chips in the pot before calling"
+    },
+    {
+      "id": "betToCall",
+      "label": "Bet to Call",
+      "type": "number",
+      "unit": "chips",
+      "default": 20,
+      "businessContext": "Amount you need to call to stay in the hand"
+    },
+    {
+      "id": "knownCards",
+      "label": "Known Cards (yours + community)",
+      "type": "number",
+      "unit": "cards",
+      "default": 5,
+      "businessContext": "Total cards you know, including your hole cards and community cards"
+    },
+    {
+      "id": "totalCards",
+      "label": "Total Deck Size",
+      "type": "number",
+      "unit": "cards",
+      "default": 52,
+      "businessContext": "Standard deck size, usually 52"
+    }
+  ],
+  "formulas": {
+    "unseenCards": "totalCards - knownCards",
+    "probabilityWin": "numberOfOuts / unseenCards",
+    "potOdds": "betToCall / (currentPot + betToCall)",
+    "expectedValue": "probabilityWin * (currentPot + betToCall) - (1 - probabilityWin) * betToCall",
+    "recommendation": "expectedValue > 0 ? 'Call' : 'Fold'",
+    "primaryText": "`${recommendation} (EV: ${expectedValue.toFixed(1)} chips, Win Prob: ${(probabilityWin * 100).toFixed(1)}%)`"
+  },
+  "outputs": {
+    "primary": {
+      "value": "primaryText",
+      "type": "string"
+    },
+    "breakdown": [
+      {
+        "label": "Outs",
+        "value": "numberOfOuts",
+        "unit": "cards"
+      },
+      {
+        "label": "Unseen Cards",
+        "value": "unseenCards",
+        "unit": "cards"
+      },
+      {
+        "label": "Win Probability",
+        "value": "probabilityWin",
+        "unit": "%"
+      },
+      {
+        "label": "Pot Odds",
+        "value": "potOdds",
+        "unit": "ratio"
+      },
+      {
+        "label": "Expected Value (EV)",
+        "value": "expectedValue",
+        "unit": "chips"
+      }
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

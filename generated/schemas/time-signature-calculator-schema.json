@@ -1,0 +1,55 @@
+{
+  "toolName": "time-signature-calculator",
+  "inputs": [
+    {
+      "id": "numerator",
+      "label": "Beats per Measure",
+      "type": "number",
+      "unit": "beats",
+      "default": 4,
+      "businessContext": "Top number of time signature (number of beats per measure)"
+    },
+    {
+      "id": "denominator",
+      "label": "Note Value",
+      "type": "number",
+      "unit": "note value",
+      "default": 4,
+      "businessContext": "Bottom number of time signature (which note value gets one beat, e.g., 4=quarter, 8=eighth)"
+    },
+    {
+      "id": "tempo",
+      "label": "Tempo",
+      "type": "number",
+      "unit": "bpm",
+      "default": 120,
+      "businessContext": "Beats per minute (typically the beat unit equals the denominator note value)"
+    },
+    {
+      "id": "measures",
+      "label": "Number of Measures",
+      "type": "number",
+      "unit": "measures",
+      "default": 1,
+      "businessContext": "Number of measures to calculate total duration"
+    }
+  ],
+  "formulas": {
+    "beatDurationSeconds": "60 / tempo",
+    "measureDurationSeconds": "60 / tempo * numerator",
+    "totalDurationSeconds": "measureDurationSeconds * measures"
+  },
+  "outputs": {
+    "primary": "totalDurationSeconds",
+    "breakdown": [
+      "beatDurationSeconds",
+      "measureDurationSeconds"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

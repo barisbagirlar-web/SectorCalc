@@ -1,0 +1,55 @@
+{
+  "toolName": "cup-to-gram-calculator",
+  "inputs": [
+    {
+      "id": "cups",
+      "label": "Number of Cups",
+      "type": "number",
+      "unit": "cups",
+      "default": 1,
+      "businessContext": "Volume of ingredient measured in US customary cups"
+    },
+    {
+      "id": "density_g_per_cup",
+      "label": "Density",
+      "type": "number",
+      "unit": "g/cup",
+      "default": 240,
+      "businessContext": "Density of ingredient in grams per cup (e.g., water ~240, flour ~120, sugar ~200)"
+    },
+    {
+      "id": "packing_factor",
+      "label": "Packing Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Factor to account for packing density (e.g., 1 for loose, >1 for packed). Default 1 (loose)."
+    },
+    {
+      "id": "calibration_factor",
+      "label": "Calibration Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for scale calibration adjustment (e.g., 1.05 for +5% correction). Default 1."
+    }
+  ],
+  "formulas": {
+    "mass_grams": "cups * density_g_per_cup * packing_factor * calibration_factor",
+    "effective_density": "density_g_per_cup * packing_factor",
+    "adjusted_cups": "cups * calibration_factor"
+  },
+  "outputs": {
+    "primary": "mass_grams",
+    "breakdown": [
+      "effective_density",
+      "adjusted_cups"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

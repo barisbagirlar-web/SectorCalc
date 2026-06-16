@@ -1,0 +1,57 @@
+{
+  "toolName": "puppy-weight-predictor-calculator",
+  "inputs": [
+    {
+      "id": "currentWeight",
+      "label": "Current Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 5,
+      "businessContext": "The puppy's current weight in kilograms."
+    },
+    {
+      "id": "currentAgeWeeks",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "weeks",
+      "default": 12,
+      "businessContext": "The puppy's current age in weeks."
+    },
+    {
+      "id": "breedMaturityAgeMonths",
+      "label": "Breed Maturity Age",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "businessContext": "Typical age in months when this breed reaches adult size (e.g., small: 9-12, medium: 12-15, large: 18-24)."
+    },
+    {
+      "id": "adjustmentFactor",
+      "label": "Adjustment Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier to adjust for individual variation (e.g., 0.9 for smaller, 1.1 for larger)."
+    }
+  ],
+  "formulas": {
+    "currentAgeMonths": "currentAgeWeeks / 4.345",
+    "estimatedAdultWeight": "round((currentWeight / currentAgeMonths) * breedMaturityAgeMonths * adjustmentFactor, 2)",
+    "monthlyGrowthRate": "round(estimatedAdultWeight / breedMaturityAgeMonths, 2)",
+    "weightRangeLow": "round(estimatedAdultWeight * 0.9, 2)",
+    "weightRangeHigh": "round(estimatedAdultWeight * 1.1, 2)"
+  },
+  "outputs": {
+    "primary": "estimatedAdultWeight",
+    "breakdown": [
+      "monthlyGrowthRate",
+      "weightRangeLow + ' - ' + weightRangeHigh + ' kg'"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

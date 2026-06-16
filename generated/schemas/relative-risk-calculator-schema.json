@@ -1,0 +1,55 @@
+{
+  "toolName": "relative-risk-calculator",
+  "inputs": [
+    {
+      "id": "exposed_events",
+      "label": "Exposed Events",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "businessContext": "Number of events (failures, outcomes) in the exposed group."
+    },
+    {
+      "id": "exposed_total",
+      "label": "Exposed Total",
+      "type": "number",
+      "unit": "count",
+      "default": 100,
+      "businessContext": "Total number of subjects in the exposed group."
+    },
+    {
+      "id": "control_events",
+      "label": "Control Events",
+      "type": "number",
+      "unit": "count",
+      "default": 5,
+      "businessContext": "Number of events in the control (unexposed) group."
+    },
+    {
+      "id": "control_total",
+      "label": "Control Total",
+      "type": "number",
+      "unit": "count",
+      "default": 100,
+      "businessContext": "Total number of subjects in the control group."
+    }
+  ],
+  "formulas": {
+    "risk_exposed": "exposed_events / exposed_total",
+    "risk_unexposed": "control_events / control_total",
+    "relative_risk": "(exposed_events / exposed_total) / (control_events / control_total)"
+  },
+  "outputs": {
+    "primary": "relative_risk",
+    "breakdown": [
+      "risk_exposed",
+      "risk_unexposed"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

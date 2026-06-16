@@ -1,0 +1,57 @@
+{
+  "toolName": "millionaire-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Lump sum amount already invested"
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Monthly Contribution",
+      "type": "number",
+      "unit": "$",
+      "default": 500,
+      "businessContext": "Amount contributed each month to the investment"
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected annual rate of return on investment (e.g., 7 for 7%)"
+    },
+    {
+      "id": "years",
+      "label": "Investment Horizon",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Number of years the money will be invested"
+    }
+  ],
+  "formulas": {
+    "totalMonths": "years * 12",
+    "monthlyRate": "annualInterestRate / 100 / 12",
+    "futureValue": "initialInvestment * Math.pow(1 + monthlyRate, totalMonths) + monthlyContribution * (Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate",
+    "totalContributions": "initialInvestment + monthlyContribution * totalMonths",
+    "totalInterest": "futureValue - totalContributions"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": [
+      "totalContributions",
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

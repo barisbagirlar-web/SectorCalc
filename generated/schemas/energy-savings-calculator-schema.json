@@ -1,0 +1,64 @@
+{
+  "toolName": "energy-savings-calculator",
+  "inputs": [
+    {
+      "id": "currentEnergyUsage",
+      "label": "Current Energy Usage (kWh)",
+      "type": "number",
+      "unit": "kWh",
+      "default": 1000,
+      "businessContext": "Total energy consumption in the baseline period (e.g., monthly)."
+    },
+    {
+      "id": "energyCostPerUnit",
+      "label": "Energy Cost per kWh ($)",
+      "type": "number",
+      "unit": "$/kWh",
+      "default": 0.12,
+      "businessContext": "Cost per kilowatt-hour from the utility bill or energy contract."
+    },
+    {
+      "id": "efficiencyGain",
+      "label": "Efficiency Improvement (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Expected percentage reduction in energy usage due to conservation measures."
+    },
+    {
+      "id": "operatingHours",
+      "label": "Operating Hours per Period",
+      "type": "number",
+      "unit": "hours",
+      "default": 720,
+      "businessContext": "Total operating hours in the analysis period (e.g., 720 hours per month)."
+    },
+    {
+      "id": "emissionFactor",
+      "label": "CO₂ Emission Factor (kg/kWh)",
+      "type": "number",
+      "unit": "kg/kWh",
+      "default": 0.5,
+      "businessContext": "Carbon dioxide emission per kWh for the energy source (e.g., grid average)."
+    }
+  ],
+  "formulas": {
+    "energySaved": "currentEnergyUsage * (efficiencyGain / 100)",
+    "costSavings": "energySaved * energyCostPerUnit",
+    "co2Reduction": "energySaved * emissionFactor"
+  },
+  "outputs": {
+    "primary": "costSavings",
+    "breakdown": [
+      "energySaved",
+      "costSavings",
+      "co2Reduction"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

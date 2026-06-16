@@ -1,0 +1,55 @@
+{
+  "toolName": "slope-intercept-form-calculator",
+  "inputs": [
+    {
+      "id": "slope",
+      "label": "Eğim (m)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Doğrunun eğimi, y = mx + b denklemindeki m katsayısı."
+    },
+    {
+      "id": "yIntercept",
+      "label": "y Kesişimi (b)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Doğrunun y eksenini kestiği nokta."
+    },
+    {
+      "id": "xValue",
+      "label": "x Değeri",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "y değerini hesaplamak için verilen x koordinatı."
+    },
+    {
+      "id": "yValue",
+      "label": "y Değeri",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "x değerini hesaplamak için verilen y koordinatı."
+    }
+  ],
+  "formulas": {
+    "equation": "`y = ${slope}x + ${yIntercept}`",
+    "y_calc": "slope * xValue + yIntercept",
+    "x_calc": "(yValue - yIntercept) / slope"
+  },
+  "outputs": {
+    "primary": "${equation}",
+    "breakdown": [
+      "Verilen x = ${xValue} için y = ${y_calc}",
+      "Verilen y = ${yValue} için x = ${x_calc}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

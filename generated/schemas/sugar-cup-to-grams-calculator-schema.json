@@ -1,0 +1,55 @@
+{
+  "toolName": "sugar-cup-to-grams-calculator",
+  "inputs": [
+    {
+      "id": "cups",
+      "label": "Cups",
+      "type": "number",
+      "unit": "cup",
+      "default": 1,
+      "businessContext": "Number of US cups of sugar"
+    },
+    {
+      "id": "tablespoons",
+      "label": "Tablespoons",
+      "type": "number",
+      "unit": "tbsp",
+      "default": 0,
+      "businessContext": "Additional tablespoons of sugar"
+    },
+    {
+      "id": "teaspoons",
+      "label": "Teaspoons",
+      "type": "number",
+      "unit": "tsp",
+      "default": 0,
+      "businessContext": "Additional teaspoons of sugar"
+    },
+    {
+      "id": "sugarType",
+      "label": "Sugar Type",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 = Granulated, 1 = Powdered, 2 = Brown (packed)"
+    }
+  ],
+  "formulas": {
+    "grams": "(cups * 236.588 + tablespoons * 14.7868 + teaspoons * 4.92892) * [0.85, 0.56, 0.9][sugarType]",
+    "volumeML": "cups * 236.588 + tablespoons * 14.7868 + teaspoons * 4.92892",
+    "densityUsed": "[0.85, 0.56, 0.9][sugarType]"
+  },
+  "outputs": {
+    "primary": "grams",
+    "breakdown": [
+      "volumeML",
+      "densityUsed"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

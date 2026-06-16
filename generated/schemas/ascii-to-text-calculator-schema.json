@@ -1,0 +1,99 @@
+{
+  "toolName": "ascii-to-text-calculator",
+  "inputs": [
+    {
+      "id": "ascii1",
+      "label": "ASCII Kodu 1",
+      "type": "number",
+      "unit": "kod",
+      "default": 32,
+      "businessContext": "İlk ASCII karakter kodu (ör. 65 = 'A')"
+    },
+    {
+      "id": "ascii2",
+      "label": "ASCII Kodu 2",
+      "type": "number",
+      "unit": "kod",
+      "default": 32,
+      "businessContext": "İkinci ASCII karakter kodu"
+    },
+    {
+      "id": "ascii3",
+      "label": "ASCII Kodu 3",
+      "type": "number",
+      "unit": "kod",
+      "default": 32,
+      "businessContext": "Üçüncü ASCII karakter kodu"
+    },
+    {
+      "id": "ascii4",
+      "label": "ASCII Kodu 4",
+      "type": "number",
+      "unit": "kod",
+      "default": 32,
+      "businessContext": "Dördüncü ASCII karakter kodu"
+    },
+    {
+      "id": "ascii5",
+      "label": "ASCII Kodu 5",
+      "type": "number",
+      "unit": "kod",
+      "default": 32,
+      "businessContext": "Beşinci ASCII karakter kodu"
+    },
+    {
+      "id": "ascii6",
+      "label": "ASCII Kodu 6",
+      "type": "number",
+      "unit": "kod",
+      "default": 32,
+      "businessContext": "Altıncı ASCII karakter kodu"
+    },
+    {
+      "id": "ascii7",
+      "label": "ASCII Kodu 7",
+      "type": "number",
+      "unit": "kod",
+      "default": 32,
+      "businessContext": "Yedinci ASCII karakter kodu"
+    },
+    {
+      "id": "ascii8",
+      "label": "ASCII Kodu 8",
+      "type": "number",
+      "unit": "kod",
+      "default": 32,
+      "businessContext": "Sekizinci ASCII karakter kodu"
+    }
+  ],
+  "formulas": {
+    "text": "String.fromCharCode(ascii1) + String.fromCharCode(ascii2) + String.fromCharCode(ascii3) + String.fromCharCode(ascii4) + String.fromCharCode(ascii5) + String.fromCharCode(ascii6) + String.fromCharCode(ascii7) + String.fromCharCode(ascii8)",
+    "char1": "String.fromCharCode(ascii1)",
+    "char2": "String.fromCharCode(ascii2)",
+    "char3": "String.fromCharCode(ascii3)",
+    "char4": "String.fromCharCode(ascii4)",
+    "char5": "String.fromCharCode(ascii5)",
+    "char6": "String.fromCharCode(ascii6)",
+    "char7": "String.fromCharCode(ascii7)",
+    "char8": "String.fromCharCode(ascii8)"
+  },
+  "outputs": {
+    "primary": "text",
+    "breakdown": [
+      "char1",
+      "char2",
+      "char3",
+      "char4",
+      "char5",
+      "char6",
+      "char7",
+      "char8"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

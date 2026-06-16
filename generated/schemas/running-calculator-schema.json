@@ -1,0 +1,56 @@
+{
+  "toolName": "running-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "The running distance in kilometers."
+    },
+    {
+      "id": "time_hours",
+      "label": "Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 0,
+      "businessContext": "Hours part of the running time."
+    },
+    {
+      "id": "time_minutes",
+      "label": "Minutes",
+      "type": "number",
+      "unit": "min",
+      "default": 50,
+      "businessContext": "Minutes part of the running time."
+    },
+    {
+      "id": "time_seconds",
+      "label": "Seconds",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Seconds part of the running time."
+    }
+  ],
+  "formulas": {
+    "totalTimeMinutes": "time_hours * 60 + time_minutes + time_seconds / 60",
+    "paceMinPerKm": "totalTimeMinutes / distance",
+    "speedKmPerH": "distance / (totalTimeMinutes / 60)",
+    "paceMinPerMile": "paceMinPerKm * 1.60934"
+  },
+  "outputs": {
+    "primary": "paceMinPerKm",
+    "breakdown": [
+      "speedKmPerH",
+      "paceMinPerMile"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

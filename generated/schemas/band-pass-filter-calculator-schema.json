@@ -1,0 +1,57 @@
+{
+  "toolName": "band-pass-filter-calculator",
+  "inputs": [
+    {
+      "id": "centerFrequency",
+      "label": "Center Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1000,
+      "businessContext": "The central frequency of the passband, critical for tuning to desired signal in RF and audio applications."
+    },
+    {
+      "id": "bandwidth",
+      "label": "Bandwidth",
+      "type": "number",
+      "unit": "Hz",
+      "default": 100,
+      "businessContext": "Width of frequency range where signal passes with minimal attenuation; determines filter selectivity."
+    },
+    {
+      "id": "gain_dB",
+      "label": "Passband Gain",
+      "type": "number",
+      "unit": "dB",
+      "default": 0,
+      "businessContext": "Amplification in decibels within the passband; 0 dB means unity gain."
+    },
+    {
+      "id": "filterOrder",
+      "label": "Filter Order",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The order of the filter, influencing the roll-off rate and complexity; not used in basic calculation but provided for context."
+    }
+  ],
+  "formulas": {
+    "qualityFactor": "centerFrequency / bandwidth",
+    "lowerCutoff": "centerFrequency - bandwidth / 2",
+    "upperCutoff": "centerFrequency + bandwidth / 2",
+    "gainLinear": "10 ** (gain_dB / 20)"
+  },
+  "outputs": {
+    "primary": "qualityFactor",
+    "breakdown": [
+      "lowerCutoff",
+      "upperCutoff",
+      "gainLinear"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

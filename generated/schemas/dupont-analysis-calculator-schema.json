@@ -1,0 +1,57 @@
+{
+  "toolName": "dupont-analysis-calculator",
+  "inputs": [
+    {
+      "id": "netIncome",
+      "label": "Net Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Net profit after all expenses"
+    },
+    {
+      "id": "revenue",
+      "label": "Revenue",
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "businessContext": "Total sales revenue"
+    },
+    {
+      "id": "totalAssets",
+      "label": "Total Assets",
+      "type": "number",
+      "unit": "USD",
+      "default": 400000,
+      "businessContext": "Sum of all assets owned by the company"
+    },
+    {
+      "id": "equity",
+      "label": "Shareholders' Equity",
+      "type": "number",
+      "unit": "USD",
+      "default": 200000,
+      "businessContext": "Total equity from shareholders"
+    }
+  ],
+  "formulas": {
+    "netProfitMargin": "netIncome / revenue",
+    "assetTurnover": "revenue / totalAssets",
+    "equityMultiplier": "totalAssets / equity",
+    "roe": "netIncome / equity"
+  },
+  "outputs": {
+    "primary": "roe",
+    "breakdown": [
+      "netProfitMargin",
+      "assetTurnover",
+      "equityMultiplier"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

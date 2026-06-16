@@ -1,0 +1,79 @@
+{
+  "toolName": "concrete-yield-calculator",
+  "inputs": [
+    {
+      "id": "cementMass",
+      "label": "Cement Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 350,
+      "businessContext": "Mass of cement in the concrete batch, typically in kilograms."
+    },
+    {
+      "id": "waterMass",
+      "label": "Water Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 175,
+      "businessContext": "Mass of water in the batch, including water in admixtures if applicable."
+    },
+    {
+      "id": "fineAggregateMass",
+      "label": "Fine Aggregate (Sand) Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 800,
+      "businessContext": "Mass of fine aggregate (sand) in the batch."
+    },
+    {
+      "id": "coarseAggregateMass",
+      "label": "Coarse Aggregate Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 1050,
+      "businessContext": "Mass of coarse aggregate (gravel or crushed stone) in the batch."
+    },
+    {
+      "id": "admixtureMass",
+      "label": "Admixture Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Mass of chemical admixtures added (if any), in kilograms. Convert liquid volume to mass using density if applicable."
+    },
+    {
+      "id": "freshDensity",
+      "label": "Fresh Concrete Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 2400,
+      "businessContext": "Measured unit weight (density) of the fresh concrete. Typical range: 2200–2500 kg/m³."
+    },
+    {
+      "id": "bagMass",
+      "label": "Cement Bag Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 50,
+      "businessContext": "Standard mass of one cement bag (e.g., 50 kg). Used to calculate yield per bag."
+    }
+  ],
+  "formulas": {
+    "totalMass": "cementMass + waterMass + fineAggregateMass + coarseAggregateMass + admixtureMass",
+    "yieldVolume": "(cementMass + waterMass + fineAggregateMass + coarseAggregateMass + admixtureMass) / freshDensity",
+    "yieldPerBag": "((cementMass + waterMass + fineAggregateMass + coarseAggregateMass + admixtureMass) / freshDensity) / (cementMass / bagMass)"
+  },
+  "outputs": {
+    "primary": "yieldVolume",
+    "breakdown": [
+      "totalMass",
+      "yieldPerBag"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

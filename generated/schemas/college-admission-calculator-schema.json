@@ -1,0 +1,57 @@
+{
+  "toolName": "college-admission-calculator",
+  "inputs": [
+    {
+      "id": "gpa",
+      "label": "GPA",
+      "type": "number",
+      "unit": "points",
+      "default": 3,
+      "businessContext": "Grade Point Average on a 4.0 scale"
+    },
+    {
+      "id": "testScore",
+      "label": "Test Score",
+      "type": "number",
+      "unit": "points",
+      "default": 1200,
+      "businessContext": "Standardized test score (e.g., SAT: 400-1600)"
+    },
+    {
+      "id": "extracurriculars",
+      "label": "Extracurricular Activities",
+      "type": "number",
+      "unit": "count",
+      "default": 3,
+      "businessContext": "Number of extracurricular activities (typical range 0-10)"
+    },
+    {
+      "id": "essayRating",
+      "label": "Essay Rating",
+      "type": "number",
+      "unit": "points",
+      "default": 7,
+      "businessContext": "Essay quality rating on a 1-10 scale"
+    }
+  ],
+  "formulas": {
+    "academicScore": "(gpa / 4) * 30 + (testScore / 1600) * 30",
+    "extracurricularScore": "(extracurriculars / 10) * 20",
+    "essayScore": "(essayRating / 10) * 20",
+    "admissionChance": "academicScore + extracurricularScore + essayScore"
+  },
+  "outputs": {
+    "primary": "admissionChance",
+    "breakdown": [
+      "academicScore",
+      "extracurricularScore",
+      "essayScore"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

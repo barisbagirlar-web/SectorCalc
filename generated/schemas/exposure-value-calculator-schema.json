@@ -1,0 +1,54 @@
+{
+  "toolName": "exposure-value-calculator",
+  "inputs": [
+    {
+      "id": "aperture",
+      "label": "Aperture (f-stop)",
+      "type": "number",
+      "unit": "",
+      "default": 8,
+      "businessContext": "Lens aperture setting."
+    },
+    {
+      "id": "shutterSpeed",
+      "label": "Shutter Speed",
+      "type": "number",
+      "unit": "s",
+      "default": 0.008,
+      "businessContext": "Exposure time in seconds."
+    },
+    {
+      "id": "iso",
+      "label": "ISO",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "Sensor sensitivity rating."
+    },
+    {
+      "id": "measuredEV",
+      "label": "Measured EV",
+      "type": "number",
+      "unit": "EV",
+      "default": 12,
+      "businessContext": "Exposure value from light meter."
+    }
+  ],
+  "formulas": {
+    "calculatedEV": "Math.log2((aperture * aperture) / shutterSpeed) + Math.log2(iso / 100)",
+    "difference": "measuredEV - calculatedEV"
+  },
+  "outputs": {
+    "primary": "calculatedEV",
+    "breakdown": [
+      "calculatedEV",
+      "difference"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

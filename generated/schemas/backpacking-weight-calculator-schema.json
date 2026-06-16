@@ -1,0 +1,73 @@
+{
+  "toolName": "backpacking-weight-calculator",
+  "inputs": [
+    {
+      "id": "baseWeight",
+      "label": "Base Pack Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 5,
+      "businessContext": "Weight of backpack and essential gear (excluding consumables and extra clothing)."
+    },
+    {
+      "id": "foodWeightPerDay",
+      "label": "Food Weight per Day",
+      "type": "number",
+      "unit": "kg",
+      "default": 0.6,
+      "businessContext": "Estimated weight of food consumed per person per day."
+    },
+    {
+      "id": "waterWeightPerDay",
+      "label": "Water Weight per Day",
+      "type": "number",
+      "unit": "kg",
+      "default": 2,
+      "businessContext": "Weight of water carried per day (1 liter = 1 kg)."
+    },
+    {
+      "id": "fuelWeight",
+      "label": "Fuel Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 0.2,
+      "businessContext": "Total weight of fuel (e.g., gas canister)."
+    },
+    {
+      "id": "clothingWeight",
+      "label": "Extra Clothing Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Weight of extra clothing and layers beyond base clothing."
+    },
+    {
+      "id": "tripDays",
+      "label": "Trip Duration",
+      "type": "number",
+      "unit": "days",
+      "default": 3,
+      "businessContext": "Number of days for the backpacking trip."
+    }
+  ],
+  "formulas": {
+    "consumableWeight": "foodWeightPerDay * tripDays + waterWeightPerDay * tripDays + fuelWeight",
+    "totalPackWeight": "baseWeight + clothingWeight + (foodWeightPerDay + waterWeightPerDay) * tripDays + fuelWeight"
+  },
+  "outputs": {
+    "primary": "totalPackWeight",
+    "breakdown": [
+      "totalPackWeight",
+      "consumableWeight",
+      "baseWeight",
+      "clothingWeight",
+      "fuelWeight"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

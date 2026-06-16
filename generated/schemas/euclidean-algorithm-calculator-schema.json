@@ -1,0 +1,55 @@
+{
+  "toolName": "euclidean-algorithm-calculator",
+  "inputs": [
+    {
+      "id": "num1",
+      "label": "First Number",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First integer for the multi-number GCD calculation."
+    },
+    {
+      "id": "num2",
+      "label": "Second Number",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second integer for the multi-number GCD calculation."
+    },
+    {
+      "id": "num3",
+      "label": "Third Number",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Third integer for the multi-number GCD calculation."
+    },
+    {
+      "id": "num4",
+      "label": "Fourth Number",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fourth integer for the multi-number GCD calculation."
+    }
+  ],
+  "formulas": {
+    "gcd_ab": "((a,b) => { while(b) { [a,b] = [b, a % b]; } return Math.abs(a); })(num1, num2)",
+    "gcd_cd": "((a,b) => { while(b) { [a,b] = [b, a % b]; } return Math.abs(a); })(num3, num4)",
+    "total_gcd": "((a,b) => { while(b) { [a,b] = [b, a % b]; } return Math.abs(a); })(gcd_ab, gcd_cd)"
+  },
+  "outputs": {
+    "primary": "total_gcd",
+    "breakdown": [
+      "gcd_ab",
+      "gcd_cd"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

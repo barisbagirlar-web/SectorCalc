@@ -1,0 +1,54 @@
+{
+  "toolName": "days-sales-outstanding-calculator",
+  "inputs": [
+    {
+      "id": "beginningAR",
+      "label": "Dönem Başı Ticari Alacaklar",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Dönem başındaki brüt ticari alacak tutarı"
+    },
+    {
+      "id": "endingAR",
+      "label": "Dönem Sonu Ticari Alacaklar",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Dönem sonundaki brüt ticari alacak tutarı"
+    },
+    {
+      "id": "netCreditSales",
+      "label": "Net Kredili Satışlar",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Dönem içindeki toplam kredili satışlar (brüt satışlardan iade ve iskontolar düşülmüş)"
+    },
+    {
+      "id": "periodDays",
+      "label": "Dönem Gün Sayısı",
+      "type": "number",
+      "unit": "gün",
+      "default": 365,
+      "businessContext": "DSO hesaplanacak dönemin gün sayısı (genellikle 365 veya 90)"
+    }
+  ],
+  "formulas": {
+    "averageAR": "(beginningAR + endingAR) / 2",
+    "dso": "netCreditSales !== 0 ? (averageAR / netCreditSales * periodDays) : null"
+  },
+  "outputs": {
+    "primary": "dso",
+    "breakdown": [
+      "averageAR",
+      "dso"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

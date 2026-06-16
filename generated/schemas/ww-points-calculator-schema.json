@@ -1,0 +1,59 @@
+{
+  "toolName": "ww-points-calculator",
+  "inputs": [
+    {
+      "id": "calories",
+      "label": "Kalori",
+      "type": "number",
+      "unit": "kcal",
+      "default": 0,
+      "businessContext": "Enerji değeri (gıda etiketi)"
+    },
+    {
+      "id": "saturatedFat",
+      "label": "Doymuş Yağ",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Doymuş yağ miktarı (gıda etiketi)"
+    },
+    {
+      "id": "sugar",
+      "label": "Şeker",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Şeker miktarı (gıda etiketi)"
+    },
+    {
+      "id": "protein",
+      "label": "Protein",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Protein miktarı (gıda etiketi)"
+    }
+  ],
+  "formulas": {
+    "wwPoints": "calories/50 + saturatedFat/12 + sugar/12 - protein/10",
+    "calorieComponent": "calories/50",
+    "saturatedFatComponent": "saturatedFat/12",
+    "sugarComponent": "sugar/12",
+    "proteinComponent": "-protein/10"
+  },
+  "outputs": {
+    "primary": "wwPoints",
+    "breakdown": [
+      "calorieComponent",
+      "saturatedFatComponent",
+      "sugarComponent",
+      "proteinComponent"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

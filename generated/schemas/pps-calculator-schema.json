@@ -1,0 +1,69 @@
+{
+  "toolName": "pps-calculator",
+  "inputs": [
+    {
+      "id": "conveyorSpeed",
+      "label": "Conveyor Speed",
+      "type": "number",
+      "unit": "m/s",
+      "default": 1,
+      "businessContext": "Speed of the conveyor belt"
+    },
+    {
+      "id": "pieceSpacing",
+      "label": "Piece Spacing",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Distance between consecutive pieces on the conveyor"
+    },
+    {
+      "id": "numLanes",
+      "label": "Number of Lanes",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of parallel lanes on the conveyor"
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Overall line efficiency factor"
+    },
+    {
+      "id": "shiftDuration",
+      "label": "Shift Duration",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Duration of a standard production shift"
+    }
+  ],
+  "formulas": {
+    "productionRate_pps": "(conveyorSpeed / pieceSpacing) * numLanes * (efficiency / 100)",
+    "productionRate_pcsPerMinute": "productionRate_pps * 60",
+    "productionRate_pcsPerHour": "productionRate_pps * 3600",
+    "productionRate_pcsPerShift": "productionRate_pps * 3600 * shiftDuration"
+  },
+  "outputs": {
+    "primary": {
+      "label": "Production Rate (PPS)",
+      "value": "productionRate_pps",
+      "unit": "pieces/second"
+    },
+    "breakdown": [
+      "Production Rate (pieces/minute): productionRate_pcsPerMinute pieces/minute",
+      "Production Rate (pieces/hour): productionRate_pcsPerHour pieces/hour",
+      "Production Rate (pieces/shift): productionRate_pcsPerShift pieces/shift (assuming ${shiftDuration}h shift)"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

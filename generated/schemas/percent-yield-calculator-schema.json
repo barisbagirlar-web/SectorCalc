@@ -1,0 +1,57 @@
+{
+  "toolName": "percent-yield-calculator",
+  "inputs": [
+    {
+      "id": "rawMaterialInput",
+      "label": "Raw Material Input",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Total weight of raw material fed into the process"
+    },
+    {
+      "id": "productOutput",
+      "label": "Product Output",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Net weight of finished good product obtained"
+    },
+    {
+      "id": "expectedYieldPercent",
+      "label": "Expected Yield (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Standard or budgeted yield percentage for the process"
+    },
+    {
+      "id": "wasteMaterial",
+      "label": "Waste Material",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Weight of waste or scrap produced during production"
+    }
+  ],
+  "formulas": {
+    "yieldPercent": "productOutput / rawMaterialInput * 100",
+    "yieldVariance": "(productOutput / rawMaterialInput * 100) - expectedYieldPercent",
+    "wastePercent": "wasteMaterial / rawMaterialInput * 100",
+    "materialLossPercent": "100 - (productOutput / rawMaterialInput * 100) - (wasteMaterial / rawMaterialInput * 100)"
+  },
+  "outputs": {
+    "primary": "yieldPercent",
+    "breakdown": [
+      "yieldVariance",
+      "wastePercent",
+      "materialLossPercent"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

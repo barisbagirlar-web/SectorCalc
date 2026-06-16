@@ -1,0 +1,75 @@
+{
+  "toolName": "compost-calculator",
+  "inputs": [
+    {
+      "id": "greenWeight",
+      "label": "Yeşil Malzeme Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Nitrojen zengini yeşil malzeme (ör. mutfak atıkları) ağırlığı."
+    },
+    {
+      "id": "greenC",
+      "label": "Yeşil Malzeme Karbon Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Yeşil malzemedeki karbon yüzdesi (kuru ağırlıkça)."
+    },
+    {
+      "id": "greenN",
+      "label": "Yeşil Malzeme Azot Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 1.5,
+      "businessContext": "Yeşil malzemedeki azot yüzdesi (kuru ağırlıkça)."
+    },
+    {
+      "id": "brownWeight",
+      "label": "Kahverengi Malzeme Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Karbon zengini kahverengi malzeme (ör. kuru yapraklar) ağırlığı."
+    },
+    {
+      "id": "brownC",
+      "label": "Kahverengi Malzeme Karbon Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Kahverengi malzemedeki karbon yüzdesi (kuru ağırlıkça)."
+    },
+    {
+      "id": "brownN",
+      "label": "Kahverengi Malzeme Azot Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "businessContext": "Kahverengi malzemedeki azot yüzdesi (kuru ağırlıkça)."
+    }
+  ],
+  "formulas": {
+    "totalCarbon": "greenWeight * greenC / 100 + brownWeight * brownC / 100",
+    "totalNitrogen": "greenWeight * greenN / 100 + brownWeight * brownN / 100",
+    "totalWeight": "greenWeight + brownWeight",
+    "resultingCNRatio": "totalCarbon / totalNitrogen",
+    "isOptimal": "resultingCNRatio >= 25 && resultingCNRatio <= 35"
+  },
+  "outputs": {
+    "primary": "resultingCNRatio",
+    "breakdown": [
+      "totalCarbon",
+      "totalNitrogen",
+      "totalWeight",
+      "isOptimal"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

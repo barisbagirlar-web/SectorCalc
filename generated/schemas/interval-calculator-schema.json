@@ -1,0 +1,57 @@
+{
+  "toolName": "interval-calculator",
+  "inputs": [
+    {
+      "id": "nominal",
+      "label": "Nominal Value",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Target dimension"
+    },
+    {
+      "id": "plusTol",
+      "label": "Upper Tolerance",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.1,
+      "businessContext": "Plus tolerance from engineering drawing"
+    },
+    {
+      "id": "minusTol",
+      "label": "Lower Tolerance",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.05,
+      "businessContext": "Minus tolerance, entered as positive value"
+    },
+    {
+      "id": "scaleFactor",
+      "label": "Unit Conversion Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 = mm; 0.03937 = inch; 0.1 = cm"
+    }
+  ],
+  "formulas": {
+    "upper_limit": "scaleFactor * (nominal + plusTol)",
+    "lower_limit": "scaleFactor * (nominal - minusTol)",
+    "tolerance_range": "scaleFactor * (plusTol + minusTol)",
+    "midpoint": "scaleFactor * (nominal + (plusTol - minusTol) / 2)"
+  },
+  "outputs": {
+    "primary": "tolerance_range",
+    "breakdown": [
+      "upper_limit",
+      "lower_limit",
+      "midpoint"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

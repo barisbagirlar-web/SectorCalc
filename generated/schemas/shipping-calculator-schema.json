@@ -1,0 +1,64 @@
+{
+  "toolName": "shipping-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "businessContext": "Total distance to be shipped"
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Total weight of the shipment"
+    },
+    {
+      "id": "volume",
+      "label": "Volume",
+      "type": "number",
+      "unit": "m³",
+      "default": 1,
+      "businessContext": "Total volume of the shipment"
+    },
+    {
+      "id": "fuelPrice",
+      "label": "Fuel Price",
+      "type": "number",
+      "unit": "€/L",
+      "default": 1.5,
+      "businessContext": "Current fuel price per liter"
+    }
+  ],
+  "formulas": {
+    "costPerKm": "0.5",
+    "costPerKg": "0.2",
+    "costPerM3": "10",
+    "baseFuelPrice": "1.5",
+    "baseCost": "distance * costPerKm",
+    "weightSurcharge": "weight * costPerKg",
+    "volumeSurcharge": "volume * costPerM3",
+    "fuelAdjustmentFactor": "fuelPrice / baseFuelPrice",
+    "fuelSurcharge": "baseCost * (fuelAdjustmentFactor - 1)",
+    "totalCost": "baseCost + weightSurcharge + volumeSurcharge + fuelSurcharge"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "baseCost",
+      "weightSurcharge",
+      "volumeSurcharge",
+      "fuelSurcharge"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

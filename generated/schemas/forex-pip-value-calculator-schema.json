@@ -1,0 +1,54 @@
+{
+  "toolName": "forex-pip-value-calculator",
+  "inputs": [
+    {
+      "id": "trade_size_lots",
+      "label": "Trade Size (Lots)",
+      "type": "number",
+      "unit": "lots",
+      "default": 1,
+      "businessContext": "Trade size in standard lots (1 lot = 100,000 units typically)"
+    },
+    {
+      "id": "contract_size",
+      "label": "Contract Size (Units per Lot)",
+      "type": "number",
+      "unit": "units",
+      "default": 100000,
+      "businessContext": "Number of base currency units per standard lot"
+    },
+    {
+      "id": "pip_definition",
+      "label": "Pip Size (Quote Currency)",
+      "type": "number",
+      "unit": "quote currency",
+      "default": 0.0001,
+      "businessContext": "Pip definition in quote currency (e.g., 0.0001 for most pairs, 0.01 for JPY pairs)"
+    },
+    {
+      "id": "quote_to_account_rate",
+      "label": "Quote to Account Currency Rate",
+      "type": "number",
+      "unit": "rate",
+      "default": 1.2,
+      "businessContext": "Exchange rate from quote currency to account currency (amount of account currency per 1 unit of quote currency)"
+    }
+  ],
+  "formulas": {
+    "pipValueInQuote": "trade_size_lots * contract_size * pip_definition",
+    "pipValueInAccount": "pipValueInQuote * quote_to_account_rate"
+  },
+  "outputs": {
+    "primary": "pipValueInAccount",
+    "breakdown": [
+      "pipValueInQuote",
+      "quote_to_account_rate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

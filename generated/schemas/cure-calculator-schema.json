@@ -1,0 +1,62 @@
+{
+  "toolName": "cure-calculator",
+  "inputs": [
+    {
+      "id": "curingTemperature",
+      "label": "Curing Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Average temperature during the curing period."
+    },
+    {
+      "id": "curingTimeHours",
+      "label": "Curing Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 168,
+      "businessContext": "Total duration of curing in hours."
+    },
+    {
+      "id": "datumTemperature",
+      "label": "Datum Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": -10,
+      "businessContext": "Temperature below which hydration ceases for the specific concrete mix."
+    },
+    {
+      "id": "strengthCoefficientA",
+      "label": "Strength Coefficient A",
+      "type": "number",
+      "unit": "MPa",
+      "default": 20,
+      "businessContext": "Intercept of the maturity-strength logarithmic relationship."
+    },
+    {
+      "id": "strengthCoefficientB",
+      "label": "Strength Coefficient B",
+      "type": "number",
+      "unit": "MPa",
+      "default": 10,
+      "businessContext": "Slope of the maturity-strength logarithmic relationship."
+    }
+  ],
+  "formulas": {
+    "maturityIndex": "Math.max(0, (curingTemperature - datumTemperature) * curingTimeHours)",
+    "estimatedStrength": "strengthCoefficientA + strengthCoefficientB * Math.log(maturityIndex + 1)"
+  },
+  "outputs": {
+    "primary": "estimatedStrength",
+    "breakdown": [
+      "maturityIndex",
+      "estimatedStrength"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

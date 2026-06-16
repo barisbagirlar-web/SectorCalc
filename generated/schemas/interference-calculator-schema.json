@@ -1,0 +1,57 @@
+{
+  "toolName": "interference-calculator",
+  "inputs": [
+    {
+      "id": "amplitude1",
+      "label": "Amplitude 1",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "businessContext": "Amplitude of wave from source 1"
+    },
+    {
+      "id": "amplitude2",
+      "label": "Amplitude 2",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "businessContext": "Amplitude of wave from source 2"
+    },
+    {
+      "id": "wavelength",
+      "label": "Wavelength",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Wavelength of the waves (assumed identical for both sources)"
+    },
+    {
+      "id": "pathDifference",
+      "label": "Path Difference",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Difference in path lengths from the two sources to the point of interest"
+    }
+  ],
+  "formulas": {
+    "resultantAmplitude": "Math.sqrt(inputs.amplitude1**2 + inputs.amplitude2**2 + 2 * inputs.amplitude1 * inputs.amplitude2 * Math.cos(2 * Math.PI * inputs.pathDifference / inputs.wavelength))",
+    "intensity": "Math.pow(Math.sqrt(inputs.amplitude1**2 + inputs.amplitude2**2 + 2 * inputs.amplitude1 * inputs.amplitude2 * Math.cos(2 * Math.PI * inputs.pathDifference / inputs.wavelength)), 2)",
+    "phaseDifferenceDeg": "(inputs.pathDifference / inputs.wavelength) * 360",
+    "interferenceType": "Math.abs((inputs.pathDifference / inputs.wavelength * 360) % 360) < 1e-10 ? 'Constructive' : Math.abs(((inputs.pathDifference / inputs.wavelength * 360) % 360) - 180) < 1e-10 ? 'Destructive' : 'Intermediate'"
+  },
+  "outputs": {
+    "primary": "resultantAmplitude",
+    "breakdown": [
+      "intensity",
+      "phaseDifferenceDeg",
+      "interferenceType"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

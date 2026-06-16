@@ -1,0 +1,78 @@
+{
+  "toolName": "life-insurance-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the insured person in years"
+    },
+    {
+      "id": "coverageAmount",
+      "label": "Coverage Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Total coverage amount (death benefit) in USD"
+    },
+    {
+      "id": "term",
+      "label": "Term Length",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "Length of the policy term in years"
+    },
+    {
+      "id": "smokingStatus",
+      "label": "Smoking Status",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0,
+      "businessContext": "0 for non-smoker, 1 for smoker"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0,
+      "businessContext": "0 for male, 1 for female (used for risk adjustment)"
+    },
+    {
+      "id": "healthScore",
+      "label": "Health Score",
+      "type": "number",
+      "unit": "points",
+      "default": 80,
+      "businessContext": "Health score from 0-100, higher is better"
+    }
+  ],
+  "formulas": {
+    "baseRate": "3",
+    "ageLoading": "(age - 20) * 0.1",
+    "smokerLoading": "smokingStatus * 2",
+    "healthLoading": "(100 - healthScore) * 0.05",
+    "annualPremium": "(coverageAmount / 1000) * (baseRate + ageLoading + smokerLoading + healthLoading)",
+    "monthlyPremium": "annualPremium / 12"
+  },
+  "outputs": {
+    "primary": "`$${monthlyPremium.toFixed(2)}/month`",
+    "breakdown": [
+      "Base Premium: $${((coverageAmount / 1000) * baseRate).toFixed(2)}/year",
+      "Age Loading: $${((coverageAmount / 1000) * ageLoading).toFixed(2)}/year",
+      "Smoker Loading: $${((coverageAmount / 1000) * smokerLoading).toFixed(2)}/year",
+      "Health Loading: $${((coverageAmount / 1000) * healthLoading).toFixed(2)}/year",
+      "Annual Premium: $${annualPremium.toFixed(2)}/year",
+      "Monthly Premium: $${monthlyPremium.toFixed(2)}/month"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

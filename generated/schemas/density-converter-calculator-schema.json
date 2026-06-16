@@ -1,0 +1,57 @@
+{
+  "toolName": "density-converter-calculator",
+  "inputs": [
+    {
+      "id": "inputValue",
+      "label": "Density Value",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The numeric density value to convert."
+    },
+    {
+      "id": "fromUnit",
+      "label": "From Unit (1=kg/m³, 2=g/cm³, 3=lb/ft³, 4=lb/in³)",
+      "type": "number",
+      "unit": "none",
+      "default": 1,
+      "businessContext": "Code of the input density unit: 1 for kg/m³, 2 for g/cm³, 3 for lb/ft³, 4 for lb/in³."
+    },
+    {
+      "id": "toUnit",
+      "label": "To Unit (1=kg/m³, 2=g/cm³, 3=lb/ft³, 4=lb/in³)",
+      "type": "number",
+      "unit": "none",
+      "default": 2,
+      "businessContext": "Code of the desired output density unit: 1 for kg/m³, 2 for g/cm³, 3 for lb/ft³, 4 for lb/in³."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "count",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding the output."
+    }
+  ],
+  "formulas": {
+    "conversionFactor": "(() => { const factors = [1, 1000, 16.01846337396, 27679.9047102]; return factors[fromUnit-1] / factors[toUnit-1]; })()",
+    "rawOutput": "inputValue * conversionFactor",
+    "finalOutput": "Math.round(rawOutput * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "outputWithUnit": "finalOutput + ' ' + (toUnit == 1 ? 'kg/m³' : toUnit == 2 ? 'g/cm³' : toUnit == 3 ? 'lb/ft³' : 'lb/in³')",
+    "inputInKgM3": "inputValue * [1, 1000, 16.01846337396, 27679.9047102][fromUnit-1]"
+  },
+  "outputs": {
+    "primary": "outputWithUnit",
+    "breakdown": [
+      "'Input equivalent in kg/m³: ' + inputInKgM3",
+      "'Conversion factor: ' + conversionFactor"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

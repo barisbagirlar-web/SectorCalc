@@ -1,0 +1,62 @@
+{
+  "toolName": "acceleration-calculator",
+  "inputs": [
+    {
+      "id": "initialVelocity",
+      "label": "Initial Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Starting velocity of the object before acceleration"
+    },
+    {
+      "id": "finalVelocity",
+      "label": "Final Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 10,
+      "businessContext": "Ending velocity after acceleration period"
+    },
+    {
+      "id": "time",
+      "label": "Time Interval",
+      "type": "number",
+      "unit": "s",
+      "default": 5,
+      "businessContext": "Duration over which velocity changes"
+    },
+    {
+      "id": "force",
+      "label": "Applied Force",
+      "type": "number",
+      "unit": "N",
+      "default": 100,
+      "businessContext": "Net force applied to the object (optional for alternative calculation)"
+    },
+    {
+      "id": "mass",
+      "label": "Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 20,
+      "businessContext": "Mass of the object being accelerated"
+    }
+  ],
+  "formulas": {
+    "acceleration_velocity": "(finalVelocity - initialVelocity) / time",
+    "acceleration_force": "force / mass"
+  },
+  "outputs": {
+    "primary": "acceleration_velocity",
+    "breakdown": [
+      "Acceleration from velocity change: a = (vf - vi) / t",
+      "Acceleration from Newton's second law: a = F / m (if force and mass are provided)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

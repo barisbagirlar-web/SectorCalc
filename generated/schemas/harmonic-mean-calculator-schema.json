@@ -1,0 +1,56 @@
+{
+  "toolName": "harmonic-mean-calculator",
+  "inputs": [
+    {
+      "id": "value1",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "First positive value for harmonic mean (e.g., speed, P/E ratio, rate)."
+    },
+    {
+      "id": "value2",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Second positive value for harmonic mean."
+    },
+    {
+      "id": "value3",
+      "label": "Value 3",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Third positive value for harmonic mean."
+    },
+    {
+      "id": "value4",
+      "label": "Value 4",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Fourth positive value for harmonic mean."
+    }
+  ],
+  "formulas": {
+    "harmonicMean": "4 / (1/inputs.value1 + 1/inputs.value2 + 1/inputs.value3 + 1/inputs.value4)"
+  },
+  "outputs": {
+    "primary": "harmonicMean",
+    "breakdown": [
+      "1 / inputs.value1",
+      "1 / inputs.value2",
+      "1 / inputs.value3",
+      "1 / inputs.value4",
+      "1/inputs.value1 + 1/inputs.value2 + 1/inputs.value3 + 1/inputs.value4"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

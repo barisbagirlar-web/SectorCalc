@@ -1,0 +1,69 @@
+{
+  "toolName": "fascia-calculator",
+  "inputs": [
+    {
+      "id": "totalRoofLength",
+      "label": "Total roof length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Total length of roofline requiring fascia boards"
+    },
+    {
+      "id": "fasciaBoardLength",
+      "label": "Fascia board length",
+      "type": "number",
+      "unit": "m",
+      "default": 3.6,
+      "businessContext": "Length of a single fascia board"
+    },
+    {
+      "id": "overlap",
+      "label": "Overlap",
+      "type": "number",
+      "unit": "m",
+      "default": 0.05,
+      "businessContext": "Overlap length per joint between boards"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Waste percentage to account for cuts and errors"
+    },
+    {
+      "id": "pricePerBoard",
+      "label": "Price per board",
+      "type": "number",
+      "unit": "$",
+      "default": 20,
+      "businessContext": "Unit price of each fascia board"
+    }
+  ],
+  "formulas": {
+    "effectiveLength": "fasciaBoardLength - overlap",
+    "boardsNeeded": "Math.ceil(totalRoofLength / effectiveLength)",
+    "totalBoards": "Math.ceil(boardsNeeded * (1 + wasteFactor / 100))",
+    "totalCost": "totalBoards * pricePerBoard"
+  },
+  "outputs": {
+    "primary": "Total cost: $${totalCost}",
+    "breakdown": [
+      "Fascia board length: ${fasciaBoardLength} m",
+      "Effective length per board (with overlap): ${effectiveLength} m",
+      "Boards needed (without waste): ${boardsNeeded}",
+      "Waste factor: ${wasteFactor}%",
+      "Total boards required (including waste): ${totalBoards}",
+      "Price per board: $${pricePerBoard}",
+      "Total cost: $${totalCost}"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

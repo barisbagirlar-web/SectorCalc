@@ -1,0 +1,79 @@
+{
+  "toolName": "food-calorie-database",
+  "inputs": [
+    {
+      "id": "protein_g",
+      "label": "Protein (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Protein content per serving"
+    },
+    {
+      "id": "carbs_g",
+      "label": "Carbohydrates (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Carbohydrate content per serving"
+    },
+    {
+      "id": "fat_g",
+      "label": "Fat (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Fat content per serving"
+    },
+    {
+      "id": "fiber_g",
+      "label": "Fiber (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Fiber content per serving"
+    },
+    {
+      "id": "alcohol_g",
+      "label": "Alcohol (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Alcohol content per serving"
+    },
+    {
+      "id": "serving_size_g",
+      "label": "Serving Size (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 100,
+      "businessContext": "Total weight of the serving"
+    }
+  ],
+  "formulas": {
+    "caloriesFromProtein": "protein_g * 4",
+    "caloriesFromCarbs": "carbs_g * 4",
+    "caloriesFromFat": "fat_g * 9",
+    "caloriesFromFiber": "fiber_g * 2",
+    "caloriesFromAlcohol": "alcohol_g * 7",
+    "totalCalories": "caloriesFromProtein + caloriesFromCarbs + caloriesFromFat + caloriesFromFiber + caloriesFromAlcohol",
+    "caloriesPer100g": "totalCalories * 100 / serving_size_g"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "caloriesFromProtein",
+      "caloriesFromCarbs",
+      "caloriesFromFat",
+      "caloriesFromFiber",
+      "caloriesFromAlcohol",
+      "caloriesPer100g"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

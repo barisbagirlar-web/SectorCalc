@@ -1,0 +1,55 @@
+{
+  "toolName": "degree-to-radian-calculator",
+  "inputs": [
+    {
+      "id": "angleDegrees",
+      "label": "Angle (degrees)",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Angle to convert from degrees to radians"
+    },
+    {
+      "id": "angleOffset",
+      "label": "Offset",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Constant offset added to angle before conversion (e.g., for calibration)"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 6,
+      "businessContext": "Number of decimal places for the rounded output"
+    },
+    {
+      "id": "piValue",
+      "label": "π Value",
+      "type": "number",
+      "unit": "",
+      "default": 3.141592653589793,
+      "businessContext": "Value of π used in conversion factor"
+    }
+  ],
+  "formulas": {
+    "effectiveAngle": "angleDegrees + angleOffset",
+    "radian": "(effectiveAngle * piValue) / 180",
+    "roundedRadian": "Math.round(radian * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "roundedRadian",
+    "breakdown": [
+      "effectiveAngle",
+      "radian"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "time-management-calculator",
+  "inputs": [
+    {
+      "id": "totalTasks",
+      "label": "Total number of tasks",
+      "type": "number",
+      "unit": "tasks",
+      "default": 10,
+      "businessContext": "Total number of tasks to complete"
+    },
+    {
+      "id": "timePerTask",
+      "label": "Time per task",
+      "type": "number",
+      "unit": "minutes",
+      "default": 30,
+      "businessContext": "Average time to complete one task (minutes)"
+    },
+    {
+      "id": "workers",
+      "label": "Number of workers",
+      "type": "number",
+      "unit": "workers",
+      "default": 1,
+      "businessContext": "Number of workers available"
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Worker efficiency as a percentage (100% = full efficiency)"
+    },
+    {
+      "id": "breakTimePerDay",
+      "label": "Break time per day",
+      "type": "number",
+      "unit": "minutes",
+      "default": 60,
+      "businessContext": "Total break time per worker per day (minutes)"
+    },
+    {
+      "id": "workingHoursPerDay",
+      "label": "Working hours per day",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Standard working hours per day"
+    }
+  ],
+  "formulas": {
+    "totalWorkMinutes": "(totalTasks * timePerTask) / workers",
+    "adjustedWorkMinutes": "(totalTasks * timePerTask) / (workers * (efficiency/100))",
+    "effectiveMinutesPerDay": "workingHoursPerDay * 60 - breakTimePerDay",
+    "totalDays": "(totalTasks * timePerTask) / (workers * (efficiency/100) * (workingHoursPerDay * 60 - breakTimePerDay))"
+  },
+  "outputs": {
+    "primary": "totalDays",
+    "breakdown": [
+      "totalWorkMinutes",
+      "adjustedWorkMinutes",
+      "effectiveMinutesPerDay"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "hybrid-vs-gas-calculator",
+  "inputs": [
+    {
+      "id": "gasVehiclePrice",
+      "label": "GAS VEHICLE PRICE",
+      "type": "number",
+      "unit": "$",
+      "default": 25000,
+      "businessContext": "Purchase price of the gasoline vehicle"
+    },
+    {
+      "id": "hybridVehiclePrice",
+      "label": "HYBRID VEHICLE PRICE",
+      "type": "number",
+      "unit": "$",
+      "default": 28000,
+      "businessContext": "Purchase price of the hybrid vehicle"
+    },
+    {
+      "id": "gasMpg",
+      "label": "GAS VEHICLE MPG",
+      "type": "number",
+      "unit": "mpg",
+      "default": 30,
+      "businessContext": "Fuel efficiency of the gasoline vehicle"
+    },
+    {
+      "id": "hybridMpg",
+      "label": "HYBRID VEHICLE MPG",
+      "type": "number",
+      "unit": "mpg",
+      "default": 50,
+      "businessContext": "Fuel efficiency of the hybrid vehicle"
+    },
+    {
+      "id": "annualMiles",
+      "label": "ANNUAL MILES DRIVEN",
+      "type": "number",
+      "unit": "miles",
+      "default": 12000,
+      "businessContext": "Estimated annual mileage"
+    },
+    {
+      "id": "fuelPricePerGallon",
+      "label": "FUEL PRICE PER GALLON",
+      "type": "number",
+      "unit": "$/gal",
+      "default": 3.5,
+      "businessContext": "Current fuel price per gallon"
+    }
+  ],
+  "formulas": {
+    "annualFuelCostGas": "(annualMiles / gasMpg) * fuelPricePerGallon",
+    "annualFuelCostHybrid": "(annualMiles / hybridMpg) * fuelPricePerGallon",
+    "annualSavings": "((annualMiles / gasMpg) - (annualMiles / hybridMpg)) * fuelPricePerGallon",
+    "paybackYears": "(hybridVehiclePrice - gasVehiclePrice) / (((annualMiles / gasMpg) - (annualMiles / hybridMpg)) * fuelPricePerGallon)"
+  },
+  "outputs": {
+    "primary": "paybackYears",
+    "breakdown": [
+      "annualFuelCostGas",
+      "annualFuelCostHybrid",
+      "annualSavings"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

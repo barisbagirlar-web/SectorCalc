@@ -1,0 +1,57 @@
+{
+  "toolName": "angular-velocity-calculator",
+  "inputs": [
+    {
+      "id": "rotationalSpeed",
+      "label": "Rotational Speed (RPM)",
+      "type": "number",
+      "unit": "rpm",
+      "default": 1500,
+      "businessContext": "Typical motor speed for industrial applications"
+    },
+    {
+      "id": "radius",
+      "label": "Radius",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Distance from center of rotation to point of interest"
+    },
+    {
+      "id": "time",
+      "label": "Time",
+      "type": "number",
+      "unit": "s",
+      "default": 1,
+      "businessContext": "Time interval for angular displacement calculation"
+    },
+    {
+      "id": "gearRatio",
+      "label": "Gear Ratio (output/input)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Transmission ratio affecting final angular velocity"
+    }
+  ],
+  "formulas": {
+    "angularVelocity": "(rotationalSpeed * 2 * Math.PI / 60) * gearRatio",
+    "linearVelocity": "angularVelocity * radius",
+    "centripetalAcceleration": "angularVelocity ** 2 * radius",
+    "angularDisplacement": "angularVelocity * time"
+  },
+  "outputs": {
+    "primary": "angularVelocity",
+    "breakdown": [
+      "linearVelocity",
+      "centripetalAcceleration",
+      "angularDisplacement"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

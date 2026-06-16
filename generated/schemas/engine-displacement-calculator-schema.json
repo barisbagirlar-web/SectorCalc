@@ -1,0 +1,58 @@
+{
+  "toolName": "engine-displacement-calculator",
+  "inputs": [
+    {
+      "id": "bore",
+      "label": "Bore",
+      "type": "number",
+      "unit": "mm",
+      "default": 80,
+      "businessContext": "Cylinder bore diameter in millimeters"
+    },
+    {
+      "id": "stroke",
+      "label": "Stroke",
+      "type": "number",
+      "unit": "mm",
+      "default": 90,
+      "businessContext": "Piston stroke length in millimeters"
+    },
+    {
+      "id": "cylinders",
+      "label": "Number of Cylinders",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Total number of engine cylinders"
+    },
+    {
+      "id": "outputUnit",
+      "label": "Output Unit",
+      "type": "number",
+      "unit": "1=cc,2=L,3=ci",
+      "default": 1,
+      "businessContext": "1 for cubic centimeters, 2 for liters, 3 for cubic inches"
+    }
+  ],
+  "formulas": {
+    "volumePerCylinderMM3": "(Math.PI/4) * bore * bore * stroke",
+    "totalDisplacementMM3": "volumePerCylinderMM3 * cylinders",
+    "totalDisplacementCC": "totalDisplacementMM3 / 1000",
+    "totalDisplacementL": "totalDisplacementCC / 1000",
+    "totalDisplacementCI": "totalDisplacementMM3 / 16387.064",
+    "primaryDisplacement": "outputUnit === 1 ? totalDisplacementCC : outputUnit === 2 ? totalDisplacementL : totalDisplacementCI"
+  },
+  "outputs": {
+    "primary": "primaryDisplacement",
+    "breakdown": [
+      "totalDisplacementCC",
+      "totalDisplacementL"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

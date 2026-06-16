@@ -1,0 +1,71 @@
+{
+  "toolName": "box-size-calculator",
+  "inputs": [
+    {
+      "id": "objectLength",
+      "label": "Ürün Uzunluğu",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Ürünün boyu (uzunluk)"
+    },
+    {
+      "id": "objectWidth",
+      "label": "Ürün Genişliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 5,
+      "businessContext": "Ürünün eni (genişlik)"
+    },
+    {
+      "id": "objectHeight",
+      "label": "Ürün Yüksekliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 3,
+      "businessContext": "Ürünün yüksekliği"
+    },
+    {
+      "id": "clearance",
+      "label": "Boşluk Payı",
+      "type": "number",
+      "unit": "cm",
+      "default": 0.5,
+      "businessContext": "Ürün ile kutu arasındaki boşluk (her kenarda eşit)"
+    },
+    {
+      "id": "wallThickness",
+      "label": "Kutu Et Kalınlığı",
+      "type": "number",
+      "unit": "cm",
+      "default": 0.3,
+      "businessContext": "Kutu malzemesinin kalınlığı"
+    }
+  ],
+  "formulas": {
+    "innerLength": "objectLength + 2 * clearance",
+    "innerWidth": "objectWidth + 2 * clearance",
+    "innerHeight": "objectHeight + 2 * clearance",
+    "outerLength": "innerLength + 2 * wallThickness",
+    "outerWidth": "innerWidth + 2 * wallThickness",
+    "outerHeight": "innerHeight + 2 * wallThickness",
+    "innerVolume": "innerLength * innerWidth * innerHeight",
+    "outerVolume": "outerLength * outerWidth * outerHeight",
+    "innerDimensions": "innerLength + ' x ' + innerWidth + ' x ' + innerHeight + ' cm'",
+    "outerDimensions": "outerLength + ' x ' + outerWidth + ' x ' + outerHeight + ' cm'"
+  },
+  "outputs": {
+    "primary": "outerDimensions",
+    "breakdown": [
+      "innerDimensions",
+      "innerVolume",
+      "outerVolume"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

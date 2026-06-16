@@ -1,0 +1,59 @@
+{
+  "toolName": "humidity-calculator",
+  "inputs": [
+    {
+      "id": "temperature",
+      "label": "Sıcaklık (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "Dry bulb temperature in Celsius"
+    },
+    {
+      "id": "relativeHumidity",
+      "label": "Bağıl Nem (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "businessContext": "Relative humidity percentage"
+    },
+    {
+      "id": "pressure",
+      "label": "Atmosfer Basıncı (hPa)",
+      "type": "number",
+      "unit": "hPa",
+      "default": 1013.25,
+      "businessContext": "Actual atmospheric pressure in hPa"
+    },
+    {
+      "id": "altitude",
+      "label": "Rakım (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Altitude above sea level in meters (for pressure estimation if pressure not available)"
+    }
+  ],
+  "formulas": {
+    "es": "6.112 * Math.exp((17.67 * temperature) / (temperature + 243.5))",
+    "e": "relativeHumidity * es / 100",
+    "dewPoint": "(243.5 * Math.log(e / 6.112)) / (17.67 - Math.log(e / 6.112))",
+    "absoluteHumidity": "(216.7 * e) / (temperature + 273.15)",
+    "specificHumidity": "(0.622 * e) / (pressure - 0.378 * e)",
+    "mixingRatio": "0.622 * e / (pressure - e)"
+  },
+  "outputs": {
+    "primary": "dewPoint",
+    "breakdown": [
+      "absoluteHumidity",
+      "specificHumidity",
+      "mixingRatio"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

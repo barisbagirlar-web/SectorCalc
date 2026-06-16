@@ -1,0 +1,79 @@
+{
+  "toolName": "concrete-stairs-calculator",
+  "inputs": [
+    {
+      "id": "totalRise",
+      "label": "Toplam Yükseklik",
+      "type": "number",
+      "unit": "mm",
+      "default": 3000,
+      "businessContext": "Katlar arası yükseklik."
+    },
+    {
+      "id": "numberOfSteps",
+      "label": "Basamak Sayısı",
+      "type": "number",
+      "unit": "",
+      "default": 15,
+      "businessContext": "Toplam basamak adedi."
+    },
+    {
+      "id": "treadDepth",
+      "label": "Basamak Derinliği",
+      "type": "number",
+      "unit": "mm",
+      "default": 280,
+      "businessContext": "Bir basamağın yatay derinliği."
+    },
+    {
+      "id": "stepWidth",
+      "label": "Merdiven Genişliği",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "businessContext": "Merdiven kol genişliği."
+    },
+    {
+      "id": "waistThickness",
+      "label": "Eğik Döşeme Kalınlığı",
+      "type": "number",
+      "unit": "mm",
+      "default": 150,
+      "businessContext": "Taşıyıcı eğik plakanın kalınlığı."
+    },
+    {
+      "id": "landingLength",
+      "label": "Sahanlık Uzunluğu",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Varsa sahanlığın uzunluğu, yoksa 0."
+    }
+  ],
+  "formulas": {
+    "riserHeight": "totalRise / numberOfSteps",
+    "horizontalRun": "(numberOfSteps - 1) * treadDepth",
+    "inclinedLength": "Math.sqrt(totalRise**2 + horizontalRun**2)",
+    "volumeWaist_mm3": "stepWidth * waistThickness * inclinedLength",
+    "volumeSteps_mm3": "numberOfSteps * 0.5 * treadDepth * riserHeight * stepWidth",
+    "volumeLanding_mm3": "landingLength * stepWidth * waistThickness",
+    "volume_m3": "(volumeWaist_mm3 + volumeSteps_mm3 + volumeLanding_mm3) / 1e9",
+    "volumeWaist_m3": "volumeWaist_mm3 / 1e9",
+    "volumeSteps_m3": "volumeSteps_mm3 / 1e9",
+    "volumeLanding_m3": "volumeLanding_mm3 / 1e9"
+  },
+  "outputs": {
+    "primary": "volume_m3",
+    "breakdown": [
+      "volumeWaist_m3",
+      "volumeSteps_m3",
+      "volumeLanding_m3"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

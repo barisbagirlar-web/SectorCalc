@@ -1,0 +1,69 @@
+{
+  "toolName": "treadmill-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight of the user"
+    },
+    {
+      "id": "speed",
+      "label": "Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 8,
+      "businessContext": "Treadmill speed in km/h"
+    },
+    {
+      "id": "incline",
+      "label": "Incline",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Incline percentage (e.g., 5 for 5%)"
+    },
+    {
+      "id": "duration",
+      "label": "Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Exercise duration in minutes"
+    },
+    {
+      "id": "exerciseType",
+      "label": "Exercise Type",
+      "type": "number",
+      "unit": "0=Walking,1=Running",
+      "default": 0,
+      "businessContext": "Type of exercise: 0 for walking, 1 for running"
+    }
+  ],
+  "formulas": {
+    "speedMperMin": "speed * 1000 / 60",
+    "grade": "incline / 100",
+    "VO2walking": "3.5 + 0.1 * speedMperMin + 1.8 * speedMperMin * grade",
+    "VO2running": "3.5 + 0.2 * speedMperMin + 0.9 * speedMperMin * grade",
+    "MET_walking": "VO2walking / 3.5",
+    "MET_running": "VO2running / 3.5",
+    "MET": "(1 - exerciseType) * MET_walking + exerciseType * MET_running",
+    "calories": "MET * weight * (duration / 60)",
+    "distance": "speed * (duration / 60)"
+  },
+  "outputs": {
+    "primary": "calories",
+    "breakdown": [
+      "distance",
+      "MET"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

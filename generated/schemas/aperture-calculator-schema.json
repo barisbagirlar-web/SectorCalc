@@ -1,0 +1,57 @@
+{
+  "toolName": "aperture-calculator",
+  "inputs": [
+    {
+      "id": "focalLength",
+      "label": "Odak Uzaklığı (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Lensin odak uzaklığı, milimetre cinsinden."
+    },
+    {
+      "id": "fNumber",
+      "label": "f-Değeri (f-Stop)",
+      "type": "number",
+      "unit": "",
+      "default": 2.8,
+      "businessContext": "Diyafram açıklığının f-stop değeri (ör. 2.8)."
+    },
+    {
+      "id": "transmissionPercent",
+      "label": "Işık Geçirgenliği (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Lensin ışık geçirgenlik yüzdesi (ideal lenslerde 100)."
+    },
+    {
+      "id": "wavelength",
+      "label": "Dalga Boyu (nm)",
+      "type": "number",
+      "unit": "nm",
+      "default": 550,
+      "businessContext": "Işığın dalga boyu (nanometre), genelde yeşil 550 nm."
+    }
+  ],
+  "formulas": {
+    "apertureDiameter": "focalLength / fNumber",
+    "apertureArea": "Math.PI * Math.pow(focalLength / fNumber / 2, 2)",
+    "tStop": "fNumber / Math.sqrt(transmissionPercent / 100)",
+    "airyDiskRadius": "1.22 * (wavelength * 1e-6) * fNumber"
+  },
+  "outputs": {
+    "primary": "tStop",
+    "breakdown": [
+      "apertureDiameter",
+      "apertureArea",
+      "airyDiskRadius"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

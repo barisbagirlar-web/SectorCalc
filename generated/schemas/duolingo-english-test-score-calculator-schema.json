@@ -1,0 +1,59 @@
+{
+  "toolName": "duolingo-english-test-score-calculator",
+  "inputs": [
+    {
+      "id": "literacy",
+      "label": "Literacy Score",
+      "type": "number",
+      "unit": "points",
+      "default": 120,
+      "businessContext": "Score for reading and writing skills"
+    },
+    {
+      "id": "comprehension",
+      "label": "Comprehension Score",
+      "type": "number",
+      "unit": "points",
+      "default": 120,
+      "businessContext": "Score for listening and reading comprehension"
+    },
+    {
+      "id": "conversation",
+      "label": "Conversation Score",
+      "type": "number",
+      "unit": "points",
+      "default": 120,
+      "businessContext": "Score for speaking and listening skills"
+    },
+    {
+      "id": "production",
+      "label": "Production Score",
+      "type": "number",
+      "unit": "points",
+      "default": 120,
+      "businessContext": "Score for writing and speaking production"
+    }
+  ],
+  "formulas": {
+    "overall": "(literacy + comprehension + conversation + production) / 4",
+    "literacyWeight": "literacy * 0.25",
+    "comprehensionWeight": "comprehension * 0.25",
+    "conversationWeight": "conversation * 0.25",
+    "productionWeight": "production * 0.25"
+  },
+  "outputs": {
+    "primary": "overall",
+    "breakdown": [
+      "literacyWeight",
+      "comprehensionWeight",
+      "conversationWeight",
+      "productionWeight"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

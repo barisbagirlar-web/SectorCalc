@@ -1,0 +1,67 @@
+{
+  "toolName": "tip-split-calculator",
+  "inputs": [
+    {
+      "id": "totalBill",
+      "label": "Total Bill Amount",
+      "type": "number",
+      "unit": "$",
+      "default": 100,
+      "businessContext": "Total amount of the bill including tax."
+    },
+    {
+      "id": "tipPercentage",
+      "label": "Tip Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Percentage of the pre-tax amount to tip."
+    },
+    {
+      "id": "numberOfPeople",
+      "label": "Number of People",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of people sharing the bill."
+    },
+    {
+      "id": "taxAmount",
+      "label": "Tax Amount",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Amount of tax included in the total bill. Used to calculate pre-tax amount for tipping."
+    },
+    {
+      "id": "roundUp",
+      "label": "Round Up Total Per Person?",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Set to 1 to round the total cost per person up to the nearest whole dollar, otherwise 0."
+    }
+  ],
+  "formulas": {
+    "subtotal": "totalBill - taxAmount",
+    "tipAmount": "subtotal * tipPercentage / 100",
+    "total": "totalBill + tipAmount",
+    "totalPerPerson": "roundUp === 1 ? Math.ceil(total / numberOfPeople) : (total / numberOfPeople)",
+    "tipPerPerson": "tipAmount / numberOfPeople"
+  },
+  "outputs": {
+    "primary": "totalPerPerson",
+    "breakdown": [
+      "subtotal",
+      "tipAmount",
+      "total",
+      "tipPerPerson"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

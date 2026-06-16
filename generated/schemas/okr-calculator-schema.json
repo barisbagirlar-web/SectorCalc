@@ -1,0 +1,91 @@
+{
+  "toolName": "okr-calculator",
+  "inputs": [
+    {
+      "id": "kr1Weight",
+      "label": "KR1 Weight",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Weight of Key Result 1 as a percentage of total (0-100)"
+    },
+    {
+      "id": "kr1Progress",
+      "label": "KR1 Progress",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Completion percentage of Key Result 1 (0-100)"
+    },
+    {
+      "id": "kr2Weight",
+      "label": "KR2 Weight",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Weight of Key Result 2 as a percentage of total (0-100)"
+    },
+    {
+      "id": "kr2Progress",
+      "label": "KR2 Progress",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Completion percentage of Key Result 2 (0-100)"
+    },
+    {
+      "id": "kr3Weight",
+      "label": "KR3 Weight",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Weight of Key Result 3 as a percentage of total (0-100)"
+    },
+    {
+      "id": "kr3Progress",
+      "label": "KR3 Progress",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Completion percentage of Key Result 3 (0-100)"
+    },
+    {
+      "id": "kr4Weight",
+      "label": "KR4 Weight",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Weight of Key Result 4 as a percentage of total (0-100)"
+    },
+    {
+      "id": "kr4Progress",
+      "label": "KR4 Progress",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Completion percentage of Key Result 4 (0-100)"
+    }
+  ],
+  "formulas": {
+    "overallProgress": "((kr1Weight * kr1Progress + kr2Weight * kr2Progress + kr3Weight * kr3Progress + kr4Weight * kr4Progress) / (kr1Weight + kr2Weight + kr3Weight + kr4Weight)) || 0",
+    "kr1Contribution": "((kr1Weight * kr1Progress) / (kr1Weight + kr2Weight + kr3Weight + kr4Weight)) || 0",
+    "kr2Contribution": "((kr2Weight * kr2Progress) / (kr1Weight + kr2Weight + kr3Weight + kr4Weight)) || 0",
+    "kr3Contribution": "((kr3Weight * kr3Progress) / (kr1Weight + kr2Weight + kr3Weight + kr4Weight)) || 0",
+    "kr4Contribution": "((kr4Weight * kr4Progress) / (kr1Weight + kr2Weight + kr3Weight + kr4Weight)) || 0"
+  },
+  "outputs": {
+    "primary": "overallProgress",
+    "breakdown": [
+      "kr1Contribution",
+      "kr2Contribution",
+      "kr3Contribution",
+      "kr4Contribution"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

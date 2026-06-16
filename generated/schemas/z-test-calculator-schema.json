@@ -1,0 +1,71 @@
+{
+  "toolName": "z-test-calculator",
+  "inputs": [
+    {
+      "id": "sample_mean",
+      "label": "Sample Mean",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "Measured average of the sample."
+    },
+    {
+      "id": "population_mean",
+      "label": "Population Mean (H₀)",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "Hypothesized population mean under null hypothesis."
+    },
+    {
+      "id": "standard_deviation",
+      "label": "Standard Deviation",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "businessContext": "Known population standard deviation."
+    },
+    {
+      "id": "sample_size",
+      "label": "Sample Size",
+      "type": "number",
+      "unit": "count",
+      "default": 30,
+      "businessContext": "Number of observations in the sample."
+    },
+    {
+      "id": "alpha",
+      "label": "Significance Level",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.05,
+      "businessContext": "Probability of Type I error (0–1)."
+    },
+    {
+      "id": "tails",
+      "label": "Tails",
+      "type": "number",
+      "unit": "integer",
+      "default": 2,
+      "businessContext": "1 for one‑tailed test, 2 for two‑tailed test."
+    }
+  ],
+  "formulas": {
+    "z_score": "((sample_mean - population_mean) / (standard_deviation / Math.sqrt(sample_size)))",
+    "p_value": "tails === 2 ? 2 * (1 - (1 / (1 + Math.exp(-1.59791 * Math.abs(z_score))))) : (z_score > 0 ? (1 - (1 / (1 + Math.exp(-1.59791 * z_score)))) : (1 / (1 + Math.exp(-1.59791 * z_score))))",
+    "decision": "p_value < alpha ? 'Reject H₀' : 'Fail to reject H₀'"
+  },
+  "outputs": {
+    "primary": "z_score",
+    "breakdown": [
+      "p_value",
+      "decision"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

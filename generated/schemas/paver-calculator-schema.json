@@ -1,0 +1,76 @@
+{
+  "toolName": "paver-calculator",
+  "inputs": [
+    {
+      "id": "areaLength",
+      "label": "Area Length",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Length of the rectangular area to be paved."
+    },
+    {
+      "id": "areaWidth",
+      "label": "Area Width",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Width of the rectangular area to be paved."
+    },
+    {
+      "id": "paverLength",
+      "label": "Paver Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "businessContext": "Length of a single paver."
+    },
+    {
+      "id": "paverWidth",
+      "label": "Paver Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Width of a single paver."
+    },
+    {
+      "id": "jointWidth",
+      "label": "Joint Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Gap between pavers for joint sand."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Extra percentage to account for cuts and breakage."
+    }
+  ],
+  "formulas": {
+    "totalArea": "areaLength * areaWidth",
+    "paverCoverageArea": "((paverLength + jointWidth) * (paverWidth + jointWidth)) / 1e6",
+    "paversWithoutWaste": "Math.ceil(totalArea / paverCoverageArea)",
+    "wastePavers": "Math.ceil(paversWithoutWaste * wasteFactor / 100)",
+    "totalPavers": "paversWithoutWaste + wastePavers"
+  },
+  "outputs": {
+    "primary": "totalPavers",
+    "breakdown": [
+      "totalArea",
+      "paverCoverageArea",
+      "paversWithoutWaste",
+      "wastePavers",
+      "totalPavers"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

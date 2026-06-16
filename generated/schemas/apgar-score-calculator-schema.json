@@ -1,0 +1,64 @@
+{
+  "toolName": "apgar-score-calculator",
+  "inputs": [
+    {
+      "id": "appearance",
+      "label": "Appearance (Skin Color)",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "0: Blue/pale all over; 1: Blue at extremities; 2: No blue"
+    },
+    {
+      "id": "pulse",
+      "label": "Pulse (Heart Rate)",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "0: Absent; 1: Below 100 bpm; 2: Over 100 bpm"
+    },
+    {
+      "id": "grimace",
+      "label": "Grimace (Reflex Irritability)",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "0: No response; 1: Grimace/feeble cry; 2: Vigorous cry/sneeze"
+    },
+    {
+      "id": "activity",
+      "label": "Activity (Muscle Tone)",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "0: Limp; 1: Some flexion; 2: Active motion"
+    },
+    {
+      "id": "respiration",
+      "label": "Respiration (Breathing)",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "0: Absent; 1: Weak/irregular; 2: Good/crying"
+    }
+  ],
+  "formulas": {
+    "totalScore": "appearance + pulse + grimace + activity + respiration"
+  },
+  "outputs": {
+    "primary": "totalScore",
+    "breakdown": [
+      "appearance",
+      "pulse",
+      "grimace",
+      "activity",
+      "respiration"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

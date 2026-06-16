@@ -1,0 +1,62 @@
+{
+  "toolName": "vesting-calculator",
+  "inputs": [
+    {
+      "id": "totalGrant",
+      "label": "Total Grant Amount",
+      "type": "number",
+      "unit": "shares",
+      "default": 1000,
+      "businessContext": "Total number of stock options or shares granted under the vesting plan."
+    },
+    {
+      "id": "vestingStartMonth",
+      "label": "Vesting Start Month",
+      "type": "number",
+      "unit": "months",
+      "default": 0,
+      "businessContext": "The month (relative to a reference) when the vesting period begins. Typically 0 means grant date."
+    },
+    {
+      "id": "currentMonth",
+      "label": "Current Month",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "businessContext": "The current month number from the vesting start to calculate vested shares."
+    },
+    {
+      "id": "vestingPeriodMonths",
+      "label": "Vesting Period (Full Term)",
+      "type": "number",
+      "unit": "months",
+      "default": 48,
+      "businessContext": "Total duration in months over which the grant fully vests."
+    },
+    {
+      "id": "cliffPeriodMonths",
+      "label": "Cliff Period",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "businessContext": "Initial period where no vesting occurs. After cliff, vesting may be accelerated or linear."
+    }
+  ],
+  "formulas": {
+    "vestedShares": "(vestingPeriodMonths - cliffPeriodMonths) <= 0 ? (currentMonth >= cliffPeriodMonths ? totalGrant : 0) : totalGrant * Math.min(1, Math.max(0, (currentMonth - cliffPeriodMonths) / (vestingPeriodMonths - cliffPeriodMonths)))",
+    "unvestedShares": "totalGrant - vestedShares"
+  },
+  "outputs": {
+    "primary": "vestedShares",
+    "breakdown": [
+      "vestedShares",
+      "unvestedShares"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "biodiversity-calculator",
+  "inputs": [
+    {
+      "id": "sp1",
+      "label": "Species 1 Count",
+      "type": "number",
+      "unit": "individuals",
+      "default": 0,
+      "businessContext": "Number of individuals observed for species 1 in the sample"
+    },
+    {
+      "id": "sp2",
+      "label": "Species 2 Count",
+      "type": "number",
+      "unit": "individuals",
+      "default": 0,
+      "businessContext": "Number of individuals observed for species 2 in the sample"
+    },
+    {
+      "id": "sp3",
+      "label": "Species 3 Count",
+      "type": "number",
+      "unit": "individuals",
+      "default": 0,
+      "businessContext": "Number of individuals observed for species 3 in the sample"
+    },
+    {
+      "id": "sp4",
+      "label": "Species 4 Count",
+      "type": "number",
+      "unit": "individuals",
+      "default": 0,
+      "businessContext": "Number of individuals observed for species 4 in the sample"
+    },
+    {
+      "id": "sp5",
+      "label": "Species 5 Count",
+      "type": "number",
+      "unit": "individuals",
+      "default": 0,
+      "businessContext": "Number of individuals observed for species 5 in the sample"
+    }
+  ],
+  "formulas": {
+    "speciesRichness": "((sp1>0?1:0)+(sp2>0?1:0)+(sp3>0?1:0)+(sp4>0?1:0)+(sp5>0?1:0))",
+    "shannonDiversity": "let t=sp1+sp2+sp3+sp4+sp5; t===0?0:-((sp1>0?(sp1/t)*Math.log(sp1/t):0)+(sp2>0?(sp2/t)*Math.log(sp2/t):0)+(sp3>0?(sp3/t)*Math.log(sp3/t):0)+(sp4>0?(sp4/t)*Math.log(sp4/t):0)+(sp5>0?(sp5/t)*Math.log(sp5/t):0))",
+    "simpsonDiversity": "let t=sp1+sp2+sp3+sp4+sp5; let s=sp1*(sp1-1)+sp2*(sp2-1)+sp3*(sp3-1)+sp4*(sp4-1)+sp5*(sp5-1); t<2?0:1-s/(t*(t-1))"
+  },
+  "outputs": {
+    "primary": "shannonDiversity",
+    "breakdown": [
+      "simpsonDiversity",
+      "speciesRichness"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

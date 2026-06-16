@@ -1,0 +1,56 @@
+{
+  "toolName": "vitamin-d-doz-hesaplama-calculator",
+  "inputs": [
+    {
+      "id": "serumD",
+      "label": "Mevcut D vitamini (ng/mL)",
+      "type": "number",
+      "unit": "ng/mL",
+      "default": 20,
+      "businessContext": "Hastanın son ölçülen 25(OH)D seviyesi"
+    },
+    {
+      "id": "targetD",
+      "label": "Hedef D vitamini (ng/mL)",
+      "type": "number",
+      "unit": "ng/mL",
+      "default": 50,
+      "businessContext": "Ulaşılmak istenen hedef seviye"
+    },
+    {
+      "id": "weight",
+      "label": "Vücut ağırlığı (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Hastanın vücut ağırlığı"
+    },
+    {
+      "id": "age",
+      "label": "Yaş (yıl)",
+      "type": "number",
+      "unit": "yıl",
+      "default": 30,
+      "businessContext": "Hastanın yaşı"
+    }
+  ],
+  "formulas": {
+    "increase": "targetD - serumD",
+    "totalLoadingIU": "increase * weight * 4000",
+    "dailyIU": "totalLoadingIU / (8 * 7)",
+    "weeklyIU": "dailyIU * 7"
+  },
+  "outputs": {
+    "primary": "totalLoadingIU",
+    "breakdown": [
+      "dailyIU",
+      "weeklyIU"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

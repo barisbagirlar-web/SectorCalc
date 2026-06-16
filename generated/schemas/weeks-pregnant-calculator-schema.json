@@ -1,0 +1,81 @@
+{
+  "toolName": "weeks-pregnant-calculator",
+  "inputs": [
+    {
+      "id": "currentDay",
+      "label": "Current Day",
+      "type": "number",
+      "unit": "day",
+      "default": 1,
+      "businessContext": "Current day of month (1–31)"
+    },
+    {
+      "id": "currentMonth",
+      "label": "Current Month",
+      "type": "number",
+      "unit": "month",
+      "default": 1,
+      "businessContext": "Current month number (1–12)"
+    },
+    {
+      "id": "currentYear",
+      "label": "Current Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2025,
+      "businessContext": "Current year (e.g., 2025)"
+    },
+    {
+      "id": "lmpDay",
+      "label": "LMP Day",
+      "type": "number",
+      "unit": "day",
+      "default": 1,
+      "businessContext": "Day of last menstrual period (1–31)"
+    },
+    {
+      "id": "lmpMonth",
+      "label": "LMP Month",
+      "type": "number",
+      "unit": "month",
+      "default": 1,
+      "businessContext": "Month of last menstrual period (1–12)"
+    },
+    {
+      "id": "lmpYear",
+      "label": "LMP Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2025,
+      "businessContext": "Year of last menstrual period"
+    },
+    {
+      "id": "cycleLength",
+      "label": "Cycle Length",
+      "type": "number",
+      "unit": "days",
+      "default": 28,
+      "businessContext": "Average length of menstrual cycle in days (typically 28)"
+    }
+  ],
+  "formulas": {
+    "currentDateDays": "(currentYear - 1) * 365.25 + (currentMonth - 1) * 30.4375 + currentDay",
+    "lmpDateDays": "(lmpYear - 1) * 365.25 + (lmpMonth - 1) * 30.4375 + lmpDay",
+    "cycleAdjustment": "cycleLength - 28",
+    "totalDaysPregnant": "currentDateDays - lmpDateDays + cycleAdjustment",
+    "weeksPregnant": "totalDaysPregnant / 7"
+  },
+  "outputs": {
+    "primary": "weeksPregnant",
+    "breakdown": [
+      "totalDaysPregnant",
+      "cycleAdjustment"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

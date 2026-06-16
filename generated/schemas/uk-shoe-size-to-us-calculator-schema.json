@@ -1,0 +1,55 @@
+{
+  "toolName": "uk-shoe-size-to-us-calculator",
+  "inputs": [
+    {
+      "id": "ukSize",
+      "label": "UK Shoe Size",
+      "type": "number",
+      "unit": "UK size",
+      "default": 8,
+      "businessContext": "The shoe size measured in the UK system."
+    },
+    {
+      "id": "gender",
+      "label": "Gender (0=Men, 1=Women)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Select 0 for men's sizing or 1 for women's sizing."
+    },
+    {
+      "id": "adjustment",
+      "label": "Adjustment Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fine-tuning offset for brand-specific variations."
+    },
+    {
+      "id": "rounding",
+      "label": "Rounding Method (0=Floor, 1=Normal, 2=Ceil)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Choose rounding style: floor, nearest integer, or ceiling."
+    }
+  ],
+  "formulas": {
+    "offset": "1 + gender",
+    "rawSize": "ukSize + offset + adjustment",
+    "usSize": "rounding === 0 ? Math.floor(rawSize) : rounding === 1 ? Math.round(rawSize) : Math.ceil(rawSize)"
+  },
+  "outputs": {
+    "primary": "usSize",
+    "breakdown": [
+      "offset",
+      "rawSize"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,67 @@
+{
+  "toolName": "golf-club-distance-calculator",
+  "inputs": [
+    {
+      "id": "swingSpeed",
+      "label": "Swing Speed",
+      "type": "number",
+      "unit": "mph",
+      "default": 100,
+      "businessContext": "Club head speed at impact, typical driver 90-110 mph."
+    },
+    {
+      "id": "loft",
+      "label": "Loft Angle",
+      "type": "number",
+      "unit": "deg",
+      "default": 10.5,
+      "businessContext": "Effective loft angle of the club. Driver ~9-12°, irons higher."
+    },
+    {
+      "id": "elevation",
+      "label": "Elevation",
+      "type": "number",
+      "unit": "ft",
+      "default": 0,
+      "businessContext": "Elevation above sea level affecting air density. Higher elevation = longer carry."
+    },
+    {
+      "id": "wind",
+      "label": "Wind Speed",
+      "type": "number",
+      "unit": "mph",
+      "default": 0,
+      "businessContext": "Wind speed in mph. Positive = tailwind, negative = headwind."
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "°F",
+      "default": 70,
+      "businessContext": "Ambient temperature in Fahrenheit. Warmer air less dense = longer carry."
+    }
+  ],
+  "formulas": {
+    "baseDistance": "swingSpeed * 2.3 - (loft - 10.5) * 2",
+    "elevationFactor": "1 + elevation * 0.00002",
+    "windFactor": "1 + wind * 0.01",
+    "tempFactor": "1 + (temperature - 70) * 0.001",
+    "distance": "baseDistance * elevationFactor * windFactor * tempFactor"
+  },
+  "outputs": {
+    "primary": "distance",
+    "breakdown": [
+      "baseDistance",
+      "elevationFactor",
+      "windFactor",
+      "tempFactor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

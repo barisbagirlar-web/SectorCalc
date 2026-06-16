@@ -1,0 +1,55 @@
+{
+  "toolName": "cat-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 4,
+      "businessContext": "The cat's weight in kilograms."
+    },
+    {
+      "id": "activityLevel",
+      "label": "Activity Level",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Activity level from 1 (sedentary) to 5 (highly active)."
+    },
+    {
+      "id": "lifeStage",
+      "label": "Life Stage",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Life stage: 1 for kitten, 2 for adult, 3 for senior."
+    },
+    {
+      "id": "neutered",
+      "label": "Neutered Status",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Neutered status: 0 for intact, 1 for neutered/spayed."
+    }
+  ],
+  "formulas": {
+    "rer": "70 * Math.pow(weight, 0.75)",
+    "factor": "1.2 + (activityLevel - 1) * 0.1 + neutered * 0.2 + (lifeStage == 1 ? 0.2 : (lifeStage == 3 ? -0.1 : 0))",
+    "dailyCalories": "rer * factor"
+  },
+  "outputs": {
+    "primary": "dailyCalories",
+    "breakdown": [
+      "rer",
+      "factor"
+    ]
+  },
+  "category": "Perakende & Gıda",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

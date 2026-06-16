@@ -1,0 +1,63 @@
+{
+  "toolName": "tablespoons-to-ml-calculator",
+  "inputs": [
+    {
+      "id": "tablespoons",
+      "label": "Tablespoons",
+      "type": "number",
+      "unit": "tbsp",
+      "default": 1,
+      "businessContext": "Number of tablespoons to convert to milliliters."
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of identical batches (multiplier for total tablespoons)."
+    },
+    {
+      "id": "conversionType",
+      "label": "Tablespoon Standard",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1=US (14.79 ml), 2=Metric (15 ml), 3=UK (17.76 ml), 4=Australian (20 ml)."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "decimals",
+      "default": 2,
+      "businessContext": "Number of decimal places for the result."
+    },
+    {
+      "id": "customFactor",
+      "label": "Custom Conversion Factor",
+      "type": "number",
+      "unit": "ml/tbsp",
+      "default": 0,
+      "businessContext": "Override standard conversion factor (0 to use selected standard)."
+    }
+  ],
+  "formulas": {
+    "conversionFactorUsed": "customFactor > 0 ? customFactor : (conversionType === 1 ? 14.7868 : conversionType === 2 ? 15 : conversionType === 3 ? 17.7582 : 20)",
+    "totalTablespoons": "tablespoons * batchSize",
+    "milliliters": "Math.round(totalTablespoons * conversionFactorUsed * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "milliliters",
+    "breakdown": [
+      "totalTablespoons",
+      "conversionFactorUsed"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

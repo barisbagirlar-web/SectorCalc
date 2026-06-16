@@ -1,0 +1,66 @@
+{
+  "toolName": "steps-to-miles-calculator",
+  "inputs": [
+    {
+      "id": "steps",
+      "label": "Number of Steps",
+      "type": "number",
+      "unit": "steps",
+      "default": 10000,
+      "businessContext": "Total number of steps recorded, e.g., from a pedometer or fitness tracker."
+    },
+    {
+      "id": "stepLength",
+      "label": "Step Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "User-measured step length in centimeters. Leave 0 to estimate from stride or height."
+    },
+    {
+      "id": "strideLength",
+      "label": "Stride Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "User-measured stride length in centimeters (two steps). Leave 0 to use step length or estimate from height."
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "User height in centimeters. Used to estimate step length if step length and stride length are not provided. Typical formula: stepLength ≈ height × 0.415."
+    },
+    {
+      "id": "terrainFactor",
+      "label": "Terrain Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for terrain difficulty. 1.0 for flat, >1 for downhill (lengthens stride), <1 for uphill (shortens stride)."
+    }
+  ],
+  "formulas": {
+    "effectiveStepLengthCm": "(stepLength > 0 ? stepLength : (strideLength > 0 ? strideLength / 2 : (height > 0 ? height * 0.415 : 78))) * terrainFactor",
+    "distanceKm": "(steps * effectiveStepLengthCm) / 100000",
+    "distanceMiles": "distanceKm * 0.621371",
+    "stepsPerMile": "160934.4 / effectiveStepLengthCm"
+  },
+  "outputs": {
+    "primary": "distanceMiles",
+    "breakdown": [
+      "effectiveStepLengthCm",
+      "distanceKm",
+      "distanceMiles",
+      "stepsPerMile"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

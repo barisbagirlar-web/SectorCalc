@@ -1,0 +1,73 @@
+{
+  "toolName": "heat-exchanger-area-calculator",
+  "inputs": [
+    {
+      "id": "heatDuty",
+      "label": "Heat Duty",
+      "type": "number",
+      "unit": "kW",
+      "default": 100,
+      "businessContext": "Required thermal power to be transferred"
+    },
+    {
+      "id": "overallCoefficient",
+      "label": "Overall Heat Transfer Coefficient",
+      "type": "number",
+      "unit": "W/m²·K",
+      "default": 500,
+      "businessContext": "Combined conductive and convective heat transfer coefficient"
+    },
+    {
+      "id": "hotInletTemp",
+      "label": "Hot Fluid Inlet Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 150,
+      "businessContext": "Temperature of hot fluid entering the exchanger"
+    },
+    {
+      "id": "hotOutletTemp",
+      "label": "Hot Fluid Outlet Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 100,
+      "businessContext": "Temperature of hot fluid leaving the exchanger"
+    },
+    {
+      "id": "coldInletTemp",
+      "label": "Cold Fluid Inlet Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 30,
+      "businessContext": "Temperature of cold fluid entering the exchanger"
+    },
+    {
+      "id": "coldOutletTemp",
+      "label": "Cold Fluid Outlet Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 80,
+      "businessContext": "Temperature of cold fluid leaving the exchanger"
+    }
+  ],
+  "formulas": {
+    "heatDutyW": "heatDuty * 1000",
+    "deltaT1": "hotInletTemp - coldOutletTemp",
+    "deltaT2": "hotOutletTemp - coldInletTemp",
+    "lmtd": "Math.abs(deltaT1 - deltaT2) < 1e-10 ? deltaT1 : (deltaT1 - deltaT2) / Math.log(deltaT1 / deltaT2)",
+    "requiredArea": "heatDutyW / (overallCoefficient * lmtd)"
+  },
+  "outputs": {
+    "primary": "requiredArea",
+    "breakdown": [
+      "lmtd",
+      "heatDutyW"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

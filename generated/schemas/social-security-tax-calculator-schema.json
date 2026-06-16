@@ -1,0 +1,65 @@
+{
+  "toolName": "social-security-tax-calculator",
+  "inputs": [
+    {
+      "id": "grossPay",
+      "label": "Gross Pay per Period",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Enter the gross pay for the pay period"
+    },
+    {
+      "id": "employeeRate",
+      "label": "Employee SS Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 6.2,
+      "businessContext": "Social security tax rate for employee (e.g., 6.2%)"
+    },
+    {
+      "id": "employerRate",
+      "label": "Employer SS Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 6.2,
+      "businessContext": "Social security tax rate for employer (e.g., 6.2%)"
+    },
+    {
+      "id": "annualCeiling",
+      "label": "Annual Wage Ceiling",
+      "type": "number",
+      "unit": "currency",
+      "default": 160200,
+      "businessContext": "Maximum amount of annual earnings subject to social security tax"
+    },
+    {
+      "id": "payPeriods",
+      "label": "Pay Periods per Year",
+      "type": "number",
+      "unit": "periods/year",
+      "default": 12,
+      "businessContext": "Number of pay periods per year (e.g., 12 for monthly, 26 for bi-weekly)"
+    }
+  ],
+  "formulas": {
+    "perPeriodCeiling": "annualCeiling / payPeriods",
+    "taxableAmount": "Math.min(grossPay, perPeriodCeiling)",
+    "employeeSS": "(employeeRate / 100) * taxableAmount",
+    "employerSS": "(employerRate / 100) * taxableAmount",
+    "totalSS": "employeeSS + employerSS"
+  },
+  "outputs": {
+    "primary": "totalSS",
+    "breakdown": [
+      "employeeSS",
+      "employerSS"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

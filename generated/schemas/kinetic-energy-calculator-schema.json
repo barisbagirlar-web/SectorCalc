@@ -1,0 +1,61 @@
+{
+  "toolName": "kinetic-energy-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Mass of a single object"
+    },
+    {
+      "id": "massUnit",
+      "label": "Mass Unit Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Conversion factor to kg (e.g., 1 for kg, 0.001 for g, 1000 for ton)"
+    },
+    {
+      "id": "velocity",
+      "label": "Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 1,
+      "businessContext": "Velocity of the object"
+    },
+    {
+      "id": "velocityUnit",
+      "label": "Velocity Unit Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Conversion factor to m/s (e.g., 1 for m/s, 0.277778 for km/h, 0.44704 for mph)"
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "objects",
+      "default": 1,
+      "businessContext": "Number of identical objects"
+    }
+  ],
+  "formulas": {
+    "kineticEnergyPerObject": "0.5 * mass * massUnit * Math.pow(velocity * velocityUnit, 2)",
+    "totalKineticEnergy": "quantity * kineticEnergyPerObject"
+  },
+  "outputs": {
+    "primary": "totalKineticEnergy",
+    "breakdown": [
+      "kineticEnergyPerObject"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

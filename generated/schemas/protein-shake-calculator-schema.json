@@ -1,0 +1,65 @@
+{
+  "toolName": "protein-shake-calculator",
+  "inputs": [
+    {
+      "id": "scoopWeight",
+      "label": "Scoop Weight (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 30,
+      "businessContext": "Weight of one scoop of protein powder"
+    },
+    {
+      "id": "numScoops",
+      "label": "Number of Scoops",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of scoops used in the shake"
+    },
+    {
+      "id": "proteinPer100g",
+      "label": "Protein per 100g (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Protein content as percentage of powder weight"
+    },
+    {
+      "id": "caloriesPer100g",
+      "label": "Calories per 100g",
+      "type": "number",
+      "unit": "kcal",
+      "default": 400,
+      "businessContext": "Caloric content per 100g of powder"
+    },
+    {
+      "id": "liquidVolume",
+      "label": "Liquid Volume (ml)",
+      "type": "number",
+      "unit": "ml",
+      "default": 300,
+      "businessContext": "Volume of liquid added (milk or water)"
+    }
+  ],
+  "formulas": {
+    "totalProtein": "scoopWeight * numScoops * proteinPer100g / 100",
+    "totalPowderWeight": "scoopWeight * numScoops",
+    "totalCalories": "scoopWeight * numScoops * caloriesPer100g / 100",
+    "proteinPer100ml": "scoopWeight * numScoops * proteinPer100g / liquidVolume"
+  },
+  "outputs": {
+    "primary": "totalProtein",
+    "breakdown": [
+      "totalPowderWeight",
+      "totalCalories",
+      "proteinPer100ml"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

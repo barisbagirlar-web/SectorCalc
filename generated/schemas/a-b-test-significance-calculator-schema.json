@@ -1,0 +1,78 @@
+{
+  "toolName": "a-b-test-significance-calculator",
+  "inputs": [
+    {
+      "id": "controlVisitors",
+      "label": "Control Group Visitors",
+      "type": "number",
+      "unit": "visitors",
+      "default": 1000,
+      "businessContext": "Total number of visitors or users in the control group (A)."
+    },
+    {
+      "id": "controlConversions",
+      "label": "Control Group Conversions",
+      "type": "number",
+      "unit": "conversions",
+      "default": 100,
+      "businessContext": "Number of conversions (successful actions) in the control group."
+    },
+    {
+      "id": "variantVisitors",
+      "label": "Variant Group Visitors",
+      "type": "number",
+      "unit": "visitors",
+      "default": 1000,
+      "businessContext": "Total number of visitors or users in the variant group (B)."
+    },
+    {
+      "id": "variantConversions",
+      "label": "Variant Group Conversions",
+      "type": "number",
+      "unit": "conversions",
+      "default": 120,
+      "businessContext": "Number of conversions in the variant group."
+    },
+    {
+      "id": "confidenceLevel",
+      "label": "Confidence Level",
+      "type": "number",
+      "unit": "percent",
+      "default": 95,
+      "businessContext": "Required confidence level for the test (typically 90, 95, or 99)."
+    }
+  ],
+  "formulas": {
+    "p1": "controlConversions / controlVisitors",
+    "p2": "variantConversions / variantVisitors",
+    "pPool": "(controlConversions + variantConversions) / (controlVisitors + variantVisitors)",
+    "se": "Math.sqrt(pPool * (1 - pPool) * (1/controlVisitors + 1/variantVisitors))",
+    "z": "(p1 - p2) / se",
+    "absZ": "Math.abs(z)",
+    "t": "1 / (1 + 0.3275911 * absZ)",
+    "erfApprox": "1 - (((((1.061405429 * t - 1.453152027) * t + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-absZ * absZ))",
+    "cdf": "0.5 * (1 + erfApprox)",
+    "pValue": "2 * (1 - cdf)",
+    "alpha": "1 - confidenceLevel / 100",
+    "significance": "pValue < alpha ? 'Significant' : 'Not Significant'",
+    "zScoreDisplay": "'Z-Score: ' + z.toFixed(3)",
+    "pValueDisplay": "'P-Value: ' + pValue.toFixed(4)",
+    "controlRateDisplay": "'Control Conversion Rate: ' + (p1 * 100).toFixed(2) + '%'",
+    "variantRateDisplay": "'Variant Conversion Rate: ' + (p2 * 100).toFixed(2) + '%'"
+  },
+  "outputs": {
+    "primary": "significance",
+    "breakdown": [
+      "zScoreDisplay",
+      "pValueDisplay",
+      "controlRateDisplay",
+      "variantRateDisplay"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

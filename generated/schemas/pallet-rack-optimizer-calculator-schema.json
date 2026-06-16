@@ -1,0 +1,439 @@
+{
+  "slug": "pallet-rack-optimizer",
+  "title": "Pallet Rack Optimizer",
+  "description": "Industrial-grade tool for optimizing pallet rack storage efficiency, throughput, and structural integrity based on ISO 9001, Lean Warehousing, and WERC standards.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario comparison",
+    "Real-time structural load monitoring"
+  ],
+  "inputs": [
+    {
+      "id": "rack_height_mm",
+      "label": "Rack Height (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 12000,
+      "min": 3000,
+      "max": 18000,
+      "businessContext": "Total vertical storage height per rack bay, typically 3-18m in high-bay warehouses.",
+      "label_i18n": {
+        "en": "Rack Height (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Total vertical storage height per rack bay, typically 3-18m in high-bay warehouses."
+      }
+    },
+    {
+      "id": "pallet_depth_mm",
+      "label": "Pallet Depth (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1200,
+      "min": 800,
+      "max": 1500,
+      "businessContext": "Standard pallet depth (e.g., EUR pallet 1200mm, US pallet 1200mm).",
+      "label_i18n": {
+        "en": "Pallet Depth (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard pallet depth (e.g., EUR pallet 1200mm, US pallet 1200mm)."
+      }
+    },
+    {
+      "id": "pallet_width_mm",
+      "label": "Pallet Width (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "min": 800,
+      "max": 1200,
+      "businessContext": "Standard pallet width (e.g., EUR pallet 800mm, US pallet 1000mm).",
+      "label_i18n": {
+        "en": "Pallet Width (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Standard pallet width (e.g., EUR pallet 800mm, US pallet 1000mm)."
+      }
+    },
+    {
+      "id": "pallet_height_mm",
+      "label": "Pallet Height (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1500,
+      "min": 500,
+      "max": 2500,
+      "businessContext": "Height of a single loaded pallet including pallet base.",
+      "label_i18n": {
+        "en": "Pallet Height (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Height of a single loaded pallet including pallet base."
+      }
+    },
+    {
+      "id": "beam_thickness_mm",
+      "label": "Beam Thickness (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "min": 50,
+      "max": 200,
+      "businessContext": "Vertical thickness of horizontal load beams, affects usable height per level.",
+      "label_i18n": {
+        "en": "Beam Thickness (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Vertical thickness of horizontal load beams, affects usable height per level."
+      }
+    },
+    {
+      "id": "clearance_vertical_mm",
+      "label": "Vertical Clearance (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "min": 50,
+      "max": 300,
+      "businessContext": "Safety gap between top of pallet and next beam for handling equipment.",
+      "label_i18n": {
+        "en": "Vertical Clearance (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Safety gap between top of pallet and next beam for handling equipment."
+      }
+    },
+    {
+      "id": "aisle_width_mm",
+      "label": "Aisle Width (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 3000,
+      "min": 2000,
+      "max": 5000,
+      "businessContext": "Width of forklift travel aisle between rack rows, per OSHA/ISO 3691.",
+      "label_i18n": {
+        "en": "Aisle Width (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Width of forklift travel aisle between rack rows, per OSHA/ISO 3691."
+      }
+    },
+    {
+      "id": "rack_length_mm",
+      "label": "Rack Bay Length (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 2700,
+      "min": 1800,
+      "max": 3600,
+      "businessContext": "Horizontal length of a single rack bay (center-to-center of uprights).",
+      "label_i18n": {
+        "en": "Rack Bay Length (mm)"
+      },
+      "businessContext_i18n": {
+        "en": "Horizontal length of a single rack bay (center-to-center of uprights)."
+      }
+    },
+    {
+      "id": "num_bays",
+      "label": "Number of Bays",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "min": 1,
+      "max": 100,
+      "businessContext": "Number of adjacent rack bays in a row.",
+      "label_i18n": {
+        "en": "Number of Bays"
+      },
+      "businessContext_i18n": {
+        "en": "Number of adjacent rack bays in a row."
+      }
+    },
+    {
+      "id": "num_levels",
+      "label": "Number of Levels",
+      "type": "number",
+      "unit": "count",
+      "default": 5,
+      "min": 1,
+      "max": 10,
+      "businessContext": "Number of horizontal beam levels per bay.",
+      "label_i18n": {
+        "en": "Number of Levels"
+      },
+      "businessContext_i18n": {
+        "en": "Number of horizontal beam levels per bay."
+      }
+    },
+    {
+      "id": "pallet_weight_kg",
+      "label": "Average Pallet Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 800,
+      "min": 100,
+      "max": 2000,
+      "businessContext": "Average weight of a loaded pallet, used for structural load calculations.",
+      "label_i18n": {
+        "en": "Average Pallet Weight (kg)"
+      },
+      "businessContext_i18n": {
+        "en": "Average weight of a loaded pallet, used for structural load calculations."
+      }
+    },
+    {
+      "id": "utilization_rate",
+      "label": "Current Utilization Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 75,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of rack positions currently occupied.",
+      "label_i18n": {
+        "en": "Current Utilization Rate (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of rack positions currently occupied."
+      }
+    },
+    {
+      "id": "storage_strategy",
+      "label": "Storage Strategy",
+      "type": "select",
+      "options": [
+        "FIFO",
+        "LIFO",
+        "Random",
+        "ABC"
+      ],
+      "default": "FIFO",
+      "businessContext": "Warehouse inventory rotation strategy affecting throughput and space utilization.",
+      "label_i18n": {
+        "en": "Storage Strategy"
+      },
+      "businessContext_i18n": {
+        "en": "Warehouse inventory rotation strategy affecting throughput and space utilization."
+      }
+    },
+    {
+      "id": "forklift_type",
+      "label": "Forklift Type",
+      "type": "select",
+      "options": [
+        "Counterbalance",
+        "Reach",
+        "VNA",
+        "Turret"
+      ],
+      "default": "Reach",
+      "businessContext": "Forklift type determines required aisle width and lift height capability.",
+      "label_i18n": {
+        "en": "Forklift Type"
+      },
+      "businessContext_i18n": {
+        "en": "Forklift type determines required aisle width and lift height capability."
+      }
+    },
+    {
+      "id": "seismic_zone",
+      "label": "Seismic Zone",
+      "type": "select",
+      "options": [
+        "Zone 0 (None)",
+        "Zone 1 (Low)",
+        "Zone 2 (Moderate)",
+        "Zone 3 (High)"
+      ],
+      "default": "Zone 1 (Low)",
+      "businessContext": "Seismic classification per ASCE 7 / IBC, affects rack bracing requirements.",
+      "label_i18n": {
+        "en": "Seismic Zone"
+      },
+      "businessContext_i18n": {
+        "en": "Seismic classification per ASCE 7 / IBC, affects rack bracing requirements."
+      }
+    },
+    {
+      "id": "include_beam_deflection_check",
+      "label": "Include Beam Deflection Check",
+      "type": "boolean",
+      "default": true,
+      "businessContext": "If enabled, validates beam deflection against L/180 standard (RMI/ANSI MH16.1).",
+      "label_i18n": {
+        "en": "Include Beam Deflection Check"
+      },
+      "businessContext_i18n": {
+        "en": "If enabled, validates beam deflection against L/180 standard (RMI/ANSI MH16.1)."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_aisle_forklift_compatibility",
+        "condition": "forklift_type == 'VNA' && aisle_width_mm < 2800",
+        "message": "VNA forklifts require aisle width >= 2800 mm. Current aisle width may cause operational issues."
+      },
+      {
+        "id": "rule_seismic_bracing",
+        "condition": "seismic_zone == 'Zone 3 (High)' && rack_height_mm > 12000",
+        "message": "High seismic zone with rack height >12m requires additional cross-aisle bracing per ASCE 7."
+      },
+      {
+        "id": "rule_utilization_alert",
+        "condition": "utilization_rate > 90",
+        "message": "Utilization above 90% may reduce pick efficiency and increase congestion."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_beam_deflection",
+        "condition": "include_beam_deflection_check == true && (pallet_weight_kg * 9.81 * rack_length_mm^3) / (200000 * 1000) > rack_length_mm / 180",
+        "message": "Beam deflection exceeds L/180 limit. Reduce pallet weight or increase beam section modulus.",
+        "severity": "critical"
+      },
+      {
+        "id": "threshold_vertical_space_waste",
+        "condition": "(pallet_height_mm + clearance_vertical_mm) * num_levels + beam_thickness_mm * (num_levels - 1) > rack_height_mm * 0.95",
+        "message": "Vertical space utilization exceeds 95% - risk of clearance violations.",
+        "severity": "warning"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "usable_height_per_level",
+      "label": "Usable Height per Level",
+      "formula": "rack_height_mm / num_levels - beam_thickness_mm",
+      "unit": "mm",
+      "description": "Available vertical space per level after subtracting beam thickness."
+    },
+    {
+      "id": "max_pallets_per_bay",
+      "label": "Max Pallets per Bay",
+      "formula": "floor(rack_length_mm / pallet_width_mm) * num_levels",
+      "unit": "count",
+      "description": "Maximum number of pallets that can be stored in one bay (single-deep)."
+    },
+    {
+      "id": "total_pallet_positions",
+      "label": "Total Pallet Positions",
+      "formula": "max_pallets_per_bay * num_bays",
+      "unit": "count",
+      "description": "Total theoretical storage positions in the rack system."
+    },
+    {
+      "id": "occupied_positions",
+      "label": "Occupied Positions",
+      "formula": "total_pallet_positions * (utilization_rate / 100)",
+      "unit": "count",
+      "description": "Number of positions currently filled based on utilization rate."
+    },
+    {
+      "id": "total_stored_weight_kg",
+      "label": "Total Stored Weight (kg)",
+      "formula": "occupied_positions * pallet_weight_kg",
+      "unit": "kg",
+      "description": "Total weight of all stored pallets in the rack system."
+    },
+    {
+      "id": "floor_space_utilization",
+      "label": "Floor Space Utilization",
+      "formula": "(total_pallet_positions * pallet_depth_mm * pallet_width_mm) / (rack_length_mm * num_bays * (rack_depth_mm + aisle_width_mm))",
+      "unit": "%",
+      "description": "Ratio of pallet footprint to total floor area including aisles. rack_depth_mm assumed = pallet_depth_mm * 2 for double-deep."
+    },
+    {
+      "id": "throughput_index",
+      "label": "Throughput Index",
+      "formula": "occupied_positions * (1 / (1 + (aisle_width_mm / 1000))) * (1 if storage_strategy == 'FIFO' else 0.85 if storage_strategy == 'LIFO' else 0.9 if storage_strategy == 'Random' else 0.95)",
+      "unit": "index",
+      "description": "Relative throughput efficiency considering aisle width and storage strategy."
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "overall_efficiency_score",
+      "label": "Overall Efficiency Score",
+      "unit": "score (0-100)",
+      "description": "Composite score combining space utilization, throughput, and structural safety."
+    },
+    "breakdown": {
+      "space_efficiency": {
+        "id": "space_efficiency",
+        "label": "Space Efficiency",
+        "value": 0,
+        "unit": "%",
+        "description": "Percentage of theoretical maximum pallet positions used vs. floor area."
+      },
+      "throughput_efficiency": {
+        "id": "throughput_efficiency",
+        "label": "Throughput Efficiency",
+        "value": 0,
+        "unit": "index",
+        "description": "Normalized throughput index (0-100)."
+      },
+      "structural_safety_margin": {
+        "id": "structural_safety_margin",
+        "label": "Structural Safety Margin",
+        "value": 0,
+        "unit": "%",
+        "description": "Margin above minimum beam deflection and seismic requirements."
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "loss_vertical_air",
+        "label": "Vertical Air Gap Loss",
+        "description": "Unused vertical space due to oversized clearance or mismatched pallet heights.",
+        "estimated_impact": "5-15% capacity loss"
+      },
+      {
+        "id": "loss_aisle_inefficiency",
+        "label": "Aisle Inefficiency Loss",
+        "description": "Excessive aisle width reducing storage density.",
+        "estimated_impact": "10-25% capacity loss"
+      },
+      {
+        "id": "loss_beam_deflection_risk",
+        "label": "Beam Deflection Risk",
+        "description": "Potential structural risk if deflection threshold is exceeded, leading to reduced load capacity.",
+        "estimated_impact": "Up to 20% load de-rating"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_reduce_clearance",
+        "label": "Reduce Vertical Clearance",
+        "description": "Decrease clearance_vertical_mm to 75mm if handling equipment allows, gaining one additional level."
+      },
+      {
+        "id": "action_optimize_aisle",
+        "label": "Optimize Aisle Width",
+        "description": "Consider VNA forklifts to reduce aisle width from 3000mm to 2000mm, increasing density by 33%."
+      },
+      {
+        "id": "action_rebalance_utilization",
+        "label": "Rebalance Utilization",
+        "description": "If utilization >90%, implement ABC zoning to reduce congestion and improve pick path."
+      },
+      {
+        "id": "action_upgrade_beams",
+        "label": "Upgrade Beam Sections",
+        "description": "If deflection threshold is critical, replace beams with higher section modulus to maintain safety."
+      }
+    ],
+    "dataConfidenceAdjusted": 0.92
+  },
+  "toolName": "pallet-rack-optimizer-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

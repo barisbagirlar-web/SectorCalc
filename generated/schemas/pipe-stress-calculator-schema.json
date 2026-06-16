@@ -1,0 +1,57 @@
+{
+  "toolName": "pipe-stress-calculator",
+  "inputs": [
+    {
+      "id": "internalPressure",
+      "label": "İç Basınç",
+      "type": "number",
+      "unit": "MPa",
+      "default": 10,
+      "businessContext": "Boruda taşınan akışkanın iç basıncı"
+    },
+    {
+      "id": "outerDiameter",
+      "label": "Dış Çap",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Borunun dış çapı"
+    },
+    {
+      "id": "wallThickness",
+      "label": "Et Kalınlığı",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Boru cidar kalınlığı"
+    },
+    {
+      "id": "yieldStrength",
+      "label": "Akma Dayanımı",
+      "type": "number",
+      "unit": "MPa",
+      "default": 250,
+      "businessContext": "Malzemenin akma dayanımı"
+    }
+  ],
+  "formulas": {
+    "hoopStress": "internalPressure * outerDiameter / (2 * wallThickness)",
+    "longitudinalStress": "internalPressure * outerDiameter / (4 * wallThickness)",
+    "maxStress": "Math.max(internalPressure * outerDiameter / (2 * wallThickness), internalPressure * outerDiameter / (4 * wallThickness))",
+    "safetyFactor": "yieldStrength / Math.max(internalPressure * outerDiameter / (2 * wallThickness), internalPressure * outerDiameter / (4 * wallThickness))"
+  },
+  "outputs": {
+    "primary": "maxStress",
+    "breakdown": [
+      "hoopStress",
+      "longitudinalStress",
+      "safetyFactor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

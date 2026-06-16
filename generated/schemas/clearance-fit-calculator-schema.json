@@ -1,0 +1,55 @@
+{
+  "toolName": "clearance-fit-calculator",
+  "inputs": [
+    {
+      "id": "holeMax",
+      "label": "Hole Max Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 20.02,
+      "businessContext": "Delik üst tolerans sınırı"
+    },
+    {
+      "id": "holeMin",
+      "label": "Hole Min Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 20,
+      "businessContext": "Delik alt tolerans sınırı"
+    },
+    {
+      "id": "shaftMax",
+      "label": "Shaft Max Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 19.98,
+      "businessContext": "Mil üst tolerans sınırı"
+    },
+    {
+      "id": "shaftMin",
+      "label": "Shaft Min Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 19.95,
+      "businessContext": "Mil alt tolerans sınırı"
+    }
+  ],
+  "formulas": {
+    "minClearance": "holeMin - shaftMax",
+    "maxClearance": "holeMax - shaftMin",
+    "avgClearance": "(minClearance + maxClearance) / 2"
+  },
+  "outputs": {
+    "primary": "avgClearance",
+    "breakdown": [
+      "minClearance",
+      "maxClearance"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

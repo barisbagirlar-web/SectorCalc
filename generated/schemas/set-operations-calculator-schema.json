@@ -1,0 +1,89 @@
+{
+  "toolName": "set-operations-calculator",
+  "inputs": [
+    {
+      "id": "setA",
+      "label": "Size of Set A",
+      "type": "number",
+      "unit": "elements",
+      "default": 0,
+      "businessContext": "Number of elements in set A"
+    },
+    {
+      "id": "setB",
+      "label": "Size of Set B",
+      "type": "number",
+      "unit": "elements",
+      "default": 0,
+      "businessContext": "Number of elements in set B"
+    },
+    {
+      "id": "setC",
+      "label": "Size of Set C",
+      "type": "number",
+      "unit": "elements",
+      "default": 0,
+      "businessContext": "Number of elements in set C"
+    },
+    {
+      "id": "ab",
+      "label": "Size of A ∩ B",
+      "type": "number",
+      "unit": "elements",
+      "default": 0,
+      "businessContext": "Number of elements common to both A and B"
+    },
+    {
+      "id": "ac",
+      "label": "Size of A ∩ C",
+      "type": "number",
+      "unit": "elements",
+      "default": 0,
+      "businessContext": "Number of elements common to both A and C"
+    },
+    {
+      "id": "bc",
+      "label": "Size of B ∩ C",
+      "type": "number",
+      "unit": "elements",
+      "default": 0,
+      "businessContext": "Number of elements common to both B and C"
+    },
+    {
+      "id": "abc",
+      "label": "Size of A ∩ B ∩ C",
+      "type": "number",
+      "unit": "elements",
+      "default": 0,
+      "businessContext": "Number of elements common to all three sets"
+    }
+  ],
+  "formulas": {
+    "union": "setA + setB + setC - ab - ac - bc + abc",
+    "aOnly": "setA - ab - ac + abc",
+    "bOnly": "setB - ab - bc + abc",
+    "cOnly": "setC - ac - bc + abc",
+    "abOnly": "ab - abc",
+    "acOnly": "ac - abc",
+    "bcOnly": "bc - abc",
+    "abcSize": "abc"
+  },
+  "outputs": {
+    "primary": "union",
+    "breakdown": [
+      "aOnly",
+      "bOnly",
+      "cOnly",
+      "abOnly",
+      "acOnly",
+      "bcOnly",
+      "abcSize"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

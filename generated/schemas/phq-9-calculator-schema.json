@@ -1,0 +1,63 @@
+{
+  "toolName": "phq-9-calculator",
+  "inputs": [
+    {
+      "id": "operating_pressure",
+      "label": "Operating Pressure",
+      "type": "number",
+      "unit": "Pa",
+      "default": 100000,
+      "businessContext": "System operating pressure in Pascals"
+    },
+    {
+      "id": "fluid_density",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of the pumped fluid"
+    },
+    {
+      "id": "flow_rate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "m³/s",
+      "default": 0.01,
+      "businessContext": "Volumetric flow rate through the pipe"
+    },
+    {
+      "id": "pipe_diameter",
+      "label": "Pipe Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Inner diameter of the pipe"
+    },
+    {
+      "id": "efficiency_factor",
+      "label": "Efficiency Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Overall efficiency factor (0-1)"
+    }
+  ],
+  "formulas": {
+    "pressure_head": "operating_pressure / (fluid_density * 9.81)",
+    "velocity_head": "(flow_rate / (Math.PI * Math.pow(pipe_diameter / 2, 2)))**2 / (2 * 9.81)",
+    "adjusted_head": "(operating_pressure / (fluid_density * 9.81) + (flow_rate / (Math.PI * Math.pow(pipe_diameter / 2, 2)))**2 / (2 * 9.81)) * efficiency_factor"
+  },
+  "outputs": {
+    "primary": "adjusted_head",
+    "breakdown": [
+      "pressure_head",
+      "velocity_head"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

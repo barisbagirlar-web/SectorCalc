@@ -1,0 +1,74 @@
+{
+  "toolName": "roth-vs-traditional-ira-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the individual now."
+    },
+    {
+      "id": "annualContribution",
+      "label": "Annual Contribution",
+      "type": "number",
+      "unit": "USD",
+      "default": 6000,
+      "businessContext": "Amount contributed to IRA annually."
+    },
+    {
+      "id": "currentTaxRate",
+      "label": "Current Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 22,
+      "businessContext": "Marginal tax rate now."
+    },
+    {
+      "id": "expectedRetirementTaxRate",
+      "label": "Expected Retirement Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Expected marginal tax rate in retirement."
+    },
+    {
+      "id": "expectedAnnualReturn",
+      "label": "Expected Annual Return",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Average annual return on investments."
+    },
+    {
+      "id": "yearsUntilRetirement",
+      "label": "Years Until Retirement",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Years until retirement."
+    }
+  ],
+  "formulas": {
+    "r": "expectedAnnualReturn / 100",
+    "n": "yearsUntilRetirement",
+    "growthFactor": "(Math.pow(1 + r, n) - 1) / r",
+    "tradValue": "annualContribution * growthFactor * (1 - expectedRetirementTaxRate / 100)",
+    "rothValue": "annualContribution * growthFactor",
+    "rothMinusTrad": "rothValue - tradValue"
+  },
+  "outputs": {
+    "primary": "rothMinusTrad",
+    "breakdown": [
+      "rothValue",
+      "tradValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

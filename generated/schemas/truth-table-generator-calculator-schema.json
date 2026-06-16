@@ -1,0 +1,57 @@
+{
+  "toolName": "truth-table-generator-calculator",
+  "inputs": [
+    {
+      "id": "varA",
+      "label": "Input A",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "Binary input A (0 or 1)"
+    },
+    {
+      "id": "varB",
+      "label": "Input B",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "Binary input B (0 or 1)"
+    },
+    {
+      "id": "varC",
+      "label": "Input C",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "Binary input C (0 or 1)"
+    },
+    {
+      "id": "varD",
+      "label": "Input D",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "Binary input D (0 or 1)"
+    }
+  ],
+  "formulas": {
+    "andAB": "varA * varB",
+    "notD": "1 - varD",
+    "andCnotD": "varC * notD",
+    "finalResult": "andAB + andCnotD - andAB * andCnotD"
+  },
+  "outputs": {
+    "primary": "finalResult",
+    "breakdown": [
+      "andAB",
+      "notD",
+      "andCnotD"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

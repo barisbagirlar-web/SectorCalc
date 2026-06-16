@@ -1,0 +1,73 @@
+{
+  "toolName": "futures-calculator",
+  "inputs": [
+    {
+      "id": "buyPrice",
+      "label": "Alış Fiyatı",
+      "type": "number",
+      "unit": "TL",
+      "default": 100,
+      "businessContext": "Vadeli işlem sözleşmesinin alış birim fiyatı"
+    },
+    {
+      "id": "sellPrice",
+      "label": "Satış Fiyatı",
+      "type": "number",
+      "unit": "TL",
+      "default": 110,
+      "businessContext": "Vadeli işlem sözleşmesinin satış birim fiyatı"
+    },
+    {
+      "id": "contractSize",
+      "label": "Sözleşme Büyüklüğü",
+      "type": "number",
+      "unit": "birim",
+      "default": 1000,
+      "businessContext": "Bir sözleşmenin temsil ettiği dayanak varlık miktarı"
+    },
+    {
+      "id": "contracts",
+      "label": "Kontrat Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Alım/satım yapılan vadeli işlem sözleşmesi sayısı"
+    },
+    {
+      "id": "marginRate",
+      "label": "Teminat Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Sözleşme değerinin teminat olarak yatırılması gereken yüzdesi"
+    },
+    {
+      "id": "commission",
+      "label": "Komisyon (Sözleşme Başına)",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Bir sözleşme için alım veya satımda ödenen işlem komisyonu"
+    }
+  ],
+  "formulas": {
+    "grossPL": "(sellPrice - buyPrice) * contractSize * contracts",
+    "totalCommission": "commission * contracts * 2",
+    "netPL": "grossPL - totalCommission",
+    "requiredMargin": "buyPrice * contractSize * contracts * (marginRate / 100)"
+  },
+  "outputs": {
+    "primary": "netPL",
+    "breakdown": [
+      "grossPL",
+      "totalCommission",
+      "requiredMargin"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

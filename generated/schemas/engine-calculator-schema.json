@@ -1,0 +1,68 @@
+{
+  "toolName": "engine-calculator",
+  "inputs": [
+    {
+      "id": "engineSpeed",
+      "label": "Engine Speed",
+      "type": "number",
+      "unit": "rpm",
+      "default": 3000,
+      "businessContext": "Motor devri (dakikadaki dönüş sayısı)"
+    },
+    {
+      "id": "torque",
+      "label": "Torque",
+      "type": "number",
+      "unit": "Nm",
+      "default": 200,
+      "businessContext": "Motor torku"
+    },
+    {
+      "id": "fuelConsumption",
+      "label": "Fuel Consumption",
+      "type": "number",
+      "unit": "L/h",
+      "default": 15,
+      "businessContext": "Saatlik yakıt tüketimi"
+    },
+    {
+      "id": "fuelDensity",
+      "label": "Fuel Density",
+      "type": "number",
+      "unit": "kg/L",
+      "default": 0.84,
+      "businessContext": "Yakıt yoğunluğu (dizel için tipik: 0.84 kg/L)"
+    },
+    {
+      "id": "heatingValue",
+      "label": "Fuel Heating Value",
+      "type": "number",
+      "unit": "MJ/kg",
+      "default": 42.5,
+      "businessContext": "Yakıt alt ısıl değeri (dizel için tipik: 42.5 MJ/kg)"
+    }
+  ],
+  "formulas": {
+    "power_kW": "(torque * engineSpeed) / 9549",
+    "power_HP": "power_kW / 0.7457",
+    "fuelMassFlow_kgPerH": "fuelConsumption * fuelDensity",
+    "fuelEnergyInput_kW": "(fuelMassFlow_kgPerH * heatingValue) / 3.6",
+    "brakeThermalEfficiency_percent": "power_kW > 0 ? (power_kW / fuelEnergyInput_kW) * 100 : 0",
+    "specificFuelConsumption_gPerkWh": "power_kW > 0 ? (fuelMassFlow_kgPerH * 1000) / power_kW : 0"
+  },
+  "outputs": {
+    "primary": "power_kW",
+    "breakdown": [
+      "power_HP",
+      "brakeThermalEfficiency_percent",
+      "specificFuelConsumption_gPerkWh",
+      "fuelEnergyInput_kW"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

@@ -1,0 +1,59 @@
+{
+  "toolName": "cpc-calculator",
+  "inputs": [
+    {
+      "id": "total_cost",
+      "label": "Total Campaign Cost (TRY)",
+      "type": "number",
+      "unit": "TRY",
+      "default": 10000,
+      "businessContext": "Total budget spent on the campaign"
+    },
+    {
+      "id": "clicks",
+      "label": "Number of Clicks",
+      "type": "number",
+      "unit": "clicks",
+      "default": 500,
+      "businessContext": "Total clicks received from the campaign"
+    },
+    {
+      "id": "impressions",
+      "label": "Impressions",
+      "type": "number",
+      "unit": "impressions",
+      "default": 10000,
+      "businessContext": "Total ad impressions"
+    },
+    {
+      "id": "conversions",
+      "label": "Conversions",
+      "type": "number",
+      "unit": "conversions",
+      "default": 50,
+      "businessContext": "Number of desired actions completed"
+    }
+  ],
+  "formulas": {
+    "cpc": "total_cost / clicks",
+    "ctr": "(clicks / impressions) * 100",
+    "conversion_rate": "(conversions / clicks) * 100",
+    "cpa": "total_cost / conversions",
+    "roi": "((conversions * 100) - total_cost) / total_cost * 100"
+  },
+  "outputs": {
+    "primary": "cpc",
+    "breakdown": [
+      "ctr",
+      "conversion_rate",
+      "cpa",
+      "roi"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,75 @@
+{
+  "toolName": "wine-calculator",
+  "inputs": [
+    {
+      "id": "grapeWeight",
+      "label": "Üzüm Ağırlığı (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Toplam üzüm miktarı"
+    },
+    {
+      "id": "sugarContent",
+      "label": "Şeker Oranı (g/L)",
+      "type": "number",
+      "unit": "g/L",
+      "default": 220,
+      "businessContext": "Üzümün şeker konsantrasyonu"
+    },
+    {
+      "id": "yieldPercent",
+      "label": "Şıra Verimi (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Presleme sonrası şıra oranı"
+    },
+    {
+      "id": "alcoholConversion",
+      "label": "Alkol Dönüşüm Faktörü",
+      "type": "number",
+      "unit": "% alc./g şeker",
+      "default": 0.55,
+      "businessContext": "Her g şekerden oluşan alkol yüzdesi"
+    },
+    {
+      "id": "fermentationLoss",
+      "label": "Fermantasyon Kaybı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Fermantasyon sırasında hacim kaybı"
+    },
+    {
+      "id": "bottleVolume",
+      "label": "Şişe Hacmi (L)",
+      "type": "number",
+      "unit": "L",
+      "default": 0.75,
+      "businessContext": "Standart şişe hacmi"
+    }
+  ],
+  "formulas": {
+    "mustVolume": "grapeWeight * yieldPercent / 100",
+    "totalSugar": "mustVolume * sugarContent",
+    "alcoholPercent": "totalSugar * alcoholConversion / 10",
+    "finalVolume": "mustVolume * (1 - fermentationLoss / 100)",
+    "bottleCount": "Math.floor(finalVolume / bottleVolume)"
+  },
+  "outputs": {
+    "primary": "Şişe Sayısı: {bottleCount}",
+    "breakdown": [
+      "Şıra Hacmi: {mustVolume} L",
+      "Toplam Şeker: {totalSugar} g",
+      "Alkol Oranı: {alcoholPercent} %",
+      "Fermantasyon Sonrası Hacim: {finalVolume} L"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

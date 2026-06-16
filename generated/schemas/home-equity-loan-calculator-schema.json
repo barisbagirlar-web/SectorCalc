@@ -1,0 +1,77 @@
+{
+  "toolName": "home-equity-loan-calculator",
+  "inputs": [
+    {
+      "id": "homeValue",
+      "label": "Current Home Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 300000,
+      "businessContext": "The current market value of the home."
+    },
+    {
+      "id": "remainingMortgage",
+      "label": "Remaining Mortgage Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 150000,
+      "businessContext": "Outstanding principal on existing mortgage(s)."
+    },
+    {
+      "id": "desiredLoanAmount",
+      "label": "Desired Loan Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "The amount the borrower wants to take out."
+    },
+    {
+      "id": "interestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 6.5,
+      "businessContext": "Annual nominal interest rate for the home equity loan."
+    },
+    {
+      "id": "loanTerm",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Repayment period in years."
+    },
+    {
+      "id": "maxLTV",
+      "label": "Max Loan-to-Value Ratio",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Maximum allowable combined loan-to-value ratio (CLTV) as a percentage. CLTV = (remaining mortgage + new loan) / home value."
+    }
+  ],
+  "formulas": {
+    "maxLoan": "Math.max(0, homeValue * maxLTV / 100 - remainingMortgage)",
+    "actualLoan": "Math.min(desiredLoanAmount, maxLoan)",
+    "monthlyRate": "interestRate / 100 / 12",
+    "numPayments": "loanTerm * 12",
+    "monthlyPayment": "actualLoan * monthlyRate * Math.pow(1 + monthlyRate, numPayments) / (Math.pow(1 + monthlyRate, numPayments) - 1)",
+    "totalPayment": "monthlyPayment * numPayments",
+    "totalInterest": "totalPayment - actualLoan"
+  },
+  "outputs": {
+    "primary": "monthlyPayment",
+    "breakdown": [
+      "maxLoan",
+      "actualLoan",
+      "totalPayment",
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

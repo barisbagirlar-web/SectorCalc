@@ -1,0 +1,59 @@
+{
+  "toolName": "odds-ratio-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "Exposed with Outcome (a)",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "businessContext": "Number of exposed subjects who have the outcome of interest"
+    },
+    {
+      "id": "b",
+      "label": "Exposed without Outcome (b)",
+      "type": "number",
+      "unit": "count",
+      "default": 20,
+      "businessContext": "Number of exposed subjects who do not have the outcome"
+    },
+    {
+      "id": "c",
+      "label": "Unexposed with Outcome (c)",
+      "type": "number",
+      "unit": "count",
+      "default": 5,
+      "businessContext": "Number of unexposed subjects who have the outcome"
+    },
+    {
+      "id": "d",
+      "label": "Unexposed without Outcome (d)",
+      "type": "number",
+      "unit": "count",
+      "default": 30,
+      "businessContext": "Number of unexposed subjects who do not have the outcome"
+    }
+  ],
+  "formulas": {
+    "oddsRatio": "(a * d) / (b * c)",
+    "oddsExposed": "a / b",
+    "oddsUnexposed": "c / d",
+    "ad": "a * d",
+    "bc": "b * c"
+  },
+  "outputs": {
+    "primary": "oddsRatio",
+    "breakdown": [
+      "oddsExposed",
+      "oddsUnexposed",
+      "ad",
+      "bc"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

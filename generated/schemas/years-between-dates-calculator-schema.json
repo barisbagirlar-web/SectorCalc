@@ -1,0 +1,71 @@
+{
+  "toolName": "years-between-dates-calculator",
+  "inputs": [
+    {
+      "id": "startDay",
+      "label": "Başlangıç Günü",
+      "type": "number",
+      "unit": "gün",
+      "default": 1,
+      "businessContext": "Başlangıç tarihinin gün bileşeni (1-31)"
+    },
+    {
+      "id": "startMonth",
+      "label": "Başlangıç Ayı",
+      "type": "number",
+      "unit": "ay",
+      "default": 1,
+      "businessContext": "Başlangıç tarihinin ay bileşeni (1-12)"
+    },
+    {
+      "id": "startYear",
+      "label": "Başlangıç Yılı",
+      "type": "number",
+      "unit": "yıl",
+      "default": 2025,
+      "businessContext": "Başlangıç tarihinin yıl bileşeni"
+    },
+    {
+      "id": "endDay",
+      "label": "Bitiş Günü",
+      "type": "number",
+      "unit": "gün",
+      "default": 1,
+      "businessContext": "Bitiş tarihinin gün bileşeni (1-31)"
+    },
+    {
+      "id": "endMonth",
+      "label": "Bitiş Ayı",
+      "type": "number",
+      "unit": "ay",
+      "default": 1,
+      "businessContext": "Bitiş tarihinin ay bileşeni (1-12)"
+    },
+    {
+      "id": "endYear",
+      "label": "Bitiş Yılı",
+      "type": "number",
+      "unit": "yıl",
+      "default": 2025,
+      "businessContext": "Bitiş tarihinin yıl bileşeni"
+    }
+  ],
+  "formulas": {
+    "totalDays": "(endYear - startYear) * 365 + (endMonth - startMonth) * 30 + (endDay - startDay)",
+    "yearsDifference": "totalDays / 365.25",
+    "totalMonths": "totalDays / 30"
+  },
+  "outputs": {
+    "primary": "yearsDifference",
+    "breakdown": [
+      "totalDays",
+      "totalMonths"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,70 @@
+{
+  "toolName": "cronometer-calculator",
+  "inputs": [
+    {
+      "id": "observedTime",
+      "label": "Gözlemlenen Süre",
+      "type": "number",
+      "unit": "saniye",
+      "default": 60,
+      "businessContext": "Kronometre ile ölçülen işlem süresi"
+    },
+    {
+      "id": "ratingFactor",
+      "label": "Performans Faktörü",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "İşçinin performans değerlendirmesi (100 = normal)"
+    },
+    {
+      "id": "allowanceFactor",
+      "label": "Tolerans Faktörü",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Kişisel ihtiyaçlar ve yorgunluk için tolerans payı"
+    },
+    {
+      "id": "contingencyFactor",
+      "label": "Beklenmeyen Durum Faktörü",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Makine arızası gibi beklenmeyen durumlar için pay"
+    }
+  ],
+  "formulas": {
+    "standardTime": "observedTime * (ratingFactor / 100) * (1 + (allowanceFactor + contingencyFactor) / 100)",
+    "effectiveTime": "observedTime * (ratingFactor / 100)",
+    "allowancesTime": "observedTime * (ratingFactor / 100) * ((allowanceFactor + contingencyFactor) / 100)"
+  },
+  "outputs": {
+    "primary": {
+      "id": "standardTime",
+      "label": "Standart Süre",
+      "unit": "saniye",
+      "formula": "standardTime"
+    },
+    "breakdown": [
+      {
+        "id": "effectiveTime",
+        "label": "Efektif Süre",
+        "unit": "saniye",
+        "formula": "effectiveTime"
+      },
+      {
+        "id": "allowancesTime",
+        "label": "Tolerans Süresi",
+        "unit": "saniye",
+        "formula": "allowancesTime"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

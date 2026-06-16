@@ -1,0 +1,89 @@
+{
+  "toolName": "triple-test-calculator",
+  "inputs": [
+    {
+      "id": "s1",
+      "label": "Specimen 1 Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 30,
+      "businessContext": "Strength of first test specimen"
+    },
+    {
+      "id": "s2",
+      "label": "Specimen 2 Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 32,
+      "businessContext": "Strength of second test specimen"
+    },
+    {
+      "id": "s3",
+      "label": "Specimen 3 Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 31,
+      "businessContext": "Strength of third test specimen"
+    },
+    {
+      "id": "target",
+      "label": "Target Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 30,
+      "businessContext": "Required minimum mean strength"
+    },
+    {
+      "id": "cv_limit",
+      "label": "Acceptance CV Limit",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Maximum allowed coefficient of variation"
+    },
+    {
+      "id": "min_individual",
+      "label": "Minimum Individual Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 25,
+      "businessContext": "Lower tolerance for any single specimen"
+    },
+    {
+      "id": "max_individual",
+      "label": "Maximum Individual Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 45,
+      "businessContext": "Upper tolerance for any single specimen"
+    }
+  ],
+  "formulas": {
+    "mean": "(s1 + s2 + s3) / 3",
+    "std_dev": "Math.sqrt((Math.pow(s1 - (s1 + s2 + s3) / 3, 2) + Math.pow(s2 - (s1 + s2 + s3) / 3, 2) + Math.pow(s3 - (s1 + s2 + s3) / 3, 2)) / 3)",
+    "cv": "((Math.sqrt((Math.pow(s1 - (s1 + s2 + s3) / 3, 2) + Math.pow(s2 - (s1 + s2 + s3) / 3, 2) + Math.pow(s3 - (s1 + s2 + s3) / 3, 2)) / 3) / ((s1 + s2 + s3) / 3)) * 100",
+    "mean_ok": "((s1 + s2 + s3) / 3) >= target",
+    "cv_ok": "((Math.sqrt((Math.pow(s1 - (s1 + s2 + s3) / 3, 2) + Math.pow(s2 - (s1 + s2 + s3) / 3, 2) + Math.pow(s3 - (s1 + s2 + s3) / 3, 2)) / 3) / ((s1 + s2 + s3) / 3)) * 100 <= cv_limit",
+    "min_ok": "s1 >= min_individual && s2 >= min_individual && s3 >= min_individual",
+    "max_ok": "s1 <= max_individual && s2 <= max_individual && s3 <= max_individual",
+    "acceptance": "(((s1 + s2 + s3) / 3) >= target) && (((Math.sqrt((Math.pow(s1 - (s1 + s2 + s3) / 3, 2) + Math.pow(s2 - (s1 + s2 + s3) / 3, 2) + Math.pow(s3 - (s1 + s2 + s3) / 3, 2)) / 3) / ((s1 + s2 + s3) / 3)) * 100 <= cv_limit) && (s1 >= min_individual && s2 >= min_individual && s3 >= min_individual) && (s1 <= max_individual && s2 <= max_individual && s3 <= max_individual)"
+  },
+  "outputs": {
+    "primary": "acceptance",
+    "breakdown": [
+      "mean",
+      "std_dev",
+      "cv",
+      "mean_ok",
+      "cv_ok",
+      "min_ok",
+      "max_ok"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "add-decimals-calculator",
+  "inputs": [
+    {
+      "id": "dec1",
+      "label": "Decimal 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First decimal value to sum, e.g., cost item 1"
+    },
+    {
+      "id": "dec2",
+      "label": "Decimal 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second decimal value to sum"
+    },
+    {
+      "id": "dec3",
+      "label": "Decimal 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Third decimal value to sum"
+    },
+    {
+      "id": "dec4",
+      "label": "Decimal 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fourth decimal value to sum"
+    }
+  ],
+  "formulas": {
+    "sum": "dec1 + dec2 + dec3 + dec4",
+    "sum12": "dec1 + dec2",
+    "sum123": "sum12 + dec3"
+  },
+  "outputs": {
+    "primary": "sum",
+    "breakdown": [
+      "sum12",
+      "sum123"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

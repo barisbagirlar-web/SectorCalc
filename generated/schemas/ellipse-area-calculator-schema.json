@@ -1,0 +1,56 @@
+{
+  "toolName": "ellipse-area-calculator",
+  "inputs": [
+    {
+      "id": "semiMajorAxis",
+      "label": "Semi-Major Axis (a)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Length of the longest radius of the ellipse"
+    },
+    {
+      "id": "semiMinorAxis",
+      "label": "Semi-Minor Axis (b)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Length of the shortest radius of the ellipse"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for output rounding"
+    },
+    {
+      "id": "unitConversionFactor",
+      "label": "Unit Conversion Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiply the area by this factor to convert to desired area units (e.g., 10000 to convert m² to cm²)"
+    }
+  ],
+  "formulas": {
+    "aTimesB": "semiMajorAxis * semiMinorAxis",
+    "area": "Math.PI * aTimesB",
+    "convertedArea": "area * unitConversionFactor",
+    "roundedArea": "(Math.round(convertedArea * Math.pow(10, precision))) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "roundedArea",
+    "breakdown": [
+      "aTimesB",
+      "convertedArea"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,56 @@
+{
+  "toolName": "newton-to-celsius-calculator",
+  "inputs": [
+    {
+      "id": "newton",
+      "label": "Newton Temperature",
+      "type": "number",
+      "unit": "°N",
+      "default": 0,
+      "businessContext": "Temperature value in Newton scale"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places for result"
+    },
+    {
+      "id": "roundingMethod",
+      "label": "Rounding Method (0: round, 1: floor, 2: ceil)",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "Mathematical rounding method code"
+    },
+    {
+      "id": "offset",
+      "label": "Calibration Offset",
+      "type": "number",
+      "unit": "°C",
+      "default": 0,
+      "businessContext": "Optional calibration offset in degrees Celsius"
+    }
+  ],
+  "formulas": {
+    "rawCelsius": "newton * 100/33",
+    "celsiusWithOffset": "rawCelsius + offset",
+    "factor": "Math.pow(10, precision)",
+    "roundedCelsius": "roundingMethod === 0 ? Math.round(celsiusWithOffset * factor) / factor : (roundingMethod === 1 ? Math.floor(celsiusWithOffset * factor) / factor : Math.ceil(celsiusWithOffset * factor) / factor)"
+  },
+  "outputs": {
+    "primary": "roundedCelsius",
+    "breakdown": [
+      "rawCelsius",
+      "celsiusWithOffset"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

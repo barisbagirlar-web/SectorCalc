@@ -1,0 +1,56 @@
+{
+  "toolName": "mach-to-kmh-calculator",
+  "inputs": [
+    {
+      "id": "mach",
+      "label": "Mach Number",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "The Mach number (ratio of speed to speed of sound)."
+    },
+    {
+      "id": "temperature",
+      "label": "Air Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 15,
+      "businessContext": "Temperature of the air in degrees Celsius."
+    },
+    {
+      "id": "gamma",
+      "label": "Adiabatic Index (γ)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.4,
+      "businessContext": "Ratio of specific heats for air. Standard value is 1.4."
+    },
+    {
+      "id": "gasConstant",
+      "label": "Specific Gas Constant (R)",
+      "type": "number",
+      "unit": "J/(kg·K)",
+      "default": 287.058,
+      "businessContext": "Specific gas constant for dry air. Standard value is 287.058 J/(kg·K)."
+    }
+  ],
+  "formulas": {
+    "t_kelvin": "temperature + 273.15",
+    "speed_sound_ms": "Math.sqrt(gamma * gasConstant * t_kelvin)",
+    "speed_sound_kmh": "speed_sound_ms * 3.6",
+    "speed_kmh": "mach * speed_sound_kmh"
+  },
+  "outputs": {
+    "primary": "speed_kmh",
+    "breakdown": [
+      "speed_sound_ms",
+      "speed_sound_kmh"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

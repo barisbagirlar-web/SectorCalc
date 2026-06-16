@@ -1,0 +1,67 @@
+{
+  "toolName": "superelevation-calculator",
+  "inputs": [
+    {
+      "id": "designSpeed",
+      "label": "Design Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 80,
+      "businessContext": "The design speed of the road section."
+    },
+    {
+      "id": "curveRadius",
+      "label": "Curve Radius",
+      "type": "number",
+      "unit": "m",
+      "default": 200,
+      "businessContext": "The radius of the horizontal curve."
+    },
+    {
+      "id": "frictionCoeff",
+      "label": "Side Friction Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.15,
+      "businessContext": "The coefficient of side friction assumed for design."
+    },
+    {
+      "id": "maxSuperelevation",
+      "label": "Maximum Superelevation",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "businessContext": "Maximum allowable superelevation rate per design standards."
+    },
+    {
+      "id": "gravity",
+      "label": "Acceleration due to Gravity",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Gravitational acceleration constant."
+    }
+  ],
+  "formulas": {
+    "V_ms": "designSpeed / 3.6",
+    "requiredE_percent": "((V_ms**2 / (gravity * curveRadius)) - frictionCoeff) * 100",
+    "requiredSuperelevation": "Math.max(0, Math.min(requiredE_percent, maxSuperelevation))",
+    "calculatedSuperelevation": "requiredE_percent",
+    "isSuperelevationCapped": "requiredE_percent > maxSuperelevation",
+    "requiredFrictionCoefficient": "(V_ms**2 / (gravity * curveRadius)) - (requiredSuperelevation / 100)"
+  },
+  "outputs": {
+    "primary": "requiredSuperelevation",
+    "breakdown": [
+      "calculatedSuperelevation",
+      "isSuperelevationCapped",
+      "requiredFrictionCoefficient"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

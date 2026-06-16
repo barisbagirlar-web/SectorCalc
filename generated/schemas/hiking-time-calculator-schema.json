@@ -1,0 +1,55 @@
+{
+  "toolName": "hiking-time-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 5,
+      "businessContext": "Total hiking distance in kilometers"
+    },
+    {
+      "id": "elevationGain",
+      "label": "Elevation Gain (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 500,
+      "businessContext": "Total ascent in meters"
+    },
+    {
+      "id": "pace",
+      "label": "Walking Pace (min/km)",
+      "type": "number",
+      "unit": "min/km",
+      "default": 12,
+      "businessContext": "Flat walking pace in minutes per kilometer"
+    },
+    {
+      "id": "terrainFactor",
+      "label": "Terrain Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Multiplier for rough terrain (1 = easy, 1.5 = moderate, 2 = difficult)"
+    }
+  ],
+  "formulas": {
+    "totalTime": "distance * pace * terrainFactor + elevationGain * 0.1 * terrainFactor",
+    "walkingTime": "distance * pace * terrainFactor",
+    "elevationTime": "elevationGain * 0.1 * terrainFactor"
+  },
+  "outputs": {
+    "primary": "totalTime",
+    "breakdown": [
+      "walkingTime",
+      "elevationTime"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

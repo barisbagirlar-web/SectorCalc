@@ -1,0 +1,57 @@
+{
+  "toolName": "eu-shoe-size-to-us-calculator",
+  "inputs": [
+    {
+      "id": "euSize",
+      "label": "EU Shoe Size",
+      "type": "number",
+      "unit": "EU",
+      "default": 42,
+      "businessContext": "Shoe size according to the European standard (Paris points)."
+    },
+    {
+      "id": "conversionType",
+      "label": "Conversion Type (1: Men, 2: Women, 3: Kids)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Select the target gender/age group for US size conversion: 1 for men, 2 for women, 3 for children."
+    },
+    {
+      "id": "brandAdjustment",
+      "label": "Brand Adjustment",
+      "type": "number",
+      "unit": "US",
+      "default": 0,
+      "businessContext": "Offset to account for brand-specific sizing variations (e.g., +0.5 if the brand runs small)."
+    },
+    {
+      "id": "calibrationOffset",
+      "label": "Calibration Offset",
+      "type": "number",
+      "unit": "US",
+      "default": 0,
+      "businessContext": "User-defined calibration offset for personal fit preferences."
+    }
+  ],
+  "formulas": {
+    "menUS": "euSize - 33",
+    "womenUS": "euSize - 30.5",
+    "kidsUS": "euSize - 16",
+    "usSize": "conversionType == 1 ? menUS + brandAdjustment + calibrationOffset : conversionType == 2 ? womenUS + brandAdjustment + calibrationOffset : kidsUS + brandAdjustment + calibrationOffset"
+  },
+  "outputs": {
+    "primary": "usSize",
+    "breakdown": [
+      "menUS",
+      "womenUS",
+      "kidsUS"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

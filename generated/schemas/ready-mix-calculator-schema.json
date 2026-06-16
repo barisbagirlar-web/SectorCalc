@@ -1,0 +1,65 @@
+{
+  "toolName": "ready-mix-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of the concrete slab or formwork"
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Width of the concrete slab or formwork"
+    },
+    {
+      "id": "thickness",
+      "label": "Thickness",
+      "type": "number",
+      "unit": "cm",
+      "default": 15,
+      "businessContext": "Thickness (depth) of the concrete pour"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Additional percentage for spillage, over-excavation, and formwork inaccuracies"
+    },
+    {
+      "id": "density",
+      "label": "Concrete Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 2400,
+      "businessContext": "Standard density for ready mix concrete (typically 2400 kg/m³)"
+    }
+  ],
+  "formulas": {
+    "netVolume": "length * width * (thickness / 100)",
+    "wasteVolume": "netVolume * (wasteFactor / 100)",
+    "totalVolume": "netVolume + wasteVolume",
+    "totalWeight": "totalVolume * density / 1000"
+  },
+  "outputs": {
+    "primary": "totalVolume",
+    "breakdown": [
+      "netVolume",
+      "wasteVolume",
+      "totalWeight"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

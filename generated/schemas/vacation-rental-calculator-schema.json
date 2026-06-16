@@ -1,0 +1,80 @@
+{
+  "toolName": "vacation-rental-calculator",
+  "inputs": [
+    {
+      "id": "nightlyRate",
+      "label": "Nightly Rate",
+      "type": "number",
+      "unit": "USD",
+      "default": 150,
+      "businessContext": "The base cost per night of the rental."
+    },
+    {
+      "id": "numberOfNights",
+      "label": "Number of Nights",
+      "type": "number",
+      "unit": "nights",
+      "default": 5,
+      "businessContext": "Total nights the rental is booked."
+    },
+    {
+      "id": "cleaningFee",
+      "label": "Cleaning Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "businessContext": "One-time cleaning fee added to the total."
+    },
+    {
+      "id": "serviceFeePercent",
+      "label": "Service Fee (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Service fee as a percentage of the rental cost after any discounts."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "businessContext": "Tax percentage applied to the pre-tax total."
+    },
+    {
+      "id": "discountPercent",
+      "label": "Discount (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Discount percentage applied to the base rental cost (nightly rate × nights)."
+    }
+  ],
+  "formulas": {
+    "subtotal": "nightlyRate * numberOfNights",
+    "discountAmount": "subtotal * (discountPercent / 100)",
+    "afterDiscount": "subtotal - discountAmount",
+    "serviceFee": "afterDiscount * (serviceFeePercent / 100)",
+    "beforeTax": "afterDiscount + cleaningFee + serviceFee",
+    "tax": "beforeTax * (taxRate / 100)",
+    "total": "beforeTax + tax"
+  },
+  "outputs": {
+    "primary": "total",
+    "breakdown": [
+      "subtotal",
+      "discountAmount",
+      "afterDiscount",
+      "serviceFee",
+      "beforeTax",
+      "tax",
+      "total"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

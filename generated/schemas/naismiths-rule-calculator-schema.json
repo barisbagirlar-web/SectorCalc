@@ -1,0 +1,75 @@
+{
+  "toolName": "naismiths-rule-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "Total horizontal distance of the hike"
+    },
+    {
+      "id": "ascent",
+      "label": "Total Ascent (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 500,
+      "businessContext": "Total elevation gain during the hike"
+    },
+    {
+      "id": "descent",
+      "label": "Total Descent (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 500,
+      "businessContext": "Total elevation loss during the hike"
+    },
+    {
+      "id": "pace",
+      "label": "Pace (min/km)",
+      "type": "number",
+      "unit": "min/km",
+      "default": 5,
+      "businessContext": "Average walking pace on flat terrain"
+    },
+    {
+      "id": "ascentTimePer100m",
+      "label": "Ascent Time per 100m (min)",
+      "type": "number",
+      "unit": "min/100m",
+      "default": 10,
+      "businessContext": "Additional time per 100m of ascent"
+    },
+    {
+      "id": "descentTimePer100m",
+      "label": "Descent Time per 100m (min)",
+      "type": "number",
+      "unit": "min/100m",
+      "default": 5,
+      "businessContext": "Additional time per 100m of descent"
+    }
+  ],
+  "formulas": {
+    "flatTime": "distance * pace",
+    "ascentTime": "(ascent / 100) * ascentTimePer100m",
+    "descentTime": "(descent / 100) * descentTimePer100m",
+    "totalTimeMin": "flatTime + ascentTime + descentTime",
+    "totalTimeHours": "totalTimeMin / 60"
+  },
+  "outputs": {
+    "primary": "Total hiking time: {totalTimeHours} hours",
+    "breakdown": [
+      "Flat terrain time: {flatTime} minutes",
+      "Ascent time: {ascentTime} minutes",
+      "Descent time: {descentTime} minutes",
+      "Total time: {totalTimeMin} minutes"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

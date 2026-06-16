@@ -1,0 +1,74 @@
+{
+  "toolName": "gravel-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "ft",
+      "default": 10,
+      "businessContext": "Length of the area to cover with gravel (feet)"
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "type": "number",
+      "unit": "ft",
+      "default": 10,
+      "businessContext": "Width of the area to cover with gravel (feet)"
+    },
+    {
+      "id": "depth",
+      "label": "Depth",
+      "type": "number",
+      "unit": "in",
+      "default": 2,
+      "businessContext": "Desired depth of gravel layer (inches)"
+    },
+    {
+      "id": "compactionFactor",
+      "label": "Compaction Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of volume increase to account for compaction after installation"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage of extra material to account for waste, spillage, and uneven ground"
+    },
+    {
+      "id": "density",
+      "label": "Gravel Density",
+      "type": "number",
+      "unit": "lb/ft³",
+      "default": 120,
+      "businessContext": "Bulk density of the gravel (typical gravel ~120 lb/ft³)"
+    }
+  ],
+  "formulas": {
+    "volume": "length * width * (depth / 12)",
+    "adjustedVolume": "volume * (1 + compactionFactor / 100) * (1 + wasteFactor / 100)",
+    "primary": "adjustedVolume * density / 2000",
+    "cubicYards": "adjustedVolume / 27"
+  },
+  "outputs": {
+    "primary": "{primary} tons",
+    "breakdown": [
+      "Volume: {volume} ft³",
+      "Adjusted volume (with compaction & waste): {adjustedVolume} ft³",
+      "Weight: {primary} tons",
+      "Equivalent: {cubicYards} cubic yards"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

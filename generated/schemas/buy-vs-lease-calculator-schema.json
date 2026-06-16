@@ -1,0 +1,65 @@
+{
+  "toolName": "buy-vs-lease-calculator",
+  "inputs": [
+    {
+      "id": "purchasePrice",
+      "label": "Purchase Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Total cost to purchase the asset outright."
+    },
+    {
+      "id": "leasePayment",
+      "label": "Monthly Lease Payment",
+      "type": "number",
+      "unit": "USD/month",
+      "default": 1000,
+      "businessContext": "Monthly lease payment for the asset."
+    },
+    {
+      "id": "leaseTerm",
+      "label": "Lease Term",
+      "type": "number",
+      "unit": "months",
+      "default": 36,
+      "businessContext": "Number of months for the lease agreement."
+    },
+    {
+      "id": "residualValue",
+      "label": "Residual Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "businessContext": "Estimated value of the asset at the end of the lease term."
+    },
+    {
+      "id": "discountRate",
+      "label": "Annual Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual discount rate for net present value calculations."
+    }
+  ],
+  "formulas": {
+    "monthlyRate": "discountRate / 100 / 12",
+    "npvLeasing": "leasePayment * (1 - Math.pow(1 + monthlyRate, -leaseTerm)) / monthlyRate",
+    "pvResidual": "residualValue / Math.pow(1 + monthlyRate, leaseTerm)",
+    "npvBuying": "purchasePrice - pvResidual",
+    "netAdvantage": "npvLeasing - npvBuying"
+  },
+  "outputs": {
+    "primary": "netAdvantage",
+    "breakdown": [
+      "npvBuying",
+      "npvLeasing"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

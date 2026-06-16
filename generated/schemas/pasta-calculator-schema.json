@@ -1,0 +1,100 @@
+{
+  "toolName": "pasta-calculator",
+  "inputs": [
+    {
+      "id": "servings",
+      "label": "Number of Servings",
+      "type": "number",
+      "unit": "servings",
+      "default": 4,
+      "businessContext": "Number of portions to prepare."
+    },
+    {
+      "id": "portionWeight",
+      "label": "Pasta per Portion",
+      "type": "number",
+      "unit": "g",
+      "default": 100,
+      "businessContext": "Dry pasta weight per person in grams. Standard is 80-100g."
+    },
+    {
+      "id": "waterRatio",
+      "label": "Water Ratio",
+      "type": "number",
+      "unit": "L/kg",
+      "default": 10,
+      "businessContext": "Water needed per kilogram of dry pasta. Typically 10 liters per kg."
+    },
+    {
+      "id": "saltConcentration",
+      "label": "Salt Concentration",
+      "type": "number",
+      "unit": "g/L",
+      "default": 10,
+      "businessContext": "Salt added per liter of water. Standard is 10 g/L."
+    },
+    {
+      "id": "cookingTimeLoss",
+      "label": "Water Absorption Factor",
+      "type": "number",
+      "unit": "ratio",
+      "default": 1.8,
+      "businessContext": "Multiplier for cooked weight relative to dry weight. Cooked pasta absorbs water. Typical 1.8-2.0."
+    },
+    {
+      "id": "caloriesPer100g",
+      "label": "Calories per 100g Dry",
+      "type": "number",
+      "unit": "kcal",
+      "default": 371,
+      "businessContext": "Energy content per 100 grams of dry pasta (typical 371 kcal)."
+    }
+  ],
+  "formulas": {
+    "totalDryWeight": "servings * portionWeight",
+    "totalWater": "(totalDryWeight / 1000) * waterRatio",
+    "totalSalt": "totalWater * saltConcentration",
+    "cookedWeight": "totalDryWeight * cookingTimeLoss",
+    "totalCalories": "(totalDryWeight / 100) * caloriesPer100g"
+  },
+  "outputs": {
+    "primary": {
+      "id": "totalCookedPasta",
+      "label": "Cooked Pasta",
+      "unit": "g",
+      "formula": "cookedWeight"
+    },
+    "breakdown": [
+      {
+        "id": "totalDryPasta",
+        "label": "Dry Pasta",
+        "unit": "g",
+        "formula": "totalDryWeight"
+      },
+      {
+        "id": "waterNeeded",
+        "label": "Water",
+        "unit": "L",
+        "formula": "totalWater"
+      },
+      {
+        "id": "saltNeeded",
+        "label": "Salt",
+        "unit": "g",
+        "formula": "totalSalt"
+      },
+      {
+        "id": "totalCalories",
+        "label": "Calories",
+        "unit": "kcal",
+        "formula": "totalCalories"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "quarter-day-calculator",
+  "inputs": [
+    {
+      "id": "days",
+      "label": "Gün",
+      "type": "number",
+      "unit": "gün",
+      "default": 0,
+      "businessContext": "Tam gün sayısı"
+    },
+    {
+      "id": "hours",
+      "label": "Saat",
+      "type": "number",
+      "unit": "saat",
+      "default": 0,
+      "businessContext": "Ek saat miktarı"
+    },
+    {
+      "id": "minutes",
+      "label": "Dakika",
+      "type": "number",
+      "unit": "dakika",
+      "default": 0,
+      "businessContext": "Ek dakika miktarı"
+    },
+    {
+      "id": "seconds",
+      "label": "Saniye",
+      "type": "number",
+      "unit": "saniye",
+      "default": 0,
+      "businessContext": "Ek saniye miktarı"
+    }
+  ],
+  "formulas": {
+    "totalSeconds": "days * 86400 + hours * 3600 + minutes * 60 + seconds",
+    "quarterDays": "totalSeconds / 21600",
+    "fullShifts": "Math.floor(totalSeconds / 21600)",
+    "remainingQuarterDaySeconds": "totalSeconds % 21600",
+    "remainingHours": "remainingQuarterDaySeconds / 3600"
+  },
+  "outputs": {
+    "primary": "quarterDays",
+    "breakdown": [
+      "fullShifts",
+      "remainingHours"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "investment-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "The amount of money already invested or saved at the beginning."
+    },
+    {
+      "id": "annualContribution",
+      "label": "Annual Contribution",
+      "type": "number",
+      "unit": "currency/year",
+      "default": 5000,
+      "businessContext": "The amount of money added to the investment each year."
+    },
+    {
+      "id": "years",
+      "label": "Number of Years",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "The total time the money is invested for."
+    },
+    {
+      "id": "annualRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "The expected annual rate of return on the investment."
+    },
+    {
+      "id": "compoundingFrequency",
+      "label": "Compounding Frequency",
+      "type": "number",
+      "unit": "times/year",
+      "default": 12,
+      "businessContext": "Number of times the interest is compounded per year (e.g., 12 for monthly)."
+    }
+  ],
+  "formulas": {
+    "futureValue": "annualRate === 0 ? (initialInvestment + annualContribution * years) : initialInvestment * Math.pow(1 + annualRate/100/compoundingFrequency, compoundingFrequency * years) + annualContribution * ((Math.pow(1 + annualRate/100/compoundingFrequency, compoundingFrequency * years) - 1) / (annualRate/100/compoundingFrequency))",
+    "totalContributions": "initialInvestment + annualContribution * years",
+    "totalInterest": "(annualRate === 0 ? (initialInvestment + annualContribution * years) : initialInvestment * Math.pow(1 + annualRate/100/compoundingFrequency, compoundingFrequency * years) + annualContribution * ((Math.pow(1 + annualRate/100/compoundingFrequency, compoundingFrequency * years) - 1) / (annualRate/100/compoundingFrequency))) - (initialInvestment + annualContribution * years)"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": [
+      "totalContributions",
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

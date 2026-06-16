@@ -1,0 +1,59 @@
+{
+  "toolName": "orbit-calculator",
+  "inputs": [
+    {
+      "id": "perigeeAltitude",
+      "label": "Perigee Altitude",
+      "type": "number",
+      "unit": "km",
+      "default": 200,
+      "businessContext": "Altitude of the orbit's closest point to Earth above the surface."
+    },
+    {
+      "id": "apogeeAltitude",
+      "label": "Apogee Altitude",
+      "type": "number",
+      "unit": "km",
+      "default": 2000,
+      "businessContext": "Altitude of the orbit's farthest point from Earth above the surface."
+    },
+    {
+      "id": "earthRadius",
+      "label": "Earth Radius",
+      "type": "number",
+      "unit": "km",
+      "default": 6371,
+      "businessContext": "Mean radius of the Earth. Default is 6371 km."
+    },
+    {
+      "id": "mu",
+      "label": "Gravitational Parameter μ",
+      "type": "number",
+      "unit": "km³/s²",
+      "default": 398600.4418,
+      "businessContext": "Standard gravitational parameter for Earth. μ = G*M."
+    }
+  ],
+  "formulas": {
+    "orbitalPeriodMinutes": "2 * Math.PI * Math.sqrt(Math.pow((perigeeAltitude + apogeeAltitude + 2 * earthRadius) / 2, 3) / mu) / 60",
+    "semiMajorAxis": "(perigeeAltitude + apogeeAltitude + 2 * earthRadius) / 2",
+    "eccentricity": "(apogeeAltitude - perigeeAltitude) / (perigeeAltitude + apogeeAltitude + 2 * earthRadius)",
+    "perigeeVelocity": "Math.sqrt(mu * (2 / (perigeeAltitude + earthRadius) - 1 / ((perigeeAltitude + apogeeAltitude + 2 * earthRadius) / 2)))",
+    "apogeeVelocity": "Math.sqrt(mu * (2 / (apogeeAltitude + earthRadius) - 1 / ((perigeeAltitude + apogeeAltitude + 2 * earthRadius) / 2)))"
+  },
+  "outputs": {
+    "primary": "orbitalPeriodMinutes",
+    "breakdown": [
+      "semiMajorAxis",
+      "eccentricity",
+      "perigeeVelocity",
+      "apogeeVelocity"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

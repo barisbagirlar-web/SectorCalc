@@ -1,0 +1,101 @@
+{
+  "toolName": "pearson-correlation-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "X₁",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First X value"
+    },
+    {
+      "id": "y1",
+      "label": "Y₁",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First Y value"
+    },
+    {
+      "id": "x2",
+      "label": "X₂",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second X value"
+    },
+    {
+      "id": "y2",
+      "label": "Y₂",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second Y value"
+    },
+    {
+      "id": "x3",
+      "label": "X₃",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Third X value"
+    },
+    {
+      "id": "y3",
+      "label": "Y₃",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Third Y value"
+    },
+    {
+      "id": "x4",
+      "label": "X₄",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fourth X value"
+    },
+    {
+      "id": "y4",
+      "label": "Y₄",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fourth Y value"
+    }
+  ],
+  "formulas": {
+    "meanX": "(x1 + x2 + x3 + x4) / 4",
+    "meanY": "(y1 + y2 + y3 + y4) / 4",
+    "devX1": "x1 - meanX",
+    "devX2": "x2 - meanX",
+    "devX3": "x3 - meanX",
+    "devX4": "x4 - meanX",
+    "devY1": "y1 - meanY",
+    "devY2": "y2 - meanY",
+    "devY3": "y3 - meanY",
+    "devY4": "y4 - meanY",
+    "sumProdDev": "devX1 * devY1 + devX2 * devY2 + devX3 * devY3 + devX4 * devY4",
+    "sumSqX": "devX1 ** 2 + devX2 ** 2 + devX3 ** 2 + devX4 ** 2",
+    "sumSqY": "devY1 ** 2 + devY2 ** 2 + devY3 ** 2 + devY4 ** 2",
+    "correlationCoefficient": "sumProdDev / Math.sqrt(sumSqX * sumSqY)"
+  },
+  "outputs": {
+    "primary": "correlationCoefficient",
+    "breakdown": [
+      "meanX",
+      "meanY",
+      "sumSqX",
+      "sumSqY",
+      "sumProdDev"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

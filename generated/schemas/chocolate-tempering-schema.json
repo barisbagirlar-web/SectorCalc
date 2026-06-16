@@ -1,0 +1,75 @@
+{
+  "toolName": "chocolate-tempering",
+  "inputs": [
+    {
+      "id": "cocoaButterPercent",
+      "label": "Cocoa Butter Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 35,
+      "businessContext": "Percentage of cocoa butter in the chocolate mass"
+    },
+    {
+      "id": "massKg",
+      "label": "Chocolate Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Total weight of chocolate to be tempered"
+    },
+    {
+      "id": "targetTempC",
+      "label": "Target Tempering Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 31,
+      "businessContext": "Desired final temperature after tempering"
+    },
+    {
+      "id": "coolingRate",
+      "label": "Cooling Rate",
+      "type": "number",
+      "unit": "°C/min",
+      "default": 2,
+      "businessContext": "Rate at which chocolate is cooled during tempering"
+    },
+    {
+      "id": "seedPercent",
+      "label": "Seed Chocolate Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of already tempered chocolate used as seed"
+    },
+    {
+      "id": "ambientTempC",
+      "label": "Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Room temperature where tempering occurs"
+    }
+  ],
+  "formulas": {
+    "seedMass": "massKg * seedPercent / 100",
+    "coolingTime": "(targetTempC - ambientTempC) / coolingRate",
+    "cocoaButterMass": "massKg * cocoaButterPercent / 100",
+    "totalMass": "massKg + seedMass",
+    "temperIndex": "cocoaButterPercent * 0.8 + seedPercent * 0.2"
+  },
+  "outputs": {
+    "primary": "temperIndex",
+    "breakdown": [
+      "seedMass",
+      "coolingTime",
+      "cocoaButterMass",
+      "totalMass"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

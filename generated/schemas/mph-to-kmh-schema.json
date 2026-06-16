@@ -1,0 +1,28 @@
+{
+  "toolName": "mph-to-kmh",
+  "inputs": [
+    {
+      "id": "speed_mph",
+      "label": "Speed in MPH",
+      "type": "number",
+      "unit": "mph",
+      "default": 60,
+      "businessContext": "Enter the speed value in miles per hour to convert to kilometers per hour."
+    }
+  ],
+  "formulas": {
+    "speed_kmh": "speed_mph * 1.609344"
+  },
+  "outputs": {
+    "primary": "speed_kmh",
+    "breakdown": [
+      "speed_mph * 1.609344 = speed_kmh"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

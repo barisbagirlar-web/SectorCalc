@@ -1,0 +1,95 @@
+{
+  "toolName": "fence-calculator",
+  "inputs": [
+    {
+      "id": "totalLength",
+      "label": "Toplam Çit Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 20,
+      "businessContext": "Çit hattının toplam uzunluğu (kapılar hariç)"
+    },
+    {
+      "id": "fenceHeight",
+      "label": "Çit Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 1.8,
+      "businessContext": "Panel yüksekliği"
+    },
+    {
+      "id": "postSpacing",
+      "label": "Direk Aralığı",
+      "type": "number",
+      "unit": "m",
+      "default": 2.5,
+      "businessContext": "Direkler arası mesafe"
+    },
+    {
+      "id": "pricePerPost",
+      "label": "Direk Birim Fiyatı",
+      "type": "number",
+      "unit": "EUR",
+      "default": 15,
+      "businessContext": "Bir direk maliyeti"
+    },
+    {
+      "id": "pricePanelPerSqm",
+      "label": "Panel Metrekare Fiyatı",
+      "type": "number",
+      "unit": "EUR/m²",
+      "default": 20,
+      "businessContext": "Panel malzemesinin metrekare başına fiyatı"
+    },
+    {
+      "id": "numberOfGates",
+      "label": "Kapı Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Çite eklenecek kapı adedi"
+    },
+    {
+      "id": "pricePerGate",
+      "label": "Kapı Birim Fiyatı",
+      "type": "number",
+      "unit": "EUR",
+      "default": 200,
+      "businessContext": "Bir kapı maliyeti"
+    },
+    {
+      "id": "concreteCostPerPost",
+      "label": "Direk Başı Beton Maliyeti",
+      "type": "number",
+      "unit": "EUR",
+      "default": 5,
+      "businessContext": "Bir direk için gerekli betonun toplam maliyeti"
+    }
+  ],
+  "formulas": {
+    "numberPosts": "Math.ceil(totalLength / postSpacing) + 1",
+    "totalPanelArea": "totalLength * fenceHeight",
+    "totalPostCost": "numberPosts * pricePerPost",
+    "totalPanelCost": "totalPanelArea * pricePanelPerSqm",
+    "totalConcreteCost": "numberPosts * concreteCostPerPost",
+    "totalGateCost": "numberOfGates * pricePerGate",
+    "totalCost": "totalPostCost + totalPanelCost + totalConcreteCost + totalGateCost"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "numberPosts",
+      "totalPanelArea",
+      "totalPostCost",
+      "totalPanelCost",
+      "totalConcreteCost",
+      "totalGateCost"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

@@ -1,0 +1,40 @@
+{
+  "toolName": "snellen-chart-calculator",
+  "inputs": [
+    {
+      "id": "testDistance",
+      "label": "Test Mesafesi (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 6,
+      "businessContext": "Hastanın test edildiği mesafe, genellikle 6 m."
+    },
+    {
+      "id": "optotypeHeight",
+      "label": "Optotip Yüksekliği (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 8.73,
+      "businessContext": "En küçük okunabilen harf veya sembolün tam yüksekliği."
+    }
+  ],
+  "formulas": {
+    "standardDistanceM": "(optotypeHeight / 1000) / (2 * Math.tan((5/2)/60 * Math.PI/180))",
+    "visualAcuityDecimal": "testDistance / standardDistanceM",
+    "snellenDenominatorRounded": "Math.round(standardDistanceM * 10) / 10",
+    "logMAR": "-Math.log10(visualAcuityDecimal)"
+  },
+  "outputs": {
+    "primary": "visualAcuityDecimal",
+    "breakdown": [
+      "snellenDenominatorRounded",
+      "logMAR"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

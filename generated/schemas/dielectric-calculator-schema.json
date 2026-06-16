@@ -1,0 +1,66 @@
+{
+  "toolName": "dielectric-calculator",
+  "inputs": [
+    {
+      "id": "relative_permittivity",
+      "label": "Relative Permittivity (εr)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 4,
+      "businessContext": "Dielectric constant of material"
+    },
+    {
+      "id": "plate_area",
+      "label": "Plate Area (A)",
+      "type": "number",
+      "unit": "m²",
+      "default": 0.01,
+      "businessContext": "Overlapping area of capacitor plates"
+    },
+    {
+      "id": "plate_distance",
+      "label": "Distance Between Plates (d)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.001,
+      "businessContext": "Thickness of dielectric between plates"
+    },
+    {
+      "id": "frequency",
+      "label": "Frequency (f)",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1000000,
+      "businessContext": "Operating frequency"
+    },
+    {
+      "id": "loss_tangent",
+      "label": "Loss Tangent (tanδ)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.001,
+      "businessContext": "Dielectric dissipation factor"
+    }
+  ],
+  "formulas": {
+    "epsilon0": 8.854e-12,
+    "capacitance": "epsilon0 * relative_permittivity * plate_area / plate_distance",
+    "impedance": "1 / (2 * Math.PI * frequency * capacitance)",
+    "quality_factor": "1 / loss_tangent",
+    "loss": "loss_tangent"
+  },
+  "outputs": {
+    "primary": "capacitance",
+    "breakdown": [
+      "impedance",
+      "quality_factor",
+      "loss"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

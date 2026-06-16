@@ -1,0 +1,55 @@
+{
+  "toolName": "molarity-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Solute Mass",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Mass of solute in grams"
+    },
+    {
+      "id": "molarMass",
+      "label": "Molar Mass",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 0,
+      "businessContext": "Molar mass of the solute"
+    },
+    {
+      "id": "volume",
+      "label": "Solution Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 0,
+      "businessContext": "Total volume of the solution in liters"
+    }
+  ],
+  "formulas": {
+    "molarity": "mass / (molarMass * volume)",
+    "moles": "mass / molarMass"
+  },
+  "outputs": {
+    "primary": {
+      "id": "molarity",
+      "label": "Molarity",
+      "unit": "mol/L",
+      "value": "molarity"
+    },
+    "breakdown": [
+      {
+        "id": "moles",
+        "label": "Number of Moles",
+        "unit": "mol",
+        "value": "moles"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

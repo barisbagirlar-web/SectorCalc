@@ -1,0 +1,61 @@
+{
+  "toolName": "square-root-calculator",
+  "inputs": [
+    {
+      "id": "radicand",
+      "label": "Radicand",
+      "type": "number",
+      "unit": "-",
+      "default": 4,
+      "businessContext": "The number for which the square root is computed."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "digits",
+      "default": 2,
+      "businessContext": "Number of decimal places to round the result."
+    },
+    {
+      "id": "initialGuess",
+      "label": "Initial Guess",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "Optional starting value for iterative methods (if applicable)."
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "-",
+      "default": 0.000001,
+      "businessContext": "Convergence tolerance for iterative methods."
+    },
+    {
+      "id": "maxIterations",
+      "label": "Max Iterations",
+      "type": "number",
+      "unit": "count",
+      "default": 100,
+      "businessContext": "Maximum number of iterations allowed for iterative methods."
+    }
+  ],
+  "formulas": {
+    "primary": "Math.round(Math.sqrt(radicand) * 10**precision) / 10**precision"
+  },
+  "outputs": {
+    "primary": "{{primary}}",
+    "breakdown": [
+      "Square root of {{radicand}} rounded to {{precision}} decimal places: {{primary}}",
+      "Direct calculation using Math.sqrt function."
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

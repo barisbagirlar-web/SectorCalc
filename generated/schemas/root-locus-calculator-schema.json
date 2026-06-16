@@ -1,0 +1,89 @@
+{
+  "toolName": "root-locus-calculator",
+  "inputs": [
+    {
+      "id": "zeroReal",
+      "label": "Zero Real Part",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Real axis location of the open-loop zero"
+    },
+    {
+      "id": "zeroImag",
+      "label": "Zero Imag Part",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Imaginary axis location of the open-loop zero"
+    },
+    {
+      "id": "pole1Real",
+      "label": "Pole 1 Real Part",
+      "type": "number",
+      "unit": "",
+      "default": -1,
+      "businessContext": "Real axis location of the first open-loop pole"
+    },
+    {
+      "id": "pole1Imag",
+      "label": "Pole 1 Imag Part",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Imaginary axis location of the first open-loop pole"
+    },
+    {
+      "id": "pole2Real",
+      "label": "Pole 2 Real Part",
+      "type": "number",
+      "unit": "",
+      "default": -2,
+      "businessContext": "Real axis location of the second open-loop pole"
+    },
+    {
+      "id": "pole2Imag",
+      "label": "Pole 2 Imag Part",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Imaginary axis location of the second open-loop pole"
+    },
+    {
+      "id": "pole3Real",
+      "label": "Pole 3 Real Part",
+      "type": "number",
+      "unit": "",
+      "default": -3,
+      "businessContext": "Real axis location of the third open-loop pole"
+    },
+    {
+      "id": "pole3Imag",
+      "label": "Pole 3 Imag Part",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Imaginary axis location of the third open-loop pole"
+    }
+  ],
+  "formulas": {
+    "primary": "`Centroid at ${((pole1Real + pole2Real + pole3Real) - zeroReal) / 2}`",
+    "breakdown": [
+      "`Number of asymptotes: 2`",
+      "`Asymptote angles: 90°, -90°`"
+    ]
+  },
+  "outputs": {
+    "primary": "Centroid location",
+    "breakdown": [
+      "Total number of asymptotes",
+      "Angle directions of asymptotes"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

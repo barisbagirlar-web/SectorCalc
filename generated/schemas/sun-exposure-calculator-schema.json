@@ -1,0 +1,67 @@
+{
+  "toolName": "sun-exposure-calculator",
+  "inputs": [
+    {
+      "id": "uvIndex",
+      "label": "UV Index",
+      "type": "number",
+      "unit": "UVI",
+      "default": 5,
+      "businessContext": "The ultraviolet index value from weather report (0-11+)"
+    },
+    {
+      "id": "skinType",
+      "label": "Skin Type",
+      "type": "number",
+      "unit": "Fitzpatrick (1-6)",
+      "default": 3,
+      "businessContext": "Fitzpatrick skin phototype: 1=very fair, 6=deeply pigmented"
+    },
+    {
+      "id": "spf",
+      "label": "Sunscreen SPF",
+      "type": "number",
+      "unit": "SPF",
+      "default": 15,
+      "businessContext": "Sun Protection Factor of applied sunscreen"
+    },
+    {
+      "id": "cloudCover",
+      "label": "Cloud Cover",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage of sky covered by clouds reducing UV"
+    },
+    {
+      "id": "altitude",
+      "label": "Altitude",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Elevation above sea level; UV increases ~5% per 1000m"
+    }
+  ],
+  "formulas": {
+    "effectiveUVI": "uvIndex * (1 + altitude / 1000 * 0.05) * (1 - cloudCover / 100)",
+    "erythemalDoseRate": "effectiveUVI * 0.025",
+    "med": "[200,250,300,450,600,1000][Math.max(0, Math.min(5, Math.round(skinType) - 1))]",
+    "medTimeMinutes": "(med / (erythemalDoseRate * 3600)) * 60",
+    "safeMinutes": "medTimeMinutes * spf"
+  },
+  "outputs": {
+    "primary": "safeMinutes",
+    "breakdown": [
+      "effectiveUVI",
+      "erythemalDoseRate",
+      "med",
+      "medTimeMinutes"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

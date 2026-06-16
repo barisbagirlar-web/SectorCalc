@@ -1,0 +1,81 @@
+{
+  "toolName": "smart-goal-calculator",
+  "inputs": [
+    {
+      "id": "currentValue",
+      "label": "Current Value",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "The current value of the metric to be improved."
+    },
+    {
+      "id": "targetValue",
+      "label": "Target Value",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "businessContext": "The desired target value for the metric."
+    },
+    {
+      "id": "timeframe",
+      "label": "Timeframe",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "businessContext": "Timeframe to achieve the goal in months."
+    },
+    {
+      "id": "resourceHours",
+      "label": "Weekly Resource Hours",
+      "type": "number",
+      "unit": "hours/week",
+      "default": 10,
+      "businessContext": "Weekly resource hours allocated to the goal."
+    },
+    {
+      "id": "costPerHour",
+      "label": "Cost per Hour",
+      "type": "number",
+      "unit": "currency",
+      "default": 50,
+      "businessContext": "Cost per resource hour."
+    },
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "businessContext": "Initial investment required for the goal."
+    },
+    {
+      "id": "expectedImprovementRate",
+      "label": "Expected Improvement Rate",
+      "type": "number",
+      "unit": "% per month",
+      "default": 5,
+      "businessContext": "Expected improvement rate per month (%)."
+    }
+  ],
+  "formulas": {
+    "totalCost": "initialInvestment + (resourceHours * costPerHour * timeframe * 4.33)",
+    "requiredMonthlyImprovement": "(targetValue - currentValue) / timeframe",
+    "feasibilityScore": "expectedImprovementRate / ((targetValue - currentValue) / timeframe) * 100",
+    "expectedMonthlyImprovementRate": "expectedImprovementRate"
+  },
+  "outputs": {
+    "primary": "feasibilityScore",
+    "breakdown": [
+      "totalCost",
+      "requiredMonthlyImprovement",
+      "expectedMonthlyImprovementRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

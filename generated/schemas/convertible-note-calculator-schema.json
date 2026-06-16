@@ -1,0 +1,82 @@
+{
+  "toolName": "convertible-note-calculator",
+  "inputs": [
+    {
+      "id": "investmentAmount",
+      "label": "Investment Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Amount invested in the convertible note."
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Discount applied to next round price per share."
+    },
+    {
+      "id": "valuationCap",
+      "label": "Valuation Cap",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000000,
+      "businessContext": "Maximum company valuation for conversion price cap."
+    },
+    {
+      "id": "nextRoundPricePerShare",
+      "label": "Next Round Price Per Share",
+      "type": "number",
+      "unit": "USD/share",
+      "default": 1,
+      "businessContext": "Price per share in the qualified financing round."
+    },
+    {
+      "id": "interestRate",
+      "label": "Interest Rate",
+      "type": "number",
+      "unit": "% p.a.",
+      "default": 5,
+      "businessContext": "Annual simple interest rate accrued on the note."
+    },
+    {
+      "id": "maturity",
+      "label": "Maturity",
+      "type": "number",
+      "unit": "years",
+      "default": 2,
+      "businessContext": "Time until conversion, used to calculate accrued interest."
+    },
+    {
+      "id": "preMoneyFullyDilutedShares",
+      "label": "Pre-Money Fully Diluted Shares",
+      "type": "number",
+      "unit": "shares",
+      "default": 10000000,
+      "businessContext": "Number of fully diluted shares before the next round."
+    }
+  ],
+  "formulas": {
+    "accruedPrincipal": "investmentAmount * (1 + interestRate/100 * maturity)",
+    "discountPrice": "nextRoundPricePerShare * (1 - discountRate/100)",
+    "capPrice": "valuationCap / preMoneyFullyDilutedShares",
+    "conversionPrice": "Math.min(discountPrice, capPrice)",
+    "numberOfShares": "accruedPrincipal / conversionPrice",
+    "ownershipPercentage": "numberOfShares / (preMoneyFullyDilutedShares + numberOfShares) * 100"
+  },
+  "outputs": {
+    "primary": "numberOfShares",
+    "breakdown": [
+      "conversionPrice",
+      "ownershipPercentage"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

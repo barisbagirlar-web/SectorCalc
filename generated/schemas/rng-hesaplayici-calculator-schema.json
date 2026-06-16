@@ -1,0 +1,71 @@
+{
+  "toolName": "rng-hesaplayici-calculator",
+  "inputs": [
+    {
+      "id": "seed",
+      "label": "Başlangıç Değeri (Seed)",
+      "type": "number",
+      "unit": "birimsiz",
+      "default": 12345,
+      "businessContext": "LCG algoritması için başlangıç tohum değeri."
+    },
+    {
+      "id": "multiplier",
+      "label": "Çarpan (a)",
+      "type": "number",
+      "unit": "birimsiz",
+      "default": 1664525,
+      "businessContext": "Doğrusal eşleşik üretecin çarpan katsayısı."
+    },
+    {
+      "id": "increment",
+      "label": "Artış (c)",
+      "type": "number",
+      "unit": "birimsiz",
+      "default": 1013904223,
+      "businessContext": "Doğrusal eşleşik üretecin artış sabiti."
+    },
+    {
+      "id": "modulus",
+      "label": "Modül (m)",
+      "type": "number",
+      "unit": "birimsiz",
+      "default": 4294967296,
+      "businessContext": "Modül değeri, genellikle 2^32."
+    },
+    {
+      "id": "outputMin",
+      "label": "Çıkış Alt Sınır",
+      "type": "number",
+      "unit": "birimsiz",
+      "default": 0,
+      "businessContext": "Ölçeklendirilmiş rastgele sayı için istenen aralığın alt sınırı."
+    },
+    {
+      "id": "outputMax",
+      "label": "Çıkış Üst Sınır",
+      "type": "number",
+      "unit": "birimsiz",
+      "default": 100,
+      "businessContext": "Ölçeklendirilmiş rastgele sayı için istenen aralığın üst sınırı."
+    }
+  ],
+  "formulas": {
+    "generatedNumber": "(multiplier * seed + increment) % modulus",
+    "normalized": "generatedNumber / modulus",
+    "scaledValue": "outputMin + normalized * (outputMax - outputMin)"
+  },
+  "outputs": {
+    "primary": "scaledValue",
+    "breakdown": [
+      "generatedNumber",
+      "normalized"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

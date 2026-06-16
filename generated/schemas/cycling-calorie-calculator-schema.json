@@ -1,0 +1,56 @@
+{
+  "toolName": "cycling-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Cyclist Weight (including load)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Total mass of the cyclist including any cargo, directly proportional to energy expenditure based on physics work equation."
+    },
+    {
+      "id": "distance",
+      "label": "Total Cycling Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "Distance covered during the cycling activity, used to compute average speed and mechanical work done against friction and gradient."
+    },
+    {
+      "id": "duration",
+      "label": "Active Cycling Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Net time spent pedaling, excluding stops; combined with distance to derive average speed for MET estimation."
+    },
+    {
+      "id": "incline",
+      "label": "Average Road Incline",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Average gradient of the route; positive incline increases effort and MET value linearly, negative reduces, zero for flat terrain."
+    }
+  ],
+  "formulas": {
+    "average_speed": "distance / (duration / 60)",
+    "met_base": "average_speed <= 15 ? 5 : (average_speed <= 20 ? 7 : (average_speed <= 25 ? 10 : 12))",
+    "met_adjusted": "Math.max(1, met_base + (incline / 100) * 2)",
+    "calories_burned": "met_adjusted * weight * (duration / 60)"
+  },
+  "outputs": {
+    "primary": "calories_burned",
+    "breakdown": [
+      "average_speed",
+      "met_adjusted"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

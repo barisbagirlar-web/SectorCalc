@@ -1,0 +1,68 @@
+{
+  "toolName": "capital-lease-calculator",
+  "inputs": [
+    {
+      "id": "assetCost",
+      "label": "Asset Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Fair value or cost of the asset being leased."
+    },
+    {
+      "id": "leaseTerm",
+      "label": "Lease Term",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Duration of the lease in years."
+    },
+    {
+      "id": "interestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "businessContext": "Implicit interest rate in the lease, per annum."
+    },
+    {
+      "id": "residualValue",
+      "label": "Residual Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "businessContext": "Estimated fair value of the asset at the end of the lease term."
+    },
+    {
+      "id": "paymentFrequency",
+      "label": "Payments per Year",
+      "type": "number",
+      "unit": "per year",
+      "default": 12,
+      "businessContext": "Number of lease payments per year (12 for monthly, 4 for quarterly, 1 for annual)."
+    }
+  ],
+  "formulas": {
+    "r": "(interestRate / 100) / paymentFrequency",
+    "n": "leaseTerm * paymentFrequency",
+    "pvResidual": "residualValue / Math.pow(1 + r, n)",
+    "monthlyPayment": "(assetCost - pvResidual) * r / (1 - Math.pow(1 + r, -n))",
+    "totalPayments": "monthlyPayment * n",
+    "totalInterest": "totalPayments + residualValue - assetCost",
+    "effectiveAnnualRate": "(Math.pow(1 + r, paymentFrequency) - 1) * 100"
+  },
+  "outputs": {
+    "primary": "monthlyPayment",
+    "breakdown": [
+      "totalPayments",
+      "totalInterest",
+      "effectiveAnnualRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

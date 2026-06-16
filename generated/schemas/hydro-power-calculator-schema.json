@@ -1,0 +1,71 @@
+{
+  "toolName": "hydro-power-calculator",
+  "inputs": [
+    {
+      "id": "flowRate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "m³/s",
+      "default": 1,
+      "businessContext": "Volumetric flow rate of water through the turbine."
+    },
+    {
+      "id": "head",
+      "label": "Head",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Net hydraulic head, the effective height water falls."
+    },
+    {
+      "id": "turbineEfficiency",
+      "label": "Turbine Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Efficiency of the turbine in converting hydraulic energy to mechanical energy."
+    },
+    {
+      "id": "generatorEfficiency",
+      "label": "Generator Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Efficiency of the electrical generator in converting mechanical energy to electrical energy."
+    },
+    {
+      "id": "waterDensity",
+      "label": "Water Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of water, usually 1000 kg/m³ for freshwater."
+    },
+    {
+      "id": "gravity",
+      "label": "Gravity",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Acceleration due to gravity, standard is 9.81 m/s²."
+    }
+  ],
+  "formulas": {
+    "overallEfficiencyPercent": "(turbineEfficiency * generatorEfficiency) / 100",
+    "powerWatts": "(overallEfficiencyPercent / 100) * waterDensity * gravity * flowRate * head",
+    "powerKW": "powerWatts / 1000"
+  },
+  "outputs": {
+    "primary": "powerKW",
+    "breakdown": [
+      "powerWatts",
+      "overallEfficiencyPercent"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

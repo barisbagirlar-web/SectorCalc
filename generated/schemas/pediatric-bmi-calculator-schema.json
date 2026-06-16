@@ -1,0 +1,54 @@
+{
+  "toolName": "pediatric-bmi-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "months",
+      "default": 24,
+      "businessContext": "Child's age in months (for percentile interpretation, not used in BMI formula)."
+    },
+    {
+      "id": "sex",
+      "label": "Sex",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Biological sex (0 = female, 1 = male) for growth chart percentile lookup."
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 15,
+      "businessContext": "Body weight in kilograms."
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Standing height in centimeters."
+    }
+  ],
+  "formulas": {
+    "bmi": "weight / Math.pow(height/100, 2)"
+  },
+  "outputs": {
+    "primary": "bmi",
+    "breakdown": [
+      "weight",
+      "height",
+      "bmi"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,59 @@
+// Auto-generated from gibbs-free-energy-reaction-calculator-schema.json
+import * as z from 'zod';
+
+export interface Gibbs_free_energy_reaction_calculatorInput {
+  temperature: number;
+  deltaH: number;
+  S_products: number;
+  S_reactants: number;
+}
+
+export const Gibbs_free_energy_reaction_calculatorInputSchema = z.object({
+  temperature: z.number().default(298.15),
+  deltaH: z.number().default(0),
+  S_products: z.number().default(0),
+  S_reactants: z.number().default(0),
+});
+
+function evaluateAllFormulas(input: Gibbs_free_energy_reaction_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (input.S_products - input.S_reactants) / 1000; results["deltaS_kJ_per_molK"] = Number.isFinite(v) ? v : 0; } catch { results["deltaS_kJ_per_molK"] = 0; }
+  try { const v = input.temperature * ((input.S_products - input.S_reactants) / 1000); results["T_deltaS_kJ_per_mol"] = Number.isFinite(v) ? v : 0; } catch { results["T_deltaS_kJ_per_mol"] = 0; }
+  try { const v = input.deltaH - (input.temperature * ((input.S_products - input.S_reactants) / 1000)); results["deltaG_kJ_per_mol"] = Number.isFinite(v) ? v : 0; } catch { results["deltaG_kJ_per_mol"] = 0; }
+  return results;
+}
+
+
+export function calculateGibbs_free_energy_reaction_calculator(input: Gibbs_free_energy_reaction_calculatorInput): Gibbs_free_energy_reaction_calculatorOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values["deltaG_kJ_per_mol"] ?? 0;
+  const breakdown = {
+    
+  };
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    premiumRequired: false,
+    premiumFeatures: [],
+  };
+}
+
+
+export interface Gibbs_free_energy_reaction_calculatorOutput {
+  totalWasteCost: number;
+  breakdown: {  };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+}

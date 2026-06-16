@@ -1,0 +1,65 @@
+{
+  "toolName": "fahrenheit-to-kelvin-calculator",
+  "inputs": [
+    {
+      "id": "fahrenheit",
+      "label": "Temperature (°F)",
+      "type": "number",
+      "unit": "°F",
+      "default": 32,
+      "businessContext": "Measured temperature in Fahrenheit"
+    },
+    {
+      "id": "subtractOffset",
+      "label": "Subtract Offset",
+      "type": "number",
+      "unit": "°F",
+      "default": 32,
+      "businessContext": "Offset to subtract for zero-point alignment (freezing point of water in °F)"
+    },
+    {
+      "id": "multiplyFactor",
+      "label": "Multiply Factor",
+      "type": "number",
+      "unit": "none",
+      "default": 0.5555555555555556,
+      "businessContext": "Conversion factor from Fahrenheit difference to Kelvin difference (5/9)"
+    },
+    {
+      "id": "addOffset",
+      "label": "Add Offset",
+      "type": "number",
+      "unit": "K",
+      "default": 273.15,
+      "businessContext": "Absolute zero offset in Kelvin"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounded output"
+    }
+  ],
+  "formulas": {
+    "celsiusDifference": "fahrenheit - subtractOffset",
+    "kelvinDifference": "celsiusDifference * multiplyFactor",
+    "kelvin": "kelvinDifference + addOffset",
+    "roundedKelvin": "Math.round(kelvin * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "roundedKelvin",
+    "breakdown": [
+      "celsiusDifference",
+      "kelvinDifference",
+      "kelvin"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

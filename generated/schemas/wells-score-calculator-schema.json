@@ -1,0 +1,85 @@
+{
+  "toolName": "wells-score-calculator",
+  "inputs": [
+    {
+      "id": "activeCancer",
+      "label": "Active cancer (treatment or palliation within 6 months)",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "1 point if active cancer (excluding skin cancers), else 0"
+    },
+    {
+      "id": "paralysis",
+      "label": "Paralysis, paresis, or recent plaster immobilization of the lower extremity",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "1 point if present, else 0"
+    },
+    {
+      "id": "surgeryOrBedridden",
+      "label": "Recently bedridden >3 days or major surgery within 4 weeks",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "1 point if yes, else 0"
+    },
+    {
+      "id": "tendernessAlongVeins",
+      "label": "Localized tenderness along the distribution of the deep veins",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "1 point if present (e.g., calf, thigh, popliteal fossa), else 0"
+    },
+    {
+      "id": "entireLegSwollen",
+      "label": "Entire leg swollen",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "1 point if the whole leg is swollen compared to the asymptomatic side, else 0"
+    },
+    {
+      "id": "calfSwellingOver3cm",
+      "label": "Calf swelling >3 cm compared to asymptomatic leg",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "1 point if measured difference is >3 cm at 10 cm below tibial tuberosity, else 0"
+    },
+    {
+      "id": "pittingEdema",
+      "label": "Pitting edema confined to the symptomatic leg",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "1 point if edema is greater in the symptomatic leg, else 0"
+    },
+    {
+      "id": "alternativeDiagnosis",
+      "label": "Alternative diagnosis as likely or more likely than DVT",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "If alternative diagnosis is at least as plausible, subtract 2 points (enter -2); else 0"
+    }
+  ],
+  "formulas": {
+    "totalScore": "activeCancer + paralysis + surgeryOrBedridden + tendernessAlongVeins + entireLegSwollen + calfSwellingOver3cm + pittingEdema + alternativeDiagnosis",
+    "riskCategory": "totalScore <= 0 ? 'Low' : totalScore <= 2 ? 'Moderate' : 'High'"
+  },
+  "outputs": {
+    "primary": "totalScore",
+    "breakdown": [
+      "riskCategory"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

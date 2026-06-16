@@ -1,0 +1,61 @@
+// Auto-generated from dipole-antenna-length-calculator-schema.json
+import * as z from 'zod';
+
+export interface Dipole_antenna_length_calculatorInput {
+  frequency: number;
+  velocityFactor: number;
+  wavelengthFraction: number;
+  unitSelection: number;
+  endEffectCorrection: number;
+}
+
+export const Dipole_antenna_length_calculatorInputSchema = z.object({
+  frequency: z.number().default(100),
+  velocityFactor: z.number().default(0.95),
+  wavelengthFraction: z.number().default(0.5),
+  unitSelection: z.number().default(0),
+  endEffectCorrection: z.number().default(1),
+});
+
+function evaluateAllFormulas(input: Dipole_antenna_length_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 492 * input.velocityFactor * input.wavelengthFraction * input.endEffectCorrection / input.frequency; results["lengthFeet"] = Number.isFinite(v) ? v : 0; } catch { results["lengthFeet"] = 0; }
+  try { const v = 300 * input.velocityFactor * input.wavelengthFraction * input.endEffectCorrection / input.frequency; results["lengthMeters"] = Number.isFinite(v) ? v : 0; } catch { results["lengthMeters"] = 0; }
+  try { const v = input.unitSelection === 0 ? 492 * input.velocityFactor * input.wavelengthFraction * input.endEffectCorrection / input.frequency : 300 * input.velocityFactor * input.wavelengthFraction * input.endEffectCorrection / input.frequency; results["lengthInSelectedUnit"] = Number.isFinite(v) ? v : 0; } catch { results["lengthInSelectedUnit"] = 0; }
+  return results;
+}
+
+
+export function calculateDipole_antenna_length_calculator(input: Dipole_antenna_length_calculatorInput): Dipole_antenna_length_calculatorOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values["lengthInSelectedUnit"] ?? 0;
+  const breakdown = {
+    
+  };
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    premiumRequired: false,
+    premiumFeatures: [],
+  };
+}
+
+
+export interface Dipole_antenna_length_calculatorOutput {
+  totalWasteCost: number;
+  breakdown: {  };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+}

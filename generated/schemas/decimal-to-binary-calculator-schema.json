@@ -1,0 +1,69 @@
+{
+  "toolName": "decimal-to-binary-calculator",
+  "inputs": [
+    {
+      "id": "decimalValue",
+      "label": "Decimal Number",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The non-negative decimal integer to convert to binary."
+    },
+    {
+      "id": "minBits",
+      "label": "Minimum Bits",
+      "type": "number",
+      "unit": "bits",
+      "default": 8,
+      "businessContext": "Minimum number of bits in the output binary string. Shorter results are padded with leading zeros."
+    },
+    {
+      "id": "groupSize",
+      "label": "Group Size",
+      "type": "number",
+      "unit": "bits/group",
+      "default": 0,
+      "businessContext": "Number of bits per group separated by a space. 0 means no grouping."
+    },
+    {
+      "id": "includePrefix",
+      "label": "Include 0b Prefix",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "1 to prepend '0b' prefix, 0 to omit. Only effective when output is a string."
+    },
+    {
+      "id": "outputNumberFormat",
+      "label": "Output as Number",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "1 to output the binary value as a base-10 number (loosing leading zeros and formatting), 0 to output as a formatted string."
+    }
+  ],
+  "formulas": {
+    "binaryUnpadded": "decimalValue < 0 ? 'Error: Negative input not supported' : decimalValue.toString(2)",
+    "paddedBinary": "minBits > 0 ? binaryUnpadded.padStart(minBits, '0') : binaryUnpadded",
+    "groupedBinary": "groupSize > 0 ? paddedBinary.match(new RegExp(`.{1,${groupSize}}`, 'g')).join(' ') : paddedBinary",
+    "withPrefix": "includePrefix == 1 ? '0b' + groupedBinary : groupedBinary",
+    "binaryAsNumber": "parseInt(paddedBinary, 2)",
+    "primaryOutput": "outputNumberFormat == 1 ? binaryAsNumber : withPrefix"
+  },
+  "outputs": {
+    "primary": "primaryOutput",
+    "breakdown": [
+      "binaryUnpadded",
+      "paddedBinary",
+      "groupedBinary",
+      "withPrefix",
+      "binaryAsNumber"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "proportion-test",
+  "inputs": [
+    {
+      "id": "sample_size",
+      "label": "Sample Size (n)",
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "businessContext": "Total number of observations/trials."
+    },
+    {
+      "id": "successes",
+      "label": "Number of Successes (x)",
+      "type": "number",
+      "unit": "",
+      "default": 15,
+      "businessContext": "Count of positive events/results in the sample."
+    },
+    {
+      "id": "hypothesized_proportion",
+      "label": "Hypothesized Proportion (p₀)",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Null hypothesis proportion (often 0.5 for symmetry)."
+    },
+    {
+      "id": "significance_level",
+      "label": "Significance Level (α)",
+      "type": "number",
+      "unit": "",
+      "default": 0.05,
+      "businessContext": "Type I error probability threshold (commonly 0.05)."
+    }
+  ],
+  "formulas": {
+    "z_statistic": "(successes / sample_size - hypothesized_proportion) / Math.sqrt(hypothesized_proportion * (1 - hypothesized_proportion) / sample_size)",
+    "p_value": "2 * (1 - (1 / (1 + Math.exp(-1.59791 * Math.abs(z_statistic)))))",
+    "reject": "p_value < significance_level"
+  },
+  "outputs": {
+    "primary": "p_value",
+    "breakdown": [
+      "z_statistic",
+      "reject"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

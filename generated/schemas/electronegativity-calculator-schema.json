@@ -1,0 +1,55 @@
+{
+  "toolName": "electronegativity-calculator",
+  "inputs": [
+    {
+      "id": "ionizationEnergy",
+      "label": "Iyonlaşma Enerjisi",
+      "type": "number",
+      "unit": "eV",
+      "default": 13.6,
+      "businessContext": "Elementin birinci iyonlaşma enerjisi."
+    },
+    {
+      "id": "electronAffinity",
+      "label": "Elektron İlgisi",
+      "type": "number",
+      "unit": "eV",
+      "default": 0.754,
+      "businessContext": "Elementin elektron afinitesi."
+    },
+    {
+      "id": "effectiveNuclearCharge",
+      "label": "Efektif Nükleer Yük (Z_eff)",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 1,
+      "businessContext": "Slater kurallarına göre hesaplanmış efektif nükleer yük."
+    },
+    {
+      "id": "covalentRadius",
+      "label": "Kovalent Yarıçap",
+      "type": "number",
+      "unit": "Å",
+      "default": 0.37,
+      "businessContext": "Elementin kovalent yarıçapı."
+    }
+  ],
+  "formulas": {
+    "mulliken": "(ionizationEnergy + electronAffinity) / 2",
+    "paulingFromMulliken": "0.336 * (mulliken - 0.615)",
+    "allredRochow": "0.359 * effectiveNuclearCharge / (covalentRadius ** 2) + 0.744"
+  },
+  "outputs": {
+    "primary": "mulliken",
+    "breakdown": [
+      "paulingFromMulliken",
+      "allredRochow"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

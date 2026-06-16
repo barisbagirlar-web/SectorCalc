@@ -1,0 +1,71 @@
+{
+  "toolName": "mastic-calculator",
+  "inputs": [
+    {
+      "id": "jointLength",
+      "label": "Joint Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "businessContext": "The linear length of one joint to be filled with mastic."
+    },
+    {
+      "id": "jointWidth",
+      "label": "Joint Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "The width of the joint gap."
+    },
+    {
+      "id": "jointDepth",
+      "label": "Joint Depth",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "The depth of the joint to be filled."
+    },
+    {
+      "id": "numberOfJoints",
+      "label": "Number of Joints",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Total number of joints of the same dimensions."
+    },
+    {
+      "id": "cartridgeVolume",
+      "label": "Cartridge Volume",
+      "type": "number",
+      "unit": "ml",
+      "default": 300,
+      "businessContext": "Net volume of mastic in one standard cartridge."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Additional percentage to account for material loss during application."
+    }
+  ],
+  "formulas": {
+    "totalVolumeMl": "jointLength * jointWidth * jointDepth * numberOfJoints / 1000",
+    "totalVolumeWithWasteMl": "totalVolumeMl * (1 + wasteFactor / 100)",
+    "cartridgesNeeded": "Math.ceil(totalVolumeWithWasteMl / cartridgeVolume)"
+  },
+  "outputs": {
+    "primary": "cartridgesNeeded",
+    "breakdown": [
+      "totalVolumeMl",
+      "totalVolumeWithWasteMl"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "t-test-calculator",
+  "inputs": [
+    {
+      "id": "sampleMean",
+      "label": "Sample Mean (x̄)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The average value of the sample data."
+    },
+    {
+      "id": "hypothesizedMean",
+      "label": "Hypothesized Mean (μ)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The population mean under the null hypothesis."
+    },
+    {
+      "id": "sampleSD",
+      "label": "Sample Standard Deviation (s)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The standard deviation of the sample data."
+    },
+    {
+      "id": "sampleSize",
+      "label": "Sample Size (n)",
+      "type": "number",
+      "unit": "count",
+      "default": 30,
+      "businessContext": "The number of observations in the sample."
+    }
+  ],
+  "formulas": {
+    "meanDifference": "sampleMean - hypothesizedMean",
+    "standardError": "sampleSD / Math.sqrt(sampleSize)",
+    "tStatistic": "(sampleMean - hypothesizedMean) / (sampleSD / Math.sqrt(sampleSize))"
+  },
+  "outputs": {
+    "primary": "tStatistic",
+    "breakdown": [
+      "standardError",
+      "meanDifference"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

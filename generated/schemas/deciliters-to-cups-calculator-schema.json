@@ -1,0 +1,57 @@
+{
+  "toolName": "deciliters-to-cups-calculator",
+  "inputs": [
+    {
+      "id": "deciliters",
+      "label": "Deciliters",
+      "type": "number",
+      "unit": "dL",
+      "default": 1,
+      "businessContext": "Volume in deciliters to convert."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor (cups/dL)",
+      "type": "number",
+      "unit": "cups/dL",
+      "default": 0.422675,
+      "businessContext": "Conversion factor from deciliters to cups. Default is US customary cups."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the result."
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of batches or multiplier for total cups needed."
+    }
+  ],
+  "formulas": {
+    "totalDeciliters": "deciliters * batchSize",
+    "unroundedCups": "deciliters * batchSize * conversionFactor",
+    "cups": "Math.floor(deciliters * batchSize * conversionFactor * Math.pow(10, precision) + 0.5) / Math.pow(10, precision)",
+    "precisionUsed": "precision"
+  },
+  "outputs": {
+    "primary": "cups",
+    "breakdown": [
+      "totalDeciliters",
+      "unroundedCups",
+      "precisionUsed"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

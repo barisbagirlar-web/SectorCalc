@@ -1,0 +1,62 @@
+{
+  "toolName": "l10-life-calculator",
+  "inputs": [
+    {
+      "id": "dynamicLoadRating",
+      "label": "Basic Dynamic Load Rating (C)",
+      "type": "number",
+      "unit": "kN",
+      "default": 50,
+      "businessContext": "Bearing dynamic load rating from manufacturer catalog"
+    },
+    {
+      "id": "equivalentLoad",
+      "label": "Equivalent Dynamic Load (P)",
+      "type": "number",
+      "unit": "kN",
+      "default": 10,
+      "businessContext": "Calculated equivalent radial/axial load on bearing"
+    },
+    {
+      "id": "exponent",
+      "label": "Life Exponent",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "p=3 for ball bearings, p=10/3 (≈3.333) for roller bearings"
+    },
+    {
+      "id": "reliabilityFactor",
+      "label": "Reliability Factor (a₁)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for 90% reliability; e.g., 0.62 for 95%, 0.53 for 96% per ISO 281"
+    },
+    {
+      "id": "speed",
+      "label": "Rotational Speed",
+      "type": "number",
+      "unit": "rpm",
+      "default": 1500,
+      "businessContext": "Shaft speed; used to convert revolutions to hours"
+    }
+  ],
+  "formulas": {
+    "L10_rev": "(reliabilityFactor * Math.pow(dynamicLoadRating / equivalentLoad, exponent)) * 1e6",
+    "L10_hours": "L10_rev / (60 * speed)"
+  },
+  "outputs": {
+    "primary": "L10_hours",
+    "breakdown": [
+      "L10_rev",
+      "L10_hours"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

@@ -1,0 +1,36 @@
+{
+  "toolName": "frieds-rule-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Patient Age (months)",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "businessContext": "Age of the pediatric patient in months"
+    },
+    {
+      "id": "adultDose",
+      "label": "Adult Dose (mg)",
+      "type": "number",
+      "unit": "mg",
+      "default": 500,
+      "businessContext": "Standard adult dose of the medication"
+    }
+  ],
+  "formulas": {
+    "childDose": "adultDose * (age / 150)"
+  },
+  "outputs": {
+    "primary": "childDose",
+    "breakdown": [
+      "childDose = adultDose * (age / 150)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

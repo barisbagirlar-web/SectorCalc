@@ -1,0 +1,57 @@
+{
+  "toolName": "distance-formula-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "x₁",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "x-coordinate of the first point"
+    },
+    {
+      "id": "y1",
+      "label": "y₁",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "y-coordinate of the first point"
+    },
+    {
+      "id": "x2",
+      "label": "x₂",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "x-coordinate of the second point"
+    },
+    {
+      "id": "y2",
+      "label": "y₂",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "y-coordinate of the second point"
+    }
+  ],
+  "formulas": {
+    "distance": "Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))",
+    "deltaX": "x2 - x1",
+    "deltaY": "y2 - y1",
+    "distanceSquared": "Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)"
+  },
+  "outputs": {
+    "primary": "distance",
+    "breakdown": [
+      "deltaX",
+      "deltaY",
+      "distanceSquared"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

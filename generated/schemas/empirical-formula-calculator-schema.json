@@ -1,0 +1,55 @@
+{
+  "toolName": "empirical-formula-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "x1 Değeri",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "İlk veri noktasının bağımsız değişken değeri"
+    },
+    {
+      "id": "y1",
+      "label": "y1 Değeri",
+      "type": "number",
+      "unit": "kg",
+      "default": 2,
+      "businessContext": "İlk veri noktasının bağımlı değişken değeri"
+    },
+    {
+      "id": "x2",
+      "label": "x2 Değeri",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "İkinci veri noktasının bağımsız değişken değeri"
+    },
+    {
+      "id": "y2",
+      "label": "y2 Değeri",
+      "type": "number",
+      "unit": "kg",
+      "default": 18,
+      "businessContext": "İkinci veri noktasının bağımlı değişken değeri"
+    }
+  ],
+  "formulas": {
+    "b": "(Math.log(y2) - Math.log(y1)) / (Math.log(x2) - Math.log(x1))",
+    "log_a": "Math.log(y1) - b * Math.log(x1)",
+    "a": "Math.exp(log_a)"
+  },
+  "outputs": {
+    "primary": "Deneysel Formül: y = ${a} * x^${b}",
+    "breakdown": [
+      "Katsayı a: ${a}",
+      "Üs b: ${b}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

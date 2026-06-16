@@ -1,0 +1,67 @@
+{
+  "toolName": "nap-calculator",
+  "inputs": [
+    {
+      "id": "currentTimeHours",
+      "label": "Current Time (hours from midnight)",
+      "type": "number",
+      "unit": "hours",
+      "default": 14,
+      "businessContext": "Şu anki saat (0-24 arası ondalıklı)"
+    },
+    {
+      "id": "wakeUpTimeHours",
+      "label": "Desired Wake-Up Time (hours from midnight)",
+      "type": "number",
+      "unit": "hours",
+      "default": 17,
+      "businessContext": "Uyanmak istenilen saat (0-24 arası ondalıklı)"
+    },
+    {
+      "id": "sleepCycleMinutes",
+      "label": "Sleep Cycle Length (minutes)",
+      "type": "number",
+      "unit": "min",
+      "default": 90,
+      "businessContext": "Bir tam uyku döngüsünün ortalama süresi (varsayılan 90 dk)"
+    },
+    {
+      "id": "minNapMinutes",
+      "label": "Minimum Effective Nap (minutes)",
+      "type": "number",
+      "unit": "min",
+      "default": 10,
+      "businessContext": "Sersemlik yapmadan dinçlik sağlayan en kısa şekerleme süresi"
+    },
+    {
+      "id": "maxNapMinutes",
+      "label": "Maximum Short Nap (minutes)",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Sersemlik riski oluşmayan en uzun kısa şekerleme süresi"
+    }
+  ],
+  "formulas": {
+    "availableMinutes": "(wakeUpTimeHours - currentTimeHours) * 60",
+    "recommendedNapMinutes": "(availableMinutes >= sleepCycleMinutes) ? sleepCycleMinutes : ((availableMinutes >= minNapMinutes) ? minNapMinutes : 0)",
+    "cycleNapWakeTime": "currentTimeHours + sleepCycleMinutes/60",
+    "shortNapWakeTime": "currentTimeHours + minNapMinutes/60",
+    "maxNapWakeTime": "currentTimeHours + maxNapMinutes/60"
+  },
+  "outputs": {
+    "primary": "Önerilen şekerleme süresi: ${recommendedNapMinutes} dakika",
+    "breakdown": [
+      "Kullanılabilir pencere: ${availableMinutes} dakika",
+      "Tam döngü (${sleepCycleMinutes} dk) → uyanış: ${cycleNapWakeTime.toFixed(2)}",
+      "Kısa şekerleme (${minNapMinutes} dk) → uyanış: ${shortNapWakeTime.toFixed(2)}",
+      "Maksimum kısa şekerleme (${maxNapMinutes} dk) → uyanış: ${maxNapWakeTime.toFixed(2)}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

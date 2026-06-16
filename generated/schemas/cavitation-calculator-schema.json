@@ -1,0 +1,55 @@
+{
+  "toolName": "cavitation-calculator",
+  "inputs": [
+    {
+      "id": "fluidPressure",
+      "label": "Fluid Pressure",
+      "type": "number",
+      "unit": "Pa",
+      "default": 101325,
+      "businessContext": "Absolute static pressure of the fluid at the point of interest"
+    },
+    {
+      "id": "vaporPressure",
+      "label": "Vapor Pressure",
+      "type": "number",
+      "unit": "Pa",
+      "default": 2338,
+      "businessContext": "Vapor pressure of the fluid at operating temperature"
+    },
+    {
+      "id": "density",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 998,
+      "businessContext": "Density of the fluid under operating conditions"
+    },
+    {
+      "id": "velocity",
+      "label": "Flow Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 5,
+      "businessContext": "Mean flow velocity at the section under evaluation"
+    }
+  ],
+  "formulas": {
+    "pressureDiff": "fluidPressure - vaporPressure",
+    "dynamicPressure": "0.5 * density * Math.pow(velocity, 2)",
+    "sigma": "(fluidPressure - vaporPressure) / (0.5 * density * Math.pow(velocity, 2))"
+  },
+  "outputs": {
+    "primary": "sigma",
+    "breakdown": [
+      "pressureDiff",
+      "dynamicPressure"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

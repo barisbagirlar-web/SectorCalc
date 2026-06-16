@@ -1,0 +1,73 @@
+{
+  "toolName": "trapezoidal-rule-calculator",
+  "inputs": [
+    {
+      "id": "lowerLimit",
+      "label": "Alt Sınır (a)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "İntegrasyon başlangıç noktası"
+    },
+    {
+      "id": "upperLimit",
+      "label": "Üst Sınır (b)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "İntegrasyon bitiş noktası"
+    },
+    {
+      "id": "intervals",
+      "label": "Aralık Sayısı (n)",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "businessContext": "Trapezoid bölme sayısı"
+    },
+    {
+      "id": "fa",
+      "label": "f(a) Değeri",
+      "type": "number",
+      "unit": "birim",
+      "default": 0,
+      "businessContext": "Alt sınırda fonksiyon değeri"
+    },
+    {
+      "id": "fb",
+      "label": "f(b) Değeri",
+      "type": "number",
+      "unit": "birim",
+      "default": 0,
+      "businessContext": "Üst sınırda fonksiyon değeri"
+    },
+    {
+      "id": "sumMid",
+      "label": "İç Nokta Değerleri Toplamı",
+      "type": "number",
+      "unit": "birim",
+      "default": 0,
+      "businessContext": "Tüm ara noktalardaki f(x) değerleri toplamı"
+    }
+  ],
+  "formulas": {
+    "integralValue": "((upperLimit - lowerLimit) / intervals) / 2 * (fa + 2 * sumMid + fb)",
+    "stepSize": "(upperLimit - lowerLimit) / intervals",
+    "sumOfEnds": "fa + fb",
+    "sumOfInterior": "2 * sumMid"
+  },
+  "outputs": {
+    "primary": "integralValue",
+    "breakdown": [
+      "stepSize",
+      "sumOfEnds",
+      "sumOfInterior"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

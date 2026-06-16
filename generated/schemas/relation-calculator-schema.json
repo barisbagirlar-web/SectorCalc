@@ -1,0 +1,59 @@
+{
+  "toolName": "relation-calculator",
+  "inputs": [
+    {
+      "id": "value1",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "businessContext": "First value (e.g., length, quantity)"
+    },
+    {
+      "id": "value2",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "m",
+      "default": 50,
+      "businessContext": "Second value (e.g., length, quantity)"
+    },
+    {
+      "id": "factor1",
+      "label": "Factor 1",
+      "type": "number",
+      "unit": "unitless",
+      "default": 1,
+      "businessContext": "Multiplier for Value 1"
+    },
+    {
+      "id": "factor2",
+      "label": "Factor 2",
+      "type": "number",
+      "unit": "unitless",
+      "default": 1,
+      "businessContext": "Multiplier for Value 2"
+    }
+  ],
+  "formulas": {
+    "weightedRatio": "(factor1 * value1) / (factor2 * value2)",
+    "weightedProduct": "factor1 * value1 * factor2 * value2",
+    "weightedSum": "factor1 * value1 + factor2 * value2",
+    "weightedDifference": "factor1 * value1 - factor2 * value2",
+    "percentageDifference": "((factor1 * value1 - factor2 * value2) / (factor2 * value2)) * 100"
+  },
+  "outputs": {
+    "primary": "weightedRatio",
+    "breakdown": [
+      "weightedProduct",
+      "weightedSum",
+      "weightedDifference",
+      "percentageDifference"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

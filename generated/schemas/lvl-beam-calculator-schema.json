@@ -1,0 +1,78 @@
+{
+  "toolName": "lvl-beam-calculator",
+  "inputs": [
+    {
+      "id": "span",
+      "label": "Span",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Clear span of the beam between supports"
+    },
+    {
+      "id": "load",
+      "label": "Uniform Load",
+      "type": "number",
+      "unit": "kN/m",
+      "default": 5,
+      "businessContext": "Total uniform load per meter (including dead and live loads)"
+    },
+    {
+      "id": "width",
+      "label": "Beam Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 45,
+      "businessContext": "Width of the LVL beam cross-section"
+    },
+    {
+      "id": "depth",
+      "label": "Beam Depth",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "businessContext": "Depth of the LVL beam cross-section"
+    },
+    {
+      "id": "allowableStress",
+      "label": "Allowable Bending Stress",
+      "type": "number",
+      "unit": "MPa",
+      "default": 30,
+      "businessContext": "Allowable bending stress of the LVL material"
+    },
+    {
+      "id": "elasticModulus",
+      "label": "Elastic Modulus",
+      "type": "number",
+      "unit": "GPa",
+      "default": 13,
+      "businessContext": "Modulus of elasticity of the LVL material"
+    }
+  ],
+  "formulas": {
+    "L_mm": "span * 1000",
+    "w_Nmm": "load * 1",
+    "M_max": "w_Nmm * L_mm * L_mm / 8",
+    "V_max": "w_Nmm * L_mm / 2",
+    "S": "width * depth * depth / 6",
+    "I": "width * Math.pow(depth, 3) / 12",
+    "E_MPa": "elasticModulus * 1000",
+    "maxBendingStress": "M_max / S",
+    "maxDeflection": "(5 * w_Nmm * Math.pow(L_mm, 4)) / (384 * E_MPa * I)",
+    "utilizationRatio": "maxBendingStress / allowableStress"
+  },
+  "outputs": {
+    "primary": "maxBendingStress",
+    "breakdown": [
+      "maxDeflection",
+      "utilizationRatio"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

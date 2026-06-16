@@ -1,0 +1,76 @@
+{
+  "toolName": "gad-7-calculator",
+  "inputs": [
+    {
+      "id": "q1",
+      "label": "Feeling nervous, anxious, or on edge",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Anxiety screening question 1"
+    },
+    {
+      "id": "q2",
+      "label": "Not being able to stop or control worrying",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Anxiety screening question 2"
+    },
+    {
+      "id": "q3",
+      "label": "Worrying too much about different things",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Anxiety screening question 3"
+    },
+    {
+      "id": "q4",
+      "label": "Trouble relaxing",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Anxiety screening question 4"
+    },
+    {
+      "id": "q5",
+      "label": "Being so restless that it is hard to sit still",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Anxiety screening question 5"
+    },
+    {
+      "id": "q6",
+      "label": "Becoming easily annoyed or irritable",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Anxiety screening question 6"
+    },
+    {
+      "id": "q7",
+      "label": "Feeling afraid as if something awful might happen",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Anxiety screening question 7"
+    }
+  ],
+  "formulas": {
+    "totalScore": "q1 + q2 + q3 + q4 + q5 + q6 + q7"
+  },
+  "outputs": {
+    "primary": "totalScore",
+    "breakdown": [
+      "Severity interpretation based on totalScore: 0-4 minimal anxiety, 5-9 mild anxiety, 10-14 moderate anxiety, 15-21 severe anxiety"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

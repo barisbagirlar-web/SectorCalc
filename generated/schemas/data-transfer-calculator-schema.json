@@ -1,0 +1,67 @@
+{
+  "toolName": "data-transfer-calculator",
+  "inputs": [
+    {
+      "id": "dataSize",
+      "label": "Data Size",
+      "type": "number",
+      "unit": "GB",
+      "default": 10,
+      "businessContext": "Total data volume to be transferred"
+    },
+    {
+      "id": "transferSpeed",
+      "label": "Transfer Speed",
+      "type": "number",
+      "unit": "Mbps",
+      "default": 100,
+      "businessContext": "Available network bandwidth"
+    },
+    {
+      "id": "overheadPercent",
+      "label": "Protocol Overhead",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of bandwidth lost due to protocol overhead"
+    },
+    {
+      "id": "numberOfFiles",
+      "label": "Number of Files",
+      "type": "number",
+      "unit": "files",
+      "default": 1,
+      "businessContext": "Number of separate files, each incurring transfer latency"
+    },
+    {
+      "id": "latencyPerFile",
+      "label": "Latency per File",
+      "type": "number",
+      "unit": "ms",
+      "default": 0,
+      "businessContext": "Handshake latency incurred per file (e.g., RTT for request/response)"
+    }
+  ],
+  "formulas": {
+    "effectiveSpeedMbps": "Math.max(0.000001, transferSpeed * (1 - overheadPercent / 100))",
+    "dataTransferSeconds": "(dataSize * 8000) / effectiveSpeedMbps",
+    "totalTimeSeconds": "dataTransferSeconds + (latencyPerFile * numberOfFiles / 1000)",
+    "totalTimeMinutes": "totalTimeSeconds / 60",
+    "totalTimeHours": "totalTimeSeconds / 3600"
+  },
+  "outputs": {
+    "primary": "totalTimeMinutes",
+    "breakdown": [
+      "totalTimeSeconds",
+      "totalTimeHours",
+      "effectiveSpeedMbps",
+      "dataTransferSeconds"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

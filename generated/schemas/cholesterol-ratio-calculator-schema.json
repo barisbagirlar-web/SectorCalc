@@ -1,0 +1,57 @@
+{
+  "toolName": "cholesterol-ratio-calculator",
+  "inputs": [
+    {
+      "id": "totalCholesterol",
+      "label": "Toplam Kolesterol (Total Cholesterol)",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 200,
+      "businessContext": "Toplam kolesterol seviyesi."
+    },
+    {
+      "id": "hdlCholesterol",
+      "label": "HDL Kolesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 50,
+      "businessContext": "Yüksek yoğunluklu lipoprotein (iyi kolesterol) seviyesi."
+    },
+    {
+      "id": "ldlCholesterol",
+      "label": "LDL Kolesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 130,
+      "businessContext": "Düşük yoğunluklu lipoprotein (kötü kolesterol) seviyesi."
+    },
+    {
+      "id": "triglycerides",
+      "label": "Trigliserit",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 150,
+      "businessContext": "Trigliserit seviyesi."
+    }
+  ],
+  "formulas": {
+    "totalToHdlRatio": "totalCholesterol / hdlCholesterol",
+    "ldlToHdlRatio": "ldlCholesterol / hdlCholesterol",
+    "triglyceridesToHdlRatio": "triglycerides / hdlCholesterol",
+    "nonHdlToHdlRatio": "(totalCholesterol - hdlCholesterol) / hdlCholesterol"
+  },
+  "outputs": {
+    "primary": "totalToHdlRatio",
+    "breakdown": [
+      "ldlToHdlRatio",
+      "triglyceridesToHdlRatio",
+      "nonHdlToHdlRatio"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

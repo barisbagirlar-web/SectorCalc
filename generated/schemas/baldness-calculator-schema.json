@@ -1,0 +1,70 @@
+{
+  "toolName": "baldness-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 30,
+      "businessContext": "Kullanıcının yaşı"
+    },
+    {
+      "id": "father_baldness",
+      "label": "Baba Kellik Durumu",
+      "type": "number",
+      "unit": "ölçek 0-1",
+      "default": 0.5,
+      "businessContext": "Babanın kellik derecesi (0: hiç yok, 1: tam kel)"
+    },
+    {
+      "id": "stress_level",
+      "label": "Stres Seviyesi",
+      "type": "number",
+      "unit": "0-10",
+      "default": 5,
+      "businessContext": "Günlük stres seviyesi (0: yok, 10: çok yüksek)"
+    },
+    {
+      "id": "dht_level",
+      "label": "DHT Seviyesi",
+      "type": "number",
+      "unit": "ng/dL",
+      "default": 50,
+      "businessContext": "Kandaki DHT hormon seviyesi"
+    },
+    {
+      "id": "hair_density",
+      "label": "Saç Yoğunluğu",
+      "type": "number",
+      "unit": "adet/cm²",
+      "default": 200,
+      "businessContext": "Mevcut saç yoğunluğu (saç teli/cm²)"
+    }
+  ],
+  "formulas": {
+    "genetic_factor": "father_baldness * 0.6",
+    "stress_impact": "1 - Math.exp(-stress_level / 5)",
+    "age_factor": "1 / (1 + Math.exp(-(age - 40) / 5))",
+    "dht_factor": "Math.min(dht_level / 100, 1)",
+    "density_factor": "Math.max(0, 1 - (hair_density / 300))",
+    "baldness_probability_raw": "age_factor * 0.3 + genetic_factor * 0.3 + stress_impact * 0.2 + dht_factor * 0.1 + density_factor * 0.1",
+    "baldness_probability": "Math.round(Math.min(baldness_probability_raw, 1) * 100)"
+  },
+  "outputs": {
+    "primary": "baldness_probability",
+    "breakdown": [
+      "genetic_factor",
+      "stress_impact",
+      "age_factor",
+      "dht_factor",
+      "density_factor"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

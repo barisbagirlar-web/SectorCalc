@@ -1,0 +1,72 @@
+{
+  "toolName": "gambrel-roof-calculator",
+  "inputs": [
+    {
+      "id": "width",
+      "label": "Bina Genişliği (Açıklık)",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Mahya ile saçak arası toplam yatay mesafe"
+    },
+    {
+      "id": "length",
+      "label": "Bina Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 20,
+      "businessContext": "Bina boyu, mahya yönündeki uzunluk"
+    },
+    {
+      "id": "lowerAngle",
+      "label": "Alt Eğim Açısı",
+      "type": "number",
+      "unit": "derece",
+      "default": 60,
+      "businessContext": "Saçaktan kırılma noktasına kadar olan alt yüzeyin yatayla yaptığı açı"
+    },
+    {
+      "id": "upperAngle",
+      "label": "Üst Eğim Açısı",
+      "type": "number",
+      "unit": "derece",
+      "default": 30,
+      "businessContext": "Kırılma noktasından mahyaya kadar olan üst yüzeyin yatayla yaptığı açı"
+    },
+    {
+      "id": "lowerRun",
+      "label": "Alt İz Düşüm Mesafesi",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Saçaktan kırılma noktasına kadar yatay mesafe"
+    }
+  ],
+  "formulas": {
+    "radLower": "lowerAngle * Math.PI / 180",
+    "radUpper": "upperAngle * Math.PI / 180",
+    "upperRun": "width / 2 - lowerRun",
+    "lowerLength": "lowerRun / Math.cos(radLower)",
+    "upperLength": "upperRun / Math.cos(radUpper)",
+    "lowerArea": "2 * length * lowerLength",
+    "upperArea": "2 * length * upperLength",
+    "totalArea": "lowerArea + upperArea",
+    "ridgeLength": "length",
+    "roofHeight": "upperRun * Math.tan(radUpper) + lowerRun * Math.tan(radLower)"
+  },
+  "outputs": {
+    "primary": "totalArea",
+    "breakdown": [
+      "upperArea",
+      "lowerArea",
+      "ridgeLength",
+      "roofHeight"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

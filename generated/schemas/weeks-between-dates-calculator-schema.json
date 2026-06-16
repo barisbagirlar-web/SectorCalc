@@ -1,0 +1,71 @@
+{
+  "toolName": "weeks-between-dates-calculator",
+  "inputs": [
+    {
+      "id": "startDay",
+      "label": "Start Day",
+      "type": "number",
+      "unit": "day",
+      "default": 1,
+      "businessContext": "Day of the start date (1-31)"
+    },
+    {
+      "id": "startMonth",
+      "label": "Start Month",
+      "type": "number",
+      "unit": "month",
+      "default": 1,
+      "businessContext": "Month of the start date (1-12)"
+    },
+    {
+      "id": "startYear",
+      "label": "Start Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2025,
+      "businessContext": "Year of the start date"
+    },
+    {
+      "id": "endDay",
+      "label": "End Day",
+      "type": "number",
+      "unit": "day",
+      "default": 15,
+      "businessContext": "Day of the end date (1-31)"
+    },
+    {
+      "id": "endMonth",
+      "label": "End Month",
+      "type": "number",
+      "unit": "month",
+      "default": 1,
+      "businessContext": "Month of the end date (1-12)"
+    },
+    {
+      "id": "endYear",
+      "label": "End Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2025,
+      "businessContext": "Year of the end date"
+    }
+  ],
+  "formulas": {
+    "daysBetween": "(new Date(endYear, endMonth - 1, endDay) - new Date(startYear, startMonth - 1, startDay)) / (1000 * 60 * 60 * 24)",
+    "weeksBetween": "daysBetween / 7",
+    "remainingDays": "daysBetween % 7"
+  },
+  "outputs": {
+    "primary": "weeksBetween",
+    "breakdown": [
+      "daysBetween",
+      "remainingDays"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

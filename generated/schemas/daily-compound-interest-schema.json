@@ -1,0 +1,55 @@
+{
+  "toolName": "daily-compound-interest",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Principal Amount",
+      "type": "number",
+      "unit": "₺",
+      "default": 10000,
+      "businessContext": "Başlangıç anapara tutarı"
+    },
+    {
+      "id": "annualRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Yıllık faiz oranı, yüzde cinsinden"
+    },
+    {
+      "id": "years",
+      "label": "Time Period",
+      "type": "number",
+      "unit": "yıl",
+      "default": 10,
+      "businessContext": "Yatırım süresi, yıl olarak"
+    },
+    {
+      "id": "frequency",
+      "label": "Compounding Frequency",
+      "type": "number",
+      "unit": "kez/yıl",
+      "default": 365,
+      "businessContext": "Yılda kaç kez bileşik faiz uygulandığı (günlük için 365)"
+    }
+  ],
+  "formulas": {
+    "finalAmountJs": "principal * (1 + annualRate / (100 * frequency)) ** (frequency * years)",
+    "totalInterestJs": "finalAmount - principal",
+    "effectiveAnnualRateJs": "((1 + annualRate / (100 * frequency)) ** frequency - 1) * 100"
+  },
+  "outputs": {
+    "primary": "finalAmount",
+    "breakdown": [
+      "totalInterest",
+      "effectiveAnnualRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

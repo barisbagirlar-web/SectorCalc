@@ -1,0 +1,54 @@
+{
+  "toolName": "reading-addition-calculator",
+  "inputs": [
+    {
+      "id": "reading1",
+      "label": "Reading 1",
+      "type": "number",
+      "unit": "kWh",
+      "default": 0,
+      "businessContext": "First meter reading value in kWh"
+    },
+    {
+      "id": "reading2",
+      "label": "Reading 2",
+      "type": "number",
+      "unit": "kWh",
+      "default": 0,
+      "businessContext": "Second meter reading value in kWh"
+    },
+    {
+      "id": "reading3",
+      "label": "Reading 3",
+      "type": "number",
+      "unit": "kWh",
+      "default": 0,
+      "businessContext": "Third meter reading value in kWh"
+    },
+    {
+      "id": "reading4",
+      "label": "Reading 4",
+      "type": "number",
+      "unit": "kWh",
+      "default": 0,
+      "businessContext": "Fourth meter reading value in kWh"
+    }
+  ],
+  "formulas": {
+    "total": "reading1 + reading2 + reading3 + reading4",
+    "average": "(reading1 + reading2 + reading3 + reading4) / 4"
+  },
+  "outputs": {
+    "primary": "total",
+    "breakdown": [
+      "total",
+      "average"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

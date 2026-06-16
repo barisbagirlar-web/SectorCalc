@@ -1,0 +1,57 @@
+{
+  "toolName": "ramp-test-calculator",
+  "inputs": [
+    {
+      "id": "startValue",
+      "label": "Başlangıç Değeri",
+      "type": "number",
+      "unit": "V",
+      "default": 0,
+      "businessContext": "Rampa başlangıç değeri (V)"
+    },
+    {
+      "id": "endValue",
+      "label": "Bitiş Değeri",
+      "type": "number",
+      "unit": "V",
+      "default": 10,
+      "businessContext": "Rampa bitiş değeri (V)"
+    },
+    {
+      "id": "rampTime",
+      "label": "Rampa Süresi",
+      "type": "number",
+      "unit": "s",
+      "default": 1,
+      "businessContext": "Rampa süresi (s)"
+    },
+    {
+      "id": "numSteps",
+      "label": "Adım Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "businessContext": "Rampa adım sayısı"
+    }
+  ],
+  "formulas": {
+    "deltaValue": "endValue - startValue",
+    "slewRate": "deltaValue / rampTime",
+    "stepSize": "deltaValue / numSteps",
+    "stepDuration": "rampTime / numSteps"
+  },
+  "outputs": {
+    "primary": "slewRate",
+    "breakdown": [
+      "deltaValue",
+      "stepSize",
+      "stepDuration"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

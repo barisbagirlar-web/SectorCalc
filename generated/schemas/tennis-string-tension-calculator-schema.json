@@ -1,0 +1,55 @@
+{
+  "toolName": "tennis-string-tension-calculator",
+  "inputs": [
+    {
+      "id": "tension",
+      "label": "String Tension",
+      "type": "number",
+      "unit": "lbs",
+      "default": 55,
+      "businessContext": "Desired tension for the string"
+    },
+    {
+      "id": "stringGauge",
+      "label": "String Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 1.25,
+      "businessContext": "Diameter of the tennis string"
+    },
+    {
+      "id": "vibratingStringLength",
+      "label": "Vibrating String Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "businessContext": "Length of the free vibrating portion of the string, typically measured from frame to frame"
+    },
+    {
+      "id": "stringMaterialDensity",
+      "label": "String Material Density",
+      "type": "number",
+      "unit": "kg/m^3",
+      "default": 1100,
+      "businessContext": "Density of the string material (nylon ~1100 kg/m^3, polyester ~1350 kg/m^3)"
+    }
+  ],
+  "formulas": {
+    "linearDensity": "stringMaterialDensity * Math.PI * Math.pow(stringGauge / 2000, 2)",
+    "tensionNewtons": "tension * 4.44822",
+    "frequency": "(1 / (2 * vibratingStringLength)) * Math.sqrt(tensionNewtons / linearDensity)"
+  },
+  "outputs": {
+    "primary": "frequency",
+    "breakdown": [
+      "tensionNewtons",
+      "linearDensity"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

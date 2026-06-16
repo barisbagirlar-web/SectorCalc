@@ -1,0 +1,54 @@
+{
+  "toolName": "osmolarity-calculator",
+  "inputs": [
+    {
+      "id": "sodium",
+      "label": "Sodyum (Na⁺)",
+      "type": "number",
+      "unit": "mmol/L",
+      "default": 140,
+      "businessContext": "Serum sodyum konsantrasyonu"
+    },
+    {
+      "id": "glucose",
+      "label": "Glukoz",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 90,
+      "businessContext": "Serum glukoz konsantrasyonu"
+    },
+    {
+      "id": "bun",
+      "label": "Kan Üre Azotu (BUN)",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 14,
+      "businessContext": "Serum BUN konsantrasyonu"
+    },
+    {
+      "id": "measuredOsmolarity",
+      "label": "Ölçülen Osmolarite",
+      "type": "number",
+      "unit": "mOsm/L",
+      "default": 285,
+      "businessContext": "Ölçülen serum ozmolaritesi (opsiyonel)"
+    }
+  ],
+  "formulas": {
+    "calculatedOsmolarity": "2 * sodium + glucose / 18 + bun / 2.8",
+    "osmolarGap": "measuredOsmolarity - (2 * sodium + glucose / 18 + bun / 2.8)"
+  },
+  "outputs": {
+    "primary": "calculatedOsmolarity",
+    "breakdown": [
+      "Serum Ozmolaritesi (mOsm/L) = 2 × Na + Glukoz/18 + BUN/2.8",
+      "Ozmolal Gap = Ölçülen Ozmolarite - Hesaplanan Ozmolarite"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

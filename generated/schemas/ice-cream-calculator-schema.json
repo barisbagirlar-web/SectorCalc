@@ -1,0 +1,78 @@
+{
+  "toolName": "ice-cream-calculator",
+  "inputs": [
+    {
+      "id": "batchMixVolume",
+      "label": "Batch Mix Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 100,
+      "businessContext": "Volume of liquid ice cream mix before freezing/aeration"
+    },
+    {
+      "id": "overrunPercent",
+      "label": "Overrun",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Percentage increase in volume due to air incorporation during freezing"
+    },
+    {
+      "id": "mixCostPerLiter",
+      "label": "Mix Cost per Liter",
+      "type": "number",
+      "unit": "currency/L",
+      "default": 2.5,
+      "businessContext": "Cost of ingredients for one liter of liquid mix"
+    },
+    {
+      "id": "packagingCostPerLiter",
+      "label": "Packaging Cost per Liter",
+      "type": "number",
+      "unit": "currency/L",
+      "default": 0.5,
+      "businessContext": "Cost of packaging materials per liter of final ice cream"
+    },
+    {
+      "id": "otherCostsPerBatch",
+      "label": "Other Costs per Batch",
+      "type": "number",
+      "unit": "currency",
+      "default": 50,
+      "businessContext": "Fixed costs per batch (labor, energy, etc.)"
+    },
+    {
+      "id": "desiredProfitMarginPercent",
+      "label": "Desired Profit Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Target profit margin as a percentage of selling price"
+    }
+  ],
+  "formulas": {
+    "finalVolume": "${batchMixVolume} * (1 + ${overrunPercent} / 100)",
+    "totalMixCost": "${batchMixVolume} * ${mixCostPerLiter}",
+    "totalPackagingCost": "${finalVolume} * ${packagingCostPerLiter}",
+    "totalCost": "${totalMixCost} + ${totalPackagingCost} + ${otherCostsPerBatch}",
+    "costPerLiter": "${totalCost} / ${finalVolume}",
+    "sellingPricePerLiter": "${costPerLiter} / (1 - ${desiredProfitMarginPercent} / 100)"
+  },
+  "outputs": {
+    "primary": "sellingPricePerLiter",
+    "breakdown": [
+      "finalVolume",
+      "totalMixCost",
+      "totalPackagingCost",
+      "totalCost",
+      "costPerLiter",
+      "sellingPricePerLiter"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

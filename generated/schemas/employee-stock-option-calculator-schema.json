@@ -1,0 +1,57 @@
+{
+  "toolName": "employee-stock-option-calculator",
+  "inputs": [
+    {
+      "id": "strikePrice",
+      "label": "Grant Price (Strike Price)",
+      "type": "number",
+      "unit": "USD",
+      "default": 10,
+      "businessContext": "The price at which the employee can purchase the stock."
+    },
+    {
+      "id": "currentPrice",
+      "label": "Current Stock Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 15,
+      "businessContext": "Current market price of the company stock."
+    },
+    {
+      "id": "numberOfOptions",
+      "label": "Number of Options Granted",
+      "type": "number",
+      "unit": "shares",
+      "default": 1000,
+      "businessContext": "Total number of stock options granted to the employee."
+    },
+    {
+      "id": "vestedOptions",
+      "label": "Vested Options",
+      "type": "number",
+      "unit": "shares",
+      "default": 500,
+      "businessContext": "Number of options that have vested and are exercisable."
+    }
+  ],
+  "formulas": {
+    "intrinsicValuePerOption": "Math.max(0, currentPrice - strikePrice)",
+    "exerciseCost": "vestedOptions * strikePrice",
+    "marketValue": "vestedOptions * currentPrice",
+    "netProfit": "Math.max(0, currentPrice - strikePrice) * vestedOptions"
+  },
+  "outputs": {
+    "primary": "netProfit",
+    "breakdown": [
+      "intrinsicValuePerOption",
+      "exerciseCost",
+      "marketValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

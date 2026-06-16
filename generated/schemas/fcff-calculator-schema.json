@@ -1,0 +1,71 @@
+{
+  "toolName": "fcff-calculator",
+  "inputs": [
+    {
+      "id": "revenue",
+      "label": "Revenue",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000000,
+      "businessContext": "Total revenue from sales or services"
+    },
+    {
+      "id": "operatingExpenses",
+      "label": "Operating Expenses",
+      "type": "number",
+      "unit": "currency",
+      "default": 700000,
+      "businessContext": "Total operating expenses including depreciation and amortization"
+    },
+    {
+      "id": "depreciation",
+      "label": "Depreciation & Amortization",
+      "type": "number",
+      "unit": "currency",
+      "default": 100000,
+      "businessContext": "Non-cash depreciation and amortization expense included in operating expenses"
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "percentage",
+      "default": 0.2,
+      "businessContext": "Corporate tax rate as a decimal (e.g., 0.20 for 20%)"
+    },
+    {
+      "id": "capitalExpenditures",
+      "label": "Capital Expenditures (CapEx)",
+      "type": "number",
+      "unit": "currency",
+      "default": 200000,
+      "businessContext": "Investment in fixed assets such as property, plant, and equipment"
+    },
+    {
+      "id": "changeInWorkingCapital",
+      "label": "Change in Working Capital",
+      "type": "number",
+      "unit": "currency",
+      "default": 50000,
+      "businessContext": "Increase in net working capital (current assets minus current liabilities)"
+    }
+  ],
+  "formulas": {
+    "ebit": "revenue - operatingExpenses",
+    "nopat": "ebit * (1 - taxRate)",
+    "fcff": "nopat + depreciation - capitalExpenditures - changeInWorkingCapital"
+  },
+  "outputs": {
+    "primary": "fcff",
+    "breakdown": [
+      "ebit",
+      "nopat"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

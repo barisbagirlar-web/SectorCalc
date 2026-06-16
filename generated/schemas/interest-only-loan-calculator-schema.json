@@ -1,0 +1,55 @@
+{
+  "toolName": "interest-only-loan-calculator",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Loan Amount (Principal)",
+      "type": "number",
+      "unit": "currency",
+      "default": 100000,
+      "businessContext": "The amount borrowed."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual nominal interest rate on loan."
+    },
+    {
+      "id": "loanTermYears",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Total duration of the loan in years."
+    },
+    {
+      "id": "paymentsPerYear",
+      "label": "Payments Per Year",
+      "type": "number",
+      "unit": "periods/year",
+      "default": 12,
+      "businessContext": "Number of interest payments made per year (e.g., 12 for monthly)."
+    }
+  ],
+  "formulas": {
+    "periodicInterestPayment": "principal * (annualInterestRate / 100) / paymentsPerYear",
+    "totalInterest": "periodicInterestPayment * loanTermYears * paymentsPerYear",
+    "totalPayment": "totalInterest"
+  },
+  "outputs": {
+    "primary": "periodicInterestPayment",
+    "breakdown": [
+      "totalInterest",
+      "totalPayment"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,86 @@
+{
+  "toolName": "train-ticket-calculator",
+  "inputs": [
+    {
+      "id": "adults",
+      "label": "Number of Adult Passengers",
+      "type": "number",
+      "unit": "passengers",
+      "default": 1,
+      "businessContext": "The number of adult passengers traveling."
+    },
+    {
+      "id": "children",
+      "label": "Number of Children (5-12)",
+      "type": "number",
+      "unit": "passengers",
+      "default": 0,
+      "businessContext": "Number of children aged 5-12. They get a discount."
+    },
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "businessContext": "Total travel distance in kilometers."
+    },
+    {
+      "id": "baseFarePerKm",
+      "label": "Base Fare per km",
+      "type": "number",
+      "unit": "currency/km",
+      "default": 0.5,
+      "businessContext": "Standard fare per kilometer per passenger."
+    },
+    {
+      "id": "childDiscount",
+      "label": "Child Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Discount percentage applied to child tickets (0-100)."
+    },
+    {
+      "id": "groupDiscount",
+      "label": "Group Discount Rate (for 5+ passengers)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Additional discount rate for groups of 5 or more total passengers."
+    },
+    {
+      "id": "serviceFee",
+      "label": "Service Fee per Ticket",
+      "type": "number",
+      "unit": "currency",
+      "default": 2,
+      "businessContext": "Fixed service fee applied per ticket (per passenger)."
+    }
+  ],
+  "formulas": {
+    "adultsFare": "adults * distance * baseFarePerKm",
+    "childrenFare": "children * distance * baseFarePerKm * (1 - childDiscount/100)",
+    "subtotal": "adultsFare + childrenFare",
+    "totalPassengers": "adults + children",
+    "groupDiscountAmount": "totalPassengers >= 5 ? subtotal * groupDiscount / 100 : 0",
+    "subtotalAfterDiscount": "subtotal - groupDiscountAmount",
+    "serviceFeeTotal": "totalPassengers * serviceFee",
+    "totalCost": "subtotalAfterDiscount + serviceFeeTotal"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "subtotalAfterDiscount",
+      "groupDiscountAmount",
+      "childrenFare",
+      "serviceFeeTotal"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

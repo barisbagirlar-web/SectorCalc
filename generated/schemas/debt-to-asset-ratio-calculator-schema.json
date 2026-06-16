@@ -1,0 +1,55 @@
+{
+  "toolName": "debt-to-asset-ratio-calculator",
+  "inputs": [
+    {
+      "id": "shortTermLiabilities",
+      "label": "Short-Term Liabilities",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Total obligations due within one year"
+    },
+    {
+      "id": "longTermLiabilities",
+      "label": "Long-Term Liabilities",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Total obligations due after one year"
+    },
+    {
+      "id": "currentAssets",
+      "label": "Current Assets",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Assets expected to be converted to cash within one year"
+    },
+    {
+      "id": "nonCurrentAssets",
+      "label": "Non-Current Assets",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Long-term investments and property, plant, equipment"
+    }
+  ],
+  "formulas": {
+    "totalLiabilities": "shortTermLiabilities + longTermLiabilities",
+    "totalAssets": "currentAssets + nonCurrentAssets",
+    "debtToAssetRatio": "totalAssets !== 0 ? (totalLiabilities / totalAssets) * 100 : null"
+  },
+  "outputs": {
+    "primary": "debtToAssetRatio",
+    "breakdown": [
+      "totalLiabilities",
+      "totalAssets"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

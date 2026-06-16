@@ -1,0 +1,53 @@
+{
+  "toolName": "mohrs-circle-calculator",
+  "inputs": [
+    {
+      "id": "sigma_x",
+      "label": "Normal Stress σx",
+      "type": "number",
+      "unit": "MPa",
+      "default": 0,
+      "businessContext": "Normal stress in x-direction"
+    },
+    {
+      "id": "sigma_y",
+      "label": "Normal Stress σy",
+      "type": "number",
+      "unit": "MPa",
+      "default": 0,
+      "businessContext": "Normal stress in y-direction"
+    },
+    {
+      "id": "tau_xy",
+      "label": "Shear Stress τxy",
+      "type": "number",
+      "unit": "MPa",
+      "default": 0,
+      "businessContext": "Shear stress on x-face in y-direction"
+    }
+  ],
+  "formulas": {
+    "sigma_avg": "(sigma_x + sigma_y) / 2",
+    "R": "Math.sqrt(((sigma_x - sigma_y) / 2) ** 2 + tau_xy ** 2)",
+    "sigma_1": "sigma_avg + R",
+    "sigma_2": "sigma_avg - R",
+    "tau_max": "R",
+    "theta_p": "0.5 * Math.atan2(tau_xy, (sigma_x - sigma_y) / 2) * 180 / Math.PI",
+    "theta_s": "theta_p + 45"
+  },
+  "outputs": {
+    "primary": "σ₁ = {sigma_1} MPa, σ₂ = {sigma_2} MPa, τ_max = {tau_max} MPa",
+    "breakdown": [
+      "Average Stress σ_avg = {sigma_avg} MPa",
+      "Radius R = {R} MPa",
+      "Principal Angle θ_p = {theta_p}°",
+      "Shear Angle θ_s = {theta_s}°"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

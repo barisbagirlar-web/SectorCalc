@@ -1,0 +1,55 @@
+{
+  "toolName": "coulombs-law-calculator",
+  "inputs": [
+    {
+      "id": "charge1",
+      "label": "Charge 1",
+      "type": "number",
+      "unit": "C",
+      "default": 0.000001,
+      "businessContext": "First point charge in coulombs"
+    },
+    {
+      "id": "charge2",
+      "label": "Charge 2",
+      "type": "number",
+      "unit": "C",
+      "default": 0.000001,
+      "businessContext": "Second point charge in coulombs"
+    },
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Separation distance between charges in meters"
+    },
+    {
+      "id": "permittivity",
+      "label": "Permittivity",
+      "type": "number",
+      "unit": "F/m",
+      "default": 8.854187817e-12,
+      "businessContext": "Permittivity of the medium (vacuum default)"
+    }
+  ],
+  "formulas": {
+    "force": "((charge1 * charge2) / (4 * Math.PI * permittivity * distance * distance))",
+    "forceMagnitude": "Math.abs(((charge1 * charge2) / (4 * Math.PI * permittivity * distance * distance)))",
+    "forceDirection": "charge1 * charge2 > 0 ? 'repulsive' : 'attractive'"
+  },
+  "outputs": {
+    "primary": "force",
+    "breakdown": [
+      "forceMagnitude",
+      "forceDirection"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

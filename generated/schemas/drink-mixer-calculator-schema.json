@@ -1,0 +1,55 @@
+{
+  "toolName": "drink-mixer-calculator",
+  "inputs": [
+    {
+      "id": "volumeA",
+      "label": "Volume of Mix A",
+      "type": "number",
+      "unit": "ml",
+      "default": 100,
+      "businessContext": "Volume of first drink ingredient in milliliters"
+    },
+    {
+      "id": "abvA",
+      "label": "ABV of Mix A",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Alcohol by volume percentage of Mix A"
+    },
+    {
+      "id": "volumeB",
+      "label": "Volume of Mix B",
+      "type": "number",
+      "unit": "ml",
+      "default": 100,
+      "businessContext": "Volume of second drink ingredient in milliliters"
+    },
+    {
+      "id": "abvB",
+      "label": "ABV of Mix B",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Alcohol by volume percentage of Mix B"
+    }
+  ],
+  "formulas": {
+    "mixABV": "(volumeA * abvA + volumeB * abvB) / (volumeA + volumeB)",
+    "totalVolume": "volumeA + volumeB",
+    "totalAlcoholContent": "(volumeA * abvA / 100 + volumeB * abvB / 100)"
+  },
+  "outputs": {
+    "primary": "mixABV",
+    "breakdown": [
+      "totalVolume",
+      "totalAlcoholContent"
+    ]
+  },
+  "category": "Perakende & Gıda",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

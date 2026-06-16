@@ -1,0 +1,53 @@
+{
+  "toolName": "deadlift-calculator",
+  "inputs": [
+    {
+      "id": "weight_lifted",
+      "label": "Lifted Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Weight used for the set"
+    },
+    {
+      "id": "repetitions",
+      "label": "Repetitions",
+      "type": "number",
+      "unit": "rep",
+      "default": 5,
+      "businessContext": "Number of reps performed to failure or near failure"
+    },
+    {
+      "id": "body_weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "Lifter's body weight"
+    },
+    {
+      "id": "fatigue_factor",
+      "label": "Fatigue Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Freshness percentage (100 = no fatigue)"
+    }
+  ],
+  "formulas": {
+    "estimated_1rm": "weight_lifted * (1 + repetitions / 30) * (fatigue_factor / 100)",
+    "relative_strength": "(weight_lifted * (1 + repetitions / 30) * (fatigue_factor / 100)) / body_weight"
+  },
+  "outputs": {
+    "primary": "estimated_1rm",
+    "breakdown": [
+      "relative_strength"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

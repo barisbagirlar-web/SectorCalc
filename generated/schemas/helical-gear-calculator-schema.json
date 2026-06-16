@@ -1,0 +1,77 @@
+{
+  "toolName": "helical-gear-calculator",
+  "inputs": [
+    {
+      "id": "mn",
+      "label": "Normal Module",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "businessContext": "Standard module size for gear teeth"
+    },
+    {
+      "id": "z",
+      "label": "Number of Teeth",
+      "type": "number",
+      "unit": "",
+      "default": 20,
+      "businessContext": "Number of teeth on the gear"
+    },
+    {
+      "id": "beta",
+      "label": "Helix Angle",
+      "type": "number",
+      "unit": "deg",
+      "default": 15,
+      "businessContext": "Angle of gear teeth relative to axis"
+    },
+    {
+      "id": "alpha",
+      "label": "Normal Pressure Angle",
+      "type": "number",
+      "unit": "deg",
+      "default": 20,
+      "businessContext": "Standard pressure angle in normal plane"
+    },
+    {
+      "id": "ha",
+      "label": "Addendum Coefficient",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Addendum height factor (typically 1 for standard)"
+    },
+    {
+      "id": "c",
+      "label": "Dedendum Coefficient",
+      "type": "number",
+      "unit": "",
+      "default": 0.25,
+      "businessContext": "Dedendum clearance factor (typically 0.25)"
+    }
+  ],
+  "formulas": {
+    "pitchDiameter": "(mn * z) / Math.cos(beta * Math.PI / 180)",
+    "outsideDiameter": "(mn * z) / Math.cos(beta * Math.PI / 180) + 2 * ha * mn",
+    "rootDiameter": "(mn * z) / Math.cos(beta * Math.PI / 180) - 2 * (ha + c) * mn",
+    "transverseModule": "mn / Math.cos(beta * Math.PI / 180)",
+    "normalCircularPitch": "Math.PI * mn",
+    "transverseCircularPitch": "Math.PI * (mn / Math.cos(beta * Math.PI / 180))"
+  },
+  "outputs": {
+    "primary": "pitchDiameter",
+    "breakdown": [
+      "outsideDiameter",
+      "rootDiameter",
+      "transverseModule",
+      "normalCircularPitch",
+      "transverseCircularPitch"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

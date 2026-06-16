@@ -1,0 +1,71 @@
+{
+  "toolName": "cookie-cost-calculator",
+  "inputs": [
+    {
+      "id": "numberOfCookies",
+      "label": "Number of Cookies",
+      "type": "number",
+      "unit": "pcs",
+      "default": 24,
+      "businessContext": "The total number of cookies to produce"
+    },
+    {
+      "id": "flourCost",
+      "label": "Flour Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 1.5,
+      "businessContext": "Purchase cost of all-purpose flour per kilogram"
+    },
+    {
+      "id": "sugarCost",
+      "label": "Granulated Sugar Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 2,
+      "businessContext": "Purchase cost of granulated sugar per kilogram"
+    },
+    {
+      "id": "butterCost",
+      "label": "Unsalted Butter Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 5,
+      "businessContext": "Purchase cost of unsalted butter per kilogram"
+    },
+    {
+      "id": "eggCost",
+      "label": "Egg Cost per Unit",
+      "type": "number",
+      "unit": "USD/egg",
+      "default": 0.3,
+      "businessContext": "Purchase cost per large egg"
+    },
+    {
+      "id": "chocolateCost",
+      "label": "Chocolate Chips Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 8,
+      "businessContext": "Purchase cost of semi-sweet chocolate chips per kilogram"
+    }
+  ],
+  "formulas": {
+    "totalCost": "(flourCost * 0.5 + sugarCost * 0.3 + butterCost * 0.25 + eggCost * 2 + chocolateCost * 0.2) * (numberOfCookies / 12)",
+    "costPerCookie": "totalCost / numberOfCookies",
+    "sellingPrice": "costPerCookie * 1.3"
+  },
+  "outputs": {
+    "primary": "Total Ingredient Cost",
+    "breakdown": [
+      "Cost per Cookie",
+      "Recommended Selling Price (30% margin)"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

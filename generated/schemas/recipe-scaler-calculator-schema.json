@@ -1,0 +1,95 @@
+{
+  "toolName": "recipe-scaler-calculator",
+  "inputs": [
+    {
+      "id": "originalServings",
+      "label": "Original Servings",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Number of servings the original recipe is designed for."
+    },
+    {
+      "id": "desiredServings",
+      "label": "Desired Servings",
+      "type": "number",
+      "unit": "",
+      "default": 8,
+      "businessContext": "Number of servings you want to scale the recipe to."
+    },
+    {
+      "id": "ingredient1Amount",
+      "label": "Ingredient 1 Amount",
+      "type": "number",
+      "unit": "g",
+      "default": 200,
+      "businessContext": "Original amount of ingredient 1 in the recipe."
+    },
+    {
+      "id": "ingredient2Amount",
+      "label": "Ingredient 2 Amount",
+      "type": "number",
+      "unit": "g",
+      "default": 150,
+      "businessContext": "Original amount of ingredient 2 in the recipe."
+    },
+    {
+      "id": "ingredient3Amount",
+      "label": "Ingredient 3 Amount",
+      "type": "number",
+      "unit": "g",
+      "default": 100,
+      "businessContext": "Original amount of ingredient 3 in the recipe."
+    },
+    {
+      "id": "ingredient4Amount",
+      "label": "Ingredient 4 Amount",
+      "type": "number",
+      "unit": "g",
+      "default": 50,
+      "businessContext": "Original amount of ingredient 4 in the recipe."
+    },
+    {
+      "id": "ingredient5Amount",
+      "label": "Ingredient 5 Amount",
+      "type": "number",
+      "unit": "g",
+      "default": 25,
+      "businessContext": "Original amount of ingredient 5 in the recipe."
+    },
+    {
+      "id": "ingredient6Amount",
+      "label": "Ingredient 6 Amount",
+      "type": "number",
+      "unit": "g",
+      "default": 10,
+      "businessContext": "Original amount of ingredient 6 in the recipe."
+    }
+  ],
+  "formulas": {
+    "scaleFactor": "desiredServings / originalServings",
+    "scaledIngredient1": "ingredient1Amount * scaleFactor",
+    "scaledIngredient2": "ingredient2Amount * scaleFactor",
+    "scaledIngredient3": "ingredient3Amount * scaleFactor",
+    "scaledIngredient4": "ingredient4Amount * scaleFactor",
+    "scaledIngredient5": "ingredient5Amount * scaleFactor",
+    "scaledIngredient6": "ingredient6Amount * scaleFactor"
+  },
+  "outputs": {
+    "primary": "scaleFactor",
+    "breakdown": [
+      "scaledIngredient1",
+      "scaledIngredient2",
+      "scaledIngredient3",
+      "scaledIngredient4",
+      "scaledIngredient5",
+      "scaledIngredient6"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

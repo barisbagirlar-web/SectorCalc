@@ -1,0 +1,55 @@
+{
+  "toolName": "mpg-calculator",
+  "inputs": [
+    {
+      "id": "distanceTraveled",
+      "label": "Distance Traveled",
+      "type": "number",
+      "unit": "mi",
+      "default": 100,
+      "businessContext": "Total distance driven in miles between fill-ups or over a period."
+    },
+    {
+      "id": "fuelUsed",
+      "label": "Fuel Used",
+      "type": "number",
+      "unit": "gal",
+      "default": 5,
+      "businessContext": "Total fuel consumed in gallons over the same distance."
+    },
+    {
+      "id": "fuelCostPerGallon",
+      "label": "Fuel Cost per Gallon",
+      "type": "number",
+      "unit": "USD/gal",
+      "default": 3.5,
+      "businessContext": "Current price of fuel per gallon for cost calculations."
+    },
+    {
+      "id": "numberOfTrips",
+      "label": "Number of Trips",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of trips or fill-ups this calculation averages over."
+    }
+  ],
+  "formulas": {
+    "mpg": "distanceTraveled / fuelUsed",
+    "totalCost": "fuelUsed * fuelCostPerGallon",
+    "costPerMile": "(fuelUsed * fuelCostPerGallon) / distanceTraveled"
+  },
+  "outputs": {
+    "primary": "mpg",
+    "breakdown": [
+      "totalCost",
+      "costPerMile"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

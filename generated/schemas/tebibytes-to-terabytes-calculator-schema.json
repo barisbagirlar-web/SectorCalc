@@ -1,0 +1,55 @@
+{
+  "toolName": "tebibytes-to-terabytes-calculator",
+  "inputs": [
+    {
+      "id": "tebibytes",
+      "label": "Tebibytes (TiB)",
+      "type": "number",
+      "unit": "TiB",
+      "default": 1,
+      "businessContext": "The data volume in tebibytes (binary prefix, 2^40 bytes)."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor (TiB to TB)",
+      "type": "number",
+      "unit": "",
+      "default": 1.099511627776,
+      "businessContext": "Exact conversion factor: 1 TiB = 2^40 bytes, 1 TB = 10^12 bytes, so factor = 2^40 / 10^12 = 1.099511627776. Adjust for custom conversion if needed."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "decimals",
+      "default": 2,
+      "businessContext": "Number of decimal places to round the output terabytes."
+    },
+    {
+      "id": "outputMultiplier",
+      "label": "Output Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiply the converted terabytes by this factor for aggregated or scaled calculations."
+    }
+  ],
+  "formulas": {
+    "terabytes": "parseFloat(((tebibytes * conversionFactor * outputMultiplier).toFixed(precision)))",
+    "conversionEquation": "\"1 TiB = \" + conversionFactor + \" TB\"",
+    "rawValueWithoutMultiplier": "tebibytes * conversionFactor"
+  },
+  "outputs": {
+    "primary": "terabytes",
+    "breakdown": [
+      "conversionEquation",
+      "rawValueWithoutMultiplier"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,58 @@
+{
+  "toolName": "compare-fractions-calculator",
+  "inputs": [
+    {
+      "id": "num1",
+      "label": "Numerator 1",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "First fraction's numerator"
+    },
+    {
+      "id": "den1",
+      "label": "Denominator 1",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "First fraction's denominator (cannot be zero)"
+    },
+    {
+      "id": "num2",
+      "label": "Numerator 2",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Second fraction's numerator"
+    },
+    {
+      "id": "den2",
+      "label": "Denominator 2",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Second fraction's denominator (cannot be zero)"
+    }
+  ],
+  "formulas": {
+    "val1": "den1 !== 0 ? num1/den1 : NaN",
+    "val2": "den2 !== 0 ? num2/den2 : NaN",
+    "diff": "val1 - val2",
+    "primary": "diff > 0 ? 1 : (diff < 0 ? -1 : 0)",
+    "breakdown0": "val1",
+    "breakdown1": "val2"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "breakdown0",
+      "breakdown1"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

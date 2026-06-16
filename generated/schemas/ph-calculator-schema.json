@@ -1,0 +1,68 @@
+{
+  "toolName": "ph-calculator",
+  "inputs": [
+    {
+      "id": "volAcid",
+      "label": "Asit Hacmi",
+      "type": "number",
+      "unit": "L",
+      "default": 0.05,
+      "businessContext": "Kullanılan asit çözeltisinin hacmi."
+    },
+    {
+      "id": "concAcid",
+      "label": "Asit Derişimi",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.1,
+      "businessContext": "Asit çözeltisinin konsantrasyonu."
+    },
+    {
+      "id": "volBase",
+      "label": "Baz Hacmi",
+      "type": "number",
+      "unit": "L",
+      "default": 0.05,
+      "businessContext": "Kullanılan baz çözeltisinin hacmi."
+    },
+    {
+      "id": "concBase",
+      "label": "Baz Derişimi",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.1,
+      "businessContext": "Baz çözeltisinin konsantrasyonu."
+    },
+    {
+      "id": "Kw",
+      "label": "Su İyonlaşma Sabiti (Kw)",
+      "type": "number",
+      "unit": "",
+      "default": 1e-14,
+      "businessContext": "Suyun iyonlaşma sabiti, sıcaklığa bağlı değişir; 25°C için 1e-14."
+    }
+  ],
+  "formulas": {
+    "totalVolume": "volAcid + volBase",
+    "molesAcid": "volAcid * concAcid",
+    "molesBase": "volBase * concBase",
+    "excessH": "molesAcid - molesBase",
+    "Hplus": "excessH >= 0 ? excessH / totalVolume : Kw / (-excessH / totalVolume)",
+    "pH": "-(Math.log(Hplus) / Math.log(10))"
+  },
+  "outputs": {
+    "primary": "pH",
+    "breakdown": [
+      "excessH",
+      "totalVolume",
+      "Hplus",
+      "pH"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

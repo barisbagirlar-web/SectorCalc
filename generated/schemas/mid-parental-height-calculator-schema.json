@@ -1,0 +1,66 @@
+{
+  "toolName": "mid-parental-height-calculator",
+  "inputs": [
+    {
+      "id": "fatherHeight",
+      "label": "Baba Boyu (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 180,
+      "businessContext": "Babanın boyu santimetre cinsinden"
+    },
+    {
+      "id": "motherHeight",
+      "label": "Anne Boyu (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 165,
+      "businessContext": "Annenin boyu santimetre cinsinden"
+    },
+    {
+      "id": "childSex",
+      "label": "Çocuk Cinsiyeti",
+      "type": "number",
+      "unit": "none",
+      "default": 1,
+      "businessContext": "0: Kiz, 1: Erkek"
+    },
+    {
+      "id": "resultUnit",
+      "label": "Sonuç Birimi",
+      "type": "number",
+      "unit": "none",
+      "default": 0,
+      "businessContext": "0: cm, 1: inç"
+    }
+  ],
+  "formulas": {
+    "midHeightCm": "childSex === 1 ? (fatherHeight + motherHeight + 13) / 2 : (fatherHeight + motherHeight - 13) / 2",
+    "outputHeight": "resultUnit === 1 ? midHeightCm / 2.54 : midHeightCm",
+    "outputUnit": "resultUnit === 1 ? 'inç' : 'cm'",
+    "primaryText": "'Öngörülen boy: ' + outputHeight.toFixed(1) + ' ' + outputUnit",
+    "breakdownStep1": "'Baba boyu: ' + fatherHeight + ' cm'",
+    "breakdownStep2": "'Anne boyu: ' + motherHeight + ' cm'",
+    "breakdownStep3": "'Cinsiyet: ' + (childSex === 1 ? 'Erkek' : 'Kiz')",
+    "breakdownStep4": "'Formül: (baba + anne ' + (childSex === 1 ? '+ 13' : '- 13') + ') / 2'",
+    "breakdownStep5": "'Hesaplanan: ' + midHeightCm.toFixed(1) + ' cm'",
+    "breakdownStep6": "resultUnit === 1 ? 'İnçe çevrildi: ' + outputHeight.toFixed(1) + ' inç' : ''"
+  },
+  "outputs": {
+    "primary": "{primaryText}",
+    "breakdown": [
+      "{breakdownStep1}",
+      "{breakdownStep2}",
+      "{breakdownStep3}",
+      "{breakdownStep4}",
+      "{breakdownStep5}",
+      "{breakdownStep6}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

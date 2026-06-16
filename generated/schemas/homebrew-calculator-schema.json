@@ -1,0 +1,81 @@
+{
+  "toolName": "homebrew-calculator",
+  "inputs": [
+    {
+      "id": "grainWeight",
+      "label": "Grain Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 5,
+      "businessContext": "Total weight of malt grain in the recipe"
+    },
+    {
+      "id": "hopWeight",
+      "label": "Hop Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 50,
+      "businessContext": "Weight of hops added for bittering"
+    },
+    {
+      "id": "alphaAcid",
+      "label": "Alpha Acid",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Alpha acid percentage of the hops"
+    },
+    {
+      "id": "boilVolume",
+      "label": "Boil Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 20,
+      "businessContext": "Volume of wort after boiling"
+    },
+    {
+      "id": "boilTime",
+      "label": "Boil Time",
+      "type": "number",
+      "unit": "min",
+      "default": 60,
+      "businessContext": "Duration of the boil"
+    },
+    {
+      "id": "attenuation",
+      "label": "Yeast Attenuation",
+      "type": "number",
+      "unit": "%",
+      "default": 75,
+      "businessContext": "Expected attenuation of the yeast strain"
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 75,
+      "businessContext": "Brewhouse efficiency of the system"
+    }
+  ],
+  "formulas": {
+    "originalGravity": "1 + (grainWeight * 300 * (efficiency / 100)) / (boilVolume * 1000)",
+    "finalGravity": "originalGravity - (originalGravity - 1) * (attenuation / 100)",
+    "abv": "(originalGravity - finalGravity) * 131.25",
+    "ibu": "(hopWeight * alphaAcid * (1.65 * Math.pow(0.000125, (originalGravity - 1) * 1000) * (1 - Math.exp(-0.04 * boilTime)) / 4.15) * 1000) / boilVolume"
+  },
+  "outputs": {
+    "primary": "abv",
+    "breakdown": [
+      "originalGravity",
+      "finalGravity",
+      "ibu"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

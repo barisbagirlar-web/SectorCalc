@@ -1,0 +1,70 @@
+{
+  "toolName": "one-sided-limit-calculator",
+  "inputs": [
+    {
+      "id": "mean",
+      "label": "Sample Mean",
+      "type": "number",
+      "unit": "unit",
+      "default": 0,
+      "businessContext": "The arithmetic mean of the sample measurements."
+    },
+    {
+      "id": "sd",
+      "label": "Sample Standard Deviation",
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "The standard deviation of the sample, calculated with n-1 degrees of freedom."
+    },
+    {
+      "id": "n",
+      "label": "Sample Size",
+      "type": "number",
+      "unit": "pcs",
+      "default": 30,
+      "businessContext": "Number of observations in the sample."
+    },
+    {
+      "id": "zp",
+      "label": "Z-score for Proportion (p)",
+      "type": "number",
+      "unit": "",
+      "default": 2.326,
+      "businessContext": "Standard normal critical value for desired proportion. Common values: p=0.99 → zp=2.326, p=0.95 → zp=1.645."
+    },
+    {
+      "id": "zgamma",
+      "label": "Z-score for Confidence (γ)",
+      "type": "number",
+      "unit": "",
+      "default": 1.645,
+      "businessContext": "Standard normal critical value for confidence level. Common values: γ=0.95 → zγ=1.645, γ=0.99 → zγ=2.326."
+    },
+    {
+      "id": "direction",
+      "label": "Limit Direction",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for upper tolerance limit, 0 for lower tolerance limit."
+    }
+  ],
+  "formulas": {
+    "k": "zp + (zp ** 2 - 1) * zgamma / (2 * Math.sqrt(n))",
+    "limit": "direction * (mean + k * sd) + (1 - direction) * (mean - k * sd)"
+  },
+  "outputs": {
+    "primary": "limit",
+    "breakdown": [
+      "k",
+      "limit"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,86 @@
+{
+  "toolName": "trueskill-calculator",
+  "inputs": [
+    {
+      "id": "mu_winner",
+      "label": "Winner Mean (μ)",
+      "type": "number",
+      "unit": "skill units",
+      "default": 25,
+      "businessContext": "Initial skill estimate of the winning player/team"
+    },
+    {
+      "id": "sigma_winner",
+      "label": "Winner Std Dev (σ)",
+      "type": "number",
+      "unit": "skill units",
+      "default": 8.333,
+      "businessContext": "Uncertainty in winner's skill"
+    },
+    {
+      "id": "mu_loser",
+      "label": "Loser Mean (μ)",
+      "type": "number",
+      "unit": "skill units",
+      "default": 25,
+      "businessContext": "Initial skill estimate of the losing player/team"
+    },
+    {
+      "id": "sigma_loser",
+      "label": "Loser Std Dev (σ)",
+      "type": "number",
+      "unit": "skill units",
+      "default": 8.333,
+      "businessContext": "Uncertainty in loser's skill"
+    },
+    {
+      "id": "beta",
+      "label": "Beta (game randomness)",
+      "type": "number",
+      "unit": "skill units",
+      "default": 4.1667,
+      "businessContext": "Amount of randomness in the game; typical value is σ/2"
+    },
+    {
+      "id": "tau",
+      "label": "Tau (dynamics factor)",
+      "type": "number",
+      "unit": "skill units",
+      "default": 0.08333,
+      "businessContext": "Factor to increase uncertainty over time; typical value is σ/100"
+    },
+    {
+      "id": "draw_probability",
+      "label": "Draw Probability",
+      "type": "number",
+      "unit": "probability (0-1)",
+      "default": 0.1,
+      "businessContext": "Assumed probability of a draw outcome"
+    }
+  ],
+  "formulas": {
+    "c": "Math.sqrt(2 * beta * beta + sigma_winner * sigma_winner + sigma_loser * sigma_loser)",
+    "mu_winner_new": "mu_winner + (sigma_winner * sigma_winner / c) * (Math.exp(-((mu_winner - mu_loser) * (mu_winner - mu_loser)) / (2 * c * c)) / (1 + Math.exp(-((mu_winner - mu_loser) / c))))",
+    "sigma_winner_new": "Math.sqrt(sigma_winner * sigma_winner * (1 - (sigma_winner * sigma_winner / (c * c)) * (Math.exp(-((mu_winner - mu_loser) * (mu_winner - mu_loser)) / (2 * c * c)) * (1 + Math.exp(-((mu_winner - mu_loser) / c))) / ((1 + Math.exp(-((mu_winner - mu_loser) / c))) * (1 + Math.exp(-((mu_winner - mu_loser) / c)))))))",
+    "mu_loser_new": "mu_loser - (sigma_loser * sigma_loser / c) * (Math.exp(-((mu_winner - mu_loser) * (mu_winner - mu_loser)) / (2 * c * c)) / (1 + Math.exp(-((mu_winner - mu_loser) / c))))",
+    "sigma_loser_new": "Math.sqrt(sigma_loser * sigma_loser * (1 - (sigma_loser * sigma_loser / (c * c)) * (Math.exp(-((mu_winner - mu_loser) * (mu_winner - mu_loser)) / (2 * c * c)) * (1 + Math.exp(-((mu_winner - mu_loser) / c))) / ((1 + Math.exp(-((mu_winner - mu_loser) / c))) * (1 + Math.exp(-((mu_winner - mu_loser) / c)))))))",
+    "mu_winner_new_with_dynamics": "mu_winner_new + tau * tau",
+    "sigma_winner_new_with_dynamics": "Math.sqrt(sigma_winner_new * sigma_winner_new + tau * tau)",
+    "mu_loser_new_with_dynamics": "mu_loser_new + tau * tau",
+    "sigma_loser_new_with_dynamics": "Math.sqrt(sigma_loser_new * sigma_loser_new + tau * tau)"
+  },
+  "outputs": {
+    "primary": "Updated Winner Mean (μ): {mu_winner_new_with_dynamics}",
+    "breakdown": [
+      "Updated Winner Std Dev (σ): {sigma_winner_new_with_dynamics}",
+      "Updated Loser Mean (μ): {mu_loser_new_with_dynamics}",
+      "Updated Loser Std Dev (σ): {sigma_loser_new_with_dynamics}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

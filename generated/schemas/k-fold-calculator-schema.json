@@ -1,0 +1,65 @@
+{
+  "toolName": "k-fold-calculator",
+  "inputs": [
+    {
+      "id": "k",
+      "label": "Number of Folds (k)",
+      "type": "number",
+      "unit": "folds",
+      "default": 5,
+      "businessContext": "Number of folds used in cross-validation"
+    },
+    {
+      "id": "n",
+      "label": "Sample Size (n)",
+      "type": "number",
+      "unit": "samples",
+      "default": 1000,
+      "businessContext": "Total number of observations in the dataset"
+    },
+    {
+      "id": "meanAccuracy",
+      "label": "Mean Accuracy",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Average accuracy across all folds"
+    },
+    {
+      "id": "stdDevAccuracy",
+      "label": "Standard Deviation of Accuracy",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Standard deviation of accuracy scores from each fold"
+    },
+    {
+      "id": "zScore",
+      "label": "Z-Score",
+      "type": "number",
+      "unit": "",
+      "default": 1.96,
+      "businessContext": "Z-score for desired confidence level (e.g., 1.96 for 95%)"
+    }
+  ],
+  "formulas": {
+    "standardError": "stdDevAccuracy / Math.sqrt(k)",
+    "marginOfError": "zScore * (stdDevAccuracy / Math.sqrt(k))",
+    "lowerBoundCI": "meanAccuracy - (zScore * (stdDevAccuracy / Math.sqrt(k)))",
+    "upperBoundCI": "meanAccuracy + (zScore * (stdDevAccuracy / Math.sqrt(k)))"
+  },
+  "outputs": {
+    "primary": "standardError",
+    "breakdown": [
+      "marginOfError",
+      "lowerBoundCI",
+      "upperBoundCI"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "lmtd-calculator",
+  "inputs": [
+    {
+      "id": "thIn",
+      "label": "Hot Inlet Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 90,
+      "businessContext": "Temperature of hot fluid entering the heat exchanger."
+    },
+    {
+      "id": "thOut",
+      "label": "Hot Outlet Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 70,
+      "businessContext": "Temperature of hot fluid leaving the heat exchanger."
+    },
+    {
+      "id": "tcIn",
+      "label": "Cold Inlet Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 30,
+      "businessContext": "Temperature of cold fluid entering the heat exchanger."
+    },
+    {
+      "id": "tcOut",
+      "label": "Cold Outlet Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 50,
+      "businessContext": "Temperature of cold fluid leaving the heat exchanger."
+    },
+    {
+      "id": "flowType",
+      "label": "Flow Arrangement (1=Counterflow, 2=Parallel)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Heat exchanger flow configuration. Use 1 for counterflow, 2 for parallel flow."
+    }
+  ],
+  "formulas": {
+    "deltaT1": "flowType === 1 ? (thIn - tcOut) : (thIn - tcIn)",
+    "deltaT2": "flowType === 1 ? (thOut - tcIn) : (thOut - tcOut)",
+    "lmtd": "(Math.abs(deltaT1 - deltaT2) < 1e-10) ? deltaT1 : ((deltaT1 - deltaT2) / Math.log(deltaT1 / deltaT2))"
+  },
+  "outputs": {
+    "primary": "lmtd",
+    "breakdown": [
+      "deltaT1",
+      "deltaT2"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

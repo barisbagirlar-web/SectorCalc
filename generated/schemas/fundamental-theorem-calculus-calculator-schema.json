@@ -1,0 +1,72 @@
+{
+  "toolName": "fundamental-theorem-calculus-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "Lower Limit (a)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Alt integrasyon sınırı"
+    },
+    {
+      "id": "b",
+      "label": "Upper Limit (b)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Üst integrasyon sınırı"
+    },
+    {
+      "id": "c0",
+      "label": "Constant Coefficient (c₀)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sabit terim katsayısı"
+    },
+    {
+      "id": "c1",
+      "label": "Linear Coefficient (c₁)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "x terimi katsayısı"
+    },
+    {
+      "id": "c2",
+      "label": "Quadratic Coefficient (c₂)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "x² terimi katsayısı"
+    },
+    {
+      "id": "c3",
+      "label": "Cubic Coefficient (c₃)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "x³ terimi katsayısı"
+    }
+  ],
+  "formulas": {
+    "Fb": "c0*b + c1*(b**2)/2 + c2*(b**3)/3 + c3*(b**4)/4",
+    "Fa": "c0*a + c1*(a**2)/2 + c2*(a**3)/3 + c3*(a**4)/4",
+    "primary": "Fb - Fa"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "F(b) = c₀b + c₁b²/2 + c₂b³/3 + c₃b⁴/4 = ${Fb}",
+      "F(a) = c₀a + c₁a²/2 + c₂a³/3 + c₃a⁴/4 = ${Fa}",
+      "∫_a^b f(x) dx = F(b) - F(a) = ${primary}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

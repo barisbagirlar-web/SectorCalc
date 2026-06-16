@@ -1,0 +1,58 @@
+{
+  "toolName": "kw-to-hp-calculator",
+  "inputs": [
+    {
+      "id": "kW",
+      "label": "Power (kW)",
+      "type": "number",
+      "unit": "kW",
+      "default": 1,
+      "businessContext": "Electrical input power measured in kilowatts"
+    },
+    {
+      "id": "efficiency",
+      "label": "Motor Efficiency (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Motor efficiency as percentage (0-100)"
+    },
+    {
+      "id": "loadFactor",
+      "label": "Load Factor (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Load factor as percentage of full capacity (0-100)"
+    },
+    {
+      "id": "customFactor",
+      "label": "Conversion Factor (hp/kW)",
+      "type": "number",
+      "unit": "hp/kW",
+      "default": 1.34102,
+      "businessContext": "Conversion factor from kW to horsepower (default: mechanical hp)"
+    }
+  ],
+  "formulas": {
+    "effectiveKW": "kW * (efficiency / 100) * (loadFactor / 100)",
+    "hp_mechanical": "effectiveKW * 1.34102",
+    "hp_metric": "effectiveKW * 1.35962",
+    "hp_electrical": "effectiveKW * 1.34048",
+    "hp_custom": "effectiveKW * customFactor"
+  },
+  "outputs": {
+    "primary": "hp_custom",
+    "breakdown": [
+      "hp_mechanical",
+      "hp_metric",
+      "hp_electrical"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

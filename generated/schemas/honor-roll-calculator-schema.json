@@ -1,0 +1,67 @@
+{
+  "toolName": "honor-roll-calculator",
+  "inputs": [
+    {
+      "id": "defectRate",
+      "label": "Defect Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of defective products"
+    },
+    {
+      "id": "onTimeDelivery",
+      "label": "On-Time Delivery Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Percentage of deliveries completed on time"
+    },
+    {
+      "id": "productivity",
+      "label": "Actual Productivity",
+      "type": "number",
+      "unit": "units/h",
+      "default": 85,
+      "businessContext": "Actual production rate"
+    },
+    {
+      "id": "targetProductivity",
+      "label": "Target Productivity",
+      "type": "number",
+      "unit": "units/h",
+      "default": 100,
+      "businessContext": "Target production rate"
+    },
+    {
+      "id": "safetyIncidents",
+      "label": "Safety Incidents",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Number of safety incidents (each deducts 10 points)"
+    }
+  ],
+  "formulas": {
+    "defectScore": "Math.max(0, 100 - defectRate)",
+    "deliveryScore": "onTimeDelivery",
+    "productivityScore": "Math.max(0, Math.min(100, (productivity / targetProductivity) * 100))",
+    "safetyScore": "Math.max(0, 100 - safetyIncidents * 10)",
+    "honorScore": "(defectScore + deliveryScore + productivityScore + safetyScore) / 4"
+  },
+  "outputs": {
+    "primary": "honorScore",
+    "breakdown": [
+      "defectScore",
+      "deliveryScore",
+      "productivityScore",
+      "safetyScore"
+    ]
+  },
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

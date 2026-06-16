@@ -1,0 +1,59 @@
+{
+  "toolName": "wet-bulb-temperature",
+  "inputs": [
+    {
+      "id": "dryBulbTemp",
+      "label": "Dry Bulb Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "The temperature of air measured by a thermometer freely exposed to air but shielded from radiation and moisture."
+    },
+    {
+      "id": "relativeHumidity",
+      "label": "Relative Humidity",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "The ratio of the partial pressure of water vapor to the equilibrium vapor pressure of water at the same temperature."
+    },
+    {
+      "id": "atmosphericPressure",
+      "label": "Atmospheric Pressure",
+      "type": "number",
+      "unit": "hPa",
+      "default": 1013.25,
+      "businessContext": "The pressure exerted by the weight of the atmosphere at the location (standard sea-level pressure is 1013.25 hPa). Not used in this simplified calculation."
+    },
+    {
+      "id": "altitude",
+      "label": "Altitude",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Elevation above sea level. Not used in this simplified calculation."
+    }
+  ],
+  "formulas": {
+    "term1": "dryBulbTemp * Math.atan(0.151977 * Math.sqrt(relativeHumidity + 8.313659))",
+    "term2": "Math.atan(dryBulbTemp + relativeHumidity)",
+    "term3": "-Math.atan(relativeHumidity - 1.676331)",
+    "term4": "0.00391838 * Math.pow(relativeHumidity, 1.5) * Math.atan(0.023101 * relativeHumidity)",
+    "wetBulbTemp": "term1 + term2 + term3 + term4 - 4.686035"
+  },
+  "outputs": {
+    "primary": "wetBulbTemp",
+    "breakdown": [
+      "term1",
+      "term2",
+      "term3",
+      "term4"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

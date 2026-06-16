@@ -1,0 +1,81 @@
+{
+  "toolName": "paver-patio-calculator",
+  "inputs": [
+    {
+      "id": "patioLength",
+      "label": "Patio Length",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Length of the patio area to be paved."
+    },
+    {
+      "id": "patioWidth",
+      "label": "Patio Width",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Width of the patio area to be paved."
+    },
+    {
+      "id": "paverLength",
+      "label": "Paver Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0.2,
+      "businessContext": "Length of a single paving stone."
+    },
+    {
+      "id": "paverWidth",
+      "label": "Paver Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Width of a single paving stone."
+    },
+    {
+      "id": "gap",
+      "label": "Joint Gap",
+      "type": "number",
+      "unit": "m",
+      "default": 0.005,
+      "businessContext": "Gap between pavers (e.g., mortar joint width)."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "oran",
+      "default": 0.05,
+      "businessContext": "Extra material factor for cutting and breakage (e.g., 0.05 = 5%)."
+    },
+    {
+      "id": "paverCostPerUnit",
+      "label": "Cost per Paver",
+      "type": "number",
+      "unit": "birim",
+      "default": 1,
+      "businessContext": "Unit cost of one paver (in currency units)."
+    }
+  ],
+  "formulas": {
+    "patioArea": "inputs.patioLength * inputs.patioWidth",
+    "numberOfPavers": "Math.ceil( (inputs.patioLength * inputs.patioWidth) / ((inputs.paverLength + inputs.gap) * (inputs.paverWidth + inputs.gap)) * (1 + inputs.wasteFactor) )",
+    "totalCost": "Math.ceil( (inputs.patioLength * inputs.patioWidth) / ((inputs.paverLength + inputs.gap) * (inputs.paverWidth + inputs.gap)) * (1 + inputs.wasteFactor) ) * inputs.paverCostPerUnit",
+    "wastePavers": "inputs.patioLength * inputs.patioWidth / ((inputs.paverLength + inputs.gap) * (inputs.paverWidth + inputs.gap)) * inputs.wasteFactor"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "numberOfPavers",
+      "patioArea",
+      "wastePavers"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

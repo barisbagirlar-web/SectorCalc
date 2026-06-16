@@ -1,0 +1,87 @@
+{
+  "toolName": "hiit-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight_kg",
+      "label": "Body Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User's body weight in kilograms"
+    },
+    {
+      "id": "work_duration_min",
+      "label": "High-Intensity Work Duration (min)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 20,
+      "businessContext": "Total time spent in high-intensity intervals"
+    },
+    {
+      "id": "rest_duration_min",
+      "label": "Rest Duration (min)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 10,
+      "businessContext": "Total time spent in rest/recovery periods"
+    },
+    {
+      "id": "MET_high",
+      "label": "MET Value for High Intensity",
+      "type": "number",
+      "unit": "MET",
+      "default": 12,
+      "businessContext": "Metabolic Equivalent of Task for high-intensity exercise; typical HIIT 10-15"
+    },
+    {
+      "id": "MET_rest",
+      "label": "MET Value for Rest",
+      "type": "number",
+      "unit": "MET",
+      "default": 6,
+      "businessContext": "MET value for rest period; e.g., standing/walking recovery"
+    }
+  ],
+  "formulas": {
+    "total_duration_min": {
+      "expression": "work_duration_min + rest_duration_min",
+      "unit": "minutes"
+    },
+    "avg_MET": {
+      "expression": "(MET_high * work_duration_min + MET_rest * rest_duration_min) / total_duration_min",
+      "unit": "MET"
+    },
+    "calories": {
+      "expression": "avg_MET * weight_kg * (total_duration_min / 60)",
+      "unit": "kcal"
+    }
+  },
+  "outputs": {
+    "primary": {
+      "id": "calories",
+      "label": "Total Calories Burned",
+      "unit": "kcal",
+      "formulaId": "calories"
+    },
+    "breakdown": [
+      {
+        "id": "total_duration_min",
+        "label": "Total Workout Duration",
+        "unit": "minutes",
+        "formulaId": "total_duration_min"
+      },
+      {
+        "id": "avg_MET",
+        "label": "Average MET",
+        "unit": "MET",
+        "formulaId": "avg_MET"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

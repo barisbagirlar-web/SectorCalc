@@ -1,0 +1,68 @@
+{
+  "toolName": "mast-calculator",
+  "inputs": [
+    {
+      "id": "mastHeight",
+      "label": "Mast Height",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Height of the mast from base to top."
+    },
+    {
+      "id": "mastDiameter",
+      "label": "Mast Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "businessContext": "Outer diameter of the cylindrical mast."
+    },
+    {
+      "id": "windSpeed",
+      "label": "Wind Speed",
+      "type": "number",
+      "unit": "m/s",
+      "default": 30,
+      "businessContext": "Design wind speed."
+    },
+    {
+      "id": "materialYieldStrength",
+      "label": "Material Yield Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 250,
+      "businessContext": "Yield strength of the mast material."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Design safety factor."
+    }
+  ],
+  "formulas": {
+    "windPressure": "0.5 * 1.225 * windSpeed ** 2",
+    "dragForce": "0.7 * windPressure * (mastDiameter * mastHeight)",
+    "bendingMoment": "dragForce * (mastHeight / 2)",
+    "sectionModulus": "Math.PI * mastDiameter ** 3 / 32",
+    "bendingStressPa": "bendingMoment / sectionModulus",
+    "bendingStressMPa": "bendingStressPa / 1e6",
+    "allowableStress": "materialYieldStrength / safetyFactor",
+    "utilizationRatio": "bendingStressMPa / allowableStress"
+  },
+  "outputs": {
+    "primary": "utilizationRatio",
+    "breakdown": [
+      "bendingStressMPa",
+      "allowableStress"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

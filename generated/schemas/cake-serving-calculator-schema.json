@@ -1,0 +1,54 @@
+{
+  "toolName": "cake-serving-calculator",
+  "inputs": [
+    {
+      "id": "shape",
+      "label": "Cake Shape",
+      "type": "number",
+      "unit": "none",
+      "default": 0,
+      "businessContext": "0 for round, 1 for rectangular"
+    },
+    {
+      "id": "dim1",
+      "label": "Diameter (round) / Length (rectangular)",
+      "type": "number",
+      "unit": "cm",
+      "default": 20,
+      "businessContext": "Primary dimension of the cake"
+    },
+    {
+      "id": "dim2",
+      "label": "Width (rectangular, enter 0 for round)",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "Secondary dimension, only for rectangular cakes"
+    },
+    {
+      "id": "servingArea",
+      "label": "Area per Serving",
+      "type": "number",
+      "unit": "cm²",
+      "default": 25,
+      "businessContext": "Typical area per serving (e.g., 25 cm²)"
+    }
+  ],
+  "formulas": {
+    "cakeArea": "shape === 0 ? Math.PI * (dim1/2) ** 2 : dim1 * dim2",
+    "totalServings": "cakeArea / servingArea"
+  },
+  "outputs": {
+    "primary": "totalServings",
+    "breakdown": [
+      "cakeArea",
+      "totalServings"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

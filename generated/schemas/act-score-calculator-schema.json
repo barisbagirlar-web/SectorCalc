@@ -1,0 +1,52 @@
+{
+  "toolName": "act-score-calculator",
+  "inputs": [
+    {
+      "id": "englishScore",
+      "label": "English Score",
+      "type": "number",
+      "unit": "points",
+      "default": 20,
+      "businessContext": "Score from English section of the ACT test"
+    },
+    {
+      "id": "mathScore",
+      "label": "Math Score",
+      "type": "number",
+      "unit": "points",
+      "default": 20,
+      "businessContext": "Score from Math section"
+    },
+    {
+      "id": "readingScore",
+      "label": "Reading Score",
+      "type": "number",
+      "unit": "points",
+      "default": 20,
+      "businessContext": "Score from Reading section"
+    },
+    {
+      "id": "scienceScore",
+      "label": "Science Score",
+      "type": "number",
+      "unit": "points",
+      "default": 20,
+      "businessContext": "Score from Science section"
+    }
+  ],
+  "formulas": {
+    "compositeScore": "Math.round((englishScore + mathScore + readingScore + scienceScore) / 4)"
+  },
+  "outputs": {
+    "primary": "compositeScore",
+    "breakdown": [
+      "compositeScore"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,61 @@
+{
+  "toolName": "sailing-calculator",
+  "inputs": [
+    {
+      "id": "windSpeed",
+      "label": "Wind Speed",
+      "type": "number",
+      "unit": "m/s",
+      "default": 10,
+      "businessContext": "True wind speed in meters per second"
+    },
+    {
+      "id": "sailArea",
+      "label": "Sail Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 25,
+      "businessContext": "Total sail area in square meters"
+    },
+    {
+      "id": "leverArm",
+      "label": "Lever Arm",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Vertical distance from center of gravity to center of effort of sails"
+    },
+    {
+      "id": "airDensity",
+      "label": "Air Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1.225,
+      "businessContext": "Air density (standard sea level value is 1.225 kg/m³)"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Factor applied for safety margin (≥1.0)"
+    }
+  ],
+  "formulas": {
+    "heelingMomentNm": "0.5 * airDensity * (windSpeed ** 2) * sailArea * leverArm * safetyFactor",
+    "sailForceN": "0.5 * airDensity * (windSpeed ** 2) * sailArea * safetyFactor"
+  },
+  "outputs": {
+    "primary": "heelingMomentNm",
+    "breakdown": [
+      "sailForceN"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

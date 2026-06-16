@@ -1,0 +1,55 @@
+{
+  "toolName": "blood-pressure-calculator",
+  "inputs": [
+    {
+      "id": "systolic",
+      "label": "Sistolik Basınç (mmHg)",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 120,
+      "businessContext": "Sistolik kan basıncı ölçümü"
+    },
+    {
+      "id": "diastolic",
+      "label": "Diastolik Basınç (mmHg)",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 80,
+      "businessContext": "Diastolik kan basıncı ölçümü"
+    },
+    {
+      "id": "heartRate",
+      "label": "Nabız (bpm)",
+      "type": "number",
+      "unit": "bpm",
+      "default": 72,
+      "businessContext": "Dakikadaki kalp atışı sayısı"
+    },
+    {
+      "id": "age",
+      "label": "Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 30,
+      "businessContext": "Kişinin yaşı"
+    }
+  ],
+  "formulas": {
+    "classification": "(systolic < 120 && diastolic < 80) ? 'Normal' : (systolic < 130 && diastolic < 80) ? 'Yükselmiş' : (systolic >= 140 || diastolic >= 90) ? 'Evre 2 Hipertansiyon' : 'Evre 1 Hipertansiyon'",
+    "map": "diastolic + (systolic - diastolic) / 3",
+    "pulsePressure": "systolic - diastolic"
+  },
+  "outputs": {
+    "primary": "classification",
+    "breakdown": [
+      "map",
+      "pulsePressure"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

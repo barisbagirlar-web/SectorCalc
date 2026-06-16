@@ -1,0 +1,87 @@
+{
+  "toolName": "usda-loan-calculator",
+  "inputs": [
+    {
+      "id": "baseLoanAmount",
+      "label": "Base Loan Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 200000,
+      "businessContext": "The initial loan amount before adding the USDA upfront guarantee fee."
+    },
+    {
+      "id": "interestRate",
+      "label": "Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 3.5,
+      "businessContext": "Annual nominal interest rate for the loan."
+    },
+    {
+      "id": "loanTermYears",
+      "label": "Loan Term (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Duration of the loan in years."
+    },
+    {
+      "id": "upfrontFeePercent",
+      "label": "Upfront Guarantee Fee",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "businessContext": "One-time USDA guarantee fee as a percentage of the base loan amount."
+    },
+    {
+      "id": "annualFeePercent",
+      "label": "Annual Fee",
+      "type": "number",
+      "unit": "%",
+      "default": 0.35,
+      "businessContext": "Ongoing USDA annual fee as a percentage of the base loan amount, paid monthly."
+    },
+    {
+      "id": "annualPropertyTax",
+      "label": "Annual Property Tax",
+      "type": "number",
+      "unit": "USD",
+      "default": 2400,
+      "businessContext": "Annual property tax amount."
+    },
+    {
+      "id": "annualHomeInsurance",
+      "label": "Annual Home Insurance",
+      "type": "number",
+      "unit": "USD",
+      "default": 1200,
+      "businessContext": "Annual homeowners insurance premium."
+    }
+  ],
+  "formulas": {
+    "upfrontFeeAmount": "baseLoanAmount * upfrontFeePercent / 100",
+    "totalLoanAmount": "baseLoanAmount + upfrontFeeAmount",
+    "monthlyInterestRate": "(interestRate / 100) / 12",
+    "numberOfPayments": "loanTermYears * 12",
+    "monthlyPI": "totalLoanAmount * monthlyInterestRate * (1 + monthlyInterestRate) ** numberOfPayments / ((1 + monthlyInterestRate) ** numberOfPayments - 1)",
+    "monthlyTax": "annualPropertyTax / 12",
+    "monthlyInsurance": "annualHomeInsurance / 12",
+    "monthlyAnnualFee": "(baseLoanAmount * annualFeePercent / 100) / 12",
+    "totalMonthlyPayment": "monthlyPI + monthlyTax + monthlyInsurance + monthlyAnnualFee"
+  },
+  "outputs": {
+    "primary": "totalMonthlyPayment",
+    "breakdown": [
+      "monthlyPI",
+      "monthlyTax",
+      "monthlyInsurance",
+      "monthlyAnnualFee"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

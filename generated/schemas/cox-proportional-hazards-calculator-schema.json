@@ -1,0 +1,85 @@
+{
+  "toolName": "cox-proportional-hazards-calculator",
+  "inputs": [
+    {
+      "id": "operatingHours",
+      "label": "Operating Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 1000,
+      "businessContext": "Total hours machine has been operating"
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 80,
+      "businessContext": "Average operating temperature"
+    },
+    {
+      "id": "vibration",
+      "label": "Vibration Level",
+      "type": "number",
+      "unit": "mm/s",
+      "default": 5,
+      "businessContext": "RMS vibration velocity"
+    },
+    {
+      "id": "maintenanceScore",
+      "label": "Maintenance Score",
+      "type": "number",
+      "unit": "index",
+      "default": 0.8,
+      "businessContext": "Preventive maintenance compliance (0-1, 1=fully compliant)"
+    },
+    {
+      "id": "beta_hours",
+      "label": "Coefficient: Operating Hours",
+      "type": "number",
+      "unit": "log(HR)/hour",
+      "default": 0.0001,
+      "businessContext": "Effect of operating hours on log hazard"
+    },
+    {
+      "id": "beta_temp",
+      "label": "Coefficient: Temperature",
+      "type": "number",
+      "unit": "log(HR)/°C",
+      "default": 0.03,
+      "businessContext": "Effect of temperature on log hazard"
+    },
+    {
+      "id": "beta_vibration",
+      "label": "Coefficient: Vibration",
+      "type": "number",
+      "unit": "log(HR)/(mm/s)",
+      "default": 0.1,
+      "businessContext": "Effect of vibration on log hazard"
+    },
+    {
+      "id": "beta_maintenance",
+      "label": "Coefficient: Maintenance Score",
+      "type": "number",
+      "unit": "log(HR)/index",
+      "default": -0.5,
+      "businessContext": "Effect of maintenance compliance on log hazard (negative reduces hazard)"
+    }
+  ],
+  "formulas": {
+    "linearPredictor": "inputs.beta_hours * inputs.operatingHours + inputs.beta_temp * inputs.temperature + inputs.beta_vibration * inputs.vibration + inputs.beta_maintenance * inputs.maintenanceScore",
+    "hazardRatio": "Math.exp(inputs.beta_hours * inputs.operatingHours + inputs.beta_temp * inputs.temperature + inputs.beta_vibration * inputs.vibration + inputs.beta_maintenance * inputs.maintenanceScore)"
+  },
+  "outputs": {
+    "primary": "hazardRatio",
+    "breakdown": [
+      "linearPredictor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

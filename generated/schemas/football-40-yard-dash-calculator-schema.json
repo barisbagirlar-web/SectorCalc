@@ -1,0 +1,64 @@
+{
+  "toolName": "football-40-yard-dash-calculator",
+  "inputs": [
+    {
+      "id": "distance_yards",
+      "label": "Distance (yards)",
+      "type": "number",
+      "unit": "yd",
+      "default": 40,
+      "businessContext": "Standard test distance for NFL Combine is 40 yards."
+    },
+    {
+      "id": "time_seconds",
+      "label": "Time (seconds)",
+      "type": "number",
+      "unit": "s",
+      "default": 4.5,
+      "businessContext": "Recorded time for the 40-yard dash."
+    },
+    {
+      "id": "weight_lbs",
+      "label": "Player Weight (lbs)",
+      "type": "number",
+      "unit": "lbs",
+      "default": 220,
+      "businessContext": "Body weight of the athlete to estimate power output."
+    },
+    {
+      "id": "wind_mph",
+      "label": "Wind Speed (mph)",
+      "type": "number",
+      "unit": "mph",
+      "default": 0,
+      "businessContext": "Wind speed, positive for tailwind, negative for headwind, to adjust effective time."
+    }
+  ],
+  "formulas": {
+    "distance_m": "distance_yards * 0.9144",
+    "time_eff": "time_seconds * (1 - 0.001 * wind_mph)",
+    "speed_mph": "(distance_yards * 3600) / (time_eff * 1760)",
+    "speed_kmh": "speed_mph * 1.60934",
+    "speed_ms": "distance_m / time_eff",
+    "mass_kg": "weight_lbs * 0.453592",
+    "acceleration_mps2": "(2 * distance_m) / (time_eff * time_eff)",
+    "power_watts": "(2 * mass_kg * distance_m * distance_m) / (time_eff * time_eff * time_eff)",
+    "power_hp": "power_watts / 745.7"
+  },
+  "outputs": {
+    "primary": "speed_mph",
+    "breakdown": [
+      "speed_kmh",
+      "speed_ms",
+      "acceleration_mps2",
+      "power_watts",
+      "power_hp"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

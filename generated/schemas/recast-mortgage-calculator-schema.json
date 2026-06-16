@@ -1,0 +1,69 @@
+{
+  "toolName": "recast-mortgage-calculator",
+  "inputs": [
+    {
+      "id": "currentBalance",
+      "label": "Current Loan Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 200000,
+      "businessContext": "The outstanding principal balance of the mortgage."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 4.5,
+      "businessContext": "The annual interest rate on the loan."
+    },
+    {
+      "id": "remainingTerm",
+      "label": "Remaining Loan Term",
+      "type": "number",
+      "unit": "months",
+      "default": 180,
+      "businessContext": "The number of months remaining on the original loan schedule."
+    },
+    {
+      "id": "lumpSumPayment",
+      "label": "Lump Sum Payment",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "The amount you plan to pay toward the principal to recast the mortgage."
+    },
+    {
+      "id": "recastFee",
+      "label": "Recast Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 250,
+      "businessContext": "The fee charged by the lender for recasting the mortgage."
+    }
+  ],
+  "formulas": {
+    "monthlyInterestRate": "annualInterestRate / 100 / 12",
+    "originalMonthlyPayment": "currentBalance * monthlyInterestRate / (1 - Math.pow(1 + monthlyInterestRate, -remainingTerm))",
+    "newBalance": "currentBalance - lumpSumPayment",
+    "newMonthlyPayment": "newBalance * monthlyInterestRate / (1 - Math.pow(1 + monthlyInterestRate, -remainingTerm))",
+    "monthlySavings": "originalMonthlyPayment - newMonthlyPayment",
+    "totalSavings": "monthlySavings * remainingTerm - recastFee",
+    "breakEvenMonths": "monthlySavings > 0 ? Math.ceil(recastFee / monthlySavings) : 0"
+  },
+  "outputs": {
+    "primary": "newMonthlyPayment",
+    "breakdown": [
+      "originalMonthlyPayment",
+      "monthlySavings",
+      "totalSavings",
+      "breakEvenMonths"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

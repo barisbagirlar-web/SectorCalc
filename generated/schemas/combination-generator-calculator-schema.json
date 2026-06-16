@@ -1,0 +1,50 @@
+{
+  "toolName": "combination-generator-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Total Items",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Total number of items in the set"
+    },
+    {
+      "id": "k",
+      "label": "Items to Choose",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Number of items selected without regard to order"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Number of decimal places for rounding the result"
+    },
+    {
+      "id": "outputStyle",
+      "label": "Output Style",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0: integer, 1: decimal (reserved for future use)"
+    }
+  ],
+  "formulas": {
+    "combinations": "(()=>{let c=(()=>{let r=1;for(let i=1;i<=k;i++)r=r*(n-k+i)/i;return r})(); return decimalPlaces>0? Math.round(c*Math.pow(10,decimalPlaces))/Math.pow(10,decimalPlaces): Math.round(c);})()"
+  },
+  "outputs": {
+    "primary": "combinations",
+    "breakdown": []
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

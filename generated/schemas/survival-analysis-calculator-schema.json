@@ -1,0 +1,69 @@
+{
+  "toolName": "survival-analysis-calculator",
+  "inputs": [
+    {
+      "id": "failureRate",
+      "label": "Failure Rate (λ)",
+      "type": "number",
+      "unit": "failures/hour",
+      "default": 0.001,
+      "businessContext": "The rate at which failures occur per unit time (exponential distribution parameter)"
+    },
+    {
+      "id": "time",
+      "label": "Time (t)",
+      "type": "number",
+      "unit": "hours",
+      "default": 1000,
+      "businessContext": "Time point at which to compute survival probability"
+    },
+    {
+      "id": "targetSurvivalProb",
+      "label": "Target Survival Probability",
+      "type": "number",
+      "unit": "",
+      "default": 0.9,
+      "businessContext": "Desired survival probability (between 0 and 1) to compute the required time (e.g., B10 life)"
+    },
+    {
+      "id": "observedFailures",
+      "label": "Observed Failures",
+      "type": "number",
+      "unit": "failures",
+      "default": 0,
+      "businessContext": "Observed number of failures in a test (for reference, not used in calculations)"
+    },
+    {
+      "id": "totalTestTime",
+      "label": "Total Test Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 1000,
+      "businessContext": "Total operating time of all items under test (for reference, not used in calculations)"
+    }
+  ],
+  "formulas": {
+    "survivalProbability": "Math.exp(-failureRate * time)",
+    "hazardRate": "failureRate",
+    "cumulativeHazard": "failureRate * time",
+    "meanTimeToFailure": "1 / failureRate",
+    "requiredTimeForTargetSurvival": "-Math.log(targetSurvivalProb) / failureRate",
+    "b10Life": "-Math.log(0.9) / failureRate"
+  },
+  "outputs": {
+    "primary": "survivalProbability",
+    "breakdown": [
+      "hazardRate",
+      "cumulativeHazard",
+      "meanTimeToFailure",
+      "requiredTimeForTargetSurvival",
+      "b10Life"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

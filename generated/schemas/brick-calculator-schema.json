@@ -1,0 +1,89 @@
+{
+  "toolName": "brick-calculator",
+  "inputs": [
+    {
+      "id": "wallLength",
+      "label": "Wall Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Total length of the wall in meters"
+    },
+    {
+      "id": "wallHeight",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Total height of the wall in meters"
+    },
+    {
+      "id": "brickLength",
+      "label": "Brick Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "businessContext": "Length of a single brick (excluding mortar)"
+    },
+    {
+      "id": "brickHeight",
+      "label": "Brick Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Height of a single brick (excluding mortar)"
+    },
+    {
+      "id": "mortarThickness",
+      "label": "Mortar Joint Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Thickness of mortar between bricks"
+    },
+    {
+      "id": "openingArea",
+      "label": "Total Openings Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 2,
+      "businessContext": "Total area of doors, windows, etc. to subtract"
+    },
+    {
+      "id": "wastagePercentage",
+      "label": "Wastage Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Extra bricks for breakage and cuts"
+    }
+  ],
+  "formulas": {
+    "wallArea": "wallLength * wallHeight - openingArea",
+    "brickLengthM": "brickLength / 1000",
+    "brickHeightM": "brickHeight / 1000",
+    "mortarThicknessM": "mortarThickness / 1000",
+    "effectiveLength": "brickLengthM + mortarThicknessM",
+    "effectiveHeight": "brickHeightM + mortarThicknessM",
+    "bricksPerSquareMeter": "1 / (effectiveLength * effectiveHeight)",
+    "netBricks": "wallArea * bricksPerSquareMeter",
+    "wastageMultiplier": "1 + wastagePercentage / 100",
+    "grossBricks": "netBricks * wastageMultiplier",
+    "totalBricksNeeded": "Math.ceil(grossBricks)"
+  },
+  "outputs": {
+    "primary": "totalBricksNeeded",
+    "breakdown": [
+      "wallArea",
+      "bricksPerSquareMeter",
+      "netBricks",
+      "grossBricks"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

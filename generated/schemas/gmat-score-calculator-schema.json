@@ -1,0 +1,60 @@
+{
+  "toolName": "gmat-score-calculator",
+  "inputs": [
+    {
+      "id": "quantScaled",
+      "label": "Quantitative Scaled Score",
+      "type": "number",
+      "unit": "points",
+      "default": 40,
+      "businessContext": "Scaled score (0-60) on the Quantitative section of the GMAT."
+    },
+    {
+      "id": "verbalScaled",
+      "label": "Verbal Scaled Score",
+      "type": "number",
+      "unit": "points",
+      "default": 40,
+      "businessContext": "Scaled score (0-60) on the Verbal section of the GMAT."
+    },
+    {
+      "id": "integratedReasoning",
+      "label": "Integrated Reasoning Score",
+      "type": "number",
+      "unit": "score",
+      "default": 5,
+      "businessContext": "Score on the Integrated Reasoning section (1-8)."
+    },
+    {
+      "id": "analyticalWriting",
+      "label": "Analytical Writing Assessment Score",
+      "type": "number",
+      "unit": "score",
+      "default": 4.5,
+      "businessContext": "Score on the Analytical Writing Assessment (0-6, in 0.5 increments)."
+    }
+  ],
+  "formulas": {
+    "quantitativeScore": "quantScaled",
+    "verbalScore": "verbalScaled",
+    "totalScore": "200 + (quantScaled + verbalScaled) * 5",
+    "irScore": "integratedReasoning",
+    "awaScore": "analyticalWriting"
+  },
+  "outputs": {
+    "primary": "totalScore",
+    "breakdown": [
+      "quantitativeScore",
+      "verbalScore",
+      "totalScore",
+      "irScore",
+      "awaScore"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

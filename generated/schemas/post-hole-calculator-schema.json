@@ -1,0 +1,70 @@
+{
+  "toolName": "post-hole-calculator",
+  "inputs": [
+    {
+      "id": "holeDiameter",
+      "label": "Hole Diameter",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "Diameter of the cylindrical hole for the post, typically 3 times the post width."
+    },
+    {
+      "id": "holeDepth",
+      "label": "Hole Depth",
+      "type": "number",
+      "unit": "cm",
+      "default": 60,
+      "businessContext": "Depth of the hole, usually 1/3 to 1/2 of the above-ground post height."
+    },
+    {
+      "id": "postSide",
+      "label": "Post Side Width",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Width of a square post. For round posts, use diameter equivalent."
+    },
+    {
+      "id": "numberOfPosts",
+      "label": "Number of Posts",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Total number of post holes to be filled."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Extra percentage of concrete to order for spillage, over-digging, etc."
+    }
+  ],
+  "formulas": {
+    "holeVolume": "Math.PI * (holeDiameter / 2) ** 2 * holeDepth",
+    "postVolume": "postSide ** 2 * holeDepth",
+    "concretePerHole": "holeVolume - postVolume",
+    "totalConcrete": "concretePerHole * numberOfPosts",
+    "totalWithWaste": "totalConcrete * (1 + wasteFactor / 100)",
+    "totalCubicMeters": "totalWithWaste / 1000000"
+  },
+  "outputs": {
+    "primary": "totalCubicMeters.toFixed(2) + ' m³'",
+    "breakdown": [
+      "holeVolume.toFixed(0) + ' cm³'",
+      "postVolume.toFixed(0) + ' cm³'",
+      "concretePerHole.toFixed(0) + ' cm³ per hole'",
+      "totalConcrete.toFixed(0) + ' cm³'",
+      "totalWithWaste.toFixed(0) + ' cm³ (with waste)'",
+      "totalCubicMeters.toFixed(4) + ' m³'"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

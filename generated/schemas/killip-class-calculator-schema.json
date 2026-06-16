@@ -1,0 +1,55 @@
+{
+  "toolName": "killip-class-calculator",
+  "inputs": [
+    {
+      "id": "rales_extent",
+      "label": "Rales Coverage (% of lung fields)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage of lung fields with crackles/rales on auscultation."
+    },
+    {
+      "id": "s3_gallop",
+      "label": "S3 Gallop Present",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "Presence of an S3 gallop (0 = No, 1 = Yes)."
+    },
+    {
+      "id": "systolic_bp",
+      "label": "Systolic Blood Pressure",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 120,
+      "businessContext": "Systolic blood pressure measurement."
+    },
+    {
+      "id": "hypoperfusion",
+      "label": "Signs of Hypoperfusion",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "Clinical signs of peripheral hypoperfusion (0 = No, 1 = Yes)."
+    }
+  ],
+  "formulas": {
+    "killipClass": "(hypoperfusion === 1 && systolic_bp < 90) ? 4 : (rales_extent > 50 ? 3 : ((rales_extent > 0 || s3_gallop === 1) ? 2 : 1))",
+    "mortalityRisk": "(hypoperfusion === 1 && systolic_bp < 90) ? 81 : (rales_extent > 50 ? 38 : ((rales_extent > 0 || s3_gallop === 1) ? 17 : 6))",
+    "description": "((hypoperfusion === 1 && systolic_bp < 90) ? 'Killip Class IV - Mortality Risk: 81%' : (rales_extent > 50 ? 'Killip Class III - Mortality Risk: 38%' : ((rales_extent > 0 || s3_gallop === 1) ? 'Killip Class II - Mortality Risk: 17%' : 'Killip Class I - Mortality Risk: 6%')))"
+  },
+  "outputs": {
+    "primary": "killipClass",
+    "breakdown": [
+      "mortalityRisk",
+      "description"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,69 @@
+{
+  "toolName": "inches-to-feet-calculator",
+  "inputs": [
+    {
+      "id": "inch1",
+      "label": "Measurement 1 (inches)",
+      "type": "number",
+      "unit": "in",
+      "default": 0,
+      "businessContext": "Enter the first measurement in inches."
+    },
+    {
+      "id": "inch2",
+      "label": "Measurement 2 (inches)",
+      "type": "number",
+      "unit": "in",
+      "default": 0,
+      "businessContext": "Enter the second measurement (optional)."
+    },
+    {
+      "id": "inch3",
+      "label": "Measurement 3 (inches)",
+      "type": "number",
+      "unit": "in",
+      "default": 0,
+      "businessContext": "Enter the third measurement (optional)."
+    },
+    {
+      "id": "inch4",
+      "label": "Measurement 4 (inches)",
+      "type": "number",
+      "unit": "in",
+      "default": 0,
+      "businessContext": "Enter the fourth measurement (optional)."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output."
+    }
+  ],
+  "formulas": {
+    "primary": "Math.round((inch1 / 12) * 10 ** precision) / 10 ** precision",
+    "breakdown": [
+      "Math.round((inch1 / 12) * 10 ** precision) / 10 ** precision",
+      "Math.round((inch2 / 12) * 10 ** precision) / 10 ** precision",
+      "Math.round((inch3 / 12) * 10 ** precision) / 10 ** precision",
+      "Math.round((inch4 / 12) * 10 ** precision) / 10 ** precision"
+    ]
+  },
+  "outputs": {
+    "primary": "Math.round((inch1 / 12) * 10 ** precision) / 10 ** precision",
+    "breakdown": [
+      "Math.round((inch1 / 12) * 10 ** precision) / 10 ** precision",
+      "Math.round((inch2 / 12) * 10 ** precision) / 10 ** precision",
+      "Math.round((inch3 / 12) * 10 ** precision) / 10 ** precision",
+      "Math.round((inch4 / 12) * 10 ** precision) / 10 ** precision"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,54 @@
+{
+  "toolName": "sample-rate-calculator",
+  "inputs": [
+    {
+      "id": "populationSize",
+      "label": "Population Size (N)",
+      "type": "number",
+      "unit": "units",
+      "default": 10000,
+      "businessContext": "Total number of items in the batch or population to inspect."
+    },
+    {
+      "id": "zScore",
+      "label": "Z-Score",
+      "type": "number",
+      "unit": "",
+      "default": 1.96,
+      "businessContext": "Z-score corresponding to desired confidence level (e.g., 1.96 for 95% confidence)."
+    },
+    {
+      "id": "marginOfError",
+      "label": "Margin of Error (E)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Acceptable margin of error as a percentage (e.g., 5 for ±5%). Note: input as percentage, e.g., 5 means 5%."
+    },
+    {
+      "id": "estimatedProportion",
+      "label": "Estimated Proportion (p)",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Estimated proportion of the characteristic in the population. Use 0.5 for maximum variability."
+    }
+  ],
+  "formulas": {
+    "n0": "zScore**2 * estimatedProportion * (1 - estimatedProportion) / ((marginOfError / 100) ** 2)",
+    "sampleSize": "n0 / (1 + (n0 - 1) / populationSize)"
+  },
+  "outputs": {
+    "primary": "sampleSize",
+    "breakdown": [
+      "n0",
+      "sampleSize"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

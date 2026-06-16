@@ -1,0 +1,53 @@
+{
+  "toolName": "rationalize-denominator-calculator",
+  "inputs": [
+    {
+      "id": "numerator",
+      "label": "Numerator",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Value above the fraction line."
+    },
+    {
+      "id": "a",
+      "label": "Constant (a)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Constant term in denominator (a + b√c)."
+    },
+    {
+      "id": "b",
+      "label": "Radical Coefficient (b)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient of the square root term in denominator."
+    },
+    {
+      "id": "c",
+      "label": "Radicand (c)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Value under the square root (c)."
+    }
+  ],
+  "formulas": {
+    "newNumerator": "numerator * (a - b * Math.sqrt(c))",
+    "newDenominator": "a*a - b*b*c"
+  },
+  "outputs": {
+    "primary": "newNumerator",
+    "breakdown": [
+      "newDenominator"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,80 @@
+{
+  "toolName": "t-test-statistic-calculator",
+  "inputs": [
+    {
+      "id": "sampleMean",
+      "label": "Sample Mean",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The average value of the sample data collected from the process."
+    },
+    {
+      "id": "populationMean",
+      "label": "Hypothesized Mean",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The value of the population mean under the null hypothesis."
+    },
+    {
+      "id": "standardDeviation",
+      "label": "Sample Standard Deviation",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The standard deviation of the sample data, measuring variability."
+    },
+    {
+      "id": "sampleSize",
+      "label": "Sample Size",
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "businessContext": "The number of observations in the sample (must be >1)."
+    }
+  ],
+  "formulas": {
+    "meanDifference": {
+      "expression": "sampleMean - populationMean",
+      "dependencies": [
+        "sampleMean",
+        "populationMean"
+      ]
+    },
+    "standardError": {
+      "expression": "standardDeviation / Math.sqrt(sampleSize)",
+      "dependencies": [
+        "standardDeviation",
+        "sampleSize"
+      ]
+    },
+    "tStatistic": {
+      "expression": "meanDifference / standardError",
+      "dependencies": [
+        "meanDifference",
+        "standardError"
+      ]
+    },
+    "degreesOfFreedom": {
+      "expression": "sampleSize - 1",
+      "dependencies": [
+        "sampleSize"
+      ]
+    }
+  },
+  "outputs": {
+    "primary": "tStatistic",
+    "breakdown": [
+      "meanDifference",
+      "standardError",
+      "degreesOfFreedom"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

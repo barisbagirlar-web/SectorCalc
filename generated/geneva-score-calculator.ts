@@ -1,0 +1,64 @@
+// Auto-generated from geneva-score-calculator-schema.json
+import * as z from 'zod';
+
+export interface Geneva_score_calculatorInput {
+  dimensionalAccuracy: number;
+  surfaceRoughness: number;
+  hardnessValue: number;
+  materialConsistency: number;
+  visualDefects: number;
+}
+
+export const Geneva_score_calculatorInputSchema = z.object({
+  dimensionalAccuracy: z.number().default(0.05),
+  surfaceRoughness: z.number().default(0.8),
+  hardnessValue: z.number().default(60),
+  materialConsistency: z.number().default(95),
+  visualDefects: z.number().default(0),
+});
+
+function evaluateAllFormulas(input: Geneva_score_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = 100 * Math.exp(-input.dimensionalAccuracy / 0.1); results["dimensionalScore"] = Number.isFinite(v) ? v : 0; } catch { results["dimensionalScore"] = 0; }
+  try { const v = 100 * Math.exp(-input.surfaceRoughness / 0.4); results["surfaceScore"] = Number.isFinite(v) ? v : 0; } catch { results["surfaceScore"] = 0; }
+  try { const v = input.hardnessValue >= 58 ? 100 : 80; results["hardnessScore"] = Number.isFinite(v) ? v : 0; } catch { results["hardnessScore"] = 0; }
+  try { const v = input.materialConsistency; results["consistencyScore"] = Number.isFinite(v) ? v : 0; } catch { results["consistencyScore"] = 0; }
+  try { const v = 100 * Math.exp(-input.visualDefects / 2); results["visualScore"] = Number.isFinite(v) ? v : 0; } catch { results["visualScore"] = 0; }
+  try { const v = 0.25 * (results["dimensionalScore"] ?? 0) + 0.25 * (results["surfaceScore"] ?? 0) + 0.2 * (results["hardnessScore"] ?? 0) + 0.15 * (results["consistencyScore"] ?? 0) + 0.15 * (results["visualScore"] ?? 0); results["genevaScore"] = Number.isFinite(v) ? v : 0; } catch { results["genevaScore"] = 0; }
+  return results;
+}
+
+
+export function calculateGeneva_score_calculator(input: Geneva_score_calculatorInput): Geneva_score_calculatorOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values["genevaScore"] ?? 0;
+  const breakdown = {
+    
+  };
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    premiumRequired: false,
+    premiumFeatures: [],
+  };
+}
+
+
+export interface Geneva_score_calculatorOutput {
+  totalWasteCost: number;
+  breakdown: {  };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+}

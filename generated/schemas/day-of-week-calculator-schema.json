@@ -1,0 +1,56 @@
+{
+  "toolName": "day-of-week-calculator",
+  "inputs": [
+    {
+      "id": "year",
+      "label": "Yıl",
+      "type": "number",
+      "unit": "yıl",
+      "default": 2024,
+      "businessContext": "Hesaplanacak yıl (ör. 2024)"
+    },
+    {
+      "id": "month",
+      "label": "Ay",
+      "type": "number",
+      "unit": "ay",
+      "default": 1,
+      "businessContext": "Ay (1-12)"
+    },
+    {
+      "id": "day",
+      "label": "Gün",
+      "type": "number",
+      "unit": "gün",
+      "default": 1,
+      "businessContext": "Gün (1-31)"
+    }
+  ],
+  "formulas": {
+    "adjustedMonth": "month < 3 ? month + 12 : month",
+    "adjustedYear": "month < 3 ? year - 1 : year",
+    "q": "day",
+    "m": "adjustedMonth",
+    "K": "adjustedYear % 100",
+    "J": "Math.floor(adjustedYear / 100)",
+    "h": "(q + Math.floor((13 * (m + 1)) / 5) + K + Math.floor(K / 4) + Math.floor(J / 4) - 2 * J) % 7",
+    "dayOfWeek": "((h % 7) + 7) % 7"
+  },
+  "outputs": {
+    "primary": "['Cumartesi','Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma'][dayOfWeek]",
+    "breakdown": [
+      "adjustedMonth",
+      "adjustedYear",
+      "K",
+      "J",
+      "h",
+      "dayOfWeek"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

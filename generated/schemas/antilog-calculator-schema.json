@@ -1,0 +1,57 @@
+{
+  "toolName": "antilog-calculator",
+  "inputs": [
+    {
+      "id": "logValue",
+      "label": "Logarithm Value",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The logarithm value (exponent) to compute the antilogarithm for."
+    },
+    {
+      "id": "base",
+      "label": "Base",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "The base of the logarithm for the primary antilogarithm calculation."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "places",
+      "default": 4,
+      "businessContext": "Number of decimal places to round the computed results."
+    },
+    {
+      "id": "scaleFactor",
+      "label": "Scale Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier applied to the primary antilogarithm result for scaling purposes."
+    }
+  ],
+  "formulas": {
+    "primary": "Math.round(scaleFactor * (base ** logValue) * (10 ** precision)) / (10 ** precision)",
+    "antilogBase10": "Math.round((10 ** logValue) * (10 ** precision)) / (10 ** precision)",
+    "antilogBaseE": "Math.round(Math.exp(logValue) * (10 ** precision)) / (10 ** precision)",
+    "antilogBase2": "Math.round((2 ** logValue) * (10 ** precision)) / (10 ** precision)"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "antilogBase10",
+      "antilogBaseE",
+      "antilogBase2"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

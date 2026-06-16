@@ -1,0 +1,67 @@
+{
+  "toolName": "4-rule-calculator",
+  "inputs": [
+    {
+      "id": "portfolioValue",
+      "label": "Portfolio Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "businessContext": "Total investment portfolio value at retirement"
+    },
+    {
+      "id": "withdrawalRate",
+      "label": "Withdrawal Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "businessContext": "Annual withdrawal rate as a percentage of portfolio"
+    },
+    {
+      "id": "retirementYears",
+      "label": "Retirement Years",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Expected duration of retirement in years"
+    },
+    {
+      "id": "inflationRate",
+      "label": "Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Expected annual inflation rate"
+    },
+    {
+      "id": "expectedReturn",
+      "label": "Expected Return",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected annual portfolio return"
+    }
+  ],
+  "formulas": {
+    "annualWithdrawal": "portfolioValue * (withdrawalRate / 100)",
+    "monthlyWithdrawal": "annualWithdrawal / 12",
+    "adjustedAnnualWithdrawal": "annualWithdrawal * (1 + inflationRate / 100)",
+    "sustainableYears": "Math.log(1 + (expectedReturn / 100 - inflationRate / 100) / (withdrawalRate / 100)) / Math.log(1 + (expectedReturn / 100 - inflationRate / 100))",
+    "finalPortfolioValue": "portfolioValue * (1 + expectedReturn / 100) ** retirementYears - annualWithdrawal * ((1 + expectedReturn / 100) ** retirementYears - 1) / (expectedReturn / 100)"
+  },
+  "outputs": {
+    "primary": "annualWithdrawal",
+    "breakdown": [
+      "monthlyWithdrawal",
+      "adjustedAnnualWithdrawal",
+      "sustainableYears",
+      "finalPortfolioValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

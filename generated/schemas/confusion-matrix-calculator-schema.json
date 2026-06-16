@@ -1,0 +1,59 @@
+{
+  "toolName": "confusion-matrix-calculator",
+  "inputs": [
+    {
+      "id": "true_positives",
+      "label": "Gerçek Pozitif (TP)",
+      "type": "number",
+      "unit": "adet",
+      "default": 50,
+      "businessContext": "Doğru pozitif olarak sınıflandırılan örnek sayısı."
+    },
+    {
+      "id": "false_positives",
+      "label": "Yanlış Pozitif (FP)",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "businessContext": "Yanlış pozitif olarak sınıflandırılan örnek sayısı."
+    },
+    {
+      "id": "true_negatives",
+      "label": "Gerçek Negatif (TN)",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "businessContext": "Doğru negatif olarak sınıflandırılan örnek sayısı."
+    },
+    {
+      "id": "false_negatives",
+      "label": "Yanlış Negatif (FN)",
+      "type": "number",
+      "unit": "adet",
+      "default": 5,
+      "businessContext": "Yanlış negatif olarak sınıflandırılan örnek sayısı."
+    }
+  ],
+  "formulas": {
+    "accuracy": "(true_positives + false_positives + true_negatives + false_negatives) !== 0 ? (true_positives + true_negatives) / (true_positives + false_positives + true_negatives + false_negatives) : 0",
+    "precision": "(true_positives + false_positives) !== 0 ? true_positives / (true_positives + false_positives) : 0",
+    "recall": "(true_positives + false_negatives) !== 0 ? true_positives / (true_positives + false_negatives) : 0",
+    "specificity": "(true_negatives + false_positives) !== 0 ? true_negatives / (true_negatives + false_positives) : 0",
+    "f1_score": "((true_positives + false_positives) !== 0 && (true_positives + false_negatives) !== 0) ? (2 * (true_positives / (true_positives + false_positives)) * (true_positives / (true_positives + false_negatives))) / ((true_positives / (true_positives + false_positives)) + (true_positives / (true_positives + false_negatives))) : 0"
+  },
+  "outputs": {
+    "primary": "f1_score",
+    "breakdown": [
+      "accuracy",
+      "precision",
+      "recall",
+      "specificity"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

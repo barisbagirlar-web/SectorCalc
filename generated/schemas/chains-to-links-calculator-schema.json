@@ -1,0 +1,54 @@
+{
+  "toolName": "chains-to-links-calculator",
+  "inputs": [
+    {
+      "id": "chains",
+      "label": "Chains",
+      "type": "number",
+      "unit": "chains",
+      "default": 1,
+      "businessContext": "Number of chains to convert"
+    },
+    {
+      "id": "linksPerChain",
+      "label": "Links per Chain",
+      "type": "number",
+      "unit": "links/chain",
+      "default": 100,
+      "businessContext": "Number of links in one chain (standard Gunter's chain = 100)"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 2,
+      "businessContext": "Number of decimal places for output rounding"
+    },
+    {
+      "id": "roundingMethod",
+      "label": "Rounding Method",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "0 = standard round, 1 = floor, 2 = ceil"
+    }
+  ],
+  "formulas": {
+    "rawLinks": "chains * linksPerChain",
+    "roundedLinks": "roundingMethod === 0 ? Math.round(rawLinks * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : roundingMethod === 1 ? Math.floor(rawLinks * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : Math.ceil(rawLinks * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "roundedLinks",
+    "breakdown": [
+      "rawLinks",
+      "roundedLinks"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

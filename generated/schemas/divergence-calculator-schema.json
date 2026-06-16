@@ -1,0 +1,74 @@
+{
+  "toolName": "divergence-calculator",
+  "inputs": [
+    {
+      "id": "dFx_dx",
+      "label": "∂F_x/∂x",
+      "type": "number",
+      "unit": "1/s",
+      "default": 0,
+      "businessContext": "Kısmi türev: x-bileşeninin x’e göre değişimi"
+    },
+    {
+      "id": "dFy_dy",
+      "label": "∂F_y/∂y",
+      "type": "number",
+      "unit": "1/s",
+      "default": 0,
+      "businessContext": "Kısmi türev: y-bileşeninin y’ye göre değişimi"
+    },
+    {
+      "id": "dFz_dz",
+      "label": "∂F_z/∂z",
+      "type": "number",
+      "unit": "1/s",
+      "default": 0,
+      "businessContext": "Kısmi türev: z-bileşeninin z’ye göre değişimi"
+    },
+    {
+      "id": "x",
+      "label": "x-koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Değerlendirme noktasının x koordinatı"
+    },
+    {
+      "id": "y",
+      "label": "y-koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Değerlendirme noktasının y koordinatı"
+    },
+    {
+      "id": "z",
+      "label": "z-koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Değerlendirme noktasının z koordinatı"
+    }
+  ],
+  "formulas": {
+    "divergence": "dFx_dx + dFy_dy + dFz_dz",
+    "contributionX": "dFx_dx",
+    "contributionY": "dFy_dy",
+    "contributionZ": "dFz_dz"
+  },
+  "outputs": {
+    "primary": "divergence",
+    "breakdown": [
+      "∂F_x/∂x = contributionX",
+      "∂F_y/∂y = contributionY",
+      "∂F_z/∂z = contributionZ",
+      "Toplam diverjans = divergence"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

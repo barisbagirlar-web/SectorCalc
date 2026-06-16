@@ -1,0 +1,61 @@
+{
+  "toolName": "degree-of-financial-leverage-calculator",
+  "inputs": [
+    {
+      "id": "ebit",
+      "label": "EBIT (Faiz ve Vergi Öncesi Kâr)",
+      "type": "number",
+      "unit": "currency",
+      "default": 100000,
+      "businessContext": "Faiz ve vergi öncesi net faaliyet kârı (Earnings Before Interest and Taxes)."
+    },
+    {
+      "id": "interest",
+      "label": "Faiz Gideri",
+      "type": "number",
+      "unit": "currency",
+      "default": 20000,
+      "businessContext": "Toplam borç faiz ödemeleri."
+    },
+    {
+      "id": "taxRate",
+      "label": "Vergi Oranı",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.25,
+      "businessContext": "Kurumlar vergisi oranı (ondalık, örn. 0.25)."
+    },
+    {
+      "id": "preferredDividends",
+      "label": "İmtiyazlı Hisse Temettüsü",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "İmtiyazlı hisse senetlerine ödenen toplam temettü."
+    }
+  ],
+  "formulas": {
+    "ebit": "inputs.ebit",
+    "interest": "inputs.interest",
+    "taxRate": "inputs.taxRate",
+    "preferredDividends": "inputs.preferredDividends",
+    "preferredAfterTax": "inputs.preferredDividends / (1 - inputs.taxRate)",
+    "denominator": "inputs.ebit - inputs.interest - (inputs.preferredDividends / (1 - inputs.taxRate))",
+    "degreeOfFinancialLeverage": "inputs.ebit / (inputs.ebit - inputs.interest - (inputs.preferredDividends / (1 - inputs.taxRate)))"
+  },
+  "outputs": {
+    "primary": "degreeOfFinancialLeverage",
+    "breakdown": [
+      "ebit",
+      "interest",
+      "preferredAfterTax",
+      "denominator"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

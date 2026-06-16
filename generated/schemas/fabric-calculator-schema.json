@@ -1,0 +1,75 @@
+{
+  "toolName": "fabric-calculator",
+  "inputs": [
+    {
+      "id": "itemLength",
+      "label": "Piece Length (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 50,
+      "businessContext": "The length of one piece to be cut from the fabric."
+    },
+    {
+      "id": "itemWidth",
+      "label": "Piece Width (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "The width of one piece to be cut from the fabric."
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "pieces",
+      "default": 10,
+      "businessContext": "The total number of pieces to be cut."
+    },
+    {
+      "id": "fabricWidth",
+      "label": "Fabric Width (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 150,
+      "businessContext": "Available usable width of the fabric after accounting for selvage."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of extra fabric to account for cutting waste and defects."
+    },
+    {
+      "id": "patternRepeat",
+      "label": "Pattern Repeat (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "Length of pattern repeat if matching is required; set to 0 for plain fabrics."
+    }
+  ],
+  "formulas": {
+    "piecesPerWidth": "Math.floor(fabricWidth / itemWidth)",
+    "rowsNeeded": "Math.ceil(quantity / piecesPerWidth)",
+    "totalLengthBeforeWasteCm": "rowsNeeded * (itemLength + (patternRepeat > 0 ? patternRepeat : 0))",
+    "totalFabricLengthCm": "totalLengthBeforeWasteCm * (1 + wasteFactor / 100)",
+    "totalFabricLengthMeters": "totalFabricLengthCm / 100"
+  },
+  "outputs": {
+    "primary": "totalFabricLengthMeters",
+    "breakdown": [
+      "piecesPerWidth",
+      "rowsNeeded",
+      "totalLengthBeforeWasteCm",
+      "totalFabricLengthCm"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

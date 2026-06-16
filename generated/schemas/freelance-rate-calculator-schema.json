@@ -1,0 +1,63 @@
+{
+  "toolName": "freelance-rate-calculator",
+  "inputs": [
+    {
+      "id": "desiredAnnualIncome",
+      "label": "Desired Annual Income",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "Your target net annual income after taxes and expenses."
+    },
+    {
+      "id": "overheadCosts",
+      "label": "Annual Overhead Costs",
+      "type": "number",
+      "unit": "$",
+      "default": 20000,
+      "businessContext": "Total yearly business expenses (software, office, insurance, etc.)."
+    },
+    {
+      "id": "billableHoursPerYear",
+      "label": "Billable Hours per Year",
+      "type": "number",
+      "unit": "Hrs",
+      "default": 1500,
+      "businessContext": "Expected number of hours you can invoice clients annually, excluding non-billable time."
+    },
+    {
+      "id": "profitMarginPercent",
+      "label": "Profit Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Additional percentage added to cover business growth, reinvestment, and buffer."
+    },
+    {
+      "id": "taxRatePercent",
+      "label": "Effective Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Estimated percentage of income paid as taxes, used to gross-up the target income."
+    }
+  ],
+  "formulas": {
+    "annualGrossIncomeNeeded": "desiredAnnualIncome / (1 - taxRatePercent / 100)",
+    "totalAnnualCosts": "annualGrossIncomeNeeded + overheadCosts",
+    "hourlyRate": "totalAnnualCosts / billableHoursPerYear * (1 + profitMarginPercent / 100)"
+  },
+  "outputs": {
+    "primary": "hourlyRate",
+    "breakdown": [
+      "annualGrossIncomeNeeded",
+      "totalAnnualCosts"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "dance-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms"
+    },
+    {
+      "id": "duration",
+      "label": "Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Duration of dance activity in minutes"
+    },
+    {
+      "id": "met",
+      "label": "MET",
+      "type": "number",
+      "unit": "MET",
+      "default": 5,
+      "businessContext": "Metabolic Equivalent of Task for dance style (e.g., 3.5 for slow, 5.5 for moderate, 7.0 for fast)"
+    },
+    {
+      "id": "intensityFactor",
+      "label": "Intensity Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for personal intensity (1.0 = normal, 1.2 = high)"
+    }
+  ],
+  "formulas": {
+    "totalCalories": "weight * met * (duration / 60) * intensityFactor",
+    "caloriesPerMinute": "(weight * met * intensityFactor) / 60",
+    "caloriesPerHour": "weight * met * intensityFactor"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "caloriesPerMinute",
+      "caloriesPerHour"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

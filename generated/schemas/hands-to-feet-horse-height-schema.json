@@ -1,0 +1,41 @@
+{
+  "toolName": "hands-to-feet-horse-height",
+  "inputs": [
+    {
+      "id": "hands",
+      "label": "Hands (hh)",
+      "type": "number",
+      "unit": "hands",
+      "default": 15,
+      "businessContext": "Height of horse in hands (1 hand = 4 inches)"
+    },
+    {
+      "id": "inches",
+      "label": "Additional Inches",
+      "type": "number",
+      "unit": "inches",
+      "default": 0,
+      "businessContext": "Remaining inches beyond full hands (0-3)"
+    }
+  ],
+  "formulas": {
+    "totalInches": "hands * 4 + inches",
+    "feet": "Math.floor(totalInches / 12)",
+    "remainingInches": "totalInches % 12",
+    "primary": "feet + ' ft ' + remainingInches + ' in'"
+  },
+  "outputs": {
+    "primary": "feet + ' ft ' + remainingInches + ' in'",
+    "breakdown": [
+      "totalInches + ' inches total'",
+      "feet + ' feet'",
+      "remainingInches + ' inches'"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

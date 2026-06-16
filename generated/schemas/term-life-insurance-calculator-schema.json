@@ -1,0 +1,67 @@
+{
+  "toolName": "term-life-insurance-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the insured person"
+    },
+    {
+      "id": "isSmoker",
+      "label": "Smoker",
+      "type": "number",
+      "unit": "binary (1=Yes, 0=No)",
+      "default": 0,
+      "businessContext": "Indicates if the insured is a smoker"
+    },
+    {
+      "id": "coverageAmount",
+      "label": "Coverage Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Death benefit amount"
+    },
+    {
+      "id": "termYears",
+      "label": "Term (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "Policy term length"
+    },
+    {
+      "id": "interestRate",
+      "label": "Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual discount rate for present value calculation"
+    }
+  ],
+  "formulas": {
+    "primary": "coverageAmount * (0.001 * (age - 20 + 5 * isSmoker)) / Math.pow(1 + interestRate/100, termYears)",
+    "breakdown": [
+      "0.001 * (age - 20 + 5 * isSmoker)",
+      "Math.pow(1 + interestRate/100, termYears)",
+      "coverageAmount"
+    ]
+  },
+  "outputs": {
+    "primary": "Estimated Annual Premium: ${primary}",
+    "breakdown": [
+      "Mortality Probability: ${breakdown0}",
+      "Discount Factor: ${breakdown1}",
+      "Coverage Amount: ${breakdown2}"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

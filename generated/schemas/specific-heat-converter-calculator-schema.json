@@ -1,0 +1,53 @@
+{
+  "toolName": "specific-heat-converter-calculator",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "Specific Heat Value",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The specific heat capacity value in the unit selected by 'fromUnit'"
+    },
+    {
+      "id": "fromUnit",
+      "label": "From Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Numeric code representing the input unit of specific heat capacity"
+    },
+    {
+      "id": "toUnit",
+      "label": "To Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Numeric code representing the desired output unit of specific heat capacity"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places to round the converted result"
+    }
+  ],
+  "formulas": {
+    "convertedValue": "Number((value * (fromUnit==1?1:fromUnit==2?1000:fromUnit==3?4184:fromUnit==4?4184:fromUnit==5?4186.8:1) / (toUnit==1?1:toUnit==2?1000:toUnit==3?4184:toUnit==4?4184:toUnit==5?4186.8:1)).toFixed(precision))",
+    "allConversions": "[ 'J/(kg·K): ' + (value * (fromUnit==1?1:fromUnit==2?1000:fromUnit==3?4184:fromUnit==4?4184:fromUnit==5?4186.8:1) / (1)).toFixed(precision), 'kJ/(kg·K): ' + (value * (fromUnit==1?1:fromUnit==2?1000:fromUnit==3?4184:fromUnit==4?4184:fromUnit==5?4186.8:1) / (1000)).toFixed(precision), 'cal/(g·°C): ' + (value * (fromUnit==1?1:fromUnit==2?1000:fromUnit==3?4184:fromUnit==4?4184:fromUnit==5?4186.8:1) / (4184)).toFixed(precision), 'kcal/(kg·°C): ' + (value * (fromUnit==1?1:fromUnit==2?1000:fromUnit==3?4184:fromUnit==4?4184:fromUnit==5?4186.8:1) / (4184)).toFixed(precision), 'Btu/(lb·°F): ' + (value * (fromUnit==1?1:fromUnit==2?1000:fromUnit==3?4184:fromUnit==4?4184:fromUnit==5?4186.8:1) / (4186.8)).toFixed(precision) ]"
+  },
+  "outputs": {
+    "primary": "convertedValue",
+    "breakdown": [
+      "allConversions"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

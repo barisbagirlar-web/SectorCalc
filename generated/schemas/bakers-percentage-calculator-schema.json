@@ -1,0 +1,77 @@
+{
+  "toolName": "bakers-percentage-calculator",
+  "inputs": [
+    {
+      "id": "flourWeight",
+      "label": "Flour Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 1000,
+      "businessContext": "The weight of flour used as the base (100%)"
+    },
+    {
+      "id": "waterPercentage",
+      "label": "Water %",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "businessContext": "Hydration percentage relative to flour weight"
+    },
+    {
+      "id": "yeastPercentage",
+      "label": "Yeast %",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "businessContext": "Instant dry yeast percentage (usually 0.5–2%)"
+    },
+    {
+      "id": "saltPercentage",
+      "label": "Salt %",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Salt percentage (typically 1.5–2.5%)"
+    },
+    {
+      "id": "sugarPercentage",
+      "label": "Sugar %",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Optional sugar percentage"
+    },
+    {
+      "id": "fatPercentage",
+      "label": "Fat %",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Optional fat (butter, oil) percentage"
+    }
+  ],
+  "formulas": {
+    "waterWeight": "flourWeight * waterPercentage / 100",
+    "yeastWeight": "flourWeight * yeastPercentage / 100",
+    "saltWeight": "flourWeight * saltPercentage / 100",
+    "sugarWeight": "flourWeight * sugarPercentage / 100",
+    "fatWeight": "flourWeight * fatPercentage / 100",
+    "totalDoughWeight": "flourWeight + waterWeight + yeastWeight + saltWeight + sugarWeight + fatWeight"
+  },
+  "outputs": {
+    "primary": "totalDoughWeight",
+    "breakdown": [
+      "waterWeight",
+      "yeastWeight",
+      "saltWeight",
+      "sugarWeight",
+      "fatWeight"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "s-n-curve-calculator",
+  "inputs": [
+    {
+      "id": "stress_amplitude",
+      "label": "Gerilim Genliği (σ_a)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 200,
+      "businessContext": "Parçaya uygulanan alternatif gerilim genliği"
+    },
+    {
+      "id": "mean_stress",
+      "label": "Ortalama Gerilim (σ_m)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 0,
+      "businessContext": "Çevrimdeki ortalama statik gerilim"
+    },
+    {
+      "id": "ultimate_tensile_strength",
+      "label": "Çekme Dayanımı (σ_u)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 600,
+      "businessContext": "Malzemenin kopma (çekme) dayanımı"
+    },
+    {
+      "id": "fatigue_strength_coefficient",
+      "label": "Yorulma Dayanım Katsayısı (σ_f')",
+      "type": "number",
+      "unit": "MPa",
+      "default": 900,
+      "businessContext": "Basquin denklemindeki yorulma dayanım katsayısı"
+    },
+    {
+      "id": "fatigue_strength_exponent",
+      "label": "Yorulma Dayanım Üsteli (b)",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": -0.1,
+      "businessContext": "Basquin denklemindeki yorulma dayanım üsteli (genellikle negatif)"
+    }
+  ],
+  "formulas": {
+    "eq_stress": "stress_amplitude / (1 - mean_stress / ultimate_tensile_strength)",
+    "cycles": "0.5 * (eq_stress / fatigue_strength_coefficient) ** (1 / fatigue_strength_exponent)",
+    "log_cycles": "Math.log(cycles) / Math.log(10)"
+  },
+  "outputs": {
+    "primary": "cycles",
+    "breakdown": [
+      "eq_stress",
+      "log_cycles"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

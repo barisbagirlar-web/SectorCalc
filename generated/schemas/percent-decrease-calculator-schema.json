@@ -1,0 +1,65 @@
+{
+  "toolName": "percent-decrease-calculator",
+  "inputs": [
+    {
+      "id": "initialValue",
+      "label": "Initial Value",
+      "type": "number",
+      "unit": "TRY",
+      "default": 1000,
+      "businessContext": "The starting value before the decrease (e.g., previous period's revenue, original cost)."
+    },
+    {
+      "id": "finalValue",
+      "label": "Final Value",
+      "type": "number",
+      "unit": "TRY",
+      "default": 800,
+      "businessContext": "The resulting value after the decrease (e.g., current period's revenue, reduced cost)."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output percentage values."
+    },
+    {
+      "id": "adjustmentFactor",
+      "label": "Adjustment Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier to adjust the initial value for factors like inflation or normalization. Typically 1 if no adjustment needed."
+    },
+    {
+      "id": "targetDecreasePercent",
+      "label": "Target Decrease (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Optional business goal percentage decrease to compare against the actual decrease."
+    }
+  ],
+  "formulas": {
+    "percentDecreaseRounded": "Math.round(((initialValue - finalValue) / initialValue * 100) * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "absoluteDecrease": "initialValue - finalValue",
+    "adjustedPercentDecreaseRounded": "Math.round((((initialValue * adjustmentFactor) - finalValue) / (initialValue * adjustmentFactor) * 100) * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "targetVarianceRounded": "Math.round((targetDecreasePercent - ((initialValue - finalValue) / initialValue * 100)) * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "percentDecreaseRounded",
+    "breakdown": [
+      "absoluteDecrease",
+      "adjustedPercentDecreaseRounded",
+      "targetVarianceRounded"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & Kredi",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

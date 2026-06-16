@@ -1,0 +1,92 @@
+{
+  "toolName": "cost-segregation-calculator",
+  "inputs": [
+    {
+      "id": "totalPropertyCost",
+      "label": "Total Property Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "businessContext": "Total acquisition cost of the property including land and improvements."
+    },
+    {
+      "id": "landPercentage",
+      "label": "Land Value Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Percentage of total cost allocated to land (non-depreciable)."
+    },
+    {
+      "id": "buildingPercentage",
+      "label": "Building Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "businessContext": "Percentage allocated to building structure (depreciable over 39 years typically)."
+    },
+    {
+      "id": "personalPropertyPercentage",
+      "label": "Personal Property Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Percentage allocated to 5- or 7-year property like equipment, furniture."
+    },
+    {
+      "id": "landImprovementsPercentage",
+      "label": "Land Improvements Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage allocated to land improvements (depreciable over 15 years)."
+    },
+    {
+      "id": "buildingLife",
+      "label": "Building Depreciation Life",
+      "type": "number",
+      "unit": "years",
+      "default": 39,
+      "businessContext": "IRS recovery period for non-residential real property (39 years)."
+    },
+    {
+      "id": "personalPropertyLife",
+      "label": "Personal Property Life",
+      "type": "number",
+      "unit": "years",
+      "default": 7,
+      "businessContext": "Recovery period for personal property (5 or 7 years)."
+    },
+    {
+      "id": "landImprovementsLife",
+      "label": "Land Improvements Life",
+      "type": "number",
+      "unit": "years",
+      "default": 15,
+      "businessContext": "Recovery period for land improvements (15 years)."
+    }
+  ],
+  "formulas": {
+    "buildingCost": "totalPropertyCost * (buildingPercentage / 100)",
+    "personalPropertyCost": "totalPropertyCost * (personalPropertyPercentage / 100)",
+    "landImprovementsCost": "totalPropertyCost * (landImprovementsPercentage / 100)",
+    "buildingDepreciation": "buildingCost / buildingLife",
+    "personalPropertyDepreciation": "personalPropertyCost / personalPropertyLife",
+    "landImprovementsDepreciation": "landImprovementsCost / landImprovementsLife",
+    "totalAnnualDepreciation": "buildingDepreciation + personalPropertyDepreciation + landImprovementsDepreciation"
+  },
+  "outputs": {
+    "primary": "totalAnnualDepreciation",
+    "breakdown": [
+      "buildingDepreciation",
+      "personalPropertyDepreciation",
+      "landImprovementsDepreciation"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

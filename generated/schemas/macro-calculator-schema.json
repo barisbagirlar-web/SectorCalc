@@ -1,0 +1,52 @@
+{
+  "toolName": "macro-calculator",
+  "inputs": [
+    {
+      "id": "calories",
+      "label": "Daily Calorie Intake",
+      "type": "number",
+      "unit": "kcal",
+      "default": 2000,
+      "businessContext": "Total daily energy intake target in kilocalories."
+    },
+    {
+      "id": "proteinPct",
+      "label": "Protein %",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Percentage of calories from protein. Must sum to 100 with other macros."
+    },
+    {
+      "id": "carbsPct",
+      "label": "Carbohydrates %",
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "businessContext": "Percentage of calories from carbohydrates. Must sum to 100 with other macros."
+    },
+    {
+      "id": "fatPct",
+      "label": "Fat %",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Percentage of calories from fat. Must sum to 100 with other macros."
+    }
+  ],
+  "formulas": {
+    "proteinGrams": "calories * (proteinPct / 100) / 4",
+    "carbsGrams": "calories * (carbsPct / 100) / 4",
+    "fatGrams": "calories * (fatPct / 100) / 9"
+  },
+  "outputs": {
+    "primary": "proteinGrams",
+    "breakdown": [
+      "carbsGrams",
+      "fatGrams"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false
+}

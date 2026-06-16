@@ -1,0 +1,81 @@
+{
+  "toolName": "inverse-laplace-exponential-sum-calculator",
+  "inputs": [
+    {
+      "id": "A1",
+      "label": "Amplitude 1",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient of the first exponential term in the Laplace inverse"
+    },
+    {
+      "id": "p1",
+      "label": "Decay Rate 1",
+      "type": "number",
+      "unit": "1/s",
+      "default": 1,
+      "businessContext": "Pole location for the first exponential (positive for stable decay)"
+    },
+    {
+      "id": "A2",
+      "label": "Amplitude 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of the second exponential term"
+    },
+    {
+      "id": "p2",
+      "label": "Decay Rate 2",
+      "type": "number",
+      "unit": "1/s",
+      "default": 0,
+      "businessContext": "Pole location for the second exponential"
+    },
+    {
+      "id": "A3",
+      "label": "Amplitude 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of the third exponential term"
+    },
+    {
+      "id": "p3",
+      "label": "Decay Rate 3",
+      "type": "number",
+      "unit": "1/s",
+      "default": 0,
+      "businessContext": "Pole location for the third exponential"
+    },
+    {
+      "id": "t",
+      "label": "Time",
+      "type": "number",
+      "unit": "s",
+      "default": 1,
+      "businessContext": "Time point at which to evaluate the inverse Laplace transform"
+    }
+  ],
+  "formulas": {
+    "exp1": "A1 * Math.exp(-p1 * t)",
+    "exp2": "A2 * Math.exp(-p2 * t)",
+    "exp3": "A3 * Math.exp(-p3 * t)",
+    "f_t": "exp1 + exp2 + exp3"
+  },
+  "outputs": {
+    "primary": "f_t",
+    "breakdown": [
+      "exp1",
+      "exp2",
+      "exp3"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

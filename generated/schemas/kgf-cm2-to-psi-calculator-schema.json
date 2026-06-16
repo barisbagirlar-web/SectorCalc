@@ -1,0 +1,57 @@
+{
+  "toolName": "kgf-cm2-to-psi-calculator",
+  "inputs": [
+    {
+      "id": "pressureKgfCm2",
+      "label": "Pressure (kgf/cm²)",
+      "type": "number",
+      "unit": "kgf/cm²",
+      "default": 0,
+      "businessContext": "The pressure value to convert, in kilogram-force per square centimeter."
+    },
+    {
+      "id": "conversionFactorConstant",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "psi per kgf/cm²",
+      "default": 14.22334330711986,
+      "businessContext": "The conversion factor from kgf/cm² to psi (1 kgf/cm² = 14.2233 psi). This is a fixed physical constant; do not modify."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output psi value."
+    },
+    {
+      "id": "outputScale",
+      "label": "Output Scale",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for the converted result (e.g., use 1 for actual value, 1000 for display in kilopounds)."
+    }
+  ],
+  "formulas": {
+    "rawPsiValue": "pressureKgfCm2 * conversionFactorConstant * outputScale",
+    "psiValue_rounded": "Math.round(rawPsiValue * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "usedFactor": "conversionFactorConstant",
+    "originalPressure": "pressureKgfCm2"
+  },
+  "outputs": {
+    "primary": "psiValue_rounded",
+    "breakdown": [
+      "rawPsiValue",
+      "usedFactor",
+      "originalPressure"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

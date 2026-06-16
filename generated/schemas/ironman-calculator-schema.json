@@ -1,0 +1,76 @@
+{
+  "toolName": "ironman-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Length of the beam"
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Width of the cross-section"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "m",
+      "default": 0.2,
+      "businessContext": "Height of the cross-section"
+    },
+    {
+      "id": "density",
+      "label": "Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "businessContext": "Material density (steel: 7850 kg/m³)"
+    },
+    {
+      "id": "yieldStrength",
+      "label": "Yield Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 250,
+      "businessContext": "Material yield strength (e.g., 250 MPa for S235)"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Design safety factor (≥1.0)"
+    }
+  ],
+  "formulas": {
+    "area": "width * height",
+    "sectionModulus": "width * Math.pow(height, 2) / 6",
+    "volume": "width * height * length",
+    "mass": "width * height * length * density",
+    "weight": "width * height * length * density * 9.81",
+    "maxMoment": "(yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor",
+    "maxUniformLoad": "8 * ((yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor) / Math.pow(length, 2)",
+    "maxTotalLoad": "8 * ((yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor) / length"
+  },
+  "outputs": {
+    "primary": "8 * ((yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor) / length",
+    "breakdown": [
+      "width * height * length * density * 9.81",
+      "(yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

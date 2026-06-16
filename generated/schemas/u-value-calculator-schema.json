@@ -1,0 +1,104 @@
+{
+  "toolName": "u-value-calculator",
+  "inputs": [
+    {
+      "id": "rsi",
+      "label": "İç Yüzey Isıl Direnci (Rsi)",
+      "type": "number",
+      "unit": "m²K/W",
+      "default": 0.13,
+      "businessContext": "İç mekan ile duvar yüzeyi arasındaki ısıl direnç (TS EN ISO 6946). Tipik değer: 0.13 (iç yüzey, yatay ısı akışı)."
+    },
+    {
+      "id": "thickness1",
+      "label": "1. Katman Kalınlığı",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "İlk yapı malzemesi katmanının kalınlığı (ör. tuğla, yalıtım). Katman yoksa 0 girin."
+    },
+    {
+      "id": "conductivity1",
+      "label": "1. Katman Isıl İletkenlik (λ)",
+      "type": "number",
+      "unit": "W/mK",
+      "default": 0.7,
+      "businessContext": "İlk katman malzemesinin ısıl iletkenlik katsayısı (TS 825)."
+    },
+    {
+      "id": "thickness2",
+      "label": "2. Katman Kalınlığı",
+      "type": "number",
+      "unit": "m",
+      "default": 0.05,
+      "businessContext": "İkinci yapı malzemesi katmanının kalınlığı. Katman yoksa 0 girin."
+    },
+    {
+      "id": "conductivity2",
+      "label": "2. Katman Isıl İletkenlik (λ)",
+      "type": "number",
+      "unit": "W/mK",
+      "default": 0.04,
+      "businessContext": "İkinci katman malzemesinin ısıl iletkenlik katsayısı."
+    },
+    {
+      "id": "thickness3",
+      "label": "3. Katman Kalınlığı",
+      "type": "number",
+      "unit": "m",
+      "default": 0.02,
+      "businessContext": "Üçüncü yapı malzemesi katmanının kalınlığı. Katman yoksa 0 girin."
+    },
+    {
+      "id": "conductivity3",
+      "label": "3. Katman Isıl İletkenlik (λ)",
+      "type": "number",
+      "unit": "W/mK",
+      "default": 0.5,
+      "businessContext": "Üçüncü katman malzemesinin ısıl iletkenlik katsayısı."
+    },
+    {
+      "id": "rse",
+      "label": "Dış Yüzey Isıl Direnci (Rse)",
+      "type": "number",
+      "unit": "m²K/W",
+      "default": 0.04,
+      "businessContext": "Duvar dış yüzeyi ile dış ortam arasındaki ısıl direnç (TS EN ISO 6946). Tipik değer: 0.04 (dış yüzey)."
+    }
+  ],
+  "formulas": {
+    "r1": "thickness1 / conductivity1",
+    "r2": "thickness2 / conductivity2",
+    "r3": "thickness3 / conductivity3",
+    "totalResistance": "rsi + r1 + r2 + r3 + rse",
+    "uValue": "1 / totalResistance"
+  },
+  "outputs": {
+    "primary": {
+      "id": "uValue",
+      "label": "U Değeri (Isı Geçirgenlik Katsayısı)",
+      "unit": "W/m²K",
+      "formula": "uValue"
+    },
+    "breakdown": [
+      {
+        "id": "totalResistance",
+        "label": "Toplam Isıl Direnç",
+        "unit": "m²K/W",
+        "formula": "totalResistance"
+      },
+      {
+        "id": "layerResistances",
+        "label": "Katman Dirençleri (R1, R2, R3)",
+        "unit": "m²K/W",
+        "formula": "[r1, r2, r3]"
+      }
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

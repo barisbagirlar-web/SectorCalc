@@ -1,0 +1,63 @@
+{
+  "toolName": "dipole-antenna-length-calculator",
+  "inputs": [
+    {
+      "id": "frequency",
+      "label": "Frequency",
+      "type": "number",
+      "unit": "MHz",
+      "default": 100,
+      "businessContext": "Operating frequency in megahertz"
+    },
+    {
+      "id": "velocityFactor",
+      "label": "Velocity Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.95,
+      "businessContext": "Velocity factor of wire or cable. 0.95 for bare copper, 0.66 for insulated wire"
+    },
+    {
+      "id": "wavelengthFraction",
+      "label": "Wavelength Fraction",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Fraction of wavelength. Use 0.5 for half-wave dipole, 1.0 for full-wave"
+    },
+    {
+      "id": "unitSelection",
+      "label": "Unit Selection",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 for feet, 1 for meters"
+    },
+    {
+      "id": "endEffectCorrection",
+      "label": "End Effect Correction",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Adjustment factor for end effect. Use 0.95-0.98 for practical shortening"
+    }
+  ],
+  "formulas": {
+    "lengthFeet": "492 * velocityFactor * wavelengthFraction * endEffectCorrection / frequency",
+    "lengthMeters": "300 * velocityFactor * wavelengthFraction * endEffectCorrection / frequency",
+    "lengthInSelectedUnit": "unitSelection === 0 ? 492 * velocityFactor * wavelengthFraction * endEffectCorrection / frequency : 300 * velocityFactor * wavelengthFraction * endEffectCorrection / frequency"
+  },
+  "outputs": {
+    "primary": "lengthInSelectedUnit",
+    "breakdown": [
+      "lengthFeet",
+      "lengthMeters"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

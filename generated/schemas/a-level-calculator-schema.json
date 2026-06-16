@@ -1,0 +1,57 @@
+{
+  "toolName": "a-level-calculator",
+  "inputs": [
+    {
+      "id": "measured",
+      "label": "Measured Value",
+      "type": "number",
+      "unit": "Pa",
+      "default": 1,
+      "businessContext": "The measured physical quantity (e.g., sound pressure in Pascals)."
+    },
+    {
+      "id": "reference",
+      "label": "Reference Value",
+      "type": "number",
+      "unit": "Pa",
+      "default": 0.00002,
+      "businessContext": "The reference quantity for the level calculation. Typical reference for sound pressure is 20 µPa."
+    },
+    {
+      "id": "dbMultiplier",
+      "label": "dB Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 20,
+      "businessContext": "20 for amplitude quantities (pressure, voltage), 10 for power quantities."
+    },
+    {
+      "id": "systemGain",
+      "label": "System Gain (dB)",
+      "type": "number",
+      "unit": "dB",
+      "default": 0,
+      "businessContext": "Additional gain or attenuation in the system, in decibels. Positive for amplification, negative for attenuation."
+    }
+  ],
+  "formulas": {
+    "ratio": "measured / reference",
+    "log10ratio": "Math.log(measured / reference) / Math.log(10)",
+    "preGainLevel": "dbMultiplier * (Math.log(measured / reference) / Math.log(10))",
+    "level": "dbMultiplier * (Math.log(measured / reference) / Math.log(10)) + systemGain"
+  },
+  "outputs": {
+    "primary": "level",
+    "breakdown": [
+      "ratio",
+      "log10ratio",
+      "preGainLevel"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

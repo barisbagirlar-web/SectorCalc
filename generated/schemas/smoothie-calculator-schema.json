@@ -1,0 +1,85 @@
+{
+  "toolName": "smoothie-calculator",
+  "inputs": [
+    {
+      "id": "servings",
+      "label": "Number of Servings",
+      "type": "number",
+      "unit": "servings",
+      "default": 1,
+      "businessContext": "Number of smoothie servings to prepare"
+    },
+    {
+      "id": "baseVolumeML",
+      "label": "Base Liquid per Serving",
+      "type": "number",
+      "unit": "ml",
+      "default": 200,
+      "businessContext": "Volume of liquid base (milk, juice, etc.) per smoothie in milliliters"
+    },
+    {
+      "id": "fruitGrams",
+      "label": "Fruit per Serving",
+      "type": "number",
+      "unit": "g",
+      "default": 150,
+      "businessContext": "Weight of fruit per smoothie in grams"
+    },
+    {
+      "id": "iceGrams",
+      "label": "Ice per Serving",
+      "type": "number",
+      "unit": "g",
+      "default": 80,
+      "businessContext": "Weight of ice per smoothie in grams"
+    },
+    {
+      "id": "baseCostPerLiter",
+      "label": "Base Liquid Cost per Liter",
+      "type": "number",
+      "unit": "USD/L",
+      "default": 1.5,
+      "businessContext": "Cost of one liter of liquid base in USD"
+    },
+    {
+      "id": "fruitCostPerKg",
+      "label": "Fruit Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 4,
+      "businessContext": "Cost of one kilogram of fruit in USD"
+    },
+    {
+      "id": "iceCostPerKg",
+      "label": "Ice Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 0.1,
+      "businessContext": "Cost of one kilogram of ice in USD"
+    }
+  ],
+  "formulas": {
+    "totalVolumeML": "baseVolumeML * servings",
+    "baseCost": "(baseVolumeML / 1000) * baseCostPerLiter * servings",
+    "fruitCost": "(fruitGrams / 1000) * fruitCostPerKg * servings",
+    "iceCost": "(iceGrams / 1000) * iceCostPerKg * servings",
+    "totalCost": "baseCost + fruitCost + iceCost",
+    "costPerSmoothie": "totalCost / servings"
+  },
+  "outputs": {
+    "primary": "costPerSmoothie",
+    "breakdown": [
+      "totalVolumeML",
+      "baseCost",
+      "fruitCost",
+      "iceCost",
+      "totalCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

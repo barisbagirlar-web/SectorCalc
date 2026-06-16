@@ -1,0 +1,47 @@
+{
+  "toolName": "four-percent-rule-calculator",
+  "inputs": [
+    {
+      "id": "portfolioValue",
+      "label": "Portfolio Value",
+      "type": "number",
+      "unit": "$",
+      "default": 1000000,
+      "businessContext": "Total value of investment portfolio (e.g., retirement savings)"
+    },
+    {
+      "id": "desiredAnnualWithdrawal",
+      "label": "Desired Annual Withdrawal",
+      "type": "number",
+      "unit": "$",
+      "default": 40000,
+      "businessContext": "Desired annual withdrawal amount during retirement"
+    },
+    {
+      "id": "withdrawalRate",
+      "label": "Withdrawal Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "businessContext": "Safe withdrawal rate (typically 4%)"
+    }
+  ],
+  "formulas": {
+    "safeWithdrawal": "portfolioValue * withdrawalRate / 100",
+    "neededPortfolio": "desiredAnnualWithdrawal / (withdrawalRate / 100)",
+    "primary": "portfolioValue > 0 ? portfolioValue * withdrawalRate / 100 : (desiredAnnualWithdrawal > 0 ? desiredAnnualWithdrawal / (withdrawalRate / 100) : 0)"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "safeWithdrawal",
+      "neededPortfolio"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

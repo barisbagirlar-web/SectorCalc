@@ -1,0 +1,63 @@
+{
+  "toolName": "quadratic-equation-solver-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "Coefficient a",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Quadratic coefficient (non-zero for quadratic)"
+    },
+    {
+      "id": "b",
+      "label": "Coefficient b",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Linear coefficient"
+    },
+    {
+      "id": "c",
+      "label": "Constant c",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Constant term"
+    },
+    {
+      "id": "x",
+      "label": "Evaluate at x",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Optional: evaluate the quadratic at this x value"
+    }
+  ],
+  "formulas": {
+    "discriminant": "b*b - 4*a*c",
+    "root1": "(-b + Math.sqrt(b*b - 4*a*c)) / (2*a)",
+    "root2": "(-b - Math.sqrt(b*b - 4*a*c)) / (2*a)",
+    "vertexX": "-b/(2*a)",
+    "vertexY": "c - (b*b)/(4*a)",
+    "evalAtX": "a*x*x + b*x + c",
+    "primaryOutput": "'Roots: x₁ = ' + ((-b + Math.sqrt(b*b - 4*a*c)) / (2*a)).toFixed(4) + ', x₂ = ' + ((-b - Math.sqrt(b*b - 4*a*c)) / (2*a)).toFixed(4) + '. Vertex: (' + (-b/(2*a)).toFixed(4) + ', ' + (c - (b*b)/(4*a)).toFixed(4) + '). f(' + x + ') = ' + (a*x*x + b*x + c).toFixed(4)"
+  },
+  "outputs": {
+    "primary": "primaryOutput",
+    "breakdown": [
+      "discriminant",
+      "root1",
+      "root2",
+      "vertexX",
+      "vertexY",
+      "evalAtX"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

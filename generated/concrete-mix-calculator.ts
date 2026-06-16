@@ -1,0 +1,78 @@
+// Auto-generated from concrete-mix-calculator-schema.json
+import * as z from 'zod';
+
+export interface Concrete_mix_calculatorInput {
+  concreteVolume: number;
+  cementRatio: number;
+  sandRatio: number;
+  aggregateRatio: number;
+  waterCementRatio: number;
+  dryFactor: number;
+  wastagePercent: number;
+}
+
+export const Concrete_mix_calculatorInputSchema = z.object({
+  concreteVolume: z.number().default(1),
+  cementRatio: z.number().default(1),
+  sandRatio: z.number().default(1.5),
+  aggregateRatio: z.number().default(3),
+  waterCementRatio: z.number().default(0.5),
+  dryFactor: z.number().default(1.54),
+  wastagePercent: z.number().default(5),
+});
+
+function evaluateAllFormulas(input: Concrete_mix_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = input.cementRatio + input.sandRatio + input.aggregateRatio; results["sumRatio"] = Number.isFinite(v) ? v : 0; } catch { results["sumRatio"] = 0; }
+  try { const v = input.concreteVolume * input.dryFactor; results["dryVolume"] = Number.isFinite(v) ? v : 0; } catch { results["dryVolume"] = 0; }
+  try { const v = (input.cementRatio / (results["sumRatio"] ?? 0)) * (results["dryVolume"] ?? 0); results["cementVolume"] = Number.isFinite(v) ? v : 0; } catch { results["cementVolume"] = 0; }
+  try { const v = (results["cementVolume"] ?? 0) * 1440; results["cementWeightBase"] = Number.isFinite(v) ? v : 0; } catch { results["cementWeightBase"] = 0; }
+  try { const v = (input.sandRatio / (results["sumRatio"] ?? 0)) * (results["dryVolume"] ?? 0); results["sandVolume"] = Number.isFinite(v) ? v : 0; } catch { results["sandVolume"] = 0; }
+  try { const v = (results["sandVolume"] ?? 0) * 1600; results["sandWeightBase"] = Number.isFinite(v) ? v : 0; } catch { results["sandWeightBase"] = 0; }
+  try { const v = (input.aggregateRatio / (results["sumRatio"] ?? 0)) * (results["dryVolume"] ?? 0); results["aggregateVolume"] = Number.isFinite(v) ? v : 0; } catch { results["aggregateVolume"] = 0; }
+  try { const v = (results["aggregateVolume"] ?? 0) * 1500; results["aggregateWeightBase"] = Number.isFinite(v) ? v : 0; } catch { results["aggregateWeightBase"] = 0; }
+  try { const v = (results["cementWeightBase"] ?? 0) * input.waterCementRatio; results["waterWeightBase"] = Number.isFinite(v) ? v : 0; } catch { results["waterWeightBase"] = 0; }
+  try { const v = 1 + input.wastagePercent / 100; results["wastageFactor"] = Number.isFinite(v) ? v : 0; } catch { results["wastageFactor"] = 0; }
+  try { const v = (results["cementWeightBase"] ?? 0) * (results["wastageFactor"] ?? 0); results["cementWeight"] = Number.isFinite(v) ? v : 0; } catch { results["cementWeight"] = 0; }
+  try { const v = (results["sandWeightBase"] ?? 0) * (results["wastageFactor"] ?? 0); results["sandWeight"] = Number.isFinite(v) ? v : 0; } catch { results["sandWeight"] = 0; }
+  try { const v = (results["aggregateWeightBase"] ?? 0) * (results["wastageFactor"] ?? 0); results["aggregateWeight"] = Number.isFinite(v) ? v : 0; } catch { results["aggregateWeight"] = 0; }
+  try { const v = (results["waterWeightBase"] ?? 0) * (results["wastageFactor"] ?? 0); results["waterWeight"] = Number.isFinite(v) ? v : 0; } catch { results["waterWeight"] = 0; }
+  try { const v = (results["cementWeight"] ?? 0) + (results["sandWeight"] ?? 0) + (results["aggregateWeight"] ?? 0); results["totalDryWeight"] = Number.isFinite(v) ? v : 0; } catch { results["totalDryWeight"] = 0; }
+  try { const v = (results["totalDryWeight"] ?? 0) + (results["waterWeight"] ?? 0); results["totalMixWeight"] = Number.isFinite(v) ? v : 0; } catch { results["totalMixWeight"] = 0; }
+  return results;
+}
+
+
+export function calculateConcrete_mix_calculator(input: Concrete_mix_calculatorInput): Concrete_mix_calculatorOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values["totalMixWeight"] ?? 0;
+  const breakdown = {
+    
+  };
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    premiumRequired: false,
+    premiumFeatures: [],
+  };
+}
+
+
+export interface Concrete_mix_calculatorOutput {
+  totalWasteCost: number;
+  breakdown: {  };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+}

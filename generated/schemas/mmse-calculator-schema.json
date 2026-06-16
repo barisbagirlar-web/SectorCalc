@@ -1,0 +1,59 @@
+{
+  "toolName": "mmse-calculator",
+  "inputs": [
+    {
+      "id": "actualValue1",
+      "label": "Gerçek Değer 1",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "İlk ölçülen gerçek değer."
+    },
+    {
+      "id": "predictedValue1",
+      "label": "Tahmini Değer 1",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "İlk tahmin edilen veya model çıktısı değer."
+    },
+    {
+      "id": "actualValue2",
+      "label": "Gerçek Değer 2",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "İkinci gerçek değer."
+    },
+    {
+      "id": "predictedValue2",
+      "label": "Tahmini Değer 2",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "İkinci tahmin edilen değer."
+    }
+  ],
+  "formulas": {
+    "squaredError1": "(actualValue1 - predictedValue1) ** 2",
+    "squaredError2": "(actualValue2 - predictedValue2) ** 2",
+    "totalSquaredError": "squaredError1 + squaredError2",
+    "sampleSize": "2",
+    "meanSquaredError": "(squaredError1 + squaredError2) / 2"
+  },
+  "outputs": {
+    "primary": "meanSquaredError",
+    "breakdown": [
+      "squaredError1",
+      "squaredError2",
+      "totalSquaredError",
+      "sampleSize"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

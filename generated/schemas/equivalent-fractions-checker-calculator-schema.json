@@ -1,0 +1,65 @@
+{
+  "toolName": "equivalent-fractions-checker-calculator",
+  "inputs": [
+    {
+      "id": "n1",
+      "label": "Fraction 1 Numerator",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Actual numerator (e.g., parts of component A in a batch)."
+    },
+    {
+      "id": "d1",
+      "label": "Fraction 1 Denominator",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Actual denominator (e.g., total parts in the batch)."
+    },
+    {
+      "id": "n2",
+      "label": "Fraction 2 Numerator",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Specified numerator (e.g., target parts of component A)."
+    },
+    {
+      "id": "d2",
+      "label": "Fraction 2 Denominator",
+      "type": "number",
+      "unit": "",
+      "default": 6,
+      "businessContext": "Specified denominator (e.g., target total parts)."
+    },
+    {
+      "id": "tol",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "",
+      "default": 0.0001,
+      "businessContext": "Acceptable floating point deviation for equivalence check."
+    }
+  ],
+  "formulas": {
+    "equivalent": "Math.abs(n1 * d2 - d1 * n2) < tol ? 1 : 0",
+    "cross1": "n1 * d2",
+    "cross2": "d1 * n2",
+    "diff": "Math.abs(n1 * d2 - d1 * n2)"
+  },
+  "outputs": {
+    "primary": "equivalent",
+    "breakdown": [
+      "cross1",
+      "cross2",
+      "diff"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

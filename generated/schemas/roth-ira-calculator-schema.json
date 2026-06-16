@@ -1,0 +1,73 @@
+{
+  "toolName": "roth-ira-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Your current age"
+    },
+    {
+      "id": "retirementAge",
+      "label": "Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 65,
+      "businessContext": "Age at which you plan to retire"
+    },
+    {
+      "id": "annualContribution",
+      "label": "Annual Contribution",
+      "type": "number",
+      "unit": "USD",
+      "default": 6000,
+      "businessContext": "Amount contributed to Roth IRA each year"
+    },
+    {
+      "id": "currentBalance",
+      "label": "Current Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Current Roth IRA balance"
+    },
+    {
+      "id": "expectedReturn",
+      "label": "Expected Annual Return",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected annual rate of return on investments"
+    },
+    {
+      "id": "inflationRate",
+      "label": "Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2.5,
+      "businessContext": "Expected average annual inflation rate"
+    }
+  ],
+  "formulas": {
+    "r": "inputs.expectedReturn / 100",
+    "n": "inputs.retirementAge - inputs.currentAge",
+    "nominalFutureValue": "inputs.currentBalance * Math.pow(1 + r, n) + inputs.annualContribution * ((Math.pow(1 + r, n) - 1) / r)",
+    "inflationFactor": "Math.pow(1 + inputs.inflationRate / 100, n)",
+    "realFutureValue": "nominalFutureValue / inflationFactor"
+  },
+  "outputs": {
+    "primary": "realFutureValue",
+    "breakdown": [
+      "nominalFutureValue",
+      "realFutureValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

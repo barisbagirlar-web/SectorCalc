@@ -1,0 +1,55 @@
+{
+  "toolName": "sampling-rate-calculator",
+  "inputs": [
+    {
+      "id": "bandwidth",
+      "label": "Bandwidth",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1000,
+      "businessContext": "The highest frequency component in the signal"
+    },
+    {
+      "id": "samplingFactor",
+      "label": "Sampling Factor",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Oversampling factor relative to bandwidth (minimum 2 for Nyquist)"
+    },
+    {
+      "id": "bitDepth",
+      "label": "Bit Depth",
+      "type": "number",
+      "unit": "bits",
+      "default": 16,
+      "businessContext": "Number of bits per sample for quantization"
+    },
+    {
+      "id": "channels",
+      "label": "Number of Channels",
+      "type": "number",
+      "unit": "channels",
+      "default": 1,
+      "businessContext": "Number of independent signal channels"
+    }
+  ],
+  "formulas": {
+    "nyquistRate": "bandwidth * 2",
+    "samplingRate": "bandwidth * samplingFactor",
+    "dataRate": "bandwidth * samplingFactor * bitDepth * channels"
+  },
+  "outputs": {
+    "primary": "samplingRate",
+    "breakdown": [
+      "nyquistRate",
+      "dataRate"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

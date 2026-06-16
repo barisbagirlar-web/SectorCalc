@@ -1,0 +1,65 @@
+{
+  "toolName": "le-chatelier-principle",
+  "inputs": [
+    {
+      "id": "deltaH",
+      "label": "Enthalpy Change (ΔH)",
+      "type": "number",
+      "unit": "kJ/mol",
+      "default": 0,
+      "businessContext": "Positive for endothermic, negative for exothermic reactions."
+    },
+    {
+      "id": "deltaN",
+      "label": "Change in Moles of Gas (Δn)",
+      "type": "number",
+      "unit": "mol",
+      "default": 0,
+      "businessContext": "Difference between moles of gaseous products and reactants."
+    },
+    {
+      "id": "temperatureChange",
+      "label": "Temperature Change",
+      "type": "number",
+      "unit": "K",
+      "default": 0,
+      "businessContext": "Positive for increase, negative for decrease."
+    },
+    {
+      "id": "pressureChange",
+      "label": "Pressure Change",
+      "type": "number",
+      "unit": "atm",
+      "default": 0,
+      "businessContext": "Positive for increase, negative for decrease."
+    },
+    {
+      "id": "concentrationChange",
+      "label": "Concentration Change of Reactant",
+      "type": "number",
+      "unit": "M",
+      "default": 0,
+      "businessContext": "Positive for increase, negative for decrease."
+    }
+  ],
+  "formulas": {
+    "temperatureEffect": "deltaH * temperatureChange",
+    "pressureEffect": "deltaN * pressureChange",
+    "concentrationEffect": "concentrationChange",
+    "netShift": "temperatureEffect + pressureEffect + concentrationEffect"
+  },
+  "outputs": {
+    "primary": "netShift",
+    "breakdown": [
+      "temperatureEffect",
+      "pressureEffect",
+      "concentrationEffect"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

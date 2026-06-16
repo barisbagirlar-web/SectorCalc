@@ -1,0 +1,57 @@
+{
+  "toolName": "date-subtract-calculator",
+  "inputs": [
+    {
+      "id": "startDateSerial",
+      "label": "Başlangıç Tarihi (Seri No)",
+      "type": "number",
+      "unit": "gün",
+      "default": 44927,
+      "businessContext": "Başlangıç tarihi seri numarası (ör. 44927 = 2023-01-01)"
+    },
+    {
+      "id": "endDateSerial",
+      "label": "Bitiş Tarihi (Seri No)",
+      "type": "number",
+      "unit": "gün",
+      "default": 44937,
+      "businessContext": "Bitiş tarihi seri numarası"
+    },
+    {
+      "id": "includeEndDay",
+      "label": "Son Gün Dahil",
+      "type": "number",
+      "unit": "boolean",
+      "default": 1,
+      "businessContext": "Bitiş gününün dahil edilmesi (1: evet, 0: hayır)"
+    },
+    {
+      "id": "outputUnitFactor",
+      "label": "Çıktı Birim Çarpanı",
+      "type": "number",
+      "unit": "çarpan",
+      "default": 1,
+      "businessContext": "Çıktı birim çarpanı (1: gün, 24: saat, 1440: dakika, 86400: saniye)"
+    }
+  ],
+  "formulas": {
+    "rawDifference": "endDateSerial - startDateSerial",
+    "includeEndDayAdjustment": "includeEndDay",
+    "durationInDays": "(endDateSerial - startDateSerial) + includeEndDay",
+    "durationInOutputUnit": "((endDateSerial - startDateSerial) + includeEndDay) * outputUnitFactor"
+  },
+  "outputs": {
+    "primary": "durationInOutputUnit",
+    "breakdown": [
+      "rawDifference",
+      "includeEndDayAdjustment",
+      "durationInDays"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

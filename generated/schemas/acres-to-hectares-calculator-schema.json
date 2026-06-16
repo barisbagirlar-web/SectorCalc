@@ -1,0 +1,56 @@
+{
+  "toolName": "acres-to-hectares-calculator",
+  "inputs": [
+    {
+      "id": "inputValue",
+      "label": "Input Value",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Numeric value to convert."
+    },
+    {
+      "id": "inputUnit",
+      "label": "Input Unit (0: acres, 1: hectares)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Select input unit: 0 for acres, 1 for hectares."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the result."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor (ha/ac)",
+      "type": "number",
+      "unit": "ha/ac",
+      "default": 0.40468564224,
+      "businessContext": "Conversion factor from acres to hectares (default: 1 ac = 0.40468564224 ha)."
+    }
+  ],
+  "formulas": {
+    "acres": "inputUnit === 0 ? inputValue : inputValue / conversionFactor",
+    "hectares": "inputUnit === 0 ? inputValue * conversionFactor : inputValue",
+    "roundedAcres": "Math.round(acres * (10 ** decimalPlaces)) / (10 ** decimalPlaces)",
+    "roundedHectares": "Math.round(hectares * (10 ** decimalPlaces)) / (10 ** decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "roundedHectares",
+    "breakdown": [
+      "roundedAcres",
+      "roundedHectares"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

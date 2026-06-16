@@ -1,0 +1,57 @@
+{
+  "toolName": "vent-size-calculator",
+  "inputs": [
+    {
+      "id": "volume",
+      "label": "Oda Hacmi",
+      "type": "number",
+      "unit": "m³",
+      "default": 100,
+      "businessContext": "Havalandırma yapılacak odanın toplam iç hacmi"
+    },
+    {
+      "id": "ach",
+      "label": "Hava Değişim Sayısı (ACH)",
+      "type": "number",
+      "unit": "1/saat",
+      "default": 5,
+      "businessContext": "Saatte istenen hava değişim sayısı"
+    },
+    {
+      "id": "velocity",
+      "label": "Hava Hızı",
+      "type": "number",
+      "unit": "m/s",
+      "default": 2,
+      "businessContext": "Menfezden geçen havanın ortalama hızı"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Emniyet Katsayısı",
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "businessContext": "Hesaplamaya eklenen emniyet payı"
+    }
+  ],
+  "formulas": {
+    "flow": "(ach * volume) / 3600",
+    "areaRaw": "flow / velocity",
+    "areaFinal": "areaRaw * safetyFactor"
+  },
+  "outputs": {
+    "primary": "Gerekli Menfez Alanı: ${areaFinal.toFixed(4)} m²",
+    "breakdown": [
+      "Oda Hacmi: ${volume} m³",
+      "Hava Değişim Debisi: ${flow.toFixed(4)} m³/s",
+      "Ham Alan: ${areaRaw.toFixed(4)} m²",
+      "Emniyet Katsayılı Alan: ${areaFinal.toFixed(4)} m²"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

@@ -1,0 +1,59 @@
+{
+  "toolName": "economic-order-quantity-calculator",
+  "inputs": [
+    {
+      "id": "annualDemand",
+      "label": "Yıllık Talep Miktarı",
+      "type": "number",
+      "unit": "adet/yıl",
+      "default": 10000,
+      "businessContext": "Yıllık olarak satılan veya üretimde kullanılan malzeme miktarı."
+    },
+    {
+      "id": "orderingCost",
+      "label": "Sipariş Maliyeti",
+      "type": "number",
+      "unit": "TL/sipariş",
+      "default": 50,
+      "businessContext": "Bir siparişin verilme ve teslim alma ile ilgili tüm masraflar."
+    },
+    {
+      "id": "holdingCost",
+      "label": "Stokta Tutma Maliyeti",
+      "type": "number",
+      "unit": "TL/birim/yıl",
+      "default": 2,
+      "businessContext": "Bir birim stoğun bir yıl boyunca depolanmasının maliyeti (sigorta, yıpranma, fırsat maliyeti vb.)."
+    },
+    {
+      "id": "unitCost",
+      "label": "Birim Maliyeti",
+      "type": "number",
+      "unit": "TL/birim",
+      "default": 10,
+      "businessContext": "Satın alınan veya üretilen malzemenin birim başına maliyeti."
+    }
+  ],
+  "formulas": {
+    "economicOrderQuantity": "Math.sqrt(2 * annualDemand * orderingCost / holdingCost)",
+    "totalAnnualOrderingCost": "(annualDemand / economicOrderQuantity) * orderingCost",
+    "totalAnnualHoldingCost": "(economicOrderQuantity / 2) * holdingCost",
+    "totalAnnualPurchaseCost": "annualDemand * unitCost",
+    "totalAnnualInventoryCost": "totalAnnualOrderingCost + totalAnnualHoldingCost + totalAnnualPurchaseCost"
+  },
+  "outputs": {
+    "primary": "economicOrderQuantity",
+    "breakdown": [
+      "totalAnnualOrderingCost",
+      "totalAnnualHoldingCost",
+      "totalAnnualPurchaseCost",
+      "totalAnnualInventoryCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,54 @@
+{
+  "toolName": "c1v1-equals-c2v2-calculator",
+  "inputs": [
+    {
+      "id": "c1",
+      "label": "Başlangıç Konsantrasyonu (C1)",
+      "type": "number",
+      "unit": "mg/mL",
+      "default": 100,
+      "businessContext": "Stok çözelti konsantrasyonu"
+    },
+    {
+      "id": "v1",
+      "label": "Başlangıç Hacmi (V1)",
+      "type": "number",
+      "unit": "mL",
+      "default": 10,
+      "businessContext": "Kullanılacak stok miktarı"
+    },
+    {
+      "id": "c2",
+      "label": "Hedef Konsantrasyon (C2)",
+      "type": "number",
+      "unit": "mg/mL",
+      "default": 20,
+      "businessContext": "İstenen son konsantrasyon"
+    },
+    {
+      "id": "fire",
+      "label": "Fire Payı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Proses sırasında oluşabilecek kayıp için eklenen fazlalık yüzdesi"
+    }
+  ],
+  "formulas": {
+    "v2_ideal": "(c1 * v1) / c2",
+    "v2_actual": "((c1 * v1) / c2) * (1 + fire / 100)"
+  },
+  "outputs": {
+    "primary": "v2_actual",
+    "breakdown": [
+      "v2_ideal: (c1 * v1) / c2",
+      "v2_actual: v2_ideal * (1 + fire/100)"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,74 @@
+{
+  "toolName": "vegan-savings-calculator",
+  "inputs": [
+    {
+      "id": "numMeals",
+      "label": "Number of Meals per Week",
+      "type": "number",
+      "unit": "meals/week",
+      "default": 10,
+      "businessContext": "Total number of meals that are being switched from meat-based to vegan."
+    },
+    {
+      "id": "co2MeatPerMeal",
+      "label": "Average CO2 per Meat Meal",
+      "type": "number",
+      "unit": "kg CO2/meal",
+      "default": 5,
+      "businessContext": "Average carbon footprint of a meat-based meal."
+    },
+    {
+      "id": "co2VeganPerMeal",
+      "label": "Average CO2 per Vegan Meal",
+      "type": "number",
+      "unit": "kg CO2/meal",
+      "default": 2,
+      "businessContext": "Average carbon footprint of a vegan meal."
+    },
+    {
+      "id": "costMeatPerMeal",
+      "label": "Cost per Meat Meal",
+      "type": "number",
+      "unit": "USD/meal",
+      "default": 8,
+      "businessContext": "Average cost of a meat-based meal."
+    },
+    {
+      "id": "costVeganPerMeal",
+      "label": "Cost per Vegan Meal",
+      "type": "number",
+      "unit": "USD/meal",
+      "default": 5.5,
+      "businessContext": "Average cost of a vegan meal."
+    },
+    {
+      "id": "weeks",
+      "label": "Number of Weeks",
+      "type": "number",
+      "unit": "weeks",
+      "default": 52,
+      "businessContext": "Period in weeks for the calculation."
+    }
+  ],
+  "formulas": {
+    "totalMeals": "numMeals * weeks",
+    "co2Savings": "totalMeals * (co2MeatPerMeal - co2VeganPerMeal)",
+    "costSavings": "totalMeals * (costMeatPerMeal - costVeganPerMeal)",
+    "primary": "'Total CO2 Savings: ' + co2Savings + ' kg CO2, Total Cost Savings: $' + costSavings",
+    "breakdown1": "'Meat-based total CO2: ' + (numMeals * weeks * co2MeatPerMeal) + ' kg CO2, Cost: $' + (numMeals * weeks * costMeatPerMeal)",
+    "breakdown2": "'Vegan total CO2: ' + (numMeals * weeks * co2VeganPerMeal) + ' kg CO2, Cost: $' + (numMeals * weeks * costVeganPerMeal)"
+  },
+  "outputs": {
+    "primary": "{formulas.primary}",
+    "breakdown": [
+      "{formulas.breakdown1}",
+      "{formulas.breakdown2}"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

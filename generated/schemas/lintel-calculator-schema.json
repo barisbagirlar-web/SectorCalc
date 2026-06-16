@@ -1,0 +1,55 @@
+{
+  "toolName": "lintel-calculator",
+  "inputs": [
+    {
+      "id": "span",
+      "label": "Span Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 2000,
+      "businessContext": "Clear span of the opening."
+    },
+    {
+      "id": "designLoad",
+      "label": "Design Load",
+      "type": "number",
+      "unit": "kN/m",
+      "default": 10,
+      "businessContext": "Uniformly distributed design load including finishes and live load."
+    },
+    {
+      "id": "allowableStress",
+      "label": "Allowable Bending Stress",
+      "type": "number",
+      "unit": "N/mm²",
+      "default": 165,
+      "businessContext": "Material allowable stress (e.g., 165 MPa for S275 steel)."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Safety factor for allowable stress design."
+    }
+  ],
+  "formulas": {
+    "bendingMoment": "designLoad * span ** 2 / 8",
+    "requiredModulus": "bendingMoment / (allowableStress * safetyFactor)",
+    "requiredModulusCm3": "requiredModulus / 1000"
+  },
+  "outputs": {
+    "primary": "requiredModulusCm3",
+    "breakdown": [
+      "bendingMoment",
+      "requiredModulus"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

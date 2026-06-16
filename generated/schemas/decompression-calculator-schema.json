@@ -1,0 +1,65 @@
+{
+  "toolName": "decompression-calculator",
+  "inputs": [
+    {
+      "id": "initialPressure",
+      "label": "Initial Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 200,
+      "businessContext": "Vessel pressure before decompression"
+    },
+    {
+      "id": "finalPressure",
+      "label": "Final Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 1,
+      "businessContext": "Target pressure after decompression"
+    },
+    {
+      "id": "volume",
+      "label": "Vessel Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 1000,
+      "businessContext": "Internal volume of the pressure vessel"
+    },
+    {
+      "id": "flowRate",
+      "label": "Flow Rate (Std)",
+      "type": "number",
+      "unit": "SLPM",
+      "default": 50,
+      "businessContext": "Standard flow rate (1 atm, 20°C) of gas release"
+    },
+    {
+      "id": "temperature",
+      "label": "Gas Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "Operating temperature of the gas, used for correction"
+    }
+  ],
+  "formulas": {
+    "pressureDifference": "initialPressure - finalPressure",
+    "timeUncorrected": "(pressureDifference * volume) / flowRate",
+    "temperatureKelvin": "temperature + 273.15",
+    "decompressionTime": "timeUncorrected * (temperatureKelvin / 293.15)"
+  },
+  "outputs": {
+    "primary": "decompressionTime",
+    "breakdown": [
+      "pressureDifference",
+      "timeUncorrected",
+      "decompressionTime"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

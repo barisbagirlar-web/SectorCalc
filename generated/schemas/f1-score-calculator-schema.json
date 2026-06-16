@@ -1,0 +1,55 @@
+{
+  "toolName": "f1-score-calculator",
+  "inputs": [
+    {
+      "id": "truePositives",
+      "label": "True Positives (TP)",
+      "type": "number",
+      "unit": "count",
+      "default": 50,
+      "businessContext": "Number of correctly predicted positive instances."
+    },
+    {
+      "id": "falsePositives",
+      "label": "False Positives (FP)",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "businessContext": "Number of incorrectly predicted positive instances."
+    },
+    {
+      "id": "falseNegatives",
+      "label": "False Negatives (FN)",
+      "type": "number",
+      "unit": "count",
+      "default": 5,
+      "businessContext": "Number of incorrectly predicted negative instances."
+    },
+    {
+      "id": "trueNegatives",
+      "label": "True Negatives (TN)",
+      "type": "number",
+      "unit": "count",
+      "default": 100,
+      "businessContext": "Number of correctly predicted negative instances. Optional for F1 but useful for other metrics."
+    }
+  ],
+  "formulas": {
+    "precision": "truePositives / (truePositives + falsePositives)",
+    "recall": "truePositives / (truePositives + falseNegatives)",
+    "f1Score": "2 * truePositives / (2 * truePositives + falsePositives + falseNegatives)"
+  },
+  "outputs": {
+    "primary": "f1Score",
+    "breakdown": [
+      "precision",
+      "recall"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

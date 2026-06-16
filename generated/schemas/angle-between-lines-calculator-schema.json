@@ -1,0 +1,101 @@
+{
+  "toolName": "angle-between-lines-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "Line 1 Point 1 X",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "X coordinate of the first point on line 1"
+    },
+    {
+      "id": "y1",
+      "label": "Line 1 Point 1 Y",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Y coordinate of the first point on line 1"
+    },
+    {
+      "id": "x2",
+      "label": "Line 1 Point 2 X",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "X coordinate of the second point on line 1"
+    },
+    {
+      "id": "y2",
+      "label": "Line 1 Point 2 Y",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Y coordinate of the second point on line 1"
+    },
+    {
+      "id": "x3",
+      "label": "Line 2 Point 1 X",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "X coordinate of the first point on line 2"
+    },
+    {
+      "id": "y3",
+      "label": "Line 2 Point 1 Y",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Y coordinate of the first point on line 2"
+    },
+    {
+      "id": "x4",
+      "label": "Line 2 Point 2 X",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "X coordinate of the second point on line 2"
+    },
+    {
+      "id": "y4",
+      "label": "Line 2 Point 2 Y",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Y coordinate of the second point on line 2"
+    }
+  ],
+  "formulas": {
+    "dx1": "x2 - x1",
+    "dy1": "y2 - y1",
+    "dx2": "x4 - x3",
+    "dy2": "y4 - y3",
+    "len1": "Math.sqrt(dx1**2 + dy1**2)",
+    "len2": "Math.sqrt(dx2**2 + dy2**2)",
+    "dot": "Math.abs(dx1*dx2 + dy1*dy2)",
+    "cosTheta": "dot / (len1 * len2)",
+    "angleRad": "Math.acos(Math.min(1, Math.max(-1, cosTheta)))",
+    "angleDeg": "angleRad * 180 / Math.PI"
+  },
+  "outputs": {
+    "primary": "angleDeg",
+    "breakdown": [
+      "dx1",
+      "dy1",
+      "dx2",
+      "dy2",
+      "len1",
+      "len2",
+      "dot",
+      "cosTheta",
+      "angleRad"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

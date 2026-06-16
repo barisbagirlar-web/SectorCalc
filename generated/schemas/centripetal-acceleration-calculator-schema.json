@@ -1,0 +1,81 @@
+{
+  "toolName": "centripetal-acceleration-calculator",
+  "inputs": [
+    {
+      "id": "speed_mps",
+      "label": "Velocity (m/s)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Tangential velocity in meters per second"
+    },
+    {
+      "id": "speed_kmh",
+      "label": "Velocity (km/h)",
+      "type": "number",
+      "unit": "km/h",
+      "default": 0,
+      "businessContext": "Tangential velocity in kilometers per hour"
+    },
+    {
+      "id": "speed_mph",
+      "label": "Velocity (mph)",
+      "type": "number",
+      "unit": "mph",
+      "default": 0,
+      "businessContext": "Tangential velocity in miles per hour"
+    },
+    {
+      "id": "radius_m",
+      "label": "Radius (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Radius of circular path in meters"
+    },
+    {
+      "id": "radius_cm",
+      "label": "Radius (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 0,
+      "businessContext": "Radius of circular path in centimeters"
+    },
+    {
+      "id": "radius_km",
+      "label": "Radius (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 0,
+      "businessContext": "Radius of circular path in kilometers"
+    },
+    {
+      "id": "mass_kg",
+      "label": "Mass (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Optional mass of object to compute centripetal force"
+    }
+  ],
+  "formulas": {
+    "velocity": "speed_mps + speed_kmh/3.6 + speed_mph*0.44704",
+    "radius": "radius_m + radius_cm/100 + radius_km*1000",
+    "acceleration": "Math.pow(velocity, 2) / radius",
+    "force": "mass_kg * acceleration",
+    "angularVelocity": "velocity / radius"
+  },
+  "outputs": {
+    "primary": "acceleration",
+    "breakdown": [
+      "force",
+      "angularVelocity"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

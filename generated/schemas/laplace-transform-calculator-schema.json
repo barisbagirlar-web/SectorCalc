@@ -1,0 +1,71 @@
+{
+  "toolName": "laplace-transform-calculator",
+  "inputs": [
+    {
+      "id": "amplitude",
+      "label": "Amplitude (A)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Amplitude of the damped sine wave"
+    },
+    {
+      "id": "damping",
+      "label": "Damping constant (α)",
+      "type": "number",
+      "unit": "1/s",
+      "default": 0,
+      "businessContext": "Exponential decay constant"
+    },
+    {
+      "id": "frequency",
+      "label": "Frequency (ω)",
+      "type": "number",
+      "unit": "rad/s",
+      "default": 1,
+      "businessContext": "Angular frequency of the oscillation"
+    },
+    {
+      "id": "phase",
+      "label": "Phase shift (φ)",
+      "type": "number",
+      "unit": "rad",
+      "default": 0,
+      "businessContext": "Phase offset of the sine wave"
+    },
+    {
+      "id": "delay",
+      "label": "Time delay (τ)",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Dead time before the function starts"
+    },
+    {
+      "id": "s",
+      "label": "Laplace variable (s)",
+      "type": "number",
+      "unit": "1/s",
+      "default": 1,
+      "businessContext": "Complex frequency variable (real part)"
+    }
+  ],
+  "formulas": {
+    "numerator": "amplitude * Math.exp(-delay * s) * (frequency * Math.cos(phase) + (s + damping) * Math.sin(phase))",
+    "denominator": "(s + damping) ** 2 + frequency ** 2",
+    "primary": "numerator / denominator"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "numerator",
+      "denominator"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

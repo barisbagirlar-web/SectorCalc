@@ -1,0 +1,75 @@
+{
+  "toolName": "primer-calculator",
+  "inputs": [
+    {
+      "id": "surfaceArea",
+      "label": "Surface Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "businessContext": "Total area to be primed."
+    },
+    {
+      "id": "coverageRate",
+      "label": "Coverage Rate",
+      "type": "number",
+      "unit": "m²/L",
+      "default": 10,
+      "businessContext": "Area covered per liter of primer as per technical data sheet."
+    },
+    {
+      "id": "coats",
+      "label": "Number of Coats",
+      "type": "number",
+      "unit": "coats",
+      "default": 1,
+      "businessContext": "Recommended number of primer coats."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Additional material for wastage, overspray, etc."
+    },
+    {
+      "id": "containerSize",
+      "label": "Container Size",
+      "type": "number",
+      "unit": "L",
+      "default": 20,
+      "businessContext": "Typical container volume for purchase."
+    },
+    {
+      "id": "pricePerContainer",
+      "label": "Price per Container",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "Unit price per container of primer."
+    }
+  ],
+  "formulas": {
+    "baseVolume": "surfaceArea * coats / coverageRate",
+    "wasteVolume": "baseVolume * wasteFactor / 100",
+    "adjustedVolume": "baseVolume + wasteVolume",
+    "containersDecimal": "adjustedVolume / containerSize",
+    "totalCost": "containersDecimal * pricePerContainer"
+  },
+  "outputs": {
+    "primary": "adjustedVolume",
+    "breakdown": [
+      "baseVolume",
+      "wasteVolume",
+      "containersDecimal",
+      "totalCost"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

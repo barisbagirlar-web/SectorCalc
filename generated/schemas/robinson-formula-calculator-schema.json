@@ -1,0 +1,63 @@
+{
+  "toolName": "robinson-formula-calculator",
+  "inputs": [
+    {
+      "id": "totalMaterial",
+      "label": "Toplam Malzeme (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Toplam kullanılan hammadde miktarı"
+    },
+    {
+      "id": "goodParts",
+      "label": "Sağlam Parça Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 800,
+      "businessContext": "Üretilen hatasız parça sayısı"
+    },
+    {
+      "id": "unitWeight",
+      "label": "Parça Başı Net Ağırlık (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Her bir parçanın net ağırlığı"
+    },
+    {
+      "id": "scrap",
+      "label": "Hurda Miktarı (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 150,
+      "businessContext": "Üretimde oluşan hurda ağırlığı"
+    },
+    {
+      "id": "rework",
+      "label": "Yeniden İşlenen Parça Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 50,
+      "businessContext": "Düzeltme gerektiren parça sayısı"
+    }
+  ],
+  "formulas": {
+    "yieldRate": "goodParts * unitWeight / totalMaterial",
+    "scrapRate": "scrap / totalMaterial",
+    "reworkRate": "rework * unitWeight / totalMaterial"
+  },
+  "outputs": {
+    "primary": "yieldRate",
+    "breakdown": [
+      "scrapRate",
+      "reworkRate"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

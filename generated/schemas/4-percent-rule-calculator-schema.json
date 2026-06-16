@@ -1,0 +1,57 @@
+{
+  "toolName": "4-percent-rule-calculator",
+  "inputs": [
+    {
+      "id": "desiredAnnualIncome",
+      "label": "Desired Annual Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 80000,
+      "businessContext": "Total annual income desired during retirement."
+    },
+    {
+      "id": "otherAnnualIncome",
+      "label": "Other Annual Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "businessContext": "Annual income from other sources (e.g., Social Security, pension)."
+    },
+    {
+      "id": "withdrawalRate",
+      "label": "Withdrawal Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "businessContext": "Annual withdrawal rate as a percentage of savings (commonly 4%)."
+    },
+    {
+      "id": "currentSavings",
+      "label": "Current Savings",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total current retirement savings."
+    }
+  ],
+  "formulas": {
+    "netAnnualIncome": "desiredAnnualIncome - otherAnnualIncome",
+    "requiredSavings": "netAnnualIncome / (withdrawalRate / 100)",
+    "monthlyIncome": "netAnnualIncome / 12",
+    "savingsGap": "requiredSavings - currentSavings"
+  },
+  "outputs": {
+    "primary": "requiredSavings",
+    "breakdown": [
+      "netAnnualIncome",
+      "monthlyIncome",
+      "savingsGap"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

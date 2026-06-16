@@ -1,0 +1,62 @@
+{
+  "toolName": "life-satisfaction-calculator",
+  "inputs": [
+    {
+      "id": "income",
+      "label": "Financial Satisfaction (1-10)",
+      "type": "number",
+      "unit": "score",
+      "default": 7,
+      "businessContext": "Self-rated satisfaction with financial situation."
+    },
+    {
+      "id": "health",
+      "label": "Health Satisfaction (1-10)",
+      "type": "number",
+      "unit": "score",
+      "default": 8,
+      "businessContext": "Self-rated physical and mental health."
+    },
+    {
+      "id": "workLife",
+      "label": "Work-Life Balance (1-10)",
+      "type": "number",
+      "unit": "score",
+      "default": 6,
+      "businessContext": "Satisfaction with balance between work and personal life."
+    },
+    {
+      "id": "social",
+      "label": "Social Connections (1-10)",
+      "type": "number",
+      "unit": "score",
+      "default": 7,
+      "businessContext": "Satisfaction with relationships and social support."
+    },
+    {
+      "id": "purpose",
+      "label": "Sense of Purpose (1-10)",
+      "type": "number",
+      "unit": "score",
+      "default": 7,
+      "businessContext": "Feeling of meaning and purpose in daily activities."
+    }
+  ],
+  "formulas": {
+    "weightedTotal": "income * 0.2 + health * 0.25 + workLife * 0.2 + social * 0.2 + purpose * 0.15",
+    "lifeSatisfactionScore": "weightedTotal * 10"
+  },
+  "outputs": {
+    "primary": "lifeSatisfactionScore",
+    "breakdown": [
+      "weightedTotal",
+      "lifeSatisfactionScore"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

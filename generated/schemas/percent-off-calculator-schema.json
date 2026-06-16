@@ -1,0 +1,60 @@
+{
+  "toolName": "percent-off-calculator",
+  "inputs": [
+    {
+      "id": "original_price",
+      "label": "Original Price",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "The initial price before any discounts."
+    },
+    {
+      "id": "discount_percent",
+      "label": "Discount Percent",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "The primary discount percentage."
+    },
+    {
+      "id": "additional_discount_percent",
+      "label": "Additional Discount Percent",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "An extra discount applied after the first discount (e.g., loyalty discount)."
+    },
+    {
+      "id": "tax_rate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Sales tax rate applied to the discounted price."
+    }
+  ],
+  "formulas": {
+    "discounted_price": "original_price * (1 - discount_percent/100) * (1 - additional_discount_percent/100)",
+    "tax_amount": "discounted_price * (tax_rate/100)",
+    "final_price": "discounted_price + tax_amount",
+    "total_savings": "original_price - final_price",
+    "display_original_price": "original_price"
+  },
+  "outputs": {
+    "primary": "final_price",
+    "breakdown": [
+      "display_original_price",
+      "discounted_price",
+      "total_savings",
+      "tax_amount",
+      "final_price"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

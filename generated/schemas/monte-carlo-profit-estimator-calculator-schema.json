@@ -1,0 +1,72 @@
+{
+  "toolName": "monte-carlo-profit-estimator-calculator",
+  "inputs": [
+    {
+      "id": "revenueMean",
+      "label": "Revenue Mean (μR)",
+      "type": "number",
+      "unit": "unit",
+      "default": 100000,
+      "businessContext": "Expected average revenue (e.g., from Monte Carlo distribution mean)."
+    },
+    {
+      "id": "revenueStd",
+      "label": "Revenue Std Dev (σR)",
+      "type": "number",
+      "unit": "unit",
+      "default": 10000,
+      "businessContext": "Standard deviation of revenue (uncertainty measure)."
+    },
+    {
+      "id": "costMean",
+      "label": "Cost Mean (μC)",
+      "type": "number",
+      "unit": "unit",
+      "default": 70000,
+      "businessContext": "Expected average cost."
+    },
+    {
+      "id": "costStd",
+      "label": "Cost Std Dev (σC)",
+      "type": "number",
+      "unit": "unit",
+      "default": 5000,
+      "businessContext": "Standard deviation of cost."
+    },
+    {
+      "id": "correlation",
+      "label": "Correlation (R,C)",
+      "type": "number",
+      "unit": " ",
+      "default": 0,
+      "businessContext": "Correlation coefficient between revenue and cost (-1 to 1). 0 for independence."
+    },
+    {
+      "id": "zScore",
+      "label": "Z-Score for CI",
+      "type": "number",
+      "unit": " ",
+      "default": 1.96,
+      "businessContext": "Z-score for confidence interval (1.96 for 95%, 2.58 for 99%)."
+    }
+  ],
+  "formulas": {
+    "profitMean": "revenueMean - costMean",
+    "profitStd": "Math.sqrt(revenueStd**2 + costStd**2 - 2 * correlation * revenueStd * costStd)",
+    "lower": "profitMean - zScore * profitStd",
+    "upper": "profitMean + zScore * profitStd"
+  },
+  "outputs": {
+    "primary": "profitMean",
+    "breakdown": [
+      "lower",
+      "upper"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

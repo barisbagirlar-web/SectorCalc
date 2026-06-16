@@ -1,0 +1,83 @@
+{
+  "toolName": "moist-adiabatic-lapse-rate-calculator",
+  "inputs": [
+    {
+      "id": "temperature",
+      "label": "Temperature (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Dry-bulb temperature of the saturated air parcel at the level of interest."
+    },
+    {
+      "id": "pressure",
+      "label": "Pressure (hPa)",
+      "type": "number",
+      "unit": "hPa",
+      "default": 1013.25,
+      "businessContext": "Atmospheric pressure at the level of interest (e.g., sea level pressure)."
+    },
+    {
+      "id": "g",
+      "label": "Gravity (m/s²)",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Acceleration due to gravity; standard value used unless high precision required."
+    },
+    {
+      "id": "Lv",
+      "label": "Latent heat of vaporization (J/kg)",
+      "type": "number",
+      "unit": "J/kg",
+      "default": 2500000,
+      "businessContext": "Latent heat of vaporization of water; varies slightly with temperature but constant assumed."
+    },
+    {
+      "id": "Rd",
+      "label": "Gas constant dry air (J/(kg·K))",
+      "type": "number",
+      "unit": "J/(kg·K)",
+      "default": 287.058,
+      "businessContext": "Specific gas constant for dry air."
+    },
+    {
+      "id": "cpd",
+      "label": "Specific heat dry air (J/(kg·K))",
+      "type": "number",
+      "unit": "J/(kg·K)",
+      "default": 1003.5,
+      "businessContext": "Specific heat at constant pressure for dry air."
+    },
+    {
+      "id": "epsilon",
+      "label": "ε (ratio of gas constants)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.622,
+      "businessContext": "Ratio of gas constant of dry air to water vapor, ≈0.622."
+    }
+  ],
+  "formulas": {
+    "T_K": "temperature + 273.15",
+    "e_s_Pa": "6.112 * 100 * Math.exp(17.67 * temperature / (temperature + 243.5))",
+    "p_Pa": "pressure * 100",
+    "r_s": "epsilon * e_s_Pa / (p_Pa - e_s_Pa)",
+    "numerator": "g * (1 + (Lv * r_s) / (Rd * T_K))",
+    "denominator": "cpd + (Lv**2 * r_s * epsilon) / (Rd * T_K**2)",
+    "lapseRateKm": "numerator / denominator * 1000"
+  },
+  "outputs": {
+    "primary": "lapseRateKm",
+    "breakdown": [
+      "e_s_Pa",
+      "r_s"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

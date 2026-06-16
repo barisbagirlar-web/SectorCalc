@@ -1,0 +1,68 @@
+{
+  "toolName": "restaurant-markup-calculator",
+  "inputs": [
+    {
+      "id": "ingredientCost",
+      "label": "Ingredient Cost (per item)",
+      "type": "number",
+      "unit": "EUR",
+      "default": 4.5,
+      "businessContext": "Cost of raw ingredients for one serving."
+    },
+    {
+      "id": "laborCost",
+      "label": "Labor Cost (per item)",
+      "type": "number",
+      "unit": "EUR",
+      "default": 2,
+      "businessContext": "Direct labor cost attributed to one serving."
+    },
+    {
+      "id": "overheadCost",
+      "label": "Overhead Cost (per item)",
+      "type": "number",
+      "unit": "EUR",
+      "default": 1,
+      "businessContext": "Indirect costs (rent, utilities, etc.) per serving."
+    },
+    {
+      "id": "wastePercent",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "Percentage of ingredient lost to waste (trimming, spoilage)."
+    },
+    {
+      "id": "desiredMarkupPercent",
+      "label": "Desired Markup",
+      "type": "number",
+      "unit": "%",
+      "default": 300,
+      "businessContext": "Markup percentage on total cost to set selling price."
+    }
+  ],
+  "formulas": {
+    "effectiveIngredientCost": "ingredientCost / (1 - wastePercent / 100)",
+    "totalCost": "effectiveIngredientCost + laborCost + overheadCost",
+    "sellingPrice": "totalCost * (1 + desiredMarkupPercent / 100)",
+    "markupAmount": "sellingPrice - totalCost",
+    "foodCostPercent": "(effectiveIngredientCost / sellingPrice) * 100",
+    "profitMarginPercent": "(markupAmount / sellingPrice) * 100"
+  },
+  "outputs": {
+    "primary": "sellingPrice",
+    "breakdown": [
+      "totalCost",
+      "markupAmount",
+      "foodCostPercent",
+      "profitMarginPercent"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

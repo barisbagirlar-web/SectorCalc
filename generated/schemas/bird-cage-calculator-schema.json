@@ -1,0 +1,83 @@
+{
+  "toolName": "bird-cage-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Cage Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 60,
+      "businessContext": "External length of the cage."
+    },
+    {
+      "id": "width",
+      "label": "Cage Width",
+      "type": "number",
+      "unit": "cm",
+      "default": 40,
+      "businessContext": "External width of the cage."
+    },
+    {
+      "id": "height",
+      "label": "Cage Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 50,
+      "businessContext": "External height of the cage."
+    },
+    {
+      "id": "barSpacing",
+      "label": "Bar Spacing",
+      "type": "number",
+      "unit": "cm",
+      "default": 1.5,
+      "businessContext": "Center-to-center distance between wire bars."
+    },
+    {
+      "id": "wireDiameter",
+      "label": "Wire Diameter",
+      "type": "number",
+      "unit": "cm",
+      "default": 0.2,
+      "businessContext": "Diameter of the wire used."
+    }
+  ],
+  "formulas": {
+    "surfaceArea": "2 * (length * width + length * height + width * height)",
+    "totalWireLengthCm": "(4 / barSpacing) * (width * height + length * height + length * width) + 4 * (length + width + height)",
+    "totalWireLength": "totalWireLengthCm / 100",
+    "meshArea": "surfaceArea / 10000",
+    "wireVolume": "(Math.PI * Math.pow(wireDiameter, 2) / 4) * totalWireLengthCm",
+    "totalWeight": "wireVolume * 7.85 / 1000"
+  },
+  "outputs": {
+    "primary": {
+      "label": "Total Wire Length",
+      "value": "totalWireLength",
+      "unit": "m"
+    },
+    "breakdown": [
+      {
+        "label": "Mesh Surface Area",
+        "value": "meshArea",
+        "unit": "m²"
+      },
+      {
+        "label": "Wire Volume",
+        "value": "wireVolume",
+        "unit": "cm³"
+      },
+      {
+        "label": "Total Weight (Steel)",
+        "value": "totalWeight",
+        "unit": "kg"
+      }
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

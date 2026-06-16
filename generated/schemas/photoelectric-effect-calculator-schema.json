@@ -1,0 +1,59 @@
+{
+  "toolName": "photoelectric-effect-calculator",
+  "inputs": [
+    {
+      "id": "wavelength",
+      "label": "Incident light wavelength",
+      "type": "number",
+      "unit": "nm",
+      "default": 500,
+      "businessContext": "Wavelength of the incident photon in nanometers."
+    },
+    {
+      "id": "workFunction",
+      "label": "Work function of material",
+      "type": "number",
+      "unit": "eV",
+      "default": 2,
+      "businessContext": "Minimum energy required to eject an electron from the material."
+    },
+    {
+      "id": "planckConstant",
+      "label": "Planck constant",
+      "type": "number",
+      "unit": "eV·s",
+      "default": 4.135667662e-15,
+      "businessContext": "Planck constant in electronvolt-seconds. Override for custom units."
+    },
+    {
+      "id": "speedOfLight",
+      "label": "Speed of light",
+      "type": "number",
+      "unit": "m/s",
+      "default": 299792458,
+      "businessContext": "Speed of light in vacuum, meters per second."
+    }
+  ],
+  "formulas": {
+    "photonEnergy": "(planckConstant * speedOfLight * 1000000000) / wavelength",
+    "kineticEnergy": "photonEnergy - workFunction",
+    "stoppingPotential": "kineticEnergy",
+    "thresholdWavelength": "(planckConstant * speedOfLight * 1000000000) / workFunction",
+    "thresholdFrequency": "workFunction / planckConstant"
+  },
+  "outputs": {
+    "primary": "kineticEnergy",
+    "breakdown": [
+      "photonEnergy",
+      "stoppingPotential",
+      "thresholdWavelength",
+      "thresholdFrequency"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

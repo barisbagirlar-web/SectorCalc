@@ -1,0 +1,58 @@
+{
+  "toolName": "child-dose-calculator",
+  "inputs": [
+    {
+      "id": "adultDose",
+      "label": "Adult Dose",
+      "type": "number",
+      "unit": "mg",
+      "default": 500,
+      "businessContext": "The standard adult dose of the medication in milligrams."
+    },
+    {
+      "id": "childAge",
+      "label": "Child Age",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Age of the child in years."
+    },
+    {
+      "id": "childWeight",
+      "label": "Child Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 20,
+      "businessContext": "Weight of the child in kilograms."
+    },
+    {
+      "id": "childHeight",
+      "label": "Child Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 110,
+      "businessContext": "Height of the child in centimeters (required for body surface area calculation)."
+    }
+  ],
+  "formulas": {
+    "recommendedChildDose": "(childWeight / 70) * adultDose",
+    "methodYoung": "(childAge / (childAge + 12)) * adultDose",
+    "methodFried": "((childAge * 12) / 150) * adultDose",
+    "methodBSA": "(Math.sqrt((childHeight * childWeight) / 3600) / 1.73) * adultDose"
+  },
+  "outputs": {
+    "primary": "recommendedChildDose",
+    "breakdown": [
+      "recommendedChildDose",
+      "methodYoung",
+      "methodFried",
+      "methodBSA"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,83 @@
+{
+  "toolName": "email-open-rate-calculator",
+  "inputs": [
+    {
+      "id": "sentCount",
+      "label": "Emails Sent",
+      "type": "number",
+      "unit": "count",
+      "default": 1000,
+      "businessContext": "Total number of emails sent in the campaign"
+    },
+    {
+      "id": "bounceCount",
+      "label": "Bounces",
+      "type": "number",
+      "unit": "count",
+      "default": 50,
+      "businessContext": "Number of emails that bounced (hard and soft bounces)"
+    },
+    {
+      "id": "openCount",
+      "label": "Opens",
+      "type": "number",
+      "unit": "count",
+      "default": 200,
+      "businessContext": "Number of emails opened (total opens, not necessarily unique)"
+    },
+    {
+      "id": "clickCount",
+      "label": "Clicks",
+      "type": "number",
+      "unit": "count",
+      "default": 80,
+      "businessContext": "Number of link clicks received"
+    }
+  ],
+  "formulas": {
+    "deliveredFormula": "sentCount - bounceCount",
+    "openRateFormula": "(openCount / (sentCount - bounceCount)) * 100",
+    "clickRateFormula": "(clickCount / (sentCount - bounceCount)) * 100",
+    "clickToOpenRateFormula": "(clickCount / openCount) * 100"
+  },
+  "outputs": {
+    "primary": {
+      "id": "openRate",
+      "label": "Email Open Rate",
+      "unit": "%",
+      "formula": "openRateFormula"
+    },
+    "breakdown": [
+      {
+        "id": "deliveredCount",
+        "label": "Delivered Emails",
+        "unit": "count",
+        "formula": "deliveredFormula"
+      },
+      {
+        "id": "openRate",
+        "label": "Open Rate",
+        "unit": "%",
+        "formula": "openRateFormula"
+      },
+      {
+        "id": "clickRate",
+        "label": "Click Rate",
+        "unit": "%",
+        "formula": "clickRateFormula"
+      },
+      {
+        "id": "clickToOpenRate",
+        "label": "Click-to-Open Rate",
+        "unit": "%",
+        "formula": "clickToOpenRateFormula"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "tanning-calculator",
+  "inputs": [
+    {
+      "id": "hideWeight",
+      "label": "Hide Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Weight of raw hides to be tanned."
+    },
+    {
+      "id": "desiredCr2O3Offer",
+      "label": "Desired Cr₂O₃ Offer",
+      "type": "number",
+      "unit": "%",
+      "default": 6,
+      "businessContext": "Percentage of Cr₂O₃ on hide weight, typically 6-8% for chrome tanning."
+    },
+    {
+      "id": "bcsCr2O3Content",
+      "label": "BCS Cr₂O₃ Content",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Chromium oxide content in basic chromium sulfate powder, typically 25-26%."
+    },
+    {
+      "id": "floatVolume",
+      "label": "Float Volume",
+      "type": "number",
+      "unit": "L",
+      "default": 2000,
+      "businessContext": "Volume of float (water) used for tanning, often 200-300% on hide weight."
+    }
+  ],
+  "formulas": {
+    "pureCr2O3Weight": "hideWeight * desiredCr2O3Offer / 100",
+    "bcsWeight": "pureCr2O3Weight / (bcsCr2O3Content / 100)",
+    "concentrationInFloat": "bcsWeight * 1000 / floatVolume"
+  },
+  "outputs": {
+    "primary": "bcsWeight",
+    "breakdown": [
+      "pureCr2O3Weight",
+      "concentrationInFloat"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

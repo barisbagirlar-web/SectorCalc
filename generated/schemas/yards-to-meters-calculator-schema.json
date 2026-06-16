@@ -1,0 +1,62 @@
+{
+  "toolName": "yards-to-meters-calculator",
+  "inputs": [
+    {
+      "id": "yards1",
+      "label": "1st Length (Yards)",
+      "type": "number",
+      "unit": "yd",
+      "default": 1,
+      "businessContext": "First length measurement in yards"
+    },
+    {
+      "id": "yards2",
+      "label": "2nd Length (Yards)",
+      "type": "number",
+      "unit": "yd",
+      "default": 0,
+      "businessContext": "Second length measurement in yards"
+    },
+    {
+      "id": "yards3",
+      "label": "3rd Length (Yards)",
+      "type": "number",
+      "unit": "yd",
+      "default": 0,
+      "businessContext": "Third length measurement in yards"
+    },
+    {
+      "id": "yards4",
+      "label": "4th Length (Yards)",
+      "type": "number",
+      "unit": "yd",
+      "default": 0,
+      "businessContext": "Fourth length measurement in yards"
+    }
+  ],
+  "formulas": {
+    "ydToM": "0.9144",
+    "m1": "yards1 * 0.9144",
+    "m2": "yards2 * 0.9144",
+    "m3": "yards3 * 0.9144",
+    "m4": "yards4 * 0.9144",
+    "totalYards": "yards1 + yards2 + yards3 + yards4",
+    "totalMeters": "totalYards * 0.9144"
+  },
+  "outputs": {
+    "primary": "totalMeters",
+    "breakdown": [
+      "m1",
+      "m2",
+      "m3",
+      "m4",
+      "totalMeters"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

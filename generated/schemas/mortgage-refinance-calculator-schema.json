@@ -1,0 +1,75 @@
+{
+  "toolName": "mortgage-refinance-calculator",
+  "inputs": [
+    {
+      "id": "currentBalance",
+      "label": "Current Loan Balance",
+      "type": "number",
+      "unit": "currency",
+      "default": 200000,
+      "businessContext": "Remaining principal balance on the existing mortgage."
+    },
+    {
+      "id": "currentRate",
+      "label": "Current Interest Rate (Annual %)",
+      "type": "number",
+      "unit": "%",
+      "default": 5.5,
+      "businessContext": "Annual interest rate of the existing mortgage."
+    },
+    {
+      "id": "currentTermRemaining",
+      "label": "Remaining Loan Term",
+      "type": "number",
+      "unit": "months",
+      "default": 240,
+      "businessContext": "Number of months left on the existing mortgage."
+    },
+    {
+      "id": "newRate",
+      "label": "New Interest Rate (Annual %)",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "businessContext": "Annual interest rate of the new refinance loan."
+    },
+    {
+      "id": "newTerm",
+      "label": "New Loan Term",
+      "type": "number",
+      "unit": "months",
+      "default": 180,
+      "businessContext": "Term of the new refinance loan in months."
+    },
+    {
+      "id": "closingCosts",
+      "label": "Closing Costs",
+      "type": "number",
+      "unit": "currency",
+      "default": 3000,
+      "businessContext": "Upfront fees and costs associated with refinancing, not financed."
+    }
+  ],
+  "formulas": {
+    "currentMonthlyPayment": "currentBalance * (currentRate/1200 * Math.pow(1 + currentRate/1200, currentTermRemaining)) / (Math.pow(1 + currentRate/1200, currentTermRemaining) - 1)",
+    "newMonthlyPayment": "currentBalance * (newRate/1200 * Math.pow(1 + newRate/1200, newTerm)) / (Math.pow(1 + newRate/1200, newTerm) - 1)",
+    "monthlySavings": "currentMonthlyPayment - newMonthlyPayment",
+    "totalSavings": "(currentMonthlyPayment * currentTermRemaining) - (newMonthlyPayment * newTerm + closingCosts)",
+    "breakEvenMonths": "closingCosts / monthlySavings"
+  },
+  "outputs": {
+    "primary": "monthlySavings",
+    "breakdown": [
+      "newMonthlyPayment",
+      "currentMonthlyPayment",
+      "totalSavings",
+      "breakEvenMonths"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

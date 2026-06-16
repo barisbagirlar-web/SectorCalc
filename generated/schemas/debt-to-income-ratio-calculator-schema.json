@@ -1,0 +1,70 @@
+{
+  "toolName": "debt-to-income-ratio-calculator",
+  "inputs": [
+    {
+      "id": "mortgageMonth",
+      "label": "Monthly Mortgage/Rent Payment",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Monthly mortgage or rent payment amount"
+    },
+    {
+      "id": "creditCardMonth",
+      "label": "Monthly Credit Card Minimum Payment",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Monthly minimum credit card payment"
+    },
+    {
+      "id": "autoLoanMonth",
+      "label": "Monthly Auto Loan Payment",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Monthly auto loan installment"
+    },
+    {
+      "id": "studentLoanMonth",
+      "label": "Monthly Student Loan Payment",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Monthly student loan repayment"
+    },
+    {
+      "id": "otherDebtMonth",
+      "label": "Other Monthly Debt Payments",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Any other recurring monthly debt obligations"
+    },
+    {
+      "id": "grossMonthlyIncome",
+      "label": "Gross Monthly Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 1,
+      "businessContext": "Total monthly income before taxes and deductions"
+    }
+  ],
+  "formulas": {
+    "totalDebt": "mortgageMonth + creditCardMonth + autoLoanMonth + studentLoanMonth + otherDebtMonth",
+    "debtToIncomeRatio": "(totalDebt / grossMonthlyIncome) * 100"
+  },
+  "outputs": {
+    "primary": "debtToIncomeRatio",
+    "breakdown": [
+      "totalDebt",
+      "grossMonthlyIncome"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

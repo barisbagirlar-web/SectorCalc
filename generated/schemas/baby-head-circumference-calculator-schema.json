@@ -1,0 +1,67 @@
+{
+  "toolName": "baby-head-circumference-calculator",
+  "inputs": [
+    {
+      "id": "head_length",
+      "label": "Head Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 12,
+      "businessContext": "Maximum front-to-back length of the baby's head in centimeters."
+    },
+    {
+      "id": "head_width",
+      "label": "Head Width",
+      "type": "number",
+      "unit": "cm",
+      "default": 9,
+      "businessContext": "Maximum width of the baby's head in centimeters."
+    },
+    {
+      "id": "head_height",
+      "label": "Head Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 8,
+      "businessContext": "Height from crown to base of skull in centimeters."
+    },
+    {
+      "id": "unit_conversion",
+      "label": "Output Unit Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiply output lengths by this factor (1 for cm, 0.3937 for inches)."
+    },
+    {
+      "id": "scale_factor",
+      "label": "Scale Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier to adjust circumference for growth or fitting allowance."
+    }
+  ],
+  "formulas": {
+    "a": "head_length / 2",
+    "b": "head_width / 2",
+    "c": "head_height / 2",
+    "circumference_raw": "Math.PI * (3*(a+b) - Math.sqrt((3*a+b)*(a+3*b)))",
+    "baby_head_circumference": "circumference_raw * unit_conversion * scale_factor",
+    "head_volume": "(4/3) * Math.PI * a * b * c * Math.pow(unit_conversion, 3)",
+    "head_surface_area": "4 * Math.PI * Math.pow( ( (Math.pow(a*b, 1.6) + Math.pow(a*c, 1.6) + Math.pow(b*c, 1.6) ) / 3 ), 1/1.6 ) * Math.pow(unit_conversion, 2)"
+  },
+  "outputs": {
+    "primary": "baby_head_circumference",
+    "breakdown": [
+      "head_volume",
+      "head_surface_area"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

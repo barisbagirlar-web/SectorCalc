@@ -1,0 +1,55 @@
+{
+  "toolName": "length-contraction-calculator",
+  "inputs": [
+    {
+      "id": "properLength",
+      "label": "Proper Length",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Length measured in the object's rest frame."
+    },
+    {
+      "id": "relativeVelocity",
+      "label": "Relative Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Velocity of observer relative to object; must be < speed of light."
+    },
+    {
+      "id": "speedOfLight",
+      "label": "Speed of Light",
+      "type": "number",
+      "unit": "m/s",
+      "default": 299792458,
+      "businessContext": "Speed of light in vacuum; adjustable for medium."
+    },
+    {
+      "id": "outputUnitFactor",
+      "label": "Output Unit Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Multiplier to convert output to desired unit (e.g., 0.001 for km)."
+    }
+  ],
+  "formulas": {
+    "contractedLength": "properLength * Math.sqrt(1 - (relativeVelocity / speedOfLight) ** 2) * outputUnitFactor",
+    "lorentzFactor": "1 / Math.sqrt(1 - (relativeVelocity / speedOfLight) ** 2)",
+    "speedFraction": "relativeVelocity / speedOfLight"
+  },
+  "outputs": {
+    "primary": "contractedLength",
+    "breakdown": [
+      "lorentzFactor",
+      "speedFraction"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

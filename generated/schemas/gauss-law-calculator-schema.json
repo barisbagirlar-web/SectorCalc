@@ -1,0 +1,56 @@
+{
+  "toolName": "gauss-law-calculator",
+  "inputs": [
+    {
+      "id": "charge",
+      "label": "Total Charge (Q)",
+      "type": "number",
+      "unit": "C",
+      "default": 0.000001,
+      "businessContext": "Total electric charge enclosed by the Gaussian surface"
+    },
+    {
+      "id": "permittivity",
+      "label": "Permittivity (ε)",
+      "type": "number",
+      "unit": "F/m",
+      "default": 8.854187817e-12,
+      "businessContext": "Permittivity of the medium (vacuum default)"
+    },
+    {
+      "id": "radius",
+      "label": "Radius (r)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Radius of the spherical Gaussian surface"
+    },
+    {
+      "id": "angle",
+      "label": "Angle (θ)",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Angle between electric field and area vector (0 for perpendicular)"
+    }
+  ],
+  "formulas": {
+    "electricFlux": "charge / permittivity",
+    "electricField": "charge / (4 * Math.PI * permittivity * radius * radius)",
+    "fluxThroughSurface": "electricField * (4 * Math.PI * radius * radius) * Math.cos(angle * Math.PI / 180)"
+  },
+  "outputs": {
+    "primary": "electricFlux",
+    "breakdown": [
+      "electricFlux = charge / permittivity",
+      "electricField = charge / (4 * π * ε * r²)",
+      "fluxThroughSurface = E * A * cos(θ)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

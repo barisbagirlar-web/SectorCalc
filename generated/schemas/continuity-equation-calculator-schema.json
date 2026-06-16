@@ -1,0 +1,65 @@
+{
+  "toolName": "continuity-equation-calculator",
+  "inputs": [
+    {
+      "id": "diameter",
+      "label": "Pipe Inner Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Inner diameter of the pipe or duct"
+    },
+    {
+      "id": "velocity",
+      "label": "Flow Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 1,
+      "businessContext": "Average flow velocity"
+    },
+    {
+      "id": "density",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of the fluid (e.g., 1000 for water)"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Design safety factor for flow rate capacity"
+    },
+    {
+      "id": "outputUnitMultiplier",
+      "label": "Output Unit Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier to convert m³/s to desired unit (e.g., 1000 for L/s)"
+    }
+  ],
+  "formulas": {
+    "crossSectionalArea": "Math.PI * Math.pow(diameter / 2, 2)",
+    "volumetricFlowRate": "crossSectionalArea * velocity * safetyFactor",
+    "flowRateInCustomUnit": "volumetricFlowRate * outputUnitMultiplier",
+    "massFlowRate": "density * volumetricFlowRate"
+  },
+  "outputs": {
+    "primary": "volumetricFlowRate",
+    "breakdown": [
+      "crossSectionalArea",
+      "flowRateInCustomUnit",
+      "massFlowRate"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

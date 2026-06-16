@@ -1,0 +1,81 @@
+{
+  "toolName": "npr-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Total Items (n)",
+      "type": "number",
+      "unit": "items",
+      "default": 10,
+      "businessContext": "Total number of distinct items available for arrangement."
+    },
+    {
+      "id": "r",
+      "label": "Items to Arrange (r)",
+      "type": "number",
+      "unit": "items",
+      "default": 3,
+      "businessContext": "Number of items selected and arranged in a specific order."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "places",
+      "default": 0,
+      "businessContext": "Number of decimal places for the result (use 0 for exact integer)."
+    },
+    {
+      "id": "maxResultCap",
+      "label": "Maximum Result Cap",
+      "type": "number",
+      "unit": "arrangements",
+      "default": 1000000000000000,
+      "businessContext": "Upper limit for the result to prevent computational overflow; if exceeded, an error is indicated."
+    }
+  ],
+  "formulas": {
+    "primary": {
+      "id": "permutations",
+      "expression": "function(n, r, decimalPlaces, maxResultCap) { if (n < 0 || r < 0 || r > n || !Number.isInteger(n) || !Number.isInteger(r)) return NaN; let result = 1; for (let i = n; i > n - r; i--) { result *= i; if (result > maxResultCap) return NaN; } return +result.toFixed(decimalPlaces); }"
+    },
+    "breakdown": [
+      {
+        "id": "nFactorial",
+        "expression": "function(n) { if (n < 0 || !Number.isInteger(n)) return NaN; let fact = 1; for (let i = 2; i <= n; i++) fact *= i; return fact; }"
+      },
+      {
+        "id": "nMinusRFactorial",
+        "expression": "function(n, r) { let m = n - r; if (m < 0 || !Number.isInteger(m)) return NaN; let fact = 1; for (let i = 2; i <= m; i++) fact *= i; return fact; }"
+      }
+    ]
+  },
+  "outputs": {
+    "primary": {
+      "id": "permutations",
+      "label": "Permutations (nPr)",
+      "unit": "arrangements",
+      "description": "The total number of ways to arrange r items from a set of n distinct items."
+    },
+    "breakdown": [
+      {
+        "id": "nFactorial",
+        "label": "n!",
+        "unit": "",
+        "description": "Factorial of n."
+      },
+      {
+        "id": "nMinusRFactorial",
+        "label": "(n-r)!",
+        "unit": "",
+        "description": "Factorial of (n-r)."
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

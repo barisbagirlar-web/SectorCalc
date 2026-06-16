@@ -1,0 +1,55 @@
+{
+  "toolName": "entropy-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass (m)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Mass of the substance undergoing entropy change"
+    },
+    {
+      "id": "specificHeat",
+      "label": "Specific Heat Capacity (Cp)",
+      "type": "number",
+      "unit": "kJ/(kg·K)",
+      "default": 4.18,
+      "businessContext": "Specific heat capacity at constant pressure"
+    },
+    {
+      "id": "temp1",
+      "label": "Initial Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 273.15,
+      "businessContext": "Initial absolute temperature"
+    },
+    {
+      "id": "temp2",
+      "label": "Final Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 373.15,
+      "businessContext": "Final absolute temperature"
+    }
+  ],
+  "formulas": {
+    "entropyChange": "mass * specificHeat * Math.log(temp2 / temp1)"
+  },
+  "outputs": {
+    "primary": "entropyChange",
+    "breakdown": [
+      "ΔS = m · Cp · ln(T₂/T₁)",
+      "Calculate temperature ratio T₂/T₁",
+      "Compute natural logarithm",
+      "Multiply by mass and specific heat"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

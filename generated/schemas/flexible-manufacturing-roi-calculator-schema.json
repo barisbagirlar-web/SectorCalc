@@ -1,0 +1,796 @@
+{
+  "slug": "flexible-manufacturing-roi",
+  "title": "Flexible Manufacturing ROI Calculator",
+  "description": "Calculates the return on investment for implementing flexible manufacturing systems, considering setup time reduction, changeover costs, inventory savings, and capacity utilization improvements.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Scenario comparison",
+    "Sensitivity analysis",
+    "Benchmarking against industry standards"
+  ],
+  "inputs": [
+    {
+      "id": "annual_production_volume",
+      "label": "Annual Production Volume",
+      "type": "number",
+      "unit": "units/year",
+      "default": 100000,
+      "min": 1000,
+      "max": 10000000,
+      "businessContext": "Total number of units produced per year across all product variants.",
+      "label_i18n": {
+        "en": "Annual Production Volume"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of units produced per year across all product variants."
+      }
+    },
+    {
+      "id": "avg_batch_size",
+      "label": "Average Batch Size",
+      "type": "number",
+      "unit": "units/batch",
+      "default": 500,
+      "min": 10,
+      "max": 100000,
+      "businessContext": "Average number of units produced per production run before changeover.",
+      "label_i18n": {
+        "en": "Average Batch Size"
+      },
+      "businessContext_i18n": {
+        "en": "Average number of units produced per production run before changeover."
+      }
+    },
+    {
+      "id": "current_setup_time",
+      "label": "Current Setup Time per Changeover",
+      "type": "number",
+      "unit": "minutes",
+      "default": 120,
+      "min": 1,
+      "max": 1440,
+      "businessContext": "Time required to change from one product to another in the current system.",
+      "label_i18n": {
+        "en": "Current Setup Time per Changeover"
+      },
+      "businessContext_i18n": {
+        "en": "Time required to change from one product to another in the current system."
+      }
+    },
+    {
+      "id": "target_setup_time",
+      "label": "Target Setup Time per Changeover (after FMS)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 15,
+      "min": 1,
+      "max": 1440,
+      "businessContext": "Expected setup time after implementing flexible manufacturing system (e.g., SMED).",
+      "label_i18n": {
+        "en": "Target Setup Time per Changeover (after FMS)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected setup time after implementing flexible manufacturing system (e.g., SMED)."
+      }
+    },
+    {
+      "id": "hourly_operating_cost",
+      "label": "Hourly Operating Cost (labor + overhead)",
+      "type": "number",
+      "unit": "$/hour",
+      "default": 85,
+      "min": 10,
+      "max": 500,
+      "businessContext": "Fully burdened hourly cost of production labor and overhead.",
+      "label_i18n": {
+        "en": "Hourly Operating Cost (labor + overhead)"
+      },
+      "businessContext_i18n": {
+        "en": "Fully burdened hourly cost of production labor and overhead."
+      }
+    },
+    {
+      "id": "changeover_cost_per_hour",
+      "label": "Changeover Cost per Hour (downtime + labor)",
+      "type": "number",
+      "unit": "$/hour",
+      "default": 150,
+      "min": 20,
+      "max": 1000,
+      "businessContext": "Total cost incurred per hour of changeover, including lost production and labor.",
+      "label_i18n": {
+        "en": "Changeover Cost per Hour (downtime + labor)"
+      },
+      "businessContext_i18n": {
+        "en": "Total cost incurred per hour of changeover, including lost production and labor."
+      }
+    },
+    {
+      "id": "inventory_holding_cost_rate",
+      "label": "Inventory Holding Cost Rate",
+      "type": "number",
+      "unit": "% of inventory value per year",
+      "default": 25,
+      "min": 5,
+      "max": 50,
+      "businessContext": "Annual cost to hold inventory as a percentage of inventory value (includes storage, insurance, obsolescence).",
+      "label_i18n": {
+        "en": "Inventory Holding Cost Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Annual cost to hold inventory as a percentage of inventory value (includes storage, insurance, obsolescence)."
+      }
+    },
+    {
+      "id": "avg_inventory_value",
+      "label": "Average Inventory Value (current)",
+      "type": "number",
+      "unit": "$",
+      "default": 2000000,
+      "min": 10000,
+      "max": 100000000,
+      "businessContext": "Current average value of raw materials, WIP, and finished goods inventory.",
+      "label_i18n": {
+        "en": "Average Inventory Value (current)"
+      },
+      "businessContext_i18n": {
+        "en": "Current average value of raw materials, WIP, and finished goods inventory."
+      }
+    },
+    {
+      "id": "fms_investment",
+      "label": "Total FMS Investment",
+      "type": "number",
+      "unit": "$",
+      "default": 500000,
+      "min": 10000,
+      "max": 10000000,
+      "businessContext": "Total capital expenditure for flexible manufacturing system (equipment, software, training, integration).",
+      "label_i18n": {
+        "en": "Total FMS Investment"
+      },
+      "businessContext_i18n": {
+        "en": "Total capital expenditure for flexible manufacturing system (equipment, software, training, integration)."
+      }
+    },
+    {
+      "id": "fms_useful_life",
+      "label": "FMS Useful Life",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "min": 3,
+      "max": 20,
+      "businessContext": "Expected operational life of the flexible manufacturing system for depreciation purposes.",
+      "label_i18n": {
+        "en": "FMS Useful Life"
+      },
+      "businessContext_i18n": {
+        "en": "Expected operational life of the flexible manufacturing system for depreciation purposes."
+      }
+    },
+    {
+      "id": "discount_rate",
+      "label": "Discount Rate (WACC)",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "max": 30,
+      "businessContext": "Weighted average cost of capital used for net present value calculation.",
+      "label_i18n": {
+        "en": "Discount Rate (WACC)"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted average cost of capital used for net present value calculation."
+      }
+    },
+    {
+      "id": "product_variants",
+      "label": "Number of Product Variants",
+      "type": "number",
+      "unit": "variants",
+      "default": 20,
+      "min": 1,
+      "max": 1000,
+      "businessContext": "Total number of distinct product variants produced annually.",
+      "label_i18n": {
+        "en": "Number of Product Variants"
+      },
+      "businessContext_i18n": {
+        "en": "Total number of distinct product variants produced annually."
+      }
+    },
+    {
+      "id": "quality_defect_rate",
+      "label": "Current Quality Defect Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2.5,
+      "min": 0,
+      "max": 20,
+      "businessContext": "Percentage of units that are defective and require rework or scrap.",
+      "label_i18n": {
+        "en": "Current Quality Defect Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of units that are defective and require rework or scrap."
+      }
+    },
+    {
+      "id": "fms_quality_improvement",
+      "label": "Expected Quality Improvement from FMS",
+      "type": "number",
+      "unit": "% reduction in defects",
+      "default": 40,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Expected percentage reduction in defect rate after implementing FMS.",
+      "label_i18n": {
+        "en": "Expected Quality Improvement from FMS"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage reduction in defect rate after implementing FMS."
+      }
+    },
+    {
+      "id": "cost_per_defect",
+      "label": "Cost per Defect (rework + scrap)",
+      "type": "number",
+      "unit": "$/defect",
+      "default": 50,
+      "min": 1,
+      "max": 1000,
+      "businessContext": "Average cost to rework or scrap a defective unit.",
+      "label_i18n": {
+        "en": "Cost per Defect (rework + scrap)"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost to rework or scrap a defective unit."
+      }
+    },
+    {
+      "id": "labor_productivity_gain",
+      "label": "Labor Productivity Gain from FMS",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Expected percentage increase in labor productivity due to automation and reduced manual handling.",
+      "label_i18n": {
+        "en": "Labor Productivity Gain from FMS"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage increase in labor productivity due to automation and reduced manual handling."
+      }
+    },
+    {
+      "id": "floor_space_reduction",
+      "label": "Floor Space Reduction",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 60,
+      "businessContext": "Expected percentage reduction in manufacturing floor space due to compact FMS layout.",
+      "label_i18n": {
+        "en": "Floor Space Reduction"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage reduction in manufacturing floor space due to compact FMS layout."
+      }
+    },
+    {
+      "id": "annual_floor_space_cost",
+      "label": "Annual Floor Space Cost per sq ft",
+      "type": "number",
+      "unit": "$/sq ft/year",
+      "default": 12,
+      "min": 1,
+      "max": 100,
+      "businessContext": "Annual cost per square foot of manufacturing space (rent, utilities, maintenance).",
+      "label_i18n": {
+        "en": "Annual Floor Space Cost per sq ft"
+      },
+      "businessContext_i18n": {
+        "en": "Annual cost per square foot of manufacturing space (rent, utilities, maintenance)."
+      }
+    },
+    {
+      "id": "current_floor_space",
+      "label": "Current Floor Space",
+      "type": "number",
+      "unit": "sq ft",
+      "default": 50000,
+      "min": 1000,
+      "max": 1000000,
+      "businessContext": "Total manufacturing floor space currently occupied.",
+      "label_i18n": {
+        "en": "Current Floor Space"
+      },
+      "businessContext_i18n": {
+        "en": "Total manufacturing floor space currently occupied."
+      }
+    },
+    {
+      "id": "energy_cost_reduction",
+      "label": "Energy Cost Reduction from FMS",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 40,
+      "businessContext": "Expected percentage reduction in energy costs due to more efficient equipment and reduced idle time.",
+      "label_i18n": {
+        "en": "Energy Cost Reduction from FMS"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage reduction in energy costs due to more efficient equipment and reduced idle time."
+      }
+    },
+    {
+      "id": "annual_energy_cost",
+      "label": "Annual Energy Cost",
+      "type": "number",
+      "unit": "$",
+      "default": 200000,
+      "min": 10000,
+      "max": 5000000,
+      "businessContext": "Total annual energy cost for the manufacturing facility.",
+      "label_i18n": {
+        "en": "Annual Energy Cost"
+      },
+      "businessContext_i18n": {
+        "en": "Total annual energy cost for the manufacturing facility."
+      }
+    },
+    {
+      "id": "maintenance_cost_increase",
+      "label": "Maintenance Cost Increase from FMS",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 30,
+      "businessContext": "Expected percentage increase in maintenance costs due to more complex equipment.",
+      "label_i18n": {
+        "en": "Maintenance Cost Increase from FMS"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage increase in maintenance costs due to more complex equipment."
+      }
+    },
+    {
+      "id": "annual_maintenance_cost",
+      "label": "Annual Maintenance Cost (current)",
+      "type": "number",
+      "unit": "$",
+      "default": 150000,
+      "min": 10000,
+      "max": 2000000,
+      "businessContext": "Current annual maintenance cost for existing equipment.",
+      "label_i18n": {
+        "en": "Annual Maintenance Cost (current)"
+      },
+      "businessContext_i18n": {
+        "en": "Current annual maintenance cost for existing equipment."
+      }
+    },
+    {
+      "id": "training_cost",
+      "label": "Training Cost for FMS",
+      "type": "number",
+      "unit": "$",
+      "default": 50000,
+      "min": 0,
+      "max": 500000,
+      "businessContext": "One-time cost for training operators and maintenance staff on the new FMS.",
+      "label_i18n": {
+        "en": "Training Cost for FMS"
+      },
+      "businessContext_i18n": {
+        "en": "One-time cost for training operators and maintenance staff on the new FMS."
+      }
+    },
+    {
+      "id": "implementation_time",
+      "label": "Implementation Time",
+      "type": "number",
+      "unit": "months",
+      "default": 6,
+      "min": 1,
+      "max": 24,
+      "businessContext": "Time required to fully implement the flexible manufacturing system.",
+      "label_i18n": {
+        "en": "Implementation Time"
+      },
+      "businessContext_i18n": {
+        "en": "Time required to fully implement the flexible manufacturing system."
+      }
+    },
+    {
+      "id": "production_days_per_year",
+      "label": "Production Days per Year",
+      "type": "number",
+      "unit": "days",
+      "default": 250,
+      "min": 100,
+      "max": 365,
+      "businessContext": "Number of days the facility operates per year.",
+      "label_i18n": {
+        "en": "Production Days per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days the facility operates per year."
+      }
+    },
+    {
+      "id": "shifts_per_day",
+      "label": "Shifts per Day",
+      "type": "number",
+      "unit": "shifts",
+      "default": 2,
+      "min": 1,
+      "max": 3,
+      "businessContext": "Number of production shifts per day.",
+      "label_i18n": {
+        "en": "Shifts per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Number of production shifts per day."
+      }
+    },
+    {
+      "id": "hours_per_shift",
+      "label": "Hours per Shift",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "min": 6,
+      "max": 12,
+      "businessContext": "Duration of each production shift.",
+      "label_i18n": {
+        "en": "Hours per Shift"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of each production shift."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "setup_time_reduction_possible",
+        "condition": "target_setup_time < current_setup_time",
+        "message": "Target setup time must be less than current setup time to realize savings."
+      },
+      {
+        "id": "batch_size_positive",
+        "condition": "avg_batch_size > 0",
+        "message": "Average batch size must be greater than zero."
+      },
+      {
+        "id": "fms_investment_positive",
+        "condition": "fms_investment > 0",
+        "message": "FMS investment must be greater than zero."
+      },
+      {
+        "id": "discount_rate_range",
+        "condition": "discount_rate >= 0 AND discount_rate <= 30",
+        "message": "Discount rate must be between 0% and 30%."
+      },
+      {
+        "id": "quality_improvement_feasible",
+        "condition": "fms_quality_improvement <= 100",
+        "message": "Quality improvement percentage cannot exceed 100%."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "roi_warning",
+        "condition": "primary_result < 0",
+        "alert": "Negative ROI detected. Review assumptions or consider alternative investments.",
+        "severity": "warning"
+      },
+      {
+        "id": "payback_period_alert",
+        "condition": "payback_period > fms_useful_life",
+        "alert": "Payback period exceeds useful life of FMS. Investment may not be viable.",
+        "severity": "critical"
+      },
+      {
+        "id": "setup_time_reduction_insufficient",
+        "condition": "(current_setup_time - target_setup_time) / current_setup_time < 0.5",
+        "alert": "Setup time reduction is less than 50%. Consider more aggressive SMED techniques.",
+        "severity": "warning"
+      },
+      {
+        "id": "inventory_savings_low",
+        "condition": "inventory_savings < 0.1 * fms_investment",
+        "alert": "Inventory savings are less than 10% of FMS investment. Re-evaluate inventory reduction potential.",
+        "severity": "info"
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "annual_changeovers",
+      "label": "Annual Number of Changeovers",
+      "description": "Total number of changeovers per year based on production volume and batch size.",
+      "formula": "annual_production_volume / avg_batch_size",
+      "unit": "changeovers/year"
+    },
+    {
+      "id": "setup_time_savings_per_changeover",
+      "label": "Setup Time Savings per Changeover",
+      "description": "Time saved per changeover by implementing FMS.",
+      "formula": "current_setup_time - target_setup_time",
+      "unit": "minutes"
+    },
+    {
+      "id": "annual_setup_time_savings_hours",
+      "label": "Annual Setup Time Savings (hours)",
+      "description": "Total hours saved per year from reduced changeover times.",
+      "formula": "(annual_changeovers * setup_time_savings_per_changeover) / 60",
+      "unit": "hours/year"
+    },
+    {
+      "id": "annual_changeover_cost_savings",
+      "label": "Annual Changeover Cost Savings",
+      "description": "Cost savings from reduced changeover downtime and labor.",
+      "formula": "annual_setup_time_savings_hours * changeover_cost_per_hour",
+      "unit": "$/year"
+    },
+    {
+      "id": "inventory_savings",
+      "label": "Annual Inventory Holding Cost Savings",
+      "description": "Reduction in inventory holding costs due to smaller batch sizes and reduced WIP. Assumes 30% reduction in average inventory value.",
+      "formula": "avg_inventory_value * (inventory_holding_cost_rate / 100) * 0.3",
+      "unit": "$/year"
+    },
+    {
+      "id": "quality_cost_savings",
+      "label": "Annual Quality Cost Savings",
+      "description": "Savings from reduced defect rate after FMS implementation.",
+      "formula": "annual_production_volume * (quality_defect_rate / 100) * (fms_quality_improvement / 100) * cost_per_defect",
+      "unit": "$/year"
+    },
+    {
+      "id": "labor_productivity_savings",
+      "label": "Annual Labor Productivity Savings",
+      "description": "Savings from increased labor productivity. Assumes labor cost is 60% of hourly operating cost.",
+      "formula": "annual_setup_time_savings_hours * hourly_operating_cost * 0.6 * (labor_productivity_gain / 100)",
+      "unit": "$/year"
+    },
+    {
+      "id": "floor_space_savings",
+      "label": "Annual Floor Space Savings",
+      "description": "Cost savings from reduced floor space requirements.",
+      "formula": "current_floor_space * (floor_space_reduction / 100) * annual_floor_space_cost",
+      "unit": "$/year"
+    },
+    {
+      "id": "energy_savings",
+      "label": "Annual Energy Cost Savings",
+      "description": "Savings from reduced energy consumption.",
+      "formula": "annual_energy_cost * (energy_cost_reduction / 100)",
+      "unit": "$/year"
+    },
+    {
+      "id": "maintenance_cost_change",
+      "label": "Annual Maintenance Cost Change",
+      "description": "Increase in maintenance costs due to FMS (positive value means increase).",
+      "formula": "annual_maintenance_cost * (maintenance_cost_increase / 100)",
+      "unit": "$/year"
+    },
+    {
+      "id": "total_annual_benefits",
+      "label": "Total Annual Benefits",
+      "description": "Sum of all annual cost savings and benefits from FMS implementation.",
+      "formula": "annual_changeover_cost_savings + inventory_savings + quality_cost_savings + labor_productivity_savings + floor_space_savings + energy_savings - maintenance_cost_change",
+      "unit": "$/year"
+    },
+    {
+      "id": "total_initial_investment",
+      "label": "Total Initial Investment",
+      "description": "Total upfront cost including FMS equipment and training.",
+      "formula": "fms_investment + training_cost",
+      "unit": "$"
+    },
+    {
+      "id": "net_present_value",
+      "label": "Net Present Value (NPV)",
+      "description": "NPV of the FMS investment over its useful life.",
+      "formula": "total_annual_benefits * ((1 - (1 + discount_rate/100)^(-fms_useful_life)) / (discount_rate/100)) - total_initial_investment",
+      "unit": "$"
+    },
+    {
+      "id": "roi_percentage",
+      "label": "Return on Investment (ROI)",
+      "description": "Simple ROI percentage over the useful life.",
+      "formula": "(net_present_value / total_initial_investment) * 100",
+      "unit": "%"
+    },
+    {
+      "id": "payback_period",
+      "label": "Payback Period",
+      "description": "Time required to recover the initial investment from annual benefits.",
+      "formula": "total_initial_investment / total_annual_benefits",
+      "unit": "years"
+    },
+    {
+      "id": "internal_rate_of_return",
+      "label": "Internal Rate of Return (IRR)",
+      "description": "Approximate IRR using linear interpolation (simplified for industrial use).",
+      "formula": "discount_rate + (net_present_value / (total_initial_investment * fms_useful_life)) * 100",
+      "unit": "%"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "roi_percentage",
+      "label": "Return on Investment (ROI)",
+      "value": null,
+      "unit": "%",
+      "description": "Overall ROI percentage for the flexible manufacturing system investment."
+    },
+    "breakdown": {
+      "annual_changeover_cost_savings": {
+        "id": "annual_changeover_cost_savings",
+        "label": "Annual Changeover Cost Savings",
+        "value": null,
+        "unit": "$/year"
+      },
+      "inventory_savings": {
+        "id": "inventory_savings",
+        "label": "Annual Inventory Holding Cost Savings",
+        "value": null,
+        "unit": "$/year"
+      },
+      "quality_cost_savings": {
+        "id": "quality_cost_savings",
+        "label": "Annual Quality Cost Savings",
+        "value": null,
+        "unit": "$/year"
+      },
+      "labor_productivity_savings": {
+        "id": "labor_productivity_savings",
+        "label": "Annual Labor Productivity Savings",
+        "value": null,
+        "unit": "$/year"
+      },
+      "floor_space_savings": {
+        "id": "floor_space_savings",
+        "label": "Annual Floor Space Savings",
+        "value": null,
+        "unit": "$/year"
+      },
+      "energy_savings": {
+        "id": "energy_savings",
+        "label": "Annual Energy Cost Savings",
+        "value": null,
+        "unit": "$/year"
+      },
+      "maintenance_cost_change": {
+        "id": "maintenance_cost_change",
+        "label": "Annual Maintenance Cost Change",
+        "value": null,
+        "unit": "$/year"
+      },
+      "total_annual_benefits": {
+        "id": "total_annual_benefits",
+        "label": "Total Annual Benefits",
+        "value": null,
+        "unit": "$/year"
+      },
+      "total_initial_investment": {
+        "id": "total_initial_investment",
+        "label": "Total Initial Investment",
+        "value": null,
+        "unit": "$"
+      },
+      "net_present_value": {
+        "id": "net_present_value",
+        "label": "Net Present Value (NPV)",
+        "value": null,
+        "unit": "$"
+      },
+      "payback_period": {
+        "id": "payback_period",
+        "label": "Payback Period",
+        "value": null,
+        "unit": "years"
+      },
+      "internal_rate_of_return": {
+        "id": "internal_rate_of_return",
+        "label": "Internal Rate of Return (IRR)",
+        "value": null,
+        "unit": "%"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "unplanned_downtime",
+        "label": "Unplanned Downtime",
+        "description": "Hidden cost from machine breakdowns and unscheduled maintenance not captured in standard calculations.",
+        "estimatedImpact": "5-15% of total operating cost"
+      },
+      {
+        "id": "changeover_quality_losses",
+        "label": "Changeover Quality Losses",
+        "description": "Defects and rework during first runs after changeover, often not tracked.",
+        "estimatedImpact": "1-3% of production volume"
+      },
+      {
+        "id": "underutilized_labor",
+        "label": "Underutilized Labor During Changeovers",
+        "description": "Operators idle or performing non-value-added tasks during changeovers.",
+        "estimatedImpact": "10-20% of changeover time"
+      },
+      {
+        "id": "excess_movement_and_transport",
+        "label": "Excess Movement and Transport",
+        "description": "Wasted motion and material handling due to poor layout, often hidden in overhead.",
+        "estimatedImpact": "3-8% of labor cost"
+      },
+      {
+        "id": "inventory_obsolescence",
+        "label": "Inventory Obsolescence",
+        "description": "Write-offs from obsolete inventory due to long changeover times and large batch sizes.",
+        "estimatedImpact": "1-5% of inventory value annually"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action_smed",
+        "label": "Implement SMED (Single-Minute Exchange of Die)",
+        "description": "Apply lean techniques to further reduce setup times beyond initial target.",
+        "priority": "high",
+        "expectedBenefit": "Additional 20-40% reduction in setup time"
+      },
+      {
+        "id": "action_kanban",
+        "label": "Adopt Kanban and Pull Production",
+        "description": "Reduce WIP inventory and improve flow with a pull-based system.",
+        "priority": "high",
+        "expectedBenefit": "15-30% reduction in inventory holding costs"
+      },
+      {
+        "id": "action_tpm",
+        "label": "Implement Total Productive Maintenance (TPM)",
+        "description": "Reduce unplanned downtime and improve overall equipment effectiveness (OEE).",
+        "priority": "medium",
+        "expectedBenefit": "10-20% increase in OEE"
+      },
+      {
+        "id": "action_cross_training",
+        "label": "Cross-Train Operators",
+        "description": "Increase workforce flexibility to handle multiple product variants and reduce dependency.",
+        "priority": "medium",
+        "expectedBenefit": "5-10% improvement in labor productivity"
+      },
+      {
+        "id": "action_automation",
+        "label": "Invest in Automated Guided Vehicles (AGVs)",
+        "description": "Reduce material handling time and improve floor space utilization.",
+        "priority": "low",
+        "expectedBenefit": "5-15% reduction in transport costs"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_score",
+      "label": "Data Confidence Score",
+      "value": null,
+      "unit": "%",
+      "description": "Adjusted confidence level based on input data completeness and variability. Default 85% if all inputs provided."
+    }
+  },
+  "toolName": "flexible-manufacturing-roi-calculator",
+  "catalogCategory": "manufacturing-workshop",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

@@ -1,0 +1,59 @@
+{
+  "toolName": "matrix-inverse-calculator",
+  "inputs": [
+    {
+      "id": "a11",
+      "label": "a₁₁ (1,1)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Matrix element at row 1, column 1"
+    },
+    {
+      "id": "a12",
+      "label": "a₁₂ (1,2)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Matrix element at row 1, column 2"
+    },
+    {
+      "id": "a21",
+      "label": "a₂₁ (2,1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Matrix element at row 2, column 1"
+    },
+    {
+      "id": "a22",
+      "label": "a₂₂ (2,2)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Matrix element at row 2, column 2"
+    }
+  ],
+  "formulas": {
+    "det": "a11 * a22 - a12 * a21",
+    "inv11": "a22 / det",
+    "inv12": "-a12 / det",
+    "inv21": "-a21 / det",
+    "inv22": "a11 / det"
+  },
+  "outputs": {
+    "primary": "det",
+    "breakdown": [
+      "inv11",
+      "inv12",
+      "inv21",
+      "inv22"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

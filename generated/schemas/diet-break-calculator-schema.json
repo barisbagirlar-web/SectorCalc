@@ -1,0 +1,74 @@
+{
+  "toolName": "diet-break-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Vücut Ağırlığı (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Kalori hesaplaması için temel vücut ağırlığı"
+    },
+    {
+      "id": "height",
+      "label": "Boy (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Bazal metabolizma hızı hesaplama"
+    },
+    {
+      "id": "age",
+      "label": "Yaş (yıl)",
+      "type": "number",
+      "unit": "yıl",
+      "default": 30,
+      "businessContext": "Bazal metabolizma hızındaki yaş faktörü"
+    },
+    {
+      "id": "gender",
+      "label": "Cinsiyet (0: Kadın, 1: Erkek)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "BMR formülünde cinsiyet farkı (0 kadın, 1 erkek)"
+    },
+    {
+      "id": "activityLevel",
+      "label": "Aktivite Seviyesi (PAL)",
+      "type": "number",
+      "unit": "",
+      "default": 1.55,
+      "businessContext": "Toplam günlük enerji harcamasını belirler (1.2-2.5 arası)"
+    },
+    {
+      "id": "dietDurationWeeks",
+      "label": "Diyet Süresi (hafta)",
+      "type": "number",
+      "unit": "hafta",
+      "default": 12,
+      "businessContext": "Diyet molasının süresini hesaplamak için kullanılır"
+    }
+  ],
+  "formulas": {
+    "bmr": "10 * weight + 6.25 * height - 5 * age - 161 + 166 * gender",
+    "tdee": "bmr * activityLevel",
+    "maintenanceCalories": "tdee",
+    "dietBreakWeeks": "dietDurationWeeks / 4"
+  },
+  "outputs": {
+    "primary": "maintenanceCalories",
+    "breakdown": [
+      "maintenanceCalories",
+      "bmr",
+      "tdee",
+      "dietBreakWeeks"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

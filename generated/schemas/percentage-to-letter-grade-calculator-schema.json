@@ -1,0 +1,69 @@
+{
+  "toolName": "percentage-to-letter-grade-calculator",
+  "inputs": [
+    {
+      "id": "percentage",
+      "label": "Percentage Score",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Enter the percentage score to convert to a letter grade."
+    },
+    {
+      "id": "aMin",
+      "label": "A Minimum",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Set the minimum percentage required to achieve an A grade."
+    },
+    {
+      "id": "bMin",
+      "label": "B Minimum",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Set the minimum percentage required to achieve a B grade."
+    },
+    {
+      "id": "cMin",
+      "label": "C Minimum",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Set the minimum percentage required to achieve a C grade."
+    },
+    {
+      "id": "dMin",
+      "label": "D Minimum",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "businessContext": "Set the minimum percentage required to achieve a D grade."
+    }
+  ],
+  "formulas": {
+    "primary": "percentage >= aMin ? 'A' : percentage >= bMin ? 'B' : percentage >= cMin ? 'C' : percentage >= dMin ? 'D' : 'F'",
+    "scaleA": "'A: ≥' + aMin + '%'",
+    "scaleB": "'B: ≥' + bMin + '%'",
+    "scaleC": "'C: ≥' + cMin + '%'",
+    "scaleD": "'D: ≥' + dMin + '%'",
+    "scaleF": "'F: <' + dMin + '%'"
+  },
+  "outputs": {
+    "primary": "letterGrade",
+    "breakdown": [
+      "scaleA",
+      "scaleB",
+      "scaleC",
+      "scaleD",
+      "scaleF"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "luxury-tax-calculator",
+  "inputs": [
+    {
+      "id": "itemPrice",
+      "label": "Item Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Base price of the luxury item before tax"
+    },
+    {
+      "id": "taxThreshold",
+      "label": "Tax Threshold",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "businessContext": "Price threshold above which luxury tax applies"
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Luxury tax rate as a percentage"
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of identical luxury items"
+    },
+    {
+      "id": "fixedDeduction",
+      "label": "Fixed Deduction",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Fixed deduction from taxable amount per item"
+    }
+  ],
+  "formulas": {
+    "taxableAmountPerItem": "Math.max(0, itemPrice - taxThreshold - fixedDeduction)",
+    "taxPerItem": "taxableAmountPerItem * (taxRate / 100)",
+    "totalTax": "taxPerItem * quantity",
+    "totalPrice": "(itemPrice * quantity) + totalTax"
+  },
+  "outputs": {
+    "primary": "totalTax",
+    "breakdown": [
+      "taxPerItem",
+      "taxableAmountPerItem",
+      "totalPrice"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

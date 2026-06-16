@@ -1,0 +1,57 @@
+{
+  "toolName": "power-factor-calculator",
+  "inputs": [
+    {
+      "id": "realPower",
+      "label": "Real Power",
+      "type": "number",
+      "unit": "kW",
+      "default": 100,
+      "businessContext": "The actual power consumed by the load, measured in kilowatts."
+    },
+    {
+      "id": "apparentPower",
+      "label": "Apparent Power",
+      "type": "number",
+      "unit": "kVA",
+      "default": 125,
+      "businessContext": "The total power supplied to the load (vector sum of real and reactive power), measured in kilovolt-amperes."
+    },
+    {
+      "id": "voltage",
+      "label": "Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 400,
+      "businessContext": "Supply voltage in volts (optional, used for VI-based apparent power calculation)."
+    },
+    {
+      "id": "current",
+      "label": "Current",
+      "type": "number",
+      "unit": "A",
+      "default": 0,
+      "businessContext": "Supply current in amperes (optional, used for VI-based apparent power calculation)."
+    }
+  ],
+  "formulas": {
+    "powerFactor": "realPower / apparentPower",
+    "reactivePower": "Math.sqrt(Math.max(apparentPower ** 2 - realPower ** 2, 0))",
+    "phaseAngle": "(Math.acos(realPower / apparentPower) * 180) / Math.PI",
+    "apparentPowerFromVI": "(voltage * current) / 1000"
+  },
+  "outputs": {
+    "primary": "powerFactor",
+    "breakdown": [
+      "reactivePower",
+      "phaseAngle",
+      "apparentPowerFromVI"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

@@ -1,0 +1,67 @@
+{
+  "toolName": "south-beach-diet-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 30,
+      "businessContext": "Kullanıcının yaşı"
+    },
+    {
+      "id": "weight",
+      "label": "Ağırlık",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Kullanıcının ağırlığı (kg)"
+    },
+    {
+      "id": "height",
+      "label": "Boy",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Kullanıcının boyu (cm)"
+    },
+    {
+      "id": "gender",
+      "label": "Cinsiyet",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0: Kadın, 1: Erkek"
+    },
+    {
+      "id": "activityFactor",
+      "label": "Aktivite Çarpanı",
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "businessContext": "Sedanter=1.2, Hafif=1.375, Orta=1.55, Aktif=1.725, Çok Aktif=1.9"
+    }
+  ],
+  "formulas": {
+    "bmr": "10 * weight + 6.25 * height - 5 * age + (gender * 166 - 161)",
+    "dailyCalories": "bmr * activityFactor",
+    "carbsCals": "dailyCalories * 0.4",
+    "proteinCals": "dailyCalories * 0.3",
+    "fatCals": "dailyCalories * 0.3"
+  },
+  "outputs": {
+    "primary": "dailyCalories",
+    "breakdown": [
+      "bmr",
+      "carbsCals",
+      "proteinCals",
+      "fatCals"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "us-gallons-to-imperial-gallons-calculator",
+  "inputs": [
+    {
+      "id": "usGallons",
+      "label": "US Gallons",
+      "type": "number",
+      "unit": "gal (US)",
+      "default": 0,
+      "businessContext": "Volume in US liquid gallons to be converted."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "Imperial/US",
+      "default": 0.832674,
+      "businessContext": "Standard conversion factor: 1 US gallon = 0.832674 Imperial gallons. Editable for custom calibration."
+    },
+    {
+      "id": "roundingPrecision",
+      "label": "Rounding Precision",
+      "type": "number",
+      "unit": "decimals",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output Imperial gallons. Must be integer."
+    },
+    {
+      "id": "batchQuantity",
+      "label": "Batch Quantity",
+      "type": "number",
+      "unit": "count",
+      "default": 1,
+      "businessContext": "Number of identical volume units to calculate total Imperial gallons."
+    },
+    {
+      "id": "temperatureC",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Temperature for volume correction. Standard reference temperature is 20°C. Currently not used in calculation but reserved for future thermal expansion compensation."
+    },
+    {
+      "id": "measurementUncertainty",
+      "label": "Measurement Uncertainty",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Expanded uncertainty (k=2) for the US gallon volume measurement. For documentation and traceability."
+    }
+  ],
+  "formulas": {
+    "imperialUnrounded": "usGallons * conversionFactor * batchQuantity",
+    "imperialRounded": "Math.round(imperialUnrounded * 10**roundingPrecision) / 10**roundingPrecision"
+  },
+  "outputs": {
+    "primary": "imperialRounded + ' Imperial gallons'",
+    "breakdown": [
+      "'US Gallons input: ' + usGallons.toFixed(2) + ' gal (US)'",
+      "'Conversion factor: ' + conversionFactor.toFixed(6) + ' Imperial/US'",
+      "'Batch quantity: ' + batchQuantity",
+      "'Unrounded result: ' + imperialUnrounded.toFixed(10) + ' Imperial gallons'",
+      "'Rounded to ' + roundingPrecision + ' decimals: ' + imperialRounded + ' Imperial gallons'"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

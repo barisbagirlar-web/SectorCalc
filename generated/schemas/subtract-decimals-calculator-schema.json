@@ -1,0 +1,55 @@
+{
+  "toolName": "subtract-decimals-calculator",
+  "inputs": [
+    {
+      "id": "valueA",
+      "label": "First Number (Minuend)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The value from which another number is to be subtracted."
+    },
+    {
+      "id": "valueB",
+      "label": "Second Number (Subtrahend)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The value to be subtracted from the first number."
+    },
+    {
+      "id": "precision",
+      "label": "Rounding Precision",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 2,
+      "businessContext": "Number of decimal places to round the intermediate difference for final output."
+    },
+    {
+      "id": "offset",
+      "label": "Offset",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "A constant added to the rounded difference (e.g., calibration or zero-offset)."
+    }
+  ],
+  "formulas": {
+    "rawDifference": "valueA - valueB",
+    "roundedDifference": "Math.round((valueA - valueB) * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "finalResult": "Math.round((valueA - valueB) * Math.pow(10, precision)) / Math.pow(10, precision) + offset"
+  },
+  "outputs": {
+    "primary": "finalResult",
+    "breakdown": [
+      "rawDifference",
+      "roundedDifference"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,86 @@
+{
+  "toolName": "401k-growth-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the individual"
+    },
+    {
+      "id": "retirementAge",
+      "label": "Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 65,
+      "businessContext": "Expected retirement age"
+    },
+    {
+      "id": "currentBalance",
+      "label": "Current 401(k) Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Current balance in the 401(k) account"
+    },
+    {
+      "id": "annualContribution",
+      "label": "Annual Contribution",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Annual employee contribution amount"
+    },
+    {
+      "id": "salary",
+      "label": "Annual Salary",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Current annual salary, used to compute employer match in dollars"
+    },
+    {
+      "id": "employerMatch",
+      "label": "Employer Match Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "Percentage of salary matched by employer"
+    },
+    {
+      "id": "annualReturn",
+      "label": "Expected Annual Return",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected annual rate of return on investments"
+    }
+  ],
+  "formulas": {
+    "yearsToRetire": "retirementAge - currentAge",
+    "annualReturnDecimal": "annualReturn / 100",
+    "matchAmount": "salary * employerMatch / 100",
+    "totalAnnualAddition": "annualContribution + matchAmount",
+    "finalBalance": "currentBalance * (1 + annualReturnDecimal) ** yearsToRetire + totalAnnualAddition * (((1 + annualReturnDecimal) ** yearsToRetire - 1) / annualReturnDecimal)",
+    "totalContributions": "annualContribution * yearsToRetire",
+    "totalEmployerMatch": "matchAmount * yearsToRetire",
+    "totalEarnings": "finalBalance - currentBalance - totalContributions - totalEmployerMatch"
+  },
+  "outputs": {
+    "primary": "finalBalance",
+    "breakdown": [
+      "totalContributions",
+      "totalEarnings",
+      "totalEmployerMatch",
+      "yearsToRetire"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

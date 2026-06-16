@@ -1,0 +1,58 @@
+{
+  "toolName": "aspect-ratio-calculator",
+  "inputs": [
+    {
+      "id": "width",
+      "label": "Width",
+      "type": "number",
+      "unit": "px",
+      "default": 1920,
+      "businessContext": "The width of the screen, image, or element in pixels. Used to determine the horizontal dimension for aspect ratio calculation."
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "px",
+      "default": 1080,
+      "businessContext": "The height of the screen, image, or element in pixels. Used to determine the vertical dimension for aspect ratio calculation."
+    },
+    {
+      "id": "targetRatioW",
+      "label": "Target Ratio Width",
+      "type": "number",
+      "unit": "",
+      "default": 16,
+      "businessContext": "The width component of a target aspect ratio (e.g., 16 for 16:9). Used to compare how close the current aspect ratio is to a standard."
+    },
+    {
+      "id": "targetRatioH",
+      "label": "Target Ratio Height",
+      "type": "number",
+      "unit": "",
+      "default": 9,
+      "businessContext": "The height component of a target aspect ratio (e.g., 9 for 16:9). Used to compare how close the current aspect ratio is to a standard."
+    }
+  ],
+  "formulas": {
+    "aspectDecimal": "width / height",
+    "targetDecimal": "targetRatioW / targetRatioH",
+    "deviationPercent": "Math.sqrt((aspectDecimal - targetDecimal)**2) / targetDecimal * 100"
+  },
+  "outputs": {
+    "primary": "aspectDecimal",
+    "breakdown": [
+      "aspectDecimal",
+      "targetDecimal",
+      "deviationPercent",
+      "width",
+      "height"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

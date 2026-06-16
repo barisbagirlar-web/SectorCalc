@@ -1,0 +1,75 @@
+{
+  "toolName": "slope-stability-calculator",
+  "inputs": [
+    {
+      "id": "slopeAngle",
+      "label": "Slope Angle (θ)",
+      "type": "number",
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Angle of the slope face measured from horizontal"
+    },
+    {
+      "id": "frictionAngle",
+      "label": "Friction Angle (φ)",
+      "type": "number",
+      "unit": "°",
+      "default": 25,
+      "businessContext": "Angle of internal friction of soil"
+    },
+    {
+      "id": "cohesion",
+      "label": "Cohesion (c)",
+      "type": "number",
+      "unit": "kPa",
+      "default": 10,
+      "businessContext": "Cohesive strength of soil"
+    },
+    {
+      "id": "unitWeight",
+      "label": "Unit Weight (γ)",
+      "type": "number",
+      "unit": "kN/m³",
+      "default": 18,
+      "businessContext": "Total unit weight of soil"
+    },
+    {
+      "id": "depth",
+      "label": "Depth to Failure Plane (z)",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Vertical depth from slope surface to potential failure plane (assuming parallel to slope)"
+    },
+    {
+      "id": "porePressureRatio",
+      "label": "Pore Pressure Ratio (rᵤ)",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "Ratio of pore water pressure to overburden stress (0 for dry, 0.25–0.5 for saturated)"
+    }
+  ],
+  "formulas": {
+    "angleRad": "slopeAngle * Math.PI / 180",
+    "frictionRad": "frictionAngle * Math.PI / 180",
+    "effectiveNormalStress": "unitWeight * depth * Math.pow(Math.cos(angleRad), 2) - porePressureRatio * unitWeight * depth",
+    "shearStrength": "cohesion + effectiveNormalStress * (Math.sin(frictionRad) / Math.cos(frictionRad))",
+    "drivingForce": "unitWeight * depth * Math.sin(angleRad) * Math.cos(angleRad)",
+    "FS": "shearStrength / drivingForce"
+  },
+  "outputs": {
+    "primary": "FS",
+    "breakdown": [
+      "effectiveNormalStress",
+      "shearStrength",
+      "drivingForce"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

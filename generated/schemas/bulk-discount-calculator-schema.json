@@ -1,0 +1,55 @@
+{
+  "toolName": "bulk-discount-calculator",
+  "inputs": [
+    {
+      "id": "basePricePerUnit",
+      "label": "Base Price per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "businessContext": "The standard price per unit before any bulk discount is applied."
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity Ordered",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "businessContext": "The total number of units being purchased in a single order."
+    },
+    {
+      "id": "maxDiscount",
+      "label": "Maximum Discount",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "The upper limit of the discount percentage achievable with very large orders."
+    },
+    {
+      "id": "scale",
+      "label": "Discount Scale Factor",
+      "type": "number",
+      "unit": "units",
+      "default": 200,
+      "businessContext": "The quantity at which the discount reaches approximately 63% of the maximum discount (i.e., the e-folding scale)."
+    }
+  ],
+  "formulas": {
+    "discountRate": "maxDiscount * (1 - Math.exp(-quantity / scale))",
+    "finalPricePerUnit": "basePricePerUnit * (1 - discountRate / 100)",
+    "totalCost": "quantity * finalPricePerUnit"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "discountRate",
+      "finalPricePerUnit"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

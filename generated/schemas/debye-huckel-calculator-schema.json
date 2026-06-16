@@ -1,0 +1,71 @@
+{
+  "toolName": "debye-huckel-calculator",
+  "inputs": [
+    {
+      "id": "aConstant",
+      "label": "Debye-Hückel A",
+      "type": "number",
+      "unit": "(mol/L)^(-1/2)",
+      "default": 0.509,
+      "businessContext": "Empirical constant dependent on temperature and solvent. For water at 25°C, use 0.509."
+    },
+    {
+      "id": "bConstant",
+      "label": "Debye-Hückel B",
+      "type": "number",
+      "unit": "(mol/L)^(-1/2) Å^(-1)",
+      "default": 0.328,
+      "businessContext": "Empirical constant dependent on temperature and solvent. For water at 25°C, use 0.328."
+    },
+    {
+      "id": "ionicStrength",
+      "label": "Ionic Strength",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.1,
+      "businessContext": "Half the sum of concentrations times squared charges of all ions. Range typically 0.001 - 0.5 mol/L."
+    },
+    {
+      "id": "chargeCation",
+      "label": "Cation Charge (z+)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Absolute charge number of the cation, e.g., 1 for Na+, 2 for Ca2+."
+    },
+    {
+      "id": "chargeAnion",
+      "label": "Anion Charge (|z-|)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Absolute charge number of the anion, e.g., 1 for Cl-, 2 for SO4^2-."
+    },
+    {
+      "id": "ionSize",
+      "label": "Ion Size Parameter (a)",
+      "type": "number",
+      "unit": "Å",
+      "default": 3.04,
+      "businessContext": "Effective diameter of the hydrated ion. Common values: 3-9 Å. For many simple ions, ~3-4 Å."
+    }
+  ],
+  "formulas": {
+    "sqrtI": "Math.sqrt(ionicStrength)",
+    "logGamma": "-aConstant * chargeCation * chargeAnion * sqrtI / (1 + bConstant * ionSize * sqrtI)",
+    "activityCoefficient": "Math.pow(10, logGamma)"
+  },
+  "outputs": {
+    "primary": "activityCoefficient",
+    "breakdown": [
+      "logGamma",
+      "sqrtI"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

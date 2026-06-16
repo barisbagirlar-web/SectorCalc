@@ -1,0 +1,79 @@
+{
+  "toolName": "heat-gain-calculator",
+  "inputs": [
+    {
+      "id": "wallArea",
+      "label": "Wall Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 10,
+      "businessContext": "Area of external walls exposed to outdoors."
+    },
+    {
+      "id": "wallUvalue",
+      "label": "Wall U-Value",
+      "type": "number",
+      "unit": "W/m²·K",
+      "default": 0.5,
+      "businessContext": "Thermal transmittance of wall."
+    },
+    {
+      "id": "tempDiff",
+      "label": "Temperature Difference",
+      "type": "number",
+      "unit": "K",
+      "default": 15,
+      "businessContext": "Indoor-outdoor temperature difference."
+    },
+    {
+      "id": "windowArea",
+      "label": "Window Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 4,
+      "businessContext": "Area of windows."
+    },
+    {
+      "id": "windowUvalue",
+      "label": "Window U-Value",
+      "type": "number",
+      "unit": "W/m²·K",
+      "default": 2,
+      "businessContext": "Thermal transmittance of window."
+    },
+    {
+      "id": "windowSHGC",
+      "label": "Window SHGC",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.7,
+      "businessContext": "Solar Heat Gain Coefficient."
+    },
+    {
+      "id": "solarRadiation",
+      "label": "Solar Radiation",
+      "type": "number",
+      "unit": "W/m²",
+      "default": 500,
+      "businessContext": "Incident solar radiation on window."
+    }
+  ],
+  "formulas": {
+    "conductionHeatGain": "wallArea * wallUvalue * tempDiff + windowArea * windowUvalue * tempDiff",
+    "solarHeatGain": "windowArea * windowSHGC * solarRadiation",
+    "totalHeatGain": "conductionHeatGain + solarHeatGain"
+  },
+  "outputs": {
+    "primary": "totalHeatGain",
+    "breakdown": [
+      "conductionHeatGain",
+      "solarHeatGain"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

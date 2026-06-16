@@ -1,0 +1,55 @@
+{
+  "toolName": "integrated-rate-law-calculator",
+  "inputs": [
+    {
+      "id": "initialConcentration",
+      "label": "Initial Concentration [A]₀",
+      "type": "number",
+      "unit": "M",
+      "default": 1,
+      "businessContext": "Initial concentration of reactant A"
+    },
+    {
+      "id": "rateConstant",
+      "label": "Rate Constant (k)",
+      "type": "number",
+      "unit": "varies (e.g., s⁻¹ for first order)",
+      "default": 0.1,
+      "businessContext": "Reaction rate constant, units depend on reaction order"
+    },
+    {
+      "id": "time",
+      "label": "Time (t)",
+      "type": "number",
+      "unit": "s",
+      "default": 10,
+      "businessContext": "Elapsed time of reaction"
+    },
+    {
+      "id": "reactionOrder",
+      "label": "Reaction Order (n)",
+      "type": "number",
+      "unit": "none",
+      "default": 1,
+      "businessContext": "Order of the reaction with respect to A (0, 1, or 2)"
+    }
+  ],
+  "formulas": {
+    "finalConcentration": "reactionOrder == 0 ? (initialConcentration - rateConstant * time) : reactionOrder == 1 ? (initialConcentration * Math.exp(-rateConstant * time)) : (1 / (1/initialConcentration + rateConstant * time))",
+    "linearPlotValue": "reactionOrder == 0 ? (initialConcentration - rateConstant * time) : reactionOrder == 1 ? (Math.log(initialConcentration) - rateConstant * time) : (1/initialConcentration + rateConstant * time)",
+    "formulaText": "'Order ' + reactionOrder + ': ' + (reactionOrder == 0 ? '[A] = [A]₀ - kt = ' + initialConcentration + ' - ' + rateConstant + ' * ' + time + ' = ' + (initialConcentration - rateConstant * time) : reactionOrder == 1 ? 'ln([A]/[A]₀) = -kt, [A] = [A]₀e^(-kt) = ' + initialConcentration + ' * e^(-' + rateConstant + ' * ' + time + ') = ' + (initialConcentration * Math.exp(-rateConstant * time)) : '1/[A] = 1/[A]₀ + kt = 1/' + initialConcentration + ' + ' + rateConstant + ' * ' + time + ' = ' + (1/(1/initialConcentration + rateConstant * time)))"
+  },
+  "outputs": {
+    "primary": "finalConcentration",
+    "breakdown": [
+      "linearPlotValue",
+      "formulaText"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

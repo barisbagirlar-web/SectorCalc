@@ -1,0 +1,72 @@
+{
+  "toolName": "flood-insurance-calculator",
+  "inputs": [
+    {
+      "id": "propertyValue",
+      "label": "Property Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "businessContext": "The total value of the insured property including buildings and contents."
+    },
+    {
+      "id": "floodZoneFactor",
+      "label": "Flood Zone Risk Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.02,
+      "businessContext": "A factor representing the flood risk: 0.01 for low risk, 0.05 for high risk. Based on FEMA flood maps."
+    },
+    {
+      "id": "coverageAmount",
+      "label": "Coverage Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 400000,
+      "businessContext": "The maximum amount the insurance will pay out."
+    },
+    {
+      "id": "deductible",
+      "label": "Deductible",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "businessContext": "The amount the policyholder pays out-of-pocket before insurance coverage kicks in."
+    },
+    {
+      "id": "buildingTypeFactor",
+      "label": "Building Type Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "businessContext": "Multiplier based on building type: 1.0 for residential, 1.2 for commercial, 1.5 for industrial."
+    },
+    {
+      "id": "ageOfBuilding",
+      "label": "Building Age",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Age of the building in years, used to calculate depreciation factor."
+    }
+  ],
+  "formulas": {
+    "depreciationFactor": "Math.max(0.8, 1 - ageOfBuilding * 0.005)",
+    "basePremium": "coverageAmount * floodZoneFactor * buildingTypeFactor * depreciationFactor",
+    "deductibleCredit": "deductible * 0.02",
+    "finalPremium": "basePremium - deductibleCredit"
+  },
+  "outputs": {
+    "primary": "finalPremium",
+    "breakdown": [
+      "basePremium",
+      "deductibleCredit"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,76 @@
+{
+  "toolName": "equestrian-calculator",
+  "inputs": [
+    {
+      "id": "load_mass",
+      "label": "Yük Kütlesi",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Taşınacak yükün kütlesi (kg)"
+    },
+    {
+      "id": "slope_percent",
+      "label": "Eğim (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Yolun eğim yüzdesi"
+    },
+    {
+      "id": "rolling_resistance",
+      "label": "Yuvarlanma Direnci Katsayısı",
+      "type": "number",
+      "unit": "",
+      "default": 0.02,
+      "businessContext": "Yol yüzeyi yuvarlanma direnci katsayısı (ör: 0.01-0.05)"
+    },
+    {
+      "id": "desired_speed",
+      "label": "İstenen Hız",
+      "type": "number",
+      "unit": "m/s",
+      "default": 1.5,
+      "businessContext": "Hedef hareket hızı (m/s)"
+    },
+    {
+      "id": "horse_pull_force",
+      "label": "At Başına Çekme Kuvveti",
+      "type": "number",
+      "unit": "N",
+      "default": 1000,
+      "businessContext": "Bir atın sürekli çekebileceği ortalama kuvvet (N)"
+    },
+    {
+      "id": "efficiency",
+      "label": "Verimlilik",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Koşum ve aktarma sistemi verimliliği (%)"
+    }
+  ],
+  "formulas": {
+    "angle_rad": "Math.atan(slope_percent / 100)",
+    "tractive_force": "load_mass * 9.81 * (Math.sin(angle_rad) + rolling_resistance * Math.cos(angle_rad))",
+    "effective_force": "tractive_force / (efficiency / 100)",
+    "required_power": "effective_force * desired_speed",
+    "total_horsepower": "required_power / 745.7",
+    "number_of_horses": "Math.ceil(effective_force / horse_pull_force)"
+  },
+  "outputs": {
+    "primary": "Gereken At Sayısı: {number_of_horses}",
+    "breakdown": [
+      "Çekme Kuvveti: {tractive_force.toFixed(2)} N",
+      "Etkin Kuvvet: {effective_force.toFixed(2)} N",
+      "Gerekli Güç: {required_power.toFixed(2)} W",
+      "Beygir Gücü: {total_horsepower.toFixed(2)} hp"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

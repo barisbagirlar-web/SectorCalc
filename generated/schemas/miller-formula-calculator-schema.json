@@ -1,0 +1,70 @@
+{
+  "toolName": "miller-formula-calculator",
+  "inputs": [
+    {
+      "id": "dbhCm",
+      "label": "DBH (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "Diameter of the tree at breast height (1.3 m above ground)"
+    },
+    {
+      "id": "heightM",
+      "label": "Tree Height (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 20,
+      "businessContext": "Total vertical height of the tree"
+    },
+    {
+      "id": "formFactor",
+      "label": "Miller Form Factor (k)",
+      "type": "number",
+      "unit": "",
+      "default": 0.42,
+      "businessContext": "Empirical constant for volume estimation (typically 0.42 for conifers)"
+    },
+    {
+      "id": "adjustmentFactor",
+      "label": "Safety/Adjustment Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for calibration or safety (1.0 = standard estimate)"
+    }
+  ],
+  "formulas": {
+    "diameterM": "dbhCm / 100",
+    "baseVolume": "formFactor * (diameterM ** 2) * heightM",
+    "totalVolume": "baseVolume * adjustmentFactor"
+  },
+  "outputs": {
+    "primary": {
+      "id": "totalVolume",
+      "label": "Estimated Tree Volume (m³)",
+      "formula": "totalVolume",
+      "unit": "m³"
+    },
+    "breakdown": [
+      {
+        "id": "diameterM",
+        "label": "DBH in meters",
+        "formula": "diameterM",
+        "unit": "m"
+      },
+      {
+        "id": "baseVolume",
+        "label": "Base Volume (unadjusted)",
+        "formula": "baseVolume",
+        "unit": "m³"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

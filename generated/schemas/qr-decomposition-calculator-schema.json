@@ -1,0 +1,68 @@
+{
+  "toolName": "qr-decomposition-calculator",
+  "inputs": [
+    {
+      "id": "a11",
+      "label": "A[1,1]",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Element (1,1) of the 2x2 matrix A."
+    },
+    {
+      "id": "a12",
+      "label": "A[1,2]",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Element (1,2) of the 2x2 matrix A."
+    },
+    {
+      "id": "a21",
+      "label": "A[2,1]",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Element (2,1) of the 2x2 matrix A."
+    },
+    {
+      "id": "a22",
+      "label": "A[2,2]",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Element (2,2) of the 2x2 matrix A."
+    }
+  ],
+  "formulas": {
+    "norm1": "Math.sqrt(a11*a11 + a21*a21)",
+    "q11": "a11 / norm1",
+    "q21": "a21 / norm1",
+    "dot": "q11*a12 + q21*a22",
+    "u2_1": "a12 - dot * q11",
+    "u2_2": "a22 - dot * q21",
+    "norm2": "Math.sqrt(u2_1*u2_1 + u2_2*u2_2)",
+    "q12": "u2_1 / norm2",
+    "q22": "u2_2 / norm2",
+    "r11": "norm1",
+    "r12": "dot",
+    "r22": "norm2"
+  },
+  "outputs": {
+    "primary": "r11",
+    "breakdown": [
+      "q11",
+      "q12",
+      "q21",
+      "q22",
+      "r12",
+      "r22"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

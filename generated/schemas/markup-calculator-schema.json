@@ -1,0 +1,57 @@
+{
+  "toolName": "markup-calculator",
+  "inputs": [
+    {
+      "id": "costPrice",
+      "label": "Cost Price",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "The unit cost of the product or service."
+    },
+    {
+      "id": "markupPercent",
+      "label": "Markup Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "The percentage markup applied to the cost price."
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of units to calculate totals for."
+    },
+    {
+      "id": "additionalCostPerUnit",
+      "label": "Additional Cost per Unit",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Extra cost per unit such as shipping, packaging, or handling."
+    }
+  ],
+  "formulas": {
+    "sellingPrice": "costPrice + costPrice * markupPercent / 100 + additionalCostPerUnit",
+    "totalRevenue": "(costPrice + costPrice * markupPercent / 100 + additionalCostPerUnit) * quantity",
+    "totalProfit": "(costPrice + costPrice * markupPercent / 100 + additionalCostPerUnit) * quantity - (costPrice + additionalCostPerUnit) * quantity",
+    "profitMargin": "(((costPrice + costPrice * markupPercent / 100 + additionalCostPerUnit) * quantity - (costPrice + additionalCostPerUnit) * quantity) / ((costPrice + costPrice * markupPercent / 100 + additionalCostPerUnit) * quantity)) * 100"
+  },
+  "outputs": {
+    "primary": "sellingPrice",
+    "breakdown": [
+      "totalRevenue",
+      "totalProfit",
+      "profitMargin"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "concrete-column-calculator",
+  "inputs": [
+    {
+      "id": "width",
+      "label": "Column Width (b)",
+      "type": "number",
+      "unit": "mm",
+      "default": 300,
+      "businessContext": "Cross-sectional width of the concrete column."
+    },
+    {
+      "id": "depth",
+      "label": "Column Depth (h)",
+      "type": "number",
+      "unit": "mm",
+      "default": 300,
+      "businessContext": "Cross-sectional depth of the concrete column."
+    },
+    {
+      "id": "fc",
+      "label": "Concrete Compressive Strength (f'c)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 25,
+      "businessContext": "Specified compressive strength of concrete at 28 days."
+    },
+    {
+      "id": "fy",
+      "label": "Steel Yield Strength (fy)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 420,
+      "businessContext": "Yield strength of longitudinal reinforcing steel."
+    },
+    {
+      "id": "as",
+      "label": "Total Steel Area (As)",
+      "type": "number",
+      "unit": "mm²",
+      "default": 1256,
+      "businessContext": "Total cross-sectional area of longitudinal reinforcement."
+    },
+    {
+      "id": "phi",
+      "label": "Strength Reduction Factor (φ)",
+      "type": "number",
+      "unit": "none",
+      "default": 0.65,
+      "businessContext": "Strength reduction factor for tied columns (0.65 per ACI 318)."
+    }
+  ],
+  "formulas": {
+    "ag": "width * depth",
+    "ro": "as / ag",
+    "pn": "0.85 * fc * (ag - as) + fy * as",
+    "phiPn_kN": "phi * pn / 1000"
+  },
+  "outputs": {
+    "primary": "Design Axial Capacity (φPn): {phiPn_kN} kN",
+    "breakdown": [
+      "Gross Area (Ag): {ag} mm²",
+      "Steel Ratio (ρ): {ro}",
+      "Nominal Axial Capacity (Pn): {pn} N"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

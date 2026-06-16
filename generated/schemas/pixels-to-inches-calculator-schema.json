@@ -1,0 +1,56 @@
+{
+  "toolName": "pixels-to-inches-calculator",
+  "inputs": [
+    {
+      "id": "widthPixels",
+      "label": "Width in Pixels",
+      "type": "number",
+      "unit": "px",
+      "default": 1920,
+      "businessContext": "Horizontal pixel count of the digital image or screen, used to calculate physical width."
+    },
+    {
+      "id": "heightPixels",
+      "label": "Height in Pixels",
+      "type": "number",
+      "unit": "px",
+      "default": 1080,
+      "businessContext": "Vertical pixel count of the digital image or screen, used to calculate physical height."
+    },
+    {
+      "id": "ppi",
+      "label": "Pixels Per Inch (PPI)",
+      "type": "number",
+      "unit": "ppi",
+      "default": 96,
+      "businessContext": "The image resolution, typically the screen's pixel density, determining the inches per pixel."
+    },
+    {
+      "id": "decimals",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output dimensions, ensuring manufacturing or design tolerances."
+    }
+  ],
+  "formulas": {
+    "widthInches": "widthPixels / ppi",
+    "heightInches": "heightPixels / ppi",
+    "diagonalInches": "Math.sqrt(Math.pow(widthPixels / ppi, 2) + Math.pow(heightPixels / ppi, 2))"
+  },
+  "outputs": {
+    "primary": "\"Width: \" + widthInches.toFixed(decimals) + \" in, Height: \" + heightInches.toFixed(decimals) + \" in\"",
+    "breakdown": [
+      "\"Width: \" + widthInches.toFixed(decimals) + \" inches\"",
+      "\"Height: \" + heightInches.toFixed(decimals) + \" inches\"",
+      "\"Diagonal: \" + diagonalInches.toFixed(decimals) + \" inches\""
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

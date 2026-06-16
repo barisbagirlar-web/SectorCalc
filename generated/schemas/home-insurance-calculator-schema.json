@@ -1,0 +1,72 @@
+{
+  "toolName": "home-insurance-calculator",
+  "inputs": [
+    {
+      "id": "homeValue",
+      "label": "Ev Değeri",
+      "type": "number",
+      "unit": "TL",
+      "default": 500000,
+      "businessContext": "Ev sigortası için evin toplam değeri."
+    },
+    {
+      "id": "coverageAmount",
+      "label": "Teminat Tutarı",
+      "type": "number",
+      "unit": "TL",
+      "default": 400000,
+      "businessContext": "Sigorta kapsamı altındaki tutar."
+    },
+    {
+      "id": "deductible",
+      "label": "Muafiyet",
+      "type": "number",
+      "unit": "TL",
+      "default": 1000,
+      "businessContext": "Hasar durumunda sigortalının ödeyeceği kısım."
+    },
+    {
+      "id": "locationRisk",
+      "label": "Bölge Risk Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Deprem, sel vs. riskine göre bölge katsayısı."
+    },
+    {
+      "id": "homeAge",
+      "label": "Bina Yaşı",
+      "type": "number",
+      "unit": "yıl",
+      "default": 5,
+      "businessContext": "Evin inşa yılından itibaren geçen süre."
+    },
+    {
+      "id": "safetyDiscount",
+      "label": "Güvenlik İndirimi",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Alarm, yangın söndürme gibi güvenlik önlemlerinden alınan indirim oranı."
+    }
+  ],
+  "formulas": {
+    "basePremium": "coverageAmount * locationRisk * (1 + homeAge * 0.01)",
+    "safetyDiscountAmount": "basePremium * safetyDiscount / 100",
+    "finalPremium": "basePremium - safetyDiscountAmount"
+  },
+  "outputs": {
+    "primary": "finalPremium",
+    "breakdown": [
+      "basePremium",
+      "safetyDiscountAmount",
+      "finalPremium"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

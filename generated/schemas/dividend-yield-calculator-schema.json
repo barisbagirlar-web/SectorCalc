@@ -1,0 +1,55 @@
+{
+  "toolName": "dividend-yield-calculator",
+  "inputs": [
+    {
+      "id": "annualDividendPerShare",
+      "label": "Annual Dividend per Share",
+      "type": "number",
+      "unit": "USD",
+      "default": 2,
+      "businessContext": "The total dividends paid per share over a year."
+    },
+    {
+      "id": "marketPricePerShare",
+      "label": "Market Price per Share",
+      "type": "number",
+      "unit": "USD",
+      "default": 40,
+      "businessContext": "Current market price of one share."
+    },
+    {
+      "id": "numberOfShares",
+      "label": "Number of Shares",
+      "type": "number",
+      "unit": "shares",
+      "default": 100,
+      "businessContext": "Number of shares owned for total dividend calculation."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Tax rate on dividend income for after-tax yield calculation."
+    }
+  ],
+  "formulas": {
+    "dividendYield": "annualDividendPerShare / marketPricePerShare * 100",
+    "totalDividend": "annualDividendPerShare * numberOfShares",
+    "afterTaxYield": "dividendYield * (1 - taxRate / 100)"
+  },
+  "outputs": {
+    "primary": "dividendYield",
+    "breakdown": [
+      "totalDividend",
+      "afterTaxYield"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

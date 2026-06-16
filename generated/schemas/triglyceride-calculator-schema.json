@@ -1,0 +1,63 @@
+{
+  "toolName": "triglyceride-calculator",
+  "inputs": [
+    {
+      "id": "fa_moles",
+      "label": "Fatty Acid (mol)",
+      "type": "number",
+      "unit": "mol",
+      "default": 3,
+      "businessContext": "Moles of fatty acid reactant"
+    },
+    {
+      "id": "fa_mw",
+      "label": "Fatty Acid MW (g/mol)",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 282.47,
+      "businessContext": "Molecular weight of the fatty acid"
+    },
+    {
+      "id": "glycerol_moles",
+      "label": "Glycerol (mol)",
+      "type": "number",
+      "unit": "mol",
+      "default": 1,
+      "businessContext": "Moles of glycerol reactant"
+    },
+    {
+      "id": "glycerol_mw",
+      "label": "Glycerol MW (g/mol)",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 92.09,
+      "businessContext": "Molecular weight of glycerol"
+    },
+    {
+      "id": "yield_percent",
+      "label": "Yield (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Reaction yield percentage"
+    }
+  ],
+  "formulas": {
+    "theoretical_mass": "Math.min(fa_moles / 3, glycerol_moles) * (3 * fa_mw + glycerol_mw - 3 * 18.015)",
+    "water_mass": "Math.min(fa_moles / 3, glycerol_moles) * 3 * 18.015",
+    "actual_triglyceride_mass": "theoretical_mass * yield_percent / 100"
+  },
+  "outputs": {
+    "primary": "actual_triglyceride_mass",
+    "breakdown": [
+      "theoretical_mass",
+      "water_mass"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

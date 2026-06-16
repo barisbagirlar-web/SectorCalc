@@ -1,0 +1,55 @@
+{
+  "toolName": "kinematic-viscosity-calculator",
+  "inputs": [
+    {
+      "id": "dynamicViscosity",
+      "label": "Dynamic Viscosity (μ)",
+      "type": "number",
+      "unit": "Pa·s",
+      "default": 0.001,
+      "businessContext": "Fluid’s dynamic viscosity in Pascal-seconds (1 Pa·s = 1 N·s/m² = 10 P)"
+    },
+    {
+      "id": "density",
+      "label": "Density (ρ)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Fluid’s mass density in kg/m³ (water ≈ 1000 kg/m³)"
+    },
+    {
+      "id": "velocity",
+      "label": "Flow Velocity (v)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 1,
+      "businessContext": "Mean flow velocity (m/s)"
+    },
+    {
+      "id": "characteristicLength",
+      "label": "Characteristic Length (L)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Characteristic linear dimension (e.g., pipe diameter) in meters"
+    }
+  ],
+  "formulas": {
+    "kinematicViscosity": "dynamicViscosity / density",
+    "reynoldsNumber": "velocity * characteristicLength / kinematicViscosity",
+    "kinematicViscosity_cSt": "kinematicViscosity * 1e6"
+  },
+  "outputs": {
+    "primary": "kinematicViscosity",
+    "breakdown": [
+      "reynoldsNumber",
+      "kinematicViscosity_cSt"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

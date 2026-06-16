@@ -1,0 +1,56 @@
+{
+  "toolName": "vat-margin-scheme-calculator",
+  "inputs": [
+    {
+      "id": "purchasePrice",
+      "label": "Purchase Price",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Price paid to acquire the goods (VAT-inclusive)."
+    },
+    {
+      "id": "sellingPrice",
+      "label": "Selling Price",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Price charged to the customer (VAT-inclusive)."
+    },
+    {
+      "id": "vatRate",
+      "label": "VAT Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Standard VAT rate percentage applicable to the goods."
+    },
+    {
+      "id": "allowableCosts",
+      "label": "Allowable Costs",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Costs directly attributable to the sale that reduce the margin (e.g., refurbishment, transport)."
+    }
+  ],
+  "formulas": {
+    "grossMargin": "sellingPrice - purchasePrice - allowableCosts",
+    "vatDue": "grossMargin * vatRate / (100 + vatRate)",
+    "netMargin": "grossMargin - vatDue"
+  },
+  "outputs": {
+    "primary": "vatDue",
+    "breakdown": [
+      "grossMargin",
+      "vatDue",
+      "netMargin"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "cords-to-cubic-meters-calculator",
+  "inputs": [
+    {
+      "id": "length_ft",
+      "label": "Uzunluk (ft)",
+      "type": "number",
+      "unit": "ft",
+      "default": 8,
+      "businessContext": "Ağaç yığınının uzunluğu"
+    },
+    {
+      "id": "width_ft",
+      "label": "Genişlik (ft)",
+      "type": "number",
+      "unit": "ft",
+      "default": 4,
+      "businessContext": "Ağaç yığınının genişliği"
+    },
+    {
+      "id": "height_ft",
+      "label": "Yükseklik (ft)",
+      "type": "number",
+      "unit": "ft",
+      "default": 4,
+      "businessContext": "Ağaç yığınının yüksekliği"
+    },
+    {
+      "id": "stack_count",
+      "label": "Yığın Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Aynı boyutlardaki yığın adedi"
+    },
+    {
+      "id": "waste_percent",
+      "label": "Fire Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Beklenen boşluk, çökme veya kayıp oranı"
+    }
+  ],
+  "formulas": {
+    "total_cuft": "length_ft * width_ft * height_ft * stack_count * (1 + waste_percent / 100)",
+    "cords": "(length_ft * width_ft * height_ft * stack_count * (1 + waste_percent / 100)) / 128",
+    "cubic_meters": "((length_ft * width_ft * height_ft * stack_count * (1 + waste_percent / 100)) / 128) * 3.624556"
+  },
+  "outputs": {
+    "primary": "cubic_meters",
+    "breakdown": [
+      "total_cuft",
+      "cords"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

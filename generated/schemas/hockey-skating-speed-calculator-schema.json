@@ -1,0 +1,59 @@
+{
+  "toolName": "hockey-skating-speed-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "businessContext": "Distance covered during skating drill or game shift, in meters"
+    },
+    {
+      "id": "time",
+      "label": "Time",
+      "type": "number",
+      "unit": "s",
+      "default": 10,
+      "businessContext": "Time taken to cover the distance, in seconds"
+    },
+    {
+      "id": "strideLength",
+      "label": "Stride Length",
+      "type": "number",
+      "unit": "m",
+      "default": 1.5,
+      "businessContext": "Average length of one full skating stride, in meters"
+    },
+    {
+      "id": "strideFrequency",
+      "label": "Stride Frequency",
+      "type": "number",
+      "unit": "strides/s",
+      "default": 2,
+      "businessContext": "Number of strides per second (stride rate)"
+    }
+  ],
+  "formulas": {
+    "speedMS": "distance / time",
+    "speedKMH": "(distance / time) * 3.6",
+    "strideSpeedMS": "strideLength * strideFrequency",
+    "strideSpeedKMH": "strideLength * strideFrequency * 3.6",
+    "speedDiffPercent": "(strideLength * strideFrequency - distance / time) / (distance / time) * 100"
+  },
+  "outputs": {
+    "primary": "speedMS",
+    "breakdown": [
+      "speedKMH",
+      "strideSpeedMS",
+      "strideSpeedKMH",
+      "speedDiffPercent"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

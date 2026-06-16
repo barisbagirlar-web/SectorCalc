@@ -1,0 +1,61 @@
+{
+  "toolName": "quantization-noise-calculator",
+  "inputs": [
+    {
+      "id": "voltageRange",
+      "label": "Full-Scale Voltage Range (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 5,
+      "businessContext": "The total span of the ADC input voltage (max - min). For unipolar 0-5V, enter 5; for bipolar ±2.5V, enter 5."
+    },
+    {
+      "id": "bits",
+      "label": "Number of Bits",
+      "type": "number",
+      "unit": "bits",
+      "default": 12,
+      "businessContext": "Resolution of the ADC."
+    },
+    {
+      "id": "signalAmplitudePeak",
+      "label": "Signal Peak Amplitude (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 2.5,
+      "businessContext": "Peak amplitude of the input sine wave. Typically ≤ voltageRange/2 for full-scale."
+    },
+    {
+      "id": "loadResistance",
+      "label": "Load Resistance (Ω)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 50,
+      "businessContext": "Reference resistance for power calculations. Use 1 if only voltage quantities are needed."
+    }
+  ],
+  "formulas": {
+    "step_V": "input.voltageRange / (2**input.bits)",
+    "noise_power_V2": "(input.voltageRange / (2**input.bits))**2 / 12",
+    "noise_RMS_V": "Math.sqrt((input.voltageRange / (2**input.bits))**2 / 12)",
+    "signal_power_V2": "(input.signalAmplitudePeak**2) / 2",
+    "SQNR_dB": "10 * Math.log10(((input.signalAmplitudePeak**2) / 2) / ((input.voltageRange / (2**input.bits))**2 / 12))",
+    "noise_power_dBm": "10 * Math.log10((((input.voltageRange / (2**input.bits))**2 / 12) / input.loadResistance) / 0.001)"
+  },
+  "outputs": {
+    "primary": "SQNR_dB",
+    "breakdown": [
+      "step_V",
+      "noise_RMS_V",
+      "noise_power_V2",
+      "signal_power_V2",
+      "noise_power_dBm"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

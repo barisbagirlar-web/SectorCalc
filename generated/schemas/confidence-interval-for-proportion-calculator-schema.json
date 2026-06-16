@@ -1,0 +1,62 @@
+{
+  "toolName": "confidence-interval-for-proportion-calculator",
+  "inputs": [
+    {
+      "id": "sampleSize",
+      "label": "Sample Size (n)",
+      "type": "number",
+      "unit": "count",
+      "default": 100,
+      "businessContext": "Number of observations or trials in the sample"
+    },
+    {
+      "id": "successes",
+      "label": "Number of Successes (x)",
+      "type": "number",
+      "unit": "count",
+      "default": 50,
+      "businessContext": "Count of successful outcomes in the sample"
+    },
+    {
+      "id": "zValue",
+      "label": "Z-value",
+      "type": "number",
+      "unit": "z-score",
+      "default": 1.96,
+      "businessContext": "Critical z-value for the desired confidence level (e.g., 1.96 for 95% CI)"
+    },
+    {
+      "id": "confidenceLevel",
+      "label": "Confidence Level",
+      "type": "number",
+      "unit": "",
+      "default": 0.95,
+      "businessContext": "Reference confidence level corresponding to the z-value (e.g., 0.95 for 95%)"
+    }
+  ],
+  "formulas": {
+    "p": "successes / sampleSize",
+    "se": "Math.sqrt(p * (1 - p) / sampleSize)",
+    "me": "zValue * se",
+    "lower": "p - me",
+    "upper": "p + me",
+    "primaryText": "'(' + lower.toFixed(4) + ', ' + upper.toFixed(4) + ')'",
+    "bd1": "'Sample Proportion: ' + p.toFixed(4)",
+    "bd2": "'Margin of Error: ±' + me.toFixed(4)",
+    "bd3": "'Z-value used: ' + zValue.toFixed(2)"
+  },
+  "outputs": {
+    "primary": "primaryText",
+    "breakdown": [
+      "bd1",
+      "bd2",
+      "bd3"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

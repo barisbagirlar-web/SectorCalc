@@ -1,0 +1,54 @@
+{
+  "toolName": "e-notation-calculator",
+  "inputs": [
+    {
+      "id": "coeff1",
+      "label": "Coefficient 1",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "First number's significant digits (e.g., 1 ≤ |coeff| < 10 recommended)"
+    },
+    {
+      "id": "exp1",
+      "label": "Exponent 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Exponent of 10 for the first number"
+    },
+    {
+      "id": "coeff2",
+      "label": "Coefficient 2",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Second number's significant digits (e.g., 1 ≤ |coeff| < 10 recommended)"
+    },
+    {
+      "id": "exp2",
+      "label": "Exponent 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Exponent of 10 for the second number"
+    }
+  ],
+  "formulas": {
+    "decimalValue": "coeff1 * coeff2 * Math.pow(10, exp1 + exp2)",
+    "eNotation": "decimalValue.toExponential(4)"
+  },
+  "outputs": {
+    "primary": "eNotation",
+    "breakdown": [
+      "`Decimal value: ${decimalValue}`",
+      "`Scientific notation: ${eNotation}`"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

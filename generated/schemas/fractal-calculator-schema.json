@@ -1,0 +1,55 @@
+{
+  "toolName": "fractal-calculator",
+  "inputs": [
+    {
+      "id": "numberOfCopies",
+      "label": "Number of Copies (N)",
+      "type": "number",
+      "unit": "adet",
+      "default": 3,
+      "businessContext": "In fractal generation, the number of smaller self-similar pieces."
+    },
+    {
+      "id": "scalingFactor",
+      "label": "Scaling Factor (r)",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.333,
+      "businessContext": "The linear scaling factor applied to get each smaller copy."
+    },
+    {
+      "id": "iterationCount",
+      "label": "Iteration Count (n)",
+      "type": "number",
+      "unit": "iteration",
+      "default": 1,
+      "businessContext": "Number of iterations for computing total length or number of pieces."
+    },
+    {
+      "id": "initialLength",
+      "label": "Initial Length (L0)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Initial length of the curve segment or initiator."
+    }
+  ],
+  "formulas": {
+    "fractalDimension": "Math.log(numberOfCopies) / Math.log(1 / scalingFactor)",
+    "totalPieces": "Math.pow(numberOfCopies, iterationCount)",
+    "totalLength": "initialLength * Math.pow(numberOfCopies * scalingFactor, iterationCount)"
+  },
+  "outputs": {
+    "primary": "fractalDimension",
+    "breakdown": [
+      "totalPieces",
+      "totalLength"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

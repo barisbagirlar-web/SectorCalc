@@ -1,0 +1,47 @@
+{
+  "toolName": "yahtzee-probability-calculator",
+  "inputs": [
+    {
+      "id": "diceCount",
+      "label": "Number of Dice",
+      "type": "number",
+      "unit": "dice",
+      "default": 5,
+      "businessContext": "Total dice used in the game (standard Yahtzee uses 5)."
+    },
+    {
+      "id": "targetMatches",
+      "label": "Target Matching Dice",
+      "type": "number",
+      "unit": "dice",
+      "default": 5,
+      "businessContext": "Number of dice that must show the same value (e.g., 5 for a Yahtzee)."
+    },
+    {
+      "id": "currentMatches",
+      "label": "Current Matching Dice",
+      "type": "number",
+      "unit": "dice",
+      "default": 0,
+      "businessContext": "Number of dice already showing the desired value from previous rolls."
+    }
+  ],
+  "formulas": {
+    "probability": "currentMatches >= targetMatches ? 1 : (currentMatches === 0 ? (6 * Math.pow(1/6, diceCount)) : Math.pow(1/6, diceCount - currentMatches))",
+    "percentage": "probability * 100",
+    "oddsOneIn": "1 / probability"
+  },
+  "outputs": {
+    "primary": "probability",
+    "breakdown": [
+      "percentage",
+      "oddsOneIn"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

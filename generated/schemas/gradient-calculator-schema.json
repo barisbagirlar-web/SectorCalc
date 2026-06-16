@@ -1,0 +1,75 @@
+{
+  "toolName": "gradient-calculator",
+  "inputs": [
+    {
+      "id": "startEasting",
+      "label": "Başlangıç Doğu",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Başlangıç noktasının doğu yönündeki koordinatı (metre)"
+    },
+    {
+      "id": "startNorthing",
+      "label": "Başlangıç Kuzey",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Başlangıç noktasının kuzey yönündeki koordinatı (metre)"
+    },
+    {
+      "id": "startElevation",
+      "label": "Başlangıç Yükseklik",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Başlangıç noktasının rakımı (metre)"
+    },
+    {
+      "id": "endEasting",
+      "label": "Bitiş Doğu",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Bitiş noktasının doğu yönündeki koordinatı (metre)"
+    },
+    {
+      "id": "endNorthing",
+      "label": "Bitiş Kuzey",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Bitiş noktasının kuzey yönündeki koordinatı (metre)"
+    },
+    {
+      "id": "endElevation",
+      "label": "Bitiş Yükseklik",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Bitiş noktasının rakımı (metre)"
+    }
+  ],
+  "formulas": {
+    "rise": "endElevation - startElevation",
+    "run": "Math.sqrt((endEasting - startEasting)**2 + (endNorthing - startNorthing)**2)",
+    "slopeDistance": "Math.sqrt(rise**2 + run**2)",
+    "gradientPercent": "(rise / run) * 100",
+    "gradientAngle": "Math.atan(rise / run) * (180 / Math.PI)"
+  },
+  "outputs": {
+    "primary": "gradientPercent",
+    "breakdown": [
+      "gradientAngle",
+      "slopeDistance",
+      "rise",
+      "run"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

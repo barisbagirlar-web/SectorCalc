@@ -1,0 +1,77 @@
+{
+  "toolName": "generating-function-calculator",
+  "inputs": [
+    {
+      "id": "a0",
+      "label": "a₀",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Sabit katsayı"
+    },
+    {
+      "id": "a1",
+      "label": "a₁",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Birinci derece katsayı"
+    },
+    {
+      "id": "a2",
+      "label": "a₂",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "İkinci derece katsayı"
+    },
+    {
+      "id": "a3",
+      "label": "a₃",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Üçüncü derece katsayı"
+    },
+    {
+      "id": "a4",
+      "label": "a₄",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Dördüncü derece katsayı"
+    },
+    {
+      "id": "x",
+      "label": "x",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Üretim fonksiyonu değişkeni"
+    }
+  ],
+  "formulas": {
+    "term0": "a0",
+    "term1": "a1 * x",
+    "term2": "a2 * x ** 2",
+    "term3": "a3 * x ** 3",
+    "term4": "a4 * x ** 4",
+    "GF": "term0 + term1 + term2 + term3 + term4"
+  },
+  "outputs": {
+    "primary": "GF",
+    "breakdown": [
+      "term0",
+      "term1",
+      "term2",
+      "term3",
+      "term4"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

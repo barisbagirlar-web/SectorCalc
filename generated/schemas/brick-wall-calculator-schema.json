@@ -1,0 +1,90 @@
+{
+  "toolName": "brick-wall-calculator",
+  "inputs": [
+    {
+      "id": "wallLength",
+      "label": "Wall Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Total horizontal length of the wall to be constructed."
+    },
+    {
+      "id": "wallHeight",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Total vertical height of the wall."
+    },
+    {
+      "id": "brickLength",
+      "label": "Brick Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 20,
+      "businessContext": "Length of a single brick."
+    },
+    {
+      "id": "brickHeight",
+      "label": "Brick Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Height of a single brick."
+    },
+    {
+      "id": "brickWidth",
+      "label": "Brick Width (Wall Thickness)",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Width of a brick, which determines the thickness of the wall."
+    },
+    {
+      "id": "mortarJointThickness",
+      "label": "Mortar Joint Thickness",
+      "type": "number",
+      "unit": "cm",
+      "default": 1,
+      "businessContext": "Thickness of the mortar joint between bricks (both horizontal and vertical)."
+    },
+    {
+      "id": "brickPrice",
+      "label": "Brick Price per Piece",
+      "type": "number",
+      "unit": "currency",
+      "default": 0.5,
+      "businessContext": "Cost of one brick in the selected currency."
+    },
+    {
+      "id": "mortarPrice",
+      "label": "Mortar Price per Cubic Meter",
+      "type": "number",
+      "unit": "currency/m³",
+      "default": 100,
+      "businessContext": "Cost of mortar per cubic meter in the selected currency."
+    }
+  ],
+  "formulas": {
+    "totalBricks": "(wallLength * 100 / (brickLength + mortarJointThickness)) * (wallHeight * 100 / (brickHeight + mortarJointThickness))",
+    "wallVolumeCm3": "wallLength * 100 * wallHeight * 100 * brickWidth",
+    "oneBrickVolumeCm3": "brickLength * brickHeight * brickWidth",
+    "mortarVolumeCm3": "wallVolumeCm3 - (totalBricks * oneBrickVolumeCm3)",
+    "mortarVolumeM3": "mortarVolumeCm3 / 1000000",
+    "totalCost": "totalBricks * brickPrice + mortarVolumeM3 * mortarPrice"
+  },
+  "outputs": {
+    "primary": "totalBricks",
+    "breakdown": [
+      "mortarVolumeM3",
+      "totalCost"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

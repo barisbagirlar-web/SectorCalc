@@ -1,0 +1,73 @@
+{
+  "toolName": "weibull-analysis-calculator",
+  "inputs": [
+    {
+      "id": "shape",
+      "label": "Shape Parameter (β)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Shape parameter of the Weibull distribution. Must be > 0. Determines failure rate behavior (β<1: decreasing, β=1: exponential, β>1: increasing)."
+    },
+    {
+      "id": "scale",
+      "label": "Scale Parameter (η)",
+      "type": "number",
+      "unit": "hours",
+      "default": 100,
+      "businessContext": "Characteristic life or scale parameter. Time at which 63.2% of items have failed when location=0. Must be > 0."
+    },
+    {
+      "id": "time",
+      "label": "Time (t)",
+      "type": "number",
+      "unit": "hours",
+      "default": 100,
+      "businessContext": "Time at which to compute reliability and failure metrics."
+    },
+    {
+      "id": "location",
+      "label": "Location Parameter (γ)",
+      "type": "number",
+      "unit": "hours",
+      "default": 0,
+      "businessContext": "Shift parameter for failure-free period. Reliable before this time. Typically 0."
+    }
+  ],
+  "formulas": {
+    "reliability": "Math.exp(-Math.pow(Math.max(0, time - location) / scale, shape))",
+    "failureProbability": "1 - reliability",
+    "failureRate": "time > location ? (shape / scale) * Math.pow((time - location) / scale, shape - 1) : 0",
+    "b10Life": "location + scale * Math.pow(-Math.log(0.9), 1 / shape)"
+  },
+  "outputs": {
+    "primary": {
+      "id": "reliability",
+      "label": "Reliability R(t)",
+      "unit": ""
+    },
+    "breakdown": [
+      {
+        "id": "failureProbability",
+        "label": "Failure Probability F(t)",
+        "unit": ""
+      },
+      {
+        "id": "failureRate",
+        "label": "Failure Rate h(t)",
+        "unit": "failures/hour"
+      },
+      {
+        "id": "b10Life",
+        "label": "B10 Life",
+        "unit": "hours"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

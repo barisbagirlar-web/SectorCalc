@@ -1,0 +1,63 @@
+{
+  "toolName": "conduction-calculator",
+  "inputs": [
+    {
+      "id": "thermalConductivity",
+      "label": "Thermal Conductivity",
+      "type": "number",
+      "unit": "W/mK",
+      "default": 0.04,
+      "businessContext": "Thermal conductivity of the material (k) in W/mK."
+    },
+    {
+      "id": "area",
+      "label": "Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 1,
+      "businessContext": "Cross-sectional area perpendicular to heat flow in m²."
+    },
+    {
+      "id": "hotTemp",
+      "label": "Hot Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 100,
+      "businessContext": "Temperature of the hot side in °C."
+    },
+    {
+      "id": "coldTemp",
+      "label": "Cold Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Temperature of the cold side in °C."
+    },
+    {
+      "id": "thickness",
+      "label": "Thickness",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Thickness of the material layer in m."
+    }
+  ],
+  "formulas": {
+    "heatTransferRate": "(thermalConductivity * area * (hotTemp - coldTemp)) / thickness",
+    "thermalResistance": "thickness / (thermalConductivity * area)",
+    "heatFlux": "(thermalConductivity * (hotTemp - coldTemp)) / thickness"
+  },
+  "outputs": {
+    "primary": "heatTransferRate",
+    "breakdown": [
+      "thermalResistance",
+      "heatFlux"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

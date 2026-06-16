@@ -1,0 +1,79 @@
+{
+  "toolName": "battery-backup-calculator",
+  "inputs": [
+    {
+      "id": "loadPower",
+      "label": "Ortalama Yük Gücü",
+      "type": "number",
+      "unit": "W",
+      "default": 100,
+      "businessContext": "Sürekli çalışan cihazların toplam aktif güç tüketimi"
+    },
+    {
+      "id": "systemVoltage",
+      "label": "Akü Bankası Gerilimi",
+      "type": "number",
+      "unit": "V",
+      "default": 12,
+      "businessContext": "Akü grubunun nominal çalışma gerilimi (seri/paralel bağlantı sonucu)"
+    },
+    {
+      "id": "batteryCapacityAh",
+      "label": "Toplam Akü Kapasitesi",
+      "type": "number",
+      "unit": "Ah",
+      "default": 100,
+      "businessContext": "Akü bankasının toplam amper-saat kapasitesi (sadece paralel bağlı aküler için toplam kapasite)"
+    },
+    {
+      "id": "depthOfDischarge",
+      "label": "Deşarj Derinliği (DoD)",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Akü ömrünü korumak için izin verilen maksimum deşarj yüzdesi (ör. kurşun-asit için %50)"
+    },
+    {
+      "id": "inverterEfficiency",
+      "label": "İnverter Verimliliği",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "İnverter veya DC/DC dönüştürücü verimlilik oranı (tipik %85-95)"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Emniyet Katsayısı",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Hesaplamaya eklenen güvenlik marjı (≥1). 1: marjsız, 1.1: %10 yedek kapasite"
+    },
+    {
+      "id": "temperatureDerating",
+      "label": "Sıcaklık Düzeltme Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Düşük sıcaklıklarda kapasite kaybını telafi eden katsayı (≤1). 1: oda sıcaklığı"
+    }
+  ],
+  "formulas": {
+    "totalBatteryEnergyWh": "batteryCapacityAh * systemVoltage * safetyFactor * temperatureDerating",
+    "usableEnergyWh": "totalBatteryEnergyWh * (depthOfDischarge / 100) * (inverterEfficiency / 100)",
+    "estimatedBackupTimeHours": "usableEnergyWh / loadPower"
+  },
+  "outputs": {
+    "primary": "estimatedBackupTimeHours",
+    "breakdown": [
+      "totalBatteryEnergyWh",
+      "usableEnergyWh"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

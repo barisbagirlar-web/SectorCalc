@@ -1,0 +1,59 @@
+{
+  "toolName": "kmh-to-ms-calculator",
+  "inputs": [
+    {
+      "id": "speed_kmh",
+      "label": "Speed Value (km/h)",
+      "type": "number",
+      "unit": "km/h",
+      "default": 0,
+      "businessContext": "User-provided speed in kilometers per hour for conversion."
+    },
+    {
+      "id": "decimal_places",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places to round the output value."
+    },
+    {
+      "id": "conversion_factor",
+      "label": "Conversion Factor (km/h to m/s)",
+      "type": "number",
+      "unit": "m·h / km·s",
+      "default": 3.6,
+      "businessContext": "Standard factor for converting km/h to m/s (1 km/h = 1/3.6 m/s). Fixed."
+    },
+    {
+      "id": "measurement_uncertainty_percent",
+      "label": "Measurement Uncertainty (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0.1,
+      "businessContext": "Estimated percentage uncertainty in the speed measurement for error propagation."
+    }
+  ],
+  "formulas": {
+    "speed_ms_raw": "speed_kmh / conversion_factor",
+    "speed_ms_rounded": "Math.round(speed_ms_raw * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)",
+    "uncertainty": "speed_ms_rounded * measurement_uncertainty_percent / 100",
+    "breakdown_step1": "`Convert km/h to m/s: ${speed_kmh} km/h ÷ ${conversion_factor} = ${speed_ms_raw} m/s`",
+    "breakdown_step2": "`Rounded to ${decimal_places} decimal places: ${speed_ms_rounded} m/s`",
+    "breakdown_step3": "`Measurement uncertainty (${measurement_uncertainty_percent}%): ± ${uncertainty.toFixed(decimal_places)} m/s`"
+  },
+  "outputs": {
+    "primary": "speed_ms_rounded",
+    "breakdown": [
+      "breakdown_step1",
+      "breakdown_step2",
+      "breakdown_step3"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

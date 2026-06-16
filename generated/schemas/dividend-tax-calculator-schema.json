@@ -1,0 +1,68 @@
+{
+  "toolName": "dividend-tax-calculator",
+  "inputs": [
+    {
+      "id": "grossDividend",
+      "label": "Gross Dividend",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "Total dividend received before any taxes or deductions"
+    },
+    {
+      "id": "taxFreeAllowance",
+      "label": "Tax-Free Allowance",
+      "type": "number",
+      "unit": "currency",
+      "default": 2000,
+      "businessContext": "Amount of dividend exempt from taxation"
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Basic tax rate applied to taxable dividends"
+    },
+    {
+      "id": "surchargeRate",
+      "label": "Surcharge Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Additional surcharge on the basic tax amount"
+    },
+    {
+      "id": "cessRate",
+      "label": "Cess Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "businessContext": "Cess levied on the sum of basic tax and surcharge"
+    }
+  ],
+  "formulas": {
+    "taxableDividend": "grossDividend - taxFreeAllowance",
+    "basicTax": "taxableDividend * taxRate / 100",
+    "surcharge": "basicTax * surchargeRate / 100",
+    "cess": "(basicTax + surcharge) * cessRate / 100",
+    "totalTax": "basicTax + surcharge + cess",
+    "netDividend": "grossDividend - totalTax"
+  },
+  "outputs": {
+    "primary": "totalTax",
+    "breakdown": [
+      "basicTax",
+      "surcharge",
+      "cess",
+      "netDividend"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

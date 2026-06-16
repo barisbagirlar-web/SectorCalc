@@ -1,0 +1,83 @@
+{
+  "toolName": "blue-hour-calculator",
+  "inputs": [
+    {
+      "id": "sunrise_time",
+      "label": "Sunrise Time (decimal hours)",
+      "type": "number",
+      "unit": "hours (0-24)",
+      "default": 6.5,
+      "businessContext": "Time of sunrise in decimal hours (e.g., 6.5 = 06:30). Used to compute blue hour start."
+    },
+    {
+      "id": "sunset_time",
+      "label": "Sunset Time (decimal hours)",
+      "type": "number",
+      "unit": "hours (0-24)",
+      "default": 18,
+      "businessContext": "Time of sunset in decimal hours. Used to compute blue hour end."
+    },
+    {
+      "id": "latitude",
+      "label": "Latitude (degrees)",
+      "type": "number",
+      "unit": "°",
+      "default": 40,
+      "businessContext": "Latitude of location in decimal degrees. Affects duration of twilight."
+    },
+    {
+      "id": "longitude",
+      "label": "Longitude (degrees)",
+      "type": "number",
+      "unit": "°",
+      "default": -74,
+      "businessContext": "Longitude of location in decimal degrees. Used for time zone correction."
+    },
+    {
+      "id": "timezone_offset",
+      "label": "Timezone Offset from UTC (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": -5,
+      "businessContext": "Time zone offset relative to UTC. Adjusts solar time to local time."
+    },
+    {
+      "id": "day_of_year",
+      "label": "Day of Year (1-365)",
+      "type": "number",
+      "unit": "days",
+      "default": 172,
+      "businessContext": "Day of the year (1 = Jan 1). Used for solar declination calculation."
+    }
+  ],
+  "formulas": {
+    "solar_declination": "23.45 * Math.sin((360/365) * (day_of_year - 81) * Math.PI / 180)",
+    "hour_angle_sunrise": "Math.acos(-Math.tan(latitude * Math.PI / 180) * Math.tan(solar_declination * Math.PI / 180)) * 180 / Math.PI",
+    "solar_noon": "12 - (longitude / 15) - timezone_offset",
+    "sunrise_solar": "solar_noon - hour_angle_sunrise / 15",
+    "sunset_solar": "solar_noon + hour_angle_sunrise / 15",
+    "blue_hour_morning_start": "sunrise_solar - 0.5",
+    "blue_hour_morning_end": "sunrise_solar",
+    "blue_hour_evening_start": "sunset_solar",
+    "blue_hour_evening_end": "sunset_solar + 0.5",
+    "blue_hour_morning_duration": "blue_hour_morning_end - blue_hour_morning_start",
+    "blue_hour_evening_duration": "blue_hour_evening_end - blue_hour_evening_start"
+  },
+  "outputs": {
+    "primary": "Blue hour morning start: {blue_hour_morning_start} hrs, evening end: {blue_hour_evening_end} hrs",
+    "breakdown": [
+      "Morning blue hour start (local time): {blue_hour_morning_start} hours",
+      "Morning blue hour end (local time): {blue_hour_morning_end} hours",
+      "Evening blue hour start (local time): {blue_hour_evening_start} hours",
+      "Evening blue hour end (local time): {blue_hour_evening_end} hours",
+      "Morning blue hour duration: {blue_hour_morning_duration} hours",
+      "Evening blue hour duration: {blue_hour_evening_duration} hours"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

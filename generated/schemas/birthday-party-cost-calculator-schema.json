@@ -1,0 +1,81 @@
+{
+  "toolName": "birthday-party-cost-calculator",
+  "inputs": [
+    {
+      "id": "numGuests",
+      "label": "Number of Guests",
+      "type": "number",
+      "unit": "guests",
+      "default": 10,
+      "businessContext": "Expected number of attendees at the birthday party."
+    },
+    {
+      "id": "costPerPlate",
+      "label": "Cost per Plate (Food)",
+      "type": "number",
+      "unit": "EUR",
+      "default": 15,
+      "businessContext": "Catering cost per guest for food, including main course and sides."
+    },
+    {
+      "id": "numDrinksPerGuest",
+      "label": "Number of Drinks per Guest",
+      "type": "number",
+      "unit": "drinks/guest",
+      "default": 2,
+      "businessContext": "Estimated average number of beverages consumed per guest."
+    },
+    {
+      "id": "costPerDrink",
+      "label": "Cost per Drink",
+      "type": "number",
+      "unit": "EUR",
+      "default": 5,
+      "businessContext": "Average price per drink (non-alcoholic or alcoholic)."
+    },
+    {
+      "id": "cakeCost",
+      "label": "Cake Cost",
+      "type": "number",
+      "unit": "EUR",
+      "default": 50,
+      "businessContext": "Total cost of the birthday cake, including any custom decorations."
+    },
+    {
+      "id": "decorationCost",
+      "label": "Decoration Cost",
+      "type": "number",
+      "unit": "EUR",
+      "default": 30,
+      "businessContext": "Cost of balloons, banners, tableware, and other decorative items."
+    },
+    {
+      "id": "venueRentalCost",
+      "label": "Venue Rental Cost",
+      "type": "number",
+      "unit": "EUR",
+      "default": 100,
+      "businessContext": "Flat fee for renting the party venue (if applicable)."
+    }
+  ],
+  "formulas": {
+    "totalFoodCost": "numGuests * costPerPlate",
+    "totalDrinkCost": "numGuests * numDrinksPerGuest * costPerDrink",
+    "totalPartyCost": "totalFoodCost + totalDrinkCost + cakeCost + decorationCost + venueRentalCost",
+    "costPerGuest": "totalPartyCost / numGuests"
+  },
+  "outputs": {
+    "primary": "costPerGuest",
+    "breakdown": [
+      "totalPartyCost",
+      "totalFoodCost",
+      "totalDrinkCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

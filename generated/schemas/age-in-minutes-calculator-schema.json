@@ -1,0 +1,68 @@
+{
+  "toolName": "age-in-minutes-calculator",
+  "inputs": [
+    {
+      "id": "years",
+      "label": "Years",
+      "type": "number",
+      "unit": "years",
+      "default": 0,
+      "businessContext": "Whole years of age"
+    },
+    {
+      "id": "months",
+      "label": "Months",
+      "type": "number",
+      "unit": "months",
+      "default": 0,
+      "businessContext": "Additional months of age"
+    },
+    {
+      "id": "days",
+      "label": "Days",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Additional days of age"
+    },
+    {
+      "id": "hours",
+      "label": "Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 0,
+      "businessContext": "Additional hours of age"
+    },
+    {
+      "id": "minutes",
+      "label": "Minutes",
+      "type": "number",
+      "unit": "minutes",
+      "default": 0,
+      "businessContext": "Additional minutes of age"
+    }
+  ],
+  "formulas": {
+    "yearsInMinutes": "years * 365.25 * 24 * 60",
+    "monthsInMinutes": "months * 30.44 * 24 * 60",
+    "daysInMinutes": "days * 24 * 60",
+    "hoursInMinutes": "hours * 60",
+    "totalMinutes": "yearsInMinutes + monthsInMinutes + daysInMinutes + hoursInMinutes + minutes"
+  },
+  "outputs": {
+    "primary": "totalMinutes",
+    "breakdown": [
+      "yearsInMinutes",
+      "monthsInMinutes",
+      "daysInMinutes",
+      "hoursInMinutes",
+      "minutes"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

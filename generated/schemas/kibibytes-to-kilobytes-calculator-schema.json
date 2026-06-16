@@ -1,0 +1,57 @@
+{
+  "toolName": "kibibytes-to-kilobytes-calculator",
+  "inputs": [
+    {
+      "id": "kibibytes",
+      "label": "Kibibytes",
+      "type": "number",
+      "unit": "KiB",
+      "default": 1,
+      "businessContext": "Amount of data in kibibytes (binary) to be converted"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding the final result"
+    },
+    {
+      "id": "redundancyFactor",
+      "label": "Redundancy factor",
+      "type": "number",
+      "unit": "×",
+      "default": 1,
+      "businessContext": "Multiplier for storage redundancy (e.g., RAID, replication)"
+    },
+    {
+      "id": "overheadPercent",
+      "label": "Overhead percent",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Additional overhead percentage for filesystem metadata or provisioning"
+    }
+  ],
+  "formulas": {
+    "rawKilobytes": "kibibytes * 1.024",
+    "withOverhead": "rawKilobytes * (1 + overheadPercent / 100)",
+    "withRedundancy": "withOverhead * redundancyFactor",
+    "finalKilobytes": "Math.round(withRedundancy * 10**decimalPlaces) / 10**decimalPlaces"
+  },
+  "outputs": {
+    "primary": "finalKilobytes",
+    "breakdown": [
+      "rawKilobytes",
+      "withOverhead",
+      "withRedundancy"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

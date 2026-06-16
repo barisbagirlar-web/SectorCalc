@@ -1,0 +1,93 @@
+{
+  "toolName": "visa-requirements",
+  "inputs": [
+    {
+      "id": "applicantAge",
+      "label": "Applicant Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the visa applicant"
+    },
+    {
+      "id": "passportValidity",
+      "label": "Passport Validity",
+      "type": "number",
+      "unit": "months",
+      "default": 60,
+      "businessContext": "Remaining validity of passport in months"
+    },
+    {
+      "id": "previousVisas",
+      "label": "Number of Previous Visas",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Number of visas held in the past 5 years"
+    },
+    {
+      "id": "travelHistoryScore",
+      "label": "Travel History Score",
+      "type": "number",
+      "unit": "points",
+      "default": 50,
+      "businessContext": "Score based on travel history (0-100)"
+    },
+    {
+      "id": "financialStability",
+      "label": "Financial Stability Score",
+      "type": "number",
+      "unit": "points",
+      "default": 70,
+      "businessContext": "Score based on financial stability (0-100)"
+    },
+    {
+      "id": "employmentStatus",
+      "label": "Employment Status Score",
+      "type": "number",
+      "unit": "points",
+      "default": 80,
+      "businessContext": "Score based on employment status (0-100)"
+    },
+    {
+      "id": "purposeOfVisit",
+      "label": "Purpose of Visit Score",
+      "type": "number",
+      "unit": "points",
+      "default": 60,
+      "businessContext": "Score based on purpose of visit (0-100)"
+    },
+    {
+      "id": "applicationCompleteness",
+      "label": "Application Completeness Score",
+      "type": "number",
+      "unit": "points",
+      "default": 90,
+      "businessContext": "Score based on completeness of application (0-100)"
+    }
+  ],
+  "formulas": {
+    "baseScore": "(travelHistoryScore * 0.2 + financialStability * 0.25 + employmentStatus * 0.2 + purposeOfVisit * 0.15 + applicationCompleteness * 0.2)",
+    "ageFactor": "Math.max(0, 1 - Math.abs(applicantAge - 35) / 50)",
+    "passportFactor": "Math.min(1, passportValidity / 60)",
+    "previousVisasFactor": "Math.min(1, previousVisas / 5)",
+    "visaScore": "baseScore * ageFactor * passportFactor * (1 + previousVisasFactor * 0.1)",
+    "approvalProbability": "Math.min(100, Math.max(0, visaScore))"
+  },
+  "outputs": {
+    "primary": "approvalProbability",
+    "breakdown": [
+      "baseScore",
+      "ageFactor",
+      "passportFactor",
+      "previousVisasFactor",
+      "visaScore"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

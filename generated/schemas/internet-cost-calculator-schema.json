@@ -1,0 +1,77 @@
+{
+  "toolName": "internet-cost-calculator",
+  "inputs": [
+    {
+      "id": "monthlyBaseFee",
+      "label": "Aylık Temel Ücret",
+      "type": "number",
+      "unit": "TL",
+      "default": 50,
+      "businessContext": "Aylık sabit internet ücreti"
+    },
+    {
+      "id": "dataCap",
+      "label": "Veri Kotası",
+      "type": "number",
+      "unit": "GB",
+      "default": 100,
+      "businessContext": "Aylık veri kullanım sınırı"
+    },
+    {
+      "id": "overageRate",
+      "label": "Aşım Ücreti (GB başına)",
+      "type": "number",
+      "unit": "TL/GB",
+      "default": 2,
+      "businessContext": "Kota aşımında GB başına ek ücret"
+    },
+    {
+      "id": "usage",
+      "label": "Kullanım Miktarı",
+      "type": "number",
+      "unit": "GB",
+      "default": 120,
+      "businessContext": "Gerçekleşen aylık veri kullanımı"
+    },
+    {
+      "id": "discountPercent",
+      "label": "Taahhüt İndirimi",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Sözleşme süresine bağlı yüzde indirim"
+    },
+    {
+      "id": "taxRate",
+      "label": "Vergi Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "businessContext": "Uygulanan vergi yüzdesi"
+    }
+  ],
+  "formulas": {
+    "temelUcret": "monthlyBaseFee",
+    "kotaAsimUcreti": "Math.max(0, usage - dataCap) * overageRate",
+    "araToplam": "temelUcret + kotaAsimUcreti",
+    "indirimTutari": "araToplam * (discountPercent / 100)",
+    "indirimliToplam": "araToplam - indirimTutari",
+    "vergiTutari": "indirimliToplam * (taxRate / 100)",
+    "toplamAylik": "indirimliToplam + vergiTutari"
+  },
+  "outputs": {
+    "primary": "toplamAylik",
+    "breakdown": [
+      "temelUcret",
+      "kotaAsimUcreti",
+      "indirimTutari",
+      "vergiTutari"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

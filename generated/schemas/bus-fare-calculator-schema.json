@@ -1,0 +1,55 @@
+{
+  "toolName": "bus-fare-calculator",
+  "inputs": [
+    {
+      "id": "baseFarePerKm",
+      "label": "Base Fare per Km",
+      "type": "number",
+      "unit": "USD/km",
+      "default": 0.5,
+      "businessContext": "The fixed cost per kilometer for the bus service."
+    },
+    {
+      "id": "distanceKm",
+      "label": "Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "Total travel distance in kilometers."
+    },
+    {
+      "id": "numberOfPassengers",
+      "label": "Number of Passengers",
+      "type": "number",
+      "unit": "passengers",
+      "default": 1,
+      "businessContext": "Total number of passengers traveling."
+    },
+    {
+      "id": "discountPercent",
+      "label": "Discount Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage discount applied to the total fare, e.g., for group travels or promotions."
+    }
+  ],
+  "formulas": {
+    "totalBeforeDiscount": "baseFarePerKm * distanceKm * numberOfPassengers",
+    "discountAmount": "totalBeforeDiscount * (discountPercent / 100)",
+    "totalFare": "totalBeforeDiscount - discountAmount"
+  },
+  "outputs": {
+    "primary": "totalFare",
+    "breakdown": [
+      "totalBeforeDiscount",
+      "discountAmount"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

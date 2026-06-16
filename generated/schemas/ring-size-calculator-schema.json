@@ -1,0 +1,66 @@
+{
+  "toolName": "ring-size-calculator",
+  "inputs": [
+    {
+      "id": "diameter_mm",
+      "label": "Inside Diameter (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "The inner diameter of the ring in millimeters."
+    },
+    {
+      "id": "circumference_mm",
+      "label": "Inside Circumference (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "The inner circumference of the ring in millimeters."
+    },
+    {
+      "id": "diameter_inches",
+      "label": "Inside Diameter (inches)",
+      "type": "number",
+      "unit": "inches",
+      "default": 0,
+      "businessContext": "The inner diameter of the ring in inches."
+    },
+    {
+      "id": "circumference_inches",
+      "label": "Inside Circumference (inches)",
+      "type": "number",
+      "unit": "inches",
+      "default": 0,
+      "businessContext": "The inner circumference of the ring in inches."
+    },
+    {
+      "id": "calibration_factor",
+      "label": "Calibration Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "A multiplier to adjust the calculated size (e.g., for different temperature or manufacturing tolerance)."
+    }
+  ],
+  "formulas": {
+    "diameter_inches_used": "diameter_inches > 0 ? diameter_inches : (circumference_inches > 0 ? circumference_inches / Math.PI : (diameter_mm > 0 ? diameter_mm / 25.4 : (circumference_mm > 0 ? (circumference_mm / 25.4) / Math.PI : 0)))",
+    "us_size": "(diameter_inches_used - 0.562) / 0.087",
+    "eu_size": "(diameter_inches_used * Math.PI * 25.4) - 40",
+    "circumference_mm_used": "diameter_inches_used * Math.PI * 25.4"
+  },
+  "outputs": {
+    "primary": "us_size",
+    "breakdown": [
+      "us_size",
+      "eu_size",
+      "circumference_mm_used",
+      "diameter_inches_used"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Atölye & Tamir",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

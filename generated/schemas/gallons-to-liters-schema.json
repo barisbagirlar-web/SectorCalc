@@ -1,0 +1,37 @@
+{
+  "toolName": "gallons-to-liters",
+  "inputs": [
+    {
+      "id": "gallons",
+      "label": "Gallons (US)",
+      "type": "number",
+      "unit": "gal",
+      "default": 1,
+      "businessContext": "Volume in US gallons to be converted to liters."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "digits",
+      "default": 2,
+      "businessContext": "Number of decimal places for the result."
+    }
+  ],
+  "formulas": {
+    "liters": "gallons * 3.785411784",
+    "roundedLiters": "Math.round(liters * 10 ** precision) / (10 ** precision)"
+  },
+  "outputs": {
+    "primary": "roundedLiters",
+    "breakdown": [
+      "liters"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

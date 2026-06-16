@@ -1,0 +1,78 @@
+{
+  "toolName": "espp-calculator",
+  "inputs": [
+    {
+      "id": "fmv",
+      "label": "Fair Market Value per Share",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "Current market price per share at purchase date"
+    },
+    {
+      "id": "discountRate",
+      "label": "ESPP Discount",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Discount percentage offered by the plan (e.g., 15 means 15% off FMV)"
+    },
+    {
+      "id": "numberOfShares",
+      "label": "Number of Shares Purchased",
+      "type": "number",
+      "unit": "shares",
+      "default": 100,
+      "businessContext": "Total number of shares bought through the ESPP"
+    },
+    {
+      "id": "holdingPeriodMonths",
+      "label": "Holding Period in Months",
+      "type": "number",
+      "unit": "months",
+      "default": 0,
+      "businessContext": "Number of months held before selling; 0 for immediate sale"
+    },
+    {
+      "id": "ordinaryIncomeTaxRate",
+      "label": "Ordinary Income Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 22,
+      "businessContext": "Applicable marginal tax rate for ordinary income"
+    },
+    {
+      "id": "capitalGainsTaxRate",
+      "label": "Long-Term Capital Gains Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Tax rate for long-term capital gains (if holding period > 12 months)"
+    }
+  ],
+  "formulas": {
+    "purchasePricePerShare": "fmv * (1 - discountRate / 100)",
+    "totalCost": "purchasePricePerShare * numberOfShares",
+    "immediateMarketValue": "fmv * numberOfShares",
+    "immediateGain": "immediateMarketValue - totalCost",
+    "taxIfSoldImmediately": "immediateGain * (holdingPeriodMonths === 0 ? ordinaryIncomeTaxRate : capitalGainsTaxRate) / 100",
+    "afterTaxGain": "immediateGain - taxIfSoldImmediately",
+    "effectiveDiscount": "(immediateGain / totalCost) * 100"
+  },
+  "outputs": {
+    "primary": "afterTaxGain",
+    "breakdown": [
+      "totalCost",
+      "immediateMarketValue",
+      "immediateGain",
+      "taxIfSoldImmediately",
+      "effectiveDiscount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

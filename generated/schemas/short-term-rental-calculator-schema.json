@@ -1,0 +1,78 @@
+{
+  "toolName": "short-term-rental-calculator",
+  "inputs": [
+    {
+      "id": "nightlyRate",
+      "label": "Nightly Rate",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Daily rental price of the property"
+    },
+    {
+      "id": "numberOfNights",
+      "label": "Number of Nights",
+      "type": "number",
+      "unit": "nights",
+      "default": 1,
+      "businessContext": "Length of stay in nights"
+    },
+    {
+      "id": "cleaningFee",
+      "label": "Cleaning Fee",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "One-time fee for cleaning services"
+    },
+    {
+      "id": "serviceFeePercent",
+      "label": "Service Fee (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage of base amount charged as service fee"
+    },
+    {
+      "id": "occupancyTaxPercent",
+      "label": "Occupancy Tax (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Local tax percentage on rental subtotal"
+    },
+    {
+      "id": "discountPercent",
+      "label": "Discount (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Discount percentage applied to base amount"
+    }
+  ],
+  "formulas": {
+    "baseAmount": "nightlyRate * numberOfNights",
+    "serviceFee": "baseAmount * serviceFeePercent / 100",
+    "discountAmount": "baseAmount * discountPercent / 100",
+    "subtotal": "baseAmount + cleaningFee + serviceFee - discountAmount",
+    "taxAmount": "subtotal * occupancyTaxPercent / 100",
+    "totalAmount": "subtotal + taxAmount"
+  },
+  "outputs": {
+    "primary": "totalAmount",
+    "breakdown": [
+      "baseAmount",
+      "serviceFee",
+      "cleaningFee",
+      "discountAmount",
+      "subtotal",
+      "taxAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

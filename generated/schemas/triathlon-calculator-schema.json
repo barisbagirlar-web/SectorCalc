@@ -1,0 +1,73 @@
+{
+  "toolName": "triathlon-calculator",
+  "inputs": [
+    {
+      "id": "swimDistance",
+      "label": "Swim Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 1500,
+      "businessContext": "Total swimming distance in meters"
+    },
+    {
+      "id": "bikeDistance",
+      "label": "Bike Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 40,
+      "businessContext": "Total cycling distance in kilometers"
+    },
+    {
+      "id": "runDistance",
+      "label": "Run Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "Total running distance in kilometers"
+    },
+    {
+      "id": "swimPace",
+      "label": "Swim Pace",
+      "type": "number",
+      "unit": "min/100m",
+      "default": 2,
+      "businessContext": "Average swimming time per 100 meters in minutes"
+    },
+    {
+      "id": "bikeSpeed",
+      "label": "Bike Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 30,
+      "businessContext": "Average cycling speed in kilometers per hour"
+    },
+    {
+      "id": "runPace",
+      "label": "Run Pace",
+      "type": "number",
+      "unit": "min/km",
+      "default": 5,
+      "businessContext": "Average running time per kilometer in minutes"
+    }
+  ],
+  "formulas": {
+    "swimTime": "return (inputs.swimDistance / 100) * inputs.swimPace;",
+    "bikeTime": "return (inputs.bikeDistance / inputs.bikeSpeed) * 60;",
+    "runTime": "return inputs.runDistance * inputs.runPace;",
+    "totalTime": "var swim = (inputs.swimDistance / 100) * inputs.swimPace; var bike = (inputs.bikeDistance / inputs.bikeSpeed) * 60; var run = inputs.runDistance * inputs.runPace; var totalMin = swim + bike + run; var h = Math.floor(totalMin / 60); var m = Math.floor(totalMin % 60); var s = Math.round(totalMin % 1 * 60); if (s === 60) { m++; s = 0; } if (m === 60) { h++; m = 0; } return h + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');"
+  },
+  "outputs": {
+    "primary": "totalTime",
+    "breakdown": [
+      "swimTime",
+      "bikeTime",
+      "runTime"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

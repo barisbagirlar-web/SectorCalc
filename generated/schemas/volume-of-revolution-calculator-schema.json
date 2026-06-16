@@ -1,0 +1,55 @@
+{
+  "toolName": "volume-of-revolution-calculator",
+  "inputs": [
+    {
+      "id": "lowerBound",
+      "label": "Lower Bound (a)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Start of interval for x-axis revolution"
+    },
+    {
+      "id": "upperBound",
+      "label": "Upper Bound (b)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "End of interval for x-axis revolution"
+    },
+    {
+      "id": "slope",
+      "label": "Slope (m)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Slope of linear generating function f(x)=mx+c"
+    },
+    {
+      "id": "intercept",
+      "label": "Intercept (c)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Intercept of linear generating function"
+    }
+  ],
+  "formulas": {
+    "integralOfF2": "(slope**2 * (upperBound**3 - lowerBound**3) / 3) + (slope * intercept * (upperBound**2 - lowerBound**2)) + (intercept**2 * (upperBound - lowerBound))",
+    "volume": "Math.PI * integralOfF2",
+    "volumeSteps": "'π × (' + integralOfF2 + ')'"
+  },
+  "outputs": {
+    "primary": "volume",
+    "breakdown": [
+      "integralOfF2",
+      "volumeSteps"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

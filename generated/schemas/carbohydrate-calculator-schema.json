@@ -1,0 +1,71 @@
+{
+  "toolName": "carbohydrate-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Ağırlık",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Vücut ağırlığı"
+    },
+    {
+      "id": "height",
+      "label": "Boy",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Boy uzunluğu"
+    },
+    {
+      "id": "age",
+      "label": "Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 30,
+      "businessContext": "Yaşınız"
+    },
+    {
+      "id": "gender",
+      "label": "Cinsiyet",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Cinsiyet (1:Erkek, 0:Kadın)"
+    },
+    {
+      "id": "activityLevel",
+      "label": "Aktivite Seviyesi",
+      "type": "number",
+      "unit": "PAL",
+      "default": 1.55,
+      "businessContext": "Fiziksel aktivite düzeyi faktörü (1.2-2.5)"
+    },
+    {
+      "id": "carbPercentage",
+      "label": "Karbonhidrat Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Günlük kaloride karbonhidrat yüzdesi"
+    }
+  ],
+  "formulas": {
+    "bmr": "gender * (10*weight + 6.25*height - 5*age + 5) + (1 - gender) * (10*weight + 6.25*height - 5*age - 161)",
+    "tdee": "bmr * activityLevel",
+    "carbCalories": "tdee * carbPercentage / 100",
+    "dailyCarbs": "carbCalories / 4"
+  },
+  "outputs": {
+    "primary": "dailyCarbs",
+    "breakdown": [
+      "bmr",
+      "tdee",
+      "carbCalories",
+      "dailyCarbs"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false
+}

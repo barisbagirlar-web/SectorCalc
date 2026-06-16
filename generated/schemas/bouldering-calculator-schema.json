@@ -1,0 +1,67 @@
+{
+  "toolName": "bouldering-calculator",
+  "inputs": [
+    {
+      "id": "bodyMass",
+      "label": "Body Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Total mass of the climber including gear"
+    },
+    {
+      "id": "fallHeight",
+      "label": "Fall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Vertical drop from climber's feet to pad surface"
+    },
+    {
+      "id": "matThickness",
+      "label": "Mat Thickness",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Crash pad thickness"
+    },
+    {
+      "id": "matStiffness",
+      "label": "Mat Stiffness",
+      "type": "number",
+      "unit": "kN/m",
+      "default": 50,
+      "businessContext": "Overall pad stiffness (typical 20-100 kN/m)"
+    },
+    {
+      "id": "g",
+      "label": "Gravity",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Acceleration due to gravity"
+    }
+  ],
+  "formulas": {
+    "matThicknessM": "matThickness / 100",
+    "matStiffnessNm": "matStiffness * 1000",
+    "mg": "bodyMass * g",
+    "discriminant": "Math.sqrt(mg**2 + 2 * mg * matStiffnessNm * fallHeight)",
+    "matCompression": "(mg + discriminant) / matStiffnessNm",
+    "maxForce": "matStiffnessNm * matCompression"
+  },
+  "outputs": {
+    "primary": "maxForce / 1000",
+    "breakdown": [
+      "matCompression * 100",
+      "(maxForce - mg) / (bodyMass * g)",
+      "12000 / maxForce"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,69 @@
+{
+  "toolName": "extension-spring-calculator",
+  "inputs": [
+    {
+      "id": "wireDiameter",
+      "label": "Wire Diameter (d)",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "businessContext": "Spring wire diameter"
+    },
+    {
+      "id": "outerDiameter",
+      "label": "Outer Diameter (OD)",
+      "type": "number",
+      "unit": "mm",
+      "default": 20,
+      "businessContext": "Outer diameter of coil"
+    },
+    {
+      "id": "totalCoils",
+      "label": "Total Coils (Nt)",
+      "type": "number",
+      "unit": "",
+      "default": 15,
+      "businessContext": "Total number of coils including end hooks"
+    },
+    {
+      "id": "shearModulus",
+      "label": "Shear Modulus (G)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 79000,
+      "businessContext": "Material shear modulus (steel ≈ 79000 MPa)"
+    },
+    {
+      "id": "allowableStress",
+      "label": "Allowable Shear Stress",
+      "type": "number",
+      "unit": "MPa",
+      "default": 600,
+      "businessContext": "Maximum permissible torsional shear stress"
+    }
+  ],
+  "formulas": {
+    "meanDiameter": "outerDiameter - wireDiameter",
+    "springIndex": "meanDiameter / wireDiameter",
+    "activeCoils": "totalCoils - 2",
+    "wahlFactor": "(4*springIndex - 1) / (4*springIndex - 4) + 0.615 / springIndex",
+    "springRate": "(shearModulus * Math.pow(wireDiameter, 4)) / (8 * Math.pow(meanDiameter, 3) * activeCoils)",
+    "maxLoad": "(allowableStress * Math.PI * Math.pow(wireDiameter, 3)) / (8 * meanDiameter * wahlFactor)"
+  },
+  "outputs": {
+    "primary": "springRate",
+    "breakdown": [
+      "meanDiameter",
+      "springIndex",
+      "activeCoils",
+      "wahlFactor",
+      "maxLoad"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

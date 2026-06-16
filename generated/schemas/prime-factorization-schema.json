@@ -1,0 +1,41 @@
+{
+  "toolName": "prime-factorization",
+  "inputs": [
+    {
+      "id": "number",
+      "label": "Number to Factorize",
+      "type": "number",
+      "unit": "",
+      "default": 60,
+      "businessContext": "The integer to be decomposed into prime factors."
+    },
+    {
+      "id": "maxIterations",
+      "label": "Max Iterations",
+      "type": "number",
+      "unit": "",
+      "default": 10000,
+      "businessContext": "Safety limit to prevent infinite loops for large numbers."
+    }
+  ],
+  "formulas": {
+    "primeFactors": "function primeFactors(n) { let factors = []; let d = 2; while (n > 1 && d <= Math.sqrt(n) + 1) { while (n % d === 0) { factors.push(d); n = n / d; } d++; } if (n > 1) factors.push(n); return factors; }",
+    "exponentForm": "function exponentForm(factors) { let map = {}; factors.forEach(f => map[f] = (map[f] || 0) + 1); return Object.entries(map).map(([p, e]) => p + (e > 1 ? '^' + e : '')).join(' × '); }",
+    "isPrime": "function isPrime(num) { if (num < 2) return false; for (let i = 2; i <= Math.sqrt(num); i++) { if (num % i === 0) return false; } return true; }"
+  },
+  "outputs": {
+    "primary": "Prime factorization of {number} is {exponentForm}",
+    "breakdown": [
+      "Prime factors: {primeFactors}",
+      "Number of distinct primes: {distinctCount}",
+      "Total number of prime factors (with multiplicity): {totalCount}",
+      "Is the original number prime? {isPrime}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

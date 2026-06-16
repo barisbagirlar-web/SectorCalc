@@ -1,0 +1,55 @@
+{
+  "toolName": "fortnights-to-days-calculator",
+  "inputs": [
+    {
+      "id": "fortnights",
+      "label": "Fortnights",
+      "type": "number",
+      "unit": "pt",
+      "default": 1,
+      "businessContext": "Number of fortnights to convert"
+    },
+    {
+      "id": "daysPerFortnight",
+      "label": "Days per Fortnight",
+      "type": "number",
+      "unit": "days/fortnight",
+      "default": 14,
+      "businessContext": "Conversion factor, standard 14 days per fortnight"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounded output"
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "items",
+      "default": 1,
+      "businessContext": "Multiplier for bulk conversions (e.g., number of projects)"
+    }
+  ],
+  "formulas": {
+    "totalDays": "Math.round(fortnights * daysPerFortnight * batchSize * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "rawDays": "fortnights * daysPerFortnight",
+    "batchTotal": "fortnights * daysPerFortnight * batchSize"
+  },
+  "outputs": {
+    "primary": "totalDays",
+    "breakdown": [
+      "rawDays",
+      "batchTotal"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

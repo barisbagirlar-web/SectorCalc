@@ -1,0 +1,66 @@
+{
+  "toolName": "gibbs-free-energy-calculator",
+  "inputs": [
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 298.15,
+      "businessContext": "Temperature in Kelvin"
+    },
+    {
+      "id": "gasConstant",
+      "label": "Gas Constant",
+      "type": "number",
+      "unit": "kJ/(mol·K)",
+      "default": 0.008314,
+      "businessContext": "Ideal gas constant (default 0.008314 kJ/(mol·K))"
+    },
+    {
+      "id": "standardDeltaG",
+      "label": "Standard ΔG°",
+      "type": "number",
+      "unit": "kJ/mol",
+      "default": 0,
+      "businessContext": "Standard Gibbs free energy change of reaction (ΔG°) in kJ/mol"
+    },
+    {
+      "id": "reactionQuotient",
+      "label": "Reaction Quotient",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Reaction quotient Q (dimensionless)"
+    }
+  ],
+  "formulas": {
+    "deltaG": "standardDeltaG + gasConstant * temperature * Math.log(reactionQuotient)",
+    "rtlnQ": "gasConstant * temperature * Math.log(reactionQuotient)"
+  },
+  "outputs": {
+    "primary": {
+      "id": "deltaG",
+      "label": "Gibbs Free Energy Change",
+      "unit": "kJ/mol"
+    },
+    "breakdown": [
+      {
+        "id": "standardDeltaG",
+        "label": "Standard ΔG°",
+        "unit": "kJ/mol"
+      },
+      {
+        "id": "rtlnQ",
+        "label": "RT ln Q",
+        "unit": "kJ/mol"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "hcg-calculator",
+  "inputs": [
+    {
+      "id": "hcg_level",
+      "label": "HCG Level (mIU/mL)",
+      "type": "number",
+      "unit": "mIU/mL",
+      "default": 100,
+      "businessContext": "Current HCG concentration in blood or urine sample"
+    },
+    {
+      "id": "doubling_time_hours",
+      "label": "Doubling Time (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 48,
+      "businessContext": "Expected time for HCG level to double in early pregnancy"
+    },
+    {
+      "id": "time_elapsed_hours",
+      "label": "Time Elapsed (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 24,
+      "businessContext": "Time interval since the last measurement"
+    },
+    {
+      "id": "initial_hcg",
+      "label": "Initial HCG Level (mIU/mL)",
+      "type": "number",
+      "unit": "mIU/mL",
+      "default": 50,
+      "businessContext": "Previous HCG measurement for comparison"
+    }
+  ],
+  "formulas": {
+    "projected_hcg": "hcg_level * Math.pow(2, time_elapsed_hours / doubling_time_hours)",
+    "doubling_time_actual": "time_elapsed_hours * Math.log(2) / Math.log(hcg_level / initial_hcg)",
+    "hcg_ratio": "hcg_level / initial_hcg",
+    "percent_increase": "(hcg_level - initial_hcg) / initial_hcg * 100"
+  },
+  "outputs": {
+    "primary": "projected_hcg",
+    "breakdown": [
+      "doubling_time_actual",
+      "hcg_ratio",
+      "percent_increase"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

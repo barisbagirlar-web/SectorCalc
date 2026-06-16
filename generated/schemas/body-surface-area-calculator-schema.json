@@ -1,0 +1,55 @@
+{
+  "toolName": "body-surface-area-calculator",
+  "inputs": [
+    {
+      "id": "weight_kg",
+      "label": "Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Enter body weight in kilograms. If not available, use weight in pounds instead."
+    },
+    {
+      "id": "height_cm",
+      "label": "Height (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Enter body height in centimeters. If not available, use height in inches instead."
+    },
+    {
+      "id": "weight_lb",
+      "label": "Weight (lb)",
+      "type": "number",
+      "unit": "lb",
+      "default": 154,
+      "businessContext": "Alternative: enter body weight in pounds. Ignored if weight in kg is provided."
+    },
+    {
+      "id": "height_in",
+      "label": "Height (in)",
+      "type": "number",
+      "unit": "in",
+      "default": 67,
+      "businessContext": "Alternative: enter body height in inches. Ignored if height in cm is provided."
+    }
+  ],
+  "formulas": {
+    "bsa_dubois_m2": "0.007184 * Math.pow((weight_kg > 0 ? weight_kg : weight_lb * 0.453592), 0.425) * Math.pow((height_cm > 0 ? height_cm : height_in * 2.54), 0.725)",
+    "bsa_mosteller_m2": "Math.sqrt(((weight_kg > 0 ? weight_kg : weight_lb * 0.453592) * (height_cm > 0 ? height_cm : height_in * 2.54)) / 3600)",
+    "bsa_dubois_ft2": "0.007184 * Math.pow((weight_kg > 0 ? weight_kg : weight_lb * 0.453592), 0.425) * Math.pow((height_cm > 0 ? height_cm : height_in * 2.54), 0.725) * 10.7639"
+  },
+  "outputs": {
+    "primary": "bsa_dubois_m2",
+    "breakdown": [
+      "bsa_mosteller_m2",
+      "bsa_dubois_ft2"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

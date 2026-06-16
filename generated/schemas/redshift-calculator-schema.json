@@ -1,0 +1,55 @@
+{
+  "toolName": "redshift-calculator",
+  "inputs": [
+    {
+      "id": "observedWavelength",
+      "label": "Observed Wavelength",
+      "type": "number",
+      "unit": "nm",
+      "default": 656.3,
+      "businessContext": "Measured wavelength of the spectral line from the astronomical source"
+    },
+    {
+      "id": "emittedWavelength",
+      "label": "Emitted Wavelength",
+      "type": "number",
+      "unit": "nm",
+      "default": 656.3,
+      "businessContext": "Rest wavelength of the same spectral line (e.g., Hα = 656.3 nm)"
+    },
+    {
+      "id": "z",
+      "label": "Redshift (z)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Direct redshift input; if non-zero, overrides wavelength-based calculation"
+    },
+    {
+      "id": "hubbleConstant",
+      "label": "Hubble Constant (H₀)",
+      "type": "number",
+      "unit": "km/s/Mpc",
+      "default": 70,
+      "businessContext": "Hubble constant value in km/s per Megaparsec"
+    }
+  ],
+  "formulas": {
+    "redshift": "(z !== undefined && z !== 0) ? z : (observedWavelength - emittedWavelength) / emittedWavelength",
+    "velocity": "((z !== undefined && z !== 0) ? z : (observedWavelength - emittedWavelength) / emittedWavelength) * 299792.458",
+    "distance": "(((z !== undefined && z !== 0) ? z : (observedWavelength - emittedWavelength) / emittedWavelength) * 299792.458) / hubbleConstant"
+  },
+  "outputs": {
+    "primary": "distance",
+    "breakdown": [
+      "redshift",
+      "velocity"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,58 @@
+{
+  "toolName": "skiing-calculator",
+  "inputs": [
+    {
+      "id": "verticalDrop",
+      "label": "Vertical Drop",
+      "type": "number",
+      "unit": "m",
+      "default": 300,
+      "businessContext": "Height difference between start and end of ski slope in meters"
+    },
+    {
+      "id": "horizontalDistance",
+      "label": "Horizontal Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 1000,
+      "businessContext": "Horizontal length of the ski slope in meters"
+    },
+    {
+      "id": "frictionCoeff",
+      "label": "Friction Coefficient",
+      "type": "number",
+      "unit": "",
+      "default": 0.05,
+      "businessContext": "Snow friction coefficient (0.02-0.1), depending on snow conditions"
+    },
+    {
+      "id": "initialSpeed",
+      "label": "Initial Speed",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Initial speed at start of slope in meters per second"
+    }
+  ],
+  "formulas": {
+    "slopeAngle": "Math.atan(verticalDrop / horizontalDistance)",
+    "slopeDistance": "Math.sqrt(verticalDrop**2 + horizontalDistance**2)",
+    "acceleration": "9.81 * (Math.sin(slopeAngle) - frictionCoeff * Math.cos(slopeAngle))",
+    "finalSpeed": "Math.sqrt(Math.max(0, initialSpeed**2 + 2 * acceleration * slopeDistance))",
+    "time": "acceleration > 0 ? (finalSpeed - initialSpeed) / acceleration : Infinity"
+  },
+  "outputs": {
+    "primary": "finalSpeed",
+    "breakdown": [
+      "acceleration",
+      "slopeDistance",
+      "time"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

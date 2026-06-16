@@ -1,0 +1,69 @@
+{
+  "toolName": "hyperbola-equation-calculator",
+  "inputs": [
+    {
+      "id": "h",
+      "label": "Center X (h)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Horizontal coordinate of the hyperbola center."
+    },
+    {
+      "id": "k",
+      "label": "Center Y (k)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Vertical coordinate of the hyperbola center."
+    },
+    {
+      "id": "a",
+      "label": "Semi-Major Axis (a)",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Distance from center to vertex along transverse axis."
+    },
+    {
+      "id": "b",
+      "label": "Semi-Minor Axis (b)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Distance related to asymptote slope, perpendicular to a."
+    },
+    {
+      "id": "orientation",
+      "label": "Transverse Axis",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Direction of transverse axis: 0 for horizontal, 1 for vertical."
+    }
+  ],
+  "formulas": {
+    "c": "Math.sqrt(a**2 + b**2)",
+    "e": "c / a",
+    "foci1_x": "orientation == 1 ? h : h - c",
+    "foci1_y": "orientation == 1 ? k - c : k",
+    "foci2_x": "orientation == 1 ? h : h + c",
+    "foci2_y": "orientation == 1 ? k + c : k"
+  },
+  "outputs": {
+    "primary": "e",
+    "breakdown": [
+      "c",
+      "foci1_x",
+      "foci1_y",
+      "foci2_x",
+      "foci2_y"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

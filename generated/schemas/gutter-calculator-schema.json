@@ -1,0 +1,95 @@
+{
+  "toolName": "gutter-calculator",
+  "inputs": [
+    {
+      "id": "roofArea",
+      "label": "Roof Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "businessContext": "Total catchment area of the roof."
+    },
+    {
+      "id": "rainfallIntensity",
+      "label": "Rainfall Intensity",
+      "type": "number",
+      "unit": "mm/h",
+      "default": 50,
+      "businessContext": "Design rainfall intensity based on local climate data."
+    },
+    {
+      "id": "gutterSlope",
+      "label": "Gutter Slope",
+      "type": "number",
+      "unit": "mm/m",
+      "default": 10,
+      "businessContext": "Slope of the gutter per meter length."
+    },
+    {
+      "id": "gutterLength",
+      "label": "Gutter Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of the gutter section."
+    },
+    {
+      "id": "gutterWidth",
+      "label": "Gutter Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 150,
+      "businessContext": "Internal width of the gutter."
+    },
+    {
+      "id": "gutterDepth",
+      "label": "Gutter Depth",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Internal depth of the gutter."
+    },
+    {
+      "id": "runoffCoefficient",
+      "label": "Runoff Coefficient",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.9,
+      "businessContext": "Coefficient accounting for roof material and slope."
+    },
+    {
+      "id": "additionalArea",
+      "label": "Additional Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 0,
+      "businessContext": "Additional contributing area from adjacent surfaces."
+    }
+  ],
+  "formulas": {
+    "rainfallIntensity_m_per_s": "rainfallIntensity / 1000 / 3600",
+    "flowRate": "rainfallIntensity_m_per_s * roofArea * runoffCoefficient",
+    "flowRateStr": "'Flow rate: ' + flowRate.toFixed(4) + ' m³/s'",
+    "gutterArea_m2": "gutterWidth * gutterDepth / 1e6",
+    "wettedPerimeter_m": "(gutterWidth + 2 * gutterDepth) / 1000",
+    "hydraulicRadius": "gutterArea_m2 / wettedPerimeter_m",
+    "slope": "gutterSlope / 1000",
+    "flowCapacity": "(1 / 0.011) * gutterArea_m2 * Math.pow(hydraulicRadius, 2/3) * Math.sqrt(slope)",
+    "capacityCheck": "flowCapacity >= flowRate",
+    "verdict": "capacityCheck ? 'Sufficient' : 'Insufficient'",
+    "capacityStr": "'Gutter capacity: ' + flowCapacity.toFixed(4) + ' m³/s'"
+  },
+  "outputs": {
+    "primary": "verdict",
+    "breakdown": [
+      "flowRateStr",
+      "capacityStr"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

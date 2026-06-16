@@ -1,0 +1,61 @@
+{
+  "toolName": "circle-equation-calculator",
+  "inputs": [
+    {
+      "id": "centerX",
+      "label": "Center X-coordinate",
+      "type": "number",
+      "unit": "unit",
+      "default": 0,
+      "businessContext": "X-coordinate of the circle's center point"
+    },
+    {
+      "id": "centerY",
+      "label": "Center Y-coordinate",
+      "type": "number",
+      "unit": "unit",
+      "default": 0,
+      "businessContext": "Y-coordinate of the circle's center point"
+    },
+    {
+      "id": "pointX",
+      "label": "Point on Circle X",
+      "type": "number",
+      "unit": "unit",
+      "default": 1,
+      "businessContext": "X-coordinate of a point lying on the circle"
+    },
+    {
+      "id": "pointY",
+      "label": "Point on Circle Y",
+      "type": "number",
+      "unit": "unit",
+      "default": 0,
+      "businessContext": "Y-coordinate of a point lying on the circle"
+    }
+  ],
+  "formulas": {
+    "radius": "Math.sqrt((pointX - centerX)**2 + (pointY - centerY)**2)",
+    "D": "-2 * centerX",
+    "E": "-2 * centerY",
+    "F": "centerX**2 + centerY**2 - radius**2",
+    "standardEquation": "'(x - ' + centerX + ')² + (y - ' + centerY + ')² = ' + radius + '²'",
+    "generalEquation": "'x² + y² + (' + D + ')x + (' + E + ')y + (' + F + ') = 0'",
+    "radiusText": "'Radius: ' + radius + ' units'",
+    "centerText": "'Center: (' + centerX + ', ' + centerY + ')'"
+  },
+  "outputs": {
+    "primary": "standardEquation",
+    "breakdown": [
+      "generalEquation",
+      "radiusText",
+      "centerText"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,66 @@
+{
+  "toolName": "running-equivalent-calculator",
+  "inputs": [
+    {
+      "id": "knownDistance",
+      "label": "Known Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 5,
+      "businessContext": "Distance of a recent race or time trial in kilometers"
+    },
+    {
+      "id": "knownTimeMinutes",
+      "label": "Known Time (minutes)",
+      "type": "number",
+      "unit": "min",
+      "default": 25,
+      "businessContext": "Minutes portion of the time achieved for the known distance"
+    },
+    {
+      "id": "knownTimeSeconds",
+      "label": "Known Time (seconds)",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Seconds portion of the time achieved for the known distance (0-59)"
+    },
+    {
+      "id": "targetDistance",
+      "label": "Target Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "Target race distance in kilometers for which to predict the equivalent time"
+    },
+    {
+      "id": "exponent",
+      "label": "Fatigue Exponent",
+      "type": "number",
+      "unit": "",
+      "default": 1.06,
+      "businessContext": "Empirical exponent for predicting equivalent race times (typically 1.06 for runners)"
+    }
+  ],
+  "formulas": {
+    "totalKnownTime": "knownTimeMinutes + knownTimeSeconds / 60",
+    "predictedTimeMinutes": "totalKnownTime * Math.pow(targetDistance / knownDistance, exponent)",
+    "predictedMinutesPart": "Math.floor(predictedTimeMinutes)",
+    "predictedSecondsPart": "Math.round((predictedTimeMinutes - predictedMinutesPart) * 60)",
+    "predictedTimeFormatted": "predictedMinutesPart + ':' + (predictedSecondsPart < 10 ? '0' : '') + predictedSecondsPart",
+    "predictedPacePerKm": "predictedTimeMinutes / targetDistance"
+  },
+  "outputs": {
+    "primary": "predictedTimeFormatted",
+    "breakdown": [
+      "predictedTimeMinutes",
+      "predictedPacePerKm"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

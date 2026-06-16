@@ -1,0 +1,76 @@
+{
+  "toolName": "avogadros-number-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass of Substance (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 1,
+      "businessContext": "Mass of the sample in grams"
+    },
+    {
+      "id": "molarMass",
+      "label": "Molar Mass (g/mol)",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 18.015,
+      "businessContext": "Molar mass of the substance (e.g., water = 18.015 g/mol)"
+    },
+    {
+      "id": "avogadroConstant",
+      "label": "Avogadro's Constant (mol⁻¹)",
+      "type": "number",
+      "unit": "mol⁻¹",
+      "default": 6.02214076e+23,
+      "businessContext": "Avogadro's number (6.02214076×10²³ mol⁻¹)"
+    },
+    {
+      "id": "moleculesPerUnitCell",
+      "label": "Molecules per Unit Cell",
+      "type": "number",
+      "unit": "molecules",
+      "default": 1,
+      "businessContext": "Number of molecules per unit cell in a crystal (optional, default 1)"
+    },
+    {
+      "id": "unitCellVolume",
+      "label": "Unit Cell Volume (nm³)",
+      "type": "number",
+      "unit": "nm³",
+      "default": 1,
+      "businessContext": "Volume of a unit cell in cubic nanometers (optional, default 1)"
+    },
+    {
+      "id": "density",
+      "label": "Density (g/cm³)",
+      "type": "number",
+      "unit": "g/cm³",
+      "default": 1,
+      "businessContext": "Density of the substance (optional, default 1)"
+    }
+  ],
+  "formulas": {
+    "moles": "mass / molarMass",
+    "numberOfMolecules": "moles * avogadroConstant",
+    "moleculesPerVolume": "numberOfMolecules / (mass / density)",
+    "unitCellsPerMole": "avogadroConstant / moleculesPerUnitCell",
+    "volumePerMolecule": "unitCellVolume / moleculesPerUnitCell"
+  },
+  "outputs": {
+    "primary": "numberOfMolecules",
+    "breakdown": [
+      "moles = mass / molarMass",
+      "numberOfMolecules = moles * avogadroConstant",
+      "moleculesPerVolume = numberOfMolecules / (mass / density)",
+      "unitCellsPerMole = avogadroConstant / moleculesPerUnitCell",
+      "volumePerMolecule = unitCellVolume / moleculesPerUnitCell"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "customer-lifetime-value-calculator",
+  "inputs": [
+    {
+      "id": "avgPurchaseValue",
+      "label": "Average Purchase Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "Average monetary value of each customer transaction."
+    },
+    {
+      "id": "purchaseFrequency",
+      "label": "Purchase Frequency",
+      "type": "number",
+      "unit": "purchases/year",
+      "default": 12,
+      "businessContext": "Average number of purchases a customer makes per year."
+    },
+    {
+      "id": "lifespanYears",
+      "label": "Customer Lifespan",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Average duration a customer remains active (in years)."
+    },
+    {
+      "id": "grossMarginPercent",
+      "label": "Gross Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Gross margin percentage applied to revenue to reflect profit contribution."
+    }
+  ],
+  "formulas": {
+    "totalRevenue": "avgPurchaseValue * purchaseFrequency * lifespanYears",
+    "annualValue": "avgPurchaseValue * purchaseFrequency * grossMarginPercent / 100",
+    "clv": "totalRevenue * grossMarginPercent / 100"
+  },
+  "outputs": {
+    "primary": "clv",
+    "breakdown": [
+      "totalRevenue",
+      "annualValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

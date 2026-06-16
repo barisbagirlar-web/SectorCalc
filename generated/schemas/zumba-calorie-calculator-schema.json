@@ -1,0 +1,55 @@
+{
+  "toolName": "zumba-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Employee's body weight for accurate energy expenditure estimation during workplace wellness Zumba sessions."
+    },
+    {
+      "id": "duration",
+      "label": "Session Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 60,
+      "businessContext": "Duration of the Zumba session, typically 45–90 minutes for corporate fitness programs."
+    },
+    {
+      "id": "met",
+      "label": "MET Value",
+      "type": "number",
+      "unit": "",
+      "default": 7,
+      "businessContext": "Metabolic Equivalent of Task for Zumba; typical range 6–8 depending on intensity, used to calculate calorie burn."
+    },
+    {
+      "id": "adjustmentFactor",
+      "label": "Individual Adjustment Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Correction factor for individual metabolic variations, e.g., 1.05 for high metabolism, 0.95 for low."
+    }
+  ],
+  "formulas": {
+    "estimatedCalories": "met * weight * (duration / 60) * adjustmentFactor",
+    "caloriesPerMinute": "met * weight * (1 / 60) * adjustmentFactor",
+    "baseCalories": "met * weight * (duration / 60)"
+  },
+  "outputs": {
+    "primary": "estimatedCalories",
+    "breakdown": [
+      "caloriesPerMinute",
+      "baseCalories"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

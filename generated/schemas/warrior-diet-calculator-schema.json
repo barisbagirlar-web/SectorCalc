@@ -1,0 +1,65 @@
+{
+  "toolName": "warrior-diet-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User's body weight in kilograms."
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "User's height in centimeters."
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "User's age in years."
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "0=Female, 1=Male",
+      "default": 0,
+      "businessContext": "Biological gender (0 for female, 1 for male)."
+    },
+    {
+      "id": "activityLevel",
+      "label": "Activity Level",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.2,
+      "businessContext": "Physical activity multiplier. Sedentary=1.2, Light=1.375, Moderate=1.55, Active=1.725, Very Active=1.9."
+    }
+  ],
+  "formulas": {
+    "bmrMifflin": "10 * weight + 6.25 * height - 5 * age + (gender === 1 ? 5 : -161)",
+    "tdee": "bmrMifflin * activityLevel",
+    "feastCalories": "tdee * 0.8",
+    "undereatingCalories": "tdee * 0.2"
+  },
+  "outputs": {
+    "primary": "feastCalories",
+    "breakdown": [
+      "bmrMifflin",
+      "tdee",
+      "undereatingCalories"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

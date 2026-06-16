@@ -1,0 +1,72 @@
+{
+  "toolName": "guitar-tuning-calculator",
+  "inputs": [
+    {
+      "id": "fretCount",
+      "label": "Number of Frets",
+      "type": "number",
+      "unit": "count",
+      "default": 22,
+      "businessContext": "Total frets on the guitar neck"
+    },
+    {
+      "id": "scaleLength",
+      "label": "Scale Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 648,
+      "businessContext": "Distance from nut to bridge"
+    },
+    {
+      "id": "stringTension",
+      "label": "String Tension",
+      "type": "number",
+      "unit": "N",
+      "default": 90,
+      "businessContext": "Tension of the string in Newtons"
+    },
+    {
+      "id": "linearDensity",
+      "label": "Linear Density",
+      "type": "number",
+      "unit": "kg/m",
+      "default": 0.001,
+      "businessContext": "Mass per unit length of the string"
+    },
+    {
+      "id": "openNoteFrequency",
+      "label": "Open Note Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 82.41,
+      "businessContext": "Frequency of the open string (e.g., E2 = 82.41 Hz)"
+    },
+    {
+      "id": "fretNumber",
+      "label": "Fret Number",
+      "type": "number",
+      "unit": "count",
+      "default": 5,
+      "businessContext": "Fret position to calculate frequency"
+    }
+  ],
+  "formulas": {
+    "fretFrequency": "openNoteFrequency * Math.pow(2, fretNumber / 12)",
+    "stringVelocity": "Math.sqrt(stringTension / linearDensity)",
+    "fundamentalFrequency": "stringVelocity / (2 * scaleLength / 1000)"
+  },
+  "outputs": {
+    "primary": "fretFrequency",
+    "breakdown": [
+      "fretFrequency = openNoteFrequency * 2^(fretNumber/12)",
+      "stringVelocity = sqrt(tension / linearDensity)",
+      "fundamentalFrequency = velocity / (2 * scaleLength)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

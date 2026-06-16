@@ -1,0 +1,61 @@
+{
+  "toolName": "estimated-average-glucose-calculator",
+  "inputs": [
+    {
+      "id": "hba1c",
+      "label": "HbA1c (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Glycated hemoglobin percentage (DCCT/NGSP)"
+    },
+    {
+      "id": "factor_mgdl",
+      "label": "Factor (mg/dL)",
+      "type": "number",
+      "unit": "",
+      "default": 28.7,
+      "businessContext": "Multiplication factor for mg/dL conversion"
+    },
+    {
+      "id": "offset_mgdl",
+      "label": "Offset (mg/dL)",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": -46.7,
+      "businessContext": "Subtraction offset for mg/dL conversion"
+    },
+    {
+      "id": "factor_mmol",
+      "label": "Factor (mmol/L)",
+      "type": "number",
+      "unit": "",
+      "default": 1.59,
+      "businessContext": "Multiplication factor for mmol/L conversion"
+    },
+    {
+      "id": "offset_mmol",
+      "label": "Offset (mmol/L)",
+      "type": "number",
+      "unit": "mmol/L",
+      "default": -2.59,
+      "businessContext": "Subtraction offset for mmol/L conversion"
+    }
+  ],
+  "formulas": {
+    "eag_mgdl": "factor_mgdl * hba1c + offset_mgdl",
+    "eag_mmol": "factor_mmol * hba1c + offset_mmol"
+  },
+  "outputs": {
+    "primary": "eag_mgdl.toFixed(1) + ' mg/dL'",
+    "breakdown": [
+      "eag_mmol.toFixed(1) + ' mmol/L'"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

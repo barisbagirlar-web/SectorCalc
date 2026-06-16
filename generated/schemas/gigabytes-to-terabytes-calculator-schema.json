@@ -1,0 +1,57 @@
+{
+  "toolName": "gigabytes-to-terabytes-calculator",
+  "inputs": [
+    {
+      "id": "gigabytes",
+      "label": "Gigabytes",
+      "type": "number",
+      "unit": "GB",
+      "default": 0,
+      "businessContext": "Amount of data in gigabytes to convert."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places in the result."
+    },
+    {
+      "id": "useBinary",
+      "label": "Use Binary (1024)",
+      "type": "number",
+      "unit": "flag",
+      "default": 1,
+      "businessContext": "1 for binary conversion (1 TB = 1024 GB), 0 for decimal (1 TB = 1000 GB)."
+    },
+    {
+      "id": "verificationTB",
+      "label": "Expected TB",
+      "type": "number",
+      "unit": "TB",
+      "default": 0,
+      "businessContext": "Optional known correct value in terabytes for verification."
+    }
+  ],
+  "formulas": {
+    "conversionFactor": "useBinary === 1 ? 1024 : 1000",
+    "terabytesExact": "gigabytes / conversionFactor",
+    "terabytesRounded": "Math.round(terabytesExact * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "verificationDelta": "verificationTB !== 0 ? terabytesRounded - verificationTB : null"
+  },
+  "outputs": {
+    "primary": "terabytesRounded",
+    "breakdown": [
+      "terabytesExact",
+      "conversionFactor",
+      "verificationDelta"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

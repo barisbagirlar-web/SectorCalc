@@ -1,0 +1,79 @@
+{
+  "toolName": "sewing-calculator",
+  "inputs": [
+    {
+      "id": "stitchLength",
+      "label": "Stitch Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 2.5,
+      "businessContext": "Length of each stitch in millimeters"
+    },
+    {
+      "id": "seamLength",
+      "label": "Seam Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Total length of the seam to be sewn"
+    },
+    {
+      "id": "sewingSpeed",
+      "label": "Sewing Speed",
+      "type": "number",
+      "unit": "stitches/min",
+      "default": 1000,
+      "businessContext": "Machine speed in stitches per minute"
+    },
+    {
+      "id": "threadConsumptionFactor",
+      "label": "Thread Consumption Factor",
+      "type": "number",
+      "unit": "",
+      "default": 2.5,
+      "businessContext": "Factor to estimate thread usage (typically 2.5-3.0)"
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "Labor Cost per Hour",
+      "type": "number",
+      "unit": "currency",
+      "default": 15,
+      "businessContext": "Hourly wage of the operator"
+    },
+    {
+      "id": "machineCostPerHour",
+      "label": "Machine Cost per Hour",
+      "type": "number",
+      "unit": "currency",
+      "default": 5,
+      "businessContext": "Hourly cost of machine operation (depreciation, maintenance, energy)"
+    }
+  ],
+  "formulas": {
+    "totalStitches": "seamLength * 10 / stitchLength",
+    "sewingTimeMinutes": "totalStitches / sewingSpeed",
+    "sewingTimeHours": "sewingTimeMinutes / 60",
+    "threadLengthMeters": "seamLength / 100 * threadConsumptionFactor",
+    "laborCost": "sewingTimeHours * laborCostPerHour",
+    "machineCost": "sewingTimeHours * machineCostPerHour",
+    "totalCost": "laborCost + machineCost"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "totalStitches",
+      "sewingTimeMinutes",
+      "sewingTimeHours",
+      "threadLengthMeters",
+      "laborCost",
+      "machineCost"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

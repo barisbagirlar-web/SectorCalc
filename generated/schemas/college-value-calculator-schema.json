@@ -1,0 +1,73 @@
+{
+  "toolName": "college-value-calculator",
+  "inputs": [
+    {
+      "id": "collegeCost",
+      "label": "Total Direct College Cost",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "Total direct costs of college: tuition, fees, books, and living expenses (not including foregone earnings)."
+    },
+    {
+      "id": "yearsInCollege",
+      "label": "Years in College",
+      "type": "number",
+      "unit": "years",
+      "default": 4,
+      "businessContext": "Duration of the college program."
+    },
+    {
+      "id": "expectedSalary",
+      "label": "Expected Annual Salary After College",
+      "type": "number",
+      "unit": "$/year",
+      "default": 65000,
+      "businessContext": "Annual salary you expect to earn after graduation, in today's dollars."
+    },
+    {
+      "id": "alternativeSalary",
+      "label": "Annual Salary Without College",
+      "type": "number",
+      "unit": "$/year",
+      "default": 35000,
+      "businessContext": "Annual salary you would earn if you didn't attend college."
+    },
+    {
+      "id": "workingYears",
+      "label": "Working Years",
+      "type": "number",
+      "unit": "years",
+      "default": 40,
+      "businessContext": "Number of years you expect to work after graduation (or from now)."
+    },
+    {
+      "id": "discountRate",
+      "label": "Annual Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Rate used to discount future cash flows to present value (e.g., inflation, required return). Must be greater than zero."
+    }
+  ],
+  "formulas": {
+    "totalCost": "collegeCost + yearsInCollege * alternativeSalary",
+    "differential": "expectedSalary - alternativeSalary",
+    "paybackYears": "(collegeCost + yearsInCollege * alternativeSalary) / (expectedSalary - alternativeSalary)",
+    "totalUndiscountedGain": "workingYears * (expectedSalary - alternativeSalary) - (collegeCost + yearsInCollege * alternativeSalary)",
+    "npv": "-(collegeCost + yearsInCollege * alternativeSalary) + (expectedSalary - alternativeSalary) * (1 - Math.pow(1 + discountRate/100, -workingYears)) / (discountRate/100)"
+  },
+  "outputs": {
+    "primary": "npv",
+    "breakdown": [
+      "totalUndiscountedGain",
+      "paybackYears"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

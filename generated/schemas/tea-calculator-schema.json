@@ -1,0 +1,63 @@
+{
+  "toolName": "tea-calculator",
+  "inputs": [
+    {
+      "id": "cups",
+      "label": "Number of Cups",
+      "type": "number",
+      "unit": "pieces",
+      "default": 10,
+      "businessContext": "The number of cups of tea to be prepared."
+    },
+    {
+      "id": "waterPerCup",
+      "label": "Water per Cup",
+      "type": "number",
+      "unit": "ml",
+      "default": 200,
+      "businessContext": "Standard volume of water per cup."
+    },
+    {
+      "id": "teaLeavesPerCup",
+      "label": "Tea Leaves per Cup",
+      "type": "number",
+      "unit": "g",
+      "default": 2.5,
+      "businessContext": "Standard weight of tea leaves per cup for medium strength."
+    },
+    {
+      "id": "strengthFactor",
+      "label": "Strength Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for tea amount: 1 for normal, 1.5 for strong, 0.5 for light."
+    },
+    {
+      "id": "absorptionRate",
+      "label": "Water Absorption Rate",
+      "type": "number",
+      "unit": "ml/g",
+      "default": 1.5,
+      "businessContext": "Amount of water (ml) absorbed by 1 gram of tea leaves."
+    }
+  ],
+  "formulas": {
+    "totalWaterNeeded_liters": "(cups * waterPerCup + cups * teaLeavesPerCup * strengthFactor * absorptionRate) / 1000",
+    "totalTeaLeaves_grams": "cups * teaLeavesPerCup * strengthFactor",
+    "absorbedWater_ml": "cups * teaLeavesPerCup * strengthFactor * absorptionRate"
+  },
+  "outputs": {
+    "primary": "totalWaterNeeded_liters",
+    "breakdown": [
+      "totalTeaLeaves_grams",
+      "absorbedWater_ml"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

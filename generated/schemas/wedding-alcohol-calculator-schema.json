@@ -1,0 +1,82 @@
+{
+  "toolName": "wedding-alcohol-calculator",
+  "inputs": [
+    {
+      "id": "guestCount",
+      "label": "Number of Guests",
+      "type": "number",
+      "unit": "persons",
+      "default": 100,
+      "businessContext": "Total number of attendees expected at the wedding, essential for scaling all calculations."
+    },
+    {
+      "id": "alcoholPercentage",
+      "label": "% of Guests Drinking Alcohol",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Estimated percentage of guests who will consume alcoholic beverages; critical for adjusting quantities."
+    },
+    {
+      "id": "durationHours",
+      "label": "Duration of Event",
+      "type": "number",
+      "unit": "hours",
+      "default": 5,
+      "businessContext": "Duration of the event in hours from start to end of alcohol service; impacts total consumption time."
+    },
+    {
+      "id": "drinksPerHour",
+      "label": "Drinks per Hour per Person",
+      "type": "number",
+      "unit": "drinks/person/hour",
+      "default": 1.5,
+      "businessContext": "Average number of drinks each drinking guest is expected to consume per hour; based on event type and crowd."
+    },
+    {
+      "id": "beerRatio",
+      "label": "Beer Ratio",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.4,
+      "businessContext": "Fraction of total drinks expected to be beer; guides purchase of beer quantities."
+    },
+    {
+      "id": "wineRatio",
+      "label": "Wine Ratio",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.4,
+      "businessContext": "Fraction of total drinks expected to be wine; guides purchase of wine quantities."
+    },
+    {
+      "id": "spiritsRatio",
+      "label": "Spirits Ratio",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.2,
+      "businessContext": "Fraction of total drinks expected to be spirits (liquor); guides purchase of spirits quantities."
+    }
+  ],
+  "formulas": {
+    "drinkingGuests": "guestCount * (alcoholPercentage / 100)",
+    "totalDrinks": "drinkingGuests * durationHours * drinksPerHour",
+    "beerDrinks": "totalDrinks * beerRatio",
+    "wineDrinks": "totalDrinks * wineRatio",
+    "spiritsDrinks": "totalDrinks * spiritsRatio"
+  },
+  "outputs": {
+    "primary": "Math.round(totalDrinks) + ' drinks'",
+    "breakdown": [
+      "'Beer: ' + Math.round(beerDrinks) + ' drinks'",
+      "'Wine: ' + Math.round(wineDrinks) + ' drinks'",
+      "'Spirits: ' + Math.round(spiritsDrinks) + ' drinks'"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

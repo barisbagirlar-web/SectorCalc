@@ -1,0 +1,53 @@
+{
+  "toolName": "hijri-to-julian-day-calculator",
+  "inputs": [
+    {
+      "id": "hijri_year",
+      "label": "Hijri Year",
+      "type": "number",
+      "unit": "AH",
+      "default": 1445,
+      "businessContext": "Islamic lunar calendar year (Hijri)"
+    },
+    {
+      "id": "hijri_month",
+      "label": "Hijri Month",
+      "type": "number",
+      "unit": "month",
+      "default": 1,
+      "businessContext": "Month number (1-12)"
+    },
+    {
+      "id": "hijri_day",
+      "label": "Hijri Day",
+      "type": "number",
+      "unit": "day",
+      "default": 1,
+      "businessContext": "Day of the month"
+    },
+    {
+      "id": "jd_epoch",
+      "label": "Epoch (Julian Day)",
+      "type": "number",
+      "unit": "days",
+      "default": 1948439.5,
+      "businessContext": "Julian Day Number of 1 Muharram 1 AH (16 July 622 CE Julian)"
+    }
+  ],
+  "formulas": {
+    "days_from_epoch": "(hijri_year - 1) * 354.367 + (hijri_month - 1) * 29.530588 + (hijri_day - 1)",
+    "julian_day": "jd_epoch + days_from_epoch"
+  },
+  "outputs": {
+    "primary": "julian_day",
+    "breakdown": [
+      "days_from_epoch"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

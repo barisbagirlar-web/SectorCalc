@@ -1,0 +1,75 @@
+{
+  "toolName": "maintenance-cost-calculator",
+  "inputs": [
+    {
+      "id": "laborRate",
+      "label": "Hourly Labor Rate",
+      "type": "number",
+      "unit": "€/hour",
+      "default": 50,
+      "businessContext": "Cost of one technician per hour including wages and benefits."
+    },
+    {
+      "id": "technicians",
+      "label": "Number of Technicians",
+      "type": "number",
+      "unit": "people",
+      "default": 2,
+      "businessContext": "Number of maintenance personnel assigned per task."
+    },
+    {
+      "id": "hoursPerMaintenance",
+      "label": "Hours per Maintenance",
+      "type": "number",
+      "unit": "hours",
+      "default": 4,
+      "businessContext": "Average time to complete one maintenance task."
+    },
+    {
+      "id": "maintenanceFrequency",
+      "label": "Maintenance Frequency",
+      "type": "number",
+      "unit": "events/year",
+      "default": 12,
+      "businessContext": "Number of maintenance tasks per year."
+    },
+    {
+      "id": "partsCostPerMaintenance",
+      "label": "Parts Cost per Maintenance",
+      "type": "number",
+      "unit": "€",
+      "default": 200,
+      "businessContext": "Cost of spare parts and consumables per maintenance event."
+    },
+    {
+      "id": "overheadCostPerMaintenance",
+      "label": "Overhead Cost per Maintenance",
+      "type": "number",
+      "unit": "€",
+      "default": 100,
+      "businessContext": "Additional costs such as tools, facilities, and indirect expenses per event."
+    }
+  ],
+  "formulas": {
+    "laborCostPerEvent": "laborRate * technicians * hoursPerMaintenance",
+    "totalCostPerEvent": "laborCostPerEvent + partsCostPerMaintenance + overheadCostPerMaintenance",
+    "partsCostPerEvent": "partsCostPerMaintenance",
+    "overheadCostPerEvent": "overheadCostPerMaintenance",
+    "annualMaintenanceCost": "totalCostPerEvent * maintenanceFrequency"
+  },
+  "outputs": {
+    "primary": "annualMaintenanceCost",
+    "breakdown": [
+      "laborCostPerEvent",
+      "partsCostPerEvent",
+      "overheadCostPerEvent",
+      "totalCostPerEvent"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,66 @@
+{
+  "toolName": "pound-to-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weightLb",
+      "label": "Weight per Item (lb)",
+      "type": "number",
+      "unit": "lb",
+      "default": 1,
+      "businessContext": "Weight of a single item in pounds"
+    },
+    {
+      "id": "itemCount",
+      "label": "Number of Items",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Total quantity of items to consider"
+    },
+    {
+      "id": "caloriesPerPound",
+      "label": "Calories per Pound",
+      "type": "number",
+      "unit": "kcal/lb",
+      "default": 3500,
+      "businessContext": "Caloric density in kilocalories per pound (commonly 3500 for body fat)"
+    },
+    {
+      "id": "outputUnit",
+      "label": "Output Unit",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for kilocalories (kcal), 2 for small calories (cal)"
+    },
+    {
+      "id": "decimals",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places to round the result to"
+    }
+  ],
+  "formulas": {
+    "totalKcal": "weightLb * itemCount * caloriesPerPound",
+    "perItemKcal": "weightLb * caloriesPerPound",
+    "totalCaloriesRaw": "outputUnit === 1 ? totalKcal : totalKcal * 1000",
+    "perItemCaloriesRaw": "outputUnit === 1 ? perItemKcal : perItemKcal * 1000",
+    "totalCalories": "Math.round(totalCaloriesRaw * Math.pow(10, decimals)) / Math.pow(10, decimals)",
+    "perItemCalories": "Math.round(perItemCaloriesRaw * Math.pow(10, decimals)) / Math.pow(10, decimals)"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "perItemCalories",
+      "totalCaloriesRaw"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "knots-to-kmh-calculator",
+  "inputs": [
+    {
+      "id": "knots",
+      "label": "Speed in knots",
+      "type": "number",
+      "unit": "kn",
+      "default": 0,
+      "businessContext": "The speed value in knots to convert."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion factor",
+      "type": "number",
+      "unit": "km/h per kn",
+      "default": 1.852,
+      "businessContext": "Standard conversion factor from knots to kilometers per hour. Default is 1.852."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the result."
+    },
+    {
+      "id": "roundingMode",
+      "label": "Rounding mode",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Rounding mode: 0 = floor, 1 = round, 2 = ceil."
+    }
+  ],
+  "formulas": {
+    "rawKmh": "knots * conversionFactor",
+    "roundedKmh": "(function() { const r = knots * conversionFactor; const f = Math.pow(10, decimalPlaces); return roundingMode === 0 ? Math.floor(r * f) / f : roundingMode === 2 ? Math.ceil(r * f) / f : Math.round(r * f) / f; })()",
+    "conversionFactor": "conversionFactor",
+    "decimalPlaces": "decimalPlaces",
+    "roundingMode": "roundingMode"
+  },
+  "outputs": {
+    "primary": "roundedKmh",
+    "breakdown": [
+      "rawKmh",
+      "conversionFactor"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

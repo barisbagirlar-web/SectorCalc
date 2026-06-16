@@ -1,0 +1,55 @@
+{
+  "toolName": "split-bill-calculator",
+  "inputs": [
+    {
+      "id": "totalBill",
+      "label": "Total Bill",
+      "type": "number",
+      "unit": "$",
+      "default": 100,
+      "businessContext": "The total bill amount before tax and tip."
+    },
+    {
+      "id": "numberOfPeople",
+      "label": "Number of People",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of individuals sharing the bill."
+    },
+    {
+      "id": "taxPercent",
+      "label": "Tax Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Tax rate applied to the bill."
+    },
+    {
+      "id": "tipPercent",
+      "label": "Tip Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Tip percentage on the bill."
+    }
+  ],
+  "formulas": {
+    "totalWithTax": "totalBill * (1 + taxPercent / 100)",
+    "totalWithTip": "totalWithTax * (1 + tipPercent / 100)",
+    "perPerson": "totalWithTip / numberOfPeople"
+  },
+  "outputs": {
+    "primary": "perPerson",
+    "breakdown": [
+      "totalWithTax",
+      "totalWithTip"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

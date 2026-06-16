@@ -1,0 +1,63 @@
+{
+  "toolName": "hydrograph-calculator",
+  "inputs": [
+    {
+      "id": "L",
+      "label": "Main Stream Length",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "Main stream length from outlet to watershed divide"
+    },
+    {
+      "id": "Lca",
+      "label": "Distance Along Stream to Centroid",
+      "type": "number",
+      "unit": "km",
+      "default": 5,
+      "businessContext": "Distance from outlet to a point on the stream nearest the centroid of the watershed"
+    },
+    {
+      "id": "A",
+      "label": "Drainage Area",
+      "type": "number",
+      "unit": "km²",
+      "default": 100,
+      "businessContext": "Total watershed drainage area"
+    },
+    {
+      "id": "Ct",
+      "label": "Coefficient Ct",
+      "type": "number",
+      "unit": "none",
+      "default": 1.5,
+      "businessContext": "Coefficient depending on watershed slope and storage, typically 1.0–2.5"
+    },
+    {
+      "id": "Cp",
+      "label": "Coefficient Cp",
+      "type": "number",
+      "unit": "none",
+      "default": 0.6,
+      "businessContext": "Peak discharge coefficient, typically 0.4–0.8"
+    }
+  ],
+  "formulas": {
+    "tp": "Ct * Math.pow(L * Lca, 0.3)",
+    "qp": "2.78 * Cp * A / tp",
+    "Tb": "5 * tp / 24"
+  },
+  "outputs": {
+    "primary": "Peak Discharge (qp)",
+    "breakdown": [
+      "Time to Peak (tp)",
+      "Base Time (Tb)"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

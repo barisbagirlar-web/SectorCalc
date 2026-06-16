@@ -1,0 +1,437 @@
+{
+  "slug": "spc-signal-delay-cost",
+  "title": "SPC Signal Delay Cost Calculator",
+  "description": "Calculates the financial impact of delayed detection and response to out-of-control signals in statistical process control (SPC) systems, incorporating lean and six sigma principles.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Real-time dashboard",
+    "Multi-plant comparison"
+  ],
+  "inputs": [
+    {
+      "id": "process_cycle_time_min",
+      "label": "Process Cycle Time (minutes)",
+      "type": "number",
+      "unit": "min",
+      "default": 60,
+      "min": 1,
+      "max": 1440,
+      "businessContext": "Average time to complete one production cycle. Used to estimate units produced per shift.",
+      "label_i18n": {
+        "en": "Process Cycle Time (minutes)"
+      },
+      "businessContext_i18n": {
+        "en": "Average time to complete one production cycle. Used to estimate units produced per shift."
+      }
+    },
+    {
+      "id": "units_per_cycle",
+      "label": "Units per Cycle",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "min": 1,
+      "max": 100000,
+      "businessContext": "Number of units produced in one complete cycle.",
+      "label_i18n": {
+        "en": "Units per Cycle"
+      },
+      "businessContext_i18n": {
+        "en": "Number of units produced in one complete cycle."
+      }
+    },
+    {
+      "id": "defect_rate_out_of_control",
+      "label": "Defect Rate When Out of Control",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0.1,
+      "max": 100,
+      "businessContext": "Expected defect percentage when the process is out of control (based on historical SPC data).",
+      "label_i18n": {
+        "en": "Defect Rate When Out of Control"
+      },
+      "businessContext_i18n": {
+        "en": "Expected defect percentage when the process is out of control (based on historical SPC data)."
+      }
+    },
+    {
+      "id": "defect_rate_in_control",
+      "label": "Defect Rate When In Control",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Baseline defect percentage when the process is stable and in control.",
+      "label_i18n": {
+        "en": "Defect Rate When In Control"
+      },
+      "businessContext_i18n": {
+        "en": "Baseline defect percentage when the process is stable and in control."
+      }
+    },
+    {
+      "id": "cost_per_defect",
+      "label": "Cost per Defect",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "min": 0.01,
+      "max": 100000,
+      "businessContext": "Average cost incurred per defective unit (scrap, rework, warranty, etc.).",
+      "label_i18n": {
+        "en": "Cost per Defect"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost incurred per defective unit (scrap, rework, warranty, etc.)."
+      }
+    },
+    {
+      "id": "detection_delay_hours",
+      "label": "Detection Delay (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 4,
+      "min": 0,
+      "max": 720,
+      "businessContext": "Time from when the process goes out of control until the signal is detected (e.g., sampling interval, lab delay).",
+      "label_i18n": {
+        "en": "Detection Delay (hours)"
+      },
+      "businessContext_i18n": {
+        "en": "Time from when the process goes out of control until the signal is detected (e.g., sampling interval, lab delay)."
+      }
+    },
+    {
+      "id": "response_delay_hours",
+      "label": "Response Delay (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 2,
+      "min": 0,
+      "max": 720,
+      "businessContext": "Time from detection until corrective action is implemented (e.g., root cause analysis, adjustment).",
+      "label_i18n": {
+        "en": "Response Delay (hours)"
+      },
+      "businessContext_i18n": {
+        "en": "Time from detection until corrective action is implemented (e.g., root cause analysis, adjustment)."
+      }
+    },
+    {
+      "id": "shift_hours",
+      "label": "Shift Hours per Day",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "min": 1,
+      "max": 24,
+      "businessContext": "Number of production hours per shift. Used to calculate daily production volume.",
+      "label_i18n": {
+        "en": "Shift Hours per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Number of production hours per shift. Used to calculate daily production volume."
+      }
+    },
+    {
+      "id": "shifts_per_day",
+      "label": "Shifts per Day",
+      "type": "number",
+      "unit": "shifts",
+      "default": 3,
+      "min": 1,
+      "max": 3,
+      "businessContext": "Number of shifts operating per day.",
+      "label_i18n": {
+        "en": "Shifts per Day"
+      },
+      "businessContext_i18n": {
+        "en": "Number of shifts operating per day."
+      }
+    },
+    {
+      "id": "operating_days_per_year",
+      "label": "Operating Days per Year",
+      "type": "number",
+      "unit": "days",
+      "default": 250,
+      "min": 1,
+      "max": 365,
+      "businessContext": "Number of days the plant operates annually.",
+      "label_i18n": {
+        "en": "Operating Days per Year"
+      },
+      "businessContext_i18n": {
+        "en": "Number of days the plant operates annually."
+      }
+    },
+    {
+      "id": "signal_frequency_per_year",
+      "label": "Out-of-Control Signal Frequency (per year)",
+      "type": "number",
+      "unit": "events/year",
+      "default": 12,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Expected number of out-of-control signals per year based on historical SPC data.",
+      "label_i18n": {
+        "en": "Out-of-Control Signal Frequency (per year)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected number of out-of-control signals per year based on historical SPC data."
+      }
+    },
+    {
+      "id": "cost_of_correction_per_event",
+      "label": "Cost of Correction per Event",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "min": 0,
+      "max": 100000,
+      "businessContext": "Average cost to investigate and correct an out-of-control event (labor, materials, downtime).",
+      "label_i18n": {
+        "en": "Cost of Correction per Event"
+      },
+      "businessContext_i18n": {
+        "en": "Average cost to investigate and correct an out-of-control event (labor, materials, downtime)."
+      }
+    },
+    {
+      "id": "include_hidden_losses",
+      "label": "Include Hidden Losses (e.g., customer dissatisfaction, lost sales)",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "min": null,
+      "max": null,
+      "businessContext": "Toggle to include estimated hidden costs such as brand damage and lost future sales.",
+      "label_i18n": {
+        "en": "Include Hidden Losses (e.g., customer dissatisfaction, lost sales)"
+      },
+      "businessContext_i18n": {
+        "en": "Toggle to include estimated hidden costs such as brand damage and lost future sales."
+      }
+    },
+    {
+      "id": "hidden_loss_multiplier",
+      "label": "Hidden Loss Multiplier",
+      "type": "number",
+      "unit": "factor",
+      "default": 1.5,
+      "min": 1,
+      "max": 10,
+      "businessContext": "Multiplier applied to direct defect costs to estimate hidden losses (based on industry benchmarks).",
+      "label_i18n": {
+        "en": "Hidden Loss Multiplier"
+      },
+      "businessContext_i18n": {
+        "en": "Multiplier applied to direct defect costs to estimate hidden losses (based on industry benchmarks)."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "defect_rate_consistency",
+        "condition": "defect_rate_out_of_control > defect_rate_in_control",
+        "message": "Out-of-control defect rate must be greater than in-control defect rate."
+      },
+      {
+        "id": "delay_non_negative",
+        "condition": "detection_delay_hours >= 0 AND response_delay_hours >= 0",
+        "message": "Detection and response delays cannot be negative."
+      },
+      {
+        "id": "hidden_loss_conditional",
+        "condition": "include_hidden_losses == true ? hidden_loss_multiplier >= 1.0 : true",
+        "message": "Hidden loss multiplier must be at least 1.0 when hidden losses are included."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_delay_cost",
+        "condition": "total_delay_cost_per_event > 10000",
+        "severity": "warning",
+        "message": "Delay cost per event exceeds $10,000. Immediate process improvement recommended."
+      },
+      {
+        "id": "excessive_defect_rate",
+        "condition": "defect_rate_out_of_control > 10",
+        "severity": "critical",
+        "message": "Out-of-control defect rate exceeds 10%. Review process capability and control limits."
+      },
+      {
+        "id": "low_signal_frequency",
+        "condition": "signal_frequency_per_year < 6",
+        "severity": "info",
+        "message": "Low signal frequency may indicate insufficient sampling or insensitive control limits."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "units_produced_per_hour",
+      "label": "Units Produced per Hour",
+      "description": "Production rate based on cycle time and units per cycle.",
+      "formula": "units_per_cycle / (process_cycle_time_min / 60)",
+      "unit": "units/hour"
+    },
+    {
+      "id": "total_delay_hours",
+      "label": "Total Delay Hours per Event",
+      "description": "Sum of detection and response delays.",
+      "formula": "detection_delay_hours + response_delay_hours",
+      "unit": "hours"
+    },
+    {
+      "id": "defective_units_during_delay",
+      "label": "Defective Units Produced During Delay",
+      "description": "Number of defective units produced while process is out of control and not corrected.",
+      "formula": "units_produced_per_hour * total_delay_hours * (defect_rate_out_of_control / 100)",
+      "unit": "units"
+    },
+    {
+      "id": "direct_defect_cost_per_event",
+      "label": "Direct Defect Cost per Event",
+      "description": "Cost of defective units produced during the delay period.",
+      "formula": "defective_units_during_delay * cost_per_defect",
+      "unit": "USD"
+    },
+    {
+      "id": "hidden_loss_cost_per_event",
+      "label": "Hidden Loss Cost per Event",
+      "description": "Estimated hidden costs (customer dissatisfaction, lost sales) if enabled.",
+      "formula": "include_hidden_losses ? direct_defect_cost_per_event * (hidden_loss_multiplier - 1) : 0",
+      "unit": "USD"
+    },
+    {
+      "id": "total_delay_cost_per_event",
+      "label": "Total Delay Cost per Event",
+      "description": "Sum of direct defect cost, hidden loss, and correction cost for one event.",
+      "formula": "direct_defect_cost_per_event + hidden_loss_cost_per_event + cost_of_correction_per_event",
+      "unit": "USD"
+    },
+    {
+      "id": "annual_delay_cost",
+      "label": "Annual Delay Cost",
+      "description": "Total annual cost due to delayed SPC signal response.",
+      "formula": "total_delay_cost_per_event * signal_frequency_per_year",
+      "unit": "USD/year"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "annual_delay_cost",
+      "label": "Annual SPC Signal Delay Cost",
+      "value": null,
+      "unit": "USD/year",
+      "description": "Total estimated annual cost resulting from delayed detection and response to out-of-control SPC signals."
+    },
+    "breakdown": {
+      "direct_defect_cost_per_event": {
+        "label": "Direct Defect Cost per Event",
+        "value": null,
+        "unit": "USD"
+      },
+      "hidden_loss_cost_per_event": {
+        "label": "Hidden Loss Cost per Event",
+        "value": null,
+        "unit": "USD"
+      },
+      "cost_of_correction_per_event": {
+        "label": "Cost of Correction per Event",
+        "value": null,
+        "unit": "USD"
+      },
+      "total_delay_cost_per_event": {
+        "label": "Total Delay Cost per Event",
+        "value": null,
+        "unit": "USD"
+      },
+      "defective_units_during_delay": {
+        "label": "Defective Units During Delay",
+        "value": null,
+        "unit": "units"
+      },
+      "annual_signal_events": {
+        "label": "Annual Signal Events",
+        "value": null,
+        "unit": "events/year"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "detection_delay",
+        "label": "Detection Delay",
+        "description": "Time to detect out-of-control signal. Long delays increase defect volume.",
+        "impact": "high"
+      },
+      {
+        "id": "response_delay",
+        "label": "Response Delay",
+        "description": "Time to implement corrective action. Delays prolong defect generation.",
+        "impact": "high"
+      },
+      {
+        "id": "defect_rate_spread",
+        "label": "Defect Rate Spread",
+        "description": "Difference between out-of-control and in-control defect rates. Larger spread increases cost.",
+        "impact": "medium"
+      },
+      {
+        "id": "production_rate",
+        "label": "Production Rate",
+        "description": "Higher production rates amplify the number of defects during delays.",
+        "impact": "medium"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "reduce_detection_delay",
+        "label": "Reduce Detection Delay",
+        "description": "Implement real-time SPC monitoring or reduce sampling intervals to detect signals faster.",
+        "expectedImpact": "Reduces defective units during delay by up to 50%.",
+        "effort": "medium"
+      },
+      {
+        "id": "improve_response_time",
+        "label": "Improve Response Time",
+        "description": "Establish clear escalation protocols and pre-defined corrective action plans (CAPA).",
+        "expectedImpact": "Reduces response delay by 30-60%.",
+        "effort": "low"
+      },
+      {
+        "id": "enhance_process_capability",
+        "label": "Enhance Process Capability",
+        "description": "Use Six Sigma DMAIC to reduce baseline defect rate and tighten control limits.",
+        "expectedImpact": "Lowers defect rate spread and overall cost.",
+        "effort": "high"
+      },
+      {
+        "id": "automate_correction",
+        "label": "Automate Correction",
+        "description": "Deploy automated feedback loops (e.g., APC) to adjust process parameters without manual intervention.",
+        "expectedImpact": "Eliminates response delay for common-cause variations.",
+        "effort": "high"
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "id": "data_confidence_adjusted_cost",
+      "label": "Data Confidence Adjusted Annual Cost",
+      "value": null,
+      "unit": "USD/year",
+      "description": "Annual delay cost adjusted for data confidence (e.g., based on input variability or historical accuracy). Default multiplier = 0.85 for conservative estimate."
+    }
+  },
+  "toolName": "spc-signal-delay-cost-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

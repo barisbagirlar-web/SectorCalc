@@ -1,0 +1,79 @@
+{
+  "toolName": "loan-comparison-calculator",
+  "inputs": [
+    {
+      "id": "loan1Amount",
+      "label": "Loan 1 Principal",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "The amount borrowed for Loan 1"
+    },
+    {
+      "id": "loan1Rate",
+      "label": "Loan 1 Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "The annual interest rate for Loan 1"
+    },
+    {
+      "id": "loan1Term",
+      "label": "Loan 1 Term",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "The loan term in years for Loan 1"
+    },
+    {
+      "id": "loan2Amount",
+      "label": "Loan 2 Principal",
+      "type": "number",
+      "unit": "currency",
+      "default": 12000,
+      "businessContext": "The amount borrowed for Loan 2"
+    },
+    {
+      "id": "loan2Rate",
+      "label": "Loan 2 Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 4.5,
+      "businessContext": "The annual interest rate for Loan 2"
+    },
+    {
+      "id": "loan2Term",
+      "label": "Loan 2 Term",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "The loan term in years for Loan 2"
+    }
+  ],
+  "formulas": {
+    "monthlyPayment1": "loan1Amount * (loan1Rate/100/12) * (1 + loan1Rate/100/12) ** (loan1Term * 12) / ((1 + loan1Rate/100/12) ** (loan1Term * 12) - 1)",
+    "monthlyPayment2": "loan2Amount * (loan2Rate/100/12) * (1 + loan2Rate/100/12) ** (loan2Term * 12) / ((1 + loan2Rate/100/12) ** (loan2Term * 12) - 1)",
+    "totalPayment1": "monthlyPayment1 * loan1Term * 12",
+    "totalPayment2": "monthlyPayment2 * loan2Term * 12",
+    "totalInterest1": "totalPayment1 - loan1Amount",
+    "totalInterest2": "totalPayment2 - loan2Amount",
+    "totalCostDifference": "totalPayment1 - totalPayment2"
+  },
+  "outputs": {
+    "primary": "totalCostDifference",
+    "breakdown": [
+      "monthlyPayment1",
+      "monthlyPayment2",
+      "totalPayment1",
+      "totalPayment2",
+      "totalInterest1",
+      "totalInterest2"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

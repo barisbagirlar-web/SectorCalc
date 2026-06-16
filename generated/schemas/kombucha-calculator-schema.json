@@ -1,0 +1,57 @@
+{
+  "toolName": "kombucha-calculator",
+  "inputs": [
+    {
+      "id": "waterVolume",
+      "label": "Su Miktarı",
+      "type": "number",
+      "unit": "L",
+      "default": 5,
+      "businessContext": "Kombucha yapımında kullanılacak suyun litre cinsinden miktarı"
+    },
+    {
+      "id": "sugarMass",
+      "label": "Şeker Miktarı",
+      "type": "number",
+      "unit": "g",
+      "default": 200,
+      "businessContext": "Fermantasyon için eklenecek şekerin gram cinsinden ağırlığı"
+    },
+    {
+      "id": "teaMass",
+      "label": "Çay Miktarı",
+      "type": "number",
+      "unit": "g",
+      "default": 20,
+      "businessContext": "Demlenecek çayın gram cinsinden ağırlığı"
+    },
+    {
+      "id": "starterVolume",
+      "label": "Starter Miktarı",
+      "type": "number",
+      "unit": "L",
+      "default": 0.5,
+      "businessContext": "Önceki partiden kalan starter kombucha miktarı (litre)"
+    }
+  ],
+  "formulas": {
+    "finalVolume": "waterVolume + starterVolume",
+    "sugarConcentration": "sugarMass / (waterVolume + starterVolume)",
+    "teaConcentration": "teaMass / (waterVolume + starterVolume)",
+    "starterRatio": "starterVolume / (waterVolume + starterVolume)"
+  },
+  "outputs": {
+    "primary": "finalVolume",
+    "breakdown": [
+      "sugarConcentration",
+      "teaConcentration",
+      "starterRatio"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

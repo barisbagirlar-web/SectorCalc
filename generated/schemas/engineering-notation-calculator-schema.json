@@ -1,0 +1,67 @@
+{
+  "toolName": "engineering-notation-calculator",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "Value",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "The numeric value to be converted to engineering notation."
+    },
+    {
+      "id": "exponent",
+      "label": "Exponent",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "The exponent of 10 for the value (e.g., 3 for thousands)."
+    },
+    {
+      "id": "precision",
+      "label": "Precision",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 3,
+      "businessContext": "Number of decimal places in the mantissa."
+    },
+    {
+      "id": "minExponent",
+      "label": "Min Exponent",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": -12,
+      "businessContext": "Minimum exponent for engineering notation (multiples of 3)."
+    },
+    {
+      "id": "maxExponent",
+      "label": "Max Exponent",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 12,
+      "businessContext": "Maximum exponent for engineering notation (multiples of 3)."
+    }
+  ],
+  "formulas": {
+    "primary": "(() => { const v = value * Math.pow(10, exponent); let e = 0; while (Math.abs(v) >= 1000 && e < maxExponent) { v /= 1000; e += 3; } while (Math.abs(v) < 1 && e > minExponent) { v *= 1000; e -= 3; } const mantissa = v.toFixed(precision); return mantissa + 'e' + e; })()",
+    "breakdown": [
+      "value * Math.pow(10, exponent)",
+      "Math.log10(Math.abs(value * Math.pow(10, exponent)))",
+      "Math.floor(Math.log10(Math.abs(value * Math.pow(10, exponent))) / 3) * 3"
+    ]
+  },
+  "outputs": {
+    "primary": "Engineering Notation",
+    "breakdown": [
+      "Original Value",
+      "Log10 of Value",
+      "Adjusted Exponent"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

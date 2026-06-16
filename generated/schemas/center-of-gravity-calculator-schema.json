@@ -1,0 +1,70 @@
+{
+  "toolName": "center-of-gravity-calculator",
+  "inputs": [
+    {
+      "id": "mass1",
+      "label": "Mass 1",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "First point mass"
+    },
+    {
+      "id": "x1",
+      "label": "X Position 1",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "X coordinate of mass 1"
+    },
+    {
+      "id": "y1",
+      "label": "Y Position 1",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y coordinate of mass 1"
+    },
+    {
+      "id": "mass2",
+      "label": "Mass 2",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Second point mass"
+    },
+    {
+      "id": "x2",
+      "label": "X Position 2",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "X coordinate of mass 2"
+    },
+    {
+      "id": "y2",
+      "label": "Y Position 2",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y coordinate of mass 2"
+    }
+  ],
+  "formulas": {
+    "x_cg": "(mass1 * x1 + mass2 * x2) / (mass1 + mass2)",
+    "y_cg": "(mass1 * y1 + mass2 * y2) / (mass1 + mass2)"
+  },
+  "outputs": {
+    "primary": "x_cg",
+    "breakdown": [
+      "x_cg",
+      "y_cg"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

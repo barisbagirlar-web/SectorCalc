@@ -1,0 +1,67 @@
+{
+  "toolName": "inverse-z-transform-calculator",
+  "inputs": [
+    {
+      "id": "b0",
+      "label": "b₀ (Num. z⁰ coeff.)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Numerator coefficient for the constant term (z⁰)"
+    },
+    {
+      "id": "b1",
+      "label": "b₁ (Num. z⁻¹ coeff.)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Numerator coefficient for the z⁻¹ term"
+    },
+    {
+      "id": "b2",
+      "label": "b₂ (Num. z⁻² coeff.)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Numerator coefficient for the z⁻² term"
+    },
+    {
+      "id": "a1",
+      "label": "a₁ (Den. z⁻¹ coeff.)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Denominator coefficient for the z⁻¹ term (a₀ = 1)"
+    },
+    {
+      "id": "a2",
+      "label": "a₂ (Den. z⁻² coeff.)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Denominator coefficient for the z⁻² term (a₀ = 1)"
+    }
+  ],
+  "formulas": {
+    "y0": "Math.round(b0 * 1e6) / 1e6",
+    "y1": "Math.round((b1 - a1 * y0) * 1e6) / 1e6",
+    "y2": "Math.round((b2 - a1 * y1 - a2 * y0) * 1e6) / 1e6",
+    "y3": "Math.round((-a1 * y2 - a2 * y1) * 1e6) / 1e6",
+    "y4": "Math.round((-a1 * y3 - a2 * y2) * 1e6) / 1e6"
+  },
+  "outputs": {
+    "primary": "y0",
+    "breakdown": [
+      "y1",
+      "y2",
+      "y3",
+      "y4"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

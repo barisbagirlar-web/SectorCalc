@@ -1,0 +1,66 @@
+{
+  "toolName": "worm-gear-calculator",
+  "inputs": [
+    {
+      "id": "module",
+      "label": "Module (m)",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "businessContext": "Module defining tooth size per ISO 54"
+    },
+    {
+      "id": "z1",
+      "label": "Number of Starts (Z₁)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of threads on the worm"
+    },
+    {
+      "id": "z2",
+      "label": "Number of Teeth on Gear (Z₂)",
+      "type": "number",
+      "unit": "",
+      "default": 40,
+      "businessContext": "Number of teeth on the worm wheel"
+    },
+    {
+      "id": "centerDistance",
+      "label": "Center Distance (a)",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Distance between worm and gear axes"
+    }
+  ],
+  "formulas": {
+    "gearRatio": "z2 / z1",
+    "gearPitchDiameter": "module * z2",
+    "wormPitchDiameter": "2 * centerDistance - module * z2",
+    "lead": "Math.PI * module * z1",
+    "leadAngle": "Math.atan(lead / (Math.PI * wormPitchDiameter)) * (180 / Math.PI)",
+    "wormOuterDiameter": "wormPitchDiameter + 2 * module",
+    "gearOuterDiameter": "gearPitchDiameter + 2 * module",
+    "wormRootDiameter": "wormPitchDiameter - 2.4 * module",
+    "gearRootDiameter": "gearPitchDiameter - 2.4 * module"
+  },
+  "outputs": {
+    "primary": "gearRatio",
+    "breakdown": [
+      "wormPitchDiameter",
+      "gearPitchDiameter",
+      "leadAngle",
+      "wormOuterDiameter",
+      "gearOuterDiameter",
+      "wormRootDiameter",
+      "gearRootDiameter"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

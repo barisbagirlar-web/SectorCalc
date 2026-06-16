@@ -1,0 +1,55 @@
+{
+  "toolName": "reliability-calculator",
+  "inputs": [
+    {
+      "id": "failureRate",
+      "label": "Component Failure Rate",
+      "type": "number",
+      "unit": "failures/hour",
+      "default": 0.0001,
+      "businessContext": "The constant failure rate per component (λ) assuming exponential distribution."
+    },
+    {
+      "id": "missionTime",
+      "label": "Mission Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 1000,
+      "businessContext": "The duration for which the system must operate without failure."
+    },
+    {
+      "id": "seriesCount",
+      "label": "Number of Components in Series",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of identical components connected in series within each string."
+    },
+    {
+      "id": "parallelCount",
+      "label": "Number of Parallel Strings",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of identical series strings operating in parallel (active redundancy)."
+    }
+  ],
+  "formulas": {
+    "componentReliability": "Math.exp(-failureRate * missionTime)",
+    "seriesStringReliability": "Math.pow(componentReliability, seriesCount)",
+    "systemReliability": "parallelCount === 1 ? seriesStringReliability : 1 - Math.pow(1 - seriesStringReliability, parallelCount)"
+  },
+  "outputs": {
+    "primary": "systemReliability",
+    "breakdown": [
+      "componentReliability",
+      "seriesStringReliability"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

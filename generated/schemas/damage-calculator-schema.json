@@ -1,0 +1,73 @@
+{
+  "toolName": "damage-calculator",
+  "inputs": [
+    {
+      "id": "n1",
+      "label": "Applied Cycles (n₁)",
+      "type": "number",
+      "unit": "cycles",
+      "default": 1000,
+      "businessContext": "Number of applied cycles at stress level 1"
+    },
+    {
+      "id": "N1",
+      "label": "Endurance Cycles (N₁)",
+      "type": "number",
+      "unit": "cycles",
+      "default": 1000000,
+      "businessContext": "Cycles to failure at stress level 1"
+    },
+    {
+      "id": "n2",
+      "label": "Applied Cycles (n₂)",
+      "type": "number",
+      "unit": "cycles",
+      "default": 5000,
+      "businessContext": "Number of applied cycles at stress level 2"
+    },
+    {
+      "id": "N2",
+      "label": "Endurance Cycles (N₂)",
+      "type": "number",
+      "unit": "cycles",
+      "default": 500000,
+      "businessContext": "Cycles to failure at stress level 2"
+    },
+    {
+      "id": "n3",
+      "label": "Applied Cycles (n₃)",
+      "type": "number",
+      "unit": "cycles",
+      "default": 10000,
+      "businessContext": "Number of applied cycles at stress level 3"
+    },
+    {
+      "id": "N3",
+      "label": "Endurance Cycles (N₃)",
+      "type": "number",
+      "unit": "cycles",
+      "default": 200000,
+      "businessContext": "Cycles to failure at stress level 3"
+    }
+  ],
+  "formulas": {
+    "totalDamage": "n1 / N1 + n2 / N2 + n3 / N3",
+    "damage1": "n1 / N1",
+    "damage2": "n2 / N2",
+    "damage3": "n3 / N3"
+  },
+  "outputs": {
+    "primary": "totalDamage",
+    "breakdown": [
+      "damage1",
+      "damage2",
+      "damage3"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

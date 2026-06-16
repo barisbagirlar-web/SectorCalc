@@ -1,0 +1,60 @@
+{
+  "toolName": "risk-parity-calculator",
+  "inputs": [
+    {
+      "id": "vol1",
+      "label": "Annualized Volatility Asset 1 (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "The annualized volatility (standard deviation of returns) of Asset 1, expressed as a percentage. Used to determine its risk contribution."
+    },
+    {
+      "id": "vol2",
+      "label": "Annualized Volatility Asset 2 (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "The annualized volatility of Asset 2, as a percentage. Inputting a high value will reduce its weight."
+    },
+    {
+      "id": "vol3",
+      "label": "Annualized Volatility Asset 3 (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "The annualized volatility of Asset 3. Use a very large number (e.g., 1e9) if this asset is not in the portfolio to effectively exclude it."
+    },
+    {
+      "id": "vol4",
+      "label": "Annualized Volatility Asset 4 (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "The annualized volatility of Asset 4. Set to a very large number if unused."
+    }
+  ],
+  "formulas": {
+    "invVolSum": "1 / vol1 + 1 / vol2 + 1 / vol3 + 1 / vol4",
+    "weight1": "(1 / vol1) / invVolSum * 100",
+    "weight2": "(1 / vol2) / invVolSum * 100",
+    "weight3": "(1 / vol3) / invVolSum * 100",
+    "weight4": "(1 / vol4) / invVolSum * 100",
+    "totalWeight": "weight1 + weight2 + weight3 + weight4"
+  },
+  "outputs": {
+    "primary": "totalWeight",
+    "breakdown": [
+      "weight1",
+      "weight2",
+      "weight3",
+      "weight4"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,28 @@
+{
+  "toolName": "micrograms-to-mg",
+  "inputs": [
+    {
+      "id": "micrograms",
+      "label": "Micrograms (µg)",
+      "type": "number",
+      "unit": "µg",
+      "default": 1000,
+      "businessContext": "Input mass in micrograms to convert to milligrams."
+    }
+  ],
+  "formulas": {
+    "milligrams": "micrograms / 1000"
+  },
+  "outputs": {
+    "primary": "milligrams",
+    "breakdown": [
+      "milligrams = micrograms / 1000"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

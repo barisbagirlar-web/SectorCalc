@@ -1,0 +1,91 @@
+{
+  "toolName": "dcf-calculator",
+  "inputs": [
+    {
+      "id": "cf1",
+      "label": "Year 1 Cash Flow",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Free cash flow for year 1"
+    },
+    {
+      "id": "cf2",
+      "label": "Year 2 Cash Flow",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Free cash flow for year 2"
+    },
+    {
+      "id": "cf3",
+      "label": "Year 3 Cash Flow",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Free cash flow for year 3"
+    },
+    {
+      "id": "cf4",
+      "label": "Year 4 Cash Flow",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Free cash flow for year 4"
+    },
+    {
+      "id": "cf5",
+      "label": "Year 5 Cash Flow",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Free cash flow for year 5 (terminal year)"
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate (WACC)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Weighted average cost of capital"
+    },
+    {
+      "id": "growthRate",
+      "label": "Terminal Growth Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Perpetual growth rate beyond year 5"
+    }
+  ],
+  "formulas": {
+    "discount": "discountRate / 100",
+    "growth": "growthRate / 100",
+    "pvYear1": "cf1 / ((1 + discount) ** 1)",
+    "pvYear2": "cf2 / ((1 + discount) ** 2)",
+    "pvYear3": "cf3 / ((1 + discount) ** 3)",
+    "pvYear4": "cf4 / ((1 + discount) ** 4)",
+    "pvYear5": "cf5 / ((1 + discount) ** 5)",
+    "terminalValue": "(cf5 * (1 + growth)) / (discount - growth)",
+    "terminalValuePV": "terminalValue / ((1 + discount) ** 5)",
+    "dcfValue": "pvYear1 + pvYear2 + pvYear3 + pvYear4 + pvYear5 + terminalValuePV"
+  },
+  "outputs": {
+    "primary": "dcfValue",
+    "breakdown": [
+      "pvYear1",
+      "pvYear2",
+      "pvYear3",
+      "pvYear4",
+      "pvYear5",
+      "terminalValue",
+      "terminalValuePV"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

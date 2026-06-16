@@ -1,0 +1,64 @@
+{
+  "toolName": "vegan-calculator",
+  "inputs": [
+    {
+      "id": "mealsPerDay",
+      "label": "Vegan meals per day",
+      "type": "number",
+      "unit": "meals/day",
+      "default": 1,
+      "businessContext": "Number of plant-based meals consumed per day instead of animal-based meals."
+    },
+    {
+      "id": "daysPerYear",
+      "label": "Days per year on vegan diet",
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "businessContext": "Number of days in a year you maintain a vegan diet."
+    },
+    {
+      "id": "waterSavedPerMeal",
+      "label": "Water saved per meal",
+      "type": "number",
+      "unit": "L/meal",
+      "default": 1500,
+      "businessContext": "Average litres of water saved per vegan meal compared to a meat-based meal (e.g., beef ~1500 L, chicken ~1000 L)."
+    },
+    {
+      "id": "co2SavedPerMeal",
+      "label": "CO₂ saved per meal",
+      "type": "number",
+      "unit": "kg CO₂/meal",
+      "default": 2.5,
+      "businessContext": "Average kg CO₂-equivalent saved per vegan meal compared to an animal-based meal (range 1.5–6.5 kg)."
+    },
+    {
+      "id": "landSavedPerMeal",
+      "label": "Land saved per meal",
+      "type": "number",
+      "unit": "m²/meal",
+      "default": 5,
+      "businessContext": "Average square metres of land saved per vegan meal compared to a meat-based meal."
+    }
+  ],
+  "formulas": {
+    "totalWater": "mealsPerDay * daysPerYear * waterSavedPerMeal",
+    "totalCO2": "mealsPerDay * daysPerYear * co2SavedPerMeal",
+    "totalLand": "mealsPerDay * daysPerYear * landSavedPerMeal",
+    "treesEquivalent": "totalCO2 / 20",
+    "carMilesSaved": "totalCO2 / 0.4"
+  },
+  "outputs": {
+    "primary": "totalWater",
+    "breakdown": [
+      "totalCO2",
+      "totalLand",
+      "treesEquivalent",
+      "carMilesSaved"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false
+}

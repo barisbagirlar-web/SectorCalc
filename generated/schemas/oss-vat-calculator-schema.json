@@ -1,0 +1,64 @@
+{
+  "toolName": "oss-vat-calculator",
+  "inputs": [
+    {
+      "id": "netAmount",
+      "label": "Net Tutar (TRY)",
+      "type": "number",
+      "unit": "TRY",
+      "default": 1000,
+      "businessContext": "Ürün/hizmetin KDV hariç tutarı"
+    },
+    {
+      "id": "vatRate",
+      "label": "KDV Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Geçerli KDV oranı"
+    },
+    {
+      "id": "quantity",
+      "label": "Adet",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Ürün adedi veya hizmet sayısı"
+    },
+    {
+      "id": "discount",
+      "label": "İskonto (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Net tutar üzerinden yüzde indirim"
+    },
+    {
+      "id": "additionalCost",
+      "label": "Ek Masraflar (TRY)",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "KDV matrahına eklenen diğer masraflar"
+    }
+  ],
+  "formulas": {
+    "discountedNet": "netAmount * (1 - discount / 100)",
+    "totalNet": "discountedNet * quantity + additionalCost",
+    "vatAmount": "totalNet * vatRate / 100",
+    "grossTotal": "totalNet + vatAmount"
+  },
+  "outputs": {
+    "primary": "grossTotal",
+    "breakdown": [
+      "vatAmount",
+      "totalNet"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

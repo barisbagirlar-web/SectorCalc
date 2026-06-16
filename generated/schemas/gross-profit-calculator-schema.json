@@ -1,0 +1,64 @@
+{
+  "toolName": "gross-profit-calculator",
+  "inputs": [
+    {
+      "id": "grossSales",
+      "label": "Gross Sales",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Total revenue from sales before deductions"
+    },
+    {
+      "id": "salesReturns",
+      "label": "Sales Returns",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Value of returned goods"
+    },
+    {
+      "id": "salesDiscounts",
+      "label": "Sales Discounts",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Discounts given to customers"
+    },
+    {
+      "id": "salesAllowances",
+      "label": "Sales Allowances",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Allowances for damaged goods or price reductions"
+    },
+    {
+      "id": "cogs",
+      "label": "Cost of Goods Sold",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Direct costs attributable to production of sold goods"
+    }
+  ],
+  "formulas": {
+    "netSales": "grossSales - salesReturns - salesDiscounts - salesAllowances",
+    "grossProfit": "netSales - cogs",
+    "grossMargin": "netSales !== 0 ? (grossProfit / netSales) * 100 : 0"
+  },
+  "outputs": {
+    "primary": "grossProfit",
+    "breakdown": [
+      "netSales",
+      "grossProfit",
+      "grossMargin"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

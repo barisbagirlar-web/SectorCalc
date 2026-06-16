@@ -1,0 +1,55 @@
+{
+  "toolName": "real-return-calculator",
+  "inputs": [
+    {
+      "id": "nominalReturn",
+      "label": "Nominal Return",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Yıllık nominal getiri oranı"
+    },
+    {
+      "id": "inflationRate",
+      "label": "Enflasyon Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Yıllık enflasyon oranı"
+    },
+    {
+      "id": "taxRate",
+      "label": "Vergi Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Getiri üzerindeki vergi oranı (varsa)"
+    },
+    {
+      "id": "investmentAmount",
+      "label": "Yatırım Tutarı",
+      "type": "number",
+      "unit": "TL",
+      "default": 1000,
+      "businessContext": "Başlangıç yatırım miktarı"
+    }
+  ],
+  "formulas": {
+    "realReturn": "((1 + (nominalReturn * (1 - taxRate / 100)) / 100) / (1 + inflationRate / 100) - 1) * 100",
+    "realValue": "investmentAmount * (1 + ((1 + (nominalReturn * (1 - taxRate / 100)) / 100) / (1 + inflationRate / 100) - 1))",
+    "nominalAfterTax": "nominalReturn * (1 - taxRate / 100)"
+  },
+  "outputs": {
+    "primary": "realReturn",
+    "breakdown": [
+      "realValue",
+      "nominalAfterTax"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

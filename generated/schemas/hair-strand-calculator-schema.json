@@ -1,0 +1,55 @@
+{
+  "toolName": "hair-strand-calculator",
+  "inputs": [
+    {
+      "id": "scalpArea",
+      "label": "Scalp Surface Area",
+      "type": "number",
+      "unit": "cm²",
+      "default": 700,
+      "businessContext": "The surface area of the scalp in square centimeters. Typical adult scalp area ranges from 600 to 800 cm²."
+    },
+    {
+      "id": "hairDensity",
+      "label": "Hair Density",
+      "type": "number",
+      "unit": "strands/cm²",
+      "default": 200,
+      "businessContext": "Average number of hair strands per square centimeter. Typical range is 100-300 strands/cm²."
+    },
+    {
+      "id": "averageHairLength",
+      "label": "Average Hair Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "The average length of hair strands from root to tip in centimeters."
+    },
+    {
+      "id": "dailyHairLoss",
+      "label": "Daily Hair Loss",
+      "type": "number",
+      "unit": "strands/day",
+      "default": 80,
+      "businessContext": "Typical number of hair strands lost per day, normally between 50 and 100."
+    }
+  ],
+  "formulas": {
+    "totalHairStrands": "scalpArea * hairDensity",
+    "totalLength": "totalHairStrands * averageHairLength",
+    "turnoverDays": "totalHairStrands / dailyHairLoss"
+  },
+  "outputs": {
+    "primary": "totalHairStrands",
+    "breakdown": [
+      "totalLength",
+      "turnoverDays"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

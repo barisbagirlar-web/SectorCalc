@@ -1,0 +1,52 @@
+{
+  "toolName": "gravitational-force-calculator",
+  "inputs": [
+    {
+      "id": "mass1",
+      "label": "Mass 1",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "First mass in kilograms"
+    },
+    {
+      "id": "mass2",
+      "label": "Mass 2",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Second mass in kilograms"
+    },
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Distance between centers of masses in meters"
+    },
+    {
+      "id": "gravitationalConstant",
+      "label": "Gravitational Constant (G)",
+      "type": "number",
+      "unit": "N·m²/kg²",
+      "default": 6.6743e-11,
+      "businessContext": "Universal gravitational constant"
+    }
+  ],
+  "formulas": {
+    "force": "gravitationalConstant * mass1 * mass2 / (distance ** 2)"
+  },
+  "outputs": {
+    "primary": "force",
+    "breakdown": [
+      "force"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

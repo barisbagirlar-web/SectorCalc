@@ -1,0 +1,71 @@
+{
+  "toolName": "trimmed-mean-calculator",
+  "inputs": [
+    {
+      "id": "value1",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "First sample data point."
+    },
+    {
+      "id": "value2",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "",
+      "default": 20,
+      "businessContext": "Second sample data point."
+    },
+    {
+      "id": "value3",
+      "label": "Value 3",
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "businessContext": "Third sample data point."
+    },
+    {
+      "id": "value4",
+      "label": "Value 4",
+      "type": "number",
+      "unit": "",
+      "default": 40,
+      "businessContext": "Fourth sample data point."
+    },
+    {
+      "id": "value5",
+      "label": "Value 5",
+      "type": "number",
+      "unit": "",
+      "default": 50,
+      "businessContext": "Fifth sample data point."
+    },
+    {
+      "id": "trimPercent",
+      "label": "Trim Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Symmetric percentage of extreme values to exclude (0 ≤ trim < 50)."
+    }
+  ],
+  "formulas": {
+    "trimmedMean": "(function(vals, pct) { var sorted = vals.filter(v => !isNaN(v)).sort((a,b)=>a-b); var n = sorted.length; var k = Math.floor(n * Math.min(50, Math.max(0, pct)) / 100); var trimmed = sorted.slice(k, n - k); var sum = trimmed.reduce((s,v) => s + v, 0); var count = trimmed.length; return count > 0 ? sum / count : 0; })([value1, value2, value3, value4, value5], trimPercent)",
+    "originalMean": "(function(vals) { var arr = vals.filter(v => !isNaN(v)); var sum = arr.reduce((s,v) => s + v, 0); var n = arr.length; return n > 0 ? sum / n : 0; })([value1, value2, value3, value4, value5])",
+    "countUsed": "(function(vals, pct) { var sorted = vals.filter(v => !isNaN(v)).sort((a,b)=>a-b); var n = sorted.length; var k = Math.floor(n * Math.min(50, Math.max(0, pct)) / 100); var trimmed = sorted.slice(k, n - k); return trimmed.length; })([value1, value2, value3, value4, value5], trimPercent)"
+  },
+  "outputs": {
+    "primary": "trimmedMean",
+    "breakdown": [
+      "originalMean",
+      "countUsed"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

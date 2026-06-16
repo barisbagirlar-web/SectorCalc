@@ -1,0 +1,61 @@
+{
+  "toolName": "vector-magnitude-calculator",
+  "inputs": [
+    {
+      "id": "component1",
+      "label": "Component 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First component of the vector (e.g., x-component)."
+    },
+    {
+      "id": "component2",
+      "label": "Component 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second component of the vector (e.g., y-component)."
+    },
+    {
+      "id": "component3",
+      "label": "Component 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Third component of the vector (e.g., z-component)."
+    },
+    {
+      "id": "component4",
+      "label": "Component 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fourth component of the vector (e.g., w-component for 4D vectors)."
+    }
+  ],
+  "formulas": {
+    "squaredComponent1": "component1**2",
+    "squaredComponent2": "component2**2",
+    "squaredComponent3": "component3**2",
+    "squaredComponent4": "component4**2",
+    "sumOfSquares": "component1**2 + component2**2 + component3**2 + component4**2",
+    "magnitude": "Math.sqrt(component1**2 + component2**2 + component3**2 + component4**2)"
+  },
+  "outputs": {
+    "primary": "magnitude",
+    "breakdown": [
+      "squaredComponent1",
+      "squaredComponent2",
+      "squaredComponent3",
+      "squaredComponent4",
+      "sumOfSquares"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

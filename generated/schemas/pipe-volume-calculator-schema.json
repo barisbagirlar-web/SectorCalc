@@ -1,0 +1,57 @@
+{
+  "toolName": "pipe-volume-calculator",
+  "inputs": [
+    {
+      "id": "outerDiameter",
+      "label": "Outer Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Outer diameter of the pipe"
+    },
+    {
+      "id": "wallThickness",
+      "label": "Wall Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Wall thickness of the pipe"
+    },
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Length of each pipe"
+    },
+    {
+      "id": "quantity",
+      "label": "Number of Pipes",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of pipes to calculate total volume"
+    }
+  ],
+  "formulas": {
+    "innerDiameter": "outerDiameter - 2 * wallThickness",
+    "singleVolume": "Math.PI * (innerDiameter / 2000) ** 2 * length",
+    "totalVolume": "singleVolume * quantity",
+    "totalVolumeLiters": "totalVolume * 1000"
+  },
+  "outputs": {
+    "primary": "totalVolume",
+    "breakdown": [
+      "singleVolume",
+      "totalVolumeLiters",
+      "innerDiameter"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

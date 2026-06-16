@@ -1,0 +1,54 @@
+{
+  "toolName": "quick-ratio-calculator",
+  "inputs": [
+    {
+      "id": "cashEquivalents",
+      "label": "Nakit ve Nakit Benzerleri",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Kasa, banka, kısa vadeli yatırımlar"
+    },
+    {
+      "id": "marketableSecurities",
+      "label": "Menkul Kıymetler",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Hızlıca nakde çevrilebilen kısa vadeli yatırımlar"
+    },
+    {
+      "id": "accountsReceivable",
+      "label": "Ticari Alacaklar",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Müşterilerden alacaklar"
+    },
+    {
+      "id": "currentLiabilities",
+      "label": "Kısa Vadeli Yükümlülükler",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "1 yıl içinde ödenmesi gereken borçlar"
+    }
+  ],
+  "formulas": {
+    "quickRatio": "((inputs.cashEquivalents + inputs.marketableSecurities + inputs.accountsReceivable) / inputs.currentLiabilities) || 0"
+  },
+  "outputs": {
+    "primary": "quickRatio",
+    "breakdown": [
+      "Likidite Oranı: ${quickRatio.toFixed(2)}",
+      "Nakit + Menkul Kıymetler + Alacaklar = ${inputs.cashEquivalents + inputs.marketableSecurities + inputs.accountsReceivable} TRY",
+      "Kısa Vadeli Yükümlülükler = ${inputs.currentLiabilities} TRY"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

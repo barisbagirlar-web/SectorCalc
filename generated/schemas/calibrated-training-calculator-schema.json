@@ -1,0 +1,73 @@
+{
+  "toolName": "calibrated-training-calculator",
+  "inputs": [
+    {
+      "id": "preScore",
+      "label": "Pre-Training Assessment Score",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "businessContext": "Average score of trainees before training, as percentage of maximum."
+    },
+    {
+      "id": "postScore",
+      "label": "Post-Training Assessment Score",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Average score of trainees after training, as percentage of maximum."
+    },
+    {
+      "id": "trainingDuration",
+      "label": "Training Duration",
+      "type": "number",
+      "unit": "hours",
+      "default": 40,
+      "businessContext": "Total hours of training delivered."
+    },
+    {
+      "id": "hourlyCost",
+      "label": "Training Cost per Hour",
+      "type": "number",
+      "unit": "€",
+      "default": 100,
+      "businessContext": "Cost per hour including instructor, materials, overhead."
+    },
+    {
+      "id": "scrapRateBefore",
+      "label": "Scrap Rate Before Training",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of defective output before training."
+    },
+    {
+      "id": "scrapRateAfter",
+      "label": "Scrap Rate After Training",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Percentage of defective output after training."
+    }
+  ],
+  "formulas": {
+    "skillGain": "((postScore - preScore) / (100 - preScore)) * 100",
+    "qualityImprovement": "((scrapRateBefore - scrapRateAfter) / scrapRateBefore) * 100",
+    "costEfficiency": "(((postScore - preScore) / (100 - preScore)) * 100) / (trainingDuration * hourlyCost)",
+    "trainingEffectiveness": "0.6 * (((postScore - preScore) / (100 - preScore)) * 100) + 0.4 * (((scrapRateBefore - scrapRateAfter) / scrapRateBefore) * 100)"
+  },
+  "outputs": {
+    "primary": "trainingEffectiveness",
+    "breakdown": [
+      "skillGain",
+      "qualityImprovement",
+      "costEfficiency"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

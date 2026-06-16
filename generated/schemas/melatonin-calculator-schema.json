@@ -1,0 +1,62 @@
+{
+  "toolName": "melatonin-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "User age for base dose adjustment"
+    },
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Weight used to increase dose if over 90 kg"
+    },
+    {
+      "id": "nightShift",
+      "label": "Night Shift",
+      "type": "number",
+      "unit": "boolean (0 = no, 1 = yes)",
+      "default": 0,
+      "businessContext": "Indicates whether user works night shift"
+    },
+    {
+      "id": "jetLagFactor",
+      "label": "Jet Lag Severity",
+      "type": "number",
+      "unit": "factor (0–1)",
+      "default": 0,
+      "businessContext": "Severity of jet lag; adds up to 0.5 mg"
+    }
+  ],
+  "formulas": {
+    "baseDose": "age >= 60 ? 1 : 0.5",
+    "weightMultiplier": "weight > 90 ? 1.2 : 1",
+    "shiftMultiplier": "nightShift == 1 ? 1.5 : 1",
+    "jetLagAddition": "jetLagFactor * 0.5",
+    "doseUncapped": "(baseDose * weightMultiplier * shiftMultiplier) + jetLagAddition",
+    "dose": "Math.min(5, doseUncapped)",
+    "doseRounded": "Math.round(dose * 100) / 100"
+  },
+  "outputs": {
+    "primary": "doseRounded + \" mg\"",
+    "breakdown": [
+      "\"Base dose: \" + baseDose + \" mg\"",
+      "\"Weight factor: x\" + weightMultiplier",
+      "\"Shift factor: x\" + shiftMultiplier",
+      "\"Jet lag addition: +\" + jetLagAddition + \" mg\"",
+      "\"Total (capped at 5 mg): \" + doseRounded + \" mg\""
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

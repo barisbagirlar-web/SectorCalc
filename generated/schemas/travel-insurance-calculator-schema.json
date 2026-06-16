@@ -1,0 +1,76 @@
+{
+  "toolName": "travel-insurance-calculator",
+  "inputs": [
+    {
+      "id": "tripDurationDays",
+      "label": "Trip Duration (Days)",
+      "type": "number",
+      "unit": "days",
+      "default": 7,
+      "businessContext": "Number of days of the trip"
+    },
+    {
+      "id": "travelerAge",
+      "label": "Traveler Age",
+      "type": "number",
+      "unit": "years",
+      "default": 35,
+      "businessContext": "Age of the primary traveler"
+    },
+    {
+      "id": "coverageAmount",
+      "label": "Medical Coverage Amount",
+      "type": "number",
+      "unit": "EUR",
+      "default": 50000,
+      "businessContext": "Maximum medical expense coverage"
+    },
+    {
+      "id": "destinationRisk",
+      "label": "Destination Risk Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Risk factor based on destination (1.0 = standard)"
+    },
+    {
+      "id": "deductible",
+      "label": "Deductible",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "Amount the traveler pays before insurance covers"
+    },
+    {
+      "id": "numberOfTravelers",
+      "label": "Number of Travelers",
+      "type": "number",
+      "unit": "persons",
+      "default": 1,
+      "businessContext": "Total number of insured travelers"
+    }
+  ],
+  "formulas": {
+    "baseDailyRate": 5,
+    "ageFactor": "1 + (travelerAge > 60 ? (travelerAge - 60) * 0.05 : 0)",
+    "riskFactor": "destinationRisk",
+    "premiumBeforeDeductible": "tripDurationDays * baseDailyRate * riskFactor * ageFactor * numberOfTravelers",
+    "deductibleDiscount": "deductible * 0.01",
+    "dailyCost": "baseDailyRate * riskFactor * ageFactor * numberOfTravelers",
+    "totalCost": "Math.max(0, premiumBeforeDeductible - deductibleDiscount)"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "dailyCost",
+      "premiumBeforeDeductible",
+      "deductibleDiscount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

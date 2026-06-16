@@ -1,0 +1,67 @@
+{
+  "toolName": "baby-teeth-calculator",
+  "inputs": [
+    {
+      "id": "ageMonths",
+      "label": "Bebeğin Ayı",
+      "type": "number",
+      "unit": "ay",
+      "default": 12,
+      "businessContext": "Bebeğin güncel yaşı (ay olarak)."
+    },
+    {
+      "id": "geneticFactor",
+      "label": "Genetik Faktör",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Aile geçmişine göre diş çıkarma hızı katsayısı (1.0 = ortalama)."
+    },
+    {
+      "id": "calciumIntake",
+      "label": "Günlük Kalsiyum Alımı",
+      "type": "number",
+      "unit": "mg",
+      "default": 500,
+      "businessContext": "Bebeğin günlük ortalama kalsiyum alımı."
+    },
+    {
+      "id": "breastfeedingDuration",
+      "label": "Emzirme Süresi",
+      "type": "number",
+      "unit": "ay",
+      "default": 6,
+      "businessContext": "Sadece anne sütüyle beslenme süresi."
+    }
+  ],
+  "formulas": {
+    "baseTeeth": "Math.max(0, ageMonths - 6)",
+    "geneticModifier": "geneticFactor - 1",
+    "calciumModifier": "(calciumIntake - 500) / 500",
+    "breastfeedingModifier": "Math.max(0, (breastfeedingDuration - 6) * -0.2)",
+    "totalModifier": "geneticModifier + calciumModifier + breastfeedingModifier",
+    "expectedTeethRaw": "baseTeeth * (1 + totalModifier)",
+    "expectedTeeth": "Math.max(0, Math.round(expectedTeethRaw))",
+    "breakdownBase": "'Temel: ' + baseTeeth.toFixed(0) + ' diş'",
+    "breakdownGenetic": "(geneticModifier >= 0 ? 'Genetik: +' : 'Genetik: ') + (geneticModifier * baseTeeth).toFixed(1) + ' diş'",
+    "breakdownCalcium": "(calciumModifier >= 0 ? 'Kalsiyum: +' : 'Kalsiyum: ') + (calciumModifier * baseTeeth).toFixed(1) + ' diş'",
+    "breakdownBreastfeeding": "(breastfeedingModifier >= 0 ? 'Emzirme: +' : 'Emzirme: ') + (breastfeedingModifier * baseTeeth).toFixed(1) + ' diş'",
+    "breakdownTotal": "'Toplam: ' + expectedTeeth + ' diş'"
+  },
+  "outputs": {
+    "primary": "expectedTeeth",
+    "breakdown": [
+      "breakdownBase",
+      "breakdownGenetic",
+      "breakdownCalcium",
+      "breakdownBreastfeeding",
+      "breakdownTotal"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

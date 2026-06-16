@@ -1,0 +1,63 @@
+{
+  "toolName": "seed-calculator",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "Field Area",
+      "type": "number",
+      "unit": "ha",
+      "default": 1,
+      "businessContext": "Total field area in hectares."
+    },
+    {
+      "id": "plantDensity",
+      "label": "Target Plant Density",
+      "type": "number",
+      "unit": "plants/m²",
+      "default": 200,
+      "businessContext": "Desired number of plants per square meter after emergence."
+    },
+    {
+      "id": "germinationRate",
+      "label": "Germination Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Expected percentage of seeds that will germinate under normal conditions."
+    },
+    {
+      "id": "seedPurity",
+      "label": "Seed Purity",
+      "type": "number",
+      "unit": "%",
+      "default": 98,
+      "businessContext": "Percentage of pure, viable seeds in the lot (excludes inert matter and other crop seeds)."
+    },
+    {
+      "id": "tkw",
+      "label": "Thousand Kernel Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 35,
+      "businessContext": "Weight of 1000 kernels in grams, indicating seed size and quality."
+    }
+  ],
+  "formulas": {
+    "totalSeedWeight": "((area * 10000) * plantDensity / ((germinationRate / 100) * (seedPurity / 100))) * (tkw / 1000000)",
+    "seedRate": "(plantDensity / ((germinationRate / 100) * (seedPurity / 100))) * tkw / 100",
+    "totalPlantsExpected": "area * 10000 * plantDensity"
+  },
+  "outputs": {
+    "primary": "totalSeedWeight",
+    "breakdown": [
+      "seedRate",
+      "totalPlantsExpected"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

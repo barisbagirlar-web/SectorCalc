@@ -1,0 +1,78 @@
+{
+  "toolName": "triple-integral-calculator",
+  "inputs": [
+    {
+      "id": "xLower",
+      "label": "X Alt Sınır",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "X entegrasyon alt sınırı"
+    },
+    {
+      "id": "xUpper",
+      "label": "X Üst Sınır",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "X entegrasyon üst sınırı"
+    },
+    {
+      "id": "yLower",
+      "label": "Y Alt Sınır",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y entegrasyon alt sınırı"
+    },
+    {
+      "id": "yUpper",
+      "label": "Y Üst Sınır",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Y entegrasyon üst sınırı"
+    },
+    {
+      "id": "zLower",
+      "label": "Z Alt Sınır",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Z entegrasyon alt sınırı"
+    },
+    {
+      "id": "zUpper",
+      "label": "Z Üst Sınır",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Z entegrasyon üst sınırı"
+    },
+    {
+      "id": "density",
+      "label": "Yoğunluk",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Sabit yoğunluk"
+    }
+  ],
+  "formulas": {
+    "volume": "(xUpper - xLower) * (yUpper - yLower) * (zUpper - zLower)",
+    "mass": "density * volume"
+  },
+  "outputs": {
+    "primary": "mass",
+    "breakdown": [
+      "volume",
+      "mass"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

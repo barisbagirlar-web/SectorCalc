@@ -1,0 +1,88 @@
+{
+  "toolName": "carbon-offset-calculator",
+  "inputs": [
+    {
+      "id": "electricityUsage",
+      "label": "Annual Electricity Usage",
+      "type": "number",
+      "unit": "kWh",
+      "default": 10000,
+      "businessContext": "Total electricity consumption in kilowatt-hours per year (indirect emissions from grid)."
+    },
+    {
+      "id": "naturalGasUsage",
+      "label": "Annual Natural Gas Usage",
+      "type": "number",
+      "unit": "therms",
+      "default": 1000,
+      "businessContext": "Total natural gas usage in therms per year (direct emissions from combustion)."
+    },
+    {
+      "id": "vehicleMiles",
+      "label": "Annual Vehicle Miles",
+      "type": "number",
+      "unit": "miles",
+      "default": 12000,
+      "businessContext": "Total miles driven per year in gasoline-powered vehicles (scope 1 mobile combustion)."
+    },
+    {
+      "id": "flightMiles",
+      "label": "Annual Flight Miles",
+      "type": "number",
+      "unit": "miles",
+      "default": 5000,
+      "businessContext": "Total miles flown per year (average short/medium-haul flights, scope 3 upstream)."
+    },
+    {
+      "id": "wasteGeneration",
+      "label": "Annual Waste Generation",
+      "type": "number",
+      "unit": "lbs",
+      "default": 2000,
+      "businessContext": "Total waste sent to landfill per year in pounds (methane emissions from decomposition)."
+    },
+    {
+      "id": "waterUsage",
+      "label": "Annual Water Usage",
+      "type": "number",
+      "unit": "gallons",
+      "default": 50000,
+      "businessContext": "Total water consumption in gallons per year (energy for treatment and pumping)."
+    }
+  ],
+  "formulas": {
+    "FACTOR_ELECTRICITY": 0.000707,
+    "FACTOR_NATURAL_GAS": 0.0053,
+    "FACTOR_VEHICLE": 0.000404,
+    "FACTOR_FLIGHT": 0.0002,
+    "FACTOR_WASTE": 0.0005,
+    "FACTOR_WATER": 0.000002,
+    "emissions": {
+      "electricity": "electricityUsage * FACTOR_ELECTRICITY",
+      "naturalGas": "naturalGasUsage * FACTOR_NATURAL_GAS",
+      "vehicle": "vehicleMiles * FACTOR_VEHICLE",
+      "flights": "flightMiles * FACTOR_FLIGHT",
+      "waste": "wasteGeneration * FACTOR_WASTE",
+      "water": "waterUsage * FACTOR_WATER"
+    },
+    "totalEmissions": "electricity + naturalGas + vehicle + flights + waste + water",
+    "round2": "Math.round(totalEmissions * 100) / 100"
+  },
+  "outputs": {
+    "primary": "{round2} metric tons CO₂e",
+    "breakdown": [
+      "Electricity: {electricity.toFixed(2)} metric tons",
+      "Natural Gas: {naturalGas.toFixed(2)} metric tons",
+      "Vehicles: {vehicle.toFixed(2)} metric tons",
+      "Flights: {flights.toFixed(2)} metric tons",
+      "Waste: {waste.toFixed(2)} metric tons",
+      "Water: {water.toFixed(2)} metric tons"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

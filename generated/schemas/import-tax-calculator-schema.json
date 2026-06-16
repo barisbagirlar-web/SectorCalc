@@ -1,0 +1,67 @@
+{
+  "toolName": "import-tax-calculator",
+  "inputs": [
+    {
+      "id": "cifValue",
+      "label": "CIF Değeri",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Mal bedeli, sigorta ve navlun dahil ithal edilen malın toplam değeri (USD cinsinden)."
+    },
+    {
+      "id": "customsDutyRate",
+      "label": "Gümrük Vergisi Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Gümrük tarife pozisyonuna göre uygulanan vergi oranı (yüzde)."
+    },
+    {
+      "id": "vatRate",
+      "label": "KDV Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Katma değer vergisi oranı (yüzde)."
+    },
+    {
+      "id": "exchangeRate",
+      "label": "Döviz Kuru",
+      "type": "number",
+      "unit": "yerel/1 USD",
+      "default": 1,
+      "businessContext": "USD'nin yerel para birimi karşısındaki değeri."
+    },
+    {
+      "id": "additionalTaxRate",
+      "label": "Ek Vergi Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Özel tüketim vergisi veya ek gümrük vergisi oranı (varsa, yüzde)."
+    }
+  ],
+  "formulas": {
+    "primary": "exchangeRate * (cifValue * customsDutyRate / 100 + (cifValue + cifValue * customsDutyRate / 100) * (vatRate + additionalTaxRate) / 100)",
+    "breakdown": [
+      "cifValue * customsDutyRate / 100 * exchangeRate",
+      "(cifValue + cifValue * customsDutyRate / 100) * vatRate / 100 * exchangeRate",
+      "(cifValue + cifValue * customsDutyRate / 100) * additionalTaxRate / 100 * exchangeRate"
+    ]
+  },
+  "outputs": {
+    "primary": "Toplam İthalat Vergisi (Yerel)",
+    "breakdown": [
+      "Gümrük Vergisi (Yerel)",
+      "KDV (Yerel)",
+      "Ek Vergi (Yerel)"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,85 @@
+{
+  "toolName": "fiber-cement-siding-estimator-calculator",
+  "inputs": [
+    {
+      "id": "wallArea",
+      "label": "Wall Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "businessContext": "Total surface area to cover with siding"
+    },
+    {
+      "id": "panelLength",
+      "label": "Panel Length",
+      "type": "number",
+      "unit": "m",
+      "default": 3.66,
+      "businessContext": "Length of one siding panel"
+    },
+    {
+      "id": "panelWidth",
+      "label": "Coverage Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.2,
+      "businessContext": "Effective coverage width per panel (exposure)"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage of extra material for waste (cuts, overlaps)"
+    },
+    {
+      "id": "costPerPanel",
+      "label": "Material Cost per Panel",
+      "type": "number",
+      "unit": "currency/panel",
+      "default": 5,
+      "businessContext": "Purchase cost of one panel"
+    },
+    {
+      "id": "laborHoursPerPanel",
+      "label": "Installation Time per Panel",
+      "type": "number",
+      "unit": "hours",
+      "default": 0.1,
+      "businessContext": "Labor time required to install one panel"
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "Labor Cost per Hour",
+      "type": "number",
+      "unit": "currency/hour",
+      "default": 50,
+      "businessContext": "Hourly rate for labor"
+    }
+  ],
+  "formulas": {
+    "panelArea": "panelLength * panelWidth",
+    "adjustedArea": "wallArea * (1 + wasteFactor / 100)",
+    "numberOfPanels": "Math.ceil(adjustedArea / panelArea)",
+    "totalMaterialCost": "numberOfPanels * costPerPanel",
+    "totalLaborCost": "numberOfPanels * laborHoursPerPanel * laborCostPerHour",
+    "totalCost": "totalMaterialCost + totalLaborCost",
+    "wasteMaterialArea": "adjustedArea - wallArea"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "numberOfPanels",
+      "totalMaterialCost",
+      "totalLaborCost",
+      "wasteMaterialArea"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

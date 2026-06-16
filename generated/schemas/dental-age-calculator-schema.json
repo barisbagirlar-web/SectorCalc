@@ -1,0 +1,69 @@
+{
+  "toolName": "dental-age-calculator",
+  "inputs": [
+    {
+      "id": "mesiodistalWidth",
+      "label": "Mesiodistal Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 8.5,
+      "businessContext": "Width of the tooth measured from mesial to distal contact points, typically from dental X-ray or impression."
+    },
+    {
+      "id": "buccolingualWidth",
+      "label": "Buccolingual Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Width of the tooth measured from buccal (cheek) to lingual (tongue) surface."
+    },
+    {
+      "id": "crownLength",
+      "label": "Crown Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 7,
+      "businessContext": "Distance from the cementoenamel junction to the incisal edge or cusp tip."
+    },
+    {
+      "id": "rootLength",
+      "label": "Root Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 12,
+      "businessContext": "Length of the root from cementoenamel junction to apex, visible on radiograph."
+    },
+    {
+      "id": "eruptedTeeth",
+      "label": "Number of Fully Erupted Permanent Teeth",
+      "type": "number",
+      "unit": "count",
+      "default": 12,
+      "businessContext": "Count of permanent teeth fully emerged through gingiva and in functional occlusion."
+    }
+  ],
+  "formulas": {
+    "dentalAgeYears": "0.25 * mesiodistalWidth + 0.15 * buccolingualWidth + 0.2 * crownLength + 0.1 * rootLength + 0.8 * Math.log(1 + eruptedTeeth) - 3.5",
+    "mesiodistalContribution": "0.25 * mesiodistalWidth",
+    "buccolingualContribution": "0.15 * buccolingualWidth",
+    "crownContribution": "0.2 * crownLength",
+    "rootContribution": "0.1 * rootLength",
+    "teethContribution": "0.8 * Math.log(1 + eruptedTeeth)"
+  },
+  "outputs": {
+    "primary": "dentalAgeYears",
+    "breakdown": [
+      "mesiodistalContribution",
+      "buccolingualContribution",
+      "crownContribution",
+      "rootContribution",
+      "teethContribution"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

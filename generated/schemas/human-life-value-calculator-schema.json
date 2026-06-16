@@ -1,0 +1,73 @@
+{
+  "toolName": "human-life-value-calculator",
+  "inputs": [
+    {
+      "id": "annualIncome",
+      "label": "Annual Income",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 50000,
+      "businessContext": "Gross annual income of the individual"
+    },
+    {
+      "id": "yearsToRetirement",
+      "label": "Years to Retirement",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Number of years until retirement"
+    },
+    {
+      "id": "expenseRatio",
+      "label": "Personal Expense Ratio",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.3,
+      "businessContext": "Fraction of income spent on personal expenses (e.g., 0.3 for 30%)"
+    },
+    {
+      "id": "rateOfReturn",
+      "label": "Rate of Return",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.05,
+      "businessContext": "Expected annual investment return (e.g., 0.05 for 5%)"
+    },
+    {
+      "id": "inflationRate",
+      "label": "Inflation Rate",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.02,
+      "businessContext": "Expected annual inflation rate (e.g., 0.02 for 2%)"
+    },
+    {
+      "id": "currentSavings",
+      "label": "Current Savings",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Existing savings or liquid assets"
+    }
+  ],
+  "formulas": {
+    "netAnnualContribution": "annualIncome * (1 - expenseRatio)",
+    "realRate": "(1 + rateOfReturn) / (1 + inflationRate) - 1",
+    "presentValue": "realRate === 0 ? netAnnualContribution * yearsToRetirement : netAnnualContribution * (1 - Math.pow(1 + realRate, -yearsToRetirement)) / realRate",
+    "humanLifeValue": "presentValue + currentSavings"
+  },
+  "outputs": {
+    "primary": "humanLifeValue",
+    "breakdown": [
+      "netAnnualContribution",
+      "realRate",
+      "presentValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,72 @@
+{
+  "toolName": "phantom-load-calculator",
+  "inputs": [
+    {
+      "id": "standbyWatt",
+      "label": "Cihaz Bekleme Gücü",
+      "type": "number",
+      "unit": "W",
+      "default": 5,
+      "businessContext": "Cihazın bekleme modunda tükettiği güç, watt cinsinden."
+    },
+    {
+      "id": "numberOfDevices",
+      "label": "Cihaz Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Aynı bekleme gücüne sahip cihaz sayısı."
+    },
+    {
+      "id": "standbyHoursPerDay",
+      "label": "Günlük Bekleme Süresi",
+      "type": "number",
+      "unit": "saat/gün",
+      "default": 24,
+      "businessContext": "Cihazın bir günde bekleme modunda kaldığı saat."
+    },
+    {
+      "id": "electricityCost",
+      "label": "Elektrik Birim Fiyatı",
+      "type": "number",
+      "unit": "TL/kWh",
+      "default": 1.5,
+      "businessContext": "Elektrik birim fiyatı (TL/kWh cinsinden)."
+    },
+    {
+      "id": "carbonFactor",
+      "label": "Karbon Emisyon Faktörü",
+      "type": "number",
+      "unit": "kg CO2/kWh",
+      "default": 0.5,
+      "businessContext": "Birim elektrik tüketimi başına salınan CO2 miktarı."
+    },
+    {
+      "id": "operatingDaysPerYear",
+      "label": "Yıllık Çalışma Gün Sayısı",
+      "type": "number",
+      "unit": "gün/yıl",
+      "default": 365,
+      "businessContext": "Cihazların yıl boyunca çalıştığı gün sayısı."
+    }
+  ],
+  "formulas": {
+    "dailyEnergyKwh": "(standbyWatt * numberOfDevices * standbyHoursPerDay) / 1000",
+    "annualEnergyKwh": "dailyEnergyKwh * operatingDaysPerYear",
+    "annualCost": "annualEnergyKwh * electricityCost",
+    "annualCarbonKg": "annualEnergyKwh * carbonFactor"
+  },
+  "outputs": {
+    "primary": "annualCost",
+    "breakdown": [
+      "annualEnergyKwh",
+      "annualCarbonKg"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

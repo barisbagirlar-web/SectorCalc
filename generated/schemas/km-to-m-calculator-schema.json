@@ -1,0 +1,79 @@
+{
+  "toolName": "km-to-m-calculator",
+  "inputs": [
+    {
+      "id": "inputKm",
+      "label": "Distance (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 1,
+      "businessContext": "Distance in kilometers to convert to meters."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "m/km",
+      "default": 1000,
+      "businessContext": "Meters per kilometer. Standard value is 1000."
+    },
+    {
+      "id": "decimalPrecision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding the result."
+    },
+    {
+      "id": "roundingMethod",
+      "label": "Rounding Method",
+      "type": "number",
+      "unit": "code",
+      "default": 0,
+      "businessContext": "0 = round, 1 = floor, 2 = ceil."
+    },
+    {
+      "id": "minimumValue",
+      "label": "Minimum Threshold (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Output value floor, useful for safety margins."
+    },
+    {
+      "id": "maximumValue",
+      "label": "Maximum Threshold (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 999999,
+      "businessContext": "Output value ceiling, for limiting results."
+    },
+    {
+      "id": "scaleFactor",
+      "label": "Scale Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Batch multiplier for bulk conversions."
+    }
+  ],
+  "formulas": {
+    "rawMeters": "inputKm * conversionFactor * scaleFactor",
+    "rounded": "roundingMethod === 0 ? Math.round(rawMeters * Math.pow(10, decimalPrecision)) / Math.pow(10, decimalPrecision) : roundingMethod === 1 ? Math.floor(rawMeters * Math.pow(10, decimalPrecision)) / Math.pow(10, decimalPrecision) : Math.ceil(rawMeters * Math.pow(10, decimalPrecision)) / Math.pow(10, decimalPrecision)",
+    "clamped": "Math.max(minimumValue, Math.min(maximumValue, rounded))"
+  },
+  "outputs": {
+    "primary": "clamped",
+    "breakdown": [
+      "rawMeters",
+      "rounded"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

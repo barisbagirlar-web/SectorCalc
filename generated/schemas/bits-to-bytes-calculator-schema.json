@@ -1,0 +1,67 @@
+{
+  "toolName": "bits-to-bytes-calculator",
+  "inputs": [
+    {
+      "id": "bits",
+      "label": "Bits",
+      "type": "number",
+      "unit": "bits",
+      "default": 0,
+      "businessContext": "Number of bits to convert into bytes"
+    },
+    {
+      "id": "kilobits",
+      "label": "Kilobits",
+      "type": "number",
+      "unit": "Kbits",
+      "default": 0,
+      "businessContext": "Number of kilobits (1 Kbit = 1000 bits)"
+    },
+    {
+      "id": "megabits",
+      "label": "Megabits",
+      "type": "number",
+      "unit": "Mbits",
+      "default": 0,
+      "businessContext": "Number of megabits (1 Mbit = 1,000,000 bits)"
+    },
+    {
+      "id": "gigabits",
+      "label": "Gigabits",
+      "type": "number",
+      "unit": "Gbits",
+      "default": 0,
+      "businessContext": "Number of gigabits (1 Gbit = 1,000,000,000 bits)"
+    },
+    {
+      "id": "terabits",
+      "label": "Terabits",
+      "type": "number",
+      "unit": "Tbits",
+      "default": 0,
+      "businessContext": "Number of terabits (1 Tbit = 1,000,000,000,000 bits)"
+    }
+  ],
+  "formulas": {
+    "bytes": "(bits + kilobits*1000 + megabits*1000000 + gigabits*1000000000 + terabits*1000000000000) / 8",
+    "kilobytes": "(bits + kilobits*1000 + megabits*1000000 + gigabits*1000000000 + terabits*1000000000000) / 8 / 1000",
+    "megabytes": "(bits + kilobits*1000 + megabits*1000000 + gigabits*1000000000 + terabits*1000000000000) / 8 / 1000000",
+    "gigabytes": "(bits + kilobits*1000 + megabits*1000000 + gigabits*1000000000 + terabits*1000000000000) / 8 / 1000000000",
+    "terabytes": "(bits + kilobits*1000 + megabits*1000000 + gigabits*1000000000 + terabits*1000000000000) / 8 / 1000000000000"
+  },
+  "outputs": {
+    "primary": "bytes",
+    "breakdown": [
+      "kilobytes",
+      "megabytes",
+      "gigabytes",
+      "terabytes"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

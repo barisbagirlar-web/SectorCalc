@@ -1,0 +1,63 @@
+{
+  "toolName": "radians-to-degrees-calculator",
+  "inputs": [
+    {
+      "id": "radians",
+      "label": "Radian Değeri",
+      "type": "number",
+      "unit": "rad",
+      "default": 0,
+      "businessContext": "Dönüştürülecek açının radyan cinsinden değeri."
+    },
+    {
+      "id": "customPi",
+      "label": "Özel Pi Değeri",
+      "type": "number",
+      "unit": "",
+      "default": 3.141592653589793,
+      "businessContext": "Hassasiyet veya test için özelleştirilmiş pi sayısı. Standart Math.PI kullanmak için varsayılan bırakın."
+    },
+    {
+      "id": "scaleFactor",
+      "label": "Ölçek Çarpanı",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Dönüşüm sonucuna uygulanacak çarpan katsayısı (örn. kalibrasyon)."
+    },
+    {
+      "id": "offset",
+      "label": "Ofset (Derece)",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Dönüşüm sonucuna eklenecek sabit derece ofseti."
+    },
+    {
+      "id": "precision",
+      "label": "Ondalık Hassasiyet",
+      "type": "number",
+      "unit": "dp",
+      "default": 2,
+      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı."
+    }
+  ],
+  "formulas": {
+    "pi": "customPi",
+    "radiansToRawDegrees": "radians * (180 / pi) * scaleFactor + offset",
+    "finalDegrees": "Math.round(radiansToRawDegrees * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "finalDegrees",
+    "breakdown": [
+      "radiansToRawDegrees",
+      "finalDegrees"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

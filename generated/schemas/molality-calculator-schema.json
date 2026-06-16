@@ -1,0 +1,62 @@
+{
+  "toolName": "molality-calculator",
+  "inputs": [
+    {
+      "id": "soluteMass",
+      "label": "Mass of Solute",
+      "type": "number",
+      "unit": "g",
+      "default": 10,
+      "businessContext": "The mass of the solute substance in grams."
+    },
+    {
+      "id": "molarMass",
+      "label": "Molar Mass",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 58.44,
+      "businessContext": "Molar mass of the solute, e.g., 58.44 g/mol for NaCl."
+    },
+    {
+      "id": "solventMass",
+      "label": "Mass of Solvent",
+      "type": "number",
+      "unit": "g",
+      "default": 500,
+      "businessContext": "The mass of the solvent in grams."
+    }
+  ],
+  "formulas": {
+    "molesSolute": "soluteMass / molarMass",
+    "solventMassKg": "solventMass / 1000",
+    "molality": "molesSolute / solventMassKg"
+  },
+  "outputs": {
+    "primary": {
+      "id": "molality",
+      "label": "Molality",
+      "unit": "mol/kg",
+      "value": "molality"
+    },
+    "breakdown": [
+      {
+        "id": "molesSolute",
+        "label": "Moles of Solute",
+        "unit": "mol",
+        "value": "molesSolute"
+      },
+      {
+        "id": "solventMassKg",
+        "label": "Mass of Solvent",
+        "unit": "kg",
+        "value": "solventMassKg"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

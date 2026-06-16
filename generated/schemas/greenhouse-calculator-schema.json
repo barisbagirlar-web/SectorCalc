@@ -1,0 +1,73 @@
+{
+  "toolName": "greenhouse-calculator",
+  "inputs": [
+    {
+      "id": "electricity",
+      "label": "Electricity Consumption",
+      "type": "number",
+      "unit": "kWh",
+      "default": 1000,
+      "businessContext": "Total electricity used in kWh per period (e.g., monthly or annual)."
+    },
+    {
+      "id": "ef_electricity",
+      "label": "Emission Factor (Electricity)",
+      "type": "number",
+      "unit": "kgCO2e/kWh",
+      "default": 0.475,
+      "businessContext": "CO2 equivalent per kWh, depends on grid mix. Default: EU average."
+    },
+    {
+      "id": "naturalGas",
+      "label": "Natural Gas Consumption",
+      "type": "number",
+      "unit": "m³",
+      "default": 100,
+      "businessContext": "Volume of natural gas combusted."
+    },
+    {
+      "id": "ef_naturalGas",
+      "label": "Emission Factor (Natural Gas)",
+      "type": "number",
+      "unit": "kgCO2e/m³",
+      "default": 1.9,
+      "businessContext": "CO2 equivalent per m³ of natural gas."
+    },
+    {
+      "id": "fuelOil",
+      "label": "Fuel Oil Consumption",
+      "type": "number",
+      "unit": "litres",
+      "default": 100,
+      "businessContext": "Volume of fuel oil (e.g., diesel) combusted."
+    },
+    {
+      "id": "ef_fuelOil",
+      "label": "Emission Factor (Fuel Oil)",
+      "type": "number",
+      "unit": "kgCO2e/litre",
+      "default": 2.5,
+      "businessContext": "CO2 equivalent per litre of fuel oil."
+    }
+  ],
+  "formulas": {
+    "electricityCO2": "electricity * ef_electricity",
+    "naturalGasCO2": "naturalGas * ef_naturalGas",
+    "fuelOilCO2": "fuelOil * ef_fuelOil",
+    "totalCO2e": "electricityCO2 + naturalGasCO2 + fuelOilCO2"
+  },
+  "outputs": {
+    "primary": "totalCO2e",
+    "breakdown": [
+      "electricityCO2",
+      "naturalGasCO2",
+      "fuelOilCO2"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,100 @@
+{
+  "toolName": "electrical-panel-calculator",
+  "inputs": [
+    {
+      "id": "voltage",
+      "label": "System Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 400,
+      "businessContext": "Nominal system voltage (e.g., 230V single-phase, 400V three-phase)."
+    },
+    {
+      "id": "phases",
+      "label": "Number of Phases",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "1 for single-phase, 3 for three-phase."
+    },
+    {
+      "id": "numberOfCircuits",
+      "label": "Number of Branch Circuits",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Total number of branch circuits to be supplied."
+    },
+    {
+      "id": "loadPerCircuit",
+      "label": "Load per Circuit",
+      "type": "number",
+      "unit": "A",
+      "default": 20,
+      "businessContext": "Rated current per branch circuit."
+    },
+    {
+      "id": "diversityFactor",
+      "label": "Diversity Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "businessContext": "Factor accounting for non-simultaneous loads (0-1)."
+    },
+    {
+      "id": "powerFactor",
+      "label": "Power Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.85,
+      "businessContext": "Power factor of the load (0-1)."
+    }
+  ],
+  "formulas": {
+    "totalCurrent": "numberOfCircuits * loadPerCircuit * diversityFactor",
+    "totalLoadkW": "phases === 3 ? (Math.sqrt(3) * voltage * totalCurrent * powerFactor / 1000) : (voltage * totalCurrent * powerFactor / 1000)",
+    "totalLoadkVA": "totalLoadkW / powerFactor",
+    "requiredPanelRating": "totalLoadkVA * 1.25",
+    "mainBreakerCurrent": "totalLoadkVA * 1000 / (phases === 3 ? (Math.sqrt(3) * voltage) : voltage)"
+  },
+  "outputs": {
+    "primary": {
+      "id": "requiredPanelRating",
+      "label": "Required Panel Rating",
+      "unit": "kVA",
+      "description": "Minimum panel kVA rating with 25% safety margin."
+    },
+    "breakdown": [
+      {
+        "id": "totalCurrent",
+        "label": "Total Current",
+        "unit": "A",
+        "description": "Total diversified current."
+      },
+      {
+        "id": "totalLoadkW",
+        "label": "Total Load (kW)",
+        "unit": "kW",
+        "description": "Total active power."
+      },
+      {
+        "id": "totalLoadkVA",
+        "label": "Total Load (kVA)",
+        "unit": "kVA",
+        "description": "Total apparent power."
+      },
+      {
+        "id": "mainBreakerCurrent",
+        "label": "Main Breaker Current",
+        "unit": "A",
+        "description": "Required main breaker ampacity."
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

@@ -1,0 +1,54 @@
+{
+  "toolName": "improper-integral-calculator",
+  "inputs": [
+    {
+      "id": "A",
+      "label": "Amplitüd (A)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Integrand genlik çarpanı"
+    },
+    {
+      "id": "B",
+      "label": "Bozunum katsayısı (B, >0)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Üstel bozunma hızı"
+    },
+    {
+      "id": "a",
+      "label": "Alt sınır (a)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "İntegral başlangıcı"
+    },
+    {
+      "id": "x0",
+      "label": "Kayma (x₀)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Üssün kayma noktası"
+    }
+  ],
+  "formulas": {
+    "primary": "B > 0 ? (A * Math.exp(-B * (a - x0))) / B : NaN"
+  },
+  "outputs": {
+    "primary": "B > 0 ? (A * Math.exp(-B * (a - x0))) / B : NaN",
+    "breakdown": [
+      "-B * (a - x0)",
+      "Math.exp(-B * (a - x0))",
+      "(A * Math.exp(-B * (a - x0))) / B"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

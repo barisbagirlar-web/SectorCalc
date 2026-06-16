@@ -1,0 +1,49 @@
+{
+  "toolName": "relativistic-energy",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Rest Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Mass of the object at rest"
+    },
+    {
+      "id": "velocity",
+      "label": "Velocity",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Velocity of the object relative to observer"
+    },
+    {
+      "id": "speedOfLight",
+      "label": "Speed of Light",
+      "type": "number",
+      "unit": "m/s",
+      "default": 299792458,
+      "businessContext": "Speed of light in vacuum"
+    }
+  ],
+  "formulas": {
+    "gamma": "1 / Math.sqrt(1 - (velocity ** 2) / (speedOfLight ** 2))",
+    "totalEnergy": "mass * (speedOfLight ** 2) * gamma",
+    "restEnergy": "mass * (speedOfLight ** 2)",
+    "kineticEnergy": "totalEnergy - restEnergy"
+  },
+  "outputs": {
+    "primary": "totalEnergy",
+    "breakdown": [
+      "restEnergy",
+      "kineticEnergy",
+      "gamma"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

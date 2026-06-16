@@ -1,0 +1,71 @@
+{
+  "toolName": "pecks-to-liters-calculator",
+  "inputs": [
+    {
+      "id": "peckType",
+      "label": "Peck Type (0=US, 1=Imperial)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Select US or Imperial peck standard."
+    },
+    {
+      "id": "peckQuantity",
+      "label": "Pecks",
+      "type": "number",
+      "unit": "pk",
+      "default": 1,
+      "businessContext": "Quantity of pecks to convert."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for output."
+    },
+    {
+      "id": "uncertaintyMargin",
+      "label": "Uncertainty Margin (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Uncertainty margin for volume measurement (default 0%)."
+    },
+    {
+      "id": "roundingMode",
+      "label": "Rounding Mode (0=Round, 1=Floor, 2=Ceil)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Rounding method for final output."
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Temperature for potential volume correction (if applicable)."
+    }
+  ],
+  "formulas": {
+    "conversionFactor": "peckType == 0 ? 8.80977 : 9.09218",
+    "liters": "peckQuantity * conversionFactor",
+    "finalLiters": "roundingMode == 0 ? Math.round(liters * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : (roundingMode == 1 ? Math.floor(liters * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : Math.ceil(liters * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces))"
+  },
+  "outputs": {
+    "primary": "finalLiters",
+    "breakdown": [
+      "conversionFactor",
+      "liters"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "cd-calculator",
+  "inputs": [
+    {
+      "id": "initialDeposit",
+      "label": "Initial Deposit",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Amount of money initially deposited into the CD."
+    },
+    {
+      "id": "annualRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual percentage yield (APY) offered by the CD."
+    },
+    {
+      "id": "termMonths",
+      "label": "Term Length",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "businessContext": "Duration of the CD in months."
+    },
+    {
+      "id": "compoundingFrequency",
+      "label": "Compounding Frequency",
+      "type": "number",
+      "unit": "times per year",
+      "default": 12,
+      "businessContext": "Number of times interest is compounded per year (e.g., 12 for monthly)."
+    },
+    {
+      "id": "additionalDeposit",
+      "label": "Additional Monthly Deposit",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Optional additional deposit made each month."
+    }
+  ],
+  "formulas": {
+    "totalInterest": "finalBalance - initialDeposit - (additionalDeposit * termMonths)",
+    "finalBalance": "initialDeposit * Math.pow(1 + (annualRate / 100) / compoundingFrequency, compoundingFrequency * (termMonths / 12)) + additionalDeposit * ((Math.pow(1 + (annualRate / 100) / compoundingFrequency, compoundingFrequency * (termMonths / 12)) - 1) / ((annualRate / 100) / compoundingFrequency))",
+    "effectiveAnnualRate": "Math.pow(1 + (annualRate / 100) / compoundingFrequency, compoundingFrequency) - 1"
+  },
+  "outputs": {
+    "primary": "finalBalance",
+    "breakdown": [
+      "totalInterest",
+      "effectiveAnnualRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

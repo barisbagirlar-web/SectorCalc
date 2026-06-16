@@ -1,0 +1,55 @@
+{
+  "toolName": "cooper-test-calculator",
+  "inputs": [
+    {
+      "id": "distance_m",
+      "label": "Distance Covered (meters)",
+      "type": "number",
+      "unit": "m",
+      "default": 2400,
+      "businessContext": "Distance covered in 12 minutes, in meters."
+    },
+    {
+      "id": "age_years",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the individual in years."
+    },
+    {
+      "id": "gender",
+      "label": "Gender (0=Male, 1=Female)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Gender encoded as 0 for male, 1 for female, used for fitness category determination."
+    },
+    {
+      "id": "weight_kg",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms for calorie estimation."
+    }
+  ],
+  "formulas": {
+    "vo2max": "(distance_m - 504.9) / 44.73",
+    "category": "(gender === 0 ? (age_years < 30 ? (vo2max >= 55 ? 'Excellent' : vo2max >= 45 ? 'Good' : vo2max >= 35 ? 'Average' : vo2max >= 30 ? 'Fair' : 'Poor') : age_years < 40 ? (vo2max >= 50 ? 'Excellent' : vo2max >= 40 ? 'Good' : vo2max >= 33 ? 'Average' : vo2max >= 28 ? 'Fair' : 'Poor') : age_years < 50 ? (vo2max >= 45 ? 'Excellent' : vo2max >= 36 ? 'Good' : vo2max >= 30 ? 'Average' : vo2max >= 26 ? 'Fair' : 'Poor') : (vo2max >= 40 ? 'Excellent' : vo2max >= 32 ? 'Good' : vo2max >= 27 ? 'Average' : vo2max >= 23 ? 'Fair' : 'Poor')) : (age_years < 30 ? (vo2max >= 50 ? 'Excellent' : vo2max >= 39 ? 'Good' : vo2max >= 30 ? 'Average' : vo2max >= 25 ? 'Fair' : 'Poor') : age_years < 40 ? (vo2max >= 46 ? 'Excellent' : vo2max >= 35 ? 'Good' : vo2max >= 28 ? 'Average' : vo2max >= 23 ? 'Fair' : 'Poor') : age_years < 50 ? (vo2max >= 40 ? 'Excellent' : vo2max >= 32 ? 'Good' : vo2max >= 25 ? 'Average' : vo2max >= 21 ? 'Fair' : 'Poor') : (vo2max >= 36 ? 'Excellent' : vo2max >= 28 ? 'Good' : vo2max >= 22 ? 'Average' : vo2max >= 18 ? 'Fair' : 'Poor')))",
+    "calories": "weight_kg * (distance_m / 1000) * 0.97"
+  },
+  "outputs": {
+    "primary": "vo2max",
+    "breakdown": [
+      "category",
+      "calories"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

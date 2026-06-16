@@ -1,0 +1,57 @@
+{
+  "toolName": "cpi-calculator",
+  "inputs": [
+    {
+      "id": "ev",
+      "label": "Earned Value (EV)",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Value of work actually performed."
+    },
+    {
+      "id": "ac",
+      "label": "Actual Cost (AC)",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Total cost incurred for work performed."
+    },
+    {
+      "id": "pv",
+      "label": "Planned Value (PV)",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Authorized budget for scheduled work."
+    },
+    {
+      "id": "bac",
+      "label": "Budget at Completion (BAC)",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Total original budget for the project."
+    }
+  ],
+  "formulas": {
+    "cpi": "ev / ac",
+    "cv": "ev - ac",
+    "spi": "ev / pv",
+    "eac": "bac / (ev / ac)"
+  },
+  "outputs": {
+    "primary": "cpi",
+    "breakdown": [
+      "cv",
+      "spi",
+      "eac"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,59 @@
+{
+  "toolName": "weight-watchers-points-calculator",
+  "inputs": [
+    {
+      "id": "calories",
+      "label": "Kalori",
+      "type": "number",
+      "unit": "kcal",
+      "default": 0,
+      "businessContext": "Porsiyon başına toplam kalori miktarı (kcal)"
+    },
+    {
+      "id": "saturatedFat",
+      "label": "Doymuş Yağ",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Porsiyon başına doymuş yağ miktarı (gram)"
+    },
+    {
+      "id": "sugar",
+      "label": "Şeker",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Porsiyon başına şeker miktarı (gram)"
+    },
+    {
+      "id": "protein",
+      "label": "Protein",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Porsiyon başına protein miktarı (gram)"
+    }
+  ],
+  "formulas": {
+    "calTerm": "calories * 0.0305",
+    "satFatTerm": "saturatedFat * 0.275",
+    "sugarTerm": "sugar * 0.12",
+    "protTerm": "protein * 0.098",
+    "points": "calTerm + satFatTerm + sugarTerm - protTerm"
+  },
+  "outputs": {
+    "primary": "points",
+    "breakdown": [
+      "calTerm",
+      "satFatTerm",
+      "sugarTerm",
+      "protTerm"
+    ]
+  },
+  "category": "Perakende & Gıda",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

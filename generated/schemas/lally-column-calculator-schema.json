@@ -1,0 +1,81 @@
+{
+  "toolName": "lally-column-calculator",
+  "inputs": [
+    {
+      "id": "column_height",
+      "label": "Column Height",
+      "type": "number",
+      "unit": "m",
+      "default": 2.5,
+      "businessContext": "Effective height of the lally column from base to top anchorage (unbraced length)."
+    },
+    {
+      "id": "outer_diameter",
+      "label": "Outer Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 89,
+      "businessContext": "Outer diameter of the steel pipe column."
+    },
+    {
+      "id": "wall_thickness",
+      "label": "Wall Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 3,
+      "businessContext": "Thickness of the steel pipe wall."
+    },
+    {
+      "id": "steel_yield_strength",
+      "label": "Steel Yield Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 250,
+      "businessContext": "Minimum guaranteed yield stress of the steel material."
+    },
+    {
+      "id": "effective_length_factor",
+      "label": "Effective Length Factor K",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Buckling length coefficient depending on end conditions (1.0 for pinned-pinned, 0.5 for fixed-fixed, 2.0 for fixed-free)."
+    },
+    {
+      "id": "safety_factor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Design safety factor to ensure TÜV-compliant structural reliability."
+    },
+    {
+      "id": "youngs_modulus",
+      "label": "Young's Modulus",
+      "type": "number",
+      "unit": "MPa",
+      "default": 200000,
+      "businessContext": "Modulus of elasticity of the steel (typically 200,000 MPa for structural steel)."
+    }
+  ],
+  "formulas": {
+    "max_allowable_load": "Math.min( (Math.PI/4 * (outer_diameter**2 - (outer_diameter - 2*wall_thickness)**2) * steel_yield_strength) / safety_factor / 1000, (Math.PI**2 * youngs_modulus * (Math.PI/64 * (outer_diameter**4 - (outer_diameter - 2*wall_thickness)**4)) / ((effective_length_factor * column_height * 1000)**2)) / safety_factor / 1000 )",
+    "allowable_yield_load": "(Math.PI/4 * (outer_diameter**2 - (outer_diameter - 2*wall_thickness)**2) * steel_yield_strength) / safety_factor / 1000",
+    "allowable_euler_load": "(Math.PI**2 * youngs_modulus * (Math.PI/64 * (outer_diameter**4 - (outer_diameter - 2*wall_thickness)**4)) / ((effective_length_factor * column_height * 1000)**2)) / safety_factor / 1000",
+    "slenderness_ratio": "(effective_length_factor * column_height * 1000) / Math.sqrt( (Math.PI/64 * (outer_diameter**4 - (outer_diameter - 2*wall_thickness)**4)) / (Math.PI/4 * (outer_diameter**2 - (outer_diameter - 2*wall_thickness)**2)) )"
+  },
+  "outputs": {
+    "primary": "max_allowable_load",
+    "breakdown": [
+      "allowable_yield_load",
+      "allowable_euler_load",
+      "slenderness_ratio"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

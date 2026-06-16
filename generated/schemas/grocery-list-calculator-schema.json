@@ -1,0 +1,73 @@
+{
+  "toolName": "grocery-list-calculator",
+  "inputs": [
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of grocery items to purchase"
+    },
+    {
+      "id": "unitPrice",
+      "label": "Unit Price",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Price per item in your local currency"
+    },
+    {
+      "id": "discountPercent",
+      "label": "Discount Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Applied discount rate (e.g., 10 for 10%)"
+    },
+    {
+      "id": "taxPercent",
+      "label": "Tax Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Tax rate to be applied after discounts (e.g., 5 for 5%)"
+    },
+    {
+      "id": "shippingFee",
+      "label": "Shipping Fee",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Additional shipping or delivery cost"
+    },
+    {
+      "id": "couponValue",
+      "label": "Coupon Discount",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Fixed amount discount from a coupon or voucher"
+    }
+  ],
+  "formulas": {
+    "subtotal": "quantity * unitPrice",
+    "discountAmount": "subtotal * discountPercent / 100",
+    "taxAmount": "(subtotal - discountAmount) * taxPercent / 100",
+    "finalTotal": "subtotal - discountAmount + taxAmount + shippingFee - couponValue"
+  },
+  "outputs": {
+    "primary": "finalTotal",
+    "breakdown": [
+      "subtotal",
+      "discountAmount",
+      "taxAmount"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

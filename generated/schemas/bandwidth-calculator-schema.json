@@ -1,0 +1,71 @@
+{
+  "toolName": "bandwidth-calculator",
+  "inputs": [
+    {
+      "id": "dataSize",
+      "label": "Data Size",
+      "type": "number",
+      "unit": "bits",
+      "default": 1000000,
+      "businessContext": "Total amount of data to transfer"
+    },
+    {
+      "id": "transferTime",
+      "label": "Transfer Time",
+      "type": "number",
+      "unit": "seconds",
+      "default": 1,
+      "businessContext": "Time available for transfer"
+    },
+    {
+      "id": "protocolOverhead",
+      "label": "Protocol Overhead",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage overhead added by protocol headers"
+    },
+    {
+      "id": "channels",
+      "label": "Number of Channels",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Number of parallel communication channels"
+    },
+    {
+      "id": "encodingEfficiency",
+      "label": "Encoding Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Efficiency of encoding scheme (e.g., 8b/10b is 80%)"
+    },
+    {
+      "id": "redundancyFactor",
+      "label": "Redundancy Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Multiplicative redundancy for error correction (e.g., FEC code rate inverse)"
+    }
+  ],
+  "formulas": {
+    "effectiveData": "dataSize * (1 + protocolOverhead / 100) * redundancyFactor",
+    "requiredTotalBandwidth": "effectiveData / transferTime",
+    "bandwidthPerChannel": "requiredTotalBandwidth / (channels * (encodingEfficiency / 100))"
+  },
+  "outputs": {
+    "primary": "bandwidthPerChannel",
+    "breakdown": [
+      "effectiveData",
+      "requiredTotalBandwidth"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

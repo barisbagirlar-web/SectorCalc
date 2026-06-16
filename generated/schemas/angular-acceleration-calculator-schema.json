@@ -1,0 +1,54 @@
+{
+  "toolName": "angular-acceleration-calculator",
+  "inputs": [
+    {
+      "id": "torque",
+      "label": "Torque",
+      "type": "number",
+      "unit": "N·m",
+      "default": 0,
+      "businessContext": "Applied torque"
+    },
+    {
+      "id": "momentOfInertia",
+      "label": "Moment of Inertia",
+      "type": "number",
+      "unit": "kg·m²",
+      "default": 1,
+      "businessContext": "Resistance to rotational acceleration"
+    },
+    {
+      "id": "initialAngularVelocity",
+      "label": "Initial Angular Velocity",
+      "type": "number",
+      "unit": "rad/s",
+      "default": 0,
+      "businessContext": "Initial rotational speed"
+    },
+    {
+      "id": "time",
+      "label": "Time",
+      "type": "number",
+      "unit": "s",
+      "default": 1,
+      "businessContext": "Time interval"
+    }
+  ],
+  "formulas": {
+    "angularAcceleration": "torque / momentOfInertia",
+    "finalAngularVelocity": "initialAngularVelocity + (torque / momentOfInertia) * time"
+  },
+  "outputs": {
+    "primary": "angularAcceleration",
+    "breakdown": [
+      "Compute angular acceleration: α = τ / I = {torque} / {momentOfInertia} = {angularAcceleration} rad/s²",
+      "Compute final angular velocity: ω_f = ω_i + α * t = {initialAngularVelocity} + {angularAcceleration} * {time} = {finalAngularVelocity} rad/s"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "weight-set-point-calculator",
+  "inputs": [
+    {
+      "id": "nominalNetWeight",
+      "label": "Nominal Net Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 500,
+      "businessContext": "Declared net weight on the package"
+    },
+    {
+      "id": "processStandardDeviation",
+      "label": "Process Standard Deviation",
+      "type": "number",
+      "unit": "g",
+      "default": 5,
+      "businessContext": "Standard deviation of the filling process"
+    },
+    {
+      "id": "minimumLegalNetWeight",
+      "label": "Legal Minimum Net Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 485,
+      "businessContext": "Minimum legal net weight allowed"
+    },
+    {
+      "id": "safetyFactorZ",
+      "label": "Safety Factor (Z-Score)",
+      "type": "number",
+      "unit": "",
+      "default": 1.645,
+      "businessContext": "Z-score for desired confidence level (e.g., 1.645 for 95% one-sided)"
+    },
+    {
+      "id": "tareWeight",
+      "label": "Tare Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Weight of packaging/container"
+    }
+  ],
+  "formulas": {
+    "minFillWeight": "minimumLegalNetWeight + safetyFactorZ * processStandardDeviation",
+    "netSetPoint": "(nominalNetWeight + minFillWeight + Math.sqrt((nominalNetWeight - minFillWeight) ** 2)) / 2",
+    "overfillAmount": "netSetPoint - minimumLegalNetWeight",
+    "grossSetPoint": "netSetPoint + tareWeight"
+  },
+  "outputs": {
+    "primary": "netSetPoint",
+    "breakdown": [
+      "grossSetPoint",
+      "minFillWeight",
+      "overfillAmount"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

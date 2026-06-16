@@ -1,0 +1,56 @@
+{
+  "toolName": "kelly-criterion-calculator",
+  "inputs": [
+    {
+      "id": "p",
+      "label": "Winning Probability (p)",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Probability that the bet wins (between 0 and 1)."
+    },
+    {
+      "id": "b",
+      "label": "Net Odds (b)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Net odds received per unit bet; if you bet 1 and win, you get back your stake plus b (i.e., total return = 1 + b)."
+    },
+    {
+      "id": "bankroll",
+      "label": "Total Bankroll",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "businessContext": "Total capital available for betting."
+    },
+    {
+      "id": "fraction",
+      "label": "Kelly Fraction",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier on the full Kelly bet size (1 = full Kelly, 0.5 = half Kelly, etc.)."
+    }
+  ],
+  "formulas": {
+    "f_star": "(b * p - (1 - p)) / b",
+    "f": "fraction * (b * p - (1 - p)) / b",
+    "bet_amount": "bankroll * fraction * (b * p - (1 - p)) / b",
+    "expected_growth": "p * Math.log(1 + b * (fraction * (b * p - (1 - p)) / b)) + (1 - p) * Math.log(1 - (fraction * (b * p - (1 - p)) / b))"
+  },
+  "outputs": {
+    "primary": "bet_amount",
+    "breakdown": [
+      "f_star",
+      "expected_growth"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

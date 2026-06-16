@@ -1,0 +1,56 @@
+{
+  "toolName": "pb-ratio-calculator",
+  "inputs": [
+    {
+      "id": "marketPricePerShare",
+      "label": "Market Price per Share",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "businessContext": "Current trading price of one share"
+    },
+    {
+      "id": "totalEquity",
+      "label": "Total Shareholder Equity",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "businessContext": "Total equity from balance sheet"
+    },
+    {
+      "id": "sharesOutstanding",
+      "label": "Shares Outstanding",
+      "type": "number",
+      "unit": "shares",
+      "default": 10000,
+      "businessContext": "Number of common shares outstanding"
+    },
+    {
+      "id": "industryPB",
+      "label": "Industry Average P/B Ratio",
+      "type": "number",
+      "unit": "ratio",
+      "default": 3,
+      "businessContext": "Average P/B ratio for the industry"
+    }
+  ],
+  "formulas": {
+    "bookValuePerShare": "totalEquity / sharesOutstanding",
+    "pbRatio": "marketPricePerShare / bookValuePerShare",
+    "pbVsIndustry": "pbRatio - industryPB"
+  },
+  "outputs": {
+    "primary": "pbRatio",
+    "breakdown": [
+      "bookValuePerShare",
+      "pbRatio",
+      "pbVsIndustry"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,91 @@
+{
+  "toolName": "piotroski-f-score-calculator",
+  "inputs": [
+    {
+      "id": "roaPositive",
+      "label": "ROA Pozitif",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Cari yıl net kar / toplam varlıklar pozitif ise 1, değilse 0."
+    },
+    {
+      "id": "cfoPositive",
+      "label": "İşletme Nakit Akışı Pozitif",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Cari yıl faaliyet nakit akışı pozitif ise 1, değilse 0."
+    },
+    {
+      "id": "roaIncreased",
+      "label": "ROA Artışı",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Cari yıl ROA'sı önceki yıla göre arttıysa 1, değilse 0."
+    },
+    {
+      "id": "accrualLow",
+      "label": "Düşük Tahakkuk",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "İşletme nakit akışı net kardan büyükse 1, değilse 0."
+    },
+    {
+      "id": "leverageDecreased",
+      "label": "Kaldıraç Azalışı",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Uzun vadeli borç / toplam varlıklar oranı azaldıysa 1, değilse 0."
+    },
+    {
+      "id": "currentRatioIncreased",
+      "label": "Cari Oran Artışı",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Cari yıl cari oranı önceki yıla göre arttıysa 1, değilse 0."
+    },
+    {
+      "id": "grossMarginIncreased",
+      "label": "Brüt Kar Marjı Artışı",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Cari yıl brüt kar marjı önceki yıla göre arttıysa 1, değilse 0."
+    },
+    {
+      "id": "assetTurnoverIncreased",
+      "label": "Varlık Devir Hızı Artışı",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Cari yıl varlık devir hızı önceki yıla göre arttıysa 1, değilse 0."
+    }
+  ],
+  "formulas": {
+    "primary": "roaPositive + cfoPositive + roaIncreased + accrualLow + leverageDecreased + currentRatioIncreased + grossMarginIncreased + assetTurnoverIncreased"
+  },
+  "outputs": {
+    "primary": "F-Score",
+    "breakdown": [
+      "roaPositive",
+      "cfoPositive",
+      "roaIncreased",
+      "accrualLow",
+      "leverageDecreased",
+      "currentRatioIncreased",
+      "grossMarginIncreased",
+      "assetTurnoverIncreased"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

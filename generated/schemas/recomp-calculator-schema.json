@@ -1,0 +1,71 @@
+{
+  "toolName": "recomp-calculator",
+  "inputs": [
+    {
+      "id": "initialPressure",
+      "label": "Initial Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 1,
+      "businessContext": "Inlet gas pressure before compression"
+    },
+    {
+      "id": "finalPressure",
+      "label": "Final Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 10,
+      "businessContext": "Target discharge pressure after compression"
+    },
+    {
+      "id": "flowRate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "m³/h",
+      "default": 1000,
+      "businessContext": "Volumetric flow rate at inlet conditions"
+    },
+    {
+      "id": "efficiency",
+      "label": "Compressor Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 75,
+      "businessContext": "Isentropic or polytropic efficiency"
+    },
+    {
+      "id": "adiabaticIndex",
+      "label": "Adiabatic Index (k)",
+      "type": "number",
+      "unit": "",
+      "default": 1.4,
+      "businessContext": "Specific heat ratio Cp/Cv of the gas"
+    },
+    {
+      "id": "electricityCost",
+      "label": "Electricity Cost",
+      "type": "number",
+      "unit": "currency/kWh",
+      "default": 0.1,
+      "businessContext": "Unit cost of electrical energy"
+    }
+  ],
+  "formulas": {
+    "powerKW": "((adiabaticIndex / (adiabaticIndex - 1)) * (initialPressure * 100) * (flowRate / 3600) * (Math.pow(finalPressure / initialPressure, (adiabaticIndex - 1) / adiabaticIndex) - 1)) / (efficiency / 100)",
+    "energyKWhPerHour": "((adiabaticIndex / (adiabaticIndex - 1)) * (initialPressure * 100) * (flowRate / 3600) * (Math.pow(finalPressure / initialPressure, (adiabaticIndex - 1) / adiabaticIndex) - 1)) / (efficiency / 100)",
+    "costPerHour": "(((adiabaticIndex / (adiabaticIndex - 1)) * (initialPressure * 100) * (flowRate / 3600) * (Math.pow(finalPressure / initialPressure, (adiabaticIndex - 1) / adiabaticIndex) - 1)) / (efficiency / 100)) * electricityCost"
+  },
+  "outputs": {
+    "primary": "powerKW",
+    "breakdown": [
+      "energyKWhPerHour",
+      "costPerHour"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "home-equity-line-of-credit",
+  "inputs": [
+    {
+      "id": "homeValue",
+      "label": "Home Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 300000,
+      "businessContext": "Current appraised market value of the property."
+    },
+    {
+      "id": "mortgageBalance",
+      "label": "Mortgage Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 150000,
+      "businessContext": "Outstanding principal on the first mortgage."
+    },
+    {
+      "id": "lvrLimit",
+      "label": "LVR Limit",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Maximum loan-to-value ratio allowed by the lender."
+    },
+    {
+      "id": "interestRate",
+      "label": "Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5.5,
+      "businessContext": "Annual interest rate on the HELOC."
+    },
+    {
+      "id": "drawAmount",
+      "label": "Draw Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Amount you plan to draw from the HELOC."
+    },
+    {
+      "id": "loanTerm",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Repayment period for the HELOC."
+    }
+  ],
+  "formulas": {
+    "maxHeloc": "(inputs.homeValue * (inputs.lvrLimit / 100)) - inputs.mortgageBalance",
+    "usableHeloc": "Math.min(inputs.drawAmount, maxHeloc)",
+    "monthlyPayment": "(usableHeloc * (inputs.interestRate / 100 / 12)) / (1 - Math.pow(1 + (inputs.interestRate / 100 / 12), -inputs.loanTerm * 12))",
+    "totalInterest": "(monthlyPayment * inputs.loanTerm * 12) - usableHeloc"
+  },
+  "outputs": {
+    "primary": "usableHeloc",
+    "breakdown": [
+      "maxHeloc",
+      "monthlyPayment",
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,60 @@
+{
+  "toolName": "adjusted-r-squared-calculator",
+  "inputs": [
+    {
+      "id": "rSquared",
+      "label": "R-squared (R²)",
+      "type": "number",
+      "unit": "",
+      "default": 0.9,
+      "businessContext": "The coefficient of determination from the regression model, ranging from 0 to 1."
+    },
+    {
+      "id": "sampleSize",
+      "label": "Sample Size (n)",
+      "type": "number",
+      "unit": "",
+      "default": 50,
+      "businessContext": "Total number of observations in the dataset."
+    },
+    {
+      "id": "predictors",
+      "label": "Number of Predictors (p)",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Number of independent variables in the regression model, excluding the constant term."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Number of decimal places for rounding the final result."
+    }
+  ],
+  "formulas": {
+    "numerator": "(1 - rSquared) * (sampleSize - 1)",
+    "denominator": "sampleSize - predictors - 1",
+    "adjustedRSquared": "denominator > 0 ? 1 - (numerator / denominator) : NaN",
+    "adjustedRSquaredFormatted": "Number.isFinite(adjustedRSquared) ? Math.round(adjustedRSquared * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : NaN"
+  },
+  "outputs": {
+    "primary": "adjustedRSquaredFormatted",
+    "breakdown": [
+      "rSquared",
+      "sampleSize",
+      "predictors",
+      "numerator",
+      "denominator",
+      "adjustedRSquared"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

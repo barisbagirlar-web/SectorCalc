@@ -1,0 +1,83 @@
+{
+  "toolName": "taylor-series-calculator",
+  "inputs": [
+    {
+      "id": "expansionPoint",
+      "label": "Expansion Point (a)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The point about which the Taylor series is expanded."
+    },
+    {
+      "id": "evaluationPoint",
+      "label": "Evaluation Point (x)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The point at which the function is approximated."
+    },
+    {
+      "id": "degree",
+      "label": "Polynomial Degree",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Highest order of the Taylor polynomial (0–3)."
+    },
+    {
+      "id": "f0",
+      "label": "f(a)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Function value at the expansion point."
+    },
+    {
+      "id": "f1",
+      "label": "f'(a)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "First derivative at the expansion point."
+    },
+    {
+      "id": "f2",
+      "label": "f''(a)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Second derivative at the expansion point."
+    },
+    {
+      "id": "f3",
+      "label": "f'''(a)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Third derivative at the expansion point."
+    }
+  ],
+  "formulas": {
+    "primary": "f0 + (degree >= 1 ? f1 * (evaluationPoint - expansionPoint) : 0) + (degree >= 2 ? (f2 / 2) * Math.pow(evaluationPoint - expansionPoint, 2) : 0) + (degree >= 3 ? (f3 / 6) * Math.pow(evaluationPoint - expansionPoint, 3) : 0)",
+    "constTerm": "f0",
+    "linearTerm": "degree >= 1 ? f1 * (evaluationPoint - expansionPoint) : 0",
+    "quadraticTerm": "degree >= 2 ? (f2 / 2) * Math.pow(evaluationPoint - expansionPoint, 2) : 0",
+    "cubicTerm": "degree >= 3 ? (f3 / 6) * Math.pow(evaluationPoint - expansionPoint, 3) : 0"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "constTerm",
+      "linearTerm",
+      "quadraticTerm",
+      "cubicTerm"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

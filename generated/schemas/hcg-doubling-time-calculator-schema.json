@@ -1,0 +1,47 @@
+{
+  "toolName": "hcg-doubling-time-calculator",
+  "inputs": [
+    {
+      "id": "hcg1",
+      "label": "First β-hCG Level",
+      "type": "number",
+      "unit": "mIU/mL",
+      "default": 100,
+      "businessContext": "Initial quantitative beta-hCG measurement"
+    },
+    {
+      "id": "hcg2",
+      "label": "Second β-hCG Level",
+      "type": "number",
+      "unit": "mIU/mL",
+      "default": 200,
+      "businessContext": "Follow-up beta-hCG measurement taken after time interval"
+    },
+    {
+      "id": "timeInterval",
+      "label": "Time Between Tests",
+      "type": "number",
+      "unit": "hours",
+      "default": 48,
+      "businessContext": "Time elapsed between the two blood draws"
+    }
+  ],
+  "formulas": {
+    "doublingTimeHours": "(timeInterval * Math.log(2)) / Math.log(hcg2 / hcg1)",
+    "doublingTimeDays": "((timeInterval * Math.log(2)) / Math.log(hcg2 / hcg1)) / 24",
+    "growthRate": "hcg2 / hcg1"
+  },
+  "outputs": {
+    "primary": "doublingTimeHours",
+    "breakdown": [
+      "doublingTimeDays",
+      "growthRate"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

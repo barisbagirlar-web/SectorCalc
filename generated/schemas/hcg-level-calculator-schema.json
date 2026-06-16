@@ -1,0 +1,99 @@
+{
+  "toolName": "hcg-level-calculator",
+  "inputs": [
+    {
+      "id": "mass1",
+      "label": "1. Kütle (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Birinci öğenin kütlesi"
+    },
+    {
+      "id": "x1",
+      "label": "1. Pozisyon (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Birinci öğenin yatay referans noktasına uzaklığı"
+    },
+    {
+      "id": "mass2",
+      "label": "2. Kütle (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 200,
+      "businessContext": "İkinci öğenin kütlesi"
+    },
+    {
+      "id": "x2",
+      "label": "2. Pozisyon (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "İkinci öğenin yatay referans noktasına uzaklığı"
+    },
+    {
+      "id": "mass3",
+      "label": "3. Kütle (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 150,
+      "businessContext": "Üçüncü öğenin kütlesi"
+    },
+    {
+      "id": "x3",
+      "label": "3. Pozisyon (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Üçüncü öğenin yatay referans noktasına uzaklığı"
+    },
+    {
+      "id": "mass4",
+      "label": "4. Kütle (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 50,
+      "businessContext": "Dördüncü öğenin kütlesi"
+    },
+    {
+      "id": "x4",
+      "label": "4. Pozisyon (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 8,
+      "businessContext": "Dördüncü öğenin yatay referans noktasına uzaklığı"
+    }
+  ],
+  "formulas": {
+    "totalMass": "mass1 + mass2 + mass3 + mass4",
+    "totalMoment": "mass1 * x1 + mass2 * x2 + mass3 * x3 + mass4 * x4",
+    "hcg": "(mass1 * x1 + mass2 * x2 + mass3 * x3 + mass4 * x4) / (mass1 + mass2 + mass3 + mass4)"
+  },
+  "outputs": {
+    "primary": {
+      "id": "hcg",
+      "label": "Yatay Ağırlık Merkezi",
+      "unit": "m"
+    },
+    "breakdown": [
+      {
+        "id": "totalMass",
+        "label": "Toplam Kütle",
+        "unit": "kg"
+      },
+      {
+        "id": "totalMoment",
+        "label": "Toplam Moment",
+        "unit": "kg·m"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

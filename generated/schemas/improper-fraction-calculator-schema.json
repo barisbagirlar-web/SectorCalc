@@ -1,0 +1,55 @@
+{
+  "toolName": "improper-fraction-calculator",
+  "inputs": [
+    {
+      "id": "whole",
+      "label": "Whole Number",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The whole number part of the mixed fraction"
+    },
+    {
+      "id": "numerator",
+      "label": "Numerator",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The numerator of the fractional part"
+    },
+    {
+      "id": "denominator",
+      "label": "Denominator",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The denominator of the fractional part"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the decimal representation"
+    }
+  ],
+  "formulas": {
+    "improperNumerator": "whole * denominator + numerator",
+    "improperDenominator": "denominator",
+    "decimal": "Number((improperNumerator / improperDenominator).toFixed(decimalPlaces))"
+  },
+  "outputs": {
+    "primary": "`${improperNumerator}/${improperDenominator}`",
+    "breakdown": [
+      "`Decimal: ${decimal}`",
+      "`Mixed Number: ${whole} ${numerator}/${denominator}`"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

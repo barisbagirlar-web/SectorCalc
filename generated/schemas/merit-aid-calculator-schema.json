@@ -1,0 +1,61 @@
+{
+  "toolName": "merit-aid-calculator",
+  "inputs": [
+    {
+      "id": "coa",
+      "label": "Cost of Attendance",
+      "type": "number",
+      "unit": "currency",
+      "default": 50000,
+      "businessContext": "Total yearly cost of attendance including tuition, fees, room, and board."
+    },
+    {
+      "id": "meritCapPercent",
+      "label": "Merit Aid Cap (%)",
+      "type": "number",
+      "unit": "percent",
+      "default": 50,
+      "businessContext": "Maximum percentage of cost of attendance that can be covered by merit aid."
+    },
+    {
+      "id": "otherAid",
+      "label": "Other Financial Aid",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Total amount of other scholarships, grants, or financial aid already awarded."
+    },
+    {
+      "id": "efc",
+      "label": "Expected Family Contribution",
+      "type": "number",
+      "unit": "currency",
+      "default": 20000,
+      "businessContext": "Expected family contribution as determined by financial need analysis."
+    }
+  ],
+  "formulas": {
+    "maxMerit": "coa * (meritCapPercent / 100)",
+    "availableForMerit": "Math.max(0, coa - otherAid)",
+    "meritAwarded": "Math.min(maxMerit, availableForMerit)",
+    "remainingCost": "coa - otherAid - meritAwarded",
+    "outOfPocket": "Math.min(efc, remainingCost)",
+    "unmetNeed": "Math.max(0, remainingCost - efc)"
+  },
+  "outputs": {
+    "primary": "meritAwarded",
+    "breakdown": [
+      "maxMerit",
+      "otherAid",
+      "remainingCost",
+      "outOfPocket",
+      "unmetNeed"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,82 @@
+{
+  "toolName": "sba-7a-calculator",
+  "inputs": [
+    {
+      "id": "loanAmount",
+      "label": "Loan Amount ($)",
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "businessContext": "Total loan amount requested from SBA 7(a) program"
+    },
+    {
+      "id": "interestRate",
+      "label": "Annual Interest Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 7.5,
+      "businessContext": "Annual interest rate on the loan"
+    },
+    {
+      "id": "loanTermMonths",
+      "label": "Loan Term (months)",
+      "type": "number",
+      "unit": "months",
+      "default": 120,
+      "businessContext": "Repayment period in months"
+    },
+    {
+      "id": "guaranteeFeeRate",
+      "label": "SBA Guarantee Fee Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "One-time guarantee fee charged by SBA, typically 2-3.5%"
+    },
+    {
+      "id": "originationFeeRate",
+      "label": "Origination Fee Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "businessContext": "Lender origination fee as percentage of loan amount"
+    },
+    {
+      "id": "annualRevenue",
+      "label": "Annual Business Revenue ($)",
+      "type": "number",
+      "unit": "USD",
+      "default": 2000000,
+      "businessContext": "Gross annual revenue of the business"
+    }
+  ],
+  "formulas": {
+    "monthlyInterestRate": "interestRate / 100 / 12",
+    "monthlyPayment": "loanAmount * (monthlyInterestRate * (1 + monthlyInterestRate) ** loanTermMonths) / ((1 + monthlyInterestRate) ** loanTermMonths - 1)",
+    "totalPayment": "monthlyPayment * loanTermMonths",
+    "totalInterest": "totalPayment - loanAmount",
+    "guaranteeFee": "loanAmount * (guaranteeFeeRate / 100)",
+    "originationFee": "loanAmount * (originationFeeRate / 100)",
+    "totalFees": "guaranteeFee + originationFee",
+    "effectiveLoanCost": "totalInterest + totalFees",
+    "debtServiceCoverageRatio": "annualRevenue / (monthlyPayment * 12)"
+  },
+  "outputs": {
+    "primary": "monthlyPayment",
+    "breakdown": [
+      "totalPayment",
+      "totalInterest",
+      "guaranteeFee",
+      "originationFee",
+      "totalFees",
+      "effectiveLoanCost",
+      "debtServiceCoverageRatio"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,53 @@
+{
+  "toolName": "centuries-to-millennia-calculator",
+  "inputs": [
+    {
+      "id": "centuries",
+      "label": "Centuries",
+      "type": "number",
+      "unit": "century",
+      "default": 1,
+      "businessContext": "Number of centuries to convert to millennia."
+    },
+    {
+      "id": "centuryYears",
+      "label": "Years per Century",
+      "type": "number",
+      "unit": "years",
+      "default": 100,
+      "businessContext": "Definition of a century in years. Normally 100."
+    },
+    {
+      "id": "millenniumYears",
+      "label": "Years per Millennium",
+      "type": "number",
+      "unit": "years",
+      "default": 1000,
+      "businessContext": "Definition of a millennium in years. Normally 1000."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "dp",
+      "default": 2,
+      "businessContext": "Number of decimal places for the result."
+    }
+  ],
+  "formulas": {
+    "rawMillennia": "inputs.centuries * inputs.centuryYears / inputs.millenniumYears",
+    "millennia": "Math.round((inputs.centuries * inputs.centuryYears / inputs.millenniumYears) * Math.pow(10, inputs.precision)) / Math.pow(10, inputs.precision)"
+  },
+  "outputs": {
+    "primary": "millennia",
+    "breakdown": [
+      "rawMillennia"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

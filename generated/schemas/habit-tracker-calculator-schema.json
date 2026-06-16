@@ -1,0 +1,71 @@
+{
+  "toolName": "habit-tracker-calculator",
+  "inputs": [
+    {
+      "id": "daysTracked",
+      "label": "Tracked Days",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Number of days in which the habit was actively tracked."
+    },
+    {
+      "id": "successfulDays",
+      "label": "Successful Days",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Number of days the habit was successfully performed."
+    },
+    {
+      "id": "targetDays",
+      "label": "Target Days",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Target number of successful days within the tracking period."
+    },
+    {
+      "id": "totalDays",
+      "label": "Total Period Days",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Total number of days in the evaluation period."
+    },
+    {
+      "id": "currentStreak",
+      "label": "Current Streak",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Consecutive days the habit has been successfully performed."
+    },
+    {
+      "id": "bestStreak",
+      "label": "Best Streak",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Longest streak of consecutive successful days ever achieved."
+    }
+  ],
+  "formulas": {
+    "compliancePercentage": "(successfulDays / totalDays) * 100",
+    "trackingRatio": "daysTracked / totalDays",
+    "streakRatio": "bestStreak === 0 ? 0 : currentStreak / bestStreak"
+  },
+  "outputs": {
+    "primary": "compliancePercentage",
+    "breakdown": [
+      "trackingRatio",
+      "streakRatio"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

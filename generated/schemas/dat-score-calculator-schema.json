@@ -1,0 +1,73 @@
+{
+  "toolName": "dat-score-calculator",
+  "inputs": [
+    {
+      "id": "onTimeDeliveries",
+      "label": "On-time Deliveries",
+      "type": "number",
+      "unit": "deliveries",
+      "default": 100,
+      "businessContext": "Number of deliveries made on time"
+    },
+    {
+      "id": "totalDeliveries",
+      "label": "Total Deliveries",
+      "type": "number",
+      "unit": "deliveries",
+      "default": 120,
+      "businessContext": "Total number of deliveries"
+    },
+    {
+      "id": "correctOrders",
+      "label": "Correct Orders",
+      "type": "number",
+      "unit": "orders",
+      "default": 110,
+      "businessContext": "Number of orders delivered with correct items and quantity"
+    },
+    {
+      "id": "totalOrders",
+      "label": "Total Orders",
+      "type": "number",
+      "unit": "orders",
+      "default": 120,
+      "businessContext": "Total number of orders delivered"
+    },
+    {
+      "id": "damageFreeShipments",
+      "label": "Damage-free Shipments",
+      "type": "number",
+      "unit": "shipments",
+      "default": 115,
+      "businessContext": "Number of shipments without any damaged items"
+    },
+    {
+      "id": "totalShipments",
+      "label": "Total Shipments",
+      "type": "number",
+      "unit": "shipments",
+      "default": 120,
+      "businessContext": "Total number of shipments"
+    }
+  ],
+  "formulas": {
+    "onTimeRate": "onTimeDeliveries / totalDeliveries * 100",
+    "accuracyRate": "correctOrders / totalOrders * 100",
+    "damageFreeRate": "damageFreeShipments / totalShipments * 100",
+    "datScore": "(onTimeDeliveries / totalDeliveries * 100 + correctOrders / totalOrders * 100 + damageFreeShipments / totalShipments * 100) / 3"
+  },
+  "outputs": {
+    "primary": "datScore",
+    "breakdown": [
+      "onTimeRate",
+      "accuracyRate",
+      "damageFreeRate"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

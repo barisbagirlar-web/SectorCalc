@@ -1,0 +1,55 @@
+{
+  "toolName": "second-order-reaction-calculator",
+  "inputs": [
+    {
+      "id": "initialConcentrationA",
+      "label": "Initial Concentration [A]₀",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 1,
+      "businessContext": "Starting molar concentration of reactant A in a second-order reaction (rate = k[A]² or k[A][B] with [A]₀ = [B]₀)"
+    },
+    {
+      "id": "rateConstant",
+      "label": "Rate Constant (k)",
+      "type": "number",
+      "unit": "L/(mol·s)",
+      "default": 0.1,
+      "businessContext": "Second-order rate constant to quantify reaction speed"
+    },
+    {
+      "id": "time",
+      "label": "Elapsed Time (t)",
+      "type": "number",
+      "unit": "s",
+      "default": 10,
+      "businessContext": "Time at which to calculate the concentration of A"
+    },
+    {
+      "id": "targetConcentration",
+      "label": "Target Concentration [A]",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.5,
+      "businessContext": "Desired concentration of A used to calculate the required reaction time"
+    }
+  ],
+  "formulas": {
+    "halfLife": "1 / (rateConstant * initialConcentrationA)",
+    "concentrationA": "1 / (1 / initialConcentrationA + rateConstant * time)",
+    "requiredTime": "(1 / targetConcentration - 1 / initialConcentrationA) / rateConstant"
+  },
+  "outputs": {
+    "primary": "halfLife",
+    "breakdown": [
+      "concentrationA",
+      "requiredTime"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

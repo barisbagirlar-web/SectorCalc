@@ -1,0 +1,89 @@
+{
+  "toolName": "maclaurin-series-polynomial-calculator",
+  "inputs": [
+    {
+      "id": "x",
+      "label": "x",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Point of evaluation"
+    },
+    {
+      "id": "a0",
+      "label": "a₀",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Coefficient for x⁰"
+    },
+    {
+      "id": "a1",
+      "label": "a₁",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Coefficient for x¹"
+    },
+    {
+      "id": "a2",
+      "label": "a₂",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Coefficient for x²"
+    },
+    {
+      "id": "a3",
+      "label": "a₃",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Coefficient for x³"
+    },
+    {
+      "id": "a4",
+      "label": "a₄",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Coefficient for x⁴"
+    },
+    {
+      "id": "a5",
+      "label": "a₅",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0,
+      "businessContext": "Coefficient for x⁵"
+    }
+  ],
+  "formulas": {
+    "primary": "a0 + a1*x + a2*Math.pow(x,2) + a3*Math.pow(x,3) + a4*Math.pow(x,4) + a5*Math.pow(x,5)",
+    "breakdown": [
+      "a0",
+      "a1*x",
+      "a2*Math.pow(x,2)",
+      "a3*Math.pow(x,3)",
+      "a4*Math.pow(x,4)",
+      "a5*Math.pow(x,5)"
+    ]
+  },
+  "outputs": {
+    "primary": "Maclaurin series approximation value",
+    "breakdown": [
+      "Term 0 (constant)",
+      "Term 1 (linear)",
+      "Term 2 (quadratic)",
+      "Term 3 (cubic)",
+      "Term 4 (quartic)",
+      "Term 5 (quintic)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

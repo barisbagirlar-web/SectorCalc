@@ -1,0 +1,82 @@
+{
+  "toolName": "uber-fare-calculator",
+  "inputs": [
+    {
+      "id": "baseFare",
+      "label": "Base Fare",
+      "type": "number",
+      "unit": "$",
+      "default": 2.5,
+      "businessContext": "Fixed fee for starting the ride"
+    },
+    {
+      "id": "costPerMinute",
+      "label": "Cost Per Minute",
+      "type": "number",
+      "unit": "$/min",
+      "default": 0.15,
+      "businessContext": "Charge per minute of travel time"
+    },
+    {
+      "id": "costPerMile",
+      "label": "Cost Per Mile",
+      "type": "number",
+      "unit": "$/mile",
+      "default": 1.2,
+      "businessContext": "Charge per mile traveled"
+    },
+    {
+      "id": "distanceMiles",
+      "label": "Distance (Miles)",
+      "type": "number",
+      "unit": "miles",
+      "default": 1,
+      "businessContext": "Total distance of the trip"
+    },
+    {
+      "id": "durationMinutes",
+      "label": "Duration (Minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 5,
+      "businessContext": "Total trip duration"
+    },
+    {
+      "id": "surgeMultiplier",
+      "label": "Surge Multiplier",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Multiplier applied during high demand (e.g., 1.5x)"
+    },
+    {
+      "id": "bookingFee",
+      "label": "Booking Fee",
+      "type": "number",
+      "unit": "$",
+      "default": 1.5,
+      "businessContext": "Fixed booking fee added to total"
+    }
+  ],
+  "formulas": {
+    "subtotal": "baseFare + costPerMinute * durationMinutes + costPerMile * distanceMiles",
+    "surgeAmount": "subtotal * (surgeMultiplier - 1)",
+    "bookingFeeAmount": "bookingFee",
+    "totalFare": "subtotal * surgeMultiplier + bookingFee"
+  },
+  "outputs": {
+    "primary": "totalFare",
+    "breakdown": [
+      "subtotal",
+      "surgeAmount",
+      "bookingFeeAmount",
+      "totalFare"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,64 @@
+{
+  "toolName": "day-of-year-calculator",
+  "inputs": [
+    {
+      "id": "month",
+      "label": "Month",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Input month (1–12)"
+    },
+    {
+      "id": "day",
+      "label": "Day",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Input day (1–31)"
+    },
+    {
+      "id": "year",
+      "label": "Year",
+      "type": "number",
+      "unit": "",
+      "default": 2023,
+      "businessContext": "Input year (e.g., 2023)"
+    },
+    {
+      "id": "fiscalStartMonth",
+      "label": "Fiscal Start Month",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Month when fiscal year starts (1–12)"
+    },
+    {
+      "id": "fiscalStartDay",
+      "label": "Fiscal Start Day",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Day when fiscal year starts (1–31)"
+    }
+  ],
+  "formulas": {
+    "isLeapYear": "(year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)",
+    "dayOfYear": "[0,31,59,90,120,151,181,212,243,273,304,334][month-1] + day + ((month > 2 && isLeapYear) ? 1 : 0)",
+    "fiscalStartDayOfYear": "[0,31,59,90,120,151,181,212,243,273,304,334][fiscalStartMonth-1] + fiscalStartDay + ((fiscalStartMonth > 2 && isLeapYear) ? 1 : 0)",
+    "dayOfFiscalYear": "((dayOfYear - fiscalStartDayOfYear + (isLeapYear ? 366 : 365)) % (isLeapYear ? 366 : 365)) + 1"
+  },
+  "outputs": {
+    "primary": "dayOfYear",
+    "breakdown": [
+      "isLeapYear",
+      "dayOfFiscalYear"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

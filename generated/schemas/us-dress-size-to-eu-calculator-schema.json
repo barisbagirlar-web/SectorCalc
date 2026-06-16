@@ -1,0 +1,57 @@
+{
+  "toolName": "us-dress-size-to-eu-calculator",
+  "inputs": [
+    {
+      "id": "usDressSize",
+      "label": "US dress size",
+      "type": "number",
+      "unit": "size",
+      "default": 4,
+      "businessContext": "Numeric US women's dress size (e.g., 0, 2, 4, ...). Typically even numbers, but decimals are accepted."
+    },
+    {
+      "id": "ageGroup",
+      "label": "Age group",
+      "type": "number",
+      "unit": "option",
+      "default": 0,
+      "businessContext": "0: Women (standard), 1: Juniors, 2: Plus size. Affects base offset for EU conversion."
+    },
+    {
+      "id": "brandAdjustment",
+      "label": "Brand adjustment",
+      "type": "number",
+      "unit": "size",
+      "default": 0,
+      "businessContext": "Manual adjustment for brand-specific fit (e.g., -1 for smaller fit, +1 for larger fit). Can be negative."
+    },
+    {
+      "id": "precision",
+      "label": "Precision",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 0,
+      "businessContext": "Number of decimal places for the EU size output. Use 0 for integer sizes."
+    }
+  ],
+  "formulas": {
+    "baseOffset": "ageGroup == 1 ? 30 : (ageGroup == 2 ? 34 : 32)",
+    "rawEuSize": "usDressSize + baseOffset + brandAdjustment",
+    "euSize": "Number(rawEuSize.toFixed(precision))"
+  },
+  "outputs": {
+    "primary": "EU size {euSize}",
+    "breakdown": [
+      "US input: {usDressSize}",
+      "Base offset: {baseOffset}",
+      "Adjusted EU size (before rounding): {rawEuSize}",
+      "Final EU size: {euSize}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

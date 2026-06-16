@@ -1,0 +1,74 @@
+{
+  "toolName": "cross-product-calculator",
+  "inputs": [
+    {
+      "id": "Ax",
+      "label": "Vector A - X Component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "X-component of first vector"
+    },
+    {
+      "id": "Ay",
+      "label": "Vector A - Y Component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Y-component of first vector"
+    },
+    {
+      "id": "Az",
+      "label": "Vector A - Z Component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Z-component of first vector"
+    },
+    {
+      "id": "Bx",
+      "label": "Vector B - X Component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "X-component of second vector"
+    },
+    {
+      "id": "By",
+      "label": "Vector B - Y Component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Y-component of second vector"
+    },
+    {
+      "id": "Bz",
+      "label": "Vector B - Z Component",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Z-component of second vector"
+    }
+  ],
+  "formulas": {
+    "Cx": "Ay * Bz - Az * By",
+    "Cy": "Az * Bx - Ax * Bz",
+    "Cz": "Ax * By - Ay * Bx",
+    "magnitude": "Math.sqrt(Math.pow(Ay * Bz - Az * By, 2) + Math.pow(Az * Bx - Ax * Bz, 2) + Math.pow(Ax * By - Ay * Bx, 2))",
+    "vectorResult": "`( ${Ay * Bz - Az * By}, ${Az * Bx - Ax * Bz}, ${Ax * By - Ay * Bx} )`"
+  },
+  "outputs": {
+    "primary": "vectorResult",
+    "breakdown": [
+      "Cx",
+      "Cy",
+      "Cz"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

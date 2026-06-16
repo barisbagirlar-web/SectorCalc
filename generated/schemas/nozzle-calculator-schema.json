@@ -1,0 +1,67 @@
+{
+  "toolName": "nozzle-calculator",
+  "inputs": [
+    {
+      "id": "pressureDrop",
+      "label": "Basınç Farkı (ΔP)",
+      "type": "number",
+      "unit": "bar",
+      "default": 1,
+      "businessContext": "Nozzle giriş ve çıkışı arasındaki basınç farkı"
+    },
+    {
+      "id": "diameter",
+      "label": "Nozzle Çapı",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Nozzle orifis çapı"
+    },
+    {
+      "id": "dischargeCoefficient",
+      "label": "Deşarj Katsayısı (Cd)",
+      "type": "number",
+      "unit": "-",
+      "default": 0.98,
+      "businessContext": "Nozzle geometrisine bağlı akış katsayısı"
+    },
+    {
+      "id": "density",
+      "label": "Akışkan Yoğunluğu",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Akışkan yoğunluğu (ör. su için 1000 kg/m³)"
+    },
+    {
+      "id": "viscosity",
+      "label": "Kinematik Viskozite",
+      "type": "number",
+      "unit": "m²/s",
+      "default": 0.000001,
+      "businessContext": "Akışkanın kinematik viskozitesi (su için 1e-6 m²/s)"
+    }
+  ],
+  "formulas": {
+    "area": "Math.PI * (diameter / 1000) ** 2 / 4",
+    "deltaP_Pa": "pressureDrop * 100000",
+    "flowRate": "dischargeCoefficient * area * Math.sqrt(2 * deltaP_Pa / density)",
+    "massFlowRate": "flowRate * density",
+    "velocity": "flowRate / area",
+    "reynoldsNumber": "velocity * (diameter / 1000) / viscosity"
+  },
+  "outputs": {
+    "primary": "flowRate",
+    "breakdown": [
+      "massFlowRate",
+      "velocity",
+      "reynoldsNumber"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

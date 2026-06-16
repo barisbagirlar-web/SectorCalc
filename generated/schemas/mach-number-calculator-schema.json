@@ -1,0 +1,54 @@
+{
+  "toolName": "mach-number-calculator",
+  "inputs": [
+    {
+      "id": "airspeed",
+      "label": "True Airspeed",
+      "type": "number",
+      "unit": "m/s",
+      "default": 340,
+      "businessContext": "True airspeed of the object relative to the air in meters per second."
+    },
+    {
+      "id": "temperature",
+      "label": "Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Ambient air temperature in degrees Celsius."
+    },
+    {
+      "id": "gamma",
+      "label": "Specific Heat Ratio (γ)",
+      "type": "number",
+      "unit": "",
+      "default": 1.4,
+      "businessContext": "Ratio of specific heats; for air, γ = 1.4."
+    },
+    {
+      "id": "R",
+      "label": "Specific Gas Constant",
+      "type": "number",
+      "unit": "J/(kg·K)",
+      "default": 287,
+      "businessContext": "Specific gas constant for the gas; for dry air, R ≈ 287 J/(kg·K)."
+    }
+  ],
+  "formulas": {
+    "speed_of_sound": "Math.sqrt(gamma * R * (temperature + 273.15))",
+    "mach": "airspeed / speed_of_sound"
+  },
+  "outputs": {
+    "primary": "mach",
+    "breakdown": [
+      "speed_of_sound",
+      "mach"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

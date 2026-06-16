@@ -1,0 +1,56 @@
+{
+  "toolName": "km-to-miles-and-feet-calculator",
+  "inputs": [
+    {
+      "id": "km_value",
+      "label": "Kilometers",
+      "type": "number",
+      "unit": "km",
+      "default": 1,
+      "businessContext": "Distance in kilometers to convert."
+    },
+    {
+      "id": "miles_factor",
+      "label": "Miles per km",
+      "type": "number",
+      "unit": "mi/km",
+      "default": 0.621371,
+      "businessContext": "Conversion factor from kilometers to miles. Standard value 0.621371192."
+    },
+    {
+      "id": "feet_per_mile",
+      "label": "Feet per mile",
+      "type": "number",
+      "unit": "ft/mi",
+      "default": 5280,
+      "businessContext": "Number of feet in one mile. Standard value 5280."
+    },
+    {
+      "id": "decimal_places",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output values."
+    }
+  ],
+  "formulas": {
+    "miles": "km_value * miles_factor",
+    "feet": "km_value * miles_factor * feet_per_mile",
+    "miles_rounded": "Math.round(miles * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)",
+    "feet_rounded": "Math.round(feet * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)"
+  },
+  "outputs": {
+    "primary": "miles_rounded + ' mi, ' + feet_rounded + ' ft'",
+    "breakdown": [
+      "miles",
+      "feet"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

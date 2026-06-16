@@ -1,0 +1,45 @@
+{
+  "toolName": "percentile-to-z-score-calculator",
+  "inputs": [
+    {
+      "id": "percentile",
+      "label": "Percentile",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Cumulative probability from a normal distribution (0–100)."
+    },
+    {
+      "id": "mean",
+      "label": "Mean",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Mean of the underlying distribution (0 for standard Z)."
+    },
+    {
+      "id": "stddev",
+      "label": "Standard Deviation",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Standard deviation of the underlying distribution (1 for standard Z)."
+    }
+  ],
+  "formulas": {
+    "zScore": "let p = percentile/100; let t = Math.sqrt(-2 * Math.log(p < 0.5 ? p : 1-p)); let c0=2.515517; let c1=0.802853; let c2=0.010328; let d1=1.432788; let d2=0.189269; let d3=0.001308; let z = t - (c0 + c1 * t + c2 * t * t) / (1 + d1 * t + d2 * t * t + d3 * t * t * t); return p < 0.5 ? -z : z;",
+    "rawScore": "return mean + zScore * stddev;"
+  },
+  "outputs": {
+    "primary": "zScore",
+    "breakdown": [
+      "rawScore"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

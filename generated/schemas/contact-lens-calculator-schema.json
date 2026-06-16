@@ -1,0 +1,55 @@
+{
+  "toolName": "contact-lens-calculator",
+  "inputs": [
+    {
+      "id": "sphere",
+      "label": "Sphere (SPH)",
+      "type": "number",
+      "unit": "D",
+      "default": 0,
+      "businessContext": "Spectacle sphere power in diopters"
+    },
+    {
+      "id": "cylinder",
+      "label": "Cylinder (CYL)",
+      "type": "number",
+      "unit": "D",
+      "default": 0,
+      "businessContext": "Spectacle cylinder power in diopters"
+    },
+    {
+      "id": "axis",
+      "label": "Axis",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Cylinder axis in degrees"
+    },
+    {
+      "id": "vertexDistance",
+      "label": "Vertex Distance",
+      "type": "number",
+      "unit": "mm",
+      "default": 12,
+      "businessContext": "Distance from spectacle lens to cornea in mm"
+    }
+  ],
+  "formulas": {
+    "contactSphere": "sphere / (1 - (vertexDistance/1000) * sphere)",
+    "contactCylinder": "((sphere + cylinder) / (1 - (vertexDistance/1000) * (sphere + cylinder))) - (sphere / (1 - (vertexDistance/1000) * sphere))",
+    "contactAxis": "axis"
+  },
+  "outputs": {
+    "primary": "contactSphere",
+    "breakdown": [
+      "contactCylinder",
+      "contactAxis"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,74 @@
+{
+  "toolName": "cost-estimation-calculator",
+  "inputs": [
+    {
+      "id": "materialCost",
+      "label": "Material Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Cost of raw materials"
+    },
+    {
+      "id": "laborCost",
+      "label": "Labor Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total labor cost for production"
+    },
+    {
+      "id": "machineCost",
+      "label": "Machine Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Cost of machine operation"
+    },
+    {
+      "id": "overheadPercent",
+      "label": "Overhead %",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Overhead as percentage of direct costs"
+    },
+    {
+      "id": "markupPercent",
+      "label": "Markup %",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Profit markup percentage on total cost"
+    },
+    {
+      "id": "units",
+      "label": "Number of Units",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Total units produced"
+    }
+  ],
+  "formulas": {
+    "totalDirectCost": "materialCost + laborCost + machineCost",
+    "overheadAmount": "totalDirectCost * (overheadPercent / 100)",
+    "totalCostBeforeMarkup": "totalDirectCost + overheadAmount",
+    "totalCost": "totalCostBeforeMarkup * (1 + markupPercent / 100)",
+    "costPerUnit": "totalCost / units"
+  },
+  "outputs": {
+    "primary": "costPerUnit",
+    "breakdown": [
+      "totalDirectCost",
+      "overheadAmount",
+      "totalCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

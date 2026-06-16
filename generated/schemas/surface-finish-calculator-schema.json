@@ -1,0 +1,65 @@
+{
+  "toolName": "surface-finish-calculator",
+  "inputs": [
+    {
+      "id": "feedRate",
+      "label": "Feed Rate",
+      "type": "number",
+      "unit": "mm/rev",
+      "default": 0.2,
+      "businessContext": "Feed per revolution in turning/milling."
+    },
+    {
+      "id": "noseRadius",
+      "label": "Tool Nose Radius",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.8,
+      "businessContext": "Insert nose radius."
+    },
+    {
+      "id": "cuttingSpeed",
+      "label": "Cutting Speed",
+      "type": "number",
+      "unit": "m/min",
+      "default": 150,
+      "businessContext": "Cutting speed (not directly used in roughness formula but provided for reference)."
+    },
+    {
+      "id": "depthOfCut",
+      "label": "Depth of Cut",
+      "type": "number",
+      "unit": "mm",
+      "default": 1,
+      "businessContext": "Depth of cut (affects forces, minor effect on finish)."
+    },
+    {
+      "id": "desiredRa",
+      "label": "Desired Surface Roughness Ra",
+      "type": "number",
+      "unit": "μm",
+      "default": 3.2,
+      "businessContext": "Target average roughness."
+    }
+  ],
+  "formulas": {
+    "actualRa": "31.25 * feedRate * feedRate / noseRadius",
+    "requiredFeedRate": "Math.sqrt(desiredRa * noseRadius / 31.25)",
+    "recommendedNoseRadius": "31.25 * feedRate * feedRate / desiredRa",
+    "actualRz": "125 * feedRate * feedRate / noseRadius"
+  },
+  "outputs": {
+    "primary": "actualRa",
+    "breakdown": [
+      "requiredFeedRate",
+      "recommendedNoseRadius",
+      "actualRz"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

@@ -1,0 +1,91 @@
+{
+  "toolName": "simplify-fractions",
+  "inputs": [
+    {
+      "id": "num1",
+      "label": "Pay 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Birinci kesrin payı"
+    },
+    {
+      "id": "den1",
+      "label": "Payda 1",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Birinci kesrin paydası"
+    },
+    {
+      "id": "num2",
+      "label": "Pay 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "İkinci kesrin payı"
+    },
+    {
+      "id": "den2",
+      "label": "Payda 2",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "İkinci kesrin paydası"
+    },
+    {
+      "id": "num3",
+      "label": "Pay 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Üçüncü kesrin payı"
+    },
+    {
+      "id": "den3",
+      "label": "Payda 3",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Üçüncü kesrin paydası"
+    },
+    {
+      "id": "num4",
+      "label": "Pay 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Dördüncü kesrin payı"
+    },
+    {
+      "id": "den4",
+      "label": "Payda 4",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Dördüncü kesrin paydası"
+    }
+  ],
+  "formulas": {
+    "primary": "(function(){const g=(a,b)=>b?g(b,a%b):a;const s=(n,d)=>{if(d===0)return 'tanımsız';let x=g(Math.abs(n),Math.abs(d))||1;let sn=n/x,sd=d/x;if(sd<0){sn=-sn;sd=-sd;}return sn+'/'+sd;};return [s(num1,den1),s(num2,den2),s(num3,den3),s(num4,den4)].join(', ');})()",
+    "fraction1": "(function(){const g=(a,b)=>b?g(b,a%b):a;const d=den1;if(d===0)return 'tanımsız';let n=num1;let x=g(Math.abs(n),Math.abs(d))||1;let sn=n/x,sd=d/x;if(sd<0){sn=-sn;sd=-sd;}return sn+'/'+sd;})()",
+    "fraction2": "(function(){const g=(a,b)=>b?g(b,a%b):a;const d=den2;if(d===0)return 'tanımsız';let n=num2;let x=g(Math.abs(n),Math.abs(d))||1;let sn=n/x,sd=d/x;if(sd<0){sn=-sn;sd=-sd;}return sn+'/'+sd;})()",
+    "fraction3": "(function(){const g=(a,b)=>b?g(b,a%b):a;const d=den3;if(d===0)return 'tanımsız';let n=num3;let x=g(Math.abs(n),Math.abs(d))||1;let sn=n/x,sd=d/x;if(sd<0){sn=-sn;sd=-sd;}return sn+'/'+sd;})()",
+    "fraction4": "(function(){const g=(a,b)=>b?g(b,a%b):a;const d=den4;if(d===0)return 'tanımsız';let n=num4;let x=g(Math.abs(n),Math.abs(d))||1;let sn=n/x,sd=d/x;if(sd<0){sn=-sn;sd=-sd;}return sn+'/'+sd;})()"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "fraction1",
+      "fraction2",
+      "fraction3",
+      "fraction4"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,67 @@
+{
+  "toolName": "flour-cup-to-grams-calculator",
+  "inputs": [
+    {
+      "id": "cups",
+      "label": "Cups of Flour",
+      "type": "number",
+      "unit": "cup",
+      "default": 1,
+      "businessContext": "Number of cups of flour to convert."
+    },
+    {
+      "id": "baseGramsPerCup",
+      "label": "Standard Grams per Cup",
+      "type": "number",
+      "unit": "g/cup",
+      "default": 125,
+      "businessContext": "Baseline weight of 1 cup of flour (all-purpose: 125g, bread: 130g, cake: 115g)."
+    },
+    {
+      "id": "packingFactor",
+      "label": "Packing Density Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Adjustment for measuring method (sifted: 1.0, spooned: 1.1, scooped: 1.2)."
+    },
+    {
+      "id": "humidityFactor",
+      "label": "Humidity Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Adjusts for moisture content (normal: 1.0, humid: >1)."
+    },
+    {
+      "id": "scaleCalibration",
+      "label": "Scale Calibration Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Correction if your scale is not perfectly calibrated (e.g., 1.05 means scale reads 5% high)."
+    }
+  ],
+  "formulas": {
+    "totalGrams": "cups * baseGramsPerCup * packingFactor * humidityFactor * scaleCalibration",
+    "baseWeight": "cups * baseGramsPerCup",
+    "packingAdjustment": "cups * baseGramsPerCup * (packingFactor - 1)",
+    "humidityAdjustment": "cups * baseGramsPerCup * packingFactor * (humidityFactor - 1)",
+    "scaleAdjustment": "cups * baseGramsPerCup * packingFactor * humidityFactor * (scaleCalibration - 1)"
+  },
+  "outputs": {
+    "primary": "totalGrams",
+    "breakdown": [
+      "baseWeight",
+      "packingAdjustment",
+      "humidityAdjustment",
+      "scaleAdjustment"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

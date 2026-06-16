@@ -1,0 +1,53 @@
+{
+  "toolName": "pyramid-volume-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Taban Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Piramit tabanının uzun kenar ölçüsü (metre)"
+    },
+    {
+      "id": "width",
+      "label": "Taban Genişliği",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Piramit tabanının kısa kenar ölçüsü (metre)"
+    },
+    {
+      "id": "height",
+      "label": "Yükseklik",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Piramidin dik yüksekliği (tabandan tepe noktasına)"
+    },
+    {
+      "id": "quantity",
+      "label": "Adet",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Aynı boyutlardaki piramit sayısı (toplu hacim hesabı için)"
+    }
+  ],
+  "formulas": {
+    "baseArea": "length * width",
+    "volume": "(length * width * height / 3) * quantity"
+  },
+  "outputs": {
+    "primary": "volume",
+    "breakdown": [
+      "baseArea"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

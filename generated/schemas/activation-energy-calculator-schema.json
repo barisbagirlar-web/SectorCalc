@@ -1,0 +1,63 @@
+{
+  "toolName": "activation-energy-calculator",
+  "inputs": [
+    {
+      "id": "k1",
+      "label": "Rate Constant 1",
+      "type": "number",
+      "unit": "1/s",
+      "default": 0.001,
+      "businessContext": "Rate constant at temperature T1"
+    },
+    {
+      "id": "T1",
+      "label": "Temperature 1",
+      "type": "number",
+      "unit": "K",
+      "default": 300,
+      "businessContext": "Temperature corresponding to k1"
+    },
+    {
+      "id": "k2",
+      "label": "Rate Constant 2",
+      "type": "number",
+      "unit": "1/s",
+      "default": 0.01,
+      "businessContext": "Rate constant at temperature T2"
+    },
+    {
+      "id": "T2",
+      "label": "Temperature 2",
+      "type": "number",
+      "unit": "K",
+      "default": 350,
+      "businessContext": "Temperature corresponding to k2"
+    },
+    {
+      "id": "R",
+      "label": "Gas Constant",
+      "type": "number",
+      "unit": "J/(mol·K)",
+      "default": 8.314,
+      "businessContext": "Universal gas constant"
+    }
+  ],
+  "formulas": {
+    "activationEnergy": "-R * Math.log(k1/k2) / (1/T1 - 1/T2)",
+    "lnRatio": "Math.log(k1/k2)",
+    "inverseTemperatureDifference": "1/T1 - 1/T2"
+  },
+  "outputs": {
+    "primary": "activationEnergy",
+    "breakdown": [
+      "lnRatio",
+      "inverseTemperatureDifference"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

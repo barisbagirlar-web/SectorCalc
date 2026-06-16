@@ -1,0 +1,59 @@
+{
+  "toolName": "visual-acuity-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Testing Distance",
+      "type": "number",
+      "unit": "ft",
+      "default": 20,
+      "businessContext": "Distance between patient and eye chart in feet."
+    },
+    {
+      "id": "letterHeight",
+      "label": "Letter Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 8.87,
+      "businessContext": "Height of the smallest readable Snellen letter in millimeters."
+    },
+    {
+      "id": "snellenNumerator",
+      "label": "Snellen Numerator",
+      "type": "number",
+      "unit": "ft",
+      "default": 20,
+      "businessContext": "Standard testing distance numerator, typically 20 for feet or 6 for meters."
+    },
+    {
+      "id": "overrideDenom",
+      "label": "Override Denominator",
+      "type": "number",
+      "unit": "ft",
+      "default": 0,
+      "businessContext": "If known, directly set the Snellen denominator; otherwise calculated from distance and letter height."
+    }
+  ],
+  "formulas": {
+    "H_ft": "letterHeight / 304.8",
+    "alpha_rad": "2 * Math.atan(H_ft / (2 * distance))",
+    "alpha_min": "alpha_rad * (180 / Math.PI) * 60",
+    "denominator": "(overrideDenom > 0) ? overrideDenom : (distance * (alpha_min / 5))",
+    "decimalAcuity": "snellenNumerator / denominator",
+    "logMAR": "-Math.log10(decimalAcuity)"
+  },
+  "outputs": {
+    "primary": "logMAR",
+    "breakdown": [
+      "Snellen: snellenNumerator + '/' + denominator",
+      "Decimal Acuity: decimalAcuity",
+      "Visual Angle (arcmin): alpha_min"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

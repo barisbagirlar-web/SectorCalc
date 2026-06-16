@@ -1,0 +1,81 @@
+{
+  "toolName": "pyramid-surface-area-calculator",
+  "inputs": [
+    {
+      "id": "baseSide",
+      "label": "Taban Kenar Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Kare piramidin taban kenarının metre cinsinden uzunluğu."
+    },
+    {
+      "id": "height",
+      "label": "Yükseklik",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Piramidin tabandan tepeye dikey yüksekliği."
+    },
+    {
+      "id": "slantHeight",
+      "label": "Yan Yüzey Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Eğik kenar yüksekliği biliniyorsa girilir; 0 girilirse taban ve yükseklikten hesaplanır."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Malzeme kesim ve montaj fire oranı (ondalık olarak, örn. 5 için %5)."
+    }
+  ],
+  "formulas": {
+    "slantHeightComputed": "Math.sqrt(Math.pow(height, 2) + Math.pow(baseSide / 2, 2))",
+    "effectiveSlant": "slantHeight > 0 ? slantHeight : slantHeightComputed",
+    "baseArea": "Math.pow(baseSide, 2)",
+    "lateralArea": "2 * baseSide * effectiveSlant",
+    "totalArea": "baseArea + lateralArea",
+    "finalArea": "totalArea * (1 + wasteFactor / 100)"
+  },
+  "outputs": {
+    "primary": {
+      "id": "finalArea",
+      "label": "Toplam Yüzey Alanı (Fire Dahil)",
+      "unit": "m²",
+      "formula": "finalArea"
+    },
+    "breakdown": [
+      {
+        "id": "baseArea",
+        "label": "Taban Alanı",
+        "unit": "m²"
+      },
+      {
+        "id": "lateralArea",
+        "label": "Yanal Alan",
+        "unit": "m²"
+      },
+      {
+        "id": "slantHeightComputed",
+        "label": "Hesaplanan Eğik Yükseklik",
+        "unit": "m"
+      },
+      {
+        "id": "effectiveSlant",
+        "label": "Kullanılan Eğik Yükseklik",
+        "unit": "m"
+      }
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

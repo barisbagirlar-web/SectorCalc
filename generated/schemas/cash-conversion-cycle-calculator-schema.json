@@ -1,0 +1,73 @@
+{
+  "toolName": "cash-conversion-cycle-calculator",
+  "inputs": [
+    {
+      "id": "averageInventory",
+      "label": "Average Inventory",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "The average value of inventory over a period."
+    },
+    {
+      "id": "cogs",
+      "label": "Cost of Goods Sold (COGS)",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Direct cost of producing goods sold."
+    },
+    {
+      "id": "averageReceivables",
+      "label": "Average Accounts Receivable",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Average amount owed by customers."
+    },
+    {
+      "id": "revenue",
+      "label": "Revenue",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total sales revenue for the period."
+    },
+    {
+      "id": "averagePayables",
+      "label": "Average Accounts Payable",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Average amount owed to suppliers."
+    },
+    {
+      "id": "daysInPeriod",
+      "label": "Days in Period",
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "businessContext": "Number of days in the measurement period (typically 365 for annual)."
+    }
+  ],
+  "formulas": {
+    "dio": "averageInventory / cogs * daysInPeriod",
+    "dso": "averageReceivables / revenue * daysInPeriod",
+    "dpo": "averagePayables / cogs * daysInPeriod",
+    "cashConversionCycle": "(averageInventory / cogs * daysInPeriod) + (averageReceivables / revenue * daysInPeriod) - (averagePayables / cogs * daysInPeriod)"
+  },
+  "outputs": {
+    "primary": "cashConversionCycle",
+    "breakdown": [
+      "dio",
+      "dso",
+      "dpo"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

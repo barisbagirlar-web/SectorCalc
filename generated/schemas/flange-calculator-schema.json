@@ -1,0 +1,71 @@
+{
+  "toolName": "flange-calculator",
+  "inputs": [
+    {
+      "id": "outerDiameter",
+      "label": "Dış Çap (OD)",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "businessContext": "Flanşın dış çapı, milimetre cinsinden."
+    },
+    {
+      "id": "thickness",
+      "label": "Kalınlık",
+      "type": "number",
+      "unit": "mm",
+      "default": 20,
+      "businessContext": "Flanş kalınlığı."
+    },
+    {
+      "id": "boltCircleDiameter",
+      "label": "Cıvata Dairesi Çapı",
+      "type": "number",
+      "unit": "mm",
+      "default": 160,
+      "businessContext": "Cıvata deliklerinin merkezinden geçen dairenin çapı."
+    },
+    {
+      "id": "numberOfBolts",
+      "label": "Cıvata Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 8,
+      "businessContext": "Cıvata deliği sayısı."
+    },
+    {
+      "id": "boltHoleDiameter",
+      "label": "Cıvata Deliği Çapı",
+      "type": "number",
+      "unit": "mm",
+      "default": 18,
+      "businessContext": "Her bir cıvata deliğinin çapı."
+    },
+    {
+      "id": "density",
+      "label": "Malzeme Yoğunluğu",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "businessContext": "Flanş malzemesinin yoğunluğu (ör: çelik 7850 kg/m³)."
+    }
+  ],
+  "formulas": {
+    "solidVolume": "Math.PI * Math.pow(outerDiameter, 2) / 4 * thickness",
+    "totalHoleVolume": "numberOfBolts * Math.PI * Math.pow(boltHoleDiameter, 2) / 4 * thickness",
+    "weight": "(Math.PI * Math.pow(outerDiameter, 2) / 4 - numberOfBolts * Math.PI * Math.pow(boltHoleDiameter, 2) / 4) * thickness * density / 1000000000"
+  },
+  "outputs": {
+    "primary": "weight",
+    "breakdown": [
+      "solidVolume",
+      "totalHoleVolume"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

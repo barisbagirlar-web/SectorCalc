@@ -1,0 +1,59 @@
+{
+  "toolName": "molecular-formula-calculator",
+  "inputs": [
+    {
+      "id": "numC",
+      "label": "Carbon Atoms",
+      "type": "number",
+      "unit": "",
+      "default": 6,
+      "businessContext": "Number of carbon atoms in the molecular formula"
+    },
+    {
+      "id": "numH",
+      "label": "Hydrogen Atoms",
+      "type": "number",
+      "unit": "",
+      "default": 12,
+      "businessContext": "Number of hydrogen atoms"
+    },
+    {
+      "id": "numO",
+      "label": "Oxygen Atoms",
+      "type": "number",
+      "unit": "",
+      "default": 6,
+      "businessContext": "Number of oxygen atoms"
+    },
+    {
+      "id": "numN",
+      "label": "Nitrogen Atoms",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Number of nitrogen atoms"
+    }
+  ],
+  "formulas": {
+    "molecularWeight": "numC * 12.01 + numH * 1.008 + numO * 16.00 + numN * 14.01",
+    "carbonMass": "numC * 12.01",
+    "hydrogenMass": "numH * 1.008",
+    "oxygenMass": "numO * 16.00",
+    "nitrogenMass": "numN * 14.01"
+  },
+  "outputs": {
+    "primary": "molecularWeight",
+    "breakdown": [
+      "carbonMass",
+      "hydrogenMass",
+      "oxygenMass",
+      "nitrogenMass"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

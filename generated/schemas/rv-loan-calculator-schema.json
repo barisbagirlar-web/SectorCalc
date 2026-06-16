@@ -1,0 +1,74 @@
+{
+  "toolName": "rv-loan-calculator",
+  "inputs": [
+    {
+      "id": "rvPrice",
+      "label": "RV Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Total price of the RV"
+    },
+    {
+      "id": "downPayment",
+      "label": "Down Payment",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Amount paid upfront"
+    },
+    {
+      "id": "tradeInValue",
+      "label": "Trade-In Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Value of trade-in vehicle"
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5.5,
+      "businessContext": "Annual percentage rate"
+    },
+    {
+      "id": "loanTerm",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "months",
+      "default": 60,
+      "businessContext": "Loan duration in months"
+    },
+    {
+      "id": "salesTaxRate",
+      "label": "Sales Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "businessContext": "Applicable sales tax percentage"
+    }
+  ],
+  "formulas": {
+    "amountFinanced": "rvPrice * (1 + salesTaxRate/100) - downPayment - tradeInValue",
+    "monthlyInterestRate": "annualInterestRate / 1200",
+    "monthlyPayment": "monthlyInterestRate === 0 ? amountFinanced / loanTerm : amountFinanced * monthlyInterestRate / (1 - Math.pow(1 + monthlyInterestRate, -loanTerm))",
+    "totalInterest": "monthlyPayment * loanTerm - amountFinanced",
+    "totalCost": "monthlyPayment * loanTerm + downPayment + tradeInValue"
+  },
+  "outputs": {
+    "primary": "monthlyPayment",
+    "breakdown": [
+      "amountFinanced",
+      "totalInterest",
+      "totalCost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

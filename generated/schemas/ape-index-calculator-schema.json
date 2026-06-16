@@ -1,0 +1,56 @@
+{
+  "toolName": "ape-index-calculator",
+  "inputs": [
+    {
+      "id": "heightFt",
+      "label": "Height (feet)",
+      "type": "number",
+      "unit": "ft",
+      "default": 5,
+      "businessContext": "The feet portion of the person's height."
+    },
+    {
+      "id": "heightIn",
+      "label": "Height (inches)",
+      "type": "number",
+      "unit": "in",
+      "default": 9,
+      "businessContext": "The remaining inches portion of the person's height."
+    },
+    {
+      "id": "armspanFt",
+      "label": "Arm Span (feet)",
+      "type": "number",
+      "unit": "ft",
+      "default": 5,
+      "businessContext": "The feet portion of the person's arm span."
+    },
+    {
+      "id": "armspanIn",
+      "label": "Arm Span (inches)",
+      "type": "number",
+      "unit": "in",
+      "default": 9,
+      "businessContext": "The remaining inches portion of the person's arm span."
+    }
+  ],
+  "formulas": {
+    "totalHeightInches": "heightFt * 12 + heightIn",
+    "totalArmspanInches": "armspanFt * 12 + armspanIn",
+    "apeIndexRatio": "totalArmspanInches / totalHeightInches",
+    "apeIndexDiff": "totalArmspanInches - totalHeightInches"
+  },
+  "outputs": {
+    "primary": "Your Ape Index ratio is {{apeIndexRatio}}, meaning your arm span is {{apeIndexDiff}} inches longer than your height if positive, or shorter if negative.",
+    "breakdown": [
+      "Total Height: {{totalHeightInches}} inches",
+      "Total Arm Span: {{totalArmspanInches}} inches"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

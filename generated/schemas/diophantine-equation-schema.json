@@ -1,0 +1,74 @@
+{
+  "toolName": "diophantine-equation",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "Coefficient a",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient of x in the linear Diophantine equation ax + by = c"
+    },
+    {
+      "id": "b",
+      "label": "Coefficient b",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient of y in the linear Diophantine equation ax + by = c"
+    },
+    {
+      "id": "c",
+      "label": "Constant c",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Right-hand side constant of the equation ax + by = c"
+    },
+    {
+      "id": "x0",
+      "label": "Initial x (particular solution)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "A particular integer solution for x, used to generate general solution"
+    },
+    {
+      "id": "y0",
+      "label": "Initial y (particular solution)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "A particular integer solution for y, used to generate general solution"
+    },
+    {
+      "id": "k",
+      "label": "Parameter k",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Integer parameter to generate infinite family of solutions"
+    }
+  ],
+  "formulas": {
+    "gcd": "function gcd(a,b){return b===0?Math.abs(a):gcd(b,a%b)}",
+    "checkSolvability": "let g=gcd(a,b); return c%g===0",
+    "generalX": "x0 + (b/gcd(a,b))*k",
+    "generalY": "y0 - (a/gcd(a,b))*k"
+  },
+  "outputs": {
+    "primary": "General solution: x = x0 + (b/g)*k, y = y0 - (a/g)*k",
+    "breakdown": [
+      "gcd(a,b) = g",
+      "Solvable: c % g == 0",
+      "Particular solution: (x0, y0)",
+      "General solution: x = x0 + (b/g)*k, y = y0 - (a/g)*k"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

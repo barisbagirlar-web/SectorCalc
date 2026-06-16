@@ -1,0 +1,71 @@
+{
+  "toolName": "ltv-cac-ratio-calculator",
+  "inputs": [
+    {
+      "id": "arpu",
+      "label": "Aylık Ortalama Gelir (ARPU)",
+      "type": "number",
+      "unit": "TRY",
+      "default": 100,
+      "businessContext": "Bir müşteriden aylık olarak elde edilen ortalama gelir."
+    },
+    {
+      "id": "grossMargin",
+      "label": "Brüt Kar Marjı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Satılan her birim ürün/hizmetten elde edilen brüt kar yüzdesi."
+    },
+    {
+      "id": "churn",
+      "label": "Aylık Kayıp Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Her ay müşteri tabanının ne kadarının kaybedildiğini gösteren oran."
+    },
+    {
+      "id": "discount",
+      "label": "İskonto Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Gelecekteki nakit akışlarının bugünkü değerini bulmak için kullanılan yıllık iskonto oranı."
+    },
+    {
+      "id": "totalCacSpend",
+      "label": "Toplam Edinme Maliyeti",
+      "type": "number",
+      "unit": "TRY",
+      "default": 50000,
+      "businessContext": "Belirli bir dönemdeki toplam pazarlama ve satış harcamaları."
+    },
+    {
+      "id": "newCustomers",
+      "label": "Kazanılan Yeni Müşteri Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "businessContext": "Aynı dönemde kazanılan yeni müşteri sayısı."
+    }
+  ],
+  "formulas": {
+    "LTV": "(arpu * (grossMargin / 100)) / ((churn / 100) + (Math.pow(1 + discount / 100, 1/12) - 1))",
+    "CAC": "totalCacSpend / newCustomers",
+    "LTV_CAC_Ratio": "LTV / CAC"
+  },
+  "outputs": {
+    "primary": "LTV_CAC_Ratio",
+    "breakdown": [
+      "LTV",
+      "CAC"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

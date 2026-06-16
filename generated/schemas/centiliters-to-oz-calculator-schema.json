@@ -1,0 +1,67 @@
+{
+  "toolName": "centiliters-to-oz-calculator",
+  "inputs": [
+    {
+      "id": "centiliters",
+      "label": "Volume in Centiliters",
+      "type": "number",
+      "unit": "cL",
+      "default": 100,
+      "businessContext": "Quantity of liquid in centiliters to convert."
+    },
+    {
+      "id": "conversionType",
+      "label": "Ounce Type",
+      "type": "number",
+      "unit": "(0=US, 1=UK)",
+      "default": 0,
+      "businessContext": "0 for US fluid ounces, 1 for UK fluid ounces."
+    },
+    {
+      "id": "containerCount",
+      "label": "Number of Containers",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Number of identical containers holding this volume."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage of volume lost or additional required, e.g., 5 for 5% waste."
+    },
+    {
+      "id": "roundingPrecision",
+      "label": "Rounding Precision",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 2,
+      "businessContext": "Number of decimal places for final output."
+    }
+  ],
+  "formulas": {
+    "conversionFactor": "0.33814 + conversionType * (0.35195 - 0.33814)",
+    "rawOunces": "centiliters * conversionFactor * containerCount",
+    "wasteOunces": "rawOunces * wasteFactor / 100",
+    "totalOunces": "rawOunces + wasteOunces",
+    "roundingFactor": "10 ** roundingPrecision",
+    "totalOuncesRounded": "Math.round(totalOunces * roundingFactor) / roundingFactor"
+  },
+  "outputs": {
+    "primary": "totalOuncesRounded",
+    "breakdown": [
+      "rawOunces",
+      "wasteOunces",
+      "conversionFactor"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

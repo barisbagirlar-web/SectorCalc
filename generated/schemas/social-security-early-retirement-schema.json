@@ -1,0 +1,58 @@
+{
+  "toolName": "social-security-early-retirement",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 60,
+      "businessContext": "Your current age. Used for reference to determine how many years until early retirement eligibility."
+    },
+    {
+      "id": "fullRetirementAge",
+      "label": "Full Retirement Age (FRA)",
+      "type": "number",
+      "unit": "years",
+      "default": 67,
+      "businessContext": "The age at which you receive 100% of your Primary Insurance Amount (PIA). Typically 67 for those born after 1960."
+    },
+    {
+      "id": "earlyRetirementAge",
+      "label": "Desired Early Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 62,
+      "businessContext": "The age you plan to start claiming Social Security benefits. Must be at least 62."
+    },
+    {
+      "id": "fullMonthlyBenefit",
+      "label": "Primary Insurance Amount (PIA)",
+      "type": "number",
+      "unit": "$/month",
+      "default": 2000,
+      "businessContext": "Your estimated monthly benefit at full retirement age in today's dollars."
+    }
+  ],
+  "formulas": {
+    "monthsEarly": "(fullRetirementAge - earlyRetirementAge) * 12",
+    "reductionPercent": "Math.min(monthsEarly, 36) * (5/9) + Math.max(0, monthsEarly - 36) * (5/12)",
+    "reductionAmount": "fullMonthlyBenefit * reductionPercent / 100",
+    "monthlyBenefit": "fullMonthlyBenefit - reductionAmount"
+  },
+  "outputs": {
+    "primary": "monthlyBenefit",
+    "breakdown": [
+      "monthsEarly",
+      "reductionPercent",
+      "reductionAmount",
+      "monthlyBenefit"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

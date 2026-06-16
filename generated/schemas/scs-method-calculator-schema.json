@@ -1,0 +1,58 @@
+{
+  "toolName": "scs-method-calculator",
+  "inputs": [
+    {
+      "id": "rainfall",
+      "label": "Rainfall Depth (P)",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Total 24-hour rainfall depth in millimeters."
+    },
+    {
+      "id": "curveNumber",
+      "label": "Curve Number (CN2)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 75,
+      "businessContext": "SCS Curve Number for normal (AMC II) conditions. Range 30-100."
+    },
+    {
+      "id": "amc",
+      "label": "Antecedent Moisture Condition",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "1 = Dry (AMC I), 2 = Normal (AMC II), 3 = Wet (AMC III)."
+    },
+    {
+      "id": "iaRatio",
+      "label": "Initial Abstraction Ratio",
+      "type": "number",
+      "unit": "",
+      "default": 0.2,
+      "businessContext": "Ratio of initial abstraction to potential maximum retention (commonly 0.2)."
+    }
+  ],
+  "formulas": {
+    "adjustedCN": "Math.min(100, Math.max(0, amc === 1 ? curveNumber / (2.334 - 0.01334 * curveNumber) : amc === 3 ? curveNumber / (0.4036 + 0.0059 * curveNumber) : curveNumber))",
+    "S": "(25400 / adjustedCN) - 254",
+    "Ia": "iaRatio * S",
+    "runoff": "rainfall > Ia ? Math.pow(rainfall - Ia, 2) / (rainfall - Ia + S) : 0"
+  },
+  "outputs": {
+    "primary": "runoff",
+    "breakdown": [
+      "adjustedCN",
+      "S",
+      "Ia",
+      "runoff"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

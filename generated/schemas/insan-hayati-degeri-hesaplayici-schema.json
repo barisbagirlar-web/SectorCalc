@@ -1,0 +1,75 @@
+{
+  "toolName": "insan-hayati-degeri-hesaplayici",
+  "inputs": [
+    {
+      "id": "annualIncome",
+      "label": "Yıllık Net Gelir",
+      "type": "number",
+      "unit": "₺/yıl",
+      "default": 100000,
+      "businessContext": "Kişinin vergi sonrası yıllık net geliri"
+    },
+    {
+      "id": "personalExpenseRate",
+      "label": "Kişisel Gider Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Gelirin kişisel harcamalara ayrılan yüzdesi"
+    },
+    {
+      "id": "currentAge",
+      "label": "Mevcut Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 35,
+      "businessContext": "Kişinin şu anki yaşı"
+    },
+    {
+      "id": "retirementAge",
+      "label": "Emeklilik Yaşı",
+      "type": "number",
+      "unit": "yıl",
+      "default": 65,
+      "businessContext": "Beklenen emeklilik yaşı"
+    },
+    {
+      "id": "discountRate",
+      "label": "İskonto Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Gelecekteki nakit akışlarını bugüne indirgeme oranı (genellikle risksiz faiz oranı)"
+    },
+    {
+      "id": "incomeGrowthRate",
+      "label": "Yıllık Gelir Artış Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Beklenen yıllık reel gelir artış oranı"
+    }
+  ],
+  "formulas": {
+    "remainingYears": "retirementAge - currentAge",
+    "netAnnualContribution": "annualIncome * (1 - personalExpenseRate / 100)",
+    "growthFactor": "incomeGrowthRate / 100",
+    "discountFactor": "discountRate / 100",
+    "totalIncomePV": "growthFactor === discountFactor ? annualIncome * remainingYears / (1 + discountFactor) : annualIncome * (1 - Math.pow((1 + growthFactor) / (1 + discountFactor), remainingYears)) / (discountFactor - growthFactor)",
+    "totalExpensePV": "totalIncomePV * (personalExpenseRate / 100)",
+    "hlv": "totalIncomePV - totalExpensePV"
+  },
+  "outputs": {
+    "primary": "İnsan Hayatı Değeri (HLV)",
+    "breakdown": [
+      "Toplam Gelirin Bugünkü Değeri",
+      "Toplam Giderin Bugünkü Değeri"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

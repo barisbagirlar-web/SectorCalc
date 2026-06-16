@@ -1,0 +1,55 @@
+{
+  "toolName": "percent-change-calculator",
+  "inputs": [
+    {
+      "id": "initialValue",
+      "label": "Initial Value",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "businessContext": "The starting value or baseline measurement."
+    },
+    {
+      "id": "finalValue",
+      "label": "Final Value",
+      "type": "number",
+      "unit": "units",
+      "default": 110,
+      "businessContext": "The ending value or current measurement."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "digits",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding the result."
+    },
+    {
+      "id": "multiplier",
+      "label": "Multiplier",
+      "type": "number",
+      "unit": "factor",
+      "default": 100,
+      "businessContext": "Factor to convert the relative change to a scaled percentage; typical value is 100 for percentage, 10000 for basis points."
+    }
+  ],
+  "formulas": {
+    "absoluteChange": "finalValue - initialValue",
+    "relativeChange": "(finalValue - initialValue) / initialValue",
+    "percentChange": "Math.round(((finalValue - initialValue) / initialValue) * multiplier * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "percentChange",
+    "breakdown": [
+      "absoluteChange",
+      "relativeChange"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

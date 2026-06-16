@@ -1,0 +1,74 @@
+{
+  "toolName": "intermediate-value-theorem",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "Lower bound a",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Left endpoint of interval"
+    },
+    {
+      "id": "b",
+      "label": "Upper bound b",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Right endpoint of interval"
+    },
+    {
+      "id": "fa",
+      "label": "f(a)",
+      "type": "number",
+      "unit": "",
+      "default": -1,
+      "businessContext": "Function value at a"
+    },
+    {
+      "id": "fb",
+      "label": "f(b)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Function value at b"
+    },
+    {
+      "id": "k",
+      "label": "Target value k",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Intermediate value to find"
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "",
+      "default": 0.001,
+      "businessContext": "Acceptable error for bisection"
+    }
+  ],
+  "formulas": {
+    "exists": "((fa - k) * (fb - k) <= 0) ? 1 : 0",
+    "c": "((fa - k) * (fb - k) <= 0) ? (a + b) / 2 : null",
+    "fc": "((fa - k) * (fb - k) <= 0) ? ((fb - fa) / (b - a)) * (c - a) + fa : null",
+    "iterations": "((fa - k) * (fb - k) <= 0) ? Math.ceil(Math.log((b - a) / tolerance) / Math.log(2)) : 0"
+  },
+  "outputs": {
+    "primary": "c",
+    "breakdown": [
+      "exists: 1 if a solution exists, 0 otherwise",
+      "c: approximate root (midpoint) if exists, else null",
+      "fc: approximate function value at c",
+      "iterations: number of bisection steps needed"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

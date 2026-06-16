@@ -1,0 +1,77 @@
+{
+  "toolName": "pizza-dough-calculator",
+  "inputs": [
+    {
+      "id": "numPizzas",
+      "label": "Number of Pizzas",
+      "type": "number",
+      "unit": "count",
+      "default": 4,
+      "businessContext": "How many pizzas you plan to make."
+    },
+    {
+      "id": "doughBallWeight",
+      "label": "Dough Ball Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 250,
+      "businessContext": "Target weight of each dough ball."
+    },
+    {
+      "id": "hydrationPercent",
+      "label": "Hydration",
+      "type": "number",
+      "unit": "%",
+      "default": 65,
+      "businessContext": "Water as percentage of flour weight."
+    },
+    {
+      "id": "yeastPercent",
+      "label": "Yeast",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "businessContext": "Yeast as percentage of flour weight."
+    },
+    {
+      "id": "saltPercent",
+      "label": "Salt",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Salt as percentage of flour weight."
+    },
+    {
+      "id": "oilPercent",
+      "label": "Oil",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Olive oil as percentage of flour weight."
+    }
+  ],
+  "formulas": {
+    "totalDough": "numPizzas * doughBallWeight",
+    "totalPercentage": "100 + hydrationPercent + yeastPercent + saltPercent + oilPercent",
+    "flourWeight": "totalDough / (totalPercentage / 100)",
+    "waterWeight": "flourWeight * hydrationPercent / 100",
+    "yeastWeight": "flourWeight * yeastPercent / 100",
+    "saltWeight": "flourWeight * saltPercent / 100",
+    "oilWeight": "flourWeight * oilPercent / 100"
+  },
+  "outputs": {
+    "primary": "flourWeight",
+    "breakdown": [
+      "waterWeight",
+      "yeastWeight",
+      "saltWeight",
+      "oilWeight"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

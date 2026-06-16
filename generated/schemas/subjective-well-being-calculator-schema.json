@@ -1,0 +1,64 @@
+{
+  "toolName": "subjective-well-being-calculator",
+  "inputs": [
+    {
+      "id": "physical",
+      "label": "Physical Well-being",
+      "type": "number",
+      "unit": "score (0-10)",
+      "default": 5,
+      "businessContext": "Self-assessed physical health and energy levels on a scale of 0 to 10"
+    },
+    {
+      "id": "mental",
+      "label": "Mental Well-being",
+      "type": "number",
+      "unit": "score (0-10)",
+      "default": 5,
+      "businessContext": "Self-assessed mental clarity, focus, and stress levels on a scale of 0 to 10"
+    },
+    {
+      "id": "social",
+      "label": "Social Well-being",
+      "type": "number",
+      "unit": "score (0-10)",
+      "default": 5,
+      "businessContext": "Self-assessed quality of relationships and social support on a scale of 0 to 10"
+    },
+    {
+      "id": "emotional",
+      "label": "Emotional Well-being",
+      "type": "number",
+      "unit": "score (0-10)",
+      "default": 5,
+      "businessContext": "Self-assessed emotional stability and positive affect on a scale of 0 to 10"
+    },
+    {
+      "id": "spiritual",
+      "label": "Spiritual Well-being",
+      "type": "number",
+      "unit": "score (0-10)",
+      "default": 5,
+      "businessContext": "Self-assessed sense of purpose and meaning on a scale of 0 to 10"
+    }
+  ],
+  "formulas": {
+    "overallScore": "(physical + mental + social + emotional + spiritual) / 5"
+  },
+  "outputs": {
+    "primary": "overallScore",
+    "breakdown": [
+      "physical",
+      "mental",
+      "social",
+      "emotional",
+      "spiritual"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

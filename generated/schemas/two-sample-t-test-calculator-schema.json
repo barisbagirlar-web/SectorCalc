@@ -1,0 +1,79 @@
+{
+  "toolName": "two-sample-t-test-calculator",
+  "inputs": [
+    {
+      "id": "sample1Mean",
+      "label": "Sample 1 Mean",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Mean of first sample"
+    },
+    {
+      "id": "sample1StdDev",
+      "label": "Sample 1 Standard Deviation",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Standard deviation of first sample"
+    },
+    {
+      "id": "sample1Size",
+      "label": "Sample 1 Size",
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "businessContext": "Number of observations in first sample"
+    },
+    {
+      "id": "sample2Mean",
+      "label": "Sample 2 Mean",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Mean of second sample"
+    },
+    {
+      "id": "sample2StdDev",
+      "label": "Sample 2 Standard Deviation",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Standard deviation of second sample"
+    },
+    {
+      "id": "sample2Size",
+      "label": "Sample 2 Size",
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "businessContext": "Number of observations in second sample"
+    },
+    {
+      "id": "alpha",
+      "label": "Significance Level (α)",
+      "type": "number",
+      "unit": "",
+      "default": 0.05,
+      "businessContext": "Probability of Type I error"
+    }
+  ],
+  "formulas": {
+    "standardError": "Math.sqrt((sample1StdDev ** 2 / sample1Size) + (sample2StdDev ** 2 / sample2Size))",
+    "degreesOfFreedom": "((sample1StdDev ** 2 / sample1Size + sample2StdDev ** 2 / sample2Size) ** 2) / (((sample1StdDev ** 2 / sample1Size) ** 2) / (sample1Size - 1) + ((sample2StdDev ** 2 / sample2Size) ** 2) / (sample2Size - 1))",
+    "tStatistic": "(sample1Mean - sample2Mean) / Math.sqrt((sample1StdDev ** 2 / sample1Size) + (sample2StdDev ** 2 / sample2Size))"
+  },
+  "outputs": {
+    "primary": "tStatistic",
+    "breakdown": [
+      "standardError",
+      "degreesOfFreedom"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

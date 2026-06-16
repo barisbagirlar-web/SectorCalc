@@ -1,0 +1,66 @@
+{
+  "toolName": "dash-diet-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age in years for BMR calculation"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "0=Female,1=Male",
+      "default": 1,
+      "businessContext": "0 for female, 1 for male"
+    },
+    {
+      "id": "height_cm",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Height in centimeters"
+    },
+    {
+      "id": "weight_kg",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Weight in kilograms"
+    },
+    {
+      "id": "activity_level",
+      "label": "Activity Level",
+      "type": "number",
+      "unit": "1-5",
+      "default": 3,
+      "businessContext": "1=Sedentary,2=Light,3=Moderate,4=Active,5=Very Active"
+    }
+  ],
+  "formulas": {
+    "bmr": "gender === 1 ? 10*weight_kg + 6.25*height_cm - 5*age + 5 : 10*weight_kg + 6.25*height_cm - 5*age - 161",
+    "tdee": "bmr * (activity_level === 1 ? 1.2 : activity_level === 2 ? 1.375 : activity_level === 3 ? 1.55 : activity_level === 4 ? 1.725 : 1.9)",
+    "carb_g": "(tdee * 0.55) / 4",
+    "protein_g": "(tdee * 0.18) / 4",
+    "fat_g": "(tdee * 0.27) / 9"
+  },
+  "outputs": {
+    "primary": "tdee",
+    "breakdown": [
+      "carb_g",
+      "protein_g",
+      "fat_g"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

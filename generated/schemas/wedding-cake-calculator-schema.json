@@ -1,0 +1,86 @@
+{
+  "toolName": "wedding-cake-calculator",
+  "inputs": [
+    {
+      "id": "guestCount",
+      "label": "Guest Count",
+      "type": "number",
+      "unit": "people",
+      "default": 100,
+      "businessContext": "The total number of wedding guests to be served cake, determines the total quantity needed and drives portion sizing to avoid shortage or excess."
+    },
+    {
+      "id": "portionGrams",
+      "label": "Portion Size",
+      "type": "number",
+      "unit": "g",
+      "default": 150,
+      "businessContext": "Average weight of a single serving of cake in grams, based on typical dessert portions; affects total cake mass and ingredient requirements."
+    },
+    {
+      "id": "ingredientCostPerKg",
+      "label": "Ingredient Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 5,
+      "businessContext": "Cost of raw materials (flour, sugar, eggs, etc.) per kilogram; fundamental for calculating the base food cost of the cake."
+    },
+    {
+      "id": "laborHours",
+      "label": "Labor Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 4,
+      "businessContext": "Total direct labor time spent on baking and decorating the cake; used to compute labor expense."
+    },
+    {
+      "id": "laborRate",
+      "label": "Labor Rate",
+      "type": "number",
+      "unit": "USD/h",
+      "default": 20,
+      "businessContext": "Hourly wage of the pastry chef or baker; multiplied by labor hours to get total labor cost."
+    },
+    {
+      "id": "overheadPercent",
+      "label": "Overhead Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Indirect costs (utilities, rent, equipment amortization) expressed as a percentage of direct costs (ingredients + labor); ensures full cost recovery."
+    },
+    {
+      "id": "profitMarginPercent",
+      "label": "Profit Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Desired net profit as a percentage of total cost; used to set the final selling price and ensure business sustainability."
+    }
+  ],
+  "formulas": {
+    "totalCakeWeightKg": "(guestCount * portionGrams) / 1000",
+    "ingredientCost": "totalCakeWeightKg * ingredientCostPerKg",
+    "laborCost": "laborHours * laborRate",
+    "overheadCost": "(ingredientCost + laborCost) * (overheadPercent / 100)",
+    "totalCost": "ingredientCost + laborCost + overheadCost",
+    "totalPrice": "totalCost * (1 + profitMarginPercent / 100)",
+    "pricePerServing": "totalPrice / guestCount"
+  },
+  "outputs": {
+    "primary": "totalPrice",
+    "breakdown": [
+      "totalCakeWeightKg",
+      "ingredientCost",
+      "laborCost",
+      "overheadCost",
+      "pricePerServing"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,53 @@
+{
+  "toolName": "workout-volume-calculator",
+  "inputs": [
+    {
+      "id": "exercises",
+      "label": "Number of Exercises",
+      "type": "number",
+      "unit": "exercises",
+      "default": 5,
+      "businessContext": "Total number of different exercises performed in the workout session."
+    },
+    {
+      "id": "sets",
+      "label": "Average Sets per Exercise",
+      "type": "number",
+      "unit": "sets",
+      "default": 3,
+      "businessContext": "Average number of sets completed for each exercise."
+    },
+    {
+      "id": "reps",
+      "label": "Average Reps per Set",
+      "type": "number",
+      "unit": "reps",
+      "default": 10,
+      "businessContext": "Average number of repetitions performed in each set."
+    },
+    {
+      "id": "weight",
+      "label": "Average Weight per Rep",
+      "type": "number",
+      "unit": "kg",
+      "default": 50,
+      "businessContext": "Average weight lifted in kilograms for each repetition."
+    }
+  ],
+  "formulas": {
+    "totalVolume": "exercises * sets * reps * weight",
+    "averageVolumePerExercise": "sets * reps * weight"
+  },
+  "outputs": {
+    "primary": "totalVolume",
+    "breakdown": [
+      "averageVolumePerExercise"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

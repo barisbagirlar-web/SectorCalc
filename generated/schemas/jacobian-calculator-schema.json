@@ -1,0 +1,57 @@
+{
+  "toolName": "jacobian-calculator",
+  "inputs": [
+    {
+      "id": "dxdu",
+      "label": "∂x/∂u",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "Partial derivative of x with respect to u"
+    },
+    {
+      "id": "dxdv",
+      "label": "∂x/∂v",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "Partial derivative of x with respect to v"
+    },
+    {
+      "id": "dydu",
+      "label": "∂y/∂u",
+      "type": "number",
+      "unit": "-",
+      "default": 0,
+      "businessContext": "Partial derivative of y with respect to u"
+    },
+    {
+      "id": "dydv",
+      "label": "∂y/∂v",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "Partial derivative of y with respect to v"
+    }
+  ],
+  "formulas": {
+    "primary": "dxdu * dydv - dxdv * dydu",
+    "breakdown": [
+      "dxdu * dydv",
+      "dxdv * dydu"
+    ]
+  },
+  "outputs": {
+    "primary": "Jacobian determinant (det(J))",
+    "breakdown": [
+      "Product ∂x/∂u * ∂y/∂v",
+      "Product ∂x/∂v * ∂y/∂u"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

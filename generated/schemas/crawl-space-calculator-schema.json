@@ -1,0 +1,57 @@
+{
+  "toolName": "crawl-space-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Crawl Space Length",
+      "type": "number",
+      "unit": "ft",
+      "default": 30,
+      "businessContext": "Horizontal dimension (long side) of the crawl space."
+    },
+    {
+      "id": "width",
+      "label": "Crawl Space Width",
+      "type": "number",
+      "unit": "ft",
+      "default": 20,
+      "businessContext": "Horizontal dimension (short side) of the crawl space."
+    },
+    {
+      "id": "height",
+      "label": "Crawl Space Height",
+      "type": "number",
+      "unit": "ft",
+      "default": 4,
+      "businessContext": "Vertical distance from dirt floor to bottom of floor joists."
+    },
+    {
+      "id": "ventRatio",
+      "label": "Vent Area Ratio",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.00667,
+      "businessContext": "Ratio of net free vent area to floor area. Building code: 1/150 (no vapor barrier) ≈ 0.00667; 1/1500 (with vapor barrier) ≈ 0.000667."
+    }
+  ],
+  "formulas": {
+    "floorArea": "length * width",
+    "volume": "floorArea * height",
+    "perimeter": "2 * (length + width)",
+    "requiredVentArea": "floorArea * ventRatio"
+  },
+  "outputs": {
+    "primary": "requiredVentArea",
+    "breakdown": [
+      "floorArea",
+      "volume",
+      "perimeter"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

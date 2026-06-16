@@ -1,0 +1,67 @@
+{
+  "toolName": "customs-calculator",
+  "inputs": [
+    {
+      "id": "cifValue",
+      "label": "CIF Değeri",
+      "type": "number",
+      "unit": "TRY",
+      "default": 1000,
+      "businessContext": "Mal bedeli + sigorta + navlun (CIF)"
+    },
+    {
+      "id": "dutyRate",
+      "label": "Gümrük Vergisi Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Gümrük vergisi oranı"
+    },
+    {
+      "id": "vatRate",
+      "label": "KDV Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "businessContext": "Katma Değer Vergisi oranı"
+    },
+    {
+      "id": "exciseRate",
+      "label": "ÖTV Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Özel Tüketim Vergisi oranı (varsa)"
+    },
+    {
+      "id": "fixedFee",
+      "label": "Sabit Ücret",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "businessContext": "Damga vergisi, gümrük sunum ücreti vb. sabit masraflar"
+    }
+  ],
+  "formulas": {
+    "totalDuty": "cifValue * dutyRate / 100",
+    "totalVAT": "(cifValue + (cifValue * dutyRate / 100)) * vatRate / 100",
+    "totalExcise": "cifValue * exciseRate / 100",
+    "totalFixedFee": "fixedFee",
+    "totalCustomsCost": "cifValue * dutyRate / 100 + (cifValue + (cifValue * dutyRate / 100)) * vatRate / 100 + cifValue * exciseRate / 100 + fixedFee"
+  },
+  "outputs": {
+    "primary": "totalCustomsCost",
+    "breakdown": [
+      "totalDuty",
+      "totalVAT",
+      "totalExcise",
+      "totalFixedFee"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

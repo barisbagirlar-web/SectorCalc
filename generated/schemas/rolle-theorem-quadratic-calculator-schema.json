@@ -1,0 +1,65 @@
+{
+  "toolName": "rolle-theorem-quadratic-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "Coefficient a",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Leading coefficient of quadratic function f(x)=ax^2+bx+c"
+    },
+    {
+      "id": "bCoef",
+      "label": "Coefficient b",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Linear coefficient"
+    },
+    {
+      "id": "cConst",
+      "label": "Coefficient c",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Constant term"
+    },
+    {
+      "id": "x1",
+      "label": "x1",
+      "type": "number",
+      "unit": "",
+      "default": -1,
+      "businessContext": "Left endpoint of interval"
+    },
+    {
+      "id": "x2",
+      "label": "x2",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Right endpoint of interval"
+    }
+  ],
+  "formulas": {
+    "f_x1": "a*x1*x1 + bCoef*x1 + cConst",
+    "f_x2": "a*x2*x2 + bCoef*x2 + cConst",
+    "conditionMet": "Math.abs(f_x1 - f_x2) < 1e-9",
+    "c": "conditionMet ? -bCoef / (2*a) : null"
+  },
+  "outputs": {
+    "primary": "c",
+    "breakdown": [
+      "f_x1",
+      "f_x2",
+      "conditionMet"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

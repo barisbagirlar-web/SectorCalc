@@ -1,0 +1,63 @@
+{
+  "toolName": "jam-calculator",
+  "inputs": [
+    {
+      "id": "fruitWeight",
+      "label": "Fruit Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 10,
+      "businessContext": "Weight of fresh fruit used in the jam recipe."
+    },
+    {
+      "id": "fruitBrix",
+      "label": "Fruit Brix",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Natural sugar content of the fruit measured in degrees Brix."
+    },
+    {
+      "id": "targetBrix",
+      "label": "Target Brix",
+      "type": "number",
+      "unit": "%",
+      "default": 65,
+      "businessContext": "Desired final sugar concentration for proper jam setting and preservation."
+    },
+    {
+      "id": "pectinWeight",
+      "label": "Pectin Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Weight of pectin powder added; usually contains sugar as a carrier."
+    },
+    {
+      "id": "pectinSugarContent",
+      "label": "Pectin Sugar Content",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Percentage of sugar in the pectin powder (typically dextrose)."
+    }
+  ],
+  "formulas": {
+    "sugarToAdd": "Math.max(0, fruitWeight * (targetBrix - fruitBrix) / (100 - targetBrix) - pectinWeight * (pectinSugarContent / 100))",
+    "totalWeight": "fruitWeight + sugarToAdd + pectinWeight",
+    "finalBrix": "((fruitWeight * fruitBrix / 100) + sugarToAdd + pectinWeight * (pectinSugarContent / 100)) / totalWeight * 100"
+  },
+  "outputs": {
+    "primary": "Sugar to Add (kg)",
+    "breakdown": [
+      "Total Jam Weight (kg)",
+      "Final Brix (%)"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

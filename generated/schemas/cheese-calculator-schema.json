@@ -1,0 +1,67 @@
+{
+  "toolName": "cheese-calculator",
+  "inputs": [
+    {
+      "id": "milkWeight",
+      "label": "Milk Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Total weight of milk input"
+    },
+    {
+      "id": "fatPercent",
+      "label": "Milk Fat %",
+      "type": "number",
+      "unit": "%",
+      "default": 3.5,
+      "businessContext": "Percentage of fat in milk"
+    },
+    {
+      "id": "proteinPercent",
+      "label": "Milk Protein %",
+      "type": "number",
+      "unit": "%",
+      "default": 3.2,
+      "businessContext": "Percentage of protein in milk"
+    },
+    {
+      "id": "moistureTarget",
+      "label": "Target Moisture %",
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "businessContext": "Target moisture content in cheese"
+    },
+    {
+      "id": "yieldFactor",
+      "label": "Yield Efficiency Factor",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.9,
+      "businessContext": "Efficiency factor accounting for losses during processing (0.8-0.95)"
+    }
+  ],
+  "formulas": {
+    "cheeseWeight": "milkWeight * (fatPercent/100 + proteinPercent/100) * yieldFactor / (1 - moistureTarget/100)",
+    "fatInCheese": "milkWeight * (fatPercent/100) * yieldFactor",
+    "proteinInCheese": "milkWeight * (proteinPercent/100) * yieldFactor",
+    "waterInCheese": "cheeseWeight * (moistureTarget/100)",
+    "solidsInCheese": "cheeseWeight - waterInCheese"
+  },
+  "outputs": {
+    "primary": "cheeseWeight",
+    "breakdown": [
+      "fatInCheese",
+      "proteinInCheese",
+      "waterInCheese",
+      "solidsInCheese"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

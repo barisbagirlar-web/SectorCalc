@@ -1,0 +1,74 @@
+{
+  "toolName": "wire-mesh-calculator",
+  "inputs": [
+    {
+      "id": "wireDiameter",
+      "label": "Wire Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 1,
+      "businessContext": "Diameter of the wire used in the mesh"
+    },
+    {
+      "id": "meshOpening",
+      "label": "Mesh Opening",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Clear opening size between adjacent parallel wires"
+    },
+    {
+      "id": "sheetWidth",
+      "label": "Sheet Width",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Width of a single mesh sheet"
+    },
+    {
+      "id": "sheetLength",
+      "label": "Sheet Length",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Length of a single mesh sheet"
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "pcs",
+      "default": 10,
+      "businessContext": "Number of mesh sheets"
+    },
+    {
+      "id": "materialDensity",
+      "label": "Material Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "businessContext": "Density of the wire material (e.g., steel = 7850 kg/m³)"
+    }
+  ],
+  "formulas": {
+    "weightPerSquareMeter": "Math.PI * Math.pow(inputs.wireDiameter, 2) * inputs.materialDensity / (2000 * (inputs.wireDiameter + inputs.meshOpening))",
+    "weightPerSheet": "weightPerSquareMeter * inputs.sheetWidth * inputs.sheetLength",
+    "totalWeight": "weightPerSheet * inputs.quantity",
+    "totalArea": "inputs.sheetWidth * inputs.sheetLength * inputs.quantity",
+    "totalWireLength": "(2000 / (inputs.wireDiameter + inputs.meshOpening)) * (inputs.sheetWidth * inputs.sheetLength) * inputs.quantity"
+  },
+  "outputs": {
+    "primary": "totalWeight",
+    "breakdown": [
+      "weightPerSheet",
+      "totalArea",
+      "totalWireLength"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

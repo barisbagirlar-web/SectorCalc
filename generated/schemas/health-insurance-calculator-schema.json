@@ -1,0 +1,74 @@
+{
+  "toolName": "health-insurance-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the primary insured"
+    },
+    {
+      "id": "sumInsured",
+      "label": "Sum Insured",
+      "type": "number",
+      "unit": "currency",
+      "default": 500000,
+      "businessContext": "Total coverage amount"
+    },
+    {
+      "id": "familyMembers",
+      "label": "Number of Family Members",
+      "type": "number",
+      "unit": "persons",
+      "default": 1,
+      "businessContext": "Total insured family members including primary"
+    },
+    {
+      "id": "smokerStatus",
+      "label": "Smoker Status",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "0 for non-smoker, 1 for smoker"
+    },
+    {
+      "id": "preExisting",
+      "label": "Pre-existing Conditions",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "0 for none, 1 for pre-existing conditions"
+    },
+    {
+      "id": "occupationRisk",
+      "label": "Occupation Risk Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Risk factor based on occupation (1.0 = low risk, up to 2.0 high risk)"
+    }
+  ],
+  "formulas": {
+    "basePremium": "sumInsured * 0.02 * (1 + (age - 30) * 0.01)",
+    "familyMultiplier": "1 + (familyMembers - 1) * 0.2",
+    "riskMultiplier": "1 + smokerStatus * 0.5 + preExisting * 0.3",
+    "totalPremium": "basePremium * familyMultiplier * riskMultiplier * occupationRisk"
+  },
+  "outputs": {
+    "primary": "totalPremium",
+    "breakdown": [
+      "basePremium",
+      "familyMultiplier",
+      "riskMultiplier",
+      "totalPremium"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,89 @@
+{
+  "toolName": "moving-cost-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "businessContext": "Distance between old and new location"
+    },
+    {
+      "id": "weight",
+      "label": "Total Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Total weight of items to move"
+    },
+    {
+      "id": "laborHours",
+      "label": "Labor Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 8,
+      "businessContext": "Estimated labor hours required"
+    },
+    {
+      "id": "packingItems",
+      "label": "Packing Items",
+      "type": "number",
+      "unit": "items",
+      "default": 20,
+      "businessContext": "Number of items requiring special packing"
+    },
+    {
+      "id": "ratePerKm",
+      "label": "Rate per km",
+      "type": "number",
+      "unit": "$/km",
+      "default": 0.5,
+      "businessContext": "Transport cost rate per kilometer"
+    },
+    {
+      "id": "ratePerKg",
+      "label": "Rate per kg",
+      "type": "number",
+      "unit": "$/kg",
+      "default": 0.2,
+      "businessContext": "Transport cost rate per kilogram"
+    },
+    {
+      "id": "hourlyRate",
+      "label": "Hourly Labor Rate",
+      "type": "number",
+      "unit": "$/h",
+      "default": 25,
+      "businessContext": "Hourly rate for labor"
+    },
+    {
+      "id": "packingCostPerItem",
+      "label": "Packing Cost per Item",
+      "type": "number",
+      "unit": "$/item",
+      "default": 10,
+      "businessContext": "Cost per item for special packing"
+    }
+  ],
+  "formulas": {
+    "transportCost": "distance * ratePerKm + weight * ratePerKg",
+    "laborCost": "laborHours * hourlyRate",
+    "packingCost": "packingItems * packingCostPerItem",
+    "totalMovingCost": "transportCost + laborCost + packingCost"
+  },
+  "outputs": {
+    "primary": "totalMovingCost",
+    "breakdown": [
+      "transportCost",
+      "laborCost",
+      "packingCost"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

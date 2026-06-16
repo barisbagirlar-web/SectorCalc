@@ -1,0 +1,58 @@
+{
+  "toolName": "pmi-calculator",
+  "inputs": [
+    {
+      "id": "revenue",
+      "label": "Total Revenue",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Total revenue generated from sales"
+    },
+    {
+      "id": "costOfGoodsSold",
+      "label": "Cost of Goods Sold",
+      "type": "number",
+      "unit": "USD",
+      "default": 60000,
+      "businessContext": "Direct costs attributable to production"
+    },
+    {
+      "id": "operatingExpenses",
+      "label": "Operating Expenses",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "businessContext": "Expenses for running operations"
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Applicable tax rate as percentage"
+    }
+  ],
+  "formulas": {
+    "grossProfit": "revenue - costOfGoodsSold",
+    "operatingProfit": "grossProfit - operatingExpenses",
+    "netProfit": "operatingProfit * (1 - taxRate / 100)",
+    "grossProfitMargin": "grossProfit / revenue * 100",
+    "operatingProfitMargin": "operatingProfit / revenue * 100",
+    "netProfitMargin": "netProfit / revenue * 100"
+  },
+  "outputs": {
+    "primary": "netProfitMargin",
+    "breakdown": [
+      "grossProfitMargin",
+      "operatingProfitMargin"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

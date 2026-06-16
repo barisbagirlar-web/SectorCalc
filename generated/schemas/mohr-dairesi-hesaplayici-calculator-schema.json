@@ -1,0 +1,67 @@
+{
+  "toolName": "mohr-dairesi-hesaplayici-calculator",
+  "inputs": [
+    {
+      "id": "sigma_x",
+      "label": "Normal Gerilme σx",
+      "type": "number",
+      "unit": "MPa",
+      "default": 0,
+      "businessContext": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için x yönü normal gerilmesi."
+    },
+    {
+      "id": "sigma_y",
+      "label": "Normal Gerilme σy",
+      "type": "number",
+      "unit": "MPa",
+      "default": 0,
+      "businessContext": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için y yönü normal gerilmesi."
+    },
+    {
+      "id": "tau_xy",
+      "label": "Kayma Gerilmesi τxy",
+      "type": "number",
+      "unit": "MPa",
+      "default": 0,
+      "businessContext": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için kayma gerilmesi."
+    },
+    {
+      "id": "theta",
+      "label": "Dönme Açısı θ",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Mekanik tasarım doğrulamada gerilme dönüşümü için dönme açısı."
+    }
+  ],
+  "formulas": {
+    "sigma_avg": "(inputs.sigma_x + inputs.sigma_y) / 2",
+    "radius": "Math.sqrt(Math.pow((inputs.sigma_x - inputs.sigma_y) / 2, 2) + Math.pow(inputs.tau_xy, 2))",
+    "sigma_1": "sigma_avg + radius",
+    "sigma_2": "sigma_avg - radius",
+    "tau_max": "radius",
+    "theta_p_rad": "0.5 * Math.atan2(2 * inputs.tau_xy, inputs.sigma_x - inputs.sigma_y)",
+    "theta_p_deg": "theta_p_rad * (180 / Math.PI)",
+    "theta_rad": "inputs.theta * Math.PI / 180",
+    "sigma_x_prime": "sigma_avg + ((inputs.sigma_x - inputs.sigma_y) / 2) * Math.cos(2 * theta_rad) + inputs.tau_xy * Math.sin(2 * theta_rad)",
+    "sigma_y_prime": "sigma_avg - ((inputs.sigma_x - inputs.sigma_y) / 2) * Math.cos(2 * theta_rad) - inputs.tau_xy * Math.sin(2 * theta_rad)",
+    "tau_xy_prime": "-(inputs.sigma_x - inputs.sigma_y) / 2 * Math.sin(2 * theta_rad) + inputs.tau_xy * Math.cos(2 * theta_rad)"
+  },
+  "outputs": {
+    "primary": "sigma_1",
+    "breakdown": [
+      "sigma_2",
+      "tau_max",
+      "theta_p_deg",
+      "sigma_x_prime",
+      "sigma_y_prime",
+      "tau_xy_prime"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

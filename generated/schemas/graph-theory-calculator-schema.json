@@ -1,0 +1,57 @@
+{
+  "toolName": "graph-theory-calculator",
+  "inputs": [
+    {
+      "id": "vertices",
+      "label": "Number of Vertices (V)",
+      "type": "number",
+      "unit": "count",
+      "default": 4,
+      "businessContext": "Total graph vertices count"
+    },
+    {
+      "id": "edges",
+      "label": "Number of Edges (E)",
+      "type": "number",
+      "unit": "count",
+      "default": 6,
+      "businessContext": "Total graph edges count"
+    },
+    {
+      "id": "faces",
+      "label": "Number of Faces (F)",
+      "type": "number",
+      "unit": "count",
+      "default": 4,
+      "businessContext": "Planar graph faces count (including outer face)"
+    },
+    {
+      "id": "components",
+      "label": "Number of Components (C)",
+      "type": "number",
+      "unit": "count",
+      "default": 1,
+      "businessContext": "Connected components in the graph"
+    }
+  ],
+  "formulas": {
+    "eulerCharacteristic": "vertices - edges + faces",
+    "expectedEuler": "1 + components",
+    "eulerError": "(vertices - edges + faces) - (1 + components)",
+    "maxEdgesPlanar": "3 * vertices - 6"
+  },
+  "outputs": {
+    "primary": "eulerCharacteristic",
+    "breakdown": [
+      "expectedEuler",
+      "eulerError",
+      "maxEdgesPlanar"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

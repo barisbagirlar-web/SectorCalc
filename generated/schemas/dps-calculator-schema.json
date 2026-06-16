@@ -1,0 +1,55 @@
+{
+  "toolName": "dps-calculator",
+  "inputs": [
+    {
+      "id": "dividendsTotal",
+      "label": "Toplam Temettü",
+      "type": "number",
+      "unit": "TRY",
+      "default": 100000,
+      "businessContext": "Dağıtılan toplam kâr payı (TL)"
+    },
+    {
+      "id": "sharesOutstanding",
+      "label": "Hisse Senedi Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 10000,
+      "businessContext": "Ödenmiş sermaye hisse adedi"
+    },
+    {
+      "id": "netIncome",
+      "label": "Net Kâr",
+      "type": "number",
+      "unit": "TRY",
+      "default": 200000,
+      "businessContext": "Şirketin net dönem kârı"
+    },
+    {
+      "id": "payoutRatio",
+      "label": "Temettü Dağıtım Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Kârın dağıtılma oranı (yüzde)"
+    }
+  ],
+  "formulas": {
+    "dps": "sharesOutstanding !== 0 ? dividendsTotal / sharesOutstanding : 0",
+    "payoutRatioCalculated": "netIncome !== 0 ? (dividendsTotal / netIncome) * 100 : 0",
+    "dpsFromPayout": "sharesOutstanding !== 0 ? (netIncome * (payoutRatio / 100)) / sharesOutstanding : 0"
+  },
+  "outputs": {
+    "primary": "dps",
+    "breakdown": [
+      "payoutRatioCalculated",
+      "dpsFromPayout"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

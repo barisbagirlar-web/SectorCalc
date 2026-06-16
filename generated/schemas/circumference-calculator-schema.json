@@ -1,0 +1,67 @@
+{
+  "toolName": "circumference-calculator",
+  "inputs": [
+    {
+      "id": "radius",
+      "label": "Radius",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "The radius of the circle. Provide if known."
+    },
+    {
+      "id": "diameter",
+      "label": "Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "The diameter of the circle. Provide if known."
+    },
+    {
+      "id": "area",
+      "label": "Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 0,
+      "businessContext": "The area of the circle. Provide if known."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Unit Conversion Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Factor to convert input length unit to output length unit. E.g., cm to m: 0.01. Area is squared automatically."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding outputs."
+    }
+  ],
+  "formulas": {
+    "effectiveRadius": "radius * conversionFactor || (diameter * conversionFactor) / 2 || Math.sqrt((area * conversionFactor * conversionFactor) / Math.PI) || 0",
+    "effectiveDiameter": "effectiveRadius * 2",
+    "circum": "Number((Math.PI * effectiveDiameter).toFixed(decimalPlaces))",
+    "radius_out": "Number(effectiveRadius.toFixed(decimalPlaces))",
+    "diameter_out": "Number(effectiveDiameter.toFixed(decimalPlaces))",
+    "area_out": "Number((Math.PI * effectiveRadius ** 2).toFixed(decimalPlaces))"
+  },
+  "outputs": {
+    "primary": "circum",
+    "breakdown": [
+      "radius_out",
+      "diameter_out",
+      "area_out"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "cagr-calculator",
+  "inputs": [
+    {
+      "id": "beginningValue",
+      "label": "Beginning Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "businessContext": "Initial investment or asset value"
+    },
+    {
+      "id": "endingValue",
+      "label": "Ending Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 2000,
+      "businessContext": "Final investment or asset value"
+    },
+    {
+      "id": "startYear",
+      "label": "Start Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2020,
+      "businessContext": "Year of initial investment"
+    },
+    {
+      "id": "endYear",
+      "label": "End Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2025,
+      "businessContext": "Year of final valuation"
+    }
+  ],
+  "formulas": {
+    "numberOfPeriods": "endYear - startYear",
+    "totalReturn": "(endingValue / beginningValue) - 1",
+    "cagr": "(endingValue / beginningValue) ** (1 / (endYear - startYear)) - 1"
+  },
+  "outputs": {
+    "primary": "cagr",
+    "breakdown": [
+      "totalReturn",
+      "numberOfPeriods"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

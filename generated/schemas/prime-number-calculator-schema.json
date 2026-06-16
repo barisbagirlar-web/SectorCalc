@@ -1,0 +1,54 @@
+{
+  "toolName": "prime-number-calculator",
+  "inputs": [
+    {
+      "id": "lowerBound",
+      "label": "Lower Bound",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Start of range to estimate prime count"
+    },
+    {
+      "id": "upperBound",
+      "label": "Upper Bound",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "End of range to estimate prime count"
+    },
+    {
+      "id": "sampleSize",
+      "label": "Sample Size",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "businessContext": "Number of random samples for verification (not used in estimation formula but for process quality)"
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Allowed percentage deviation in the estimate (used for error margin calculation)"
+    }
+  ],
+  "formulas": {
+    "estimatedPrimes": "(upperBound / Math.log(upperBound)) - (lowerBound / Math.log(lowerBound))",
+    "errorMargin": "(tolerance / 100) * ((upperBound / Math.log(upperBound)) - (lowerBound / Math.log(lowerBound)))"
+  },
+  "outputs": {
+    "primary": "estimatedPrimes",
+    "breakdown": [
+      "Estimated using Prime Number Theorem: estimatedPrimes = (upperBound / Math.log(upperBound)) - (lowerBound / Math.log(lowerBound))",
+      "Error margin: errorMargin = tolerance% of the estimate, i.e., (tolerance / 100) * estimatedPrimes"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

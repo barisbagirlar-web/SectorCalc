@@ -1,0 +1,63 @@
+{
+  "toolName": "muscle-recovery-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 30,
+      "businessContext": "Kullanıcının yaşı, kas iyileşme sürecini etkiler."
+    },
+    {
+      "id": "bodyWeight",
+      "label": "Vücut Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Kas kütlesi ve iyileşme gereksinimi üzerinde etkilidir."
+    },
+    {
+      "id": "workoutDuration",
+      "label": "Antrenman Süresi",
+      "type": "number",
+      "unit": "dakika",
+      "default": 60,
+      "businessContext": "Antrenmanın toplam süresi."
+    },
+    {
+      "id": "intensity",
+      "label": "Yoğunluk",
+      "type": "number",
+      "unit": "1-10 ölçek",
+      "default": 5,
+      "businessContext": "Algılanan efor derecesi (1: çok hafif, 10: maksimum)."
+    },
+    {
+      "id": "restTime",
+      "label": "Dinlenme Süresi",
+      "type": "number",
+      "unit": "saat",
+      "default": 8,
+      "businessContext": "Antrenman sonrası geçen dinlenme süresi."
+    }
+  ],
+  "formulas": {
+    "recoveryScore": "(restTime / (workoutDuration * intensity)) * (1 - age * 0.01) * (bodyWeight / 70) * 100",
+    "muscleStrain": "workoutDuration * intensity / 10",
+    "fatigueLevel": "(workoutDuration * intensity / 10) * (age / 30)"
+  },
+  "outputs": {
+    "primary": "recoveryScore",
+    "breakdown": [
+      "muscleStrain",
+      "fatigueLevel"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

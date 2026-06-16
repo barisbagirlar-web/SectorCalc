@@ -1,0 +1,55 @@
+{
+  "toolName": "f-distribution-calculator",
+  "inputs": [
+    {
+      "id": "ssBetween",
+      "label": "Sum of Squares Between",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sum of squares between groups (treatment sum of squares)"
+    },
+    {
+      "id": "dfBetween",
+      "label": "Degrees of Freedom Between",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Degrees of freedom for between-groups variation (k-1)"
+    },
+    {
+      "id": "ssWithin",
+      "label": "Sum of Squares Within",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sum of squares within groups (error sum of squares)"
+    },
+    {
+      "id": "dfWithin",
+      "label": "Degrees of Freedom Within",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Degrees of freedom for within-groups variation (N-k)"
+    }
+  ],
+  "formulas": {
+    "meanSquareBetween": "ssBetween / dfBetween",
+    "meanSquareWithin": "ssWithin / dfWithin",
+    "fStatistic": "(ssBetween / dfBetween) / (ssWithin / dfWithin)"
+  },
+  "outputs": {
+    "primary": "fStatistic",
+    "breakdown": [
+      "meanSquareBetween",
+      "meanSquareWithin"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

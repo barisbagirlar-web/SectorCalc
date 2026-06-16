@@ -1,0 +1,55 @@
+{
+  "toolName": "rankine-to-kelvin-calculator",
+  "inputs": [
+    {
+      "id": "temperatureRankine",
+      "label": "Temperature (°R)",
+      "type": "number",
+      "unit": "°R",
+      "default": 491.67,
+      "businessContext": "Measured temperature in Rankine scale"
+    },
+    {
+      "id": "uncertaintyRankine",
+      "label": "Measurement Uncertainty (±°R)",
+      "type": "number",
+      "unit": "°R",
+      "default": 0.1,
+      "businessContext": "Standard deviation of temperature measurement"
+    },
+    {
+      "id": "confidenceZ",
+      "label": "Confidence Factor (z)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.96,
+      "businessContext": "z-score for desired confidence interval (e.g., 1.96 for 95%)"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 2,
+      "businessContext": "Number of decimal places for output rounding"
+    }
+  ],
+  "formulas": {
+    "kelvin": "temperatureRankine * 5 / 9",
+    "uncertaintyKelvin": "uncertaintyRankine * 5 / 9",
+    "expandedUncertainty": "uncertaintyKelvin * confidenceZ"
+  },
+  "outputs": {
+    "primary": "kelvin",
+    "breakdown": [
+      "uncertaintyKelvin",
+      "expandedUncertainty"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

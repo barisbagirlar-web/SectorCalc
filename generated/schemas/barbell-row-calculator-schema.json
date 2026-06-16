@@ -1,0 +1,75 @@
+{
+  "toolName": "barbell-row-calculator",
+  "inputs": [
+    {
+      "id": "barbellWeight",
+      "label": "Barbell Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 20,
+      "businessContext": "Weight of the barbell, standard Olympic bar is 20 kg."
+    },
+    {
+      "id": "addedWeight",
+      "label": "Added Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 40,
+      "businessContext": "Total weight plates added (both sides)."
+    },
+    {
+      "id": "reps",
+      "label": "Repetitions per Set",
+      "type": "number",
+      "unit": "count",
+      "default": 8,
+      "businessContext": "Number of repetitions performed in one set."
+    },
+    {
+      "id": "sets",
+      "label": "Number of Sets",
+      "type": "number",
+      "unit": "count",
+      "default": 3,
+      "businessContext": "Total number of sets performed."
+    },
+    {
+      "id": "liftDistance",
+      "label": "Lift Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Vertical distance the barbell moves per repetition (range of motion)."
+    },
+    {
+      "id": "timePerRep",
+      "label": "Time per Rep",
+      "type": "number",
+      "unit": "s",
+      "default": 2,
+      "businessContext": "Average time to complete one repetition, including concentric and eccentric phases."
+    }
+  ],
+  "formulas": {
+    "totalWeight": "barbellWeight + addedWeight",
+    "volumeLoad": "totalWeight * reps * sets",
+    "workPerRep": "totalWeight * 9.81 * liftDistance",
+    "totalWork": "workPerRep * reps * sets",
+    "totalTime": "timePerRep * reps * sets",
+    "power": "totalWork / totalTime"
+  },
+  "outputs": {
+    "primary": "totalWork",
+    "breakdown": [
+      "volumeLoad",
+      "power",
+      "totalTime"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

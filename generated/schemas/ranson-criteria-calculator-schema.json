@@ -1,0 +1,69 @@
+{
+  "toolName": "ranson-criteria-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 55,
+      "businessContext": "Patient's age at admission"
+    },
+    {
+      "id": "wbc",
+      "label": "WBC count",
+      "type": "number",
+      "unit": "cells/mm³",
+      "default": 16000,
+      "businessContext": "White blood cell count at admission"
+    },
+    {
+      "id": "glucose",
+      "label": "Blood Glucose",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 200,
+      "businessContext": "Blood glucose level at admission"
+    },
+    {
+      "id": "ldh",
+      "label": "LDH",
+      "type": "number",
+      "unit": "IU/L",
+      "default": 350,
+      "businessContext": "Lactate dehydrogenase level at admission"
+    },
+    {
+      "id": "ast",
+      "label": "AST",
+      "type": "number",
+      "unit": "IU/L",
+      "default": 250,
+      "businessContext": "Aspartate aminotransferase level at admission"
+    }
+  ],
+  "formulas": {
+    "ageCriteria": "age > 55 ? 1 : 0",
+    "wbcCriteria": "wbc > 16000 ? 1 : 0",
+    "glucoseCriteria": "glucose > 200 ? 1 : 0",
+    "ldhCriteria": "ldh > 350 ? 1 : 0",
+    "astCriteria": "ast > 250 ? 1 : 0",
+    "score": "ageCriteria + wbcCriteria + glucoseCriteria + ldhCriteria + astCriteria"
+  },
+  "outputs": {
+    "primary": "score",
+    "breakdown": [
+      "ageCriteria",
+      "wbcCriteria",
+      "glucoseCriteria",
+      "ldhCriteria",
+      "astCriteria"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

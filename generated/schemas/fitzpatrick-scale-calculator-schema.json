@@ -1,0 +1,69 @@
+{
+  "toolName": "fitzpatrick-scale-calculator",
+  "inputs": [
+    {
+      "id": "baseColor",
+      "label": "Base Surface Color",
+      "type": "number",
+      "unit": "scale 1-4",
+      "default": 2,
+      "businessContext": "Natural color of the material surface (1: very light, 4: very dark)"
+    },
+    {
+      "id": "tanAbility",
+      "label": "Tan Response",
+      "type": "number",
+      "unit": "0-10",
+      "default": 5,
+      "businessContext": "Ability to develop a tan or color change under UV exposure (0: no change, 10: maximum darkening)"
+    },
+    {
+      "id": "burnTendency",
+      "label": "Burn Tendency",
+      "type": "number",
+      "unit": "0-10",
+      "default": 5,
+      "businessContext": "Tendency to burn or degrade under UV exposure (0: no burn, 10: severe burn)"
+    },
+    {
+      "id": "geneticFactor",
+      "label": "UV Resistance Factor",
+      "type": "number",
+      "unit": "0-1",
+      "default": 0.5,
+      "businessContext": "Inherent UV resistance factor based on material composition (0: least resistant, 1: most resistant)"
+    },
+    {
+      "id": "hairColor",
+      "label": "Surface Texture Color",
+      "type": "number",
+      "unit": "1-5",
+      "default": 3,
+      "businessContext": "Color of surface texture (1: very light, 5: very dark)"
+    },
+    {
+      "id": "eyeColor",
+      "label": "Microstructure Color",
+      "type": "number",
+      "unit": "1-5",
+      "default": 3,
+      "businessContext": "Color of microstructural features (1: very light, 5: very dark)"
+    }
+  ],
+  "formulas": {
+    "score": "baseColor * 0.3 + (10 - tanAbility) * 0.2 + burnTendency * 0.25 + geneticFactor * 10 * 0.15 + hairColor * 0.05 + eyeColor * 0.05",
+    "type": "Math.round(Math.max(1, Math.min(6, score)))"
+  },
+  "outputs": {
+    "primary": "type",
+    "breakdown": [
+      "score"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

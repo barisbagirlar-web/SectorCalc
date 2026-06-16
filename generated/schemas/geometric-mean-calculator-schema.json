@@ -1,0 +1,53 @@
+{
+  "toolName": "geometric-mean-calculator",
+  "inputs": [
+    {
+      "id": "num1",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "First positive number for geometric mean calculation"
+    },
+    {
+      "id": "num2",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Second positive number for geometric mean calculation"
+    },
+    {
+      "id": "num3",
+      "label": "Value 3",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Third positive number for geometric mean calculation"
+    },
+    {
+      "id": "num4",
+      "label": "Value 4",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Fourth positive number for geometric mean calculation"
+    }
+  ],
+  "formulas": {
+    "product": "num1 * num2 * num3 * num4",
+    "geometricMean": "product ** (1/4)"
+  },
+  "outputs": {
+    "primary": "geometricMean",
+    "breakdown": [
+      "product"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

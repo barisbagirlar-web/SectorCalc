@@ -1,0 +1,55 @@
+{
+  "toolName": "sleep-efficiency-calculator",
+  "inputs": [
+    {
+      "id": "timeInBed",
+      "label": "Total Time in Bed (minutes)",
+      "type": "number",
+      "unit": "min",
+      "default": 480,
+      "businessContext": "Time from going to bed until final awakening."
+    },
+    {
+      "id": "sleepLatency",
+      "label": "Sleep Latency (minutes)",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Time taken to fall asleep initially."
+    },
+    {
+      "id": "waso",
+      "label": "Wake After Sleep Onset (minutes)",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Total time spent awake during the night after initially falling asleep."
+    },
+    {
+      "id": "awakenings",
+      "label": "Number of Awakenings",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Count of distinct awakenings during the night."
+    }
+  ],
+  "formulas": {
+    "totalSleepTime": "timeInBed - sleepLatency - waso",
+    "sleepEfficiency": "(totalSleepTime / timeInBed) * 100",
+    "qualityScore": "sleepEfficiency - awakenings * 2"
+  },
+  "outputs": {
+    "primary": "sleepEfficiency",
+    "breakdown": [
+      "totalSleepTime",
+      "qualityScore"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

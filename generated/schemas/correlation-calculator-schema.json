@@ -1,0 +1,97 @@
+{
+  "toolName": "correlation-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "X Value 1",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "First X data point for correlation analysis"
+    },
+    {
+      "id": "y1",
+      "label": "Y Value 1",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "First Y data point for correlation analysis"
+    },
+    {
+      "id": "x2",
+      "label": "X Value 2",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Second X data point for correlation analysis"
+    },
+    {
+      "id": "y2",
+      "label": "Y Value 2",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Second Y data point for correlation analysis"
+    },
+    {
+      "id": "x3",
+      "label": "X Value 3",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Third X data point for correlation analysis"
+    },
+    {
+      "id": "y3",
+      "label": "Y Value 3",
+      "type": "number",
+      "unit": "",
+      "default": 6,
+      "businessContext": "Third Y data point for correlation analysis"
+    },
+    {
+      "id": "x4",
+      "label": "X Value 4",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Fourth X data point for correlation analysis"
+    },
+    {
+      "id": "y4",
+      "label": "Y Value 4",
+      "type": "number",
+      "unit": "",
+      "default": 8,
+      "businessContext": "Fourth Y data point for correlation analysis"
+    }
+  ],
+  "formulas": {
+    "sumX": "x1 + x2 + x3 + x4",
+    "sumY": "y1 + y2 + y3 + y4",
+    "sumXY": "x1*y1 + x2*y2 + x3*y3 + x4*y4",
+    "sumX2": "x1**2 + x2**2 + x3**2 + x4**2",
+    "sumY2": "y1**2 + y2**2 + y3**2 + y4**2",
+    "numerator": "4 * sumXY - sumX * sumY",
+    "denominator": "Math.sqrt((4 * sumX2 - sumX**2) * (4 * sumY2 - sumY**2))",
+    "correlationCoefficient": "numerator / denominator"
+  },
+  "outputs": {
+    "primary": "correlationCoefficient",
+    "breakdown": [
+      "sumX",
+      "sumY",
+      "sumXY",
+      "sumX2",
+      "sumY2",
+      "numerator",
+      "denominator"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

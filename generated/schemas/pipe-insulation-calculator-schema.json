@@ -1,0 +1,85 @@
+{
+  "toolName": "pipe-insulation-calculator",
+  "inputs": [
+    {
+      "id": "pipe_outer_diameter",
+      "label": "Pipe Outer Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Dış çap"
+    },
+    {
+      "id": "insulation_thickness",
+      "label": "Insulation Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Yalıtım kalınlığı"
+    },
+    {
+      "id": "pipe_length",
+      "label": "Pipe Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Boru uzunluğu"
+    },
+    {
+      "id": "thermal_conductivity",
+      "label": "Thermal Conductivity",
+      "type": "number",
+      "unit": "W/(m·K)",
+      "default": 0.035,
+      "businessContext": "Isı iletkenlik katsayısı"
+    },
+    {
+      "id": "inner_temperature",
+      "label": "Inner Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 150,
+      "businessContext": "İç sıcaklık"
+    },
+    {
+      "id": "ambient_temperature",
+      "label": "Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "Ortam sıcaklığı"
+    },
+    {
+      "id": "convection_coefficient",
+      "label": "Convection Coefficient",
+      "type": "number",
+      "unit": "W/(m²·K)",
+      "default": 10,
+      "businessContext": "Taşınım katsayısı"
+    }
+  ],
+  "formulas": {
+    "r1_m": "pipe_outer_diameter / 2000",
+    "r2_m": "r1_m + insulation_thickness / 1000",
+    "R_insulation": "Math.log(r2_m / r1_m) / (2 * Math.PI * pipe_length * thermal_conductivity)",
+    "R_convection": "1 / (2 * Math.PI * r2_m * pipe_length * convection_coefficient)",
+    "R_total": "R_insulation + R_convection",
+    "heat_loss": "(inner_temperature - ambient_temperature) / R_total",
+    "surface_temperature": "ambient_temperature + heat_loss * R_convection",
+    "heat_loss_per_meter": "heat_loss / pipe_length"
+  },
+  "outputs": {
+    "primary": "heat_loss",
+    "breakdown": [
+      "heat_loss_per_meter",
+      "surface_temperature",
+      "R_total"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

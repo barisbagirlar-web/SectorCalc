@@ -1,0 +1,56 @@
+{
+  "toolName": "effective-interest-rate-calculator",
+  "inputs": [
+    {
+      "id": "nominalRate",
+      "label": "Nominal Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Stated annual interest rate before compounding, as a percentage."
+    },
+    {
+      "id": "compoundingPeriodsPerYear",
+      "label": "Compounding Periods per Year",
+      "type": "number",
+      "unit": "",
+      "default": 12,
+      "businessContext": "Number of times interest is compounded per year (e.g., 12 for monthly, 4 for quarterly)."
+    },
+    {
+      "id": "timePeriodYears",
+      "label": "Time Period (Years)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of years over which to compute the effective rate. Use 1 for annual effective rate."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding the output."
+    }
+  ],
+  "formulas": {
+    "effectiveRateDecimal": "(1 + nominalRate / 100 / compoundingPeriodsPerYear) ** (compoundingPeriodsPerYear * timePeriodYears) - 1",
+    "effectiveRatePercent": "effectiveRateDecimal * 100",
+    "effectiveRateRounded": "Math.round(effectiveRatePercent * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "totalPeriods": "compoundingPeriodsPerYear * timePeriodYears"
+  },
+  "outputs": {
+    "primary": "effectiveRateRounded",
+    "breakdown": [
+      "effectiveRateDecimal",
+      "totalPeriods"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

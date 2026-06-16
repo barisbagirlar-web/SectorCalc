@@ -1,0 +1,60 @@
+{
+  "toolName": "kilobytes-to-megabytes-calculator",
+  "inputs": [
+    {
+      "id": "kilobytes",
+      "label": "Kilobytes (KB)",
+      "type": "number",
+      "unit": "KB",
+      "default": 0,
+      "businessContext": "Input value in kilobytes to be converted to megabytes. Typical for storage or memory size calculations."
+    },
+    {
+      "id": "divisor",
+      "label": "Conversion Divisor",
+      "type": "number",
+      "unit": "",
+      "default": 1024,
+      "businessContext": "Number of kilobytes per megabyte. Use 1024 for binary (MiB) or 1000 for decimal (MB) per SI standards. Default 1024 aligns with technical memory specifications."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding the output. Ensures precision control for technical documentation and reporting."
+    },
+    {
+      "id": "offset",
+      "label": "Calibration Offset (MB)",
+      "type": "number",
+      "unit": "MB",
+      "default": 0,
+      "businessContext": "Static offset added to the converted value, used to correct systematic measurement deviations in industrial data acquisition systems."
+    }
+  ],
+  "formulas": {
+    "rawMB": "kilobytes / divisor",
+    "rawWithOffset": "rawMB + offset",
+    "finalResult": "Math.round(rawWithOffset * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "primaryOutput": "`${finalResult} MB`",
+    "breakdown0": "`Raw conversion value: ${rawMB} MB`",
+    "breakdown1": "`After offset: ${rawWithOffset} MB`",
+    "breakdown2": "`Rounded to ${decimalPlaces} decimal places: ${finalResult} MB`"
+  },
+  "outputs": {
+    "primary": "primaryOutput",
+    "breakdown": [
+      "breakdown0",
+      "breakdown1",
+      "breakdown2"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

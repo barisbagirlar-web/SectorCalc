@@ -1,0 +1,73 @@
+{
+  "toolName": "rewards-calculator",
+  "inputs": [
+    {
+      "id": "baseSalary",
+      "label": "Base Salary",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "businessContext": "Employee monthly base salary before rewards"
+    },
+    {
+      "id": "performanceScore",
+      "label": "Performance Score",
+      "type": "number",
+      "unit": "pts",
+      "default": 80,
+      "businessContext": "Individual performance rating out of 100"
+    },
+    {
+      "id": "bonusPercent",
+      "label": "Bonus Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Base bonus percentage according to grade"
+    },
+    {
+      "id": "teamMultiplier",
+      "label": "Team Multiplier",
+      "type": "number",
+      "unit": "factor",
+      "default": 1,
+      "businessContext": "Team achievement multiplier (e.g., 1.0 = 100%)"
+    },
+    {
+      "id": "tenureYears",
+      "label": "Tenure (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 2,
+      "businessContext": "Years of continuous service"
+    },
+    {
+      "id": "safetyRating",
+      "label": "Safety Rating",
+      "type": "number",
+      "unit": "pts",
+      "default": 95,
+      "businessContext": "Safety performance score (0–100)"
+    }
+  ],
+  "formulas": {
+    "total": "baseSalary + bonus + loyalty + safety",
+    "bonus": "baseSalary * (bonusPercent / 100) * (performanceScore / 100) * teamMultiplier",
+    "loyalty": "baseSalary * 0.01 * tenureYears",
+    "safety": "baseSalary * (safetyRating / 100) * 0.05"
+  },
+  "outputs": {
+    "primary": "total",
+    "breakdown": [
+      "bonus",
+      "loyalty",
+      "safety"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

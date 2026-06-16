@@ -1,0 +1,47 @@
+{
+  "toolName": "normal-distribution-calculator",
+  "inputs": [
+    {
+      "id": "mean",
+      "label": "Mean (μ)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The average or central value of the normal distribution."
+    },
+    {
+      "id": "stdDev",
+      "label": "Standard Deviation (σ)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "A measure of the dispersion or spread. Must be greater than 0."
+    },
+    {
+      "id": "x",
+      "label": "X Value",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The value at which to evaluate the normal distribution functions."
+    }
+  ],
+  "formulas": {
+    "zScore": "(x - mean) / stdDev",
+    "probabilityDensity": "Math.exp(-0.5 * Math.pow((x - mean) / stdDev, 2)) / (stdDev * Math.sqrt(2 * Math.PI))",
+    "cumulativeProbability": "((x - mean) / stdDev) > 0 ? 1 - (0.3989423 * Math.exp(-Math.pow((x - mean) / stdDev, 2) / 2) * (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * (0.3193815 + (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * (-0.3565638 + (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * (1.781478 + (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * (-1.821256 + (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * 1.330274)))) ) : (0.3989423 * Math.exp(-Math.pow((x - mean) / stdDev, 2) / 2) * (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * (0.3193815 + (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * (-0.3565638 + (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * (1.781478 + (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * (-1.821256 + (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * 1.330274)))) )"
+  },
+  "outputs": {
+    "primary": "cumulativeProbability",
+    "breakdown": [
+      "zScore",
+      "probabilityDensity"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

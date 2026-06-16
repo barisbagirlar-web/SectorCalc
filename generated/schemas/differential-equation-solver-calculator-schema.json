@@ -1,0 +1,61 @@
+{
+  "toolName": "differential-equation-solver-calculator",
+  "inputs": [
+    {
+      "id": "y0",
+      "label": "Initial value y₀",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "businessContext": "Value of y at initial time t₀"
+    },
+    {
+      "id": "a",
+      "label": "Coefficient a",
+      "type": "number",
+      "unit": "1/time",
+      "default": 0.1,
+      "businessContext": "Growth (positive) or decay (negative) rate in dy/dt = a·y + b"
+    },
+    {
+      "id": "b",
+      "label": "Constant b",
+      "type": "number",
+      "unit": "units/time",
+      "default": 0,
+      "businessContext": "Constant forcing term in dy/dt = a·y + b"
+    },
+    {
+      "id": "t0",
+      "label": "Initial time t₀",
+      "type": "number",
+      "unit": "time",
+      "default": 0,
+      "businessContext": "Time at which initial condition y₀ is given"
+    },
+    {
+      "id": "t",
+      "label": "Time t",
+      "type": "number",
+      "unit": "time",
+      "default": 1,
+      "businessContext": "Time at which to compute y(t)"
+    }
+  ],
+  "formulas": {
+    "y": "a !== 0 ? (y0 + b/a) * Math.exp(a * (t - t0)) - b/a : y0 + b * (t - t0)",
+    "derivative": "a * y + b"
+  },
+  "outputs": {
+    "primary": "y",
+    "breakdown": [
+      "derivative"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

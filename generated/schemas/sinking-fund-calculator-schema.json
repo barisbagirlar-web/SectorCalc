@@ -1,0 +1,57 @@
+{
+  "toolName": "sinking-fund-calculator",
+  "inputs": [
+    {
+      "id": "targetAmount",
+      "label": "Target Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "The future value needed to be accumulated."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual interest rate earned on the sinking fund."
+    },
+    {
+      "id": "years",
+      "label": "Number of Years",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "The time period over which to accumulate the target amount."
+    },
+    {
+      "id": "compoundsPerYear",
+      "label": "Compounding Frequency",
+      "type": "number",
+      "unit": "times/year",
+      "default": 12,
+      "businessContext": "Number of compounding periods per year (e.g., monthly = 12, quarterly = 4)."
+    }
+  ],
+  "formulas": {
+    "periodicRate": "annualInterestRate / 100 / compoundsPerYear",
+    "totalPeriods": "years * compoundsPerYear",
+    "periodPayment": "targetAmount * periodicRate / (Math.pow(1 + periodicRate, totalPeriods) - 1)",
+    "totalContributions": "periodPayment * totalPeriods",
+    "totalInterest": "targetAmount - totalContributions"
+  },
+  "outputs": {
+    "primary": "periodPayment",
+    "breakdown": [
+      "totalContributions",
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

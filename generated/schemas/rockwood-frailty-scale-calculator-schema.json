@@ -1,0 +1,70 @@
+{
+  "toolName": "rockwood-frailty-scale-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 70,
+      "businessContext": "Patient's chronological age"
+    },
+    {
+      "id": "walking_speed",
+      "label": "Walking Speed (m/s)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 1,
+      "businessContext": "Self-selected walking speed over 4 meters"
+    },
+    {
+      "id": "grip_strength",
+      "label": "Grip Strength (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 25,
+      "businessContext": "Maximum handgrip strength in dominant hand"
+    },
+    {
+      "id": "comorbidities",
+      "label": "Number of Comorbidities",
+      "type": "number",
+      "unit": "count",
+      "default": 2,
+      "businessContext": "Count of significant chronic conditions"
+    },
+    {
+      "id": "exhaustion",
+      "label": "Exhaustion (0/1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Self-reported exhaustion (0=No, 1=Yes)"
+    },
+    {
+      "id": "weight_loss",
+      "label": "Unintentional Weight Loss (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 2,
+      "businessContext": "Weight loss over past year not due to diet"
+    }
+  ],
+  "formulas": {
+    "score": "Math.min(9, 1 + (age > 75 ? 1 : 0) + (walking_speed < 0.8 ? 1 : 0) + (grip_strength < 20 ? 1 : 0) + (comorbidities >= 3 ? 1 : 0) + exhaustion + (weight_loss > 5 ? 1 : 0))",
+    "classification": "score === 9 ? 'Terminally Ill' : score >= 8 ? 'Very Severely Frail' : score >= 7 ? 'Severely Frail' : score >= 6 ? 'Moderately Frail' : score >= 5 ? 'Mildly Frail' : score >= 4 ? 'Vulnerable' : 'Well or Managing Well'"
+  },
+  "outputs": {
+    "primary": "Rockwood Frailty Scale: {{score}} - {{classification}}",
+    "breakdown": [
+      "Score: {{score}}",
+      "Classification: {{classification}}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

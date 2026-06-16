@@ -1,0 +1,65 @@
+{
+  "toolName": "shear-stress-calculator",
+  "inputs": [
+    {
+      "id": "force",
+      "label": "Shear Force (F)",
+      "type": "number",
+      "unit": "N",
+      "default": 1000,
+      "businessContext": "The total shear force applied to the cross-section."
+    },
+    {
+      "id": "area",
+      "label": "Cross-Sectional Area (A)",
+      "type": "number",
+      "unit": "mm²",
+      "default": 100,
+      "businessContext": "The effective area resisting the shear force."
+    },
+    {
+      "id": "planes",
+      "label": "Number of Shear Planes",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for single shear, 2 for double shear (e.g., bolted connections)."
+    },
+    {
+      "id": "allowStress",
+      "label": "Allowable Shear Stress (τ_allow)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 250,
+      "businessContext": "The material's maximum permissible shear stress as per design codes."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor (SF)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Design safety factor to account for uncertainties in load and material properties."
+    }
+  ],
+  "formulas": {
+    "shearStress": "force / (planes * area)",
+    "allowableShear": "allowStress / safetyFactor",
+    "status": "shearStress <= allowableShear ? 'Safe' : 'Unsafe'",
+    "utilization": "(shearStress / allowableShear) * 100"
+  },
+  "outputs": {
+    "primary": "shearStress",
+    "breakdown": [
+      "allowableShear",
+      "status",
+      "utilization"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

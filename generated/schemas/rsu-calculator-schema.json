@@ -1,0 +1,58 @@
+{
+  "toolName": "rsu-calculator",
+  "inputs": [
+    {
+      "id": "totalRSUs",
+      "label": "Total RSUs Granted",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "businessContext": "Total number of restricted stock units awarded."
+    },
+    {
+      "id": "vestedPercentage",
+      "label": "Vested Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Percentage of RSUs that have vested."
+    },
+    {
+      "id": "sharePrice",
+      "label": "Current Share Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "businessContext": "Current market price per share."
+    },
+    {
+      "id": "taxRate",
+      "label": "Estimated Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Combined federal and state tax rate applied at vesting."
+    }
+  ],
+  "formulas": {
+    "vestedShares": "totalRSUs * (vestedPercentage / 100)",
+    "preTaxValue": "vestedShares * sharePrice",
+    "estimatedTax": "preTaxValue * (taxRate / 100)",
+    "netValue": "preTaxValue - estimatedTax"
+  },
+  "outputs": {
+    "primary": "netValue",
+    "breakdown": [
+      "vestedShares",
+      "preTaxValue",
+      "estimatedTax",
+      "netValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

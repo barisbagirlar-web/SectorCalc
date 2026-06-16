@@ -1,0 +1,79 @@
+{
+  "toolName": "standard-reduction-potential-calculator",
+  "inputs": [
+    {
+      "id": "E0",
+      "label": "Standard Reduction Potential (E°)",
+      "type": "number",
+      "unit": "V",
+      "default": 0,
+      "businessContext": "The standard reduction potential of the half-reaction under standard conditions (1 M, 1 atm, 25°C)."
+    },
+    {
+      "id": "T",
+      "label": "Temperature (T)",
+      "type": "number",
+      "unit": "K",
+      "default": 298.15,
+      "businessContext": "Temperature in Kelvin."
+    },
+    {
+      "id": "n",
+      "label": "Number of Electrons Transferred (n)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Stoichiometric number of electrons in the half-reaction."
+    },
+    {
+      "id": "Ox",
+      "label": "Concentration of Oxidized Species [Ox]",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 1,
+      "businessContext": "Molar concentration of the oxidized species (reactant)."
+    },
+    {
+      "id": "Red",
+      "label": "Concentration of Reduced Species [Red]",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 1,
+      "businessContext": "Molar concentration of the reduced species (product)."
+    },
+    {
+      "id": "a",
+      "label": "Stoichiometric Coefficient of Oxidized Species (a)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Coefficient for the oxidized species in the balanced half-reaction: aOx + ne- → bRed."
+    },
+    {
+      "id": "b",
+      "label": "Stoichiometric Coefficient of Reduced Species (b)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Coefficient for the reduced species in the balanced half-reaction."
+    }
+  ],
+  "formulas": {
+    "E": "E0 - (8.314 * T) / (n * 96485) * Math.log( Math.pow(Red, b) / Math.pow(Ox, a) )",
+    "RT_nF": "(8.314 * T) / (n * 96485)",
+    "lnQ": "Math.log( Math.pow(Red, b) / Math.pow(Ox, a) )"
+  },
+  "outputs": {
+    "primary": "E",
+    "breakdown": [
+      "RT_nF",
+      "lnQ"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,84 @@
+{
+  "toolName": "line-integral-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "Başlangıç X Koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Başlangıç noktasının X koordinatı"
+    },
+    {
+      "id": "y1",
+      "label": "Başlangıç Y Koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Başlangıç noktasının Y koordinatı"
+    },
+    {
+      "id": "x2",
+      "label": "Bitiş X Koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Bitiş noktasının X koordinatı"
+    },
+    {
+      "id": "y2",
+      "label": "Bitiş Y Koordinatı",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Bitiş noktasının Y koordinatı"
+    },
+    {
+      "id": "c0",
+      "label": "Sabit Terim (f0)",
+      "type": "number",
+      "unit": "birim/m",
+      "default": 0,
+      "businessContext": "f(x,y) = c0 + cx*x + cy*y fonksiyonunun sabit terimi"
+    },
+    {
+      "id": "cx",
+      "label": "X Katsayısı",
+      "type": "number",
+      "unit": "birim/m²",
+      "default": 0,
+      "businessContext": "X değişkeninin katsayısı"
+    },
+    {
+      "id": "cy",
+      "label": "Y Katsayısı",
+      "type": "number",
+      "unit": "birim/m²",
+      "default": 0,
+      "businessContext": "Y değişkeninin katsayısı"
+    }
+  ],
+  "formulas": {
+    "dx": "x2 - x1",
+    "dy": "y2 - y1",
+    "L": "Math.sqrt(dx**2 + dy**2)",
+    "ortalama_f": "c0 + cx*x1 + cy*y1 + (cx*dx + cy*dy)/2",
+    "integral": "L * ortalama_f"
+  },
+  "outputs": {
+    "primary": "integral",
+    "breakdown": [
+      "dx = x2 - x1 = {dx} m",
+      "dy = y2 - y1 = {dy} m",
+      "L = √(dx² + dy²) = {L} m",
+      "Ortalama f = c0 + cx*x1 + cy*y1 + (cx*dx + cy*dy)/2 = {ortalama_f} birim/m",
+      "İntegral = L * ortalama_f = {integral} birim"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

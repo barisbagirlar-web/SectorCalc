@@ -1,0 +1,97 @@
+{
+  "toolName": "limit-calculator",
+  "inputs": [
+    {
+      "id": "numCoeff0",
+      "label": "Numerator constant term (a0)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient a0 in numerator polynomial a0 + a1*x + a2*x^2"
+    },
+    {
+      "id": "numCoeff1",
+      "label": "Numerator linear coefficient (a1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient a1 in numerator polynomial a0 + a1*x + a2*x^2"
+    },
+    {
+      "id": "numCoeff2",
+      "label": "Numerator quadratic coefficient (a2)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient a2 in numerator polynomial a0 + a1*x + a2*x^2"
+    },
+    {
+      "id": "denCoeff0",
+      "label": "Denominator constant term (b0)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient b0 in denominator polynomial b0 + b1*x + b2*x^2"
+    },
+    {
+      "id": "denCoeff1",
+      "label": "Denominator linear coefficient (b1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient b1 in denominator polynomial b0 + b1*x + b2*x^2"
+    },
+    {
+      "id": "denCoeff2",
+      "label": "Denominator quadratic coefficient (b2)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient b2 in denominator polynomial b0 + b1*x + b2*x^2"
+    },
+    {
+      "id": "approachPoint",
+      "label": "Approach point (x →)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The value that x approaches to evaluate the limit"
+    },
+    {
+      "id": "epsilon",
+      "label": "Epsilon (small number)",
+      "type": "number",
+      "unit": "",
+      "default": 0.0001,
+      "businessContext": "Small increment for numerical approximation of left- and right-hand limits; use e.g., 1e-4 or smaller"
+    }
+  ],
+  "formulas": {
+    "xLeft": "approachPoint - epsilon",
+    "xRight": "approachPoint + epsilon",
+    "leftNumerator": "numCoeff0 + numCoeff1 * xLeft + numCoeff2 * xLeft ** 2",
+    "leftDenominator": "denCoeff0 + denCoeff1 * xLeft + denCoeff2 * xLeft ** 2",
+    "leftLimit": "leftNumerator / leftDenominator",
+    "rightNumerator": "numCoeff0 + numCoeff1 * xRight + numCoeff2 * xRight ** 2",
+    "rightDenominator": "denCoeff0 + denCoeff1 * xRight + denCoeff2 * xRight ** 2",
+    "rightLimit": "rightNumerator / rightDenominator",
+    "primary": "(leftLimit + rightLimit) / 2",
+    "breakdown_0": "leftLimit",
+    "breakdown_1": "rightLimit",
+    "breakdown_2": "Math.abs(leftLimit - rightLimit)"
+  },
+  "outputs": {
+    "primary": "Approximate limit value (average of left and right)",
+    "breakdown": [
+      "Left-hand limit",
+      "Right-hand limit",
+      "Absolute difference between left and right limits"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

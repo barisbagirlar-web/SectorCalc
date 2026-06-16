@@ -1,0 +1,93 @@
+{
+  "toolName": "poynting-vector-calculator",
+  "inputs": [
+    {
+      "id": "Ex",
+      "label": "Electric Field X-component (Ex)",
+      "type": "number",
+      "unit": "V/m",
+      "default": 0,
+      "businessContext": "X component of the electric field vector in volts per meter"
+    },
+    {
+      "id": "Ey",
+      "label": "Electric Field Y-component (Ey)",
+      "type": "number",
+      "unit": "V/m",
+      "default": 0,
+      "businessContext": "Y component of the electric field vector in volts per meter"
+    },
+    {
+      "id": "Ez",
+      "label": "Electric Field Z-component (Ez)",
+      "type": "number",
+      "unit": "V/m",
+      "default": 0,
+      "businessContext": "Z component of the electric field vector in volts per meter"
+    },
+    {
+      "id": "Hx",
+      "label": "Magnetic Field X-component (Hx)",
+      "type": "number",
+      "unit": "A/m",
+      "default": 0,
+      "businessContext": "X component of the magnetic field intensity vector in amperes per meter"
+    },
+    {
+      "id": "Hy",
+      "label": "Magnetic Field Y-component (Hy)",
+      "type": "number",
+      "unit": "A/m",
+      "default": 0,
+      "businessContext": "Y component of the magnetic field intensity vector in amperes per meter"
+    },
+    {
+      "id": "Hz",
+      "label": "Magnetic Field Z-component (Hz)",
+      "type": "number",
+      "unit": "A/m",
+      "default": 0,
+      "businessContext": "Z component of the magnetic field intensity vector in amperes per meter"
+    }
+  ],
+  "formulas": {
+    "Sx": "Ey * Hz - Ez * Hy",
+    "Sy": "Ez * Hx - Ex * Hz",
+    "Sz": "Ex * Hy - Ey * Hx",
+    "magnitude": "Math.sqrt(Math.pow(Ey * Hz - Ez * Hy, 2) + Math.pow(Ez * Hx - Ex * Hz, 2) + Math.pow(Ex * Hy - Ey * Hx, 2))"
+  },
+  "outputs": {
+    "primary": {
+      "id": "magnitude",
+      "label": "Poynting Vector Magnitude (|S|)",
+      "unit": "W/m²",
+      "valueFormula": "magnitude"
+    },
+    "breakdown": [
+      {
+        "id": "Sx",
+        "label": "X-component of Poynting Vector (Sx)",
+        "unit": "W/m²",
+        "valueFormula": "Sx"
+      },
+      {
+        "id": "Sy",
+        "label": "Y-component of Poynting Vector (Sy)",
+        "unit": "W/m²",
+        "valueFormula": "Sy"
+      },
+      {
+        "id": "Sz",
+        "label": "Z-component of Poynting Vector (Sz)",
+        "unit": "W/m²",
+        "valueFormula": "Sz"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

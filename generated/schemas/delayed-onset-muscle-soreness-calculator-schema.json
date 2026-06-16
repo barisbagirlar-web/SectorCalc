@@ -1,0 +1,65 @@
+{
+  "toolName": "delayed-onset-muscle-soreness-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 25,
+      "businessContext": "Athlete's age in years"
+    },
+    {
+      "id": "fitnessLevel",
+      "label": "Fitness Level",
+      "type": "number",
+      "unit": "scale",
+      "default": 5,
+      "businessContext": "Self-assessed fitness from 1 (sedentary) to 10 (elite)"
+    },
+    {
+      "id": "exerciseIntensity",
+      "label": "Exercise Intensity",
+      "type": "number",
+      "unit": "scale",
+      "default": 5,
+      "businessContext": "Perceived exertion from 1 (very light) to 10 (maximal)"
+    },
+    {
+      "id": "exerciseDuration",
+      "label": "Exercise Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 60,
+      "businessContext": "Total duration of the exercise session in minutes"
+    },
+    {
+      "id": "recoveryHours",
+      "label": "Recovery Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 24,
+      "businessContext": "Time elapsed since exercise for recovery assessment"
+    }
+  ],
+  "formulas": {
+    "trainingLoad": "Math.pow(exerciseIntensity, 2) * exerciseDuration",
+    "recoveryFactor": "fitnessLevel * Math.max(1, recoveryHours)",
+    "ageCorrection": "1/(1+0.01*Math.pow(age-25, 2))",
+    "DOMSSeverity": "Math.min(100, (trainingLoad / recoveryFactor) * ageCorrection * 100)"
+  },
+  "outputs": {
+    "primary": "DOMS Severity Score (0-100)",
+    "breakdown": [
+      "Training Load",
+      "Recovery Factor",
+      "Age Correction Factor"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "parkland-formula-calculator",
+  "inputs": [
+    {
+      "id": "weight_kg",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Patient's body weight used to calculate fluid resuscitation volume."
+    },
+    {
+      "id": "tbsa_percent",
+      "label": "Total Burn Surface Area",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Percentage of total body surface area affected by burns."
+    },
+    {
+      "id": "fluid_factor",
+      "label": "Fluid Volume Factor",
+      "type": "number",
+      "unit": "mL/kg/%",
+      "default": 4,
+      "businessContext": "Standard Parkland factor (4 mL per kg per % TBSA)."
+    },
+    {
+      "id": "first_half_hours",
+      "label": "First Half Duration",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Duration for the first half of total fluid volume (typically 8 hours)."
+    },
+    {
+      "id": "second_half_hours",
+      "label": "Second Half Duration",
+      "type": "number",
+      "unit": "hours",
+      "default": 16,
+      "businessContext": "Duration for the second half of total fluid volume (typically 16 hours)."
+    }
+  ],
+  "formulas": {
+    "total_volume_24h": "weight_kg * tbsa_percent * fluid_factor",
+    "volume_first_half": "total_volume_24h * first_half_hours / (first_half_hours + second_half_hours)",
+    "volume_second_half": "total_volume_24h * second_half_hours / (first_half_hours + second_half_hours)"
+  },
+  "outputs": {
+    "primary": "total_volume_24h",
+    "breakdown": [
+      "volume_first_half",
+      "volume_second_half"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

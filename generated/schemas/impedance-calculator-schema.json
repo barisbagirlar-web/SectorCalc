@@ -1,0 +1,57 @@
+{
+  "toolName": "impedance-calculator",
+  "inputs": [
+    {
+      "id": "R",
+      "label": "Resistance (R)",
+      "type": "number",
+      "unit": "Ω",
+      "default": 100,
+      "businessContext": "Resistive component of the impedance, in ohms."
+    },
+    {
+      "id": "L",
+      "label": "Inductance (L)",
+      "type": "number",
+      "unit": "H",
+      "default": 0.1,
+      "businessContext": "Inductance of the circuit, in henries."
+    },
+    {
+      "id": "C",
+      "label": "Capacitance (C)",
+      "type": "number",
+      "unit": "F",
+      "default": 0.000001,
+      "businessContext": "Capacitance of the circuit, in farads."
+    },
+    {
+      "id": "f",
+      "label": "Frequency (f)",
+      "type": "number",
+      "unit": "Hz",
+      "default": 50,
+      "businessContext": "Frequency of the AC signal, in hertz."
+    }
+  ],
+  "formulas": {
+    "xl": "2 * Math.PI * f * L",
+    "xc": "1 / (2 * Math.PI * f * C)",
+    "z": "Math.sqrt(R**2 + (xl - xc)**2)",
+    "phi": "Math.atan2(xl - xc, R) * 180 / Math.PI"
+  },
+  "outputs": {
+    "primary": "z",
+    "breakdown": [
+      "xl",
+      "xc",
+      "phi"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

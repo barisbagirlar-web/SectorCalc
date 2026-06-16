@@ -1,0 +1,55 @@
+{
+  "toolName": "cubic-inches-to-cubic-cm-calculator",
+  "inputs": [
+    {
+      "id": "cubicInches",
+      "label": "Volume in Cubic Inches",
+      "type": "number",
+      "unit": "in³",
+      "default": 0,
+      "businessContext": "The volume measurement in cubic inches to be converted to cubic centimeters."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "cm³/in³",
+      "default": 16.387064,
+      "businessContext": "The standard conversion factor from cubic inches to cubic centimeters (1 in³ = 16.387064 cm³)."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "digits",
+      "default": 2,
+      "businessContext": "Number of decimal places for the rounded output."
+    },
+    {
+      "id": "roundingMode",
+      "label": "Rounding Mode",
+      "type": "number",
+      "unit": "mode",
+      "default": 0,
+      "businessContext": "0 = round, 1 = floor, 2 = ceil."
+    }
+  ],
+  "formulas": {
+    "exactCubicCm": "cubicInches * conversionFactor",
+    "cubicCm": "roundingMode === 0 ? Math.round(exactCubicCm * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : roundingMode === 1 ? Math.floor(exactCubicCm * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : Math.ceil(exactCubicCm * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "appliedPrecision": "decimalPlaces"
+  },
+  "outputs": {
+    "primary": "cubicCm",
+    "breakdown": [
+      "exactCubicCm",
+      "appliedPrecision"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

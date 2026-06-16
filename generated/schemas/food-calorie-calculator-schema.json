@@ -1,0 +1,67 @@
+{
+  "toolName": "food-calorie-calculator",
+  "inputs": [
+    {
+      "id": "fat",
+      "label": "Yağ (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Gıdadaki toplam yağ miktarı (gram)"
+    },
+    {
+      "id": "carbs",
+      "label": "Karbonhidrat (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Gıdadaki toplam karbonhidrat miktarı (gram)"
+    },
+    {
+      "id": "protein",
+      "label": "Protein (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Gıdadaki toplam protein miktarı (gram)"
+    },
+    {
+      "id": "alcohol",
+      "label": "Alkol (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Gıdadaki alkol miktarı (gram, varsa)"
+    },
+    {
+      "id": "servings",
+      "label": "Porsiyon Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Hesaplamanın yapılacağı porsiyon adedi"
+    }
+  ],
+  "formulas": {
+    "totalCalories": "(9 * fat + 4 * carbs + 4 * protein + 7 * alcohol) * servings",
+    "fatCalories": "9 * fat * servings",
+    "carbsCalories": "4 * carbs * servings",
+    "proteinCalories": "4 * protein * servings",
+    "alcoholCalories": "7 * alcohol * servings"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "fatCalories",
+      "carbsCalories",
+      "proteinCalories",
+      "alcoholCalories"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

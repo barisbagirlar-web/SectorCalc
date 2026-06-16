@@ -1,0 +1,72 @@
+{
+  "toolName": "working-days-calculator",
+  "inputs": [
+    {
+      "id": "startDate",
+      "label": "Başlangıç Tarihi (Seri No)",
+      "type": "number",
+      "unit": "gün",
+      "default": 44927,
+      "businessContext": "Start date as serial day number (e.g., Excel)"
+    },
+    {
+      "id": "endDate",
+      "label": "Bitiş Tarihi (Seri No)",
+      "type": "number",
+      "unit": "gün",
+      "default": 44957,
+      "businessContext": "End date as serial day number"
+    },
+    {
+      "id": "includeStart",
+      "label": "Başlangıç Günü Dahil",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 if start day is included, 0 otherwise"
+    },
+    {
+      "id": "includeEnd",
+      "label": "Bitiş Günü Dahil",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 if end day is included, 0 otherwise"
+    },
+    {
+      "id": "weekendDaysPerWeek",
+      "label": "Haftalık Tatil Gün Sayısı",
+      "type": "number",
+      "unit": "gün",
+      "default": 2,
+      "businessContext": "Number of weekend days per week (e.g., 2 for Sat-Sun)"
+    },
+    {
+      "id": "holidays",
+      "label": "Resmi Tatiller",
+      "type": "number",
+      "unit": "gün",
+      "default": 0,
+      "businessContext": "Number of public holidays falling on weekdays"
+    }
+  ],
+  "formulas": {
+    "totalCalendarDays": "endDate - startDate + includeStart + includeEnd - 1",
+    "estimatedWeekendDays": "(weekendDaysPerWeek / 7) * totalCalendarDays",
+    "workingDays": "totalCalendarDays - estimatedWeekendDays - holidays"
+  },
+  "outputs": {
+    "primary": "workingDays",
+    "breakdown": [
+      "totalCalendarDays",
+      "estimatedWeekendDays",
+      "holidays"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

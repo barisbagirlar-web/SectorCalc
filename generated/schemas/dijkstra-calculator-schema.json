@@ -1,0 +1,77 @@
+{
+  "toolName": "dijkstra-calculator",
+  "inputs": [
+    {
+      "id": "d_AB",
+      "label": "Distance A-B",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "Direct distance between location A and B"
+    },
+    {
+      "id": "d_AC",
+      "label": "Distance A-C",
+      "type": "number",
+      "unit": "km",
+      "default": 15,
+      "businessContext": "Direct distance between location A and C"
+    },
+    {
+      "id": "d_AD",
+      "label": "Distance A-D",
+      "type": "number",
+      "unit": "km",
+      "default": 20,
+      "businessContext": "Direct distance between location A and D"
+    },
+    {
+      "id": "d_BC",
+      "label": "Distance B-C",
+      "type": "number",
+      "unit": "km",
+      "default": 5,
+      "businessContext": "Direct distance between location B and C"
+    },
+    {
+      "id": "d_BD",
+      "label": "Distance B-D",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "businessContext": "Direct distance between location B and D"
+    },
+    {
+      "id": "d_CD",
+      "label": "Distance C-D",
+      "type": "number",
+      "unit": "km",
+      "default": 20,
+      "businessContext": "Direct distance between location C and D"
+    }
+  ],
+  "formulas": {
+    "path_direct": "d_AD",
+    "path_ABD": "d_AB + d_BD",
+    "path_ACD": "d_AC + d_CD",
+    "path_ABCD": "d_AB + d_BC + d_CD",
+    "path_ACBD": "d_AC + d_BC + d_BD",
+    "shortest": "Math.min(path_direct, path_ABD, path_ACD, path_ABCD, path_ACBD)"
+  },
+  "outputs": {
+    "primary": "shortest",
+    "breakdown": [
+      "path_direct",
+      "path_ABD",
+      "path_ACD",
+      "path_ABCD",
+      "path_ACBD"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,75 @@
+{
+  "toolName": "payroll-tax-calculator",
+  "inputs": [
+    {
+      "id": "grossSalary",
+      "label": "Gross Salary",
+      "type": "number",
+      "unit": "currency",
+      "default": 50000,
+      "businessContext": "Employee's annual gross salary before taxes."
+    },
+    {
+      "id": "taxRate1",
+      "label": "Tax Rate Bracket 1",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Tax rate for the first income bracket."
+    },
+    {
+      "id": "taxRate2",
+      "label": "Tax Rate Bracket 2",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Tax rate for the second income bracket."
+    },
+    {
+      "id": "taxRate3",
+      "label": "Tax Rate Bracket 3",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Tax rate for the third income bracket."
+    },
+    {
+      "id": "bracket1Limit",
+      "label": "Bracket 1 Upper Limit",
+      "type": "number",
+      "unit": "currency",
+      "default": 20000,
+      "businessContext": "Upper income limit of bracket 1."
+    },
+    {
+      "id": "bracket2Limit",
+      "label": "Bracket 2 Upper Limit",
+      "type": "number",
+      "unit": "currency",
+      "default": 50000,
+      "businessContext": "Upper income limit of bracket 2."
+    }
+  ],
+  "formulas": {
+    "bracket1Tax": "grossSalary <= bracket1Limit ? grossSalary * taxRate1 / 100 : bracket1Limit * taxRate1 / 100",
+    "bracket2Tax": "grossSalary <= bracket1Limit ? 0 : grossSalary <= bracket2Limit ? (grossSalary - bracket1Limit) * taxRate2 / 100 : (bracket2Limit - bracket1Limit) * taxRate2 / 100",
+    "bracket3Tax": "grossSalary <= bracket2Limit ? 0 : (grossSalary - bracket2Limit) * taxRate3 / 100",
+    "totalTax": "bracket1Tax + bracket2Tax + bracket3Tax",
+    "netSalary": "grossSalary - totalTax"
+  },
+  "outputs": {
+    "primary": "totalTax",
+    "breakdown": [
+      "bracket1Tax",
+      "bracket2Tax",
+      "bracket3Tax",
+      "netSalary"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

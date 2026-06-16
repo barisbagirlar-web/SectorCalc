@@ -1,0 +1,58 @@
+{
+  "toolName": "log-base-calculator",
+  "inputs": [
+    {
+      "id": "argument",
+      "label": "Argument (x)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The value for which the logarithm is calculated. Must be > 0."
+    },
+    {
+      "id": "base",
+      "label": "Log Base (b)",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "The base of the logarithm. Common bases: 10, e (Math.E), 2. Must be > 0 and ≠ 1."
+    },
+    {
+      "id": "multiplier",
+      "label": "Multiplier (m)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Scaling factor applied after taking the logarithm, e.g., 20 for dB conversion."
+    },
+    {
+      "id": "offset",
+      "label": "Offset (c)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Constant added after multiplication, used in linear calibration or zero adjustment."
+    }
+  ],
+  "formulas": {
+    "naturalLogArgument": "Math.log(argument)",
+    "naturalLogBase": "Math.log(base)",
+    "logValue": "naturalLogArgument / naturalLogBase",
+    "result": "multiplier * logValue + offset"
+  },
+  "outputs": {
+    "primary": "${result}",
+    "breakdown": [
+      "Natural log of argument: ${naturalLogArgument}",
+      "Natural log of base: ${naturalLogBase}",
+      "Log base ${base} of ${argument}: ${logValue}",
+      "Final result: ${multiplier} × ${logValue} + ${offset} = ${result}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

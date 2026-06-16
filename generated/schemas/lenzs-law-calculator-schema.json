@@ -1,0 +1,62 @@
+{
+  "toolName": "lenzs-law-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Number of Turns (N)",
+      "type": "number",
+      "unit": "turns",
+      "default": 100,
+      "businessContext": "Number of turns in the coil"
+    },
+    {
+      "id": "dB",
+      "label": "Change in Magnetic Field (ΔB)",
+      "type": "number",
+      "unit": "T",
+      "default": 0.5,
+      "businessContext": "Change in magnetic flux density"
+    },
+    {
+      "id": "A",
+      "label": "Area of Loop (A)",
+      "type": "number",
+      "unit": "m²",
+      "default": 0.01,
+      "businessContext": "Cross-sectional area of the coil"
+    },
+    {
+      "id": "dt",
+      "label": "Time Interval (Δt)",
+      "type": "number",
+      "unit": "s",
+      "default": 0.1,
+      "businessContext": "Time over which the magnetic field changes"
+    },
+    {
+      "id": "theta",
+      "label": "Angle (θ)",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Angle between magnetic field and normal to the loop"
+    }
+  ],
+  "formulas": {
+    "inducedEMF": "n * dB * A * Math.cos(theta * Math.PI / 180) / dt",
+    "inducedEMFAbs": "Math.abs(n * dB * A * Math.cos(theta * Math.PI / 180) / dt)"
+  },
+  "outputs": {
+    "primary": "inducedEMF",
+    "breakdown": [
+      "Induced EMF (ε) = N * ΔB * A * cos(θ) / Δt",
+      "Magnitude of Induced EMF = |ε|"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

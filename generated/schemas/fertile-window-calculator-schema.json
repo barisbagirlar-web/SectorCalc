@@ -1,0 +1,64 @@
+{
+  "toolName": "fertile-window-calculator",
+  "inputs": [
+    {
+      "id": "cycleLength",
+      "label": "Average Cycle Length",
+      "type": "number",
+      "unit": "days",
+      "default": 28,
+      "businessContext": "The average number of days between the first day of one period and the first day of the next."
+    },
+    {
+      "id": "lutealPhaseLength",
+      "label": "Luteal Phase Length",
+      "type": "number",
+      "unit": "days",
+      "default": 14,
+      "businessContext": "The number of days between ovulation and the start of the next period, typically constant for an individual."
+    },
+    {
+      "id": "spermLifeSpan",
+      "label": "Sperm Lifespan",
+      "type": "number",
+      "unit": "days",
+      "default": 5,
+      "businessContext": "Maximum number of days sperm can survive in the female reproductive tract."
+    },
+    {
+      "id": "eggLifeSpan",
+      "label": "Egg Lifespan",
+      "type": "number",
+      "unit": "days",
+      "default": 1,
+      "businessContext": "Number of days the egg is viable after ovulation."
+    },
+    {
+      "id": "periodLength",
+      "label": "Menstrual Period Length",
+      "type": "number",
+      "unit": "days",
+      "default": 5,
+      "businessContext": "Typical duration of menstrual bleeding."
+    }
+  ],
+  "formulas": {
+    "ovulationDay": "cycleLength - lutealPhaseLength",
+    "fertileStart": "ovulationDay - spermLifeSpan",
+    "fertileEnd": "ovulationDay + eggLifeSpan"
+  },
+  "outputs": {
+    "primary": "Fertile window: days ${fertileStart} to ${fertileEnd} of the cycle (assuming cycle start is day 1).",
+    "breakdown": [
+      "Estimated ovulation day: ${ovulationDay}",
+      "Fertile window start: ${fertileStart} (based on sperm lifespan of ${spermLifeSpan} days)",
+      "Fertile window end: ${fertileEnd} (based on egg lifespan of ${eggLifeSpan} day(s))"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

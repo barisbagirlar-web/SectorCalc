@@ -1,0 +1,73 @@
+{
+  "toolName": "ergs-to-joules-calculator",
+  "inputs": [
+    {
+      "id": "ergs",
+      "label": "Energy in Ergs",
+      "type": "number",
+      "unit": "erg",
+      "default": 1,
+      "businessContext": "The amount of energy in ergs to be converted to joules."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "J/erg",
+      "default": 1e-7,
+      "businessContext": "Fixed conversion factor: 1 erg = 1e-7 joules. Adjustable for system calibration."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "decimals",
+      "default": 2,
+      "businessContext": "Number of decimal places for the output value."
+    },
+    {
+      "id": "uncertaintyPercent",
+      "label": "Measurement Uncertainty (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Estimated measurement uncertainty percentage to calculate tolerance range."
+    },
+    {
+      "id": "batchNumber",
+      "label": "Batch Number",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Production batch identifier for traceability."
+    },
+    {
+      "id": "operatorID",
+      "label": "Operator ID",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Identifier of the operator performing the calculation."
+    }
+  ],
+  "formulas": {
+    "joules": "ergs * conversionFactor",
+    "joulesRounded": "Math.round(joules * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "minEnergy": "joules * (1 - uncertaintyPercent / 100)",
+    "maxEnergy": "joules * (1 + uncertaintyPercent / 100)"
+  },
+  "outputs": {
+    "primary": "joulesRounded",
+    "breakdown": [
+      "joules",
+      "minEnergy",
+      "maxEnergy"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

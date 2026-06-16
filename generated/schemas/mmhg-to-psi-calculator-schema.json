@@ -1,0 +1,53 @@
+{
+  "toolName": "mmhg-to-psi-calculator",
+  "inputs": [
+    {
+      "id": "pressureMMHG",
+      "label": "Pressure (mmHg)",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 760,
+      "businessContext": "Measured pressure in millimeters of mercury, standard atmosphere = 760 mmHg"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "psi/mmHg",
+      "default": 0.0193368,
+      "businessContext": "Standard conversion factor from mmHg to psi (1 mmHg = 0.0193368 psi). Adjust for custom calibrations."
+    },
+    {
+      "id": "offset",
+      "label": "Offset",
+      "type": "number",
+      "unit": "psi",
+      "default": 0,
+      "businessContext": "Calibration offset in psi to correct systematic measurement error."
+    },
+    {
+      "id": "outputPrecision",
+      "label": "Output Precision",
+      "type": "number",
+      "unit": "decimal places",
+      "default": 4,
+      "businessContext": "Number of decimal places for the rounded output."
+    }
+  ],
+  "formulas": {
+    "psiRaw": "pressureMMHG * conversionFactor + offset",
+    "psiRounded": "Math.round((pressureMMHG * conversionFactor + offset) * 10**outputPrecision) / 10**outputPrecision"
+  },
+  "outputs": {
+    "primary": "psiRounded",
+    "breakdown": [
+      "psiRaw"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

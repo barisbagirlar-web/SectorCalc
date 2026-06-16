@@ -1,0 +1,61 @@
+{
+  "toolName": "stamp-value-calculator",
+  "inputs": [
+    {
+      "id": "documentValue",
+      "label": "Document Value",
+      "type": "number",
+      "unit": "EUR",
+      "default": 1000,
+      "businessContext": "The monetary value of the contract or transaction document."
+    },
+    {
+      "id": "stampDutyRate",
+      "label": "Stamp Duty Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "businessContext": "Applicable stamp duty percentage based on jurisdiction and document type."
+    },
+    {
+      "id": "fixedFee",
+      "label": "Fixed Fee",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "Fixed administrative fee for stamping, if any."
+    },
+    {
+      "id": "exemptionThreshold",
+      "label": "Exemption Threshold",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "Minimum document value below which no stamp duty applies."
+    },
+    {
+      "id": "quantity",
+      "label": "Number of Stamps",
+      "type": "number",
+      "unit": "pieces",
+      "default": 1,
+      "businessContext": "Number of stamping instances for bulk calculations."
+    }
+  ],
+  "formulas": {
+    "dutyPerUnit": "documentValue > exemptionThreshold ? ((documentValue - exemptionThreshold) * stampDutyRate / 100 + fixedFee) : 0",
+    "totalCost": "dutyPerUnit * quantity"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "dutyPerUnit"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

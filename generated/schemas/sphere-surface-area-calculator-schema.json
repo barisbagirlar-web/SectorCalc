@@ -1,0 +1,75 @@
+{
+  "toolName": "sphere-surface-area-calculator",
+  "inputs": [
+    {
+      "id": "radius",
+      "label": "Radius",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "The radius of the sphere in meters"
+    },
+    {
+      "id": "diameter",
+      "label": "Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "The diameter of the sphere in meters, used if Input Type is 1"
+    },
+    {
+      "id": "inputType",
+      "label": "Input Type",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 = Use Radius, 1 = Use Diameter"
+    },
+    {
+      "id": "outputUnit",
+      "label": "Output Unit",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 = m², 1 = cm², 2 = mm², 3 = ft²"
+    },
+    {
+      "id": "costPerSquareMeter",
+      "label": "Cost per m²",
+      "type": "number",
+      "unit": "currency/m²",
+      "default": 0,
+      "businessContext": "Cost of material per square meter for coating or painting"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Additional percentage for material waste"
+    }
+  ],
+  "formulas": {
+    "radiusUsed": "inputType === 0 ? radius : diameter / 2",
+    "areaM2": "4 * Math.PI * Math.pow(radiusUsed, 2)",
+    "conversionFactor": "outputUnit === 0 ? 1 : outputUnit === 1 ? 10000 : outputUnit === 2 ? 1000000 : outputUnit === 3 ? 10.7639 : 1",
+    "convertedArea": "areaM2 * conversionFactor",
+    "totalCost": "areaM2 * costPerSquareMeter * (1 + wasteFactor / 100)"
+  },
+  "outputs": {
+    "primary": "convertedArea",
+    "breakdown": [
+      "Effective radius: {radiusUsed} m",
+      "Surface area (m²): {areaM2}",
+      "Converted area: {convertedArea}",
+      "Total cost including waste: {totalCost}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

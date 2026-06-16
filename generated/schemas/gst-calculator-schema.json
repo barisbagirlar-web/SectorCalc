@@ -1,0 +1,49 @@
+{
+  "toolName": "gst-calculator",
+  "inputs": [
+    {
+      "id": "amount",
+      "label": "Amount (excl. GST)",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "Original price before GST"
+    },
+    {
+      "id": "gstRate",
+      "label": "GST Rate (%)",
+      "type": "number",
+      "unit": "percent",
+      "default": 10,
+      "businessContext": "Applicable GST percentage (e.g., 5, 10, 12, 18)"
+    },
+    {
+      "id": "country",
+      "label": "Country",
+      "type": "number",
+      "unit": "code",
+      "default": 1,
+      "businessContext": "1=Australia, 2=Canada, 3=India"
+    }
+  ],
+  "formulas": {
+    "gstAmount": "amount * gstRate / 100",
+    "totalInclGst": "amount + gstAmount",
+    "gstRateDecimal": "gstRate / 100",
+    "amountExclGst": "amount",
+    "effectiveRate": "country === 1 ? 0.1 : country === 2 ? 0.05 : 0.18"
+  },
+  "outputs": {
+    "primary": "totalInclGst",
+    "breakdown": [
+      "gstAmount",
+      "amountExclGst"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

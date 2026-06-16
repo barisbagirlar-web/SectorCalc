@@ -1,0 +1,73 @@
+{
+  "toolName": "appliance-energy-calculator",
+  "inputs": [
+    {
+      "id": "powerRating",
+      "label": "Güç (Watt)",
+      "type": "number",
+      "unit": "W",
+      "default": 1000,
+      "businessContext": "Cihazın nominal gücü"
+    },
+    {
+      "id": "usageHoursPerDay",
+      "label": "Günlük Kullanım Saati",
+      "type": "number",
+      "unit": "saat/gün",
+      "default": 5,
+      "businessContext": "Cihazın günlük ortalama çalışma süresi"
+    },
+    {
+      "id": "daysPerMonth",
+      "label": "Aylık Kullanım Günü",
+      "type": "number",
+      "unit": "gün/ay",
+      "default": 30,
+      "businessContext": "Cihazın ayda kaç gün kullanıldığı"
+    },
+    {
+      "id": "electricityCost",
+      "label": "Elektrik Birim Fiyatı",
+      "type": "number",
+      "unit": "TL/kWh",
+      "default": 0.12,
+      "businessContext": "1 kWh elektrik enerjisinin maliyeti"
+    },
+    {
+      "id": "applianceCount",
+      "label": "Cihaz Adedi",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Aynı özellikteki cihaz sayısı"
+    },
+    {
+      "id": "standbyPower",
+      "label": "StandBy Gücü",
+      "type": "number",
+      "unit": "W",
+      "default": 0,
+      "businessContext": "Cihazın bekleme modunda tükettiği güç"
+    }
+  ],
+  "formulas": {
+    "dailyEnergyKWh": "(powerRating * usageHoursPerDay + standbyPower * (24 - usageHoursPerDay)) * applianceCount / 1000",
+    "monthlyEnergyKWh": "dailyEnergyKWh * daysPerMonth",
+    "monthlyCost": "monthlyEnergyKWh * electricityCost",
+    "annualCost": "monthlyCost * 12"
+  },
+  "outputs": {
+    "primary": "monthlyCost",
+    "breakdown": [
+      "dailyEnergyKWh",
+      "monthlyEnergyKWh",
+      "annualCost"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

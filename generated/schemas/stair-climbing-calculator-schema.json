@@ -1,0 +1,59 @@
+{
+  "toolName": "stair-climbing-calculator",
+  "inputs": [
+    {
+      "id": "totalRise",
+      "label": "Toplam Yükseklik",
+      "type": "number",
+      "unit": "cm",
+      "default": 280,
+      "businessContext": "Katlar arası bitmiş döşeme yüksekliği"
+    },
+    {
+      "id": "treadDepth",
+      "label": "Basamak Derinliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 28,
+      "businessContext": "Her bir basamağın yatay derinliği (genellikle 25-32 cm)"
+    },
+    {
+      "id": "riserHeightTarget",
+      "label": "Hedef Rıht Yüksekliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 17,
+      "businessContext": "Konfor ve yönetmelik için hedeflenen rıht yüksekliği (genellikle 15-18 cm)"
+    },
+    {
+      "id": "stairWidth",
+      "label": "Merdiven Genişliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Merdiven kolunun net genişliği"
+    }
+  ],
+  "formulas": {
+    "numberOfSteps": "Math.ceil(totalRise / riserHeightTarget)",
+    "actualRiserHeight": "totalRise / numberOfSteps",
+    "totalRun": "(numberOfSteps - 1) * treadDepth",
+    "stairAngle": "Math.atan(actualRiserHeight / treadDepth) * (180 / Math.PI)",
+    "area": "(stairWidth / 100) * (totalRun / 100)"
+  },
+  "outputs": {
+    "primary": "stairAngle",
+    "breakdown": [
+      "numberOfSteps",
+      "actualRiserHeight",
+      "totalRun",
+      "area"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

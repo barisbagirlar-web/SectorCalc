@@ -1,0 +1,76 @@
+{
+  "toolName": "body-age-calculator",
+  "inputs": [
+    {
+      "id": "chronologicalAge",
+      "label": "Chronological Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Current age in years."
+    },
+    {
+      "id": "restingHeartRate",
+      "label": "Resting Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 70,
+      "businessContext": "Average resting heart rate in beats per minute."
+    },
+    {
+      "id": "waistCircumference",
+      "label": "Waist Circumference",
+      "type": "number",
+      "unit": "cm",
+      "default": 80,
+      "businessContext": "Waist measurement at navel level in centimeters."
+    },
+    {
+      "id": "exerciseDaysPerWeek",
+      "label": "Exercise Days per Week",
+      "type": "number",
+      "unit": "days",
+      "default": 3,
+      "businessContext": "Days per week with at least 30 minutes of moderate exercise."
+    },
+    {
+      "id": "systolicBP",
+      "label": "Systolic Blood Pressure",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 120,
+      "businessContext": "Systolic blood pressure reading in mmHg."
+    },
+    {
+      "id": "diastolicBP",
+      "label": "Diastolic Blood Pressure",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 80,
+      "businessContext": "Diastolic blood pressure reading in mmHg."
+    }
+  ],
+  "formulas": {
+    "biologicalAge": "chronologicalAge + 0.2 * (restingHeartRate - 70) + 0.3 * (waistCircumference - 80) - 0.5 * (exerciseDaysPerWeek - 3) + 0.1 * (systolicBP - 120) + 0.1 * (diastolicBP - 80)",
+    "breakdown": {
+      "heartRateAdjustment": "0.2 * (restingHeartRate - 70)",
+      "waistAdjustment": "0.3 * (waistCircumference - 80)",
+      "exerciseAdjustment": "-0.5 * (exerciseDaysPerWeek - 3)",
+      "systolicAdjustment": "0.1 * (systolicBP - 120)",
+      "diastolicAdjustment": "0.1 * (diastolicBP - 80)"
+    }
+  },
+  "outputs": {
+    "primary": "biologicalAge",
+    "breakdown": [
+      "heartRateAdjustment",
+      "waistAdjustment",
+      "exerciseAdjustment",
+      "systolicAdjustment",
+      "diastolicAdjustment"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false
+}

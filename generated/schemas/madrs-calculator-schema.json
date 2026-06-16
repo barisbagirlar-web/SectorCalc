@@ -1,0 +1,63 @@
+{
+  "toolName": "madrs-calculator",
+  "inputs": [
+    {
+      "id": "axleDiameter",
+      "label": "Axle Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "The diameter of the machine axle under analysis."
+    },
+    {
+      "id": "axleLength",
+      "label": "Axle Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 500,
+      "businessContext": "The unsupported length of the axle between bearings."
+    },
+    {
+      "id": "load",
+      "label": "Applied Load",
+      "type": "number",
+      "unit": "N",
+      "default": 1000,
+      "businessContext": "Central point load acting on the axle."
+    },
+    {
+      "id": "elasticModulus",
+      "label": "Elastic Modulus",
+      "type": "number",
+      "unit": "GPa",
+      "default": 210,
+      "businessContext": "Material's modulus of elasticity (e.g., steel ≈ 210 GPa)."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Design safety factor for allowable stress comparison."
+    }
+  ],
+  "formulas": {
+    "momentOfInertia": "Math.PI * Math.pow(axleDiameter, 4) / 64",
+    "maxDeflection": "(load * Math.pow(axleLength, 3)) / (48 * elasticModulus * 1000 * momentOfInertia)",
+    "maxBendingStress": "(load * axleLength * axleDiameter) / (8 * momentOfInertia)"
+  },
+  "outputs": {
+    "primary": "maxDeflection",
+    "breakdown": [
+      "momentOfInertia",
+      "maxBendingStress"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

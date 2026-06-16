@@ -1,0 +1,73 @@
+{
+  "toolName": "boiler-horsepower-to-kw-calculator",
+  "inputs": [
+    {
+      "id": "boilerHorsepower",
+      "label": "Boiler Horsepower (per unit)",
+      "type": "number",
+      "unit": "BHP",
+      "default": 1,
+      "businessContext": "Rated boiler horsepower of a single boiler unit, as per manufacturer specifications."
+    },
+    {
+      "id": "numberOfBoilers",
+      "label": "Number of Boilers",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "businessContext": "Total number of identical boiler units operating in parallel."
+    },
+    {
+      "id": "loadFactor",
+      "label": "Load Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "businessContext": "Average operating load as a percentage of full rated capacity."
+    },
+    {
+      "id": "boilerEfficiency",
+      "label": "Boiler Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Overall thermal efficiency of the boiler system, based on fuel input to steam output."
+    },
+    {
+      "id": "operatingHours",
+      "label": "Annual Operating Hours",
+      "type": "number",
+      "unit": "h/year",
+      "default": 8000,
+      "businessContext": "Total number of hours per year the boilers are in operation."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor (kW per BHP)",
+      "type": "number",
+      "unit": "kW/BHP",
+      "default": 9.8095,
+      "businessContext": "Standard conversion factor: 1 boiler horsepower = 9.8095 kilowatts (thermal output)."
+    }
+  ],
+  "formulas": {
+    "totalBHP": "boilerHorsepower * numberOfBoilers * (loadFactor / 100)",
+    "effectiveThermalPower_kW": "totalBHP * conversionFactor",
+    "annualEnergy_kWh": "effectiveThermalPower_kW * operatingHours",
+    "inputFuelPower_kW": "effectiveThermalPower_kW / (boilerEfficiency / 100)"
+  },
+  "outputs": {
+    "primary": "effectiveThermalPower_kW",
+    "breakdown": [
+      "totalBHP",
+      "annualEnergy_kWh",
+      "inputFuelPower_kW"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

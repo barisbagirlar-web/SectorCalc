@@ -1,0 +1,81 @@
+{
+  "toolName": "preeclampsia-risk-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Maternal Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the pregnant woman at expected date of delivery."
+    },
+    {
+      "id": "bmi",
+      "label": "Pre-pregnancy BMI",
+      "type": "number",
+      "unit": "kg/m²",
+      "default": 25,
+      "businessContext": "Body Mass Index before pregnancy."
+    },
+    {
+      "id": "systolic_bp",
+      "label": "Systolic Blood Pressure",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 120,
+      "businessContext": "Systolic blood pressure reading in early pregnancy."
+    },
+    {
+      "id": "diastolic_bp",
+      "label": "Diastolic Blood Pressure",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 80,
+      "businessContext": "Diastolic blood pressure reading in early pregnancy."
+    },
+    {
+      "id": "previous_preeclampsia",
+      "label": "Previous Preeclampsia",
+      "type": "number",
+      "unit": "boolean",
+      "default": 0,
+      "businessContext": "History of preeclampsia in a previous pregnancy (0 = No, 1 = Yes)."
+    },
+    {
+      "id": "family_history",
+      "label": "Family History of Preeclampsia",
+      "type": "number",
+      "unit": "boolean",
+      "default": 0,
+      "businessContext": "Mother or sister had preeclampsia (0 = No, 1 = Yes)."
+    }
+  ],
+  "formulas": {
+    "linear_predictor": "-10 + 0.03 * age + 0.05 * bmi + 0.02 * systolic_bp + 0.03 * diastolic_bp + 1.5 * previous_preeclampsia + 0.8 * family_history",
+    "risk_prob": "1 / (1 + Math.exp(-linear_predictor))",
+    "risk_percent": "risk_prob * 100",
+    "age_contrib": "0.03 * age",
+    "bmi_contrib": "0.05 * bmi",
+    "sbp_contrib": "0.02 * systolic_bp",
+    "dbp_contrib": "0.03 * diastolic_bp",
+    "prev_contrib": "1.5 * previous_preeclampsia",
+    "fam_contrib": "0.8 * family_history"
+  },
+  "outputs": {
+    "primary": "risk_percent",
+    "breakdown": [
+      "age_contrib",
+      "bmi_contrib",
+      "sbp_contrib",
+      "dbp_contrib",
+      "prev_contrib",
+      "fam_contrib"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

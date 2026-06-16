@@ -1,0 +1,79 @@
+{
+  "toolName": "fertilizer-calculator",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "Field Area",
+      "type": "number",
+      "unit": "ha",
+      "default": 1,
+      "businessContext": "Area of the field to fertilize"
+    },
+    {
+      "id": "nitrogenRate",
+      "label": "Nitrogen Rate (N)",
+      "type": "number",
+      "unit": "kg/ha",
+      "default": 100,
+      "businessContext": "Desired application rate of nitrogen per hectare"
+    },
+    {
+      "id": "phosphorusRate",
+      "label": "Phosphorus Rate (P2O5)",
+      "type": "number",
+      "unit": "kg/ha",
+      "default": 50,
+      "businessContext": "Desired application rate of phosphorus (as P2O5) per hectare"
+    },
+    {
+      "id": "potassiumRate",
+      "label": "Potassium Rate (K2O)",
+      "type": "number",
+      "unit": "kg/ha",
+      "default": 50,
+      "businessContext": "Desired application rate of potassium (as K2O) per hectare"
+    },
+    {
+      "id": "fertilizerN",
+      "label": "Fertilizer N Content",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage of nitrogen in the fertilizer"
+    },
+    {
+      "id": "fertilizerP",
+      "label": "Fertilizer P2O5 Content",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of phosphorus pentoxide in the fertilizer"
+    },
+    {
+      "id": "fertilizerK",
+      "label": "Fertilizer K2O Content",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of potassium oxide in the fertilizer"
+    }
+  ],
+  "formulas": {
+    "perHaRequirement": "Math.max(nitrogenRate / (fertilizerN / 100), phosphorusRate / (fertilizerP / 100), potassiumRate / (fertilizerK / 100))",
+    "totalFertilizerKg": "area * perHaRequirement",
+    "totalFertilizerTons": "totalFertilizerKg / 1000"
+  },
+  "outputs": {
+    "primary": "totalFertilizerKg",
+    "breakdown": [
+      "perHaRequirement",
+      "totalFertilizerTons"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

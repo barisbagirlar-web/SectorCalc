@@ -1,0 +1,66 @@
+{
+  "toolName": "deck-stain-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Deck Length",
+      "type": "number",
+      "unit": "ft",
+      "default": 20,
+      "businessContext": "Total length of the deck in feet"
+    },
+    {
+      "id": "width",
+      "label": "Deck Width",
+      "type": "number",
+      "unit": "ft",
+      "default": 12,
+      "businessContext": "Total width of the deck in feet"
+    },
+    {
+      "id": "coverage",
+      "label": "Stain Coverage",
+      "type": "number",
+      "unit": "sq ft/gal",
+      "default": 250,
+      "businessContext": "Coverage rate of the stain in square feet per gallon"
+    },
+    {
+      "id": "coats",
+      "label": "Number of Coats",
+      "type": "number",
+      "unit": "coats",
+      "default": 2,
+      "businessContext": "Number of stain coats to apply"
+    },
+    {
+      "id": "waste",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage of extra stain for waste and spillage"
+    }
+  ],
+  "formulas": {
+    "deckArea": "length * width",
+    "totalAreaToCover": "deckArea * coats",
+    "adjustedArea": "totalAreaToCover * (1 + waste / 100)",
+    "totalGallons": "adjustedArea / coverage"
+  },
+  "outputs": {
+    "primary": "totalGallons",
+    "breakdown": [
+      "deckArea",
+      "totalAreaToCover",
+      "adjustedArea",
+      "totalGallons"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

@@ -1,0 +1,61 @@
+{
+  "toolName": "age-in-hours-calculator",
+  "inputs": [
+    {
+      "id": "ageYears",
+      "label": "Age in Years",
+      "type": "number",
+      "unit": "years",
+      "default": 0,
+      "businessContext": "Enter the number of complete years of age."
+    },
+    {
+      "id": "ageMonths",
+      "label": "Additional Months",
+      "type": "number",
+      "unit": "months",
+      "default": 0,
+      "businessContext": "Enter the number of additional full months beyond the years."
+    },
+    {
+      "id": "ageDays",
+      "label": "Additional Days",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Enter the number of additional days beyond the months."
+    },
+    {
+      "id": "ageHours",
+      "label": "Additional Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 0,
+      "businessContext": "Enter any additional hours beyond the days."
+    }
+  ],
+  "formulas": {
+    "totalDays": "ageYears * 365.2425 + ageMonths * 30.436875 + ageDays",
+    "totalHours": "totalDays * 24 + ageHours"
+  },
+  "outputs": {
+    "primary": {
+      "id": "totalHours",
+      "label": "Total Age in Hours",
+      "unit": "hours"
+    },
+    "breakdown": [
+      {
+        "id": "totalDays",
+        "label": "Age in Days",
+        "unit": "days"
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "asphalt-thickness-calculator",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "Alan",
+      "type": "number",
+      "unit": "m²",
+      "default": 1000,
+      "businessContext": "Kaplanacak toplam alan (m² cinsinden)"
+    },
+    {
+      "id": "mass",
+      "label": "Kütle",
+      "type": "number",
+      "unit": "kg",
+      "default": 240000,
+      "businessContext": "Asfalt karışımının toplam kütlesi (kg cinsinden)"
+    },
+    {
+      "id": "density",
+      "label": "Yoğunluk",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 2400,
+      "businessContext": "Sıkıştırılmış asfaltın yoğunluğu (tipik: 2400 kg/m³)"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Atık Faktörü",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Malzeme kaybı oranı (%)"
+    }
+  ],
+  "formulas": {
+    "asphaltThickness": "(mass / (1 + wasteFactor / 100)) / (density * area) * 1000",
+    "thicknessInCm": "(mass / (1 + wasteFactor / 100)) / (density * area) * 100",
+    "volumeInCubicMeters": "(mass / (1 + wasteFactor / 100)) / density",
+    "effectiveMass": "mass / (1 + wasteFactor / 100)"
+  },
+  "outputs": {
+    "primary": "asphaltThickness",
+    "breakdown": [
+      "thicknessInCm",
+      "volumeInCubicMeters",
+      "effectiveMass"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

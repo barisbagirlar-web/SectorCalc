@@ -1,0 +1,55 @@
+{
+  "toolName": "uk-mpg-to-us-mpg-calculator",
+  "inputs": [
+    {
+      "id": "uk_mpg",
+      "label": "UK MPG",
+      "type": "number",
+      "unit": "mpg (UK)",
+      "default": 40,
+      "businessContext": "Fuel efficiency in miles per imperial gallon"
+    },
+    {
+      "id": "imp_gal_l",
+      "label": "Imperial Gallon to Litres",
+      "type": "number",
+      "unit": "litres",
+      "default": 4.54609,
+      "businessContext": "Conversion constant: 1 imperial gallon = 4.54609 litres"
+    },
+    {
+      "id": "us_gal_l",
+      "label": "US Gallon to Litres",
+      "type": "number",
+      "unit": "litres",
+      "default": 3.785411784,
+      "businessContext": "Conversion constant: 1 US gallon = 3.785411784 litres"
+    },
+    {
+      "id": "uk_mpg_adjustment",
+      "label": "UK MPG Adjustment",
+      "type": "number",
+      "unit": "mpg (UK)",
+      "default": 0,
+      "businessContext": "Optional offset to UK MPG for scenario testing"
+    }
+  ],
+  "formulas": {
+    "adjusted_uk_mpg": "uk_mpg + uk_mpg_adjustment",
+    "us_mpg": "adjusted_uk_mpg * (us_gal_l / imp_gal_l)",
+    "conversion_factor": "us_gal_l / imp_gal_l"
+  },
+  "outputs": {
+    "primary": "us_mpg",
+    "breakdown": [
+      "conversion_factor",
+      "adjusted_uk_mpg"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

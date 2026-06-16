@@ -1,0 +1,78 @@
+{
+  "toolName": "cable-sizing-calculator",
+  "inputs": [
+    {
+      "id": "loadCurrent",
+      "label": "Load Current",
+      "type": "number",
+      "unit": "A",
+      "default": 10,
+      "businessContext": "The full load current drawn by the equipment."
+    },
+    {
+      "id": "cableLength",
+      "label": "Cable Length (one-way)",
+      "type": "number",
+      "unit": "m",
+      "default": 50,
+      "businessContext": "One-way distance between power source and load."
+    },
+    {
+      "id": "supplyVoltage",
+      "label": "Supply Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 230,
+      "businessContext": "Nominal voltage of the supply."
+    },
+    {
+      "id": "voltageDropPercent",
+      "label": "Max Voltage Drop",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "Maximum allowable voltage drop as percentage of supply voltage."
+    },
+    {
+      "id": "resistivity",
+      "label": "Conductor Resistivity",
+      "type": "number",
+      "unit": "Ω·mm²/m",
+      "default": 0.0172,
+      "businessContext": "Resistivity of conductor material at operating temperature (e.g., copper: 0.0172, aluminum: 0.0282)."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "none",
+      "default": 1.25,
+      "businessContext": "Design margin to account for future load increases or uncertainties."
+    },
+    {
+      "id": "ambientTempFactor",
+      "label": "Temperature Factor",
+      "type": "number",
+      "unit": "none",
+      "default": 1,
+      "businessContext": "Correction factor for ambient temperature (1.0 for standard conditions)."
+    }
+  ],
+  "formulas": {
+    "voltageDropVolts": "supplyVoltage * (voltageDropPercent / 100)",
+    "minCableArea": "(2 * cableLength * loadCurrent * resistivity * safetyFactor * ambientTempFactor) / voltageDropVolts"
+  },
+  "outputs": {
+    "primary": "minCableArea",
+    "breakdown": [
+      "voltageDropVolts",
+      "minCableArea"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

@@ -1,0 +1,61 @@
+{
+  "toolName": "chocolate-tempering-seed-calculator",
+  "inputs": [
+    {
+      "id": "meltedMass",
+      "label": "Melted Chocolate Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Mass of melted chocolate to be tempered."
+    },
+    {
+      "id": "meltedTemp",
+      "label": "Melted Chocolate Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 45,
+      "businessContext": "Temperature of the chocolate after melting."
+    },
+    {
+      "id": "targetTemp",
+      "label": "Target Working Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 31,
+      "businessContext": "Desired working temperature for tempered chocolate."
+    },
+    {
+      "id": "seedTemp",
+      "label": "Seed Chocolate Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Temperature of the seed chocolate (room temperature)."
+    }
+  ],
+  "formulas": {
+    "requiredSeedMass": "meltedMass * (meltedTemp - targetTemp) / (targetTemp - seedTemp)",
+    "seedRatioPercent": "((meltedTemp - targetTemp) / (targetTemp - seedTemp)) * 100"
+  },
+  "outputs": {
+    "primary": {
+      "id": "requiredSeedMass",
+      "label": "Required Seed Chocolate Mass",
+      "unit": "kg"
+    },
+    "breakdown": [
+      {
+        "id": "seedRatioPercent",
+        "label": "Seed to Melt Ratio",
+        "unit": "%"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

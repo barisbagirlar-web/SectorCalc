@@ -1,0 +1,57 @@
+{
+  "toolName": "photon-energy-calculator",
+  "inputs": [
+    {
+      "id": "freq",
+      "label": "Frekans (THz)",
+      "type": "number",
+      "unit": "THz",
+      "default": 0,
+      "businessContext": "Girilen foton frekansı, terahertz cinsinden"
+    },
+    {
+      "id": "wave",
+      "label": "Dalga Boyu (nm)",
+      "type": "number",
+      "unit": "nm",
+      "default": 0,
+      "businessContext": "Girilen foton dalga boyu, nanometre cinsinden"
+    },
+    {
+      "id": "h",
+      "label": "Planck Sabiti (×10⁻³⁴ J·s)",
+      "type": "number",
+      "unit": "10⁻³⁴ J·s",
+      "default": 6.62607015,
+      "businessContext": "Planck sabiti, evrensel fiziksel sabit"
+    },
+    {
+      "id": "c",
+      "label": "Işık Hızı (×10⁸ m/s)",
+      "type": "number",
+      "unit": "10⁸ m/s",
+      "default": 2.99792458,
+      "businessContext": "Vakum ışık hızı, standart değer"
+    }
+  ],
+  "formulas": {
+    "energy_J": "freq > 0 ? h * 1e-34 * freq * 1e12 : (wave > 0 ? h * 1e-34 * c * 1e8 / (wave * 1e-9) : 0)",
+    "energy_eV": "energy_J / 1.602176634e-19",
+    "freq_hz": "freq * 1e12",
+    "wave_m": "wave * 1e-9"
+  },
+  "outputs": {
+    "primary": "energy_eV",
+    "breakdown": [
+      "energy_J",
+      "freq_hz",
+      "wave_m"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

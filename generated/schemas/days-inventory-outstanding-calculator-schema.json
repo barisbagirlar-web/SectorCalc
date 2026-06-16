@@ -1,0 +1,54 @@
+{
+  "toolName": "days-inventory-outstanding-calculator",
+  "inputs": [
+    {
+      "id": "averageInventory",
+      "label": "Average Inventory",
+      "type": "number",
+      "unit": "currency (e.g., USD)",
+      "default": 0,
+      "businessContext": "The average value of inventory held during the period. Typically (Beginning Inventory + Ending Inventory) / 2."
+    },
+    {
+      "id": "costOfGoodsSold",
+      "label": "Cost of Goods Sold (COGS)",
+      "type": "number",
+      "unit": "currency (e.g., USD)",
+      "default": 0,
+      "businessContext": "The total cost of goods sold during the period."
+    },
+    {
+      "id": "periodDays",
+      "label": "Period Length (Days)",
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "businessContext": "Number of days in the measurement period. Standard is 365 for annual calculation."
+    },
+    {
+      "id": "inventoryTurnover",
+      "label": "Inventory Turnover Ratio (Optional)",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0,
+      "businessContext": "If known, enter the inventory turnover ratio (COGS / Average Inventory). If provided, DIO will be calculated as Period Days / Turnover Ratio. Leave 0 to calculate from Average Inventory and COGS."
+    }
+  ],
+  "formulas": {
+    "daysInventoryOutstanding": "(inventoryTurnover > 0) ? (periodDays / inventoryTurnover) : ((averageInventory > 0 && costOfGoodsSold > 0) ? (periodDays * averageInventory / costOfGoodsSold) : 0)",
+    "inventoryTurnoverRatio": "(inventoryTurnover > 0) ? inventoryTurnover : ((averageInventory > 0 && costOfGoodsSold > 0) ? (costOfGoodsSold / averageInventory) : 0)"
+  },
+  "outputs": {
+    "primary": "daysInventoryOutstanding",
+    "breakdown": [
+      "inventoryTurnoverRatio",
+      "daysInventoryOutstanding"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

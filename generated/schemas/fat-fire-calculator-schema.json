@@ -1,0 +1,93 @@
+{
+  "toolName": "fat-fire-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Your current age in years."
+    },
+    {
+      "id": "retirementAge",
+      "label": "Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 65,
+      "businessContext": "Target age to retire."
+    },
+    {
+      "id": "annualRetirementExpenses",
+      "label": "Annual Retirement Expenses (Today's Dollars)",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Expected annual expenses during retirement, in today's dollars (fat FIRE typically high spending)."
+    },
+    {
+      "id": "currentSavings",
+      "label": "Current Savings",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Current amount already saved for retirement."
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Monthly Contribution",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Amount you plan to save each month until retirement."
+    },
+    {
+      "id": "annualReturnRate",
+      "label": "Expected Annual Real Return",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.07,
+      "businessContext": "Expected annual real return on investments (e.g., 0.07 for 7%)."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Expected Annual Inflation Rate",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.03,
+      "businessContext": "Expected annual inflation rate (e.g., 0.03 for 3%)."
+    },
+    {
+      "id": "safeWithdrawalRate",
+      "label": "Safe Withdrawal Rate",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.04,
+      "businessContext": "Percentage of portfolio you can safely withdraw annually (e.g., 0.04 for 4% rule)."
+    }
+  ],
+  "formulas": {
+    "yearsToRetirement": "retirementAge - currentAge",
+    "adjustedExpenses": "annualRetirementExpenses * ((1 + inflationRate) ** yearsToRetirement)",
+    "requiredCorpus": "adjustedExpenses / safeWithdrawalRate",
+    "futureValueCurrentSavings": "currentSavings * ((1 + annualReturnRate) ** yearsToRetirement)",
+    "futureValueContributions": "(monthlyContribution * 12) * (((1 + annualReturnRate) ** yearsToRetirement - 1) / annualReturnRate)",
+    "totalSavingsAtRetirement": "futureValueCurrentSavings + futureValueContributions",
+    "shortfall": "requiredCorpus - totalSavingsAtRetirement"
+  },
+  "outputs": {
+    "primary": "shortfall",
+    "breakdown": [
+      "requiredCorpus",
+      "totalSavingsAtRetirement",
+      "futureValueCurrentSavings",
+      "futureValueContributions"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

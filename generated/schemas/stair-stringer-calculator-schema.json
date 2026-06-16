@@ -1,0 +1,83 @@
+{
+  "toolName": "stair-stringer-calculator",
+  "inputs": [
+    {
+      "id": "totalRise",
+      "label": "Total Rise",
+      "type": "number",
+      "unit": "mm",
+      "default": 2800,
+      "businessContext": "Zemin kattan bir üst katın bitmiş yüzeyine olan dikey mesafe (mm cinsinden)"
+    },
+    {
+      "id": "numberRisers",
+      "label": "Number of Risers",
+      "type": "number",
+      "unit": "adet",
+      "default": 15,
+      "businessContext": "Basamak sayısı (yükselen sayısı)"
+    },
+    {
+      "id": "treadDepth",
+      "label": "Tread Depth",
+      "type": "number",
+      "unit": "mm",
+      "default": 280,
+      "businessContext": "Her bir basamağın yatay derinliği (mm cinsinden)"
+    },
+    {
+      "id": "stringerWidth",
+      "label": "Stringer Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 286,
+      "businessContext": "Kiriş genişliği (örneğin 2x12 inç nominal kereste için gerçek genişlik ~286 mm)"
+    },
+    {
+      "id": "nosing",
+      "label": "Nosing Overhang",
+      "type": "number",
+      "unit": "mm",
+      "default": 25,
+      "businessContext": "Basamağın yükselen ön yüzeyinden taşma miktarı (mm cinsinden)"
+    }
+  ],
+  "formulas": {
+    "riserHeight": {
+      "expression": "totalRise / numberRisers",
+      "unit": "mm"
+    },
+    "totalRun": {
+      "expression": "treadDepth * (numberRisers - 1)",
+      "unit": "mm"
+    },
+    "stringerLength": {
+      "expression": "Math.sqrt(Math.pow(totalRise, 2) + Math.pow(totalRun, 2))",
+      "unit": "mm"
+    },
+    "angle": {
+      "expression": "Math.atan(totalRise / totalRun) * (180 / Math.PI)",
+      "unit": "°"
+    },
+    "numberTreads": {
+      "expression": "numberRisers - 1",
+      "unit": "adet"
+    }
+  },
+  "outputs": {
+    "primary": "Cutting Stringer: {stringerLength.toFixed(1)} mm at {angle.toFixed(1)}°",
+    "breakdown": [
+      "Riser Height: {riserHeight.toFixed(1)} mm",
+      "Total Run: {totalRun.toFixed(1)} mm",
+      "Number of Treads: {numberTreads}",
+      "Stringer Length: {stringerLength.toFixed(1)} mm",
+      "Inclination Angle: {angle.toFixed(1)}°"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

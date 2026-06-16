@@ -1,0 +1,55 @@
+{
+  "toolName": "excise-tax-calculator",
+  "inputs": [
+    {
+      "id": "unitPrice",
+      "label": "Birim Fiyat",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "Ürünün vergi hariç birim fiyatı"
+    },
+    {
+      "id": "quantity",
+      "label": "Miktar",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Satılan veya üretilen birim sayısı"
+    },
+    {
+      "id": "adValoremRate",
+      "label": "Ad Valorem Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Vergi matrahına uygulanan yüzdesel oran"
+    },
+    {
+      "id": "specificTaxPerUnit",
+      "label": "Birim Spesifik Vergi",
+      "type": "number",
+      "unit": "currency",
+      "default": 5,
+      "businessContext": "Her birim başına uygulanan sabit vergi tutarı"
+    }
+  ],
+  "formulas": {
+    "totalExciseTax": "quantity * specificTaxPerUnit + unitPrice * quantity * (adValoremRate / 100)",
+    "specificTaxAmount": "quantity * specificTaxPerUnit",
+    "adValoremTaxAmount": "unitPrice * quantity * (adValoremRate / 100)"
+  },
+  "outputs": {
+    "primary": "totalExciseTax",
+    "breakdown": [
+      "specificTaxAmount",
+      "adValoremTaxAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

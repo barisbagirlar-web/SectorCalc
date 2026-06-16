@@ -1,0 +1,49 @@
+{
+  "toolName": "hookes-law-calculator",
+  "inputs": [
+    {
+      "id": "force",
+      "label": "Force (F)",
+      "type": "number",
+      "unit": "N",
+      "default": 100,
+      "businessContext": "Applied force on the spring"
+    },
+    {
+      "id": "springConstant",
+      "label": "Spring Constant (k)",
+      "type": "number",
+      "unit": "N/m",
+      "default": 500,
+      "businessContext": "Stiffness of the spring"
+    },
+    {
+      "id": "displacement",
+      "label": "Displacement (x)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.2,
+      "businessContext": "Extension or compression from equilibrium"
+    }
+  ],
+  "formulas": {
+    "force": "springConstant * displacement",
+    "springConstant": "force / displacement",
+    "displacement": "force / springConstant",
+    "potentialEnergy": "0.5 * springConstant * displacement * displacement"
+  },
+  "outputs": {
+    "primary": "force",
+    "breakdown": [
+      "springConstant",
+      "displacement",
+      "potentialEnergy"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

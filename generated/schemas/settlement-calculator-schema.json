@@ -1,0 +1,57 @@
+{
+  "toolName": "settlement-calculator",
+  "inputs": [
+    {
+      "id": "grossMonthlySalary",
+      "label": "Gross Monthly Salary",
+      "type": "number",
+      "unit": "TRY",
+      "default": 5000,
+      "businessContext": "Employee's last gross monthly salary before termination"
+    },
+    {
+      "id": "yearsOfService",
+      "label": "Years of Service",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Total tenure in years with the employer"
+    },
+    {
+      "id": "unusedLeaveDays",
+      "label": "Unused Annual Leave Days",
+      "type": "number",
+      "unit": "days",
+      "default": 10,
+      "businessContext": "Accumulated but unused paid annual leave days"
+    },
+    {
+      "id": "noticePeriodDays",
+      "label": "Notice Period (Days)",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Statutory notice period that was not worked"
+    }
+  ],
+  "formulas": {
+    "severancePay": "grossMonthlySalary * yearsOfService",
+    "noticePay": "(grossMonthlySalary / 30) * noticePeriodDays",
+    "leaveEncashment": "(grossMonthlySalary / 30) * unusedLeaveDays",
+    "totalSettlement": "grossMonthlySalary * yearsOfService + (grossMonthlySalary / 30) * noticePeriodDays + (grossMonthlySalary / 30) * unusedLeaveDays"
+  },
+  "outputs": {
+    "primary": "totalSettlement",
+    "breakdown": [
+      "severancePay",
+      "noticePay",
+      "leaveEncashment"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

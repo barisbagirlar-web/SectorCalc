@@ -1,0 +1,90 @@
+{
+  "toolName": "interference-fit-calculator",
+  "inputs": [
+    {
+      "id": "shaft_diameter",
+      "label": "Shaft Diameter (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Nominal diameter of the shaft"
+    },
+    {
+      "id": "hub_diameter",
+      "label": "Hub Outer Diameter (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Outer diameter of the hub"
+    },
+    {
+      "id": "interference",
+      "label": "Interference (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.05,
+      "businessContext": "Radial interference between shaft and hub"
+    },
+    {
+      "id": "young_modulus_shaft",
+      "label": "Young's Modulus Shaft (GPa)",
+      "type": "number",
+      "unit": "GPa",
+      "default": 210,
+      "businessContext": "Elastic modulus of shaft material"
+    },
+    {
+      "id": "young_modulus_hub",
+      "label": "Young's Modulus Hub (GPa)",
+      "type": "number",
+      "unit": "GPa",
+      "default": 210,
+      "businessContext": "Elastic modulus of hub material"
+    },
+    {
+      "id": "poisson_shaft",
+      "label": "Poisson's Ratio Shaft",
+      "type": "number",
+      "unit": "",
+      "default": 0.3,
+      "businessContext": "Poisson's ratio of shaft material"
+    },
+    {
+      "id": "poisson_hub",
+      "label": "Poisson's Ratio Hub",
+      "type": "number",
+      "unit": "",
+      "default": 0.3,
+      "businessContext": "Poisson's ratio of hub material"
+    },
+    {
+      "id": "friction_coefficient",
+      "label": "Friction Coefficient",
+      "type": "number",
+      "unit": "",
+      "default": 0.15,
+      "businessContext": "Coefficient of friction between mating surfaces"
+    }
+  ],
+  "formulas": {
+    "contact_pressure": "interference / ( (shaft_diameter/2) * ( (1/young_modulus_shaft) * (1 - poisson_shaft) + (1/young_modulus_hub) * ( (hub_diameter**2 + shaft_diameter**2) / (hub_diameter**2 - shaft_diameter**2) + poisson_hub ) ) )",
+    "axial_force": "Math.PI * shaft_diameter * 1000 * contact_pressure * friction_coefficient * (shaft_diameter/2)",
+    "torque_capacity": "Math.PI * shaft_diameter * 1000 * contact_pressure * friction_coefficient * (shaft_diameter/2) * (shaft_diameter/2)",
+    "von_mises_stress_hub": "contact_pressure * ( (hub_diameter**2 + shaft_diameter**2) / (hub_diameter**2 - shaft_diameter**2) )"
+  },
+  "outputs": {
+    "primary": "contact_pressure",
+    "breakdown": [
+      "Contact Pressure: {contact_pressure} MPa",
+      "Axial Force Capacity: {axial_force} N",
+      "Torque Capacity: {torque_capacity} N·mm",
+      "Von Mises Stress (Hub): {von_mises_stress_hub} MPa"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

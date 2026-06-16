@@ -1,0 +1,65 @@
+{
+  "toolName": "20-20-vision-calculator",
+  "inputs": [
+    {
+      "id": "viewingFeet",
+      "label": "Viewing Distance (ft)",
+      "type": "number",
+      "unit": "ft",
+      "default": 20,
+      "businessContext": "Standard viewing distance for Snellen chart in feet"
+    },
+    {
+      "id": "letterFeet",
+      "label": "Letter Size Distance (ft)",
+      "type": "number",
+      "unit": "ft",
+      "default": 20,
+      "businessContext": "Distance at which a person with normal vision can read the same line, in feet"
+    },
+    {
+      "id": "viewingMeters",
+      "label": "Viewing Distance (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 6,
+      "businessContext": "Standard viewing distance for metric Snellen chart in meters"
+    },
+    {
+      "id": "letterMeters",
+      "label": "Letter Size Distance (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 6,
+      "businessContext": "Distance at which a person with normal vision can read the same line, in meters"
+    },
+    {
+      "id": "targetDecimalAcuity",
+      "label": "Target Decimal Acuity",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Optional: desired decimal acuity for reverse calculation of required letter distance"
+    }
+  ],
+  "formulas": {
+    "decimalAcuity": "(viewingFeet > 0 && letterFeet > 0) ? viewingFeet / letterFeet : (viewingMeters > 0 && letterMeters > 0) ? viewingMeters / letterMeters : 1",
+    "logMAR": "Math.log(1 / ((viewingFeet > 0 && letterFeet > 0) ? viewingFeet / letterFeet : (viewingMeters > 0 && letterMeters > 0) ? viewingMeters / letterMeters : 1)) / Math.LN10",
+    "MAR_arcmin": "1 / ((viewingFeet > 0 && letterFeet > 0) ? viewingFeet / letterFeet : (viewingMeters > 0 && letterMeters > 0) ? viewingMeters / letterMeters : 1)",
+    "requiredLetterDistance": "targetDecimalAcuity > 0 ? ((viewingFeet > 0) ? viewingFeet : viewingMeters) / targetDecimalAcuity : 0"
+  },
+  "outputs": {
+    "primary": "logMAR",
+    "breakdown": [
+      "decimalAcuity",
+      "MAR_arcmin",
+      "requiredLetterDistance"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

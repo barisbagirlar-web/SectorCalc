@@ -1,0 +1,57 @@
+{
+  "toolName": "cricket-run-rate-calculator",
+  "inputs": [
+    {
+      "id": "runsScored",
+      "label": "Runs Scored",
+      "type": "number",
+      "unit": "runs",
+      "default": 0,
+      "businessContext": "Total runs scored so far in the innings"
+    },
+    {
+      "id": "oversFaced",
+      "label": "Overs Faced",
+      "type": "number",
+      "unit": "overs",
+      "default": 0,
+      "businessContext": "Overs bowled so far, as decimal (e.g., 15.4 = 15 overs, 4 balls)"
+    },
+    {
+      "id": "targetRuns",
+      "label": "Target Runs",
+      "type": "number",
+      "unit": "runs",
+      "default": 0,
+      "businessContext": "Target runs to achieve"
+    },
+    {
+      "id": "totalOvers",
+      "label": "Total Overs",
+      "type": "number",
+      "unit": "overs",
+      "default": 20,
+      "businessContext": "Total overs available for the innings"
+    }
+  ],
+  "formulas": {
+    "currentRunRate": "((Math.floor(oversFaced) * 6 + (oversFaced % 1) * 10) > 0 ? 6 * runsScored / (Math.floor(oversFaced) * 6 + (oversFaced % 1) * 10) : 0)",
+    "requiredRunRate": "((Math.floor(totalOvers) * 6 + (totalOvers % 1) * 10 - (Math.floor(oversFaced) * 6 + (oversFaced % 1) * 10)) > 0 ? 6 * (targetRuns - runsScored) / (Math.floor(totalOvers) * 6 + (totalOvers % 1) * 10 - (Math.floor(oversFaced) * 6 + (oversFaced % 1) * 10)) : ((targetRuns - runsScored) > 0 ? 1e10 : 0))",
+    "runsRemaining": "Math.max(0, targetRuns - runsScored)",
+    "oversRemaining": "Math.floor(Math.max(0, (Math.floor(totalOvers) * 6 + (totalOvers % 1) * 10) - (Math.floor(oversFaced) * 6 + (oversFaced % 1) * 10)) / 6) + (Math.max(0, (Math.floor(totalOvers) * 6 + (totalOvers % 1) * 10) - (Math.floor(oversFaced) * 6 + (oversFaced % 1) * 10)) % 6) / 10"
+  },
+  "outputs": {
+    "primary": "requiredRunRate",
+    "breakdown": [
+      "currentRunRate",
+      "runsRemaining",
+      "oversRemaining"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

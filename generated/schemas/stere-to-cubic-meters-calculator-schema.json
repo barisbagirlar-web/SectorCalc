@@ -1,0 +1,73 @@
+{
+  "toolName": "stere-to-cubic-meters-calculator",
+  "inputs": [
+    {
+      "id": "quantity",
+      "label": "Volume (Stere)",
+      "type": "number",
+      "unit": "st",
+      "default": 1,
+      "businessContext": "The volume of wood in steres to convert"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "m³/st",
+      "default": 1,
+      "businessContext": "Conversion factor, typically 1 stere = 1 m³. Adjust for specific stacking variants."
+    },
+    {
+      "id": "stackingFactor",
+      "label": "Stacking Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1.0 for standard stacked steres. Use 0.7–0.8 for loose chainsaw chips."
+    },
+    {
+      "id": "pricePerStere",
+      "label": "Price per Stere",
+      "type": "number",
+      "unit": "€/st",
+      "default": 0,
+      "businessContext": "Optional: price per stere for cost calculations"
+    },
+    {
+      "id": "pricePerCubicMeter",
+      "label": "Price per Cubic Meter",
+      "type": "number",
+      "unit": "€/m³",
+      "default": 0,
+      "businessContext": "Optional: price per cubic meter for cost comparison"
+    },
+    {
+      "id": "roundingPrecision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for final result"
+    }
+  ],
+  "formulas": {
+    "rawVolume": "quantity * conversionFactor * stackingFactor",
+    "convertedVolume": "Math.round(quantity * conversionFactor * stackingFactor * Math.pow(10, roundingPrecision)) / Math.pow(10, roundingPrecision)",
+    "totalCostStere": "pricePerStere * quantity",
+    "totalCostCubicMeter": "pricePerCubicMeter * quantity * conversionFactor * stackingFactor"
+  },
+  "outputs": {
+    "primary": "convertedVolume",
+    "breakdown": [
+      "rawVolume",
+      "totalCostStere",
+      "totalCostCubicMeter"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

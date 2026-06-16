@@ -1,0 +1,59 @@
+{
+  "toolName": "absolute-value-calculator",
+  "inputs": [
+    {
+      "id": "value1",
+      "label": "Number 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First number to compute absolute value"
+    },
+    {
+      "id": "value2",
+      "label": "Number 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second number to compute absolute value"
+    },
+    {
+      "id": "value3",
+      "label": "Number 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Third number to compute absolute value"
+    },
+    {
+      "id": "value4",
+      "label": "Number 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fourth number to compute absolute value"
+    }
+  ],
+  "formulas": {
+    "maxAbs": "Math.max(Math.abs(value1), Math.abs(value2), Math.abs(value3), Math.abs(value4))",
+    "abs1": "Math.abs(value1)",
+    "abs2": "Math.abs(value2)",
+    "abs3": "Math.abs(value3)",
+    "abs4": "Math.abs(value4)"
+  },
+  "outputs": {
+    "primary": "maxAbs",
+    "breakdown": [
+      "abs1",
+      "abs2",
+      "abs3",
+      "abs4"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

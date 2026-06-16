@@ -1,0 +1,86 @@
+{
+  "toolName": "ev-range-calculator",
+  "inputs": [
+    {
+      "id": "battery_capacity",
+      "label": "Battery Capacity",
+      "type": "number",
+      "unit": "kWh",
+      "default": 60,
+      "businessContext": "Usable battery capacity of the electric vehicle"
+    },
+    {
+      "id": "base_consumption",
+      "label": "Base Energy Consumption",
+      "type": "number",
+      "unit": "Wh/km",
+      "default": 180,
+      "businessContext": "Energy consumption per kilometer under standard conditions"
+    },
+    {
+      "id": "temperature_factor",
+      "label": "Temperature Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Multiplier for consumption due to ambient temperature"
+    },
+    {
+      "id": "driving_style_factor",
+      "label": "Driving Style Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Multiplier for consumption due to driving behavior"
+    },
+    {
+      "id": "auxiliary_power",
+      "label": "Auxiliary Power",
+      "type": "number",
+      "unit": "W",
+      "default": 500,
+      "businessContext": "Continuous power draw from accessories like climate control"
+    },
+    {
+      "id": "average_speed",
+      "label": "Average Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 60,
+      "businessContext": "Estimated average speed during the trip"
+    }
+  ],
+  "formulas": {
+    "effective_consumption": "base_consumption * temperature_factor * driving_style_factor + (auxiliary_power / average_speed)",
+    "optimal_range_km": "(battery_capacity * 1000) / base_consumption",
+    "estimated_range_km": "(battery_capacity * 1000) / (base_consumption * temperature_factor * driving_style_factor + (auxiliary_power / average_speed))"
+  },
+  "outputs": {
+    "primary": {
+      "id": "estimated_range_km",
+      "label": "Estimated Range",
+      "unit": "km",
+      "value": "estimated_range_km"
+    },
+    "breakdown": [
+      {
+        "id": "optimal_range_km",
+        "label": "Optimal Range",
+        "unit": "km",
+        "value": "optimal_range_km"
+      },
+      {
+        "id": "effective_consumption",
+        "label": "Effective Consumption",
+        "unit": "Wh/km",
+        "value": "effective_consumption"
+      }
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

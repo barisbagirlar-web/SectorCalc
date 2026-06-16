@@ -1,0 +1,89 @@
+{
+  "toolName": "convection-calculator",
+  "inputs": [
+    {
+      "id": "L",
+      "label": "Plaka Yüksekliği (L)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Taşınımın gerçekleştiği dikey plakanın yüksekliği."
+    },
+    {
+      "id": "W",
+      "label": "Plaka Genişliği (W)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "businessContext": "Isı transfer alanı hesabı için plaka genişliği."
+    },
+    {
+      "id": "Ts",
+      "label": "Yüzey Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "default": 50,
+      "businessContext": "Plaka yüzey sıcaklığı."
+    },
+    {
+      "id": "Tinf",
+      "label": "Akışkan Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "Ortam akışkan sıcaklığı (genellikle hava)."
+    },
+    {
+      "id": "k",
+      "label": "Isıl İletkenlik (k)",
+      "type": "number",
+      "unit": "W/mK",
+      "default": 0.0257,
+      "businessContext": "Akışkanın ısıl iletkenlik katsayısı (hava için ~0.0257 W/mK)."
+    },
+    {
+      "id": "nu",
+      "label": "Kinematik Viskozite (ν)",
+      "type": "number",
+      "unit": "m²/s",
+      "default": 0.000016,
+      "businessContext": "Akışkanın kinematik viskozitesi (hava için ~1.6e-5 m²/s)."
+    },
+    {
+      "id": "Pr",
+      "label": "Prandtl Sayısı (Pr)",
+      "type": "number",
+      "unit": "",
+      "default": 0.7,
+      "businessContext": "Akışkanın Prandtl sayısı (hava için ~0.7)."
+    }
+  ],
+  "formulas": {
+    "deltaT": "Ts - Tinf",
+    "Tf_K": "Tinf + 273.15",
+    "beta": "1 / Tf_K",
+    "Gr": "9.81 * beta * Math.abs(deltaT) * Math.pow(L, 3) / (nu * nu)",
+    "Ra": "Gr * Pr",
+    "Nu": "Ra <= 1e9 ? 0.59 * Math.pow(Ra, 0.25) : 0.1 * Math.pow(Ra, 1/3)",
+    "h": "Nu * k / L",
+    "A": "L * W",
+    "Q": "h * A * deltaT"
+  },
+  "outputs": {
+    "primary": "Q",
+    "breakdown": [
+      "Grashof Sayısı (Gr)",
+      "Rayleigh Sayısı (Ra)",
+      "Nusselt Sayısı (Nu)",
+      "Isı Taşınım Katsayısı (h) [W/m²K]",
+      "Alan (A) [m²]",
+      "Sıcaklık Farkı (ΔT) [°C]"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

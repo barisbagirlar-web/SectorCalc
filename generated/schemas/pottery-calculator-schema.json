@@ -1,0 +1,89 @@
+{
+  "toolName": "pottery-calculator",
+  "inputs": [
+    {
+      "id": "numberOfPieces",
+      "label": "Number of Pieces",
+      "type": "number",
+      "unit": "pcs",
+      "default": 10,
+      "businessContext": "Total quantity of pottery items to produce."
+    },
+    {
+      "id": "clayWeightPerPiece",
+      "label": "Clay Weight per Piece",
+      "type": "number",
+      "unit": "g",
+      "default": 500,
+      "businessContext": "Amount of clay needed for one piece before firing."
+    },
+    {
+      "id": "clayCostPerKg",
+      "label": "Clay Cost per Kg",
+      "type": "number",
+      "unit": "$/kg",
+      "default": 2.5,
+      "businessContext": "Market price of clay per kilogram."
+    },
+    {
+      "id": "glazeUsagePerPiece",
+      "label": "Glaze Usage per Piece",
+      "type": "number",
+      "unit": "ml",
+      "default": 30,
+      "businessContext": "Volume of glaze applied on each piece."
+    },
+    {
+      "id": "glazeCostPerLiter",
+      "label": "Glaze Cost per Liter",
+      "type": "number",
+      "unit": "$/L",
+      "default": 15,
+      "businessContext": "Market price of glaze per liter."
+    },
+    {
+      "id": "firingCostPerPiece",
+      "label": "Firing Cost per Piece",
+      "type": "number",
+      "unit": "$",
+      "default": 1.2,
+      "businessContext": "Energy and kiln maintenance cost for firing one piece."
+    },
+    {
+      "id": "overheadPercentage",
+      "label": "Overhead Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Indirect costs (labor, rent, tools) as a percentage of material and firing costs."
+    }
+  ],
+  "formulas": {
+    "totalClayKg": "(numberOfPieces * clayWeightPerPiece) / 1000",
+    "totalClayCost": "totalClayKg * clayCostPerKg",
+    "totalGlazeLiters": "(numberOfPieces * glazeUsagePerPiece) / 1000",
+    "totalGlazeCost": "totalGlazeLiters * glazeCostPerLiter",
+    "materialCost": "totalClayCost + totalGlazeCost",
+    "firingCost": "numberOfPieces * firingCostPerPiece",
+    "subtotal": "materialCost + firingCost",
+    "overheadMultiplier": "1 + (overheadPercentage / 100)",
+    "totalCost": "subtotal * overheadMultiplier",
+    "costPerPiece": "totalCost / numberOfPieces"
+  },
+  "outputs": {
+    "primary": "costPerPiece",
+    "breakdown": [
+      "totalClayKg",
+      "totalGlazeLiters",
+      "materialCost",
+      "firingCost",
+      "totalCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Atölye & Tamir",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

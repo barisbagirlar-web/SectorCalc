@@ -1,0 +1,65 @@
+{
+  "toolName": "biot-savart-law-calculator",
+  "inputs": [
+    {
+      "id": "I",
+      "label": "Current",
+      "type": "number",
+      "unit": "A",
+      "default": 1,
+      "businessContext": "Electric current flowing through the wire segment"
+    },
+    {
+      "id": "r",
+      "label": "Perpendicular Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Shortest distance from the point to the infinite line containing the wire segment"
+    },
+    {
+      "id": "zp",
+      "label": "Observation Point Z",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Z-coordinate of the observation point relative to the wire segment (wire along Z-axis)"
+    },
+    {
+      "id": "z1",
+      "label": "Segment Start Z",
+      "type": "number",
+      "unit": "m",
+      "default": -0.05,
+      "businessContext": "Z-coordinate of the wire segment start"
+    },
+    {
+      "id": "z2",
+      "label": "Segment End Z",
+      "type": "number",
+      "unit": "m",
+      "default": 0.05,
+      "businessContext": "Z-coordinate of the wire segment end"
+    }
+  ],
+  "formulas": {
+    "B": "(1e-7 * I / r) * ((zp - z1) / Math.sqrt(r**2 + (zp - z1)**2) - (zp - z2) / Math.sqrt(r**2 + (zp - z2)**2))",
+    "cosTheta1": "(zp - z1) / Math.sqrt(r**2 + (zp - z1)**2)",
+    "cosTheta2": "(zp - z2) / Math.sqrt(r**2 + (zp - z2)**2)",
+    "factor": "1e-7 * I / r"
+  },
+  "outputs": {
+    "primary": "B",
+    "breakdown": [
+      "cosTheta1",
+      "cosTheta2",
+      "factor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

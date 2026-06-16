@@ -1,0 +1,73 @@
+{
+  "toolName": "damped-harmonic-oscillator-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass (m)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Mass of the oscillating body."
+    },
+    {
+      "id": "dampingCoeff",
+      "label": "Damping Coefficient (c)",
+      "type": "number",
+      "unit": "N·s/m",
+      "default": 0.5,
+      "businessContext": "Viscous damping coefficient."
+    },
+    {
+      "id": "springConst",
+      "label": "Spring Constant (k)",
+      "type": "number",
+      "unit": "N/m",
+      "default": 10,
+      "businessContext": "Stiffness of the spring."
+    },
+    {
+      "id": "initDisp",
+      "label": "Initial Displacement (x₀)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Displacement at t=0."
+    },
+    {
+      "id": "initVeloc",
+      "label": "Initial Velocity (v₀)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Velocity at t=0."
+    },
+    {
+      "id": "time",
+      "label": "Time (t)",
+      "type": "number",
+      "unit": "s",
+      "default": 1,
+      "businessContext": "Time instant to evaluate displacement."
+    }
+  ],
+  "formulas": {
+    "displacementAtTime": "(m = mass, c = dampingCoeff, k = springConst, x0 = initDisp, v0 = initVeloc, t = time, z = c / (2 * Math.sqrt(m * k)), wn = Math.sqrt(k / m), wd = wn * Math.sqrt(1 - z * z), Math.exp(-z * wn * t) * (x0 * Math.cos(wd * t) + (v0 + z * wn * x0) / wd * Math.sin(wd * t)))",
+    "dampingRatio": "(m = mass, c = dampingCoeff, k = springConst, c / (2 * Math.sqrt(m * k)))",
+    "naturalFrequency": "(m = mass, k = springConst, Math.sqrt(k / m))",
+    "dampedFrequency": "(m = mass, c = dampingCoeff, k = springConst, z = c / (2 * Math.sqrt(m * k)), wn = Math.sqrt(k / m), wn * Math.sqrt(1 - z * z))"
+  },
+  "outputs": {
+    "primary": "displacementAtTime",
+    "breakdown": [
+      "dampingRatio",
+      "naturalFrequency",
+      "dampedFrequency"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

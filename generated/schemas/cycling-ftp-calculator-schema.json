@@ -1,0 +1,70 @@
+{
+  "toolName": "cycling-ftp-calculator",
+  "inputs": [
+    {
+      "id": "averagePower",
+      "label": "Ortalama Güç",
+      "type": "number",
+      "unit": "W",
+      "default": 250,
+      "businessContext": "The average power output measured during the cycling test."
+    },
+    {
+      "id": "factor",
+      "label": "Faktör",
+      "type": "number",
+      "unit": "",
+      "default": 0.95,
+      "businessContext": "FTP dönüşüm faktörü (20 dk test için 0.95)."
+    },
+    {
+      "id": "bodyWeight",
+      "label": "Vücut Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Power-to-weight ratio calculation."
+    },
+    {
+      "id": "testDuration",
+      "label": "Test Süresi",
+      "type": "number",
+      "unit": "dk",
+      "default": 20,
+      "businessContext": "Duration of the test effort (for record)."
+    },
+    {
+      "id": "age",
+      "label": "Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 30,
+      "businessContext": "Rider age for reference."
+    },
+    {
+      "id": "temperature",
+      "label": "Sıcaklık",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Ambient temperature (for record)."
+    }
+  ],
+  "formulas": {
+    "ftp": "averagePower * factor",
+    "powerToWeight": "ftp / bodyWeight"
+  },
+  "outputs": {
+    "primary": "ftp",
+    "breakdown": [
+      "ftp",
+      "powerToWeight"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,62 @@
+{
+  "toolName": "series-capacitor-calculator",
+  "inputs": [
+    {
+      "id": "C1",
+      "label": "Capacitor 1 Capacitance",
+      "type": "number",
+      "unit": "farads (F)",
+      "default": 0,
+      "businessContext": "Capacitance value of the first capacitor in farads."
+    },
+    {
+      "id": "C2",
+      "label": "Capacitor 2 Capacitance",
+      "type": "number",
+      "unit": "farads (F)",
+      "default": 0,
+      "businessContext": "Capacitance value of the second capacitor in farads."
+    },
+    {
+      "id": "C3",
+      "label": "Capacitor 3 Capacitance",
+      "type": "number",
+      "unit": "farads (F)",
+      "default": 0,
+      "businessContext": "Capacitance value of the third capacitor in farads. Set to 0 if not used."
+    },
+    {
+      "id": "C4",
+      "label": "Capacitor 4 Capacitance",
+      "type": "number",
+      "unit": "farads (F)",
+      "default": 0,
+      "businessContext": "Capacitance value of the fourth capacitor in farads. Set to 0 if not used."
+    }
+  ],
+  "formulas": {
+    "recC1": "1 / C1",
+    "recC2": "1 / C2",
+    "recC3": "1 / C3",
+    "recC4": "1 / C4",
+    "recSum": "recC1 + recC2 + recC3 + recC4",
+    "C_total": "1 / recSum"
+  },
+  "outputs": {
+    "primary": "C_total",
+    "breakdown": [
+      "recC1",
+      "recC2",
+      "recC3",
+      "recC4",
+      "recSum",
+      "C_total"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

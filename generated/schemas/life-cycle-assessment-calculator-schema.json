@@ -1,0 +1,69 @@
+{
+  "toolName": "life-cycle-assessment-calculator",
+  "inputs": [
+    {
+      "id": "rawMaterialEmissions",
+      "label": "Hammadde Emisyonları",
+      "type": "number",
+      "unit": "kg CO2-eq",
+      "default": 0,
+      "businessContext": "Hammadde üretiminden kaynaklanan karbon ayak izi"
+    },
+    {
+      "id": "manufacturingEmissions",
+      "label": "Üretim Emisyonları",
+      "type": "number",
+      "unit": "kg CO2-eq",
+      "default": 0,
+      "businessContext": "Üretim sürecinden kaynaklanan karbon ayak izi"
+    },
+    {
+      "id": "transportEmissions",
+      "label": "Nakliye Emisyonları",
+      "type": "number",
+      "unit": "kg CO2-eq",
+      "default": 0,
+      "businessContext": "Taşıma ve lojistikten kaynaklanan karbon ayak izi"
+    },
+    {
+      "id": "usePhaseEmissions",
+      "label": "Kullanım Fazı Emisyonları",
+      "type": "number",
+      "unit": "kg CO2-eq",
+      "default": 0,
+      "businessContext": "Ürünün kullanımı sırasında ortaya çıkan karbon ayak izi"
+    },
+    {
+      "id": "endOfLifeEmissions",
+      "label": "Ömür Sonu Emisyonları",
+      "type": "number",
+      "unit": "kg CO2-eq",
+      "default": 0,
+      "businessContext": "Bertaraf veya geri dönüşümden kaynaklanan karbon ayak izi"
+    }
+  ],
+  "formulas": {
+    "totalCO2Eq": "rawMaterialEmissions + manufacturingEmissions + transportEmissions + usePhaseEmissions + endOfLifeEmissions",
+    "rawMaterial": "rawMaterialEmissions",
+    "manufacturing": "manufacturingEmissions",
+    "transport": "transportEmissions",
+    "usePhase": "usePhaseEmissions",
+    "endOfLife": "endOfLifeEmissions"
+  },
+  "outputs": {
+    "primary": "totalCO2Eq",
+    "breakdown": [
+      "rawMaterial",
+      "manufacturing",
+      "transport",
+      "usePhase",
+      "endOfLife"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

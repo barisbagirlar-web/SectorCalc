@@ -1,0 +1,58 @@
+{
+  "toolName": "present-value-calculator",
+  "inputs": [
+    {
+      "id": "futureValue",
+      "label": "Future Value",
+      "type": "number",
+      "unit": "EUR",
+      "default": 1000,
+      "businessContext": "The expected future amount."
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual discount rate as a percentage."
+    },
+    {
+      "id": "periods",
+      "label": "Number of Periods",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Time in years until future value is received."
+    },
+    {
+      "id": "compoundingFrequency",
+      "label": "Compounding Frequency",
+      "type": "number",
+      "unit": "times/year",
+      "default": 1,
+      "businessContext": "Number of compounding periods per year (1=annual, 2=semi-annual, 12=monthly, etc.)."
+    }
+  ],
+  "formulas": {
+    "rateDecimal": "discountRate / 100",
+    "periodRate": "rateDecimal / compoundingFrequency",
+    "totalPeriods": "periods * compoundingFrequency",
+    "discountFactor": "Math.pow(1 + periodRate, totalPeriods)",
+    "presentValue": "futureValue / discountFactor"
+  },
+  "outputs": {
+    "primary": "presentValue",
+    "breakdown": [
+      "periodRate",
+      "totalPeriods",
+      "discountFactor"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

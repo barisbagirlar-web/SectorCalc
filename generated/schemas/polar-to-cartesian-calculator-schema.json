@@ -1,0 +1,53 @@
+{
+  "toolName": "polar-to-cartesian-calculator",
+  "inputs": [
+    {
+      "id": "r",
+      "label": "Radius (r)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Radial distance from origin"
+    },
+    {
+      "id": "theta",
+      "label": "Angle (θ)",
+      "type": "number",
+      "unit": "deg",
+      "default": 0,
+      "businessContext": "Angle in degrees"
+    },
+    {
+      "id": "cx",
+      "label": "Center X",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "X-coordinate of origin offset"
+    },
+    {
+      "id": "cy",
+      "label": "Center Y",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Y-coordinate of origin offset"
+    }
+  ],
+  "formulas": {
+    "x": "cx + r * Math.cos(theta * Math.PI / 180)",
+    "y": "cy + r * Math.sin(theta * Math.PI / 180)"
+  },
+  "outputs": {
+    "primary": "x",
+    "breakdown": [
+      "y"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

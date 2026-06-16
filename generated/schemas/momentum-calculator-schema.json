@@ -1,0 +1,57 @@
+{
+  "toolName": "momentum-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Kütle (m)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Cismin kütlesi (kg cinsinden)"
+    },
+    {
+      "id": "velocityX",
+      "label": "Hız X (vx)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "X eksenindeki hız bileşeni"
+    },
+    {
+      "id": "velocityY",
+      "label": "Hız Y (vy)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Y eksenindeki hız bileşeni"
+    },
+    {
+      "id": "velocityZ",
+      "label": "Hız Z (vz)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Z eksenindeki hız bileşeni"
+    }
+  ],
+  "formulas": {
+    "momentumX": "mass * velocityX",
+    "momentumY": "mass * velocityY",
+    "momentumZ": "mass * velocityZ",
+    "momentumMagnitude": "mass * Math.sqrt(velocityX**2 + velocityY**2 + velocityZ**2)"
+  },
+  "outputs": {
+    "primary": "momentumMagnitude",
+    "breakdown": [
+      "momentumX",
+      "momentumY",
+      "momentumZ"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

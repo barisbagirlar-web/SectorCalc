@@ -1,0 +1,66 @@
+{
+  "toolName": "gross-margin-calculator",
+  "inputs": [
+    {
+      "id": "sellingPricePerUnit",
+      "label": "Selling Price per Unit",
+      "type": "number",
+      "unit": "currency/unit",
+      "default": 100,
+      "businessContext": "The price at which each unit is sold to customers."
+    },
+    {
+      "id": "costPerUnit",
+      "label": "Cost per Unit",
+      "type": "number",
+      "unit": "currency/unit",
+      "default": 70,
+      "businessContext": "The direct material or purchase cost incurred for each unit."
+    },
+    {
+      "id": "unitsSold",
+      "label": "Units Sold",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "businessContext": "The total quantity of units sold in the period under consideration."
+    },
+    {
+      "id": "additionalVariableCostPerUnit",
+      "label": "Additional Variable Cost per Unit",
+      "type": "number",
+      "unit": "currency/unit",
+      "default": 5,
+      "businessContext": "Any other variable costs per unit that are directly attributable to the product (e.g., shipping, packaging) and form part of cost of goods sold."
+    },
+    {
+      "id": "discountPercentage",
+      "label": "Discount Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "The average discount or price reduction given on the selling price, expressed as a percentage."
+    }
+  ],
+  "formulas": {
+    "totalRevenue": "sellingPricePerUnit * unitsSold * (1 - discountPercentage / 100)",
+    "totalCOGS": "(costPerUnit + additionalVariableCostPerUnit) * unitsSold",
+    "grossMarginAmount": "totalRevenue - totalCOGS",
+    "grossMarginPercentage": "(grossMarginAmount / totalRevenue) * 100"
+  },
+  "outputs": {
+    "primary": "grossMarginPercentage",
+    "breakdown": [
+      "totalRevenue",
+      "totalCOGS",
+      "grossMarginAmount",
+      "grossMarginPercentage"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,75 @@
+{
+  "toolName": "npsh-calculator",
+  "inputs": [
+    {
+      "id": "atmosphericPressure",
+      "label": "Atmospheric Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 1.01325,
+      "businessContext": "Standard atmospheric pressure at sea level."
+    },
+    {
+      "id": "vaporPressure",
+      "label": "Vapor Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 0.02339,
+      "businessContext": "Vapor pressure of the fluid at pumping temperature."
+    },
+    {
+      "id": "liquidDensity",
+      "label": "Liquid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of the fluid being pumped."
+    },
+    {
+      "id": "staticSuctionHead",
+      "label": "Static Suction Head",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Height from fluid surface to pump centerline. Positive if fluid above pump, negative for suction lift."
+    },
+    {
+      "id": "frictionHeadLoss",
+      "label": "Friction Head Loss",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Friction losses in suction piping, including fittings."
+    },
+    {
+      "id": "velocityHead",
+      "label": "Velocity Head",
+      "type": "number",
+      "unit": "m",
+      "default": 0.2,
+      "businessContext": "Velocity head at pump suction, typically v²/(2g)."
+    }
+  ],
+  "formulas": {
+    "atmHead": "(atmosphericPressure * 100000) / (liquidDensity * 9.80665)",
+    "vaporHead": "(vaporPressure * 100000) / (liquidDensity * 9.80665)",
+    "npsha": "atmHead - vaporHead + staticSuctionHead + velocityHead - frictionHeadLoss"
+  },
+  "outputs": {
+    "primary": "npsha",
+    "breakdown": [
+      "atmHead",
+      "vaporHead",
+      "staticSuctionHead",
+      "frictionHeadLoss",
+      "velocityHead",
+      "npsha"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

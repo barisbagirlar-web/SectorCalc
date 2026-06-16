@@ -1,0 +1,59 @@
+{
+  "toolName": "resting-metabolic-rate-calculator",
+  "inputs": [
+    {
+      "id": "genderCode",
+      "label": "Cinsiyet (Erkek: 1, Kadın: 0)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Cinsiyet kodu: 1 erkek, 0 kadın"
+    },
+    {
+      "id": "age",
+      "label": "Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 30,
+      "businessContext": "Kişinin yaşı"
+    },
+    {
+      "id": "weight",
+      "label": "Ağırlık",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Vücut ağırlığı"
+    },
+    {
+      "id": "height",
+      "label": "Boy",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Boy uzunluğu"
+    }
+  ],
+  "formulas": {
+    "weightContribution": "10 * weight",
+    "heightContribution": "6.25 * height",
+    "ageContribution": "-5 * age",
+    "genderOffset": "166 * genderCode - 161",
+    "restingMetabolicRate": "weightContribution + heightContribution + ageContribution + genderOffset"
+  },
+  "outputs": {
+    "primary": "restingMetabolicRate",
+    "breakdown": [
+      "weightContribution",
+      "heightContribution",
+      "ageContribution",
+      "genderOffset"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

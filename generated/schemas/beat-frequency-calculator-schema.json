@@ -1,0 +1,54 @@
+{
+  "toolName": "beat-frequency-calculator",
+  "inputs": [
+    {
+      "id": "transmittedFrequency",
+      "label": "Transmitted Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1000,
+      "businessContext": "Base frequency of emitted sound wave"
+    },
+    {
+      "id": "targetSpeed",
+      "label": "Target Speed",
+      "type": "number",
+      "unit": "m/s",
+      "default": 10,
+      "businessContext": "Speed of the reflecting target. Positive for approaching, negative for receding."
+    },
+    {
+      "id": "angle",
+      "label": "Angle (θ)",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Angle between target velocity vector and the line connecting source and target. 0° for head-on approach."
+    },
+    {
+      "id": "speedOfSound",
+      "label": "Speed of Sound",
+      "type": "number",
+      "unit": "m/s",
+      "default": 343,
+      "businessContext": "Speed of sound in the medium (e.g., air at 20°C)"
+    }
+  ],
+  "formulas": {
+    "observedFrequency": "transmittedFrequency * (speedOfSound + targetSpeed * Math.cos(angle * Math.PI / 180)) / (speedOfSound - targetSpeed * Math.cos(angle * Math.PI / 180))",
+    "beatFrequency": "Math.sqrt((transmittedFrequency - observedFrequency) ** 2)"
+  },
+  "outputs": {
+    "primary": "beatFrequency",
+    "breakdown": [
+      "observedFrequency",
+      "beatFrequency"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

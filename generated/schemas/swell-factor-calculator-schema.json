@@ -1,0 +1,59 @@
+{
+  "toolName": "swell-factor-calculator",
+  "inputs": [
+    {
+      "id": "bankVolume",
+      "label": "Bank/Hacim (Yerinde)",
+      "type": "number",
+      "unit": "m³",
+      "default": 100,
+      "businessContext": "Yerinde sıkışmış malzeme hacmi"
+    },
+    {
+      "id": "swellFactorPercent",
+      "label": "Kabarma Faktörü",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Yerinde hacme göre yüzde artış"
+    },
+    {
+      "id": "wasteFactorPercent",
+      "label": "Fire/Zayiat Faktörü",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Dökülme, sızıntı vb. kayıplar"
+    },
+    {
+      "id": "truckCapacity",
+      "label": "Kamyon Kapasitesi",
+      "type": "number",
+      "unit": "m³",
+      "default": 10,
+      "businessContext": "Bir kamyonun taşıma kapasitesi"
+    }
+  ],
+  "formulas": {
+    "totalLooseVolume": "bankVolume * (1 + swellFactorPercent/100) * (1 + wasteFactorPercent/100)",
+    "swellRatio": "swellFactorPercent / 100",
+    "volumeIncrease": "bankVolume * (swellFactorPercent / 100)",
+    "adjustedVolumeIncrease": "(bankVolume * (1 + swellFactorPercent/100) * (1 + wasteFactorPercent/100)) - bankVolume",
+    "loadsRequired": "(bankVolume * (1 + swellFactorPercent/100) * (1 + wasteFactorPercent/100)) / truckCapacity"
+  },
+  "outputs": {
+    "primary": "totalLooseVolume",
+    "breakdown": [
+      "swellRatio",
+      "volumeIncrease",
+      "adjustedVolumeIncrease",
+      "loadsRequired"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

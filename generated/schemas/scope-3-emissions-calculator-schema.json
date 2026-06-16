@@ -1,0 +1,91 @@
+{
+  "toolName": "scope-3-emissions-calculator",
+  "inputs": [
+    {
+      "id": "annualSpendOnPurchasedGoods",
+      "label": "Annual Spend on Purchased Goods & Services",
+      "type": "number",
+      "unit": "$",
+      "default": 1000000,
+      "businessContext": "Total annual expenditure on purchased goods and services (in USD)"
+    },
+    {
+      "id": "emissionFactorPurchasedGoods",
+      "label": "Emission Factor for Purchased Goods",
+      "type": "number",
+      "unit": "kgCO2e/$",
+      "default": 0.5,
+      "businessContext": "Average emission factor for the purchased goods sector (kg CO2-equivalent per dollar spent)"
+    },
+    {
+      "id": "businessTravelDistance",
+      "label": "Total Business Travel Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 50000,
+      "businessContext": "Total distance traveled for business purposes per year (sum over all employees and trips)"
+    },
+    {
+      "id": "emissionFactorBusinessTravel",
+      "label": "Emission Factor for Business Travel",
+      "type": "number",
+      "unit": "kgCO2e/km",
+      "default": 0.2,
+      "businessContext": "Average emission factor for business travel (e.g., air travel ~0.2 kg CO2e per km)"
+    },
+    {
+      "id": "employeeCommutingDistance",
+      "label": "Total Employee Commuting Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 200000,
+      "businessContext": "Total distance commuted by all employees per year (round-trip distance × working days × employees)"
+    },
+    {
+      "id": "emissionFactorCommuting",
+      "label": "Emission Factor for Commuting",
+      "type": "number",
+      "unit": "kgCO2e/km",
+      "default": 0.15,
+      "businessContext": "Average emission factor for employee commuting (e.g., car ~0.15 kg CO2e per km)"
+    },
+    {
+      "id": "wasteGenerated",
+      "label": "Total Waste Generated",
+      "type": "number",
+      "unit": "tonnes",
+      "default": 100,
+      "businessContext": "Total waste generated in operations per year (in metric tonnes)"
+    },
+    {
+      "id": "emissionFactorWaste",
+      "label": "Emission Factor for Waste",
+      "type": "number",
+      "unit": "kgCO2e/tonne",
+      "default": 500,
+      "businessContext": "Emission factor for waste disposal/treatment (kg CO2-equivalent per tonne of waste)"
+    }
+  ],
+  "formulas": {
+    "totalScope3": "annualSpendOnPurchasedGoods * emissionFactorPurchasedGoods + businessTravelDistance * emissionFactorBusinessTravel + employeeCommutingDistance * emissionFactorCommuting + wasteGenerated * emissionFactorWaste",
+    "purchasedEmissions": "annualSpendOnPurchasedGoods * emissionFactorPurchasedGoods",
+    "businessTravelEmissions": "businessTravelDistance * emissionFactorBusinessTravel",
+    "commutingEmissions": "employeeCommutingDistance * emissionFactorCommuting",
+    "wasteEmissions": "wasteGenerated * emissionFactorWaste"
+  },
+  "outputs": {
+    "primary": "totalScope3",
+    "breakdown": [
+      "purchasedEmissions",
+      "businessTravelEmissions",
+      "commutingEmissions",
+      "wasteEmissions"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

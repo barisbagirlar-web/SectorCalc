@@ -1,0 +1,65 @@
+{
+  "toolName": "scale-calculator",
+  "inputs": [
+    {
+      "id": "realLength",
+      "label": "Real Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "businessContext": "Length of the real object in the same units as other dimensions."
+    },
+    {
+      "id": "realWidth",
+      "label": "Real Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 500,
+      "businessContext": "Width of the real object."
+    },
+    {
+      "id": "realHeight",
+      "label": "Real Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "businessContext": "Height of the real object."
+    },
+    {
+      "id": "scaleNumerator",
+      "label": "Scale Numerator",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Numerator of the scale ratio (usually 1 for standard scales like 1:100)."
+    },
+    {
+      "id": "scaleDenominator",
+      "label": "Scale Denominator",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "Denominator of the scale ratio (e.g., 100 for 1:100)."
+    }
+  ],
+  "formulas": {
+    "modelLength": "realLength * scaleNumerator / scaleDenominator",
+    "modelWidth": "realWidth * scaleNumerator / scaleDenominator",
+    "modelHeight": "realHeight * scaleNumerator / scaleDenominator",
+    "scaleRatio": "scaleNumerator + ':' + scaleDenominator"
+  },
+  "outputs": {
+    "primary": "modelLength",
+    "breakdown": [
+      "modelWidth",
+      "modelHeight",
+      "scaleRatio"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

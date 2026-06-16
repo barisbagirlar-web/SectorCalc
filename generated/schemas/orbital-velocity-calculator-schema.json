@@ -1,0 +1,67 @@
+{
+  "toolName": "orbital-velocity-calculator",
+  "inputs": [
+    {
+      "id": "centralBodyMass",
+      "label": "Central Body Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 5.972e+24,
+      "businessContext": "Mass of the central body (e.g., Earth: 5.972×10^24 kg)"
+    },
+    {
+      "id": "centralBodyRadius",
+      "label": "Central Body Radius",
+      "type": "number",
+      "unit": "m",
+      "default": 6371000,
+      "businessContext": "Radius of the central body (e.g., Earth: 6,371,000 m)"
+    },
+    {
+      "id": "altitude",
+      "label": "Orbit Altitude",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Altitude of the satellite above the central body's surface"
+    },
+    {
+      "id": "gravitationalConstant",
+      "label": "Gravitational Constant",
+      "type": "number",
+      "unit": "m^3/(kg·s^2)",
+      "default": 6.6743e-11,
+      "businessContext": "Universal gravitational constant (G = 6.67430×10^-11 m^3/(kg·s^2))"
+    }
+  ],
+  "formulas": {
+    "orbitalVelocity_mps": "Math.sqrt((gravitationalConstant * centralBodyMass) / (centralBodyRadius + altitude))",
+    "orbitalVelocity_kmps": "orbitalVelocity_mps / 1000",
+    "orbitalPeriod_s": "2 * Math.PI * (centralBodyRadius + altitude) / orbitalVelocity_mps"
+  },
+  "outputs": {
+    "primary": {
+      "label": "Orbital Velocity",
+      "value": "orbitalVelocity_mps",
+      "unit": "m/s"
+    },
+    "breakdown": [
+      {
+        "label": "Orbital Velocity (km/s)",
+        "value": "orbitalVelocity_kmps",
+        "unit": "km/s"
+      },
+      {
+        "label": "Orbital Period",
+        "value": "orbitalPeriod_s",
+        "unit": "s"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

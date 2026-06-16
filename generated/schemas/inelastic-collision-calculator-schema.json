@@ -1,0 +1,63 @@
+{
+  "toolName": "inelastic-collision-calculator",
+  "inputs": [
+    {
+      "id": "mass1",
+      "label": "Mass of Object 1",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Mass of the first object in the collision."
+    },
+    {
+      "id": "velocity1Initial",
+      "label": "Initial Velocity of Object 1",
+      "type": "number",
+      "unit": "m/s",
+      "default": 10,
+      "businessContext": "Initial velocity of object 1 before collision, positive direction."
+    },
+    {
+      "id": "mass2",
+      "label": "Mass of Object 2",
+      "type": "number",
+      "unit": "kg",
+      "default": 2,
+      "businessContext": "Mass of the second object in the collision."
+    },
+    {
+      "id": "velocity2Initial",
+      "label": "Initial Velocity of Object 2",
+      "type": "number",
+      "unit": "m/s",
+      "default": -5,
+      "businessContext": "Initial velocity of object 2 before collision, negative if opposite direction."
+    },
+    {
+      "id": "restitutionCoefficient",
+      "label": "Coefficient of Restitution",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.5,
+      "businessContext": "Ratio of relative speed after collision to before collision. Range 0 to 1."
+    }
+  ],
+  "formulas": {
+    "finalVelocity1": "( (mass1 - restitutionCoefficient * mass2) * velocity1Initial + mass2 * (1 + restitutionCoefficient) * velocity2Initial ) / (mass1 + mass2)",
+    "finalVelocity2": "( mass1 * (1 + restitutionCoefficient) * velocity1Initial + (mass2 - restitutionCoefficient * mass1) * velocity2Initial ) / (mass1 + mass2)",
+    "energyLoss": "0.5 * mass1 * Math.pow(velocity1Initial, 2) + 0.5 * mass2 * Math.pow(velocity2Initial, 2) - 0.5 * mass1 * Math.pow(finalVelocity1, 2) - 0.5 * mass2 * Math.pow(finalVelocity2, 2)"
+  },
+  "outputs": {
+    "primary": "finalVelocity1",
+    "breakdown": [
+      "finalVelocity2",
+      "energyLoss"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

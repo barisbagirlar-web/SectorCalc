@@ -1,0 +1,73 @@
+{
+  "toolName": "packaging-calculator",
+  "inputs": [
+    {
+      "id": "productLength",
+      "label": "Product Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Length of the product to be packaged"
+    },
+    {
+      "id": "productWidth",
+      "label": "Product Width",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Width of the product"
+    },
+    {
+      "id": "productHeight",
+      "label": "Product Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Height of the product"
+    },
+    {
+      "id": "materialCostPerSqm",
+      "label": "Material Cost per m²",
+      "type": "number",
+      "unit": "EUR/m²",
+      "default": 0.5,
+      "businessContext": "Cost of packaging material per square meter"
+    },
+    {
+      "id": "numberOfItems",
+      "label": "Number of Items",
+      "type": "number",
+      "unit": "pcs",
+      "default": 100,
+      "businessContext": "Total number of items to package"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Additional material percentage for waste or scrap"
+    }
+  ],
+  "formulas": {
+    "surfaceAreaPerItem": "2 * (productLength * productWidth + productLength * productHeight + productWidth * productHeight)",
+    "areaWithWastePerItem": "surfaceAreaPerItem * (1 + wasteFactor / 100)",
+    "totalAreaCm2": "areaWithWastePerItem * numberOfItems",
+    "totalAreaM2": "totalAreaCm2 / 10000",
+    "totalMaterialCost": "totalAreaM2 * materialCostPerSqm"
+  },
+  "outputs": {
+    "primary": "totalMaterialCost",
+    "breakdown": [
+      "surfaceAreaPerItem",
+      "totalAreaM2"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "inverse-trig-calculator",
+  "inputs": [
+    {
+      "id": "inputValue",
+      "label": "Value (x)",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "The value to compute the inverse trigonometric function. For arcsin and arccos, must be between -1 and 1; for arctan, any real number."
+    },
+    {
+      "id": "functionType",
+      "label": "Function",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 = arcsin (sin⁻¹), 2 = arccos (cos⁻¹), 3 = arctan (tan⁻¹)."
+    },
+    {
+      "id": "outputUnit",
+      "label": "Output Unit",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 = radians, 1 = degrees."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Number of decimal places for rounding the result."
+    }
+  ],
+  "formulas": {
+    "angleRad": "functionType===1 ? Math.asin(Math.min(1, Math.max(-1, inputValue))) : functionType===2 ? Math.acos(Math.min(1, Math.max(-1, inputValue))) : Math.atan(inputValue)",
+    "angleDeg": "angleRad * 180 / Math.PI",
+    "finalAngle": "outputUnit===0 ? angleRad : angleDeg",
+    "roundedAngle": "Math.round(finalAngle * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "primary": "roundedAngle + (outputUnit===0 ? ' rad' : '°')",
+    "functionUsed": "functionType===1 ? 'arcsin' : functionType===2 ? 'arccos' : 'arctan'",
+    "inputDisplay": "'Input: ' + inputValue",
+    "radiansDisplay": "'Radians: ' + angleRad",
+    "degreesDisplay": "'Degrees: ' + angleDeg"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "functionUsed",
+      "inputDisplay",
+      "radiansDisplay",
+      "degreesDisplay"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

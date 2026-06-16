@@ -1,0 +1,73 @@
+{
+  "toolName": "import-duty-calculator",
+  "inputs": [
+    {
+      "id": "invoiceValue",
+      "label": "Invoice Value",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "The value of goods as stated on the commercial invoice."
+    },
+    {
+      "id": "insuranceCost",
+      "label": "Insurance Cost",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "Cost of insuring the shipment during transit."
+    },
+    {
+      "id": "freightCost",
+      "label": "Freight Cost",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "Cost of transporting the goods to the destination port."
+    },
+    {
+      "id": "dutyRate",
+      "label": "Duty Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Ad valorem customs duty rate for the imported goods."
+    },
+    {
+      "id": "vatRate",
+      "label": "VAT Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Value Added Tax rate applied to the tax base."
+    },
+    {
+      "id": "additionalFees",
+      "label": "Additional Fees",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "Other costs such as customs brokering or terminal handling charges."
+    }
+  ],
+  "formulas": {
+    "cif": "invoiceValue + insuranceCost + freightCost",
+    "dutyAmount": "cif * dutyRate / 100",
+    "taxableValue": "cif + dutyAmount",
+    "vatAmount": "taxableValue * vatRate / 100",
+    "totalImportCost": "taxableValue + vatAmount + additionalFees"
+  },
+  "outputs": {
+    "primary": "totalImportCost",
+    "breakdown": [
+      "dutyAmount",
+      "vatAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

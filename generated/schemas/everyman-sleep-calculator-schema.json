@@ -1,0 +1,57 @@
+{
+  "toolName": "everyman-sleep-calculator",
+  "inputs": [
+    {
+      "id": "coreHours",
+      "label": "Çekirdek Uyku (saat)",
+      "type": "number",
+      "unit": "saat",
+      "default": 3.5,
+      "businessContext": "Çekirdek uyku süresinin saat kısmı."
+    },
+    {
+      "id": "coreMinutes",
+      "label": "Çekirdek Uyku (dakika)",
+      "type": "number",
+      "unit": "dakika",
+      "default": 0,
+      "businessContext": "Çekirdek uyku süresinin dakika kısmı."
+    },
+    {
+      "id": "napCount",
+      "label": "Şekerleme Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 3,
+      "businessContext": "Günlük şekerleme sayısı."
+    },
+    {
+      "id": "napDuration",
+      "label": "Şekerleme Süresi (dakika)",
+      "type": "number",
+      "unit": "dakika",
+      "default": 20,
+      "businessContext": "Her bir şekerlemenin dakika cinsinden süresi."
+    }
+  ],
+  "formulas": {
+    "totalCoreMinutes": "coreHours * 60 + coreMinutes",
+    "totalNapMinutes": "napCount * napDuration",
+    "totalMinutes": "coreHours * 60 + coreMinutes + napCount * napDuration",
+    "totalHours": "(coreHours * 60 + coreMinutes + napCount * napDuration) / 60"
+  },
+  "outputs": {
+    "primary": "Toplam Uyku Süresi: {totalHours} saat",
+    "breakdown": [
+      "Çekirdek Uyku: {totalCoreMinutes / 60} saat",
+      "Toplam Şekerleme: {totalNapMinutes / 60} saat",
+      "Şekerleme Sayısı: {napCount}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

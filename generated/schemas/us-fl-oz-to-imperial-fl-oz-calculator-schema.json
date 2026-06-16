@@ -1,0 +1,58 @@
+{
+  "toolName": "us-fl-oz-to-imperial-fl-oz-calculator",
+  "inputs": [
+    {
+      "id": "usFlOz",
+      "label": "US Fluid Ounces",
+      "type": "number",
+      "unit": "fl oz (US)",
+      "default": 1,
+      "businessContext": "Volume in US fluid ounces"
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "businessContext": "Number of units per batch"
+    },
+    {
+      "id": "packageCount",
+      "label": "Package Count",
+      "type": "number",
+      "unit": "packages",
+      "default": 1,
+      "businessContext": "Number of identical packages"
+    },
+    {
+      "id": "tolerance",
+      "label": "Measurement Tolerance",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "businessContext": "Allowed deviation (±%) for quality control"
+    }
+  ],
+  "formulas": {
+    "conversionFactor": "1.040842731",
+    "imperialFlOz": "usFlOz * conversionFactor",
+    "totalImperialFlOz": "imperialFlOz * batchSize * packageCount",
+    "minTotal": "totalImperialFlOz * (1 - tolerance/100)",
+    "maxTotal": "totalImperialFlOz * (1 + tolerance/100)"
+  },
+  "outputs": {
+    "primary": "totalImperialFlOz",
+    "breakdown": [
+      "imperialFlOz",
+      "minTotal",
+      "maxTotal"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

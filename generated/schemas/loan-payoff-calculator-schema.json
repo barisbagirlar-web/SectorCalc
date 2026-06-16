@@ -1,0 +1,58 @@
+{
+  "toolName": "loan-payoff-calculator",
+  "inputs": [
+    {
+      "id": "loanAmount",
+      "label": "Loan Amount",
+      "type": "number",
+      "unit": "EUR",
+      "default": 100000,
+      "businessContext": "The total principal amount of the loan."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5.5,
+      "businessContext": "The nominal annual interest rate as a percentage."
+    },
+    {
+      "id": "monthlyPayment",
+      "label": "Monthly Payment",
+      "type": "number",
+      "unit": "EUR",
+      "default": 1000,
+      "businessContext": "The regular monthly payment amount."
+    },
+    {
+      "id": "extraMonthlyPayment",
+      "label": "Extra Monthly Payment",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "Additional amount paid each month to accelerate payoff."
+    }
+  ],
+  "formulas": {
+    "monthlyRate": "annualInterestRate / 100 / 12",
+    "totalMonthly": "monthlyPayment + extraMonthlyPayment",
+    "unroundedMonths": "Math.log(totalMonthly / (totalMonthly - loanAmount * monthlyRate)) / Math.log(1 + monthlyRate)",
+    "monthsToPayoff": "Math.ceil(unroundedMonths)",
+    "totalPaid": "monthsToPayoff * totalMonthly",
+    "totalInterest": "totalPaid - loanAmount"
+  },
+  "outputs": {
+    "primary": "monthsToPayoff",
+    "breakdown": [
+      "totalPaid",
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "cut-and-fill-calculator",
+  "inputs": [
+    {
+      "id": "cutArea1",
+      "label": "Cut Area at Station 1",
+      "type": "number",
+      "unit": "m²",
+      "default": 50,
+      "businessContext": "Cross-sectional area of cut at the first station."
+    },
+    {
+      "id": "cutArea2",
+      "label": "Cut Area at Station 2",
+      "type": "number",
+      "unit": "m²",
+      "default": 60,
+      "businessContext": "Cross-sectional area of cut at the second station."
+    },
+    {
+      "id": "fillArea1",
+      "label": "Fill Area at Station 1",
+      "type": "number",
+      "unit": "m²",
+      "default": 30,
+      "businessContext": "Cross-sectional area of fill at the first station."
+    },
+    {
+      "id": "fillArea2",
+      "label": "Fill Area at Station 2",
+      "type": "number",
+      "unit": "m²",
+      "default": 40,
+      "businessContext": "Cross-sectional area of fill at the second station."
+    },
+    {
+      "id": "distance",
+      "label": "Distance Between Stations",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "businessContext": "Distance along the alignment between the two cross-sections."
+    },
+    {
+      "id": "shrinkageFactor",
+      "label": "Shrinkage Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.9,
+      "businessContext": "Shrinkage factor (e.g., 0.9 for 10% shrinkage, 1.0 for no shrinkage)."
+    }
+  ],
+  "formulas": {
+    "cutVolume": "((cutArea1 + cutArea2) / 2) * distance",
+    "fillVolume": "((fillArea1 + fillArea2) / 2) * distance",
+    "adjustedFillVolume": "fillVolume / shrinkageFactor",
+    "netVolume": "cutVolume - adjustedFillVolume"
+  },
+  "outputs": {
+    "primary": "netVolume",
+    "breakdown": [
+      "cutVolume",
+      "fillVolume",
+      "adjustedFillVolume"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

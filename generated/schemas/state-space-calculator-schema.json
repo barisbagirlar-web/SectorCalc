@@ -1,0 +1,72 @@
+{
+  "toolName": "state-space-calculator",
+  "inputs": [
+    {
+      "id": "numStates",
+      "label": "Number of States",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of discrete states in the system"
+    },
+    {
+      "id": "transitionProb",
+      "label": "Transition Probability",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Probability of transitioning from one state to another"
+    },
+    {
+      "id": "initialState",
+      "label": "Initial State Index",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Starting state index (0-based)"
+    },
+    {
+      "id": "timeSteps",
+      "label": "Time Steps",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Number of time steps to simulate"
+    },
+    {
+      "id": "rewardPerState",
+      "label": "Reward per State",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Reward obtained when in a state"
+    },
+    {
+      "id": "discountFactor",
+      "label": "Discount Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.9,
+      "businessContext": "Discount factor for future rewards (0-1)"
+    }
+  ],
+  "formulas": {
+    "expectedReward": "rewardPerState * (1 - Math.pow(discountFactor, timeSteps)) / (1 - discountFactor)",
+    "steadyStateProb": "1 / numStates",
+    "stateDistribution": "Array.from({length: numStates}, (_, i) => i === initialState ? 1 : 0)"
+  },
+  "outputs": {
+    "primary": "expectedReward",
+    "breakdown": [
+      "Expected total discounted reward over time steps",
+      "Steady-state probability per state",
+      "Initial state distribution vector"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

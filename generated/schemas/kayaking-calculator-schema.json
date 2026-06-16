@@ -1,0 +1,63 @@
+{
+  "toolName": "kayaking-calculator",
+  "inputs": [
+    {
+      "id": "speed",
+      "label": "Kayak Speed",
+      "type": "number",
+      "unit": "m/s",
+      "default": 2.5,
+      "businessContext": "The speed of the kayak relative to water."
+    },
+    {
+      "id": "dragCoefficient",
+      "label": "Drag Coefficient",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Typical drag coefficient for the kayak hull shape."
+    },
+    {
+      "id": "crossSectionalArea",
+      "label": "Cross-sectional Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 0.3,
+      "businessContext": "Frontal area of the kayak and paddler."
+    },
+    {
+      "id": "waterDensity",
+      "label": "Water Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of water (fresh water ~1000, salt water ~1025)."
+    },
+    {
+      "id": "paddlingEfficiency",
+      "label": "Paddling Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Mechanical efficiency of converting human power to propulsion."
+    }
+  ],
+  "formulas": {
+    "dragForce": "0.5 * waterDensity * dragCoefficient * crossSectionalArea * speed * speed",
+    "effectivePower": "dragForce * speed",
+    "powerRequired": "effectivePower / (paddlingEfficiency / 100)"
+  },
+  "outputs": {
+    "primary": "powerRequired",
+    "breakdown": [
+      "dragForce",
+      "effectivePower"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

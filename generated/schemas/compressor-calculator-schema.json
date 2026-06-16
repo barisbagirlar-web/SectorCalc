@@ -1,0 +1,73 @@
+{
+  "toolName": "compressor-calculator",
+  "inputs": [
+    {
+      "id": "inletPressure",
+      "label": "Inlet Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 1,
+      "businessContext": "The absolute pressure at compressor inlet, typically atmospheric pressure (1 bar)."
+    },
+    {
+      "id": "outletPressure",
+      "label": "Outlet Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 8,
+      "businessContext": "The desired discharge pressure after compression."
+    },
+    {
+      "id": "flowRate",
+      "label": "Flow Rate (Inlet Conditions)",
+      "type": "number",
+      "unit": "m³/min",
+      "default": 10,
+      "businessContext": "Volumetric flow rate at inlet pressure and temperature."
+    },
+    {
+      "id": "adiabaticIndex",
+      "label": "Adiabatic Index (k)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1.4,
+      "businessContext": "Ratio of specific heats (Cp/Cv) for the gas, typically 1.4 for air."
+    },
+    {
+      "id": "compressorEfficiency",
+      "label": "Compressor Isentropic Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Efficiency of the compressor in converting adiabatic work to shaft work."
+    },
+    {
+      "id": "motorEfficiency",
+      "label": "Motor Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Efficiency of the electric motor driving the compressor."
+    }
+  ],
+  "formulas": {
+    "adiabaticPower": "((inletPressure * 100000) * (flowRate / 60) * (adiabaticIndex / (adiabaticIndex - 1)) * (Math.pow(outletPressure / inletPressure, (adiabaticIndex - 1) / adiabaticIndex) - 1)) / 1000",
+    "shaftPower": "(((inletPressure * 100000) * (flowRate / 60) * (adiabaticIndex / (adiabaticIndex - 1)) * (Math.pow(outletPressure / inletPressure, (adiabaticIndex - 1) / adiabaticIndex) - 1)) / 1000) / (compressorEfficiency / 100)",
+    "motorInputPower": "((((inletPressure * 100000) * (flowRate / 60) * (adiabaticIndex / (adiabaticIndex - 1)) * (Math.pow(outletPressure / inletPressure, (adiabaticIndex - 1) / adiabaticIndex) - 1)) / 1000) / (compressorEfficiency / 100)) / (motorEfficiency / 100)",
+    "pressureRatio": "outletPressure / inletPressure"
+  },
+  "outputs": {
+    "primary": "Motor Input Power (kW)",
+    "breakdown": [
+      "Adiabatic Power (kW)",
+      "Shaft Power (kW)",
+      "Pressure Ratio"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

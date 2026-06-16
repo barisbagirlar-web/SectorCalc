@@ -1,0 +1,58 @@
+{
+  "toolName": "orbital-mechanics-calculator",
+  "inputs": [
+    {
+      "id": "altitude",
+      "label": "Altitude",
+      "type": "number",
+      "unit": "km",
+      "default": 400,
+      "businessContext": "Satellite height above planet surface"
+    },
+    {
+      "id": "planetRadius",
+      "label": "Planet Radius",
+      "type": "number",
+      "unit": "km",
+      "default": 6371,
+      "businessContext": "Radius of the central body (e.g., Earth)"
+    },
+    {
+      "id": "eccentricity",
+      "label": "Eccentricity",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Orbit eccentricity (0 for circular orbit)"
+    },
+    {
+      "id": "mu",
+      "label": "Gravitational Parameter",
+      "type": "number",
+      "unit": "km³/s²",
+      "default": 398600,
+      "businessContext": "Standard gravitational parameter (G × M)"
+    }
+  ],
+  "formulas": {
+    "semiMajorAxis": "altitude + planetRadius",
+    "vPeriapsis": "Math.sqrt((mu * (1 + eccentricity)) / ((altitude + planetRadius) * (1 - eccentricity)))",
+    "vApoapsis": "Math.sqrt((mu * (1 - eccentricity)) / ((altitude + planetRadius) * (1 + eccentricity)))",
+    "periodSeconds": "2 * Math.PI * Math.sqrt(Math.pow(altitude + planetRadius, 3) / mu)",
+    "periodHours": "periodSeconds / 3600"
+  },
+  "outputs": {
+    "primary": "periodHours",
+    "breakdown": [
+      "vPeriapsis",
+      "vApoapsis",
+      "periodSeconds"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

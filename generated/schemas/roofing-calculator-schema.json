@@ -1,0 +1,77 @@
+{
+  "toolName": "roofing-calculator",
+  "inputs": [
+    {
+      "id": "roofLength",
+      "label": "Çatı Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Çatının yatay uzunluğu (saçaklar dahil)"
+    },
+    {
+      "id": "roofWidth",
+      "label": "Çatı Genişliği",
+      "type": "number",
+      "unit": "m",
+      "default": 8,
+      "businessContext": "Çatının yatay genişliği (saçaklar dahil)"
+    },
+    {
+      "id": "roofPitch",
+      "label": "Çatı Eğimi",
+      "type": "number",
+      "unit": "derece",
+      "default": 30,
+      "businessContext": "Çatının yatayla yaptığı açı (0-90 derece)"
+    },
+    {
+      "id": "materialCostPerSqm",
+      "label": "Malzeme Maliyeti (m² başına)",
+      "type": "number",
+      "unit": "TL/m²",
+      "default": 50,
+      "businessContext": "Çatı kaplama malzemesinin metrekare fiyatı"
+    },
+    {
+      "id": "laborCostPerSqm",
+      "label": "İşçilik Maliyeti (m² başına)",
+      "type": "number",
+      "unit": "TL/m²",
+      "default": 30,
+      "businessContext": "İşçilik maliyeti (metrekare başına)"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Kesim ve montaj firesi (yüzde olarak)"
+    }
+  ],
+  "formulas": {
+    "flatArea": "roofLength * roofWidth",
+    "pitchRad": "roofPitch * Math.PI / 180",
+    "inclinedArea": "flatArea / Math.cos(pitchRad)",
+    "totalMaterialArea": "inclinedArea * (1 + wasteFactor / 100)",
+    "totalMaterialCost": "totalMaterialArea * materialCostPerSqm",
+    "totalLaborCost": "inclinedArea * laborCostPerSqm",
+    "totalCost": "totalMaterialCost + totalLaborCost"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "inclinedArea",
+      "totalMaterialArea",
+      "totalMaterialCost",
+      "totalLaborCost"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

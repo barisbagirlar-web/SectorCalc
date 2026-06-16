@@ -1,0 +1,85 @@
+{
+  "toolName": "has-bled-calculator",
+  "inputs": [
+    {
+      "id": "hypertension",
+      "label": "Hypertension (SBP>160mmHg)",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Uncontrolled hypertension"
+    },
+    {
+      "id": "abnormalRenal",
+      "label": "Abnormal Renal Function (dialysis, transplant, Cr>2.26mg/dL or >200µmol/L)",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Chronic dialysis, renal transplant, serum creatinine ≥2.26 mg/dL or ≥200 µmol/L"
+    },
+    {
+      "id": "abnormalLiver",
+      "label": "Abnormal Liver Function (cirrhosis, bilirubin >2x ULN, AST/ALT/ALP >3x ULN)",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Chronic hepatic disease (cirrhosis) or biochemical evidence of significant hepatic derangement"
+    },
+    {
+      "id": "stroke",
+      "label": "Stroke History",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Previous stroke, transient ischemic attack, or thromboembolism"
+    },
+    {
+      "id": "bleeding",
+      "label": "Bleeding History or Predisposition",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "History of major bleeding or predisposition to bleeding (e.g., bleeding diathesis, anemia)"
+    },
+    {
+      "id": "labileINR",
+      "label": "Labile INR (unstable/high, TTR <60%)",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Labile international normalized ratio (INR), unstable or high INRs, or poor time in therapeutic range (<60%)"
+    },
+    {
+      "id": "elderly",
+      "label": "Elderly (age >65 years)",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Age >65 years"
+    },
+    {
+      "id": "drugsAlcohol",
+      "label": "Drugs/Alcohol (antiplatelet agents, NSAIDs, alcohol abuse ≥8 drinks/week)",
+      "type": "number",
+      "unit": "points",
+      "default": 0,
+      "businessContext": "Concomitant use of antiplatelet agents or non-steroidal anti-inflammatory drugs, or alcohol excess ≥8 drinks/week"
+    }
+  ],
+  "formulas": {
+    "totalScore": "hypertension + abnormalRenal + abnormalLiver + stroke + bleeding + labileINR + elderly + drugsAlcohol",
+    "riskCategory": "totalScore >= 3 ? 'High risk' : totalScore === 2 ? 'Moderate risk' : 'Low risk'"
+  },
+  "outputs": {
+    "primary": "totalScore",
+    "breakdown": [
+      "riskCategory"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "free-fall-calculator",
+  "inputs": [
+    {
+      "id": "initialHeight",
+      "label": "Başlangıç Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Nesnenin serbest düşüşe başladığı yükseklik (metre)."
+    },
+    {
+      "id": "initialVelocity",
+      "label": "Başlangıç Hızı",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Nesnenin ilk düşey hızı (pozitif aşağı yönlü)."
+    },
+    {
+      "id": "accelerationDueToGravity",
+      "label": "Yerçekimi İvmesi",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.80665,
+      "businessContext": "Standart yerçekimi ivmesi (Dünya için 9.80665 m/s²)."
+    },
+    {
+      "id": "mass",
+      "label": "Kütle",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Nesnenin kütlesi (kinetik enerji hesaplamasında kullanılır)."
+    }
+  ],
+  "formulas": {
+    "timeOfFall": "(-inputs.initialVelocity + Math.sqrt(inputs.initialVelocity**2 + 2 * inputs.accelerationDueToGravity * inputs.initialHeight)) / inputs.accelerationDueToGravity",
+    "finalVelocity": "Math.sqrt(inputs.initialVelocity**2 + 2 * inputs.accelerationDueToGravity * inputs.initialHeight)",
+    "kineticEnergy": "0.5 * inputs.mass * (inputs.initialVelocity**2 + 2 * inputs.accelerationDueToGravity * inputs.initialHeight)"
+  },
+  "outputs": {
+    "primary": "timeOfFall",
+    "breakdown": [
+      "finalVelocity",
+      "kineticEnergy"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

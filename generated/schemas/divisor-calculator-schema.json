@@ -1,0 +1,73 @@
+{
+  "toolName": "divisor-calculator",
+  "inputs": [
+    {
+      "id": "gear1Teeth",
+      "label": "Gear 1 Teeth",
+      "type": "number",
+      "unit": "",
+      "default": 20,
+      "businessContext": "Number of teeth on the first driving gear in the gear train"
+    },
+    {
+      "id": "gear2Teeth",
+      "label": "Gear 2 Teeth",
+      "type": "number",
+      "unit": "",
+      "default": 40,
+      "businessContext": "Number of teeth on the first driven gear in the gear train"
+    },
+    {
+      "id": "gear3Teeth",
+      "label": "Gear 3 Teeth",
+      "type": "number",
+      "unit": "",
+      "default": 20,
+      "businessContext": "Number of teeth on the second driving gear (if any, set to 1 for no gear)"
+    },
+    {
+      "id": "gear4Teeth",
+      "label": "Gear 4 Teeth",
+      "type": "number",
+      "unit": "",
+      "default": 60,
+      "businessContext": "Number of teeth on the second driven gear (if any, set to 1 for no gear)"
+    },
+    {
+      "id": "gear5Teeth",
+      "label": "Gear 5 Teeth",
+      "type": "number",
+      "unit": "",
+      "default": 20,
+      "businessContext": "Number of teeth on the third driving gear (if any, set to 1 for no gear)"
+    },
+    {
+      "id": "gear6Teeth",
+      "label": "Gear 6 Teeth",
+      "type": "number",
+      "unit": "",
+      "default": 80,
+      "businessContext": "Number of teeth on the third driven gear (if any, set to 1 for no gear)"
+    }
+  ],
+  "formulas": {
+    "overallGearRatio": "(gear2Teeth * gear4Teeth * gear6Teeth) / (gear1Teeth * gear3Teeth * gear5Teeth)",
+    "stage1Ratio": "gear2Teeth / gear1Teeth",
+    "stage2Ratio": "gear4Teeth / gear3Teeth",
+    "stage3Ratio": "gear6Teeth / gear5Teeth"
+  },
+  "outputs": {
+    "primary": "overallGearRatio",
+    "breakdown": [
+      "stage1Ratio",
+      "stage2Ratio",
+      "stage3Ratio"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

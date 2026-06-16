@@ -1,0 +1,57 @@
+{
+  "toolName": "bias-variance-tradeoff-calculator",
+  "inputs": [
+    {
+      "id": "averagePrediction",
+      "label": "Ortalama Tahmin",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 0,
+      "businessContext": "Modelin farklı eğitim setleri üzerindeki tahminlerinin ortalaması"
+    },
+    {
+      "id": "trueValue",
+      "label": "Gerçek Değer",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 0,
+      "businessContext": "Hedef değişkenin gerçek değeri"
+    },
+    {
+      "id": "variance",
+      "label": "Varyans",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 1,
+      "businessContext": "Tahminlerin varyansı, modelin veriye duyarlılığını gösterir"
+    },
+    {
+      "id": "irreducibleError",
+      "label": "İndirgenemez Hata",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 1,
+      "businessContext": "Verideki gürültüden kaynaklanan ve model tarafından yakalanamayan hata"
+    }
+  ],
+  "formulas": {
+    "totalExpectedError": "(inputs.averagePrediction - inputs.trueValue) ** 2 + inputs.variance + inputs.irreducibleError",
+    "squaredBias": "(inputs.averagePrediction - inputs.trueValue) ** 2",
+    "variance": "inputs.variance",
+    "irreducibleError": "inputs.irreducibleError"
+  },
+  "outputs": {
+    "primary": "totalExpectedError",
+    "breakdown": [
+      "squaredBias",
+      "variance",
+      "irreducibleError"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

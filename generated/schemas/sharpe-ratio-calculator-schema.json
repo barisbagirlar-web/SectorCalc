@@ -1,0 +1,55 @@
+{
+  "toolName": "sharpe-ratio-calculator",
+  "inputs": [
+    {
+      "id": "portfolioReturn",
+      "label": "Yıllık Portföy Getirisi (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Portföyün yıllıklandırılmış getiri oranı."
+    },
+    {
+      "id": "riskFreeRate",
+      "label": "Yıllık Risksiz Getiri (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Genellikle aynı vadedeki devlet tahvili faizi."
+    },
+    {
+      "id": "dailyStdDev",
+      "label": "Günlük Standart Sapma (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 1.5,
+      "businessContext": "Portföyün günlük getirilerinin standart sapması."
+    },
+    {
+      "id": "tradingDays",
+      "label": "Yıllık İşlem Günü Sayısı",
+      "type": "number",
+      "unit": "gün",
+      "default": 252,
+      "businessContext": "Yıllık işlem günü sayısı; hisse senedi piyasaları için genellikle 252."
+    }
+  ],
+  "formulas": {
+    "excessReturn": "portfolioReturn - riskFreeRate",
+    "annualizedStdDev": "dailyStdDev * Math.sqrt(tradingDays)",
+    "sharpeRatio": "excessReturn / annualizedStdDev"
+  },
+  "outputs": {
+    "primary": "sharpeRatio",
+    "breakdown": [
+      "excessReturn",
+      "annualizedStdDev"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,57 @@
+{
+  "toolName": "decile-calculator",
+  "inputs": [
+    {
+      "id": "minValue",
+      "label": "Minimum Value",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The minimum value of the range to partition into deciles."
+    },
+    {
+      "id": "maxValue",
+      "label": "Maximum Value",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "The maximum value of the range to partition into deciles."
+    },
+    {
+      "id": "inputValue",
+      "label": "Input Value",
+      "type": "number",
+      "unit": "",
+      "default": 50,
+      "businessContext": "The value for which to determine the decile."
+    },
+    {
+      "id": "totalDeciles",
+      "label": "Number of Deciles",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Total number of decile groups (standard is 10)."
+    }
+  ],
+  "formulas": {
+    "decile": "Math.max(1, Math.min(totalDeciles, Math.floor(((maxValue - minValue) === 0 ? 0 : (inputValue - minValue) / (maxValue - minValue)) * totalDeciles) + 1))",
+    "decileStep": "(maxValue - minValue) / totalDeciles",
+    "lowerBound": "minValue + (Math.max(1, Math.min(totalDeciles, Math.floor(((maxValue - minValue) === 0 ? 0 : (inputValue - minValue) / (maxValue - minValue)) * totalDeciles) + 1)) - 1) * ((maxValue - minValue) / totalDeciles)",
+    "upperBound": "minValue + Math.max(1, Math.min(totalDeciles, Math.floor(((maxValue - minValue) === 0 ? 0 : (inputValue - minValue) / (maxValue - minValue)) * totalDeciles) + 1)) * ((maxValue - minValue) / totalDeciles)"
+  },
+  "outputs": {
+    "primary": "decile",
+    "breakdown": [
+      "decileStep",
+      "lowerBound",
+      "upperBound"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

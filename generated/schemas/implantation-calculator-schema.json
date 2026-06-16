@@ -1,0 +1,54 @@
+{
+  "toolName": "implantation-calculator",
+  "inputs": [
+    {
+      "id": "refX",
+      "label": "Reference X (Easting)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "The easting coordinate of the known reference point."
+    },
+    {
+      "id": "refY",
+      "label": "Reference Y (Northing)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "The northing coordinate of the known reference point."
+    },
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Horizontal distance from reference to target point."
+    },
+    {
+      "id": "azimuth",
+      "label": "Azimuth Angle",
+      "type": "number",
+      "unit": "degree",
+      "default": 45,
+      "businessContext": "Clockwise angle from north direction to the target direction."
+    }
+  ],
+  "formulas": {
+    "targetX": "refX + distance * Math.sin(azimuth * Math.PI / 180)",
+    "targetY": "refY + distance * Math.cos(azimuth * Math.PI / 180)"
+  },
+  "outputs": {
+    "primary": "Target point: X=${targetX} m, Y=${targetY} m",
+    "breakdown": [
+      "X = ${targetX} m",
+      "Y = ${targetY} m"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,68 @@
+{
+  "toolName": "tabata-calculator",
+  "inputs": [
+    {
+      "id": "workDurationSec",
+      "label": "Work Duration (sec)",
+      "type": "number",
+      "unit": "seconds",
+      "default": 20,
+      "businessContext": "Duration of high-intensity exercise per interval."
+    },
+    {
+      "id": "restDurationSec",
+      "label": "Rest Duration (sec)",
+      "type": "number",
+      "unit": "seconds",
+      "default": 10,
+      "businessContext": "Duration of rest between intervals within a cycle."
+    },
+    {
+      "id": "numCycles",
+      "label": "Number of Cycles",
+      "type": "number",
+      "unit": "cycles",
+      "default": 8,
+      "businessContext": "Number of work-rest cycles per round."
+    },
+    {
+      "id": "numRounds",
+      "label": "Number of Rounds",
+      "type": "number",
+      "unit": "rounds",
+      "default": 1,
+      "businessContext": "Number of complete Tabata rounds."
+    },
+    {
+      "id": "restBetweenRoundsSec",
+      "label": "Rest Between Rounds (sec)",
+      "type": "number",
+      "unit": "seconds",
+      "default": 60,
+      "businessContext": "Rest duration between consecutive rounds."
+    }
+  ],
+  "formulas": {
+    "totalWorkSec": "workDurationSec * numCycles * numRounds",
+    "totalRestSec": "restDurationSec * numCycles * numRounds",
+    "totalRestBetweenRoundsSec": "(numRounds - 1) * restBetweenRoundsSec",
+    "totalTimeSec": "totalWorkSec + totalRestSec + totalRestBetweenRoundsSec",
+    "totalTimeMin": "totalTimeSec / 60",
+    "workPercentage": "(totalWorkSec / totalTimeSec) * 100",
+    "restPercentage": "(totalRestSec / totalTimeSec) * 100"
+  },
+  "outputs": {
+    "primary": "Total Workout Duration: {totalTimeSec} seconds ({totalTimeMin} minutes)",
+    "breakdown": [
+      "High-Intensity Work: {totalWorkSec} sec ({workPercentage}%)",
+      "Active Recovery (within cycles): {totalRestSec} sec ({restPercentage}%)",
+      "Rest Between Rounds: {totalRestBetweenRoundsSec} sec"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

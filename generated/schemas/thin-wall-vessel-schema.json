@@ -1,0 +1,76 @@
+{
+  "toolName": "thin-wall-vessel",
+  "inputs": [
+    {
+      "id": "internalPressure",
+      "label": "Internal Pressure",
+      "type": "number",
+      "unit": "MPa",
+      "default": 1,
+      "businessContext": "Design pressure inside the vessel"
+    },
+    {
+      "id": "innerRadius",
+      "label": "Inner Radius",
+      "type": "number",
+      "unit": "mm",
+      "default": 500,
+      "businessContext": "Inner radius of the cylindrical vessel"
+    },
+    {
+      "id": "wallThickness",
+      "label": "Wall Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Thickness of the vessel wall"
+    },
+    {
+      "id": "allowableStress",
+      "label": "Allowable Stress",
+      "type": "number",
+      "unit": "MPa",
+      "default": 200,
+      "businessContext": "Maximum allowable stress of the material"
+    },
+    {
+      "id": "jointEfficiency",
+      "label": "Joint Efficiency",
+      "type": "number",
+      "unit": "",
+      "default": 0.85,
+      "businessContext": "Efficiency of welded joints (0-1)"
+    },
+    {
+      "id": "corrosionAllowance",
+      "label": "Corrosion Allowance",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "businessContext": "Additional thickness for corrosion"
+    }
+  ],
+  "formulas": {
+    "hoopStress": "internalPressure * (innerRadius + wallThickness/2) / wallThickness",
+    "longitudinalStress": "internalPressure * (innerRadius + wallThickness/2) / (2 * wallThickness)",
+    "requiredThickness": "(internalPressure * innerRadius) / (allowableStress * jointEfficiency - 0.6 * internalPressure) + corrosionAllowance",
+    "safetyFactorHoop": "allowableStress / hoopStress",
+    "safetyFactorLong": "allowableStress / longitudinalStress"
+  },
+  "outputs": {
+    "primary": "hoopStress",
+    "breakdown": [
+      "hoopStress",
+      "longitudinalStress",
+      "requiredThickness",
+      "safetyFactorHoop",
+      "safetyFactorLong"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

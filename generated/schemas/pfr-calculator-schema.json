@@ -1,0 +1,65 @@
+{
+  "toolName": "pfr-calculator",
+  "inputs": [
+    {
+      "id": "k",
+      "label": "Rate Constant (k)",
+      "type": "number",
+      "unit": "1/s",
+      "default": 0.1,
+      "businessContext": "First-order reaction rate constant"
+    },
+    {
+      "id": "conversion",
+      "label": "Conversion (X)",
+      "type": "number",
+      "unit": "-",
+      "default": 0.9,
+      "businessContext": "Desired fractional conversion of reactant A"
+    },
+    {
+      "id": "Ca0",
+      "label": "Inlet Concentration (Cₐ₀)",
+      "type": "number",
+      "unit": "mol/m³",
+      "default": 100,
+      "businessContext": "Molar concentration of A in feed"
+    },
+    {
+      "id": "v0",
+      "label": "Volumetric Flow Rate (v₀)",
+      "type": "number",
+      "unit": "m³/s",
+      "default": 0.01,
+      "businessContext": "Inlet volumetric flow rate"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor (SF)",
+      "type": "number",
+      "unit": "-",
+      "default": 1.2,
+      "businessContext": "Design margin to account for uncertainties"
+    }
+  ],
+  "formulas": {
+    "reactorVolumeDesign": "safetyFactor * (v0 / k) * Math.log(1 / (1 - conversion))",
+    "theoreticalVolume": "(v0 / k) * Math.log(1 / (1 - conversion))",
+    "outletConcentration": "Ca0 * (1 - conversion)",
+    "spaceTime": "(1 / k) * Math.log(1 / (1 - conversion))"
+  },
+  "outputs": {
+    "primary": "reactorVolumeDesign",
+    "breakdown": [
+      "theoreticalVolume",
+      "outletConcentration",
+      "spaceTime"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

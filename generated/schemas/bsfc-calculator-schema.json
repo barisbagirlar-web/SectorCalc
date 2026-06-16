@@ -1,0 +1,65 @@
+{
+  "toolName": "bsfc-calculator",
+  "inputs": [
+    {
+      "id": "fuelVolumeFlow",
+      "label": "Fuel Volume Flow",
+      "type": "number",
+      "unit": "L/h",
+      "default": 0,
+      "businessContext": "Volumetric fuel flow rate measured in liters per hour."
+    },
+    {
+      "id": "fuelTemperature",
+      "label": "Fuel Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Temperature of fuel at measurement point for density correction."
+    },
+    {
+      "id": "fuelDensityRef",
+      "label": "Reference Fuel Density",
+      "type": "number",
+      "unit": "kg/L",
+      "default": 0.84,
+      "businessContext": "Fuel density at reference temperature (e.g., 15°C)."
+    },
+    {
+      "id": "power",
+      "label": "Brake Power",
+      "type": "number",
+      "unit": "kW",
+      "default": 0,
+      "businessContext": "Engine brake power output in kilowatts."
+    },
+    {
+      "id": "thermalExpansionCoeff",
+      "label": "Fuel Thermal Expansion Coefficient",
+      "type": "number",
+      "unit": "1/°C",
+      "default": 0.00095,
+      "businessContext": "Coefficient of thermal expansion for fuel (typically 0.00095/°C for diesel)."
+    }
+  ],
+  "formulas": {
+    "densityCorrected": "fuelDensityRef / (1 + thermalExpansionCoeff * (fuelTemperature - 15))",
+    "massFlow": "fuelVolumeFlow * densityCorrected",
+    "bsfc": "(massFlow * 1000) / power",
+    "bsfc_lb_hph": "bsfc * 0.001644"
+  },
+  "outputs": {
+    "primary": "bsfc",
+    "breakdown": [
+      "densityCorrected",
+      "massFlow",
+      "bsfc_lb_hph"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

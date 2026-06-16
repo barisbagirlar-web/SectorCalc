@@ -1,0 +1,65 @@
+{
+  "toolName": "current-divider-calculator",
+  "inputs": [
+    {
+      "id": "I_total",
+      "label": "Total Current",
+      "type": "number",
+      "unit": "A",
+      "default": 10,
+      "businessContext": "Total current entering the parallel network"
+    },
+    {
+      "id": "R1",
+      "label": "Resistance 1",
+      "type": "number",
+      "unit": "Ω",
+      "default": 100,
+      "businessContext": "Resistance of branch 1"
+    },
+    {
+      "id": "R2",
+      "label": "Resistance 2",
+      "type": "number",
+      "unit": "Ω",
+      "default": 200,
+      "businessContext": "Resistance of branch 2"
+    },
+    {
+      "id": "R3",
+      "label": "Resistance 3",
+      "type": "number",
+      "unit": "Ω",
+      "default": 0,
+      "businessContext": "Resistance of branch 3 (optional, set 0 to omit)"
+    },
+    {
+      "id": "R4",
+      "label": "Resistance 4",
+      "type": "number",
+      "unit": "Ω",
+      "default": 0,
+      "businessContext": "Resistance of branch 4 (optional, set 0 to omit)"
+    }
+  ],
+  "formulas": {
+    "I1": "R1 > 0 ? I_total * (1/R1) / ((R1>0?1/R1:0) + (R2>0?1/R2:0) + (R3>0?1/R3:0) + (R4>0?1/R4:0)) : 0",
+    "I2": "R2 > 0 ? I_total * (1/R2) / ((R1>0?1/R1:0) + (R2>0?1/R2:0) + (R3>0?1/R3:0) + (R4>0?1/R4:0)) : 0",
+    "I3": "R3 > 0 ? I_total * (1/R3) / ((R1>0?1/R1:0) + (R2>0?1/R2:0) + (R3>0?1/R3:0) + (R4>0?1/R4:0)) : 0",
+    "I4": "R4 > 0 ? I_total * (1/R4) / ((R1>0?1/R1:0) + (R2>0?1/R2:0) + (R3>0?1/R3:0) + (R4>0?1/R4:0)) : 0"
+  },
+  "outputs": {
+    "primary": "I1",
+    "breakdown": [
+      "I2",
+      "I3",
+      "I4"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

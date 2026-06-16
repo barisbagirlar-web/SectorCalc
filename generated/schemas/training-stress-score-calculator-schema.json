@@ -1,0 +1,55 @@
+{
+  "toolName": "training-stress-score-calculator",
+  "inputs": [
+    {
+      "id": "hours",
+      "label": "Süre (Saat)",
+      "type": "number",
+      "unit": "saat",
+      "default": 1,
+      "businessContext": "Antrenman süresinin saat cinsinden kısmı."
+    },
+    {
+      "id": "minutes",
+      "label": "Süre (Dakika)",
+      "type": "number",
+      "unit": "dakika",
+      "default": 0,
+      "businessContext": "Antrenman süresinin dakika cinsinden kısmı."
+    },
+    {
+      "id": "ftp",
+      "label": "Fonksiyonel Eşik Güç (FTP)",
+      "type": "number",
+      "unit": "Watt",
+      "default": 250,
+      "businessContext": "Sporcunun fonksiyonel eşik gücü (watt)."
+    },
+    {
+      "id": "normalizedPower",
+      "label": "Normalize Güç (NP)",
+      "type": "number",
+      "unit": "Watt",
+      "default": 200,
+      "businessContext": "Antrenman seansının normalize gücü (watt)."
+    }
+  ],
+  "formulas": {
+    "tss": "(hours + minutes / 60) * ((normalizedPower / ftp) ** 2) * 100",
+    "intensityFactor": "normalizedPower / ftp",
+    "totalHours": "hours + minutes / 60"
+  },
+  "outputs": {
+    "primary": "tss",
+    "breakdown": [
+      "intensityFactor",
+      "totalHours"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

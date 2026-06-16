@@ -1,0 +1,71 @@
+{
+  "toolName": "factor-of-safety-slope-calculator",
+  "inputs": [
+    {
+      "id": "slopeAngle",
+      "label": "Şev Açısı",
+      "type": "number",
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Eğimin yatay ile yaptığı açı"
+    },
+    {
+      "id": "cohesion",
+      "label": "Kohezyon",
+      "type": "number",
+      "unit": "kPa",
+      "default": 0,
+      "businessContext": "Zemin kohezyon değeri"
+    },
+    {
+      "id": "frictionAngle",
+      "label": "İçsel Sürtünme Açısı",
+      "type": "number",
+      "unit": "°",
+      "default": 25,
+      "businessContext": "Zemin için efektif kayma direnci açısı"
+    },
+    {
+      "id": "soilUnitWeight",
+      "label": "Zemin Birim Hacim Ağırlığı",
+      "type": "number",
+      "unit": "kN/m³",
+      "default": 18,
+      "businessContext": "Doğal birim ağırlık"
+    },
+    {
+      "id": "slipDepth",
+      "label": "Kayma Derinliği",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Yüzeyden kayma düzlemine dik derinlik"
+    },
+    {
+      "id": "waterDepthAboveSlip",
+      "label": "Kayma Düzlemi Üzerindeki Su Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Doygun zemin hesabı için su derinliği"
+    }
+  ],
+  "formulas": {
+    "factorOfSafety": "(cohesion + (soilUnitWeight * slipDepth * Math.cos(slopeAngle * Math.PI / 180) ** 2 - 9.81 * waterDepthAboveSlip * Math.cos(slopeAngle * Math.PI / 180) ** 2) * Math.tan(frictionAngle * Math.PI / 180)) / (soilUnitWeight * slipDepth * Math.sin(slopeAngle * Math.PI / 180) * Math.cos(slopeAngle * Math.PI / 180))",
+    "resistingStress": "cohesion + (soilUnitWeight * slipDepth * Math.cos(slopeAngle * Math.PI / 180) ** 2 - 9.81 * waterDepthAboveSlip * Math.cos(slopeAngle * Math.PI / 180) ** 2) * Math.tan(frictionAngle * Math.PI / 180)",
+    "drivingStress": "soilUnitWeight * slipDepth * Math.sin(slopeAngle * Math.PI / 180) * Math.cos(slopeAngle * Math.PI / 180)"
+  },
+  "outputs": {
+    "primary": "factorOfSafety",
+    "breakdown": [
+      "resistingStress",
+      "drivingStress"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

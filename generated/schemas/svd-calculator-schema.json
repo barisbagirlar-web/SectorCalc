@@ -1,0 +1,63 @@
+{
+  "toolName": "svd-calculator",
+  "inputs": [
+    {
+      "id": "a11",
+      "label": "A11",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Element (1,1) of matrix A"
+    },
+    {
+      "id": "a12",
+      "label": "A12",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Element (1,2) of matrix A"
+    },
+    {
+      "id": "a21",
+      "label": "A21",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Element (2,1) of matrix A"
+    },
+    {
+      "id": "a22",
+      "label": "A22",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Element (2,2) of matrix A"
+    }
+  ],
+  "formulas": {
+    "traceATA": "a11*a11 + a12*a12 + a21*a21 + a22*a22",
+    "detA": "a11*a22 - a12*a21",
+    "discriminant": "Math.sqrt(Math.max(0, traceATA*traceATA - 4*detA*detA))",
+    "lambda1": "(traceATA + discriminant) / 2",
+    "lambda2": "(traceATA - discriminant) / 2",
+    "sigma1": "Math.sqrt(lambda1)",
+    "sigma2": "Math.sqrt(lambda2)",
+    "condNumber": "sigma2 > 0 ? sigma1 / sigma2 : Infinity"
+  },
+  "outputs": {
+    "primary": "σ₁ = ${sigma1.toFixed(4)}, σ₂ = ${sigma2.toFixed(4)}",
+    "breakdown": [
+      "Maximum singular value: ${sigma1.toFixed(4)}",
+      "Minimum singular value: ${sigma2.toFixed(4)}",
+      "Condition number: ${condNumber.toFixed(4)}",
+      "Determinant: ${detA.toFixed(4)}",
+      "Trace of AᵀA: ${traceATA.toFixed(4)}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

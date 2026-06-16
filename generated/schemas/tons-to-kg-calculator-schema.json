@@ -1,0 +1,59 @@
+{
+  "toolName": "tons-to-kg-calculator",
+  "inputs": [
+    {
+      "id": "metricTons",
+      "label": "Metric Tons (t)",
+      "type": "number",
+      "unit": "t",
+      "default": 0,
+      "businessContext": "Weight in metric tons (1 t = 1000 kg)"
+    },
+    {
+      "id": "shortTons",
+      "label": "Short Tons (US)",
+      "type": "number",
+      "unit": "short t",
+      "default": 0,
+      "businessContext": "Weight in short tons (1 short t = 907.18474 kg)"
+    },
+    {
+      "id": "longTons",
+      "label": "Long Tons (UK)",
+      "type": "number",
+      "unit": "long t",
+      "default": 0,
+      "businessContext": "Weight in long tons (1 long t = 1016.0469088 kg)"
+    },
+    {
+      "id": "knownKilograms",
+      "label": "Known Kilograms (verification)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Previously measured weight in kilograms for cross-check validation"
+    }
+  ],
+  "formulas": {
+    "totalKg": "(metricTons * 1000) + (shortTons * 907.18474) + (longTons * 1016.0469088)",
+    "metricKg": "metricTons * 1000",
+    "shortKg": "shortTons * 907.18474",
+    "longKg": "longTons * 1016.0469088",
+    "difference": "knownKilograms - ((metricTons * 1000) + (shortTons * 907.18474) + (longTons * 1016.0469088))"
+  },
+  "outputs": {
+    "primary": "totalKg",
+    "breakdown": [
+      "metricKg",
+      "shortKg",
+      "longKg",
+      "difference"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

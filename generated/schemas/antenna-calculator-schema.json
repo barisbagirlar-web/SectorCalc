@@ -1,0 +1,47 @@
+{
+  "toolName": "antenna-calculator",
+  "inputs": [
+    {
+      "id": "frequency",
+      "label": "Frekans",
+      "type": "number",
+      "unit": "MHz",
+      "default": 2400,
+      "businessContext": "Çalışma frekansı, dalga boyunu ve anten boyutlandırmasını belirler."
+    },
+    {
+      "id": "diameter",
+      "label": "Anten Çapı",
+      "type": "number",
+      "unit": "m",
+      "default": 0.3,
+      "businessContext": "Parabolik anten yansıtıcı çapı, kazanç ve hüzme genişliğini doğrudan etkiler."
+    },
+    {
+      "id": "efficiency",
+      "label": "Verimlilik",
+      "type": "number",
+      "unit": "oransal",
+      "default": 0.6,
+      "businessContext": "Açıklık verimliliği, antenin teorik maksimum performansa ne kadar yakın olduğunu gösterir."
+    }
+  ],
+  "formulas": {
+    "wavelength": "300 / frequency",
+    "gain": "10 * Math.log10(efficiency * Math.pow(Math.PI * diameter / (300 / frequency), 2))",
+    "beamwidth": "70 * (300 / frequency) / diameter"
+  },
+  "outputs": {
+    "primary": "Kazanç (dBi)",
+    "breakdown": [
+      "Dalga Boyu (m)",
+      "Yarı Güç Hüzme Genişliği (°)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

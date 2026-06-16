@@ -1,0 +1,69 @@
+{
+  "toolName": "recovery-time-calculator",
+  "inputs": [
+    {
+      "id": "detectionTime",
+      "label": "Detection Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 0.5,
+      "businessContext": "Time from failure occurrence to detection"
+    },
+    {
+      "id": "responseTime",
+      "label": "Response Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 0.5,
+      "businessContext": "Time to respond and diagnose after detection"
+    },
+    {
+      "id": "repairTime",
+      "label": "Repair Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 2,
+      "businessContext": "Time required to repair the failure"
+    },
+    {
+      "id": "restartTime",
+      "label": "Restart Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 0.5,
+      "businessContext": "Time to restart and stabilize after repair"
+    },
+    {
+      "id": "verificationTime",
+      "label": "Verification Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 0.5,
+      "businessContext": "Time to verify full operational performance"
+    }
+  ],
+  "formulas": {
+    "totalRecoveryTime": "detectionTime + responseTime + repairTime + restartTime + verificationTime",
+    "detectionPercentage": "(detectionTime / totalRecoveryTime) * 100",
+    "responsePercentage": "(responseTime / totalRecoveryTime) * 100",
+    "repairPercentage": "(repairTime / totalRecoveryTime) * 100",
+    "restartPercentage": "(restartTime / totalRecoveryTime) * 100",
+    "verificationPercentage": "(verificationTime / totalRecoveryTime) * 100"
+  },
+  "outputs": {
+    "primary": "totalRecoveryTime",
+    "breakdown": [
+      "detectionPercentage",
+      "responsePercentage",
+      "repairPercentage",
+      "restartPercentage",
+      "verificationPercentage"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Atölye & Tamir",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

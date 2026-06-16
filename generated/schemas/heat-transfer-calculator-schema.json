@@ -1,0 +1,79 @@
+{
+  "toolName": "heat-transfer-calculator",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 1,
+      "businessContext": "Heat transfer surface area"
+    },
+    {
+      "id": "thickness",
+      "label": "Wall Thickness",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Thickness of the wall material"
+    },
+    {
+      "id": "thermalConductivity",
+      "label": "Thermal Conductivity",
+      "type": "number",
+      "unit": "W/(m·K)",
+      "default": 0.5,
+      "businessContext": "Thermal conductivity of wall material"
+    },
+    {
+      "id": "hInside",
+      "label": "Inside Convection Coefficient",
+      "type": "number",
+      "unit": "W/(m²·K)",
+      "default": 10,
+      "businessContext": "Convective heat transfer coefficient on the hot side"
+    },
+    {
+      "id": "hOutside",
+      "label": "Outside Convection Coefficient",
+      "type": "number",
+      "unit": "W/(m²·K)",
+      "default": 25,
+      "businessContext": "Convective heat transfer coefficient on the cold side"
+    },
+    {
+      "id": "tempInside",
+      "label": "Inside Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 100,
+      "businessContext": "Temperature of the hot fluid"
+    },
+    {
+      "id": "tempOutside",
+      "label": "Outside Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Temperature of the cold fluid"
+    }
+  ],
+  "formulas": {
+    "heatTransferRate": "area * (tempInside - tempOutside) / (1/hInside + thickness/thermalConductivity + 1/hOutside)",
+    "overallHeatTransferCoeff": "1 / (1/hInside + thickness/thermalConductivity + 1/hOutside)",
+    "deltaTemp": "tempInside - tempOutside"
+  },
+  "outputs": {
+    "primary": "heatTransferRate",
+    "breakdown": [
+      "overallHeatTransferCoeff",
+      "deltaTemp"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

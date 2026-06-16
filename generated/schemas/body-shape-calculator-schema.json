@@ -1,0 +1,55 @@
+{
+  "toolName": "body-shape-calculator",
+  "inputs": [
+    {
+      "id": "bust",
+      "label": "Bust",
+      "type": "number",
+      "unit": "cm",
+      "default": 90,
+      "businessContext": "Göğüs çevresi (cm)"
+    },
+    {
+      "id": "waist",
+      "label": "Waist",
+      "type": "number",
+      "unit": "cm",
+      "default": 70,
+      "businessContext": "Bel çevresi (cm)"
+    },
+    {
+      "id": "highHip",
+      "label": "High Hip",
+      "type": "number",
+      "unit": "cm",
+      "default": 95,
+      "businessContext": "Yüksek kalça çevresi (cm)"
+    },
+    {
+      "id": "hip",
+      "label": "Hip",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "businessContext": "Kalça çevresi (cm)"
+    }
+  ],
+  "formulas": {
+    "bustHipDiff": "Math.abs(bust - hip)",
+    "waistHipRatio": "waist / hip",
+    "shape": "(bustHipDiff < 5 && waistHipRatio < 0.75) ? 'Hourglass' : (bustHipDiff >= 5 && bust > hip) ? 'Apple' : (bustHipDiff >= 5 && hip > bust) ? 'Pear' : (waistHipRatio >= 0.85) ? 'Rectangle' : 'Inverted Triangle'"
+  },
+  "outputs": {
+    "primary": "shape",
+    "breakdown": [
+      "bustHipDiff",
+      "waistHipRatio"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

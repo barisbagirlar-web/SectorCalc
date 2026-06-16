@@ -1,0 +1,63 @@
+{
+  "toolName": "hydraulic-calculator",
+  "inputs": [
+    {
+      "id": "pressure",
+      "label": "Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 100,
+      "businessContext": "System pressure in bar"
+    },
+    {
+      "id": "flowRate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "L/min",
+      "default": 50,
+      "businessContext": "Flow rate in liters per minute"
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Overall efficiency percentage"
+    },
+    {
+      "id": "boreDia",
+      "label": "Cylinder Bore Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 80,
+      "businessContext": "Inside diameter of cylinder"
+    },
+    {
+      "id": "rodDia",
+      "label": "Rod Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 40,
+      "businessContext": "Diameter of piston rod"
+    }
+  ],
+  "formulas": {
+    "power": "(pressure * flowRate) / (600 * (efficiency / 100))",
+    "pushForce": "(pressure * Math.PI * boreDia**2) / 40000",
+    "pullForce": "(pressure * Math.PI * (boreDia**2 - rodDia**2)) / 40000"
+  },
+  "outputs": {
+    "primary": "power",
+    "breakdown": [
+      "pushForce",
+      "pullForce"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

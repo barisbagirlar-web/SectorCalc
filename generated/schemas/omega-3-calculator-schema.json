@@ -1,0 +1,65 @@
+{
+  "toolName": "omega-3-calculator",
+  "inputs": [
+    {
+      "id": "capsule_size",
+      "label": "Capsule Size (mg)",
+      "type": "number",
+      "unit": "mg",
+      "default": 1000,
+      "businessContext": "Fish oil amount per capsule in milligrams"
+    },
+    {
+      "id": "capsules_per_day",
+      "label": "Capsules per Day",
+      "type": "number",
+      "unit": "count",
+      "default": 1,
+      "businessContext": "Number of capsules consumed daily"
+    },
+    {
+      "id": "epa_percent",
+      "label": "EPA Concentration (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "businessContext": "Percentage of EPA in the fish oil"
+    },
+    {
+      "id": "dha_percent",
+      "label": "DHA Concentration (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 12,
+      "businessContext": "Percentage of DHA in the fish oil"
+    },
+    {
+      "id": "body_weight_kg",
+      "label": "Body Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight for per-kilogram dosage calculation"
+    }
+  ],
+  "formulas": {
+    "total_epa_mg": "capsule_size * capsules_per_day * (epa_percent / 100)",
+    "total_dha_mg": "capsule_size * capsules_per_day * (dha_percent / 100)",
+    "combined_epa_dha_mg": "capsule_size * capsules_per_day * ((epa_percent + dha_percent) / 100)",
+    "epa_per_kg": "(capsule_size * capsules_per_day * (epa_percent / 100)) / body_weight_kg",
+    "dha_per_kg": "(capsule_size * capsules_per_day * (dha_percent / 100)) / body_weight_kg",
+    "combined_per_kg": "(capsule_size * capsules_per_day * ((epa_percent + dha_percent) / 100)) / body_weight_kg"
+  },
+  "outputs": {
+    "primary": "combined_epa_dha_mg",
+    "breakdown": [
+      "total_epa_mg",
+      "total_dha_mg",
+      "combined_epa_dha_mg",
+      "combined_per_kg"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false
+}

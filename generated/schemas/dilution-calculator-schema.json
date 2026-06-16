@@ -1,0 +1,63 @@
+{
+  "toolName": "dilution-calculator",
+  "inputs": [
+    {
+      "id": "stockConcentration",
+      "label": "Stock Concentration",
+      "type": "number",
+      "unit": "mg/mL",
+      "default": 100,
+      "businessContext": "Concentration of the stock solution"
+    },
+    {
+      "id": "desiredConcentration",
+      "label": "Desired Concentration",
+      "type": "number",
+      "unit": "mg/mL",
+      "default": 10,
+      "businessContext": "Target concentration after dilution"
+    },
+    {
+      "id": "finalVolume",
+      "label": "Final Volume",
+      "type": "number",
+      "unit": "mL",
+      "default": 100,
+      "businessContext": "Required total volume of the diluted solution"
+    },
+    {
+      "id": "overagePercent",
+      "label": "Overage Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Extra volume percentage to account for handling losses (0-100)"
+    },
+    {
+      "id": "unitConversionFactor",
+      "label": "Unit Conversion Factor",
+      "type": "number",
+      "unit": "none",
+      "default": 1,
+      "businessContext": "Factor to convert stock concentration units to desired concentration units (e.g., if stock is in g/L and desired in mg/mL, use 1)"
+    }
+  ],
+  "formulas": {
+    "effectiveStockConcentration": "stockConcentration * unitConversionFactor",
+    "adjustedFinalVolume": "finalVolume * (1 + overagePercent / 100)",
+    "requiredStockVolume": "(desiredConcentration * adjustedFinalVolume) / effectiveStockConcentration"
+  },
+  "outputs": {
+    "primary": "requiredStockVolume",
+    "breakdown": [
+      "effectiveStockConcentration",
+      "adjustedFinalVolume"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

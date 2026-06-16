@@ -1,0 +1,57 @@
+{
+  "toolName": "merchant-fee-calculator",
+  "inputs": [
+    {
+      "id": "transactionAmount",
+      "label": "Transaction Amount",
+      "type": "number",
+      "unit": "EUR",
+      "default": 100,
+      "businessContext": "Total sales amount before fees"
+    },
+    {
+      "id": "feePercentage",
+      "label": "Fee Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 2.9,
+      "businessContext": "Percentage fee charged by payment processor"
+    },
+    {
+      "id": "fixedFee",
+      "label": "Fixed Fee",
+      "type": "number",
+      "unit": "EUR",
+      "default": 0.3,
+      "businessContext": "Fixed transaction fee per transaction"
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Tax rate applied on the fee amount"
+    }
+  ],
+  "formulas": {
+    "grossFee": "transactionAmount * (feePercentage / 100) + fixedFee",
+    "taxAmount": "grossFee * (taxRate / 100)",
+    "totalFee": "grossFee + taxAmount",
+    "totalTransactionCost": "transactionAmount + totalFee"
+  },
+  "outputs": {
+    "primary": "totalFee",
+    "breakdown": [
+      "grossFee",
+      "taxAmount",
+      "totalTransactionCost"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

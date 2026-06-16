@@ -1,0 +1,58 @@
+{
+  "toolName": "sum-of-years-digits-calculator",
+  "inputs": [
+    {
+      "id": "cost",
+      "label": "Asset Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "Asset cost (purchase price)"
+    },
+    {
+      "id": "salvage",
+      "label": "Salvage Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "businessContext": "Estimated salvage value at end of useful life"
+    },
+    {
+      "id": "life",
+      "label": "Useful Life (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Useful life of the asset in years"
+    },
+    {
+      "id": "year",
+      "label": "Year Number",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Year for which to calculate depreciation (1-based)"
+    }
+  ],
+  "formulas": {
+    "sum_of_years": "life * (life + 1) / 2",
+    "depreciable_base": "cost - salvage",
+    "remaining_life": "life - year + 1",
+    "depreciation_fraction": "remaining_life / sum_of_years",
+    "depreciation_expense": "depreciable_base * depreciation_fraction"
+  },
+  "outputs": {
+    "primary": "depreciation_expense",
+    "breakdown": [
+      "sum_of_years",
+      "depreciable_base",
+      "depreciation_fraction"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

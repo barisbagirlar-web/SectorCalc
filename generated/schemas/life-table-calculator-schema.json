@@ -1,0 +1,55 @@
+{
+  "toolName": "life-table-calculator",
+  "inputs": [
+    {
+      "id": "l0",
+      "label": "Initial Number of Lives",
+      "type": "number",
+      "unit": "",
+      "default": 100000,
+      "businessContext": "The radix or starting population for the life table, typically a large round number such as 100,000."
+    },
+    {
+      "id": "B",
+      "label": "Gompertz Parameter B",
+      "type": "number",
+      "unit": "per year",
+      "default": 0.0001,
+      "businessContext": "Scale parameter of the Gompertz mortality law, representing the mortality rate at very young ages (if c is close to 1)."
+    },
+    {
+      "id": "c",
+      "label": "Gompertz Parameter c",
+      "type": "number",
+      "unit": "",
+      "default": 1.1,
+      "businessContext": "Exponential growth factor of mortality with age; must be greater than 1 for mortality to increase with age."
+    },
+    {
+      "id": "age",
+      "label": "Age (x)",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Exact age at which to evaluate the life table functions."
+    }
+  ],
+  "formulas": {
+    "lx": "l0 * Math.exp(-(B / Math.log(c)) * (c ** age - 1))",
+    "dx": "l0 * Math.exp(-(B / Math.log(c)) * (c ** age - 1)) * (1 - Math.exp(-(B * c ** age * (c - 1) / Math.log(c))))",
+    "qx": "1 - Math.exp(-(B * c ** age * (c - 1) / Math.log(c)))"
+  },
+  "outputs": {
+    "primary": "qx",
+    "breakdown": [
+      "lx",
+      "dx"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,53 @@
+{
+  "toolName": "determinant-calculator",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "a (top-left)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "2x2 matrix element, row 1, column 1"
+    },
+    {
+      "id": "b",
+      "label": "b (top-right)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "2x2 matrix element, row 1, column 2"
+    },
+    {
+      "id": "c",
+      "label": "c (bottom-left)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "2x2 matrix element, row 2, column 1"
+    },
+    {
+      "id": "d",
+      "label": "d (bottom-right)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "2x2 matrix element, row 2, column 2"
+    }
+  ],
+  "formulas": {
+    "det": "a * d - b * c"
+  },
+  "outputs": {
+    "primary": "det",
+    "breakdown": [
+      "Determinant (ad - bc) = {a} × {d} - {b} × {c}",
+      "= {det}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

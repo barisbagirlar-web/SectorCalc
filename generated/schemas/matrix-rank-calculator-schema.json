@@ -1,0 +1,57 @@
+{
+  "toolName": "matrix-rank-calculator",
+  "inputs": [
+    {
+      "id": "a11",
+      "label": "a₁₁",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Top-left element of the 2x2 matrix"
+    },
+    {
+      "id": "a12",
+      "label": "a₁₂",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Top-right element of the 2x2 matrix"
+    },
+    {
+      "id": "a21",
+      "label": "a₂₁",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Bottom-left element of the 2x2 matrix"
+    },
+    {
+      "id": "a22",
+      "label": "a₂₂",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Bottom-right element of the 2x2 matrix"
+    }
+  ],
+  "formulas": {
+    "determinant": "a11*a22 - a12*a21",
+    "isZeroMatrix": "Math.abs(a11)<1e-10 && Math.abs(a12)<1e-10 && Math.abs(a21)<1e-10 && Math.abs(a22)<1e-10",
+    "isFullRank": "Math.abs(a11*a22 - a12*a21) > 1e-10",
+    "rank": "(Math.abs(a11*a22 - a12*a21) > 1e-10) ? 2 : ((Math.abs(a11)<1e-10 && Math.abs(a12)<1e-10 && Math.abs(a21)<1e-10 && Math.abs(a22)<1e-10) ? 0 : 1)"
+  },
+  "outputs": {
+    "primary": "rank",
+    "breakdown": [
+      "determinant",
+      "isZeroMatrix",
+      "isFullRank"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

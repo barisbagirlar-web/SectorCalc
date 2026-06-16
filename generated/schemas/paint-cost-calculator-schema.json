@@ -1,0 +1,81 @@
+{
+  "toolName": "paint-cost-calculator",
+  "inputs": [
+    {
+      "id": "surfaceArea",
+      "label": "Surface Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "businessContext": "Total paintable surface area in square meters"
+    },
+    {
+      "id": "paintCoverage",
+      "label": "Paint Coverage",
+      "type": "number",
+      "unit": "m²/L",
+      "default": 10,
+      "businessContext": "Area covered by one liter of paint"
+    },
+    {
+      "id": "paintPrice",
+      "label": "Paint Price per Liter",
+      "type": "number",
+      "unit": "$/L",
+      "default": 30,
+      "businessContext": "Cost of one liter of paint"
+    },
+    {
+      "id": "coats",
+      "label": "Number of Coats",
+      "type": "number",
+      "unit": "coats",
+      "default": 2,
+      "businessContext": "How many layers of paint to apply"
+    },
+    {
+      "id": "laborHours",
+      "label": "Labor Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Total labor hours required for the job"
+    },
+    {
+      "id": "laborRate",
+      "label": "Labor Rate",
+      "type": "number",
+      "unit": "$/hour",
+      "default": 50,
+      "businessContext": "Hourly labor cost"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Extra paint needed due to spillage, overspray, etc."
+    }
+  ],
+  "formulas": {
+    "totalPaintNeeded": "surfaceArea / paintCoverage * coats * (1 + wasteFactor / 100)",
+    "totalPaintCost": "totalPaintNeeded * paintPrice",
+    "totalLaborCost": "laborHours * laborRate",
+    "totalCost": "totalPaintCost + totalLaborCost"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "totalPaintNeeded",
+      "totalPaintCost",
+      "totalLaborCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

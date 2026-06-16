@@ -1,0 +1,57 @@
+{
+  "toolName": "traffic-flow-calculator",
+  "inputs": [
+    {
+      "id": "lanes",
+      "label": "Number of Lanes",
+      "type": "number",
+      "unit": "lanes",
+      "default": 2,
+      "businessContext": "Total number of traffic lanes in one direction."
+    },
+    {
+      "id": "speed",
+      "label": "Average Traffic Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 60,
+      "businessContext": "Average speed of vehicles in the traffic stream."
+    },
+    {
+      "id": "vehicleLength",
+      "label": "Average Vehicle Length",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Typical effective length of a vehicle including safety margin."
+    },
+    {
+      "id": "headway",
+      "label": "Time Headway",
+      "type": "number",
+      "unit": "s",
+      "default": 2,
+      "businessContext": "Average time gap between consecutive vehicles (time headway)."
+    }
+  ],
+  "formulas": {
+    "totalFlow": "lanes * speed * 1000 / (speed / 3.6 * headway + vehicleLength)",
+    "flowPerLane": "speed * 1000 / (speed / 3.6 * headway + vehicleLength)",
+    "density": "1000 / (speed / 3.6 * headway + vehicleLength)",
+    "spacing": "speed / 3.6 * headway + vehicleLength"
+  },
+  "outputs": {
+    "primary": "totalFlow",
+    "breakdown": [
+      "flowPerLane",
+      "density",
+      "spacing"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

@@ -1,0 +1,54 @@
+{
+  "toolName": "von-mises-stress-calculator",
+  "inputs": [
+    {
+      "id": "sigma_x",
+      "label": "Normal Stress σ_x",
+      "type": "number",
+      "unit": "MPa",
+      "default": 0,
+      "businessContext": "Normal stress component in x-direction"
+    },
+    {
+      "id": "sigma_y",
+      "label": "Normal Stress σ_y",
+      "type": "number",
+      "unit": "MPa",
+      "default": 0,
+      "businessContext": "Normal stress component in y-direction"
+    },
+    {
+      "id": "tau_xy",
+      "label": "Shear Stress τ_xy",
+      "type": "number",
+      "unit": "MPa",
+      "default": 0,
+      "businessContext": "Shear stress component in xy-plane"
+    },
+    {
+      "id": "yield_strength",
+      "label": "Yield Strength",
+      "type": "number",
+      "unit": "MPa",
+      "default": 250,
+      "businessContext": "Material yield strength for safety assessment"
+    }
+  ],
+  "formulas": {
+    "sigma_v": "Math.sqrt(sigma_x**2 + sigma_y**2 - sigma_x * sigma_y + 3 * tau_xy**2)",
+    "safety_factor": "yield_strength / sigma_v"
+  },
+  "outputs": {
+    "primary": "sigma_v",
+    "breakdown": [
+      "sigma_v",
+      "safety_factor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

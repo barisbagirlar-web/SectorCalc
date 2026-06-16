@@ -1,0 +1,59 @@
+{
+  "toolName": "chronotype-calculator",
+  "inputs": [
+    {
+      "id": "workdayBedtime",
+      "label": "Workday Bedtime",
+      "type": "number",
+      "unit": "hour",
+      "default": 23,
+      "businessContext": "Typical bedtime on workdays, in decimal hours (e.g., 23.5 = 11:30 PM)"
+    },
+    {
+      "id": "workdayWaketime",
+      "label": "Workday Wake Time",
+      "type": "number",
+      "unit": "hour",
+      "default": 7,
+      "businessContext": "Typical wake time on workdays, in decimal hours (e.g., 7.0 = 7:00 AM)"
+    },
+    {
+      "id": "freeDayBedtime",
+      "label": "Free Day Bedtime",
+      "type": "number",
+      "unit": "hour",
+      "default": 0,
+      "businessContext": "Typical bedtime on free days, in decimal hours (e.g., 0 = midnight, 1.5 = 1:30 AM)"
+    },
+    {
+      "id": "freeDayWaketime",
+      "label": "Free Day Wake Time",
+      "type": "number",
+      "unit": "hour",
+      "default": 8,
+      "businessContext": "Typical wake time on free days, in decimal hours (e.g., 8 = 8:00 AM)"
+    }
+  ],
+  "formulas": {
+    "workdaySleep": "workdayWaketime >= workdayBedtime ? workdayWaketime - workdayBedtime : (workdayWaketime + 24) - workdayBedtime",
+    "freeDaySleep": "freeDayWaketime >= freeDayBedtime ? freeDayWaketime - freeDayBedtime : (freeDayWaketime + 24) - freeDayBedtime",
+    "msf": "(freeDayBedtime + freeDaySleep / 2) % 24",
+    "avgSleep": "(workdaySleep + freeDaySleep) / 2",
+    "sleepDebt": "(freeDaySleep - avgSleep) / 2",
+    "chronotype": "((msf - sleepDebt) % 24 + 24) % 24"
+  },
+  "outputs": {
+    "primary": "chronotype",
+    "breakdown": [
+      "msf",
+      "workdaySleep",
+      "freeDaySleep"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

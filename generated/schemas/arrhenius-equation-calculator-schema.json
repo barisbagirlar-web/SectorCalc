@@ -1,0 +1,55 @@
+{
+  "toolName": "arrhenius-equation-calculator",
+  "inputs": [
+    {
+      "id": "temperature",
+      "label": "Temperature (T)",
+      "type": "number",
+      "unit": "K",
+      "default": 298.15,
+      "businessContext": "Absolute temperature in Kelvin."
+    },
+    {
+      "id": "activationEnergy",
+      "label": "Activation Energy (Ea)",
+      "type": "number",
+      "unit": "J/mol",
+      "default": 50000,
+      "businessContext": "Activation energy barrier in joules per mole."
+    },
+    {
+      "id": "preExpFactor",
+      "label": "Pre-exponential Factor (A)",
+      "type": "number",
+      "unit": "s⁻¹",
+      "default": 10000000000,
+      "businessContext": "Frequency factor for the reaction."
+    },
+    {
+      "id": "gasConstant",
+      "label": "Gas Constant (R)",
+      "type": "number",
+      "unit": "J/(mol·K)",
+      "default": 8.314,
+      "businessContext": "Universal gas constant."
+    }
+  ],
+  "formulas": {
+    "expArg": "-activationEnergy / (gasConstant * temperature)",
+    "expTerm": "Math.exp(expArg)",
+    "rateConstant": "preExpFactor * expTerm"
+  },
+  "outputs": {
+    "primary": "rateConstant",
+    "breakdown": [
+      "expArg",
+      "expTerm"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

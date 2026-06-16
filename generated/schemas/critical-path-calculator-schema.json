@@ -1,0 +1,63 @@
+{
+  "toolName": "critical-path-calculator",
+  "inputs": [
+    {
+      "id": "durationA",
+      "label": "A Aktivitesi Süresi",
+      "type": "number",
+      "unit": "gün",
+      "default": 1,
+      "businessContext": "A aktivitesinin tamamlanma süresi (gün)"
+    },
+    {
+      "id": "durationB",
+      "label": "B Aktivitesi Süresi",
+      "type": "number",
+      "unit": "gün",
+      "default": 1,
+      "businessContext": "B aktivitesinin tamamlanma süresi (gün)"
+    },
+    {
+      "id": "durationC",
+      "label": "C Aktivitesi Süresi",
+      "type": "number",
+      "unit": "gün",
+      "default": 1,
+      "businessContext": "C aktivitesinin tamamlanma süresi (gün)"
+    },
+    {
+      "id": "durationD",
+      "label": "D Aktivitesi Süresi",
+      "type": "number",
+      "unit": "gün",
+      "default": 1,
+      "businessContext": "D aktivitesinin tamamlanma süresi (gün)"
+    },
+    {
+      "id": "durationE",
+      "label": "E Aktivitesi Süresi",
+      "type": "number",
+      "unit": "gün",
+      "default": 1,
+      "businessContext": "E aktivitesinin tamamlanma süresi (gün)"
+    }
+  ],
+  "formulas": {
+    "criticalPathDuration": "Math.max(durationA+durationC+durationD, durationA+durationC+durationE, durationB+durationC+durationD, durationB+durationC+durationE)",
+    "criticalPath": "(durationA+durationC+durationD >= durationA+durationC+durationE && durationA+durationC+durationD >= durationB+durationC+durationD && durationA+durationC+durationD >= durationB+durationC+durationE) ? 'A-C-D' : (durationA+durationC+durationE >= durationB+durationC+durationD && durationA+durationC+durationE >= durationB+durationC+durationE) ? 'A-C-E' : (durationB+durationC+durationD >= durationB+durationC+durationE) ? 'B-C-D' : 'B-C-E'",
+    "pathDurations": "'A-C-D: ' + (durationA+durationC+durationD) + ' gün, A-C-E: ' + (durationA+durationC+durationE) + ' gün, B-C-D: ' + (durationB+durationC+durationD) + ' gün, B-C-E: ' + (durationB+durationC+durationE) + ' gün'"
+  },
+  "outputs": {
+    "primary": "criticalPathDuration",
+    "breakdown": [
+      "criticalPath",
+      "pathDurations"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

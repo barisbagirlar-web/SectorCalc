@@ -1,0 +1,64 @@
+// Auto-generated from mcisaac-score-calculator-schema.json
+import * as z from 'zod';
+
+export interface Mcisaac_score_calculatorInput {
+  age: number;
+  exudate: number;
+  tenderLymph: number;
+  feverTemp: number;
+  cough: number;
+}
+
+export const Mcisaac_score_calculatorInputSchema = z.object({
+  age: z.number().default(30),
+  exudate: z.number().default(0),
+  tenderLymph: z.number().default(0),
+  feverTemp: z.number().default(37),
+  cough: z.number().default(0),
+});
+
+function evaluateAllFormulas(input: Mcisaac_score_calculatorInput): Record<string, number> {
+  const results: Record<string, number> = {};
+  try { const v = (results["agePoints"] ?? 0) + (results["exudatePoints"] ?? 0) + (results["tenderLymphPoints"] ?? 0) + (results["feverPoints"] ?? 0) + (results["coughPoints"] ?? 0); results["score"] = Number.isFinite(v) ? v : 0; } catch { results["score"] = 0; }
+  try { const v = (input.age >= 3 && input.age <= 14) ? 1 : 0; results["agePoints"] = Number.isFinite(v) ? v : 0; } catch { results["agePoints"] = 0; }
+  try { const v = input.exudate; results["exudatePoints"] = Number.isFinite(v) ? v : 0; } catch { results["exudatePoints"] = 0; }
+  try { const v = input.tenderLymph; results["tenderLymphPoints"] = Number.isFinite(v) ? v : 0; } catch { results["tenderLymphPoints"] = 0; }
+  try { const v = input.feverTemp > 38 ? 1 : 0; results["feverPoints"] = Number.isFinite(v) ? v : 0; } catch { results["feverPoints"] = 0; }
+  try { const v = input.cough ? 0 : 1; results["coughPoints"] = Number.isFinite(v) ? v : 0; } catch { results["coughPoints"] = 0; }
+  return results;
+}
+
+
+export function calculateMcisaac_score_calculator(input: Mcisaac_score_calculatorInput): Mcisaac_score_calculatorOutput {
+  const values = evaluateAllFormulas(input);
+  const totalWasteCost = values["score"] ?? 0;
+  const breakdown = {
+    
+  };
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  const dataConfidenceAdjusted =
+    typeof (input as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+      : totalWasteCost;
+  return {
+    totalWasteCost,
+    breakdown,
+    hiddenLossDrivers,
+    suggestedActions,
+    dataConfidenceAdjusted,
+    premiumRequired: false,
+    premiumFeatures: [],
+  };
+}
+
+
+export interface Mcisaac_score_calculatorOutput {
+  totalWasteCost: number;
+  breakdown: {  };
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
+  dataConfidenceAdjusted: number;
+  premiumRequired: boolean;
+  premiumFeatures: string[];
+}

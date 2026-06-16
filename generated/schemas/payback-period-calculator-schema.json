@@ -1,0 +1,55 @@
+{
+  "toolName": "payback-period-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Total upfront capital expenditure required for the investment."
+    },
+    {
+      "id": "annualNetCashFlow",
+      "label": "Annual Net Cash Flow",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 20000,
+      "businessContext": "Net cash inflow generated annually after all operational costs."
+    },
+    {
+      "id": "annualGrowthRate",
+      "label": "Annual Growth Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Annual percentage increase in net cash flow. Enter 0 for constant flows."
+    },
+    {
+      "id": "salvageValue",
+      "label": "Salvage Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Expected residual value of the asset at end of life; not directly used in simple payback."
+    }
+  ],
+  "formulas": {
+    "paybackPeriod": "annualGrowthRate === 0 ? initialInvestment / annualNetCashFlow : Math.log(1 + (initialInvestment * (annualGrowthRate / 100)) / annualNetCashFlow) / Math.log(1 + (annualGrowthRate / 100))",
+    "totalInvestment": "initialInvestment",
+    "annualCashFlowDisplay": "annualNetCashFlow"
+  },
+  "outputs": {
+    "primary": "paybackPeriod",
+    "breakdown": [
+      "totalInvestment",
+      "annualCashFlowDisplay"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

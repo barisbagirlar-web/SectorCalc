@@ -1,0 +1,61 @@
+{
+  "toolName": "tire-size-calculator",
+  "inputs": [
+    {
+      "id": "tireWidth",
+      "label": "Tire Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 225,
+      "businessContext": "Nominal section width of the tire"
+    },
+    {
+      "id": "aspectRatio",
+      "label": "Aspect Ratio",
+      "type": "number",
+      "unit": "%",
+      "default": 45,
+      "businessContext": "Sidewall height as a percentage of tire width"
+    },
+    {
+      "id": "rimDiameter",
+      "label": "Rim Diameter",
+      "type": "number",
+      "unit": "in",
+      "default": 17,
+      "businessContext": "Diameter of the wheel rim"
+    },
+    {
+      "id": "treadLoss",
+      "label": "Tread Loss",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Amount of tread depth worn off, reducing overall diameter"
+    }
+  ],
+  "formulas": {
+    "sidewallHeightMm": "(tireWidth * aspectRatio / 100) - treadLoss",
+    "sidewallHeightIn": "sidewallHeightMm / 25.4",
+    "overallDiameterIn": "rimDiameter + 2 * sidewallHeightIn",
+    "overallDiameterMm": "overallDiameterIn * 25.4",
+    "circumferenceIn": "Math.PI * overallDiameterIn",
+    "circumferenceMm": "Math.PI * overallDiameterMm"
+  },
+  "outputs": {
+    "primary": "overallDiameterIn",
+    "breakdown": [
+      "sidewallHeightMm",
+      "sidewallHeightIn",
+      "overallDiameterMm",
+      "circumferenceIn",
+      "circumferenceMm"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

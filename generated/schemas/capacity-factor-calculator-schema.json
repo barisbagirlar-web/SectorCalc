@@ -1,0 +1,63 @@
+{
+  "toolName": "capacity-factor-calculator",
+  "inputs": [
+    {
+      "id": "actualEnergy",
+      "label": "Actual Energy Produced",
+      "type": "number",
+      "unit": "MWh",
+      "default": 0,
+      "businessContext": "Total energy generated in the period (megawatt-hours)."
+    },
+    {
+      "id": "installedCapacity",
+      "label": "Installed Capacity",
+      "type": "number",
+      "unit": "MW",
+      "default": 0,
+      "businessContext": "Rated maximum power output (megawatts)."
+    },
+    {
+      "id": "hoursPeriod",
+      "label": "Period Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 8760,
+      "businessContext": "Total hours in the evaluation period (e.g., 8760 for a year)."
+    },
+    {
+      "id": "availabilityFactor",
+      "label": "Availability Factor",
+      "type": "number",
+      "unit": "(fraction)",
+      "default": 1,
+      "businessContext": "Fraction of time the plant was available (0-1). Use 1 if ignoring outages."
+    },
+    {
+      "id": "targetCapacityFactor",
+      "label": "Target Capacity Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Target capacity factor for comparison (percentage)."
+    }
+  ],
+  "formulas": {
+    "maxPossibleEnergy": "installedCapacity * hoursPeriod * availabilityFactor",
+    "capacityFactor": "(actualEnergy / (installedCapacity * hoursPeriod * availabilityFactor)) * 100",
+    "deviation": "((actualEnergy / (installedCapacity * hoursPeriod * availabilityFactor)) * 100) - targetCapacityFactor"
+  },
+  "outputs": {
+    "primary": "capacityFactor",
+    "breakdown": [
+      "maxPossibleEnergy",
+      "deviation"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

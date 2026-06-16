@@ -1,0 +1,52 @@
+{
+  "toolName": "body-water-calculator",
+  "inputs": [
+    {
+      "id": "sex",
+      "label": "Cinsiyet",
+      "type": "number",
+      "unit": "binary (0 Kadın, 1 Erkek)",
+      "default": 1,
+      "businessContext": "Kullanıcının cinsiyeti: 0 Kadın, 1 Erkek"
+    },
+    {
+      "id": "age",
+      "label": "Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 30,
+      "businessContext": "Kullanıcının yaşı (yıl cinsinden)"
+    },
+    {
+      "id": "weight",
+      "label": "Kilo",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Kullanıcının vücut ağırlığı (kilogram)"
+    },
+    {
+      "id": "height",
+      "label": "Boy",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Kullanıcının boyu (santimetre)"
+    }
+  ],
+  "formulas": {
+    "tbwMale": "2.447 - (0.09156 * age) + (0.1074 * height) + (0.3362 * weight)",
+    "tbwFemale": "-2.097 + (0.1069 * height) + (0.2466 * weight)",
+    "totalBodyWater": "sex === 1 ? tbwMale : tbwFemale",
+    "waterPercentage": "((sex === 1 ? tbwMale : tbwFemale) / weight) * 100"
+  },
+  "outputs": {
+    "primary": "toplam vücut suyu: ${totalBodyWater.toFixed(2)} litre",
+    "breakdown": [
+      "Vücut su yüzdesi: %${waterPercentage.toFixed(2)}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false
+}

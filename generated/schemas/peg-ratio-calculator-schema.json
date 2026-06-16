@@ -1,0 +1,46 @@
+{
+  "toolName": "peg-ratio-calculator",
+  "inputs": [
+    {
+      "id": "stockPrice",
+      "label": "Stock Price",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Current market price per share"
+    },
+    {
+      "id": "earningsPerShare",
+      "label": "Earnings Per Share (EPS)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Trailing twelve-month earnings per share"
+    },
+    {
+      "id": "growthRate",
+      "label": "Earnings Growth Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Expected annual EPS growth rate (percentage)"
+    }
+  ],
+  "formulas": {
+    "peRatio": "stockPrice / earningsPerShare",
+    "pegRatio": "earningsPerShare !== 0 && growthRate !== 0 ? (stockPrice / earningsPerShare) / (growthRate / 100) : NaN"
+  },
+  "outputs": {
+    "primary": "pegRatio",
+    "breakdown": [
+      "peRatio",
+      "growthRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,69 @@
+{
+  "toolName": "perma-calculator",
+  "inputs": [
+    {
+      "id": "positiveEmotion",
+      "label": "Positive Emotion (P)",
+      "type": "number",
+      "unit": "score",
+      "default": 5,
+      "businessContext": "How often you feel positive emotions (0-10)"
+    },
+    {
+      "id": "engagement",
+      "label": "Engagement (E)",
+      "type": "number",
+      "unit": "score",
+      "default": 5,
+      "businessContext": "How engaged you are in activities (0-10)"
+    },
+    {
+      "id": "relationships",
+      "label": "Relationships (R)",
+      "type": "number",
+      "unit": "score",
+      "default": 5,
+      "businessContext": "Quality of your relationships (0-10)"
+    },
+    {
+      "id": "meaning",
+      "label": "Meaning (M)",
+      "type": "number",
+      "unit": "score",
+      "default": 5,
+      "businessContext": "Sense of meaning and purpose (0-10)"
+    },
+    {
+      "id": "accomplishment",
+      "label": "Accomplishment (A)",
+      "type": "number",
+      "unit": "score",
+      "default": 5,
+      "businessContext": "Sense of accomplishment (0-10)"
+    }
+  ],
+  "formulas": {
+    "overallScore": "(positiveEmotion + engagement + relationships + meaning + accomplishment) / 5",
+    "positiveEmotionOutput": "positiveEmotion",
+    "engagementOutput": "engagement",
+    "relationshipsOutput": "relationships",
+    "meaningOutput": "meaning",
+    "accomplishmentOutput": "accomplishment"
+  },
+  "outputs": {
+    "primary": "overallScore",
+    "breakdown": [
+      "positiveEmotionOutput",
+      "engagementOutput",
+      "relationshipsOutput",
+      "meaningOutput",
+      "accomplishmentOutput"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

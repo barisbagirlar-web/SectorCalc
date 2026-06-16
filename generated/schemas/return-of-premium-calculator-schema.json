@@ -1,0 +1,73 @@
+{
+  "toolName": "return-of-premium-calculator",
+  "inputs": [
+    {
+      "id": "monthlyPremium",
+      "label": "Aylık Prim (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 1000,
+      "businessContext": "Poliçe için ödenen aylık prim tutarı"
+    },
+    {
+      "id": "policyTermYears",
+      "label": "Poliçe Süresi (Yıl)",
+      "type": "number",
+      "unit": "yıl",
+      "default": 10,
+      "businessContext": "Poliçenin toplam süresi"
+    },
+    {
+      "id": "interestRate",
+      "label": "Yıllık Faiz Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "İade edilen primlere uygulanan yıllık bileşik faiz oranı"
+    },
+    {
+      "id": "claimOccurred",
+      "label": "Hasar Talebi (0: Yok, 1: Var)",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "Poliçe süresince hasar talebi olup olmadığı"
+    },
+    {
+      "id": "adminFeeRate",
+      "label": "Yönetim Gideri Kesintisi (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "businessContext": "İade tutarından kesilecek yönetim gideri oranı"
+    },
+    {
+      "id": "returnTaxRate",
+      "label": "İade Vergi Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "İade tutarı üzerinden alınan vergi oranı"
+    }
+  ],
+  "formulas": {
+    "totalPremiumsPaid": "monthlyPremium * 12 * policyTermYears",
+    "grossReturn": "totalPremiumsPaid * Math.pow(1 + interestRate/100, policyTermYears) * (1 - claimOccurred)",
+    "netReturnAfterFee": "grossReturn * (1 - adminFeeRate/100)",
+    "finalReturn": "netReturnAfterFee * (1 - returnTaxRate/100)"
+  },
+  "outputs": {
+    "primary": "finalReturn",
+    "breakdown": [
+      "totalPremiumsPaid",
+      "grossReturn",
+      "netReturnAfterFee"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,67 @@
+{
+  "toolName": "compression-spring-calculator",
+  "inputs": [
+    {
+      "id": "d",
+      "label": "Wire Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "businessContext": "Diameter of the spring wire"
+    },
+    {
+      "id": "D",
+      "label": "Mean Coil Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 20,
+      "businessContext": "Average diameter of the coil"
+    },
+    {
+      "id": "n",
+      "label": "Number of Active Coils",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Number of coils contributing to spring deflection"
+    },
+    {
+      "id": "G",
+      "label": "Shear Modulus",
+      "type": "number",
+      "unit": "N/mm²",
+      "default": 80000,
+      "businessContext": "Material shear modulus (e.g., steel ~80000 N/mm²)"
+    },
+    {
+      "id": "F",
+      "label": "Applied Load",
+      "type": "number",
+      "unit": "N",
+      "default": 100,
+      "businessContext": "Maximum working force applied to the spring"
+    }
+  ],
+  "formulas": {
+    "C": "D / d",
+    "K": "(4 * C - 1) / (4 * C - 4) + 0.615 / C",
+    "k": "(G * Math.pow(d, 4)) / (8 * Math.pow(D, 3) * n)",
+    "tau": "(8 * F * D * K) / (Math.PI * Math.pow(d, 3))",
+    "solid_height": "n * d",
+    "deflection_at_load": "F / k"
+  },
+  "outputs": {
+    "primary": "k",
+    "breakdown": [
+      "tau",
+      "solid_height",
+      "deflection_at_load"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

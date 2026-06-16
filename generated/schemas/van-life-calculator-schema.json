@@ -1,0 +1,89 @@
+{
+  "toolName": "van-life-calculator",
+  "inputs": [
+    {
+      "id": "dailyEnergyWh",
+      "label": "Daily Energy Consumption",
+      "type": "number",
+      "unit": "Wh",
+      "default": 1000,
+      "businessContext": "Total watt-hours used per day by all devices"
+    },
+    {
+      "id": "sunPeakHours",
+      "label": "Average Sun Peak Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 5,
+      "businessContext": "Number of peak sun hours per day at the location"
+    },
+    {
+      "id": "panelWattage",
+      "label": "Solar Panel Wattage",
+      "type": "number",
+      "unit": "W",
+      "default": 300,
+      "businessContext": "Rated power output of a single solar panel"
+    },
+    {
+      "id": "tiltAngleDeviation",
+      "label": "Tilt Angle Deviation",
+      "type": "number",
+      "unit": "°",
+      "default": 0,
+      "businessContext": "Angular deviation from optimal sun alignment (0° = perpendicular)"
+    },
+    {
+      "id": "systemEfficiency",
+      "label": "System Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Overall system efficiency including charge controller, inverter, and wiring losses"
+    },
+    {
+      "id": "daysAutonomy",
+      "label": "Days of Autonomy",
+      "type": "number",
+      "unit": "days",
+      "default": 2,
+      "businessContext": "Number of consecutive days the battery must supply energy without sun"
+    },
+    {
+      "id": "batteryVoltage",
+      "label": "Battery Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 12,
+      "businessContext": "Nominal voltage of the battery bank"
+    },
+    {
+      "id": "depthOfDischarge",
+      "label": "Depth of Discharge",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Maximum permissible discharge depth to preserve battery life (e.g., 50 for 50%)"
+    }
+  ],
+  "formulas": {
+    "adjustedPanelWattage": "panelWattage * Math.cos(tiltAngleDeviation * Math.PI / 180)",
+    "requiredTotalWattage": "dailyEnergyWh / (sunPeakHours * systemEfficiency / 100)",
+    "numberOfPanels": "Math.ceil(requiredTotalWattage / adjustedPanelWattage)",
+    "requiredBatteryCapacityAh": "(dailyEnergyWh * daysAutonomy) / (batteryVoltage * (depthOfDischarge / 100))"
+  },
+  "outputs": {
+    "primary": "requiredTotalWattage",
+    "breakdown": [
+      "numberOfPanels",
+      "requiredBatteryCapacityAh",
+      "adjustedPanelWattage"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

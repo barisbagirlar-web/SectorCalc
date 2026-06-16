@@ -1,0 +1,65 @@
+{
+  "toolName": "social-security-survivor-benefits-calculator",
+  "inputs": [
+    {
+      "id": "averageMonthlyEarnings",
+      "label": "Ortalama Aylık Kazanç",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Çalışanın ortalama aylık kazancı"
+    },
+    {
+      "id": "yearsOfCoverage",
+      "label": "Sigortalılık Süresi (Yıl)",
+      "type": "number",
+      "unit": "yıl",
+      "default": 0,
+      "businessContext": "Çalışanın toplam sigortalılık süresi"
+    },
+    {
+      "id": "survivorAge",
+      "label": "Hak Sahibi Yaşı",
+      "type": "number",
+      "unit": "yaş",
+      "default": 0,
+      "businessContext": "Hak sahibinin yaşı (eş veya çocuk)"
+    },
+    {
+      "id": "numberOfChildren",
+      "label": "Hak Sahibi Çocuk Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Ölen sigortalının hak sahibi çocuk sayısı"
+    },
+    {
+      "id": "isSpouse",
+      "label": "Eş Hak Sahibi mi?",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Hak sahibinin eş olup olmadığı (1: Evet, 0: Hayır)"
+    }
+  ],
+  "formulas": {
+    "baseBenefit": "averageMonthlyEarnings * 0.5",
+    "childBenefit": "numberOfChildren * averageMonthlyEarnings * 0.1",
+    "spouseExtra": "isSpouse * (survivorAge > 50 ? averageMonthlyEarnings * 0.2 : 0)",
+    "totalMonthlyBenefit": "baseBenefit + childBenefit + spouseExtra"
+  },
+  "outputs": {
+    "primary": "totalMonthlyBenefit",
+    "breakdown": [
+      "baseBenefit",
+      "childBenefit",
+      "spouseExtra"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

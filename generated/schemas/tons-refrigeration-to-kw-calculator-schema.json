@@ -1,0 +1,55 @@
+{
+  "toolName": "tons-refrigeration-to-kw-calculator",
+  "inputs": [
+    {
+      "id": "tons",
+      "label": "Tons of Refrigeration",
+      "type": "number",
+      "unit": "ton",
+      "default": 1,
+      "businessContext": "Cooling capacity in tons of refrigeration (1 ton = 12000 BTU/hr)"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "kW/ton",
+      "default": 3.51685,
+      "businessContext": "Standard conversion factor from tons to kilowatts (1 ton ≈ 3.51685 kW). Adjust for regional standards if needed."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Design safety margin multiplier, typically 1.0–1.2"
+    },
+    {
+      "id": "decimals",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounding output"
+    }
+  ],
+  "formulas": {
+    "baseKW": "tons * conversionFactor",
+    "withSafety": "baseKW * safetyFactor",
+    "finalKW": "Math.round(withSafety * Math.pow(10, decimals)) / Math.pow(10, decimals)"
+  },
+  "outputs": {
+    "primary": "finalKW + ' kW'",
+    "breakdown": [
+      "'Base: ' + baseKW.toFixed(decimals) + ' kW'",
+      "'With safety factor (' + safetyFactor + '): ' + finalKW + ' kW'"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

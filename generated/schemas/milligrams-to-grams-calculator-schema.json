@@ -1,0 +1,65 @@
+{
+  "toolName": "milligrams-to-grams-calculator",
+  "inputs": [
+    {
+      "id": "inputMilligrams",
+      "label": "Mass (mg)",
+      "type": "number",
+      "unit": "mg",
+      "default": 0,
+      "businessContext": "Quantity of substance in milligrams"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor (g/mg)",
+      "type": "number",
+      "unit": "g/mg",
+      "default": 0.001,
+      "businessContext": "Standard conversion factor from mg to g, may be adjusted for traceability"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Number of decimal places for the output to meet precision requirements"
+    },
+    {
+      "id": "batchMultiplier",
+      "label": "Batch Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for batch scaling, e.g., number of units"
+    },
+    {
+      "id": "roundingMode",
+      "label": "Rounding Mode (0=round,1=floor,2=ceil)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Rounding mode for compliance with rounding rules"
+    }
+  ],
+  "formulas": {
+    "rawGrams": "inputMilligrams * conversionFactor * batchMultiplier",
+    "grams": "roundingMode == 0 ? Math.round(rawGrams * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : roundingMode == 1 ? Math.floor(rawGrams * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : Math.ceil(rawGrams * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "grams",
+    "breakdown": [
+      "inputMilligrams",
+      "conversionFactor",
+      "batchMultiplier",
+      "rawGrams",
+      "grams"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

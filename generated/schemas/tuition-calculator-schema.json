@@ -1,0 +1,79 @@
+{
+  "toolName": "tuition-calculator",
+  "inputs": [
+    {
+      "id": "tuitionPerCredit",
+      "label": "Tuition per Credit",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "Cost per credit hour"
+    },
+    {
+      "id": "numberOfCredits",
+      "label": "Number of Credits",
+      "type": "number",
+      "unit": "credits",
+      "default": 15,
+      "businessContext": "Total credit hours enrolled"
+    },
+    {
+      "id": "additionalFees",
+      "label": "Additional Fees",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Extra fees like lab, technology, etc."
+    },
+    {
+      "id": "discountPercent",
+      "label": "Discount Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage discount on subtotal"
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Tax rate applied after discount"
+    },
+    {
+      "id": "scholarship",
+      "label": "Scholarship",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Scholarship amount to deduct"
+    }
+  ],
+  "formulas": {
+    "subtotal": "tuitionPerCredit * numberOfCredits + additionalFees",
+    "discountAmount": "subtotal * (discountPercent / 100)",
+    "subtotalAfterDiscount": "subtotal - discountAmount",
+    "taxAmount": "subtotalAfterDiscount * (taxRate / 100)",
+    "totalBeforeScholarship": "subtotalAfterDiscount + taxAmount",
+    "totalTuition": "totalBeforeScholarship - scholarship"
+  },
+  "outputs": {
+    "primary": "totalTuition",
+    "breakdown": [
+      "subtotal",
+      "discountAmount",
+      "subtotalAfterDiscount",
+      "taxAmount",
+      "totalBeforeScholarship",
+      "scholarship",
+      "totalTuition"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

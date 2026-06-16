@@ -1,3 +1,5 @@
+import { SUPPORTED_LOCALES } from "@/lib/i18n/locale-config";
+
 export type StaticParamRecord = Record<string, string>;
 
 export type PreviewStaticParamFamily =
@@ -16,7 +18,7 @@ export type PreviewStaticParamFamily =
 /** Revenue-gate control slug — must remain buildable in preview. */
 export const PROBLEM_SLUG = "abonelik-yazilim-cloud-yillik-maliyet-hesabi";
 
-const DEFAULT_KEEP_LOCALES = ["tr", "en"] as const;
+const DEFAULT_KEEP_LOCALES = SUPPORTED_LOCALES;
 
 const FAMILY_KEEP_SLUGS: Record<PreviewStaticParamFamily, readonly string[]> = {
   "free-tools": [
@@ -72,12 +74,24 @@ const FAMILY_KEEP_SLUGS: Record<PreviewStaticParamFamily, readonly string[]> = {
 };
 
 export function shouldUsePreviewStaticParams(): boolean {
-  return (
-    process.env.SECTORCALC_FORCE_FULL_STATIC !== "1" &&
-    (process.env.SECTORCALC_FAST_PREVIEW_STATIC === "1" ||
-      process.env.SECTORCALC_VERCEL_BUILD_LIMIT === "1" ||
-      process.env.VERCEL_ENV === "preview")
-  );
+  if (process.env.SECTORCALC_FORCE_FULL_STATIC === "1") {
+    return false;
+  }
+
+  if (process.env.SECTORCALC_FAST_PREVIEW_STATIC === "1") {
+    return true;
+  }
+
+  if (process.env.VERCEL_ENV === "preview") {
+    return true;
+  }
+
+  // Vercel production/hobby: cap SSG — full 20k+ page tree exceeds memory/time and triggers ENOENT races.
+  if (process.env.VERCEL === "1" && process.env.SECTORCALC_VERCEL_BUILD_LIMIT === "1") {
+    return true;
+  }
+
+  return false;
 }
 
 function paramKey<T extends StaticParamRecord>(param: T): string {

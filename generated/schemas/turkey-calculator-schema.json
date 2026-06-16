@@ -1,0 +1,68 @@
+{
+  "toolName": "turkey-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Turkey Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 5,
+      "businessContext": "Weight of the whole turkey before cooking"
+    },
+    {
+      "id": "cookingTemp",
+      "label": "Cooking Temperature (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 180,
+      "businessContext": "Oven temperature setting"
+    },
+    {
+      "id": "stuffing",
+      "label": "Stuffing Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0.5,
+      "businessContext": "Weight of stuffing inside the turkey"
+    },
+    {
+      "id": "thawed",
+      "label": "Thawed? (1=yes, 0=no)",
+      "type": "number",
+      "unit": "boolean",
+      "default": 1,
+      "businessContext": "Whether the turkey is fully thawed"
+    },
+    {
+      "id": "altitude",
+      "label": "Altitude (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Elevation above sea level"
+    }
+  ],
+  "formulas": {
+    "baseTime": "weight * 40 + stuffing * 20",
+    "tempFactor": "1 - (cookingTemp - 180) * 0.002",
+    "thawFactor": "thawed === 1 ? 1 : 1.5",
+    "altFactor": "1 + altitude * 0.0001",
+    "totalMinutes": "baseTime * tempFactor * thawFactor * altFactor",
+    "primary": "Math.round(totalMinutes)"
+  },
+  "outputs": {
+    "primary": "Total Cooking Time (minutes)",
+    "breakdown": [
+      "Base time: weight * 40 + stuffing * 20 minutes",
+      "Temperature adjustment: ±0.2% per °C from 180°C",
+      "Thaw factor: 1.5x if frozen",
+      "Altitude adjustment: +0.01% per meter"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

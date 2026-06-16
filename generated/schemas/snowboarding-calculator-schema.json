@@ -1,0 +1,57 @@
+{
+  "toolName": "snowboarding-calculator",
+  "inputs": [
+    {
+      "id": "slopeAngle",
+      "label": "Slope Angle",
+      "type": "number",
+      "unit": "degree",
+      "default": "30",
+      "businessContext": "Angle of the snowboarding slope relative to horizontal."
+    },
+    {
+      "id": "slopeLength",
+      "label": "Slope Length",
+      "type": "number",
+      "unit": "m",
+      "default": "100",
+      "businessContext": "Length of the slope surface."
+    },
+    {
+      "id": "frictionCoeff",
+      "label": "Friction Coefficient",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": "0.1",
+      "businessContext": "Coefficient of kinetic friction between snowboard and snow."
+    },
+    {
+      "id": "mass",
+      "label": "Rider + Board Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": "75",
+      "businessContext": "Total mass of the snowboarder and equipment."
+    }
+  ],
+  "formulas": {
+    "acceleration": "9.81 * (Math.sin(slopeAngle * Math.PI / 180) - frictionCoeff * Math.cos(slopeAngle * Math.PI / 180))",
+    "finalVelocity": "Math.sqrt(2 * (9.81 * (Math.sin(slopeAngle * Math.PI / 180) - frictionCoeff * Math.cos(slopeAngle * Math.PI / 180))) * slopeLength)",
+    "travelTime": "Math.sqrt(2 * slopeLength / (9.81 * (Math.sin(slopeAngle * Math.PI / 180) - frictionCoeff * Math.cos(slopeAngle * Math.PI / 180))))",
+    "kineticEnergy": "0.5 * mass * (2 * (9.81 * (Math.sin(slopeAngle * Math.PI / 180) - frictionCoeff * Math.cos(slopeAngle * Math.PI / 180))) * slopeLength)"
+  },
+  "outputs": {
+    "primary": "finalVelocity",
+    "breakdown": [
+      "acceleration",
+      "travelTime",
+      "kineticEnergy"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

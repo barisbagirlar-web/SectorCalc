@@ -1,0 +1,57 @@
+{
+  "toolName": "margin-of-safety-calculator",
+  "inputs": [
+    {
+      "id": "materialUltimateStrength",
+      "label": "Malzeme Nihai Dayanımı",
+      "type": "number",
+      "unit": "MPa",
+      "default": 400,
+      "businessContext": "Malzemenin çekme veya basma nihai dayanım değeri"
+    },
+    {
+      "id": "crossSectionArea",
+      "label": "Kesit Alanı",
+      "type": "number",
+      "unit": "mm²",
+      "default": 100,
+      "businessContext": "Elemanın net kesit alanı"
+    },
+    {
+      "id": "appliedForce",
+      "label": "Uygulanan Kuvvet",
+      "type": "number",
+      "unit": "N",
+      "default": 10000,
+      "businessContext": "Elemana etkiyen eksenel kuvvet"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Güvenlik Katsayısı",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 1.5,
+      "businessContext": "Tasarımda kullanılan güvenlik faktörü"
+    }
+  ],
+  "formulas": {
+    "actualStress": "appliedForce / crossSectionArea",
+    "allowableStress": "materialUltimateStrength / safetyFactor",
+    "marginOfSafety": "(allowableStress / actualStress) - 1",
+    "stressRatio": "allowableStress / actualStress"
+  },
+  "outputs": {
+    "primary": "marginOfSafety",
+    "breakdown": [
+      "allowableStress",
+      "actualStress",
+      "stressRatio"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

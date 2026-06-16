@@ -1,0 +1,89 @@
+{
+  "toolName": "hamiltonian-path-calculator",
+  "inputs": [
+    {
+      "id": "x1",
+      "label": "X1 - Start X",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Starting point X coordinate"
+    },
+    {
+      "id": "y1",
+      "label": "Y1 - Start Y",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Starting point Y coordinate"
+    },
+    {
+      "id": "x2",
+      "label": "X2 - Second Point X",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Second node X coordinate"
+    },
+    {
+      "id": "y2",
+      "label": "Y2 - Second Point Y",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Second node Y coordinate"
+    },
+    {
+      "id": "x3",
+      "label": "X3 - Third Point X",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Third node X coordinate"
+    },
+    {
+      "id": "y3",
+      "label": "Y3 - Third Point Y",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Third node Y coordinate"
+    },
+    {
+      "id": "x4",
+      "label": "X4 - Fourth Point X",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Fourth node X coordinate"
+    },
+    {
+      "id": "y4",
+      "label": "Y4 - Fourth Point Y",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Fourth node Y coordinate"
+    }
+  ],
+  "formulas": {
+    "distance1": "Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))",
+    "distance2": "Math.sqrt(Math.pow(x3 - x2, 2) + Math.pow(y3 - y2, 2))",
+    "distance3": "Math.sqrt(Math.pow(x4 - x3, 2) + Math.pow(y4 - y3, 2))",
+    "totalDistance": "distance1 + distance2 + distance3"
+  },
+  "outputs": {
+    "primary": "totalDistance",
+    "breakdown": [
+      "distance1",
+      "distance2",
+      "distance3"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

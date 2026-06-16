@@ -1,0 +1,63 @@
+{
+  "toolName": "pound-to-ounce-calculator",
+  "inputs": [
+    {
+      "id": "unitWeightLb",
+      "label": "Unit Weight (lb)",
+      "type": "number",
+      "unit": "lb",
+      "default": 0,
+      "businessContext": "Weight of a single item in pounds"
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "count",
+      "default": 1,
+      "businessContext": "Number of items"
+    },
+    {
+      "id": "tareWeightLb",
+      "label": "Tare Weight (lb)",
+      "type": "number",
+      "unit": "lb",
+      "default": 0,
+      "businessContext": "Weight of packaging/material to subtract"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "oz/lb",
+      "default": 16,
+      "businessContext": "Ounces per pound (standard is 16)"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "dp",
+      "default": 2,
+      "businessContext": "Number of decimal places to round the result"
+    }
+  ],
+  "formulas": {
+    "totalPounds": "unitWeightLb * quantity - tareWeightLb",
+    "preciseOunces": "totalPounds * conversionFactor",
+    "roundedOunces": "Math.round(preciseOunces * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+  },
+  "outputs": {
+    "primary": "roundedOunces",
+    "breakdown": [
+      "totalPounds",
+      "preciseOunces"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

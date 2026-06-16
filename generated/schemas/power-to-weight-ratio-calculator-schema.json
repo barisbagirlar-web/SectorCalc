@@ -1,0 +1,55 @@
+{
+  "toolName": "power-to-weight-ratio-calculator",
+  "inputs": [
+    {
+      "id": "enginePowerkW",
+      "label": "Engine Power",
+      "type": "number",
+      "unit": "kW",
+      "default": 100,
+      "businessContext": "Motor çıkış gücü (kW)"
+    },
+    {
+      "id": "vehicleMassKg",
+      "label": "Vehicle Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 1200,
+      "businessContext": "Araç boş ağırlığı (kg)"
+    },
+    {
+      "id": "drivetrainEfficiencyPercent",
+      "label": "Drivetrain Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "businessContext": "Güç aktarım verimi (%)"
+    },
+    {
+      "id": "payloadKg",
+      "label": "Payload",
+      "type": "number",
+      "unit": "kg",
+      "default": 200,
+      "businessContext": "Yük ve yolcu ağırlığı (kg)"
+    }
+  ],
+  "formulas": {
+    "effectivePower": "enginePowerkW * (drivetrainEfficiencyPercent / 100)",
+    "totalMass": "vehicleMassKg + payloadKg",
+    "powerToWeightRatio": "(enginePowerkW * (drivetrainEfficiencyPercent / 100)) / (vehicleMassKg + payloadKg)"
+  },
+  "outputs": {
+    "primary": "powerToWeightRatio",
+    "breakdown": [
+      "effectivePower",
+      "totalMass"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

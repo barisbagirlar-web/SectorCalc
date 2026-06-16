@@ -1,0 +1,73 @@
+{
+  "toolName": "car-rental-calculator",
+  "inputs": [
+    {
+      "id": "rentalDurationDays",
+      "label": "Rental Duration (days)",
+      "type": "number",
+      "unit": "days",
+      "default": 1,
+      "businessContext": "Number of days the car is rented"
+    },
+    {
+      "id": "dailyRate",
+      "label": "Daily Rental Rate",
+      "type": "number",
+      "unit": "currency",
+      "default": 50,
+      "businessContext": "Base rental rate per day"
+    },
+    {
+      "id": "mileagePerDay",
+      "label": "Average Mileage per Day",
+      "type": "number",
+      "unit": "km",
+      "default": 200,
+      "businessContext": "Estimated kilometers driven per day"
+    },
+    {
+      "id": "fuelPricePerLiter",
+      "label": "Fuel Price per Liter",
+      "type": "number",
+      "unit": "currency/L",
+      "default": 1.5,
+      "businessContext": "Current fuel price per liter"
+    },
+    {
+      "id": "fuelEfficiency",
+      "label": "Fuel Efficiency",
+      "type": "number",
+      "unit": "L/100km",
+      "default": 7,
+      "businessContext": "Car's fuel consumption rate"
+    },
+    {
+      "id": "insurancePerDay",
+      "label": "Insurance Cost per Day",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Optional insurance charge per day"
+    }
+  ],
+  "formulas": {
+    "baseRental": "rentalDurationDays * dailyRate",
+    "fuelCost": "rentalDurationDays * (mileagePerDay * fuelEfficiency / 100) * fuelPricePerLiter",
+    "insuranceCost": "rentalDurationDays * insurancePerDay",
+    "totalCost": "rentalDurationDays * dailyRate + rentalDurationDays * (mileagePerDay * fuelEfficiency / 100) * fuelPricePerLiter + rentalDurationDays * insurancePerDay"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "baseRental",
+      "fuelCost",
+      "insuranceCost"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

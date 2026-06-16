@@ -1,0 +1,93 @@
+{
+  "toolName": "planting-calendar-calculator",
+  "inputs": [
+    {
+      "id": "lastFrostDay",
+      "label": "Last Spring Frost Day",
+      "type": "number",
+      "unit": "day",
+      "default": 120,
+      "businessContext": "Historical average last spring frost date (day of year, 1-365)"
+    },
+    {
+      "id": "plantingDateOffset",
+      "label": "Planting Delay after Frost",
+      "type": "number",
+      "unit": "day",
+      "default": 7,
+      "businessContext": "Recommended safe days after last frost for soil warming"
+    },
+    {
+      "id": "baseTemperature",
+      "label": "Crop Base Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 10,
+      "businessContext": "Minimum temperature for crop growth (growing degree day base)"
+    },
+    {
+      "id": "targetGDD",
+      "label": "Target GDD to Maturity",
+      "type": "number",
+      "unit": "°C-day",
+      "default": 1500,
+      "businessContext": "Total growing degree days required from planting to harvest"
+    },
+    {
+      "id": "averageDailyTemp",
+      "label": "Expected Daily Average Temp",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Forecast average daily air temperature during growing season"
+    },
+    {
+      "id": "soilTemp",
+      "label": "Current Soil Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 14,
+      "businessContext": "Measured soil temperature at seeding depth"
+    },
+    {
+      "id": "minSoilTemp",
+      "label": "Minimum Soil Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 10,
+      "businessContext": "Crop-specific minimum soil temperature for safe germination"
+    },
+    {
+      "id": "safetyMargin",
+      "label": "Harvest Safety Margin",
+      "type": "number",
+      "unit": "day",
+      "default": 10,
+      "businessContext": "Additional days to ensure full maturity and weather variability buffer"
+    }
+  ],
+  "formulas": {
+    "dailyGDD": "Math.max(0, averageDailyTemp - baseTemperature)",
+    "soilAdjustment": "Math.ceil(Math.max(0, (minSoilTemp - soilTemp) / 0.3))",
+    "recommendedPlantingDay": "lastFrostDay + plantingDateOffset + Math.ceil(Math.max(0, (minSoilTemp - soilTemp) / 0.3))",
+    "daysToMaturity": "Math.ceil(targetGDD / Math.max(0.001, Math.max(0, averageDailyTemp - baseTemperature))) + safetyMargin",
+    "estimatedHarvestDay": "((lastFrostDay + plantingDateOffset + Math.ceil(Math.max(0, (minSoilTemp - soilTemp) / 0.3)) + (Math.ceil(targetGDD / Math.max(0.001, Math.max(0, averageDailyTemp - baseTemperature))) + safetyMargin) - 1) % 365 + 1)",
+    "growingDays": "Math.ceil(targetGDD / Math.max(0.001, Math.max(0, averageDailyTemp - baseTemperature)))",
+    "daysToHarvest": "Math.ceil(targetGDD / Math.max(0.001, Math.max(0, averageDailyTemp - baseTemperature))) + safetyMargin"
+  },
+  "outputs": {
+    "primary": "recommendedPlantingDay",
+    "breakdown": [
+      "estimatedHarvestDay",
+      "growingDays",
+      "dailyGDD",
+      "daysToHarvest"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

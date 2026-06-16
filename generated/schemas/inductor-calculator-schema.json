@@ -1,0 +1,72 @@
+{
+  "toolName": "inductor-calculator",
+  "inputs": [
+    {
+      "id": "coreDiameter",
+      "label": "Core Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Diameter of the magnetic core"
+    },
+    {
+      "id": "coreLength",
+      "label": "Core Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 20,
+      "businessContext": "Length of the magnetic core"
+    },
+    {
+      "id": "turns",
+      "label": "Number of Turns",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "Number of wire turns around the core"
+    },
+    {
+      "id": "relativePermeability",
+      "label": "Relative Permeability",
+      "type": "number",
+      "unit": "",
+      "default": 2000,
+      "businessContext": "Relative magnetic permeability of core material"
+    },
+    {
+      "id": "wireDiameter",
+      "label": "Wire Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.5,
+      "businessContext": "Diameter of the copper wire"
+    },
+    {
+      "id": "resistivity",
+      "label": "Copper Resistivity",
+      "type": "number",
+      "unit": "ohm·mm²/m",
+      "default": 0.0172,
+      "businessContext": "Electrical resistivity of copper at 20°C"
+    }
+  ],
+  "formulas": {
+    "inductance": "4 * Math.PI * 1e-7 * relativePermeability * turns * turns * (Math.PI * (coreDiameter/2)**2) / (coreLength/1000)",
+    "dcResistance": "resistivity * (Math.PI * coreDiameter * turns) / (Math.PI * (wireDiameter/2)**2)",
+    "saturationCurrent": "0.5 * (coreLength/1000) / (turns * 4 * Math.PI * 1e-7 * relativePermeability)"
+  },
+  "outputs": {
+    "primary": "inductance",
+    "breakdown": [
+      "inductance",
+      "dcResistance",
+      "saturationCurrent"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

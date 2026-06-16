@@ -1,0 +1,73 @@
+{
+  "toolName": "storm-sewer-calculator",
+  "inputs": [
+    {
+      "id": "catchment_area",
+      "label": "Catchment Area",
+      "type": "number",
+      "unit": "ha",
+      "default": 1,
+      "businessContext": "Area of the catchment in hectares."
+    },
+    {
+      "id": "runoff_coefficient",
+      "label": "Runoff Coefficient",
+      "type": "number",
+      "unit": "-",
+      "default": 0.7,
+      "businessContext": "Dimensionless runoff coefficient (0-1)."
+    },
+    {
+      "id": "rainfall_intensity",
+      "label": "Rainfall Intensity",
+      "type": "number",
+      "unit": "mm/h",
+      "default": 50,
+      "businessContext": "Design rainfall intensity in mm per hour."
+    },
+    {
+      "id": "pipe_diameter",
+      "label": "Pipe Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Internal diameter of the circular sewer pipe in meters."
+    },
+    {
+      "id": "pipe_slope",
+      "label": "Pipe Slope",
+      "type": "number",
+      "unit": "m/m",
+      "default": 0.01,
+      "businessContext": "Longitudinal slope of the pipe (rise/run)."
+    },
+    {
+      "id": "manning_n",
+      "label": "Manning's Roughness",
+      "type": "number",
+      "unit": "-",
+      "default": 0.013,
+      "businessContext": "Manning's roughness coefficient for the pipe material."
+    }
+  ],
+  "formulas": {
+    "required_flow": "runoff_coefficient * rainfall_intensity * catchment_area / 360",
+    "full_area": "Math.PI * pipe_diameter**2 / 4",
+    "hydraulic_radius": "pipe_diameter / 4",
+    "capacity_flow": "(1 / manning_n) * full_area * hydraulic_radius**(2/3) * Math.sqrt(pipe_slope)",
+    "margin_flow": "capacity_flow - required_flow"
+  },
+  "outputs": {
+    "primary": "margin_flow",
+    "breakdown": [
+      "required_flow",
+      "capacity_flow"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

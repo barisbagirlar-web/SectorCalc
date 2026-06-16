@@ -1,0 +1,53 @@
+{
+  "toolName": "swimming-critical-swim-speed-calculator",
+  "inputs": [
+    {
+      "id": "distance1",
+      "label": "Short Distance (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 200,
+      "businessContext": "Shorter distance used in test (e.g., 200m)"
+    },
+    {
+      "id": "time1",
+      "label": "Time for Short Distance (s)",
+      "type": "number",
+      "unit": "s",
+      "default": 150,
+      "businessContext": "Time to swim the short distance (seconds)"
+    },
+    {
+      "id": "distance2",
+      "label": "Long Distance (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 400,
+      "businessContext": "Longer distance used in test (e.g., 400m)"
+    },
+    {
+      "id": "time2",
+      "label": "Time for Long Distance (s)",
+      "type": "number",
+      "unit": "s",
+      "default": 310,
+      "businessContext": "Time to swim the long distance (seconds)"
+    }
+  ],
+  "formulas": {
+    "css_mps": "(distance2 - distance1) / (time2 - time1)",
+    "pace_100m_s": "100 / css_mps"
+  },
+  "outputs": {
+    "primary": "Critical Swim Speed (m/s)",
+    "breakdown": [
+      "Pace per 100m (s/100m)"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

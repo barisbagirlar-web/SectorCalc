@@ -1,0 +1,55 @@
+{
+  "toolName": "radioactive-decay-calculator",
+  "inputs": [
+    {
+      "id": "initialMass",
+      "label": "Initial Mass",
+      "type": "number",
+      "unit": "g",
+      "default": 100,
+      "businessContext": "Initial mass of the radioactive substance in grams"
+    },
+    {
+      "id": "halfLife",
+      "label": "Half-Life",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Time required for half of the substance to decay"
+    },
+    {
+      "id": "startTime",
+      "label": "Start Time",
+      "type": "number",
+      "unit": "years",
+      "default": 0,
+      "businessContext": "Starting point of the decay period"
+    },
+    {
+      "id": "endTime",
+      "label": "End Time",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Ending point of the decay period"
+    }
+  ],
+  "formulas": {
+    "remainingMass": "initialMass * (0.5 ** ((endTime - startTime) / halfLife))",
+    "decayFraction": "0.5 ** ((endTime - startTime) / halfLife)",
+    "numberOfHalfLives": "(endTime - startTime) / halfLife"
+  },
+  "outputs": {
+    "primary": "remainingMass",
+    "breakdown": [
+      "decayFraction",
+      "numberOfHalfLives"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

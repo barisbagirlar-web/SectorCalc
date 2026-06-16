@@ -1,0 +1,57 @@
+{
+  "toolName": "half-life-nuclear-calculator",
+  "inputs": [
+    {
+      "id": "initialQuantity",
+      "label": "Initial Quantity",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Initial mass of the radioactive substance."
+    },
+    {
+      "id": "halfLife",
+      "label": "Half-Life",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Time required for half of the substance to decay."
+    },
+    {
+      "id": "elapsedTime",
+      "label": "Elapsed Time",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "Time duration over which decay is calculated."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier for safety margin in criticality or radiological assessments."
+    }
+  ],
+  "formulas": {
+    "numberOfHalfLives": "elapsedTime / halfLife",
+    "remainingQuantity": "initialQuantity * (0.5 ** (elapsedTime / halfLife))",
+    "decayedAmount": "initialQuantity - remainingQuantity",
+    "safeRemaining": "remainingQuantity * safetyFactor"
+  },
+  "outputs": {
+    "primary": "remainingQuantity",
+    "breakdown": [
+      "decayedAmount",
+      "numberOfHalfLives",
+      "safeRemaining"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

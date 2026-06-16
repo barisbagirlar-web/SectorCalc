@@ -1,0 +1,38 @@
+{
+  "toolName": "pounds-to-ounces",
+  "inputs": [
+    {
+      "id": "pounds",
+      "label": "Pounds",
+      "type": "number",
+      "unit": "lb",
+      "default": 1,
+      "businessContext": "Weight in pounds to be converted to ounces."
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of decimal places for the result."
+    }
+  ],
+  "formulas": {
+    "ounces": "pounds * 16",
+    "roundedOunces": "Math.round(ounces * 10 ** decimalPlaces) / 10 ** decimalPlaces"
+  },
+  "outputs": {
+    "primary": "roundedOunces",
+    "breakdown": [
+      "ounces = pounds * 16",
+      "roundedOunces = Math.round(ounces * 10 ** decimalPlaces) / 10 ** decimalPlaces"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

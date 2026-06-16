@@ -1,0 +1,71 @@
+{
+  "toolName": "uuid-generator-calculator",
+  "inputs": [
+    {
+      "id": "timeLow",
+      "label": "Time Low",
+      "type": "number",
+      "unit": "bits",
+      "default": 0,
+      "businessContext": "Least significant 32 bits of the timestamp (100-nanosecond intervals since UUID epoch)"
+    },
+    {
+      "id": "timeMid",
+      "label": "Time Mid",
+      "type": "number",
+      "unit": "bits",
+      "default": 0,
+      "businessContext": "Middle 16 bits of the timestamp"
+    },
+    {
+      "id": "timeHiAndVersion",
+      "label": "Time High & Version",
+      "type": "number",
+      "unit": "bits",
+      "default": 4096,
+      "businessContext": "12 bits time high (most significant) + 4 bits UUID version (0001 for v1)"
+    },
+    {
+      "id": "clockSeqAndVariant",
+      "label": "Clock Sequence & Variant",
+      "type": "number",
+      "unit": "bits",
+      "default": 32768,
+      "businessContext": "14-bit clock sequence + 2-bit variant (10 for standard DCE)"
+    },
+    {
+      "id": "node",
+      "label": "Node (MAC)",
+      "type": "number",
+      "unit": "bits",
+      "default": 0,
+      "businessContext": "48-bit node identifier, typically the MAC address"
+    }
+  ],
+  "formulas": {
+    "primary": "timeLow.toString(16).padStart(8,'0') + '-' + timeMid.toString(16).padStart(4,'0') + '-' + (timeHiAndVersion >> 12).toString(16) + (timeHiAndVersion & 0xFFF).toString(16).padStart(3,'0') + '-' + ((clockSeqAndVariant >> 8) & 0xFF).toString(16).padStart(2,'0') + (clockSeqAndVariant & 0xFF).toString(16).padStart(2,'0') + '-' + node.toString(16).padStart(12,'0')",
+    "breakdown": [
+      "timeLow.toString(16).padStart(8,'0')",
+      "timeMid.toString(16).padStart(4,'0')",
+      "(timeHiAndVersion >> 12).toString(16) + (timeHiAndVersion & 0xFFF).toString(16).padStart(3,'0')",
+      "((clockSeqAndVariant >> 8) & 0xFF).toString(16).padStart(2,'0') + (clockSeqAndVariant & 0xFF).toString(16).padStart(2,'0')",
+      "node.toString(16).padStart(12,'0')"
+    ]
+  },
+  "outputs": {
+    "primary": "Generated UUID (v1 format)",
+    "breakdown": [
+      "timeLow hex",
+      "timeMid hex",
+      "timeHigh and version hex",
+      "clockSeq and variant hex",
+      "node hex"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

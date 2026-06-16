@@ -1,0 +1,362 @@
+{
+  "slug": "lease-vs-buy-comparator",
+  "meta": {
+    "name": "Lease vs Buy Comparator",
+    "version": "1.0.0",
+    "description": "Industrial-grade decision support tool for comparing lease and buy options for capital equipment, incorporating total cost of ownership, utilization, and risk-adjusted cash flows.",
+    "standards": [
+      "ISO 15686-5",
+      "ISO 55000",
+      "Lean Six Sigma DMAIC",
+      "WERC DC Measurement"
+    ],
+    "premiumRequired": true,
+    "premiumFeatures": [
+      "PDF export",
+      "CSV export",
+      "Trend analysis",
+      "Monte Carlo simulation",
+      "Multi-scenario comparison"
+    ]
+  },
+  "inputs": [
+    {
+      "id": "equipmentCost",
+      "label": "Equipment Purchase Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 1000,
+      "max": 10000000,
+      "businessContext": "Total upfront cost to acquire the asset if buying.",
+      "label_i18n": {
+        "en": "Equipment Purchase Price"
+      },
+      "businessContext_i18n": {
+        "en": "Total upfront cost to acquire the asset if buying."
+      }
+    },
+    {
+      "id": "leaseTermMonths",
+      "label": "Lease Term",
+      "type": "number",
+      "unit": "months",
+      "default": 36,
+      "min": 12,
+      "max": 120,
+      "businessContext": "Duration of the lease agreement in months.",
+      "label_i18n": {
+        "en": "Lease Term"
+      },
+      "businessContext_i18n": {
+        "en": "Duration of the lease agreement in months."
+      }
+    },
+    {
+      "id": "monthlyLeasePayment",
+      "label": "Monthly Lease Payment",
+      "type": "number",
+      "unit": "USD",
+      "default": 2800,
+      "min": 100,
+      "max": 500000,
+      "businessContext": "Fixed monthly payment under the lease contract.",
+      "label_i18n": {
+        "en": "Monthly Lease Payment"
+      },
+      "businessContext_i18n": {
+        "en": "Fixed monthly payment under the lease contract."
+      }
+    },
+    {
+      "id": "residualValue",
+      "label": "Residual Value at End of Lease",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "min": 0,
+      "max": 5000000,
+      "businessContext": "Estimated market value of the equipment at lease end (if buying, this is salvage value).",
+      "label_i18n": {
+        "en": "Residual Value at End of Lease"
+      },
+      "businessContext_i18n": {
+        "en": "Estimated market value of the equipment at lease end (if buying, this is salvage value)."
+      }
+    },
+    {
+      "id": "annualMaintenanceCost",
+      "label": "Annual Maintenance Cost (Buy)",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "min": 0,
+      "max": 500000,
+      "businessContext": "Expected yearly maintenance expense when owning the equipment.",
+      "label_i18n": {
+        "en": "Annual Maintenance Cost (Buy)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected yearly maintenance expense when owning the equipment."
+      }
+    },
+    {
+      "id": "leaseMaintenanceIncluded",
+      "label": "Maintenance Included in Lease?",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "businessContext": "Indicates whether the lease contract covers routine maintenance.",
+      "label_i18n": {
+        "en": "Maintenance Included in Lease?"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates whether the lease contract covers routine maintenance."
+      }
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate (WACC)",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "max": 30,
+      "businessContext": "Weighted average cost of capital used to discount future cash flows.",
+      "label_i18n": {
+        "en": "Discount Rate (WACC)"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted average cost of capital used to discount future cash flows."
+      }
+    },
+    {
+      "id": "utilizationRate",
+      "label": "Expected Utilization Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of time the equipment is expected to be productive.",
+      "label_i18n": {
+        "en": "Expected Utilization Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of time the equipment is expected to be productive."
+      }
+    },
+    {
+      "id": "taxRate",
+      "label": "Effective Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Corporate tax rate applied to depreciation and lease payment deductions.",
+      "label_i18n": {
+        "en": "Effective Tax Rate"
+      },
+      "businessContext_i18n": {
+        "en": "Corporate tax rate applied to depreciation and lease payment deductions."
+      }
+    },
+    {
+      "id": "depreciationMethod",
+      "label": "Depreciation Method",
+      "type": "select",
+      "unit": "",
+      "default": "straight-line",
+      "options": [
+        "straight-line",
+        "MACRS-5yr",
+        "MACRS-7yr"
+      ],
+      "businessContext": "Method used to calculate annual depreciation for tax shield.",
+      "label_i18n": {
+        "en": "Depreciation Method"
+      },
+      "businessContext_i18n": {
+        "en": "Method used to calculate annual depreciation for tax shield."
+      }
+    },
+    {
+      "id": "leaseType",
+      "label": "Lease Type",
+      "type": "select",
+      "unit": "",
+      "default": "operating",
+      "options": [
+        "operating",
+        "capital"
+      ],
+      "businessContext": "Operating lease is off-balance-sheet; capital lease is treated as ownership.",
+      "label_i18n": {
+        "en": "Lease Type"
+      },
+      "businessContext_i18n": {
+        "en": "Operating lease is off-balance-sheet; capital lease is treated as ownership."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "leaseTermVsEquipmentLife",
+        "condition": "leaseTermMonths > 120",
+        "message": "Lease term exceeds typical equipment life; consider buy option."
+      },
+      {
+        "id": "utilizationThreshold",
+        "condition": "utilizationRate < 60",
+        "message": "Low utilization may favor leasing to avoid idle asset cost."
+      },
+      {
+        "id": "maintenanceCostCheck",
+        "condition": "leaseMaintenanceIncluded == false && annualMaintenanceCost > 0.1 * equipmentCost",
+        "message": "High maintenance cost without lease coverage; evaluate total cost of ownership."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "leaseVsBuyRatioAlert",
+        "condition": "primaryResult < 0.8 || primaryResult > 1.2",
+        "level": "warning",
+        "message": "Lease vs buy cost ratio is outside 0.8–1.2 band; perform sensitivity analysis."
+      },
+      {
+        "id": "npvNegativeAlert",
+        "condition": "npvBuy < 0 && npvLease < 0",
+        "level": "critical",
+        "message": "Both options have negative NPV; reconsider investment decision."
+      }
+    ]
+  },
+  "formulas": [
+    {
+      "id": "npvLease",
+      "description": "Net Present Value of Lease Cash Flows",
+      "expression": "npvLease = -sum_{t=1}^{leaseTermMonths} (monthlyLeasePayment * (1 - taxRate/12)) / (1 + discountRate/12)^t",
+      "unit": "USD"
+    },
+    {
+      "id": "npvBuy",
+      "description": "Net Present Value of Buy Cash Flows (including depreciation tax shield, maintenance, and residual value)",
+      "expression": "npvBuy = -equipmentCost + sum_{y=1}^{leaseTermMonths/12} ((depreciationTaxShield_y - annualMaintenanceCost*(1-taxRate)) / (1+discountRate)^y) + (residualValue / (1+discountRate)^(leaseTermMonths/12))",
+      "unit": "USD"
+    },
+    {
+      "id": "depreciationTaxShield",
+      "description": "Annual depreciation tax shield based on method",
+      "expression": "depreciationTaxShield_y = depreciationRate_y * equipmentCost * taxRate",
+      "unit": "USD"
+    },
+    {
+      "id": "totalCostLease",
+      "description": "Total undiscounted lease cost over term",
+      "expression": "totalCostLease = leaseTermMonths * monthlyLeasePayment",
+      "unit": "USD"
+    },
+    {
+      "id": "totalCostBuy",
+      "description": "Total undiscounted buy cost (purchase + maintenance - residual)",
+      "expression": "totalCostBuy = equipmentCost + (leaseTermMonths/12)*annualMaintenanceCost - residualValue",
+      "unit": "USD"
+    },
+    {
+      "id": "utilizationAdjustedCost",
+      "description": "Cost adjusted for utilization (idle cost penalty)",
+      "expression": "utilizationAdjustedCost = (totalCostBuy * (1 - utilizationRate/100)) * 0.15",
+      "unit": "USD"
+    },
+    {
+      "id": "primaryResult",
+      "description": "Lease vs Buy Cost Ratio (NPV-based, adjusted for utilization)",
+      "expression": "primaryResult = (npvLease + utilizationAdjustedCost) / npvBuy",
+      "unit": "ratio"
+    }
+  ],
+  "outputs": {
+    "primary": {
+      "id": "leaseVsBuyRatio",
+      "label": "Lease vs Buy Cost Ratio",
+      "value": null,
+      "unit": "ratio",
+      "interpretation": "Ratio < 1 means leasing is cheaper; > 1 means buying is cheaper."
+    },
+    "breakdown": {
+      "npvLease": {
+        "label": "NPV of Lease",
+        "value": null,
+        "unit": "USD"
+      },
+      "npvBuy": {
+        "label": "NPV of Buy",
+        "value": null,
+        "unit": "USD"
+      },
+      "totalCostLease": {
+        "label": "Total Lease Cost (undiscounted)",
+        "value": null,
+        "unit": "USD"
+      },
+      "totalCostBuy": {
+        "label": "Total Buy Cost (undiscounted)",
+        "value": null,
+        "unit": "USD"
+      },
+      "utilizationPenalty": {
+        "label": "Utilization Idle Cost Penalty",
+        "value": null,
+        "unit": "USD"
+      }
+    },
+    "hiddenLossDrivers": [
+      {
+        "id": "maintenanceEscalation",
+        "label": "Maintenance Cost Escalation",
+        "description": "If lease does not include maintenance, actual costs may exceed estimate by 10-20% over term.",
+        "impact": "medium"
+      },
+      {
+        "id": "residualValueRisk",
+        "label": "Residual Value Uncertainty",
+        "description": "Residual value at end of lease may be lower than estimated, increasing buy cost.",
+        "impact": "high"
+      },
+      {
+        "id": "utilizationVariability",
+        "label": "Utilization Rate Variability",
+        "description": "Actual utilization may deviate from estimate, affecting cost per productive hour.",
+        "impact": "medium"
+      }
+    ],
+    "suggestedActions": [
+      {
+        "id": "action1",
+        "condition": "primaryResult < 0.9",
+        "action": "Proceed with lease; negotiate lower monthly payment or include maintenance."
+      },
+      {
+        "id": "action2",
+        "condition": "primaryResult > 1.1",
+        "action": "Consider purchase; explore financing options to reduce upfront cost."
+      },
+      {
+        "id": "action3",
+        "condition": "utilizationRate < 70",
+        "action": "Re-evaluate need for dedicated equipment; consider short-term rental or shared asset."
+      }
+    ],
+    "dataConfidenceAdjusted": {
+      "description": "Primary result adjusted for input uncertainty using Monte Carlo simulation (premium feature).",
+      "value": null,
+      "unit": "ratio"
+    }
+  },
+  "toolName": "lease-vs-buy-comparator-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

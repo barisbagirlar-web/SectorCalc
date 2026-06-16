@@ -1,0 +1,55 @@
+{
+  "toolName": "annual-compound-interest",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Başlangıç Anapara",
+      "type": "number",
+      "unit": "TL",
+      "default": 1000,
+      "businessContext": "Yatırımın başlangıçtaki anapara tutarı."
+    },
+    {
+      "id": "annualRate",
+      "label": "Yıllık Faiz Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Yıllık nominal faiz oranı (yüzde olarak)."
+    },
+    {
+      "id": "compoundingPeriods",
+      "label": "Yıllık Bileşik Dönem Sayısı",
+      "type": "number",
+      "unit": "kez/yıl",
+      "default": 1,
+      "businessContext": "Faizin yılda kaç kez bileşiklendiği (ör. 12 aylık, 4 çeyreklik)."
+    },
+    {
+      "id": "years",
+      "label": "Vade (Yıl)",
+      "type": "number",
+      "unit": "yıl",
+      "default": 5,
+      "businessContext": "Yatırımın vade süresi."
+    }
+  ],
+  "formulas": {
+    "finalAmount": "principal * Math.pow(1 + (annualRate / 100) / compoundingPeriods, compoundingPeriods * years)",
+    "totalInterest": "principal * Math.pow(1 + (annualRate / 100) / compoundingPeriods, compoundingPeriods * years) - principal",
+    "effectiveAnnualRate": "100 * (Math.pow(1 + (annualRate / 100) / compoundingPeriods, compoundingPeriods) - 1)"
+  },
+  "outputs": {
+    "primary": "finalAmount",
+    "breakdown": [
+      "totalInterest",
+      "effectiveAnnualRate"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

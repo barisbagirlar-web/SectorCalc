@@ -1,0 +1,28 @@
+{
+  "toolName": "psi-to-bar",
+  "inputs": [
+    {
+      "id": "psi_value",
+      "label": "PSI Değeri",
+      "type": "number",
+      "unit": "psi",
+      "default": 14.5038,
+      "businessContext": "Pound per square inch değeri"
+    }
+  ],
+  "formulas": {
+    "bar": "psi_value / 14.5038"
+  },
+  "outputs": {
+    "primary": "bar",
+    "breakdown": [
+      "bar"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

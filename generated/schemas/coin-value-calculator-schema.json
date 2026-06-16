@@ -1,0 +1,71 @@
+{
+  "toolName": "coin-value-calculator",
+  "inputs": [
+    {
+      "id": "pennyCount",
+      "label": "1 Sent (Penny) Adedi",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Number of 1 cent coins"
+    },
+    {
+      "id": "nickelCount",
+      "label": "5 Sent (Nickel) Adedi",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Number of 5 cent coins"
+    },
+    {
+      "id": "dimeCount",
+      "label": "10 Sent (Dime) Adedi",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Number of 10 cent coins"
+    },
+    {
+      "id": "quarterCount",
+      "label": "25 Sent (Quarter) Adedi",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Number of 25 cent coins"
+    },
+    {
+      "id": "halfDollarCount",
+      "label": "50 Sent (Half Dollar) Adedi",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Number of 50 cent coins"
+    },
+    {
+      "id": "dollarCoinCount",
+      "label": "1 Dolar (Dollar Coin) Adedi",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Number of 1 dollar coins"
+    }
+  ],
+  "formulas": {
+    "totalValue": "Math.round((pennyCount*1 + nickelCount*5 + dimeCount*10 + quarterCount*25 + halfDollarCount*50 + dollarCoinCount*100))/100",
+    "totalCents": "pennyCount*1 + nickelCount*5 + dimeCount*10 + quarterCount*25 + halfDollarCount*50 + dollarCoinCount*100",
+    "totalCoins": "pennyCount + nickelCount + dimeCount + quarterCount + halfDollarCount + dollarCoinCount"
+  },
+  "outputs": {
+    "primary": "totalValue",
+    "breakdown": [
+      "totalCents",
+      "totalCoins"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

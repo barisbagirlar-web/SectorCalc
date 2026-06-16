@@ -1,0 +1,53 @@
+{
+  "toolName": "alcohol-calculator",
+  "inputs": [
+    {
+      "id": "volume",
+      "label": "Başlangıç Hacmi",
+      "type": "number",
+      "unit": "L",
+      "default": 1,
+      "businessContext": "Seyreltilecek alkollü çözeltinin başlangıç hacmi."
+    },
+    {
+      "id": "startABV",
+      "label": "Başlangıç Alkol Oranı",
+      "type": "number",
+      "unit": "% ABV",
+      "default": 96,
+      "businessContext": "Çözeltinin başlangıçtaki hacimce alkol yüzdesi (ör. %96)."
+    },
+    {
+      "id": "targetABV",
+      "label": "Hedef Alkol Oranı",
+      "type": "number",
+      "unit": "% ABV",
+      "default": 40,
+      "businessContext": "Ulaşmak istenen hacimce alkol yüzdesi (ör. %40)."
+    },
+    {
+      "id": "temperature",
+      "label": "Sıcaklık",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Ortam sıcaklığı; hacim düzeltmesi için referans alınır."
+    }
+  ],
+  "formulas": {
+    "waterToAdd": "volume * (startABV / targetABV - 1)",
+    "finalVolume": "volume + waterToAdd"
+  },
+  "outputs": {
+    "primary": "waterToAdd",
+    "breakdown": [
+      "finalVolume"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

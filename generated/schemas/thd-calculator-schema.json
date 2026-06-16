@@ -1,0 +1,87 @@
+{
+  "toolName": "thd-calculator",
+  "inputs": [
+    {
+      "id": "V1",
+      "label": "Fundamental Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 230,
+      "businessContext": "RMS voltage of the fundamental frequency component."
+    },
+    {
+      "id": "V2",
+      "label": "Harmonic Voltage 2nd",
+      "type": "number",
+      "unit": "V",
+      "default": 0,
+      "businessContext": "RMS voltage of the 2nd harmonic component."
+    },
+    {
+      "id": "V3",
+      "label": "Harmonic Voltage 3rd",
+      "type": "number",
+      "unit": "V",
+      "default": 0,
+      "businessContext": "RMS voltage of the 3rd harmonic component."
+    },
+    {
+      "id": "V4",
+      "label": "Harmonic Voltage 4th",
+      "type": "number",
+      "unit": "V",
+      "default": 0,
+      "businessContext": "RMS voltage of the 4th harmonic component."
+    },
+    {
+      "id": "V5",
+      "label": "Harmonic Voltage 5th",
+      "type": "number",
+      "unit": "V",
+      "default": 0,
+      "businessContext": "RMS voltage of the 5th harmonic component."
+    },
+    {
+      "id": "V6",
+      "label": "Harmonic Voltage 6th",
+      "type": "number",
+      "unit": "V",
+      "default": 0,
+      "businessContext": "RMS voltage of the 6th harmonic component."
+    },
+    {
+      "id": "V7",
+      "label": "Harmonic Voltage 7th",
+      "type": "number",
+      "unit": "V",
+      "default": 0,
+      "businessContext": "RMS voltage of the 7th harmonic component."
+    },
+    {
+      "id": "V8",
+      "label": "Harmonic Voltage 8th",
+      "type": "number",
+      "unit": "V",
+      "default": 0,
+      "businessContext": "RMS voltage of the 8th harmonic component."
+    }
+  ],
+  "formulas": {
+    "sumOfSquares": "V2**2 + V3**2 + V4**2 + V5**2 + V6**2 + V7**2 + V8**2",
+    "harmonicRMS": "Math.sqrt(V2**2 + V3**2 + V4**2 + V5**2 + V6**2 + V7**2 + V8**2)",
+    "THD": "(Math.sqrt(V2**2 + V3**2 + V4**2 + V5**2 + V6**2 + V7**2 + V8**2) / V1) * 100"
+  },
+  "outputs": {
+    "primary": "THD",
+    "breakdown": [
+      "sumOfSquares",
+      "harmonicRMS"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

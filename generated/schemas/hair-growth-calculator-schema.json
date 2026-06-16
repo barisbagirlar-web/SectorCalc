@@ -1,0 +1,57 @@
+{
+  "toolName": "hair-growth-calculator",
+  "inputs": [
+    {
+      "id": "currentLength",
+      "label": "Current Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "businessContext": "Current length of hair from scalp to tip."
+    },
+    {
+      "id": "targetLength",
+      "label": "Target Length",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "Desired final hair length."
+    },
+    {
+      "id": "growthRate",
+      "label": "Monthly Growth Rate",
+      "type": "number",
+      "unit": "cm/month",
+      "default": 1.25,
+      "businessContext": "Average hair growth per month. Typical range 1-1.5 cm."
+    },
+    {
+      "id": "healthFactor",
+      "label": "Health & Nutrition Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "Multiplier for individual health/diet effects (1 = average)."
+    }
+  ],
+  "formulas": {
+    "monthsToTarget": "(targetLength - currentLength) / (growthRate * healthFactor)",
+    "weeksToTarget": "(targetLength - currentLength) / (growthRate * healthFactor) * 4.34524",
+    "daysToTarget": "(targetLength - currentLength) / (growthRate * healthFactor) * 30.4375",
+    "projectedLength6Months": "currentLength + growthRate * healthFactor * 6"
+  },
+  "outputs": {
+    "primary": "monthsToTarget",
+    "breakdown": [
+      "weeksToTarget",
+      "daysToTarget",
+      "projectedLength6Months"
+    ]
+  },
+  "premiumRequired": false,
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

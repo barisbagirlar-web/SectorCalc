@@ -1,0 +1,74 @@
+{
+  "toolName": "sheet-pile-calculator",
+  "inputs": [
+    {
+      "id": "pileLength",
+      "label": "Pile Length",
+      "type": "number",
+      "unit": "m",
+      "default": 12,
+      "businessContext": "Total length of each sheet pile"
+    },
+    {
+      "id": "pileWidth",
+      "label": "Pile Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Effective width of each sheet pile"
+    },
+    {
+      "id": "numberOfPiles",
+      "label": "Number of Piles",
+      "type": "number",
+      "unit": "pcs",
+      "default": 100,
+      "businessContext": "Total number of sheet piles required"
+    },
+    {
+      "id": "steelDensity",
+      "label": "Steel Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "businessContext": "Density of steel used for piles"
+    },
+    {
+      "id": "unitCost",
+      "label": "Unit Cost",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 1.2,
+      "businessContext": "Cost per kilogram of steel"
+    },
+    {
+      "id": "installationCostPerPile",
+      "label": "Installation Cost per Pile",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "businessContext": "Cost to install one pile"
+    }
+  ],
+  "formulas": {
+    "totalSteelVolume": "pileLength * pileWidth * numberOfPiles * 0.01",
+    "totalWeight": "totalSteelVolume * steelDensity",
+    "materialCost": "totalWeight * unitCost",
+    "installationCost": "numberOfPiles * installationCostPerPile",
+    "totalCost": "materialCost + installationCost"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "totalWeight",
+      "materialCost",
+      "installationCost"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

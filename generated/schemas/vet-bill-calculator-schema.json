@@ -1,0 +1,63 @@
+{
+  "toolName": "vet-bill-calculator",
+  "inputs": [
+    {
+      "id": "consultationFee",
+      "label": "Consultation Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Standard veterinary consultation charge"
+    },
+    {
+      "id": "medicationCost",
+      "label": "Medication Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Cost of prescribed medications"
+    },
+    {
+      "id": "procedureCost",
+      "label": "Procedure Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Cost of any surgical or medical procedure"
+    },
+    {
+      "id": "labTestsCost",
+      "label": "Lab Tests Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Cost of laboratory tests and diagnostics"
+    },
+    {
+      "id": "discountPercent",
+      "label": "Discount (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Applied discount percentage"
+    }
+  ],
+  "formulas": {
+    "subtotal": "consultationFee + medicationCost + procedureCost + labTestsCost",
+    "discountAmount": "subtotal * discountPercent / 100",
+    "totalBill": "subtotal - discountAmount"
+  },
+  "outputs": {
+    "primary": "totalBill",
+    "breakdown": [
+      "subtotal",
+      "discountAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

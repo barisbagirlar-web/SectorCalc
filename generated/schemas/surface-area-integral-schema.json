@@ -1,0 +1,79 @@
+{
+  "toolName": "surface-area-integral",
+  "inputs": [
+    {
+      "id": "radius",
+      "label": "Radius (r)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Radius of the sphere or cylinder"
+    },
+    {
+      "id": "height",
+      "label": "Height (h)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Height for cylindrical surface area"
+    },
+    {
+      "id": "shape",
+      "label": "Shape (0=sphere, 1=cylinder)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 for sphere, 1 for cylinder (lateral surface)"
+    },
+    {
+      "id": "theta_min",
+      "label": "Theta min (θ_min)",
+      "type": "number",
+      "unit": "rad",
+      "default": 0,
+      "businessContext": "Lower bound of polar angle for sphere"
+    },
+    {
+      "id": "theta_max",
+      "label": "Theta max (θ_max)",
+      "type": "number",
+      "unit": "rad",
+      "default": 3.141592653589793,
+      "businessContext": "Upper bound of polar angle for sphere (π)"
+    },
+    {
+      "id": "phi_min",
+      "label": "Phi min (φ_min)",
+      "type": "number",
+      "unit": "rad",
+      "default": 0,
+      "businessContext": "Lower bound of azimuthal angle"
+    },
+    {
+      "id": "phi_max",
+      "label": "Phi max (φ_max)",
+      "type": "number",
+      "unit": "rad",
+      "default": 6.283185307179586,
+      "businessContext": "Upper bound of azimuthal angle (2π)"
+    }
+  ],
+  "formulas": {
+    "sphereArea": "radius * radius * (theta_max - theta_min) * (phi_max - phi_min)",
+    "cylinderLateralArea": "2 * Math.PI * radius * height",
+    "totalArea": "shape === 0 ? sphereArea : cylinderLateralArea"
+  },
+  "outputs": {
+    "primary": "totalArea",
+    "breakdown": [
+      "sphereArea",
+      "cylinderLateralArea"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

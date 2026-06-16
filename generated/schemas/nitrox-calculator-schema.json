@@ -1,0 +1,55 @@
+{
+  "toolName": "nitrox-calculator",
+  "inputs": [
+    {
+      "id": "fo2",
+      "label": "Oksijen Yüzdesi (FO2)",
+      "type": "number",
+      "unit": "%",
+      "default": 32,
+      "businessContext": "Solunan nitroks gazındaki oksijen yüzdesi. Genellikle %21-40 arasındadır."
+    },
+    {
+      "id": "po2_work",
+      "label": "Çalışma PO2",
+      "type": "number",
+      "unit": "bar",
+      "default": 1.4,
+      "businessContext": "Çalışma safhasında maksimum kısmi oksijen basıncı. Standart olarak 1.4 bar."
+    },
+    {
+      "id": "po2_deco",
+      "label": "Dekompresyon PO2",
+      "type": "number",
+      "unit": "bar",
+      "default": 1.6,
+      "businessContext": "Dekompresyon duraklarında izin verilen maksimum kısmi oksijen basıncı. Genellikle 1.6 bar."
+    },
+    {
+      "id": "depth",
+      "label": "Gerçek Derinlik",
+      "type": "number",
+      "unit": "m",
+      "default": 30,
+      "businessContext": "Eşdeğer hava derinliği (EAD) hesaplaması için gerçek dalış derinliği."
+    }
+  ],
+  "formulas": {
+    "modWorking": "((po2_work / (fo2/100)) - 1) * 10",
+    "modDeco": "((po2_deco / (fo2/100)) - 1) * 10",
+    "ead": "(((1 - fo2/100) / 0.79) * (depth/10 + 1) - 1) * 10"
+  },
+  "outputs": {
+    "primary": "modWorking",
+    "breakdown": [
+      "modDeco",
+      "ead"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "scatter-plot-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Number of data points (n)",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "businessContext": "Total count of paired (x,y) data points."
+    },
+    {
+      "id": "sumX",
+      "label": "Sum of X values (Σx)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sum of all x-values in the dataset."
+    },
+    {
+      "id": "sumY",
+      "label": "Sum of Y values (Σy)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sum of all y-values in the dataset."
+    },
+    {
+      "id": "sumXY",
+      "label": "Sum of X*Y (Σxy)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sum of the products of each x-y pair."
+    },
+    {
+      "id": "sumX2",
+      "label": "Sum of X² (Σx²)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sum of the squares of x-values."
+    },
+    {
+      "id": "sumY2",
+      "label": "Sum of Y² (Σy²)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Sum of the squares of y-values."
+    }
+  ],
+  "formulas": {
+    "slope": "(n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX)",
+    "intercept": "(sumY - slope * sumX) / n",
+    "r": "(n * sumXY - sumX * sumY) / Math.sqrt((n * sumX2 - sumX * sumX) * (n * sumY2 - sumY * sumY))",
+    "rSquared": "r * r"
+  },
+  "outputs": {
+    "primary": "r",
+    "breakdown": [
+      "slope",
+      "intercept",
+      "rSquared"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

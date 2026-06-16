@@ -1,0 +1,58 @@
+{
+  "toolName": "fluid-ounces-to-ml-calculator",
+  "inputs": [
+    {
+      "id": "fluidOunces",
+      "label": "Fluid Ounces",
+      "type": "number",
+      "unit": "fl oz",
+      "default": 1,
+      "businessContext": "Amount of fluid ounces to convert to milliliters"
+    },
+    {
+      "id": "ounceStandard",
+      "label": "Ounce Standard (0=US, 1=UK)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Select the fluid ounce standard: 0 for US customary (29.5735 ml), 1 for Imperial (28.4131 ml)"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Round the output to this many decimal places"
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "items",
+      "default": 1,
+      "businessContext": "Number of identical volumes to convert (for total mL)"
+    }
+  ],
+  "formulas": {
+    "conversionFactor": "ounceStandard === 0 ? 29.5735 : 28.4131",
+    "mlPerItem": "fluidOunces * conversionFactor",
+    "totalMl": "batchSize * mlPerItem",
+    "roundedMl": "Math.round(totalMl * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "roundedMl",
+    "breakdown": [
+      "conversionFactor",
+      "mlPerItem",
+      "totalMl",
+      "roundedMl"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

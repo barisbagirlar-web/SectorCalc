@@ -1,0 +1,55 @@
+{
+  "toolName": "risk-ratio-calculator",
+  "inputs": [
+    {
+      "id": "exposedEvents",
+      "label": "Maruz Kalan Olay Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Maruz kalan grupta gerçekleşen olay sayısı (ör. vaka, hata, kayıp)"
+    },
+    {
+      "id": "exposedTotal",
+      "label": "Maruz Kalan Toplam",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Maruz kalan gruptaki toplam birim/birey sayısı"
+    },
+    {
+      "id": "controlEvents",
+      "label": "Kontrol Olay Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Kontrol grubunda gerçekleşen olay sayısı"
+    },
+    {
+      "id": "controlTotal",
+      "label": "Kontrol Toplam",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Kontrol grubundaki toplam birim/birey sayısı"
+    }
+  ],
+  "formulas": {
+    "exposedRisk": "exposedEvents / exposedTotal",
+    "controlRisk": "controlEvents / controlTotal",
+    "riskRatio": "(exposedEvents * controlTotal) / (exposedTotal * controlEvents)"
+  },
+  "outputs": {
+    "primary": "riskRatio",
+    "breakdown": [
+      "exposedRisk",
+      "controlRisk"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

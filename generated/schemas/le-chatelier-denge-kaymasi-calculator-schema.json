@@ -1,0 +1,68 @@
+{
+  "toolName": "le-chatelier-denge-kaymasi-calculator",
+  "inputs": [
+    {
+      "id": "initA",
+      "label": "Başlangıç A Derişimi",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 1,
+      "businessContext": "Reaksiyona giren A maddesinin başlangıçtaki molar derişimi"
+    },
+    {
+      "id": "initB",
+      "label": "Başlangıç B Derişimi",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0,
+      "businessContext": "Reaksiyon ürünü B maddesinin başlangıçtaki molar derişimi"
+    },
+    {
+      "id": "Kc",
+      "label": "Denge Sabiti (Kc)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "A ⇌ B reaksiyonunun derişim cinsinden denge sabiti"
+    },
+    {
+      "id": "deltaA",
+      "label": "Eklenen A Miktarı",
+      "type": "number",
+      "unit": "mol/L",
+      "default": 0.5,
+      "businessContext": "Sisteme sonradan eklenen A maddesinin molar derişim değişimi (pozitif ekleme, negatif çıkarma)"
+    }
+  ],
+  "formulas": {
+    "x": "(Kc * (initA + deltaA) - initB) / (1 + Kc)",
+    "newA": "(initA + deltaA) - x",
+    "newB": "initB + x"
+  },
+  "outputs": {
+    "primary": {
+      "label": "Denge Kayması (x)",
+      "value": "x",
+      "unit": "mol/L",
+      "description": "Le Chatelier prensibine göre dengenin kayma miktarı (pozitif: ürünler yönüne, negatif: reaktanlar yönüne)"
+    },
+    "breakdown": [
+      {
+        "label": "Yeni [A]",
+        "value": "newA",
+        "unit": "mol/L"
+      },
+      {
+        "label": "Yeni [B]",
+        "value": "newB",
+        "unit": "mol/L"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

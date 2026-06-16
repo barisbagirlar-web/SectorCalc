@@ -1,0 +1,55 @@
+{
+  "toolName": "dividend-payout-ratio-calculator",
+  "inputs": [
+    {
+      "id": "dividendsPaid",
+      "label": "Paid Dividends",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000000,
+      "businessContext": "Total amount of dividends paid to shareholders in the period (e.g., quarterly or annually)."
+    },
+    {
+      "id": "netIncome",
+      "label": "Net Income",
+      "type": "number",
+      "unit": "currency",
+      "default": 5000000,
+      "businessContext": "Company’s net income (profit after all expenses) for the same period."
+    },
+    {
+      "id": "dividendsPerShare",
+      "label": "Dividends Per Share",
+      "type": "number",
+      "unit": "currency per share",
+      "default": 2,
+      "businessContext": "Dividends paid per outstanding share (alternative numerator for per-share calculation)."
+    },
+    {
+      "id": "earningsPerShare",
+      "label": "Earnings Per Share",
+      "type": "number",
+      "unit": "currency per share",
+      "default": 5,
+      "businessContext": "Earnings per share for the period (alternative denominator for per-share calculation)."
+    }
+  ],
+  "formulas": {
+    "dividendPayoutRatioPercent": "(dividendsPaid / netIncome) * 100",
+    "dividendPayoutRatioDecimal": "dividendsPaid / netIncome",
+    "retentionRatioPercent": "(1 - (dividendsPaid / netIncome)) * 100"
+  },
+  "outputs": {
+    "primary": "dividendPayoutRatioPercent",
+    "breakdown": [
+      "dividendPayoutRatioDecimal",
+      "retentionRatioPercent"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

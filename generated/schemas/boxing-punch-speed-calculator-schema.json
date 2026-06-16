@@ -1,0 +1,65 @@
+{
+  "toolName": "boxing-punch-speed-calculator",
+  "inputs": [
+    {
+      "id": "arm_length",
+      "label": "Arm Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0.7,
+      "businessContext": "Distance from shoulder to fist when arm is fully extended"
+    },
+    {
+      "id": "arm_angle",
+      "label": "Arm Swing Angle",
+      "type": "number",
+      "unit": "deg",
+      "default": 90,
+      "businessContext": "Angular displacement of the arm during the punch"
+    },
+    {
+      "id": "hip_angle",
+      "label": "Hip Rotation Angle",
+      "type": "number",
+      "unit": "deg",
+      "default": 45,
+      "businessContext": "Angular rotation of the hips contributing to punch reach"
+    },
+    {
+      "id": "step_length",
+      "label": "Forward Step Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0.2,
+      "businessContext": "Linear distance moved forward by the body during the punch"
+    },
+    {
+      "id": "punch_time",
+      "label": "Punch Duration",
+      "type": "number",
+      "unit": "s",
+      "default": 0.15,
+      "businessContext": "Time from initiation to full extension of the punch"
+    }
+  ],
+  "formulas": {
+    "Punch Speed (m/s)": "(arm_length * ((arm_angle + hip_angle) * Math.PI / 180) + step_length) / punch_time",
+    "Punch Speed (mph)": "((arm_length * ((arm_angle + hip_angle) * Math.PI / 180) + step_length) / punch_time) * 2.23694",
+    "Angular Distance (m)": "arm_length * ((arm_angle + hip_angle) * Math.PI / 180)",
+    "Total Distance (m)": "arm_length * ((arm_angle + hip_angle) * Math.PI / 180) + step_length"
+  },
+  "outputs": {
+    "primary": "Punch Speed (m/s)",
+    "breakdown": [
+      "Punch Speed (mph)",
+      "Angular Distance (m)",
+      "Total Distance (m)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

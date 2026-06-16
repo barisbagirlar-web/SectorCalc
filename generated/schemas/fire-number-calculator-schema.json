@@ -1,0 +1,71 @@
+{
+  "toolName": "fire-number-calculator",
+  "inputs": [
+    {
+      "id": "annualExpenses",
+      "label": "Yıllık Giderler",
+      "type": "number",
+      "unit": "TL",
+      "default": 60000,
+      "businessContext": "Yıl bazında toplam harcamalar"
+    },
+    {
+      "id": "withdrawalRate",
+      "label": "Güvenli Çekim Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "businessContext": "Yıllık portföy çekim yüzdesi (genelde %4)"
+    },
+    {
+      "id": "currentSavings",
+      "label": "Mevcut Birikim",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Şu anki toplam yatırım portföyü değeri"
+    },
+    {
+      "id": "annualSavings",
+      "label": "Yıllık Tasarruf",
+      "type": "number",
+      "unit": "TL",
+      "default": 20000,
+      "businessContext": "Her yıl düzenli olarak yatırıma eklenen tutar"
+    },
+    {
+      "id": "expectedReturn",
+      "label": "Beklenen Yıllık Getiri",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Portföyün yıllık ortalama nominal getiri beklentisi"
+    },
+    {
+      "id": "inflationRate",
+      "label": "Enflasyon Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Uzun vadeli yıllık enflasyon tahmini"
+    }
+  ],
+  "formulas": {
+    "fireNumber": "annualExpenses / (withdrawalRate / 100)",
+    "realReturn": "(1 + expectedReturn / 100) / (1 + inflationRate / 100) - 1",
+    "yearsToFire": "realReturn === 0 ? (fireNumber - currentSavings) / annualSavings : Math.log((fireNumber * realReturn + annualSavings) / (currentSavings * realReturn + annualSavings)) / Math.log(1 + realReturn)"
+  },
+  "outputs": {
+    "primary": "fireNumber",
+    "breakdown": [
+      "yearsToFire",
+      "realReturn"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

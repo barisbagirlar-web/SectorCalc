@@ -1,0 +1,66 @@
+{
+  "toolName": "weld-size-calculator",
+  "inputs": [
+    {
+      "id": "force",
+      "label": "Applied Force",
+      "type": "number",
+      "unit": "kN",
+      "default": 50,
+      "businessContext": "Design force acting on the welded joint."
+    },
+    {
+      "id": "allowableStress",
+      "label": "Allowable Shear Stress",
+      "type": "number",
+      "unit": "MPa",
+      "default": 100,
+      "businessContext": "Allowable shear stress for the weld material, as per applicable welding code (e.g., AWS D1.1, EN 1993-1-8)."
+    },
+    {
+      "id": "numWelds",
+      "label": "Number of Welds",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of fillet welds sharing the load."
+    },
+    {
+      "id": "weldLengthPer",
+      "label": "Length per Weld",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Effective length of each individual fillet weld."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Design safety factor to account for uncertainties."
+    }
+  ],
+  "formulas": {
+    "totalLength": "numWelds * weldLengthPer",
+    "designForce": "force * safetyFactor",
+    "throatRequired": "(designForce * 1000) / (allowableStress * totalLength)",
+    "legRequired": "throatRequired * Math.sqrt(2)"
+  },
+  "outputs": {
+    "primary": "legRequired",
+    "breakdown": [
+      "totalLength",
+      "designForce",
+      "throatRequired",
+      "legRequired"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

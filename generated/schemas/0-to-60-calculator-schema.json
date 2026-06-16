@@ -1,0 +1,58 @@
+{
+  "toolName": "0-to-60-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Vehicle Mass",
+      "type": "number",
+      "unit": "kg",
+      "default": 1500,
+      "businessContext": "Weight of the vehicle including driver and fuel."
+    },
+    {
+      "id": "power",
+      "label": "Engine Power",
+      "type": "number",
+      "unit": "hp",
+      "default": 200,
+      "businessContext": "Maximum engine power output at the crankshaft."
+    },
+    {
+      "id": "efficiency",
+      "label": "Drivetrain Efficiency",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.85,
+      "businessContext": "Combined efficiency of transmission and drivetrain (0-1). Typical values: 0.8-0.9."
+    },
+    {
+      "id": "speed",
+      "label": "Target Speed",
+      "type": "number",
+      "unit": "mph",
+      "default": 60,
+      "businessContext": "Final speed to achieve from standstill. Default is 60 mph."
+    }
+  ],
+  "formulas": {
+    "speed_mps": "speed * 0.44704",
+    "kinetic_energy": "0.5 * mass * Math.pow(speed_mps, 2)",
+    "power_watts": "power * 745.7",
+    "effective_power": "power_watts * efficiency",
+    "time_seconds": "kinetic_energy / effective_power"
+  },
+  "outputs": {
+    "primary": "time_seconds",
+    "breakdown": [
+      "kinetic_energy",
+      "effective_power",
+      "speed_mps"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

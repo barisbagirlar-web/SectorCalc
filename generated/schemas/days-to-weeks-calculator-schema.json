@@ -1,0 +1,53 @@
+{
+  "toolName": "days-to-weeks-calculator",
+  "inputs": [
+    {
+      "id": "totalDays",
+      "label": "Total Days",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "businessContext": "Total number of days to be converted into weeks."
+    },
+    {
+      "id": "daysPerWeek",
+      "label": "Days per Week",
+      "type": "number",
+      "unit": "days",
+      "default": 7,
+      "businessContext": "Standard number of days per week for the conversion (e.g., 7 for calendar weeks, 5 for work weeks)."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places for the primary output (weeks)."
+    },
+    {
+      "id": "showRemainder",
+      "label": "Show Remainder Days",
+      "type": "number",
+      "unit": "flag",
+      "default": 1,
+      "businessContext": "Set to 1 to include the breakdown of full weeks and remainder days; 0 to output only decimal weeks."
+    }
+  ],
+  "formulas": {
+    "compute": "function(inputs) { const totalDays = inputs.totalDays; let daysPerWeek = inputs.daysPerWeek; if (daysPerWeek <= 0) daysPerWeek = 7; const precision = inputs.precision; const showRemainder = inputs.showRemainder; const weeks = totalDays / daysPerWeek; const roundedWeeks = Math.round(weeks * Math.pow(10, precision)) / Math.pow(10, precision); const fullWeeks = Math.floor(totalDays / daysPerWeek); let remainderDays = totalDays - fullWeeks * daysPerWeek; remainderDays = Math.round(remainderDays * 1e6) / 1e6; return { primary: roundedWeeks, breakdown: showRemainder === 1 ? [fullWeeks, remainderDays] : [] }; }"
+  },
+  "outputs": {
+    "primary": "weeks",
+    "breakdown": [
+      "fullWeeks",
+      "remainderDays"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

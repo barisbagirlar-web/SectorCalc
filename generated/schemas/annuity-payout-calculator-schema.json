@@ -1,0 +1,55 @@
+{
+  "toolName": "annuity-payout-calculator",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "The present value or lump sum used to purchase the annuity."
+    },
+    {
+      "id": "annualRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Annual nominal interest rate."
+    },
+    {
+      "id": "years",
+      "label": "Number of Years",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "Total number of years over which payments are made."
+    },
+    {
+      "id": "paymentsPerYear",
+      "label": "Payments Per Year",
+      "type": "number",
+      "unit": "",
+      "default": 12,
+      "businessContext": "Frequency of payments: 12 for monthly, 4 for quarterly, 1 for annually."
+    }
+  ],
+  "formulas": {
+    "periodicPayment": "principal * (annualRate / 100 / paymentsPerYear) / (1 - Math.pow(1 + (annualRate / 100 / paymentsPerYear), -(years * paymentsPerYear)))",
+    "totalPayout": "periodicPayment * years * paymentsPerYear",
+    "totalInterest": "totalPayout - principal"
+  },
+  "outputs": {
+    "primary": "periodicPayment",
+    "breakdown": [
+      "totalPayout",
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

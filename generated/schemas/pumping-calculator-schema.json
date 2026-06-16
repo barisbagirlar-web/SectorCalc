@@ -1,0 +1,73 @@
+{
+  "toolName": "pumping-calculator",
+  "inputs": [
+    {
+      "id": "flowRate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "m³/h",
+      "default": 100,
+      "businessContext": "Volumetric flow rate of the fluid being pumped"
+    },
+    {
+      "id": "head",
+      "label": "Head",
+      "type": "number",
+      "unit": "m",
+      "default": 20,
+      "businessContext": "Total dynamic head the pump must overcome"
+    },
+    {
+      "id": "fluidDensity",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of the fluid (water = 1000 kg/m³)"
+    },
+    {
+      "id": "pumpEfficiency",
+      "label": "Pump Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 75,
+      "businessContext": "Efficiency of the pump (0-100%)"
+    },
+    {
+      "id": "motorEfficiency",
+      "label": "Motor Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Efficiency of the electric motor driving the pump (0-100%)"
+    },
+    {
+      "id": "operatingHours",
+      "label": "Operating Hours",
+      "type": "number",
+      "unit": "hours/day",
+      "default": 8,
+      "businessContext": "Daily operating hours of the pump"
+    }
+  ],
+  "formulas": {
+    "hydraulicPower": "(flowRate * head * fluidDensity * 9.81) / 3600000",
+    "shaftPower": "(flowRate * head * fluidDensity * 9.81) / (3600000 * (pumpEfficiency / 100))",
+    "motorPower": "(flowRate * head * fluidDensity * 9.81) / (3600000 * (pumpEfficiency / 100) * (motorEfficiency / 100))",
+    "dailyEnergyConsumption": "(flowRate * head * fluidDensity * 9.81 * operatingHours) / (3600000 * (pumpEfficiency / 100) * (motorEfficiency / 100))"
+  },
+  "outputs": {
+    "primary": "motorPower",
+    "breakdown": [
+      "hydraulicPower",
+      "shaftPower",
+      "dailyEnergyConsumption"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

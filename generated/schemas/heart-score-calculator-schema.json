@@ -1,0 +1,69 @@
+{
+  "toolName": "heart-score-calculator",
+  "inputs": [
+    {
+      "id": "history",
+      "label": "History Score",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Patient history score (0, 1, or 2)"
+    },
+    {
+      "id": "ecg",
+      "label": "ECG Score",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "ECG findings score (0, 1, or 2)"
+    },
+    {
+      "id": "age",
+      "label": "Age Score",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Age score (0, 1, or 2)"
+    },
+    {
+      "id": "riskFactors",
+      "label": "Risk Factors Score",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Number of risk factors score (0, 1, or 2)"
+    },
+    {
+      "id": "troponin",
+      "label": "Troponin Score",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Troponin level score (0, 1, or 2)"
+    }
+  ],
+  "formulas": {
+    "primary": "(total => total <= 3 ? 'Low risk (Total score: ' + total + ')' : total <= 6 ? 'Moderate risk (Total score: ' + total + ')' : 'High risk (Total score: ' + total + ')') (history + ecg + age + riskFactors + troponin)",
+    "b0": "'History Score: ' + history",
+    "b1": "'ECG Score: ' + ecg",
+    "b2": "'Age Score: ' + age",
+    "b3": "'Risk Factors Score: ' + riskFactors",
+    "b4": "'Troponin Score: ' + troponin"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": [
+      "b0",
+      "b1",
+      "b2",
+      "b3",
+      "b4"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

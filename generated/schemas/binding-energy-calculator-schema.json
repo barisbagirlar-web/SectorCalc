@@ -1,0 +1,71 @@
+{
+  "toolName": "binding-energy-calculator",
+  "inputs": [
+    {
+      "id": "protons",
+      "label": "Number of Protons (Z)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Atomic number of the nucleus."
+    },
+    {
+      "id": "neutrons",
+      "label": "Number of Neutrons (N)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Number of neutrons in the nucleus."
+    },
+    {
+      "id": "protonMass",
+      "label": "Proton Mass",
+      "type": "number",
+      "unit": "u",
+      "default": 1.007276466812,
+      "businessContext": "Rest mass of a proton in atomic mass units."
+    },
+    {
+      "id": "neutronMass",
+      "label": "Neutron Mass",
+      "type": "number",
+      "unit": "u",
+      "default": 1.00866491588,
+      "businessContext": "Rest mass of a neutron in atomic mass units."
+    },
+    {
+      "id": "nucleusMass",
+      "label": "Nucleus Mass",
+      "type": "number",
+      "unit": "u",
+      "default": 2.01410177811,
+      "businessContext": "Actual measured mass of the nucleus in atomic mass units."
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Mass-Energy Conversion (c²)",
+      "type": "number",
+      "unit": "MeV/u",
+      "default": 931.49410242,
+      "businessContext": "Energy equivalent of 1 u, standard value 931.494 MeV/u."
+    }
+  ],
+  "formulas": {
+    "totalBindingEnergy": "(protons * protonMass + neutrons * neutronMass - nucleusMass) * conversionFactor",
+    "bindingEnergyPerNucleon": "((protons * protonMass + neutrons * neutronMass - nucleusMass) * conversionFactor) / Math.max(1, (protons + neutrons))",
+    "massDefect": "(protons * protonMass + neutrons * neutronMass - nucleusMass)"
+  },
+  "outputs": {
+    "primary": "totalBindingEnergy",
+    "breakdown": [
+      "bindingEnergyPerNucleon",
+      "massDefect"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

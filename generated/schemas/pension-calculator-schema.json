@@ -1,0 +1,79 @@
+{
+  "toolName": "pension-calculator",
+  "inputs": [
+    {
+      "id": "currentAge",
+      "label": "Current Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Your current age in years."
+    },
+    {
+      "id": "retirementAge",
+      "label": "Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 65,
+      "businessContext": "Age at which you plan to retire."
+    },
+    {
+      "id": "currentSavings",
+      "label": "Current Pension Savings",
+      "type": "number",
+      "unit": "TRY",
+      "default": 50000,
+      "businessContext": "Total amount already saved in your pension fund."
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Monthly Contribution",
+      "type": "number",
+      "unit": "TRY",
+      "default": 1000,
+      "businessContext": "Amount you contribute to your pension each month."
+    },
+    {
+      "id": "annualReturnRate",
+      "label": "Expected Annual Return",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Expected annual return rate on your pension investments."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Expected Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Expected annual inflation rate to adjust for real values."
+    }
+  ],
+  "formulas": {
+    "yearsToRetirement": "(retirementAge - currentAge)",
+    "monthlyReturnRate": "(annualReturnRate / 100 / 12)",
+    "totalMonths": "(yearsToRetirement * 12)",
+    "futureValueSavings": "(currentSavings * Math.pow(1 + monthlyReturnRate, totalMonths))",
+    "futureValueAnnuity": "(monthlyContribution * ((Math.pow(1 + monthlyReturnRate, totalMonths) - 1) / monthlyReturnRate))",
+    "totalNominalFund": "(futureValueSavings + futureValueAnnuity)",
+    "realProjectedFund": "(totalNominalFund / Math.pow(1 + (inflationRate / 100), yearsToRetirement))",
+    "realMonthlyPensionIncome": "(realProjectedFund * 0.04 / 12)"
+  },
+  "outputs": {
+    "primary": "realMonthlyPensionIncome",
+    "breakdown": [
+      "realProjectedFund",
+      "totalNominalFund",
+      "futureValueSavings",
+      "futureValueAnnuity",
+      "yearsToRetirement"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

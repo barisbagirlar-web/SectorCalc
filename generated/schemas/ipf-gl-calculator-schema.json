@@ -1,0 +1,74 @@
+{
+  "toolName": "ipf-gl-calculator",
+  "inputs": [
+    {
+      "id": "productionVolume",
+      "label": "Production Volume",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "businessContext": "Total number of units produced"
+    },
+    {
+      "id": "materialCostPerUnit",
+      "label": "Material Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 5,
+      "businessContext": "Direct material cost per unit"
+    },
+    {
+      "id": "laborCostPerUnit",
+      "label": "Labor Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 3,
+      "businessContext": "Direct labor cost per unit"
+    },
+    {
+      "id": "overheadCostPerUnit",
+      "label": "Overhead Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 2,
+      "businessContext": "Manufacturing overhead cost per unit"
+    },
+    {
+      "id": "defectRate",
+      "label": "Defect Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of defective units produced"
+    },
+    {
+      "id": "sellingPricePerUnit",
+      "label": "Selling Price per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 15,
+      "businessContext": "Price at which finished goods are sold"
+    }
+  ],
+  "formulas": {
+    "totalCost": "productionVolume * (materialCostPerUnit + laborCostPerUnit + overheadCostPerUnit)",
+    "defectiveUnits": "productionVolume * defectRate / 100",
+    "defectLoss": "defectiveUnits * (materialCostPerUnit + laborCostPerUnit + overheadCostPerUnit)",
+    "grossRevenue": "productionVolume * sellingPricePerUnit",
+    "grossLoss": "totalCost + defectLoss - grossRevenue"
+  },
+  "outputs": {
+    "primary": "grossLoss",
+    "breakdown": [
+      "totalCost",
+      "defectLoss",
+      "grossRevenue"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

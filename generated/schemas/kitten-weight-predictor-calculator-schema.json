@@ -1,0 +1,73 @@
+{
+  "toolName": "kitten-weight-predictor-calculator",
+  "inputs": [
+    {
+      "id": "ageInWeeks",
+      "label": "Age (weeks)",
+      "type": "number",
+      "unit": "weeks",
+      "default": 12,
+      "businessContext": "Current age of kitten in weeks"
+    },
+    {
+      "id": "currentWeight",
+      "label": "Current Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 1000,
+      "businessContext": "Current weight of kitten in grams"
+    },
+    {
+      "id": "birthWeight",
+      "label": "Birth Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 100,
+      "businessContext": "Weight at birth in grams"
+    },
+    {
+      "id": "breedSizeFactor",
+      "label": "Breed Size Factor",
+      "type": "number",
+      "unit": "x",
+      "default": 1,
+      "businessContext": "Breed size multiplier (e.g., 0.8 small, 1.0 medium, 1.2 large)"
+    },
+    {
+      "id": "sexFactor",
+      "label": "Sex Factor",
+      "type": "number",
+      "unit": "x",
+      "default": 1,
+      "businessContext": "Sex multiplier (1.0 female, 1.1 male)"
+    },
+    {
+      "id": "dailyCalories",
+      "label": "Daily Calorie Intake",
+      "type": "number",
+      "unit": "kcal",
+      "default": 250,
+      "businessContext": "Average daily calorie intake affecting growth rate"
+    }
+  ],
+  "formulas": {
+    "growthRate": "return (currentWeight - birthWeight) / ageInWeeks;",
+    "basePrediction": "return currentWeight * (52 / ageInWeeks);",
+    "adjustedPrediction": "return basePrediction * breedSizeFactor * sexFactor * (dailyCalories / 250);",
+    "weightAt20Weeks": "return adjustedPrediction * (20 / 52);"
+  },
+  "outputs": {
+    "primary": "adjustedPrediction",
+    "breakdown": [
+      "growthRate",
+      "basePrediction",
+      "weightAt20Weeks"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

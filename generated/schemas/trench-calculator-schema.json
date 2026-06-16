@@ -1,0 +1,67 @@
+{
+  "toolName": "trench-calculator",
+  "inputs": [
+    {
+      "id": "trenchLength",
+      "label": "Trench Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Total length of the trench to be excavated"
+    },
+    {
+      "id": "baseWidth",
+      "label": "Base Width",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Width of the trench at the bottom"
+    },
+    {
+      "id": "depth",
+      "label": "Depth",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Vertical depth of excavation"
+    },
+    {
+      "id": "sideSlope",
+      "label": "Side Slope (H:V)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Horizontal distance per unit vertical (0 for vertical walls)"
+    }
+  ],
+  "formulas": {
+    "trenchVolume": "trenchLength * depth * (baseWidth + sideSlope * depth)",
+    "crossSectionArea": "depth * (baseWidth + sideSlope * depth)",
+    "topWidth": "baseWidth + 2 * sideSlope * depth"
+  },
+  "outputs": {
+    "primary": {
+      "id": "trenchVolume",
+      "label": "Trench Volume",
+      "unit": "m³"
+    },
+    "breakdown": [
+      {
+        "id": "crossSectionArea",
+        "label": "Cross-Section Area",
+        "unit": "m²"
+      },
+      {
+        "id": "topWidth",
+        "label": "Top Width",
+        "unit": "m"
+      }
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

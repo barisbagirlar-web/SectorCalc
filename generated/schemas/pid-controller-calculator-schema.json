@@ -1,0 +1,91 @@
+{
+  "toolName": "pid-controller-calculator",
+  "inputs": [
+    {
+      "id": "setpoint",
+      "label": "Setpoint (SP)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 100,
+      "businessContext": "Desired target value for the controlled variable."
+    },
+    {
+      "id": "processVariable",
+      "label": "Process Variable (PV)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 90,
+      "businessContext": "Current measured value of the controlled variable."
+    },
+    {
+      "id": "Kp",
+      "label": "Proportional Gain (Kp)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Proportional tuning parameter; higher Kp increases control action proportional to error."
+    },
+    {
+      "id": "Ki",
+      "label": "Integral Gain (Ki)",
+      "type": "number",
+      "unit": "1/s",
+      "default": 0.1,
+      "businessContext": "Integral tuning parameter; corrects steady‑state error by accumulating past errors."
+    },
+    {
+      "id": "Kd",
+      "label": "Derivative Gain (Kd)",
+      "type": "number",
+      "unit": "s",
+      "default": 0.05,
+      "businessContext": "Derivative tuning parameter; anticipates future error based on rate of change."
+    },
+    {
+      "id": "dt",
+      "label": "Time Step (Δt)",
+      "type": "number",
+      "unit": "s",
+      "default": 0.1,
+      "businessContext": "Sampling interval or control loop period."
+    },
+    {
+      "id": "previousError",
+      "label": "Previous Error",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 10,
+      "businessContext": "Error from the previous sampling instant (e(k-1))."
+    },
+    {
+      "id": "integral",
+      "label": "Integral Accumulator",
+      "type": "number",
+      "unit": "dimensionless·s",
+      "default": 5,
+      "businessContext": "Accumulated integral term up to the previous step (Σ e·Δt)."
+    }
+  ],
+  "formulas": {
+    "primary": "Kp*(setpoint - processVariable) + Ki*(integral + (setpoint - processVariable)*dt) + Kd*((setpoint - processVariable) - previousError)/dt",
+    "breakdown": [
+      "Kp*(setpoint - processVariable)",
+      "Ki*(integral + (setpoint - processVariable)*dt)",
+      "Kd*((setpoint - processVariable) - previousError)/dt"
+    ]
+  },
+  "outputs": {
+    "primary": "Controller Output (u)",
+    "breakdown": [
+      "Proportional Term (P)",
+      "Integral Term (I)",
+      "Derivative Term (D)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

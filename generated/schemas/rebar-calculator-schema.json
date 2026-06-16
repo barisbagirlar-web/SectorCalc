@@ -1,0 +1,75 @@
+{
+  "toolName": "rebar-calculator",
+  "inputs": [
+    {
+      "id": "diameter",
+      "label": "Rebar Diameter (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 12,
+      "businessContext": "Standard rebar diameter in millimeters, used to auto‑calculate weight per meter if custom weight is not provided."
+    },
+    {
+      "id": "lengthPerBar",
+      "label": "Length per Bar (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 12,
+      "businessContext": "Typical standard factory bar length before any laps or cuts."
+    },
+    {
+      "id": "numberOfBars",
+      "label": "Number of Bars",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Total quantity of bars required for the project."
+    },
+    {
+      "id": "lapLength",
+      "label": "Lap Length (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Additional splicing length added per bar for overlap joints."
+    },
+    {
+      "id": "wastagePercent",
+      "label": "Wastage (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage overage for cutting waste, bending loss and site damage."
+    },
+    {
+      "id": "weightPerMeter",
+      "label": "Custom Weight per Meter (kg/m)",
+      "type": "number",
+      "unit": "kg/m",
+      "default": 0,
+      "businessContext": "Optional override for the theoretical weight; if 0 or blank, weight is calculated from diameter using the formula 0.006165 × d²."
+    }
+  ],
+  "formulas": {
+    "totalLengthM": "numberOfBars * (lengthPerBar + lapLength)",
+    "weightPerMeterUsed": "weightPerMeter > 0 ? weightPerMeter : (diameter > 0 ? 0.006165 * diameter ** 2 : 0)",
+    "netWeightKg": "numberOfBars * (lengthPerBar + lapLength) * (weightPerMeter > 0 ? weightPerMeter : (diameter > 0 ? 0.006165 * diameter ** 2 : 0))",
+    "wastageWeightKg": "numberOfBars * (lengthPerBar + lapLength) * (weightPerMeter > 0 ? weightPerMeter : (diameter > 0 ? 0.006165 * diameter ** 2 : 0)) * wastagePercent / 100",
+    "totalWeightKg": "numberOfBars * (lengthPerBar + lapLength) * (weightPerMeter > 0 ? weightPerMeter : (diameter > 0 ? 0.006165 * diameter ** 2 : 0)) * (1 + wastagePercent / 100)"
+  },
+  "outputs": {
+    "primary": "totalWeightKg",
+    "breakdown": [
+      "totalLengthM",
+      "weightPerMeterUsed",
+      "netWeightKg",
+      "wastageWeightKg"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

@@ -1,0 +1,39 @@
+{
+  "toolName": "permutation-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Total Items (n)",
+      "type": "number",
+      "unit": "items",
+      "default": 5,
+      "businessContext": "Total number of distinct items to choose from."
+    },
+    {
+      "id": "r",
+      "label": "Selected Items (r)",
+      "type": "number",
+      "unit": "items",
+      "default": 3,
+      "businessContext": "Number of items to select and arrange."
+    }
+  ],
+  "formulas": {
+    "permutations": "n >= r ? (function factorial(x) { return x <= 1 ? 1 : x * factorial(x - 1); })(n) / (function factorial(x) { return x <= 1 ? 1 : x * factorial(x - 1); })(n - r) : 0",
+    "permutationsWithRepetition": "Math.pow(n, r)",
+    "circularPermutations": "n >= 1 ? (function factorial(x) { return x <= 1 ? 1 : x * factorial(x - 1); })(n - 1) : 0"
+  },
+  "outputs": {
+    "primary": "permutations",
+    "breakdown": [
+      "permutationsWithRepetition",
+      "circularPermutations"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

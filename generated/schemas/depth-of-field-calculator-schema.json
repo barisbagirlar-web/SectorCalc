@@ -1,0 +1,61 @@
+{
+  "toolName": "depth-of-field-calculator",
+  "inputs": [
+    {
+      "id": "focalLength",
+      "label": "Focal Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Lens focal length in millimeters"
+    },
+    {
+      "id": "aperture",
+      "label": "Aperture (f-number)",
+      "type": "number",
+      "unit": "",
+      "default": 8,
+      "businessContext": "Aperture f-number (e.g., 2.8, 5.6, 8)"
+    },
+    {
+      "id": "subjectDistance",
+      "label": "Subject Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Distance from camera to subject in meters"
+    },
+    {
+      "id": "circleOfConfusion",
+      "label": "Circle of Confusion",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.03,
+      "businessContext": "Circle of confusion in mm (0.03 for full-frame 35mm)"
+    }
+  ],
+  "formulas": {
+    "hyperfocal": "Math.pow(focalLength, 2) / (aperture * circleOfConfusion)",
+    "subjectDistanceMM": "subjectDistance * 1000",
+    "nearLimitMM": "(hyperfocal * subjectDistanceMM) / (hyperfocal + (subjectDistanceMM - focalLength))",
+    "farLimitMM": "(hyperfocal * subjectDistanceMM) / (hyperfocal - (subjectDistanceMM - focalLength))",
+    "totalDoFMM": "farLimitMM - nearLimitMM",
+    "nearLimit": "nearLimitMM / 1000",
+    "farLimit": "farLimitMM / 1000",
+    "totalDoF": "totalDoFMM / 1000"
+  },
+  "outputs": {
+    "primary": "Total Depth of Field (m)",
+    "breakdown": [
+      "Near Focus Limit (m)",
+      "Far Focus Limit (m)",
+      "Hyperfocal Distance (m)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

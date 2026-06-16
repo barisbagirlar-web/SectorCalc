@@ -1,0 +1,57 @@
+{
+  "toolName": "kolmogorov-smirnov-calculator",
+  "inputs": [
+    {
+      "id": "dStat",
+      "label": "Test Statistic D",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0.1,
+      "businessContext": "Maximum difference between empirical cumulative distribution functions"
+    },
+    {
+      "id": "n1",
+      "label": "Sample Size 1",
+      "type": "number",
+      "unit": "samples",
+      "default": 30,
+      "businessContext": "Number of observations in first sample"
+    },
+    {
+      "id": "n2",
+      "label": "Sample Size 2",
+      "type": "number",
+      "unit": "samples",
+      "default": 30,
+      "businessContext": "Number of observations in second sample"
+    },
+    {
+      "id": "alpha",
+      "label": "Significance Level",
+      "type": "number",
+      "unit": "probability",
+      "default": 0.05,
+      "businessContext": "Type I error probability threshold"
+    }
+  ],
+  "formulas": {
+    "x": "Math.sqrt(n1 * n2 / (n1 + n2)) * dStat",
+    "pValue": "2 * (Math.exp(-2 * x**2) - Math.exp(-8 * x**2) + Math.exp(-18 * x**2) - Math.exp(-32 * x**2))",
+    "c": "Math.sqrt(-0.5 * Math.log(alpha / 2))",
+    "criticalD": "c * Math.sqrt((n1 + n2) / (n1 * n2))",
+    "decision": "dStat > criticalD ? 1 : 0"
+  },
+  "outputs": {
+    "primary": "pValue",
+    "breakdown": [
+      "criticalD",
+      "decision"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "crypto-staking-calculator",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Staked Amount",
+      "type": "number",
+      "unit": "crypto",
+      "default": 1000,
+      "businessContext": "The initial amount of cryptocurrency staked."
+    },
+    {
+      "id": "apy",
+      "label": "Annual Percentage Yield (APY)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "The annual yield offered by the staking protocol, expressed as a percentage."
+    },
+    {
+      "id": "duration",
+      "label": "Staking Duration",
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "businessContext": "The period over which the tokens are staked, in days."
+    },
+    {
+      "id": "compoundFrequency",
+      "label": "Compounds per Year",
+      "type": "number",
+      "unit": "times/year",
+      "default": 365,
+      "businessContext": "The number of times interest is compounded annually (e.g., 365 for daily, 12 for monthly, 1 for yearly)."
+    }
+  ],
+  "formulas": {
+    "totalValue": "principal * (1 + (apy / 100) / compoundFrequency) ** (compoundFrequency * (duration / 365))",
+    "earnedRewards": "totalValue - principal",
+    "initialInvestment": "principal"
+  },
+  "outputs": {
+    "primary": "totalValue",
+    "breakdown": [
+      "initialInvestment",
+      "earnedRewards"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,86 @@
+{
+  "toolName": "makeup-calculator",
+  "inputs": [
+    {
+      "id": "batchSize",
+      "label": "Batch Size (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 1000,
+      "businessContext": "Production batch size in grams, typical lab scale is 1000g."
+    },
+    {
+      "id": "unitWeight",
+      "label": "Unit Weight (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 30,
+      "businessContext": "Weight per finished product unit (e.g., a foundation is 30g, a lipstick 4g)."
+    },
+    {
+      "id": "materialCostPerGram",
+      "label": "Material Cost per Gram",
+      "type": "number",
+      "unit": "currency/g",
+      "default": 0.05,
+      "businessContext": "Average bulk raw material cost per gram including all ingredients."
+    },
+    {
+      "id": "containerCostPerUnit",
+      "label": "Container Cost per Unit",
+      "type": "number",
+      "unit": "currency",
+      "default": 0.5,
+      "businessContext": "Packaging and container cost per finished product unit."
+    },
+    {
+      "id": "laborCostPerUnit",
+      "label": "Labor Cost per Unit",
+      "type": "number",
+      "unit": "currency",
+      "default": 0.2,
+      "businessContext": "Direct labor cost allocated per finished product unit."
+    },
+    {
+      "id": "overheadPercentage",
+      "label": "Overhead (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Manufacturing overhead as a percentage of total direct cost."
+    },
+    {
+      "id": "desiredMarginPercentage",
+      "label": "Desired Margin (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Profit margin markup on total cost per unit to determine selling price."
+    }
+  ],
+  "formulas": {
+    "totalUnits": "batchSize / unitWeight",
+    "totalMaterialCost": "batchSize * materialCostPerGram",
+    "totalContainerCost": "totalUnits * containerCostPerUnit",
+    "totalLaborCost": "totalUnits * laborCostPerUnit",
+    "totalDirectCost": "totalMaterialCost + totalContainerCost + totalLaborCost",
+    "overheadCost": "totalDirectCost * (overheadPercentage / 100)",
+    "totalCost": "totalDirectCost + overheadCost",
+    "costPerUnit": "totalCost / totalUnits",
+    "sellingPricePerUnit": "costPerUnit * (1 + desiredMarginPercentage / 100)"
+  },
+  "outputs": {
+    "primary": "sellingPricePerUnit",
+    "breakdown": [
+      "costPerUnit",
+      "totalCost",
+      "totalMaterialCost"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

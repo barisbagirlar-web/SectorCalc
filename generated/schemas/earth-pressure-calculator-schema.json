@@ -1,0 +1,67 @@
+{
+  "toolName": "earth-pressure-calculator",
+  "inputs": [
+    {
+      "id": "height",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Vertical height of the retaining wall from base to top."
+    },
+    {
+      "id": "soilUnitWeight",
+      "label": "Soil Unit Weight",
+      "type": "number",
+      "unit": "kN/m³",
+      "default": 18,
+      "businessContext": "Unit weight of the backfill soil."
+    },
+    {
+      "id": "frictionAngle",
+      "label": "Friction Angle",
+      "type": "number",
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Internal friction angle of the soil."
+    },
+    {
+      "id": "cohesion",
+      "label": "Cohesion",
+      "type": "number",
+      "unit": "kPa",
+      "default": 0,
+      "businessContext": "Cohesion of the soil. Enter 0 for granular soils."
+    },
+    {
+      "id": "surcharge",
+      "label": "Surcharge Load",
+      "type": "number",
+      "unit": "kPa",
+      "default": 0,
+      "businessContext": "Uniform surcharge load applied on the backfill surface."
+    }
+  ],
+  "formulas": {
+    "activePressureCoefficient": "(1 - Math.sin(frictionAngle * Math.PI / 180)) / (1 + Math.sin(frictionAngle * Math.PI / 180))",
+    "passivePressureCoefficient": "(1 + Math.sin(frictionAngle * Math.PI / 180)) / (1 - Math.sin(frictionAngle * Math.PI / 180))",
+    "basePressureActive": "((1 - Math.sin(frictionAngle * Math.PI / 180)) / (1 + Math.sin(frictionAngle * Math.PI / 180))) * (soilUnitWeight * height + surcharge)",
+    "totalActiveForce": "((1 - Math.sin(frictionAngle * Math.PI / 180)) / (1 + Math.sin(frictionAngle * Math.PI / 180))) * (0.5 * soilUnitWeight * height ** 2 + surcharge * height)",
+    "momentBaseActive": "((1 - Math.sin(frictionAngle * Math.PI / 180)) / (1 + Math.sin(frictionAngle * Math.PI / 180))) * (soilUnitWeight * height ** 3 / 3 + surcharge * height ** 2 / 2)"
+  },
+  "outputs": {
+    "primary": "totalActiveForce",
+    "breakdown": [
+      "activePressureCoefficient",
+      "passivePressureCoefficient",
+      "basePressureActive",
+      "momentBaseActive"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

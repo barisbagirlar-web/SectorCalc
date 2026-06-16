@@ -1,0 +1,75 @@
+{
+  "toolName": "transmission-line-calculator",
+  "inputs": [
+    {
+      "id": "frequency",
+      "label": "Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 50,
+      "businessContext": "Operating frequency of the transmission line (e.g., 50/60 Hz for power lines, 1-30 MHz for RF)."
+    },
+    {
+      "id": "inductance",
+      "label": "Inductance per unit length",
+      "type": "number",
+      "unit": "H/m",
+      "default": 0.000001,
+      "businessContext": "Inductance per unit length (H/m). Typical values: overhead lines ~1e-6 H/m, cables ~0.2e-6 H/m."
+    },
+    {
+      "id": "capacitance",
+      "label": "Capacitance per unit length",
+      "type": "number",
+      "unit": "F/m",
+      "default": 1e-11,
+      "businessContext": "Capacitance per unit length (F/m). Typical values: overhead lines ~10e-12 F/m, cables ~50e-12 F/m."
+    },
+    {
+      "id": "resistance",
+      "label": "Resistance per unit length",
+      "type": "number",
+      "unit": "Ω/m",
+      "default": 0.00005,
+      "businessContext": "Resistance per unit length (Ω/m). For lossless approximation, set to 0."
+    },
+    {
+      "id": "conductance",
+      "label": "Conductance per unit length",
+      "type": "number",
+      "unit": "S/m",
+      "default": 1e-10,
+      "businessContext": "Conductance per unit length (S/m). For lossless approximation, set to 0."
+    },
+    {
+      "id": "length",
+      "label": "Line length",
+      "type": "number",
+      "unit": "m",
+      "default": 100000,
+      "businessContext": "Total length of the transmission line (m)."
+    }
+  ],
+  "formulas": {
+    "characteristicImpedance": "Math.sqrt(inductance / capacitance)",
+    "attenuationConstant": "(resistance / (2 * characteristicImpedance)) + (conductance * characteristicImpedance / 2)",
+    "propagationVelocity": "1 / Math.sqrt(inductance * capacitance)",
+    "timeDelay": "length / propagationVelocity",
+    "wavelength": "propagationVelocity / frequency"
+  },
+  "outputs": {
+    "primary": "characteristicImpedance",
+    "breakdown": [
+      "attenuationConstant",
+      "propagationVelocity",
+      "timeDelay",
+      "wavelength"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

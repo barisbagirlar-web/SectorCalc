@@ -1,0 +1,75 @@
+{
+  "toolName": "concrete-strength-calculator",
+  "inputs": [
+    {
+      "id": "cementContent",
+      "label": "Cement Content",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 350,
+      "businessContext": "Amount of cement per cubic meter of concrete"
+    },
+    {
+      "id": "waterContent",
+      "label": "Water Content",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 180,
+      "businessContext": "Amount of water per cubic meter of concrete"
+    },
+    {
+      "id": "age",
+      "label": "Age of Concrete",
+      "type": "number",
+      "unit": "days",
+      "default": 28,
+      "businessContext": "Time in days since casting"
+    },
+    {
+      "id": "constantA",
+      "label": "A coefficient (Abrams)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 100,
+      "businessContext": "Empirical material constant A in Abrams' law (strength scale)"
+    },
+    {
+      "id": "constantB",
+      "label": "B coefficient (Abrams)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 16,
+      "businessContext": "Empirical material constant B in Abrams' law (typically 10-20)"
+    }
+  ],
+  "formulas": {
+    "waterCementRatio": "waterContent / cementContent",
+    "strength28Day": "constantA / Math.pow(constantB, waterCementRatio)",
+    "compressiveStrength": "strength28Day * (age / (4 + 0.85 * age))"
+  },
+  "outputs": {
+    "primary": {
+      "id": "compressiveStrength",
+      "label": "Compressive Strength",
+      "unit": "MPa"
+    },
+    "breakdown": [
+      {
+        "id": "waterCementRatio",
+        "label": "Water-Cement Ratio",
+        "unit": "dimensionless"
+      },
+      {
+        "id": "strength28Day",
+        "label": "28-Day Strength",
+        "unit": "MPa"
+      }
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

@@ -1,0 +1,67 @@
+{
+  "toolName": "swimming-stroke-rate-calculator",
+  "inputs": [
+    {
+      "id": "strokes",
+      "label": "Number of Strokes",
+      "type": "number",
+      "unit": "strokes",
+      "default": 20,
+      "businessContext": "Total stroke count during the measured interval."
+    },
+    {
+      "id": "time",
+      "label": "Time",
+      "type": "number",
+      "unit": "s",
+      "default": 30,
+      "businessContext": "Duration of the measurement in seconds."
+    },
+    {
+      "id": "laps",
+      "label": "Number of Laps",
+      "type": "number",
+      "unit": "laps",
+      "default": 1,
+      "businessContext": "Number of pool lengths completed."
+    },
+    {
+      "id": "poolLength",
+      "label": "Pool Length",
+      "type": "number",
+      "unit": "m",
+      "default": 25,
+      "businessContext": "Standard length of the swimming pool."
+    }
+  ],
+  "formulas": {
+    "strokeRate": "(strokes / time) * 60",
+    "strokeCycleTime": "time / strokes",
+    "speed": "(laps * poolLength) / time"
+  },
+  "outputs": {
+    "primary": {
+      "id": "strokeRate",
+      "label": "Stroke Rate",
+      "unit": "strokes/min"
+    },
+    "breakdown": [
+      {
+        "id": "strokeCycleTime",
+        "label": "Stroke Cycle Time",
+        "unit": "s"
+      },
+      {
+        "id": "speed",
+        "label": "Average Speed",
+        "unit": "m/s"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

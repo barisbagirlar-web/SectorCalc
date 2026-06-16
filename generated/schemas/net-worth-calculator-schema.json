@@ -1,0 +1,87 @@
+{
+  "toolName": "net-worth-calculator",
+  "inputs": [
+    {
+      "id": "cash",
+      "label": "Cash & Equivalents",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Liquid assets such as bank account balances, cash on hand, and short-term deposits."
+    },
+    {
+      "id": "investments",
+      "label": "Investments",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Value of stocks, bonds, mutual funds, and other investment securities."
+    },
+    {
+      "id": "realEstate",
+      "label": "Real Estate",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Market value of owned real estate properties including primary residence."
+    },
+    {
+      "id": "personalProperty",
+      "label": "Personal Property",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Value of vehicles, jewelry, art, and other high-value personal belongings."
+    },
+    {
+      "id": "otherAssets",
+      "label": "Other Assets",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Any other assets not categorized above (e.g., business ownership, intellectual property)."
+    },
+    {
+      "id": "currentDebt",
+      "label": "Current Debt",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Short-term liabilities due within one year (credit cards, short-term loans)."
+    },
+    {
+      "id": "longTermDebt",
+      "label": "Long-Term Debt",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Liabilities with maturity beyond one year (mortgages, student loans, car loans)."
+    },
+    {
+      "id": "otherDebt",
+      "label": "Other Debt",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Any other outstanding obligations not included above (e.g., tax liabilities, medical bills)."
+    }
+  ],
+  "formulas": {
+    "totalAssets": "cash + investments + realEstate + personalProperty + otherAssets",
+    "totalDebt": "currentDebt + longTermDebt + otherDebt",
+    "netWorth": "totalAssets - totalDebt"
+  },
+  "outputs": {
+    "primary": "netWorth",
+    "breakdown": [
+      "totalAssets",
+      "totalDebt"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

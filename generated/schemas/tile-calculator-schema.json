@@ -1,0 +1,75 @@
+{
+  "toolName": "tile-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Room Length (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Length of the room to be tiled"
+    },
+    {
+      "id": "width",
+      "label": "Room Width (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Width of the room to be tiled"
+    },
+    {
+      "id": "tileLength",
+      "label": "Tile Length (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "Length of a single tile"
+    },
+    {
+      "id": "tileWidth",
+      "label": "Tile Width (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "businessContext": "Width of a single tile"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Percentage of extra tiles for waste and cuts"
+    },
+    {
+      "id": "pricePerTile",
+      "label": "Price per Tile (currency)",
+      "type": "number",
+      "unit": "currency",
+      "default": 5,
+      "businessContext": "Cost of one tile"
+    }
+  ],
+  "formulas": {
+    "area": "length * width",
+    "tileArea": "(tileLength / 100) * (tileWidth / 100)",
+    "tilesNeat": "Math.ceil(area / tileArea)",
+    "tilesWithWaste": "Math.ceil(tilesNeat * (1 + wasteFactor / 100))",
+    "totalCost": "tilesWithWaste * pricePerTile"
+  },
+  "outputs": {
+    "primary": "tilesWithWaste",
+    "breakdown": [
+      "area",
+      "tilesNeat",
+      "tilesWithWaste",
+      "totalCost"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

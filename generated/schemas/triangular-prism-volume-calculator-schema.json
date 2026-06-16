@@ -1,0 +1,56 @@
+{
+  "toolName": "triangular-prism-volume-calculator",
+  "inputs": [
+    {
+      "id": "sideA",
+      "label": "Side A",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Length of the first side of the triangular base"
+    },
+    {
+      "id": "sideB",
+      "label": "Side B",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "businessContext": "Length of the second side of the triangular base"
+    },
+    {
+      "id": "sideC",
+      "label": "Side C",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Length of the third side of the triangular base"
+    },
+    {
+      "id": "prismHeight",
+      "label": "Prism Height",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Height of the triangular prism"
+    }
+  ],
+  "formulas": {
+    "s": "(sideA + sideB + sideC) / 2",
+    "area": "Math.sqrt(s * (s - sideA) * (s - sideB) * (s - sideC))",
+    "volume": "area * prismHeight"
+  },
+  "outputs": {
+    "primary": "Volume: ${volume} m³",
+    "breakdown": [
+      "Semi-perimeter: ${s} m",
+      "Base area: ${area} m²",
+      "Volume: ${volume} m³"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

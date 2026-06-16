@@ -1,0 +1,62 @@
+{
+  "toolName": "pythagorean-triples-calculator",
+  "inputs": [
+    {
+      "id": "m",
+      "label": "m (m > n)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Pisagor üçlüsü üretiminde büyük parametre"
+    },
+    {
+      "id": "n",
+      "label": "n (n < m)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Pisagor üçlüsü üretiminde küçük parametre"
+    },
+    {
+      "id": "scaleFactor",
+      "label": "Ölçek Çarpanı",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Üçgen kenarlarını ölçeklemek için pozitif tamsayı"
+    },
+    {
+      "id": "maxHypotenuse",
+      "label": "Maksimum Hipotenüs",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Opsiyonel: hipotenüsün maksimum değeri (0 ise sınırsız)"
+    }
+  ],
+  "formulas": {
+    "actualScale": "maxHypotenuse > 0 ? Math.min(scaleFactor, Math.floor(maxHypotenuse / (m*m + n*n))) : scaleFactor",
+    "a": "actualScale * (m*m - n*n)",
+    "b": "actualScale * (2*m*n)",
+    "c": "actualScale * (m*m + n*n)",
+    "perimeter": "a + b + c",
+    "area": "(a * b) / 2"
+  },
+  "outputs": {
+    "primary": "c",
+    "breakdown": [
+      "a",
+      "b",
+      "c",
+      "perimeter",
+      "area",
+      "actualScale"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,48 @@
+{
+  "toolName": "equivalent-fractions",
+  "inputs": [
+    {
+      "id": "numerator",
+      "label": "Pay (Numerator)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Kesrin pay değeri"
+    },
+    {
+      "id": "denominator",
+      "label": "Payda (Denominator)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Kesrin payda değeri"
+    },
+    {
+      "id": "multiplier",
+      "label": "Çarpan (Multiplier)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Genişletme çarpanı"
+    }
+  ],
+  "formulas": {
+    "equivalentNumerator": "numerator * multiplier",
+    "equivalentDenominator": "denominator * multiplier",
+    "decimalValue": "numerator / denominator"
+  },
+  "outputs": {
+    "primary": "Eşdeğer kesir: ${equivalentNumerator}/${equivalentDenominator}",
+    "breakdown": [
+      "Orijinal kesir: ${numerator}/${denominator}",
+      "Çarpan: ${multiplier}",
+      "Ondalık değer: ${decimalValue}"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

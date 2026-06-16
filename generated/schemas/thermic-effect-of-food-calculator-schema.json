@@ -1,0 +1,67 @@
+{
+  "toolName": "thermic-effect-of-food-calculator",
+  "inputs": [
+    {
+      "id": "protein",
+      "label": "Protein",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Amount of protein consumed in grams"
+    },
+    {
+      "id": "carbohydrates",
+      "label": "Carbohydrates",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Amount of carbohydrates consumed in grams"
+    },
+    {
+      "id": "fat",
+      "label": "Fat",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Amount of fat consumed in grams"
+    },
+    {
+      "id": "alcohol",
+      "label": "Alcohol",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Amount of pure alcohol consumed in grams"
+    }
+  ],
+  "formulas": {
+    "proteinEnergy": "protein * 4",
+    "carbsEnergy": "carbohydrates * 4",
+    "fatEnergy": "fat * 9",
+    "alcoholEnergy": "alcohol * 7",
+    "proteinTEF": "proteinEnergy * 0.25",
+    "carbsTEF": "carbsEnergy * 0.08",
+    "fatTEF": "fatEnergy * 0.03",
+    "alcoholTEF": "alcoholEnergy * 0.20",
+    "totalTEF": "proteinTEF + carbsTEF + fatTEF + alcoholTEF",
+    "breakdown0": "'Protein: ' + proteinTEF + ' kcal'",
+    "breakdown1": "'Carbohydrates: ' + carbsTEF + ' kcal'",
+    "breakdown2": "'Fat: ' + fatTEF + ' kcal'",
+    "breakdown3": "'Alcohol: ' + alcoholTEF + ' kcal'"
+  },
+  "outputs": {
+    "primary": "totalTEF",
+    "breakdown": [
+      "breakdown0",
+      "breakdown1",
+      "breakdown2",
+      "breakdown3"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

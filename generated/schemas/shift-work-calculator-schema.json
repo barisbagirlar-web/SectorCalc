@@ -1,0 +1,63 @@
+{
+  "toolName": "shift-work-calculator",
+  "inputs": [
+    {
+      "id": "hoursWorked",
+      "label": "Hours Worked",
+      "type": "number",
+      "unit": "hours",
+      "default": 40,
+      "businessContext": "Total base shift hours worked, excluding overtime"
+    },
+    {
+      "id": "hourlyRate",
+      "label": "Hourly Rate",
+      "type": "number",
+      "unit": "currency",
+      "default": 20,
+      "businessContext": "Base hourly pay rate"
+    },
+    {
+      "id": "shiftMultiplier",
+      "label": "Shift Premium Multiplier",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.2,
+      "businessContext": "Multiplier applied to base hours for shift work premium"
+    },
+    {
+      "id": "overtimeHours",
+      "label": "Overtime Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 0,
+      "businessContext": "Overtime hours worked beyond regular shift"
+    },
+    {
+      "id": "overtimeMultiplier",
+      "label": "Overtime Multiplier",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.5,
+      "businessContext": "Multiplier for overtime pay"
+    }
+  ],
+  "formulas": {
+    "basePay": "hoursWorked * hourlyRate * shiftMultiplier",
+    "overtimePay": "overtimeHours * hourlyRate * overtimeMultiplier",
+    "totalPay": "basePay + overtimePay"
+  },
+  "outputs": {
+    "primary": "totalPay",
+    "breakdown": [
+      "basePay",
+      "overtimePay"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

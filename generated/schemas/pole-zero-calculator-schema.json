@@ -1,0 +1,81 @@
+{
+  "toolName": "pole-zero-calculator",
+  "inputs": [
+    {
+      "id": "frequency",
+      "label": "Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1,
+      "businessContext": "Frequency at which the transfer function magnitude is evaluated."
+    },
+    {
+      "id": "pole1_real",
+      "label": "Pole 1 - Real Part",
+      "type": "number",
+      "unit": "Hz",
+      "default": 1,
+      "businessContext": "Real part of the first pole location in the s-plane."
+    },
+    {
+      "id": "pole1_imag",
+      "label": "Pole 1 - Imaginary Part",
+      "type": "number",
+      "unit": "Hz",
+      "default": 0,
+      "businessContext": "Imaginary part of the first pole location in the s-plane."
+    },
+    {
+      "id": "pole2_real",
+      "label": "Pole 2 - Real Part",
+      "type": "number",
+      "unit": "Hz",
+      "default": 10,
+      "businessContext": "Real part of the second pole location in the s-plane."
+    },
+    {
+      "id": "pole2_imag",
+      "label": "Pole 2 - Imaginary Part",
+      "type": "number",
+      "unit": "Hz",
+      "default": 0,
+      "businessContext": "Imaginary part of the second pole location in the s-plane."
+    },
+    {
+      "id": "zero1_real",
+      "label": "Zero 1 - Real Part",
+      "type": "number",
+      "unit": "Hz",
+      "default": 100,
+      "businessContext": "Real part of the first zero location in the s-plane."
+    },
+    {
+      "id": "zero1_imag",
+      "label": "Zero 1 - Imaginary Part",
+      "type": "number",
+      "unit": "Hz",
+      "default": 0,
+      "businessContext": "Imaginary part of the first zero location in the s-plane."
+    }
+  ],
+  "formulas": {
+    "w": "2 * Math.PI * frequency",
+    "num_mag": "Math.sqrt(zero1_real ** 2 + (w - zero1_imag) ** 2)",
+    "den1_mag": "Math.sqrt(pole1_real ** 2 + (w - pole1_imag) ** 2)",
+    "den2_mag": "Math.sqrt(pole2_real ** 2 + (w - pole2_imag) ** 2)",
+    "mag_linear": "num_mag / (den1_mag * den2_mag)",
+    "mag_dB": "20 * (Math.log(mag_linear) / Math.log(10))"
+  },
+  "outputs": {
+    "primary": "mag_dB",
+    "breakdown": [
+      "mag_linear"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

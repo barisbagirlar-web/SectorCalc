@@ -1,0 +1,76 @@
+{
+  "toolName": "pavement-design-calculator",
+  "inputs": [
+    {
+      "id": "axleLoad",
+      "label": "Axle Load",
+      "type": "number",
+      "unit": "kN",
+      "default": 80,
+      "businessContext": "Standard axle load for design vehicle"
+    },
+    {
+      "id": "standardLoad",
+      "label": "Standard Axle Load",
+      "type": "number",
+      "unit": "kN",
+      "default": 80,
+      "businessContext": "Reference standard axle load (commonly 80 kN)"
+    },
+    {
+      "id": "trafficCount",
+      "label": "Daily Commercial Vehicles",
+      "type": "number",
+      "unit": "vehicles/day",
+      "default": 500,
+      "businessContext": "Number of heavy vehicles per day in design lane"
+    },
+    {
+      "id": "designLife",
+      "label": "Design Life",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "Pavement design period in years"
+    },
+    {
+      "id": "subgradeCBR",
+      "label": "Subgrade CBR",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "California Bearing Ratio of subgrade soil"
+    },
+    {
+      "id": "reliabilityFactor",
+      "label": "Reliability Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Factor to adjust for desired reliability (>1 for higher reliability)"
+    }
+  ],
+  "formulas": {
+    "esalPerVehicle": "(axleLoad / standardLoad) ** 4",
+    "dailyESAL": "trafficCount * esalPerVehicle",
+    "designESAL": "dailyESAL * 365 * designLife",
+    "requiredThickness": "1000 * (designESAL ** 0.1) / (Math.sqrt(subgradeCBR)) * reliabilityFactor",
+    "surfaceThickness": "0.15 * requiredThickness",
+    "baseThickness": "0.35 * requiredThickness",
+    "subbaseThickness": "0.50 * requiredThickness"
+  },
+  "outputs": {
+    "primary": "requiredThickness",
+    "breakdown": [
+      "surfaceThickness",
+      "baseThickness",
+      "subbaseThickness"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

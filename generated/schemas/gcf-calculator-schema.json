@@ -1,0 +1,53 @@
+{
+  "toolName": "gcf-calculator",
+  "inputs": [
+    {
+      "id": "number1",
+      "label": "Number 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First number for GCF calculation"
+    },
+    {
+      "id": "number2",
+      "label": "Number 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second number for GCF calculation"
+    },
+    {
+      "id": "number3",
+      "label": "Number 3",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Third number for GCF calculation (optional)"
+    },
+    {
+      "id": "number4",
+      "label": "Number 4",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Fourth number for GCF calculation (optional)"
+    }
+  ],
+  "formulas": {
+    "gcf": "(numbers => { const gcd = (a,b) => b ? gcd(b,a%b) : a; return numbers.reduce(gcd); })([number1, number2, number3, number4].filter(n => n != null && !isNaN(n)))",
+    "breakdown": "(numbers => { if(numbers.length === 0) return ['No numbers provided']; const g = (nums => { const gcd = (a,b) => b ? gcd(b,a%b) : a; return nums.reduce(gcd); })(numbers); return ['The GCF of ' + numbers.join(', ') + ' is ' + g + '.']; })([number1, number2, number3, number4].filter(n => n != null && !isNaN(n)))"
+  },
+  "outputs": {
+    "primary": "gcf",
+    "breakdown": [
+      "breakdown"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

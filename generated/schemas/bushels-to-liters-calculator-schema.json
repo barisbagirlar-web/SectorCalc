@@ -1,0 +1,54 @@
+{
+  "toolName": "bushels-to-liters-calculator",
+  "inputs": [
+    {
+      "id": "total_bushels",
+      "label": "Total Bushels",
+      "type": "number",
+      "unit": "bu",
+      "default": 1,
+      "businessContext": "Quantity of grain or dry volume in bushels"
+    },
+    {
+      "id": "conversion_factor",
+      "label": "Liters per Bushel",
+      "type": "number",
+      "unit": "L/bu",
+      "default": 35.2391,
+      "businessContext": "Conversion factor from bushels to liters (US dry standard: 35.2391 L/bu)"
+    },
+    {
+      "id": "batch_count",
+      "label": "Number of Batches",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of batches or lots (multiplies total volume)"
+    },
+    {
+      "id": "container_size",
+      "label": "Container Capacity",
+      "type": "number",
+      "unit": "L",
+      "default": 20,
+      "businessContext": "Volume of each container for logistical planning"
+    }
+  ],
+  "formulas": {
+    "total_liters": "total_bushels * conversion_factor * batch_count",
+    "containers_needed": "Math.ceil(total_liters / container_size)"
+  },
+  "outputs": {
+    "primary": "total_liters",
+    "breakdown": [
+      "total_liters",
+      "containers_needed"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

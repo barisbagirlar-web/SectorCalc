@@ -1,0 +1,71 @@
+{
+  "toolName": "standby-power-calculator",
+  "inputs": [
+    {
+      "id": "deviceCount",
+      "label": "Number of Devices",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Total count of devices with standby mode."
+    },
+    {
+      "id": "standbyPower",
+      "label": "Standby Power per Device",
+      "type": "number",
+      "unit": "W",
+      "default": 5,
+      "businessContext": "Power consumed per device in standby mode (watts)."
+    },
+    {
+      "id": "hoursPerDay",
+      "label": "Hours in Standby per Day",
+      "type": "number",
+      "unit": "h/day",
+      "default": 20,
+      "businessContext": "Average hours per day the device is in standby (not active)."
+    },
+    {
+      "id": "daysPerMonth",
+      "label": "Days per Month",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Number of days in billing period (typically 30)."
+    },
+    {
+      "id": "electricityCost",
+      "label": "Electricity Cost",
+      "type": "number",
+      "unit": "currency/kWh",
+      "default": 0.15,
+      "businessContext": "Cost per kilowatt-hour in local currency."
+    },
+    {
+      "id": "co2Factor",
+      "label": "CO2 Emission Factor",
+      "type": "number",
+      "unit": "kg CO2/kWh",
+      "default": 0.5,
+      "businessContext": "Carbon intensity of grid electricity (kg CO2 per kWh)."
+    }
+  ],
+  "formulas": {
+    "monthlyEnergyKwh": "(deviceCount * standbyPower * hoursPerDay * daysPerMonth) / 1000",
+    "monthlyCost": "((deviceCount * standbyPower * hoursPerDay * daysPerMonth) / 1000) * electricityCost",
+    "monthlyCO2": "((deviceCount * standbyPower * hoursPerDay * daysPerMonth) / 1000) * co2Factor"
+  },
+  "outputs": {
+    "primary": "monthlyEnergyKwh",
+    "breakdown": [
+      "monthlyCost",
+      "monthlyCO2"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

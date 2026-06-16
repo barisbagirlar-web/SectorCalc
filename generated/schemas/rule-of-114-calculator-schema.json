@@ -1,0 +1,55 @@
+{
+  "toolName": "rule-of-114-calculator",
+  "inputs": [
+    {
+      "id": "annualInterestRate",
+      "label": "Yıllık Faiz Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 6,
+      "businessContext": "Yatırımın yıllık getiri oranı"
+    },
+    {
+      "id": "initialInvestment",
+      "label": "Başlangıç Yatırımı",
+      "type": "number",
+      "unit": "TL",
+      "default": 10000,
+      "businessContext": "Yatırımın başlangıç değeri"
+    },
+    {
+      "id": "targetMultiplier",
+      "label": "Hedef Katlama",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Kaç katına çıkma hedefi (genelde 3)"
+    },
+    {
+      "id": "compoundingFrequency",
+      "label": "Yıllık Bileşik Faiz Sıklığı",
+      "type": "number",
+      "unit": "kez/yıl",
+      "default": 1,
+      "businessContext": "Faizin yılda kaç kez bileşiklendiği"
+    }
+  ],
+  "formulas": {
+    "approximateYears": "114 / annualInterestRate",
+    "exactYears": "Math.log(targetMultiplier) / (compoundingFrequency * Math.log(1 + annualInterestRate / 100 / compoundingFrequency))",
+    "futureValue": "initialInvestment * Math.pow(1 + annualInterestRate / 100 / compoundingFrequency, compoundingFrequency * exactYears)"
+  },
+  "outputs": {
+    "primary": "approximateYears",
+    "breakdown": [
+      "exactYears",
+      "futureValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

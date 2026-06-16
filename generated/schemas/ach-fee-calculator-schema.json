@@ -1,0 +1,84 @@
+{
+  "toolName": "ach-fee-calculator",
+  "inputs": [
+    {
+      "id": "transactionsPerMonth",
+      "label": "Aylık İşlem Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "businessContext": "Bir ay içindeki toplam ACH işlem sayısı."
+    },
+    {
+      "id": "flatFeePerTransaction",
+      "label": "İşlem Başı Sabit Ücret",
+      "type": "number",
+      "unit": "TL",
+      "default": 0.5,
+      "businessContext": "Her işlem için ödenen sabit ücret."
+    },
+    {
+      "id": "percentageFeeRate",
+      "label": "İşlem Hacmi Yüzdelik Ücreti",
+      "type": "number",
+      "unit": "%",
+      "default": 0.1,
+      "businessContext": "Toplam işlem hacmi üzerinden alınan yüzdelik oran."
+    },
+    {
+      "id": "totalMonthlyVolume",
+      "label": "Aylık Toplam İşlem Hacmi",
+      "type": "number",
+      "unit": "TL",
+      "default": 50000,
+      "businessContext": "Bir ay içindeki tüm ACH işlemlerinin toplam parasal hacmi."
+    },
+    {
+      "id": "monthlyBaseFee",
+      "label": "Aylık Sabit Ücret",
+      "type": "number",
+      "unit": "TL",
+      "default": 10,
+      "businessContext": "ACH hizmeti için aylık ödenen sabit ücret."
+    }
+  ],
+  "formulas": {
+    "flatFeeTotal": "transactionsPerMonth * flatFeePerTransaction",
+    "volumeFee": "totalMonthlyVolume * percentageFeeRate / 100",
+    "totalFee": "monthlyBaseFee + transactionsPerMonth * flatFeePerTransaction + totalMonthlyVolume * percentageFeeRate / 100"
+  },
+  "outputs": {
+    "primary": {
+      "id": "totalFee",
+      "label": "Toplam Aylık ACH Ücreti",
+      "unit": "TL",
+      "formula": "totalFee"
+    },
+    "breakdown": [
+      {
+        "id": "monthlyBaseFee",
+        "label": "Aylık Sabit Ücret",
+        "unit": "TL",
+        "formula": "monthlyBaseFee"
+      },
+      {
+        "id": "flatFeeTotal",
+        "label": "İşlem Başı Sabit Ücretler Toplamı",
+        "unit": "TL",
+        "formula": "flatFeeTotal"
+      },
+      {
+        "id": "volumeFee",
+        "label": "Hacim Bazlı Yüzdelik Ücret",
+        "unit": "TL",
+        "formula": "volumeFee"
+      }
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

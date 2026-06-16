@@ -1,0 +1,64 @@
+{
+  "toolName": "ctr-calculator",
+  "inputs": [
+    {
+      "id": "totalImpressions",
+      "label": "Total Impressions",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Total number of ad impressions"
+    },
+    {
+      "id": "totalClicks",
+      "label": "Total Clicks",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Total number of ad clicks"
+    },
+    {
+      "id": "totalConversions",
+      "label": "Total Conversions",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Total conversions from clicks (optional)"
+    },
+    {
+      "id": "totalCost",
+      "label": "Total Ad Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Total cost of the advertising campaign"
+    },
+    {
+      "id": "ctrTarget",
+      "label": "Target CTR",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Target click-through rate percentage"
+    }
+  ],
+  "formulas": {
+    "ctr": "totalImpressions !== 0 ? (totalClicks / totalImpressions) * 100 : 0",
+    "conversionRate": "totalClicks !== 0 ? (totalConversions / totalClicks) * 100 : 0",
+    "costPerClick": "totalClicks !== 0 ? totalCost / totalClicks : 0"
+  },
+  "outputs": {
+    "primary": "ctr",
+    "breakdown": [
+      "ctr",
+      "conversionRate",
+      "costPerClick"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

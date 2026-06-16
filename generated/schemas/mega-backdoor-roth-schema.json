@@ -1,0 +1,82 @@
+{
+  "toolName": "mega-backdoor-roth",
+  "inputs": [
+    {
+      "id": "afterTax401kContribution",
+      "label": "After-Tax 401(k) Contribution",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "businessContext": "Annual after-tax contribution to 401(k) plan"
+    },
+    {
+      "id": "employerMatch",
+      "label": "Employer Match",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "businessContext": "Employer matching contribution"
+    },
+    {
+      "id": "existingPreTaxBalance",
+      "label": "Existing Pre-Tax Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Current pre-tax balance in 401(k)"
+    },
+    {
+      "id": "existingRothBalance",
+      "label": "Existing Roth Balance",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "businessContext": "Current Roth balance in 401(k)"
+    },
+    {
+      "id": "annualReturnRate",
+      "label": "Annual Return Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected annual return on investments"
+    },
+    {
+      "id": "yearsUntilRetirement",
+      "label": "Years Until Retirement",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "Number of years until retirement"
+    },
+    {
+      "id": "taxRateAtConversion",
+      "label": "Tax Rate at Conversion",
+      "type": "number",
+      "unit": "%",
+      "default": 24,
+      "businessContext": "Marginal tax rate at time of Roth conversion"
+    }
+  ],
+  "formulas": {
+    "totalAfterTaxGrowth": "afterTax401kContribution * (1 + annualReturnRate/100) ** yearsUntilRetirement",
+    "taxOnEarnings": "(totalAfterTaxGrowth - afterTax401kContribution) * taxRateAtConversion/100",
+    "netRothValue": "totalAfterTaxGrowth - taxOnEarnings",
+    "totalRetirementBalance": "existingPreTaxBalance * (1 + annualReturnRate/100) ** yearsUntilRetirement + existingRothBalance * (1 + annualReturnRate/100) ** yearsUntilRetirement + netRothValue + employerMatch * (1 + annualReturnRate/100) ** yearsUntilRetirement"
+  },
+  "outputs": {
+    "primary": "Net Roth Value After Conversion",
+    "breakdown": [
+      "Total After-Tax Growth",
+      "Tax on Earnings",
+      "Net Roth Value",
+      "Total Retirement Balance"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

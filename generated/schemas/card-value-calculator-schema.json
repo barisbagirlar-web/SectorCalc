@@ -1,0 +1,71 @@
+{
+  "toolName": "card-value-calculator",
+  "inputs": [
+    {
+      "id": "spendingPerYear",
+      "label": "Yıllık Harcama",
+      "type": "number",
+      "unit": "TL",
+      "default": 5000,
+      "businessContext": "Kart ile yapılan yıllık toplam harcama"
+    },
+    {
+      "id": "rewardsRate",
+      "label": "Ödül Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "businessContext": "Harcamalardan geri alınan ödül oranı"
+    },
+    {
+      "id": "annualFee",
+      "label": "Yıllık Ücret",
+      "type": "number",
+      "unit": "TL",
+      "default": 100,
+      "businessContext": "Kart için ödenen yıllık ücret"
+    },
+    {
+      "id": "otherBenefits",
+      "label": "Diğer Avantajlar",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Sigorta, lounge erişimi gibi parasal değerler"
+    },
+    {
+      "id": "interestRate",
+      "label": "Faiz Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Bakiye taşınırsa yıllık faiz oranı"
+    },
+    {
+      "id": "averageBalance",
+      "label": "Ortalama Bakiye",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Yıllık ortalama taşınan bakiye"
+    }
+  ],
+  "formulas": {
+    "grossBenefits": "spendingPerYear * (rewardsRate / 100) + otherBenefits",
+    "totalCosts": "annualFee + (averageBalance * (interestRate / 100))",
+    "netValue": "grossBenefits - totalCosts"
+  },
+  "outputs": {
+    "primary": "netValue",
+    "breakdown": [
+      "grossBenefits",
+      "totalCosts"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

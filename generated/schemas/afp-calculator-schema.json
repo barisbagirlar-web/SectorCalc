@@ -1,0 +1,79 @@
+{
+  "toolName": "afp-calculator",
+  "inputs": [
+    {
+      "id": "fuelPrice",
+      "label": "Fuel Price per Liter",
+      "type": "number",
+      "unit": "TRY/L",
+      "default": 20,
+      "businessContext": "Current fuel price in TRY per liter."
+    },
+    {
+      "id": "annualDistance",
+      "label": "Annual Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 20000,
+      "businessContext": "Total kilometers driven per year."
+    },
+    {
+      "id": "fuelConsumption",
+      "label": "Fuel Consumption",
+      "type": "number",
+      "unit": "L/100km",
+      "default": 7,
+      "businessContext": "Average fuel consumption of the vehicle."
+    },
+    {
+      "id": "maintenanceCost",
+      "label": "Annual Maintenance Cost",
+      "type": "number",
+      "unit": "TRY",
+      "default": 3000,
+      "businessContext": "Annual maintenance and repair costs."
+    },
+    {
+      "id": "insuranceCost",
+      "label": "Annual Insurance Cost",
+      "type": "number",
+      "unit": "TRY",
+      "default": 2500,
+      "businessContext": "Annual vehicle insurance cost."
+    },
+    {
+      "id": "taxCost",
+      "label": "Annual Tax Cost",
+      "type": "number",
+      "unit": "TRY",
+      "default": 1500,
+      "businessContext": "Annual vehicle tax."
+    },
+    {
+      "id": "otherCost",
+      "label": "Other Annual Costs",
+      "type": "number",
+      "unit": "TRY",
+      "default": 1000,
+      "businessContext": "Other annual costs (parking, tolls, etc.)."
+    }
+  ],
+  "formulas": {
+    "totalAnnualCost": "fuelPrice * (annualDistance / 100) * fuelConsumption + maintenanceCost + insuranceCost + taxCost + otherCost",
+    "fuelCost": "fuelPrice * (annualDistance / 100) * fuelConsumption",
+    "otherAnnualCosts": "maintenanceCost + insuranceCost + taxCost + otherCost"
+  },
+  "outputs": {
+    "primary": "totalAnnualCost",
+    "breakdown": [
+      "fuelCost",
+      "otherAnnualCosts"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,72 @@
+{
+  "toolName": "shutter-speed-calculator",
+  "inputs": [
+    {
+      "id": "objectSpeed",
+      "label": "Object Speed",
+      "type": "number",
+      "unit": "m/s",
+      "default": 1,
+      "businessContext": "Speed of the object being photographed."
+    },
+    {
+      "id": "distance",
+      "label": "Distance to Object",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Distance from camera to object."
+    },
+    {
+      "id": "focalLength",
+      "label": "Focal Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Focal length of the lens."
+    },
+    {
+      "id": "pixelSize",
+      "label": "Pixel Size",
+      "type": "number",
+      "unit": "µm",
+      "default": 5,
+      "businessContext": "Size of one pixel on the sensor."
+    },
+    {
+      "id": "allowableBlur",
+      "label": "Allowable Motion Blur",
+      "type": "number",
+      "unit": "pixels",
+      "default": 1,
+      "businessContext": "Maximum allowable motion blur in pixels."
+    }
+  ],
+  "formulas": {
+    "shutterSpeed": {
+      "expression": "(allowableBlur * pixelSize * distance) / (focalLength * objectSpeed) * 0.001",
+      "description": "Shutter speed required to freeze motion within allowable blur"
+    },
+    "shutterSpeed_ms": {
+      "expression": "shutterSpeed * 1000",
+      "description": "Shutter speed in milliseconds"
+    },
+    "shutterSpeed_us": {
+      "expression": "shutterSpeed * 1000000",
+      "description": "Shutter speed in microseconds"
+    }
+  },
+  "outputs": {
+    "primary": "shutterSpeed",
+    "breakdown": [
+      "shutterSpeed_ms",
+      "shutterSpeed_us"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

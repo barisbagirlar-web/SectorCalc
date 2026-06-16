@@ -1,0 +1,69 @@
+{
+  "toolName": "vbac-success-calculator",
+  "inputs": [
+    {
+      "id": "maternalAge",
+      "label": "Maternal Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age of the mother at delivery"
+    },
+    {
+      "id": "bmi",
+      "label": "BMI",
+      "type": "number",
+      "unit": "kg/m²",
+      "default": 25,
+      "businessContext": "Body Mass Index before pregnancy"
+    },
+    {
+      "id": "prevVaginalBirth",
+      "label": "Previous Vaginal Birth",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "1 if previous vaginal birth, 0 otherwise"
+    },
+    {
+      "id": "prevCSIndication",
+      "label": "Previous CS Indication Recurrent",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "1 if previous cesarean indication is recurrent, 0 otherwise"
+    },
+    {
+      "id": "gestationalAge",
+      "label": "Gestational Age",
+      "type": "number",
+      "unit": "weeks",
+      "default": 39,
+      "businessContext": "Gestational age at delivery in weeks"
+    },
+    {
+      "id": "cervicalDilation",
+      "label": "Cervical Dilation",
+      "type": "number",
+      "unit": "cm",
+      "default": 3,
+      "businessContext": "Cervical dilation at admission in cm"
+    }
+  ],
+  "formulas": {
+    "primary": "100 / (1 + Math.exp(-(-3.5 + 0.05 * maternalAge + 0.1 * bmi - 1.2 * prevVaginalBirth + 1.5 * prevCSIndication + 0.2 * gestationalAge + 0.3 * cervicalDilation)))"
+  },
+  "outputs": {
+    "primary": "VBAC Success Probability (%)",
+    "breakdown": [
+      "Risk Score (z): -3.5 + 0.05 * maternalAge + 0.1 * bmi - 1.2 * prevVaginalBirth + 1.5 * prevCSIndication + 0.2 * gestationalAge + 0.3 * cervicalDilation",
+      "Success Probability: 100 / (1 + exp(-z))"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

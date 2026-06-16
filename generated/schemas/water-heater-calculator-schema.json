@@ -1,0 +1,72 @@
+{
+  "toolName": "water-heater-calculator",
+  "inputs": [
+    {
+      "id": "volume",
+      "label": "Tank Volume",
+      "type": "number",
+      "unit": "liters",
+      "default": 150,
+      "businessContext": "Total water volume to heat"
+    },
+    {
+      "id": "coldTemp",
+      "label": "Cold Water Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 15,
+      "businessContext": "Temperature of cold water supply"
+    },
+    {
+      "id": "hotTemp",
+      "label": "Hot Water Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 60,
+      "businessContext": "Target temperature for hot water"
+    },
+    {
+      "id": "power",
+      "label": "Heater Power Rating",
+      "type": "number",
+      "unit": "kW",
+      "default": 3,
+      "businessContext": "Power rating of the heating element"
+    },
+    {
+      "id": "efficiency",
+      "label": "Heater Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "businessContext": "Efficiency of the heating system (0-100%)"
+    },
+    {
+      "id": "electricityCost",
+      "label": "Electricity Cost",
+      "type": "number",
+      "unit": "currency/kWh",
+      "default": 0.15,
+      "businessContext": "Cost per kilowatt-hour of electricity"
+    }
+  ],
+  "formulas": {
+    "energyRequired": "inputs.volume * 4.186 * (inputs.hotTemp - inputs.coldTemp) / 3600",
+    "actualEnergy": "energyRequired / (inputs.efficiency / 100)",
+    "heatUpTime": "actualEnergy / inputs.power",
+    "totalCost": "actualEnergy * inputs.electricityCost"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "energyRequired",
+      "heatUpTime"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

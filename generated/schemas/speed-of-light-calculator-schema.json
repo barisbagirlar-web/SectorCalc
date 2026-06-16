@@ -1,0 +1,55 @@
+{
+  "toolName": "speed-of-light-calculator",
+  "inputs": [
+    {
+      "id": "c",
+      "label": "Speed of Light in Vacuum",
+      "type": "number",
+      "unit": "m/s",
+      "default": 299792458,
+      "businessContext": "Fundamental constant"
+    },
+    {
+      "id": "n",
+      "label": "Refractive Index",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 1,
+      "businessContext": "Medium property"
+    },
+    {
+      "id": "f",
+      "label": "Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 500000000000000,
+      "businessContext": "Wave property"
+    },
+    {
+      "id": "d",
+      "label": "Propagation Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Signal propagation"
+    }
+  ],
+  "formulas": {
+    "speed_in_medium": "c / n",
+    "time_of_flight": "d / (c / n)",
+    "wavelength_in_medium": "(c / n) / f"
+  },
+  "outputs": {
+    "primary": "speed_in_medium",
+    "breakdown": [
+      "time_of_flight",
+      "wavelength_in_medium"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "typography-calculator",
+  "inputs": [
+    {
+      "id": "viewingDistance",
+      "label": "Görüş Mesafesi",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Gözlemci ile tabela/etiket arasındaki mesafe"
+    },
+    {
+      "id": "ageFactor",
+      "label": "Yaş Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Kullanıcı yaş grubuna göre düzeltme (20-40:1, 40-55:1.2, 55+:1.4)"
+    },
+    {
+      "id": "lightingFactor",
+      "label": "Aydınlatma Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Ortam aydınlatma koşullarına göre düzeltme (parlak:1, loş:1.5)"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Güvenlik Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Kritiklik seviyesine göre düzeltme (bilgi:1, uyarı:1.5, tehlike:2)"
+    }
+  ],
+  "formulas": {
+    "recommendedFontHeight": "viewingDistance * 2.5 * ageFactor * lightingFactor * safetyFactor"
+  },
+  "outputs": {
+    "primary": "recommendedFontHeight",
+    "breakdown": [
+      "Temel yükseklik = Görüş mesafesi × 2.5 mm/m",
+      "Yaş düzeltmesi: × ageFactor",
+      "Aydınlatma düzeltmesi: × lightingFactor",
+      "Güvenlik düzeltmesi: × safetyFactor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,74 @@
+{
+  "toolName": "reynolds-risk-score-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 55,
+      "businessContext": "Patient age"
+    },
+    {
+      "id": "systolicBP",
+      "label": "Systolic Blood Pressure",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 120,
+      "businessContext": "Treated or untreated systolic BP"
+    },
+    {
+      "id": "totalCholesterol",
+      "label": "Total Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 200,
+      "businessContext": "Fasting total cholesterol"
+    },
+    {
+      "id": "hdl",
+      "label": "HDL Cholesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 50,
+      "businessContext": "Fasting HDL cholesterol"
+    },
+    {
+      "id": "smoker",
+      "label": "Smoker",
+      "type": "number",
+      "unit": "0/1",
+      "default": 0,
+      "businessContext": "Current smoker (1) or not (0)"
+    },
+    {
+      "id": "diabetic",
+      "label": "Diabetic",
+      "type": "number",
+      "unit": "0/1",
+      "default": 0,
+      "businessContext": "Diabetes diagnosis (1) or not (0)"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "0/1",
+      "default": 0,
+      "businessContext": "0 = male, 1 = female"
+    }
+  ],
+  "formulas": {
+    "riskPercent": "(() => { let lp = (age - 55) * 0.05 + (systolicBP - 120) * 0.01 + (totalCholesterol - 200) * 0.005 + (hdl - 50) * (-0.02) + smoker * 0.5 + diabetic * 0.3; let base = gender === 0 ? 0.9965 : 0.9984; return (1 - Math.pow(base, Math.exp(lp))) * 100; })()"
+  },
+  "outputs": {
+    "primary": "riskPercent",
+    "breakdown": []
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

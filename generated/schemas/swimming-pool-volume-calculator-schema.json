@@ -1,0 +1,58 @@
+{
+  "toolName": "swimming-pool-volume-calculator",
+  "inputs": [
+    {
+      "id": "poolLength",
+      "label": "Pool Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Length of the swimming pool"
+    },
+    {
+      "id": "poolWidth",
+      "label": "Pool Width",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Width of the swimming pool"
+    },
+    {
+      "id": "shallowDepth",
+      "label": "Shallow End Depth",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Depth at the shallow end"
+    },
+    {
+      "id": "deepDepth",
+      "label": "Deep End Depth",
+      "type": "number",
+      "unit": "m",
+      "default": 2,
+      "businessContext": "Depth at the deep end"
+    }
+  ],
+  "formulas": {
+    "averageDepth": "(inputs.shallowDepth + inputs.deepDepth) / 2",
+    "volume": "inputs.poolLength * inputs.poolWidth * averageDepth",
+    "waterMass": "volume * 1000",
+    "surfaceArea": "inputs.poolLength * inputs.poolWidth",
+    "volumeLiters": "volume * 1000"
+  },
+  "outputs": {
+    "primary": "volume",
+    "breakdown": [
+      "waterMass",
+      "surfaceArea",
+      "volumeLiters"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "self-employment-tax-calculator",
+  "inputs": [
+    {
+      "id": "netEarnings",
+      "label": "Net Earnings from Self-Employment",
+      "type": "number",
+      "unit": "$",
+      "default": 50000,
+      "businessContext": "Your net profit from business activities after expenses."
+    },
+    {
+      "id": "socialSecurityRate",
+      "label": "Social Security Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 12.4,
+      "businessContext": "Combined employer and employee rate for Social Security (2023)."
+    },
+    {
+      "id": "medicareRate",
+      "label": "Medicare Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2.9,
+      "businessContext": "Combined employer and employee rate for Medicare (2023)."
+    },
+    {
+      "id": "socialSecurityWageBase",
+      "label": "Social Security Wage Base Limit",
+      "type": "number",
+      "unit": "$",
+      "default": 160200,
+      "businessContext": "Maximum earnings subject to Social Security tax (2023)."
+    },
+    {
+      "id": "additionalMedicareThreshold",
+      "label": "Additional Medicare Tax Threshold",
+      "type": "number",
+      "unit": "$",
+      "default": 200000,
+      "businessContext": "Earnings above this threshold incur additional Medicare tax (single filer 2023)."
+    },
+    {
+      "id": "additionalMedicareRate",
+      "label": "Additional Medicare Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0.9,
+      "businessContext": "Extra Medicare tax rate on earnings above threshold (2023)."
+    }
+  ],
+  "formulas": {
+    "socialSecurityTax": "Math.min(netEarnings, socialSecurityWageBase) * (socialSecurityRate / 100)",
+    "medicareTax": "netEarnings * (medicareRate / 100)",
+    "additionalMedicareTax": "netEarnings > additionalMedicareThreshold ? (netEarnings - additionalMedicareThreshold) * (additionalMedicareRate / 100) : 0",
+    "totalSelfEmploymentTax": "socialSecurityTax + medicareTax + additionalMedicareTax"
+  },
+  "outputs": {
+    "primary": "totalSelfEmploymentTax",
+    "breakdown": [
+      "socialSecurityTax",
+      "medicareTax",
+      "additionalMedicareTax"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

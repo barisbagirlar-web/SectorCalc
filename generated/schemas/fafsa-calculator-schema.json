@@ -1,0 +1,63 @@
+{
+  "toolName": "fafsa-calculator",
+  "inputs": [
+    {
+      "id": "parentIncome",
+      "label": "Parent Annual Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total adjusted gross income of both parents (if married) or single parent"
+    },
+    {
+      "id": "studentIncome",
+      "label": "Student Annual Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Student's adjusted gross income from work"
+    },
+    {
+      "id": "parentAssets",
+      "label": "Parent Assets",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Total non-retirement assets of parents (cash, investments, real estate other than primary home)"
+    },
+    {
+      "id": "studentAssets",
+      "label": "Student Assets",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Student's total cash, savings, and other assets"
+    },
+    {
+      "id": "numberInCollege",
+      "label": "Number in College",
+      "type": "number",
+      "unit": "students",
+      "default": 1,
+      "businessContext": "Number of household members attending college in the academic year"
+    }
+  ],
+  "formulas": {
+    "parentContribution": "parentIncome * 0.22 + parentAssets * 0.12",
+    "studentContribution": "studentIncome * 0.50 + studentAssets * 0.20",
+    "totalEFC": "(parentIncome * 0.22 + parentAssets * 0.12 + studentIncome * 0.50 + studentAssets * 0.20) / numberInCollege"
+  },
+  "outputs": {
+    "primary": "(parentIncome * 0.22 + parentAssets * 0.12 + studentIncome * 0.50 + studentAssets * 0.20) / numberInCollege",
+    "breakdown": [
+      "parentIncome * 0.22 + parentAssets * 0.12",
+      "studentIncome * 0.50 + studentAssets * 0.20"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

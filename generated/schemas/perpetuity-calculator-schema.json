@@ -1,0 +1,59 @@
+{
+  "toolName": "perpetuity-calculator",
+  "inputs": [
+    {
+      "id": "type",
+      "label": "Perpetuity Type",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 for constant perpetuity, 1 for growing perpetuity"
+    },
+    {
+      "id": "payment",
+      "label": "Periodic Payment",
+      "type": "number",
+      "unit": "$",
+      "default": 1000,
+      "businessContext": "The constant cash flow per period"
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "The required rate of return per period"
+    },
+    {
+      "id": "growthRate",
+      "label": "Growth Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "The constant growth rate of the payment (only used for growing perpetuity)"
+    }
+  ],
+  "formulas": {
+    "presentValue": "type === 0 ? (payment * 100) / discountRate : (payment * 100) / (discountRate - growthRate)",
+    "paymentDisplay": "payment",
+    "discountRateDisplay": "discountRate",
+    "growthRateDisplay": "growthRate",
+    "typeDisplay": "type"
+  },
+  "outputs": {
+    "primary": "presentValue",
+    "breakdown": [
+      "paymentDisplay",
+      "discountRateDisplay",
+      "growthRateDisplay",
+      "typeDisplay"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

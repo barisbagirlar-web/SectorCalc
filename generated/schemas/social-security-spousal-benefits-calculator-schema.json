@@ -1,0 +1,57 @@
+{
+  "toolName": "social-security-spousal-benefits-calculator",
+  "inputs": [
+    {
+      "id": "primaryPIA",
+      "label": "Primary Earner's PIA",
+      "type": "number",
+      "unit": "$/month",
+      "default": 2000,
+      "businessContext": "The primary insurance amount (PIA) of the worker whose earnings record the spousal benefit is claimed on."
+    },
+    {
+      "id": "spousePIA",
+      "label": "Spouse's Own PIA",
+      "type": "number",
+      "unit": "$/month",
+      "default": 0,
+      "businessContext": "The spouse's own retirement benefit if they filed based on their own earnings record."
+    },
+    {
+      "id": "spouseFilingAge",
+      "label": "Spouse's Filing Age",
+      "type": "number",
+      "unit": "years",
+      "default": 62,
+      "businessContext": "The age at which the spouse applies for spousal benefits."
+    },
+    {
+      "id": "spouseFRA",
+      "label": "Spouse's Full Retirement Age",
+      "type": "number",
+      "unit": "years",
+      "default": 67,
+      "businessContext": "The age at which the spouse can receive unreduced benefits. Typically 66-67 depending on birth year."
+    }
+  ],
+  "formulas": {
+    "monthsEarly": "Math.max(0, (spouseFRA - spouseFilingAge) * 12)",
+    "grossSpousal": "Math.max(0, primaryPIA * 0.5 - spousePIA)",
+    "reductionFactor": "monthsEarly <= 36 ? monthsEarly * 25 / 3600 : 36 * 25 / 3600 + (monthsEarly - 36) * 5 / 1200",
+    "spousalBenefit": "grossSpousal * (1 - reductionFactor)"
+  },
+  "outputs": {
+    "primary": "spousalBenefit",
+    "breakdown": [
+      "grossSpousal",
+      "monthsEarly",
+      "reductionFactor"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

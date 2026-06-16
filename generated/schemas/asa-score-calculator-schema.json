@@ -1,0 +1,57 @@
+{
+  "toolName": "asa-score-calculator",
+  "inputs": [
+    {
+      "id": "scrapRate",
+      "label": "Scrap Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of material scrapped during production."
+    },
+    {
+      "id": "materialCost",
+      "label": "Material Cost (€)",
+      "type": "number",
+      "unit": "€",
+      "default": 1000,
+      "businessContext": "Cost of raw materials per batch."
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size (units)",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "businessContext": "Number of units produced in a batch."
+    },
+    {
+      "id": "reworkFactor",
+      "label": "Rework Factor",
+      "type": "number",
+      "unit": "factor",
+      "default": 0.1,
+      "businessContext": "Factor accounting for rework effort (0-1)."
+    }
+  ],
+  "formulas": {
+    "scrapCost": "scrapRate / 100 * materialCost",
+    "reworkCost": "reworkFactor * materialCost * batchSize",
+    "totalCost": "scrapCost + reworkCost",
+    "score": "100 - (totalCost / (materialCost * batchSize) * 100)"
+  },
+  "outputs": {
+    "primary": "score",
+    "breakdown": [
+      "scrapCost",
+      "reworkCost",
+      "totalCost"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

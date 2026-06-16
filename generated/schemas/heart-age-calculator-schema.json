@@ -1,0 +1,79 @@
+{
+  "toolName": "heart-age-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 40,
+      "businessContext": "Hastanın kronolojik yaşı"
+    },
+    {
+      "id": "systolicBP",
+      "label": "Sistolik Kan Basıncı",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 120,
+      "businessContext": "Ölçülen sistolik kan basıncı"
+    },
+    {
+      "id": "totalCholesterol",
+      "label": "Total Kolesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 200,
+      "businessContext": "Açlık total kolesterol seviyesi"
+    },
+    {
+      "id": "hdl",
+      "label": "HDL Kolesterol",
+      "type": "number",
+      "unit": "mg/dL",
+      "default": 50,
+      "businessContext": "Yüksek yoğunluklu lipoprotein seviyesi"
+    },
+    {
+      "id": "smoker",
+      "label": "Sigara Kullanımı",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "0: İçmiyor, 1: İçiyor"
+    },
+    {
+      "id": "diabetes",
+      "label": "Diyabet",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "0: Yok, 1: Var"
+    },
+    {
+      "id": "treatedBP",
+      "label": "Kan Basıncı Tedavisi",
+      "type": "number",
+      "unit": "binary",
+      "default": 0,
+      "businessContext": "0: Tedavi yok, 1: Tedavi var"
+    }
+  ],
+  "formulas": {
+    "heartAge": "age + 0.2*(systolicBP-120) + 0.1*(totalCholesterol-200) - 0.1*(hdl-50) + 5*smoker + 3*diabetes + 2*treatedBP",
+    "baseAge": "age",
+    "adjustment": "0.2*(systolicBP-120) + 0.1*(totalCholesterol-200) - 0.1*(hdl-50) + 5*smoker + 3*diabetes + 2*treatedBP"
+  },
+  "outputs": {
+    "primary": "heartAge",
+    "breakdown": [
+      "baseAge",
+      "adjustment"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

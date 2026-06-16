@@ -1,0 +1,88 @@
+{
+  "toolName": "deep-work-calculator",
+  "inputs": [
+    {
+      "id": "dailyWorkHours",
+      "label": "Daily Work Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "businessContext": "Total available work hours per day"
+    },
+    {
+      "id": "meetingCount",
+      "label": "Number of Meetings",
+      "type": "number",
+      "unit": "count",
+      "default": 3,
+      "businessContext": "Average number of meetings per day"
+    },
+    {
+      "id": "meetingDuration",
+      "label": "Average Meeting Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 30,
+      "businessContext": "Average duration per meeting in minutes"
+    },
+    {
+      "id": "interruptionCount",
+      "label": "Interruptions per Day",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "businessContext": "Number of unplanned interruptions per day"
+    },
+    {
+      "id": "recoveryTime",
+      "label": "Recovery Time per Interruption",
+      "type": "number",
+      "unit": "minutes",
+      "default": 15,
+      "businessContext": "Minutes to regain deep focus after an interruption"
+    },
+    {
+      "id": "deepWorkBlock",
+      "label": "Deep Work Block Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 90,
+      "businessContext": "Typical length of an uninterrupted deep work session"
+    },
+    {
+      "id": "shallowWorkPercent",
+      "label": "Shallow Work %",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Percentage of daily hours spent on shallow, low-value tasks"
+    }
+  ],
+  "formulas": {
+    "totalMinutes": "dailyWorkHours * 60",
+    "meetingTimeMinutes": "meetingCount * meetingDuration",
+    "interruptionTimeMinutes": "interruptionCount * recoveryTime",
+    "shallowTimeMinutes": "(shallowWorkPercent / 100) * totalMinutes",
+    "deepWorkTimeMinutes": "Math.max(0, totalMinutes - meetingTimeMinutes - interruptionTimeMinutes - shallowTimeMinutes)",
+    "effectiveDeepWorkHours": "deepWorkTimeMinutes / 60",
+    "shallowWorkHours": "shallowTimeMinutes / 60",
+    "meetingHours": "meetingTimeMinutes / 60",
+    "interruptionHours": "interruptionTimeMinutes / 60",
+    "productivityLossPercent": "totalMinutes > 0 ? ((totalMinutes - deepWorkTimeMinutes) / totalMinutes) * 100 : 0"
+  },
+  "outputs": {
+    "primary": "effectiveDeepWorkHours",
+    "breakdown": [
+      "shallowWorkHours",
+      "meetingHours",
+      "interruptionHours",
+      "effectiveDeepWorkHours"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

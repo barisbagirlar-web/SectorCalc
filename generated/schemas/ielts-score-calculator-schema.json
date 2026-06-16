@@ -1,0 +1,54 @@
+{
+  "toolName": "ielts-score-calculator",
+  "inputs": [
+    {
+      "id": "listening",
+      "label": "Listening Score",
+      "type": "number",
+      "unit": "band",
+      "default": 0,
+      "businessContext": "IELTS Listening section score (0-9 in 0.5 increments)"
+    },
+    {
+      "id": "reading",
+      "label": "Reading Score",
+      "type": "number",
+      "unit": "band",
+      "default": 0,
+      "businessContext": "IELTS Reading section score (0-9 in 0.5 increments)"
+    },
+    {
+      "id": "writing",
+      "label": "Writing Score",
+      "type": "number",
+      "unit": "band",
+      "default": 0,
+      "businessContext": "IELTS Writing section score (0-9 in 0.5 increments)"
+    },
+    {
+      "id": "speaking",
+      "label": "Speaking Score",
+      "type": "number",
+      "unit": "band",
+      "default": 0,
+      "businessContext": "IELTS Speaking section score (0-9 in 0.5 increments)"
+    }
+  ],
+  "formulas": {
+    "averageScore": "(listening + reading + writing + speaking) / 4",
+    "overallBand": "Math.round(((listening + reading + writing + speaking) / 4) * 2) / 2"
+  },
+  "outputs": {
+    "primary": "overallBand",
+    "breakdown": [
+      "averageScore",
+      "overallBand"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

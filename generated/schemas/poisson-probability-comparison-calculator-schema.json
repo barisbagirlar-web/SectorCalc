@@ -1,0 +1,63 @@
+{
+  "toolName": "poisson-probability-comparison-calculator",
+  "inputs": [
+    {
+      "id": "lambdaA",
+      "label": "Lambda (Scenario A)",
+      "type": "number",
+      "unit": "events/time",
+      "default": 2,
+      "businessContext": "Average event rate for scenario A"
+    },
+    {
+      "id": "kA",
+      "label": "k (Scenario A)",
+      "type": "number",
+      "unit": "events",
+      "default": 2,
+      "businessContext": "Number of events for scenario A"
+    },
+    {
+      "id": "lambdaB",
+      "label": "Lambda (Scenario B)",
+      "type": "number",
+      "unit": "events/time",
+      "default": 3,
+      "businessContext": "Average event rate for scenario B"
+    },
+    {
+      "id": "kB",
+      "label": "k (Scenario B)",
+      "type": "number",
+      "unit": "events",
+      "default": 2,
+      "businessContext": "Number of events for scenario B"
+    }
+  ],
+  "formulas": {
+    "probA": "Math.exp(-lambdaA) * (lambdaA**kA) / ( (function fact(n){ return n <= 1 ? 1 : n * fact(n-1); })(kA) )",
+    "probB": "Math.exp(-lambdaB) * (lambdaB**kB) / ( (function fact(n){ return n <= 1 ? 1 : n * fact(n-1); })(kB) )",
+    "ratio": "probA / probB",
+    "meanA": "lambdaA",
+    "varA": "lambdaA",
+    "meanB": "lambdaB",
+    "varB": "lambdaB"
+  },
+  "outputs": {
+    "primary": "probA",
+    "breakdown": [
+      "probB",
+      "ratio",
+      "meanA",
+      "varA",
+      "meanB",
+      "varB"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

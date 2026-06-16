@@ -1,0 +1,65 @@
+{
+  "toolName": "dividend-calculator",
+  "inputs": [
+    {
+      "id": "sharePrice",
+      "label": "Current Share Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "Market price per share at current time."
+    },
+    {
+      "id": "purchasePrice",
+      "label": "Average Purchase Price per Share",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "businessContext": "The average price paid per share (cost basis)."
+    },
+    {
+      "id": "annualDividendPerShare",
+      "label": "Annual Dividend per Share",
+      "type": "number",
+      "unit": "USD",
+      "default": 5,
+      "businessContext": "Total dividends paid per share over the last fiscal year."
+    },
+    {
+      "id": "numberOfShares",
+      "label": "Number of Shares Owned",
+      "type": "number",
+      "unit": "shares",
+      "default": 100,
+      "businessContext": "Total number of shares held in the portfolio."
+    },
+    {
+      "id": "dividendGrowthRate",
+      "label": "Expected Dividend Growth Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "businessContext": "Annual projected growth rate of dividends, as a percentage."
+    }
+  ],
+  "formulas": {
+    "annualIncome": "annualDividendPerShare * numberOfShares",
+    "dividendYield": "(annualDividendPerShare / sharePrice) * 100",
+    "yieldOnCost": "(annualDividendPerShare / purchasePrice) * 100",
+    "projectedAnnualIncome": "(annualDividendPerShare * (1 + dividendGrowthRate / 100)) * numberOfShares"
+  },
+  "outputs": {
+    "primary": "dividendYield",
+    "breakdown": [
+      "annualIncome",
+      "yieldOnCost",
+      "projectedAnnualIncome"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

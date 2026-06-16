@@ -1,0 +1,65 @@
+{
+  "toolName": "split-bill-with-tip-calculator",
+  "inputs": [
+    {
+      "id": "billAmount",
+      "label": "Bill Amount",
+      "type": "number",
+      "unit": "$",
+      "default": 100,
+      "businessContext": "Total bill subtotal before tax and tip"
+    },
+    {
+      "id": "tipPercentage",
+      "label": "Tip Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Tip percentage to add, e.g., 15, 18, 20"
+    },
+    {
+      "id": "taxPercentage",
+      "label": "Tax Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "businessContext": "Sales tax percentage applied to bill"
+    },
+    {
+      "id": "numberOfPeople",
+      "label": "Number of People",
+      "type": "number",
+      "unit": "people",
+      "default": 2,
+      "businessContext": "Number of people splitting the bill"
+    }
+  ],
+  "formulas": {
+    "subtotalPerPerson": "billAmount / numberOfPeople",
+    "tipAmount": "billAmount * (tipPercentage / 100)",
+    "taxAmount": "billAmount * (taxPercentage / 100)",
+    "tipPerPerson": "billAmount * (tipPercentage / 100) / numberOfPeople",
+    "taxPerPerson": "billAmount * (taxPercentage / 100) / numberOfPeople",
+    "totalPerPerson": "(billAmount * (1 + tipPercentage / 100 + taxPercentage / 100)) / numberOfPeople",
+    "primaryText": "`Each person pays $${totalPerPerson.toFixed(2)}`",
+    "subtotalText": "`Subtotal per person: $${subtotalPerPerson.toFixed(2)}`",
+    "tipText": "`Tip per person: $${tipPerPerson.toFixed(2)}`",
+    "taxText": "`Tax per person: $${taxPerPerson.toFixed(2)}`",
+    "totalText": "`Total per person: $${totalPerPerson.toFixed(2)}`"
+  },
+  "outputs": {
+    "primary": "primaryText",
+    "breakdown": [
+      "subtotalText",
+      "tipText",
+      "taxText",
+      "totalText"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

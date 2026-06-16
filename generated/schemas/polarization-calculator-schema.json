@@ -1,0 +1,69 @@
+{
+  "toolName": "polarization-calculator",
+  "inputs": [
+    {
+      "id": "incident_intensity",
+      "label": "Incident Intensity",
+      "type": "number",
+      "unit": "W/m²",
+      "default": 1,
+      "businessContext": "Initial light intensity before any polarizer"
+    },
+    {
+      "id": "incident_angle",
+      "label": "Incident Polarization Angle",
+      "type": "number",
+      "unit": "deg",
+      "default": 0,
+      "businessContext": "Polarization angle of incident light relative to reference axis"
+    },
+    {
+      "id": "polarizer1_angle",
+      "label": "First Polarizer Angle",
+      "type": "number",
+      "unit": "deg",
+      "default": 0,
+      "businessContext": "Transmission axis angle of the first polarizer"
+    },
+    {
+      "id": "polarizer2_angle",
+      "label": "Second Polarizer Angle",
+      "type": "number",
+      "unit": "deg",
+      "default": 45,
+      "businessContext": "Transmission axis angle of the second polarizer"
+    }
+  ],
+  "formulas": {
+    "I1": "incident_intensity * Math.cos((incident_angle - polarizer1_angle) * Math.PI / 180) ** 2",
+    "I2": "I1 * Math.cos((polarizer1_angle - polarizer2_angle) * Math.PI / 180) ** 2"
+  },
+  "outputs": {
+    "primary": {
+      "id": "final_intensity",
+      "label": "Final Intensity",
+      "unit": "W/m²",
+      "formula": "I2"
+    },
+    "breakdown": [
+      {
+        "id": "first_intensity",
+        "label": "Intensity after First Polarizer",
+        "unit": "W/m²",
+        "formula": "I1"
+      },
+      {
+        "id": "transmission_ratio",
+        "label": "Total Transmission Ratio",
+        "unit": "%",
+        "formula": "(I2 / incident_intensity) * 100"
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

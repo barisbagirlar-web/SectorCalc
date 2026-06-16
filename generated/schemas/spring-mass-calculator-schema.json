@@ -1,0 +1,63 @@
+{
+  "toolName": "spring-mass-calculator",
+  "inputs": [
+    {
+      "id": "springConstant",
+      "label": "Spring Constant (k)",
+      "type": "number",
+      "unit": "N/m",
+      "default": 100,
+      "businessContext": "Stiffness of the spring in Newtons per meter."
+    },
+    {
+      "id": "mass",
+      "label": "Mass (m)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Mass attached to the spring in kilograms."
+    },
+    {
+      "id": "initialDisplacement",
+      "label": "Initial Displacement (x0)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Initial displacement from equilibrium position in meters."
+    },
+    {
+      "id": "initialVelocity",
+      "label": "Initial Velocity (v0)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 0,
+      "businessContext": "Initial velocity in meters per second."
+    }
+  ],
+  "formulas": {
+    "angularFrequency": "Math.sqrt(springConstant/mass)",
+    "naturalFrequency": "Math.sqrt(springConstant/mass) / (2*Math.PI)",
+    "period": "2*Math.PI * Math.sqrt(mass/springConstant)",
+    "totalEnergy": "0.5*springConstant*Math.pow(initialDisplacement,2) + 0.5*mass*Math.pow(initialVelocity,2)",
+    "maxDisplacement": "Math.sqrt(Math.pow(initialDisplacement,2) + Math.pow(initialVelocity/Math.sqrt(springConstant/mass),2))",
+    "maxVelocity": "Math.sqrt((springConstant/mass)*Math.pow(initialDisplacement,2) + Math.pow(initialVelocity,2))",
+    "maxAcceleration": "springConstant/mass * Math.sqrt(Math.pow(initialDisplacement,2) + Math.pow(initialVelocity/Math.sqrt(springConstant/mass),2))"
+  },
+  "outputs": {
+    "primary": "naturalFrequency",
+    "breakdown": [
+      "angularFrequency",
+      "period",
+      "totalEnergy",
+      "maxDisplacement",
+      "maxVelocity",
+      "maxAcceleration"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

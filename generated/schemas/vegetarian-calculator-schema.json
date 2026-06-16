@@ -1,0 +1,71 @@
+{
+  "toolName": "vegetarian-calculator",
+  "inputs": [
+    {
+      "id": "years",
+      "label": "Vejetaryen Olarak Geçirilen Yıl",
+      "type": "number",
+      "unit": "yıl",
+      "default": 1,
+      "businessContext": "Kullanıcının vejetaryen olduğu süre"
+    },
+    {
+      "id": "meatGramsPerDay",
+      "label": "Günlük Et Tüketimi (öncesi)",
+      "type": "number",
+      "unit": "g",
+      "default": 200,
+      "businessContext": "Önceki günlük ortalama et tüketim miktarı (gram)"
+    },
+    {
+      "id": "daysVegetarianPerWeek",
+      "label": "Haftada Vejetaryen Gün Sayısı",
+      "type": "number",
+      "unit": "gün",
+      "default": 7,
+      "businessContext": "Haftada kaç gün tam vejetaryen olunduğu (7 ise tam zamanlı)"
+    },
+    {
+      "id": "waterPerKgMeat",
+      "label": "Kg Et Başına Kurtarılan Su",
+      "type": "number",
+      "unit": "L/kg",
+      "default": 15000,
+      "businessContext": "1 kg et üretimi için gerekli su miktarı (litre), endüstri standart verisi"
+    },
+    {
+      "id": "co2PerKgMeat",
+      "label": "Kg Et Başına CO2 Salımı",
+      "type": "number",
+      "unit": "kg CO2/kg",
+      "default": 27,
+      "businessContext": "1 kg et üretiminin karbon ayak izi (kg CO2)"
+    },
+    {
+      "id": "animalsPerKgMeat",
+      "label": "Kg Et Başına Hayvan Kurtarma Oranı",
+      "type": "number",
+      "unit": "adet/kg",
+      "default": 0.005,
+      "businessContext": "1 kg et başına kurtarılan hayvan sayısı, endüstri ortalaması"
+    }
+  ],
+  "formulas": {
+    "animalsSaved": "((meatGramsPerDay/1000) * (daysVegetarianPerWeek/7) * years * 365) * animalsPerKgMeat",
+    "waterSaved": "((meatGramsPerDay/1000) * (daysVegetarianPerWeek/7) * years * 365) * waterPerKgMeat",
+    "co2Saved": "((meatGramsPerDay/1000) * (daysVegetarianPerWeek/7) * years * 365) * co2PerKgMeat"
+  },
+  "outputs": {
+    "primary": "animalsSaved",
+    "breakdown": [
+      "waterSaved",
+      "co2Saved"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

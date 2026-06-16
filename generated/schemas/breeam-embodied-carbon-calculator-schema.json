@@ -1,0 +1,78 @@
+{
+  "toolName": "breeam-embodied-carbon-calculator",
+  "inputs": [
+    {
+      "id": "steelMass",
+      "label": "Çelik (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Kullanılan çelik malzeme ağırlığı"
+    },
+    {
+      "id": "concreteMass",
+      "label": "Beton (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Kullanılan beton malzeme ağırlığı"
+    },
+    {
+      "id": "timberMass",
+      "label": "Ahşap (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Kullanılan ahşap malzeme ağırlığı"
+    },
+    {
+      "id": "glassMass",
+      "label": "Cam (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Kullanılan cam malzeme ağırlığı"
+    },
+    {
+      "id": "insulationMass",
+      "label": "Yalıtım (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Kullanılan yalıtım malzemesi ağırlığı"
+    },
+    {
+      "id": "area",
+      "label": "Toplam Alan (m²)",
+      "type": "number",
+      "unit": "m²",
+      "default": 1,
+      "businessContext": "Toplam inşaat alanı"
+    }
+  ],
+  "formulas": {
+    "totalCarbon": "steelMass * 1.85 + concreteMass * 0.15 + timberMass * (-0.5) + glassMass * 1.2 + insulationMass * 0.8",
+    "carbonPerArea": "totalCarbon / area",
+    "steelContribution": "steelMass * 1.85",
+    "concreteContribution": "concreteMass * 0.15",
+    "timberContribution": "timberMass * (-0.5)",
+    "glassContribution": "glassMass * 1.2",
+    "insulationContribution": "insulationMass * 0.8"
+  },
+  "outputs": {
+    "primary": "carbonPerArea",
+    "breakdown": [
+      "steelContribution",
+      "concreteContribution",
+      "timberContribution",
+      "glassContribution",
+      "insulationContribution"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

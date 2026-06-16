@@ -1,0 +1,56 @@
+{
+  "toolName": "baby-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Bebek Ağırlığı (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 4.5,
+      "businessContext": "Bebeğin ağırlığı kilogram cinsinden."
+    },
+    {
+      "id": "age",
+      "label": "Bebek Yaşı (ay)",
+      "type": "number",
+      "unit": "ay",
+      "default": 2,
+      "businessContext": "Bebeğin tamamlanmış ay cinsinden yaşı."
+    },
+    {
+      "id": "feedingMultiplier",
+      "label": "Beslenme Çarpanı",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Anne sütü için 1.0, formül için 1.05, karışık beslenme için 1.1."
+    },
+    {
+      "id": "solidCalories",
+      "label": "Ek Gıda Kalorisi (kcal)",
+      "type": "number",
+      "unit": "kcal",
+      "default": 0,
+      "businessContext": "6 ay üstü için ek gıdalardan alınan ekstra kalori miktarı."
+    }
+  ],
+  "formulas": {
+    "base": "weight * (120 - 10 * Math.log(age + 1))",
+    "adjusted": "base * feedingMultiplier",
+    "total": "adjusted + solidCalories"
+  },
+  "outputs": {
+    "primary": "${total} kcal",
+    "breakdown": [
+      "Bazal: ${base} kcal",
+      "Beslenme Düzeltmeli: ${adjusted} kcal",
+      "Toplam: ${total} kcal"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

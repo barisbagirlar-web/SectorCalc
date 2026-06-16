@@ -1,0 +1,60 @@
+{
+  "toolName": "lucas-numbers-calculator",
+  "inputs": [
+    {
+      "id": "startIndex",
+      "label": "Start Index",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Starting index of Lucas sequence (inclusive)."
+    },
+    {
+      "id": "endIndex",
+      "label": "End Index",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Ending index of Lucas sequence (inclusive). Must be >= startIndex."
+    },
+    {
+      "id": "L0",
+      "label": "L(0)",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Value of Lucas number at index 0 (typically 2)."
+    },
+    {
+      "id": "L1",
+      "label": "L(1)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Value of Lucas number at index 1 (typically 1)."
+    },
+    {
+      "id": "showSequence",
+      "label": "Show Sequence",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Set to 1 to include the full sequence in breakdown, 0 for only start and end values."
+    }
+  ],
+  "formulas": {
+    "seq": "((arr, n) => { for(let i=2;i<=n;i++) arr[i]=arr[i-1]+arr[i-2]; return arr; })([L0, L1], endIndex)",
+    "primary": "seq[endIndex]",
+    "breakdown": "showSequence === 1 ? ['L('+startIndex+') = '+seq[startIndex], 'L('+endIndex+') = '+seq[endIndex], 'Sequence from ' + startIndex + ' to ' + endIndex + ': ' + seq.slice(startIndex, endIndex+1).join(', ')] : ['L('+startIndex+') = '+seq[startIndex], 'L('+endIndex+') = '+seq[endIndex]]"
+  },
+  "outputs": {
+    "primary": "primary",
+    "breakdown": "breakdown"
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "deck-railing-calculator",
+  "inputs": [
+    {
+      "id": "totalLength",
+      "label": "Total Railing Length",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Total linear length of railing including posts."
+    },
+    {
+      "id": "postWidth",
+      "label": "Post Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Width of a single post."
+    },
+    {
+      "id": "numberOfPosts",
+      "label": "Number of Posts",
+      "type": "number",
+      "unit": "pcs",
+      "default": 2,
+      "businessContext": "Total number of posts in the railing run (minimum 2 for ends)."
+    },
+    {
+      "id": "balusterWidth",
+      "label": "Baluster Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.02,
+      "businessContext": "Width of a single baluster."
+    },
+    {
+      "id": "maxGap",
+      "label": "Maximum Allowed Gap",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Maximum gap between balusters as per safety code (commonly 4 inches = 0.1016 m)."
+    }
+  ],
+  "formulas": {
+    "availableLength": "totalLength - numberOfPosts * postWidth",
+    "numberOfBalusters": "Math.max(0, Math.ceil((availableLength - maxGap) / (maxGap + balusterWidth)))",
+    "actualSpacing": "(availableLength - numberOfBalusters * balusterWidth) / (numberOfBalusters + 1)"
+  },
+  "outputs": {
+    "primary": "numberOfBalusters",
+    "breakdown": [
+      "availableLength",
+      "actualSpacing"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

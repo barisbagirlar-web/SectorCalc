@@ -1,0 +1,67 @@
+{
+  "toolName": "treynor-ratio-calculator",
+  "inputs": [
+    {
+      "id": "portfolioReturn",
+      "label": "Portfolio Return",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Expected or historical annualized portfolio return"
+    },
+    {
+      "id": "riskFreeRate",
+      "label": "Risk-Free Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Current risk-free rate (e.g., 10-year government bond yield)"
+    },
+    {
+      "id": "portfolioBeta",
+      "label": "Portfolio Beta",
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "businessContext": "Beta coefficient of the portfolio relative to the benchmark"
+    },
+    {
+      "id": "periodsPerYear",
+      "label": "Periods per Year",
+      "type": "number",
+      "unit": "periods/year",
+      "default": 1,
+      "businessContext": "Number of periods per year for returns (1 for annual, 12 for monthly). Used to annualize the ratio if returns are not annual."
+    }
+  ],
+  "formulas": {
+    "treynorRatio": "((portfolioReturn - riskFreeRate) / portfolioBeta) * periodsPerYear",
+    "excessReturn": "portfolioReturn - riskFreeRate",
+    "rawTreynorRatio": "(portfolioReturn - riskFreeRate) / portfolioBeta"
+  },
+  "outputs": {
+    "primary": {
+      "id": "treynorRatio",
+      "label": "Treynor Ratio",
+      "unit": ""
+    },
+    "breakdown": [
+      {
+        "id": "excessReturn",
+        "label": "Excess Return",
+        "unit": "%"
+      },
+      {
+        "id": "rawTreynorRatio",
+        "label": "Raw Treynor Ratio (per period)",
+        "unit": ""
+      }
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

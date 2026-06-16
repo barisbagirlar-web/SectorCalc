@@ -1,0 +1,75 @@
+{
+  "toolName": "ethereum-converter-calculator",
+  "inputs": [
+    {
+      "id": "ethAmount",
+      "label": "Ethereum Amount",
+      "type": "number",
+      "unit": "ETH",
+      "default": 1,
+      "businessContext": "The amount of Ethereum to convert, before transaction fees."
+    },
+    {
+      "id": "ethPriceUSD",
+      "label": "ETH Price (USD)",
+      "type": "number",
+      "unit": "USD/ETH",
+      "default": 3000,
+      "businessContext": "Current market price of 1 ETH in US dollars."
+    },
+    {
+      "id": "gasLimit",
+      "label": "Gas Limit",
+      "type": "number",
+      "unit": "gas units",
+      "default": 21000,
+      "businessContext": "Maximum gas units allowed for the Ethereum transaction (standard ETH transfer: 21000)."
+    },
+    {
+      "id": "maxFeePerGas",
+      "label": "Max Fee per Gas",
+      "type": "number",
+      "unit": "Gwei",
+      "default": 50,
+      "businessContext": "Maximum fee per gas unit in Gwei (1 ETH = 10^9 Gwei). This covers base fee + priority fee."
+    },
+    {
+      "id": "networkMultiplier",
+      "label": "Network Congestion Multiplier",
+      "type": "number",
+      "unit": "scalar",
+      "default": 1,
+      "businessContext": "Multiplier to simulate higher gas prices during network congestion (1 for normal, >1 for high demand)."
+    },
+    {
+      "id": "conversionFeePercent",
+      "label": "Conversion Fee (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "businessContext": "Percentage fee charged by the exchange or service for converting crypto to fiat currency."
+    }
+  ],
+  "formulas": {
+    "totalGasETH": "gasLimit * maxFeePerGas * networkMultiplier * 1e-9",
+    "netETH": "ethAmount - totalGasETH",
+    "grossUSD": "netETH * ethPriceUSD",
+    "conversionFeeAmount": "grossUSD * (conversionFeePercent / 100)",
+    "netUSD": "grossUSD - conversionFeeAmount"
+  },
+  "outputs": {
+    "primary": "netUSD",
+    "breakdown": [
+      "totalGasETH",
+      "netETH",
+      "grossUSD",
+      "conversionFeeAmount"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

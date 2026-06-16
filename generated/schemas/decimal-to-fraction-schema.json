@@ -1,0 +1,55 @@
+{
+  "toolName": "decimal-to-fraction",
+  "inputs": [
+    {
+      "id": "decimal",
+      "label": "Ondalık Sayı",
+      "type": "number",
+      "unit": "",
+      "default": 0.75,
+      "businessContext": "Dönüştürülecek ondalık sayı. Örneğin 0.75"
+    },
+    {
+      "id": "precision",
+      "label": "Hassasiyet",
+      "type": "number",
+      "unit": "basamak",
+      "default": 6,
+      "businessContext": "Ondalık basamak sayısı. Daha yüksek değer daha hassas kesir."
+    },
+    {
+      "id": "maxDenominator",
+      "label": "Maksimum Payda",
+      "type": "number",
+      "unit": "",
+      "default": 1000,
+      "businessContext": "Paydanın alabileceği en büyük değer. Daha düşük değer daha basit kesir."
+    },
+    {
+      "id": "roundMode",
+      "label": "Yuvarlama Modu",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0: Aşağı (floor), 1: En yakın (round), 2: Yukarı (ceil)"
+    }
+  ],
+  "formulas": {
+    "scaledDecimal": "decimal * Math.pow(10, precision)",
+    "numerator": "roundMode === 0 ? Math.floor(scaledDecimal) : (roundMode === 2 ? Math.ceil(scaledDecimal) : Math.round(scaledDecimal))",
+    "denominator": "Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "`${numerator}/${denominator}`",
+    "breakdown": [
+      "\"\"+numerator",
+      "\"\"+denominator"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

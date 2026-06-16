@@ -1,0 +1,55 @@
+{
+  "toolName": "degree-of-combined-leverage-calculator",
+  "inputs": [
+    {
+      "id": "salesRevenue",
+      "label": "Sales Revenue",
+      "type": "number",
+      "unit": "currency",
+      "default": 100000,
+      "businessContext": "Total revenue from sales."
+    },
+    {
+      "id": "variableCosts",
+      "label": "Variable Costs",
+      "type": "number",
+      "unit": "currency",
+      "default": 40000,
+      "businessContext": "Total variable costs that vary with production volume."
+    },
+    {
+      "id": "fixedCosts",
+      "label": "Fixed Operating Costs",
+      "type": "number",
+      "unit": "currency",
+      "default": 30000,
+      "businessContext": "Fixed costs not dependent on production volume, such as rent, salaries."
+    },
+    {
+      "id": "interestExpense",
+      "label": "Interest Expense",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "Interest payments on debt."
+    }
+  ],
+  "formulas": {
+    "dcl": "(salesRevenue - variableCosts) / (salesRevenue - variableCosts - fixedCosts - interestExpense)",
+    "dol": "(salesRevenue - variableCosts) / (salesRevenue - variableCosts - fixedCosts)",
+    "dfl": "(salesRevenue - variableCosts - fixedCosts) / (salesRevenue - variableCosts - fixedCosts - interestExpense)"
+  },
+  "outputs": {
+    "primary": "dcl",
+    "breakdown": [
+      "dol",
+      "dfl"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

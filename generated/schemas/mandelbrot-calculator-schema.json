@@ -1,0 +1,53 @@
+{
+  "toolName": "mandelbrot-calculator",
+  "inputs": [
+    {
+      "id": "real",
+      "label": "Real part (cx)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The real component of the complex parameter c."
+    },
+    {
+      "id": "imag",
+      "label": "Imaginary part (cy)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The imaginary component of the complex parameter c."
+    },
+    {
+      "id": "maxIter",
+      "label": "Maximum Iterations",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "businessContext": "Maximum number of iterations before considering the point as part of the Mandelbrot set."
+    },
+    {
+      "id": "escapeRadius",
+      "label": "Escape Radius",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Radius threshold for escape condition; typically 2."
+    }
+  ],
+  "formulas": {
+    "result": "(function(cx,cy,maxIter,escapeRadius){ let real=0,imag=0; for(let i=0;i<maxIter;i++){ let r2=real*real,i2=imag*imag; if(r2+i2>escapeRadius*escapeRadius) return {iterations:i,escaped:true,magnitude:Math.sqrt(r2+i2)}; let newReal=r2-i2+cx,newImag=2*real*imag+cy; real=newReal;imag=newImag; } return {iterations:maxIter,escaped:false,magnitude:Math.sqrt(real*real+imag*imag)}; })(inputs.real,inputs.imag,inputs.maxIter,inputs.escapeRadius)"
+  },
+  "outputs": {
+    "primary": "result.iterations",
+    "breakdown": [
+      "result.escaped",
+      "result.magnitude"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

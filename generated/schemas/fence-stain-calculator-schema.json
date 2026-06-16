@@ -1,0 +1,73 @@
+{
+  "toolName": "fence-stain-calculator",
+  "inputs": [
+    {
+      "id": "fenceLength",
+      "label": "Fence Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "businessContext": "Total horizontal length of the fence line (meters)."
+    },
+    {
+      "id": "fenceHeight",
+      "label": "Fence Height",
+      "type": "number",
+      "unit": "m",
+      "default": 1.5,
+      "businessContext": "Height of the fence from ground to top (meters)."
+    },
+    {
+      "id": "picketWidth",
+      "label": "Picket Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Width of each individual fence board or picket (meters)."
+    },
+    {
+      "id": "picketSpacing",
+      "label": "Picket Spacing",
+      "type": "number",
+      "unit": "m",
+      "default": 0.05,
+      "businessContext": "Gap between adjacent pickets (meters). Use 0 for solid fence."
+    },
+    {
+      "id": "coveragePerGallon",
+      "label": "Coverage per Liter",
+      "type": "number",
+      "unit": "m²/L",
+      "default": 5,
+      "businessContext": "Stain coverage area per liter as per manufacturer data (m² per L)."
+    },
+    {
+      "id": "numberOfCoats",
+      "label": "Number of Coats",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Number of stain coats to apply (typ. 2 for durability)."
+    }
+  ],
+  "formulas": {
+    "totalArea": "2 * fenceLength * fenceHeight * picketWidth / (picketWidth + picketSpacing)",
+    "stainNeededWithoutCoats": "totalArea / coveragePerGallon",
+    "numberOfPickets": "fenceLength / (picketWidth + picketSpacing)",
+    "totalStain": "stainNeededWithoutCoats * numberOfCoats"
+  },
+  "outputs": {
+    "primary": "totalStain",
+    "breakdown": [
+      "totalArea",
+      "stainNeededWithoutCoats",
+      "numberOfPickets"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

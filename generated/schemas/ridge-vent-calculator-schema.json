@@ -1,0 +1,70 @@
+{
+  "toolName": "ridge-vent-calculator",
+  "inputs": [
+    {
+      "id": "atticArea",
+      "label": "Attic Floor Area",
+      "type": "number",
+      "unit": "sq ft",
+      "default": 1500,
+      "businessContext": "Total floor area of the attic space in square feet."
+    },
+    {
+      "id": "ventRatio",
+      "label": "Ventilation Ratio (1:X)",
+      "type": "number",
+      "unit": "",
+      "default": 150,
+      "businessContext": "Required total net free area expressed as 1 square foot per X square feet of attic area. Common values: 150 for standard construction, 300 with certain vapor barriers."
+    },
+    {
+      "id": "nfaPerFoot",
+      "label": "Ridge Vent NFA per Foot",
+      "type": "number",
+      "unit": "sq in/ft",
+      "default": 18,
+      "businessContext": "Net free area rating of the ridge vent product, in square inches per linear foot."
+    },
+    {
+      "id": "splitFactor",
+      "label": "Exhaust Split Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.5,
+      "businessContext": "Fraction of total ventilation area that should be provided by ridge exhaust. Typically 0.5 for balanced intake/exhaust."
+    }
+  ],
+  "formulas": {
+    "totalNFA": "atticArea / ventRatio",
+    "ridgeNFA": "totalNFA * splitFactor",
+    "requiredLength": "ridgeNFA * 144 / nfaPerFoot"
+  },
+  "outputs": {
+    "primary": {
+      "id": "requiredLength",
+      "label": "Required Ridge Vent Length",
+      "unit": "ft",
+      "description": "Linear feet of ridge vent needed to achieve the required exhaust net free area."
+    },
+    "breakdown": [
+      {
+        "id": "totalNFA",
+        "label": "Total Required NFA",
+        "unit": "sq ft",
+        "description": "Total net free ventilation area required for the attic."
+      },
+      {
+        "id": "ridgeNFA",
+        "label": "Exhaust NFA",
+        "unit": "sq ft",
+        "description": "Net free area needed at the ridge (exhaust)."
+      }
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

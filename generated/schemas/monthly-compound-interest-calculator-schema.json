@@ -1,0 +1,55 @@
+{
+  "toolName": "monthly-compound-interest-calculator",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Principal Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "Initial lump sum investment or loan amount"
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Nominal annual interest rate (percentage)"
+    },
+    {
+      "id": "years",
+      "label": "Term",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "businessContext": "Total duration in years"
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Monthly Contribution",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Additional fixed amount added each month (0 if none)"
+    }
+  ],
+  "formulas": {
+    "totalAmount": "principal * Math.pow(1 + annualInterestRate/100/12, years*12) + monthlyContribution * ((Math.pow(1 + annualInterestRate/100/12, years*12) - 1) / (annualInterestRate/100/12))",
+    "totalContributions": "principal + monthlyContribution * years * 12",
+    "totalInterest": "(principal * Math.pow(1 + annualInterestRate/100/12, years*12) + monthlyContribution * ((Math.pow(1 + annualInterestRate/100/12, years*12) - 1) / (annualInterestRate/100/12))) - (principal + monthlyContribution * years * 12)"
+  },
+  "outputs": {
+    "primary": "totalAmount",
+    "breakdown": [
+      "totalContributions",
+      "totalInterest"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

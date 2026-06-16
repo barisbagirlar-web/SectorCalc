@@ -1,0 +1,65 @@
+{
+  "toolName": "mutual-fund-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "The lump sum amount you invest initially."
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Monthly Contribution",
+      "type": "number",
+      "unit": "currency",
+      "default": 500,
+      "businessContext": "The fixed amount you invest each month."
+    },
+    {
+      "id": "annualReturnRate",
+      "label": "Expected Annual Return Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "businessContext": "Expected annualized return rate of the mutual fund."
+    },
+    {
+      "id": "investmentPeriod",
+      "label": "Investment Period",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "Number of years you plan to stay invested."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Expected Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2.5,
+      "businessContext": "Expected average annual inflation rate to adjust future value."
+    }
+  ],
+  "formulas": {
+    "futureValue": "initialInvestment * Math.pow(1 + annualReturnRate/100/12, investmentPeriod*12) + monthlyContribution * ( (Math.pow(1 + annualReturnRate/100/12, investmentPeriod*12) - 1) / (annualReturnRate/100/12) )",
+    "totalInvested": "initialInvestment + monthlyContribution * investmentPeriod * 12",
+    "totalEarnings": "futureValue - totalInvested",
+    "inflationAdjustedValue": "futureValue / Math.pow(1 + inflationRate/100, investmentPeriod)"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": [
+      "totalInvested",
+      "totalEarnings",
+      "inflationAdjustedValue"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

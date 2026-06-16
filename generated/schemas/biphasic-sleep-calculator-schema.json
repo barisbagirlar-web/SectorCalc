@@ -1,0 +1,58 @@
+{
+  "toolName": "biphasic-sleep-calculator",
+  "inputs": [
+    {
+      "id": "wakeTime",
+      "label": "Wake-up time (24h decimal)",
+      "type": "number",
+      "unit": "hours (decimal)",
+      "default": 7,
+      "businessContext": "The desired wake-up time in decimal hours (e.g., 7.5 = 7:30 AM)."
+    },
+    {
+      "id": "coreDuration",
+      "label": "Core sleep duration",
+      "type": "number",
+      "unit": "hours",
+      "default": 5,
+      "businessContext": "Duration of the core sleep segment in hours."
+    },
+    {
+      "id": "napDuration",
+      "label": "Nap duration",
+      "type": "number",
+      "unit": "hours",
+      "default": 1.5,
+      "businessContext": "Duration of the nap segment in hours."
+    },
+    {
+      "id": "napTime",
+      "label": "Nap start time (24h decimal)",
+      "type": "number",
+      "unit": "hours (decimal)",
+      "default": 14,
+      "businessContext": "The desired start time for the nap (e.g., 14.0 = 2:00 PM)."
+    }
+  ],
+  "formulas": {
+    "coreStart": "(wakeTime - coreDuration + 24) % 24",
+    "coreEnd": "wakeTime",
+    "napEnd": "(napTime + napDuration) % 24",
+    "totalSleep": "coreDuration + napDuration"
+  },
+  "outputs": {
+    "primary": "totalSleep",
+    "breakdown": [
+      "coreStart",
+      "coreEnd",
+      "napTime",
+      "napEnd"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

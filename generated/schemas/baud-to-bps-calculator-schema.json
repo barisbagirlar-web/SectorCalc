@@ -1,0 +1,64 @@
+{
+  "toolName": "baud-to-bps-calculator",
+  "inputs": [
+    {
+      "id": "baud",
+      "label": "Baud Rate",
+      "type": "number",
+      "unit": "Bd",
+      "default": 9600,
+      "businessContext": "Number of signal changes per second"
+    },
+    {
+      "id": "startBits",
+      "label": "Start Bits",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of start bits per frame (usually 1)"
+    },
+    {
+      "id": "dataBits",
+      "label": "Data Bits",
+      "type": "number",
+      "unit": "bits",
+      "default": 8,
+      "businessContext": "Number of data bits per frame"
+    },
+    {
+      "id": "parityBits",
+      "label": "Parity Bits",
+      "type": "number",
+      "unit": "bits",
+      "default": 0,
+      "businessContext": "Number of parity bits (0 for none, 1 for even/odd)"
+    },
+    {
+      "id": "stopBits",
+      "label": "Stop Bits",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of stop bits per frame"
+    }
+  ],
+  "formulas": {
+    "totalBitsPerCharacter": "startBits + dataBits + parityBits + stopBits",
+    "effectiveRatio": "dataBits / (startBits + dataBits + parityBits + stopBits)",
+    "bps": "baud * (dataBits / (startBits + dataBits + parityBits + stopBits))"
+  },
+  "outputs": {
+    "primary": "bps",
+    "breakdown": [
+      "totalBitsPerCharacter",
+      "effectiveRatio",
+      "bps"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

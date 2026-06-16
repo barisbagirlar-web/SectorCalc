@@ -1,0 +1,66 @@
+{
+  "toolName": "fiber-mesh-calculator",
+  "inputs": [
+    {
+      "id": "surfaceArea",
+      "label": "Surface Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "businessContext": "Total surface area to cover with fiber mesh (in square meters)"
+    },
+    {
+      "id": "rollWidth",
+      "label": "Roll Width",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Width of a single roll of fiber mesh (in meters)"
+    },
+    {
+      "id": "rollLength",
+      "label": "Roll Length",
+      "type": "number",
+      "unit": "m",
+      "default": 50,
+      "businessContext": "Length of a single roll of fiber mesh (in meters)"
+    },
+    {
+      "id": "overlapDistance",
+      "label": "Overlap Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Overlap between adjacent sheets (in meters), typically 0.1 m"
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage extra material for cutting waste and errors (e.g., 5)"
+    }
+  ],
+  "formulas": {
+    "effectiveWidth": "rollWidth - overlapDistance",
+    "effectiveCoverage": "effectiveWidth * rollLength",
+    "requiredArea": "surfaceArea * (1 + wasteFactor / 100)",
+    "numberOfRolls": "Math.ceil(requiredArea / effectiveCoverage)",
+    "totalMeshAreaOrdered": "numberOfRolls * rollWidth * rollLength"
+  },
+  "outputs": {
+    "primary": "numberOfRolls",
+    "breakdown": [
+      "effectiveCoverage",
+      "requiredArea",
+      "totalMeshAreaOrdered"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

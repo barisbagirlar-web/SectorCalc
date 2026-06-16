@@ -1,0 +1,80 @@
+{
+  "toolName": "jumbo-loan-calculator",
+  "inputs": [
+    {
+      "id": "loanAmount",
+      "label": "Loan Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 800000,
+      "businessContext": "Total jumbo loan principal amount."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "businessContext": "Annual nominal interest rate for the jumbo loan."
+    },
+    {
+      "id": "loanTermYears",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Length of the loan in years."
+    },
+    {
+      "id": "downPaymentPercent",
+      "label": "Down Payment",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "businessContext": "Down payment as a percentage of the purchase price. Used to compute loan-to-value ratio and purchase price."
+    },
+    {
+      "id": "propertyTaxRate",
+      "label": "Property Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 1.2,
+      "businessContext": "Annual property tax rate as a percentage of the home's purchase price."
+    },
+    {
+      "id": "annualHomeInsurance",
+      "label": "Annual Home Insurance",
+      "type": "number",
+      "unit": "USD",
+      "default": 1500,
+      "businessContext": "Annual premium for home insurance."
+    }
+  ],
+  "formulas": {
+    "purchasePrice": "loanAmount / (1 - downPaymentPercent / 100)",
+    "monthlyRate": "annualInterestRate / 100 / 12",
+    "numberOfPayments": "loanTermYears * 12",
+    "monthlyPI": "loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) / (Math.pow(1 + monthlyRate, numberOfPayments) - 1)",
+    "monthlyPropertyTax": "purchasePrice * (propertyTaxRate / 100) / 12",
+    "monthlyInsurance": "annualHomeInsurance / 12",
+    "monthlyPITI": "monthlyPI + monthlyPropertyTax + monthlyInsurance",
+    "totalInterest": "monthlyPI * numberOfPayments - loanAmount",
+    "loanToValue": "(loanAmount / purchasePrice) * 100",
+    "totalPaymentsPI": "monthlyPI * numberOfPayments"
+  },
+  "outputs": {
+    "primary": "monthlyPITI",
+    "breakdown": [
+      "monthlyPI",
+      "totalInterest",
+      "loanToValue",
+      "purchasePrice"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

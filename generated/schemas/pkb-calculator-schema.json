@@ -1,0 +1,54 @@
+{
+  "toolName": "pkb-calculator",
+  "inputs": [
+    {
+      "id": "kb",
+      "label": "Base Dissociation Constant (Kb)",
+      "type": "number",
+      "unit": "",
+      "default": 0.00001,
+      "businessContext": "Equilibrium constant for the base dissociation reaction."
+    },
+    {
+      "id": "ka",
+      "label": "Acid Dissociation Constant (Ka)",
+      "type": "number",
+      "unit": "",
+      "default": 1e-9,
+      "businessContext": "Equilibrium constant for the conjugate acid. Used if Kb is not provided."
+    },
+    {
+      "id": "pka",
+      "label": "pKa",
+      "type": "number",
+      "unit": "",
+      "default": 9,
+      "businessContext": "Negative base-10 logarithm of Ka. Used if Kb and Ka are not provided."
+    },
+    {
+      "id": "kw",
+      "label": "Ion Product of Water (Kw)",
+      "type": "number",
+      "unit": "",
+      "default": 1e-14,
+      "businessContext": "Self-ionization constant of water at 25°C. Used when deriving Kb from Ka."
+    }
+  ],
+  "formulas": {
+    "pKb": "inputs.kb > 0 ? -Math.log10(inputs.kb) : (inputs.ka > 0 ? -Math.log10(inputs.kw / inputs.ka) : (inputs.pka !== undefined ? 14 - inputs.pka : null))"
+  },
+  "outputs": {
+    "primary": "pKb",
+    "breakdown": [
+      "Kb value used: inputs.kb || (inputs.kw / inputs.ka)",
+      "Calculation: pKb = -log10(Kb)",
+      "Computed pKb value"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

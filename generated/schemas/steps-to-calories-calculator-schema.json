@@ -1,0 +1,55 @@
+{
+  "toolName": "steps-to-calories-calculator",
+  "inputs": [
+    {
+      "id": "steps",
+      "label": "Number of Steps",
+      "type": "number",
+      "unit": "steps",
+      "default": 10000,
+      "businessContext": "Total steps taken, typically from a pedometer or smartphone"
+    },
+    {
+      "id": "stepLength",
+      "label": "Step Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0.762,
+      "businessContext": "Length of one step in meters; average is 0.762 m (2.5 ft)"
+    },
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User's body weight in kilograms"
+    },
+    {
+      "id": "intensityFactor",
+      "label": "Intensity Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier to adjust for walking intensity or individual metabolic rate"
+    }
+  ],
+  "formulas": {
+    "distanceKm": "steps * stepLength / 1000",
+    "baseCalories": "distanceKm * weight * 0.53",
+    "totalCalories": "baseCalories * intensityFactor"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "distanceKm",
+      "baseCalories"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

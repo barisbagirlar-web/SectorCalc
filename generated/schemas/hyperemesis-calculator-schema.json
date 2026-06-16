@@ -1,0 +1,89 @@
+{
+  "toolName": "hyperemesis-calculator",
+  "inputs": [
+    {
+      "id": "fuelOil",
+      "label": "Fuel Oil Consumption",
+      "type": "number",
+      "unit": "liters",
+      "default": 0,
+      "businessContext": "Amount of fuel oil consumed in the period"
+    },
+    {
+      "id": "naturalGas",
+      "label": "Natural Gas Consumption",
+      "type": "number",
+      "unit": "m³",
+      "default": 0,
+      "businessContext": "Volume of natural gas used"
+    },
+    {
+      "id": "electricity",
+      "label": "Electricity Consumption",
+      "type": "number",
+      "unit": "kWh",
+      "default": 0,
+      "businessContext": "Electricity consumed from the grid"
+    },
+    {
+      "id": "coal",
+      "label": "Coal Consumption",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Amount of coal burned"
+    },
+    {
+      "id": "gasoline",
+      "label": "Gasoline Consumption",
+      "type": "number",
+      "unit": "liters",
+      "default": 0,
+      "businessContext": "Volume of gasoline used in vehicles"
+    },
+    {
+      "id": "diesel",
+      "label": "Diesel Consumption",
+      "type": "number",
+      "unit": "liters",
+      "default": 0,
+      "businessContext": "Volume of diesel used in vehicles"
+    },
+    {
+      "id": "waste",
+      "label": "Waste Generated",
+      "type": "number",
+      "unit": "kg",
+      "default": 0,
+      "businessContext": "Total waste sent to landfill"
+    }
+  ],
+  "formulas": {
+    "electricEmission": "electricity * 0.5",
+    "fuelOilEmission": "fuelOil * 2.7",
+    "naturalGasEmission": "naturalGas * 1.9",
+    "gasolineEmission": "gasoline * 2.3",
+    "dieselEmission": "diesel * 2.7",
+    "coalEmission": "coal * 2.5",
+    "wasteEmission": "waste * 1.0",
+    "totalEmission": "electricEmission + fuelOilEmission + naturalGasEmission + gasolineEmission + dieselEmission + coalEmission + wasteEmission"
+  },
+  "outputs": {
+    "primary": "totalEmission",
+    "breakdown": [
+      "electricEmission",
+      "fuelOilEmission",
+      "naturalGasEmission",
+      "gasolineEmission",
+      "dieselEmission",
+      "coalEmission",
+      "wasteEmission"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

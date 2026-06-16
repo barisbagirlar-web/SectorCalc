@@ -1,0 +1,66 @@
+{
+  "toolName": "argand-diagram-calculator",
+  "inputs": [
+    {
+      "id": "re1",
+      "label": "Re(z₁)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Real part of first complex number"
+    },
+    {
+      "id": "im1",
+      "label": "Im(z₁)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Imaginary part of first complex number"
+    },
+    {
+      "id": "re2",
+      "label": "Re(z₂)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Real part of second complex number"
+    },
+    {
+      "id": "im2",
+      "label": "Im(z₂)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Imaginary part of second complex number"
+    }
+  ],
+  "formulas": {
+    "z1Modulus": "Math.sqrt(re1**2 + im1**2)",
+    "z2Modulus": "Math.sqrt(re2**2 + im2**2)",
+    "z1ArgumentDeg": "Math.atan2(im1, re1) * 180 / Math.PI",
+    "z2ArgumentDeg": "Math.atan2(im2, re2) * 180 / Math.PI",
+    "sumReal": "re1 + re2",
+    "sumImag": "im1 + im2",
+    "sumModulus": "Math.sqrt((re1 + re2)**2 + (im1 + im2)**2)",
+    "sumArgumentDeg": "Math.atan2(im1 + im2, re1 + re2) * 180 / Math.PI",
+    "diffModulus": "Math.sqrt((re1 - re2)**2 + (im1 - im2)**2)",
+    "prodModulus": "Math.sqrt((re1*re2 - im1*im2)**2 + (re1*im2 + im1*re2)**2)"
+  },
+  "outputs": {
+    "primary": "sumModulus",
+    "breakdown": [
+      "z1Modulus",
+      "z2Modulus",
+      "diffModulus",
+      "prodModulus",
+      "z1ArgumentDeg",
+      "z2ArgumentDeg"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

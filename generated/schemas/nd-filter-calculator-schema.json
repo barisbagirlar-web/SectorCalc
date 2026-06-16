@@ -1,0 +1,56 @@
+{
+  "toolName": "nd-filter-calculator",
+  "inputs": [
+    {
+      "id": "numerator",
+      "label": "Enstantane Pay",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Enstantane hızının pay değeri (genellikle 1)."
+    },
+    {
+      "id": "denominator",
+      "label": "Enstantane Payda",
+      "type": "number",
+      "unit": "",
+      "default": 125,
+      "businessContext": "Enstantane hızının payda değeri (örn. 125, 250, 500)."
+    },
+    {
+      "id": "ndStops",
+      "label": "ND Stop Değeri",
+      "type": "number",
+      "unit": "stop",
+      "default": 0,
+      "businessContext": "ND filtrenin ışık azaltma miktarı (stop cinsinden)."
+    },
+    {
+      "id": "od",
+      "label": "Optik Yoğunluk (OD)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "ND filtrenin optik yoğunluk değeri (örn. 0.3, 0.6, 0.9)."
+    }
+  ],
+  "formulas": {
+    "baseShutter": "numerator / denominator",
+    "effectiveStops": "ndStops > 0 ? ndStops : (od > 0 ? od / 0.3 : 0)",
+    "filterFactor": "Math.pow(2, effectiveStops)",
+    "newExposureTime": "baseShutter * filterFactor"
+  },
+  "outputs": {
+    "primary": "Yeni enstantane süresi: ${newExposureTime.toFixed(6)} saniye",
+    "breakdown": [
+      "ND filtre faktörü (çarpan): ${filterFactor.toFixed(2)}x",
+      "Kullanılan etkili stop: ${effectiveStops} stop"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "gaming-entertainment",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "packaging-local-business"
+}

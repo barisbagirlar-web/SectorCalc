@@ -1,0 +1,68 @@
+{
+  "toolName": "attribution-calculator",
+  "inputs": [
+    {
+      "id": "totalValue",
+      "label": "Dağıtılacak Toplam Tutar",
+      "type": "number",
+      "unit": "TL",
+      "default": 10000,
+      "businessContext": "Toplam dağıtılacak maliyet veya gelir tutarı"
+    },
+    {
+      "id": "factor1",
+      "label": "1. Faktör Katkısı",
+      "type": "number",
+      "unit": "saat",
+      "default": 50,
+      "businessContext": "Birinci atıf faktörünün katkı miktarı (ör. makine saati)"
+    },
+    {
+      "id": "factor2",
+      "label": "2. Faktör Katkısı",
+      "type": "number",
+      "unit": "saat",
+      "default": 30,
+      "businessContext": "İkinci atıf faktörünün katkı miktarı"
+    },
+    {
+      "id": "factor3",
+      "label": "3. Faktör Katkısı",
+      "type": "number",
+      "unit": "saat",
+      "default": 10,
+      "businessContext": "Üçüncü atıf faktörünün katkı miktarı"
+    },
+    {
+      "id": "factor4",
+      "label": "4. Faktör Katkısı",
+      "type": "number",
+      "unit": "saat",
+      "default": 10,
+      "businessContext": "Dördüncü atıf faktörünün katkı miktarı"
+    }
+  ],
+  "formulas": {
+    "sumFactors": "factor1 + factor2 + factor3 + factor4",
+    "attributed1": "(factor1 / sumFactors) * totalValue",
+    "attributed2": "(factor2 / sumFactors) * totalValue",
+    "attributed3": "(factor3 / sumFactors) * totalValue",
+    "attributed4": "(factor4 / sumFactors) * totalValue",
+    "totalAttributed": "attributed1 + attributed2 + attributed3 + attributed4"
+  },
+  "outputs": {
+    "primary": "totalAttributed",
+    "breakdown": [
+      "attributed1",
+      "attributed2",
+      "attributed3",
+      "attributed4"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

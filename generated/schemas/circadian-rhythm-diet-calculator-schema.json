@@ -1,0 +1,73 @@
+{
+  "toolName": "circadian-rhythm-diet-calculator",
+  "inputs": [
+    {
+      "id": "chronotype",
+      "label": "Chronotype Score (1-5)",
+      "type": "number",
+      "unit": "score",
+      "default": 3,
+      "businessContext": "Morningness-Eveningness score where 1=Extreme Morning, 5=Extreme Evening"
+    },
+    {
+      "id": "shiftStart",
+      "label": "Shift Start Time (hour)",
+      "type": "number",
+      "unit": "hour",
+      "default": 8,
+      "businessContext": "Work shift start in 24-hour format (e.g., 8.5 for 08:30)"
+    },
+    {
+      "id": "mealCount",
+      "label": "Number of Meals",
+      "type": "number",
+      "unit": "meals",
+      "default": 3,
+      "businessContext": "Total number of meals per day (including snacks)"
+    },
+    {
+      "id": "fastingWindow",
+      "label": "Fasting Window (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 12,
+      "businessContext": "Duration between last meal and first meal of the next day"
+    },
+    {
+      "id": "costPerMeal",
+      "label": "Average Cost per Meal (EUR)",
+      "type": "number",
+      "unit": "EUR",
+      "default": 5,
+      "businessContext": "Estimated average cost per meal including preparation and ingredients"
+    },
+    {
+      "id": "days",
+      "label": "Number of Days",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Planning period in days"
+    }
+  ],
+  "formulas": {
+    "dailyCost": "mealCount * costPerMeal",
+    "totalCost": "dailyCost * days",
+    "mealInterval": "mealCount > 1 ? (24 - fastingWindow) / (mealCount - 1) : 0",
+    "firstMealTime": "((shiftStart - chronotype * 0.5) % 24 + 24) % 24"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "dailyCost",
+      "mealInterval",
+      "firstMealTime"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

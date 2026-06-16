@@ -1,0 +1,57 @@
+{
+  "toolName": "deferred-annuity-calculator",
+  "inputs": [
+    {
+      "id": "presentValue",
+      "label": "Present Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "businessContext": "Lump sum amount invested today"
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Fixed annual interest rate during both deferral and payout phases"
+    },
+    {
+      "id": "deferralYears",
+      "label": "Deferral Years",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "Number of years the investment accumulates before payouts begin"
+    },
+    {
+      "id": "payoutYears",
+      "label": "Payout Years",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "Number of years over which the accumulated value is paid out annually"
+    }
+  ],
+  "formulas": {
+    "futureValue": "presentValue * Math.pow(1 + annualInterestRate / 100, deferralYears)",
+    "annualPayout": "(presentValue * Math.pow(1 + annualInterestRate / 100, deferralYears)) * (annualInterestRate / 100) / (1 - Math.pow(1 + annualInterestRate / 100, -payoutYears))",
+    "totalPayoutAmount": "payoutYears * ((presentValue * Math.pow(1 + annualInterestRate / 100, deferralYears)) * (annualInterestRate / 100) / (1 - Math.pow(1 + annualInterestRate / 100, -payoutYears)))",
+    "totalInterestEarned": "payoutYears * ((presentValue * Math.pow(1 + annualInterestRate / 100, deferralYears)) * (annualInterestRate / 100) / (1 - Math.pow(1 + annualInterestRate / 100, -payoutYears))) - presentValue"
+  },
+  "outputs": {
+    "primary": "annualPayout",
+    "breakdown": [
+      "futureValue",
+      "totalPayoutAmount",
+      "totalInterestEarned"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

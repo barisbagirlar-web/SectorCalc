@@ -1,0 +1,78 @@
+{
+  "toolName": "hrv-biofeedback-calculator",
+  "inputs": [
+    {
+      "id": "breathingRate",
+      "label": "Breathing Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 6,
+      "businessContext": "Breathing rate in breaths per minute (typical resonance is 6 bpm)"
+    },
+    {
+      "id": "heartRate",
+      "label": "Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 70,
+      "businessContext": "Resting heart rate"
+    },
+    {
+      "id": "hrvRMSSD",
+      "label": "HRV RMSSD",
+      "type": "number",
+      "unit": "ms",
+      "default": 30,
+      "businessContext": "Root mean square of successive differences"
+    },
+    {
+      "id": "hrvSDNN",
+      "label": "HRV SDNN",
+      "type": "number",
+      "unit": "ms",
+      "default": 50,
+      "businessContext": "Standard deviation of NN intervals"
+    },
+    {
+      "id": "sessionDuration",
+      "label": "Session Duration",
+      "type": "number",
+      "unit": "min",
+      "default": 10,
+      "businessContext": "Duration of biofeedback session in minutes"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "User age for heart rate max calculation"
+    }
+  ],
+  "formulas": {
+    "resonanceBreathingRate": "6",
+    "breathingMatch": "Math.max(0, Math.min(100, 100 - Math.abs(breathingRate - 6) * 10))",
+    "coherenceAmplitude": "Math.min(100, (hrvRMSSD / 50) * 100)",
+    "sessionFactor": "Math.min(sessionDuration / 20, 1)",
+    "coherenceScore": "((breathingMatch + coherenceAmplitude) / 2) * sessionFactor",
+    "maximumHeartRate": "220 - age",
+    "resonanceFrequencyEstimate": "0.1"
+  },
+  "outputs": {
+    "primary": "coherenceScore",
+    "breakdown": [
+      "breathingMatch",
+      "coherenceAmplitude",
+      "sessionFactor",
+      "resonanceBreathingRate",
+      "maximumHeartRate"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

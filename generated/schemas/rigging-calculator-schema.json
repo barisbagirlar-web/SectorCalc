@@ -1,0 +1,57 @@
+{
+  "toolName": "rigging-calculator",
+  "inputs": [
+    {
+      "id": "loadWeight",
+      "label": "Yük Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "businessContext": "Kaldırılacak yükün toplam ağırlığı"
+    },
+    {
+      "id": "slingAngle",
+      "label": "Askı Açısı (yataydan)",
+      "type": "number",
+      "unit": "°",
+      "default": 60,
+      "businessContext": "Askı açısı yatay düzlemden ölçülür (0° tam yatay, 90° dikey)"
+    },
+    {
+      "id": "numberOfLegs",
+      "label": "Askı Kolu Sayısı",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Yükü taşıyan askı kollarının sayısı (genellikle 2 veya 4)"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Güvenlik Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "businessContext": "Tasarımda kullanılan emniyet katsayısı (örn: 5:1)"
+    }
+  ],
+  "formulas": {
+    "sinAngle": "Math.sin(slingAngle * Math.PI / 180)",
+    "tensionGross": "loadWeight / (numberOfLegs * sinAngle)",
+    "tensionDesign": "tensionGross * safetyFactor"
+  },
+  "outputs": {
+    "primary": "Askı Başına Tasarım Yükü: ${tensionDesign.toFixed(2)} kg",
+    "breakdown": [
+      "Brüt askı yükü: ${tensionGross.toFixed(2)} kg",
+      "Güvenlik faktörü: ${safetyFactor}",
+      "Açı (yataydan): ${slingAngle}°",
+      "Sin(θ): ${sinAngle.toFixed(4)}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

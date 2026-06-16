@@ -1,0 +1,57 @@
+{
+  "toolName": "bai-calculator",
+  "inputs": [
+    {
+      "id": "landArea",
+      "label": "Land Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 1000,
+      "businessContext": "Total land area of the plot"
+    },
+    {
+      "id": "totalFloorArea",
+      "label": "Total Floor Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 2000,
+      "businessContext": "Sum of floor areas of all floors"
+    },
+    {
+      "id": "builtAreaFootprint",
+      "label": "Built Area Footprint",
+      "type": "number",
+      "unit": "m²",
+      "default": 500,
+      "businessContext": "Area covered by building footprint on the ground"
+    },
+    {
+      "id": "maxFar",
+      "label": "Maximum Allowed FAR",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Maximum allowable Floor Area Ratio per local regulations"
+    }
+  ],
+  "formulas": {
+    "primary": "totalFloorArea / landArea",
+    "breakdown": [
+      "builtAreaFootprint / landArea",
+      "(totalFloorArea / landArea) / maxFar"
+    ]
+  },
+  "outputs": {
+    "primary": "Building Area Index (FAR)",
+    "breakdown": [
+      "Building Coverage Ratio (BCR)",
+      "Floor Area Compliance Ratio"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,77 @@
+{
+  "toolName": "definite-integral-calculator",
+  "inputs": [
+    {
+      "id": "coeffA",
+      "label": "Kübik katsayı (a x³)",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 0,
+      "businessContext": "Cubic coefficient of f(x)=ax³+bx²+cx+d"
+    },
+    {
+      "id": "coeffB",
+      "label": "Kare katsayı (b x²)",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 0,
+      "businessContext": "Quadratic coefficient of f(x)=ax³+bx²+cx+d"
+    },
+    {
+      "id": "coeffC",
+      "label": "Doğrusal katsayı (c x)",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 1,
+      "businessContext": "Linear coefficient of f(x)=ax³+bx²+cx+d"
+    },
+    {
+      "id": "coeffD",
+      "label": "Sabit terim (d)",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 0,
+      "businessContext": "Constant term of f(x)=ax³+bx²+cx+d"
+    },
+    {
+      "id": "lowerLimit",
+      "label": "Alt sınır",
+      "type": "number",
+      "unit": "birim",
+      "default": 0,
+      "businessContext": "Lower integration limit"
+    },
+    {
+      "id": "upperLimit",
+      "label": "Üst sınır",
+      "type": "number",
+      "unit": "birim",
+      "default": 1,
+      "businessContext": "Upper integration limit"
+    }
+  ],
+  "formulas": {
+    "primary": "(coeffA/4)*upperLimit**4 + (coeffB/3)*upperLimit**3 + (coeffC/2)*upperLimit**2 + coeffD*upperLimit - ((coeffA/4)*lowerLimit**4 + (coeffB/3)*lowerLimit**3 + (coeffC/2)*lowerLimit**2 + coeffD*lowerLimit)",
+    "breakdown": [
+      "`F(x) = (${coeffA}/4)x⁴ + (${coeffB}/3)x³ + (${coeffC}/2)x² + ${coeffD}x`",
+      "`F(${upperLimit}) = ${((coeffA/4)*upperLimit**4 + (coeffB/3)*upperLimit**3 + (coeffC/2)*upperLimit**2 + coeffD*upperLimit).toFixed(3)}`",
+      "`F(${lowerLimit}) = ${((coeffA/4)*lowerLimit**4 + (coeffB/3)*lowerLimit**3 + (coeffC/2)*lowerLimit**2 + coeffD*lowerLimit).toFixed(3)}`",
+      "`∫ f(x) dx = ${((coeffA/4)*upperLimit**4 + (coeffB/3)*upperLimit**3 + (coeffC/2)*upperLimit**2 + coeffD*upperLimit - ((coeffA/4)*lowerLimit**4 + (coeffB/3)*lowerLimit**3 + (coeffC/2)*lowerLimit**2 + coeffD*lowerLimit)).toFixed(3)}`"
+    ]
+  },
+  "outputs": {
+    "primary": "definiteIntegral",
+    "breakdown": [
+      "antiderivativeExpression",
+      "upperEvaluation",
+      "lowerEvaluation",
+      "result"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

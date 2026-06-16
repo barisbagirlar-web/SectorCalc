@@ -1,0 +1,65 @@
+{
+  "toolName": "vacation-savings-calculator",
+  "inputs": [
+    {
+      "id": "targetAmount",
+      "label": "Target Savings Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 5000,
+      "businessContext": "Total amount needed for vacation"
+    },
+    {
+      "id": "currentSavings",
+      "label": "Current Savings",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "businessContext": "Amount already saved"
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Monthly Contribution",
+      "type": "number",
+      "unit": "currency/month",
+      "default": 500,
+      "businessContext": "Amount added to savings each month"
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "businessContext": "Expected annual return on savings (e.g., savings account interest)"
+    },
+    {
+      "id": "monthsUntilVacation",
+      "label": "Months Until Vacation",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "businessContext": "Time remaining before vacation"
+    }
+  ],
+  "formulas": {
+    "totalSavings": "currentSavings * (1 + (annualInterestRate/100/12 + 1e-10)) ** monthsUntilVacation + monthlyContribution * (((1 + (annualInterestRate/100/12 + 1e-10)) ** monthsUntilVacation - 1) / (annualInterestRate/100/12 + 1e-10))",
+    "totalContributions": "monthlyContribution * monthsUntilVacation",
+    "interestEarned": "totalSavings - currentSavings - totalContributions",
+    "surplusShortfall": "totalSavings - targetAmount"
+  },
+  "outputs": {
+    "primary": "surplusShortfall",
+    "breakdown": [
+      "totalSavings",
+      "totalContributions",
+      "interestEarned"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

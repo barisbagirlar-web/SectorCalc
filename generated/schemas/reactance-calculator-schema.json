@@ -1,0 +1,55 @@
+{
+  "toolName": "reactance-calculator",
+  "inputs": [
+    {
+      "id": "frequency",
+      "label": "Frequency",
+      "type": "number",
+      "unit": "Hz",
+      "default": 50,
+      "businessContext": "Operating frequency of the AC circuit"
+    },
+    {
+      "id": "capacitance",
+      "label": "Capacitance",
+      "type": "number",
+      "unit": "F",
+      "default": 0.000001,
+      "businessContext": "Capacitance value of the capacitor"
+    },
+    {
+      "id": "inductance",
+      "label": "Inductance",
+      "type": "number",
+      "unit": "H",
+      "default": 0.1,
+      "businessContext": "Inductance value of the inductor"
+    },
+    {
+      "id": "connectionType",
+      "label": "Connection Type",
+      "type": "number",
+      "unit": "0=Series, 1=Parallel",
+      "default": 0,
+      "businessContext": "Connection configuration of LC circuit"
+    }
+  ],
+  "formulas": {
+    "Xc": "1 / (2 * Math.PI * frequency * capacitance)",
+    "Xl": "2 * Math.PI * frequency * inductance",
+    "totalReactance": "connectionType === 0 ? (Xl - Xc) : ((Xc * Xl) / (Xl - Xc))"
+  },
+  "outputs": {
+    "primary": "totalReactance",
+    "breakdown": [
+      "Xc",
+      "Xl"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

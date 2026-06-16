@@ -1,0 +1,69 @@
+{
+  "toolName": "histogram-calculator",
+  "inputs": [
+    {
+      "id": "numberOfDataPoints",
+      "label": "Number of data points",
+      "type": "number",
+      "unit": "count",
+      "default": 100,
+      "businessContext": "Total number of observations in the dataset."
+    },
+    {
+      "id": "dataMin",
+      "label": "Minimum value",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "Smallest data value."
+    },
+    {
+      "id": "dataMax",
+      "label": "Maximum value",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "businessContext": "Largest data value."
+    },
+    {
+      "id": "dataStdDev",
+      "label": "Standard deviation",
+      "type": "number",
+      "unit": "units",
+      "default": 15,
+      "businessContext": "Estimated or known standard deviation of the data."
+    },
+    {
+      "id": "dataIQR",
+      "label": "Interquartile range (IQR)",
+      "type": "number",
+      "unit": "units",
+      "default": 20,
+      "businessContext": "Difference between 75th and 25th percentiles."
+    }
+  ],
+  "formulas": {
+    "sturgesBinCount": "Math.ceil(1 + 3.322 * Math.log10(numberOfDataPoints))",
+    "sturgesBinWidth": "(dataMax - dataMin) / sturgesBinCount",
+    "scottBinWidth": "3.5 * dataStdDev / Math.pow(numberOfDataPoints, 1/3)",
+    "scottBinCount": "Math.ceil((dataMax - dataMin) / scottBinWidth)",
+    "fdBinWidth": "2 * dataIQR / Math.pow(numberOfDataPoints, 1/3)",
+    "fdBinCount": "Math.ceil((dataMax - dataMin) / fdBinWidth)"
+  },
+  "outputs": {
+    "primary": "sturgesBinCount",
+    "breakdown": [
+      "sturgesBinWidth",
+      "scottBinCount",
+      "scottBinWidth",
+      "fdBinCount",
+      "fdBinWidth"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

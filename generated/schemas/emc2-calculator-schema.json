@@ -1,0 +1,37 @@
+{
+  "toolName": "emc2-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Mass of the object in kilograms"
+    },
+    {
+      "id": "speedOfLight",
+      "label": "Speed of Light (m/s)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 299792458,
+      "businessContext": "Speed of light in vacuum (constant)"
+    }
+  ],
+  "formulas": {
+    "energy": "mass * speedOfLight ** 2"
+  },
+  "outputs": {
+    "primary": "Energy (J)",
+    "breakdown": [
+      "Energy = mass × c²",
+      "Energy = {{mass}} × ({{speedOfLight}})² = {{energy}} J"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

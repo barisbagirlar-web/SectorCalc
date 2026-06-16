@@ -1,0 +1,94 @@
+{
+  "toolName": "quartile-calculator",
+  "inputs": [
+    {
+      "id": "num1",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "",
+      "default": 12,
+      "businessContext": "First data point"
+    },
+    {
+      "id": "num2",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "",
+      "default": 15,
+      "businessContext": "Second data point"
+    },
+    {
+      "id": "num3",
+      "label": "Value 3",
+      "type": "number",
+      "unit": "",
+      "default": 18,
+      "businessContext": "Third data point"
+    },
+    {
+      "id": "num4",
+      "label": "Value 4",
+      "type": "number",
+      "unit": "",
+      "default": 20,
+      "businessContext": "Fourth data point"
+    },
+    {
+      "id": "num5",
+      "label": "Value 5",
+      "type": "number",
+      "unit": "",
+      "default": 22,
+      "businessContext": "Fifth data point"
+    },
+    {
+      "id": "num6",
+      "label": "Value 6",
+      "type": "number",
+      "unit": "",
+      "default": 25,
+      "businessContext": "Sixth data point"
+    },
+    {
+      "id": "num7",
+      "label": "Value 7",
+      "type": "number",
+      "unit": "",
+      "default": 30,
+      "businessContext": "Seventh data point"
+    },
+    {
+      "id": "num8",
+      "label": "Value 8",
+      "type": "number",
+      "unit": "",
+      "default": 35,
+      "businessContext": "Eighth data point"
+    }
+  ],
+  "formulas": {
+    "sorted": "[num1,num2,num3,num4,num5,num6,num7,num8].sort((a,b)=>a-b)",
+    "min": "sorted[0]",
+    "max": "sorted[7]",
+    "q1": "(sorted[1]+sorted[2])/2",
+    "q2": "(sorted[3]+sorted[4])/2",
+    "q3": "(sorted[5]+sorted[6])/2",
+    "iqr": "q3 - q1"
+  },
+  "outputs": {
+    "primary": "q2",
+    "breakdown": [
+      "min",
+      "q1",
+      "q3",
+      "max",
+      "iqr"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

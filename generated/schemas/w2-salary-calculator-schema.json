@@ -1,0 +1,88 @@
+{
+  "toolName": "w2-salary-calculator",
+  "inputs": [
+    {
+      "id": "grossSalary",
+      "label": "Gross Annual Salary ($)",
+      "type": "number",
+      "unit": "USD",
+      "default": 75000,
+      "businessContext": "Total annual salary before taxes and deductions"
+    },
+    {
+      "id": "preTaxDeductions",
+      "label": "Pre-Tax Deductions ($)",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Annual contributions to 401(k), HSA, etc."
+    },
+    {
+      "id": "federalTaxRate",
+      "label": "Federal Tax Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 22,
+      "businessContext": "Estimated marginal or effective federal income tax rate"
+    },
+    {
+      "id": "stateTaxRate",
+      "label": "State Tax Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Estimated effective state income tax rate"
+    },
+    {
+      "id": "socialSecurityRate",
+      "label": "Social Security Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 6.2,
+      "businessContext": "Employee share of Social Security tax"
+    },
+    {
+      "id": "medicareRate",
+      "label": "Medicare Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 1.45,
+      "businessContext": "Employee share of Medicare tax"
+    },
+    {
+      "id": "otherDeductions",
+      "label": "Other Deductions ($)",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "businessContext": "Other annual post-tax deductions (e.g., union dues, charitable)"
+    }
+  ],
+  "formulas": {
+    "taxableIncome": "grossSalary - preTaxDeductions",
+    "federalTax": "taxableIncome * (federalTaxRate / 100)",
+    "stateTax": "taxableIncome * (stateTaxRate / 100)",
+    "socialSecurityTax": "taxableIncome * (socialSecurityRate / 100)",
+    "medicareTax": "taxableIncome * (medicareRate / 100)",
+    "totalTaxes": "federalTax + stateTax + socialSecurityTax + medicareTax",
+    "netPay": "taxableIncome - totalTaxes - otherDeductions"
+  },
+  "outputs": {
+    "primary": "netPay",
+    "breakdown": [
+      "taxableIncome",
+      "federalTax",
+      "stateTax",
+      "socialSecurityTax",
+      "medicareTax",
+      "totalTaxes",
+      "netPay"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

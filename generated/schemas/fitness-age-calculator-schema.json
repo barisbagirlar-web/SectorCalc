@@ -1,0 +1,56 @@
+{
+  "toolName": "fitness-age-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Your chronological age in years."
+    },
+    {
+      "id": "restingHeartRate",
+      "label": "Resting Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 70,
+      "businessContext": "Your resting heart rate in beats per minute. Measure after waking up, before getting out of bed."
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "none",
+      "default": 0,
+      "businessContext": "0 for male, 1 for female."
+    },
+    {
+      "id": "maxHeartRate",
+      "label": "Maximum Heart Rate (optional)",
+      "type": "number",
+      "unit": "bpm",
+      "default": 0,
+      "businessContext": "Maximum heart rate in bpm. Enter 0 to estimate using formula (208 - 0.7 * age)."
+    }
+  ],
+  "formulas": {
+    "maxHeartRateEstimated": "inputs.maxHeartRate !== 0 ? inputs.maxHeartRate : 208 - 0.7 * inputs.age",
+    "vo2max": "15.3 * (maxHeartRateEstimated / inputs.restingHeartRate)",
+    "averageVO2max": "inputs.gender === 0 ? (50.0 - 0.35 * inputs.age) : (43.0 - 0.30 * inputs.age)",
+    "fitnessAge": "inputs.age + (averageVO2max - vo2max) / 0.35"
+  },
+  "outputs": {
+    "primary": "fitnessAge",
+    "breakdown": [
+      "vo2max",
+      "averageVO2max"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

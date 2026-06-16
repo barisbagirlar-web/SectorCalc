@@ -1,0 +1,60 @@
+{
+  "toolName": "celsius-to-kelvin-calculator",
+  "inputs": [
+    {
+      "id": "celsiusTemp",
+      "label": "Temperature in Celsius",
+      "type": "number",
+      "unit": "°C",
+      "default": 0,
+      "businessContext": "Measured temperature value from sensor or process"
+    },
+    {
+      "id": "offset",
+      "label": "Calibration Offset",
+      "type": "number",
+      "unit": "°C",
+      "default": 0,
+      "businessContext": "Instrument calibration offset to be added before conversion"
+    },
+    {
+      "id": "decimalPlaces",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of decimal places for output precision"
+    },
+    {
+      "id": "uncertainty",
+      "label": "Measurement Uncertainty",
+      "type": "number",
+      "unit": "°C",
+      "default": 0.1,
+      "businessContext": "Uncertainty of the temperature measurement"
+    }
+  ],
+  "formulas": {
+    "adjustedCelsius": "celsiusTemp + offset",
+    "kelvinExact": "adjustedCelsius + 273.15",
+    "roundedKelvin": "Math.round(kelvinExact * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
+    "lowerBoundK": "kelvinExact - uncertainty",
+    "upperBoundK": "kelvinExact + uncertainty"
+  },
+  "outputs": {
+    "primary": "roundedKelvin",
+    "breakdown": [
+      "adjustedCelsius",
+      "kelvinExact",
+      "roundedKelvin",
+      "lowerBoundK",
+      "upperBoundK"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

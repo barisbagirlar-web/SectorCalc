@@ -1,0 +1,57 @@
+{
+  "toolName": "inherited-ira-calculator",
+  "inputs": [
+    {
+      "id": "currentBalance",
+      "label": "Current IRA Balance",
+      "type": "number",
+      "unit": "$",
+      "default": 100000,
+      "businessContext": "The current value of the inherited IRA account."
+    },
+    {
+      "id": "beneficiaryAge",
+      "label": "Beneficiary's Age",
+      "type": "number",
+      "unit": "years",
+      "default": 50,
+      "businessContext": "The current age of the beneficiary."
+    },
+    {
+      "id": "lifeExpectancyFactor",
+      "label": "Life Expectancy Factor",
+      "type": "number",
+      "unit": "years",
+      "default": 34.2,
+      "businessContext": "The IRS single life expectancy factor for the beneficiary's age, used to calculate RMD."
+    },
+    {
+      "id": "expectedAnnualReturn",
+      "label": "Expected Annual Return",
+      "type": "number",
+      "unit": "%",
+      "default": 6,
+      "businessContext": "Expected annual rate of return on IRA investments, used for projection."
+    }
+  ],
+  "formulas": {
+    "rmdAmount": "currentBalance / lifeExpectancyFactor",
+    "rmdPercentage": "(1 / lifeExpectancyFactor) * 100",
+    "remainingBalance": "currentBalance - rmdAmount",
+    "projectedBalanceNextYear": "remainingBalance * (1 + expectedAnnualReturn / 100)"
+  },
+  "outputs": {
+    "primary": "rmdAmount",
+    "breakdown": [
+      "rmdPercentage",
+      "remainingBalance",
+      "projectedBalanceNextYear"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,54 @@
+{
+  "toolName": "fetal-weight-calculator",
+  "inputs": [
+    {
+      "id": "bpd",
+      "label": "Biparietal Diameter (BPD)",
+      "type": "number",
+      "unit": "cm",
+      "default": 9.5,
+      "businessContext": "Ultrasound measurement of fetal head"
+    },
+    {
+      "id": "hc",
+      "label": "Head Circumference (HC)",
+      "type": "number",
+      "unit": "cm",
+      "default": 33,
+      "businessContext": "Fetal head circumference"
+    },
+    {
+      "id": "ac",
+      "label": "Abdominal Circumference (AC)",
+      "type": "number",
+      "unit": "cm",
+      "default": 34,
+      "businessContext": "Fetal abdominal circumference"
+    },
+    {
+      "id": "fl",
+      "label": "Femur Length (FL)",
+      "type": "number",
+      "unit": "cm",
+      "default": 7,
+      "businessContext": "Fetal femur length"
+    }
+  ],
+  "formulas": {
+    "log10EFW": "1.3596 - 0.00386 * ac * fl + 0.0064 * hc + 0.00061 * bpd * ac + 0.0424 * ac + 0.174 * fl",
+    "EFW_g": "Math.pow(10, log10EFW)"
+  },
+  "outputs": {
+    "primary": "EFW_g",
+    "breakdown": [
+      "log10EFW",
+      "EFW_g"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

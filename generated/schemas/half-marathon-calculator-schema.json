@@ -1,0 +1,61 @@
+{
+  "toolName": "half-marathon-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 21.1,
+      "businessContext": "Race distance (default 21.1 km for half marathon)"
+    },
+    {
+      "id": "hours",
+      "label": "Hours",
+      "type": "number",
+      "unit": "h",
+      "default": 1,
+      "businessContext": "Target finish time - hours part"
+    },
+    {
+      "id": "minutes",
+      "label": "Minutes",
+      "type": "number",
+      "unit": "min",
+      "default": 45,
+      "businessContext": "Target finish time - minutes part"
+    },
+    {
+      "id": "seconds",
+      "label": "Seconds",
+      "type": "number",
+      "unit": "s",
+      "default": 0,
+      "businessContext": "Target finish time - seconds part"
+    }
+  ],
+  "formulas": {
+    "pacePerKm": "(hours * 3600 + minutes * 60 + seconds) / distance",
+    "speedKmh": "(distance * 3600) / (hours * 3600 + minutes * 60 + seconds)",
+    "split5km": "(hours * 3600 + minutes * 60 + seconds) / distance * 5",
+    "split10km": "(hours * 3600 + minutes * 60 + seconds) / distance * 10",
+    "split15km": "(hours * 3600 + minutes * 60 + seconds) / distance * 15",
+    "split20km": "(hours * 3600 + minutes * 60 + seconds) / distance * 20"
+  },
+  "outputs": {
+    "primary": "pacePerKm",
+    "breakdown": [
+      "speedKmh",
+      "split5km",
+      "split10km",
+      "split15km",
+      "split20km"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

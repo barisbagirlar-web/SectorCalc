@@ -1,0 +1,85 @@
+{
+  "toolName": "car-affordability-calculator",
+  "inputs": [
+    {
+      "id": "monthlyNetIncome",
+      "label": "Monthly Net Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "businessContext": "Your monthly take-home pay after taxes and deductions."
+    },
+    {
+      "id": "monthlyExpenses",
+      "label": "Monthly Expenses (excl. car)",
+      "type": "number",
+      "unit": "USD",
+      "default": 3000,
+      "businessContext": "Total monthly living expenses excluding any car-related costs."
+    },
+    {
+      "id": "downPayment",
+      "label": "Down Payment",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "businessContext": "Cash available for down payment on the car."
+    },
+    {
+      "id": "loanTermMonths",
+      "label": "Loan Term (Months)",
+      "type": "number",
+      "unit": "months",
+      "default": 60,
+      "businessContext": "Desired loan term in months (e.g., 36, 48, 60)."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Expected annual interest rate for the auto loan."
+    },
+    {
+      "id": "otherCarCosts",
+      "label": "Monthly Other Car Costs",
+      "type": "number",
+      "unit": "USD",
+      "default": 200,
+      "businessContext": "Estimated monthly costs for insurance, maintenance, fuel, etc."
+    },
+    {
+      "id": "maxPaymentPercent",
+      "label": "Max Car Payment % of Disposable Income",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Maximum percentage of your disposable income (after expenses) you are willing to allocate to total car costs (loan payment + other costs)."
+    }
+  ],
+  "formulas": {
+    "disposableIncome": "monthlyNetIncome - monthlyExpenses",
+    "maxTotalCarBudget": "disposableIncome * (maxPaymentPercent / 100)",
+    "maxLoanPayment": "maxTotalCarBudget - otherCarCosts",
+    "monthlyInterestRate": "annualInterestRate / 12 / 100",
+    "maxLoan": "monthlyInterestRate === 0 ? maxLoanPayment * loanTermMonths : maxLoanPayment * (1 - Math.pow(1 + monthlyInterestRate, -loanTermMonths)) / monthlyInterestRate",
+    "maxCarPrice": "downPayment + maxLoan"
+  },
+  "outputs": {
+    "primary": "maxCarPrice",
+    "breakdown": [
+      "disposableIncome",
+      "maxTotalCarBudget",
+      "maxLoanPayment",
+      "monthlyInterestRate",
+      "maxLoan"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

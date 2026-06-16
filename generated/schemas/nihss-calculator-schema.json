@@ -1,0 +1,82 @@
+{
+  "toolName": "nihss-calculator",
+  "inputs": [
+    {
+      "id": "consciousness",
+      "label": "Level of Consciousness (0-3)",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "Assessment of alertness"
+    },
+    {
+      "id": "gaze",
+      "label": "Best Gaze (0-2)",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "Horizontal eye movement"
+    },
+    {
+      "id": "visual",
+      "label": "Visual Fields (0-3)",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "Visual field testing"
+    },
+    {
+      "id": "facial",
+      "label": "Facial Palsy (0-3)",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "Facial muscle weakness"
+    },
+    {
+      "id": "motor_arm",
+      "label": "Motor Arm (0-4, average of left & right)",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "Arm motor strength assessment"
+    },
+    {
+      "id": "motor_leg",
+      "label": "Motor Leg (0-4, average of left & right)",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "Leg motor strength assessment"
+    },
+    {
+      "id": "language",
+      "label": "Best Language (0-3)",
+      "type": "number",
+      "unit": "point",
+      "default": 0,
+      "businessContext": "Aphasia assessment"
+    }
+  ],
+  "formulas": {
+    "total": "consciousness + gaze + visual + facial + motor_arm + motor_leg + language"
+  },
+  "outputs": {
+    "primary": "total",
+    "breakdown": [
+      "consciousness",
+      "gaze",
+      "visual",
+      "facial",
+      "motor_arm",
+      "motor_leg",
+      "language"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

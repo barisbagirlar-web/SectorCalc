@@ -1,0 +1,28 @@
+{
+  "toolName": "lbs-to-kg",
+  "inputs": [
+    {
+      "id": "lbs",
+      "label": "Pound (lb)",
+      "type": "number",
+      "unit": "lb",
+      "default": 1,
+      "businessContext": "Ağırlık pound cinsinden"
+    }
+  ],
+  "formulas": {
+    "kg": "lbs * 0.45359237"
+  },
+  "outputs": {
+    "primary": "kg",
+    "breakdown": [
+      "kg"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,97 @@
+{
+  "toolName": "cookie-calculator",
+  "inputs": [
+    {
+      "id": "batch_size",
+      "label": "Batch Size (cookies)",
+      "type": "number",
+      "unit": "adet",
+      "default": 24,
+      "businessContext": "Number of cookies per batch"
+    },
+    {
+      "id": "flour_per_cookie",
+      "label": "Flour per Cookie",
+      "type": "number",
+      "unit": "g",
+      "default": 30,
+      "businessContext": "Grams of flour per cookie"
+    },
+    {
+      "id": "sugar_per_cookie",
+      "label": "Sugar per Cookie",
+      "type": "number",
+      "unit": "g",
+      "default": 15,
+      "businessContext": "Grams of sugar per cookie"
+    },
+    {
+      "id": "butter_per_cookie",
+      "label": "Butter per Cookie",
+      "type": "number",
+      "unit": "g",
+      "default": 10,
+      "businessContext": "Grams of butter per cookie"
+    },
+    {
+      "id": "egg_per_cookie",
+      "label": "Egg per Cookie",
+      "type": "number",
+      "unit": "g",
+      "default": 5,
+      "businessContext": "Grams of egg per cookie"
+    },
+    {
+      "id": "chocolate_per_cookie",
+      "label": "Chocolate per Cookie",
+      "type": "number",
+      "unit": "g",
+      "default": 10,
+      "businessContext": "Grams of chocolate per cookie"
+    },
+    {
+      "id": "oven_temp",
+      "label": "Oven Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 180,
+      "businessContext": "Baking temperature in Celsius"
+    },
+    {
+      "id": "baking_time",
+      "label": "Baking Time",
+      "type": "number",
+      "unit": "min",
+      "default": 12,
+      "businessContext": "Baking time in minutes"
+    }
+  ],
+  "formulas": {
+    "total_flour": "batch_size * flour_per_cookie",
+    "total_sugar": "batch_size * sugar_per_cookie",
+    "total_butter": "batch_size * butter_per_cookie",
+    "total_egg": "batch_size * egg_per_cookie",
+    "total_chocolate": "batch_size * chocolate_per_cookie",
+    "total_dough_weight": "total_flour + total_sugar + total_butter + total_egg + total_chocolate",
+    "energy_consumption": "oven_temp * baking_time * 0.05",
+    "cost_per_cookie": "(total_flour * 0.002 + total_sugar * 0.003 + total_butter * 0.005 + total_egg * 0.004 + total_chocolate * 0.006) / batch_size"
+  },
+  "outputs": {
+    "primary": "total_dough_weight",
+    "breakdown": [
+      "total_flour",
+      "total_sugar",
+      "total_butter",
+      "total_egg",
+      "total_chocolate",
+      "energy_consumption",
+      "cost_per_cookie"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

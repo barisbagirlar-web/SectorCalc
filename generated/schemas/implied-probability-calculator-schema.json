@@ -1,0 +1,63 @@
+{
+  "toolName": "implied-probability-calculator",
+  "inputs": [
+    {
+      "id": "oddsType",
+      "label": "Odds Format",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1: Decimal, 2: Fractional, 3: American"
+    },
+    {
+      "id": "decimalOdds",
+      "label": "Decimal Odds",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Enter decimal odds"
+    },
+    {
+      "id": "fractionalNumerator",
+      "label": "Fractional Numerator",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Numerator of fractional odds"
+    },
+    {
+      "id": "fractionalDenominator",
+      "label": "Fractional Denominator",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Denominator of fractional odds"
+    },
+    {
+      "id": "americanOdds",
+      "label": "American Odds",
+      "type": "number",
+      "unit": "",
+      "default": -110,
+      "businessContext": "Positive for underdog, negative for favorite"
+    }
+  ],
+  "formulas": {
+    "impliedProbabilityPercent": "oddsType == 1 ? (1 / decimalOdds) * 100 : oddsType == 2 ? (fractionalDenominator / (fractionalNumerator + fractionalDenominator)) * 100 : oddsType == 3 ? (americanOdds > 0 ? (100 / (americanOdds + 100)) * 100 : (Math.abs(americanOdds) / (Math.abs(americanOdds) + 100)) * 100) : 0",
+    "probabilityDecimal": "impliedProbabilityPercent / 100",
+    "fairDecimalOdds": "100 / impliedProbabilityPercent"
+  },
+  "outputs": {
+    "primary": "impliedProbabilityPercent",
+    "breakdown": [
+      "probabilityDecimal",
+      "fairDecimalOdds"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "hobbies-diy",
+  "sectorSlug": "landscaping-lawn-care",
+  "categorySlug": "packaging-local-business"
+}

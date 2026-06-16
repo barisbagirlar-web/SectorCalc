@@ -1,0 +1,55 @@
+{
+  "toolName": "commission-calculator",
+  "inputs": [
+    {
+      "id": "totalSales",
+      "label": "Toplam Satış",
+      "type": "number",
+      "unit": "currency",
+      "default": 5000,
+      "businessContext": "Satış temsilcisinin toplam satış tutarı"
+    },
+    {
+      "id": "baseCommissionRate",
+      "label": "Temel Komisyon Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Temel seviyedeki komisyon yüzdesi"
+    },
+    {
+      "id": "highTierThreshold",
+      "label": "Yüksek Kademe Eşiği",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "businessContext": "Yüksek komisyon oranının uygulanacağı satış eşiği"
+    },
+    {
+      "id": "highTierRate",
+      "label": "Yüksek Kademe Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Yüksek satış seviyesinde uygulanacak komisyon yüzdesi"
+    }
+  ],
+  "formulas": {
+    "tier1Commission": "totalSales <= highTierThreshold ? totalSales * baseCommissionRate / 100 : highTierThreshold * baseCommissionRate / 100",
+    "tier2Commission": "totalSales > highTierThreshold ? (totalSales - highTierThreshold) * highTierRate / 100 : 0",
+    "totalCommission": "tier1Commission + tier2Commission"
+  },
+  "outputs": {
+    "primary": "totalCommission",
+    "breakdown": [
+      "tier1Commission",
+      "tier2Commission"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,54 @@
+{
+  "toolName": "permanent-teeth-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 25,
+      "businessContext": "Hastanın kronolojik yaşı (yıl olarak)"
+    },
+    {
+      "id": "extracted",
+      "label": "Çekilen Dişler",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Geçmişte çekilmiş daimi dişlerin sayısı"
+    },
+    {
+      "id": "missing",
+      "label": "Eksik Dişler",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "businessContext": "Doğuştan veya kayıp nedeniyle ağızda bulunmayan daimi dişlerin sayısı"
+    },
+    {
+      "id": "wisdomOverride",
+      "label": "Yirmilik Diş Zorla",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Yaştan bağımsız tüm 20 yaş dişlerini dahil etmek için 1, yoksa 0"
+    }
+  ],
+  "formulas": {
+    "expectedTeeth": "(wisdomOverride == 1) ? 32 : ( (age < 6) ? 0 : ((age <= 12) ? (age - 6) / 6 * 28 : ((age <= 21) ? 28 + (age - 12) / 9 * 4 : 32) ) )",
+    "presentTeeth": "Math.max(0, expectedTeeth - extracted - missing)"
+  },
+  "outputs": {
+    "primary": "presentTeeth",
+    "breakdown": [
+      "expectedTeeth",
+      "presentTeeth"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

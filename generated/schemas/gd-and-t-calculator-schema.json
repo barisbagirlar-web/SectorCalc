@@ -1,0 +1,93 @@
+{
+  "toolName": "gd-and-t-calculator",
+  "inputs": [
+    {
+      "id": "basicX",
+      "label": "Basic X (Nominal)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Theoretical exact X coordinate from drawing"
+    },
+    {
+      "id": "basicY",
+      "label": "Basic Y (Nominal)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Theoretical exact Y coordinate from drawing"
+    },
+    {
+      "id": "actualX",
+      "label": "Measured X",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Actual measured X coordinate"
+    },
+    {
+      "id": "actualY",
+      "label": "Measured Y",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Actual measured Y coordinate"
+    },
+    {
+      "id": "holeDiaNom",
+      "label": "Hole Diameter (Nominal)",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "businessContext": "Nominal diameter of the hole"
+    },
+    {
+      "id": "holeDiaTolLower",
+      "label": "Lower Tolerance (MMC)",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.1,
+      "businessContext": "Absolute deviation from nominal to smallest permissible size (e.g., 0.1 for hole at MMC = nominal - 0.1)"
+    },
+    {
+      "id": "holeDiaActual",
+      "label": "Actual Hole Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 9.95,
+      "businessContext": "Measured diameter of the produced hole"
+    },
+    {
+      "id": "positionTol",
+      "label": "Specified Position Tolerance",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.2,
+      "businessContext": "Position tolerance value from the drawing feature control frame"
+    }
+  ],
+  "formulas": {
+    "posError": "2 * Math.sqrt((actualX - basicX)**2 + (actualY - basicY)**2)",
+    "MMC": "holeDiaNom - holeDiaTolLower",
+    "bonus": "Math.max(0, holeDiaActual - MMC)",
+    "totalTol": "positionTol + bonus",
+    "isOk": "posError <= totalTol ? 'Acceptable' : 'Not Acceptable'",
+    "posErrMsg": "'Position Error: ' + posError.toFixed(3) + ' mm'",
+    "bonusMsg": "'Bonus Tolerance: ' + bonus.toFixed(3) + ' mm'",
+    "totalTolMsg": "'Total Allowable: ' + totalTol.toFixed(3) + ' mm'"
+  },
+  "outputs": {
+    "primary": "isOk",
+    "breakdown": [
+      "posErrMsg",
+      "bonusMsg",
+      "totalTolMsg"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

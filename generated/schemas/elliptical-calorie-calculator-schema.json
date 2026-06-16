@@ -1,0 +1,55 @@
+{
+  "toolName": "elliptical-calorie-calculator",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Weight of the user in kilograms for accurate calorie expenditure estimation."
+    },
+    {
+      "id": "duration",
+      "label": "Exercise Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 30,
+      "businessContext": "Total time spent on the elliptical machine in minutes."
+    },
+    {
+      "id": "met",
+      "label": "MET Value",
+      "type": "number",
+      "unit": "MET",
+      "default": 5,
+      "businessContext": "Metabolic Equivalent of Task for elliptical exercise (typical range: 5–9, depending on intensity)."
+    },
+    {
+      "id": "correctionFactor",
+      "label": "Personal Correction Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Multiplier to adjust for individual physiological differences (e.g., efficiency, fitness level). Default 1.0 indicates standard estimation."
+    }
+  ],
+  "formulas": {
+    "totalCalories": "weight * met * (duration / 60) * correctionFactor",
+    "caloriesPerMinute": "weight * met * correctionFactor / 60",
+    "metUsed": "met"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "caloriesPerMinute",
+      "metUsed"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

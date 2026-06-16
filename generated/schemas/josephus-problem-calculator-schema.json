@@ -1,0 +1,32 @@
+{
+  "toolName": "josephus-problem-calculator",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "Number of People (n)",
+      "type": "number",
+      "unit": "people",
+      "default": 41,
+      "businessContext": "Total participants standing in the elimination circle."
+    }
+  ],
+  "formulas": {
+    "largestPowerOfTwo": "Math.pow(2, Math.floor(Math.log(n) / Math.LN2))",
+    "remainder": "n - largestPowerOfTwo",
+    "survivor": "2 * remainder + 1"
+  },
+  "outputs": {
+    "primary": "survivor",
+    "breakdown": [
+      "largestPowerOfTwo",
+      "remainder",
+      "survivor"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

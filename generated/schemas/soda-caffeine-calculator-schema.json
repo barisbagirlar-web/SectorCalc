@@ -1,0 +1,73 @@
+{
+  "toolName": "soda-caffeine-calculator",
+  "inputs": [
+    {
+      "id": "cansConsumed",
+      "label": "Number of Cans/Bottles",
+      "type": "number",
+      "unit": "cans",
+      "default": 1,
+      "businessContext": "Quantity of soda consumed"
+    },
+    {
+      "id": "caffeinePerServing",
+      "label": "Caffeine per Serving",
+      "type": "number",
+      "unit": "mg",
+      "default": 34,
+      "businessContext": "Caffeine content per serving (typical 12oz cola is 34mg)"
+    },
+    {
+      "id": "servingSize",
+      "label": "Serving Size",
+      "type": "number",
+      "unit": "fl oz",
+      "default": 12,
+      "businessContext": "Volume per serving"
+    },
+    {
+      "id": "bodyWeight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User's weight for safe limit calculation"
+    },
+    {
+      "id": "safeLimitPerKg",
+      "label": "Safe Limit per kg",
+      "type": "number",
+      "unit": "mg/kg",
+      "default": 2.5,
+      "businessContext": "Recommended safe daily caffeine intake per kg body weight (commonly 2.5mg/kg)"
+    },
+    {
+      "id": "coffeeCaffeinePerCup",
+      "label": "Coffee Caffeine per Cup",
+      "type": "number",
+      "unit": "mg",
+      "default": 95,
+      "businessContext": "Average caffeine in an 8oz cup of coffee for equivalence"
+    }
+  ],
+  "formulas": {
+    "totalCaffeine": "cansConsumed * caffeinePerServing",
+    "safeLimit": "bodyWeight * safeLimitPerKg",
+    "percentOfLimit": "(totalCaffeine / safeLimit) * 100",
+    "coffeeEquiv": "totalCaffeine / coffeeCaffeinePerCup"
+  },
+  "outputs": {
+    "primary": "totalCaffeine",
+    "breakdown": [
+      "safeLimit",
+      "percentOfLimit",
+      "coffeeEquiv"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

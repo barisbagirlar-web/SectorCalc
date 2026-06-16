@@ -1,0 +1,90 @@
+{
+  "toolName": "fluidization-calculator",
+  "inputs": [
+    {
+      "id": "particleDiameter",
+      "label": "Particle Diameter (dp)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.001,
+      "businessContext": "Average diameter of particles in the bed."
+    },
+    {
+      "id": "particleDensity",
+      "label": "Particle Density (ρp)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 2500,
+      "businessContext": "Density of the solid particles."
+    },
+    {
+      "id": "fluidDensity",
+      "label": "Fluid Density (ρf)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1.2,
+      "businessContext": "Density of the fluidizing medium."
+    },
+    {
+      "id": "fluidViscosity",
+      "label": "Fluid Viscosity (μ)",
+      "type": "number",
+      "unit": "Pa·s",
+      "default": 0.000018,
+      "businessContext": "Dynamic viscosity of the fluid."
+    },
+    {
+      "id": "voidFraction",
+      "label": "Void Fraction at Min. Fluidization (εmf)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.4,
+      "businessContext": "Void fraction (porosity) of the bed at minimum fluidization."
+    },
+    {
+      "id": "sphericity",
+      "label": "Sphericity (φ)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.8,
+      "businessContext": "Sphericity factor of particles, ranging from 0 to 1."
+    },
+    {
+      "id": "gravity",
+      "label": "Gravity (g)",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Gravitational acceleration."
+    },
+    {
+      "id": "bedHeight",
+      "label": "Bed Height (L)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.5,
+      "businessContext": "Height of the fixed bed."
+    }
+  ],
+  "formulas": {
+    "a": "1.75 * (1 - voidFraction) / (Math.pow(voidFraction, 3) * sphericity) * (fluidDensity / particleDiameter)",
+    "b": "150 * Math.pow(1 - voidFraction, 2) / (Math.pow(voidFraction, 3) * Math.pow(sphericity, 2)) * (fluidViscosity / Math.pow(particleDiameter, 2))",
+    "c": "(particleDensity - fluidDensity) * gravity",
+    "Umf": "(-b + Math.sqrt(b * b + 4 * a * c)) / (2 * a)",
+    "DeltaP_mf": "(particleDensity - fluidDensity) * (1 - voidFraction) * gravity * bedHeight",
+    "Re_mf": "particleDiameter * Umf * fluidDensity / fluidViscosity"
+  },
+  "outputs": {
+    "primary": "Umf",
+    "breakdown": [
+      "DeltaP_mf",
+      "Re_mf"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

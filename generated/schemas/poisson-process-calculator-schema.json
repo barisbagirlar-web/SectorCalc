@@ -1,0 +1,62 @@
+{
+  "toolName": "poisson-process-calculator",
+  "inputs": [
+    {
+      "id": "rate",
+      "label": "Ortalama Geliş Hızı (λ)",
+      "type": "number",
+      "unit": "olay/saat",
+      "default": 5,
+      "businessContext": "Birim zamanda meydana gelen ortalama olay sayısı"
+    },
+    {
+      "id": "t1",
+      "label": "Zaman Aralığı 1 (t₁)",
+      "type": "number",
+      "unit": "saat",
+      "default": 1,
+      "businessContext": "Olasılık hesabı için birinci zaman dilimi"
+    },
+    {
+      "id": "t2",
+      "label": "Zaman Aralığı 2 (t₂)",
+      "type": "number",
+      "unit": "saat",
+      "default": 2,
+      "businessContext": "Olasılık hesabı için ikinci zaman dilimi"
+    },
+    {
+      "id": "t3",
+      "label": "Zaman Aralığı 3 (t₃)",
+      "type": "number",
+      "unit": "saat",
+      "default": 3,
+      "businessContext": "Olasılık hesabı için üçüncü zaman dilimi"
+    }
+  ],
+  "formulas": {
+    "mu1": "rate * t1",
+    "mu2": "rate * t2",
+    "mu3": "rate * t3",
+    "p0_1": "Math.exp(-mu1)",
+    "p0_2": "Math.exp(-mu2)",
+    "p0_3": "Math.exp(-mu3)",
+    "avg_wait": "1 / rate",
+    "variance_example": "rate * t1"
+  },
+  "outputs": {
+    "primary": "t₁ = {t1} saat için beklenen olay sayısı: {mu1}, hiç olay olmama olasılığı: {p0_1}",
+    "breakdown": [
+      "t₂ = {t2} saat için beklenen olay sayısı: {mu2}, P(X=0): {p0_2}",
+      "t₃ = {t3} saat için beklenen olay sayısı: {mu3}, P(X=0): {p0_3}",
+      "Ortalama olaylar arası süre: {avg_wait} saat",
+      "Varyans (herhangi t için λt; örnek: t₁): {variance_example}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

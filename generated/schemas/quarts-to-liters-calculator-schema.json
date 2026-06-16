@@ -1,0 +1,57 @@
+{
+  "toolName": "quarts-to-liters-calculator",
+  "inputs": [
+    {
+      "id": "quartsPerContainer",
+      "label": "Quarts per Container",
+      "type": "number",
+      "unit": "qt",
+      "default": 1,
+      "businessContext": "Volume of liquid in one container, in quarts (US liquid or Imperial based on type)."
+    },
+    {
+      "id": "numberOfContainers",
+      "label": "Number of Containers",
+      "type": "number",
+      "unit": "pcs",
+      "default": 1,
+      "businessContext": "Total number of containers to be processed or converted."
+    },
+    {
+      "id": "quartType",
+      "label": "Quart Type (0=US Liquid, 1=Imperial)",
+      "type": "number",
+      "unit": "type",
+      "default": 0,
+      "businessContext": "Specify the quart system: 0 for US liquid quart (0.946352946 L), 1 for Imperial quart (1.1365225 L)."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Percentage of additional volume to account for waste, spillage, or safety margin."
+    }
+  ],
+  "formulas": {
+    "totalQuarts": "quartsPerContainer * numberOfContainers",
+    "conversionFactor": "quartType === 0 ? 0.946352946 : 1.1365225",
+    "baseLiters": "totalQuarts * conversionFactor",
+    "wasteLiters": "baseLiters * wasteFactor / 100",
+    "totalLiters": "baseLiters + wasteLiters"
+  },
+  "outputs": {
+    "primary": "totalLiters",
+    "breakdown": [
+      "baseLiters",
+      "wasteLiters"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,65 @@
+{
+  "toolName": "load-bearing-wall-calculator",
+  "inputs": [
+    {
+      "id": "wallThickness",
+      "label": "Duvar Kalınlığı",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "businessContext": "Duvarın et kalınlığı (mm)"
+    },
+    {
+      "id": "wallLength",
+      "label": "Duvar Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "businessContext": "Duvarın uzunluğu (m)"
+    },
+    {
+      "id": "wallHeight",
+      "label": "Duvar Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Duvarın yüksekliği (m)"
+    },
+    {
+      "id": "compressiveStrength",
+      "label": "Basınç Dayanımı",
+      "type": "number",
+      "unit": "MPa",
+      "default": 20,
+      "businessContext": "Malzeme basınç dayanımı (MPa)"
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Güvenlik Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Güvenlik faktörü (birimsiz)"
+    }
+  ],
+  "formulas": {
+    "area": "wallThickness / 1000 * wallLength",
+    "slendernessRatio": "wallHeight * Math.sqrt(12) * 1000 / wallThickness",
+    "axialStress": "compressiveStrength / safetyFactor",
+    "maxLoad": "area * compressiveStrength * 1000 / safetyFactor"
+  },
+  "outputs": {
+    "primary": "maxLoad",
+    "breakdown": [
+      "area",
+      "slendernessRatio",
+      "axialStress"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

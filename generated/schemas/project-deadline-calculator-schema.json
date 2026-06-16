@@ -1,0 +1,63 @@
+{
+  "toolName": "project-deadline-calculator",
+  "inputs": [
+    {
+      "id": "totalTasks",
+      "label": "Toplam Görev Sayısı",
+      "type": "number",
+      "unit": "tasks",
+      "default": 100,
+      "businessContext": "Proje kapsamındaki toplam iş paketi veya görev sayısı"
+    },
+    {
+      "id": "tasksPerDay",
+      "label": "Günlük Tamamlanan Görev",
+      "type": "number",
+      "unit": "tasks/day",
+      "default": 5,
+      "businessContext": "Bir ekip üyesinin günde tamamlayabileceği ortalama görev sayısı"
+    },
+    {
+      "id": "teamSize",
+      "label": "Ekip Büyüklüğü",
+      "type": "number",
+      "unit": "people",
+      "default": 3,
+      "businessContext": "Projede çalışan toplam kişi sayısı"
+    },
+    {
+      "id": "complexityFactor",
+      "label": "Karmaşıklık Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "businessContext": "Proje karmaşıklığına bağlı olarak süreyi artıran çarpan (1.0 = basit, 1.5 = karmaşık)"
+    },
+    {
+      "id": "contingencyPercent",
+      "label": "Yedek Süre Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Öngörülemeyen gecikmeler için ayrılan tampon süre yüzdesi"
+    }
+  ],
+  "formulas": {
+    "baseDays": "(totalTasks / (tasksPerDay * teamSize)) * complexityFactor",
+    "totalDays": "baseDays * (1 + contingencyPercent / 100)",
+    "contingencyDays": "totalDays - baseDays"
+  },
+  "outputs": {
+    "primary": "totalDays",
+    "breakdown": [
+      "baseDays",
+      "contingencyDays"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "date-time",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

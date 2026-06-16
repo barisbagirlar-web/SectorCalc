@@ -1,0 +1,83 @@
+{
+  "toolName": "party-planner-calculator",
+  "inputs": [
+    {
+      "id": "guests",
+      "label": "Number of Guests",
+      "type": "number",
+      "unit": "people",
+      "default": 50,
+      "businessContext": "Total number of attendees expected at the party"
+    },
+    {
+      "id": "foodCostPerPerson",
+      "label": "Food Cost per Person",
+      "type": "number",
+      "unit": "currency",
+      "default": 20,
+      "businessContext": "Average food cost per guest"
+    },
+    {
+      "id": "drinkCostPerPerson",
+      "label": "Drink Cost per Person",
+      "type": "number",
+      "unit": "currency",
+      "default": 10,
+      "businessContext": "Average drink cost per guest"
+    },
+    {
+      "id": "venueCost",
+      "label": "Venue Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 500,
+      "businessContext": "Total venue rental cost"
+    },
+    {
+      "id": "decorationsCost",
+      "label": "Decorations Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 200,
+      "businessContext": "Total cost of party decorations"
+    },
+    {
+      "id": "entertainmentCost",
+      "label": "Entertainment Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 300,
+      "businessContext": "Total cost of entertainment (e.g., DJ, band)"
+    },
+    {
+      "id": "miscCost",
+      "label": "Miscellaneous Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "businessContext": "Other miscellaneous expenses"
+    }
+  ],
+  "formulas": {
+    "totalFoodCost": "foodCostPerPerson * guests",
+    "totalDrinkCost": "drinkCostPerPerson * guests",
+    "fixedCosts": "venueCost + decorationsCost + entertainmentCost + miscCost",
+    "totalCost": "foodCostPerPerson * guests + drinkCostPerPerson * guests + venueCost + decorationsCost + entertainmentCost + miscCost",
+    "costPerGuest": "(foodCostPerPerson * guests + drinkCostPerPerson * guests + venueCost + decorationsCost + entertainmentCost + miscCost) / guests"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "totalFoodCost",
+      "totalDrinkCost",
+      "fixedCosts",
+      "costPerGuest"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

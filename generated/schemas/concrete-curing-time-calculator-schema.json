@@ -1,0 +1,58 @@
+{
+  "toolName": "concrete-curing-time-calculator",
+  "inputs": [
+    {
+      "id": "temp",
+      "label": "Ortam Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Beton kürleme ortamının ortalama sıcaklığı"
+    },
+    {
+      "id": "humidity",
+      "label": "Bağıl Nem",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "businessContext": "Ortam bağıl nemi"
+    },
+    {
+      "id": "cementType",
+      "label": "Çimento Tipi Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Çimento tipine bağlı kür süresi faktörü (Örn: Tip I: 1.0, Tip II: 1.1, Tip III: 0.8)"
+    },
+    {
+      "id": "baseDays",
+      "label": "Baz Kür Süresi",
+      "type": "number",
+      "unit": "gün",
+      "default": 7,
+      "businessContext": "Standart koşullarda (23°C, %100 nem, Tip I çimento) gereken kür süresi"
+    }
+  ],
+  "formulas": {
+    "tempFactor": "Math.pow(23/(temp+10), 1.5)",
+    "humidityFactor": "100/humidity",
+    "cementAdjust": "cementType",
+    "curingTime": "baseDays * tempFactor * humidityFactor * cementAdjust"
+  },
+  "outputs": {
+    "primary": "curingTime",
+    "breakdown": [
+      "baseDays",
+      "tempFactor",
+      "humidityFactor",
+      "cementAdjust"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

@@ -1,0 +1,58 @@
+{
+  "toolName": "eigenvector-calculator",
+  "inputs": [
+    {
+      "id": "a11",
+      "label": "a₁₁",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Matrix entry row 1, column 1"
+    },
+    {
+      "id": "a12",
+      "label": "a₁₂",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Matrix entry row 1, column 2"
+    },
+    {
+      "id": "a21",
+      "label": "a₂₁",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Matrix entry row 2, column 1"
+    },
+    {
+      "id": "a22",
+      "label": "a₂₂",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "businessContext": "Matrix entry row 2, column 2"
+    }
+  ],
+  "formulas": {
+    "trace": "a11 + a22",
+    "det": "a11 * a22 - a12 * a21",
+    "disc": "trace ** 2 - 4 * det",
+    "lambda1": "(trace + Math.sqrt(disc)) / 2",
+    "lambda2": "(trace - Math.sqrt(disc)) / 2",
+    "v2": "(lambda1 - a11) / a12"
+  },
+  "outputs": {
+    "primary": "Eigenvector: [1, {v2}]",
+    "breakdown": [
+      "Eigenvalue λ₁: {lambda1}",
+      "Eigenvalue λ₂: {lambda2}"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

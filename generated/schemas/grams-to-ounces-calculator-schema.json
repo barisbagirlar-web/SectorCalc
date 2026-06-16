@@ -1,0 +1,55 @@
+{
+  "toolName": "grams-to-ounces-calculator",
+  "inputs": [
+    {
+      "id": "grams",
+      "label": "Gram Miktarı",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Ölçülecek maddenin gram cinsinden ağırlığı"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Dönüşüm Faktörü (oz/g)",
+      "type": "number",
+      "unit": "oz/g",
+      "default": 0.0352739619,
+      "businessContext": "Gramdan onsa dönüşüm katsayısı, varsayılan uluslararası değer."
+    },
+    {
+      "id": "batchQuantity",
+      "label": "Parti Miktarı (adet)",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Aynı ağırlıkta olan parça sayısı; toplam ons hesabı için kullanılır."
+    },
+    {
+      "id": "precision",
+      "label": "Ondalık Basamak",
+      "type": "number",
+      "unit": "basamak",
+      "default": 4,
+      "businessContext": "Sonucun yuvarlanacağı ondalık basamak sayısı"
+    }
+  ],
+  "formulas": {
+    "ouncesPerUnit": "grams * conversionFactor",
+    "totalOunces": "ouncesPerUnit * batchQuantity",
+    "roundedTotalOunces": "Math.round(totalOunces * 10 ** precision) / 10 ** precision"
+  },
+  "outputs": {
+    "primary": "roundedTotalOunces",
+    "breakdown": [
+      "ouncesPerUnit",
+      "totalOunces"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "cycling-atl-calculator",
+  "inputs": [
+    {
+      "id": "atlPrevious",
+      "label": "Previous ATL",
+      "type": "number",
+      "unit": "TSS",
+      "default": 0,
+      "businessContext": "Your Acute Training Load from yesterday"
+    },
+    {
+      "id": "tssToday",
+      "label": "Today's TSS",
+      "type": "number",
+      "unit": "TSS",
+      "default": 0,
+      "businessContext": "Training Stress Score for today's ride"
+    },
+    {
+      "id": "timeConstant",
+      "label": "Time Constant",
+      "type": "number",
+      "unit": "days",
+      "default": 7,
+      "businessContext": "Number of days for ATL weighting (commonly 7)"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of decimal places for rounded output"
+    }
+  ],
+  "formulas": {
+    "atlCurrent": "atlPrevious + (tssToday - atlPrevious) / timeConstant",
+    "atlChange": "(tssToday - atlPrevious) / timeConstant",
+    "atlRounded": "Math.round((atlPrevious + (tssToday - atlPrevious) / timeConstant) * Math.pow(10, precision)) / Math.pow(10, precision)"
+  },
+  "outputs": {
+    "primary": "atlRounded",
+    "breakdown": [
+      "atlCurrent",
+      "atlChange"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

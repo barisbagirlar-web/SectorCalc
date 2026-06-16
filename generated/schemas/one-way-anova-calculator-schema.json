@@ -1,0 +1,65 @@
+{
+  "toolName": "one-way-anova-calculator",
+  "inputs": [
+    {
+      "id": "ssb",
+      "label": "Sum of Squares Between (SSB)",
+      "type": "number",
+      "unit": "unit²",
+      "default": 0,
+      "businessContext": "Variation attributable to the differences between group means."
+    },
+    {
+      "id": "ssw",
+      "label": "Sum of Squares Within (SSW)",
+      "type": "number",
+      "unit": "unit²",
+      "default": 0,
+      "businessContext": "Variation within groups, due to random error or individual differences."
+    },
+    {
+      "id": "dfb",
+      "label": "Degrees of Freedom Between (dfB)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Number of groups minus 1 (k-1)."
+    },
+    {
+      "id": "dfw",
+      "label": "Degrees of Freedom Within (dfW)",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "businessContext": "Total number of observations minus number of groups (N-k)."
+    },
+    {
+      "id": "alpha",
+      "label": "Significance Level (α)",
+      "type": "number",
+      "unit": "",
+      "default": 0.05,
+      "businessContext": "Threshold for statistical significance, probability of Type I error."
+    }
+  ],
+  "formulas": {
+    "msb": "ssb / dfb",
+    "msw": "ssw / dfw",
+    "fStat": "msb / msw",
+    "etaSq": "ssb / (ssb + ssw)"
+  },
+  "outputs": {
+    "primary": "fStat",
+    "breakdown": [
+      "msb",
+      "msw",
+      "etaSq"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "near-point-calculator",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Patient age in years. Used in Hofstetter's formulas for accommodative amplitude."
+    },
+    {
+      "id": "refractiveError",
+      "label": "Refractive Error",
+      "type": "number",
+      "unit": "D",
+      "default": 0,
+      "businessContext": "Refractive error in diopters (D). Negative for myopia, positive for hyperopia. Typically the distance prescription."
+    },
+    {
+      "id": "amplitudeMethod",
+      "label": "Amplitude Method",
+      "type": "number",
+      "unit": "code",
+      "default": 1,
+      "businessContext": "Select method for calculating accommodative amplitude. 1: Hofstetter minimum (15 - 0.25*age), 2: Hofstetter average (18.5 - 0.30*age), 3: Hofstetter maximum (25 - 0.40*age), 0: Direct input using 'directAmplitude'."
+    },
+    {
+      "id": "directAmplitude",
+      "label": "Direct Amplitude",
+      "type": "number",
+      "unit": "D",
+      "default": 2.5,
+      "businessContext": "Direct accommodative amplitude in diopters (D). Used only when Amplitude Method is 0."
+    }
+  ],
+  "formulas": {
+    "amplitudeDiopters": "amplitudeMethod === 0 ? directAmplitude : (amplitudeMethod === 1 ? 15 - 0.25 * age : (amplitudeMethod === 2 ? 18.5 - 0.30 * age : 25 - 0.40 * age))",
+    "nearPointDistanceMeters": "1 / (amplitudeDiopters + refractiveError)",
+    "nearPointDistanceCm": "nearPointDistanceMeters * 100"
+  },
+  "outputs": {
+    "primary": "nearPointDistanceCm",
+    "breakdown": [
+      "amplitudeDiopters",
+      "nearPointDistanceMeters"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

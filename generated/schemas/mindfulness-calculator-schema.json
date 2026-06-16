@@ -1,0 +1,60 @@
+{
+  "toolName": "mindfulness-calculator",
+  "inputs": [
+    {
+      "id": "meditationMinutes",
+      "label": "Günlük Meditasyon Süresi",
+      "type": "number",
+      "unit": "dk",
+      "default": 10,
+      "businessContext": "Çalışanın günlük meditasyon süresi (dakika)"
+    },
+    {
+      "id": "meditationFrequency",
+      "label": "Haftalık Meditasyon Sıklığı",
+      "type": "number",
+      "unit": "gün",
+      "default": 5,
+      "businessContext": "Haftada kaç gün meditasyon yapıldığı"
+    },
+    {
+      "id": "stressLevel",
+      "label": "Stres Seviyesi",
+      "type": "number",
+      "unit": "puan",
+      "default": 5,
+      "businessContext": "0-10 arası, 10 en yüksek stres"
+    },
+    {
+      "id": "concentrationLevel",
+      "label": "Konsantrasyon Seviyesi",
+      "type": "number",
+      "unit": "puan",
+      "default": 7,
+      "businessContext": "0-10 arası, 10 en yüksek odaklanma"
+    }
+  ],
+  "formulas": {
+    "totalWeeklyMinutes": "meditationMinutes * meditationFrequency",
+    "totalWeeklyHours": "totalWeeklyMinutes / 60",
+    "meditationScore": "Math.sqrt(totalWeeklyHours) * 10",
+    "stressScore": "(10 - stressLevel) * 10",
+    "concentrationScore": "concentrationLevel * 10",
+    "mindfulnessIndex": "meditationScore * ((10 - stressLevel) / 10) * (concentrationLevel / 10) * 10"
+  },
+  "outputs": {
+    "primary": "mindfulnessIndex",
+    "breakdown": [
+      "Meditasyon Puanı: ${formulas.meditationScore.toFixed(1)} puan",
+      "Stres Puanı: ${formulas.stressScore.toFixed(1)} puan",
+      "Konsantrasyon Puanı: ${formulas.concentrationScore.toFixed(1)} puan",
+      "Toplam Farkındalık Endeksi: ${formulas.mindfulnessIndex.toFixed(1)} puan"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

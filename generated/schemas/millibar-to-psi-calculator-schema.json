@@ -1,0 +1,56 @@
+{
+  "toolName": "millibar-to-psi-calculator",
+  "inputs": [
+    {
+      "id": "millibarValue",
+      "label": "Millibar Value",
+      "type": "number",
+      "unit": "mbar",
+      "default": 0,
+      "businessContext": "Gauge or absolute pressure in millibars"
+    },
+    {
+      "id": "conversionFactor",
+      "label": "Conversion Factor",
+      "type": "number",
+      "unit": "psi/mbar",
+      "default": 0.0145037738,
+      "businessContext": "Standard millibar to psi conversion factor"
+    },
+    {
+      "id": "calibrationOffset",
+      "label": "Calibration Offset",
+      "type": "number",
+      "unit": "psi",
+      "default": 0,
+      "businessContext": "Instrument offset from last calibration certificate"
+    },
+    {
+      "id": "temperatureCorrection",
+      "label": "Temperature Correction",
+      "type": "number",
+      "unit": "factor",
+      "default": 1,
+      "businessContext": "Dimensionless correction for medium temperature deviation from reference"
+    }
+  ],
+  "formulas": {
+    "rawConversionPsi": "millibarValue * conversionFactor",
+    "calibrationAppliedPsi": "rawConversionPsi + calibrationOffset",
+    "finalPressurePsi": "calibrationAppliedPsi * temperatureCorrection"
+  },
+  "outputs": {
+    "primary": "finalPressurePsi",
+    "breakdown": [
+      "rawConversionPsi",
+      "calibrationAppliedPsi",
+      "finalPressurePsi"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

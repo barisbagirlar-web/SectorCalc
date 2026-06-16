@@ -1,0 +1,39 @@
+{
+  "toolName": "significant-figures-calculator",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "Number",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The number to be rounded to the specified significant figures."
+    },
+    {
+      "id": "sigFigs",
+      "label": "Significant Figures",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Number of significant digits desired in the result."
+    }
+  ],
+  "formulas": {
+    "order": "value === 0 ? 0 : Math.floor(Math.log10(Math.abs(value)))",
+    "factor": "value === 0 ? 1 : Math.pow(10, order - sigFigs + 1)",
+    "rounded": "(function(v, sf) { if(v===0) return 0; var order = Math.floor(Math.log10(Math.abs(v))); var factor = Math.pow(10, order - sf + 1); return Math.round(v / factor) * factor; })(value, sigFigs)"
+  },
+  "outputs": {
+    "primary": "rounded",
+    "breakdown": [
+      "order",
+      "factor"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,74 @@
+{
+  "toolName": "bac-calculator",
+  "inputs": [
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 for male, 1 for female"
+    },
+    {
+      "id": "weight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms"
+    },
+    {
+      "id": "drinks",
+      "label": "Number of Drinks",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Standard drinks (14g ethanol each)"
+    },
+    {
+      "id": "hours",
+      "label": "Hours Since First Drink",
+      "type": "number",
+      "unit": "hours",
+      "default": 1,
+      "businessContext": "Time elapsed since start of drinking"
+    },
+    {
+      "id": "alcoholPercentage",
+      "label": "Alcohol Percentage per Drink",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Alcohol by volume (ABV) per drink"
+    },
+    {
+      "id": "volumePerDrink",
+      "label": "Volume per Drink",
+      "type": "number",
+      "unit": "ml",
+      "default": 355,
+      "businessContext": "Volume of one drink in milliliters"
+    }
+  ],
+  "formulas": {
+    "totalAlcoholGrams": "drinks * volumePerDrink * (alcoholPercentage / 100) * 0.789",
+    "bodyWaterConstant": "gender === 0 ? 0.68 : 0.55",
+    "bacRaw": "totalAlcoholGrams / (weight * bodyWaterConstant * 10)",
+    "bacMetabolized": "hours * 0.015",
+    "bac": "Math.max(0, bacRaw - bacMetabolized)"
+  },
+  "outputs": {
+    "primary": "bac",
+    "breakdown": [
+      "totalAlcoholGrams",
+      "bacRaw",
+      "bacMetabolized"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

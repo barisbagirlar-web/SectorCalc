@@ -1,0 +1,59 @@
+{
+  "toolName": "half-life-reaction-calculator",
+  "inputs": [
+    {
+      "id": "initialQuantity",
+      "label": "Initial Quantity",
+      "type": "number",
+      "unit": "g",
+      "default": 100,
+      "businessContext": "The initial mass or amount of substance at time zero."
+    },
+    {
+      "id": "tolerancePercent",
+      "label": "Tolerance",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Measurement uncertainty or tolerance percentage applied to the initial quantity (e.g., ±5%)."
+    },
+    {
+      "id": "halfLife",
+      "label": "Half-Life",
+      "type": "number",
+      "unit": "s",
+      "default": 10,
+      "businessContext": "The half-life of the substance in consistent time units."
+    },
+    {
+      "id": "elapsedTime",
+      "label": "Elapsed Time",
+      "type": "number",
+      "unit": "s",
+      "default": 20,
+      "businessContext": "The total elapsed time since start, in the same time unit as half-life."
+    }
+  ],
+  "formulas": {
+    "remainingQuantity": "initialQuantity * Math.pow(0.5, elapsedTime / halfLife)",
+    "halflives": "elapsedTime / halfLife",
+    "k": "Math.log(2) / halfLife",
+    "lowerBound": "remainingQuantity * (1 - tolerancePercent / 100)",
+    "upperBound": "remainingQuantity * (1 + tolerancePercent / 100)"
+  },
+  "outputs": {
+    "primary": "remainingQuantity",
+    "breakdown": [
+      "halflives",
+      "k",
+      "lowerBound",
+      "upperBound"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

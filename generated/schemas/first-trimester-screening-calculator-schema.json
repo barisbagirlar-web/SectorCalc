@@ -1,0 +1,66 @@
+{
+  "toolName": "first-trimester-screening-calculator",
+  "inputs": [
+    {
+      "id": "maternalAge",
+      "label": "Maternal Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Maternal age in years at the date of screening."
+    },
+    {
+      "id": "nuchalTranslucency",
+      "label": "Nuchal Translucency (NT)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1.5,
+      "businessContext": "Nuchal translucency measurement from ultrasound."
+    },
+    {
+      "id": "crownRumpLength",
+      "label": "Crown-Rump Length (CRL)",
+      "type": "number",
+      "unit": "mm",
+      "default": 65,
+      "businessContext": "Crown-rump length from ultrasound for gestational age and NT normalization."
+    },
+    {
+      "id": "pappA",
+      "label": "PAPP-A MoM",
+      "type": "number",
+      "unit": "MoM",
+      "default": 1,
+      "businessContext": "Pregnancy-associated plasma protein A (PAPP-A) multiples of median."
+    },
+    {
+      "id": "freeBetaHCG",
+      "label": "Free β-hCG MoM",
+      "type": "number",
+      "unit": "MoM",
+      "default": 1,
+      "businessContext": "Free beta human chorionic gonadotropin multiples of median."
+    }
+  ],
+  "formulas": {
+    "expectedNT": "Math.pow(10, -0.3599 + 0.0127 * crownRumpLength - 0.000058 * crownRumpLength * crownRumpLength)",
+    "ntMoM": "nuchalTranslucency / expectedNT",
+    "logit": "-5.0 + 0.15 * maternalAge + 3.0 * ntMoM - 2.0 * pappA + 1.5 * freeBetaHCG",
+    "riskProbability": "1 / (1 + Math.exp(-logit))",
+    "riskPercentage": "riskProbability * 100"
+  },
+  "outputs": {
+    "primary": "riskPercentage",
+    "breakdown": [
+      "logit",
+      "riskProbability",
+      "ntMoM"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

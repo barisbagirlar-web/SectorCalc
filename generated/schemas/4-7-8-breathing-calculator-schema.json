@@ -1,0 +1,57 @@
+{
+  "toolName": "4-7-8-breathing-calculator",
+  "inputs": [
+    {
+      "id": "inhaleSeconds",
+      "label": "Inhale Duration",
+      "type": "number",
+      "unit": "seconds",
+      "default": 4,
+      "businessContext": "Duration of the inhale phase in the 4-7-8 breathing technique."
+    },
+    {
+      "id": "holdSeconds",
+      "label": "Hold Duration",
+      "type": "number",
+      "unit": "seconds",
+      "default": 7,
+      "businessContext": "Duration of the breath-hold phase."
+    },
+    {
+      "id": "exhaleSeconds",
+      "label": "Exhale Duration",
+      "type": "number",
+      "unit": "seconds",
+      "default": 8,
+      "businessContext": "Duration of the exhale phase."
+    },
+    {
+      "id": "numberOfCycles",
+      "label": "Number of Cycles",
+      "type": "number",
+      "unit": "cycles",
+      "default": 1,
+      "businessContext": "Number of consecutive breathing cycles to perform."
+    }
+  ],
+  "formulas": {
+    "totalCycleTime": "inhaleSeconds + holdSeconds + exhaleSeconds",
+    "totalTime": "totalCycleTime * numberOfCycles"
+  },
+  "outputs": {
+    "primary": "totalTime",
+    "breakdown": [
+      "totalCycleTime",
+      "inhaleSeconds",
+      "holdSeconds",
+      "exhaleSeconds",
+      "numberOfCycles"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

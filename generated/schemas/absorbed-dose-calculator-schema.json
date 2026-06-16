@@ -1,0 +1,66 @@
+{
+  "toolName": "absorbed-dose-calculator",
+  "inputs": [
+    {
+      "id": "mass",
+      "label": "Mass of Absorbing Material",
+      "type": "number",
+      "unit": "kg",
+      "default": 1,
+      "businessContext": "Mass of the material that absorbs the radiation energy."
+    },
+    {
+      "id": "energy",
+      "label": "Total Energy Deposited",
+      "type": "number",
+      "unit": "J",
+      "default": 100,
+      "businessContext": "Total energy deposited by ionizing radiation into the material."
+    },
+    {
+      "id": "time",
+      "label": "Exposure Time",
+      "type": "number",
+      "unit": "s",
+      "default": 3600,
+      "businessContext": "Duration of radiation exposure."
+    },
+    {
+      "id": "density",
+      "label": "Material Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of the absorbing material (e.g., water = 1000 kg/m³)."
+    },
+    {
+      "id": "volume",
+      "label": "Volume of Material",
+      "type": "number",
+      "unit": "m³",
+      "default": 0.001,
+      "businessContext": "Volume of the absorbing material."
+    }
+  ],
+  "formulas": {
+    "absorbedDose": "energy / mass",
+    "doseRate": "absorbedDose / time",
+    "massFromDensity": "density * volume",
+    "checkMass": "mass === massFromDensity ? mass : (mass + massFromDensity) / 2"
+  },
+  "outputs": {
+    "primary": "absorbedDose",
+    "breakdown": [
+      "absorbedDose",
+      "doseRate",
+      "massFromDensity",
+      "checkMass"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

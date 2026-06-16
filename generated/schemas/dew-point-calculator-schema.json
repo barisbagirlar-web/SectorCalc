@@ -1,0 +1,53 @@
+{
+  "toolName": "dew-point-calculator",
+  "inputs": [
+    {
+      "id": "temperature",
+      "label": "Air Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Dry-bulb air temperature in degrees Celsius"
+    },
+    {
+      "id": "humidity",
+      "label": "Relative Humidity",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Relative humidity of air (0-100%)"
+    },
+    {
+      "id": "a",
+      "label": "Magnus Constant a",
+      "type": "number",
+      "unit": "",
+      "default": 17.27,
+      "businessContext": "Empirical constant a for Magnus formula (17.27 for water, 21.875 for ice)"
+    },
+    {
+      "id": "b",
+      "label": "Magnus Constant b",
+      "type": "number",
+      "unit": "°C",
+      "default": 237.7,
+      "businessContext": "Empirical constant b (237.7 °C for water, 265.5 °C for ice)"
+    }
+  ],
+  "formulas": {
+    "alpha": "(a * temperature) / (b + temperature) + Math.log(humidity / 100)",
+    "dewPoint": "(b * ((a * temperature) / (b + temperature) + Math.log(humidity / 100))) / (a - ((a * temperature) / (b + temperature) + Math.log(humidity / 100)))"
+  },
+  "outputs": {
+    "primary": "dewPoint",
+    "breakdown": [
+      "alpha"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

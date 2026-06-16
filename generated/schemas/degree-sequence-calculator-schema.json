@@ -1,0 +1,90 @@
+{
+  "toolName": "degree-sequence-calculator",
+  "inputs": [
+    {
+      "id": "d1",
+      "label": "Degree 1",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Degree of the first vertex (non-negative integer)"
+    },
+    {
+      "id": "d2",
+      "label": "Degree 2",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Degree of the second vertex"
+    },
+    {
+      "id": "d3",
+      "label": "Degree 3",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Degree of the third vertex"
+    },
+    {
+      "id": "d4",
+      "label": "Degree 4",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "businessContext": "Degree of the fourth vertex"
+    },
+    {
+      "id": "d5",
+      "label": "Degree 5",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Degree of the fifth vertex"
+    },
+    {
+      "id": "d6",
+      "label": "Degree 6",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Degree of the sixth vertex"
+    }
+  ],
+  "formulas": {
+    "sum": "d1 + d2 + d3 + d4 + d5 + d6",
+    "maxDegree": "Math.max(d1, d2, d3, d4, d5, d6)",
+    "averageDegree": "(d1 + d2 + d3 + d4 + d5 + d6) / 6",
+    "edges": "(d1 + d2 + d3 + d4 + d5 + d6) / 2"
+  },
+  "outputs": {
+    "primary": {
+      "id": "edges",
+      "label": "Total Edges",
+      "unit": "",
+      "description": "Total number of edges in a simple graph corresponding to the degree sequence (sum/2)"
+    },
+    "breakdown": [
+      {
+        "id": "sum",
+        "label": "Sum of Degrees",
+        "unit": ""
+      },
+      {
+        "id": "averageDegree",
+        "label": "Average Degree",
+        "unit": ""
+      },
+      {
+        "id": "maxDegree",
+        "label": "Maximum Degree",
+        "unit": ""
+      }
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

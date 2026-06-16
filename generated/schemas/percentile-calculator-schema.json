@@ -1,0 +1,75 @@
+{
+  "toolName": "percentile-calculator",
+  "inputs": [
+    {
+      "id": "data1",
+      "label": "Measurement 1",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "First measurement value"
+    },
+    {
+      "id": "data2",
+      "label": "Measurement 2",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Second measurement value"
+    },
+    {
+      "id": "data3",
+      "label": "Measurement 3",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Third measurement value"
+    },
+    {
+      "id": "data4",
+      "label": "Measurement 4",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Fourth measurement value"
+    },
+    {
+      "id": "data5",
+      "label": "Measurement 5",
+      "type": "number",
+      "unit": "mm",
+      "default": 0,
+      "businessContext": "Fifth measurement value"
+    },
+    {
+      "id": "percentile",
+      "label": "Percentile",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Desired percentile (0–100)"
+    }
+  ],
+  "formulas": {
+    "sortedDataStr": "JSON.stringify([data1, data2, data3, data4, data5].sort(function(a, b) { return a - b; }))",
+    "rankValue": "(percentile / 100) * 6",
+    "lowerValue": "(function() { var sorted = [data1, data2, data3, data4, data5].sort(function(a, b) { return a - b; }); var n = 5; var index = (percentile / 100) * (n + 1); var k = Math.floor(index); if (k === 0) return sorted[0]; if (k >= n) return sorted[n - 1]; return sorted[k - 1]; })()",
+    "upperValue": "(function() { var sorted = [data1, data2, data3, data4, data5].sort(function(a, b) { return a - b; }); var n = 5; var index = (percentile / 100) * (n + 1); var k = Math.ceil(index); if (k <= 1) return sorted[0]; if (k >= n) return sorted[n - 1]; return sorted[k - 1]; })()",
+    "percentileValue": "(function() { var sorted = [data1, data2, data3, data4, data5].sort(function(a, b) { return a - b; }); var n = 5; var p = percentile / 100; var index = p * (n + 1); var k = Math.floor(index); var d = index - k; if (k === 0) return sorted[0]; if (k >= n) return sorted[n - 1]; return sorted[k - 1] + d * (sorted[k] - sorted[k - 1]); })()"
+  },
+  "outputs": {
+    "primary": "percentileValue",
+    "breakdown": [
+      "sortedDataStr",
+      "rankValue",
+      "lowerValue",
+      "upperValue"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,55 @@
+{
+  "toolName": "e-waste-calculator",
+  "inputs": [
+    {
+      "id": "deviceCount",
+      "label": "E-waste Cihaz Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "businessContext": "Bertaraf edilecek elektronik cihazların toplam sayısı."
+    },
+    {
+      "id": "avgWeight",
+      "label": "Ortalama Cihaz Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 2.5,
+      "businessContext": "Tek bir cihazın ortalama ağırlığı (kg)."
+    },
+    {
+      "id": "recyclablePercent",
+      "label": "Geri Dönüştürülebilir Malzeme Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "businessContext": "Cihazın toplam ağırlığının geri dönüştürülebilir malzeme yüzdesi."
+    },
+    {
+      "id": "recoveryRate",
+      "label": "Geri Kazanım Verimliliği",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Geri dönüştürülebilir malzemenin geri kazanım oranı (süreç verimliliği)."
+    }
+  ],
+  "formulas": {
+    "totalWeight": "deviceCount * avgWeight",
+    "recyclableWeight": "totalWeight * (recyclablePercent / 100)",
+    "recoveredWeight": "recyclableWeight * (recoveryRate / 100)"
+  },
+  "outputs": {
+    "primary": "recoveredWeight",
+    "breakdown": [
+      "totalWeight",
+      "recyclableWeight"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

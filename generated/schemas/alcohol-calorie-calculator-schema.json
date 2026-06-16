@@ -1,0 +1,68 @@
+{
+  "toolName": "alcohol-calorie-calculator",
+  "inputs": [
+    {
+      "id": "volume",
+      "label": "Volume (ml)",
+      "type": "number",
+      "unit": "ml",
+      "default": 500,
+      "businessContext": "The volume of the alcoholic beverage consumed in milliliters."
+    },
+    {
+      "id": "abv",
+      "label": "Alcohol by Volume (ABV %)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "The alcohol by volume percentage of the beverage."
+    },
+    {
+      "id": "carbs",
+      "label": "Carbohydrates (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Grams of carbohydrates in the consumed beverage."
+    },
+    {
+      "id": "protein",
+      "label": "Protein (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Grams of protein in the consumed beverage."
+    },
+    {
+      "id": "fat",
+      "label": "Fat (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Grams of fat in the consumed beverage."
+    },
+    {
+      "id": "quantity",
+      "label": "Number of Drinks",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The number of drinks consumed."
+    }
+  ],
+  "formulas": {
+    "alcoholCalories": "volume * (abv / 100) * 0.789 * 7",
+    "otherCalories": "carbs * 4 + protein * 4 + fat * 9",
+    "totalCalories": "(alcoholCalories + otherCalories) * quantity"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "alcoholCalories",
+      "otherCalories"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false
+}

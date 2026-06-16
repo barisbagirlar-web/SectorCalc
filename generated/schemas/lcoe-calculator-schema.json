@@ -1,0 +1,98 @@
+{
+  "toolName": "lcoe-calculator",
+  "inputs": [
+    {
+      "id": "capitalCostPerKW",
+      "label": "Capital Cost per kW",
+      "type": "number",
+      "unit": "$/kW",
+      "default": 1000,
+      "businessContext": "Upfront capital expenditure per installed kilowatt"
+    },
+    {
+      "id": "plantCapacity",
+      "label": "Plant Capacity",
+      "type": "number",
+      "unit": "kW",
+      "default": 100000,
+      "businessContext": "Total installed capacity of the power plant"
+    },
+    {
+      "id": "fixedOandM",
+      "label": "Fixed O&M Cost",
+      "type": "number",
+      "unit": "$/kW-year",
+      "default": 20,
+      "businessContext": "Annual fixed operating and maintenance cost per kW"
+    },
+    {
+      "id": "variableOandM",
+      "label": "Variable O&M Cost",
+      "type": "number",
+      "unit": "$/MWh",
+      "default": 5,
+      "businessContext": "Variable O&M cost per MWh generated"
+    },
+    {
+      "id": "fuelCost",
+      "label": "Fuel Cost",
+      "type": "number",
+      "unit": "$/MWh",
+      "default": 0,
+      "businessContext": "Fuel cost per MWh (0 for renewable plants)"
+    },
+    {
+      "id": "capacityFactor",
+      "label": "Capacity Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "businessContext": "Plant capacity factor as a percentage (0-100)"
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "businessContext": "Annual discount rate (WACC) in percent"
+    },
+    {
+      "id": "lifetimeYears",
+      "label": "Lifetime",
+      "type": "number",
+      "unit": "years",
+      "default": 25,
+      "businessContext": "Economic lifetime of the plant in years"
+    }
+  ],
+  "formulas": {
+    "totalCapitalCost": "capitalCostPerKW * plantCapacity",
+    "discountRateDec": "discountRate / 100",
+    "crf": "(discountRateDec * Math.pow(1 + discountRateDec, lifetimeYears)) / (Math.pow(1 + discountRateDec, lifetimeYears) - 1)",
+    "annualCapitalCost": "totalCapitalCost * crf",
+    "annualFixedOandM": "fixedOandM * plantCapacity",
+    "capacityFactorDec": "capacityFactor / 100",
+    "annualEnergyOutput": "plantCapacity * capacityFactorDec * 8760 / 1000",
+    "annualVariableOandM": "variableOandM * annualEnergyOutput",
+    "annualFuelCost": "fuelCost * annualEnergyOutput",
+    "totalAnnualCost": "annualCapitalCost + annualFixedOandM + annualVariableOandM + annualFuelCost",
+    "lcoe": "totalAnnualCost / annualEnergyOutput"
+  },
+  "outputs": {
+    "primary": "lcoe",
+    "breakdown": [
+      "annualCapitalCost",
+      "annualFixedOandM",
+      "annualVariableOandM",
+      "annualFuelCost",
+      "annualEnergyOutput"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

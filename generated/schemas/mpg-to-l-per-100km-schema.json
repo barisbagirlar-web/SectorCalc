@@ -1,0 +1,36 @@
+{
+  "toolName": "mpg-to-l-per-100km",
+  "inputs": [
+    {
+      "id": "mpg",
+      "label": "Miles per Gallon (MPG)",
+      "type": "number",
+      "unit": "mpg",
+      "default": 25,
+      "businessContext": "Fuel efficiency in miles per gallon (US gallon)."
+    },
+    {
+      "id": "fuelType",
+      "label": "Fuel Type",
+      "type": "number",
+      "unit": "factor",
+      "default": 1,
+      "businessContext": "Conversion factor for fuel type: 1 for gasoline, 0.9 for diesel, 1.1 for LPG."
+    }
+  ],
+  "formulas": {
+    "litersPer100km": "235.214583 / (mpg * fuelType)"
+  },
+  "outputs": {
+    "primary": "litersPer100km",
+    "breakdown": [
+      "litersPer100km = 235.214583 / (mpg * fuelType)"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

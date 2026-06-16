@@ -1,0 +1,71 @@
+{
+  "toolName": "baby-growth-calculator",
+  "inputs": [
+    {
+      "id": "birthWeight",
+      "label": "Doğum Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 3.5,
+      "businessContext": "Bebeğin doğumdaki ağırlığı (kg)"
+    },
+    {
+      "id": "currentWeight",
+      "label": "Güncel Ağırlık",
+      "type": "number",
+      "unit": "kg",
+      "default": 5,
+      "businessContext": "Bebeğin şu anki ağırlığı (kg)"
+    },
+    {
+      "id": "ageMonths",
+      "label": "Yaş (Ay)",
+      "type": "number",
+      "unit": "ay",
+      "default": 2,
+      "businessContext": "Ay cinsinden yaş"
+    },
+    {
+      "id": "length",
+      "label": "Boy",
+      "type": "number",
+      "unit": "cm",
+      "default": 50,
+      "businessContext": "Bebeğin boy uzunluğu (cm)"
+    },
+    {
+      "id": "headCircumference",
+      "label": "Baş Çevresi",
+      "type": "number",
+      "unit": "cm",
+      "default": 35,
+      "businessContext": "Baş çevresi (cm)"
+    },
+    {
+      "id": "gender",
+      "label": "Cinsiyet (0=Erkek, 1=Kız)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Bebeğin cinsiyeti: 0 erkek, 1 kız"
+    }
+  ],
+  "formulas": {
+    "weightPercentile": "Math.round(100 * (1/(1+Math.exp(-((currentWeight - (birthWeight + 0.6 * ageMonths))/0.5)))))",
+    "lengthPercentile": "Math.round(100 * (1/(1+Math.exp(-((length - (45 + 2.5 * ageMonths))/2)))))",
+    "weightForLengthPercentile": "Math.round(100 * (1/(1+Math.exp(-((currentWeight - (length/100 * 10))/1.2)))))"
+  },
+  "outputs": {
+    "primary": "weightPercentile",
+    "breakdown": [
+      "lengthPercentile",
+      "weightForLengthPercentile"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

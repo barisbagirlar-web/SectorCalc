@@ -1,0 +1,28 @@
+{
+  "toolName": "square-miles-to-km2",
+  "inputs": [
+    {
+      "id": "square_miles",
+      "label": "Square Miles",
+      "type": "number",
+      "unit": "mi²",
+      "default": 1,
+      "businessContext": "Area in square miles to be converted to square kilometers."
+    }
+  ],
+  "formulas": {
+    "km2": "square_miles * 2.589988110336"
+  },
+  "outputs": {
+    "primary": "km2",
+    "breakdown": [
+      "km2"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

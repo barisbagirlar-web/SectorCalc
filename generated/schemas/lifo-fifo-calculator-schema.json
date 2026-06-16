@@ -1,0 +1,82 @@
+{
+  "toolName": "lifo-fifo-calculator",
+  "inputs": [
+    {
+      "id": "openingUnits",
+      "label": "Opening Inventory Units",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "Initial stock quantity"
+    },
+    {
+      "id": "openingCostPerUnit",
+      "label": "Opening Inventory Cost per Unit",
+      "type": "number",
+      "unit": "currency/unit",
+      "default": 0,
+      "businessContext": "Initial stock unit cost"
+    },
+    {
+      "id": "purchase1Units",
+      "label": "Purchase 1 Units",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "First additional batch quantity"
+    },
+    {
+      "id": "purchase1CostPerUnit",
+      "label": "Purchase 1 Cost per Unit",
+      "type": "number",
+      "unit": "currency/unit",
+      "default": 0,
+      "businessContext": "First additional batch unit cost"
+    },
+    {
+      "id": "purchase2Units",
+      "label": "Purchase 2 Units",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "Second additional batch quantity"
+    },
+    {
+      "id": "purchase2CostPerUnit",
+      "label": "Purchase 2 Cost per Unit",
+      "type": "number",
+      "unit": "currency/unit",
+      "default": 0,
+      "businessContext": "Second additional batch unit cost"
+    },
+    {
+      "id": "unitsSold",
+      "label": "Units Sold",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "businessContext": "Total units sold or consumed"
+    }
+  ],
+  "formulas": {
+    "totalCost": "openingUnits * openingCostPerUnit + purchase1Units * purchase1CostPerUnit + purchase2Units * purchase2CostPerUnit",
+    "cogsLifo": "unitsSold <= purchase2Units ? unitsSold * purchase2CostPerUnit : unitsSold - purchase2Units <= purchase1Units ? purchase2Units * purchase2CostPerUnit + (unitsSold - purchase2Units) * purchase1CostPerUnit : purchase2Units * purchase2CostPerUnit + purchase1Units * purchase1CostPerUnit + (unitsSold - purchase2Units - purchase1Units) * openingCostPerUnit",
+    "endingInventoryLifo": "totalCost - cogsLifo",
+    "cogsFifo": "unitsSold <= openingUnits ? unitsSold * openingCostPerUnit : unitsSold - openingUnits <= purchase1Units ? openingUnits * openingCostPerUnit + (unitsSold - openingUnits) * purchase1CostPerUnit : openingUnits * openingCostPerUnit + purchase1Units * purchase1CostPerUnit + (unitsSold - openingUnits - purchase1Units) * purchase2CostPerUnit",
+    "endingInventoryFifo": "totalCost - cogsFifo"
+  },
+  "outputs": {
+    "primary": "cogsLifo",
+    "breakdown": [
+      "endingInventoryLifo",
+      "cogsFifo",
+      "endingInventoryFifo"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

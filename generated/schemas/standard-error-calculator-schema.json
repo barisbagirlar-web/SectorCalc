@@ -1,0 +1,61 @@
+{
+  "toolName": "standard-error-calculator",
+  "inputs": [
+    {
+      "id": "sd1",
+      "label": "Standard Deviation Group 1",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The standard deviation of the first sample group."
+    },
+    {
+      "id": "n1",
+      "label": "Sample Size Group 1",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The number of observations in the first sample group."
+    },
+    {
+      "id": "sd2",
+      "label": "Standard Deviation Group 2",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The standard deviation of the second sample group."
+    },
+    {
+      "id": "n2",
+      "label": "Sample Size Group 2",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "The number of observations in the second sample group."
+    }
+  ],
+  "formulas": {
+    "sd1Squared": "sd1 ** 2",
+    "sd2Squared": "sd2 ** 2",
+    "varianceTerm1": "(sd1 ** 2) / n1",
+    "varianceTerm2": "(sd2 ** 2) / n2",
+    "combinedVariance": "(sd1 ** 2) / n1 + (sd2 ** 2) / n2",
+    "standardError": "Math.sqrt((sd1 ** 2) / n1 + (sd2 ** 2) / n2)"
+  },
+  "outputs": {
+    "primary": "standardError",
+    "breakdown": [
+      "sd1Squared",
+      "sd2Squared",
+      "varianceTerm1",
+      "varianceTerm2",
+      "combinedVariance"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

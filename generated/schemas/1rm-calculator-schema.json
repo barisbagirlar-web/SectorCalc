@@ -1,0 +1,58 @@
+{
+  "toolName": "1rm-calculator",
+  "inputs": [
+    {
+      "id": "weight_lifted",
+      "label": "Weight Lifted",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "The weight you lifted for the given number of repetitions."
+    },
+    {
+      "id": "reps_performed",
+      "label": "Repetitions Performed",
+      "type": "number",
+      "unit": "reps",
+      "default": 5,
+      "businessContext": "The number of repetitions you completed with the given weight."
+    },
+    {
+      "id": "rir",
+      "label": "Reps in Reserve (RIR)",
+      "type": "number",
+      "unit": "reps",
+      "default": 0,
+      "businessContext": "Estimated repetitions you had left in the tank before failure. 0 means you trained to failure, 1 means you could have done 1 more rep, etc."
+    },
+    {
+      "id": "fatigue_percent",
+      "label": "Fatigue Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Estimated performance reduction due to fatigue from previous sets, as a percentage of maximum capacity. 0% means fully fresh."
+    }
+  ],
+  "formulas": {
+    "adjusted_reps": "reps_performed + rir",
+    "raw_1rm": "weight_lifted * (1 + (adjusted_reps / 30))",
+    "fatigue_adjustment": "1 - (fatigue_percent / 100)",
+    "estimated_1rm": "raw_1rm * fatigue_adjustment",
+    "weight_5rm": "estimated_1rm / (1 + 5/30)",
+    "weight_10rm": "estimated_1rm / (1 + 10/30)"
+  },
+  "outputs": {
+    "primary": "estimated_1rm",
+    "breakdown": [
+      "weight_5rm",
+      "weight_10rm"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

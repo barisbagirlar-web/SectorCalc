@@ -1,0 +1,58 @@
+{
+  "toolName": "omad-calculator",
+  "inputs": [
+    {
+      "id": "protein",
+      "label": "Protein (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Protein intake from the single meal, in grams"
+    },
+    {
+      "id": "carbs",
+      "label": "Carbohydrates (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Carbohydrate intake from the single meal, in grams"
+    },
+    {
+      "id": "fat",
+      "label": "Fat (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Fat intake from the single meal, in grams"
+    },
+    {
+      "id": "fiber",
+      "label": "Fiber (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Dietary fiber intake from the single meal, in grams"
+    }
+  ],
+  "formulas": {
+    "totalCalories": "protein * 4 + carbs * 4 + fat * 9",
+    "proteinCalories": "protein * 4",
+    "carbsCalories": "carbs * 4",
+    "fatCalories": "fat * 9"
+  },
+  "outputs": {
+    "primary": "totalCalories",
+    "breakdown": [
+      "proteinCalories",
+      "carbsCalories",
+      "fatCalories",
+      "fiber"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

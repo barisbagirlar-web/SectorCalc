@@ -1,0 +1,66 @@
+{
+  "toolName": "adiabatic-lapse-rate-calculator",
+  "inputs": [
+    {
+      "id": "initialAltitude",
+      "label": "Initial Altitude",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "businessContext": "Altitude of the reference point where initial temperature is measured."
+    },
+    {
+      "id": "finalAltitude",
+      "label": "Final Altitude",
+      "type": "number",
+      "unit": "m",
+      "default": 1000,
+      "businessContext": "Altitude at which temperature is to be calculated."
+    },
+    {
+      "id": "initialTemperature",
+      "label": "Initial Temperature",
+      "type": "number",
+      "unit": "K",
+      "default": 293.15,
+      "businessContext": "Temperature at the initial altitude (in Kelvin). For Celsius, use same numeric temperature change."
+    },
+    {
+      "id": "specificHeatCapacity",
+      "label": "Specific Heat Capacity",
+      "type": "number",
+      "unit": "J/(kg·K)",
+      "default": 1005,
+      "businessContext": "Specific heat capacity of air at constant pressure (dry air ≈ 1005 J/(kg·K))."
+    },
+    {
+      "id": "gravityAcceleration",
+      "label": "Gravity Acceleration",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.81,
+      "businessContext": "Acceleration due to gravity (standard 9.81 m/s²)."
+    }
+  ],
+  "formulas": {
+    "heightDifference": "finalAltitude - initialAltitude",
+    "lapseRate": "-gravityAcceleration / specificHeatCapacity",
+    "temperatureChange": "lapseRate * heightDifference",
+    "finalTemperature": "initialTemperature + temperatureChange"
+  },
+  "outputs": {
+    "primary": "finalTemperature",
+    "breakdown": [
+      "heightDifference",
+      "lapseRate",
+      "temperatureChange",
+      "finalTemperature"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

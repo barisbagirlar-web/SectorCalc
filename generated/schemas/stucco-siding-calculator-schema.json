@@ -1,0 +1,98 @@
+{
+  "toolName": "stucco-siding-calculator",
+  "inputs": [
+    {
+      "id": "wallArea",
+      "label": "Wall Area",
+      "type": "number",
+      "unit": "sq ft",
+      "default": 1000,
+      "businessContext": "Total wall surface area to be covered with stucco."
+    },
+    {
+      "id": "thickness",
+      "label": "Stucco Thickness",
+      "type": "number",
+      "unit": "in",
+      "default": 0.75,
+      "businessContext": "Target thickness of the stucco layer (typically 3/4 in)."
+    },
+    {
+      "id": "cementBagsPerCubicYard",
+      "label": "Cement Content",
+      "type": "number",
+      "unit": "bags/cu yd",
+      "default": 6.5,
+      "businessContext": "Number of 94-lb cement bags per cubic yard of stucco mix (standard 1:3 mix)."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Additional material percentage to account for job-site waste and spillage."
+    },
+    {
+      "id": "laborRate",
+      "label": "Labor Rate",
+      "type": "number",
+      "unit": "$/hr",
+      "default": 50,
+      "businessContext": "Hourly labor cost for stucco application crew."
+    },
+    {
+      "id": "productivity",
+      "label": "Productivity",
+      "type": "number",
+      "unit": "sq ft/hr",
+      "default": 25,
+      "businessContext": "Average stucco application rate per worker-hour."
+    },
+    {
+      "id": "cementCostPerBag",
+      "label": "Cement Cost",
+      "type": "number",
+      "unit": "$/bag",
+      "default": 15,
+      "businessContext": "Unit cost per 94-lb bag of Portland cement."
+    },
+    {
+      "id": "sandCostPerTon",
+      "label": "Sand Cost",
+      "type": "number",
+      "unit": "$/ton",
+      "default": 30,
+      "businessContext": "Unit cost per ton of clean masonry sand."
+    }
+  ],
+  "formulas": {
+    "volumeCuft": "wallArea * (thickness / 12)",
+    "volumeCuyd": "volumeCuft / 27",
+    "cementBags": "volumeCuyd * cementBagsPerCubicYard",
+    "sandVolumeCuyd": "volumeCuyd * 0.75",
+    "wasteMultiplier": "1 + wasteFactor / 100",
+    "cementBagsWithWaste": "cementBags * wasteMultiplier",
+    "sandWeightTonsWithWaste": "sandVolumeCuyd * 1.3 * wasteMultiplier",
+    "cementCost": "cementBagsWithWaste * cementCostPerBag",
+    "sandCost": "sandWeightTonsWithWaste * sandCostPerTon",
+    "laborCost": "(wallArea / productivity) * laborRate",
+    "totalCost": "cementCost + sandCost + laborCost",
+    "wasteCost": "cementCost + sandCost - (cementBags * cementCostPerBag + sandVolumeCuyd * 1.3 * sandCostPerTon)"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "cementCost",
+      "sandCost",
+      "laborCost",
+      "wasteCost"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

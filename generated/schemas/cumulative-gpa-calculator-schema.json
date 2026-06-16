@@ -1,0 +1,55 @@
+{
+  "toolName": "cumulative-gpa-calculator",
+  "inputs": [
+    {
+      "id": "previousGPA",
+      "label": "Previous Cumulative GPA",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The GPA earned in all prior semesters, typically on a 0–4 scale."
+    },
+    {
+      "id": "previousCredits",
+      "label": "Previous Credits Earned",
+      "type": "number",
+      "unit": "credits",
+      "default": 0,
+      "businessContext": "Total credit hours attempted in all prior semesters."
+    },
+    {
+      "id": "newGPA",
+      "label": "New Semester GPA",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "The GPA for the most recent semester, on the same scale as previous GPA."
+    },
+    {
+      "id": "newCredits",
+      "label": "New Semester Credits",
+      "type": "number",
+      "unit": "credits",
+      "default": 0,
+      "businessContext": "Total credit hours attempted in the most recent semester."
+    }
+  ],
+  "formulas": {
+    "cumulativeGPA": "(previousGPA * previousCredits + newGPA * newCredits) / (previousCredits + newCredits)",
+    "totalGradePoints": "previousGPA * previousCredits + newGPA * newCredits",
+    "totalCredits": "previousCredits + newCredits"
+  },
+  "outputs": {
+    "primary": "cumulativeGPA",
+    "breakdown": [
+      "totalGradePoints",
+      "totalCredits"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "education-academic",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

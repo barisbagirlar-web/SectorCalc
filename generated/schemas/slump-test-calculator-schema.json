@@ -1,0 +1,74 @@
+{
+  "toolName": "slump-test-calculator",
+  "inputs": [
+    {
+      "id": "moldHeight",
+      "label": "Mold Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 300,
+      "businessContext": "Standard slump cone height (300 mm per ASTM C143)"
+    },
+    {
+      "id": "topDiameter",
+      "label": "Top Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Top diameter of slump cone (100 mm)"
+    },
+    {
+      "id": "bottomDiameter",
+      "label": "Bottom Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "businessContext": "Bottom diameter of slump cone (200 mm)"
+    },
+    {
+      "id": "measuredHeight",
+      "label": "Measured Slump Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 150,
+      "businessContext": "Height of the slumped concrete after cone removal (average if asymmetrical)"
+    },
+    {
+      "id": "specMin",
+      "label": "Specified Minimum Slump",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Minimum allowable slump per project specification"
+    },
+    {
+      "id": "specMax",
+      "label": "Specified Maximum Slump",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Maximum allowable slump per project specification"
+    }
+  ],
+  "formulas": {
+    "topRadius": "topDiameter / 2",
+    "bottomRadius": "bottomDiameter / 2",
+    "coneVolume": "(Math.PI / 3) * moldHeight * (Math.pow(bottomRadius, 2) + Math.pow(topRadius, 2) + bottomRadius * topRadius)",
+    "coneVolumeLiters": "coneVolume / 1000000",
+    "slump": "moldHeight - measuredHeight",
+    "passFail": "slump >= specMin && slump <= specMax ? 'Pass' : 'Fail'"
+  },
+  "outputs": {
+    "primary": "Slump: {slump} mm - {passFail}",
+    "breakdown": [
+      "Cone Volume: {coneVolumeLiters} liters",
+      "Specified Range: {specMin} - {specMax} mm"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

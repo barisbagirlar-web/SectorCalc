@@ -1,0 +1,55 @@
+{
+  "toolName": "periodic-table-calculator",
+  "inputs": [
+    {
+      "id": "isotope1_mass",
+      "label": "Isotope 1 Mass",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 12,
+      "businessContext": "Mass of the first isotope in grams per mole"
+    },
+    {
+      "id": "isotope2_mass",
+      "label": "Isotope 2 Mass",
+      "type": "number",
+      "unit": "g/mol",
+      "default": 13.003354835,
+      "businessContext": "Mass of the second isotope in grams per mole"
+    },
+    {
+      "id": "abundance1",
+      "label": "Abundance 1",
+      "type": "number",
+      "unit": "%",
+      "default": 98.93,
+      "businessContext": "Natural abundance percentage of the first isotope"
+    },
+    {
+      "id": "abundance2",
+      "label": "Abundance 2",
+      "type": "number",
+      "unit": "%",
+      "default": 1.07,
+      "businessContext": "Natural abundance percentage of the second isotope"
+    }
+  ],
+  "formulas": {
+    "average_mass": "(isotope1_mass * abundance1 + isotope2_mass * abundance2) / (abundance1 + abundance2)",
+    "isotope1_contribution": "isotope1_mass * (abundance1 / (abundance1 + abundance2))",
+    "isotope2_contribution": "isotope2_mass * (abundance2 / (abundance1 + abundance2))"
+  },
+  "outputs": {
+    "primary": "average_mass",
+    "breakdown": [
+      "isotope1_contribution",
+      "isotope2_contribution"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "chemistry-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "process-chemical"
+}

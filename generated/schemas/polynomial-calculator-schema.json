@@ -1,0 +1,77 @@
+{
+  "toolName": "polynomial-calculator",
+  "inputs": [
+    {
+      "id": "a4",
+      "label": "a4 (x^4)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of the 4th degree term"
+    },
+    {
+      "id": "a3",
+      "label": "a3 (x^3)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of the 3rd degree term"
+    },
+    {
+      "id": "a2",
+      "label": "a2 (x^2)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Coefficient of the 2nd degree term"
+    },
+    {
+      "id": "a1",
+      "label": "a1 (x)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Coefficient of the 1st degree term"
+    },
+    {
+      "id": "a0",
+      "label": "a0 (constant)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Constant term"
+    },
+    {
+      "id": "x",
+      "label": "x",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Value at which to evaluate the polynomial"
+    }
+  ],
+  "formulas": {
+    "term4": "a4 * x ** 4",
+    "term3": "a3 * x ** 3",
+    "term2": "a2 * x ** 2",
+    "term1": "a1 * x",
+    "term0": "a0",
+    "result": "term4 + term3 + term2 + term1 + term0"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": [
+      "term4",
+      "term3",
+      "term2",
+      "term1",
+      "term0"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,71 @@
+{
+  "toolName": "levelized-cost-of-energy-calculator",
+  "inputs": [
+    {
+      "id": "capitalCost",
+      "label": "Capital Cost",
+      "type": "number",
+      "unit": "$",
+      "default": 1000000,
+      "businessContext": "Total upfront capital expenditure including equipment and installation"
+    },
+    {
+      "id": "annualOMCost",
+      "label": "Annual O&M Cost",
+      "type": "number",
+      "unit": "$/year",
+      "default": 20000,
+      "businessContext": "Annual fixed operation and maintenance costs"
+    },
+    {
+      "id": "annualEnergyProduction",
+      "label": "Annual Energy Production",
+      "type": "number",
+      "unit": "kWh/year",
+      "default": 5000000,
+      "businessContext": "Annual net electricity output of the plant"
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Discount rate reflecting cost of capital or hurdle rate"
+    },
+    {
+      "id": "projectLifetime",
+      "label": "Project Lifetime",
+      "type": "number",
+      "unit": "years",
+      "default": 20,
+      "businessContext": "Expected operational lifetime of the energy project"
+    },
+    {
+      "id": "decommissioningCost",
+      "label": "Decommissioning Cost",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "businessContext": "Cost of dismantling and site restoration at end of project life"
+    }
+  ],
+  "formulas": {
+    "totalDiscountedCosts": "capitalCost + decommissioningCost / Math.pow(1 + discountRate/100, projectLifetime) + annualOMCost * ((1 - Math.pow(1 + discountRate/100, -projectLifetime)) / (discountRate/100))",
+    "totalDiscountedEnergy": "annualEnergyProduction * ((1 - Math.pow(1 + discountRate/100, -projectLifetime)) / (discountRate/100))",
+    "lcoe": "totalDiscountedCosts / totalDiscountedEnergy"
+  },
+  "outputs": {
+    "primary": "lcoe",
+    "breakdown": [
+      "totalDiscountedCosts",
+      "totalDiscountedEnergy"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "energy-carbon",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "flood-routing-calculator",
+  "inputs": [
+    {
+      "id": "inflow_prev",
+      "label": "Previous Inflow",
+      "type": "number",
+      "unit": "m³/s",
+      "default": 0,
+      "businessContext": "Muskingum routing - upstream inflow at previous time step"
+    },
+    {
+      "id": "inflow_curr",
+      "label": "Current Inflow",
+      "type": "number",
+      "unit": "m³/s",
+      "default": 10,
+      "businessContext": "Muskingum routing - upstream inflow at current time step"
+    },
+    {
+      "id": "outflow_prev",
+      "label": "Previous Outflow",
+      "type": "number",
+      "unit": "m³/s",
+      "default": 0,
+      "businessContext": "Muskingum routing - downstream outflow at previous time step"
+    },
+    {
+      "id": "dt",
+      "label": "Time Step",
+      "type": "number",
+      "unit": "hours",
+      "default": 1,
+      "businessContext": "Routing time step Δt, must be less than K"
+    },
+    {
+      "id": "K",
+      "label": "Storage Constant K",
+      "type": "number",
+      "unit": "hours",
+      "default": 2,
+      "businessContext": "Muskingum parameter K, travel time of flood wave through reach"
+    },
+    {
+      "id": "x",
+      "label": "Weighting Factor x",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.2,
+      "businessContext": "Muskingum parameter x, 0 ≤ x ≤ 0.5, typical 0.1-0.3 for natural streams"
+    }
+  ],
+  "formulas": {
+    "outflow_current": "((inflow_curr * (dt - 2*K*x) + inflow_prev * (dt + 2*K*x) + outflow_prev * (2*K*(1-x) - dt)) / (2*K*(1-x) + dt))",
+    "coeff_C1": "(dt - 2*K*x) / (2*K*(1-x) + dt)",
+    "coeff_C2": "(dt + 2*K*x) / (2*K*(1-x) + dt)",
+    "coeff_C3": "(2*K*(1-x) - dt) / (2*K*(1-x) + dt)"
+  },
+  "outputs": {
+    "primary": "outflow_current",
+    "breakdown": [
+      "coeff_C1",
+      "coeff_C2",
+      "coeff_C3"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

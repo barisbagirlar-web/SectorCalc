@@ -1,0 +1,62 @@
+{
+  "toolName": "ascii-calculator",
+  "inputs": [
+    {
+      "id": "char1",
+      "label": "Character 1",
+      "type": "number",
+      "unit": "ASCII code",
+      "default": 65,
+      "businessContext": "First ASCII character code (e.g., 'A' = 65)"
+    },
+    {
+      "id": "char2",
+      "label": "Character 2",
+      "type": "number",
+      "unit": "ASCII code",
+      "default": 66,
+      "businessContext": "Second ASCII character code (e.g., 'B' = 66)"
+    },
+    {
+      "id": "char3",
+      "label": "Character 3",
+      "type": "number",
+      "unit": "ASCII code",
+      "default": 67,
+      "businessContext": "Third ASCII character code (e.g., 'C' = 67)"
+    },
+    {
+      "id": "char4",
+      "label": "Character 4",
+      "type": "number",
+      "unit": "ASCII code",
+      "default": 68,
+      "businessContext": "Fourth ASCII character code (e.g., 'D' = 68)"
+    }
+  ],
+  "formulas": {
+    "sum": "char1 + char2 + char3 + char4",
+    "average": "(char1 + char2 + char3 + char4) / 4",
+    "product": "char1 * char2 * char3 * char4",
+    "max": "Math.max(char1, char2, char3, char4)",
+    "min": "Math.min(char1, char2, char3, char4)",
+    "range": "Math.max(char1, char2, char3, char4) - Math.min(char1, char2, char3, char4)"
+  },
+  "outputs": {
+    "primary": "sum",
+    "breakdown": [
+      "sum = char1 + char2 + char3 + char4",
+      "average = (char1 + char2 + char3 + char4) / 4",
+      "product = char1 * char2 * char3 * char4",
+      "max = Math.max(char1, char2, char3, char4)",
+      "min = Math.min(char1, char2, char3, char4)",
+      "range = Math.max(char1, char2, char3, char4) - Math.min(char1, char2, char3, char4)"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

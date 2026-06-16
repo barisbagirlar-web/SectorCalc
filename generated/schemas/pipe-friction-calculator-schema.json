@@ -1,0 +1,78 @@
+{
+  "toolName": "pipe-friction-calculator",
+  "inputs": [
+    {
+      "id": "pipeLength",
+      "label": "Pipe Length",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "businessContext": "Length of the straight pipe section"
+    },
+    {
+      "id": "innerDiameter",
+      "label": "Internal Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "businessContext": "Inside diameter of the pipe"
+    },
+    {
+      "id": "flowRate",
+      "label": "Flow Rate",
+      "type": "number",
+      "unit": "L/s",
+      "default": 10,
+      "businessContext": "Volumetric flow rate of the fluid"
+    },
+    {
+      "id": "roughness",
+      "label": "Pipe Roughness",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.045,
+      "businessContext": "Surface roughness of the pipe material (e.g., 0.045 for commercial steel)"
+    },
+    {
+      "id": "fluidDensity",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Density of the fluid (e.g., 1000 for water at 20°C)"
+    },
+    {
+      "id": "dynamicViscosity",
+      "label": "Dynamic Viscosity",
+      "type": "number",
+      "unit": "Pa·s",
+      "default": 0.001,
+      "businessContext": "Dynamic viscosity of the fluid (e.g., 0.001 for water at 20°C)"
+    }
+  ],
+  "formulas": {
+    "diameterM": "innerDiameter / 1000",
+    "flowRateM3ps": "flowRate / 1000",
+    "crossArea": "Math.PI * (diameterM / 2) ** 2",
+    "velocity": "flowRateM3ps / crossArea",
+    "reynoldsNumber": "fluidDensity * velocity * diameterM / dynamicViscosity",
+    "frictionFactor": "0.25 / Math.pow(Math.log10(roughness / (1000 * 3.7 * diameterM) + 5.74 / Math.pow(reynoldsNumber, 0.9)), 2)",
+    "headLoss": "frictionFactor * (pipeLength / diameterM) * (velocity ** 2 / (2 * 9.81))",
+    "pressureDrop": "frictionFactor * (pipeLength / diameterM) * (fluidDensity * velocity ** 2 / 2)"
+  },
+  "outputs": {
+    "primary": "headLoss",
+    "breakdown": [
+      "velocity",
+      "reynoldsNumber",
+      "frictionFactor",
+      "pressureDrop"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

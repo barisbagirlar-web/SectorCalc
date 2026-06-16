@@ -1,0 +1,102 @@
+{
+  "toolName": "shopify-profit-calculator",
+  "inputs": [
+    {
+      "id": "averageOrderValue",
+      "label": "Average Order Value",
+      "type": "number",
+      "unit": "€",
+      "default": 50,
+      "businessContext": "Average revenue per order"
+    },
+    {
+      "id": "costOfGoodsPerOrder",
+      "label": "Cost of Goods per Order",
+      "type": "number",
+      "unit": "€",
+      "default": 20,
+      "businessContext": "Direct cost of goods sold per order"
+    },
+    {
+      "id": "monthlyOrders",
+      "label": "Monthly Number of Orders",
+      "type": "number",
+      "unit": "orders",
+      "default": 200,
+      "businessContext": "Number of orders per month"
+    },
+    {
+      "id": "shippingCostPerOrder",
+      "label": "Shipping Cost per Order",
+      "type": "number",
+      "unit": "€",
+      "default": 5,
+      "businessContext": "Average shipping cost paid by seller per order"
+    },
+    {
+      "id": "transactionFeeRate",
+      "label": "Transaction Fee Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2.9,
+      "businessContext": "Shopify transaction fee + payment processing fee percentage"
+    },
+    {
+      "id": "monthlyMarketing",
+      "label": "Monthly Marketing Spend",
+      "type": "number",
+      "unit": "€",
+      "default": 500,
+      "businessContext": "Monthly cost for ads and promotions"
+    },
+    {
+      "id": "monthlyFixedCosts",
+      "label": "Monthly Fixed Costs",
+      "type": "number",
+      "unit": "€",
+      "default": 300,
+      "businessContext": "Other monthly overheads (apps, subscriptions, etc.)"
+    }
+  ],
+  "formulas": {
+    "totalRevenue": "averageOrderValue * monthlyOrders",
+    "totalCOGS": "costOfGoodsPerOrder * monthlyOrders",
+    "totalShipping": "shippingCostPerOrder * monthlyOrders",
+    "totalTransactionFees": "totalRevenue * (transactionFeeRate / 100)",
+    "grossProfit": "totalRevenue - totalCOGS",
+    "operatingExpenses": "totalShipping + totalTransactionFees + monthlyMarketing + monthlyFixedCosts",
+    "netProfit": "grossProfit - operatingExpenses",
+    "profitMargin": "(netProfit / totalRevenue) * 100"
+  },
+  "outputs": {
+    "primary": {
+      "id": "netProfit",
+      "label": "Net Profit",
+      "unit": "€"
+    },
+    "breakdown": [
+      {
+        "id": "grossProfit",
+        "label": "Gross Profit",
+        "unit": "€"
+      },
+      {
+        "id": "totalCosts",
+        "label": "Total Costs",
+        "unit": "€",
+        "formula": "totalCOGS + totalShipping + totalTransactionFees + monthlyMarketing + monthlyFixedCosts"
+      },
+      {
+        "id": "profitMargin",
+        "label": "Profit Margin",
+        "unit": "%"
+      }
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

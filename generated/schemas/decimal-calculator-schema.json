@@ -1,0 +1,63 @@
+{
+  "toolName": "decimal-calculator",
+  "inputs": [
+    {
+      "id": "operandA",
+      "label": "Operand A",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "First decimal operand for calculation"
+    },
+    {
+      "id": "operandB",
+      "label": "Operand B",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Second decimal operand for calculation"
+    },
+    {
+      "id": "operation",
+      "label": "Operation Type",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Operation code: 1-Add, 2-Subtract, 3-Multiply, 4-Divide"
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "places",
+      "default": 2,
+      "businessContext": "Number of decimal places in the rounded result"
+    },
+    {
+      "id": "roundingMode",
+      "label": "Rounding Mode",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Rounding method: 0-standard rounding (half up), 1-floor, 2-ceil, 3-truncate"
+    }
+  ],
+  "formulas": {
+    "unroundedResult": "operation==1 ? operandA+operandB : operation==2 ? operandA-operandB : operation==3 ? operandA*operandB : operation==4 ? operandA/operandB : 0",
+    "roundedResult": "roundingMode==0 ? Math.round(unroundedResult * Math.pow(10, precision)) / Math.pow(10, precision) : roundingMode==1 ? Math.floor(unroundedResult * Math.pow(10, precision)) / Math.pow(10, precision) : roundingMode==2 ? Math.ceil(unroundedResult * Math.pow(10, precision)) / Math.pow(10, precision) : Math.trunc(unroundedResult * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "operationDescription": "operation==1 ? 'Addition' : operation==2 ? 'Subtraction' : operation==3 ? 'Multiplication' : operation==4 ? 'Division' : 'Unknown'"
+  },
+  "outputs": {
+    "primary": "roundedResult",
+    "breakdown": [
+      "unroundedResult",
+      "operationDescription"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

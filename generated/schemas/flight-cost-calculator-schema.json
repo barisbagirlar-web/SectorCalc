@@ -1,0 +1,84 @@
+{
+  "toolName": "flight-cost-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Flight Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 1000,
+      "businessContext": "Flight distance between origin and destination airports"
+    },
+    {
+      "id": "avgSpeed",
+      "label": "Average Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 800,
+      "businessContext": "Average cruising speed of the aircraft"
+    },
+    {
+      "id": "fuelConsumptionRate",
+      "label": "Fuel Consumption Rate",
+      "type": "number",
+      "unit": "L/km",
+      "default": 3.5,
+      "businessContext": "Aircraft fuel consumption rate per kilometer"
+    },
+    {
+      "id": "fuelPrice",
+      "label": "Fuel Price",
+      "type": "number",
+      "unit": "USD/L",
+      "default": 0.8,
+      "businessContext": "Current market price of Jet A-1 fuel per liter"
+    },
+    {
+      "id": "crewCostPerHour",
+      "label": "Crew Cost per Hour",
+      "type": "number",
+      "unit": "USD/hr",
+      "default": 200,
+      "businessContext": "Hourly cost for flight crew including salaries and benefits"
+    },
+    {
+      "id": "landingFee",
+      "label": "Landing Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "businessContext": "Fixed airport landing fee per flight"
+    },
+    {
+      "id": "maintenanceCostPerHour",
+      "label": "Maintenance Cost per Hour",
+      "type": "number",
+      "unit": "USD/hr",
+      "default": 100,
+      "businessContext": "Hourly maintenance cost allocation for the aircraft"
+    }
+  ],
+  "formulas": {
+    "flightHours": "distance / avgSpeed",
+    "fuelCost": "distance * fuelConsumptionRate * fuelPrice",
+    "crewCost": "flightHours * crewCostPerHour",
+    "maintenanceCost": "flightHours * maintenanceCostPerHour",
+    "totalCost": "fuelCost + crewCost + landingFee + maintenanceCost"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "fuelCost",
+      "crewCost",
+      "landingFee",
+      "maintenanceCost",
+      "flightHours"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

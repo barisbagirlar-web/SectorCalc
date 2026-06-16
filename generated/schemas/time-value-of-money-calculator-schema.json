@@ -1,0 +1,53 @@
+{
+  "toolName": "time-value-of-money-calculator",
+  "inputs": [
+    {
+      "id": "presentValue",
+      "label": "Present Value (PV)",
+      "type": "number",
+      "unit": "$",
+      "default": 10000,
+      "businessContext": "The initial amount of money or investment."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "The annual nominal interest rate."
+    },
+    {
+      "id": "numberOfYears",
+      "label": "Number of Years",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "businessContext": "The total number of years the money is invested or borrowed."
+    },
+    {
+      "id": "compoundingFrequency",
+      "label": "Compounding Frequency",
+      "type": "number",
+      "unit": "times per year",
+      "default": 1,
+      "businessContext": "The number of times compounding occurs per year (e.g., 12 for monthly, 4 for quarterly)."
+    }
+  ],
+  "formulas": {
+    "futureValue": "presentValue * Math.pow(1 + (annualInterestRate / 100) / compoundingFrequency, numberOfYears * compoundingFrequency)",
+    "totalInterestEarned": "futureValue - presentValue"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": [
+      "totalInterestEarned"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

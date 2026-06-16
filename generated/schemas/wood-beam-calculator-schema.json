@@ -1,0 +1,81 @@
+{
+  "toolName": "wood-beam-calculator",
+  "inputs": [
+    {
+      "id": "span",
+      "label": "Span Length",
+      "type": "number",
+      "unit": "m",
+      "default": 3.5,
+      "businessContext": "Clear span of the beam between supports"
+    },
+    {
+      "id": "load",
+      "label": "Uniform Load",
+      "type": "number",
+      "unit": "kN/m",
+      "default": 5,
+      "businessContext": "Total uniformly distributed load (dead + live)"
+    },
+    {
+      "id": "width",
+      "label": "Beam Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Cross-sectional width of the beam"
+    },
+    {
+      "id": "depth",
+      "label": "Beam Depth",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "businessContext": "Cross-sectional depth of the beam"
+    },
+    {
+      "id": "modulusElasticity",
+      "label": "Modulus of Elasticity (E)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 10000,
+      "businessContext": "Modulus of elasticity of the wood species"
+    },
+    {
+      "id": "allowableStress",
+      "label": "Allowable Bending Stress (Fb)",
+      "type": "number",
+      "unit": "MPa",
+      "default": 10,
+      "businessContext": "Allowable bending stress for the wood beam"
+    }
+  ],
+  "formulas": {
+    "M": "load * (span * 1000) ** 2 / 8",
+    "S": "width * depth ** 2 / 6",
+    "bendingStress": "M / S",
+    "I": "width * depth ** 3 / 12",
+    "deflection": "(5 * load * (span * 1000) ** 4) / (384 * modulusElasticity * I)",
+    "allowableDeflection": "(span * 1000) / 360",
+    "safeStress": "bendingStress <= allowableStress",
+    "safeDeflection": "deflection <= allowableDeflection",
+    "stressRatio": "bendingStress / allowableStress",
+    "deflectionRatio": "deflection / allowableDeflection",
+    "status": "(safeStress && safeDeflection) ? 'PASS' : 'FAIL'"
+  },
+  "outputs": {
+    "primary": "status",
+    "breakdown": [
+      "bendingStress",
+      "deflection",
+      "stressRatio",
+      "deflectionRatio"
+    ]
+  },
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false,
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
+}

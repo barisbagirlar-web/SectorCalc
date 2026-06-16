@@ -1,0 +1,89 @@
+{
+  "toolName": "brayton-cycle-calculator",
+  "inputs": [
+    {
+      "id": "T1",
+      "label": "Kompresör Giriş Sıcaklığı (T1)",
+      "type": "number",
+      "unit": "K",
+      "default": 300,
+      "businessContext": "Brayton çevriminde kompresör giriş sıcaklığı"
+    },
+    {
+      "id": "T3",
+      "label": "Türbin Giriş Sıcaklığı (T3)",
+      "type": "number",
+      "unit": "K",
+      "default": 1200,
+      "businessContext": "Brayton çevriminde türbin giriş sıcaklığı"
+    },
+    {
+      "id": "rp",
+      "label": "Basınç Oranı (rp)",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 10,
+      "businessContext": "Kompresör ve türbin boyunca basınç oranı"
+    },
+    {
+      "id": "eta_c",
+      "label": "Kompresör İzantropik Verimi (ηc)",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 0.85,
+      "businessContext": "Kompresörün izantropik verimi (0-1 arası)"
+    },
+    {
+      "id": "eta_t",
+      "label": "Türbin İzantropik Verimi (ηt)",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 0.9,
+      "businessContext": "Türbinin izantropik verimi (0-1 arası)"
+    },
+    {
+      "id": "gamma",
+      "label": "Özgül Isı Oranı (γ)",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 1.4,
+      "businessContext": "Çalışma akışkanının özgül ısı oranı (cp/cv)"
+    },
+    {
+      "id": "cp",
+      "label": "Sabit Basınçta Özgül Isı (cp)",
+      "type": "number",
+      "unit": "kJ/kgK",
+      "default": 1.005,
+      "businessContext": "Sabit basınçta özgül ısı kapasitesi"
+    }
+  ],
+  "formulas": {
+    "T2s": "T1 * Math.pow(rp, (gamma - 1) / gamma)",
+    "T2": "T1 + (T2s - T1) / eta_c",
+    "T4s": "T3 / Math.pow(rp, (gamma - 1) / gamma)",
+    "T4": "T3 - eta_t * (T3 - T4s)",
+    "Wc": "cp * (T2 - T1)",
+    "Wt": "cp * (T3 - T4)",
+    "Wnet": "Wt - Wc",
+    "Q_in": "cp * (T3 - T2)",
+    "eta_th": "Wnet / Q_in",
+    "bwr": "Wc / Wt"
+  },
+  "outputs": {
+    "primary": "eta_th",
+    "breakdown": [
+      "Wnet",
+      "Wc",
+      "Wt",
+      "Q_in",
+      "bwr"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

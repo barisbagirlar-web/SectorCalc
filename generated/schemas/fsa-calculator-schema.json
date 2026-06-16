@@ -1,0 +1,73 @@
+{
+  "toolName": "fsa-calculator",
+  "inputs": [
+    {
+      "id": "currentFuelConsumption",
+      "label": "Current Fuel Consumption",
+      "type": "number",
+      "unit": "L/100km",
+      "default": 10,
+      "businessContext": "Average fuel consumption per 100 km under typical load conditions."
+    },
+    {
+      "id": "annualDistance",
+      "label": "Annual Distance Traveled",
+      "type": "number",
+      "unit": "km",
+      "default": 30000,
+      "businessContext": "Total kilometers traveled by the vehicle per year."
+    },
+    {
+      "id": "fuelPrice",
+      "label": "Fuel Price",
+      "type": "number",
+      "unit": "$/L",
+      "default": 1.5,
+      "businessContext": "Unit price of fuel (e.g., diesel, gasoline)."
+    },
+    {
+      "id": "efficiencyImprovement",
+      "label": "Efficiency Improvement",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Expected percentage reduction in fuel consumption due to improvements."
+    },
+    {
+      "id": "engineLoadFactor",
+      "label": "Engine Load Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "businessContext": "Average engine load as a percentage, adjusting real-world consumption."
+    },
+    {
+      "id": "operatingYears",
+      "label": "Operating Years",
+      "type": "number",
+      "unit": "years",
+      "default": 1,
+      "businessContext": "Number of years over which savings accumulate."
+    }
+  ],
+  "formulas": {
+    "annualFuelUsed": "annualDistance * (currentFuelConsumption / 100) * (engineLoadFactor / 100)",
+    "improvedFuelConsumption": "currentFuelConsumption * (1 - efficiencyImprovement / 100)",
+    "annualFuelSaved": "annualDistance * ((currentFuelConsumption - improvedFuelConsumption) / 100) * (engineLoadFactor / 100)",
+    "annualCostSavings": "annualFuelSaved * fuelPrice",
+    "totalSavings": "annualCostSavings * operatingYears"
+  },
+  "outputs": {
+    "primary": "totalSavings",
+    "breakdown": [
+      "annualFuelSaved",
+      "annualCostSavings"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

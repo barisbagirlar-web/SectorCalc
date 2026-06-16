@@ -1,0 +1,71 @@
+{
+  "toolName": "utf-8-calculator",
+  "inputs": [
+    {
+      "id": "byte_count",
+      "label": "Byte Count",
+      "type": "number",
+      "unit": "bytes",
+      "default": 1000,
+      "businessContext": "Total number of bytes to be encoded"
+    },
+    {
+      "id": "ascii_ratio",
+      "label": "ASCII Character Ratio",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Percentage of characters that are ASCII (1 byte each)"
+    },
+    {
+      "id": "two_byte_ratio",
+      "label": "2-Byte Character Ratio",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "businessContext": "Percentage of characters that require 2 bytes (e.g., Latin extended)"
+    },
+    {
+      "id": "three_byte_ratio",
+      "label": "3-Byte Character Ratio",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Percentage of characters that require 3 bytes (e.g., CJK)"
+    },
+    {
+      "id": "four_byte_ratio",
+      "label": "4-Byte Character Ratio",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of characters that require 4 bytes (e.g., emoji)"
+    },
+    {
+      "id": "overhead_percent",
+      "label": "Overhead Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Additional overhead for BOM or metadata"
+    }
+  ],
+  "formulas": {
+    "total_characters": "byte_count / ((ascii_ratio * 1 + two_byte_ratio * 2 + three_byte_ratio * 3 + four_byte_ratio * 4) / 100)",
+    "effective_bytes": "byte_count * (1 + overhead_percent / 100)",
+    "storage_efficiency": "(1 - overhead_percent / 100) * 100"
+  },
+  "outputs": {
+    "primary": "Estimated total characters: {total_characters}",
+    "breakdown": [
+      "Effective bytes with overhead: {effective_bytes} bytes",
+      "Storage efficiency: {storage_efficiency}%"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

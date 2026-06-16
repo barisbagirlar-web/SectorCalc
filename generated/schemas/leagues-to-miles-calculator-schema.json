@@ -1,0 +1,56 @@
+{
+  "toolName": "leagues-to-miles-calculator",
+  "inputs": [
+    {
+      "id": "leagues",
+      "label": "Leagues",
+      "type": "number",
+      "unit": "lg",
+      "default": 1,
+      "businessContext": "Distance in leagues to convert"
+    },
+    {
+      "id": "leagueType",
+      "label": "League Type",
+      "type": "number",
+      "unit": "type",
+      "default": 0,
+      "businessContext": "0: Statute (3 mi/lg), 1: Nautical (3.452 mi/lg), 2: Metric (2.485 mi/lg)"
+    },
+    {
+      "id": "decimals",
+      "label": "Decimal Places",
+      "type": "number",
+      "unit": "dp",
+      "default": 2,
+      "businessContext": "Number of decimal places for rounded output"
+    },
+    {
+      "id": "conversionFactorOverride",
+      "label": "Custom Factor (0=use type)",
+      "type": "number",
+      "unit": "mi/lg",
+      "default": 0,
+      "businessContext": "Override miles per league; if zero, uses league type default"
+    }
+  ],
+  "formulas": {
+    "factor": "conversionFactorOverride > 0 ? conversionFactorOverride : [3, 3.452, 2.485][leagueType]",
+    "miles": "leagues * factor",
+    "roundedMiles": "Math.round(miles * Math.pow(10, decimals)) / Math.pow(10, decimals)"
+  },
+  "outputs": {
+    "primary": "{{roundedMiles}} mi",
+    "breakdown": [
+      "Factor used: {{factor}} mi/lg",
+      "Raw value: {{miles}} mi",
+      "Rounded to {{decimals}} decimal places"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

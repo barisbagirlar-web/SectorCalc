@@ -1,0 +1,55 @@
+{
+  "toolName": "keplers-third-law-calculator",
+  "inputs": [
+    {
+      "id": "semiMajorAxis",
+      "label": "Semi-major axis",
+      "type": "number",
+      "unit": "m",
+      "default": 149597870691,
+      "businessContext": "Average distance from the primary body, e.g., 1 AU = 149,597,870,691 m."
+    },
+    {
+      "id": "primaryMass",
+      "label": "Mass of primary body",
+      "type": "number",
+      "unit": "kg",
+      "default": 1.989e+30,
+      "businessContext": "Mass of the central body, e.g., Sun mass = 1.989 × 10^30 kg."
+    },
+    {
+      "id": "secondaryMass",
+      "label": "Mass of secondary body",
+      "type": "number",
+      "unit": "kg",
+      "default": 5.972e+24,
+      "businessContext": "Mass of the orbiting body, e.g., Earth mass = 5.972 × 10^24 kg."
+    },
+    {
+      "id": "gravitationalConstant",
+      "label": "Gravitational constant",
+      "type": "number",
+      "unit": "m^3 kg^-1 s^-2",
+      "default": 6.6743e-11,
+      "businessContext": "Universal gravitational constant, standard value 6.67430 × 10^{-11} m^3 kg^{-1} s^{-2}."
+    }
+  ],
+  "formulas": {
+    "orbitalPeriod": "2 * Math.PI * Math.sqrt( Math.pow(semiMajorAxis, 3) / (gravitationalConstant * (primaryMass + secondaryMass)) )",
+    "orbitalPeriodYears": "orbitalPeriod / (365.25 * 24 * 3600)",
+    "orbitalPeriodDays": "orbitalPeriod / (24 * 3600)"
+  },
+  "outputs": {
+    "primary": "orbitalPeriod",
+    "breakdown": [
+      "orbitalPeriodYears",
+      "orbitalPeriodDays"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

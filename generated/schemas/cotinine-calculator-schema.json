@@ -1,0 +1,63 @@
+{
+  "toolName": "cotinine-calculator",
+  "inputs": [
+    {
+      "id": "cotininePlasma",
+      "label": "Plasma Cotinine",
+      "type": "number",
+      "unit": "ng/mL",
+      "default": 200,
+      "businessContext": "Measured concentration of cotinine in plasma."
+    },
+    {
+      "id": "slope",
+      "label": "Calibration Slope",
+      "type": "number",
+      "unit": "ng/mL per cigarette/day",
+      "default": 12.5,
+      "businessContext": "Slope of the cotinine vs cigarettes per day linear model."
+    },
+    {
+      "id": "intercept",
+      "label": "Calibration Intercept",
+      "type": "number",
+      "unit": "ng/mL",
+      "default": 0,
+      "businessContext": "Intercept of the linear model."
+    },
+    {
+      "id": "bodyWeight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Subject's body weight for dose normalization."
+    },
+    {
+      "id": "nicotinePerCig",
+      "label": "Nicotine per Cigarette",
+      "type": "number",
+      "unit": "mg",
+      "default": 1,
+      "businessContext": "Average nicotine delivered per cigarette."
+    }
+  ],
+  "formulas": {
+    "estimatedCigarettesPerDay": "Math.max(0, (cotininePlasma - intercept) / slope)",
+    "nicotineIntakeMg": "Math.max(0, (cotininePlasma - intercept) / slope) * nicotinePerCig",
+    "nicotineIntakeMgPerKg": "Math.max(0, (cotininePlasma - intercept) / slope) * nicotinePerCig / bodyWeight"
+  },
+  "outputs": {
+    "primary": "Estimated Cigarettes per Day",
+    "breakdown": [
+      "Nicotine Intake (mg/day)",
+      "Nicotine Intake (mg/kg/day)"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

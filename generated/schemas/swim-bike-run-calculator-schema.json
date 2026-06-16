@@ -1,0 +1,73 @@
+{
+  "toolName": "swim-bike-run-calculator",
+  "inputs": [
+    {
+      "id": "swimDistance",
+      "label": "Swim Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 400,
+      "businessContext": "Swim distance in meters"
+    },
+    {
+      "id": "bikeDistance",
+      "label": "Bike Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 20,
+      "businessContext": "Bike distance in kilometers"
+    },
+    {
+      "id": "runDistance",
+      "label": "Run Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 5,
+      "businessContext": "Run distance in kilometers"
+    },
+    {
+      "id": "swimPace",
+      "label": "Swim Pace",
+      "type": "number",
+      "unit": "s/100m",
+      "default": 120,
+      "businessContext": "Swim pace in seconds per 100 meters"
+    },
+    {
+      "id": "bikeSpeed",
+      "label": "Bike Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 30,
+      "businessContext": "Average bike speed in kilometers per hour"
+    },
+    {
+      "id": "runPace",
+      "label": "Run Pace",
+      "type": "number",
+      "unit": "s/km",
+      "default": 300,
+      "businessContext": "Run pace in seconds per kilometer"
+    }
+  ],
+  "formulas": {
+    "swimTimeMinutes": "(swimDistance / 100) * (swimPace / 60)",
+    "bikeTimeMinutes": "(bikeDistance / bikeSpeed) * 60",
+    "runTimeMinutes": "runDistance * (runPace / 60)",
+    "totalTimeMinutes": "swimTimeMinutes + bikeTimeMinutes + runTimeMinutes"
+  },
+  "outputs": {
+    "primary": "totalTimeMinutes",
+    "breakdown": [
+      "swimTimeMinutes",
+      "bikeTimeMinutes",
+      "runTimeMinutes"
+    ]
+  },
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

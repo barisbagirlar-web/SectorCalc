@@ -1,0 +1,71 @@
+{
+  "toolName": "motor-calculator",
+  "inputs": [
+    {
+      "id": "voltage",
+      "label": "Voltage",
+      "type": "number",
+      "unit": "V",
+      "default": 400,
+      "businessContext": "Nominal supply voltage"
+    },
+    {
+      "id": "current",
+      "label": "Current",
+      "type": "number",
+      "unit": "A",
+      "default": 10,
+      "businessContext": "Measured line current"
+    },
+    {
+      "id": "powerFactor",
+      "label": "Power Factor (cos φ)",
+      "type": "number",
+      "unit": "unitless",
+      "default": 0.85,
+      "businessContext": "Motor nameplate power factor"
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Motor efficiency at load point"
+    },
+    {
+      "id": "speed",
+      "label": "Rotational Speed",
+      "type": "number",
+      "unit": "RPM",
+      "default": 1450,
+      "businessContext": "Shaft rotational speed"
+    },
+    {
+      "id": "numberOfPhases",
+      "label": "Number of Phases",
+      "type": "number",
+      "unit": "unitless",
+      "default": 3,
+      "businessContext": "Motor phase configuration (1 or 3)"
+    }
+  ],
+  "formulas": {
+    "electricalPower": "numberOfPhases === 3 ? Math.sqrt(3) * voltage * current * powerFactor : voltage * current * powerFactor",
+    "mechanicalPower": "electricalPower * (efficiency / 100)",
+    "torque": "(mechanicalPower * 1000) / (2 * Math.PI * (speed / 60))"
+  },
+  "outputs": {
+    "primary": "mechanicalPower",
+    "breakdown": [
+      "electricalPower",
+      "torque"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "engineering-science",
+  "sectorSlug": "cnc-manufacturing",
+  "categorySlug": "cnc-additive-manufacturing"
+}

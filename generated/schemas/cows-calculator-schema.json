@@ -1,0 +1,71 @@
+{
+  "toolName": "cows-calculator",
+  "inputs": [
+    {
+      "id": "downtimeHours",
+      "label": "Duruş Süresi (saat)",
+      "type": "number",
+      "unit": "saat",
+      "default": 1,
+      "businessContext": "Duruşun toplam süresi"
+    },
+    {
+      "id": "affectedMachines",
+      "label": "Etkilenen Makine Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Duruştan etkilenen makine sayısı"
+    },
+    {
+      "id": "hourlyCostPerMachine",
+      "label": "Makine Saatlik Maliyet",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 100,
+      "businessContext": "Makine başına saatlik maliyet (işçilik + amortisman)"
+    },
+    {
+      "id": "lostProductionPerHour",
+      "label": "Saatlik Üretim Kaybı",
+      "type": "number",
+      "unit": "adet/saat",
+      "default": 10,
+      "businessContext": "Makine başına saatlik kaybedilen üretim adedi"
+    },
+    {
+      "id": "profitPerUnit",
+      "label": "Birim Başına Kar",
+      "type": "number",
+      "unit": "TL/adet",
+      "default": 20,
+      "businessContext": "Üretilen her birimden elde edilen kar"
+    },
+    {
+      "id": "overheadMultiplier",
+      "label": "Genel Gider Çarpanı",
+      "type": "number",
+      "unit": "katsayı",
+      "default": 1.5,
+      "businessContext": "Doğrudan maliyet ve kayıp kâra uygulanan genel gider çarpanı (1.0 = genel gider yok)"
+    }
+  ],
+  "formulas": {
+    "directCost": "downtimeHours * affectedMachines * hourlyCostPerMachine",
+    "lostProfit": "downtimeHours * affectedMachines * lostProductionPerHour * profitPerUnit",
+    "totalCost": "(directCost + lostProfit) * overheadMultiplier"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": [
+      "directCost",
+      "lostProfit"
+    ]
+  },
+  "category": "Maliyet & Marj",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

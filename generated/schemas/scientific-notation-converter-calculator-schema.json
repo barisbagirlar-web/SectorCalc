@@ -1,0 +1,63 @@
+{
+  "toolName": "scientific-notation-converter-calculator",
+  "inputs": [
+    {
+      "id": "decimalNumber",
+      "label": "Decimal Number",
+      "type": "number",
+      "unit": "",
+      "default": 12345.67,
+      "businessContext": "Number to convert to scientific notation (when converting from decimal)."
+    },
+    {
+      "id": "scientificCoefficient",
+      "label": "Scientific Coefficient",
+      "type": "number",
+      "unit": "",
+      "default": 1.234567,
+      "businessContext": "Coefficient in scientific notation (when converting from scientific)."
+    },
+    {
+      "id": "scientificExponent",
+      "label": "Scientific Exponent",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "businessContext": "Exponent in scientific notation (when converting from scientific)."
+    },
+    {
+      "id": "conversionMode",
+      "label": "Conversion Mode",
+      "type": "number",
+      "unit": "0=Decimal to Sci, 1=Sci to Decimal",
+      "default": 0,
+      "businessContext": "Select conversion direction."
+    },
+    {
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "places",
+      "default": 6,
+      "businessContext": "Number of decimal places in output."
+    }
+  ],
+  "formulas": {
+    "primary": "conversionMode === 0 ? (decimalNumber === 0 ? '0' : (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision) + 'e' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)",
+    "breakdown0": "conversionMode === 0 ? (decimalNumber === 0 ? 'Coefficient: 0' : 'Coefficient: ' + (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision)) : 'Decimal: ' + (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)",
+    "breakdown1": "conversionMode === 0 ? (decimalNumber === 0 ? 'Exponent: 0' : 'Exponent: ' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : 'Scientific Input: ' + scientificCoefficient + 'e' + scientificExponent"
+  },
+  "outputs": {
+    "primary": "conversionMode === 0 ? (decimalNumber === 0 ? '0' : (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision) + 'e' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)",
+    "breakdown": [
+      "conversionMode === 0 ? (decimalNumber === 0 ? 'Coefficient: 0' : 'Coefficient: ' + (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision)) : 'Decimal: ' + (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)",
+      "conversionMode === 0 ? (decimalNumber === 0 ? 'Exponent: 0' : 'Exponent: ' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : 'Scientific Input: ' + scientificCoefficient + 'e' + scientificExponent"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "conversion",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

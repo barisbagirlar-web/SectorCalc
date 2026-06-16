@@ -1,0 +1,55 @@
+{
+  "toolName": "gym-kalori-hesaplayici-calculator",
+  "inputs": [
+    {
+      "id": "duration",
+      "label": "Egzersiz Süresi",
+      "type": "number",
+      "unit": "dk",
+      "default": 30,
+      "businessContext": "Kullanıcının günlük egzersiz süresi (dakika)"
+    },
+    {
+      "id": "weight",
+      "label": "Vücut Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Kullanıcının vücut ağırlığı (kilogram)"
+    },
+    {
+      "id": "met",
+      "label": "Aktivite MET Değeri",
+      "type": "number",
+      "unit": "MET",
+      "default": 5,
+      "businessContext": "Aktivitenin metabolik eşdeğeri (1 MET = 3.5 ml O2/kg/dk)"
+    },
+    {
+      "id": "intensity",
+      "label": "Yoğunluk Faktörü",
+      "type": "number",
+      "unit": "çarpan",
+      "default": 1,
+      "businessContext": "Egzersiz yoğunluğuna göre düzeltme katsayısı (1 = normal, >1 yüksek yoğunluk)"
+    }
+  ],
+  "formulas": {
+    "toplamKalori": "met * weight * (duration / 60) * intensity",
+    "dakikaKalori": "met * weight * intensity / 60",
+    "yagYakimi": "met * weight * (duration / 60) * intensity / 9"
+  },
+  "outputs": {
+    "primary": "toplamKalori",
+    "breakdown": [
+      "dakikaKalori",
+      "yagYakimi"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}

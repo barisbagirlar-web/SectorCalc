@@ -1,0 +1,81 @@
+{
+  "toolName": "geothermal-calculator",
+  "inputs": [
+    {
+      "id": "reservoir_temp",
+      "label": "Reservoir Temperature (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 150,
+      "businessContext": "Temperature of the geothermal reservoir"
+    },
+    {
+      "id": "ambient_temp",
+      "label": "Ambient Temperature (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Ambient temperature at the surface"
+    },
+    {
+      "id": "flow_rate",
+      "label": "Flow Rate (kg/s)",
+      "type": "number",
+      "unit": "kg/s",
+      "default": 50,
+      "businessContext": "Mass flow rate of geothermal fluid"
+    },
+    {
+      "id": "specific_heat",
+      "label": "Specific Heat Capacity (kJ/kg·K)",
+      "type": "number",
+      "unit": "kJ/kg·K",
+      "default": 4.2,
+      "businessContext": "Specific heat capacity of the geothermal fluid"
+    },
+    {
+      "id": "efficiency",
+      "label": "Conversion Efficiency (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Efficiency of converting thermal energy to electricity"
+    },
+    {
+      "id": "capacity_factor",
+      "label": "Capacity Factor (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "businessContext": "Fraction of time the plant operates at full capacity"
+    },
+    {
+      "id": "operating_hours",
+      "label": "Operating Hours per Year (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 8000,
+      "businessContext": "Total operating hours per year"
+    }
+  ],
+  "formulas": {
+    "thermal_power_kW": "flow_rate * specific_heat * (reservoir_temp - ambient_temp)",
+    "electric_power_kW": "thermal_power_kW * (efficiency / 100)",
+    "annual_energy_MWh": "electric_power_kW * operating_hours * (capacity_factor / 100) / 1000",
+    "co2_savings_tons": "annual_energy_MWh * 0.5"
+  },
+  "outputs": {
+    "primary": "annual_energy_MWh",
+    "breakdown": [
+      "thermal_power_kW",
+      "electric_power_kW",
+      "co2_savings_tons"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "ecology-environment",
+  "sectorSlug": "energy-carbon",
+  "categorySlug": "sustainability-resource-esg"
+}

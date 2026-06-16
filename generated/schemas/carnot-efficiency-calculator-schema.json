@@ -1,0 +1,55 @@
+{
+  "toolName": "carnot-efficiency-calculator",
+  "inputs": [
+    {
+      "id": "hotTemp",
+      "label": "Hot Reservoir Temperature (K)",
+      "type": "number",
+      "unit": "K",
+      "default": 500,
+      "businessContext": "Temperature of the high-temperature heat source in Kelvin"
+    },
+    {
+      "id": "coldTemp",
+      "label": "Cold Reservoir Temperature (K)",
+      "type": "number",
+      "unit": "K",
+      "default": 300,
+      "businessContext": "Temperature of the low-temperature heat sink in Kelvin"
+    },
+    {
+      "id": "heatInput",
+      "label": "Heat Input (kJ)",
+      "type": "number",
+      "unit": "kJ",
+      "default": 1000,
+      "businessContext": "Heat energy supplied to the engine per cycle or time interval"
+    },
+    {
+      "id": "workOutput",
+      "label": "Net Work Output (kJ)",
+      "type": "number",
+      "unit": "kJ",
+      "default": 400,
+      "businessContext": "Net mechanical work produced by the engine"
+    }
+  ],
+  "formulas": {
+    "carnotEfficiency": "(1 - (coldTemp / hotTemp)) * 100",
+    "actualEfficiency": "(workOutput / heatInput) * 100",
+    "efficiencyGap": "((1 - (coldTemp / hotTemp)) - (workOutput / heatInput)) * 100"
+  },
+  "outputs": {
+    "primary": "carnotEfficiency",
+    "breakdown": [
+      "actualEfficiency",
+      "efficiencyGap"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

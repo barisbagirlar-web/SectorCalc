@@ -1,0 +1,100 @@
+{
+  "toolName": "mirr-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "₺",
+      "default": -100000,
+      "businessContext": "Upfront capital outlay (enter as negative value)"
+    },
+    {
+      "id": "cf1",
+      "label": "Year 1 Cash Flow",
+      "type": "number",
+      "unit": "₺",
+      "default": 20000,
+      "businessContext": "Net cash flow for period 1"
+    },
+    {
+      "id": "cf2",
+      "label": "Year 2 Cash Flow",
+      "type": "number",
+      "unit": "₺",
+      "default": 25000,
+      "businessContext": "Net cash flow for period 2"
+    },
+    {
+      "id": "cf3",
+      "label": "Year 3 Cash Flow",
+      "type": "number",
+      "unit": "₺",
+      "default": 30000,
+      "businessContext": "Net cash flow for period 3"
+    },
+    {
+      "id": "cf4",
+      "label": "Year 4 Cash Flow",
+      "type": "number",
+      "unit": "₺",
+      "default": 35000,
+      "businessContext": "Net cash flow for period 4"
+    },
+    {
+      "id": "cf5",
+      "label": "Year 5 Cash Flow",
+      "type": "number",
+      "unit": "₺",
+      "default": 40000,
+      "businessContext": "Net cash flow for period 5"
+    },
+    {
+      "id": "financeRate",
+      "label": "Finance Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Cost of capital for negative cash flows"
+    },
+    {
+      "id": "reinvestmentRate",
+      "label": "Reinvestment Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 12,
+      "businessContext": "Return on reinvested positive cash flows"
+    }
+  ],
+  "formulas": {
+    "pvNeg": "Math.min(initialInvestment, 0) + Math.min(cf1, 0) / Math.pow(1 + financeRate/100, 1) + Math.min(cf2, 0) / Math.pow(1 + financeRate/100, 2) + Math.min(cf3, 0) / Math.pow(1 + financeRate/100, 3) + Math.min(cf4, 0) / Math.pow(1 + financeRate/100, 4) + Math.min(cf5, 0) / Math.pow(1 + financeRate/100, 5)",
+    "fvPos": "Math.max(cf1, 0) * Math.pow(1 + reinvestmentRate/100, 4) + Math.max(cf2, 0) * Math.pow(1 + reinvestmentRate/100, 3) + Math.max(cf3, 0) * Math.pow(1 + reinvestmentRate/100, 2) + Math.max(cf4, 0) * Math.pow(1 + reinvestmentRate/100, 1) + Math.max(cf5, 0)",
+    "mirrDecimal": "Math.pow(fvPos / Math.abs(pvNeg), 1/5) - 1",
+    "mirrPercent": "mirrDecimal * 100"
+  },
+  "outputs": {
+    "primary": {
+      "id": "mirrPercent",
+      "label": "MIRR",
+      "unit": "%"
+    },
+    "breakdown": [
+      {
+        "id": "fvPos",
+        "label": "FV of Positive Cash Flows",
+        "unit": "₺"
+      },
+      {
+        "id": "pvNeg",
+        "label": "PV of Negative Cash Flows",
+        "unit": "₺"
+      }
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

@@ -1,0 +1,63 @@
+{
+  "toolName": "darcy-weisbach-calculator",
+  "inputs": [
+    {
+      "id": "pipeDiameter",
+      "label": "Pipe Inner Diameter",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "businessContext": "Inner diameter of the pipe. Affects flow velocity and pressure loss."
+    },
+    {
+      "id": "pipeLength",
+      "label": "Pipe Length",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "businessContext": "Length of straight pipe segment. Pressure loss is directly proportional to length."
+    },
+    {
+      "id": "frictionFactor",
+      "label": "Darcy Friction Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.02,
+      "businessContext": "Dimensionless friction factor (f) from Moody chart or Colebrook equation, depends on pipe roughness and Reynolds number."
+    },
+    {
+      "id": "fluidDensity",
+      "label": "Fluid Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "businessContext": "Mass density of the fluid (e.g., 1000 kg/m³ for water). Affects pressure loss magnitude."
+    },
+    {
+      "id": "flowRate",
+      "label": "Volumetric Flow Rate",
+      "type": "number",
+      "unit": "m³/s",
+      "default": 0.01,
+      "businessContext": "Volume flow rate of the fluid. Determines velocity and hence friction losses."
+    }
+  ],
+  "formulas": {
+    "velocity": "flowRate / (Math.PI * (pipeDiameter ** 2) / 4)",
+    "pressureLoss": "frictionFactor * (pipeLength / pipeDiameter) * 0.5 * fluidDensity * (velocity ** 2)",
+    "headLoss": "pressureLoss / (fluidDensity * 9.81)"
+  },
+  "outputs": {
+    "primary": "pressureLoss",
+    "breakdown": [
+      "velocity",
+      "headLoss"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

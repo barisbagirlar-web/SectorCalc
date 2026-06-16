@@ -1,0 +1,57 @@
+{
+  "toolName": "relative-humidity-calculator",
+  "inputs": [
+    {
+      "id": "dryBulbTemp",
+      "label": "Dry Bulb Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "businessContext": "The ambient air temperature measured by a standard thermometer."
+    },
+    {
+      "id": "wetBulbTemp",
+      "label": "Wet Bulb Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Temperature measured by a wet-bulb thermometer, indicating evaporative cooling capacity."
+    },
+    {
+      "id": "atmosphericPressure",
+      "label": "Atmospheric Pressure",
+      "type": "number",
+      "unit": "hPa",
+      "default": 1013.25,
+      "businessContext": "Barometric pressure at the measurement location, required for psychrometric calculation."
+    },
+    {
+      "id": "psychrometricConstant",
+      "label": "Psychrometric Constant",
+      "type": "number",
+      "unit": "°C⁻¹",
+      "default": 0.00066,
+      "businessContext": "Empirical constant depending on ventilation type; 0.00066 for aspirated, 0.0008 for sling psychrometer."
+    }
+  ],
+  "formulas": {
+    "saturationVaporPressureDry": "6.112 * Math.exp((17.67 * dryBulbTemp) / (dryBulbTemp + 243.5))",
+    "saturationVaporPressureWet": "6.112 * Math.exp((17.67 * wetBulbTemp) / (wetBulbTemp + 243.5))",
+    "actualVaporPressure": "saturationVaporPressureWet - psychrometricConstant * atmosphericPressure * (dryBulbTemp - wetBulbTemp)",
+    "relativeHumidity": "(actualVaporPressure / saturationVaporPressureDry) * 100"
+  },
+  "outputs": {
+    "primary": "relativeHumidity",
+    "breakdown": [
+      "saturationVaporPressureDry",
+      "saturationVaporPressureWet",
+      "actualVaporPressure"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "physics-science",
+  "sectorSlug": "energy-consumption",
+  "categorySlug": "technology-ai-cloud-cyber"
+}

@@ -1,0 +1,70 @@
+{
+  "toolName": "ev-ebitda-calculator",
+  "inputs": [
+    {
+      "id": "market_cap",
+      "label": "Piyasa Değeri",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Şirketin piyasa değeri (örn. milyon TL, USD)"
+    },
+    {
+      "id": "total_debt",
+      "label": "Toplam Borç",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Kısa ve uzun vadeli borç toplamı"
+    },
+    {
+      "id": "minority_interest",
+      "label": "Azınlık Payları",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Azınlık hissedarların payları (varsa)"
+    },
+    {
+      "id": "preferred_stock",
+      "label": "İmtiyazlı Hisse Senetleri",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "İmtiyazlı hisse senedi değeri (varsa)"
+    },
+    {
+      "id": "cash_equivalents",
+      "label": "Nakit ve Benzerleri",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Nakit ve nakde eşdeğer varlıklar toplamı"
+    },
+    {
+      "id": "ebitda",
+      "label": "FAVÖK (EBITDA)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Faiz, amortisman ve vergi öncesi kar"
+    }
+  ],
+  "formulas": {
+    "enterprise_value": "market_cap + total_debt + minority_interest + preferred_stock - cash_equivalents",
+    "ev_ebitda_ratio": "enterprise_value / ebitda"
+  },
+  "outputs": {
+    "primary": "ev_ebitda_ratio",
+    "breakdown": [
+      "enterprise_value",
+      "ebitda"
+    ]
+  },
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false,
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
+}

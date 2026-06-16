@@ -1,0 +1,55 @@
+{
+  "toolName": "cartesian-to-polar-calculator",
+  "inputs": [
+    {
+      "id": "pointX",
+      "label": "Point X-coordinate",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "X coordinate of the point to convert"
+    },
+    {
+      "id": "pointY",
+      "label": "Point Y-coordinate",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Y coordinate of the point to convert"
+    },
+    {
+      "id": "originX",
+      "label": "Origin X-coordinate",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "X coordinate of the polar origin"
+    },
+    {
+      "id": "originY",
+      "label": "Origin Y-coordinate",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "Y coordinate of the polar origin"
+    }
+  ],
+  "formulas": {
+    "r": "Math.sqrt(Math.pow(pointX - originX, 2) + Math.pow(pointY - originY, 2))",
+    "theta_rad": "Math.atan2(pointY - originY, pointX - originX)",
+    "theta_deg": "(Math.atan2(pointY - originY, pointX - originX) * 180) / Math.PI"
+  },
+  "outputs": {
+    "primary": "r",
+    "breakdown": [
+      "theta_rad",
+      "theta_deg"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}
