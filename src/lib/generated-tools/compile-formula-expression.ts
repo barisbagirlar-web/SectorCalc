@@ -1,5 +1,40 @@
+import { compileFormulaScriptFallback } from "@/lib/generated-tools/compile-formula-script";
+
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function replaceInputIdentifier(
+  expression: string,
+  inputId: string,
+  access: string,
+): string {
+  const pattern = new RegExp(
+    `(?<!inputs\\.)(?<!input\\.)\\b${escapeRegExp(inputId)}\\b`,
+    "g",
+  );
+  return expression.replace(pattern, access);
+}
+
+function substituteInputsObjectAccess(
+  expression: string,
+  options: {
+    readonly inputIds: readonly string[];
+    readonly inputToAccess: (inputId: string) => string;
+  },
+): string {
+  let result = expression;
+  for (const inputId of options.inputIds) {
+    result = result.replace(
+      new RegExp(`\\binputs\\.${escapeRegExp(inputId)}\\b`, "g"),
+      options.inputToAccess(inputId),
+    );
+    result = result.replace(
+      new RegExp(`inputs\\[['"]${escapeRegExp(inputId)}['"]\\]`, "g"),
+      options.inputToAccess(inputId),
+    );
+  }
+  return result.replace(/\binputs\b/g, "input");
 }
 
 export function replaceIdentifierExpression(
@@ -382,6 +417,22 @@ export function isValidJavaScriptExpression(expression: string): boolean {
     new Function(`return (${trimmed});`);
     return true;
   } catch {
+    return isValidFormulaEvaluationExpression(trimmed);
+  }
+}
+
+export function isValidFormulaEvaluationExpression(expression: string): boolean {
+  const trimmed = expression.trim();
+  if (!trimmed) {
+    return false;
+  }
+  const erfShim =
+    "const erf=(x)=>{const a1=0.254829592,a2=-0.284496736,a3=1.421413741,a4=-1.453152027,a5=1.061405429,p=0.3275911;const sign=x<0?-1:1;x=Math.abs(x);const t=1/(1+p*x);const y=1-(((((a5*t+a4)*t+a3)*t+a2)*t+a1)*t)*Math.exp(-x*x);return sign*y;};";
+  try {
+    // eslint-disable-next-line no-new-func
+    new Function("input", "results", `${erfShim} return (${trimmed});`);
+    return true;
+  } catch {
     return false;
   }
 }
@@ -423,13 +474,18 @@ export function compileFormulaExpression(
   expression = transformIfThenElseKeywordExpression(expression);
   expression = transformIfColonAssignments(expression, options.selfKey);
   expression = transformIfFunction(expression);
+  expression = expression.replace(
+    /\bif\s*\(\s*([^,()]+(?:\([^)]*\)[^,()]*)*)\s*,\s*([^,]+)\s*,\s*([^)]+)\s*\)/gi,
+    "(($1) ? ($2) : ($3))",
+  );
   expression = transformMathFunctions(expression);
   expression = transformPowerNotation(expression);
   // Avoid producing Math.Math.PI when schema already used Math.PI.
   expression = expression.replace(/(?<!Math\.)\bPI\b/g, "Math.PI");
+  expression = substituteInputsObjectAccess(expression, options);
 
   for (const inputId of options.inputIds) {
-    expression = replaceIdentifierExpression(
+    expression = replaceInputIdentifier(
       expression,
       inputId,
       options.inputToAccess(inputId),
@@ -447,5 +503,9 @@ export function compileFormulaExpression(
     );
   }
 
-  return isValidJavaScriptExpression(expression) ? expression : null;
+  if (isValidJavaScriptExpression(expression)) {
+    return expression;
+  }
+
+  return compileFormulaScriptFallback(rawExpression, options);
 }
