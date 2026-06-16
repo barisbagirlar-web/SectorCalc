@@ -23,13 +23,13 @@ export const Bmr_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Bmr_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["bmr_mifflin_st_jeor"] = 0;
-  results["lean_body_mass"] = 0;
-  try { results["bmr_adjusted_for_lean_mass"] = (results["bmr_mifflin_st_jeor"] ?? 0) * (1 + 0.1 * (((results["lean_body_mass"] ?? 0) / input.weight_kg) - 0.7)); } catch { results["bmr_adjusted_for_lean_mass"] = 0; }
-  results["total_energy_expenditure"] = 0;
-  try { results["metabolic_efficiency_index"] = (results["bmr_adjusted_for_lean_mass"] ?? 0) / (results["lean_body_mass"] ?? 0); } catch { results["metabolic_efficiency_index"] = 0; }
-  try { results["data_confidence_factor"] = (input.measurement_confidence === 'low' ? 0.85 : (input.measurement_confidence === 'medium' ? 1.0 : (input.measurement_confidence === 'high' ? 1.05 : 0))); } catch { results["data_confidence_factor"] = 0; }
-  try { results["bmr_primary"] = (results["bmr_adjusted_for_lean_mass"] ?? 0) * (results["data_confidence_factor"] ?? 0); } catch { results["bmr_primary"] = 0; }
+  try { const v = ((input.gender = 'male') ? ((10 * input.weight_kg) + (6.25 * input.height_cm) - (5 * input.age_years) + 5) : ((10 * input.weight_kg) + (6.25 * input.height_cm) - (5 * input.age_years) - 161)); results["bmr_mifflin_st_jeor"] = Number.isFinite(v) ? v : 0; } catch { results["bmr_mifflin_st_jeor"] = 0; }
+  try { const v = ((input.body_fat_percent != null) ? (input.weight_kg * (1 - input.body_fat_percent/100)) : (((input.gender = 'male') ? ((0.407 * input.weight_kg) + (0.267 * input.height_cm) - 19.2) : ((0.252 * input.weight_kg) + (0.473 * input.height_cm) - 48.3)))); results["lean_body_mass"] = Number.isFinite(v) ? v : 0; } catch { results["lean_body_mass"] = 0; }
+  try { const v = (results["bmr_mifflin_st_jeor"] ?? 0) * (1 + 0.1 * (((results["lean_body_mass"] ?? 0) / input.weight_kg) - 0.7)); results["bmr_adjusted_for_lean_mass"] = Number.isFinite(v) ? v : 0; } catch { results["bmr_adjusted_for_lean_mass"] = 0; }
+  try { const v = (results["bmr_adjusted_for_lean_mass"] ?? 0) * (input.activity_factor === 'sedentary' ? 1.2 : (input.activity_factor === 'lightly active' ? 1.375 : (input.activity_factor === 'moderately active' ? 1.55 : (input.activity_factor === 'very active' ? 1.725 : (input.activity_factor === 'extra active' ? 1.9 : 0))))); results["total_energy_expenditure"] = Number.isFinite(v) ? v : 0; } catch { results["total_energy_expenditure"] = 0; }
+  try { const v = (results["bmr_adjusted_for_lean_mass"] ?? 0) / (results["lean_body_mass"] ?? 0); results["metabolic_efficiency_index"] = Number.isFinite(v) ? v : 0; } catch { results["metabolic_efficiency_index"] = 0; }
+  try { const v = (input.measurement_confidence === 'low' ? 0.85 : (input.measurement_confidence === 'medium' ? 1.0 : (input.measurement_confidence === 'high' ? 1.05 : 0))); results["data_confidence_factor"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_factor"] = 0; }
+  try { const v = (results["bmr_adjusted_for_lean_mass"] ?? 0) * (results["data_confidence_factor"] ?? 0); results["bmr_primary"] = Number.isFinite(v) ? v : 0; } catch { results["bmr_primary"] = 0; }
   return results;
 }
 

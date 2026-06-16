@@ -37,13 +37,13 @@ export const Spc_signal_delay_costInputSchema = z.object({
 
 function evaluateAllFormulas(input: Spc_signal_delay_costInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["units_produced_per_hour"] = input.units_per_cycle / (input.process_cycle_time_min / 60); } catch { results["units_produced_per_hour"] = 0; }
-  try { results["total_delay_hours"] = input.detection_delay_hours + input.response_delay_hours; } catch { results["total_delay_hours"] = 0; }
-  try { results["defective_units_during_delay"] = (results["units_produced_per_hour"] ?? 0) * (results["total_delay_hours"] ?? 0) * (input.defect_rate_out_of_control / 100); } catch { results["defective_units_during_delay"] = 0; }
-  try { results["direct_defect_cost_per_event"] = (results["defective_units_during_delay"] ?? 0) * input.cost_per_defect; } catch { results["direct_defect_cost_per_event"] = 0; }
-  try { results["hidden_loss_cost_per_event"] = input.include_hidden_losses ? (results["direct_defect_cost_per_event"] ?? 0) * (input.hidden_loss_multiplier - 1) : 0; } catch { results["hidden_loss_cost_per_event"] = 0; }
-  try { results["total_delay_cost_per_event"] = (results["direct_defect_cost_per_event"] ?? 0) + (results["hidden_loss_cost_per_event"] ?? 0) + input.cost_of_correction_per_event; } catch { results["total_delay_cost_per_event"] = 0; }
-  try { results["annual_delay_cost"] = (results["total_delay_cost_per_event"] ?? 0) * input.signal_frequency_per_year; } catch { results["annual_delay_cost"] = 0; }
+  try { const v = input.units_per_cycle / (input.process_cycle_time_min / 60); results["units_produced_per_hour"] = Number.isFinite(v) ? v : 0; } catch { results["units_produced_per_hour"] = 0; }
+  try { const v = input.detection_delay_hours + input.response_delay_hours; results["total_delay_hours"] = Number.isFinite(v) ? v : 0; } catch { results["total_delay_hours"] = 0; }
+  try { const v = (results["units_produced_per_hour"] ?? 0) * (results["total_delay_hours"] ?? 0) * (input.defect_rate_out_of_control / 100); results["defective_units_during_delay"] = Number.isFinite(v) ? v : 0; } catch { results["defective_units_during_delay"] = 0; }
+  try { const v = (results["defective_units_during_delay"] ?? 0) * input.cost_per_defect; results["direct_defect_cost_per_event"] = Number.isFinite(v) ? v : 0; } catch { results["direct_defect_cost_per_event"] = 0; }
+  try { const v = input.include_hidden_losses ? (results["direct_defect_cost_per_event"] ?? 0) * (input.hidden_loss_multiplier - 1) : 0; results["hidden_loss_cost_per_event"] = Number.isFinite(v) ? v : 0; } catch { results["hidden_loss_cost_per_event"] = 0; }
+  try { const v = (results["direct_defect_cost_per_event"] ?? 0) + (results["hidden_loss_cost_per_event"] ?? 0) + input.cost_of_correction_per_event; results["total_delay_cost_per_event"] = Number.isFinite(v) ? v : 0; } catch { results["total_delay_cost_per_event"] = 0; }
+  try { const v = (results["total_delay_cost_per_event"] ?? 0) * input.signal_frequency_per_year; results["annual_delay_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_delay_cost"] = 0; }
   return results;
 }
 

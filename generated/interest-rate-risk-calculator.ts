@@ -25,20 +25,20 @@ export const Interest_rate_risk_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Interest_rate_risk_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["price_change_duration"] = ΔP_dur = -input.duration * (input.rate_change / 10000) * input.portfolio_value; } catch { results["price_change_duration"] = 0; }
-  try { results["price_change_convexity"] = ΔP_conv = 0.5 * input.convexity * (input.rate_change / 10000)**2 * input.portfolio_value; } catch { results["price_change_convexity"] = 0; }
-  try { results["total_price_change"] = ΔP_total = ΔP_dur + ΔP_conv; } catch { results["total_price_change"] = 0; }
-  try { results["hedged_price_change"] = ΔP_hedged = ΔP_total * (1 - input.hedge_ratio / 100); } catch { results["hedged_price_change"] = 0; }
+  try { const v = ΔP_dur = -input.duration * (input.rate_change / 10000) * input.portfolio_value; results["price_change_duration"] = Number.isFinite(v) ? v : 0; } catch { results["price_change_duration"] = 0; }
+  try { const v = ΔP_conv = 0.5 * input.convexity * (input.rate_change / 10000)**2 * input.portfolio_value; results["price_change_convexity"] = Number.isFinite(v) ? v : 0; } catch { results["price_change_convexity"] = 0; }
+  try { const v = ΔP_total = ΔP_dur + ΔP_conv; results["total_price_change"] = Number.isFinite(v) ? v : 0; } catch { results["total_price_change"] = 0; }
+  try { const v = ΔP_hedged = ΔP_total * (1 - input.hedge_ratio / 100); results["hedged_price_change"] = Number.isFinite(v) ? v : 0; } catch { results["hedged_price_change"] = 0; }
   results["value_at_risk"] = 0;
-  try { results["data_confidence_adjustment"] = ΔP_hedged * (1 - 0.1 * (volatility_regime_index)); } catch { results["data_confidence_adjustment"] = 0; }
-  try { results["primary_result"] = DCA; } catch { results["primary_result"] = 0; }
+  try { const v = ΔP_hedged * (1 - 0.1 * (volatility_regime_index)); results["data_confidence_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_adjustment"] = 0; }
+  try { const v = DCA; results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 
 
 export function calculateInterest_rate_risk_calculator(input: Interest_rate_risk_calculatorInput): Interest_rate_risk_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["net_interest_rate_risk_exposure"] ?? 0;
+  const totalWasteCost = values["net_interest_rate_risk_exposure"] ?? values["primary_result"] ?? 0;
   const breakdown = {
     id: values["id"] ?? 0,
     label: values["label"] ?? 0,

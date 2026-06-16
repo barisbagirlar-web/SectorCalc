@@ -31,15 +31,15 @@ export const Compressor_energy_cost_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Compressor_energy_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["actual_power_input"] = input.compressor_power_rating / (input.motor_efficiency / 100); } catch { results["actual_power_input"] = 0; }
-  try { results["annual_energy_consumption"] = (results["actual_power_input"] ?? 0) * input.operating_hours_per_year * (input.load_factor / 100); } catch { results["annual_energy_consumption"] = 0; }
-  try { results["leakage_energy_loss"] = (results["annual_energy_consumption"] ?? 0) * (input.leakage_percentage / 100); } catch { results["leakage_energy_loss"] = 0; }
-  try { results["pressure_penalty_factor"] = 1 + ((input.pressure_setpoint - 6) * 0.01 / 0.1); } catch { results["pressure_penalty_factor"] = 0; }
-  try { results["temperature_correction_factor"] = 1 + ((input.ambient_temperature - 20) * 0.005); } catch { results["temperature_correction_factor"] = 0; }
-  try { results["vsd_efficiency_factor"] = input.has_vsd ? 0.85 : 1.0; } catch { results["vsd_efficiency_factor"] = 0; }
-  try { results["maintenance_penalty_factor"] = (input.maintenance_quality === 'poor' ? 1.15 : (input.maintenance_quality === 'standard' ? 1.05 : (input.maintenance_quality === 'excellent' ? 1.0 : 0))); } catch { results["maintenance_penalty_factor"] = 0; }
-  try { results["adjusted_annual_energy"] = (results["annual_energy_consumption"] ?? 0) * (results["pressure_penalty_factor"] ?? 0) * (results["temperature_correction_factor"] ?? 0) * (results["vsd_efficiency_factor"] ?? 0) * (results["maintenance_penalty_factor"] ?? 0); } catch { results["adjusted_annual_energy"] = 0; }
-  try { results["total_annual_energy_cost"] = (results["adjusted_annual_energy"] ?? 0) * input.electricity_cost_per_kwh; } catch { results["total_annual_energy_cost"] = 0; }
+  try { const v = input.compressor_power_rating / (input.motor_efficiency / 100); results["actual_power_input"] = Number.isFinite(v) ? v : 0; } catch { results["actual_power_input"] = 0; }
+  try { const v = (results["actual_power_input"] ?? 0) * input.operating_hours_per_year * (input.load_factor / 100); results["annual_energy_consumption"] = Number.isFinite(v) ? v : 0; } catch { results["annual_energy_consumption"] = 0; }
+  try { const v = (results["annual_energy_consumption"] ?? 0) * (input.leakage_percentage / 100); results["leakage_energy_loss"] = Number.isFinite(v) ? v : 0; } catch { results["leakage_energy_loss"] = 0; }
+  try { const v = 1 + ((input.pressure_setpoint - 6) * 0.01 / 0.1); results["pressure_penalty_factor"] = Number.isFinite(v) ? v : 0; } catch { results["pressure_penalty_factor"] = 0; }
+  try { const v = 1 + ((input.ambient_temperature - 20) * 0.005); results["temperature_correction_factor"] = Number.isFinite(v) ? v : 0; } catch { results["temperature_correction_factor"] = 0; }
+  try { const v = input.has_vsd ? 0.85 : 1.0; results["vsd_efficiency_factor"] = Number.isFinite(v) ? v : 0; } catch { results["vsd_efficiency_factor"] = 0; }
+  try { const v = (input.maintenance_quality === 'poor' ? 1.15 : (input.maintenance_quality === 'standard' ? 1.05 : (input.maintenance_quality === 'excellent' ? 1.0 : 0))); results["maintenance_penalty_factor"] = Number.isFinite(v) ? v : 0; } catch { results["maintenance_penalty_factor"] = 0; }
+  try { const v = (results["annual_energy_consumption"] ?? 0) * (results["pressure_penalty_factor"] ?? 0) * (results["temperature_correction_factor"] ?? 0) * (results["vsd_efficiency_factor"] ?? 0) * (results["maintenance_penalty_factor"] ?? 0); results["adjusted_annual_energy"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_annual_energy"] = 0; }
+  try { const v = (results["adjusted_annual_energy"] ?? 0) * input.electricity_cost_per_kwh; results["total_annual_energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_energy_cost"] = 0; }
   return results;
 }
 

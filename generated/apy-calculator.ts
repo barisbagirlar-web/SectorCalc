@@ -25,14 +25,14 @@ export const Apy_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Apy_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["effective_rate"] = 0;
-  try { results["gross_future_value"] = input.initial_principal * (1 + (results["effective_rate"] ?? 0))^input.time_period_years; } catch { results["gross_future_value"] = 0; }
-  try { results["fee_adjustment"] = (1 - input.fee_percentage/100)^input.time_period_years; } catch { results["fee_adjustment"] = 0; }
-  try { results["net_future_value"] = (results["gross_future_value"] ?? 0) * (results["fee_adjustment"] ?? 0); } catch { results["net_future_value"] = 0; }
-  try { results["tax_adjustment"] = 1 - input.tax_rate/100; } catch { results["tax_adjustment"] = 0; }
-  try { results["after_tax_future_value"] = input.initial_principal + ((results["net_future_value"] ?? 0) - input.initial_principal) * (results["tax_adjustment"] ?? 0); } catch { results["after_tax_future_value"] = 0; }
-  try { results["apy_nominal"] = (((results["after_tax_future_value"] ?? 0) / input.initial_principal)^(1/input.time_period_years) - 1) * 100; } catch { results["apy_nominal"] = 0; }
-  try { results["apy_real"] = ((1 + (results["apy_nominal"] ?? 0)/100) / (1 + input.inflation_rate/100) - 1) * 100; } catch { results["apy_real"] = 0; }
+  try { const v = ((input.is_continuous_compounding) ? (Math.exp(input.nominal_rate/100) - 1) : ((1 + (input.nominal_rate/100)/input.compounding_frequency)^input.compounding_frequency - 1)); results["effective_rate"] = Number.isFinite(v) ? v : 0; } catch { results["effective_rate"] = 0; }
+  try { const v = input.initial_principal * (1 + (results["effective_rate"] ?? 0))^input.time_period_years; results["gross_future_value"] = Number.isFinite(v) ? v : 0; } catch { results["gross_future_value"] = 0; }
+  try { const v = (1 - input.fee_percentage/100)^input.time_period_years; results["fee_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["fee_adjustment"] = 0; }
+  try { const v = (results["gross_future_value"] ?? 0) * (results["fee_adjustment"] ?? 0); results["net_future_value"] = Number.isFinite(v) ? v : 0; } catch { results["net_future_value"] = 0; }
+  try { const v = 1 - input.tax_rate/100; results["tax_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["tax_adjustment"] = 0; }
+  try { const v = input.initial_principal + ((results["net_future_value"] ?? 0) - input.initial_principal) * (results["tax_adjustment"] ?? 0); results["after_tax_future_value"] = Number.isFinite(v) ? v : 0; } catch { results["after_tax_future_value"] = 0; }
+  try { const v = (((results["after_tax_future_value"] ?? 0) / input.initial_principal)^(1/input.time_period_years) - 1) * 100; results["apy_nominal"] = Number.isFinite(v) ? v : 0; } catch { results["apy_nominal"] = 0; }
+  try { const v = ((1 + (results["apy_nominal"] ?? 0)/100) / (1 + input.inflation_rate/100) - 1) * 100; results["apy_real"] = Number.isFinite(v) ? v : 0; } catch { results["apy_real"] = 0; }
   return results;
 }
 

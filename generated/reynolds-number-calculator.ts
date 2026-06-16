@@ -25,12 +25,12 @@ export const Reynolds_number_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Reynolds_number_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["kinematic_viscosity"] = ν = μ / ρ; } catch { results["kinematic_viscosity"] = 0; }
-  try { results["reynolds_number"] = (ρ * V * D) / μ; } catch { results["reynolds_number"] = 0; }
+  try { const v = ν = μ / ρ; results["kinematic_viscosity"] = Number.isFinite(v) ? v : 0; } catch { results["kinematic_viscosity"] = 0; }
+  try { const v = (ρ * V * D) / μ; results["reynolds_number"] = Number.isFinite(v) ? v : 0; } catch { results["reynolds_number"] = 0; }
   results["relative_roughness"] = 0;
   results["friction_factor"] = 0;
   results["pressure_drop_per_meter"] = 0;
-  results["flow_regime"] = 0;
+  try { const v = ((Re < Re_low) ? ('Laminar') : (((Re <= Re_high) ? ('Transitional') : ('Turbulent')))); results["flow_regime"] = Number.isFinite(v) ? v : 0; } catch { results["flow_regime"] = 0; }
   results["mass_flow_rate"] = 0;
   return results;
 }

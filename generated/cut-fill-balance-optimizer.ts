@@ -29,13 +29,13 @@ export const Cut_fill_balance_optimizerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Cut_fill_balance_optimizerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["adjustedCutVolume"] = input.cutVolume * input.shrinkageFactor; } catch { results["adjustedCutVolume"] = 0; }
-  try { results["adjustedFillVolume"] = input.fillVolume * input.swellFactor; } catch { results["adjustedFillVolume"] = 0; }
-  try { results["netBalance"] = (results["adjustedCutVolume"] ?? 0) - input.fillVolume; } catch { results["netBalance"] = 0; }
-  try { results["excessCutVolume"] = Math.max(0, (results["netBalance"] ?? 0)); } catch { results["excessCutVolume"] = 0; }
-  try { results["deficitFillVolume"] = Math.max(0, -(results["netBalance"] ?? 0)); } catch { results["deficitFillVolume"] = 0; }
-  try { results["totalHaulVolume"] = Math.min((results["adjustedCutVolume"] ?? 0), input.fillVolume) * input.swellFactor + ((results["excessCutVolume"] ?? 0) * input.swellFactor) + ((results["deficitFillVolume"] ?? 0) * input.swellFactor); } catch { results["totalHaulVolume"] = 0; }
-  try { results["totalCost"] = ((results["totalHaulVolume"] ?? 0) * input.unitHaulCost * input.haulDistance) + ((results["excessCutVolume"] ?? 0) * input.wasteDisposalCost) + ((results["deficitFillVolume"] ?? 0) * input.borrowCost); } catch { results["totalCost"] = 0; }
+  try { const v = input.cutVolume * input.shrinkageFactor; results["adjustedCutVolume"] = Number.isFinite(v) ? v : 0; } catch { results["adjustedCutVolume"] = 0; }
+  try { const v = input.fillVolume * input.swellFactor; results["adjustedFillVolume"] = Number.isFinite(v) ? v : 0; } catch { results["adjustedFillVolume"] = 0; }
+  try { const v = (results["adjustedCutVolume"] ?? 0) - input.fillVolume; results["netBalance"] = Number.isFinite(v) ? v : 0; } catch { results["netBalance"] = 0; }
+  try { const v = Math.max(0, (results["netBalance"] ?? 0)); results["excessCutVolume"] = Number.isFinite(v) ? v : 0; } catch { results["excessCutVolume"] = 0; }
+  try { const v = Math.max(0, -(results["netBalance"] ?? 0)); results["deficitFillVolume"] = Number.isFinite(v) ? v : 0; } catch { results["deficitFillVolume"] = 0; }
+  try { const v = Math.min((results["adjustedCutVolume"] ?? 0), input.fillVolume) * input.swellFactor + ((results["excessCutVolume"] ?? 0) * input.swellFactor) + ((results["deficitFillVolume"] ?? 0) * input.swellFactor); results["totalHaulVolume"] = Number.isFinite(v) ? v : 0; } catch { results["totalHaulVolume"] = 0; }
+  try { const v = ((results["totalHaulVolume"] ?? 0) * input.unitHaulCost * input.haulDistance) + ((results["excessCutVolume"] ?? 0) * input.wasteDisposalCost) + ((results["deficitFillVolume"] ?? 0) * input.borrowCost); results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
   return results;
 }
 

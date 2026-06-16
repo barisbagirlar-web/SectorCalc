@@ -41,16 +41,16 @@ export const Welding_cost_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Welding_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["weld_volume"] = (input.weld_length_mm / 10) * (input.weld_throat_mm / 10) * (input.weld_throat_mm / 10) / 2; } catch { results["weld_volume"] = 0; }
-  try { results["filler_mass"] = (results["weld_volume"] ?? 0) * input.material_density_g_per_cm3 / 1000 / (input.deposition_efficiency / 100); } catch { results["filler_mass"] = 0; }
-  try { results["labor_time"] = (input.weld_length_mm / input.welding_speed_mm_per_min) / 60; } catch { results["labor_time"] = 0; }
-  try { results["filler_cost"] = (results["filler_mass"] ?? 0) * input.filler_wire_cost_per_kg * (1 + (input.use_premium_material ? 0.2 : 0)); } catch { results["filler_cost"] = 0; }
-  try { results["gas_cost"] = input.gas_flow_rate_l_per_min * (input.weld_length_mm / input.welding_speed_mm_per_min) * input.gas_cost_per_liter; } catch { results["gas_cost"] = 0; }
-  try { results["energy_cost"] = input.welding_power_kw * (results["labor_time"] ?? 0) * input.energy_cost_per_kwh; } catch { results["energy_cost"] = 0; }
-  try { results["labor_cost"] = (results["labor_time"] ?? 0) * input.labor_rate_per_hour; } catch { results["labor_cost"] = 0; }
-  try { results["overhead_cost"] = (results["labor_time"] ?? 0) * input.overhead_rate_per_hour; } catch { results["overhead_cost"] = 0; }
-  try { results["rework_cost"] = ((results["filler_cost"] ?? 0) + (results["gas_cost"] ?? 0) + (results["energy_cost"] ?? 0) + (results["labor_cost"] ?? 0) + (results["overhead_cost"] ?? 0)) * (input.rework_rate_percent / 100) * input.rework_cost_factor; } catch { results["rework_cost"] = 0; }
-  try { results["total_welding_cost"] = (results["filler_cost"] ?? 0) + (results["gas_cost"] ?? 0) + (results["energy_cost"] ?? 0) + (results["labor_cost"] ?? 0) + (results["overhead_cost"] ?? 0) + (results["rework_cost"] ?? 0); } catch { results["total_welding_cost"] = 0; }
+  try { const v = (input.weld_length_mm / 10) * (input.weld_throat_mm / 10) * (input.weld_throat_mm / 10) / 2; results["weld_volume"] = Number.isFinite(v) ? v : 0; } catch { results["weld_volume"] = 0; }
+  try { const v = (results["weld_volume"] ?? 0) * input.material_density_g_per_cm3 / 1000 / (input.deposition_efficiency / 100); results["filler_mass"] = Number.isFinite(v) ? v : 0; } catch { results["filler_mass"] = 0; }
+  try { const v = (input.weld_length_mm / input.welding_speed_mm_per_min) / 60; results["labor_time"] = Number.isFinite(v) ? v : 0; } catch { results["labor_time"] = 0; }
+  try { const v = (results["filler_mass"] ?? 0) * input.filler_wire_cost_per_kg * (1 + (input.use_premium_material ? 0.2 : 0)); results["filler_cost"] = Number.isFinite(v) ? v : 0; } catch { results["filler_cost"] = 0; }
+  try { const v = input.gas_flow_rate_l_per_min * (input.weld_length_mm / input.welding_speed_mm_per_min) * input.gas_cost_per_liter; results["gas_cost"] = Number.isFinite(v) ? v : 0; } catch { results["gas_cost"] = 0; }
+  try { const v = input.welding_power_kw * (results["labor_time"] ?? 0) * input.energy_cost_per_kwh; results["energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["energy_cost"] = 0; }
+  try { const v = (results["labor_time"] ?? 0) * input.labor_rate_per_hour; results["labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost"] = 0; }
+  try { const v = (results["labor_time"] ?? 0) * input.overhead_rate_per_hour; results["overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
+  try { const v = ((results["filler_cost"] ?? 0) + (results["gas_cost"] ?? 0) + (results["energy_cost"] ?? 0) + (results["labor_cost"] ?? 0) + (results["overhead_cost"] ?? 0)) * (input.rework_rate_percent / 100) * input.rework_cost_factor; results["rework_cost"] = Number.isFinite(v) ? v : 0; } catch { results["rework_cost"] = 0; }
+  try { const v = (results["filler_cost"] ?? 0) + (results["gas_cost"] ?? 0) + (results["energy_cost"] ?? 0) + (results["labor_cost"] ?? 0) + (results["overhead_cost"] ?? 0) + (results["rework_cost"] ?? 0); results["total_welding_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_welding_cost"] = 0; }
   return results;
 }
 

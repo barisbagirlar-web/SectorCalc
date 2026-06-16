@@ -31,13 +31,13 @@ export const Hourly_rate_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Hourly_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["direct_labor_cost"] = input.direct_labor_hours * input.hourly_wage; } catch { results["direct_labor_cost"] = 0; }
-  try { results["overhead_cost"] = (results["direct_labor_cost"] ?? 0) * (input.overhead_rate / 100); } catch { results["overhead_cost"] = 0; }
-  try { results["setup_cost_per_unit"] = input.include_setup ? (input.setup_time_hours * input.machine_rate) / input.batch_size : 0; } catch { results["setup_cost_per_unit"] = 0; }
-  try { results["machine_cost_per_unit"] = input.direct_labor_hours * input.machine_rate; } catch { results["machine_cost_per_unit"] = 0; }
-  try { results["total_cost_per_unit"] = (results["direct_labor_cost"] ?? 0) + (results["overhead_cost"] ?? 0) + input.tooling_cost_per_unit + input.quality_cost_per_unit + (results["setup_cost_per_unit"] ?? 0) + (results["machine_cost_per_unit"] ?? 0); } catch { results["total_cost_per_unit"] = 0; }
-  try { results["hourly_rate"] = (results["total_cost_per_unit"] ?? 0) / input.direct_labor_hours; } catch { results["hourly_rate"] = 0; }
-  try { results["selling_price_per_unit"] = (results["total_cost_per_unit"] ?? 0) * (1 + input.profit_margin / 100); } catch { results["selling_price_per_unit"] = 0; }
+  try { const v = input.direct_labor_hours * input.hourly_wage; results["direct_labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = (results["direct_labor_cost"] ?? 0) * (input.overhead_rate / 100); results["overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
+  try { const v = input.include_setup ? (input.setup_time_hours * input.machine_rate) / input.batch_size : 0; results["setup_cost_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["setup_cost_per_unit"] = 0; }
+  try { const v = input.direct_labor_hours * input.machine_rate; results["machine_cost_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["machine_cost_per_unit"] = 0; }
+  try { const v = (results["direct_labor_cost"] ?? 0) + (results["overhead_cost"] ?? 0) + input.tooling_cost_per_unit + input.quality_cost_per_unit + (results["setup_cost_per_unit"] ?? 0) + (results["machine_cost_per_unit"] ?? 0); results["total_cost_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_per_unit"] = 0; }
+  try { const v = (results["total_cost_per_unit"] ?? 0) / input.direct_labor_hours; results["hourly_rate"] = Number.isFinite(v) ? v : 0; } catch { results["hourly_rate"] = 0; }
+  try { const v = (results["total_cost_per_unit"] ?? 0) * (1 + input.profit_margin / 100); results["selling_price_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["selling_price_per_unit"] = 0; }
   return results;
 }
 

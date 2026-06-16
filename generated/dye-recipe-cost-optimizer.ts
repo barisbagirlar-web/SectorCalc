@@ -35,13 +35,13 @@ export const Dye_recipe_cost_optimizerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Dye_recipe_cost_optimizerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["dye_mass_kg"] = (input.dye_volume_l * input.dye_concentration_gpl) / 1000; } catch { results["dye_mass_kg"] = 0; }
-  try { results["dye_cost"] = (results["dye_mass_kg"] ?? 0) * input.dye_price_per_kg; } catch { results["dye_cost"] = 0; }
-  try { results["chemical_cost"] = input.dye_volume_l * input.chemicals_per_liter; } catch { results["chemical_cost"] = 0; }
-  try { results["labor_cost"] = input.labor_cost_per_hour * input.batch_time_hours; } catch { results["labor_cost"] = 0; }
-  try { results["water_cost"] = (input.water_usage_l_per_kg * input.fabric_weight_kg / 1000) * input.water_cost_per_m3; } catch { results["water_cost"] = 0; }
-  try { results["waste_cost"] = ((results["dye_cost"] ?? 0) + (results["chemical_cost"] ?? 0) + input.energy_cost_per_batch + (results["labor_cost"] ?? 0) + (results["water_cost"] ?? 0)) * (input.waste_percentage / 100); } catch { results["waste_cost"] = 0; }
-  try { results["total_cost_per_batch"] = (results["dye_cost"] ?? 0) + (results["chemical_cost"] ?? 0) + input.energy_cost_per_batch + (results["labor_cost"] ?? 0) + (results["water_cost"] ?? 0) + (results["waste_cost"] ?? 0); } catch { results["total_cost_per_batch"] = 0; }
+  try { const v = (input.dye_volume_l * input.dye_concentration_gpl) / 1000; results["dye_mass_kg"] = Number.isFinite(v) ? v : 0; } catch { results["dye_mass_kg"] = 0; }
+  try { const v = (results["dye_mass_kg"] ?? 0) * input.dye_price_per_kg; results["dye_cost"] = Number.isFinite(v) ? v : 0; } catch { results["dye_cost"] = 0; }
+  try { const v = input.dye_volume_l * input.chemicals_per_liter; results["chemical_cost"] = Number.isFinite(v) ? v : 0; } catch { results["chemical_cost"] = 0; }
+  try { const v = input.labor_cost_per_hour * input.batch_time_hours; results["labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost"] = 0; }
+  try { const v = (input.water_usage_l_per_kg * input.fabric_weight_kg / 1000) * input.water_cost_per_m3; results["water_cost"] = Number.isFinite(v) ? v : 0; } catch { results["water_cost"] = 0; }
+  try { const v = ((results["dye_cost"] ?? 0) + (results["chemical_cost"] ?? 0) + input.energy_cost_per_batch + (results["labor_cost"] ?? 0) + (results["water_cost"] ?? 0)) * (input.waste_percentage / 100); results["waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["waste_cost"] = 0; }
+  try { const v = (results["dye_cost"] ?? 0) + (results["chemical_cost"] ?? 0) + input.energy_cost_per_batch + (results["labor_cost"] ?? 0) + (results["water_cost"] ?? 0) + (results["waste_cost"] ?? 0); results["total_cost_per_batch"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_per_batch"] = 0; }
   return results;
 }
 

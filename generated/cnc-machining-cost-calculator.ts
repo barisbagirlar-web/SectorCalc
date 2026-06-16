@@ -35,13 +35,13 @@ export const Cnc_machining_cost_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Cnc_machining_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["raw_material_cost"] = ((input.stock_volume_cm3 * input.density_g_per_cm3 / 1000) * input.material_cost_per_kg_usd) * (1 + input.scrap_rate_percent / 100); } catch { results["raw_material_cost"] = 0; }
-  try { results["machining_cost"] = (input.machining_time_min / 60) * input.machine_hourly_rate_usd + (input.setup_time_min / 60 / input.batch_size) * input.machine_hourly_rate_usd; } catch { results["machining_cost"] = 0; }
-  try { results["labor_cost"] = (input.machining_time_min / 60) * input.labor_hourly_rate_usd + (input.setup_time_min / 60 / input.batch_size) * input.labor_hourly_rate_usd; } catch { results["labor_cost"] = 0; }
-  try { results["tooling_cost"] = input.tooling_cost_per_part_usd; } catch { results["tooling_cost"] = 0; }
-  try { results["direct_cost"] = (results["raw_material_cost"] ?? 0) + (results["machining_cost"] ?? 0) + (results["labor_cost"] ?? 0) + (results["tooling_cost"] ?? 0); } catch { results["direct_cost"] = 0; }
-  try { results["overhead_cost"] = (results["direct_cost"] ?? 0) * (input.overhead_percentage / 100); } catch { results["overhead_cost"] = 0; }
-  try { results["total_cost_per_part"] = ((results["direct_cost"] ?? 0) + (results["overhead_cost"] ?? 0)) / (1 - input.scrap_rate_percent / 100); } catch { results["total_cost_per_part"] = 0; }
+  try { const v = ((input.stock_volume_cm3 * input.density_g_per_cm3 / 1000) * input.material_cost_per_kg_usd) * (1 + input.scrap_rate_percent / 100); results["raw_material_cost"] = Number.isFinite(v) ? v : 0; } catch { results["raw_material_cost"] = 0; }
+  try { const v = (input.machining_time_min / 60) * input.machine_hourly_rate_usd + (input.setup_time_min / 60 / input.batch_size) * input.machine_hourly_rate_usd; results["machining_cost"] = Number.isFinite(v) ? v : 0; } catch { results["machining_cost"] = 0; }
+  try { const v = (input.machining_time_min / 60) * input.labor_hourly_rate_usd + (input.setup_time_min / 60 / input.batch_size) * input.labor_hourly_rate_usd; results["labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost"] = 0; }
+  try { const v = input.tooling_cost_per_part_usd; results["tooling_cost"] = Number.isFinite(v) ? v : 0; } catch { results["tooling_cost"] = 0; }
+  try { const v = (results["raw_material_cost"] ?? 0) + (results["machining_cost"] ?? 0) + (results["labor_cost"] ?? 0) + (results["tooling_cost"] ?? 0); results["direct_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_cost"] = 0; }
+  try { const v = (results["direct_cost"] ?? 0) * (input.overhead_percentage / 100); results["overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
+  try { const v = ((results["direct_cost"] ?? 0) + (results["overhead_cost"] ?? 0)) / (1 - input.scrap_rate_percent / 100); results["total_cost_per_part"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_per_part"] = 0; }
   return results;
 }
 

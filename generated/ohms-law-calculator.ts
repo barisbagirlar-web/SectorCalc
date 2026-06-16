@@ -21,15 +21,14 @@ export const Ohms_law_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Ohms_law_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["resistance_from_v_and_i"] = input.voltage / input.current; } catch { results["resistance_from_v_and_i"] = 0; }
-  try { results["current_from_v_and_r"] = input.voltage / input.resistance; } catch { results["current_from_v_and_r"] = 0; }
-  try { results["voltage_from_i_and_r"] = input.current * input.resistance; } catch { results["voltage_from_i_and_r"] = 0; }
-  try { results["real_power_dc"] = input.voltage * input.current; } catch { results["real_power_dc"] = 0; }
-  try { results["real_power_ac"] = (input.phaseType == 'three' ? Math.sqrt(3) : 1) * input.voltage * input.current * input.powerFactor; } catch { results["real_power_ac"] = 0; }
-  try { results["apparent_power"] = (input.phaseType == 'three' ? Math.sqrt(3) : 1) * input.voltage * input.current; } catch { results["apparent_power"] = 0; }
-  try { results["reactive_power"] = Math.sqrt(apparentPower**2 - realPower**2); } catch { results["reactive_power"] = 0; }
-  try { results["power_loss"] = input.current**2 * input.resistance; } catch { results["power_loss"] = 0; }
-  try { results["temperature_corrected_resistance"] = input.resistance * (1 + 0.00393 * (input.temperature - 20)); } catch { results["temperature_corrected_resistance"] = 0; }
+  try { const v = input.voltage / input.current; results["resistance"] = Number.isFinite(v) ? v : 0; } catch { results["resistance"] = 0; }
+  try { const v = input.voltage / input.resistance; results["current"] = Number.isFinite(v) ? v : 0; } catch { results["current"] = 0; }
+  try { const v = input.current * input.resistance; results["voltage"] = Number.isFinite(v) ? v : 0; } catch { results["voltage"] = 0; }
+  try { const v = (input.phaseType == 'three' ? Math.sqrt(3) : 1) * input.voltage * input.current * input.powerFactor; results["realPower"] = Number.isFinite(v) ? v : 0; } catch { results["realPower"] = 0; }
+  try { const v = (input.phaseType == 'three' ? Math.sqrt(3) : 1) * input.voltage * input.current; results["apparentPower"] = Number.isFinite(v) ? v : 0; } catch { results["apparentPower"] = 0; }
+  try { const v = Math.sqrt((results["apparentPower"] ?? 0)**2 - (results["realPower"] ?? 0)**2); results["reactivePower"] = Number.isFinite(v) ? v : 0; } catch { results["reactivePower"] = 0; }
+  try { const v = input.current**2 * input.resistance; results["powerLoss"] = Number.isFinite(v) ? v : 0; } catch { results["powerLoss"] = 0; }
+  try { const v = input.resistance * (1 + 0.00393 * (input.temperature - 20)); results["correctedResistance"] = Number.isFinite(v) ? v : 0; } catch { results["correctedResistance"] = 0; }
   return results;
 }
 

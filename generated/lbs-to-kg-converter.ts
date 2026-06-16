@@ -21,13 +21,13 @@ export const Lbs_to_kg_converterInputSchema = z.object({
 
 function evaluateAllFormulas(input: Lbs_to_kg_converterInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["base_conversion"] = input.mass_lbs * 0.45359237; } catch { results["base_conversion"] = 0; }
-  try { results["rounding_application"] = Math.round(kg_base, input.precision_level, input.rounding_method); } catch { results["rounding_application"] = 0; }
-  try { results["uncertainty_calculation"] = kg_base * (input.measurement_uncertainty_pct / 100); } catch { results["uncertainty_calculation"] = 0; }
-  results["hidden_loss_factor"] = 0;
-  try { results["hidden_loss_mass"] = kg_base * loss_factor; } catch { results["hidden_loss_mass"] = 0; }
-  try { results["adjusted_mass"] = kg_rounded - (input.include_loss_analysis ? loss_kg : 0); } catch { results["adjusted_mass"] = 0; }
-  try { results["data_confidence_score"] = Math.max(0, 1 - (input.measurement_uncertainty_pct / 100) - (input.include_loss_analysis ? loss_factor : 0)); } catch { results["data_confidence_score"] = 0; }
+  try { const v = input.mass_lbs * 0.45359237; results["base_conversion"] = Number.isFinite(v) ? v : 0; } catch { results["base_conversion"] = 0; }
+  try { const v = Math.round(kg_base, input.precision_level, input.rounding_method); results["rounding_application"] = Number.isFinite(v) ? v : 0; } catch { results["rounding_application"] = 0; }
+  try { const v = kg_base * (input.measurement_uncertainty_pct / 100); results["uncertainty_calculation"] = Number.isFinite(v) ? v : 0; } catch { results["uncertainty_calculation"] = 0; }
+  try { const v = (input.material_type === 'hygroscopic' ? 0.02 : (input.material_type === 'liquid' ? 0.015 : (input.material_type === 'powder' ? 0.03 : (input.material_type === 'metal' ? 0.005 : 0.0)))); results["hidden_loss_factor"] = Number.isFinite(v) ? v : 0; } catch { results["hidden_loss_factor"] = 0; }
+  try { const v = kg_base * loss_factor; results["hidden_loss_mass"] = Number.isFinite(v) ? v : 0; } catch { results["hidden_loss_mass"] = 0; }
+  try { const v = kg_rounded - (input.include_loss_analysis ? loss_kg : 0); results["adjusted_mass"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_mass"] = 0; }
+  try { const v = Math.max(0, 1 - (input.measurement_uncertainty_pct / 100) - (input.include_loss_analysis ? loss_factor : 0)); results["data_confidence_score"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_score"] = 0; }
   return results;
 }
 

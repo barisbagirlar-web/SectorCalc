@@ -29,13 +29,13 @@ export const Tool_wear_cost_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Tool_wear_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["tool_cost_per_part"] = input.tool_cost / input.tool_life_parts; } catch { results["tool_cost_per_part"] = 0; }
-  try { results["downtime_cost_per_part"] = (input.replacement_time_min / 60) * input.machine_hourly_rate / input.tool_life_parts; } catch { results["downtime_cost_per_part"] = 0; }
-  try { results["rework_cost_per_part_wear"] = (input.rework_rate / 100) * input.rework_cost_per_part; } catch { results["rework_cost_per_part_wear"] = 0; }
-  try { results["scrap_cost_per_part_wear"] = (input.scrap_rate / 100) * input.scrap_material_cost; } catch { results["scrap_cost_per_part_wear"] = 0; }
-  results["tool_type_multiplier"] = 0;
+  try { const v = input.tool_cost / input.tool_life_parts; results["tool_cost_per_part"] = Number.isFinite(v) ? v : 0; } catch { results["tool_cost_per_part"] = 0; }
+  try { const v = (input.replacement_time_min / 60) * input.machine_hourly_rate / input.tool_life_parts; results["downtime_cost_per_part"] = Number.isFinite(v) ? v : 0; } catch { results["downtime_cost_per_part"] = 0; }
+  try { const v = (input.rework_rate / 100) * input.rework_cost_per_part; results["rework_cost_per_part_wear"] = Number.isFinite(v) ? v : 0; } catch { results["rework_cost_per_part_wear"] = 0; }
+  try { const v = (input.scrap_rate / 100) * input.scrap_material_cost; results["scrap_cost_per_part_wear"] = Number.isFinite(v) ? v : 0; } catch { results["scrap_cost_per_part_wear"] = 0; }
+  try { const v = (input.tool_type === 'carbide' ? 1.0 : (input.tool_type === 'ceramic' ? 1.2 : (input.tool_type === 'cbn' ? 1.5 : (input.tool_type === 'diamond' ? 2.0 : (input.tool_type === 'hss' ? 0.8 : 1.0))))); results["tool_type_multiplier"] = Number.isFinite(v) ? v : 0; } catch { results["tool_type_multiplier"] = 0; }
   results["coolant_adjustment"] = 0;
-  try { results["primaryResult"] = ((results["tool_cost_per_part"] ?? 0) + (results["downtime_cost_per_part"] ?? 0) + (results["rework_cost_per_part_wear"] ?? 0) + (results["scrap_cost_per_part_wear"] ?? 0)) * (results["tool_type_multiplier"] ?? 0) * (results["coolant_adjustment"] ?? 0); } catch { results["primaryResult"] = 0; }
+  try { const v = ((results["tool_cost_per_part"] ?? 0) + (results["downtime_cost_per_part"] ?? 0) + (results["rework_cost_per_part_wear"] ?? 0) + (results["scrap_cost_per_part_wear"] ?? 0)) * (results["tool_type_multiplier"] ?? 0) * (results["coolant_adjustment"] ?? 0); results["primaryResult"] = Number.isFinite(v) ? v : 0; } catch { results["primaryResult"] = 0; }
   return results;
 }
 

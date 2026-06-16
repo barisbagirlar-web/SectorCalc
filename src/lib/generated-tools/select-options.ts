@@ -1,4 +1,5 @@
 import type { GeneratedToolInput } from "@/lib/generated-tools/types";
+import { resolveGeneratedDisplayText } from "@/lib/generated-tools/resolve-generated-display-text";
 
 export type RawSelectOption =
   | string
@@ -82,6 +83,17 @@ export function resolveGeneratedSelectOptions(
       input.optionLabels?.[value] ?? normalizeSelectOptionLabel(entry, value);
     return { value, label };
   });
+}
+
+/** Select options with locale-aware display labels (value stays canonical EN/schema). */
+export function resolveLocalizedGeneratedSelectOptions(
+  input: GeneratedToolInput,
+  locale: string,
+): readonly GeneratedSelectOptionEntry[] {
+  return resolveGeneratedSelectOptions(input).map((option) => ({
+    value: option.value,
+    label: resolveGeneratedDisplayText(option.label, locale),
+  }));
 }
 
 export function firstSelectOptionValue(input: GeneratedToolInput): string | undefined {

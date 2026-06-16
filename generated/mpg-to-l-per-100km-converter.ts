@@ -21,13 +21,13 @@ export const Mpg_to_l_per_100km_converterInputSchema = z.object({
 
 function evaluateAllFormulas(input: Mpg_to_l_per_100km_converterInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["l_per_100km"] = 235.214583 / input.mpg_value; } catch { results["l_per_100km"] = 0; }
-  try { results["annual_fuel_consumption"] = input.annual_mileage / input.mpg_value; } catch { results["annual_fuel_consumption"] = 0; }
-  try { results["annual_fuel_cost"] = annual_fuel_gallons * input.fuel_price_per_gallon; } catch { results["annual_fuel_cost"] = 0; }
-  try { results["annual_co2_emissions"] = annual_fuel_gallons * input.co2_per_gallon; } catch { results["annual_co2_emissions"] = 0; }
-  try { results["annual_co2_tonnes"] = annual_co2_kg / 1000; } catch { results["annual_co2_tonnes"] = 0; }
-  try { results["efficiency_loss_factor"] = Math.max(0, (40 - input.mpg_value) / 40) * 100; } catch { results["efficiency_loss_factor"] = 0; }
-  try { results["environmental_loss_index"] = ((results["l_per_100km"] ?? 0) / 20) * 50 + ((results["annual_co2_tonnes"] ?? 0) / 10) * 50; } catch { results["environmental_loss_index"] = 0; }
+  try { const v = 235.214583 / input.mpg_value; results["l_per_100km"] = Number.isFinite(v) ? v : 0; } catch { results["l_per_100km"] = 0; }
+  try { const v = input.annual_mileage / input.mpg_value; results["annual_fuel_consumption"] = Number.isFinite(v) ? v : 0; } catch { results["annual_fuel_consumption"] = 0; }
+  try { const v = annual_fuel_gallons * input.fuel_price_per_gallon; results["annual_fuel_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_fuel_cost"] = 0; }
+  try { const v = annual_fuel_gallons * input.co2_per_gallon; results["annual_co2_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["annual_co2_emissions"] = 0; }
+  try { const v = annual_co2_kg / 1000; results["annual_co2_tonnes"] = Number.isFinite(v) ? v : 0; } catch { results["annual_co2_tonnes"] = 0; }
+  try { const v = Math.max(0, (40 - input.mpg_value) / 40) * 100; results["efficiency_loss_factor"] = Number.isFinite(v) ? v : 0; } catch { results["efficiency_loss_factor"] = 0; }
+  try { const v = ((results["l_per_100km"] ?? 0) / 20) * 50 + ((results["annual_co2_tonnes"] ?? 0) / 10) * 50; results["environmental_loss_index"] = Number.isFinite(v) ? v : 0; } catch { results["environmental_loss_index"] = 0; }
   return results;
 }
 

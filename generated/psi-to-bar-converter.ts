@@ -21,20 +21,20 @@ export const Psi_to_bar_converterInputSchema = z.object({
 
 function evaluateAllFormulas(input: Psi_to_bar_converterInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["base_conversion"] = input.pressure_psi * 0.0689476; } catch { results["base_conversion"] = 0; }
-  try { results["temperature_correction_factor"] = 1 + (input.temperature_celsius - 20) * 0.000036; } catch { results["temperature_correction_factor"] = 0; }
-  try { results["altitude_correction_factor"] = Math.exp(-input.altitude_meters / 8430); } catch { results["altitude_correction_factor"] = 0; }
-  results["fluid_density_factor"] = 0;
-  try { results["corrected_bar"] = base_bar * (input.include_temperature_correction ? temp_factor : 1) * (input.include_altitude_correction ? alt_factor : 1) * density_factor; } catch { results["corrected_bar"] = 0; }
-  try { results["data_confidence"] = 1.0 - (input.include_temperature_correction ? 0.05 : 0) - (input.include_altitude_correction ? 0.05 : 0) - (input.fluid_type != 'water' ? 0.02 : 0) - (input.pressure_psi == 0 ? 0.1 : 0); } catch { results["data_confidence"] = 0; }
-  try { results["primary_result"] = (results["corrected_bar"] ?? 0) * confidence; } catch { results["primary_result"] = 0; }
+  try { const v = input.pressure_psi * 0.0689476; results["base_conversion"] = Number.isFinite(v) ? v : 0; } catch { results["base_conversion"] = 0; }
+  try { const v = 1 + (input.temperature_celsius - 20) * 0.000036; results["temperature_correction_factor"] = Number.isFinite(v) ? v : 0; } catch { results["temperature_correction_factor"] = 0; }
+  try { const v = Math.exp(-input.altitude_meters / 8430); results["altitude_correction_factor"] = Number.isFinite(v) ? v : 0; } catch { results["altitude_correction_factor"] = 0; }
+  try { const v = (input.fluid_type === 'water' ? 1.0 : (input.fluid_type === 'oil' ? 0.85 : (input.fluid_type === 'gas' ? 0.0012 : (input.fluid_type === 'steam' ? 0.0006 : 1.0)))); results["fluid_density_factor"] = Number.isFinite(v) ? v : 0; } catch { results["fluid_density_factor"] = 0; }
+  try { const v = base_bar * (input.include_temperature_correction ? temp_factor : 1) * (input.include_altitude_correction ? alt_factor : 1) * density_factor; results["corrected_bar"] = Number.isFinite(v) ? v : 0; } catch { results["corrected_bar"] = 0; }
+  try { const v = 1.0 - (input.include_temperature_correction ? 0.05 : 0) - (input.include_altitude_correction ? 0.05 : 0) - (input.fluid_type != 'water' ? 0.02 : 0) - (input.pressure_psi == 0 ? 0.1 : 0); results["data_confidence"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence"] = 0; }
+  try { const v = (results["corrected_bar"] ?? 0) * confidence; results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 
 
 export function calculatePsi_to_bar_converter(input: Psi_to_bar_converterInput): Psi_to_bar_converterOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["primary_bar"] ?? 0;
+  const totalWasteCost = values["primary_bar"] ?? values["primary_result"] ?? 0;
   const breakdown = {
     base_bar: values["base_bar"] ?? 0,
     temp_factor: values["temp_factor"] ?? 0,

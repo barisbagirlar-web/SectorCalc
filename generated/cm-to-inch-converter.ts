@@ -21,20 +21,20 @@ export const Cm_to_inch_converterInputSchema = z.object({
 
 function evaluateAllFormulas(input: Cm_to_inch_converterInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["conversion_factor"] = (input.conversion_precision === 'standard' ? 2.54 : (input.conversion_precision === 'high' ? 2.540005 : (input.conversion_precision === 'survey' ? 2.54000508 : 0))); } catch { results["conversion_factor"] = 0; }
-  try { results["converted_inches"] = input.length_cm / (results["conversion_factor"] ?? 0); } catch { results["converted_inches"] = 0; }
-  try { results["converted_inches_rounded"] = (Math.round(((results["converted_inches"] ?? 0)) * 10**(4)) / 10**(4)); } catch { results["converted_inches_rounded"] = 0; }
-  try { results["tolerance_limit"] = (input.tolerance_class === 'general' ? 0.1 : (input.tolerance_class === 'fine' ? 0.05 : (input.tolerance_class === 'very_fine' ? 0.02 : 0))); } catch { results["tolerance_limit"] = 0; }
-  try { results["total_cost"] = (results["converted_inches_rounded"] ?? 0) * input.unit_cost_per_inch * input.batch_quantity; } catch { results["total_cost"] = 0; }
-  try { results["data_confidence"] = Math.max(0, 1 - (input.measurement_uncertainty / (input.length_cm + 0.001))); } catch { results["data_confidence"] = 0; }
-  try { results["primary_result"] = (results["converted_inches_rounded"] ?? 0); } catch { results["primary_result"] = 0; }
+  try { const v = (input.conversion_precision === 'standard' ? 2.54 : (input.conversion_precision === 'high' ? 2.540005 : (input.conversion_precision === 'survey' ? 2.54000508 : 0))); results["conversion_factor"] = Number.isFinite(v) ? v : 0; } catch { results["conversion_factor"] = 0; }
+  try { const v = input.length_cm / (results["conversion_factor"] ?? 0); results["converted_inches"] = Number.isFinite(v) ? v : 0; } catch { results["converted_inches"] = 0; }
+  try { const v = (Math.round(((results["converted_inches"] ?? 0)) * 10**(4)) / 10**(4)); results["converted_inches_rounded"] = Number.isFinite(v) ? v : 0; } catch { results["converted_inches_rounded"] = 0; }
+  try { const v = (input.tolerance_class === 'general' ? 0.1 : (input.tolerance_class === 'fine' ? 0.05 : (input.tolerance_class === 'very_fine' ? 0.02 : 0))); results["tolerance_limit"] = Number.isFinite(v) ? v : 0; } catch { results["tolerance_limit"] = 0; }
+  try { const v = (results["converted_inches_rounded"] ?? 0) * input.unit_cost_per_inch * input.batch_quantity; results["total_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost"] = 0; }
+  try { const v = Math.max(0, 1 - (input.measurement_uncertainty / (input.length_cm + 0.001))); results["data_confidence"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence"] = 0; }
+  try { const v = (results["converted_inches_rounded"] ?? 0); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 
 
 export function calculateCm_to_inch_converter(input: Cm_to_inch_converterInput): Cm_to_inch_converterOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["converted_length_inches"] ?? 0;
+  const totalWasteCost = values["converted_length_inches"] ?? values["primary_result"] ?? 0;
   const breakdown = {
     exact_inches: values["exact_inches"] ?? 0,
     conversion_factor_used: values["conversion_factor_used"] ?? 0,

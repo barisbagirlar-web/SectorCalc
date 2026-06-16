@@ -7,6 +7,12 @@ import {
   CANONICAL_TRAFFIC_FREE_SLUGS,
   humanizeCanonicalSlug,
 } from "@/lib/tools/canonical-tool-slugs";
+import slugCategoryMap from "@/data/free-traffic-slug-categories.generated.json";
+import { getGeneratedToolSchema } from "@/lib/generated-tools/schema-loader";
+import {
+  resolveGeneratedToolDescription,
+  resolveGeneratedToolTitle,
+} from "@/lib/generated-tools/resolve-tool-display";
 
 export type FreeTrafficCategory =
   | "construction-measurement"
@@ -18,7 +24,16 @@ export type FreeTrafficCategory =
   | "everyday-life"
   | "math-statistics"
   | "conversion"
-  | "health-body";
+  | "health-body"
+  | "physics-science"
+  | "chemistry-science"
+  | "engineering-science"
+  | "food-cooking"
+  | "date-time"
+  | "education-academic"
+  | "ecology-environment"
+  | "gaming-entertainment"
+  | "hobbies-diy";
 
 export type FreeTrafficInput = {
   readonly key: string;
@@ -60,6 +75,9 @@ export type FreeTrafficTool = {
 export type FreeTrafficToolInput = FreeTrafficInput;
 
 export function inferFreeTrafficCategory(slug: string): FreeTrafficCategory {
+  if (/machining|cnc|cutting|feed-rate|tool-|oee|cycle-time|manufacturing|gage|msa|muda|setup|mtbf|mttr|spindle/.test(slug)) {
+    return "manufacturing-workshop";
+  }
   if (/mortgage|loan|tax|margin|roi|npv|apy|salary|discount|interest|break-even|compound/.test(slug)) {
     return "finance-business";
   }
@@ -81,35 +99,63 @@ export function inferFreeTrafficCategory(slug: string): FreeTrafficCategory {
   return "everyday-life";
 }
 
-function buildCatalogEntry(slug: string): FreeTrafficTool {
-  const title = humanizeCanonicalSlug(slug);
-  return {
-    slug,
-    title,
-    category: inferFreeTrafficCategory(slug),
-    description: "",
-    seoTitle: title,
-    seoDescription: "",
-    inputs: [],
-    resultType: "quantity",
-    missingFactors: [],
-  };
-}
-
-export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = CANONICAL_FREE_SLUGS.map(buildCatalogEntry);
-
-export const FREE_TRAFFIC_CATEGORIES: readonly FreeTrafficCategory[] = [
+const FREE_TRAFFIC_CATEGORY_IDS: readonly FreeTrafficCategory[] = [
   "construction-measurement",
   "finance-business",
   "manufacturing-workshop",
   "energy-carbon",
   "logistics-travel",
   "agriculture-food",
+  "food-cooking",
   "everyday-life",
   "math-statistics",
   "conversion",
   "health-body",
+  "physics-science",
+  "chemistry-science",
+  "engineering-science",
+  "date-time",
+  "education-academic",
+  "ecology-environment",
+  "gaming-entertainment",
+  "hobbies-diy",
 ] as const;
+
+const SLUG_CATEGORY_MAP = slugCategoryMap as Readonly<Record<string, string>>;
+
+function resolveCategoryForSlug(slug: string): FreeTrafficCategory {
+  const mapped = SLUG_CATEGORY_MAP[slug];
+  if (mapped && (FREE_TRAFFIC_CATEGORY_IDS as readonly string[]).includes(mapped)) {
+    return mapped as FreeTrafficCategory;
+  }
+  return inferFreeTrafficCategory(slug);
+}
+
+function buildCatalogEntry(slug: string): FreeTrafficTool {
+  const locale = "en";
+  const schema = getGeneratedToolSchema(slug);
+  const title = schema
+    ? resolveGeneratedToolTitle(slug, schema, locale)
+    : humanizeCanonicalSlug(slug);
+  const description = schema ? resolveGeneratedToolDescription(slug, schema, locale) : "";
+  return {
+    slug,
+    title,
+    category: resolveCategoryForSlug(slug),
+    description,
+    seoTitle: title,
+    seoDescription: description,
+    inputs: [],
+    resultType: "quantity",
+    missingFactors: [],
+  };
+}
+
+export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = CANONICAL_FREE_SLUGS.map((slug) =>
+  buildCatalogEntry(slug),
+);
+
+export const FREE_TRAFFIC_CATEGORIES: readonly FreeTrafficCategory[] = FREE_TRAFFIC_CATEGORY_IDS;
 
 export const FEATURED_TRAFFIC_SLUGS: readonly string[] = [
   "margin-calculator",

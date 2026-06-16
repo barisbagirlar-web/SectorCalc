@@ -19,12 +19,12 @@ export const Liters_to_gallons_converterInputSchema = z.object({
 
 function evaluateAllFormulas(input: Liters_to_gallons_converterInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["baseGallons"] = input.liters / conversionFactor; } catch { results["baseGallons"] = 0; }
-  try { results["temperatureCorrectedGallons"] = (results["baseGallons"] ?? 0) * input.temperatureAdjustment; } catch { results["temperatureCorrectedGallons"] = 0; }
-  try { results["batchLossGallons"] = (results["temperatureCorrectedGallons"] ?? 0) * (input.batchLossFactor / 100); } catch { results["batchLossGallons"] = 0; }
-  try { results["evaporationLossGallons"] = input.includeEvaporation ? ((results["temperatureCorrectedGallons"] ?? 0) * 0.002) : 0; } catch { results["evaporationLossGallons"] = 0; }
-  try { results["netGallons"] = (results["temperatureCorrectedGallons"] ?? 0) - (results["batchLossGallons"] ?? 0) - (results["evaporationLossGallons"] ?? 0); } catch { results["netGallons"] = 0; }
-  try { results["dataConfidenceAdjusted"] = (results["netGallons"] ?? 0) * 0.98; } catch { results["dataConfidenceAdjusted"] = 0; }
+  try { const v = input.liters / conversionFactor; results["baseGallons"] = Number.isFinite(v) ? v : 0; } catch { results["baseGallons"] = 0; }
+  try { const v = (results["baseGallons"] ?? 0) * input.temperatureAdjustment; results["temperatureCorrectedGallons"] = Number.isFinite(v) ? v : 0; } catch { results["temperatureCorrectedGallons"] = 0; }
+  try { const v = (results["temperatureCorrectedGallons"] ?? 0) * (input.batchLossFactor / 100); results["batchLossGallons"] = Number.isFinite(v) ? v : 0; } catch { results["batchLossGallons"] = 0; }
+  try { const v = input.includeEvaporation ? ((results["temperatureCorrectedGallons"] ?? 0) * 0.002) : 0; results["evaporationLossGallons"] = Number.isFinite(v) ? v : 0; } catch { results["evaporationLossGallons"] = 0; }
+  try { const v = (results["temperatureCorrectedGallons"] ?? 0) - (results["batchLossGallons"] ?? 0) - (results["evaporationLossGallons"] ?? 0); results["netGallons"] = Number.isFinite(v) ? v : 0; } catch { results["netGallons"] = 0; }
+  try { const v = (results["netGallons"] ?? 0) * 0.98; results["dataConfidenceAdjusted"] = Number.isFinite(v) ? v : 0; } catch { results["dataConfidenceAdjusted"] = 0; }
   return results;
 }
 

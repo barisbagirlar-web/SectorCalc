@@ -23,13 +23,13 @@ export const Tdee_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Tdee_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["bmr_mifflin"] = 0;
-  results["bmr_harris"] = 0;
-  try { results["bmr_katch"] = 370 + (21.6 * (input.weight * (1 - input.bodyFatPercent / 100))); } catch { results["bmr_katch"] = 0; }
+  try { const v = ((input.gender == 'male') ? ((10 * input.weight) + (6.25 * input.height) - (5 * input.age) + 5) : ((10 * input.weight) + (6.25 * input.height) - (5 * input.age) - 161)); results["bmr_mifflin"] = Number.isFinite(v) ? v : 0; } catch { results["bmr_mifflin"] = 0; }
+  try { const v = ((input.gender == 'male') ? (88.362 + (13.397 * input.weight) + (4.799 * input.height) - (5.677 * input.age)) : (447.593 + (9.247 * input.weight) + (3.098 * input.height) - (4.330 * input.age))); results["bmr_harris"] = Number.isFinite(v) ? v : 0; } catch { results["bmr_harris"] = 0; }
+  try { const v = 370 + (21.6 * (input.weight * (1 - input.bodyFatPercent / 100))); results["bmr_katch"] = Number.isFinite(v) ? v : 0; } catch { results["bmr_katch"] = 0; }
   results["bmr_ensemble"] = 0;
   results["activity_multiplier"] = 0;
-  try { results["tdee_primary"] = (results["bmr_ensemble"] ?? 0) * (results["activity_multiplier"] ?? 0); } catch { results["tdee_primary"] = 0; }
-  try { results["tdee_adjusted"] = (results["tdee_primary"] ?? 0) * dataConfidenceAdjusted; } catch { results["tdee_adjusted"] = 0; }
+  try { const v = (results["bmr_ensemble"] ?? 0) * (results["activity_multiplier"] ?? 0); results["tdee_primary"] = Number.isFinite(v) ? v : 0; } catch { results["tdee_primary"] = 0; }
+  try { const v = (results["tdee_primary"] ?? 0) * dataConfidenceAdjusted; results["tdee_adjusted"] = Number.isFinite(v) ? v : 0; } catch { results["tdee_adjusted"] = 0; }
   return results;
 }
 

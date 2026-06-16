@@ -29,14 +29,14 @@ export const Payment_term_optimizerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Payment_term_optimizerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["annual_revenue"] = input.avg_invoice_value * input.annual_invoice_count; } catch { results["annual_revenue"] = 0; }
-  results["current_dso"] = 0;
-  results["proposed_dso"] = 0;
-  try { results["dso_reduction_days"] = (results["current_dso"] ?? 0) - (results["proposed_dso"] ?? 0); } catch { results["dso_reduction_days"] = 0; }
-  try { results["working_capital_benefit"] = ((results["dso_reduction_days"] ?? 0) / 365) * (results["annual_revenue"] ?? 0); } catch { results["working_capital_benefit"] = 0; }
-  try { results["annual_discount_cost"] = (results["annual_revenue"] ?? 0) * (input.customer_acceptance_rate_pct/100) * (input.early_payment_discount_pct/100); } catch { results["annual_discount_cost"] = 0; }
-  try { results["cost_of_capital_savings"] = (results["working_capital_benefit"] ?? 0) * (input.cost_of_capital_pct/100); } catch { results["cost_of_capital_savings"] = 0; }
-  try { results["net_annual_benefit"] = (results["cost_of_capital_savings"] ?? 0) - (results["annual_discount_cost"] ?? 0); } catch { results["net_annual_benefit"] = 0; }
+  try { const v = input.avg_invoice_value * input.annual_invoice_count; results["annual_revenue"] = Number.isFinite(v) ? v : 0; } catch { results["annual_revenue"] = 0; }
+  try { const v = input.current_terms_days + (input.payment_behavior === 'On-time' ? 0 : (input.payment_behavior === 'Slightly late (1-5 days)' ? 3 : (input.payment_behavior === 'Late (6-15 days)' ? 10 : (input.payment_behavior === 'Very late (>15 days)' ? 20 : 0)))); results["current_dso"] = Number.isFinite(v) ? v : 0; } catch { results["current_dso"] = 0; }
+  try { const v = (input.customer_acceptance_rate_pct/100) * input.discount_window_days + (1 - input.customer_acceptance_rate_pct/100) * input.proposed_terms_days + (input.payment_behavior === 'On-time' ? 0 : (input.payment_behavior === 'Slightly late (1-5 days)' ? 3 : (input.payment_behavior === 'Late (6-15 days)' ? 10 : (input.payment_behavior === 'Very late (>15 days)' ? 20 : 0)))); results["proposed_dso"] = Number.isFinite(v) ? v : 0; } catch { results["proposed_dso"] = 0; }
+  try { const v = (results["current_dso"] ?? 0) - (results["proposed_dso"] ?? 0); results["dso_reduction_days"] = Number.isFinite(v) ? v : 0; } catch { results["dso_reduction_days"] = 0; }
+  try { const v = ((results["dso_reduction_days"] ?? 0) / 365) * (results["annual_revenue"] ?? 0); results["working_capital_benefit"] = Number.isFinite(v) ? v : 0; } catch { results["working_capital_benefit"] = 0; }
+  try { const v = (results["annual_revenue"] ?? 0) * (input.customer_acceptance_rate_pct/100) * (input.early_payment_discount_pct/100); results["annual_discount_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_discount_cost"] = 0; }
+  try { const v = (results["working_capital_benefit"] ?? 0) * (input.cost_of_capital_pct/100); results["cost_of_capital_savings"] = Number.isFinite(v) ? v : 0; } catch { results["cost_of_capital_savings"] = 0; }
+  try { const v = (results["cost_of_capital_savings"] ?? 0) - (results["annual_discount_cost"] ?? 0); results["net_annual_benefit"] = Number.isFinite(v) ? v : 0; } catch { results["net_annual_benefit"] = 0; }
   return results;
 }
 

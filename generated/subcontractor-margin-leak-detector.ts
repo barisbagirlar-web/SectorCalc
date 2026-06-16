@@ -39,13 +39,13 @@ export const Subcontractor_margin_leak_detectorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Subcontractor_margin_leak_detectorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["total_direct_cost"] = input.actual_labor_cost + input.actual_material_cost + input.actual_equipment_cost; } catch { results["total_direct_cost"] = 0; }
-  try { results["overhead_cost"] = (results["total_direct_cost"] ?? 0) * (input.overhead_percentage / 100); } catch { results["overhead_cost"] = 0; }
-  try { results["lean_waste_cost"] = (results["total_direct_cost"] ?? 0) * (input.waste_factor / 100); } catch { results["lean_waste_cost"] = 0; }
-  try { results["labor_inefficiency_cost"] = input.actual_labor_cost * (1 - input.labor_efficiency_index); } catch { results["labor_inefficiency_cost"] = 0; }
-  try { results["total_hidden_loss"] = input.quality_rework_cost + input.schedule_delay_penalty + input.material_price_variance + input.scope_change_cost + input.inventory_holding_cost + input.currency_exchange_loss + (results["lean_waste_cost"] ?? 0) + (results["labor_inefficiency_cost"] ?? 0); } catch { results["total_hidden_loss"] = 0; }
-  try { results["total_actual_cost"] = (results["total_direct_cost"] ?? 0) + (results["overhead_cost"] ?? 0) + (results["total_hidden_loss"] ?? 0); } catch { results["total_actual_cost"] = 0; }
-  try { results["margin_leak_percentage"] = ((input.contract_value - (results["total_actual_cost"] ?? 0)) / input.contract_value) * 100; } catch { results["margin_leak_percentage"] = 0; }
+  try { const v = input.actual_labor_cost + input.actual_material_cost + input.actual_equipment_cost; results["total_direct_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_direct_cost"] = 0; }
+  try { const v = (results["total_direct_cost"] ?? 0) * (input.overhead_percentage / 100); results["overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
+  try { const v = (results["total_direct_cost"] ?? 0) * (input.waste_factor / 100); results["lean_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["lean_waste_cost"] = 0; }
+  try { const v = input.actual_labor_cost * (1 - input.labor_efficiency_index); results["labor_inefficiency_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_inefficiency_cost"] = 0; }
+  try { const v = input.quality_rework_cost + input.schedule_delay_penalty + input.material_price_variance + input.scope_change_cost + input.inventory_holding_cost + input.currency_exchange_loss + (results["lean_waste_cost"] ?? 0) + (results["labor_inefficiency_cost"] ?? 0); results["total_hidden_loss"] = Number.isFinite(v) ? v : 0; } catch { results["total_hidden_loss"] = 0; }
+  try { const v = (results["total_direct_cost"] ?? 0) + (results["overhead_cost"] ?? 0) + (results["total_hidden_loss"] ?? 0); results["total_actual_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_actual_cost"] = 0; }
+  try { const v = ((input.contract_value - (results["total_actual_cost"] ?? 0)) / input.contract_value) * 100; results["margin_leak_percentage"] = Number.isFinite(v) ? v : 0; } catch { results["margin_leak_percentage"] = 0; }
   return results;
 }
 

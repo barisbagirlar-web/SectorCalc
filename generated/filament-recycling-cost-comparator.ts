@@ -39,15 +39,15 @@ export const Filament_recycling_cost_comparatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Filament_recycling_cost_comparatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["annual_depreciation"] = input.recycling_machine_cost / input.machine_life_years; } catch { results["annual_depreciation"] = 0; }
-  try { results["annual_energy_cost"] = input.annual_production_volume * input.recycling_energy_consumption * input.electricity_price; } catch { results["annual_energy_cost"] = 0; }
-  try { results["annual_labor_cost"] = input.annual_production_volume * input.labor_hours_per_kg * input.labor_rate; } catch { results["annual_labor_cost"] = 0; }
-  try { results["annual_waste_collection"] = input.annual_production_volume * input.waste_collection_cost / (input.recycling_yield / 100); } catch { results["annual_waste_collection"] = 0; }
-  try { results["annual_carbon_cost"] = input.include_carbon_cost ? (input.annual_production_volume * 0.5 * input.carbon_price / 1000) : 0; } catch { results["annual_carbon_cost"] = 0; }
-  try { results["total_annual_recycling_cost"] = (results["annual_depreciation"] ?? 0) + input.annual_maintenance_cost + (results["annual_energy_cost"] ?? 0) + (results["annual_labor_cost"] ?? 0) + (results["annual_waste_collection"] ?? 0) + (results["annual_carbon_cost"] ?? 0); } catch { results["total_annual_recycling_cost"] = 0; }
-  try { results["cost_per_kg_recycled"] = (results["total_annual_recycling_cost"] ?? 0) / input.annual_production_volume; } catch { results["cost_per_kg_recycled"] = 0; }
-  try { results["quality_adjusted_cost"] = (results["cost_per_kg_recycled"] ?? 0) / (input.quality_factor / 100); } catch { results["quality_adjusted_cost"] = 0; }
-  try { results["savings_per_kg"] = input.virgin_filament_price - (results["quality_adjusted_cost"] ?? 0); } catch { results["savings_per_kg"] = 0; }
+  try { const v = input.recycling_machine_cost / input.machine_life_years; results["annual_depreciation"] = Number.isFinite(v) ? v : 0; } catch { results["annual_depreciation"] = 0; }
+  try { const v = input.annual_production_volume * input.recycling_energy_consumption * input.electricity_price; results["annual_energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_energy_cost"] = 0; }
+  try { const v = input.annual_production_volume * input.labor_hours_per_kg * input.labor_rate; results["annual_labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_labor_cost"] = 0; }
+  try { const v = input.annual_production_volume * input.waste_collection_cost / (input.recycling_yield / 100); results["annual_waste_collection"] = Number.isFinite(v) ? v : 0; } catch { results["annual_waste_collection"] = 0; }
+  try { const v = input.include_carbon_cost ? (input.annual_production_volume * 0.5 * input.carbon_price / 1000) : 0; results["annual_carbon_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_carbon_cost"] = 0; }
+  try { const v = (results["annual_depreciation"] ?? 0) + input.annual_maintenance_cost + (results["annual_energy_cost"] ?? 0) + (results["annual_labor_cost"] ?? 0) + (results["annual_waste_collection"] ?? 0) + (results["annual_carbon_cost"] ?? 0); results["total_annual_recycling_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_recycling_cost"] = 0; }
+  try { const v = (results["total_annual_recycling_cost"] ?? 0) / input.annual_production_volume; results["cost_per_kg_recycled"] = Number.isFinite(v) ? v : 0; } catch { results["cost_per_kg_recycled"] = 0; }
+  try { const v = (results["cost_per_kg_recycled"] ?? 0) / (input.quality_factor / 100); results["quality_adjusted_cost"] = Number.isFinite(v) ? v : 0; } catch { results["quality_adjusted_cost"] = 0; }
+  try { const v = input.virgin_filament_price - (results["quality_adjusted_cost"] ?? 0); results["savings_per_kg"] = Number.isFinite(v) ? v : 0; } catch { results["savings_per_kg"] = 0; }
   return results;
 }
 

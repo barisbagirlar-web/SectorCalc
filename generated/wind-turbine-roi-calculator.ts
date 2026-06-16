@@ -33,13 +33,13 @@ export const Wind_turbine_roi_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Wind_turbine_roi_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["annual_energy_production"] = input.turbine_capacity * 8760 * (input.capacity_factor / 100) * (input.grid_availability / 100); } catch { results["annual_energy_production"] = 0; }
-  try { results["degraded_energy_year_n"] = (results["annual_energy_production"] ?? 0) * ((1 - input.degradation_rate / 100) ^ (n - 1)); } catch { results["degraded_energy_year_n"] = 0; }
-  try { results["annual_revenue"] = (results["degraded_energy_year_n"] ?? 0) * (input.electricity_price + input.incentive_tax_credit); } catch { results["annual_revenue"] = 0; }
-  try { results["annual_opex"] = (results["degraded_energy_year_n"] ?? 0) * input.opex_per_mwh; } catch { results["annual_opex"] = 0; }
-  try { results["net_cash_flow_year_n"] = (results["annual_revenue"] ?? 0) - (results["annual_opex"] ?? 0); } catch { results["net_cash_flow_year_n"] = 0; }
+  try { const v = input.turbine_capacity * 8760 * (input.capacity_factor / 100) * (input.grid_availability / 100); results["annual_energy_production"] = Number.isFinite(v) ? v : 0; } catch { results["annual_energy_production"] = 0; }
+  try { const v = (results["annual_energy_production"] ?? 0) * ((1 - input.degradation_rate / 100) ^ (n - 1)); results["degraded_energy_year_n"] = Number.isFinite(v) ? v : 0; } catch { results["degraded_energy_year_n"] = 0; }
+  try { const v = (results["degraded_energy_year_n"] ?? 0) * (input.electricity_price + input.incentive_tax_credit); results["annual_revenue"] = Number.isFinite(v) ? v : 0; } catch { results["annual_revenue"] = 0; }
+  try { const v = (results["degraded_energy_year_n"] ?? 0) * input.opex_per_mwh; results["annual_opex"] = Number.isFinite(v) ? v : 0; } catch { results["annual_opex"] = 0; }
+  try { const v = (results["annual_revenue"] ?? 0) - (results["annual_opex"] ?? 0); results["net_cash_flow_year_n"] = Number.isFinite(v) ? v : 0; } catch { results["net_cash_flow_year_n"] = 0; }
   results["npv"] = 0;
-  try { results["irr"] = IRR(net_cash_flow_array, initial_investment); } catch { results["irr"] = 0; }
+  try { const v = IRR(net_cash_flow_array, initial_investment); results["irr"] = Number.isFinite(v) ? v : 0; } catch { results["irr"] = 0; }
   return results;
 }
 

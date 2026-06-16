@@ -27,13 +27,13 @@ export const Changeover_matrix_optimizerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Changeover_matrix_optimizerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["total_changeover_downtime"] = input.number_of_changeovers_per_month * input.changeover_time_matrix; } catch { results["total_changeover_downtime"] = 0; }
-  try { results["internal_setup_ratio"] = input.setup_internal_time / (input.setup_internal_time + input.setup_external_time); } catch { results["internal_setup_ratio"] = 0; }
-  try { results["smed_potential_savings"] = input.setup_internal_time * (1 - (input.target_changeover_time - input.setup_external_time) / input.setup_internal_time); } catch { results["smed_potential_savings"] = 0; }
-  try { results["process_capability_index"] = Math.min((input.changeover_time_matrix - input.target_changeover_time) / (3 * input.standard_deviation_changeover_time), (input.changeover_time_matrix - 0) / (3 * input.standard_deviation_changeover_time)); } catch { results["process_capability_index"] = 0; }
-  try { results["changeover_frequency_impact"] = (results["total_changeover_downtime"] ?? 0) / ((results["total_changeover_downtime"] ?? 0) + (input.number_of_changeovers_per_month * (480 - input.changeover_time_matrix))); } catch { results["changeover_frequency_impact"] = 0; }
-  try { results["optimized_changeover_time"] = input.setup_external_time + (input.setup_internal_time - (results["smed_potential_savings"] ?? 0)); } catch { results["optimized_changeover_time"] = 0; }
-  try { results["annual_cost_savings"] = ((results["total_changeover_downtime"] ?? 0) - (input.number_of_changeovers_per_month * (results["optimized_changeover_time"] ?? 0))) * 12 * 0.85; } catch { results["annual_cost_savings"] = 0; }
+  try { const v = input.number_of_changeovers_per_month * input.changeover_time_matrix; results["total_changeover_downtime"] = Number.isFinite(v) ? v : 0; } catch { results["total_changeover_downtime"] = 0; }
+  try { const v = input.setup_internal_time / (input.setup_internal_time + input.setup_external_time); results["internal_setup_ratio"] = Number.isFinite(v) ? v : 0; } catch { results["internal_setup_ratio"] = 0; }
+  try { const v = input.setup_internal_time * (1 - (input.target_changeover_time - input.setup_external_time) / input.setup_internal_time); results["smed_potential_savings"] = Number.isFinite(v) ? v : 0; } catch { results["smed_potential_savings"] = 0; }
+  try { const v = Math.min((input.changeover_time_matrix - input.target_changeover_time) / (3 * input.standard_deviation_changeover_time), (input.changeover_time_matrix - 0) / (3 * input.standard_deviation_changeover_time)); results["process_capability_index"] = Number.isFinite(v) ? v : 0; } catch { results["process_capability_index"] = 0; }
+  try { const v = (results["total_changeover_downtime"] ?? 0) / ((results["total_changeover_downtime"] ?? 0) + (input.number_of_changeovers_per_month * (480 - input.changeover_time_matrix))); results["changeover_frequency_impact"] = Number.isFinite(v) ? v : 0; } catch { results["changeover_frequency_impact"] = 0; }
+  try { const v = input.setup_external_time + (input.setup_internal_time - (results["smed_potential_savings"] ?? 0)); results["optimized_changeover_time"] = Number.isFinite(v) ? v : 0; } catch { results["optimized_changeover_time"] = 0; }
+  try { const v = ((results["total_changeover_downtime"] ?? 0) - (input.number_of_changeovers_per_month * (results["optimized_changeover_time"] ?? 0))) * 12 * 0.85; results["annual_cost_savings"] = Number.isFinite(v) ? v : 0; } catch { results["annual_cost_savings"] = 0; }
   return results;
 }
 

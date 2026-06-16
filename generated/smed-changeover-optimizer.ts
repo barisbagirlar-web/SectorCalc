@@ -21,13 +21,13 @@ export const Smed_changeover_optimizerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Smed_changeover_optimizerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["external_operations_percentage"] = 100 - input.internal_operations_percentage; } catch { results["external_operations_percentage"] = 0; }
-  try { results["theoretical_minimum_changeover"] = input.current_changeover_time * ((results["external_operations_percentage"] ?? 0) / 100) + (input.current_changeover_time * (input.internal_operations_percentage / 100) / (input.parallel_work_possible ? input.setup_team_size : 1)); } catch { results["theoretical_minimum_changeover"] = 0; }
-  try { results["standardization_factor"] = (input.standardization_level === 'low' ? 1.3 : (input.standardization_level === 'medium' ? 1.0 : (input.standardization_level === 'high' ? 0.8 : 0))); } catch { results["standardization_factor"] = 0; }
-  try { results["waste_motion_factor"] = 1 + (input.waste_motion_score - 1) * 0.05; } catch { results["waste_motion_factor"] = 0; }
-  try { results["achievable_changeover_time"] = (results["theoretical_minimum_changeover"] ?? 0) * (results["standardization_factor"] ?? 0) * (results["waste_motion_factor"] ?? 0); } catch { results["achievable_changeover_time"] = 0; }
-  try { results["reduction_potential"] = input.current_changeover_time - (results["achievable_changeover_time"] ?? 0); } catch { results["reduction_potential"] = 0; }
-  try { results["reduction_percentage"] = ((results["reduction_potential"] ?? 0) / input.current_changeover_time) * 100; } catch { results["reduction_percentage"] = 0; }
+  try { const v = 100 - input.internal_operations_percentage; results["external_operations_percentage"] = Number.isFinite(v) ? v : 0; } catch { results["external_operations_percentage"] = 0; }
+  try { const v = input.current_changeover_time * ((results["external_operations_percentage"] ?? 0) / 100) + (input.current_changeover_time * (input.internal_operations_percentage / 100) / (input.parallel_work_possible ? input.setup_team_size : 1)); results["theoretical_minimum_changeover"] = Number.isFinite(v) ? v : 0; } catch { results["theoretical_minimum_changeover"] = 0; }
+  try { const v = (input.standardization_level === 'low' ? 1.3 : (input.standardization_level === 'medium' ? 1.0 : (input.standardization_level === 'high' ? 0.8 : 0))); results["standardization_factor"] = Number.isFinite(v) ? v : 0; } catch { results["standardization_factor"] = 0; }
+  try { const v = 1 + (input.waste_motion_score - 1) * 0.05; results["waste_motion_factor"] = Number.isFinite(v) ? v : 0; } catch { results["waste_motion_factor"] = 0; }
+  try { const v = (results["theoretical_minimum_changeover"] ?? 0) * (results["standardization_factor"] ?? 0) * (results["waste_motion_factor"] ?? 0); results["achievable_changeover_time"] = Number.isFinite(v) ? v : 0; } catch { results["achievable_changeover_time"] = 0; }
+  try { const v = input.current_changeover_time - (results["achievable_changeover_time"] ?? 0); results["reduction_potential"] = Number.isFinite(v) ? v : 0; } catch { results["reduction_potential"] = 0; }
+  try { const v = ((results["reduction_potential"] ?? 0) / input.current_changeover_time) * 100; results["reduction_percentage"] = Number.isFinite(v) ? v : 0; } catch { results["reduction_percentage"] = 0; }
   return results;
 }
 

@@ -37,13 +37,13 @@ export const Roi_npv_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Roi_npv_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["annual_net_cash_flow"] = (input.annual_cash_inflow - input.annual_cash_outflow + input.lean_six_sigma_savings) * (1 - input.tax_rate / 100) + ((results["depreciation_expense"] ?? 0) * (input.tax_rate / 100)); } catch { results["annual_net_cash_flow"] = 0; }
+  try { const v = (input.annual_cash_inflow - input.annual_cash_outflow + input.lean_six_sigma_savings) * (1 - input.tax_rate / 100) + ((results["depreciation_expense"] ?? 0) * (input.tax_rate / 100)); results["annual_net_cash_flow"] = Number.isFinite(v) ? v : 0; } catch { results["annual_net_cash_flow"] = 0; }
   results["depreciation_expense"] = 0;
   results["npv"] = 0;
-  try { results["roi"] = ((results["npv"] ?? 0) / input.initial_investment) * 100; } catch { results["roi"] = 0; }
-  try { results["payback_period"] = input.initial_investment / (results["annual_net_cash_flow"] ?? 0); } catch { results["payback_period"] = 0; }
-  try { results["irr"] = irr_approximation(input.initial_investment, (results["annual_net_cash_flow"] ?? 0), input.project_life_years, input.salvage_value); } catch { results["irr"] = 0; }
-  try { results["six_sigma_dpmo"] = input.quality_defect_rate * 10000; } catch { results["six_sigma_dpmo"] = 0; }
+  try { const v = ((results["npv"] ?? 0) / input.initial_investment) * 100; results["roi"] = Number.isFinite(v) ? v : 0; } catch { results["roi"] = 0; }
+  try { const v = input.initial_investment / (results["annual_net_cash_flow"] ?? 0); results["payback_period"] = Number.isFinite(v) ? v : 0; } catch { results["payback_period"] = 0; }
+  try { const v = irr_approximation(input.initial_investment, (results["annual_net_cash_flow"] ?? 0), input.project_life_years, input.salvage_value); results["irr"] = Number.isFinite(v) ? v : 0; } catch { results["irr"] = 0; }
+  try { const v = input.quality_defect_rate * 10000; results["six_sigma_dpmo"] = Number.isFinite(v) ? v : 0; } catch { results["six_sigma_dpmo"] = 0; }
   return results;
 }
 

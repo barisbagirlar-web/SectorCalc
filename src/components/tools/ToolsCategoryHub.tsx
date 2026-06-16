@@ -11,8 +11,8 @@ import {
   FREE_TRAFFIC_CATEGORY_META,
   type FreeTrafficCategoryMeta,
 } from "@/lib/tools/free-traffic-categories";
-import type { FreeTrafficCategory } from "@/lib/tools/free-traffic-catalog";
-import { inferFreeTrafficCategory } from "@/lib/tools/free-traffic-catalog";
+import type { FreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
+import { inferFreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
 import { ToolsIconTileGrid } from "@/components/tools/ToolsIconTileGrid";
 
 type ToolsCategoryHubProps = {

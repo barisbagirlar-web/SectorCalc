@@ -23,13 +23,13 @@ export const Cbam_compliance_verdictInputSchema = z.object({
 
 function evaluateAllFormulas(input: Cbam_compliance_verdictInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["adjusted_embedded_emissions"] = input.total_imported_tonnes * input.embedded_emissions_per_tonne * (1 + (input.verification_status == 'self-declared' ? 0.2 : 0)); } catch { results["adjusted_embedded_emissions"] = 0; }
-  try { results["free_allocation_emissions"] = (results["adjusted_embedded_emissions"] ?? 0) * input.free_allocation_factor; } catch { results["free_allocation_emissions"] = 0; }
-  try { results["cbam_liable_emissions"] = (results["adjusted_embedded_emissions"] ?? 0) - (results["free_allocation_emissions"] ?? 0); } catch { results["cbam_liable_emissions"] = 0; }
-  try { results["carbon_price_deduction"] = (results["cbam_liable_emissions"] ?? 0) * input.carbon_price_origin; } catch { results["carbon_price_deduction"] = 0; }
-  try { results["gross_cbam_cost"] = (results["cbam_liable_emissions"] ?? 0) * input.cbam_certificate_price; } catch { results["gross_cbam_cost"] = 0; }
-  try { results["net_cbam_cost"] = Math.max(0, (results["gross_cbam_cost"] ?? 0) - (results["carbon_price_deduction"] ?? 0)); } catch { results["net_cbam_cost"] = 0; }
-  results["compliance_verdict"] = 0;
+  try { const v = input.total_imported_tonnes * input.embedded_emissions_per_tonne * (1 + (input.verification_status == 'self-declared' ? 0.2 : 0)); results["adjusted_embedded_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_embedded_emissions"] = 0; }
+  try { const v = (results["adjusted_embedded_emissions"] ?? 0) * input.free_allocation_factor; results["free_allocation_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["free_allocation_emissions"] = 0; }
+  try { const v = (results["adjusted_embedded_emissions"] ?? 0) - (results["free_allocation_emissions"] ?? 0); results["cbam_liable_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["cbam_liable_emissions"] = 0; }
+  try { const v = (results["cbam_liable_emissions"] ?? 0) * input.carbon_price_origin; results["carbon_price_deduction"] = Number.isFinite(v) ? v : 0; } catch { results["carbon_price_deduction"] = 0; }
+  try { const v = (results["cbam_liable_emissions"] ?? 0) * input.cbam_certificate_price; results["gross_cbam_cost"] = Number.isFinite(v) ? v : 0; } catch { results["gross_cbam_cost"] = 0; }
+  try { const v = Math.max(0, (results["gross_cbam_cost"] ?? 0) - (results["carbon_price_deduction"] ?? 0)); results["net_cbam_cost"] = Number.isFinite(v) ? v : 0; } catch { results["net_cbam_cost"] = 0; }
+  try { const v = (((input.compliance_deadline_met == false)) ? ('Non-compliant – late submission') : (((((results["net_cbam_cost"] ?? 0) == 0)) ? ('Compliant – zero cost') : (((((results["net_cbam_cost"] ?? 0) <= 10000)) ? ('Compliant – low cost') : ('Compliant – high cost')))))); results["compliance_verdict"] = Number.isFinite(v) ? v : 0; } catch { results["compliance_verdict"] = 0; }
   return results;
 }
 

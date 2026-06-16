@@ -29,13 +29,13 @@ export const Restaurant_menu_margin_leakInputSchema = z.object({
 
 function evaluateAllFormulas(input: Restaurant_menu_margin_leakInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["gross_margin_per_cover"] = input.avg_cover_price - input.food_cost_per_cover; } catch { results["gross_margin_per_cover"] = 0; }
-  try { results["contribution_margin_per_cover"] = (results["gross_margin_per_cover"] ?? 0) - input.labor_cost_per_cover - input.overhead_per_cover; } catch { results["contribution_margin_per_cover"] = 0; }
-  try { results["waste_leak_per_cover"] = input.food_cost_per_cover * (input.waste_percentage / 100); } catch { results["waste_leak_per_cover"] = 0; }
-  try { results["theft_leak_per_cover"] = input.food_cost_per_cover * (input.theft_shrinkage_percentage / 100); } catch { results["theft_leak_per_cover"] = 0; }
-  try { results["discount_leak_per_cover"] = input.avg_cover_price * (input.discount_comp_percentage / 100); } catch { results["discount_leak_per_cover"] = 0; }
-  try { results["total_leak_per_cover"] = (results["waste_leak_per_cover"] ?? 0) + (results["theft_leak_per_cover"] ?? 0) + (results["discount_leak_per_cover"] ?? 0); } catch { results["total_leak_per_cover"] = 0; }
-  try { results["net_margin_per_cover"] = (results["contribution_margin_per_cover"] ?? 0) - (results["total_leak_per_cover"] ?? 0); } catch { results["net_margin_per_cover"] = 0; }
+  try { const v = input.avg_cover_price - input.food_cost_per_cover; results["gross_margin_per_cover"] = Number.isFinite(v) ? v : 0; } catch { results["gross_margin_per_cover"] = 0; }
+  try { const v = (results["gross_margin_per_cover"] ?? 0) - input.labor_cost_per_cover - input.overhead_per_cover; results["contribution_margin_per_cover"] = Number.isFinite(v) ? v : 0; } catch { results["contribution_margin_per_cover"] = 0; }
+  try { const v = input.food_cost_per_cover * (input.waste_percentage / 100); results["waste_leak_per_cover"] = Number.isFinite(v) ? v : 0; } catch { results["waste_leak_per_cover"] = 0; }
+  try { const v = input.food_cost_per_cover * (input.theft_shrinkage_percentage / 100); results["theft_leak_per_cover"] = Number.isFinite(v) ? v : 0; } catch { results["theft_leak_per_cover"] = 0; }
+  try { const v = input.avg_cover_price * (input.discount_comp_percentage / 100); results["discount_leak_per_cover"] = Number.isFinite(v) ? v : 0; } catch { results["discount_leak_per_cover"] = 0; }
+  try { const v = (results["waste_leak_per_cover"] ?? 0) + (results["theft_leak_per_cover"] ?? 0) + (results["discount_leak_per_cover"] ?? 0); results["total_leak_per_cover"] = Number.isFinite(v) ? v : 0; } catch { results["total_leak_per_cover"] = 0; }
+  try { const v = (results["contribution_margin_per_cover"] ?? 0) - (results["total_leak_per_cover"] ?? 0); results["net_margin_per_cover"] = Number.isFinite(v) ? v : 0; } catch { results["net_margin_per_cover"] = 0; }
   return results;
 }
 

@@ -17,13 +17,13 @@ export const Kg_to_lb_converterInputSchema = z.object({
 
 function evaluateAllFormulas(input: Kg_to_lb_converterInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["raw_conversion"] = input.mass_kg * 2.20462262185; } catch { results["raw_conversion"] = 0; }
-  results["rounding_application"] = 0;
-  try { results["uncertainty_adjustment"] = rounded_lb * (input.measurement_uncertainty / 100) * 2; } catch { results["uncertainty_adjustment"] = 0; }
-  try { results["confidence_interval_lower"] = rounded_lb - uncertainty_lb; } catch { results["confidence_interval_lower"] = 0; }
-  try { results["confidence_interval_upper"] = rounded_lb + uncertainty_lb; } catch { results["confidence_interval_upper"] = 0; }
-  try { results["data_confidence_score"] = Math.max(0, 1 - (input.measurement_uncertainty / 10)); } catch { results["data_confidence_score"] = 0; }
-  try { results["primary_result"] = rounded_lb * (1 - (input.measurement_uncertainty / 100)); } catch { results["primary_result"] = 0; }
+  try { const v = input.mass_kg * 2.20462262185; results["raw_lb"] = Number.isFinite(v) ? v : 0; } catch { results["raw_lb"] = 0; }
+  try { const v = ((input.use_industry_rounding) ? (rounded_lb = ROUND_HALF_UP((results["raw_lb"] ?? 0), input.precision_level)) : (rounded_lb = ROUND_HALF_EVEN((results["raw_lb"] ?? 0), input.precision_level))); results["rounded_lb"] = Number.isFinite(v) ? v : 0; } catch { results["rounded_lb"] = 0; }
+  try { const v = (results["rounded_lb"] ?? 0) * (input.measurement_uncertainty / 100) * 2; results["uncertainty_lb"] = Number.isFinite(v) ? v : 0; } catch { results["uncertainty_lb"] = 0; }
+  try { const v = (results["rounded_lb"] ?? 0) - (results["uncertainty_lb"] ?? 0); results["lower_bound_lb"] = Number.isFinite(v) ? v : 0; } catch { results["lower_bound_lb"] = 0; }
+  try { const v = (results["rounded_lb"] ?? 0) + (results["uncertainty_lb"] ?? 0); results["upper_bound_lb"] = Number.isFinite(v) ? v : 0; } catch { results["upper_bound_lb"] = 0; }
+  try { const v = Math.max(0, 1 - (input.measurement_uncertainty / 10)); results["confidence_score"] = Number.isFinite(v) ? v : 0; } catch { results["confidence_score"] = 0; }
+  try { const v = (results["rounded_lb"] ?? 0) * (1 - (input.measurement_uncertainty / 100)); results["primary_lb"] = Number.isFinite(v) ? v : 0; } catch { results["primary_lb"] = 0; }
   return results;
 }
 

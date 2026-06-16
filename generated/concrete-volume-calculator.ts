@@ -29,13 +29,13 @@ export const Concrete_volume_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Concrete_volume_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["baseVolume"] = 0;
-  try { results["adjustedVolume"] = (results["baseVolume"] ?? 0) * (1 + input.wasteFactor / 100); } catch { results["adjustedVolume"] = 0; }
-  try { results["steelVolume"] = (results["adjustedVolume"] ?? 0) * (input.reinforcementRatio / 100); } catch { results["steelVolume"] = 0; }
-  try { results["netConcreteVolume"] = (results["adjustedVolume"] ?? 0) - (results["steelVolume"] ?? 0); } catch { results["netConcreteVolume"] = 0; }
-  try { results["materialCost"] = (results["netConcreteVolume"] ?? 0) * input.materialCostPerM3; } catch { results["materialCost"] = 0; }
-  try { results["laborHours"] = (results["netConcreteVolume"] ?? 0) * 1.2 + (input.usePump ? 2 : 0); } catch { results["laborHours"] = 0; }
-  try { results["totalCost"] = (results["materialCost"] ?? 0) + ((results["laborHours"] ?? 0) * input.laborRate) + (input.usePump ? 250 : 0); } catch { results["totalCost"] = 0; }
+  try { const v = ((input.shape == 'rectangular') ? (0) : (((input.shape == 'circular') ? (0) : (((input.shape == 'L-shaped') ? (0) : (((input.shape == 'trapezoidal') ? (0) : (0)))))))); results["baseVolume"] = Number.isFinite(v) ? v : 0; } catch { results["baseVolume"] = 0; }
+  try { const v = (results["baseVolume"] ?? 0) * (1 + input.wasteFactor / 100); results["adjustedVolume"] = Number.isFinite(v) ? v : 0; } catch { results["adjustedVolume"] = 0; }
+  try { const v = (results["adjustedVolume"] ?? 0) * (input.reinforcementRatio / 100); results["steelVolume"] = Number.isFinite(v) ? v : 0; } catch { results["steelVolume"] = 0; }
+  try { const v = (results["adjustedVolume"] ?? 0) - (results["steelVolume"] ?? 0); results["netConcreteVolume"] = Number.isFinite(v) ? v : 0; } catch { results["netConcreteVolume"] = 0; }
+  try { const v = (results["netConcreteVolume"] ?? 0) * input.materialCostPerM3; results["materialCost"] = Number.isFinite(v) ? v : 0; } catch { results["materialCost"] = 0; }
+  try { const v = (results["netConcreteVolume"] ?? 0) * 1.2 + (input.usePump ? 2 : 0); results["laborHours"] = Number.isFinite(v) ? v : 0; } catch { results["laborHours"] = 0; }
+  try { const v = (results["materialCost"] ?? 0) + ((results["laborHours"] ?? 0) * input.laborRate) + (input.usePump ? 250 : 0); results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
   return results;
 }
 

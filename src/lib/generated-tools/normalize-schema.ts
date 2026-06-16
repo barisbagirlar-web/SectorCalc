@@ -34,8 +34,51 @@ function normalizeFormulaMap(raw: unknown): Readonly<Record<string, string>> {
       }
       const id = asString(record.id);
       const expression = asString(record.expression ?? record.equation ?? record.formula);
-      if (id && expression) {
-        formulas[id] = expression;
+
+      const outputRaw = record.output ?? record.outputs ?? record.outputIds;
+      const outputIds: string[] = [];
+      if (typeof outputRaw === "string") {
+        for (const part of outputRaw.split(",")) {
+          const trimmed = part.trim();
+          if (trimmed) outputIds.push(trimmed);
+        }
+      } else if (Array.isArray(outputRaw)) {
+        for (const part of outputRaw) {
+          const trimmed = typeof part === "string" ? part.trim() : "";
+          if (trimmed) outputIds.push(trimmed);
+        }
+      }
+
+      if (expression) {
+        const lhsVars: string[] = [];
+        // capture assignment LHS only (avoid == / >= / <=)
+        const lhsRegex = /\b([\p{L}][\p{L}\p{N}_]*)\s*=(?![=<>])/gu;
+        for (const match of expression.matchAll(lhsRegex)) {
+          const v = match[1]?.trim();
+          if (!v) continue;
+          if (!lhsVars.includes(v)) lhsVars.push(v);
+        }
+
+        // If schema declares multiple outputs, replace internal assignment vars
+        // (e.g. R_A/R_B, M_max, δ_max, σ_max) to declared output ids by order.
+        if (outputIds.length > 0) {
+          let mappedExpr = expression;
+          for (let i = 0; i < Math.min(outputIds.length, lhsVars.length); i += 1) {
+            const from = lhsVars[i];
+            const to = outputIds[i];
+            const escapedFrom = from.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+            mappedExpr = mappedExpr.replace(new RegExp(`\\b${escapedFrom}\\b`, "g"), to);
+          }
+
+          for (const outId of outputIds) {
+            formulas[outId] = mappedExpr;
+          }
+          continue;
+        }
+
+        if (id) {
+          formulas[id] = expression;
+        }
       }
     }
     return formulas;

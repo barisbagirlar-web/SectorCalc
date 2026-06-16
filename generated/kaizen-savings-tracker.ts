@@ -37,13 +37,13 @@ export const Kaizen_savings_trackerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Kaizen_savings_trackerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["labor_savings"] = input.labor_rate * input.operators_affected * (input.time_saved_per_operator / 60) * input.shifts_per_day * input.operating_days_per_year; } catch { results["labor_savings"] = 0; }
-  try { results["defect_savings"] = ((input.defect_rate_before - input.defect_rate_after) / 100) * input.annual_production_volume * input.cost_per_defect; } catch { results["defect_savings"] = 0; }
-  try { results["direct_savings"] = (results["labor_savings"] ?? 0) + (results["defect_savings"] ?? 0) + input.material_cost_savings + input.energy_cost_savings; } catch { results["direct_savings"] = 0; }
-  try { results["sustainability_adjusted_savings"] = (results["direct_savings"] ?? 0) * sustainability_factor_value; } catch { results["sustainability_adjusted_savings"] = 0; }
-  try { results["return_on_investment"] = (((results["sustainability_adjusted_savings"] ?? 0) - input.implementation_cost) / input.implementation_cost) * 100; } catch { results["return_on_investment"] = 0; }
-  try { results["payback_period"] = (input.implementation_cost / ((results["sustainability_adjusted_savings"] ?? 0) / 12)); } catch { results["payback_period"] = 0; }
-  try { results["total_annual_savings"] = (results["sustainability_adjusted_savings"] ?? 0) * data_confidence_value; } catch { results["total_annual_savings"] = 0; }
+  try { const v = input.labor_rate * input.operators_affected * (input.time_saved_per_operator / 60) * input.shifts_per_day * input.operating_days_per_year; results["labor_savings"] = Number.isFinite(v) ? v : 0; } catch { results["labor_savings"] = 0; }
+  try { const v = ((input.defect_rate_before - input.defect_rate_after) / 100) * input.annual_production_volume * input.cost_per_defect; results["defect_savings"] = Number.isFinite(v) ? v : 0; } catch { results["defect_savings"] = 0; }
+  try { const v = (results["labor_savings"] ?? 0) + (results["defect_savings"] ?? 0) + input.material_cost_savings + input.energy_cost_savings; results["direct_savings"] = Number.isFinite(v) ? v : 0; } catch { results["direct_savings"] = 0; }
+  try { const v = (results["direct_savings"] ?? 0) * sustainability_factor_value; results["sustainability_adjusted_savings"] = Number.isFinite(v) ? v : 0; } catch { results["sustainability_adjusted_savings"] = 0; }
+  try { const v = (((results["sustainability_adjusted_savings"] ?? 0) - input.implementation_cost) / input.implementation_cost) * 100; results["return_on_investment"] = Number.isFinite(v) ? v : 0; } catch { results["return_on_investment"] = 0; }
+  try { const v = (input.implementation_cost / ((results["sustainability_adjusted_savings"] ?? 0) / 12)); results["payback_period"] = Number.isFinite(v) ? v : 0; } catch { results["payback_period"] = 0; }
+  try { const v = (results["sustainability_adjusted_savings"] ?? 0) * data_confidence_value; results["total_annual_savings"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_savings"] = 0; }
   return results;
 }
 

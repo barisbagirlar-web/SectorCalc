@@ -33,11 +33,11 @@ function evaluateAllFormulas(input: Lease_vs_buy_comparatorInput): Record<string
   const results: Record<string, number> = {};
   results["npvLease"] = 0;
   results["npvBuy"] = 0;
-  try { results["depreciationTaxShield"] = depreciationRate_y * input.equipmentCost * input.taxRate; } catch { results["depreciationTaxShield"] = 0; }
-  try { results["totalCostLease"] = input.leaseTermMonths * input.monthlyLeasePayment; } catch { results["totalCostLease"] = 0; }
-  try { results["totalCostBuy"] = input.equipmentCost + (input.leaseTermMonths/12)*input.annualMaintenanceCost - input.residualValue; } catch { results["totalCostBuy"] = 0; }
-  try { results["utilizationAdjustedCost"] = ((results["totalCostBuy"] ?? 0) * (1 - input.utilizationRate/100)) * 0.15; } catch { results["utilizationAdjustedCost"] = 0; }
-  try { results["primaryResult"] = ((results["npvLease"] ?? 0) + (results["utilizationAdjustedCost"] ?? 0)) / (results["npvBuy"] ?? 0); } catch { results["primaryResult"] = 0; }
+  try { const v = depreciationRate_y * input.equipmentCost * input.taxRate; results["depreciationTaxShield"] = Number.isFinite(v) ? v : 0; } catch { results["depreciationTaxShield"] = 0; }
+  try { const v = input.leaseTermMonths * input.monthlyLeasePayment; results["totalCostLease"] = Number.isFinite(v) ? v : 0; } catch { results["totalCostLease"] = 0; }
+  try { const v = input.equipmentCost + (input.leaseTermMonths/12)*input.annualMaintenanceCost - input.residualValue; results["totalCostBuy"] = Number.isFinite(v) ? v : 0; } catch { results["totalCostBuy"] = 0; }
+  try { const v = ((results["totalCostBuy"] ?? 0) * (1 - input.utilizationRate/100)) * 0.15; results["utilizationAdjustedCost"] = Number.isFinite(v) ? v : 0; } catch { results["utilizationAdjustedCost"] = 0; }
+  try { const v = ((results["npvLease"] ?? 0) + (results["utilizationAdjustedCost"] ?? 0)) / (results["npvBuy"] ?? 0); results["primaryResult"] = Number.isFinite(v) ? v : 0; } catch { results["primaryResult"] = 0; }
   return results;
 }
 

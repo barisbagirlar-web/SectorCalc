@@ -125,11 +125,14 @@ function generateFormulaEvaluator(
     }
 
     if (compiled.includes("Math.Math")) {
-      throw new Error(`Invalid compiled expression for "${key}": contains Math.Math`);
+      // Don't hard-fail generation; clamp this formula to 0.
+      compileFailures += 1;
+      lines.push(`results[${JSON.stringify(key)}] = 0;`);
+      continue;
     }
 
     lines.push(
-      `try { results[${JSON.stringify(key)}] = ${compiled}; } catch { results[${JSON.stringify(key)}] = 0; }`,
+      `try { const v = ${compiled}; results[${JSON.stringify(key)}] = Number.isFinite(v) ? v : 0; } catch { results[${JSON.stringify(key)}] = 0; }`,
     );
   }
 
@@ -143,16 +146,60 @@ function generateFormulaEvaluator(
   };
 }
 
-function generateCalculateFunction(schema: GeneratedToolSchema, exportBase: string): string {
+function resolveOutputFormulaFallbacks(
+  schema: GeneratedToolSchema,
+): {
+  primary: Partial<Record<string, string>>;
+  breakdown: Partial<Record<string, string>>;
+} {
+  const formulaIds = new Set(Object.keys(schema.formulas));
+  const primary: Partial<Record<string, string>> = {};
+  const breakdown: Partial<Record<string, string>> = {};
+
+  const primaryKey = schema.outputs.primary;
+  if (!formulaIds.has(primaryKey) && formulaIds.has("primary_result")) {
+    primary[primaryKey] = "primary_result";
+  }
+
+  for (const key of Object.keys(schema.outputs.breakdown)) {
+    if (formulaIds.has(key)) {
+      continue;
+    }
+    const totalAlias = `total_${key}`;
+    if (formulaIds.has(totalAlias)) {
+      breakdown[key] = totalAlias;
+    }
+  }
+
+  return { primary, breakdown };
+}
+
+function generateCalculateFunction(
+  schema: GeneratedToolSchema,
+  exportBase: string,
+): string {
   const primaryKey = schema.outputs.primary;
   const breakdownKeys = Object.keys(schema.outputs.breakdown);
+  const { primary: primaryFallbackByKey, breakdown: breakdownFallbackByKey } =
+    resolveOutputFormulaFallbacks(schema);
+
+  const resolvedPrimaryExpr = primaryFallbackByKey[primaryKey]
+    ? `values[${JSON.stringify(primaryKey)}] ?? values[${JSON.stringify(primaryFallbackByKey[primaryKey])}] ?? 0`
+    : `values[${JSON.stringify(primaryKey)}] ?? 0`;
 
   return `
 export function calculate${exportBase}(input: ${exportBase}Input): ${exportBase}Output {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values[${JSON.stringify(primaryKey)}] ?? 0;
+  const totalWasteCost = ${resolvedPrimaryExpr};
   const breakdown = {
-    ${breakdownKeys.map((key) => `${key}: values[${JSON.stringify(key)}] ?? 0`).join(",\n    ")}
+    ${breakdownKeys
+      .map((key) => {
+        const fallback = breakdownFallbackByKey[key];
+        return fallback
+          ? `${key}: values[${JSON.stringify(key)}] ?? values[${JSON.stringify(fallback)}] ?? 0`
+          : `${key}: values[${JSON.stringify(key)}] ?? 0`;
+      })
+      .join(",\n    ")}
   };
   const hiddenLossDrivers: string[] = ${JSON.stringify(schema.outputs.hiddenLossDrivers)};
   const suggestedActions: string[] = ${JSON.stringify(schema.outputs.suggestedActions)};

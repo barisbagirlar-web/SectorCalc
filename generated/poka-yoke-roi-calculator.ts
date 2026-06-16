@@ -29,13 +29,13 @@ export const Poka_yoke_roi_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Poka_yoke_roi_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["defects_prevented_per_year"] = input.annual_units * (input.current_defect_rate / 1000000) * (input.poka_yoke_effectiveness / 100); } catch { results["defects_prevented_per_year"] = 0; }
-  try { results["annual_defect_cost_savings"] = (results["defects_prevented_per_year"] ?? 0) * input.defect_cost_per_unit; } catch { results["annual_defect_cost_savings"] = 0; }
-  try { results["annual_labor_savings"] = input.labor_hours_saved_per_year * input.labor_rate; } catch { results["annual_labor_savings"] = 0; }
-  try { results["total_annual_benefit"] = (results["annual_defect_cost_savings"] ?? 0) + (results["annual_labor_savings"] ?? 0); } catch { results["total_annual_benefit"] = 0; }
-  try { results["net_annual_cash_flow"] = (results["total_annual_benefit"] ?? 0) - input.annual_maintenance_cost; } catch { results["net_annual_cash_flow"] = 0; }
-  try { results["npv"] = -input.implementation_cost + ((results["net_annual_cash_flow"] ?? 0) * ((1 - (1 + input.discount_rate/100)^(-input.project_life_years)) / (input.discount_rate/100))); } catch { results["npv"] = 0; }
-  try { results["roi"] = ((results["npv"] ?? 0) / input.implementation_cost) * 100; } catch { results["roi"] = 0; }
+  try { const v = input.annual_units * (input.current_defect_rate / 1000000) * (input.poka_yoke_effectiveness / 100); results["defects_prevented_per_year"] = Number.isFinite(v) ? v : 0; } catch { results["defects_prevented_per_year"] = 0; }
+  try { const v = (results["defects_prevented_per_year"] ?? 0) * input.defect_cost_per_unit; results["annual_defect_cost_savings"] = Number.isFinite(v) ? v : 0; } catch { results["annual_defect_cost_savings"] = 0; }
+  try { const v = input.labor_hours_saved_per_year * input.labor_rate; results["annual_labor_savings"] = Number.isFinite(v) ? v : 0; } catch { results["annual_labor_savings"] = 0; }
+  try { const v = (results["annual_defect_cost_savings"] ?? 0) + (results["annual_labor_savings"] ?? 0); results["total_annual_benefit"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_benefit"] = 0; }
+  try { const v = (results["total_annual_benefit"] ?? 0) - input.annual_maintenance_cost; results["net_annual_cash_flow"] = Number.isFinite(v) ? v : 0; } catch { results["net_annual_cash_flow"] = 0; }
+  try { const v = -input.implementation_cost + ((results["net_annual_cash_flow"] ?? 0) * ((1 - (1 + input.discount_rate/100)^(-input.project_life_years)) / (input.discount_rate/100))); results["npv"] = Number.isFinite(v) ? v : 0; } catch { results["npv"] = 0; }
+  try { const v = ((results["npv"] ?? 0) / input.implementation_cost) * 100; results["roi"] = Number.isFinite(v) ? v : 0; } catch { results["roi"] = 0; }
   return results;
 }
 

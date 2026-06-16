@@ -27,13 +27,13 @@ export const Quote_risk_analyzerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Quote_risk_analyzerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["base_revenue"] = input.order_volume * input.unit_price; } catch { results["base_revenue"] = 0; }
-  try { results["defect_risk_cost"] = (results["base_revenue"] ?? 0) * (input.quality_defect_rate / 100) * 1.5; } catch { results["defect_risk_cost"] = 0; }
-  try { results["lead_time_risk_factor"] = 1 + (input.production_lead_time_days / 365) * (input.logistics_complexity / 10); } catch { results["lead_time_risk_factor"] = 0; }
-  try { results["material_cost_risk"] = (results["base_revenue"] ?? 0) * 0.4 * (input.material_cost_variability / 100); } catch { results["material_cost_risk"] = 0; }
-  results["credit_risk_factor"] = 0;
-  results["penalty_risk"] = 0;
-  try { results["risk_score"] = Math.min(100, (((results["defect_risk_cost"] ?? 0) + (results["material_cost_risk"] ?? 0) + (results["penalty_risk"] ?? 0)) / (results["base_revenue"] ?? 0) * 100 * (results["lead_time_risk_factor"] ?? 0)) + ((results["credit_risk_factor"] ?? 0) * 100)); } catch { results["risk_score"] = 0; }
+  try { const v = input.order_volume * input.unit_price; results["base_revenue"] = Number.isFinite(v) ? v : 0; } catch { results["base_revenue"] = 0; }
+  try { const v = (results["base_revenue"] ?? 0) * (input.quality_defect_rate / 100) * 1.5; results["defect_risk_cost"] = Number.isFinite(v) ? v : 0; } catch { results["defect_risk_cost"] = 0; }
+  try { const v = 1 + (input.production_lead_time_days / 365) * (input.logistics_complexity / 10); results["lead_time_risk_factor"] = Number.isFinite(v) ? v : 0; } catch { results["lead_time_risk_factor"] = 0; }
+  try { const v = (results["base_revenue"] ?? 0) * 0.4 * (input.material_cost_variability / 100); results["material_cost_risk"] = Number.isFinite(v) ? v : 0; } catch { results["material_cost_risk"] = 0; }
+  try { const v = (input.customer_credit_rating === 'AAA' ? 0.01 : (input.customer_credit_rating === 'AA' ? 0.02 : (input.customer_credit_rating === 'A' ? 0.03 : (input.customer_credit_rating === 'BBB' ? 0.05 : (input.customer_credit_rating === 'BB' ? 0.10 : (input.customer_credit_rating === 'B' ? 0.15 : (input.customer_credit_rating === 'CCC' ? 0.25 : (input.customer_credit_rating === 'D' ? 0.50 : 0.05)))))))); results["credit_risk_factor"] = Number.isFinite(v) ? v : 0; } catch { results["credit_risk_factor"] = 0; }
+  try { const v = ((input.contract_penalty_clause) ? ((results["base_revenue"] ?? 0) * 0.05) : (0)); results["penalty_risk"] = Number.isFinite(v) ? v : 0; } catch { results["penalty_risk"] = 0; }
+  try { const v = Math.min(100, (((results["defect_risk_cost"] ?? 0) + (results["material_cost_risk"] ?? 0) + (results["penalty_risk"] ?? 0)) / (results["base_revenue"] ?? 0) * 100 * (results["lead_time_risk_factor"] ?? 0)) + ((results["credit_risk_factor"] ?? 0) * 100)); results["risk_score"] = Number.isFinite(v) ? v : 0; } catch { results["risk_score"] = 0; }
   return results;
 }
 

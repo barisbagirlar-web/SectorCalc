@@ -33,18 +33,18 @@ export const Quality_cost_paf_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Quality_cost_paf_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["total_prevention_cost"] = input.prevention_training_cost + input.prevention_design_cost + input.quality_improvement_investment; } catch { results["total_prevention_cost"] = 0; }
-  try { results["total_appraisal_cost"] = input.appraisal_inspection_cost + input.appraisal_audit_cost; } catch { results["total_appraisal_cost"] = 0; }
-  try { results["total_internal_failure_cost"] = input.internal_failure_scrap_cost + input.internal_failure_downtime_cost; } catch { results["total_internal_failure_cost"] = 0; }
-  try { results["total_external_failure_cost"] = input.external_failure_warranty_cost + input.external_failure_liability_cost; } catch { results["total_external_failure_cost"] = 0; }
-  try { results["total_failure_cost"] = (results["total_internal_failure_cost"] ?? 0) + (results["total_external_failure_cost"] ?? 0); } catch { results["total_failure_cost"] = 0; }
-  try { results["total_quality_cost"] = (results["total_prevention_cost"] ?? 0) + (results["total_appraisal_cost"] ?? 0) + (results["total_failure_cost"] ?? 0); } catch { results["total_quality_cost"] = 0; }
-  try { results["quality_cost_ratio"] = ((results["total_quality_cost"] ?? 0) / input.total_sales) * 100; } catch { results["quality_cost_ratio"] = 0; }
-  try { results["prevention_cost_ratio"] = ((results["total_prevention_cost"] ?? 0) / input.total_sales) * 100; } catch { results["prevention_cost_ratio"] = 0; }
-  try { results["appraisal_cost_ratio"] = ((results["total_appraisal_cost"] ?? 0) / input.total_sales) * 100; } catch { results["appraisal_cost_ratio"] = 0; }
-  try { results["failure_cost_ratio"] = ((results["total_failure_cost"] ?? 0) / input.total_sales) * 100; } catch { results["failure_cost_ratio"] = 0; }
-  try { results["cost_of_poor_quality"] = (results["total_failure_cost"] ?? 0) + (results["total_appraisal_cost"] ?? 0) * 0.5; } catch { results["cost_of_poor_quality"] = 0; }
-  try { results["hidden_loss_drivers_score"] = ((input.include_hidden_drivers) ? (((results["total_failure_cost"] ?? 0) * 0.2) + ((results["total_appraisal_cost"] ?? 0) * 0.1)) : (0)); } catch { results["hidden_loss_drivers_score"] = 0; }
+  try { const v = input.prevention_training_cost + input.prevention_design_cost + input.quality_improvement_investment; results["total_prevention_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_prevention_cost"] = 0; }
+  try { const v = input.appraisal_inspection_cost + input.appraisal_audit_cost; results["total_appraisal_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_appraisal_cost"] = 0; }
+  try { const v = input.internal_failure_scrap_cost + input.internal_failure_downtime_cost; results["total_internal_failure_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_internal_failure_cost"] = 0; }
+  try { const v = input.external_failure_warranty_cost + input.external_failure_liability_cost; results["total_external_failure_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_external_failure_cost"] = 0; }
+  try { const v = (results["total_internal_failure_cost"] ?? 0) + (results["total_external_failure_cost"] ?? 0); results["total_failure_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_failure_cost"] = 0; }
+  try { const v = (results["total_prevention_cost"] ?? 0) + (results["total_appraisal_cost"] ?? 0) + (results["total_failure_cost"] ?? 0); results["total_quality_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_quality_cost"] = 0; }
+  try { const v = ((results["total_quality_cost"] ?? 0) / input.total_sales) * 100; results["quality_cost_ratio"] = Number.isFinite(v) ? v : 0; } catch { results["quality_cost_ratio"] = 0; }
+  try { const v = ((results["total_prevention_cost"] ?? 0) / input.total_sales) * 100; results["prevention_cost_ratio"] = Number.isFinite(v) ? v : 0; } catch { results["prevention_cost_ratio"] = 0; }
+  try { const v = ((results["total_appraisal_cost"] ?? 0) / input.total_sales) * 100; results["appraisal_cost_ratio"] = Number.isFinite(v) ? v : 0; } catch { results["appraisal_cost_ratio"] = 0; }
+  try { const v = ((results["total_failure_cost"] ?? 0) / input.total_sales) * 100; results["failure_cost_ratio"] = Number.isFinite(v) ? v : 0; } catch { results["failure_cost_ratio"] = 0; }
+  try { const v = (results["total_failure_cost"] ?? 0) + (results["total_appraisal_cost"] ?? 0) * 0.5; results["cost_of_poor_quality"] = Number.isFinite(v) ? v : 0; } catch { results["cost_of_poor_quality"] = 0; }
+  try { const v = ((input.include_hidden_drivers) ? (((results["total_failure_cost"] ?? 0) * 0.2) + ((results["total_appraisal_cost"] ?? 0) * 0.1)) : (0)); results["hidden_loss_drivers_score"] = Number.isFinite(v) ? v : 0; } catch { results["hidden_loss_drivers_score"] = 0; }
   return results;
 }
 
@@ -53,10 +53,10 @@ export function calculateQuality_cost_paf_calculator(input: Quality_cost_paf_cal
   const values = evaluateAllFormulas(input);
   const totalWasteCost = values["total_quality_cost"] ?? 0;
   const breakdown = {
-    prevention_cost: values["prevention_cost"] ?? 0,
-    appraisal_cost: values["appraisal_cost"] ?? 0,
-    internal_failure_cost: values["internal_failure_cost"] ?? 0,
-    external_failure_cost: values["external_failure_cost"] ?? 0,
+    prevention_cost: values["prevention_cost"] ?? values["total_prevention_cost"] ?? 0,
+    appraisal_cost: values["appraisal_cost"] ?? values["total_appraisal_cost"] ?? 0,
+    internal_failure_cost: values["internal_failure_cost"] ?? values["total_internal_failure_cost"] ?? 0,
+    external_failure_cost: values["external_failure_cost"] ?? values["total_external_failure_cost"] ?? 0,
     cost_of_poor_quality: values["cost_of_poor_quality"] ?? 0
   };
   const hiddenLossDrivers: string[] = ["Lost Customer Goodwill","Overtime & Expediting","Excess Inventory (Safety Stock)"];

@@ -33,13 +33,13 @@ export const Scaffolding_rental_optimizerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Scaffolding_rental_optimizerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["net_scaffold_area"] = input.total_scaffold_area_sqm * (1 + input.waste_factor / 100); } catch { results["net_scaffold_area"] = 0; }
-  try { results["rental_cost"] = (results["net_scaffold_area"] ?? 0) * input.rental_rate_per_sqm_per_day * input.project_duration_days; } catch { results["rental_cost"] = 0; }
-  try { results["transport_cost"] = input.transport_cost_per_trip * input.number_of_trips; } catch { results["transport_cost"] = 0; }
-  try { results["labor_cost"] = input.total_scaffold_area_sqm * (input.erection_hours_per_sqm + input.dismantle_hours_per_sqm) * input.labor_cost_per_hour; } catch { results["labor_cost"] = 0; }
-  try { results["insurance_cost"] = input.include_insurance ? (results["rental_cost"] ?? 0) * 0.02 : 0; } catch { results["insurance_cost"] = 0; }
-  try { results["total_cost"] = (results["rental_cost"] ?? 0) + (results["transport_cost"] ?? 0) + (results["labor_cost"] ?? 0) + (results["insurance_cost"] ?? 0); } catch { results["total_cost"] = 0; }
-  try { results["cost_per_sqm"] = (results["total_cost"] ?? 0) / input.total_scaffold_area_sqm; } catch { results["cost_per_sqm"] = 0; }
+  try { const v = input.total_scaffold_area_sqm * (1 + input.waste_factor / 100); results["net_scaffold_area"] = Number.isFinite(v) ? v : 0; } catch { results["net_scaffold_area"] = 0; }
+  try { const v = (results["net_scaffold_area"] ?? 0) * input.rental_rate_per_sqm_per_day * input.project_duration_days; results["rental_cost"] = Number.isFinite(v) ? v : 0; } catch { results["rental_cost"] = 0; }
+  try { const v = input.transport_cost_per_trip * input.number_of_trips; results["transport_cost"] = Number.isFinite(v) ? v : 0; } catch { results["transport_cost"] = 0; }
+  try { const v = input.total_scaffold_area_sqm * (input.erection_hours_per_sqm + input.dismantle_hours_per_sqm) * input.labor_cost_per_hour; results["labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost"] = 0; }
+  try { const v = input.include_insurance ? (results["rental_cost"] ?? 0) * 0.02 : 0; results["insurance_cost"] = Number.isFinite(v) ? v : 0; } catch { results["insurance_cost"] = 0; }
+  try { const v = (results["rental_cost"] ?? 0) + (results["transport_cost"] ?? 0) + (results["labor_cost"] ?? 0) + (results["insurance_cost"] ?? 0); results["total_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost"] = 0; }
+  try { const v = (results["total_cost"] ?? 0) / input.total_scaffold_area_sqm; results["cost_per_sqm"] = Number.isFinite(v) ? v : 0; } catch { results["cost_per_sqm"] = 0; }
   return results;
 }
 

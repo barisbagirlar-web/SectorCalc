@@ -25,14 +25,14 @@ export const Project_cost_estimatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Project_cost_estimatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["direct_labor_cost"] = input.labor_hours * input.labor_rate; } catch { results["direct_labor_cost"] = 0; }
-  try { results["direct_material_cost"] = input.material_cost * (1 - ((input.use_lean_standardization) ? (0.05) : (0))); } catch { results["direct_material_cost"] = 0; }
-  try { results["direct_equipment_cost"] = input.equipment_cost; } catch { results["direct_equipment_cost"] = 0; }
-  try { results["total_direct_cost"] = (results["direct_labor_cost"] ?? 0) + (results["direct_material_cost"] ?? 0) + (results["direct_equipment_cost"] ?? 0); } catch { results["total_direct_cost"] = 0; }
-  try { results["overhead_cost"] = (results["total_direct_cost"] ?? 0) * (input.overhead_percentage / 100); } catch { results["overhead_cost"] = 0; }
-  try { results["complexity_multiplier"] = (input.complexity_factor === 'low' ? 1.0 : (input.complexity_factor === 'medium' ? 1.15 : (input.complexity_factor === 'high' ? 1.35 : 0))); } catch { results["complexity_multiplier"] = 0; }
-  try { results["quality_adjustment"] = (input.quality_level === '3' ? 1.0 : (input.quality_level === '4' ? 0.95 : (input.quality_level === '5' ? 0.90 : (input.quality_level === '6' ? 0.85 : 0)))); } catch { results["quality_adjustment"] = 0; }
-  try { results["primaryResult"] = ((results["total_direct_cost"] ?? 0) + (results["overhead_cost"] ?? 0)) * (results["complexity_multiplier"] ?? 0) * (results["quality_adjustment"] ?? 0); } catch { results["primaryResult"] = 0; }
+  try { const v = input.labor_hours * input.labor_rate; results["direct_labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = input.material_cost * (1 - ((input.use_lean_standardization) ? (0.05) : (0))); results["direct_material_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_material_cost"] = 0; }
+  try { const v = input.equipment_cost; results["direct_equipment_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_equipment_cost"] = 0; }
+  try { const v = (results["direct_labor_cost"] ?? 0) + (results["direct_material_cost"] ?? 0) + (results["direct_equipment_cost"] ?? 0); results["total_direct_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_direct_cost"] = 0; }
+  try { const v = (results["total_direct_cost"] ?? 0) * (input.overhead_percentage / 100); results["overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
+  try { const v = (input.complexity_factor === 'low' ? 1.0 : (input.complexity_factor === 'medium' ? 1.15 : (input.complexity_factor === 'high' ? 1.35 : 0))); results["complexity_multiplier"] = Number.isFinite(v) ? v : 0; } catch { results["complexity_multiplier"] = 0; }
+  try { const v = (input.quality_level === '3' ? 1.0 : (input.quality_level === '4' ? 0.95 : (input.quality_level === '5' ? 0.90 : (input.quality_level === '6' ? 0.85 : 0)))); results["quality_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["quality_adjustment"] = 0; }
+  try { const v = ((results["total_direct_cost"] ?? 0) + (results["overhead_cost"] ?? 0)) * (results["complexity_multiplier"] ?? 0) * (results["quality_adjustment"] ?? 0); results["primaryResult"] = Number.isFinite(v) ? v : 0; } catch { results["primaryResult"] = 0; }
   return results;
 }
 

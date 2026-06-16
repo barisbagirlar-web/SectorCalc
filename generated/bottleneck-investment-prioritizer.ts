@@ -29,13 +29,13 @@ export const Bottleneck_investment_prioritizerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Bottleneck_investment_prioritizerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["effective_capacity"] = input.bottleneck_capacity * (input.quality_yield / 100) * (1 - input.maintenance_downtime_percent / 100); } catch { results["effective_capacity"] = 0; }
-  try { results["capacity_gap"] = (results["effective_capacity"] ?? 0) - input.demand_rate; } catch { results["capacity_gap"] = 0; }
-  try { results["new_capacity"] = input.bottleneck_capacity * (1 + input.expected_capacity_increase / 100) * (input.quality_yield / 100) * (1 - input.maintenance_downtime_percent / 100); } catch { results["new_capacity"] = 0; }
-  try { results["additional_throughput"] = Math.max(0, ((results["new_capacity"] ?? 0) - (results["effective_capacity"] ?? 0))) * input.operating_hours_per_year; } catch { results["additional_throughput"] = 0; }
-  try { results["annual_benefit"] = (results["additional_throughput"] ?? 0) * input.profit_margin_per_unit; } catch { results["annual_benefit"] = 0; }
+  try { const v = input.bottleneck_capacity * (input.quality_yield / 100) * (1 - input.maintenance_downtime_percent / 100); results["effective_capacity"] = Number.isFinite(v) ? v : 0; } catch { results["effective_capacity"] = 0; }
+  try { const v = (results["effective_capacity"] ?? 0) - input.demand_rate; results["capacity_gap"] = Number.isFinite(v) ? v : 0; } catch { results["capacity_gap"] = 0; }
+  try { const v = input.bottleneck_capacity * (1 + input.expected_capacity_increase / 100) * (input.quality_yield / 100) * (1 - input.maintenance_downtime_percent / 100); results["new_capacity"] = Number.isFinite(v) ? v : 0; } catch { results["new_capacity"] = 0; }
+  try { const v = Math.max(0, ((results["new_capacity"] ?? 0) - (results["effective_capacity"] ?? 0))) * input.operating_hours_per_year; results["additional_throughput"] = Number.isFinite(v) ? v : 0; } catch { results["additional_throughput"] = 0; }
+  try { const v = (results["additional_throughput"] ?? 0) * input.profit_margin_per_unit; results["annual_benefit"] = Number.isFinite(v) ? v : 0; } catch { results["annual_benefit"] = 0; }
   results["roi"] = 0;
-  try { results["payback_period_years"] = input.investment_cost / (results["annual_benefit"] ?? 0); } catch { results["payback_period_years"] = 0; }
+  try { const v = input.investment_cost / (results["annual_benefit"] ?? 0); results["payback_period_years"] = Number.isFinite(v) ? v : 0; } catch { results["payback_period_years"] = 0; }
   return results;
 }
 

@@ -27,13 +27,13 @@ export const Iso_50001_energy_baselineInputSchema = z.object({
 
 function evaluateAllFormulas(input: Iso_50001_energy_baselineInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["weather_normalized_energy"] = input.total_energy_consumption / (1 + 0.02 * (input.heating_degree_days + input.cooling_degree_days) / 1000); } catch { results["weather_normalized_energy"] = 0; }
-  try { results["production_normalized_energy"] = (results["weather_normalized_energy"] ?? 0) / input.production_volume; } catch { results["production_normalized_energy"] = 0; }
-  try { results["energy_intensity"] = (results["production_normalized_energy"] ?? 0); } catch { results["energy_intensity"] = 0; }
-  try { results["baseline_energy_intensity"] = baseline_energy_intensity_reference; } catch { results["baseline_energy_intensity"] = 0; }
-  try { results["energy_performance_indicator"] = (((results["baseline_energy_intensity"] ?? 0) - (results["energy_intensity"] ?? 0)) / (results["baseline_energy_intensity"] ?? 0)) * 100; } catch { results["energy_performance_indicator"] = 0; }
-  try { results["total_energy_cost_savings"] = (input.total_energy_consumption - ((results["energy_intensity"] ?? 0) * input.production_volume)) * 0.12; } catch { results["total_energy_cost_savings"] = 0; }
-  try { results["primary_result"] = (results["energy_performance_indicator"] ?? 0); } catch { results["primary_result"] = 0; }
+  try { const v = input.total_energy_consumption / (1 + 0.02 * (input.heating_degree_days + input.cooling_degree_days) / 1000); results["weather_normalized_energy"] = Number.isFinite(v) ? v : 0; } catch { results["weather_normalized_energy"] = 0; }
+  try { const v = (results["weather_normalized_energy"] ?? 0) / input.production_volume; results["production_normalized_energy"] = Number.isFinite(v) ? v : 0; } catch { results["production_normalized_energy"] = 0; }
+  try { const v = (results["production_normalized_energy"] ?? 0); results["energy_intensity"] = Number.isFinite(v) ? v : 0; } catch { results["energy_intensity"] = 0; }
+  try { const v = baseline_energy_intensity_reference; results["baseline_energy_intensity"] = Number.isFinite(v) ? v : 0; } catch { results["baseline_energy_intensity"] = 0; }
+  try { const v = (((results["baseline_energy_intensity"] ?? 0) - (results["energy_intensity"] ?? 0)) / (results["baseline_energy_intensity"] ?? 0)) * 100; results["energy_performance_indicator"] = Number.isFinite(v) ? v : 0; } catch { results["energy_performance_indicator"] = 0; }
+  try { const v = (input.total_energy_consumption - ((results["energy_intensity"] ?? 0) * input.production_volume)) * 0.12; results["total_energy_cost_savings"] = Number.isFinite(v) ? v : 0; } catch { results["total_energy_cost_savings"] = 0; }
+  try { const v = (results["energy_performance_indicator"] ?? 0); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 

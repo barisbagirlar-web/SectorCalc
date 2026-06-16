@@ -29,12 +29,12 @@ export const Product_carbon_footprintInputSchema = z.object({
 
 function evaluateAllFormulas(input: Product_carbon_footprintInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["material_emissions"] = input.material_weight * (1 - input.recycled_content/100) * emission_factor_material; } catch { results["material_emissions"] = 0; }
-  try { results["manufacturing_emissions"] = input.energy_consumption * emission_factor_energy; } catch { results["manufacturing_emissions"] = 0; }
-  try { results["transport_emissions"] = input.transport_distance * input.material_weight * emission_factor_transport; } catch { results["transport_emissions"] = 0; }
-  try { results["use_phase_emissions"] = input.use_phase_efficiency * input.lifespan * emission_factor_energy_grid; } catch { results["use_phase_emissions"] = 0; }
-  try { results["end_of_life_emissions"] = input.material_weight * (1 - input.end_of_life_recycling_rate/100) * emission_factor_disposal - input.material_weight * (input.end_of_life_recycling_rate/100) * emission_factor_recycling_credit; } catch { results["end_of_life_emissions"] = 0; }
-  try { results["total_carbon_footprint"] = (results["material_emissions"] ?? 0) + (results["manufacturing_emissions"] ?? 0) + (results["transport_emissions"] ?? 0) + (results["use_phase_emissions"] ?? 0) + (results["end_of_life_emissions"] ?? 0); } catch { results["total_carbon_footprint"] = 0; }
+  try { const v = input.material_weight * (1 - input.recycled_content/100) * emission_factor_material; results["material_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["material_emissions"] = 0; }
+  try { const v = input.energy_consumption * emission_factor_energy; results["manufacturing_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["manufacturing_emissions"] = 0; }
+  try { const v = input.transport_distance * input.material_weight * emission_factor_transport; results["transport_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["transport_emissions"] = 0; }
+  try { const v = input.use_phase_efficiency * input.lifespan * emission_factor_energy_grid; results["use_phase_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["use_phase_emissions"] = 0; }
+  try { const v = input.material_weight * (1 - input.end_of_life_recycling_rate/100) * emission_factor_disposal - input.material_weight * (input.end_of_life_recycling_rate/100) * emission_factor_recycling_credit; results["end_of_life_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["end_of_life_emissions"] = 0; }
+  try { const v = (results["material_emissions"] ?? 0) + (results["manufacturing_emissions"] ?? 0) + (results["transport_emissions"] ?? 0) + (results["use_phase_emissions"] ?? 0) + (results["end_of_life_emissions"] ?? 0); results["total_carbon_footprint"] = Number.isFinite(v) ? v : 0; } catch { results["total_carbon_footprint"] = 0; }
   return results;
 }
 

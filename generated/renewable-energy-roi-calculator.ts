@@ -36,12 +36,12 @@ export const Renewable_energy_roi_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Renewable_energy_roi_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   results["annual_energy_degraded"] = 0;
-  try { results["annual_savings"] = input.annual_energy_output_kwh * input.electricity_price_usd_per_kwh * (1 + input.inflation_rate_percent/100)^(year-1); } catch { results["annual_savings"] = 0; }
-  results["carbon_revenue"] = 0;
-  try { results["net_cash_flow"] = (results["annual_savings"] ?? 0) + (results["carbon_revenue"] ?? 0) - input.annual_operating_cost_usd; } catch { results["net_cash_flow"] = 0; }
+  try { const v = input.annual_energy_output_kwh * input.electricity_price_usd_per_kwh * (1 + input.inflation_rate_percent/100)^(year-1); results["annual_savings"] = Number.isFinite(v) ? v : 0; } catch { results["annual_savings"] = 0; }
+  try { const v = ((input.include_carbon_benefits) ? ((input.annual_energy_output_kwh / 1000) * 0.7 * input.carbon_credit_usd_per_ton) : (0)); results["carbon_revenue"] = Number.isFinite(v) ? v : 0; } catch { results["carbon_revenue"] = 0; }
+  try { const v = (results["annual_savings"] ?? 0) + (results["carbon_revenue"] ?? 0) - input.annual_operating_cost_usd; results["net_cash_flow"] = Number.isFinite(v) ? v : 0; } catch { results["net_cash_flow"] = 0; }
   results["net_present_value"] = 0;
   results["internal_rate_of_return"] = 0;
-  try { results["payback_period"] = capital_cost_after_incentive / average_annual_net_cash_flow; } catch { results["payback_period"] = 0; }
+  try { const v = capital_cost_after_incentive / average_annual_net_cash_flow; results["payback_period"] = Number.isFinite(v) ? v : 0; } catch { results["payback_period"] = 0; }
   return results;
 }
 

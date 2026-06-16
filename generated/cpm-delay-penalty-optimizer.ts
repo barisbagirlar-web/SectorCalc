@@ -25,12 +25,12 @@ export const Cpm_delay_penalty_optimizerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Cpm_delay_penalty_optimizerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["delay_days"] = input.actual_duration_days - input.planned_duration_days; } catch { results["delay_days"] = 0; }
-  try { results["net_delay_days"] = Math.max(0, (results["delay_days"] ?? 0) - input.critical_path_float_total); } catch { results["net_delay_days"] = 0; }
-  try { results["gross_penalty"] = (results["net_delay_days"] ?? 0) * input.daily_penalty_rate; } catch { results["gross_penalty"] = 0; }
-  try { results["productivity_loss_factor"] = 1 - input.productivity_factor; } catch { results["productivity_loss_factor"] = 0; }
-  try { results["rework_delay_impact"] = input.rework_percentage / 100 * input.actual_duration_days * 0.15; } catch { results["rework_delay_impact"] = 0; }
-  try { results["adjusted_penalty"] = (results["gross_penalty"] ?? 0) * (1 + (results["productivity_loss_factor"] ?? 0)) + ((results["rework_delay_impact"] ?? 0) * input.daily_penalty_rate); } catch { results["adjusted_penalty"] = 0; }
+  try { const v = input.actual_duration_days - input.planned_duration_days; results["delay_days"] = Number.isFinite(v) ? v : 0; } catch { results["delay_days"] = 0; }
+  try { const v = Math.max(0, (results["delay_days"] ?? 0) - input.critical_path_float_total); results["net_delay_days"] = Number.isFinite(v) ? v : 0; } catch { results["net_delay_days"] = 0; }
+  try { const v = (results["net_delay_days"] ?? 0) * input.daily_penalty_rate; results["gross_penalty"] = Number.isFinite(v) ? v : 0; } catch { results["gross_penalty"] = 0; }
+  try { const v = 1 - input.productivity_factor; results["productivity_loss_factor"] = Number.isFinite(v) ? v : 0; } catch { results["productivity_loss_factor"] = 0; }
+  try { const v = input.rework_percentage / 100 * input.actual_duration_days * 0.15; results["rework_delay_impact"] = Number.isFinite(v) ? v : 0; } catch { results["rework_delay_impact"] = 0; }
+  try { const v = (results["gross_penalty"] ?? 0) * (1 + (results["productivity_loss_factor"] ?? 0)) + ((results["rework_delay_impact"] ?? 0) * input.daily_penalty_rate); results["adjusted_penalty"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_penalty"] = 0; }
   results["total_penalty_optimized"] = 0;
   return results;
 }

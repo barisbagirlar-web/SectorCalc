@@ -33,13 +33,13 @@ export const Roi_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Roi_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["quality_cost_savings"] = input.annual_revenue * (input.defect_rate_percent / 100) * input.cost_per_defect * input.expected_improvement_factor; } catch { results["quality_cost_savings"] = 0; }
-  try { results["inventory_carrying_cost_savings"] = input.total_inventory_value * (input.inventory_carrying_cost_percent / 100) * input.expected_improvement_factor; } catch { results["inventory_carrying_cost_savings"] = 0; }
-  try { results["labor_efficiency_savings"] = input.annual_labor_cost * input.expected_improvement_factor * 0.5; } catch { results["labor_efficiency_savings"] = 0; }
-  try { results["energy_savings"] = input.annual_energy_cost * input.expected_improvement_factor * 0.3; } catch { results["energy_savings"] = 0; }
-  try { results["total_annual_benefit"] = (results["quality_cost_savings"] ?? 0) + (results["inventory_carrying_cost_savings"] ?? 0) + (results["labor_efficiency_savings"] ?? 0) + (results["energy_savings"] ?? 0); } catch { results["total_annual_benefit"] = 0; }
-  try { results["net_present_value"] = (results["total_annual_benefit"] ?? 0) * ((1 - (1 + 0.10)^-5) / 0.10) - input.lean_implementation_cost; } catch { results["net_present_value"] = 0; }
-  try { results["roi_percent"] = (((results["total_annual_benefit"] ?? 0) * 5) - input.lean_implementation_cost) / input.lean_implementation_cost * 100; } catch { results["roi_percent"] = 0; }
+  try { const v = input.annual_revenue * (input.defect_rate_percent / 100) * input.cost_per_defect * input.expected_improvement_factor; results["quality_cost_savings"] = Number.isFinite(v) ? v : 0; } catch { results["quality_cost_savings"] = 0; }
+  try { const v = input.total_inventory_value * (input.inventory_carrying_cost_percent / 100) * input.expected_improvement_factor; results["inventory_carrying_cost_savings"] = Number.isFinite(v) ? v : 0; } catch { results["inventory_carrying_cost_savings"] = 0; }
+  try { const v = input.annual_labor_cost * input.expected_improvement_factor * 0.5; results["labor_efficiency_savings"] = Number.isFinite(v) ? v : 0; } catch { results["labor_efficiency_savings"] = 0; }
+  try { const v = input.annual_energy_cost * input.expected_improvement_factor * 0.3; results["energy_savings"] = Number.isFinite(v) ? v : 0; } catch { results["energy_savings"] = 0; }
+  try { const v = (results["quality_cost_savings"] ?? 0) + (results["inventory_carrying_cost_savings"] ?? 0) + (results["labor_efficiency_savings"] ?? 0) + (results["energy_savings"] ?? 0); results["total_annual_benefit"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_benefit"] = 0; }
+  try { const v = (results["total_annual_benefit"] ?? 0) * ((1 - (1 + 0.10)^-5) / 0.10) - input.lean_implementation_cost; results["net_present_value"] = Number.isFinite(v) ? v : 0; } catch { results["net_present_value"] = 0; }
+  try { const v = (((results["total_annual_benefit"] ?? 0) * 5) - input.lean_implementation_cost) / input.lean_implementation_cost * 100; results["roi_percent"] = Number.isFinite(v) ? v : 0; } catch { results["roi_percent"] = 0; }
   return results;
 }
 

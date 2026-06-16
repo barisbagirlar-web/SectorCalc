@@ -29,13 +29,13 @@ export const Demand_forecast_inventory_costInputSchema = z.object({
 
 function evaluateAllFormulas(input: Demand_forecast_inventory_costInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["safety_stock"] = Z * input.demand_std_dev * Math.sqrt(input.lead_time_days / input.periods_per_year); } catch { results["safety_stock"] = 0; }
-  try { results["reorder_point"] = (input.historical_demand_mean * input.lead_time_days / input.periods_per_year) + (results["safety_stock"] ?? 0); } catch { results["reorder_point"] = 0; }
-  try { results["economic_order_quantity"] = Math.sqrt((2 * input.historical_demand_mean * input.ordering_cost) / (input.unit_cost * input.holding_cost_rate / 100)); } catch { results["economic_order_quantity"] = 0; }
-  try { results["total_annual_ordering_cost"] = (input.historical_demand_mean / (results["economic_order_quantity"] ?? 0)) * input.ordering_cost; } catch { results["total_annual_ordering_cost"] = 0; }
-  try { results["total_annual_holding_cost"] = (((results["economic_order_quantity"] ?? 0) / 2) + (results["safety_stock"] ?? 0)) * input.unit_cost * (input.holding_cost_rate / 100); } catch { results["total_annual_holding_cost"] = 0; }
-  try { results["expected_annual_stockout_cost"] = (1 - input.service_level) * input.historical_demand_mean * input.stockout_cost_per_unit; } catch { results["expected_annual_stockout_cost"] = 0; }
-  try { results["total_annual_inventory_cost"] = (results["total_annual_ordering_cost"] ?? 0) + (results["total_annual_holding_cost"] ?? 0) + (results["expected_annual_stockout_cost"] ?? 0); } catch { results["total_annual_inventory_cost"] = 0; }
+  try { const v = Z * input.demand_std_dev * Math.sqrt(input.lead_time_days / input.periods_per_year); results["safety_stock"] = Number.isFinite(v) ? v : 0; } catch { results["safety_stock"] = 0; }
+  try { const v = (input.historical_demand_mean * input.lead_time_days / input.periods_per_year) + (results["safety_stock"] ?? 0); results["reorder_point"] = Number.isFinite(v) ? v : 0; } catch { results["reorder_point"] = 0; }
+  try { const v = Math.sqrt((2 * input.historical_demand_mean * input.ordering_cost) / (input.unit_cost * input.holding_cost_rate / 100)); results["economic_order_quantity"] = Number.isFinite(v) ? v : 0; } catch { results["economic_order_quantity"] = 0; }
+  try { const v = (input.historical_demand_mean / (results["economic_order_quantity"] ?? 0)) * input.ordering_cost; results["total_annual_ordering_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_ordering_cost"] = 0; }
+  try { const v = (((results["economic_order_quantity"] ?? 0) / 2) + (results["safety_stock"] ?? 0)) * input.unit_cost * (input.holding_cost_rate / 100); results["total_annual_holding_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_holding_cost"] = 0; }
+  try { const v = (1 - input.service_level) * input.historical_demand_mean * input.stockout_cost_per_unit; results["expected_annual_stockout_cost"] = Number.isFinite(v) ? v : 0; } catch { results["expected_annual_stockout_cost"] = 0; }
+  try { const v = (results["total_annual_ordering_cost"] ?? 0) + (results["total_annual_holding_cost"] ?? 0) + (results["expected_annual_stockout_cost"] ?? 0); results["total_annual_inventory_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_inventory_cost"] = 0; }
   return results;
 }
 

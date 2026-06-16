@@ -25,13 +25,13 @@ export const Learning_curve_time_estimatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Learning_curve_time_estimatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["learning_exponent"] = Math.log(input.learning_rate/100) / Math.log(2); } catch { results["learning_exponent"] = 0; }
-  try { results["time_for_target_unit"] = input.first_unit_time * (input.target_units ^ b)   [Wright]; } catch { results["time_for_target_unit"] = 0; }
-  results["cumulative_average_time"] = 0;
-  results["total_time_for_target"] = 0;
-  results["break_in_adjustment"] = 0;
-  try { results["adjusted_time_for_target"] = (results["time_for_target_unit"] ?? 0) * (results["break_in_adjustment"] ?? 0); } catch { results["adjusted_time_for_target"] = 0; }
-  try { results["calendar_days_estimate"] = (results["total_time_for_target"] ?? 0) / input.shift_length; } catch { results["calendar_days_estimate"] = 0; }
+  try { const v = Math.log(input.learning_rate/100) / Math.log(2); results["learning_exponent"] = Number.isFinite(v) ? v : 0; } catch { results["learning_exponent"] = 0; }
+  try { const v = input.first_unit_time * (input.target_units ^ b); results["time_for_target_unit"] = Number.isFinite(v) ? v : 0; } catch { results["time_for_target_unit"] = 0; }
+  try { const v = input.first_unit_time * (input.target_units ^ b) / (1 + b); results["cumulative_average_time"] = Number.isFinite(v) ? v : 0; } catch { results["cumulative_average_time"] = 0; }
+  try { const v = input.first_unit_time * (input.target_units ^ (1+b)) / (1+b); results["total_time_for_target"] = Number.isFinite(v) ? v : 0; } catch { results["total_time_for_target"] = 0; }
+  try { const v = ((input.include_break_in) ? (factor = 1 + (input.break_in_penalty/100)) : (factor = 1)); results["break_in_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["break_in_adjustment"] = 0; }
+  try { const v = (results["time_for_target_unit"] ?? 0) * (results["break_in_adjustment"] ?? 0); results["adjusted_time_for_target"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_time_for_target"] = 0; }
+  try { const v = (results["total_time_for_target"] ?? 0) / input.shift_length; results["calendar_days_estimate"] = Number.isFinite(v) ? v : 0; } catch { results["calendar_days_estimate"] = 0; }
   return results;
 }
 

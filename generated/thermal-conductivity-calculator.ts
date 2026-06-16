@@ -27,13 +27,13 @@ export const Thermal_conductivity_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Thermal_conductivity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["k_base"] = input.material_type === 'insulation_foam' ? 0.04 : input.material_type === 'metal_alloy' ? 50 * (input.temperature_k / 300) ** 0.5 : input.material_type === 'ceramic' ? 3 : input.material_type === 'composite' ? 0.5 : input.material_type === 'fluid_gas' ? 0.025 : input.material_type === 'fluid_liquid' ? 0.6 : 1.0; } catch { results["k_base"] = 0; }
-  try { results["f_moisture"] = 1 + 0.02 * input.moisture_content_pct + 0.0005 * input.moisture_content_pct ** 2; } catch { results["f_moisture"] = 0; }
-  try { results["f_aging"] = input.aging_factor; } catch { results["f_aging"] = 0; }
-  try { results["k_effective"] = (results["k_base"] ?? 0) * (results["f_moisture"] ?? 0) * (results["f_aging"] ?? 0); } catch { results["k_effective"] = 0; }
-  try { results["r_value"] = input.thickness_m / (results["k_effective"] ?? 0); } catch { results["r_value"] = 0; }
-  try { results["q"] = (results["k_effective"] ?? 0) * input.temperature_delta_k / input.thickness_m; } catch { results["q"] = 0; }
-  try { results["eta_thermal"] = (input.heat_flow_w / (input.cross_section_area_m2 * (results["q"] ?? 0))) * 100; } catch { results["eta_thermal"] = 0; }
+  try { const v = input.material_type === 'insulation_foam' ? 0.04 : input.material_type === 'metal_alloy' ? 50 * (input.temperature_k / 300) ** 0.5 : input.material_type === 'ceramic' ? 3 : input.material_type === 'composite' ? 0.5 : input.material_type === 'fluid_gas' ? 0.025 : input.material_type === 'fluid_liquid' ? 0.6 : 1.0; results["k_base"] = Number.isFinite(v) ? v : 0; } catch { results["k_base"] = 0; }
+  try { const v = 1 + 0.02 * input.moisture_content_pct + 0.0005 * input.moisture_content_pct ** 2; results["f_moisture"] = Number.isFinite(v) ? v : 0; } catch { results["f_moisture"] = 0; }
+  try { const v = input.aging_factor; results["f_aging"] = Number.isFinite(v) ? v : 0; } catch { results["f_aging"] = 0; }
+  try { const v = (results["k_base"] ?? 0) * (results["f_moisture"] ?? 0) * (results["f_aging"] ?? 0); results["k_effective"] = Number.isFinite(v) ? v : 0; } catch { results["k_effective"] = 0; }
+  try { const v = input.thickness_m / (results["k_effective"] ?? 0); results["r_value"] = Number.isFinite(v) ? v : 0; } catch { results["r_value"] = 0; }
+  try { const v = (results["k_effective"] ?? 0) * input.temperature_delta_k / input.thickness_m; results["q"] = Number.isFinite(v) ? v : 0; } catch { results["q"] = 0; }
+  try { const v = (input.heat_flow_w / (input.cross_section_area_m2 * (results["q"] ?? 0))) * 100; results["eta_thermal"] = Number.isFinite(v) ? v : 0; } catch { results["eta_thermal"] = 0; }
   return results;
 }
 

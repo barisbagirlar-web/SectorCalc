@@ -35,13 +35,13 @@ export const Transport_mode_cost_riskInputSchema = z.object({
 
 function evaluateAllFormulas(input: Transport_mode_cost_riskInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["freight_cost"] = input.annual_volume * (mode_base_rate + fuel_surcharge); } catch { results["freight_cost"] = 0; }
-  try { results["labor_cost"] = input.annual_volume * (input.transit_time_days * 8 * input.labor_rate_per_hour / 1000); } catch { results["labor_cost"] = 0; }
-  try { results["inventory_carrying_cost"] = input.annual_volume * input.cargo_value_per_unit * (input.transit_time_days / 365) * (input.inventory_holding_cost_percent / 100); } catch { results["inventory_carrying_cost"] = 0; }
-  try { results["damage_and_insurance_cost"] = input.annual_volume * input.cargo_value_per_unit * (input.damage_rate_percent / 100) + input.annual_volume * input.cargo_value_per_unit * (input.insurance_rate_per_1000 / 1000); } catch { results["damage_and_insurance_cost"] = 0; }
-  try { results["carbon_cost"] = input.annual_volume * (input.distance_km * emission_factor * input.carbon_tax_per_ton_co2 / 1000); } catch { results["carbon_cost"] = 0; }
+  try { const v = input.annual_volume * (mode_base_rate + fuel_surcharge); results["freight_cost"] = Number.isFinite(v) ? v : 0; } catch { results["freight_cost"] = 0; }
+  try { const v = input.annual_volume * (input.transit_time_days * 8 * input.labor_rate_per_hour / 1000); results["labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost"] = 0; }
+  try { const v = input.annual_volume * input.cargo_value_per_unit * (input.transit_time_days / 365) * (input.inventory_holding_cost_percent / 100); results["inventory_carrying_cost"] = Number.isFinite(v) ? v : 0; } catch { results["inventory_carrying_cost"] = 0; }
+  try { const v = input.annual_volume * input.cargo_value_per_unit * (input.damage_rate_percent / 100) + input.annual_volume * input.cargo_value_per_unit * (input.insurance_rate_per_1000 / 1000); results["damage_and_insurance_cost"] = Number.isFinite(v) ? v : 0; } catch { results["damage_and_insurance_cost"] = 0; }
+  try { const v = input.annual_volume * (input.distance_km * emission_factor * input.carbon_tax_per_ton_co2 / 1000); results["carbon_cost"] = Number.isFinite(v) ? v : 0; } catch { results["carbon_cost"] = 0; }
   results["lean_waste_cost"] = 0;
-  try { results["primaryResult"] = ((results["freight_cost"] ?? 0) + (results["labor_cost"] ?? 0) + (results["inventory_carrying_cost"] ?? 0) + (results["damage_and_insurance_cost"] ?? 0) + (results["carbon_cost"] ?? 0) + (results["lean_waste_cost"] ?? 0)) * (1 + (1 - dataConfidenceAdjusted)); } catch { results["primaryResult"] = 0; }
+  try { const v = ((results["freight_cost"] ?? 0) + (results["labor_cost"] ?? 0) + (results["inventory_carrying_cost"] ?? 0) + (results["damage_and_insurance_cost"] ?? 0) + (results["carbon_cost"] ?? 0) + (results["lean_waste_cost"] ?? 0)) * (1 + (1 - dataConfidenceAdjusted)); results["primaryResult"] = Number.isFinite(v) ? v : 0; } catch { results["primaryResult"] = 0; }
   return results;
 }
 

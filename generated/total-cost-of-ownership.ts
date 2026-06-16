@@ -45,13 +45,13 @@ export const Total_cost_of_ownershipInputSchema = z.object({
 
 function evaluateAllFormulas(input: Total_cost_of_ownershipInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["annual_depreciation"] = 0;
-  try { results["total_annual_operating_cost"] = (input.annual_energy_cost + input.annual_maintenance_cost + input.annual_labor_cost + input.annual_consumables_cost + input.environmental_compliance_cost_per_year) * (1 + input.inflation_rate / 100); } catch { results["total_annual_operating_cost"] = 0; }
-  results["annual_downtime_cost"] = 0;
-  try { results["total_training_cost"] = input.training_cost_per_operator * input.number_of_operators; } catch { results["total_training_cost"] = 0; }
-  try { results["npv_operating_costs"] = ((results["total_annual_operating_cost"] ?? 0) + (results["annual_downtime_cost"] ?? 0)) * ((1 - (1 + input.discount_rate / 100) ^ (-input.useful_life_years)) / (input.discount_rate / 100)); } catch { results["npv_operating_costs"] = 0; }
-  try { results["npv_depreciation_tax_shield"] = (results["annual_depreciation"] ?? 0) * 0.3 * ((1 - (1 + input.discount_rate / 100) ^ (-input.useful_life_years)) / (input.discount_rate / 100)); } catch { results["npv_depreciation_tax_shield"] = 0; }
-  try { results["primaryResult"] = input.purchase_price + (results["npv_operating_costs"] ?? 0) + (results["total_training_cost"] ?? 0) - (input.salvage_value / (1 + input.discount_rate / 100) ^ input.useful_life_years) - (results["npv_depreciation_tax_shield"] ?? 0); } catch { results["primaryResult"] = 0; }
+  try { const v = ((input.depreciation_method == 'straight_line') ? ((input.purchase_price - input.salvage_value) / input.useful_life_years) : (((input.depreciation_method == 'declining_balance') ? ((input.purchase_price - input.salvage_value) * (2 / input.useful_life_years)) : ((input.purchase_price - input.salvage_value) * (2 * (input.useful_life_years - 0) / (input.useful_life_years * (input.useful_life_years + 1))))))); results["annual_depreciation"] = Number.isFinite(v) ? v : 0; } catch { results["annual_depreciation"] = 0; }
+  try { const v = (input.annual_energy_cost + input.annual_maintenance_cost + input.annual_labor_cost + input.annual_consumables_cost + input.environmental_compliance_cost_per_year) * (1 + input.inflation_rate / 100); results["total_annual_operating_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_operating_cost"] = 0; }
+  try { const v = ((input.include_downtime) ? (input.expected_downtime_hours_per_year * input.downtime_cost_per_hour) : (0)); results["annual_downtime_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_downtime_cost"] = 0; }
+  try { const v = input.training_cost_per_operator * input.number_of_operators; results["total_training_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_training_cost"] = 0; }
+  try { const v = ((results["total_annual_operating_cost"] ?? 0) + (results["annual_downtime_cost"] ?? 0)) * ((1 - (1 + input.discount_rate / 100) ^ (-input.useful_life_years)) / (input.discount_rate / 100)); results["npv_operating_costs"] = Number.isFinite(v) ? v : 0; } catch { results["npv_operating_costs"] = 0; }
+  try { const v = (results["annual_depreciation"] ?? 0) * 0.3 * ((1 - (1 + input.discount_rate / 100) ^ (-input.useful_life_years)) / (input.discount_rate / 100)); results["npv_depreciation_tax_shield"] = Number.isFinite(v) ? v : 0; } catch { results["npv_depreciation_tax_shield"] = 0; }
+  try { const v = input.purchase_price + (results["npv_operating_costs"] ?? 0) + (results["total_training_cost"] ?? 0) - (input.salvage_value / (1 + input.discount_rate / 100) ^ input.useful_life_years) - (results["npv_depreciation_tax_shield"] ?? 0); results["primaryResult"] = Number.isFinite(v) ? v : 0; } catch { results["primaryResult"] = 0; }
   return results;
 }
 

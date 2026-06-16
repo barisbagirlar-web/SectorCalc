@@ -1,9 +1,9 @@
 {
   "site": "SectorCalc",
   "baseUrl": "https://www.sectorcalc.com",
-  "generatedAt": "2026-06-16T11:58:43.896Z",
-  "totalTools": 195,
-  "totalActiveRoutes": 195,
+  "generatedAt": "2026-06-16T13:53:45.421Z",
+  "totalTools": 222,
+  "totalActiveRoutes": 222,
   "totalCategoryOnly": 0,
   "totalRedirected": 0,
   "locales": [
@@ -173,7 +173,7 @@
         "es": "EVM, CPM, kaynak seviyesi, sözleşme riski, hakediş, mobilizasyon ve şantiye kararları.",
         "ar": "EVM, CPM, kaynak seviyesi, sözleşme riski, hakediş, mobilizasyon ve şantiye kararları."
       },
-      "toolCount": 3,
+      "toolCount": 5,
       "categoryUrl": {
         "en": "https://www.sectorcalc.com/en/premium-tools/project-construction-management",
         "tr": "https://www.sectorcalc.com/tr/premium-tools/project-construction-management",
@@ -285,7 +285,7 @@
         "es": "Tedarikçi TCO, taşıma modu, MOQ, ithal/yerli risk, depo ve tersine lojistik.",
         "ar": "Tedarikçi TCO, taşıma modu, MOQ, ithal/yerli risk, depo ve tersine lojistik."
       },
-      "toolCount": 8,
+      "toolCount": 9,
       "categoryUrl": {
         "en": "https://www.sectorcalc.com/en/premium-tools/procurement-supply-chain",
         "tr": "https://www.sectorcalc.com/tr/premium-tools/procurement-supply-chain",
@@ -341,7 +341,7 @@
         "es": "CLV/CAC, churn, kanal kârlılığı, garanti, nakit döngüsü, hedging, leasing, vade ve fiyat esnekliği.",
         "ar": "CLV/CAC, churn, kanal kârlılığı, garanti, nakit döngüsü, hedging, leasing, vade ve fiyat esnekliği."
       },
-      "toolCount": 126,
+      "toolCount": 146,
       "categoryUrl": {
         "en": "https://www.sectorcalc.com/en/premium-tools/finance-sales-working-capital",
         "tr": "https://www.sectorcalc.com/tr/premium-tools/finance-sales-working-capital",
@@ -369,7 +369,7 @@
         "es": "Su, atık, ISO 50001, döngüsel ekonomi, GES/RES, CBAM ve Scope emisyonları.",
         "ar": "Su, atık, ISO 50001, döngüsel ekonomi, GES/RES, CBAM ve Scope emisyonları."
       },
-      "toolCount": 11,
+      "toolCount": 13,
       "categoryUrl": {
         "en": "https://www.sectorcalc.com/en/premium-tools/sustainability-resource-esg",
         "tr": "https://www.sectorcalc.com/tr/premium-tools/sustainability-resource-esg",
@@ -397,7 +397,7 @@
         "es": "Raf ömrü, reçete maliyeti, HACCP, soğuk zincir, restoran tabak maliyeti ve hijyen kimyasalı.",
         "ar": "Raf ömrü, reçete maliyeti, HACCP, soğuk zincir, restoran tabak maliyeti ve hijyen kimyasalı."
       },
-      "toolCount": 0,
+      "toolCount": 1,
       "categoryUrl": {
         "en": "https://www.sectorcalc.com/en/premium-tools/food-cold-chain-hygiene",
         "tr": "https://www.sectorcalc.com/tr/premium-tools/food-cold-chain-hygiene",
@@ -565,7 +565,7 @@
         "es": "Bulut maliyeti, SaaS shelfware, AI token, otomasyon ROI, EU AI Act, EOR, lokalizasyon ve siber güvenlik.",
         "ar": "Bulut maliyeti, SaaS shelfware, AI token, otomasyon ROI, EU AI Act, EOR, lokalizasyon ve siber güvenlik."
       },
-      "toolCount": 5,
+      "toolCount": 6,
       "categoryUrl": {
         "en": "https://www.sectorcalc.com/en/premium-tools/technology-ai-cloud-cyber",
         "tr": "https://www.sectorcalc.com/tr/premium-tools/technology-ai-cloud-cyber",
@@ -998,6 +998,135 @@
       "pain": "Regeneration pending.",
       "source": "existing-premium",
       "isFinanceLike": false
+    },
+    {
+      "slug": "area-converter",
+      "title": {
+        "en": "Area",
+        "tr": "Alan Dönüştürücü",
+        "de": "Flächen-Umrechner",
+        "fr": "Convertisseur de surface",
+        "es": "Convertidor de área",
+        "ar": "محول المساحة"
+      },
+      "description": {
+        "en": "Area",
+        "tr": "m², ft², dönüm ve hektar dahil alan birimlerini dönüştürün.",
+        "de": "Rechnen Sie Flächeneinheiten um, einschließlich m², ft², Acres und Hektar.",
+        "fr": "Convertissez les unités de surface dont m², ft², acres et hectares.",
+        "es": "Convierta unidades de área incluyendo m², ft², acres y hectáreas.",
+        "ar": "حوّل وحدات المساحة بما فيها m² وft² وacres والهectares."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/area-converter",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/area-converter",
+        "de": "https://www.sectorcalc.com/de/tools/generated/area-converter",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/area-converter",
+        "es": "https://www.sectorcalc.com/es/tools/generated/area-converter",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/area-converter"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/area-converter",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "area",
+          "converter",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "area",
+          "converter",
+          "alan",
+          "dönüştürücü",
+          "finance-sales-working-capital",
+          "free",
+          "ft²",
+          "dönüm",
+          "hektar",
+          "dahil",
+          "birimlerini",
+          "dönüştürün"
+        ],
+        "de": [
+          "area",
+          "converter",
+          "flächen-umrechner",
+          "finance-sales-working-capital",
+          "free",
+          "rechnen",
+          "flächeneinheiten",
+          "einschließlich",
+          "ft²",
+          "acres",
+          "hektar"
+        ],
+        "fr": [
+          "area",
+          "converter",
+          "convertisseur",
+          "surface",
+          "finance-sales-working-capital",
+          "free",
+          "convertissez",
+          "unités",
+          "dont",
+          "ft²",
+          "acres",
+          "hectares"
+        ],
+        "es": [
+          "area",
+          "converter",
+          "convertidor",
+          "área",
+          "finance-sales-working-capital",
+          "free",
+          "convierta",
+          "unidades",
+          "incluyendo",
+          "ft²",
+          "acres",
+          "hectáreas"
+        ],
+        "ar": [
+          "area",
+          "converter",
+          "محول",
+          "المساحة",
+          "finance-sales-working-capital",
+          "free",
+          "حول",
+          "وحدات",
+          "فيها",
+          "وft²",
+          "وacres",
+          "والهectares"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Area",
+      "source": "existing-free",
+      "isFinanceLike": true
     },
     {
       "slug": "auto-loan-calculator",
@@ -2506,6 +2635,136 @@
       "isFinanceLike": false
     },
     {
+      "slug": "brick-calculator",
+      "title": {
+        "en": "Brick",
+        "tr": "Tuğla Hesaplayıcı",
+        "de": "Ziegel-Rechner",
+        "fr": "Calculateur de briques",
+        "es": "Calculadora de ladrillos",
+        "ar": "حاسبة الطوب"
+      },
+      "description": {
+        "en": "Brick",
+        "tr": "Duvar alanı ve fire payı ile gereken tuğla adedini hesaplayın.",
+        "de": "Berechnen Sie die Ziegelanzahl für eine Wandfläche mit Verschnittzuschlag.",
+        "fr": "Comptez les briques nécessaires pour une surface murale avec marge de perte.",
+        "es": "Calcule la cantidad de ladrillos para un muro con margen de merma.",
+        "ar": "احسب عدد الطوب لمساحة الجدار مع احتياطي الهدر."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/brick-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/brick-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/brick-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/brick-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/brick-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/brick-calculator"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/brick-calculator",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "brick",
+          "calculator",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "brick",
+          "calculator",
+          "tuğla",
+          "hesaplayıcı",
+          "finance-sales-working-capital",
+          "free",
+          "duvar",
+          "alanı",
+          "fire",
+          "payı",
+          "gereken",
+          "adedini",
+          "hesaplayın"
+        ],
+        "de": [
+          "brick",
+          "calculator",
+          "ziegel-rechner",
+          "finance-sales-working-capital",
+          "free",
+          "berechnen",
+          "ziegelanzahl",
+          "eine",
+          "wandfläche",
+          "verschnittzuschlag"
+        ],
+        "fr": [
+          "brick",
+          "calculator",
+          "calculateur",
+          "briques",
+          "finance-sales-working-capital",
+          "free",
+          "comptez",
+          "nécessaires",
+          "pour",
+          "surface",
+          "murale",
+          "avec",
+          "marge",
+          "perte"
+        ],
+        "es": [
+          "brick",
+          "calculator",
+          "calculadora",
+          "ladrillos",
+          "finance-sales-working-capital",
+          "free",
+          "calcule",
+          "cantidad",
+          "para",
+          "muro",
+          "margen",
+          "merma"
+        ],
+        "ar": [
+          "brick",
+          "calculator",
+          "حاسبة",
+          "الطوب",
+          "finance-sales-working-capital",
+          "free",
+          "احسب",
+          "لمساحة",
+          "الجدار",
+          "احتياطي",
+          "الهدر"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Brick",
+      "source": "existing-free",
+      "isFinanceLike": true
+    },
+    {
       "slug": "calibration-drift-risk",
       "title": {
         "en": "Calibration Drift Risk",
@@ -2909,6 +3168,107 @@
       ],
       "pain": "Regeneration pending.",
       "source": "existing-premium",
+      "isFinanceLike": false
+    },
+    {
+      "slug": "carbon-footprint-quick-check",
+      "title": {
+        "en": "Carbon Footprint Quick Check",
+        "tr": "Carbon Footprint Quick Check",
+        "de": "Carbon Footprint Quick Check",
+        "fr": "Carbon Footprint Quick Check",
+        "es": "Carbon Footprint Quick Check",
+        "ar": "Carbon Footprint Quick Check"
+      },
+      "description": {
+        "en": "Carbon Footprint Quick Check",
+        "tr": "Carbon Footprint Quick Check",
+        "de": "Carbon Footprint Quick Check",
+        "fr": "Carbon Footprint Quick Check",
+        "es": "Carbon Footprint Quick Check",
+        "ar": "Carbon Footprint Quick Check"
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/carbon-footprint-quick-check",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/carbon-footprint-quick-check",
+        "de": "https://www.sectorcalc.com/de/tools/generated/carbon-footprint-quick-check",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/carbon-footprint-quick-check",
+        "es": "https://www.sectorcalc.com/es/tools/generated/carbon-footprint-quick-check",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/carbon-footprint-quick-check"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/carbon-footprint-quick-check",
+      "categorySlug": "sustainability-resource-esg",
+      "categoryTitle": {
+        "en": "Sustainability, Resources & ESG",
+        "tr": "Sürdürülebilirlik, Kaynak ve ESG",
+        "de": "Sustainability, Resources & ESG",
+        "fr": "Sustainability, Resources & ESG",
+        "es": "Sustainability, Resources & ESG",
+        "ar": "Sustainability, Resources & ESG"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "carbon",
+          "footprint",
+          "quick",
+          "check",
+          "sustainability-resource-esg",
+          "free"
+        ],
+        "tr": [
+          "carbon",
+          "footprint",
+          "quick",
+          "check",
+          "sustainability-resource-esg",
+          "free"
+        ],
+        "de": [
+          "carbon",
+          "footprint",
+          "quick",
+          "check",
+          "sustainability-resource-esg",
+          "free"
+        ],
+        "fr": [
+          "carbon",
+          "footprint",
+          "quick",
+          "check",
+          "sustainability-resource-esg",
+          "free"
+        ],
+        "es": [
+          "carbon",
+          "footprint",
+          "quick",
+          "check",
+          "sustainability-resource-esg",
+          "free"
+        ],
+        "ar": [
+          "carbon",
+          "footprint",
+          "quick",
+          "check",
+          "sustainability-resource-esg",
+          "free"
+        ]
+      },
+      "intent": [
+        "sustainability",
+        "carbon",
+        "energy",
+        "esg"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Carbon Footprint Quick Check",
+      "source": "existing-free",
       "isFinanceLike": false
     },
     {
@@ -4899,6 +5259,145 @@
       "isFinanceLike": false
     },
     {
+      "slug": "concrete-bag-calculator",
+      "title": {
+        "en": "Concrete Bag",
+        "tr": "Beton Torba Hesaplayıcı",
+        "de": "Betonsack-Rechner",
+        "fr": "Calculateur de sacs de béton",
+        "es": "Calculadora de sacos de hormigón",
+        "ar": "حاسبة أكياس الخرسانة"
+      },
+      "description": {
+        "en": "Concrete Bag",
+        "tr": "Döküm hacmi, torba verimi ve fire payı ile gereken beton torba sayısını tahmin edin.",
+        "de": "Schätzen Sie die benötigten Betonsäcke inklusive Verschnittfaktor für einen Guss.",
+        "fr": "Estimez le nombre de sacs nécessaires pour un coulage, y compris le facteur de perte.",
+        "es": "Estime los sacos necesarios para un vertido, incluido el factor de merma.",
+        "ar": "قدّر عدد أكياس الخرسانة المطلوبة للصب مع احتساب نسبة الهدر."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/concrete-bag-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/concrete-bag-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/concrete-bag-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/concrete-bag-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/concrete-bag-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/concrete-bag-calculator"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/concrete-bag-calculator",
+      "categorySlug": "project-construction-management",
+      "categoryTitle": {
+        "en": "Project, Site & Construction Management",
+        "tr": "Proje, Şantiye ve İnşaat Yönetimi",
+        "de": "Project, Site & Construction Management",
+        "fr": "Project, Site & Construction Management",
+        "es": "Project, Site & Construction Management",
+        "ar": "Project, Site & Construction Management"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "concrete",
+          "bag",
+          "calculator",
+          "project-construction-management",
+          "free"
+        ],
+        "tr": [
+          "concrete",
+          "bag",
+          "calculator",
+          "beton",
+          "torba",
+          "hesaplayıcı",
+          "project-construction-management",
+          "free",
+          "döküm",
+          "hacmi",
+          "verimi",
+          "fire",
+          "payı",
+          "gereken",
+          "sayısını"
+        ],
+        "de": [
+          "concrete",
+          "bag",
+          "calculator",
+          "betonsack-rechner",
+          "project-construction-management",
+          "free",
+          "schätzen",
+          "benötigten",
+          "betonsäcke",
+          "inklusive",
+          "verschnittfaktor",
+          "einen",
+          "guss"
+        ],
+        "fr": [
+          "concrete",
+          "bag",
+          "calculator",
+          "calculateur",
+          "sacs",
+          "béton",
+          "project-construction-management",
+          "free",
+          "estimez",
+          "nombre",
+          "nécessaires",
+          "pour",
+          "coulage",
+          "compris"
+        ],
+        "es": [
+          "concrete",
+          "bag",
+          "calculator",
+          "calculadora",
+          "sacos",
+          "hormigón",
+          "project-construction-management",
+          "free",
+          "estime",
+          "necesarios",
+          "para",
+          "vertido",
+          "incluido",
+          "factor",
+          "merma"
+        ],
+        "ar": [
+          "concrete",
+          "bag",
+          "calculator",
+          "حاسبة",
+          "أكياس",
+          "الخرسانة",
+          "project-construction-management",
+          "free",
+          "قدر",
+          "المطلوبة",
+          "للصب",
+          "احتساب",
+          "نسبة",
+          "الهدر"
+        ]
+      },
+      "intent": [
+        "calculator",
+        "decision-support"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Concrete Bag",
+      "source": "existing-free",
+      "isFinanceLike": false
+    },
+    {
       "slug": "concrete-volume-calculator",
       "title": {
         "en": "Concrete Volume Calculator",
@@ -5433,6 +5932,144 @@
       "pain": "Regeneration pending.",
       "source": "existing-premium",
       "isFinanceLike": false
+    },
+    {
+      "slug": "crop-yield-calculator",
+      "title": {
+        "en": "Crop Yield",
+        "tr": "Ürün Verimi Hesaplayıcı",
+        "de": "Ernteertrags-Rechner",
+        "fr": "Calculateur de rendement agricole",
+        "es": "Calculadora de rendimiento de cultivo",
+        "ar": "حاسبة إنتاجية المحصول"
+      },
+      "description": {
+        "en": "Crop Yield",
+        "tr": "Hektar başına verimden hasat tonajı ve geliri hesaplayın.",
+        "de": "Berechnen Sie Erntetonnage und Umsatz aus Ertrag pro Hektar.",
+        "fr": "Calculez le tonnage récolté et le revenu selon le rendement à l'hectare.",
+        "es": "Calcule tonelaje de cosecha e ingresos según rendimiento por hectárea.",
+        "ar": "احسب طن الحصاد والإيرادات من الإنتاجية لكل hectare."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/crop-yield-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/crop-yield-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/crop-yield-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/crop-yield-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/crop-yield-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/crop-yield-calculator"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/crop-yield-calculator",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "crop",
+          "yield",
+          "calculator",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "crop",
+          "yield",
+          "calculator",
+          "ürün",
+          "verimi",
+          "hesaplayıcı",
+          "finance-sales-working-capital",
+          "free",
+          "hektar",
+          "başına",
+          "verimden",
+          "hasat",
+          "tonajı",
+          "geliri",
+          "hesaplayın"
+        ],
+        "de": [
+          "crop",
+          "yield",
+          "calculator",
+          "ernteertrags-rechner",
+          "finance-sales-working-capital",
+          "free",
+          "berechnen",
+          "erntetonnage",
+          "umsatz",
+          "ertrag",
+          "hektar"
+        ],
+        "fr": [
+          "crop",
+          "yield",
+          "calculator",
+          "calculateur",
+          "rendement",
+          "agricole",
+          "finance-sales-working-capital",
+          "free",
+          "calculez",
+          "tonnage",
+          "récolté",
+          "revenu",
+          "selon",
+          "lhectare"
+        ],
+        "es": [
+          "crop",
+          "yield",
+          "calculator",
+          "calculadora",
+          "rendimiento",
+          "cultivo",
+          "finance-sales-working-capital",
+          "free",
+          "calcule",
+          "tonelaje",
+          "cosecha",
+          "ingresos",
+          "según",
+          "hectárea"
+        ],
+        "ar": [
+          "crop",
+          "yield",
+          "calculator",
+          "حاسبة",
+          "إنتاجية",
+          "المحصول",
+          "finance-sales-working-capital",
+          "free",
+          "احسب",
+          "الحصاد",
+          "والإيرادات",
+          "الإنتاجية",
+          "hectare"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Crop Yield",
+      "source": "existing-free",
+      "isFinanceLike": true
     },
     {
       "slug": "crop-yield-loss-analyzer",
@@ -6560,6 +7197,137 @@
       "isFinanceLike": true
     },
     {
+      "slug": "drywall-calculator",
+      "title": {
+        "en": "Drywall",
+        "tr": "Alçıpan Hesaplayıcı",
+        "de": "Trockenbau-Rechner",
+        "fr": "Calculateur de plaques de plâtre",
+        "es": "Calculadora de pladur",
+        "ar": "حاسبة ألواح الجبس"
+      },
+      "description": {
+        "en": "Drywall",
+        "tr": "Duvar alanı için gereken alçıpan levha sayısını hesaplayın.",
+        "de": "Berechnen Sie die benötigten Gipskartonplatten für eine Wandfläche.",
+        "fr": "Calculez le nombre de plaques de plâtre nécessaires pour une surface murale.",
+        "es": "Calcule las placas de yeso laminado necesarias para un área de pared.",
+        "ar": "احسب عدد ألواح الجبس المطلوبة لمساحة الجدار."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/drywall-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/drywall-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/drywall-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/drywall-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/drywall-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/drywall-calculator"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/drywall-calculator",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "drywall",
+          "calculator",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "drywall",
+          "calculator",
+          "alçıpan",
+          "hesaplayıcı",
+          "finance-sales-working-capital",
+          "free",
+          "duvar",
+          "alanı",
+          "için",
+          "gereken",
+          "levha",
+          "sayısını",
+          "hesaplayın"
+        ],
+        "de": [
+          "drywall",
+          "calculator",
+          "trockenbau-rechner",
+          "finance-sales-working-capital",
+          "free",
+          "berechnen",
+          "benötigten",
+          "gipskartonplatten",
+          "eine",
+          "wandfläche"
+        ],
+        "fr": [
+          "drywall",
+          "calculator",
+          "calculateur",
+          "plaques",
+          "plâtre",
+          "finance-sales-working-capital",
+          "free",
+          "calculez",
+          "nombre",
+          "nécessaires",
+          "pour",
+          "surface",
+          "murale"
+        ],
+        "es": [
+          "drywall",
+          "calculator",
+          "calculadora",
+          "pladur",
+          "finance-sales-working-capital",
+          "free",
+          "calcule",
+          "placas",
+          "yeso",
+          "laminado",
+          "necesarias",
+          "para",
+          "área",
+          "pared"
+        ],
+        "ar": [
+          "drywall",
+          "calculator",
+          "حاسبة",
+          "ألواح",
+          "الجبس",
+          "finance-sales-working-capital",
+          "free",
+          "احسب",
+          "المطلوبة",
+          "لمساحة",
+          "الجدار"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Drywall",
+      "source": "existing-free",
+      "isFinanceLike": true
+    },
+    {
       "slug": "dye-recipe-cost-optimizer",
       "title": {
         "en": "Dye Recipe Cost Optimizer",
@@ -6672,6 +7440,285 @@
       "pain": "Regeneration pending.",
       "source": "existing-premium",
       "isFinanceLike": true
+    },
+    {
+      "slug": "electricity-bill-calculator",
+      "title": {
+        "en": "Electricity Bill",
+        "tr": "Elektrik Faturası Hesaplayıcı",
+        "de": "Stromrechnungs-Rechner",
+        "fr": "Calculateur de facture d'électricité",
+        "es": "Calculadora de factura eléctrica",
+        "ar": "حاسبة فاتورة الكهرباء"
+      },
+      "description": {
+        "en": "Electricity Bill",
+        "tr": "Kullanım, birim fiyat ve sabit bedelden aylık faturayı hesaplayın.",
+        "de": "Berechnen Sie die monatliche Rechnung aus Verbrauch, Tarif und Grundgebühr.",
+        "fr": "Calculez la facture mensuelle selon usage, tarif et charge fixe.",
+        "es": "Calcule la factura mensual según consumo, tarifa y cargo fijo.",
+        "ar": "احسب الفاتورة الشهرية من الاستخدام والتعرفة والرسوم الثابتة."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/electricity-bill-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/electricity-bill-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/electricity-bill-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/electricity-bill-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/electricity-bill-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/electricity-bill-calculator"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/electricity-bill-calculator",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "electricity",
+          "bill",
+          "calculator",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "electricity",
+          "bill",
+          "calculator",
+          "elektrik",
+          "faturası",
+          "hesaplayıcı",
+          "finance-sales-working-capital",
+          "free",
+          "kullanım",
+          "birim",
+          "fiyat",
+          "sabit",
+          "bedelden",
+          "aylık",
+          "faturayı",
+          "hesaplayın"
+        ],
+        "de": [
+          "electricity",
+          "bill",
+          "calculator",
+          "stromrechnungs-rechner",
+          "finance-sales-working-capital",
+          "free",
+          "berechnen",
+          "monatliche",
+          "rechnung",
+          "verbrauch",
+          "tarif",
+          "grundgebühr"
+        ],
+        "fr": [
+          "electricity",
+          "bill",
+          "calculator",
+          "calculateur",
+          "facture",
+          "d'électricité",
+          "finance-sales-working-capital",
+          "free",
+          "calculez",
+          "mensuelle",
+          "selon",
+          "usage",
+          "tarif",
+          "charge",
+          "fixe"
+        ],
+        "es": [
+          "electricity",
+          "bill",
+          "calculator",
+          "calculadora",
+          "factura",
+          "eléctrica",
+          "finance-sales-working-capital",
+          "free",
+          "calcule",
+          "mensual",
+          "según",
+          "consumo",
+          "tarifa",
+          "cargo",
+          "fijo"
+        ],
+        "ar": [
+          "electricity",
+          "bill",
+          "calculator",
+          "حاسبة",
+          "فاتورة",
+          "الكهرباء",
+          "finance-sales-working-capital",
+          "free",
+          "احسب",
+          "الفاتورة",
+          "الشهرية",
+          "الاستخدام",
+          "والتعرفة",
+          "والرسوم",
+          "الثابتة"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Electricity Bill",
+      "source": "existing-free",
+      "isFinanceLike": true
+    },
+    {
+      "slug": "energy-consumption-check",
+      "title": {
+        "en": "Energy Consumption Check",
+        "tr": "Enerji Tüketimi Kontrolü",
+        "de": "Energieverbrauchs-Check",
+        "fr": "Contrôle de consommation d'énergie",
+        "es": "Control de consumo energético",
+        "ar": "فحص استهلاك الطاقة"
+      },
+      "description": {
+        "en": "Energy Consumption Check",
+        "tr": "Güç, saat ve gün sayısından kWh ve maliyeti hesaplayın.",
+        "de": "Berechnen Sie kWh und Kosten aus Leistung, Stunden und Tagen.",
+        "fr": "Calculez kWh et coût à partir de la puissance, heures et jours.",
+        "es": "Calcule kWh y coste a partir de potencia, horas y días.",
+        "ar": "احسب kWh والتكلفة من القدرة والساعات والأيام."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/energy-consumption-check",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/energy-consumption-check",
+        "de": "https://www.sectorcalc.com/de/tools/generated/energy-consumption-check",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/energy-consumption-check",
+        "es": "https://www.sectorcalc.com/es/tools/generated/energy-consumption-check",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/energy-consumption-check"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/energy-consumption-check",
+      "categorySlug": "sustainability-resource-esg",
+      "categoryTitle": {
+        "en": "Sustainability, Resources & ESG",
+        "tr": "Sürdürülebilirlik, Kaynak ve ESG",
+        "de": "Sustainability, Resources & ESG",
+        "fr": "Sustainability, Resources & ESG",
+        "es": "Sustainability, Resources & ESG",
+        "ar": "Sustainability, Resources & ESG"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "energy",
+          "consumption",
+          "check",
+          "sustainability-resource-esg",
+          "free"
+        ],
+        "tr": [
+          "energy",
+          "consumption",
+          "check",
+          "enerji",
+          "tüketimi",
+          "kontrolü",
+          "sustainability-resource-esg",
+          "free",
+          "güç",
+          "saat",
+          "sayısından",
+          "maliyeti",
+          "hesaplayın"
+        ],
+        "de": [
+          "energy",
+          "consumption",
+          "check",
+          "energieverbrauchs-check",
+          "sustainability-resource-esg",
+          "free",
+          "berechnen",
+          "kosten",
+          "leistung",
+          "stunden",
+          "tagen"
+        ],
+        "fr": [
+          "energy",
+          "consumption",
+          "check",
+          "contrôle",
+          "consommation",
+          "d'énergie",
+          "sustainability-resource-esg",
+          "free",
+          "calculez",
+          "coût",
+          "partir",
+          "puissance",
+          "heures",
+          "jours"
+        ],
+        "es": [
+          "energy",
+          "consumption",
+          "check",
+          "control",
+          "consumo",
+          "energético",
+          "sustainability-resource-esg",
+          "free",
+          "calcule",
+          "coste",
+          "partir",
+          "potencia",
+          "horas",
+          "días"
+        ],
+        "ar": [
+          "energy",
+          "consumption",
+          "check",
+          "فحص",
+          "استهلاك",
+          "الطاقة",
+          "sustainability-resource-esg",
+          "free",
+          "احسب",
+          "والتكلفة",
+          "القدرة",
+          "والساعات",
+          "والأيام"
+        ]
+      },
+      "intent": [
+        "sustainability",
+        "carbon",
+        "energy",
+        "esg"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Energy Consumption Check",
+      "source": "existing-free",
+      "isFinanceLike": false
     },
     {
       "slug": "energy-consumption-cost-report",
@@ -7106,6 +8153,135 @@
       "pain": "Regeneration pending.",
       "source": "existing-premium",
       "isFinanceLike": false
+    },
+    {
+      "slug": "excavation-volume-calculator",
+      "title": {
+        "en": "Excavation Volume",
+        "tr": "Kazı Hacmi Hesaplayıcı",
+        "de": "Aushubvolumen-Rechner",
+        "fr": "Calculateur de volume de terrassement",
+        "es": "Calculadora de volumen de excavación",
+        "ar": "حاسبة حجم الحفر"
+      },
+      "description": {
+        "en": "Excavation Volume",
+        "tr": "Dikdörtgen kazı hacmini metreküp cinsinden hesaplayın.",
+        "de": "Berechnen Sie das rechteckige Aushubvolumen in Kubikmetern.",
+        "fr": "Calculez le volume de terrassement rectangulaire en mètres cubes.",
+        "es": "Calcule el volumen de excavación rectangular en metros cúbicos.",
+        "ar": "احسب حجم الحفر المستطيل بالمتر المكعب."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/excavation-volume-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/excavation-volume-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/excavation-volume-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/excavation-volume-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/excavation-volume-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/excavation-volume-calculator"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/excavation-volume-calculator",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "excavation",
+          "volume",
+          "calculator",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "excavation",
+          "volume",
+          "calculator",
+          "kazı",
+          "hacmi",
+          "hesaplayıcı",
+          "finance-sales-working-capital",
+          "free",
+          "dikdörtgen",
+          "hacmini",
+          "metreküp",
+          "cinsinden",
+          "hesaplayın"
+        ],
+        "de": [
+          "excavation",
+          "volume",
+          "calculator",
+          "aushubvolumen-rechner",
+          "finance-sales-working-capital",
+          "free",
+          "berechnen",
+          "rechteckige",
+          "aushubvolumen",
+          "kubikmetern"
+        ],
+        "fr": [
+          "excavation",
+          "volume",
+          "calculator",
+          "calculateur",
+          "terrassement",
+          "finance-sales-working-capital",
+          "free",
+          "calculez",
+          "rectangulaire",
+          "mètres",
+          "cubes"
+        ],
+        "es": [
+          "excavation",
+          "volume",
+          "calculator",
+          "calculadora",
+          "volumen",
+          "excavación",
+          "finance-sales-working-capital",
+          "free",
+          "calcule",
+          "rectangular",
+          "metros",
+          "cúbicos"
+        ],
+        "ar": [
+          "excavation",
+          "volume",
+          "calculator",
+          "حاسبة",
+          "حجم",
+          "الحفر",
+          "finance-sales-working-capital",
+          "free",
+          "احسب",
+          "المستطيل",
+          "بالمتر",
+          "المكعب"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Excavation Volume",
+      "source": "existing-free",
+      "isFinanceLike": true
     },
     {
       "slug": "fabric-cutting-optimizer",
@@ -7876,6 +9052,236 @@
       "isFinanceLike": true
     },
     {
+      "slug": "flooring-calculator",
+      "title": {
+        "en": "Flooring",
+        "tr": "Zemin Kaplama Hesaplayıcı",
+        "de": "Bodenbelag-Rechner",
+        "fr": "Calculateur de revêtement de sol",
+        "es": "Calculadora de suelos",
+        "ar": "حاسبة الأرضيات"
+      },
+      "description": {
+        "en": "Flooring",
+        "tr": "Oda zemin alanını fire payı ile birlikte malzeme siparişi için hesaplayın.",
+        "de": "Berechnen Sie die Bodenfläche eines Raums mit Verschnittfaktor für die Materialbestellung.",
+        "fr": "Calculez la surface de sol d'une pièce avec marge de perte pour commander le matériau.",
+        "es": "Calcule el área del suelo de una habitación con factor de merma para pedir material.",
+        "ar": "احسب مساحة أرضية الغرفة مع نسبة الهدر لطلب المواد."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/flooring-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/flooring-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/flooring-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/flooring-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/flooring-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/flooring-calculator"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/flooring-calculator",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "flooring",
+          "calculator",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "flooring",
+          "calculator",
+          "zemin",
+          "kaplama",
+          "hesaplayıcı",
+          "finance-sales-working-capital",
+          "free",
+          "alanını",
+          "fire",
+          "payı",
+          "birlikte",
+          "malzeme",
+          "siparişi",
+          "için",
+          "hesaplayın"
+        ],
+        "de": [
+          "flooring",
+          "calculator",
+          "bodenbelag-rechner",
+          "finance-sales-working-capital",
+          "free",
+          "berechnen",
+          "bodenfläche",
+          "eines",
+          "raums",
+          "verschnittfaktor",
+          "materialbestellung"
+        ],
+        "fr": [
+          "flooring",
+          "calculator",
+          "calculateur",
+          "revêtement",
+          "sol",
+          "finance-sales-working-capital",
+          "free",
+          "calculez",
+          "surface",
+          "dune",
+          "pièce",
+          "avec",
+          "marge",
+          "perte",
+          "pour"
+        ],
+        "es": [
+          "flooring",
+          "calculator",
+          "calculadora",
+          "suelos",
+          "finance-sales-working-capital",
+          "free",
+          "calcule",
+          "área",
+          "suelo",
+          "habitación",
+          "factor",
+          "merma"
+        ],
+        "ar": [
+          "flooring",
+          "calculator",
+          "حاسبة",
+          "الأرضيات",
+          "finance-sales-working-capital",
+          "free",
+          "احسب",
+          "مساحة",
+          "أرضية",
+          "الغرفة",
+          "نسبة",
+          "الهدر",
+          "لطلب",
+          "المواد"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Flooring",
+      "source": "existing-free",
+      "isFinanceLike": true
+    },
+    {
+      "slug": "food-cost-percentage",
+      "title": {
+        "en": "Food Cost Percentage",
+        "tr": "Food Cost Percentage",
+        "de": "Food Cost Percentage",
+        "fr": "Food Cost Percentage",
+        "es": "Food Cost Percentage",
+        "ar": "Food Cost Percentage"
+      },
+      "description": {
+        "en": "Food Cost Percentage",
+        "tr": "Food Cost Percentage",
+        "de": "Food Cost Percentage",
+        "fr": "Food Cost Percentage",
+        "es": "Food Cost Percentage",
+        "ar": "Food Cost Percentage"
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/food-cost-percentage",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/food-cost-percentage",
+        "de": "https://www.sectorcalc.com/de/tools/generated/food-cost-percentage",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/food-cost-percentage",
+        "es": "https://www.sectorcalc.com/es/tools/generated/food-cost-percentage",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/food-cost-percentage"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/food-cost-percentage",
+      "categorySlug": "food-cold-chain-hygiene",
+      "categoryTitle": {
+        "en": "Food, Cold Chain & Hygiene",
+        "tr": "Gıda, Soğuk Zincir ve Hijyen",
+        "de": "Food, Cold Chain & Hygiene",
+        "fr": "Food, Cold Chain & Hygiene",
+        "es": "Food, Cold Chain & Hygiene",
+        "ar": "Food, Cold Chain & Hygiene"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "food",
+          "cost",
+          "percentage",
+          "food-cold-chain-hygiene",
+          "free"
+        ],
+        "tr": [
+          "food",
+          "cost",
+          "percentage",
+          "food-cold-chain-hygiene",
+          "free"
+        ],
+        "de": [
+          "food",
+          "cost",
+          "percentage",
+          "food-cold-chain-hygiene",
+          "free"
+        ],
+        "fr": [
+          "food",
+          "cost",
+          "percentage",
+          "food-cold-chain-hygiene",
+          "free"
+        ],
+        "es": [
+          "food",
+          "cost",
+          "percentage",
+          "food-cold-chain-hygiene",
+          "free"
+        ],
+        "ar": [
+          "food",
+          "cost",
+          "percentage",
+          "food-cold-chain-hygiene",
+          "free"
+        ]
+      },
+      "intent": [
+        "calculator",
+        "decision-support"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Food Cost Percentage",
+      "source": "existing-free",
+      "isFinanceLike": false
+    },
+    {
       "slug": "food-waste-margin-loss",
       "title": {
         "en": "Food Waste Margin Loss",
@@ -8197,6 +9603,134 @@
       ],
       "pain": "Regeneration pending.",
       "source": "existing-premium",
+      "isFinanceLike": false
+    },
+    {
+      "slug": "fuel-emission-calculator",
+      "title": {
+        "en": "Fuel Emission",
+        "tr": "Yakıt Emisyon Hesaplayıcı",
+        "de": "Kraftstoffemissions-Rechner",
+        "fr": "Calculateur d'émissions de carburant",
+        "es": "Calculadora de emisiones de combustible",
+        "ar": "حاسبة انبعاثات الوقود"
+      },
+      "description": {
+        "en": "Fuel Emission",
+        "tr": "Yakıt litresi ve emisyon katsayısından CO₂ miktarını hesaplayın.",
+        "de": "Berechnen Sie CO₂ aus Kraftstofflitern und Emissionsfaktor.",
+        "fr": "Calculez le CO₂ à partir des litres de carburant et du facteur d'émission.",
+        "es": "Calcule CO₂ según litros de combustible y factor de emisión.",
+        "ar": "احسب CO₂ من لترات الوقود ومعامل الانبعاث."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/fuel-emission-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/fuel-emission-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/fuel-emission-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/fuel-emission-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/fuel-emission-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/fuel-emission-calculator"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/fuel-emission-calculator",
+      "categorySlug": "procurement-supply-chain",
+      "categoryTitle": {
+        "en": "Procurement, Supply Chain & Logistics",
+        "tr": "Tedarik, Satınalma ve Lojistik",
+        "de": "Procurement, Supply Chain & Logistics",
+        "fr": "Procurement, Supply Chain & Logistics",
+        "es": "Procurement, Supply Chain & Logistics",
+        "ar": "Procurement, Supply Chain & Logistics"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "fuel",
+          "emission",
+          "calculator",
+          "procurement-supply-chain",
+          "free"
+        ],
+        "tr": [
+          "fuel",
+          "emission",
+          "calculator",
+          "yakıt",
+          "emisyon",
+          "hesaplayıcı",
+          "procurement-supply-chain",
+          "free",
+          "litresi",
+          "katsayısından",
+          "miktarını",
+          "hesaplayın"
+        ],
+        "de": [
+          "fuel",
+          "emission",
+          "calculator",
+          "kraftstoffemissions-rechner",
+          "procurement-supply-chain",
+          "free",
+          "berechnen",
+          "kraftstofflitern",
+          "emissionsfaktor"
+        ],
+        "fr": [
+          "fuel",
+          "emission",
+          "calculator",
+          "calculateur",
+          "d'émissions",
+          "carburant",
+          "procurement-supply-chain",
+          "free",
+          "calculez",
+          "partir",
+          "litres",
+          "facteur"
+        ],
+        "es": [
+          "fuel",
+          "emission",
+          "calculator",
+          "calculadora",
+          "emisiones",
+          "combustible",
+          "procurement-supply-chain",
+          "free",
+          "calcule",
+          "según",
+          "litros",
+          "factor",
+          "emisión"
+        ],
+        "ar": [
+          "fuel",
+          "emission",
+          "calculator",
+          "حاسبة",
+          "انبعاثات",
+          "الوقود",
+          "procurement-supply-chain",
+          "free",
+          "احسب",
+          "لترات",
+          "ومعامل",
+          "الانبعاث"
+        ]
+      },
+      "intent": [
+        "logistics",
+        "procurement",
+        "shipping",
+        "inventory"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Fuel Emission",
+      "source": "existing-free",
       "isFinanceLike": false
     },
     {
@@ -8622,6 +10156,114 @@
       ],
       "pain": "Regeneration pending.",
       "source": "existing-premium",
+      "isFinanceLike": true
+    },
+    {
+      "slug": "home-renovation-cost-per-m",
+      "title": {
+        "en": "Home Renovation Cost Per M",
+        "tr": "Home Renovation Cost Per M",
+        "de": "Home Renovation Cost Per M",
+        "fr": "Home Renovation Cost Per M",
+        "es": "Home Renovation Cost Per M",
+        "ar": "Home Renovation Cost Per M"
+      },
+      "description": {
+        "en": "Home Renovation Cost Per M",
+        "tr": "Home Renovation Cost Per M",
+        "de": "Home Renovation Cost Per M",
+        "fr": "Home Renovation Cost Per M",
+        "es": "Home Renovation Cost Per M",
+        "ar": "Home Renovation Cost Per M"
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/home-renovation-cost-per-m",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/home-renovation-cost-per-m",
+        "de": "https://www.sectorcalc.com/de/tools/generated/home-renovation-cost-per-m",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/home-renovation-cost-per-m",
+        "es": "https://www.sectorcalc.com/es/tools/generated/home-renovation-cost-per-m",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/home-renovation-cost-per-m"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/home-renovation-cost-per-m",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "home",
+          "renovation",
+          "cost",
+          "per",
+          "m",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "home",
+          "renovation",
+          "cost",
+          "per",
+          "m",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "de": [
+          "home",
+          "renovation",
+          "cost",
+          "per",
+          "m",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "fr": [
+          "home",
+          "renovation",
+          "cost",
+          "per",
+          "m",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "es": [
+          "home",
+          "renovation",
+          "cost",
+          "per",
+          "m",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "ar": [
+          "home",
+          "renovation",
+          "cost",
+          "per",
+          "m",
+          "finance-sales-working-capital",
+          "free"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Home Renovation Cost Per M",
+      "source": "existing-free",
       "isFinanceLike": true
     },
     {
@@ -10444,6 +12086,135 @@
       "isFinanceLike": true
     },
     {
+      "slug": "length-converter",
+      "title": {
+        "en": "Length",
+        "tr": "Uzunluk Dönüştürücü",
+        "de": "Längen-Umrechner",
+        "fr": "Convertisseur de longueur",
+        "es": "Convertidor de longitud",
+        "ar": "محول الطول"
+      },
+      "description": {
+        "en": "Length",
+        "tr": "mm, cm, m, km, inç, fit, yard ve mil arasında uzunluk dönüştürün.",
+        "de": "Rechnen Sie Längen zwischen mm, cm, m, km, Zoll, Fuß, Yard und Meile um.",
+        "fr": "Convertissez les longueurs entre mm, cm, m, km, pouce, pied, yard et mile.",
+        "es": "Convierta longitudes entre mm, cm, m, km, pulgada, pie, yarda y milla.",
+        "ar": "حوّل الأطوال بين mm وcm وm وkm والبوصة والقدم والياردة والميل."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/length-converter",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/length-converter",
+        "de": "https://www.sectorcalc.com/de/tools/generated/length-converter",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/length-converter",
+        "es": "https://www.sectorcalc.com/es/tools/generated/length-converter",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/length-converter"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/length-converter",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "length",
+          "converter",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "length",
+          "converter",
+          "uzunluk",
+          "dönüştürücü",
+          "finance-sales-working-capital",
+          "free",
+          "inç",
+          "fit",
+          "yard",
+          "arasında",
+          "dönüştürün"
+        ],
+        "de": [
+          "length",
+          "converter",
+          "längen-umrechner",
+          "finance-sales-working-capital",
+          "free",
+          "rechnen",
+          "längen",
+          "zwischen",
+          "zoll",
+          "fuß",
+          "yard"
+        ],
+        "fr": [
+          "length",
+          "converter",
+          "convertisseur",
+          "longueur",
+          "finance-sales-working-capital",
+          "free",
+          "convertissez",
+          "longueurs",
+          "entre",
+          "pouce",
+          "pied",
+          "yard"
+        ],
+        "es": [
+          "length",
+          "converter",
+          "convertidor",
+          "longitud",
+          "finance-sales-working-capital",
+          "free",
+          "convierta",
+          "longitudes",
+          "entre",
+          "pulgada",
+          "pie",
+          "yarda",
+          "milla"
+        ],
+        "ar": [
+          "length",
+          "converter",
+          "محول",
+          "الطول",
+          "finance-sales-working-capital",
+          "free",
+          "حول",
+          "الأطوال",
+          "والبوصة",
+          "والقدم",
+          "والياردة",
+          "والميل"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Length",
+      "source": "existing-free",
+      "isFinanceLike": true
+    },
+    {
       "slug": "lightweight-cost-savings-calculator",
       "title": {
         "en": "Lightweight Cost Savings Calculator",
@@ -11289,6 +13060,141 @@
       ],
       "pain": "Regeneration pending.",
       "source": "existing-premium",
+      "isFinanceLike": true
+    },
+    {
+      "slug": "milk-yield-check",
+      "title": {
+        "en": "Milk Yield Check",
+        "tr": "Süt Verimi Kontrolü",
+        "de": "Milchleistungs-Check",
+        "fr": "Contrôle de rendement laitier",
+        "es": "Control de rendimiento lechero",
+        "ar": "فحص إنتاج الحليب"
+      },
+      "description": {
+        "en": "Milk Yield Check",
+        "tr": "Günlük süt litresi ve gelir tahminini hesaplayın.",
+        "de": "Berechnen Sie tägliche Milchliter und Umsatzschätzung.",
+        "fr": "Calculez les litres de lait quotidiens et l'estimation de revenu.",
+        "es": "Calcule litros diarios de leche y estimación de ingresos.",
+        "ar": "احسب لترات الحليب اليومية وتقدير الإيرادات."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/milk-yield-check",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/milk-yield-check",
+        "de": "https://www.sectorcalc.com/de/tools/generated/milk-yield-check",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/milk-yield-check",
+        "es": "https://www.sectorcalc.com/es/tools/generated/milk-yield-check",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/milk-yield-check"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/milk-yield-check",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "milk",
+          "yield",
+          "check",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "milk",
+          "yield",
+          "check",
+          "süt",
+          "verimi",
+          "kontrolü",
+          "finance-sales-working-capital",
+          "free",
+          "günlük",
+          "litresi",
+          "gelir",
+          "tahminini",
+          "hesaplayın"
+        ],
+        "de": [
+          "milk",
+          "yield",
+          "check",
+          "milchleistungs-check",
+          "finance-sales-working-capital",
+          "free",
+          "berechnen",
+          "tägliche",
+          "milchliter",
+          "umsatzschätzung"
+        ],
+        "fr": [
+          "milk",
+          "yield",
+          "check",
+          "contrôle",
+          "rendement",
+          "laitier",
+          "finance-sales-working-capital",
+          "free",
+          "calculez",
+          "litres",
+          "lait",
+          "quotidiens",
+          "lestimation",
+          "revenu"
+        ],
+        "es": [
+          "milk",
+          "yield",
+          "check",
+          "control",
+          "rendimiento",
+          "lechero",
+          "finance-sales-working-capital",
+          "free",
+          "calcule",
+          "litros",
+          "diarios",
+          "leche",
+          "estimación",
+          "ingresos"
+        ],
+        "ar": [
+          "milk",
+          "yield",
+          "check",
+          "فحص",
+          "إنتاج",
+          "الحليب",
+          "finance-sales-working-capital",
+          "free",
+          "احسب",
+          "لترات",
+          "اليومية",
+          "وتقدير",
+          "الإيرادات"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Milk Yield Check",
+      "source": "existing-free",
       "isFinanceLike": true
     },
     {
@@ -12811,6 +14717,143 @@
       "isFinanceLike": true
     },
     {
+      "slug": "paint-coverage-calculator",
+      "title": {
+        "en": "Paint Coverage",
+        "tr": "Boya Kaplama Hesaplayıcı",
+        "de": "Farbanstrich-Rechner",
+        "fr": "Calculateur de couverture peinture",
+        "es": "Calculadora de cobertura de pintura",
+        "ar": "حاسبة تغطية الطلاء"
+      },
+      "description": {
+        "en": "Paint Coverage",
+        "tr": "Duvar alanı ve kat sayısına göre gereken boya litresini tahmin edin.",
+        "de": "Schätzen Sie die benötigten Farbliter für Wandfläche und Anzahl der Anstriche.",
+        "fr": "Estimez les litres de peinture selon la surface des murs et le nombre de couches.",
+        "es": "Estime los litros de pintura según el área de pared y el número de capas.",
+        "ar": "قدّر لترات الطلاء المطلوبة حسب مساحة الجدران وعدد الطبقات."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/paint-coverage-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/paint-coverage-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/paint-coverage-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/paint-coverage-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/paint-coverage-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/paint-coverage-calculator"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/paint-coverage-calculator",
+      "categorySlug": "project-construction-management",
+      "categoryTitle": {
+        "en": "Project, Site & Construction Management",
+        "tr": "Proje, Şantiye ve İnşaat Yönetimi",
+        "de": "Project, Site & Construction Management",
+        "fr": "Project, Site & Construction Management",
+        "es": "Project, Site & Construction Management",
+        "ar": "Project, Site & Construction Management"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "paint",
+          "coverage",
+          "calculator",
+          "project-construction-management",
+          "free"
+        ],
+        "tr": [
+          "paint",
+          "coverage",
+          "calculator",
+          "boya",
+          "kaplama",
+          "hesaplayıcı",
+          "project-construction-management",
+          "free",
+          "duvar",
+          "alanı",
+          "sayısına",
+          "göre",
+          "gereken",
+          "litresini",
+          "tahmin",
+          "edin"
+        ],
+        "de": [
+          "paint",
+          "coverage",
+          "calculator",
+          "farbanstrich-rechner",
+          "project-construction-management",
+          "free",
+          "schätzen",
+          "benötigten",
+          "farbliter",
+          "wandfläche",
+          "anzahl",
+          "anstriche"
+        ],
+        "fr": [
+          "paint",
+          "coverage",
+          "calculator",
+          "calculateur",
+          "couverture",
+          "peinture",
+          "project-construction-management",
+          "free",
+          "estimez",
+          "litres",
+          "selon",
+          "surface",
+          "murs"
+        ],
+        "es": [
+          "paint",
+          "coverage",
+          "calculator",
+          "calculadora",
+          "cobertura",
+          "pintura",
+          "project-construction-management",
+          "free",
+          "estime",
+          "litros",
+          "según",
+          "área",
+          "pared"
+        ],
+        "ar": [
+          "paint",
+          "coverage",
+          "calculator",
+          "حاسبة",
+          "تغطية",
+          "الطلاء",
+          "project-construction-management",
+          "free",
+          "قدر",
+          "لترات",
+          "المطلوبة",
+          "مساحة",
+          "الجدران",
+          "وعدد",
+          "الطبقات"
+        ]
+      },
+      "intent": [
+        "calculator",
+        "decision-support"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Paint Coverage",
+      "source": "existing-free",
+      "isFinanceLike": false
+    },
+    {
       "slug": "pallet-rack-optimizer",
       "title": {
         "en": "Pallet Rack Optimizer",
@@ -13238,6 +15281,130 @@
         "cross-industry"
       ],
       "pain": "Pipe Flow",
+      "source": "existing-free",
+      "isFinanceLike": true
+    },
+    {
+      "slug": "plaster-calculator",
+      "title": {
+        "en": "Plaster",
+        "tr": "Sıva Hesaplayıcı",
+        "de": "Putz-Rechner",
+        "fr": "Calculateur de plâtre",
+        "es": "Calculadora de yeso",
+        "ar": "حاسبة الجبس"
+      },
+      "description": {
+        "en": "Plaster",
+        "tr": "Alan ve kalınlık bilgisinden sıva hacmi ve ağırlığını hesaplayın.",
+        "de": "Berechnen Sie Putzvolumen und -gewicht aus Fläche und Schichtdicke.",
+        "fr": "Calculez le volume et le poids de plâtre à partir de la surface et de l'épaisseur.",
+        "es": "Calcule el volumen y peso del yeso según área y espesor.",
+        "ar": "احسب حجم ووزن الجبس من المساحة والسماكة."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/plaster-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/plaster-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/plaster-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/plaster-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/plaster-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/plaster-calculator"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/plaster-calculator",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "plaster",
+          "calculator",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "plaster",
+          "calculator",
+          "sıva",
+          "hesaplayıcı",
+          "finance-sales-working-capital",
+          "free",
+          "alan",
+          "kalınlık",
+          "bilgisinden",
+          "hacmi",
+          "ağırlığını",
+          "hesaplayın"
+        ],
+        "de": [
+          "plaster",
+          "calculator",
+          "putz-rechner",
+          "finance-sales-working-capital",
+          "free",
+          "berechnen",
+          "putzvolumen",
+          "gewicht",
+          "fläche",
+          "schichtdicke"
+        ],
+        "fr": [
+          "plaster",
+          "calculator",
+          "calculateur",
+          "plâtre",
+          "finance-sales-working-capital",
+          "free",
+          "calculez",
+          "volume",
+          "poids",
+          "partir"
+        ],
+        "es": [
+          "plaster",
+          "calculator",
+          "calculadora",
+          "yeso",
+          "finance-sales-working-capital",
+          "free",
+          "calcule",
+          "volumen",
+          "peso",
+          "según",
+          "área",
+          "espesor"
+        ],
+        "ar": [
+          "plaster",
+          "calculator",
+          "حاسبة",
+          "الجبس",
+          "finance-sales-working-capital",
+          "free",
+          "احسب",
+          "ووزن",
+          "المساحة",
+          "والسماكة"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Plaster",
       "source": "existing-free",
       "isFinanceLike": true
     },
@@ -14871,6 +17038,147 @@
       "isFinanceLike": false
     },
     {
+      "slug": "rebar-weight-calculator",
+      "title": {
+        "en": "Rebar Weight",
+        "tr": "İnşaat Demiri Ağırlık Hesaplayıcı",
+        "de": "Bewehrungsstahl-Gewichtsrechner",
+        "fr": "Calculateur de poids d'armatures",
+        "es": "Calculadora de peso de armadura",
+        "ar": "حاسبة وزن حديد التسليح"
+      },
+      "description": {
+        "en": "Rebar Weight",
+        "tr": "Çap, uzunluk ve adet bilgisinden inşaat demiri ağırlığını tahmin edin.",
+        "de": "Schätzen Sie das Gewicht von Bewehrungsstahl aus Durchmesser, Länge und Stückzahl.",
+        "fr": "Estimez le poids des armatures à partir du diamètre, de la longueur et de la quantité.",
+        "es": "Estime el peso del acero de refuerzo según diámetro, longitud y cantidad.",
+        "ar": "قدّر وزن حديد التسليح من القطر والطول والكمية."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/rebar-weight-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/rebar-weight-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/rebar-weight-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/rebar-weight-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/rebar-weight-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/rebar-weight-calculator"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/rebar-weight-calculator",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "rebar",
+          "weight",
+          "calculator",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "rebar",
+          "weight",
+          "calculator",
+          "i̇nşaat",
+          "demiri",
+          "ağırlık",
+          "hesaplayıcı",
+          "finance-sales-working-capital",
+          "free",
+          "çap",
+          "uzunluk",
+          "adet",
+          "bilgisinden",
+          "inşaat",
+          "ağırlığını",
+          "tahmin",
+          "edin"
+        ],
+        "de": [
+          "rebar",
+          "weight",
+          "calculator",
+          "bewehrungsstahl-gewichtsrechner",
+          "finance-sales-working-capital",
+          "free",
+          "schätzen",
+          "gewicht",
+          "bewehrungsstahl",
+          "durchmesser",
+          "länge",
+          "stückzahl"
+        ],
+        "fr": [
+          "rebar",
+          "weight",
+          "calculator",
+          "calculateur",
+          "poids",
+          "d'armatures",
+          "finance-sales-working-capital",
+          "free",
+          "estimez",
+          "armatures",
+          "partir",
+          "diamètre",
+          "longueur"
+        ],
+        "es": [
+          "rebar",
+          "weight",
+          "calculator",
+          "calculadora",
+          "peso",
+          "armadura",
+          "finance-sales-working-capital",
+          "free",
+          "estime",
+          "acero",
+          "refuerzo",
+          "según",
+          "diámetro",
+          "longitud",
+          "cantidad"
+        ],
+        "ar": [
+          "rebar",
+          "weight",
+          "calculator",
+          "حاسبة",
+          "وزن",
+          "حديد",
+          "التسليح",
+          "finance-sales-working-capital",
+          "free",
+          "قدر",
+          "القطر",
+          "والطول",
+          "والكمية"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Rebar Weight",
+      "source": "existing-free",
+      "isFinanceLike": true
+    },
+    {
       "slug": "recipe-cost-check",
       "title": {
         "en": "Recipe Cost Check",
@@ -15739,6 +18047,138 @@
       ],
       "pain": "Regeneration pending.",
       "source": "existing-premium",
+      "isFinanceLike": true
+    },
+    {
+      "slug": "roofing-area-calculator",
+      "title": {
+        "en": "Roofing Area",
+        "tr": "Çatı Alanı Hesaplayıcı",
+        "de": "Dachflächen-Rechner",
+        "fr": "Calculateur de surface de toiture",
+        "es": "Calculadora de área de tejado",
+        "ar": "حاسبة مساحة السقف"
+      },
+      "description": {
+        "en": "Roofing Area",
+        "tr": "Ayak izi alanı ve eğim katsayısı ile çatı yüzey alanını tahmin edin.",
+        "de": "Schätzen Sie die Dachoberfläche aus Grundrissfläche und Neigungsfaktor.",
+        "fr": "Estimez la surface du toit à partir de l'empreinte au sol et du facteur de pente.",
+        "es": "Estime el área de la cubierta a partir de la huella y el factor de inclinación.",
+        "ar": "قدّر مساحة سطح السقف من مساحة البصمة ومعامل الميل."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/roofing-area-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/roofing-area-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/roofing-area-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/roofing-area-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/roofing-area-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/roofing-area-calculator"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/roofing-area-calculator",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "roofing",
+          "area",
+          "calculator",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "roofing",
+          "area",
+          "calculator",
+          "çatı",
+          "alanı",
+          "hesaplayıcı",
+          "finance-sales-working-capital",
+          "free",
+          "ayak",
+          "eğim",
+          "katsayısı",
+          "yüzey",
+          "alanını",
+          "tahmin",
+          "edin"
+        ],
+        "de": [
+          "roofing",
+          "area",
+          "calculator",
+          "dachflächen-rechner",
+          "finance-sales-working-capital",
+          "free",
+          "schätzen",
+          "dachoberfläche",
+          "grundrissfläche",
+          "neigungsfaktor"
+        ],
+        "fr": [
+          "roofing",
+          "area",
+          "calculator",
+          "calculateur",
+          "surface",
+          "toiture",
+          "finance-sales-working-capital",
+          "free",
+          "estimez",
+          "toit",
+          "partir",
+          "lempreinte"
+        ],
+        "es": [
+          "roofing",
+          "area",
+          "calculator",
+          "calculadora",
+          "área",
+          "tejado",
+          "finance-sales-working-capital",
+          "free",
+          "estime",
+          "cubierta",
+          "partir",
+          "huella"
+        ],
+        "ar": [
+          "roofing",
+          "area",
+          "calculator",
+          "حاسبة",
+          "مساحة",
+          "السقف",
+          "finance-sales-working-capital",
+          "free",
+          "قدر",
+          "البصمة",
+          "ومعامل",
+          "الميل"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Roofing Area",
+      "source": "existing-free",
       "isFinanceLike": true
     },
     {
@@ -17874,6 +20314,419 @@
       "isFinanceLike": true
     },
     {
+      "slug": "square-footage-calculator",
+      "title": {
+        "en": "Square Footage",
+        "tr": "Metrekare / Alan Hesaplayıcı",
+        "de": "Quadratfuß-Rechner",
+        "fr": "Calculateur de pieds carrés",
+        "es": "Calculadora de pies cuadrados",
+        "ar": "حاسبة القدم المربع"
+      },
+      "description": {
+        "en": "Square Footage",
+        "tr": "Zemin alanını fit kare cinsinden hesaplayın; metrik ve dönüm dönüşümleri dahildir.",
+        "de": "Berechnen Sie die Bodenfläche in Quadratfuß mit metrischen Umrechnungen und Acres.",
+        "fr": "Calculez la surface au sol en pieds carrés avec conversions métriques et en acres.",
+        "es": "Calcule el área del suelo en pies cuadrados con conversiones métricas y a acres.",
+        "ar": "احسب مساحة الأرضية بالقدم المربع مع تحويلات متريّة وإلى acres."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/square-footage-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/square-footage-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/square-footage-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/square-footage-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/square-footage-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/square-footage-calculator"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/square-footage-calculator",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "square",
+          "footage",
+          "calculator",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "square",
+          "footage",
+          "calculator",
+          "metrekare",
+          "alan",
+          "hesaplayıcı",
+          "finance-sales-working-capital",
+          "free",
+          "zemin",
+          "alanını",
+          "kare",
+          "cinsinden",
+          "hesaplayın",
+          "metrik",
+          "dönüm",
+          "dönüşümleri",
+          "dahildir"
+        ],
+        "de": [
+          "square",
+          "footage",
+          "calculator",
+          "quadratfuß-rechner",
+          "finance-sales-working-capital",
+          "free",
+          "berechnen",
+          "bodenfläche",
+          "quadratfuß",
+          "metrischen",
+          "umrechnungen",
+          "acres"
+        ],
+        "fr": [
+          "square",
+          "footage",
+          "calculator",
+          "calculateur",
+          "pieds",
+          "carrés",
+          "finance-sales-working-capital",
+          "free",
+          "calculez",
+          "surface",
+          "avec",
+          "conversions",
+          "métriques"
+        ],
+        "es": [
+          "square",
+          "footage",
+          "calculator",
+          "calculadora",
+          "pies",
+          "cuadrados",
+          "finance-sales-working-capital",
+          "free",
+          "calcule",
+          "área",
+          "suelo",
+          "conversiones",
+          "métricas"
+        ],
+        "ar": [
+          "square",
+          "footage",
+          "calculator",
+          "حاسبة",
+          "القدم",
+          "المربع",
+          "finance-sales-working-capital",
+          "free",
+          "احسب",
+          "مساحة",
+          "الأرضية",
+          "بالقدم",
+          "تحويلات",
+          "مترية",
+          "وإلى",
+          "acres"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Square Footage",
+      "source": "existing-free",
+      "isFinanceLike": true
+    },
+    {
+      "slug": "square-meter-calculator",
+      "title": {
+        "en": "Square Meter",
+        "tr": "Metrekare Hesaplayıcı",
+        "de": "Quadratmeter-Rechner",
+        "fr": "Calculateur de mètres carrés",
+        "es": "Calculadora de metros cuadrados",
+        "ar": "حاسبة المتر المربع"
+      },
+      "description": {
+        "en": "Square Meter",
+        "tr": "Dikdörtgen zemin alanını metrekare cinsinden hesaplayın; birim dönüşümleri dahildir.",
+        "de": "Berechnen Sie die rechteckige Bodenfläche in Quadratmetern mit Umrechnungen in andere Maßeinheiten.",
+        "fr": "Calculez la surface rectangulaire au sol en mètres carrés avec conversions d'unités.",
+        "es": "Calcule el área rectangular del suelo en metros cuadrados con conversiones de unidades.",
+        "ar": "احسب مساحة الأرضية المستطيلة بالمتر المربع مع تحويلات الوحدات."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/square-meter-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/square-meter-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/square-meter-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/square-meter-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/square-meter-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/square-meter-calculator"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/square-meter-calculator",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "square",
+          "meter",
+          "calculator",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "square",
+          "meter",
+          "calculator",
+          "metrekare",
+          "hesaplayıcı",
+          "finance-sales-working-capital",
+          "free",
+          "dikdörtgen",
+          "zemin",
+          "alanını",
+          "cinsinden",
+          "hesaplayın",
+          "birim",
+          "dönüşümleri",
+          "dahildir"
+        ],
+        "de": [
+          "square",
+          "meter",
+          "calculator",
+          "quadratmeter-rechner",
+          "finance-sales-working-capital",
+          "free",
+          "berechnen",
+          "rechteckige",
+          "bodenfläche",
+          "quadratmetern",
+          "umrechnungen",
+          "andere",
+          "maßeinheiten"
+        ],
+        "fr": [
+          "square",
+          "meter",
+          "calculator",
+          "calculateur",
+          "mètres",
+          "carrés",
+          "finance-sales-working-capital",
+          "free",
+          "calculez",
+          "surface",
+          "rectangulaire",
+          "avec",
+          "conversions",
+          "dunités"
+        ],
+        "es": [
+          "square",
+          "meter",
+          "calculator",
+          "calculadora",
+          "metros",
+          "cuadrados",
+          "finance-sales-working-capital",
+          "free",
+          "calcule",
+          "área",
+          "rectangular",
+          "suelo",
+          "conversiones"
+        ],
+        "ar": [
+          "square",
+          "meter",
+          "calculator",
+          "حاسبة",
+          "المتر",
+          "المربع",
+          "finance-sales-working-capital",
+          "free",
+          "احسب",
+          "مساحة",
+          "الأرضية",
+          "المستطيلة",
+          "بالمتر",
+          "تحويلات",
+          "الوحدات"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Square Meter",
+      "source": "existing-free",
+      "isFinanceLike": true
+    },
+    {
+      "slug": "stair-calculator",
+      "title": {
+        "en": "Stair",
+        "tr": "Merdiven Hesaplayıcı",
+        "de": "Treppen-Rechner",
+        "fr": "Calculateur d'escalier",
+        "es": "Calculadora de escaleras",
+        "ar": "حاسبة السلالم"
+      },
+      "description": {
+        "en": "Stair",
+        "tr": "Merdiven basamak sayısını ve toplam yatay mesafeyi tahmin edin.",
+        "de": "Schätzen Sie die Anzahl der Stufen und den gesamten horizontalen Lauf einer Treppe.",
+        "fr": "Estimez le nombre de marches et la course horizontale totale d'un escalier.",
+        "es": "Estime el número de peldaños y la carrera horizontal total de una escalera.",
+        "ar": "قدّر عدد درجات السلم والمسافة الأفقية الإجمالية."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/stair-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/stair-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/stair-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/stair-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/stair-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/stair-calculator"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/stair-calculator",
+      "categorySlug": "technology-ai-cloud-cyber",
+      "categoryTitle": {
+        "en": "Technology, AI, Cloud & Cyber Risk",
+        "tr": "Teknoloji, AI, Bulut ve Siber Risk",
+        "de": "Technology, AI, Cloud & Cyber Risk",
+        "fr": "Technology, AI, Cloud & Cyber Risk",
+        "es": "Technology, AI, Cloud & Cyber Risk",
+        "ar": "Technology, AI, Cloud & Cyber Risk"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "stair",
+          "calculator",
+          "technology-ai-cloud-cyber",
+          "free"
+        ],
+        "tr": [
+          "stair",
+          "calculator",
+          "merdiven",
+          "hesaplayıcı",
+          "technology-ai-cloud-cyber",
+          "free",
+          "basamak",
+          "sayısını",
+          "toplam",
+          "yatay",
+          "mesafeyi",
+          "tahmin",
+          "edin"
+        ],
+        "de": [
+          "stair",
+          "calculator",
+          "treppen-rechner",
+          "technology-ai-cloud-cyber",
+          "free",
+          "schätzen",
+          "anzahl",
+          "stufen",
+          "gesamten",
+          "horizontalen",
+          "lauf",
+          "einer"
+        ],
+        "fr": [
+          "stair",
+          "calculator",
+          "calculateur",
+          "d'escalier",
+          "technology-ai-cloud-cyber",
+          "free",
+          "estimez",
+          "nombre",
+          "marches",
+          "course",
+          "horizontale",
+          "totale",
+          "dun",
+          "escalier"
+        ],
+        "es": [
+          "stair",
+          "calculator",
+          "calculadora",
+          "escaleras",
+          "technology-ai-cloud-cyber",
+          "free",
+          "estime",
+          "número",
+          "peldaños",
+          "carrera",
+          "horizontal",
+          "total"
+        ],
+        "ar": [
+          "stair",
+          "calculator",
+          "حاسبة",
+          "السلالم",
+          "technology-ai-cloud-cyber",
+          "free",
+          "قدر",
+          "درجات",
+          "السلم",
+          "والمسافة",
+          "الأفقية",
+          "الإجمالية"
+        ]
+      },
+      "intent": [
+        "calculator",
+        "decision-support"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Stair",
+      "source": "existing-free",
+      "isFinanceLike": false
+    },
+    {
       "slug": "standard-deviation-calculator",
       "title": {
         "en": "Standard Deviation",
@@ -18886,6 +21739,130 @@
       "isFinanceLike": true
     },
     {
+      "slug": "temperature-converter",
+      "title": {
+        "en": "Temperature",
+        "tr": "Sıcaklık Dönüştürücü",
+        "de": "Temperatur-Umrechner",
+        "fr": "Convertisseur de température",
+        "es": "Convertidor de temperatura",
+        "ar": "محول درجة الحرارة"
+      },
+      "description": {
+        "en": "Temperature",
+        "tr": "Celsius, Fahrenheit ve Kelvin arasında dönüştürün.",
+        "de": "Rechnen Sie zwischen Celsius, Fahrenheit und Kelvin um.",
+        "fr": "Convertissez entre Celsius, Fahrenheit et Kelvin.",
+        "es": "Convierta entre Celsius, Fahrenheit y Kelvin.",
+        "ar": "حوّل بين Celsius وFahrenheit وKelvin."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/temperature-converter",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/temperature-converter",
+        "de": "https://www.sectorcalc.com/de/tools/generated/temperature-converter",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/temperature-converter",
+        "es": "https://www.sectorcalc.com/es/tools/generated/temperature-converter",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/temperature-converter"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/temperature-converter",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "temperature",
+          "converter",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "temperature",
+          "converter",
+          "sıcaklık",
+          "dönüştürücü",
+          "finance-sales-working-capital",
+          "free",
+          "celsius",
+          "fahrenheit",
+          "kelvin",
+          "arasında",
+          "dönüştürün"
+        ],
+        "de": [
+          "temperature",
+          "converter",
+          "temperatur-umrechner",
+          "finance-sales-working-capital",
+          "free",
+          "rechnen",
+          "zwischen",
+          "celsius",
+          "fahrenheit",
+          "kelvin"
+        ],
+        "fr": [
+          "temperature",
+          "converter",
+          "convertisseur",
+          "température",
+          "finance-sales-working-capital",
+          "free",
+          "convertissez",
+          "entre",
+          "celsius",
+          "fahrenheit",
+          "kelvin"
+        ],
+        "es": [
+          "temperature",
+          "converter",
+          "convertidor",
+          "temperatura",
+          "finance-sales-working-capital",
+          "free",
+          "convierta",
+          "entre",
+          "celsius",
+          "fahrenheit",
+          "kelvin"
+        ],
+        "ar": [
+          "temperature",
+          "converter",
+          "محول",
+          "درجة",
+          "الحرارة",
+          "finance-sales-working-capital",
+          "free",
+          "حول",
+          "celsius",
+          "وfahrenheit",
+          "وkelvin"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Temperature",
+      "source": "existing-free",
+      "isFinanceLike": true
+    },
+    {
       "slug": "textile-waste-risk",
       "title": {
         "en": "Textile Waste Risk",
@@ -19083,6 +22060,137 @@
         "cross-industry"
       ],
       "pain": "Thermal Conductivity",
+      "source": "existing-free",
+      "isFinanceLike": true
+    },
+    {
+      "slug": "tile-calculator",
+      "title": {
+        "en": "Tile",
+        "tr": "Fayans Hesaplayıcı",
+        "de": "Fliesen-Rechner",
+        "fr": "Calculateur de carrelage",
+        "es": "Calculadora de azulejos",
+        "ar": "حاسبة البلاط"
+      },
+      "description": {
+        "en": "Tile",
+        "tr": "Zemin alanı ve fire payı ile gereken fayans adedini hesaplayın.",
+        "de": "Berechnen Sie die benötigte Fliesenanzahl für eine Bodenfläche mit Verschnittzuschlag.",
+        "fr": "Comptez les carreaux nécessaires pour une surface au sol avec marge de perte.",
+        "es": "Calcule la cantidad de azulejos necesaria para un suelo con margen de merma.",
+        "ar": "احسب عدد البلاط المطلوب لمساحة الأرضية مع احتياطي الهدر."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/tile-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/tile-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/tile-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/tile-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/tile-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/tile-calculator"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/tile-calculator",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "tile",
+          "calculator",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "tile",
+          "calculator",
+          "fayans",
+          "hesaplayıcı",
+          "finance-sales-working-capital",
+          "free",
+          "zemin",
+          "alanı",
+          "fire",
+          "payı",
+          "gereken",
+          "adedini",
+          "hesaplayın"
+        ],
+        "de": [
+          "tile",
+          "calculator",
+          "fliesen-rechner",
+          "finance-sales-working-capital",
+          "free",
+          "berechnen",
+          "benötigte",
+          "fliesenanzahl",
+          "eine",
+          "bodenfläche",
+          "verschnittzuschlag"
+        ],
+        "fr": [
+          "tile",
+          "calculator",
+          "calculateur",
+          "carrelage",
+          "finance-sales-working-capital",
+          "free",
+          "comptez",
+          "carreaux",
+          "nécessaires",
+          "pour",
+          "surface",
+          "avec",
+          "marge"
+        ],
+        "es": [
+          "tile",
+          "calculator",
+          "calculadora",
+          "azulejos",
+          "finance-sales-working-capital",
+          "free",
+          "calcule",
+          "cantidad",
+          "necesaria",
+          "para",
+          "suelo",
+          "margen"
+        ],
+        "ar": [
+          "tile",
+          "calculator",
+          "حاسبة",
+          "البلاط",
+          "finance-sales-working-capital",
+          "free",
+          "احسب",
+          "المطلوب",
+          "لمساحة",
+          "الأرضية",
+          "احتياطي",
+          "الهدر"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Tile",
       "source": "existing-free",
       "isFinanceLike": true
     },
@@ -20401,6 +23509,126 @@
       "isFinanceLike": false
     },
     {
+      "slug": "volume-converter",
+      "title": {
+        "en": "Volume",
+        "tr": "Hacim Dönüştürücü",
+        "de": "Volumen-Umrechner",
+        "fr": "Convertisseur de volume",
+        "es": "Convertidor de volumen",
+        "ar": "محول الحجم"
+      },
+      "description": {
+        "en": "Volume",
+        "tr": "ml, L, m³, in³, ft³ ve ABD galonu arasında hacim dönüştürün.",
+        "de": "Rechnen Sie Volumen zwischen ml, L, m³, in³, ft³ und US-Gallonen um.",
+        "fr": "Convertissez le volume entre ml, L, m³, in³, ft³ et gallons US.",
+        "es": "Convierta volumen entre ml, L, m³, in³, ft³ y galones US.",
+        "ar": "حوّل الحجم بين ml وL وm³ وin³ وft³ والجallon الأمريكي."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/volume-converter",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/volume-converter",
+        "de": "https://www.sectorcalc.com/de/tools/generated/volume-converter",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/volume-converter",
+        "es": "https://www.sectorcalc.com/es/tools/generated/volume-converter",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/volume-converter"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/volume-converter",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "volume",
+          "converter",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "volume",
+          "converter",
+          "hacim",
+          "dönüştürücü",
+          "finance-sales-working-capital",
+          "free",
+          "in³",
+          "galonu",
+          "arasında",
+          "dönüştürün"
+        ],
+        "de": [
+          "volume",
+          "converter",
+          "volumen-umrechner",
+          "finance-sales-working-capital",
+          "free",
+          "rechnen",
+          "volumen",
+          "zwischen",
+          "in³",
+          "usgallonen"
+        ],
+        "fr": [
+          "volume",
+          "converter",
+          "convertisseur",
+          "finance-sales-working-capital",
+          "free",
+          "convertissez",
+          "entre",
+          "in³",
+          "gallons"
+        ],
+        "es": [
+          "volume",
+          "converter",
+          "convertidor",
+          "volumen",
+          "finance-sales-working-capital",
+          "free",
+          "convierta",
+          "entre",
+          "in³",
+          "galones"
+        ],
+        "ar": [
+          "volume",
+          "converter",
+          "محول",
+          "الحجم",
+          "finance-sales-working-capital",
+          "free",
+          "حول",
+          "وin³",
+          "وft³",
+          "والجallon",
+          "الأمريكي"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Volume",
+      "source": "existing-free",
+      "isFinanceLike": true
+    },
+    {
       "slug": "volumetric-weight-calculator",
       "title": {
         "en": "Volumetric Weight Calculator",
@@ -20820,6 +24048,139 @@
       "isFinanceLike": true
     },
     {
+      "slug": "water-usage-calculator",
+      "title": {
+        "en": "Water Usage",
+        "tr": "Su Kullanımı Hesaplayıcı",
+        "de": "Wasserverbrauchs-Rechner",
+        "fr": "Calculateur de consommation d'eau",
+        "es": "Calculadora de uso de agua",
+        "ar": "حاسبة استخدام الماء"
+      },
+      "description": {
+        "en": "Water Usage",
+        "tr": "Debi ve süreden litre cinsinden su miktarını hesaplayın.",
+        "de": "Berechnen Sie Liter aus Durchflussrate und Dauer.",
+        "fr": "Calculez les litres à partir du débit et de la durée.",
+        "es": "Calcule los litros según caudal y duración.",
+        "ar": "احسب اللترات من معدل التدفق والمدة."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/water-usage-calculator",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/water-usage-calculator",
+        "de": "https://www.sectorcalc.com/de/tools/generated/water-usage-calculator",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/water-usage-calculator",
+        "es": "https://www.sectorcalc.com/es/tools/generated/water-usage-calculator",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/water-usage-calculator"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/water-usage-calculator",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "water",
+          "usage",
+          "calculator",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "water",
+          "usage",
+          "calculator",
+          "kullanımı",
+          "hesaplayıcı",
+          "finance-sales-working-capital",
+          "free",
+          "debi",
+          "süreden",
+          "litre",
+          "cinsinden",
+          "miktarını",
+          "hesaplayın"
+        ],
+        "de": [
+          "water",
+          "usage",
+          "calculator",
+          "wasserverbrauchs-rechner",
+          "finance-sales-working-capital",
+          "free",
+          "berechnen",
+          "liter",
+          "durchflussrate",
+          "dauer"
+        ],
+        "fr": [
+          "water",
+          "usage",
+          "calculator",
+          "calculateur",
+          "consommation",
+          "d'eau",
+          "finance-sales-working-capital",
+          "free",
+          "calculez",
+          "litres",
+          "partir",
+          "débit",
+          "durée"
+        ],
+        "es": [
+          "water",
+          "usage",
+          "calculator",
+          "calculadora",
+          "uso",
+          "agua",
+          "finance-sales-working-capital",
+          "free",
+          "calcule",
+          "litros",
+          "según",
+          "caudal",
+          "duración"
+        ],
+        "ar": [
+          "water",
+          "usage",
+          "calculator",
+          "حاسبة",
+          "استخدام",
+          "الماء",
+          "finance-sales-working-capital",
+          "free",
+          "احسب",
+          "اللترات",
+          "معدل",
+          "التدفق",
+          "والمدة"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Water Usage",
+      "source": "existing-free",
+      "isFinanceLike": true
+    },
+    {
       "slug": "water-usage-optimizer",
       "title": {
         "en": "Water Usage Optimizer",
@@ -20925,6 +24286,132 @@
       ],
       "pain": "Regeneration pending.",
       "source": "existing-premium",
+      "isFinanceLike": true
+    },
+    {
+      "slug": "weight-converter",
+      "title": {
+        "en": "Weight",
+        "tr": "Ağırlık Dönüştürücü",
+        "de": "Gewichts-Umrechner",
+        "fr": "Convertisseur de poids",
+        "es": "Convertidor de peso",
+        "ar": "محول الوزن"
+      },
+      "description": {
+        "en": "Weight",
+        "tr": "g, kg, ton, ons ve pound arasında kütle dönüştürün.",
+        "de": "Rechnen Sie Masse zwischen g, kg, Tonne, Unze und Pfund um.",
+        "fr": "Convertissez la masse entre g, kg, tonne, once et livre.",
+        "es": "Convierta masa entre g, kg, tonelada, onza y libra.",
+        "ar": "حوّل الكتلة بين g وkg وطن وأونصة ورطل."
+      },
+      "localeUrls": {
+        "en": "https://www.sectorcalc.com/en/tools/generated/weight-converter",
+        "tr": "https://www.sectorcalc.com/tr/tools/generated/weight-converter",
+        "de": "https://www.sectorcalc.com/de/tools/generated/weight-converter",
+        "fr": "https://www.sectorcalc.com/fr/tools/generated/weight-converter",
+        "es": "https://www.sectorcalc.com/es/tools/generated/weight-converter",
+        "ar": "https://www.sectorcalc.com/ar/tools/generated/weight-converter"
+      },
+      "canonicalUrl": "https://www.sectorcalc.com/en/tools/generated/weight-converter",
+      "categorySlug": "finance-sales-working-capital",
+      "categoryTitle": {
+        "en": "Finance, Sales & Working Capital",
+        "tr": "Finans, Satış ve İşletme Sermayesi",
+        "de": "Finance, Sales & Working Capital",
+        "fr": "Finance, Sales & Working Capital",
+        "es": "Finance, Sales & Working Capital",
+        "ar": "Finance, Sales & Working Capital"
+      },
+      "tier": "free",
+      "routeStatus": "active-route",
+      "keywords": {
+        "en": [
+          "weight",
+          "converter",
+          "finance-sales-working-capital",
+          "free"
+        ],
+        "tr": [
+          "weight",
+          "converter",
+          "ağırlık",
+          "dönüştürücü",
+          "finance-sales-working-capital",
+          "free",
+          "ton",
+          "pound",
+          "arasında",
+          "kütle",
+          "dönüştürün"
+        ],
+        "de": [
+          "weight",
+          "converter",
+          "gewichts-umrechner",
+          "finance-sales-working-capital",
+          "free",
+          "rechnen",
+          "masse",
+          "zwischen",
+          "tonne",
+          "unze",
+          "pfund"
+        ],
+        "fr": [
+          "weight",
+          "converter",
+          "convertisseur",
+          "poids",
+          "finance-sales-working-capital",
+          "free",
+          "convertissez",
+          "masse",
+          "entre",
+          "tonne",
+          "once",
+          "livre"
+        ],
+        "es": [
+          "weight",
+          "converter",
+          "convertidor",
+          "peso",
+          "finance-sales-working-capital",
+          "free",
+          "convierta",
+          "masa",
+          "entre",
+          "tonelada",
+          "onza",
+          "libra"
+        ],
+        "ar": [
+          "weight",
+          "converter",
+          "محول",
+          "الوزن",
+          "finance-sales-working-capital",
+          "free",
+          "حول",
+          "الكتلة",
+          "وأونصة",
+          "ورطل"
+        ]
+      },
+      "intent": [
+        "finance",
+        "pricing",
+        "cash-flow",
+        "tax",
+        "working-capital"
+      ],
+      "industries": [
+        "cross-industry"
+      ],
+      "pain": "Weight",
+      "source": "existing-free",
       "isFinanceLike": true
     },
     {

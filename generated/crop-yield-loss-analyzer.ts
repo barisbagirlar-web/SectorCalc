@@ -33,14 +33,14 @@ export const Crop_yield_loss_analyzerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Crop_yield_loss_analyzerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["gross_loss"] = input.expected_yield - input.actual_yield; } catch { results["gross_loss"] = 0; }
-  try { results["harvest_loss_kg"] = input.actual_yield * (input.harvest_loss_pct / 100); } catch { results["harvest_loss_kg"] = 0; }
-  try { results["post_harvest_loss_kg"] = input.actual_yield * (input.post_harvest_loss_pct / 100); } catch { results["post_harvest_loss_kg"] = 0; }
-  try { results["field_condition_factor"] = (input.field_condition === 'excellent' ? 0.95 : (input.field_condition === 'good' ? 1.00 : (input.field_condition === 'fair' ? 1.10 : (input.field_condition === 'poor' ? 1.25 : 0)))); } catch { results["field_condition_factor"] = 0; }
-  try { results["irrigation_efficiency_factor"] = (input.irrigation_type === 'drip' ? 0.90 : (input.irrigation_type === 'sprinkler' ? 1.00 : (input.irrigation_type === 'flood' ? 1.15 : (input.irrigation_type === 'rainfed' ? 1.20 : 0)))); } catch { results["irrigation_efficiency_factor"] = 0; }
-  try { results["biotic_loss_index"] = (input.pest_pressure * 0.4 + input.disease_index * 0.4 + (input.weed_cover_pct / 10) * 0.2) / 10; } catch { results["biotic_loss_index"] = 0; }
-  try { results["operational_efficiency_score"] = (input.labor_efficiency * 0.5 + input.equipment_reliability * 0.5) / 100; } catch { results["operational_efficiency_score"] = 0; }
-  try { results["total_yield_loss_pct"] = (((results["gross_loss"] ?? 0) / input.expected_yield) * 100) * (results["field_condition_factor"] ?? 0) * (results["irrigation_efficiency_factor"] ?? 0) * (1 + (results["biotic_loss_index"] ?? 0)) * (1 + (1 - (results["operational_efficiency_score"] ?? 0))); } catch { results["total_yield_loss_pct"] = 0; }
+  try { const v = input.expected_yield - input.actual_yield; results["gross_loss"] = Number.isFinite(v) ? v : 0; } catch { results["gross_loss"] = 0; }
+  try { const v = input.actual_yield * (input.harvest_loss_pct / 100); results["harvest_loss_kg"] = Number.isFinite(v) ? v : 0; } catch { results["harvest_loss_kg"] = 0; }
+  try { const v = input.actual_yield * (input.post_harvest_loss_pct / 100); results["post_harvest_loss_kg"] = Number.isFinite(v) ? v : 0; } catch { results["post_harvest_loss_kg"] = 0; }
+  try { const v = (input.field_condition === 'excellent' ? 0.95 : (input.field_condition === 'good' ? 1.00 : (input.field_condition === 'fair' ? 1.10 : (input.field_condition === 'poor' ? 1.25 : 0)))); results["field_condition_factor"] = Number.isFinite(v) ? v : 0; } catch { results["field_condition_factor"] = 0; }
+  try { const v = (input.irrigation_type === 'drip' ? 0.90 : (input.irrigation_type === 'sprinkler' ? 1.00 : (input.irrigation_type === 'flood' ? 1.15 : (input.irrigation_type === 'rainfed' ? 1.20 : 0)))); results["irrigation_efficiency_factor"] = Number.isFinite(v) ? v : 0; } catch { results["irrigation_efficiency_factor"] = 0; }
+  try { const v = (input.pest_pressure * 0.4 + input.disease_index * 0.4 + (input.weed_cover_pct / 10) * 0.2) / 10; results["biotic_loss_index"] = Number.isFinite(v) ? v : 0; } catch { results["biotic_loss_index"] = 0; }
+  try { const v = (input.labor_efficiency * 0.5 + input.equipment_reliability * 0.5) / 100; results["operational_efficiency_score"] = Number.isFinite(v) ? v : 0; } catch { results["operational_efficiency_score"] = 0; }
+  try { const v = (((results["gross_loss"] ?? 0) / input.expected_yield) * 100) * (results["field_condition_factor"] ?? 0) * (results["irrigation_efficiency_factor"] ?? 0) * (1 + (results["biotic_loss_index"] ?? 0)) * (1 + (1 - (results["operational_efficiency_score"] ?? 0))); results["total_yield_loss_pct"] = Number.isFinite(v) ? v : 0; } catch { results["total_yield_loss_pct"] = 0; }
   return results;
 }
 

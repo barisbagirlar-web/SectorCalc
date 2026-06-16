@@ -19,13 +19,13 @@ export const Mm_to_inch_converterInputSchema = z.object({
 
 function evaluateAllFormulas(input: Mm_to_inch_converterInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["raw_inches"] = input.value_mm / 25.4; } catch { results["raw_inches"] = 0; }
-  try { results["rounded_inches"] = Math.round((results["raw_inches"] ?? 0), input.precision); } catch { results["rounded_inches"] = 0; }
-  try { results["tolerance_inches"] = input.tolerance_mm / 25.4; } catch { results["tolerance_inches"] = 0; }
-  try { results["upper_spec_limit"] = (results["rounded_inches"] ?? 0) + (results["tolerance_inches"] ?? 0); } catch { results["upper_spec_limit"] = 0; }
-  try { results["lower_spec_limit"] = (results["rounded_inches"] ?? 0) - (results["tolerance_inches"] ?? 0); } catch { results["lower_spec_limit"] = 0; }
-  try { results["six_sigma_adjusted"] = ((input.apply_six_sigma) ? ((results["rounded_inches"] ?? 0) + (0.001 * input.value_mm / 25.4)) : ((results["rounded_inches"] ?? 0))); } catch { results["six_sigma_adjusted"] = 0; }
-  try { results["primary_result"] = (results["six_sigma_adjusted"] ?? 0); } catch { results["primary_result"] = 0; }
+  try { const v = input.value_mm / 25.4; results["raw_inches"] = Number.isFinite(v) ? v : 0; } catch { results["raw_inches"] = 0; }
+  try { const v = Math.round((results["raw_inches"] ?? 0), input.precision); results["rounded_inches"] = Number.isFinite(v) ? v : 0; } catch { results["rounded_inches"] = 0; }
+  try { const v = input.tolerance_mm / 25.4; results["tolerance_inches"] = Number.isFinite(v) ? v : 0; } catch { results["tolerance_inches"] = 0; }
+  try { const v = (results["rounded_inches"] ?? 0) + (results["tolerance_inches"] ?? 0); results["upper_spec_limit"] = Number.isFinite(v) ? v : 0; } catch { results["upper_spec_limit"] = 0; }
+  try { const v = (results["rounded_inches"] ?? 0) - (results["tolerance_inches"] ?? 0); results["lower_spec_limit"] = Number.isFinite(v) ? v : 0; } catch { results["lower_spec_limit"] = 0; }
+  try { const v = ((input.apply_six_sigma) ? ((results["rounded_inches"] ?? 0) + (0.001 * input.value_mm / 25.4)) : ((results["rounded_inches"] ?? 0))); results["six_sigma_adjusted"] = Number.isFinite(v) ? v : 0; } catch { results["six_sigma_adjusted"] = 0; }
+  try { const v = (results["six_sigma_adjusted"] ?? 0); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 

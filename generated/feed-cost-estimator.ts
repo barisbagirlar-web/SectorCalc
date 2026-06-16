@@ -21,13 +21,13 @@ export const Feed_cost_estimatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Feed_cost_estimatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["effective_raw_material_cost"] = input.raw_material_cost_per_kg * input.moisture_adjustment_factor / (1 - input.processing_loss_percent / 100); } catch { results["effective_raw_material_cost"] = 0; }
-  try { results["transport_surcharge"] = input.include_transport_cost ? 0.02 : 0; } catch { results["transport_surcharge"] = 0; }
-  try { results["quality_multiplier"] = input.quality_grade == 'premium' ? 1.15 : (input.quality_grade == 'economy' ? 0.90 : 1.0); } catch { results["quality_multiplier"] = 0; }
-  try { results["adjusted_feed_cost_per_kg"] = ((results["effective_raw_material_cost"] ?? 0) + (results["transport_surcharge"] ?? 0)) * (results["quality_multiplier"] ?? 0); } catch { results["adjusted_feed_cost_per_kg"] = 0; }
-  try { results["total_feed_cost_per_animal_per_day"] = (results["adjusted_feed_cost_per_kg"] ?? 0) * input.feed_intake_kg; } catch { results["total_feed_cost_per_animal_per_day"] = 0; }
-  try { results["annual_feed_cost_per_animal"] = (results["total_feed_cost_per_animal_per_day"] ?? 0) * 365; } catch { results["annual_feed_cost_per_animal"] = 0; }
-  try { results["cost_per_kg_gain"] = (results["adjusted_feed_cost_per_kg"] ?? 0) * 2.5; } catch { results["cost_per_kg_gain"] = 0; }
+  try { const v = input.raw_material_cost_per_kg * input.moisture_adjustment_factor / (1 - input.processing_loss_percent / 100); results["effective_raw_material_cost"] = Number.isFinite(v) ? v : 0; } catch { results["effective_raw_material_cost"] = 0; }
+  try { const v = input.include_transport_cost ? 0.02 : 0; results["transport_surcharge"] = Number.isFinite(v) ? v : 0; } catch { results["transport_surcharge"] = 0; }
+  try { const v = input.quality_grade == 'premium' ? 1.15 : (input.quality_grade == 'economy' ? 0.90 : 1.0); results["quality_multiplier"] = Number.isFinite(v) ? v : 0; } catch { results["quality_multiplier"] = 0; }
+  try { const v = ((results["effective_raw_material_cost"] ?? 0) + (results["transport_surcharge"] ?? 0)) * (results["quality_multiplier"] ?? 0); results["adjusted_feed_cost_per_kg"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_feed_cost_per_kg"] = 0; }
+  try { const v = (results["adjusted_feed_cost_per_kg"] ?? 0) * input.feed_intake_kg; results["total_feed_cost_per_animal_per_day"] = Number.isFinite(v) ? v : 0; } catch { results["total_feed_cost_per_animal_per_day"] = 0; }
+  try { const v = (results["total_feed_cost_per_animal_per_day"] ?? 0) * 365; results["annual_feed_cost_per_animal"] = Number.isFinite(v) ? v : 0; } catch { results["annual_feed_cost_per_animal"] = 0; }
+  try { const v = (results["adjusted_feed_cost_per_kg"] ?? 0) * 2.5; results["cost_per_kg_gain"] = Number.isFinite(v) ? v : 0; } catch { results["cost_per_kg_gain"] = 0; }
   return results;
 }
 

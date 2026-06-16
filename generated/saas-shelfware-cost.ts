@@ -23,13 +23,13 @@ export const Saas_shelfware_costInputSchema = z.object({
 
 function evaluateAllFormulas(input: Saas_shelfware_costInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["active_utilization_rate"] = (input.active_users / input.total_licenses) * 100; } catch { results["active_utilization_rate"] = 0; }
-  try { results["shelfware_licenses"] = Math.max(0, input.total_licenses - (input.active_users * (100 / input.utilization_threshold))); } catch { results["shelfware_licenses"] = 0; }
-  try { results["monthly_shelfware_cost"] = (results["shelfware_licenses"] ?? 0) * input.license_cost_per_month; } catch { results["monthly_shelfware_cost"] = 0; }
-  try { results["total_waste_cost"] = ((results["monthly_shelfware_cost"] ?? 0) * input.contract_months_remaining) + (input.implementation_cost * ((results["shelfware_licenses"] ?? 0) / input.total_licenses)); } catch { results["total_waste_cost"] = 0; }
-  try { results["waste_percentage_of_total"] = ((results["total_waste_cost"] ?? 0) / ((input.total_licenses * input.license_cost_per_month * input.contract_months_remaining) + input.implementation_cost + (input.monthly_support_cost * input.contract_months_remaining))) * 100; } catch { results["waste_percentage_of_total"] = 0; }
-  try { results["shelfware_ratio"] = (results["shelfware_licenses"] ?? 0) / input.total_licenses; } catch { results["shelfware_ratio"] = 0; }
-  try { results["data_confidence_adjusted_waste"] = (results["total_waste_cost"] ?? 0) * 0.9; } catch { results["data_confidence_adjusted_waste"] = 0; }
+  try { const v = (input.active_users / input.total_licenses) * 100; results["active_utilization_rate"] = Number.isFinite(v) ? v : 0; } catch { results["active_utilization_rate"] = 0; }
+  try { const v = Math.max(0, input.total_licenses - (input.active_users * (100 / input.utilization_threshold))); results["shelfware_licenses"] = Number.isFinite(v) ? v : 0; } catch { results["shelfware_licenses"] = 0; }
+  try { const v = (results["shelfware_licenses"] ?? 0) * input.license_cost_per_month; results["monthly_shelfware_cost"] = Number.isFinite(v) ? v : 0; } catch { results["monthly_shelfware_cost"] = 0; }
+  try { const v = ((results["monthly_shelfware_cost"] ?? 0) * input.contract_months_remaining) + (input.implementation_cost * ((results["shelfware_licenses"] ?? 0) / input.total_licenses)); results["total_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_waste_cost"] = 0; }
+  try { const v = ((results["total_waste_cost"] ?? 0) / ((input.total_licenses * input.license_cost_per_month * input.contract_months_remaining) + input.implementation_cost + (input.monthly_support_cost * input.contract_months_remaining))) * 100; results["waste_percentage_of_total"] = Number.isFinite(v) ? v : 0; } catch { results["waste_percentage_of_total"] = 0; }
+  try { const v = (results["shelfware_licenses"] ?? 0) / input.total_licenses; results["shelfware_ratio"] = Number.isFinite(v) ? v : 0; } catch { results["shelfware_ratio"] = 0; }
+  try { const v = (results["total_waste_cost"] ?? 0) * 0.9; results["data_confidence_adjusted_waste"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_adjusted_waste"] = 0; }
   return results;
 }
 

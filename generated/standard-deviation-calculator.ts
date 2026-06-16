@@ -25,12 +25,12 @@ export const Standard_deviation_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Standard_deviation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["mean"] = μ = (1/n) * Σ(x_i); } catch { results["mean"] = 0; }
-  try { results["sum_squared_deviations"] = Σ(x_i - μ)**2; } catch { results["sum_squared_deviations"] = 0; }
+  try { const v = μ = (1/n) * Σ(x_i); results["mean"] = Number.isFinite(v) ? v : 0; } catch { results["mean"] = 0; }
+  try { const v = Σ(x_i - μ)**2; results["sum_squared_deviations"] = Number.isFinite(v) ? v : 0; } catch { results["sum_squared_deviations"] = 0; }
   results["variance"] = 0;
   results["standard_deviation"] = 0;
   results["relative_standard_deviation"] = 0;
-  try { results["process_capability_cp"] = (USL - LSL) / (6 * sigma); } catch { results["process_capability_cp"] = 0; }
+  try { const v = (USL - LSL) / (6 * sigma); results["process_capability_cp"] = Number.isFinite(v) ? v : 0; } catch { results["process_capability_cp"] = 0; }
   results["process_capability_cpk"] = 0;
   return results;
 }

@@ -27,13 +27,13 @@ export const Cbam_exposure_checkInputSchema = z.object({
 
 function evaluateAllFormulas(input: Cbam_exposure_checkInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["total_emissions"] = input.annual_production_volume * input.carbon_intensity; } catch { results["total_emissions"] = 0; }
-  try { results["allowable_emissions"] = (results["total_emissions"] ?? 0) * (input.free_allocation_percentage / 100); } catch { results["allowable_emissions"] = 0; }
-  try { results["exposed_emissions"] = (results["total_emissions"] ?? 0) - (results["allowable_emissions"] ?? 0); } catch { results["exposed_emissions"] = 0; }
-  try { results["cbam_cost_per_ton"] = ((results["exposed_emissions"] ?? 0) * input.cbam_carbon_price) / input.annual_production_volume; } catch { results["cbam_cost_per_ton"] = 0; }
-  try { results["efficiency_adjusted_cost"] = (results["cbam_cost_per_ton"] ?? 0) / input.production_efficiency_index; } catch { results["efficiency_adjusted_cost"] = 0; }
-  try { results["compliance_risk_factor"] = 1 + ((100 - input.compliance_readiness_score) / 100); } catch { results["compliance_risk_factor"] = 0; }
-  try { results["total_cbam_exposure"] = (results["efficiency_adjusted_cost"] ?? 0) * (results["compliance_risk_factor"] ?? 0) * input.annual_production_volume; } catch { results["total_cbam_exposure"] = 0; }
+  try { const v = input.annual_production_volume * input.carbon_intensity; results["total_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["total_emissions"] = 0; }
+  try { const v = (results["total_emissions"] ?? 0) * (input.free_allocation_percentage / 100); results["allowable_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["allowable_emissions"] = 0; }
+  try { const v = (results["total_emissions"] ?? 0) - (results["allowable_emissions"] ?? 0); results["exposed_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["exposed_emissions"] = 0; }
+  try { const v = ((results["exposed_emissions"] ?? 0) * input.cbam_carbon_price) / input.annual_production_volume; results["cbam_cost_per_ton"] = Number.isFinite(v) ? v : 0; } catch { results["cbam_cost_per_ton"] = 0; }
+  try { const v = (results["cbam_cost_per_ton"] ?? 0) / input.production_efficiency_index; results["efficiency_adjusted_cost"] = Number.isFinite(v) ? v : 0; } catch { results["efficiency_adjusted_cost"] = 0; }
+  try { const v = 1 + ((100 - input.compliance_readiness_score) / 100); results["compliance_risk_factor"] = Number.isFinite(v) ? v : 0; } catch { results["compliance_risk_factor"] = 0; }
+  try { const v = (results["efficiency_adjusted_cost"] ?? 0) * (results["compliance_risk_factor"] ?? 0) * input.annual_production_volume; results["total_cbam_exposure"] = Number.isFinite(v) ? v : 0; } catch { results["total_cbam_exposure"] = 0; }
   return results;
 }
 

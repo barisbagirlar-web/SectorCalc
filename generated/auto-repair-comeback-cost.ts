@@ -27,13 +27,13 @@ export const Auto_repair_comeback_costInputSchema = z.object({
 
 function evaluateAllFormulas(input: Auto_repair_comeback_costInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["comeback_rate"] = input.comeback_count / input.total_repair_orders * 100; } catch { results["comeback_rate"] = 0; }
-  try { results["direct_labor_cost"] = input.comeback_count * input.avg_hours_per_comeback * input.avg_labor_rate; } catch { results["direct_labor_cost"] = 0; }
-  try { results["direct_parts_cost"] = input.comeback_count * input.parts_cost_per_comeback; } catch { results["direct_parts_cost"] = 0; }
-  try { results["hidden_overhead_cost"] = input.include_hidden_costs ? ((results["direct_labor_cost"] ?? 0) + (results["direct_parts_cost"] ?? 0)) * 0.20 : 0; } catch { results["hidden_overhead_cost"] = 0; }
-  try { results["lost_future_revenue"] = input.comeback_count * (input.lost_customer_rate / 100) * input.customer_lifetime_value; } catch { results["lost_future_revenue"] = 0; }
-  results["shop_type_multiplier"] = 0;
-  try { results["total_comeback_cost"] = ((results["direct_labor_cost"] ?? 0) + (results["direct_parts_cost"] ?? 0) + (results["hidden_overhead_cost"] ?? 0) + (results["lost_future_revenue"] ?? 0)) * (results["shop_type_multiplier"] ?? 0); } catch { results["total_comeback_cost"] = 0; }
+  try { const v = input.comeback_count / input.total_repair_orders * 100; results["comeback_rate"] = Number.isFinite(v) ? v : 0; } catch { results["comeback_rate"] = 0; }
+  try { const v = input.comeback_count * input.avg_hours_per_comeback * input.avg_labor_rate; results["direct_labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = input.comeback_count * input.parts_cost_per_comeback; results["direct_parts_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_parts_cost"] = 0; }
+  try { const v = input.include_hidden_costs ? ((results["direct_labor_cost"] ?? 0) + (results["direct_parts_cost"] ?? 0)) * 0.20 : 0; results["hidden_overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["hidden_overhead_cost"] = 0; }
+  try { const v = input.comeback_count * (input.lost_customer_rate / 100) * input.customer_lifetime_value; results["lost_future_revenue"] = Number.isFinite(v) ? v : 0; } catch { results["lost_future_revenue"] = 0; }
+  try { const v = (input.shop_type === 'dealer' ? 1.25 : (input.shop_type === 'franchise' ? 1.15 : (input.shop_type === 'fleet' ? 1.05 : 1.0))); results["shop_type_multiplier"] = Number.isFinite(v) ? v : 0; } catch { results["shop_type_multiplier"] = 0; }
+  try { const v = ((results["direct_labor_cost"] ?? 0) + (results["direct_parts_cost"] ?? 0) + (results["hidden_overhead_cost"] ?? 0) + (results["lost_future_revenue"] ?? 0)) * (results["shop_type_multiplier"] ?? 0); results["total_comeback_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_comeback_cost"] = 0; }
   return results;
 }
 

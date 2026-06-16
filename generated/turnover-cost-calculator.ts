@@ -39,13 +39,13 @@ export const Turnover_cost_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Turnover_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["num_leavers"] = input.num_employees * (input.annual_turnover_rate / 100); } catch { results["num_leavers"] = 0; }
-  try { results["direct_costs"] = (results["num_leavers"] ?? 0) * (input.recruitment_cost_per_hire + input.onboarding_cost_per_hire + input.training_cost_per_hire + input.severance_cost_per_leaver + input.exit_interview_cost_per_leaver + input.overtime_cover_cost_per_leaver); } catch { results["direct_costs"] = 0; }
-  try { results["lost_productivity_cost"] = (results["num_leavers"] ?? 0) * (input.avg_salary / 12) * input.lost_productivity_months * (1 - (input.productivity_factor / 100)); } catch { results["lost_productivity_cost"] = 0; }
-  try { results["indirect_costs"] = input.include_indirect_costs ? (results["num_leavers"] ?? 0) * (input.quality_defect_cost_per_leaver + input.customer_impact_cost_per_leaver + input.knowledge_loss_cost_per_leaver) : 0; } catch { results["indirect_costs"] = 0; }
-  try { results["total_turnover_cost"] = (results["direct_costs"] ?? 0) + (results["lost_productivity_cost"] ?? 0) + (results["indirect_costs"] ?? 0); } catch { results["total_turnover_cost"] = 0; }
-  try { results["cost_per_leaver"] = (results["num_leavers"] ?? 0) > 0 ? (results["total_turnover_cost"] ?? 0) / (results["num_leavers"] ?? 0) : 0; } catch { results["cost_per_leaver"] = 0; }
-  try { results["turnover_cost_percentage_of_payroll"] = ((results["total_turnover_cost"] ?? 0) / (input.num_employees * input.avg_salary)) * 100; } catch { results["turnover_cost_percentage_of_payroll"] = 0; }
+  try { const v = input.num_employees * (input.annual_turnover_rate / 100); results["num_leavers"] = Number.isFinite(v) ? v : 0; } catch { results["num_leavers"] = 0; }
+  try { const v = (results["num_leavers"] ?? 0) * (input.recruitment_cost_per_hire + input.onboarding_cost_per_hire + input.training_cost_per_hire + input.severance_cost_per_leaver + input.exit_interview_cost_per_leaver + input.overtime_cover_cost_per_leaver); results["direct_costs"] = Number.isFinite(v) ? v : 0; } catch { results["direct_costs"] = 0; }
+  try { const v = (results["num_leavers"] ?? 0) * (input.avg_salary / 12) * input.lost_productivity_months * (1 - (input.productivity_factor / 100)); results["lost_productivity_cost"] = Number.isFinite(v) ? v : 0; } catch { results["lost_productivity_cost"] = 0; }
+  try { const v = input.include_indirect_costs ? (results["num_leavers"] ?? 0) * (input.quality_defect_cost_per_leaver + input.customer_impact_cost_per_leaver + input.knowledge_loss_cost_per_leaver) : 0; results["indirect_costs"] = Number.isFinite(v) ? v : 0; } catch { results["indirect_costs"] = 0; }
+  try { const v = (results["direct_costs"] ?? 0) + (results["lost_productivity_cost"] ?? 0) + (results["indirect_costs"] ?? 0); results["total_turnover_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_turnover_cost"] = 0; }
+  try { const v = (results["num_leavers"] ?? 0) > 0 ? (results["total_turnover_cost"] ?? 0) / (results["num_leavers"] ?? 0) : 0; results["cost_per_leaver"] = Number.isFinite(v) ? v : 0; } catch { results["cost_per_leaver"] = 0; }
+  try { const v = ((results["total_turnover_cost"] ?? 0) / (input.num_employees * input.avg_salary)) * 100; results["turnover_cost_percentage_of_payroll"] = Number.isFinite(v) ? v : 0; } catch { results["turnover_cost_percentage_of_payroll"] = 0; }
   return results;
 }
 

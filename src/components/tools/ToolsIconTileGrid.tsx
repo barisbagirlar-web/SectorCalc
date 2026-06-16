@@ -2,7 +2,7 @@ import { Link } from "@/i18n/routing";
 import { Lock } from "lucide-react";
 import type { Tool } from "@/data/tools";
 import { getCategoryCardIcon } from "@/lib/catalog/category-card-icons";
-import { inferFreeTrafficCategory } from "@/lib/tools/free-traffic-catalog";
+import { inferFreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
 
 type ToolsIconTileGridProps = {
   readonly tools: readonly Tool[];

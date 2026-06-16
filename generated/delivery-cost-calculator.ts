@@ -35,16 +35,16 @@ export const Delivery_cost_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Delivery_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["fuel_cost"] = (input.distance_km / input.fuel_efficiency_kmpl) * input.fuel_cost_per_liter; } catch { results["fuel_cost"] = 0; }
-  try { results["driver_cost"] = (input.distance_km / input.average_speed_kmph) * input.driver_wage_per_hour; } catch { results["driver_cost"] = 0; }
-  try { results["handling_cost"] = input.load_weight_kg * input.handling_cost_per_kg; } catch { results["handling_cost"] = 0; }
-  try { results["maintenance_cost"] = input.distance_km * input.vehicle_maintenance_per_km; } catch { results["maintenance_cost"] = 0; }
-  try { results["insurance_cost"] = input.load_weight_kg * input.insurance_rate_per_kg; } catch { results["insurance_cost"] = 0; }
-  try { results["direct_cost"] = (results["fuel_cost"] ?? 0) + (results["driver_cost"] ?? 0) + (results["handling_cost"] ?? 0) + (results["maintenance_cost"] ?? 0) + (results["insurance_cost"] ?? 0) + input.toll_cost; } catch { results["direct_cost"] = 0; }
-  try { results["overhead_cost"] = (results["direct_cost"] ?? 0) * (input.overhead_percentage / 100); } catch { results["overhead_cost"] = 0; }
-  results["zone_multiplier"] = 0;
-  results["express_multiplier"] = 0;
-  try { results["total_delivery_cost"] = ((results["direct_cost"] ?? 0) + (results["overhead_cost"] ?? 0)) * (results["zone_multiplier"] ?? 0) * (results["express_multiplier"] ?? 0); } catch { results["total_delivery_cost"] = 0; }
+  try { const v = (input.distance_km / input.fuel_efficiency_kmpl) * input.fuel_cost_per_liter; results["fuel_cost"] = Number.isFinite(v) ? v : 0; } catch { results["fuel_cost"] = 0; }
+  try { const v = (input.distance_km / input.average_speed_kmph) * input.driver_wage_per_hour; results["driver_cost"] = Number.isFinite(v) ? v : 0; } catch { results["driver_cost"] = 0; }
+  try { const v = input.load_weight_kg * input.handling_cost_per_kg; results["handling_cost"] = Number.isFinite(v) ? v : 0; } catch { results["handling_cost"] = 0; }
+  try { const v = input.distance_km * input.vehicle_maintenance_per_km; results["maintenance_cost"] = Number.isFinite(v) ? v : 0; } catch { results["maintenance_cost"] = 0; }
+  try { const v = input.load_weight_kg * input.insurance_rate_per_kg; results["insurance_cost"] = Number.isFinite(v) ? v : 0; } catch { results["insurance_cost"] = 0; }
+  try { const v = (results["fuel_cost"] ?? 0) + (results["driver_cost"] ?? 0) + (results["handling_cost"] ?? 0) + (results["maintenance_cost"] ?? 0) + (results["insurance_cost"] ?? 0) + input.toll_cost; results["direct_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_cost"] = 0; }
+  try { const v = (results["direct_cost"] ?? 0) * (input.overhead_percentage / 100); results["overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
+  try { const v = (input.delivery_zone === 'urban' ? 1.0 : (input.delivery_zone === 'suburban' ? 1.15 : (input.delivery_zone === 'rural' ? 1.3 : (input.delivery_zone === 'remote' ? 1.5 : 1.0)))); results["zone_multiplier"] = Number.isFinite(v) ? v : 0; } catch { results["zone_multiplier"] = 0; }
+  try { const v = (input.is_express_delivery === true ? 1.25 : 1.0); results["express_multiplier"] = Number.isFinite(v) ? v : 0; } catch { results["express_multiplier"] = 0; }
+  try { const v = ((results["direct_cost"] ?? 0) + (results["overhead_cost"] ?? 0)) * (results["zone_multiplier"] ?? 0) * (results["express_multiplier"] ?? 0); results["total_delivery_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_delivery_cost"] = 0; }
   return results;
 }
 

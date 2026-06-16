@@ -39,14 +39,14 @@ export const Vsm_financial_converterInputSchema = z.object({
 
 function evaluateAllFormulas(input: Vsm_financial_converterInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["f1_laborCostPerUnit"] = (input.totalCycleTime / 60) * input.laborCostPerHour; } catch { results["f1_laborCostPerUnit"] = 0; }
-  try { results["f2_overheadCostPerUnit"] = (results["f1_laborCostPerUnit"] ?? 0) * (input.overheadRate / 100); } catch { results["f2_overheadCostPerUnit"] = 0; }
-  try { results["f3_qualityCostPerUnit"] = (input.defectRate / 100) * input.reworkCostPerUnit; } catch { results["f3_qualityCostPerUnit"] = 0; }
-  try { results["f4_inventoryCostPerUnit"] = (input.averageInventoryValue * (input.inventoryHoldingCostPercent / 100)) / input.annualDemand; } catch { results["f4_inventoryCostPerUnit"] = 0; }
-  try { results["f5_totalCostPerUnit"] = input.materialCostPerUnit + (results["f1_laborCostPerUnit"] ?? 0) + (results["f2_overheadCostPerUnit"] ?? 0) + (results["f3_qualityCostPerUnit"] ?? 0) + (results["f4_inventoryCostPerUnit"] ?? 0); } catch { results["f5_totalCostPerUnit"] = 0; }
-  try { results["f6_profitPerUnit"] = input.sellingPrice - (results["f5_totalCostPerUnit"] ?? 0); } catch { results["f6_profitPerUnit"] = 0; }
-  try { results["f7_annualWasteLoss"] = ((input.totalCycleTime - input.totalValueAddedTime) / input.totalCycleTime) * (results["f5_totalCostPerUnit"] ?? 0) * input.annualDemand; } catch { results["f7_annualWasteLoss"] = 0; }
-  try { results["f8_primaryResult"] = ((results["f6_profitPerUnit"] ?? 0) * input.annualDemand) - (results["f7_annualWasteLoss"] ?? 0); } catch { results["f8_primaryResult"] = 0; }
+  try { const v = (input.totalCycleTime / 60) * input.laborCostPerHour; results["f1_laborCostPerUnit"] = Number.isFinite(v) ? v : 0; } catch { results["f1_laborCostPerUnit"] = 0; }
+  try { const v = (results["f1_laborCostPerUnit"] ?? 0) * (input.overheadRate / 100); results["f2_overheadCostPerUnit"] = Number.isFinite(v) ? v : 0; } catch { results["f2_overheadCostPerUnit"] = 0; }
+  try { const v = (input.defectRate / 100) * input.reworkCostPerUnit; results["f3_qualityCostPerUnit"] = Number.isFinite(v) ? v : 0; } catch { results["f3_qualityCostPerUnit"] = 0; }
+  try { const v = (input.averageInventoryValue * (input.inventoryHoldingCostPercent / 100)) / input.annualDemand; results["f4_inventoryCostPerUnit"] = Number.isFinite(v) ? v : 0; } catch { results["f4_inventoryCostPerUnit"] = 0; }
+  try { const v = input.materialCostPerUnit + (results["f1_laborCostPerUnit"] ?? 0) + (results["f2_overheadCostPerUnit"] ?? 0) + (results["f3_qualityCostPerUnit"] ?? 0) + (results["f4_inventoryCostPerUnit"] ?? 0); results["f5_totalCostPerUnit"] = Number.isFinite(v) ? v : 0; } catch { results["f5_totalCostPerUnit"] = 0; }
+  try { const v = input.sellingPrice - (results["f5_totalCostPerUnit"] ?? 0); results["f6_profitPerUnit"] = Number.isFinite(v) ? v : 0; } catch { results["f6_profitPerUnit"] = 0; }
+  try { const v = ((input.totalCycleTime - input.totalValueAddedTime) / input.totalCycleTime) * (results["f5_totalCostPerUnit"] ?? 0) * input.annualDemand; results["f7_annualWasteLoss"] = Number.isFinite(v) ? v : 0; } catch { results["f7_annualWasteLoss"] = 0; }
+  try { const v = ((results["f6_profitPerUnit"] ?? 0) * input.annualDemand) - (results["f7_annualWasteLoss"] ?? 0); results["f8_primaryResult"] = Number.isFinite(v) ? v : 0; } catch { results["f8_primaryResult"] = 0; }
   return results;
 }
 

@@ -21,13 +21,13 @@ export const Fraction_to_decimal_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Fraction_to_decimal_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["fractional_value"] = input.numerator / input.denominator; } catch { results["fractional_value"] = 0; }
-  try { results["mixed_value"] = input.wholeNumber + (results["fractional_value"] ?? 0); } catch { results["mixed_value"] = 0; }
-  try { results["raw_decimal"] = (results["mixed_value"] ?? 0); } catch { results["raw_decimal"] = 0; }
-  try { results["rounded_decimal"] = Math.round((results["raw_decimal"] ?? 0), input.decimalPlaces, input.roundingMethod); } catch { results["rounded_decimal"] = 0; }
-  try { results["uncertainty_propagated"] = input.uncertaintyInput / input.denominator; } catch { results["uncertainty_propagated"] = 0; }
-  try { results["data_confidence_adjusted"] = (results["rounded_decimal"] ?? 0) - (results["uncertainty_propagated"] ?? 0); } catch { results["data_confidence_adjusted"] = 0; }
-  try { results["primary_result"] = (results["data_confidence_adjusted"] ?? 0); } catch { results["primary_result"] = 0; }
+  try { const v = input.numerator / input.denominator; results["fractional_value"] = Number.isFinite(v) ? v : 0; } catch { results["fractional_value"] = 0; }
+  try { const v = input.wholeNumber + (results["fractional_value"] ?? 0); results["mixed_value"] = Number.isFinite(v) ? v : 0; } catch { results["mixed_value"] = 0; }
+  try { const v = (results["mixed_value"] ?? 0); results["raw_decimal"] = Number.isFinite(v) ? v : 0; } catch { results["raw_decimal"] = 0; }
+  try { const v = Math.round((results["raw_decimal"] ?? 0), input.decimalPlaces, input.roundingMethod); results["rounded_decimal"] = Number.isFinite(v) ? v : 0; } catch { results["rounded_decimal"] = 0; }
+  try { const v = input.uncertaintyInput / input.denominator; results["uncertainty_propagated"] = Number.isFinite(v) ? v : 0; } catch { results["uncertainty_propagated"] = 0; }
+  try { const v = (results["rounded_decimal"] ?? 0) - (results["uncertainty_propagated"] ?? 0); results["data_confidence_adjusted"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_adjusted"] = 0; }
+  try { const v = (results["data_confidence_adjusted"] ?? 0); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 

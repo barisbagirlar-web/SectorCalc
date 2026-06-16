@@ -35,13 +35,13 @@ export const Environmental_waste_costInputSchema = z.object({
 
 function evaluateAllFormulas(input: Environmental_waste_costInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["disposal_cost"] = input.waste_volume_kg * input.disposal_cost_per_kg; } catch { results["disposal_cost"] = 0; }
-  try { results["transport_cost"] = input.transport_distance_km * input.transport_cost_per_km * (input.waste_volume_kg / 1000); } catch { results["transport_cost"] = 0; }
-  try { results["labor_cost"] = (input.waste_volume_kg / 1000) * input.labor_hours_per_ton * input.labor_rate_per_hour; } catch { results["labor_cost"] = 0; }
-  try { results["recycling_revenue"] = input.waste_volume_kg * (input.recycling_rate / 100) * input.recycling_revenue_per_kg; } catch { results["recycling_revenue"] = 0; }
-  try { results["carbon_cost"] = input.waste_volume_kg * input.emission_factor_kg_co2_per_kg_waste * input.carbon_cost_per_kg_co2; } catch { results["carbon_cost"] = 0; }
-  try { results["compliance_penalty"] = Math.max(0, (input.waste_volume_kg - input.waste_volume_limit_kg)) * input.compliance_penalty_per_kg; } catch { results["compliance_penalty"] = 0; }
-  try { results["total_waste_cost"] = (results["disposal_cost"] ?? 0) + (results["transport_cost"] ?? 0) + (results["labor_cost"] ?? 0) + (results["carbon_cost"] ?? 0) + (results["compliance_penalty"] ?? 0) - (results["recycling_revenue"] ?? 0); } catch { results["total_waste_cost"] = 0; }
+  try { const v = input.waste_volume_kg * input.disposal_cost_per_kg; results["disposal_cost"] = Number.isFinite(v) ? v : 0; } catch { results["disposal_cost"] = 0; }
+  try { const v = input.transport_distance_km * input.transport_cost_per_km * (input.waste_volume_kg / 1000); results["transport_cost"] = Number.isFinite(v) ? v : 0; } catch { results["transport_cost"] = 0; }
+  try { const v = (input.waste_volume_kg / 1000) * input.labor_hours_per_ton * input.labor_rate_per_hour; results["labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost"] = 0; }
+  try { const v = input.waste_volume_kg * (input.recycling_rate / 100) * input.recycling_revenue_per_kg; results["recycling_revenue"] = Number.isFinite(v) ? v : 0; } catch { results["recycling_revenue"] = 0; }
+  try { const v = input.waste_volume_kg * input.emission_factor_kg_co2_per_kg_waste * input.carbon_cost_per_kg_co2; results["carbon_cost"] = Number.isFinite(v) ? v : 0; } catch { results["carbon_cost"] = 0; }
+  try { const v = Math.max(0, (input.waste_volume_kg - input.waste_volume_limit_kg)) * input.compliance_penalty_per_kg; results["compliance_penalty"] = Number.isFinite(v) ? v : 0; } catch { results["compliance_penalty"] = 0; }
+  try { const v = (results["disposal_cost"] ?? 0) + (results["transport_cost"] ?? 0) + (results["labor_cost"] ?? 0) + (results["carbon_cost"] ?? 0) + (results["compliance_penalty"] ?? 0) - (results["recycling_revenue"] ?? 0); results["total_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_waste_cost"] = 0; }
   return results;
 }
 

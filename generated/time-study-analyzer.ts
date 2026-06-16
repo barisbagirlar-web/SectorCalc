@@ -21,21 +21,21 @@ export const Time_study_analyzerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Time_study_analyzerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["normal_time"] = input.observed_time * (input.performance_rating / 100); } catch { results["normal_time"] = 0; }
-  try { results["allowance_factor"] = 1 / (1 - (input.allowance_percentage / 100)); } catch { results["allowance_factor"] = 0; }
-  try { results["standard_time_per_occurrence"] = (results["normal_time"] ?? 0) * (results["allowance_factor"] ?? 0); } catch { results["standard_time_per_occurrence"] = 0; }
-  try { results["standard_time_per_cycle"] = (results["standard_time_per_occurrence"] ?? 0) * input.frequency_per_cycle; } catch { results["standard_time_per_cycle"] = 0; }
-  try { results["learning_curve_factor"] = input.include_learning_curve ? (1 / (1 + 0.2 * Math.log10(100))) : 1; } catch { results["learning_curve_factor"] = 0; }
-  try { results["adjusted_standard_time"] = (results["standard_time_per_cycle"] ?? 0) * (results["learning_curve_factor"] ?? 0); } catch { results["adjusted_standard_time"] = 0; }
-  results["data_confidence_adjustment"] = 0;
-  try { results["primary_result"] = (results["adjusted_standard_time"] ?? 0) * (results["data_confidence_adjustment"] ?? 0); } catch { results["primary_result"] = 0; }
+  try { const v = input.observed_time * (input.performance_rating / 100); results["normal_time"] = Number.isFinite(v) ? v : 0; } catch { results["normal_time"] = 0; }
+  try { const v = 1 / (1 - (input.allowance_percentage / 100)); results["allowance_factor"] = Number.isFinite(v) ? v : 0; } catch { results["allowance_factor"] = 0; }
+  try { const v = (results["normal_time"] ?? 0) * (results["allowance_factor"] ?? 0); results["standard_time_per_occurrence"] = Number.isFinite(v) ? v : 0; } catch { results["standard_time_per_occurrence"] = 0; }
+  try { const v = (results["standard_time_per_occurrence"] ?? 0) * input.frequency_per_cycle; results["standard_time_per_cycle"] = Number.isFinite(v) ? v : 0; } catch { results["standard_time_per_cycle"] = 0; }
+  try { const v = input.include_learning_curve ? (1 / (1 + 0.2 * Math.log10(100))) : 1; results["learning_curve_factor"] = Number.isFinite(v) ? v : 0; } catch { results["learning_curve_factor"] = 0; }
+  try { const v = (results["standard_time_per_cycle"] ?? 0) * (results["learning_curve_factor"] ?? 0); results["adjusted_standard_time"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_standard_time"] = 0; }
+  try { const v = (input.work_measurement_method === 'Stopwatch' ? 1.05 : (input.work_measurement_method === 'Predetermined Motion Time' ? 1.02 : (input.work_measurement_method === 'Work Sampling' ? 1.10 : (input.work_measurement_method === 'Standard Data' ? 1.03 : 1.05)))); results["data_confidence_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_adjustment"] = 0; }
+  try { const v = (results["adjusted_standard_time"] ?? 0) * (results["data_confidence_adjustment"] ?? 0); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 
 
 export function calculateTime_study_analyzer(input: Time_study_analyzerInput): Time_study_analyzerOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["standard_time"] ?? 0;
+  const totalWasteCost = values["standard_time"] ?? values["primary_result"] ?? 0;
   const breakdown = {
     normal_time: values["normal_time"] ?? 0,
     allowance_factor: values["allowance_factor"] ?? 0,

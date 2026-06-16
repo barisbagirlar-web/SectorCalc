@@ -27,13 +27,13 @@ export const Energy_consumption_cost_reportInputSchema = z.object({
 
 function evaluateAllFormulas(input: Energy_consumption_cost_reportInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["net_energy_kwh"] = input.total_energy_kwh - (input.include_renewable_offset ? input.renewable_kwh : 0); } catch { results["net_energy_kwh"] = 0; }
-  try { results["energy_cost"] = (results["net_energy_kwh"] ?? 0) * input.tariff_rate_per_kwh; } catch { results["energy_cost"] = 0; }
-  try { results["demand_cost"] = input.peak_demand_kw * input.demand_charge_per_kw; } catch { results["demand_cost"] = 0; }
-  try { results["total_cost"] = (results["energy_cost"] ?? 0) + (results["demand_cost"] ?? 0); } catch { results["total_cost"] = 0; }
-  try { results["energy_intensity_kwh_per_unit"] = input.total_energy_kwh / input.production_units; } catch { results["energy_intensity_kwh_per_unit"] = 0; }
-  try { results["cost_per_unit"] = (results["total_cost"] ?? 0) / input.production_units; } catch { results["cost_per_unit"] = 0; }
-  try { results["co2_emissions"] = (results["net_energy_kwh"] ?? 0) * input.co2_emission_factor; } catch { results["co2_emissions"] = 0; }
+  try { const v = input.total_energy_kwh - (input.include_renewable_offset ? input.renewable_kwh : 0); results["net_energy_kwh"] = Number.isFinite(v) ? v : 0; } catch { results["net_energy_kwh"] = 0; }
+  try { const v = (results["net_energy_kwh"] ?? 0) * input.tariff_rate_per_kwh; results["energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["energy_cost"] = 0; }
+  try { const v = input.peak_demand_kw * input.demand_charge_per_kw; results["demand_cost"] = Number.isFinite(v) ? v : 0; } catch { results["demand_cost"] = 0; }
+  try { const v = (results["energy_cost"] ?? 0) + (results["demand_cost"] ?? 0); results["total_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost"] = 0; }
+  try { const v = input.total_energy_kwh / input.production_units; results["energy_intensity_kwh_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["energy_intensity_kwh_per_unit"] = 0; }
+  try { const v = (results["total_cost"] ?? 0) / input.production_units; results["cost_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["cost_per_unit"] = 0; }
+  try { const v = (results["net_energy_kwh"] ?? 0) * input.co2_emission_factor; results["co2_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["co2_emissions"] = 0; }
   return results;
 }
 

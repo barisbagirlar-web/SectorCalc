@@ -27,13 +27,13 @@ export const Water_intake_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Water_intake_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["f1"] = input.numEmployees * input.workDaysPerYear * input.avgWaterUsePerPersonPerDay * input.seasonalFactor; } catch { results["f1"] = 0; }
-  try { results["f2"] = input.annualProductionUnits * input.processWaterIntensity * input.seasonalFactor; } catch { results["f2"] = 0; }
-  try { results["f3"] = processWaterGross * (input.recyclingRate / 100); } catch { results["f3"] = 0; }
-  try { results["f4"] = processWaterGross - recycledWater; } catch { results["f4"] = 0; }
-  try { results["f5"] = (domesticWater + netProcessWater) * (input.leakageFactor / 100); } catch { results["f5"] = 0; }
-  try { results["f6"] = domesticWater + netProcessWater + leakageLosses; } catch { results["f6"] = 0; }
-  try { results["f7"] = totalWaterIntake / input.annualProductionUnits; } catch { results["f7"] = 0; }
+  try { const v = input.numEmployees * input.workDaysPerYear * input.avgWaterUsePerPersonPerDay * input.seasonalFactor; results["f1"] = Number.isFinite(v) ? v : 0; } catch { results["f1"] = 0; }
+  try { const v = input.annualProductionUnits * input.processWaterIntensity * input.seasonalFactor; results["f2"] = Number.isFinite(v) ? v : 0; } catch { results["f2"] = 0; }
+  try { const v = processWaterGross * (input.recyclingRate / 100); results["f3"] = Number.isFinite(v) ? v : 0; } catch { results["f3"] = 0; }
+  try { const v = processWaterGross - recycledWater; results["f4"] = Number.isFinite(v) ? v : 0; } catch { results["f4"] = 0; }
+  try { const v = (domesticWater + netProcessWater) * (input.leakageFactor / 100); results["f5"] = Number.isFinite(v) ? v : 0; } catch { results["f5"] = 0; }
+  try { const v = domesticWater + netProcessWater + leakageLosses; results["f6"] = Number.isFinite(v) ? v : 0; } catch { results["f6"] = 0; }
+  try { const v = totalWaterIntake / input.annualProductionUnits; results["f7"] = Number.isFinite(v) ? v : 0; } catch { results["f7"] = 0; }
   return results;
 }
 

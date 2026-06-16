@@ -27,13 +27,13 @@ export const Calorie_deficit_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Calorie_deficit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["bmr_mifflin"] = 0;
-  try { results["bmr_katch"] = 370 + 21.6 * (input.weight * (1 - input.bodyFatPercent/100)); } catch { results["bmr_katch"] = 0; }
-  try { results["tdee"] = bmr * activityMultiplier; } catch { results["tdee"] = 0; }
-  try { results["deficit_target"] = goalRateDeficit; } catch { results["deficit_target"] = 0; }
-  try { results["target_calories"] = (results["tdee"] ?? 0) - deficit; } catch { results["target_calories"] = 0; }
-  try { results["weekly_weight_loss"] = (deficit * 7) / 7700; } catch { results["weekly_weight_loss"] = 0; }
-  try { results["bmi"] = input.weight / ((input.height/100)**2); } catch { results["bmi"] = 0; }
+  try { const v = ((input.gender == 'male') ? (0) : (0)); results["bmr_mifflin"] = Number.isFinite(v) ? v : 0; } catch { results["bmr_mifflin"] = 0; }
+  try { const v = 370 + 21.6 * (input.weight * (1 - input.bodyFatPercent/100)); results["bmr_katch"] = Number.isFinite(v) ? v : 0; } catch { results["bmr_katch"] = 0; }
+  try { const v = bmr * activityMultiplier; results["tdee"] = Number.isFinite(v) ? v : 0; } catch { results["tdee"] = 0; }
+  try { const v = goalRateDeficit; results["deficit_target"] = Number.isFinite(v) ? v : 0; } catch { results["deficit_target"] = 0; }
+  try { const v = (results["tdee"] ?? 0) - deficit; results["target_calories"] = Number.isFinite(v) ? v : 0; } catch { results["target_calories"] = 0; }
+  try { const v = (deficit * 7) / 7700; results["weekly_weight_loss"] = Number.isFinite(v) ? v : 0; } catch { results["weekly_weight_loss"] = 0; }
+  try { const v = input.weight / ((input.height/100)**2); results["bmi"] = Number.isFinite(v) ? v : 0; } catch { results["bmi"] = 0; }
   return results;
 }
 

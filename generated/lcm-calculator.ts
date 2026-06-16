@@ -33,14 +33,14 @@ export const Lcm_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Lcm_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["annual_maintenance_frequency"] = 0;
-  try { results["annual_maintenance_labor_cost"] = (results["annual_maintenance_frequency"] ?? 0) * (2 * input.labor_rate); } catch { results["annual_maintenance_labor_cost"] = 0; }
-  try { results["annual_parts_cost"] = (results["annual_maintenance_frequency"] ?? 0) * input.parts_cost_per_incident; } catch { results["annual_parts_cost"] = 0; }
-  try { results["annual_energy_cost"] = input.annual_operating_hours * input.power_rating_kw * input.energy_cost_per_kwh; } catch { results["annual_energy_cost"] = 0; }
-  try { results["annual_downtime_cost"] = (results["annual_maintenance_frequency"] ?? 0) * 0.5 * input.downtime_cost_per_hour; } catch { results["annual_downtime_cost"] = 0; }
-  try { results["total_annual_maintenance_cost"] = (results["annual_maintenance_labor_cost"] ?? 0) + (results["annual_parts_cost"] ?? 0) + (results["annual_energy_cost"] ?? 0) + (results["annual_downtime_cost"] ?? 0); } catch { results["total_annual_maintenance_cost"] = 0; }
-  try { results["net_present_value_maintenance"] = (results["total_annual_maintenance_cost"] ?? 0) * ((1 - (1 + input.discount_rate/100)^(-input.expected_life_years)) / (input.discount_rate/100)); } catch { results["net_present_value_maintenance"] = 0; }
-  try { results["total_life_cycle_cost"] = input.acquisition_cost + (results["net_present_value_maintenance"] ?? 0); } catch { results["total_life_cycle_cost"] = 0; }
+  try { const v = (input.maintenance_strategy === 'preventive' ? 12 : (input.maintenance_strategy === 'predictive' ? 6 : (input.maintenance_strategy === 'reactive' ? 4 : 12))); results["annual_maintenance_frequency"] = Number.isFinite(v) ? v : 0; } catch { results["annual_maintenance_frequency"] = 0; }
+  try { const v = (results["annual_maintenance_frequency"] ?? 0) * (2 * input.labor_rate); results["annual_maintenance_labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_maintenance_labor_cost"] = 0; }
+  try { const v = (results["annual_maintenance_frequency"] ?? 0) * input.parts_cost_per_incident; results["annual_parts_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_parts_cost"] = 0; }
+  try { const v = input.annual_operating_hours * input.power_rating_kw * input.energy_cost_per_kwh; results["annual_energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_energy_cost"] = 0; }
+  try { const v = (results["annual_maintenance_frequency"] ?? 0) * 0.5 * input.downtime_cost_per_hour; results["annual_downtime_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_downtime_cost"] = 0; }
+  try { const v = (results["annual_maintenance_labor_cost"] ?? 0) + (results["annual_parts_cost"] ?? 0) + (results["annual_energy_cost"] ?? 0) + (results["annual_downtime_cost"] ?? 0); results["total_annual_maintenance_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_maintenance_cost"] = 0; }
+  try { const v = (results["total_annual_maintenance_cost"] ?? 0) * ((1 - (1 + input.discount_rate/100)^(-input.expected_life_years)) / (input.discount_rate/100)); results["net_present_value_maintenance"] = Number.isFinite(v) ? v : 0; } catch { results["net_present_value_maintenance"] = 0; }
+  try { const v = input.acquisition_cost + (results["net_present_value_maintenance"] ?? 0); results["total_life_cycle_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_life_cycle_cost"] = 0; }
   return results;
 }
 

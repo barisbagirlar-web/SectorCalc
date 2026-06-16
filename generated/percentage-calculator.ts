@@ -23,13 +23,13 @@ export const Percentage_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Percentage_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["effective_defects"] = ((input.include_scrap_in_defect) ? (input.defective_units + input.scrap_units) : (input.defective_units)); } catch { results["effective_defects"] = 0; }
-  try { results["defect_rate"] = ((results["effective_defects"] ?? 0) / input.total_units) * 100; } catch { results["defect_rate"] = 0; }
-  try { results["first_pass_yield"] = ((input.total_units - (results["effective_defects"] ?? 0) - input.rework_units) / input.total_units) * 100; } catch { results["first_pass_yield"] = 0; }
-  try { results["scrap_rate"] = (input.scrap_units / input.total_units) * 100; } catch { results["scrap_rate"] = 0; }
-  try { results["rework_rate"] = (input.rework_units / input.total_units) * 100; } catch { results["rework_rate"] = 0; }
-  try { results["yield_gap"] = input.target_yield - (results["first_pass_yield"] ?? 0); } catch { results["yield_gap"] = 0; }
-  try { results["overall_equipment_effectiveness_impact"] = (results["defect_rate"] ?? 0) + (results["rework_rate"] ?? 0) + (results["scrap_rate"] ?? 0); } catch { results["overall_equipment_effectiveness_impact"] = 0; }
+  try { const v = ((input.include_scrap_in_defect) ? (input.defective_units + input.scrap_units) : (input.defective_units)); results["effective_defects"] = Number.isFinite(v) ? v : 0; } catch { results["effective_defects"] = 0; }
+  try { const v = ((results["effective_defects"] ?? 0) / input.total_units) * 100; results["defect_rate"] = Number.isFinite(v) ? v : 0; } catch { results["defect_rate"] = 0; }
+  try { const v = ((input.total_units - (results["effective_defects"] ?? 0) - input.rework_units) / input.total_units) * 100; results["first_pass_yield"] = Number.isFinite(v) ? v : 0; } catch { results["first_pass_yield"] = 0; }
+  try { const v = (input.scrap_units / input.total_units) * 100; results["scrap_rate"] = Number.isFinite(v) ? v : 0; } catch { results["scrap_rate"] = 0; }
+  try { const v = (input.rework_units / input.total_units) * 100; results["rework_rate"] = Number.isFinite(v) ? v : 0; } catch { results["rework_rate"] = 0; }
+  try { const v = input.target_yield - (results["first_pass_yield"] ?? 0); results["yield_gap"] = Number.isFinite(v) ? v : 0; } catch { results["yield_gap"] = 0; }
+  try { const v = (results["defect_rate"] ?? 0) + (results["rework_rate"] ?? 0) + (results["scrap_rate"] ?? 0); results["overall_equipment_effectiveness_impact"] = Number.isFinite(v) ? v : 0; } catch { results["overall_equipment_effectiveness_impact"] = 0; }
   return results;
 }
 

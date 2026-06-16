@@ -27,13 +27,13 @@ export const Cash_flow_gap_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Cash_flow_gap_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["effective_dso"] = input.avg_days_receivable * (1 + (input.customer_payment_behavior == 'slow' ? 0.2 : input.customer_payment_behavior == 'fast' ? -0.1 : 0)); } catch { results["effective_dso"] = 0; }
-  results["effective_dpo"] = 0;
-  try { results["adjusted_inventory_days"] = input.inventory_days * (input.lean_inventory_flag ? 0.7 : 1.0) * (1 - (input.six_sigma_quality_level - 3.0) * 0.05); } catch { results["adjusted_inventory_days"] = 0; }
-  try { results["cash_gap_days"] = (results["effective_dso"] ?? 0) + (results["adjusted_inventory_days"] ?? 0) - (results["effective_dpo"] ?? 0); } catch { results["cash_gap_days"] = 0; }
-  try { results["cash_gap_value"] = (results["cash_gap_days"] ?? 0) * input.operating_expenses_daily; } catch { results["cash_gap_value"] = 0; }
-  try { results["revenue_adjustment_factor"] = 1 + (input.six_sigma_quality_level - 3.0) * 0.02; } catch { results["revenue_adjustment_factor"] = 0; }
-  try { results["data_confidence_score"] = Math.min(1.0, (input.six_sigma_quality_level / 6.0) * (input.lean_inventory_flag ? 1.1 : 1.0) * 0.9); } catch { results["data_confidence_score"] = 0; }
+  try { const v = input.avg_days_receivable * (1 + (input.customer_payment_behavior == 'slow' ? 0.2 : input.customer_payment_behavior == 'fast' ? -0.1 : 0)); results["effective_dso"] = Number.isFinite(v) ? v : 0; } catch { results["effective_dso"] = 0; }
+  try { const v = (input.payment_terms_suppliers === 'net15' ? 15 : (input.payment_terms_suppliers === 'net30' ? 30 : (input.payment_terms_suppliers === 'net45' ? 45 : (input.payment_terms_suppliers === 'net60' ? 60 : 30)))); results["effective_dpo"] = Number.isFinite(v) ? v : 0; } catch { results["effective_dpo"] = 0; }
+  try { const v = input.inventory_days * (input.lean_inventory_flag ? 0.7 : 1.0) * (1 - (input.six_sigma_quality_level - 3.0) * 0.05); results["adjusted_inventory_days"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_inventory_days"] = 0; }
+  try { const v = (results["effective_dso"] ?? 0) + (results["adjusted_inventory_days"] ?? 0) - (results["effective_dpo"] ?? 0); results["cash_gap_days"] = Number.isFinite(v) ? v : 0; } catch { results["cash_gap_days"] = 0; }
+  try { const v = (results["cash_gap_days"] ?? 0) * input.operating_expenses_daily; results["cash_gap_value"] = Number.isFinite(v) ? v : 0; } catch { results["cash_gap_value"] = 0; }
+  try { const v = 1 + (input.six_sigma_quality_level - 3.0) * 0.02; results["revenue_adjustment_factor"] = Number.isFinite(v) ? v : 0; } catch { results["revenue_adjustment_factor"] = 0; }
+  try { const v = Math.min(1.0, (input.six_sigma_quality_level / 6.0) * (input.lean_inventory_flag ? 1.1 : 1.0) * 0.9); results["data_confidence_score"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_score"] = 0; }
   return results;
 }
 

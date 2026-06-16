@@ -25,13 +25,13 @@ export const Sample_size_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Sample_size_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["zScore"] = 0;
-  results["designEffect"] = 0;
-  try { results["sampleSizeInfinite"] = Math.ceil(((results["zScore"] ?? 0)**2 * (input.expectedProportion/100) * (1 - input.expectedProportion/100)) / ((input.marginOfError/100)**2)); } catch { results["sampleSizeInfinite"] = 0; }
-  results["sampleSizeFinite"] = 0;
-  try { results["sampleSizeVariables"] = Math.ceil(((results["zScore"] ?? 0)**2 * input.standardDeviation**2) / input.effectSize**2); } catch { results["sampleSizeVariables"] = 0; }
-  try { results["finalSampleSize"] = Math.ceil(Math.max((results["sampleSizeFinite"] ?? 0), (results["sampleSizeVariables"] ?? 0)) * (results["designEffect"] ?? 0)); } catch { results["finalSampleSize"] = 0; }
-  try { results["dataConfidenceAdjusted"] = Math.min(input.confidenceLevel, 100 * (1 - (input.populationSize - (results["finalSampleSize"] ?? 0)) / input.populationSize)); } catch { results["dataConfidenceAdjusted"] = 0; }
+  try { const v = ((input.confidenceLevel == '90') ? (1.645) : (((input.confidenceLevel == '95') ? (1.96) : (2.576)))); results["zScore"] = Number.isFinite(v) ? v : 0; } catch { results["zScore"] = 0; }
+  try { const v = ((input.samplingMethod == 'simpleRandom') ? (1.0) : (((input.samplingMethod == 'stratified') ? (0.9) : (((input.samplingMethod == 'cluster') ? (1.5) : (1.2)))))); results["designEffect"] = Number.isFinite(v) ? v : 0; } catch { results["designEffect"] = 0; }
+  try { const v = Math.ceil(((results["zScore"] ?? 0)**2 * (input.expectedProportion/100) * (1 - input.expectedProportion/100)) / ((input.marginOfError/100)**2)); results["sampleSizeInfinite"] = Number.isFinite(v) ? v : 0; } catch { results["sampleSizeInfinite"] = 0; }
+  try { const v = ((input.useFiniteCorrection) ? (Math.ceil((results["sampleSizeInfinite"] ?? 0) / (1 + ((results["sampleSizeInfinite"] ?? 0) - 1) / input.populationSize))) : ((results["sampleSizeInfinite"] ?? 0))); results["sampleSizeFinite"] = Number.isFinite(v) ? v : 0; } catch { results["sampleSizeFinite"] = 0; }
+  try { const v = Math.ceil(((results["zScore"] ?? 0)**2 * input.standardDeviation**2) / input.effectSize**2); results["sampleSizeVariables"] = Number.isFinite(v) ? v : 0; } catch { results["sampleSizeVariables"] = 0; }
+  try { const v = Math.ceil(Math.max((results["sampleSizeFinite"] ?? 0), (results["sampleSizeVariables"] ?? 0)) * (results["designEffect"] ?? 0)); results["finalSampleSize"] = Number.isFinite(v) ? v : 0; } catch { results["finalSampleSize"] = 0; }
+  try { const v = Math.min(input.confidenceLevel, 100 * (1 - (input.populationSize - (results["finalSampleSize"] ?? 0)) / input.populationSize)); results["dataConfidenceAdjusted"] = Number.isFinite(v) ? v : 0; } catch { results["dataConfidenceAdjusted"] = 0; }
   return results;
 }
 

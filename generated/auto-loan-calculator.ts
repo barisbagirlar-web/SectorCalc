@@ -37,13 +37,13 @@ export const Auto_loan_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Auto_loan_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["loan_amount"] = input.vehicle_price - input.down_payment - input.trade_in_value; } catch { results["loan_amount"] = 0; }
-  try { results["monthly_interest_rate"] = (input.annual_interest_rate / 100) / 12; } catch { results["monthly_interest_rate"] = 0; }
-  try { results["estimated_monthly_payment"] = (results["loan_amount"] ?? 0) * ((results["monthly_interest_rate"] ?? 0) * (1 + (results["monthly_interest_rate"] ?? 0))^input.loan_term_months) / ((1 + (results["monthly_interest_rate"] ?? 0))^input.loan_term_months - 1); } catch { results["estimated_monthly_payment"] = 0; }
-  try { results["total_interest_paid"] = (results["estimated_monthly_payment"] ?? 0) * input.loan_term_months - (results["loan_amount"] ?? 0); } catch { results["total_interest_paid"] = 0; }
-  try { results["total_operating_cost_monthly"] = (results["estimated_monthly_payment"] ?? 0) + input.insurance_cost_monthly + input.fuel_cost_monthly + input.maintenance_cost_monthly + (input.registration_fee_annual / 12); } catch { results["total_operating_cost_monthly"] = 0; }
-  try { results["total_cost_of_ownership"] = (results["loan_amount"] ?? 0) + (results["total_interest_paid"] ?? 0) + ((results["total_operating_cost_monthly"] ?? 0) * 60) + (input.vehicle_price * (input.depreciation_rate_annual / 100) * 5) + (input.vehicle_price * (input.sales_tax_rate / 100)); } catch { results["total_cost_of_ownership"] = 0; }
-  try { results["debt_to_income_ratio"] = (input.existing_monthly_debt + (results["estimated_monthly_payment"] ?? 0)) / input.monthly_income * 100; } catch { results["debt_to_income_ratio"] = 0; }
+  try { const v = input.vehicle_price - input.down_payment - input.trade_in_value; results["loan_amount"] = Number.isFinite(v) ? v : 0; } catch { results["loan_amount"] = 0; }
+  try { const v = (input.annual_interest_rate / 100) / 12; results["monthly_interest_rate"] = Number.isFinite(v) ? v : 0; } catch { results["monthly_interest_rate"] = 0; }
+  try { const v = (results["loan_amount"] ?? 0) * ((results["monthly_interest_rate"] ?? 0) * (1 + (results["monthly_interest_rate"] ?? 0))^input.loan_term_months) / ((1 + (results["monthly_interest_rate"] ?? 0))^input.loan_term_months - 1); results["estimated_monthly_payment"] = Number.isFinite(v) ? v : 0; } catch { results["estimated_monthly_payment"] = 0; }
+  try { const v = (results["estimated_monthly_payment"] ?? 0) * input.loan_term_months - (results["loan_amount"] ?? 0); results["total_interest_paid"] = Number.isFinite(v) ? v : 0; } catch { results["total_interest_paid"] = 0; }
+  try { const v = (results["estimated_monthly_payment"] ?? 0) + input.insurance_cost_monthly + input.fuel_cost_monthly + input.maintenance_cost_monthly + (input.registration_fee_annual / 12); results["total_operating_cost_monthly"] = Number.isFinite(v) ? v : 0; } catch { results["total_operating_cost_monthly"] = 0; }
+  try { const v = (results["loan_amount"] ?? 0) + (results["total_interest_paid"] ?? 0) + ((results["total_operating_cost_monthly"] ?? 0) * 60) + (input.vehicle_price * (input.depreciation_rate_annual / 100) * 5) + (input.vehicle_price * (input.sales_tax_rate / 100)); results["total_cost_of_ownership"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_of_ownership"] = 0; }
+  try { const v = (input.existing_monthly_debt + (results["estimated_monthly_payment"] ?? 0)) / input.monthly_income * 100; results["debt_to_income_ratio"] = Number.isFinite(v) ? v : 0; } catch { results["debt_to_income_ratio"] = 0; }
   return results;
 }
 

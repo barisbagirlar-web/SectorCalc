@@ -21,20 +21,20 @@ export const Sewing_line_balancerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Sewing_line_balancerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["theoretical_min_operators"] = Math.ceil(input.total_work_content / input.takt_time); } catch { results["theoretical_min_operators"] = 0; }
-  try { results["balance_efficiency"] = (input.total_work_content / (input.number_of_operators * input.bottleneck_time)) * 100; } catch { results["balance_efficiency"] = 0; }
-  try { results["idle_time_per_cycle"] = (input.number_of_operators * input.bottleneck_time) - input.total_work_content; } catch { results["idle_time_per_cycle"] = 0; }
-  try { results["line_capacity"] = 3600 / input.bottleneck_time; } catch { results["line_capacity"] = 0; }
-  try { results["demand_fulfillment_rate"] = Math.min(1, input.takt_time / input.bottleneck_time) * 100; } catch { results["demand_fulfillment_rate"] = 0; }
-  try { results["labor_productivity"] = input.total_work_content / (input.number_of_operators * 3600); } catch { results["labor_productivity"] = 0; }
-  try { results["primary_result"] = (results["balance_efficiency"] ?? 0) * ((results["demand_fulfillment_rate"] ?? 0) / 100) * (1 - ((results["idle_time_per_cycle"] ?? 0) / (input.number_of_operators * input.bottleneck_time))); } catch { results["primary_result"] = 0; }
+  try { const v = Math.ceil(input.total_work_content / input.takt_time); results["theoretical_min_operators"] = Number.isFinite(v) ? v : 0; } catch { results["theoretical_min_operators"] = 0; }
+  try { const v = (input.total_work_content / (input.number_of_operators * input.bottleneck_time)) * 100; results["balance_efficiency"] = Number.isFinite(v) ? v : 0; } catch { results["balance_efficiency"] = 0; }
+  try { const v = (input.number_of_operators * input.bottleneck_time) - input.total_work_content; results["idle_time_per_cycle"] = Number.isFinite(v) ? v : 0; } catch { results["idle_time_per_cycle"] = 0; }
+  try { const v = 3600 / input.bottleneck_time; results["line_capacity"] = Number.isFinite(v) ? v : 0; } catch { results["line_capacity"] = 0; }
+  try { const v = Math.min(1, input.takt_time / input.bottleneck_time) * 100; results["demand_fulfillment_rate"] = Number.isFinite(v) ? v : 0; } catch { results["demand_fulfillment_rate"] = 0; }
+  try { const v = input.total_work_content / (input.number_of_operators * 3600); results["labor_productivity"] = Number.isFinite(v) ? v : 0; } catch { results["labor_productivity"] = 0; }
+  try { const v = (results["balance_efficiency"] ?? 0) * ((results["demand_fulfillment_rate"] ?? 0) / 100) * (1 - ((results["idle_time_per_cycle"] ?? 0) / (input.number_of_operators * input.bottleneck_time))); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 
 
 export function calculateSewing_line_balancer(input: Sewing_line_balancerInput): Sewing_line_balancerOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["overall_line_balance_score"] ?? 0;
+  const totalWasteCost = values["overall_line_balance_score"] ?? values["primary_result"] ?? 0;
   const breakdown = {
     theoretical_min_operators: values["theoretical_min_operators"] ?? 0,
     balance_efficiency: values["balance_efficiency"] ?? 0,

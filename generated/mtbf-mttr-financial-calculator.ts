@@ -29,14 +29,14 @@ export const Mtbf_mttr_financial_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Mtbf_mttr_financial_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["failure_rate"] = λ = 1 / MTBF; } catch { results["failure_rate"] = 0; }
-  try { results["annual_failures_per_unit"] = input.operating_hours_per_year / MTBF; } catch { results["annual_failures_per_unit"] = 0; }
-  try { results["total_annual_failures"] = F_unit * input.number_of_units; } catch { results["total_annual_failures"] = 0; }
-  try { results["annual_downtime_hours"] = F_total * MTTR; } catch { results["annual_downtime_hours"] = 0; }
-  try { results["availability"] = MTBF / (MTBF + MTTR) * 100; } catch { results["availability"] = 0; }
-  try { results["total_downtime_cost"] = Downtime_hours * (input.cost_per_downtime_hour + input.maintenance_labor_rate); } catch { results["total_downtime_cost"] = 0; }
-  try { results["total_failure_cost"] = Downtime_cost + (F_total * input.cost_per_failure_event) + (F_total * MTTR * input.maintenance_labor_rate); } catch { results["total_failure_cost"] = 0; }
-  try { results["net_financial_impact"] = Failure_cost + input.reliability_improvement_investment; } catch { results["net_financial_impact"] = 0; }
+  try { const v = λ = 1 / MTBF; results["failure_rate"] = Number.isFinite(v) ? v : 0; } catch { results["failure_rate"] = 0; }
+  try { const v = input.operating_hours_per_year / MTBF; results["annual_failures_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["annual_failures_per_unit"] = 0; }
+  try { const v = F_unit * input.number_of_units; results["total_annual_failures"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_failures"] = 0; }
+  try { const v = F_total * MTTR; results["annual_downtime_hours"] = Number.isFinite(v) ? v : 0; } catch { results["annual_downtime_hours"] = 0; }
+  try { const v = MTBF / (MTBF + MTTR) * 100; results["availability"] = Number.isFinite(v) ? v : 0; } catch { results["availability"] = 0; }
+  try { const v = Downtime_hours * (input.cost_per_downtime_hour + input.maintenance_labor_rate); results["total_downtime_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_downtime_cost"] = 0; }
+  try { const v = Downtime_cost + (F_total * input.cost_per_failure_event) + (F_total * MTTR * input.maintenance_labor_rate); results["total_failure_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_failure_cost"] = 0; }
+  try { const v = Failure_cost + input.reliability_improvement_investment; results["net_financial_impact"] = Number.isFinite(v) ? v : 0; } catch { results["net_financial_impact"] = 0; }
   return results;
 }
 

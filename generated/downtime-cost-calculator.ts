@@ -27,13 +27,13 @@ export const Downtime_cost_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Downtime_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["lost_production_units"] = input.planned_production_rate * input.downtime_duration; } catch { results["lost_production_units"] = 0; }
-  try { results["lost_revenue"] = (results["lost_production_units"] ?? 0) * input.revenue_per_unit; } catch { results["lost_revenue"] = 0; }
-  results["labor_cost"] = 0;
-  try { results["energy_cost"] = input.energy_cost_per_hour * input.downtime_duration; } catch { results["energy_cost"] = 0; }
+  try { const v = input.planned_production_rate * input.downtime_duration; results["lost_production_units"] = Number.isFinite(v) ? v : 0; } catch { results["lost_production_units"] = 0; }
+  try { const v = (results["lost_production_units"] ?? 0) * input.revenue_per_unit; results["lost_revenue"] = Number.isFinite(v) ? v : 0; } catch { results["lost_revenue"] = 0; }
+  try { const v = input.direct_labor_cost_per_hour * input.downtime_duration * ((input.shift_type === 'night' ? 1.15 : (input.shift_type === 'weekend' ? 1.5 : 1.0))); results["labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost"] = 0; }
+  try { const v = input.energy_cost_per_hour * input.downtime_duration; results["energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["energy_cost"] = 0; }
   results["quality_loss_cost"] = 0;
-  try { results["recovery_cost"] = (results["lost_revenue"] ?? 0) * input.recovery_time_factor; } catch { results["recovery_cost"] = 0; }
-  try { results["total_downtime_cost"] = (results["lost_revenue"] ?? 0) + (results["labor_cost"] ?? 0) + (results["energy_cost"] ?? 0) + (results["quality_loss_cost"] ?? 0) + (results["recovery_cost"] ?? 0); } catch { results["total_downtime_cost"] = 0; }
+  try { const v = (results["lost_revenue"] ?? 0) * input.recovery_time_factor; results["recovery_cost"] = Number.isFinite(v) ? v : 0; } catch { results["recovery_cost"] = 0; }
+  try { const v = (results["lost_revenue"] ?? 0) + (results["labor_cost"] ?? 0) + (results["energy_cost"] ?? 0) + (results["quality_loss_cost"] ?? 0) + (results["recovery_cost"] ?? 0); results["total_downtime_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_downtime_cost"] = 0; }
   return results;
 }
 

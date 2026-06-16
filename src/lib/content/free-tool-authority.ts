@@ -9,7 +9,7 @@ export interface FreeToolAuthorityCopy {
   readonly estimateMisses: string;
 }
 
-const CATEGORY_FORMULA: Record<FreeTrafficCategory, string> = {
+const CATEGORY_FORMULA: Partial<Record<FreeTrafficCategory, string>> = {
   "construction-measurement":
     "Area, volume and material quantities are derived from your dimensions and standard conversion factors for the selected units.",
   "finance-business":
@@ -30,6 +30,24 @@ const CATEGORY_FORMULA: Record<FreeTrafficCategory, string> = {
     "Conversion results multiply or divide by fixed unit factors so you can compare metric and imperial measurements consistently.",
   "health-body":
     "Body metric estimates apply published ratio formulas to height, weight or activity inputs. They are not medical advice.",
+  "physics-science":
+    "Physics estimates apply standard mechanics, thermodynamics or wave equations to the values you enter.",
+  "chemistry-science":
+    "Chemistry results use molarity, stoichiometry or equilibrium formulas from your concentration and mass inputs.",
+  "engineering-science":
+    "Engineering checks combine load, material or electrical inputs using standard design ratio formulas.",
+  "food-cooking":
+    "Kitchen math scales recipes, portions or cooking times using ratio formulas from your ingredient inputs.",
+  "date-time":
+    "Date and time results derive intervals, ages or calendar offsets from the dates and durations you provide.",
+  "education-academic":
+    "Academic scores and grade metrics apply standard weighting or percentile formulas to your entered values.",
+  "ecology-environment":
+    "Environmental estimates multiply activity, consumption or area inputs by published emission or savings factors.",
+  "gaming-entertainment":
+    "Game and media helpers apply probability, rating or exposure formulas to the stats you enter.",
+  "hobbies-diy":
+    "Hobby calculators use spacing, dosage or sizing ratios for gardening, crafts and outdoor planning inputs.",
 };
 
 const DEFAULT_FORMULA =

@@ -54,26 +54,32 @@ export function mapDimensionToQuantityType(dimension: string): QuantityType | nu
   return map[dimension.toLowerCase()] ?? null;
 }
 
+/** Match snake_case / camelCase tokens without substring false positives (e.g. current ≠ rent). */
+function fieldKeyHasToken(fieldKey: string, token: string): boolean {
+  const re = new RegExp(`(^|[_-])${token}([_-]|$)`, "i");
+  return re.test(fieldKey.toLowerCase());
+}
+
+const CURRENCY_TOKENS = ["cost", "price", "budget", "rent", "fee", "loan", "payment"] as const;
+const PERCENT_TOKENS = ["percent", "margin", "rate"] as const;
+const TIME_TOKENS = ["hour", "time"] as const;
+const MASS_TOKENS = ["weight", "mass"] as const;
+const LENGTH_TOKENS = ["length", "width", "height", "depth", "diameter", "thickness"] as const;
+const AREA_TOKENS = ["area", "alan"] as const;
+const VOLUME_TOKENS = ["volume", "hacim"] as const;
+const ELECTRICAL_CURRENT_FIELD_RE = /\b(current|amperage|ampacity)\b/i;
+
 export function mapFieldKeyToQuantityType(fieldKey: string, dimension: string): QuantityType | null {
   const fromDimension = mapDimensionToQuantityType(dimension);
   if (fromDimension) return fromDimension;
-  const n = fieldKey.toLowerCase();
-  if (n.includes("cost") || n.includes("price") || n.includes("budget") || n.includes("rent") || n.includes("fee") || n.includes("loan") || n.includes("payment")) return "currency";
-  if (n.includes("percent") || n.includes("margin") || n.includes("rate")) return "percentage";
-  if (n.includes("hour") || n.includes("time")) return "time";
-  if (n.includes("weight") || n.includes("mass")) return "mass";
-  if (
-    n.includes("length") ||
-    n.includes("width") ||
-    n.includes("height") ||
-    n.includes("depth") ||
-    n.includes("diameter") ||
-    n.includes("thickness")
-  ) {
-    return "length";
-  }
-  if (n.includes("area") || n.includes("alan")) return "area";
-  if (n.includes("volume") || n.includes("hacim")) return "volume";
+  if (ELECTRICAL_CURRENT_FIELD_RE.test(fieldKey)) return null;
+  if (CURRENCY_TOKENS.some((token) => fieldKeyHasToken(fieldKey, token))) return "currency";
+  if (PERCENT_TOKENS.some((token) => fieldKeyHasToken(fieldKey, token))) return "percentage";
+  if (TIME_TOKENS.some((token) => fieldKeyHasToken(fieldKey, token))) return "time";
+  if (MASS_TOKENS.some((token) => fieldKeyHasToken(fieldKey, token))) return "mass";
+  if (LENGTH_TOKENS.some((token) => fieldKeyHasToken(fieldKey, token))) return "length";
+  if (AREA_TOKENS.some((token) => fieldKeyHasToken(fieldKey, token))) return "area";
+  if (VOLUME_TOKENS.some((token) => fieldKeyHasToken(fieldKey, token))) return "volume";
   return null;
 }
 

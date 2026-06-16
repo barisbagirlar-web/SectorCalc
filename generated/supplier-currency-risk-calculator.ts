@@ -25,12 +25,12 @@ export const Supplier_currency_risk_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Supplier_currency_risk_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["exposed_amount"] = input.contract_value * (input.foreign_exposure_pct / 100); } catch { results["exposed_amount"] = 0; }
-  try { results["unhedged_exposure"] = (results["exposed_amount"] ?? 0) * (1 - input.hedge_ratio / 100); } catch { results["unhedged_exposure"] = 0; }
-  results["var_factor"] = 0;
-  try { results["time_adjusted_volatility"] = input.volatility_annual / 100 * Math.sqrt(input.time_horizon_months / 12); } catch { results["time_adjusted_volatility"] = 0; }
-  try { results["var_unhedged"] = (results["unhedged_exposure"] ?? 0) * (results["var_factor"] ?? 0) * (results["time_adjusted_volatility"] ?? 0); } catch { results["var_unhedged"] = 0; }
-  results["credit_risk_premium"] = 0;
+  try { const v = input.contract_value * (input.foreign_exposure_pct / 100); results["exposed_amount"] = Number.isFinite(v) ? v : 0; } catch { results["exposed_amount"] = 0; }
+  try { const v = (results["exposed_amount"] ?? 0) * (1 - input.hedge_ratio / 100); results["unhedged_exposure"] = Number.isFinite(v) ? v : 0; } catch { results["unhedged_exposure"] = 0; }
+  try { const v = (input.confidence_level === '90' ? 1.282 : (input.confidence_level === '95' ? 1.645 : (input.confidence_level === '99' ? 2.326 : 1.645))); results["var_factor"] = Number.isFinite(v) ? v : 0; } catch { results["var_factor"] = 0; }
+  try { const v = input.volatility_annual / 100 * Math.sqrt(input.time_horizon_months / 12); results["time_adjusted_volatility"] = Number.isFinite(v) ? v : 0; } catch { results["time_adjusted_volatility"] = 0; }
+  try { const v = (results["unhedged_exposure"] ?? 0) * (results["var_factor"] ?? 0) * (results["time_adjusted_volatility"] ?? 0); results["var_unhedged"] = Number.isFinite(v) ? v : 0; } catch { results["var_unhedged"] = 0; }
+  try { const v = (input.supplier_credit_rating === 'AAA' ? 0.001 : (input.supplier_credit_rating === 'AA' ? 0.003 : (input.supplier_credit_rating === 'A' ? 0.005 : (input.supplier_credit_rating === 'BBB' ? 0.01 : (input.supplier_credit_rating === 'BB' ? 0.02 : (input.supplier_credit_rating === 'B' ? 0.04 : (input.supplier_credit_rating === 'CCC' ? 0.08 : 0.01))))))); results["credit_risk_premium"] = Number.isFinite(v) ? v : 0; } catch { results["credit_risk_premium"] = 0; }
   results["primary_result"] = 0;
   return results;
 }

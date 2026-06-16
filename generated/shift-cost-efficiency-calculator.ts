@@ -33,13 +33,13 @@ export const Shift_cost_efficiency_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Shift_cost_efficiency_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["total_labor_cost"] = input.labor_cost_per_hour * input.number_of_operators * input.shift_duration_hours * (1 + (input.overtime_applied ? 0.5 : 0)); } catch { results["total_labor_cost"] = 0; }
-  try { results["total_material_cost"] = input.material_cost_per_unit * input.total_units_produced; } catch { results["total_material_cost"] = 0; }
-  try { results["total_energy_cost"] = input.energy_cost_per_shift * (input.shift_type == 'night' ? 1.15 : (input.shift_type == 'weekend' ? 1.25 : 1.0)); } catch { results["total_energy_cost"] = 0; }
-  try { results["total_downtime_cost"] = (input.planned_downtime_minutes + input.unplanned_downtime_minutes) / 60 * input.labor_cost_per_hour * input.number_of_operators * 0.8; } catch { results["total_downtime_cost"] = 0; }
-  try { results["quality_cost"] = (input.defective_units + input.rework_units) * input.material_cost_per_unit * 1.2; } catch { results["quality_cost"] = 0; }
-  try { results["total_shift_cost"] = (results["total_labor_cost"] ?? 0) + (results["total_material_cost"] ?? 0) + (results["total_energy_cost"] ?? 0) + (results["total_downtime_cost"] ?? 0) + (results["quality_cost"] ?? 0); } catch { results["total_shift_cost"] = 0; }
-  try { results["shift_cost_efficiency"] = (input.total_units_produced - input.defective_units) * input.material_cost_per_unit / (results["total_shift_cost"] ?? 0); } catch { results["shift_cost_efficiency"] = 0; }
+  try { const v = input.labor_cost_per_hour * input.number_of_operators * input.shift_duration_hours * (1 + (input.overtime_applied ? 0.5 : 0)); results["total_labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_labor_cost"] = 0; }
+  try { const v = input.material_cost_per_unit * input.total_units_produced; results["total_material_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_material_cost"] = 0; }
+  try { const v = input.energy_cost_per_shift * (input.shift_type == 'night' ? 1.15 : (input.shift_type == 'weekend' ? 1.25 : 1.0)); results["total_energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_energy_cost"] = 0; }
+  try { const v = (input.planned_downtime_minutes + input.unplanned_downtime_minutes) / 60 * input.labor_cost_per_hour * input.number_of_operators * 0.8; results["total_downtime_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_downtime_cost"] = 0; }
+  try { const v = (input.defective_units + input.rework_units) * input.material_cost_per_unit * 1.2; results["quality_cost"] = Number.isFinite(v) ? v : 0; } catch { results["quality_cost"] = 0; }
+  try { const v = (results["total_labor_cost"] ?? 0) + (results["total_material_cost"] ?? 0) + (results["total_energy_cost"] ?? 0) + (results["total_downtime_cost"] ?? 0) + (results["quality_cost"] ?? 0); results["total_shift_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_shift_cost"] = 0; }
+  try { const v = (input.total_units_produced - input.defective_units) * input.material_cost_per_unit / (results["total_shift_cost"] ?? 0); results["shift_cost_efficiency"] = Number.isFinite(v) ? v : 0; } catch { results["shift_cost_efficiency"] = 0; }
   return results;
 }
 

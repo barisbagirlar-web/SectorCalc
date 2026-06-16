@@ -24,10 +24,10 @@ function evaluateAllFormulas(input: Vector_addition_calculatorInput): Record<str
   results["vector1_components"] = 0;
   results["vector2_components"] = 0;
   results["resultant_components"] = 0;
-  try { results["resultant_magnitude"] = Math.sqrt(rx**2 + ry**2); } catch { results["resultant_magnitude"] = 0; }
+  try { const v = Math.sqrt(rx**2 + ry**2); results["resultant_magnitude"] = Number.isFinite(v) ? v : 0; } catch { results["resultant_magnitude"] = 0; }
   results["resultant_angle"] = 0;
   results["unit_conversion"] = 0;
-  try { results["data_confidence_adjustment"] = (results["resultant_magnitude"] ?? 0) * (input.confidence_level / 100); } catch { results["data_confidence_adjustment"] = 0; }
+  try { const v = (results["resultant_magnitude"] ?? 0) * (input.confidence_level / 100); results["data_confidence_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_adjustment"] = 0; }
   return results;
 }
 

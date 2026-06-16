@@ -33,13 +33,13 @@ export const Recipe_cost_checkInputSchema = z.object({
 
 function evaluateAllFormulas(input: Recipe_cost_checkInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["material_cost_total"] = input.material_cost_per_kg * input.batch_size_kg; } catch { results["material_cost_total"] = 0; }
-  try { results["labor_cost_total"] = input.labor_rate_per_hour * (input.processing_time_minutes / 60); } catch { results["labor_cost_total"] = 0; }
-  try { results["energy_cost_total"] = input.energy_cost_per_kwh * input.energy_consumption_kwh; } catch { results["energy_cost_total"] = 0; }
-  try { results["waste_cost_total"] = input.waste_disposal_cost_per_kg * (input.batch_size_kg * (1 - input.recipe_yield_percent / 100)); } catch { results["waste_cost_total"] = 0; }
-  try { results["rework_cost_total"] = ((results["material_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0)) * (input.quality_rework_rate / 100); } catch { results["rework_cost_total"] = 0; }
-  try { results["overhead_cost_total"] = ((results["material_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0) + (results["energy_cost_total"] ?? 0)) * (input.overhead_rate_percent / 100); } catch { results["overhead_cost_total"] = 0; }
-  try { results["total_cost_per_kg"] = ((results["material_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0) + (results["energy_cost_total"] ?? 0) + (results["waste_cost_total"] ?? 0) + (results["rework_cost_total"] ?? 0) + (results["overhead_cost_total"] ?? 0)) / (input.batch_size_kg * (input.recipe_yield_percent / 100)); } catch { results["total_cost_per_kg"] = 0; }
+  try { const v = input.material_cost_per_kg * input.batch_size_kg; results["material_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["material_cost_total"] = 0; }
+  try { const v = input.labor_rate_per_hour * (input.processing_time_minutes / 60); results["labor_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost_total"] = 0; }
+  try { const v = input.energy_cost_per_kwh * input.energy_consumption_kwh; results["energy_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["energy_cost_total"] = 0; }
+  try { const v = input.waste_disposal_cost_per_kg * (input.batch_size_kg * (1 - input.recipe_yield_percent / 100)); results["waste_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["waste_cost_total"] = 0; }
+  try { const v = ((results["material_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0)) * (input.quality_rework_rate / 100); results["rework_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["rework_cost_total"] = 0; }
+  try { const v = ((results["material_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0) + (results["energy_cost_total"] ?? 0)) * (input.overhead_rate_percent / 100); results["overhead_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost_total"] = 0; }
+  try { const v = ((results["material_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0) + (results["energy_cost_total"] ?? 0) + (results["waste_cost_total"] ?? 0) + (results["rework_cost_total"] ?? 0) + (results["overhead_cost_total"] ?? 0)) / (input.batch_size_kg * (input.recipe_yield_percent / 100)); results["total_cost_per_kg"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_per_kg"] = 0; }
   return results;
 }
 

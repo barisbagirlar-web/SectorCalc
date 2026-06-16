@@ -27,13 +27,13 @@ export const Aql_sampling_risk_costInputSchema = z.object({
 
 function evaluateAllFormulas(input: Aql_sampling_risk_costInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["sample_size"] = 0;
-  results["accept_number"] = 0;
+  try { const v = f(input.lot_size, input.inspection_level, input.sampling_plan_type); results["sample_size"] = Number.isFinite(v) ? v : 0; } catch { results["sample_size"] = 0; }
+  try { const v = g(n, input.aql_percent); results["accept_number"] = Number.isFinite(v) ? v : 0; } catch { results["accept_number"] = 0; }
   results["probability_acceptance"] = 0;
-  try { results["producer_risk"] = α = 1 - Pa(p = AQL); } catch { results["producer_risk"] = 0; }
+  try { const v = α = 1 - Pa(p = AQL); results["producer_risk"] = Number.isFinite(v) ? v : 0; } catch { results["producer_risk"] = 0; }
   results["consumer_risk"] = 0;
-  try { results["expected_defect_cost"] = (1 - Pa) * input.lot_size * input.defect_rate_actual * input.defect_cost_per_unit + Pa * input.lot_size * input.defect_rate_actual * input.defect_cost_per_unit * (1 - inspection_effectiveness); } catch { results["expected_defect_cost"] = 0; }
-  try { results["total_risk_cost"] = ((results["sample_size"] ?? 0) * input.inspection_cost_per_unit) + ExpectedDefectCost + ((results["producer_risk"] ?? 0) * input.lot_size * input.unit_cost * 0.1) + ((results["consumer_risk"] ?? 0) * input.lot_size * input.defect_cost_per_unit * 0.2); } catch { results["total_risk_cost"] = 0; }
+  try { const v = (1 - Pa) * input.lot_size * input.defect_rate_actual * input.defect_cost_per_unit + Pa * input.lot_size * input.defect_rate_actual * input.defect_cost_per_unit * (1 - inspection_effectiveness); results["expected_defect_cost"] = Number.isFinite(v) ? v : 0; } catch { results["expected_defect_cost"] = 0; }
+  try { const v = ((results["sample_size"] ?? 0) * input.inspection_cost_per_unit) + ExpectedDefectCost + ((results["producer_risk"] ?? 0) * input.lot_size * input.unit_cost * 0.1) + ((results["consumer_risk"] ?? 0) * input.lot_size * input.defect_cost_per_unit * 0.2); results["total_risk_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_risk_cost"] = 0; }
   return results;
 }
 

@@ -27,13 +27,13 @@ export const Cloud_waste_eliminationInputSchema = z.object({
 
 function evaluateAllFormulas(input: Cloud_waste_eliminationInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["compute_waste_cost"] = input.total_cloud_spend * (1 - input.compute_utilization_rate / 100) * 0.6; } catch { results["compute_waste_cost"] = 0; }
-  try { results["storage_waste_cost"] = input.total_cloud_spend * (input.storage_waste_percentage / 100) * 0.15; } catch { results["storage_waste_cost"] = 0; }
-  try { results["idle_resource_cost"] = input.idle_resource_count * 150; } catch { results["idle_resource_cost"] = 0; }
-  try { results["network_waste_cost"] = input.include_network_waste ? (input.data_transfer_out_gb * 0.08) : 0; } catch { results["network_waste_cost"] = 0; }
-  try { results["rightsizing_savings_potential"] = input.total_cloud_spend * (input.rightsizing_opportunity_score / 100) * 0.25; } catch { results["rightsizing_savings_potential"] = 0; }
-  try { results["reserved_instance_savings_gap"] = input.total_cloud_spend * (0.6 - input.reserved_instance_coverage / 100) * 0.3; } catch { results["reserved_instance_savings_gap"] = 0; }
-  try { results["total_waste_cost"] = (results["compute_waste_cost"] ?? 0) + (results["storage_waste_cost"] ?? 0) + (results["idle_resource_cost"] ?? 0) + (results["network_waste_cost"] ?? 0); } catch { results["total_waste_cost"] = 0; }
+  try { const v = input.total_cloud_spend * (1 - input.compute_utilization_rate / 100) * 0.6; results["compute_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["compute_waste_cost"] = 0; }
+  try { const v = input.total_cloud_spend * (input.storage_waste_percentage / 100) * 0.15; results["storage_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["storage_waste_cost"] = 0; }
+  try { const v = input.idle_resource_count * 150; results["idle_resource_cost"] = Number.isFinite(v) ? v : 0; } catch { results["idle_resource_cost"] = 0; }
+  try { const v = input.include_network_waste ? (input.data_transfer_out_gb * 0.08) : 0; results["network_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["network_waste_cost"] = 0; }
+  try { const v = input.total_cloud_spend * (input.rightsizing_opportunity_score / 100) * 0.25; results["rightsizing_savings_potential"] = Number.isFinite(v) ? v : 0; } catch { results["rightsizing_savings_potential"] = 0; }
+  try { const v = input.total_cloud_spend * (0.6 - input.reserved_instance_coverage / 100) * 0.3; results["reserved_instance_savings_gap"] = Number.isFinite(v) ? v : 0; } catch { results["reserved_instance_savings_gap"] = 0; }
+  try { const v = (results["compute_waste_cost"] ?? 0) + (results["storage_waste_cost"] ?? 0) + (results["idle_resource_cost"] ?? 0) + (results["network_waste_cost"] ?? 0); results["total_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_waste_cost"] = 0; }
   return results;
 }
 

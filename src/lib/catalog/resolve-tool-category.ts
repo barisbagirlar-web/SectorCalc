@@ -82,7 +82,7 @@ const INDUSTRY_SLUG_TO_GLOBAL: Partial<Record<IndustrySlug, GlobalToolCategorySl
 };
 
 const FREE_TRAFFIC_CATEGORY_TO_GLOBAL: Readonly<
-  Record<FreeTrafficCategory, GlobalToolCategorySlug>
+  Partial<Record<FreeTrafficCategory, GlobalToolCategorySlug>>
 > = {
   "construction-measurement": "project-construction-management",
   "finance-business": "finance-sales-working-capital",
@@ -94,6 +94,15 @@ const FREE_TRAFFIC_CATEGORY_TO_GLOBAL: Readonly<
   "math-statistics": "technology-ai-cloud-cyber",
   conversion: "technology-ai-cloud-cyber",
   "health-body": "hse-ergonomics",
+  "physics-science": "technology-ai-cloud-cyber",
+  "chemistry-science": "process-chemical",
+  "engineering-science": "cnc-additive-manufacturing",
+  "food-cooking": "food-cold-chain-hygiene",
+  "date-time": "technology-ai-cloud-cyber",
+  "education-academic": "technology-ai-cloud-cyber",
+  "ecology-environment": "sustainability-resource-esg",
+  "gaming-entertainment": "packaging-local-business",
+  "hobbies-diy": "packaging-local-business",
 };
 
 const PREMIUM_SCHEMA_CATEGORY_TO_GLOBAL: Readonly<Record<string, GlobalToolCategorySlug>> = {
@@ -171,7 +180,10 @@ export function resolveToolCategory(input: ToolCategoryResolutionInput): GlobalT
   }
 
   if (input.freeTrafficCategory) {
-    return FREE_TRAFFIC_CATEGORY_TO_GLOBAL[input.freeTrafficCategory];
+    return (
+      FREE_TRAFFIC_CATEGORY_TO_GLOBAL[input.freeTrafficCategory] ??
+      "finance-sales-working-capital"
+    );
   }
 
   if (input.premiumSchemaCategory && PREMIUM_SCHEMA_CATEGORY_TO_GLOBAL[input.premiumSchemaCategory]) {

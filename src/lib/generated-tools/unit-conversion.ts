@@ -10,7 +10,20 @@ import {
 import { convertUnits } from "@/lib/units/unit-conversions";
 import { lookupCanonicalUnit } from "@/lib/units/unit-definitions";
 
-const NON_CONVERTIBLE_UNITS = new Set(["%", "units", "count", "ea", "each", "qty"]);
+const NON_CONVERTIBLE_UNITS = new Set([
+  "%",
+  "units",
+  "count",
+  "ea",
+  "each",
+  "qty",
+  "dimensionless",
+  "A",
+  "V",
+  "Ω",
+  "W",
+  "kW",
+]);
 
 const DIMENSION_TO_UNIT_GROUP: Partial<Record<string, UnitGroup>> = {
   length: "length",

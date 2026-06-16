@@ -33,13 +33,13 @@ export const Warehouse_layout_optimizerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Warehouse_layout_optimizerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["storage_area"] = input.total_floor_area * (input.storage_area_percent / 100); } catch { results["storage_area"] = 0; }
-  try { results["pallet_positions"] = (results["storage_area"] ?? 0) / (input.avg_pallet_size * (1 + (input.aisle_width / 10) * 0.15)); } catch { results["pallet_positions"] = 0; }
-  try { results["effective_capacity"] = (results["pallet_positions"] ?? 0) * (input.storage_utilization / 100); } catch { results["effective_capacity"] = 0; }
-  try { results["daily_throughput"] = input.order_lines_per_day * 0.6; } catch { results["daily_throughput"] = 0; }
-  results["travel_distance_factor"] = 0;
-  try { results["labor_cost_per_pallet"] = (input.labor_cost_per_hour + input.equipment_cost_per_hour) * ((results["travel_distance_factor"] ?? 0) * 0.02); } catch { results["labor_cost_per_pallet"] = 0; }
-  try { results["annual_operating_cost"] = (results["daily_throughput"] ?? 0) * (results["labor_cost_per_pallet"] ?? 0) * 365; } catch { results["annual_operating_cost"] = 0; }
+  try { const v = input.total_floor_area * (input.storage_area_percent / 100); results["storage_area"] = Number.isFinite(v) ? v : 0; } catch { results["storage_area"] = 0; }
+  try { const v = (results["storage_area"] ?? 0) / (input.avg_pallet_size * (1 + (input.aisle_width / 10) * 0.15)); results["pallet_positions"] = Number.isFinite(v) ? v : 0; } catch { results["pallet_positions"] = 0; }
+  try { const v = (results["pallet_positions"] ?? 0) * (input.storage_utilization / 100); results["effective_capacity"] = Number.isFinite(v) ? v : 0; } catch { results["effective_capacity"] = 0; }
+  try { const v = input.order_lines_per_day * 0.6; results["daily_throughput"] = Number.isFinite(v) ? v : 0; } catch { results["daily_throughput"] = 0; }
+  try { const v = (input.layout_type === 'conventional' ? 1.0 : (input.layout_type === 'narrow_aisle' ? 0.85 : (input.layout_type === 'very_narrow_aisle' ? 0.7 : (input.layout_type === 'automated' ? 0.5 : 1.0)))); results["travel_distance_factor"] = Number.isFinite(v) ? v : 0; } catch { results["travel_distance_factor"] = 0; }
+  try { const v = (input.labor_cost_per_hour + input.equipment_cost_per_hour) * ((results["travel_distance_factor"] ?? 0) * 0.02); results["labor_cost_per_pallet"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost_per_pallet"] = 0; }
+  try { const v = (results["daily_throughput"] ?? 0) * (results["labor_cost_per_pallet"] ?? 0) * 365; results["annual_operating_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_operating_cost"] = 0; }
   return results;
 }
 

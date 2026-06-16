@@ -33,11 +33,11 @@ function evaluateAllFormulas(input: Taguchi_quality_loss_functionInput): Record<
   const results: Record<string, number> = {};
   results["loss_coefficient_k"] = 0;
   results["mean_squared_deviation_msd"] = 0;
-  try { results["loss_per_unit_lpu"] = k * MSD; } catch { results["loss_per_unit_lpu"] = 0; }
-  try { results["total_loss_basic"] = L * N; } catch { results["total_loss_basic"] = 0; }
-  try { results["hidden_factory_loss"] = (1 - input.inspection_rate/100) * TotalBasicLoss * 0.15 + (Cpk < 1.33 ? TotalBasicLoss * 0.10 : 0); } catch { results["hidden_factory_loss"] = 0; }
+  try { const v = k * MSD; results["loss_per_unit_lpu"] = Number.isFinite(v) ? v : 0; } catch { results["loss_per_unit_lpu"] = 0; }
+  try { const v = L * N; results["total_loss_basic"] = Number.isFinite(v) ? v : 0; } catch { results["total_loss_basic"] = 0; }
+  try { const v = (1 - input.inspection_rate/100) * TotalBasicLoss * 0.15 + (Cpk < 1.33 ? TotalBasicLoss * 0.10 : 0); results["hidden_factory_loss"] = Number.isFinite(v) ? v : 0; } catch { results["hidden_factory_loss"] = 0; }
   results["process_capability_cpk"] = 0;
-  try { results["total_loss_adjusted"] = TotalBasicLoss + (input.include_hidden_factory ? HiddenLoss : 0); } catch { results["total_loss_adjusted"] = 0; }
+  try { const v = TotalBasicLoss + (input.include_hidden_factory ? HiddenLoss : 0); results["total_loss_adjusted"] = Number.isFinite(v) ? v : 0; } catch { results["total_loss_adjusted"] = 0; }
   return results;
 }
 

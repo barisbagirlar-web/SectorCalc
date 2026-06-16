@@ -21,13 +21,13 @@ export const Currency_risk_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Currency_risk_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["daily_volatility"] = input.volatility_annual / 100 / Math.sqrt(252); } catch { results["daily_volatility"] = 0; }
+  try { const v = input.volatility_annual / 100 / Math.sqrt(252); results["daily_volatility"] = Number.isFinite(v) ? v : 0; } catch { results["daily_volatility"] = 0; }
   results["z_score"] = 0;
-  try { results["lean_adjustment_factor"] = input.enable_lean_adjustment ? 1.0 + (0.1 * (1 - input.hedge_ratio/100)) : 1.0; } catch { results["lean_adjustment_factor"] = 0; }
-  try { results["value_at_risk"] = input.exposure_amount * (1 - Math.exp(-(results["z_score"] ?? 0) * (results["daily_volatility"] ?? 0) * Math.sqrt(input.time_horizon_days) * (results["lean_adjustment_factor"] ?? 0))); } catch { results["value_at_risk"] = 0; }
-  try { results["expected_shortfall"] = (results["value_at_risk"] ?? 0) * (1 + 0.2 * (1 - input.hedge_ratio/100)); } catch { results["expected_shortfall"] = 0; }
-  try { results["hedge_effectiveness"] = input.hedge_ratio / 100 * (1 - (results["daily_volatility"] ?? 0) * 0.5); } catch { results["hedge_effectiveness"] = 0; }
-  try { results["primaryResult"] = 0.6 * (results["value_at_risk"] ?? 0) + 0.4 * (results["expected_shortfall"] ?? 0); } catch { results["primaryResult"] = 0; }
+  try { const v = input.enable_lean_adjustment ? 1.0 + (0.1 * (1 - input.hedge_ratio/100)) : 1.0; results["lean_adjustment_factor"] = Number.isFinite(v) ? v : 0; } catch { results["lean_adjustment_factor"] = 0; }
+  try { const v = input.exposure_amount * (1 - Math.exp(-(results["z_score"] ?? 0) * (results["daily_volatility"] ?? 0) * Math.sqrt(input.time_horizon_days) * (results["lean_adjustment_factor"] ?? 0))); results["value_at_risk"] = Number.isFinite(v) ? v : 0; } catch { results["value_at_risk"] = 0; }
+  try { const v = (results["value_at_risk"] ?? 0) * (1 + 0.2 * (1 - input.hedge_ratio/100)); results["expected_shortfall"] = Number.isFinite(v) ? v : 0; } catch { results["expected_shortfall"] = 0; }
+  try { const v = input.hedge_ratio / 100 * (1 - (results["daily_volatility"] ?? 0) * 0.5); results["hedge_effectiveness"] = Number.isFinite(v) ? v : 0; } catch { results["hedge_effectiveness"] = 0; }
+  try { const v = 0.6 * (results["value_at_risk"] ?? 0) + 0.4 * (results["expected_shortfall"] ?? 0); results["primaryResult"] = Number.isFinite(v) ? v : 0; } catch { results["primaryResult"] = 0; }
   return results;
 }
 

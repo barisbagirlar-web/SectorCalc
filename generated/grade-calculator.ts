@@ -29,12 +29,12 @@ export const Grade_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Grade_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["quality_score"] = Math.max(0, 100 - (input.defect_rate / 1000)); } catch { results["quality_score"] = 0; }
-  results["oee"] = 0;
-  try { results["cost_efficiency"] = Math.min(100, (input.target_cost_per_unit / input.cost_per_unit) * 100); } catch { results["cost_efficiency"] = 0; }
-  try { results["safety_score"] = Math.max(0, 100 - (input.safety_incidents * 10) - (input.shift_type == 'night' ? 5 : 0)); } catch { results["safety_score"] = 0; }
-  try { results["delivery_score"] = input.on_time_delivery_pct; } catch { results["delivery_score"] = 0; }
-  try { results["weighted_grade"] = ((results["quality_score"] ?? 0) * 0.2) + ((results["oee"] ?? 0) * 0.2) + ((results["cost_efficiency"] ?? 0) * 0.2) + ((results["safety_score"] ?? 0) * 0.2) + ((results["delivery_score"] ?? 0) * 0.2); } catch { results["weighted_grade"] = 0; }
+  try { const v = Math.max(0, 100 - (input.defect_rate / 1000)); results["quality_score"] = Number.isFinite(v) ? v : 0; } catch { results["quality_score"] = 0; }
+  try { const v = ((input.oee_override) ? (input.manual_oee) : ((input.throughput / input.planned_throughput) * 100)); results["oee"] = Number.isFinite(v) ? v : 0; } catch { results["oee"] = 0; }
+  try { const v = Math.min(100, (input.target_cost_per_unit / input.cost_per_unit) * 100); results["cost_efficiency"] = Number.isFinite(v) ? v : 0; } catch { results["cost_efficiency"] = 0; }
+  try { const v = Math.max(0, 100 - (input.safety_incidents * 10) - (input.shift_type == 'night' ? 5 : 0)); results["safety_score"] = Number.isFinite(v) ? v : 0; } catch { results["safety_score"] = 0; }
+  try { const v = input.on_time_delivery_pct; results["delivery_score"] = Number.isFinite(v) ? v : 0; } catch { results["delivery_score"] = 0; }
+  try { const v = ((results["quality_score"] ?? 0) * 0.2) + ((results["oee"] ?? 0) * 0.2) + ((results["cost_efficiency"] ?? 0) * 0.2) + ((results["safety_score"] ?? 0) * 0.2) + ((results["delivery_score"] ?? 0) * 0.2); results["weighted_grade"] = Number.isFinite(v) ? v : 0; } catch { results["weighted_grade"] = 0; }
   results["data_confidence_adjusted"] = 0;
   return results;
 }

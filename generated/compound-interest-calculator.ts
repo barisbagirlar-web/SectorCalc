@@ -23,13 +23,13 @@ export const Compound_interest_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Compound_interest_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["effectiveRate"] = (1 + (input.annualInterestRate / 100) / input.compoundingFrequency) ^ input.compoundingFrequency - 1; } catch { results["effectiveRate"] = 0; }
-  try { results["futureValueWithoutContributions"] = input.principal * (1 + (input.annualInterestRate / 100) / input.compoundingFrequency) ^ (input.compoundingFrequency * input.timePeriod); } catch { results["futureValueWithoutContributions"] = 0; }
-  try { results["futureValueOfContributions"] = input.additionalContribution * (((1 + (input.annualInterestRate / 100) / input.compoundingFrequency) ^ (input.compoundingFrequency * input.timePeriod) - 1) / ((input.annualInterestRate / 100) / input.compoundingFrequency)); } catch { results["futureValueOfContributions"] = 0; }
-  try { results["grossFutureValue"] = FV_principal + FV_contributions; } catch { results["grossFutureValue"] = 0; }
-  try { results["taxAdjustment"] = 1 - (input.taxRate / 100); } catch { results["taxAdjustment"] = 0; }
-  try { results["netFutureValue"] = input.principal + (grossFV - input.principal) * taxFactor; } catch { results["netFutureValue"] = 0; }
-  try { results["realFutureValue"] = netFV / (1 + (input.inflationRate / 100)) ^ input.timePeriod; } catch { results["realFutureValue"] = 0; }
+  try { const v = (1 + (input.annualInterestRate / 100) / input.compoundingFrequency) ^ input.compoundingFrequency - 1; results["effectiveRate"] = Number.isFinite(v) ? v : 0; } catch { results["effectiveRate"] = 0; }
+  try { const v = input.principal * (1 + (input.annualInterestRate / 100) / input.compoundingFrequency) ^ (input.compoundingFrequency * input.timePeriod); results["futureValueWithoutContributions"] = Number.isFinite(v) ? v : 0; } catch { results["futureValueWithoutContributions"] = 0; }
+  try { const v = input.additionalContribution * (((1 + (input.annualInterestRate / 100) / input.compoundingFrequency) ^ (input.compoundingFrequency * input.timePeriod) - 1) / ((input.annualInterestRate / 100) / input.compoundingFrequency)); results["futureValueOfContributions"] = Number.isFinite(v) ? v : 0; } catch { results["futureValueOfContributions"] = 0; }
+  try { const v = FV_principal + FV_contributions; results["grossFutureValue"] = Number.isFinite(v) ? v : 0; } catch { results["grossFutureValue"] = 0; }
+  try { const v = 1 - (input.taxRate / 100); results["taxAdjustment"] = Number.isFinite(v) ? v : 0; } catch { results["taxAdjustment"] = 0; }
+  try { const v = input.principal + (grossFV - input.principal) * taxFactor; results["netFutureValue"] = Number.isFinite(v) ? v : 0; } catch { results["netFutureValue"] = 0; }
+  try { const v = netFV / (1 + (input.inflationRate / 100)) ^ input.timePeriod; results["realFutureValue"] = Number.isFinite(v) ? v : 0; } catch { results["realFutureValue"] = 0; }
   return results;
 }
 

@@ -25,13 +25,13 @@ export const Pregnancy_due_date_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Pregnancy_due_date_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["lmp_gestational_age_days"] = (current_timestamp - input.lmp_date) / 86400; } catch { results["lmp_gestational_age_days"] = 0; }
-  try { results["ovulation_offset"] = input.cycle_length - input.luteal_phase_length; } catch { results["ovulation_offset"] = 0; }
-  try { results["edd_lmp"] = input.lmp_date + 280 * 86400 + (input.cycle_length - 28) * 86400; } catch { results["edd_lmp"] = 0; }
-  try { results["edd_ultrasound"] = current_timestamp + (40 - input.ultrasound_ga_weeks) * 7 * 86400 - input.ultrasound_ga_days * 86400; } catch { results["edd_ultrasound"] = 0; }
-  results["edd_primary"] = 0;
-  try { results["gestational_age_at_edd"] = 40 * 7; } catch { results["gestational_age_at_edd"] = 0; }
-  try { results["confidence_interval"] = 1.96 * input.cycle_variability * Math.sqrt(280 / input.cycle_length); } catch { results["confidence_interval"] = 0; }
+  try { const v = (current_timestamp - input.lmp_date) / 86400; results["lmp_gestational_age_days"] = Number.isFinite(v) ? v : 0; } catch { results["lmp_gestational_age_days"] = 0; }
+  try { const v = input.cycle_length - input.luteal_phase_length; results["ovulation_offset"] = Number.isFinite(v) ? v : 0; } catch { results["ovulation_offset"] = 0; }
+  try { const v = input.lmp_date + 280 * 86400 + (input.cycle_length - 28) * 86400; results["edd_lmp"] = Number.isFinite(v) ? v : 0; } catch { results["edd_lmp"] = 0; }
+  try { const v = current_timestamp + (40 - input.ultrasound_ga_weeks) * 7 * 86400 - input.ultrasound_ga_days * 86400; results["edd_ultrasound"] = Number.isFinite(v) ? v : 0; } catch { results["edd_ultrasound"] = 0; }
+  try { const v = (input.ultrasound_ga_weeks != null) ? (results["edd_ultrasound"] ?? 0) : (results["edd_lmp"] ?? 0); results["edd_primary"] = Number.isFinite(v) ? v : 0; } catch { results["edd_primary"] = 0; }
+  try { const v = 40 * 7; results["gestational_age_at_edd"] = Number.isFinite(v) ? v : 0; } catch { results["gestational_age_at_edd"] = 0; }
+  try { const v = 1.96 * input.cycle_variability * Math.sqrt(280 / input.cycle_length); results["confidence_interval_days"] = Number.isFinite(v) ? v : 0; } catch { results["confidence_interval_days"] = 0; }
   return results;
 }
 

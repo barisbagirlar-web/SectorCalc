@@ -27,13 +27,13 @@ export const Textile_waste_riskInputSchema = z.object({
 
 function evaluateAllFormulas(input: Textile_waste_riskInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["material_waste_cost"] = input.production_volume_meters * (input.waste_percentage / 100) * 0.5; } catch { results["material_waste_cost"] = 0; }
-  try { results["rework_labor_cost"] = input.production_volume_meters * (input.rework_rate / 100) * 0.1 * input.labor_cost_per_hour; } catch { results["rework_labor_cost"] = 0; }
-  try { results["energy_waste_cost"] = (input.defect_density / 1000) * input.production_volume_meters * 0.05 * input.energy_cost_per_kwh; } catch { results["energy_waste_cost"] = 0; }
-  try { results["waste_disposal_cost"] = input.production_volume_meters * (input.waste_percentage / 100) * (1 - recycling_factor(input.recycling_capability)) * 0.02; } catch { results["waste_disposal_cost"] = 0; }
-  try { results["total_waste_cost"] = (results["material_waste_cost"] ?? 0) + (results["rework_labor_cost"] ?? 0) + (results["energy_waste_cost"] ?? 0) + (results["waste_disposal_cost"] ?? 0); } catch { results["total_waste_cost"] = 0; }
-  try { results["waste_risk_index"] = Math.min(100, (input.waste_percentage * 3 + input.rework_rate * 2 + input.defect_density * 0.5)); } catch { results["waste_risk_index"] = 0; }
-  try { results["data_confidence_adjusted"] = (results["waste_risk_index"] ?? 0) * (1 - 0.1 * input.iso_14001_certified - 0.05 * recycling_factor(input.recycling_capability)); } catch { results["data_confidence_adjusted"] = 0; }
+  try { const v = input.production_volume_meters * (input.waste_percentage / 100) * 0.5; results["material_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["material_waste_cost"] = 0; }
+  try { const v = input.production_volume_meters * (input.rework_rate / 100) * 0.1 * input.labor_cost_per_hour; results["rework_labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["rework_labor_cost"] = 0; }
+  try { const v = (input.defect_density / 1000) * input.production_volume_meters * 0.05 * input.energy_cost_per_kwh; results["energy_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["energy_waste_cost"] = 0; }
+  try { const v = input.production_volume_meters * (input.waste_percentage / 100) * (1 - recycling_factor(input.recycling_capability)) * 0.02; results["waste_disposal_cost"] = Number.isFinite(v) ? v : 0; } catch { results["waste_disposal_cost"] = 0; }
+  try { const v = (results["material_waste_cost"] ?? 0) + (results["rework_labor_cost"] ?? 0) + (results["energy_waste_cost"] ?? 0) + (results["waste_disposal_cost"] ?? 0); results["total_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_waste_cost"] = 0; }
+  try { const v = Math.min(100, (input.waste_percentage * 3 + input.rework_rate * 2 + input.defect_density * 0.5)); results["waste_risk_index"] = Number.isFinite(v) ? v : 0; } catch { results["waste_risk_index"] = 0; }
+  try { const v = (results["waste_risk_index"] ?? 0) * (1 - 0.1 * input.iso_14001_certified - 0.05 * recycling_factor(input.recycling_capability)); results["data_confidence_adjusted"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_adjusted"] = 0; }
   return results;
 }
 

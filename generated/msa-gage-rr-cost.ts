@@ -33,14 +33,14 @@ export const Msa_gage_rr_costInputSchema = z.object({
 
 function evaluateAllFormulas(input: Msa_gage_rr_costInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["grr_variation"] = Math.sqrt(input.repeatability_variation**2 + input.reproducibility_variation**2); } catch { results["grr_variation"] = 0; }
-  try { results["pct_grr"] = ((results["grr_variation"] ?? 0) / input.total_variation) * 100; } catch { results["pct_grr"] = 0; }
-  try { results["ndc"] = Math.floor((input.total_variation / (results["grr_variation"] ?? 0)) * Math.sqrt(2)); } catch { results["ndc"] = 0; }
-  try { results["misclassification_rate"] = input.defect_rate * ((results["pct_grr"] ?? 0) / 100) * 0.5; } catch { results["misclassification_rate"] = 0; }
-  try { results["annual_internal_failure_cost"] = (input.defect_rate / 1e6) * input.annual_production_volume * input.cost_per_defect; } catch { results["annual_internal_failure_cost"] = 0; }
-  try { results["annual_external_failure_cost"] = (input.defect_rate / 1e6) * input.annual_production_volume * input.cost_per_escaped_defect * 0.1; } catch { results["annual_external_failure_cost"] = 0; }
-  try { results["annual_hidden_loss_cost"] = ((results["misclassification_rate"] ?? 0) / 1e6) * input.annual_production_volume * (input.cost_per_defect + input.cost_per_escaped_defect) * 0.5; } catch { results["annual_hidden_loss_cost"] = 0; }
-  try { results["total_annual_cost"] = (results["annual_internal_failure_cost"] ?? 0) + (results["annual_external_failure_cost"] ?? 0) + (input.include_hidden_losses ? (results["annual_hidden_loss_cost"] ?? 0) : 0); } catch { results["total_annual_cost"] = 0; }
+  try { const v = Math.sqrt(input.repeatability_variation**2 + input.reproducibility_variation**2); results["grr_variation"] = Number.isFinite(v) ? v : 0; } catch { results["grr_variation"] = 0; }
+  try { const v = ((results["grr_variation"] ?? 0) / input.total_variation) * 100; results["pct_grr"] = Number.isFinite(v) ? v : 0; } catch { results["pct_grr"] = 0; }
+  try { const v = Math.floor((input.total_variation / (results["grr_variation"] ?? 0)) * Math.sqrt(2)); results["ndc"] = Number.isFinite(v) ? v : 0; } catch { results["ndc"] = 0; }
+  try { const v = input.defect_rate * ((results["pct_grr"] ?? 0) / 100) * 0.5; results["misclassification_rate"] = Number.isFinite(v) ? v : 0; } catch { results["misclassification_rate"] = 0; }
+  try { const v = (input.defect_rate / 1e6) * input.annual_production_volume * input.cost_per_defect; results["annual_internal_failure_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_internal_failure_cost"] = 0; }
+  try { const v = (input.defect_rate / 1e6) * input.annual_production_volume * input.cost_per_escaped_defect * 0.1; results["annual_external_failure_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_external_failure_cost"] = 0; }
+  try { const v = ((results["misclassification_rate"] ?? 0) / 1e6) * input.annual_production_volume * (input.cost_per_defect + input.cost_per_escaped_defect) * 0.5; results["annual_hidden_loss_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_hidden_loss_cost"] = 0; }
+  try { const v = (results["annual_internal_failure_cost"] ?? 0) + (results["annual_external_failure_cost"] ?? 0) + (input.include_hidden_losses ? (results["annual_hidden_loss_cost"] ?? 0) : 0); results["total_annual_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_cost"] = 0; }
   return results;
 }
 

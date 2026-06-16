@@ -24,17 +24,17 @@ function evaluateAllFormulas(input: Factory_layout_distance_optimizerInput): Rec
   results["raw_distance_sum"] = 0;
   results["flow_distance_product"] = 0;
   results["total_weighted_distance"] = 0;
-  try { results["adjusted_total_distance"] = (results["total_weighted_distance"] ?? 0) / input.path_efficiency_factor; } catch { results["adjusted_total_distance"] = 0; }
+  try { const v = (results["total_weighted_distance"] ?? 0) / input.path_efficiency_factor; results["adjusted_total_distance"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_total_distance"] = 0; }
   results["average_distance_per_trip"] = 0;
-  try { results["layout_efficiency_index"] = theoretical_min_distance / (results["adjusted_total_distance"] ?? 0); } catch { results["layout_efficiency_index"] = 0; }
-  results["primary_result"] = 0;
+  try { const v = theoretical_min_distance / (results["adjusted_total_distance"] ?? 0); results["layout_efficiency_index"] = Number.isFinite(v) ? v : 0; } catch { results["layout_efficiency_index"] = 0; }
+  try { const v = ((input.use_weighted_distance) ? ((results["adjusted_total_distance"] ?? 0)) : ((results["raw_distance_sum"] ?? 0))); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 
 
 export function calculateFactory_layout_distance_optimizer(input: Factory_layout_distance_optimizerInput): Factory_layout_distance_optimizerOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_material_handling_distance"] ?? 0;
+  const totalWasteCost = values["total_material_handling_distance"] ?? values["primary_result"] ?? 0;
   const breakdown = {
     id: values["id"] ?? 0,
     label: values["label"] ?? 0,

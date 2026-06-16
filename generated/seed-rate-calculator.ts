@@ -29,13 +29,13 @@ export const Seed_rate_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Seed_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["adjusted_germination_rate"] = (input.germination_rate / 100) * (input.field_emergence_factor / 100); } catch { results["adjusted_germination_rate"] = 0; }
-  try { results["required_seeds_per_hectare"] = input.target_population / ((results["adjusted_germination_rate"] ?? 0) * (input.planter_efficiency / 100)); } catch { results["required_seeds_per_hectare"] = 0; }
-  try { results["seeding_rate_mass"] = ((results["required_seeds_per_hectare"] ?? 0) * input.seed_weight) / 1000000; } catch { results["seeding_rate_mass"] = 0; }
-  try { results["seed_spacing_in_row"] = (input.row_spacing / 100) * 10000 / (results["required_seeds_per_hectare"] ?? 0) * 100; } catch { results["seed_spacing_in_row"] = 0; }
-  try { results["total_seed_cost_per_hectare"] = (results["seeding_rate_mass"] ?? 0) * input.seed_cost_per_unit; } catch { results["total_seed_cost_per_hectare"] = 0; }
-  try { results["potential_yield_value_per_hectare"] = (input.target_population * 0.0005) * input.expected_yield_value; } catch { results["potential_yield_value_per_hectare"] = 0; }
-  try { results["net_seed_roi"] = (((results["potential_yield_value_per_hectare"] ?? 0) - (results["total_seed_cost_per_hectare"] ?? 0)) / (results["total_seed_cost_per_hectare"] ?? 0)) * 100; } catch { results["net_seed_roi"] = 0; }
+  try { const v = (input.germination_rate / 100) * (input.field_emergence_factor / 100); results["adjusted_germination_rate"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_germination_rate"] = 0; }
+  try { const v = input.target_population / ((results["adjusted_germination_rate"] ?? 0) * (input.planter_efficiency / 100)); results["required_seeds_per_hectare"] = Number.isFinite(v) ? v : 0; } catch { results["required_seeds_per_hectare"] = 0; }
+  try { const v = ((results["required_seeds_per_hectare"] ?? 0) * input.seed_weight) / 1000000; results["seeding_rate_mass"] = Number.isFinite(v) ? v : 0; } catch { results["seeding_rate_mass"] = 0; }
+  try { const v = (input.row_spacing / 100) * 10000 / (results["required_seeds_per_hectare"] ?? 0) * 100; results["seed_spacing_in_row"] = Number.isFinite(v) ? v : 0; } catch { results["seed_spacing_in_row"] = 0; }
+  try { const v = (results["seeding_rate_mass"] ?? 0) * input.seed_cost_per_unit; results["total_seed_cost_per_hectare"] = Number.isFinite(v) ? v : 0; } catch { results["total_seed_cost_per_hectare"] = 0; }
+  try { const v = (input.target_population * 0.0005) * input.expected_yield_value; results["potential_yield_value_per_hectare"] = Number.isFinite(v) ? v : 0; } catch { results["potential_yield_value_per_hectare"] = 0; }
+  try { const v = (((results["potential_yield_value_per_hectare"] ?? 0) - (results["total_seed_cost_per_hectare"] ?? 0)) / (results["total_seed_cost_per_hectare"] ?? 0)) * 100; results["net_seed_roi"] = Number.isFinite(v) ? v : 0; } catch { results["net_seed_roi"] = 0; }
   return results;
 }
 

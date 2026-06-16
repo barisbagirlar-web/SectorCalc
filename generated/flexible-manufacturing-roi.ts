@@ -65,22 +65,22 @@ export const Flexible_manufacturing_roiInputSchema = z.object({
 
 function evaluateAllFormulas(input: Flexible_manufacturing_roiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["annual_changeovers"] = input.annual_production_volume / input.avg_batch_size; } catch { results["annual_changeovers"] = 0; }
-  try { results["setup_time_savings_per_changeover"] = input.current_setup_time - input.target_setup_time; } catch { results["setup_time_savings_per_changeover"] = 0; }
-  try { results["annual_setup_time_savings_hours"] = ((results["annual_changeovers"] ?? 0) * (results["setup_time_savings_per_changeover"] ?? 0)) / 60; } catch { results["annual_setup_time_savings_hours"] = 0; }
-  try { results["annual_changeover_cost_savings"] = (results["annual_setup_time_savings_hours"] ?? 0) * input.changeover_cost_per_hour; } catch { results["annual_changeover_cost_savings"] = 0; }
-  try { results["inventory_savings"] = input.avg_inventory_value * (input.inventory_holding_cost_rate / 100) * 0.3; } catch { results["inventory_savings"] = 0; }
-  try { results["quality_cost_savings"] = input.annual_production_volume * (input.quality_defect_rate / 100) * (input.fms_quality_improvement / 100) * input.cost_per_defect; } catch { results["quality_cost_savings"] = 0; }
-  try { results["labor_productivity_savings"] = (results["annual_setup_time_savings_hours"] ?? 0) * input.hourly_operating_cost * 0.6 * (input.labor_productivity_gain / 100); } catch { results["labor_productivity_savings"] = 0; }
-  try { results["floor_space_savings"] = input.current_floor_space * (input.floor_space_reduction / 100) * input.annual_floor_space_cost; } catch { results["floor_space_savings"] = 0; }
-  try { results["energy_savings"] = input.annual_energy_cost * (input.energy_cost_reduction / 100); } catch { results["energy_savings"] = 0; }
-  try { results["maintenance_cost_change"] = input.annual_maintenance_cost * (input.maintenance_cost_increase / 100); } catch { results["maintenance_cost_change"] = 0; }
-  try { results["total_annual_benefits"] = (results["annual_changeover_cost_savings"] ?? 0) + (results["inventory_savings"] ?? 0) + (results["quality_cost_savings"] ?? 0) + (results["labor_productivity_savings"] ?? 0) + (results["floor_space_savings"] ?? 0) + (results["energy_savings"] ?? 0) - (results["maintenance_cost_change"] ?? 0); } catch { results["total_annual_benefits"] = 0; }
-  try { results["total_initial_investment"] = input.fms_investment + input.training_cost; } catch { results["total_initial_investment"] = 0; }
-  try { results["net_present_value"] = (results["total_annual_benefits"] ?? 0) * ((1 - (1 + input.discount_rate/100)^(-input.fms_useful_life)) / (input.discount_rate/100)) - (results["total_initial_investment"] ?? 0); } catch { results["net_present_value"] = 0; }
-  try { results["roi_percentage"] = ((results["net_present_value"] ?? 0) / (results["total_initial_investment"] ?? 0)) * 100; } catch { results["roi_percentage"] = 0; }
-  try { results["payback_period"] = (results["total_initial_investment"] ?? 0) / (results["total_annual_benefits"] ?? 0); } catch { results["payback_period"] = 0; }
-  try { results["internal_rate_of_return"] = input.discount_rate + ((results["net_present_value"] ?? 0) / ((results["total_initial_investment"] ?? 0) * input.fms_useful_life)) * 100; } catch { results["internal_rate_of_return"] = 0; }
+  try { const v = input.annual_production_volume / input.avg_batch_size; results["annual_changeovers"] = Number.isFinite(v) ? v : 0; } catch { results["annual_changeovers"] = 0; }
+  try { const v = input.current_setup_time - input.target_setup_time; results["setup_time_savings_per_changeover"] = Number.isFinite(v) ? v : 0; } catch { results["setup_time_savings_per_changeover"] = 0; }
+  try { const v = ((results["annual_changeovers"] ?? 0) * (results["setup_time_savings_per_changeover"] ?? 0)) / 60; results["annual_setup_time_savings_hours"] = Number.isFinite(v) ? v : 0; } catch { results["annual_setup_time_savings_hours"] = 0; }
+  try { const v = (results["annual_setup_time_savings_hours"] ?? 0) * input.changeover_cost_per_hour; results["annual_changeover_cost_savings"] = Number.isFinite(v) ? v : 0; } catch { results["annual_changeover_cost_savings"] = 0; }
+  try { const v = input.avg_inventory_value * (input.inventory_holding_cost_rate / 100) * 0.3; results["inventory_savings"] = Number.isFinite(v) ? v : 0; } catch { results["inventory_savings"] = 0; }
+  try { const v = input.annual_production_volume * (input.quality_defect_rate / 100) * (input.fms_quality_improvement / 100) * input.cost_per_defect; results["quality_cost_savings"] = Number.isFinite(v) ? v : 0; } catch { results["quality_cost_savings"] = 0; }
+  try { const v = (results["annual_setup_time_savings_hours"] ?? 0) * input.hourly_operating_cost * 0.6 * (input.labor_productivity_gain / 100); results["labor_productivity_savings"] = Number.isFinite(v) ? v : 0; } catch { results["labor_productivity_savings"] = 0; }
+  try { const v = input.current_floor_space * (input.floor_space_reduction / 100) * input.annual_floor_space_cost; results["floor_space_savings"] = Number.isFinite(v) ? v : 0; } catch { results["floor_space_savings"] = 0; }
+  try { const v = input.annual_energy_cost * (input.energy_cost_reduction / 100); results["energy_savings"] = Number.isFinite(v) ? v : 0; } catch { results["energy_savings"] = 0; }
+  try { const v = input.annual_maintenance_cost * (input.maintenance_cost_increase / 100); results["maintenance_cost_change"] = Number.isFinite(v) ? v : 0; } catch { results["maintenance_cost_change"] = 0; }
+  try { const v = (results["annual_changeover_cost_savings"] ?? 0) + (results["inventory_savings"] ?? 0) + (results["quality_cost_savings"] ?? 0) + (results["labor_productivity_savings"] ?? 0) + (results["floor_space_savings"] ?? 0) + (results["energy_savings"] ?? 0) - (results["maintenance_cost_change"] ?? 0); results["total_annual_benefits"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_benefits"] = 0; }
+  try { const v = input.fms_investment + input.training_cost; results["total_initial_investment"] = Number.isFinite(v) ? v : 0; } catch { results["total_initial_investment"] = 0; }
+  try { const v = (results["total_annual_benefits"] ?? 0) * ((1 - (1 + input.discount_rate/100)^(-input.fms_useful_life)) / (input.discount_rate/100)) - (results["total_initial_investment"] ?? 0); results["net_present_value"] = Number.isFinite(v) ? v : 0; } catch { results["net_present_value"] = 0; }
+  try { const v = ((results["net_present_value"] ?? 0) / (results["total_initial_investment"] ?? 0)) * 100; results["roi_percentage"] = Number.isFinite(v) ? v : 0; } catch { results["roi_percentage"] = 0; }
+  try { const v = (results["total_initial_investment"] ?? 0) / (results["total_annual_benefits"] ?? 0); results["payback_period"] = Number.isFinite(v) ? v : 0; } catch { results["payback_period"] = 0; }
+  try { const v = input.discount_rate + ((results["net_present_value"] ?? 0) / ((results["total_initial_investment"] ?? 0) * input.fms_useful_life)) * 100; results["internal_rate_of_return"] = Number.isFinite(v) ? v : 0; } catch { results["internal_rate_of_return"] = 0; }
   return results;
 }
 

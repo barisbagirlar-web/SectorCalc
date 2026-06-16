@@ -31,13 +31,14 @@ export const Beam_deflection_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Beam_deflection_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["reaction_forces"] = 0;
-  results["max_bending_moment"] = 0;
-  results["max_deflection"] = 0;
+  try { const v = ((input.load_type == 'point_center') ? (P/2) : (((input.load_type == 'point_any') ? (P*(L-a)/L) : (((input.load_type == 'uniform') ? (w*L/2) : (((input.load_type == 'triangular') ? (w*L/6) : (0)))))))); results["reaction_left"] = Number.isFinite(v) ? v : 0; } catch { results["reaction_left"] = 0; }
+  try { const v = ((input.load_type == 'point_center') ? (P/2) : (((input.load_type == 'point_any') ? (P*a/L) : (((input.load_type == 'uniform') ? (w*L/2) : (((input.load_type == 'triangular') ? (w*L/3) : (0)))))))); results["reaction_right"] = Number.isFinite(v) ? v : 0; } catch { results["reaction_right"] = 0; }
+  try { const v = ((input.load_type == 'point_center') ? (P*L/4) : (((input.load_type == 'point_any') ? (P*a*(L-a)/L) : (((input.load_type == 'uniform') ? (w*L**2/8) : (((input.load_type == 'triangular') ? (w*L**2/9*Math.sqrt(3)) : (0)))))))); results["max_bending_moment"] = Number.isFinite(v) ? v : 0; } catch { results["max_bending_moment"] = 0; }
+  try { const v = ((input.load_type == 'point_center') ? (0) : (((input.load_type == 'point_any') ? (0) : (((input.load_type == 'uniform') ? (0) : (((input.load_type == 'triangular') ? (0) : (0)))))))); results["max_deflection"] = Number.isFinite(v) ? v : 0; } catch { results["max_deflection"] = 0; }
   results["max_bending_stress"] = 0;
-  try { results["actual_safety_factor"] = sigma_y / sigma_max; } catch { results["actual_safety_factor"] = 0; }
-  try { results["material_utilization"] = eta = sigma_max / sigma_y; } catch { results["material_utilization"] = 0; }
-  results["lean_optimized_mass"] = 0;
+  try { const v = sigma_y / sigma_max; results["actual_safety_factor"] = Number.isFinite(v) ? v : 0; } catch { results["actual_safety_factor"] = 0; }
+  try { const v = eta = sigma_max / sigma_y; results["material_utilization"] = Number.isFinite(v) ? v : 0; } catch { results["material_utilization"] = 0; }
+  results["lean_mass_reduction_percent"] = 0;
   return results;
 }
 

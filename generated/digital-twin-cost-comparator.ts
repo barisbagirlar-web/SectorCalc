@@ -29,13 +29,13 @@ export const Digital_twin_cost_comparatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Digital_twin_cost_comparatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["sub_formula_data_volume"] = input.asset_count * input.sensor_density * input.data_frequency * 3600 * 24 * 365 * 1e-12; } catch { results["sub_formula_data_volume"] = 0; }
-  try { results["sub_formula_infrastructure_cost"] = data_volume * 150 * (1 + 0.2 * (input.integration_complexity == 'high' ? 2 : input.integration_complexity == 'medium' ? 1 : 0)); } catch { results["sub_formula_infrastructure_cost"] = 0; }
-  try { results["sub_formula_labor_cost"] = input.asset_count * 10 * input.labor_rate * input.expected_lifespan * (1 - 0.05 * (input.lean_six_sigma_level == 'level5' ? 4 : input.lean_six_sigma_level == 'level4' ? 3 : input.lean_six_sigma_level == 'level3' ? 2 : input.lean_six_sigma_level == 'level2' ? 1 : 0)); } catch { results["sub_formula_labor_cost"] = 0; }
-  try { results["sub_formula_software_license_cost"] = input.asset_count * (input.twin_scope == 'enterprise' ? 200 : input.twin_scope == 'system' ? 150 : input.twin_scope == 'process' ? 100 : 50) * input.expected_lifespan; } catch { results["sub_formula_software_license_cost"] = 0; }
-  try { results["sub_formula_maintenance_cost"] = (infrastructure_cost + software_license_cost) * 0.15 * input.expected_lifespan; } catch { results["sub_formula_maintenance_cost"] = 0; }
-  try { results["sub_formula_total_cost_of_ownership"] = infrastructure_cost + labor_cost + software_license_cost + maintenance_cost; } catch { results["sub_formula_total_cost_of_ownership"] = 0; }
-  try { results["sub_formula_net_present_value"] = -total_cost_of_ownership + (input.werc_benchmark * input.asset_count * 0.1 * input.expected_lifespan) / (1 + 0.08); } catch { results["sub_formula_net_present_value"] = 0; }
+  try { const v = input.asset_count * input.sensor_density * input.data_frequency * 3600 * 24 * 365 * 1e-12; results["sub_formula_data_volume"] = Number.isFinite(v) ? v : 0; } catch { results["sub_formula_data_volume"] = 0; }
+  try { const v = data_volume * 150 * (1 + 0.2 * (input.integration_complexity == 'high' ? 2 : input.integration_complexity == 'medium' ? 1 : 0)); results["sub_formula_infrastructure_cost"] = Number.isFinite(v) ? v : 0; } catch { results["sub_formula_infrastructure_cost"] = 0; }
+  try { const v = input.asset_count * 10 * input.labor_rate * input.expected_lifespan * (1 - 0.05 * (input.lean_six_sigma_level == 'level5' ? 4 : input.lean_six_sigma_level == 'level4' ? 3 : input.lean_six_sigma_level == 'level3' ? 2 : input.lean_six_sigma_level == 'level2' ? 1 : 0)); results["sub_formula_labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["sub_formula_labor_cost"] = 0; }
+  try { const v = input.asset_count * (input.twin_scope == 'enterprise' ? 200 : input.twin_scope == 'system' ? 150 : input.twin_scope == 'process' ? 100 : 50) * input.expected_lifespan; results["sub_formula_software_license_cost"] = Number.isFinite(v) ? v : 0; } catch { results["sub_formula_software_license_cost"] = 0; }
+  try { const v = (infrastructure_cost + software_license_cost) * 0.15 * input.expected_lifespan; results["sub_formula_maintenance_cost"] = Number.isFinite(v) ? v : 0; } catch { results["sub_formula_maintenance_cost"] = 0; }
+  try { const v = infrastructure_cost + labor_cost + software_license_cost + maintenance_cost; results["sub_formula_total_cost_of_ownership"] = Number.isFinite(v) ? v : 0; } catch { results["sub_formula_total_cost_of_ownership"] = 0; }
+  try { const v = -total_cost_of_ownership + (input.werc_benchmark * input.asset_count * 0.1 * input.expected_lifespan) / (1 + 0.08); results["sub_formula_net_present_value"] = Number.isFinite(v) ? v : 0; } catch { results["sub_formula_net_present_value"] = 0; }
   return results;
 }
 

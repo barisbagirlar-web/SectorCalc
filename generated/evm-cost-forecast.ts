@@ -29,16 +29,16 @@ export const Evm_cost_forecastInputSchema = z.object({
 
 function evaluateAllFormulas(input: Evm_cost_forecastInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["calculated_cpi"] = input.ac === 0 ? 1 : input.ev / input.ac; } catch { results["calculated_cpi"] = 0; }
-  try { results["calculated_spi"] = input.pv === 0 ? 1 : input.ev / input.pv; } catch { results["calculated_spi"] = 0; }
-  try { results["effective_cpi"] = input.cpi !== undefined && input.cpi !== null ? input.cpi : (results["calculated_cpi"] ?? 0); } catch { results["effective_cpi"] = 0; }
-  try { results["effective_spi"] = input.spi !== undefined && input.spi !== null ? input.spi : (results["calculated_spi"] ?? 0); } catch { results["effective_spi"] = 0; }
-  try { results["weighted_performance_factor"] = input.useWeightedMethod ? (0.8 * (results["effective_cpi"] ?? 0) + 0.2 * (results["effective_spi"] ?? 0)) : (results["effective_cpi"] ?? 0); } catch { results["weighted_performance_factor"] = 0; }
-  try { results["eac"] = input.bac / (results["weighted_performance_factor"] ?? 0) + input.managementReserve - input.contingencyDraw; } catch { results["eac"] = 0; }
-  try { results["etc"] = (results["eac"] ?? 0) - input.ac; } catch { results["etc"] = 0; }
-  try { results["variance_at_completion"] = input.bac - (results["eac"] ?? 0); } catch { results["variance_at_completion"] = 0; }
-  try { results["tcpi_eac"] = (input.bac - input.ev) / ((results["eac"] ?? 0) - input.ac); } catch { results["tcpi_eac"] = 0; }
-  try { results["data_confidence_adjusted"] = (results["eac"] ?? 0) * ((results["effective_cpi"] ?? 0) > 0.8 ? 0.95 : 0.85); } catch { results["data_confidence_adjusted"] = 0; }
+  try { const v = input.ac === 0 ? 1 : input.ev / input.ac; results["calculated_cpi"] = Number.isFinite(v) ? v : 0; } catch { results["calculated_cpi"] = 0; }
+  try { const v = input.pv === 0 ? 1 : input.ev / input.pv; results["calculated_spi"] = Number.isFinite(v) ? v : 0; } catch { results["calculated_spi"] = 0; }
+  try { const v = input.cpi !== undefined && input.cpi !== null ? input.cpi : (results["calculated_cpi"] ?? 0); results["effective_cpi"] = Number.isFinite(v) ? v : 0; } catch { results["effective_cpi"] = 0; }
+  try { const v = input.spi !== undefined && input.spi !== null ? input.spi : (results["calculated_spi"] ?? 0); results["effective_spi"] = Number.isFinite(v) ? v : 0; } catch { results["effective_spi"] = 0; }
+  try { const v = input.useWeightedMethod ? (0.8 * (results["effective_cpi"] ?? 0) + 0.2 * (results["effective_spi"] ?? 0)) : (results["effective_cpi"] ?? 0); results["weighted_performance_factor"] = Number.isFinite(v) ? v : 0; } catch { results["weighted_performance_factor"] = 0; }
+  try { const v = input.bac / (results["weighted_performance_factor"] ?? 0) + input.managementReserve - input.contingencyDraw; results["eac"] = Number.isFinite(v) ? v : 0; } catch { results["eac"] = 0; }
+  try { const v = (results["eac"] ?? 0) - input.ac; results["etc"] = Number.isFinite(v) ? v : 0; } catch { results["etc"] = 0; }
+  try { const v = input.bac - (results["eac"] ?? 0); results["variance_at_completion"] = Number.isFinite(v) ? v : 0; } catch { results["variance_at_completion"] = 0; }
+  try { const v = (input.bac - input.ev) / ((results["eac"] ?? 0) - input.ac); results["tcpi_eac"] = Number.isFinite(v) ? v : 0; } catch { results["tcpi_eac"] = 0; }
+  try { const v = (results["eac"] ?? 0) * ((results["effective_cpi"] ?? 0) > 0.8 ? 0.95 : 0.85); results["data_confidence_adjusted"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_adjusted"] = 0; }
   return results;
 }
 

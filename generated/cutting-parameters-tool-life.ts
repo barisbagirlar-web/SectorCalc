@@ -23,20 +23,20 @@ export const Cutting_parameters_tool_lifeInputSchema = z.object({
 
 function evaluateAllFormulas(input: Cutting_parameters_tool_lifeInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["base_tool_life"] = (C / (input.cutting_speed ^ n)) * (1 / (input.feed_rate ^ m)) * (1 / (input.depth_of_cut ^ p)); } catch { results["base_tool_life"] = 0; }
-  try { results["material_adjustment"] = machinability_rating(input.workpiece_material); } catch { results["material_adjustment"] = 0; }
-  try { results["tool_material_adjustment"] = tool_factor(input.tool_material); } catch { results["tool_material_adjustment"] = 0; }
-  try { results["coolant_adjustment"] = input.coolant_used ? 1.3 : 1.0; } catch { results["coolant_adjustment"] = 0; }
-  try { results["machine_stability_adjustment"] = input.machine_stability_factor; } catch { results["machine_stability_adjustment"] = 0; }
-  try { results["adjusted_tool_life"] = T_base * K_material * K_tool * K_coolant * K_machine; } catch { results["adjusted_tool_life"] = 0; }
-  try { results["primary_result"] = (Math.round((T_adjusted) * 10**(2)) / 10**(2)); } catch { results["primary_result"] = 0; }
+  try { const v = (C / (input.cutting_speed ^ n)) * (1 / (input.feed_rate ^ m)) * (1 / (input.depth_of_cut ^ p)); results["base_tool_life"] = Number.isFinite(v) ? v : 0; } catch { results["base_tool_life"] = 0; }
+  try { const v = machinability_rating(input.workpiece_material); results["material_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["material_adjustment"] = 0; }
+  try { const v = tool_factor(input.tool_material); results["tool_material_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["tool_material_adjustment"] = 0; }
+  try { const v = input.coolant_used ? 1.3 : 1.0; results["coolant_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["coolant_adjustment"] = 0; }
+  try { const v = input.machine_stability_factor; results["machine_stability_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["machine_stability_adjustment"] = 0; }
+  try { const v = T_base * K_material * K_tool * K_coolant * K_machine; results["adjusted_tool_life"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_tool_life"] = 0; }
+  try { const v = (Math.round((T_adjusted) * 10**(2)) / 10**(2)); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 
 
 export function calculateCutting_parameters_tool_life(input: Cutting_parameters_tool_lifeInput): Cutting_parameters_tool_lifeOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["tool_life_minutes"] ?? 0;
+  const totalWasteCost = values["tool_life_minutes"] ?? values["primary_result"] ?? 0;
   const breakdown = {
     base_tool_life: values["base_tool_life"] ?? 0,
     material_adjustment_factor: values["material_adjustment_factor"] ?? 0,

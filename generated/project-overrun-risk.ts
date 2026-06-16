@@ -29,13 +29,13 @@ export const Project_overrun_riskInputSchema = z.object({
 
 function evaluateAllFormulas(input: Project_overrun_riskInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["schedulePerformanceIndex"] = input.percentComplete / (input.actualDuration / input.plannedDuration * 100); } catch { results["schedulePerformanceIndex"] = 0; }
-  try { results["costPerformanceIndex"] = (input.percentComplete / 100 * input.plannedCost) / input.actualCost; } catch { results["costPerformanceIndex"] = 0; }
-  try { results["scopeChangeFactor"] = (input.scopeChangeFrequency === 'low' ? 0.8 : (input.scopeChangeFrequency === 'moderate' ? 1.0 : (input.scopeChangeFrequency === 'high' ? 1.3 : 0))); } catch { results["scopeChangeFactor"] = 0; }
-  try { results["teamExperienceFactor"] = (input.teamExperience === 'junior' ? 1.3 : (input.teamExperience === 'intermediate' ? 1.0 : (input.teamExperience === 'senior' ? 0.8 : 0))); } catch { results["teamExperienceFactor"] = 0; }
-  try { results["qualityAndSupplyRisk"] = (1 + input.qualityDefectRate) * (2 - input.supplierReliability); } catch { results["qualityAndSupplyRisk"] = 0; }
-  try { results["overrunRiskIndex"] = ( (1 - (results["schedulePerformanceIndex"] ?? 0)) + (1 - (results["costPerformanceIndex"] ?? 0)) ) / 2 * (results["scopeChangeFactor"] ?? 0) * (results["teamExperienceFactor"] ?? 0) * (results["qualityAndSupplyRisk"] ?? 0) + (input.riskExposure / input.plannedCost); } catch { results["overrunRiskIndex"] = 0; }
-  try { results["dataConfidenceAdjusted"] = (results["overrunRiskIndex"] ?? 0) * (1 - 0.1 * (1 - input.supplierReliability)); } catch { results["dataConfidenceAdjusted"] = 0; }
+  try { const v = input.percentComplete / (input.actualDuration / input.plannedDuration * 100); results["schedulePerformanceIndex"] = Number.isFinite(v) ? v : 0; } catch { results["schedulePerformanceIndex"] = 0; }
+  try { const v = (input.percentComplete / 100 * input.plannedCost) / input.actualCost; results["costPerformanceIndex"] = Number.isFinite(v) ? v : 0; } catch { results["costPerformanceIndex"] = 0; }
+  try { const v = (input.scopeChangeFrequency === 'low' ? 0.8 : (input.scopeChangeFrequency === 'moderate' ? 1.0 : (input.scopeChangeFrequency === 'high' ? 1.3 : 0))); results["scopeChangeFactor"] = Number.isFinite(v) ? v : 0; } catch { results["scopeChangeFactor"] = 0; }
+  try { const v = (input.teamExperience === 'junior' ? 1.3 : (input.teamExperience === 'intermediate' ? 1.0 : (input.teamExperience === 'senior' ? 0.8 : 0))); results["teamExperienceFactor"] = Number.isFinite(v) ? v : 0; } catch { results["teamExperienceFactor"] = 0; }
+  try { const v = (1 + input.qualityDefectRate) * (2 - input.supplierReliability); results["qualityAndSupplyRisk"] = Number.isFinite(v) ? v : 0; } catch { results["qualityAndSupplyRisk"] = 0; }
+  try { const v = ( (1 - (results["schedulePerformanceIndex"] ?? 0)) + (1 - (results["costPerformanceIndex"] ?? 0)) ) / 2 * (results["scopeChangeFactor"] ?? 0) * (results["teamExperienceFactor"] ?? 0) * (results["qualityAndSupplyRisk"] ?? 0) + (input.riskExposure / input.plannedCost); results["overrunRiskIndex"] = Number.isFinite(v) ? v : 0; } catch { results["overrunRiskIndex"] = 0; }
+  try { const v = (results["overrunRiskIndex"] ?? 0) * (1 - 0.1 * (1 - input.supplierReliability)); results["dataConfidenceAdjusted"] = Number.isFinite(v) ? v : 0; } catch { results["dataConfidenceAdjusted"] = 0; }
   return results;
 }
 

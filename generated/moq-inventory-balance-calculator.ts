@@ -37,15 +37,15 @@ export const Moq_inventory_balance_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Moq_inventory_balance_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["daily_demand"] = input.annual_demand / input.days_per_year; } catch { results["daily_demand"] = 0; }
-  try { results["eoq"] = Math.sqrt((2 * input.annual_demand * input.ordering_cost) / input.holding_cost_per_unit); } catch { results["eoq"] = 0; }
+  try { const v = input.annual_demand / input.days_per_year; results["daily_demand"] = Number.isFinite(v) ? v : 0; } catch { results["daily_demand"] = 0; }
+  try { const v = Math.sqrt((2 * input.annual_demand * input.ordering_cost) / input.holding_cost_per_unit); results["eoq"] = Number.isFinite(v) ? v : 0; } catch { results["eoq"] = 0; }
   results["adjusted_order_quantity"] = 0;
-  try { results["safety_stock"] = z_score(input.service_level/100) * input.demand_std_dev * Math.sqrt(input.lead_time_days / input.supplier_reliability); } catch { results["safety_stock"] = 0; }
-  try { results["reorder_point"] = (results["daily_demand"] ?? 0) * input.lead_time_days + (results["safety_stock"] ?? 0); } catch { results["reorder_point"] = 0; }
-  try { results["total_annual_cost"] = (input.annual_demand / (results["adjusted_order_quantity"] ?? 0)) * input.ordering_cost + ((results["adjusted_order_quantity"] ?? 0) / 2 + (results["safety_stock"] ?? 0)) * input.holding_cost_per_unit + (input.annual_demand * input.backorder_cost_per_unit * (1 - input.service_level/100)); } catch { results["total_annual_cost"] = 0; }
-  try { results["moq_penalty_cost"] = (((results["adjusted_order_quantity"] ?? 0) > (results["eoq"] ?? 0)) ? (((results["adjusted_order_quantity"] ?? 0) - (results["eoq"] ?? 0)) * input.holding_cost_per_unit / 2) : (0)); } catch { results["moq_penalty_cost"] = 0; }
-  try { results["inventory_turnover"] = input.annual_demand / (((results["adjusted_order_quantity"] ?? 0) / 2) + (results["safety_stock"] ?? 0)); } catch { results["inventory_turnover"] = 0; }
-  try { results["total_inventory_value"] = (((results["adjusted_order_quantity"] ?? 0) / 2) + (results["safety_stock"] ?? 0)) * input.unit_cost; } catch { results["total_inventory_value"] = 0; }
+  try { const v = z_score(input.service_level/100) * input.demand_std_dev * Math.sqrt(input.lead_time_days / input.supplier_reliability); results["safety_stock"] = Number.isFinite(v) ? v : 0; } catch { results["safety_stock"] = 0; }
+  try { const v = (results["daily_demand"] ?? 0) * input.lead_time_days + (results["safety_stock"] ?? 0); results["reorder_point"] = Number.isFinite(v) ? v : 0; } catch { results["reorder_point"] = 0; }
+  try { const v = (input.annual_demand / (results["adjusted_order_quantity"] ?? 0)) * input.ordering_cost + ((results["adjusted_order_quantity"] ?? 0) / 2 + (results["safety_stock"] ?? 0)) * input.holding_cost_per_unit + (input.annual_demand * input.backorder_cost_per_unit * (1 - input.service_level/100)); results["total_annual_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_cost"] = 0; }
+  try { const v = (((results["adjusted_order_quantity"] ?? 0) > (results["eoq"] ?? 0)) ? (((results["adjusted_order_quantity"] ?? 0) - (results["eoq"] ?? 0)) * input.holding_cost_per_unit / 2) : (0)); results["moq_penalty_cost"] = Number.isFinite(v) ? v : 0; } catch { results["moq_penalty_cost"] = 0; }
+  try { const v = input.annual_demand / (((results["adjusted_order_quantity"] ?? 0) / 2) + (results["safety_stock"] ?? 0)); results["inventory_turnover"] = Number.isFinite(v) ? v : 0; } catch { results["inventory_turnover"] = 0; }
+  try { const v = (((results["adjusted_order_quantity"] ?? 0) / 2) + (results["safety_stock"] ?? 0)) * input.unit_cost; results["total_inventory_value"] = Number.isFinite(v) ? v : 0; } catch { results["total_inventory_value"] = 0; }
   return results;
 }
 

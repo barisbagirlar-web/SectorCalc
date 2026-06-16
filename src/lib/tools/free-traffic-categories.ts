@@ -68,6 +68,60 @@ export const FREE_TRAFFIC_CATEGORY_META: readonly FreeTrafficCategoryMeta[] = [
     descriptionKey: "categoryDescriptions.health-body",
     order: 10,
   },
+  {
+    id: "physics-science",
+    labelKey: "categories.physics-science",
+    descriptionKey: "categoryDescriptions.physics-science",
+    order: 11,
+  },
+  {
+    id: "chemistry-science",
+    labelKey: "categories.chemistry-science",
+    descriptionKey: "categoryDescriptions.chemistry-science",
+    order: 12,
+  },
+  {
+    id: "engineering-science",
+    labelKey: "categories.engineering-science",
+    descriptionKey: "categoryDescriptions.engineering-science",
+    order: 13,
+  },
+  {
+    id: "food-cooking",
+    labelKey: "categories.food-cooking",
+    descriptionKey: "categoryDescriptions.food-cooking",
+    order: 14,
+  },
+  {
+    id: "date-time",
+    labelKey: "categories.date-time",
+    descriptionKey: "categoryDescriptions.date-time",
+    order: 15,
+  },
+  {
+    id: "education-academic",
+    labelKey: "categories.education-academic",
+    descriptionKey: "categoryDescriptions.education-academic",
+    order: 16,
+  },
+  {
+    id: "ecology-environment",
+    labelKey: "categories.ecology-environment",
+    descriptionKey: "categoryDescriptions.ecology-environment",
+    order: 17,
+  },
+  {
+    id: "gaming-entertainment",
+    labelKey: "categories.gaming-entertainment",
+    descriptionKey: "categoryDescriptions.gaming-entertainment",
+    order: 18,
+  },
+  {
+    id: "hobbies-diy",
+    labelKey: "categories.hobbies-diy",
+    descriptionKey: "categoryDescriptions.hobbies-diy",
+    order: 19,
+  },
 ] as const;
 
 export const DEFAULT_FREE_TRAFFIC_CATEGORY: FreeTrafficCategory = "construction-measurement";

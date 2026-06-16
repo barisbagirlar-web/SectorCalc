@@ -25,13 +25,13 @@ export const Inflation_escalation_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Inflation_escalation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["effective_labor_inflation"] = input.inflation_rate - input.labor_productivity_gain; } catch { results["effective_labor_inflation"] = 0; }
-  try { results["material_escalation_factor"] = input.inflation_rate * input.material_volatility_index; } catch { results["material_escalation_factor"] = 0; }
-  try { results["energy_escalation_factor"] = input.include_energy ? input.energy_escalation_rate : 0; } catch { results["energy_escalation_factor"] = 0; }
-  try { results["blended_escalation_rate"] = 0.4 * (results["material_escalation_factor"] ?? 0) + 0.3 * (results["effective_labor_inflation"] ?? 0) + 0.2 * input.inflation_rate + 0.1 * (results["energy_escalation_factor"] ?? 0); } catch { results["blended_escalation_rate"] = 0; }
+  try { const v = input.inflation_rate - input.labor_productivity_gain; results["effective_labor_inflation"] = Number.isFinite(v) ? v : 0; } catch { results["effective_labor_inflation"] = 0; }
+  try { const v = input.inflation_rate * input.material_volatility_index; results["material_escalation_factor"] = Number.isFinite(v) ? v : 0; } catch { results["material_escalation_factor"] = 0; }
+  try { const v = input.include_energy ? input.energy_escalation_rate : 0; results["energy_escalation_factor"] = Number.isFinite(v) ? v : 0; } catch { results["energy_escalation_factor"] = 0; }
+  try { const v = 0.4 * (results["material_escalation_factor"] ?? 0) + 0.3 * (results["effective_labor_inflation"] ?? 0) + 0.2 * input.inflation_rate + 0.1 * (results["energy_escalation_factor"] ?? 0); results["blended_escalation_rate"] = Number.isFinite(v) ? v : 0; } catch { results["blended_escalation_rate"] = 0; }
   results["escalated_cost"] = 0;
-  try { results["total_inflation_impact"] = (results["escalated_cost"] ?? 0) - input.base_cost; } catch { results["total_inflation_impact"] = 0; }
-  try { results["annualized_escalation_rate"] = (((results["escalated_cost"] ?? 0) / input.base_cost)^(1/input.period_years) - 1) * 100; } catch { results["annualized_escalation_rate"] = 0; }
+  try { const v = (results["escalated_cost"] ?? 0) - input.base_cost; results["total_inflation_impact"] = Number.isFinite(v) ? v : 0; } catch { results["total_inflation_impact"] = 0; }
+  try { const v = (((results["escalated_cost"] ?? 0) / input.base_cost)^(1/input.period_years) - 1) * 100; results["annualized_escalation_rate"] = Number.isFinite(v) ? v : 0; } catch { results["annualized_escalation_rate"] = 0; }
   return results;
 }
 

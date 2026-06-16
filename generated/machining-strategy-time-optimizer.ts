@@ -29,13 +29,15 @@ export const Machining_strategy_time_optimizerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Machining_strategy_time_optimizerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["spindle_speed"] = (input.cutting_speed * 1000) / (Math.PI * input.part_diameter); } catch { results["spindle_speed"] = 0; }
-  try { results["cutting_time_per_pass"] = input.part_length / (input.feed_rate * (results["spindle_speed"] ?? 0)); } catch { results["cutting_time_per_pass"] = 0; }
-  try { results["total_cutting_time"] = (results["cutting_time_per_pass"] ?? 0) * input.number_of_passes; } catch { results["total_cutting_time"] = 0; }
-  try { results["tool_change_frequency"] = (results["total_cutting_time"] ?? 0) / input.tool_life_minutes; } catch { results["tool_change_frequency"] = 0; }
-  try { results["tool_change_downtime"] = (results["tool_change_frequency"] ?? 0) * input.tool_change_time; } catch { results["tool_change_downtime"] = 0; }
-  try { results["high_feed_adjustment"] = input.use_high_feed ? 0.85 : 1.0; } catch { results["high_feed_adjustment"] = 0; }
-  try { results["primary_result"] = ((results["total_cutting_time"] ?? 0) + (results["tool_change_downtime"] ?? 0)) * (results["high_feed_adjustment"] ?? 0); } catch { results["primary_result"] = 0; }
+  try { const v = (input.cutting_speed * 1000) / (Math.PI * input.part_diameter); results["spindle_speed"] = Number.isFinite(v) ? v : 0; } catch { results["spindle_speed"] = 0; }
+  try { const v = input.part_length / (input.feed_rate * (results["spindle_speed"] ?? 0)); results["cutting_time_per_pass"] = Number.isFinite(v) ? v : 0; } catch { results["cutting_time_per_pass"] = 0; }
+  try { const v = (results["cutting_time_per_pass"] ?? 0) * input.number_of_passes; results["total_cutting_time"] = Number.isFinite(v) ? v : 0; } catch { results["total_cutting_time"] = 0; }
+  try { const v = (results["total_cutting_time"] ?? 0) / input.tool_life_minutes; results["tool_change_frequency"] = Number.isFinite(v) ? v : 0; } catch { results["tool_change_frequency"] = 0; }
+  try { const v = (results["tool_change_frequency"] ?? 0) * input.tool_change_time; results["tool_change_downtime"] = Number.isFinite(v) ? v : 0; } catch { results["tool_change_downtime"] = 0; }
+  try { const v = input.use_high_feed ? 0.85 : 1.0; results["high_feed_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["high_feed_adjustment"] = 0; }
+  try { const v = ((results["total_cutting_time"] ?? 0) + (results["tool_change_downtime"] ?? 0)) * (results["high_feed_adjustment"] ?? 0); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
+  try { const v = (results["total_cutting_time"] ?? 0); results["cutting_time"] = Number.isFinite(v) ? v : 0; } catch { results["cutting_time"] = 0; }
+  try { const v = (results["primary_result"] ?? 0); results["optimized_cycle_time"] = Number.isFinite(v) ? v : 0; } catch { results["optimized_cycle_time"] = 0; }
   return results;
 }
 

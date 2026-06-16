@@ -27,14 +27,14 @@ export const Renovation_budget_optimizerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Renovation_budget_optimizerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["base_material_cost"] = 0;
-  results["scope_multiplier"] = 0;
-  results["sustainability_surcharge"] = 0;
+  try { const v = (input.material_quality === 'economy' ? 25 : (input.material_quality === 'standard' ? 50 : (input.material_quality === 'premium' ? 90 : 50))); results["base_material_cost"] = Number.isFinite(v) ? v : 0; } catch { results["base_material_cost"] = 0; }
+  try { const v = (input.scope_complexity === 'low' ? 1.0 : (input.scope_complexity === 'medium' ? 1.3 : (input.scope_complexity === 'high' ? 1.8 : 1.3))); results["scope_multiplier"] = Number.isFinite(v) ? v : 0; } catch { results["scope_multiplier"] = 0; }
+  try { const v = (input.sustainability_target === 'none' ? 0 : (input.sustainability_target === 'LEED' ? 0.15 : (input.sustainability_target === 'WELL' ? 0.20 : (input.sustainability_target === 'BREEAM' ? 0.18 : 0)))); results["sustainability_surcharge"] = Number.isFinite(v) ? v : 0; } catch { results["sustainability_surcharge"] = 0; }
   results["phasing_efficiency"] = 0;
-  try { results["material_cost_total"] = input.total_area_sqft * (results["base_material_cost"] ?? 0) * (results["scope_multiplier"] ?? 0) * (1 + input.waste_factor_pct/100) * input.region_cost_index * (1 + (results["sustainability_surcharge"] ?? 0)) * (results["phasing_efficiency"] ?? 0); } catch { results["material_cost_total"] = 0; }
-  try { results["labor_cost_total"] = input.total_area_sqft * input.labor_efficiency_factor * 65 * (results["scope_multiplier"] ?? 0) * input.region_cost_index * (results["phasing_efficiency"] ?? 0); } catch { results["labor_cost_total"] = 0; }
-  try { results["contingency_amount"] = ((results["material_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0)) * (input.contingency_pct/100); } catch { results["contingency_amount"] = 0; }
-  try { results["primaryResult"] = (results["material_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0) + (results["contingency_amount"] ?? 0); } catch { results["primaryResult"] = 0; }
+  try { const v = input.total_area_sqft * (results["base_material_cost"] ?? 0) * (results["scope_multiplier"] ?? 0) * (1 + input.waste_factor_pct/100) * input.region_cost_index * (1 + (results["sustainability_surcharge"] ?? 0)) * (results["phasing_efficiency"] ?? 0); results["material_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["material_cost_total"] = 0; }
+  try { const v = input.total_area_sqft * input.labor_efficiency_factor * 65 * (results["scope_multiplier"] ?? 0) * input.region_cost_index * (results["phasing_efficiency"] ?? 0); results["labor_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost_total"] = 0; }
+  try { const v = ((results["material_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0)) * (input.contingency_pct/100); results["contingency_amount"] = Number.isFinite(v) ? v : 0; } catch { results["contingency_amount"] = 0; }
+  try { const v = (results["material_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0) + (results["contingency_amount"] ?? 0); results["primaryResult"] = Number.isFinite(v) ? v : 0; } catch { results["primaryResult"] = 0; }
   return results;
 }
 

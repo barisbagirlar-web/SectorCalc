@@ -25,13 +25,13 @@ export const Compressor_leak_cost_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Compressor_leak_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["leak_flow_rate"] = C_d * A * Math.sqrt( (2 * (P_sys + 14.7) * 144) / (R * T) ); } catch { results["leak_flow_rate"] = 0; }
-  try { results["total_leak_flow"] = (results["leak_flow_rate"] ?? 0) * input.number_of_leaks; } catch { results["total_leak_flow"] = 0; }
-  try { results["power_consumption"] = ((results["total_leak_flow"] ?? 0) * 0.746) / (input.compressor_efficiency / 100); } catch { results["power_consumption"] = 0; }
-  try { results["annual_energy"] = (results["power_consumption"] ?? 0) * input.operating_hours; } catch { results["annual_energy"] = 0; }
-  try { results["annual_cost"] = (results["annual_energy"] ?? 0) * input.electricity_cost; } catch { results["annual_cost"] = 0; }
-  try { results["maintenance_cost"] = input.number_of_leaks * 50; } catch { results["maintenance_cost"] = 0; }
-  try { results["total_annual_cost"] = (results["annual_cost"] ?? 0) + (input.include_maintenance_cost ? (results["maintenance_cost"] ?? 0) : 0); } catch { results["total_annual_cost"] = 0; }
+  try { const v = C_d * A * Math.sqrt( (2 * (P_sys + 14.7) * 144) / (R * T) ); results["leak_flow_rate"] = Number.isFinite(v) ? v : 0; } catch { results["leak_flow_rate"] = 0; }
+  try { const v = (results["leak_flow_rate"] ?? 0) * input.number_of_leaks; results["total_leak_flow"] = Number.isFinite(v) ? v : 0; } catch { results["total_leak_flow"] = 0; }
+  try { const v = ((results["total_leak_flow"] ?? 0) * 0.746) / (input.compressor_efficiency / 100); results["power_consumption"] = Number.isFinite(v) ? v : 0; } catch { results["power_consumption"] = 0; }
+  try { const v = (results["power_consumption"] ?? 0) * input.operating_hours; results["annual_energy"] = Number.isFinite(v) ? v : 0; } catch { results["annual_energy"] = 0; }
+  try { const v = (results["annual_energy"] ?? 0) * input.electricity_cost; results["annual_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_cost"] = 0; }
+  try { const v = input.number_of_leaks * 50; results["maintenance_cost"] = Number.isFinite(v) ? v : 0; } catch { results["maintenance_cost"] = 0; }
+  try { const v = (results["annual_cost"] ?? 0) + (input.include_maintenance_cost ? (results["maintenance_cost"] ?? 0) : 0); results["total_annual_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_cost"] = 0; }
   return results;
 }
 

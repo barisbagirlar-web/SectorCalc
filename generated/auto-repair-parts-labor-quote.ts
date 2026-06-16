@@ -29,13 +29,13 @@ export const Auto_repair_parts_labor_quoteInputSchema = z.object({
 
 function evaluateAllFormulas(input: Auto_repair_parts_labor_quoteInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["adjusted_labor_hours"] = input.labor_hours * input.complexity_factor; } catch { results["adjusted_labor_hours"] = 0; }
-  try { results["parts_cost_with_markup"] = input.parts_cost * (1 + input.parts_markup / 100); } catch { results["parts_cost_with_markup"] = 0; }
-  try { results["labor_cost"] = (results["adjusted_labor_hours"] ?? 0) * input.labor_rate; } catch { results["labor_cost"] = 0; }
-  try { results["direct_cost"] = (results["parts_cost_with_markup"] ?? 0) + (results["labor_cost"] ?? 0); } catch { results["direct_cost"] = 0; }
-  try { results["overhead_cost"] = (results["direct_cost"] ?? 0) * (input.overhead_percent / 100); } catch { results["overhead_cost"] = 0; }
-  try { results["total_cost_before_margin"] = (results["direct_cost"] ?? 0) + (results["overhead_cost"] ?? 0); } catch { results["total_cost_before_margin"] = 0; }
-  try { results["total_quote"] = (((results["total_cost_before_margin"] ?? 0) * (1 + input.profit_margin / 100)) * (1 - input.discount_percent / 100)) * (1 + input.tax_rate / 100) + (input.warranty_included ? 150 : 0); } catch { results["total_quote"] = 0; }
+  try { const v = input.labor_hours * input.complexity_factor; results["adjusted_labor_hours"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_labor_hours"] = 0; }
+  try { const v = input.parts_cost * (1 + input.parts_markup / 100); results["parts_cost_with_markup"] = Number.isFinite(v) ? v : 0; } catch { results["parts_cost_with_markup"] = 0; }
+  try { const v = (results["adjusted_labor_hours"] ?? 0) * input.labor_rate; results["labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost"] = 0; }
+  try { const v = (results["parts_cost_with_markup"] ?? 0) + (results["labor_cost"] ?? 0); results["direct_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_cost"] = 0; }
+  try { const v = (results["direct_cost"] ?? 0) * (input.overhead_percent / 100); results["overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
+  try { const v = (results["direct_cost"] ?? 0) + (results["overhead_cost"] ?? 0); results["total_cost_before_margin"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_before_margin"] = 0; }
+  try { const v = (((results["total_cost_before_margin"] ?? 0) * (1 + input.profit_margin / 100)) * (1 - input.discount_percent / 100)) * (1 + input.tax_rate / 100) + (input.warranty_included ? 150 : 0); results["total_quote"] = Number.isFinite(v) ? v : 0; } catch { results["total_quote"] = 0; }
   return results;
 }
 

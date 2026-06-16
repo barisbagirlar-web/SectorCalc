@@ -35,13 +35,13 @@ export const Total_employee_cost_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Total_employee_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["direct_compensation"] = input.base_salary * (1 + input.bonus_percent / 100); } catch { results["direct_compensation"] = 0; }
-  try { results["benefits_and_taxes"] = input.base_salary * ((input.benefits_percent + input.payroll_tax_percent) / 100); } catch { results["benefits_and_taxes"] = 0; }
-  try { results["overhead_cost"] = ((results["direct_compensation"] ?? 0) + (results["benefits_and_taxes"] ?? 0)) * (input.overhead_percent / 100); } catch { results["overhead_cost"] = 0; }
-  try { results["overtime_cost"] = (input.base_salary / 2080) * input.overtime_hours_per_week * 52 * input.overtime_premium; } catch { results["overtime_cost"] = 0; }
-  try { results["turnover_cost"] = input.base_salary * (input.turnover_rate / 100) * (input.replacement_cost_percent / 100); } catch { results["turnover_cost"] = 0; }
-  try { results["hidden_loss_drivers"] = ((input.include_hidden_costs) ? (((results["direct_compensation"] ?? 0) + (results["benefits_and_taxes"] ?? 0)) * 0.05) : (0)); } catch { results["hidden_loss_drivers"] = 0; }
-  try { results["total_employee_cost"] = (results["direct_compensation"] ?? 0) + (results["benefits_and_taxes"] ?? 0) + (results["overhead_cost"] ?? 0) + input.training_cost + (results["overtime_cost"] ?? 0) + (results["turnover_cost"] ?? 0) + (results["hidden_loss_drivers"] ?? 0); } catch { results["total_employee_cost"] = 0; }
+  try { const v = input.base_salary * (1 + input.bonus_percent / 100); results["direct_compensation"] = Number.isFinite(v) ? v : 0; } catch { results["direct_compensation"] = 0; }
+  try { const v = input.base_salary * ((input.benefits_percent + input.payroll_tax_percent) / 100); results["benefits_and_taxes"] = Number.isFinite(v) ? v : 0; } catch { results["benefits_and_taxes"] = 0; }
+  try { const v = ((results["direct_compensation"] ?? 0) + (results["benefits_and_taxes"] ?? 0)) * (input.overhead_percent / 100); results["overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
+  try { const v = (input.base_salary / 2080) * input.overtime_hours_per_week * 52 * input.overtime_premium; results["overtime_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overtime_cost"] = 0; }
+  try { const v = input.base_salary * (input.turnover_rate / 100) * (input.replacement_cost_percent / 100); results["turnover_cost"] = Number.isFinite(v) ? v : 0; } catch { results["turnover_cost"] = 0; }
+  try { const v = ((input.include_hidden_costs) ? (((results["direct_compensation"] ?? 0) + (results["benefits_and_taxes"] ?? 0)) * 0.05) : (0)); results["hidden_loss_drivers"] = Number.isFinite(v) ? v : 0; } catch { results["hidden_loss_drivers"] = 0; }
+  try { const v = (results["direct_compensation"] ?? 0) + (results["benefits_and_taxes"] ?? 0) + (results["overhead_cost"] ?? 0) + input.training_cost + (results["overtime_cost"] ?? 0) + (results["turnover_cost"] ?? 0) + (results["hidden_loss_drivers"] ?? 0); results["total_employee_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_employee_cost"] = 0; }
   return results;
 }
 

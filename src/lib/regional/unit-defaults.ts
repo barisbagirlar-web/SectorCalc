@@ -192,6 +192,19 @@ export function localizeUnitSymbol(symbol: string, locale: string): string {
   return symbol;
 }
 
+/** Schema/static unit chip on calculator fields (e.g. dimensionless → boyutsuz). */
+export function localizeSchemaUnitSymbol(unit: string, locale: string): string {
+  const trimmed = unit.trim();
+  if (!trimmed || locale === "en") {
+    return trimmed;
+  }
+  const fromSymbolMap = localizeUnitSymbol(trimmed, locale);
+  if (fromSymbolMap !== trimmed) {
+    return fromSymbolMap;
+  }
+  return translateCalculatorPhrase(trimmed, locale);
+}
+
 export function inferUnitGroupFromFieldKey(fieldKey: string, dimension?: string): UnitGroup | null {
   const fromDimension = dimension ? mapDimensionToQuantityType(dimension) : null;
   if (fromDimension) {

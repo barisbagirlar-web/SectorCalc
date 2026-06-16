@@ -21,13 +21,13 @@ export const Sleep_cycle_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Sleep_cycle_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["actual_sleep_start"] = input.wake_time - ((results["total_sleep_minutes"] ?? 0) / 60); } catch { results["actual_sleep_start"] = 0; }
-  try { results["total_sleep_minutes"] = Math.max(5 * input.cycle_length_minutes, (5 * input.cycle_length_minutes) + (input.sleep_debt_hours * 60 / input.recovery_efficiency)); } catch { results["total_sleep_minutes"] = 0; }
-  try { results["optimal_bedtime"] = input.wake_time - ((results["total_sleep_minutes"] ?? 0) / 60) - (input.fall_asleep_minutes / 60); } catch { results["optimal_bedtime"] = 0; }
-  try { results["circadian_penalty"] = input.shift_worker ? 0.5 : 0.0; } catch { results["circadian_penalty"] = 0; }
-  try { results["adjusted_sleep_debt"] = input.sleep_debt_hours + (results["circadian_penalty"] ?? 0); } catch { results["adjusted_sleep_debt"] = 0; }
-  try { results["cycle_count"] = Math.floor((results["total_sleep_minutes"] ?? 0) / input.cycle_length_minutes); } catch { results["cycle_count"] = 0; }
-  try { results["sleep_quality_index"] = Math.min(100, Math.max(0, ((results["cycle_count"] ?? 0) / 6) * 50 + (1 - ((results["adjusted_sleep_debt"] ?? 0) / 8)) * 30 + (input.recovery_efficiency - 0.5) * 40)); } catch { results["sleep_quality_index"] = 0; }
+  try { const v = input.wake_time - ((results["total_sleep_minutes"] ?? 0) / 60); results["actual_sleep_start"] = Number.isFinite(v) ? v : 0; } catch { results["actual_sleep_start"] = 0; }
+  try { const v = Math.max(5 * input.cycle_length_minutes, (5 * input.cycle_length_minutes) + (input.sleep_debt_hours * 60 / input.recovery_efficiency)); results["total_sleep_minutes"] = Number.isFinite(v) ? v : 0; } catch { results["total_sleep_minutes"] = 0; }
+  try { const v = input.wake_time - ((results["total_sleep_minutes"] ?? 0) / 60) - (input.fall_asleep_minutes / 60); results["optimal_bedtime"] = Number.isFinite(v) ? v : 0; } catch { results["optimal_bedtime"] = 0; }
+  try { const v = input.shift_worker ? 0.5 : 0.0; results["circadian_penalty"] = Number.isFinite(v) ? v : 0; } catch { results["circadian_penalty"] = 0; }
+  try { const v = input.sleep_debt_hours + (results["circadian_penalty"] ?? 0); results["adjusted_sleep_debt"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_sleep_debt"] = 0; }
+  try { const v = Math.floor((results["total_sleep_minutes"] ?? 0) / input.cycle_length_minutes); results["cycle_count"] = Number.isFinite(v) ? v : 0; } catch { results["cycle_count"] = 0; }
+  try { const v = Math.min(100, Math.max(0, ((results["cycle_count"] ?? 0) / 6) * 50 + (1 - ((results["adjusted_sleep_debt"] ?? 0) / 8)) * 30 + (input.recovery_efficiency - 0.5) * 40)); results["sleep_quality_index"] = Number.isFinite(v) ? v : 0; } catch { results["sleep_quality_index"] = 0; }
   return results;
 }
 

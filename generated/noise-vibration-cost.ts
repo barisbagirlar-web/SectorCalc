@@ -43,13 +43,13 @@ export const Noise_vibration_costInputSchema = z.object({
 
 function evaluateAllFormulas(input: Noise_vibration_costInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["productivity_loss_cost"] = input.num_workers_exposed * input.avg_worker_annual_salary * (Math.max(0, (input.noise_level_dba - 80) * 0.005) + Math.max(0, (input.vibration_level_ms2 - 0.3) * 10 * 0.01)); } catch { results["productivity_loss_cost"] = 0; }
-  try { results["health_and_ppe_cost"] = input.num_workers_exposed * input.hearing_protection_cost_per_worker_per_year + (input.num_workers_exposed * 50 * (input.vibration_level_ms2 > 0.5 ? 1 : 0)); } catch { results["health_and_ppe_cost"] = 0; }
-  try { results["quality_defect_cost"] = input.annual_production_volume * (input.quality_defect_rate_percent / 100) * input.cost_per_defect; } catch { results["quality_defect_cost"] = 0; }
-  try { results["excess_energy_cost"] = input.number_of_machines * input.machine_power_kw * input.machine_runtime_hours_per_day * 365 * input.energy_cost_per_kwh * (0.05 * Math.max(0, input.vibration_level_ms2 - 0.5)); } catch { results["excess_energy_cost"] = 0; }
-  try { results["excess_maintenance_cost"] = input.number_of_machines * input.maintenance_cost_per_machine_per_year * (0.10 * Math.max(0, input.vibration_level_ms2 - 0.3)); } catch { results["excess_maintenance_cost"] = 0; }
-  try { results["total_annual_loss"] = (results["productivity_loss_cost"] ?? 0) + (results["health_and_ppe_cost"] ?? 0) + (results["quality_defect_cost"] ?? 0) + (results["excess_energy_cost"] ?? 0) + (results["excess_maintenance_cost"] ?? 0); } catch { results["total_annual_loss"] = 0; }
-  try { results["roi_improvement"] = ((results["total_annual_loss"] ?? 0) * 0.5 * 5) - (input.noise_reduction_investment + input.vibration_reduction_investment); } catch { results["roi_improvement"] = 0; }
+  try { const v = input.num_workers_exposed * input.avg_worker_annual_salary * (Math.max(0, (input.noise_level_dba - 80) * 0.005) + Math.max(0, (input.vibration_level_ms2 - 0.3) * 10 * 0.01)); results["productivity_loss_cost"] = Number.isFinite(v) ? v : 0; } catch { results["productivity_loss_cost"] = 0; }
+  try { const v = input.num_workers_exposed * input.hearing_protection_cost_per_worker_per_year + (input.num_workers_exposed * 50 * (input.vibration_level_ms2 > 0.5 ? 1 : 0)); results["health_and_ppe_cost"] = Number.isFinite(v) ? v : 0; } catch { results["health_and_ppe_cost"] = 0; }
+  try { const v = input.annual_production_volume * (input.quality_defect_rate_percent / 100) * input.cost_per_defect; results["quality_defect_cost"] = Number.isFinite(v) ? v : 0; } catch { results["quality_defect_cost"] = 0; }
+  try { const v = input.number_of_machines * input.machine_power_kw * input.machine_runtime_hours_per_day * 365 * input.energy_cost_per_kwh * (0.05 * Math.max(0, input.vibration_level_ms2 - 0.5)); results["excess_energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["excess_energy_cost"] = 0; }
+  try { const v = input.number_of_machines * input.maintenance_cost_per_machine_per_year * (0.10 * Math.max(0, input.vibration_level_ms2 - 0.3)); results["excess_maintenance_cost"] = Number.isFinite(v) ? v : 0; } catch { results["excess_maintenance_cost"] = 0; }
+  try { const v = (results["productivity_loss_cost"] ?? 0) + (results["health_and_ppe_cost"] ?? 0) + (results["quality_defect_cost"] ?? 0) + (results["excess_energy_cost"] ?? 0) + (results["excess_maintenance_cost"] ?? 0); results["total_annual_loss"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_loss"] = 0; }
+  try { const v = ((results["total_annual_loss"] ?? 0) * 0.5 * 5) - (input.noise_reduction_investment + input.vibration_reduction_investment); results["roi_improvement"] = Number.isFinite(v) ? v : 0; } catch { results["roi_improvement"] = 0; }
   return results;
 }
 

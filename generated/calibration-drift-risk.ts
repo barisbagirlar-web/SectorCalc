@@ -25,13 +25,13 @@ export const Calibration_drift_riskInputSchema = z.object({
 
 function evaluateAllFormulas(input: Calibration_drift_riskInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["time_based_drift_factor"] = Math.min(1.0, input.days_since_last_calibration / input.calibration_interval_days); } catch { results["time_based_drift_factor"] = 0; }
-  try { results["drift_margin_ratio"] = Math.min(1.5, input.observed_drift_pct / input.measurement_tolerance_pct); } catch { results["drift_margin_ratio"] = 0; }
-  results["environmental_multiplier"] = 0;
-  results["criticality_multiplier"] = 0;
-  try { results["historical_failure_factor"] = Math.min(1.0, input.historical_failure_rate / 50.0); } catch { results["historical_failure_factor"] = 0; }
-  try { results["drift_risk_index"] = 0.30 * (results["time_based_drift_factor"] ?? 0) + 0.25 * (results["drift_margin_ratio"] ?? 0) + 0.15 * (results["environmental_multiplier"] ?? 0) / 2.0 + 0.20 * (results["criticality_multiplier"] ?? 0) / 2.5 + 0.10 * (results["historical_failure_factor"] ?? 0); } catch { results["drift_risk_index"] = 0; }
-  try { results["data_confidence_adjusted_risk"] = (results["drift_risk_index"] ?? 0) * (1 + (100 - input.data_confidence_score) / 200); } catch { results["data_confidence_adjusted_risk"] = 0; }
+  try { const v = Math.min(1.0, input.days_since_last_calibration / input.calibration_interval_days); results["time_based_drift_factor"] = Number.isFinite(v) ? v : 0; } catch { results["time_based_drift_factor"] = 0; }
+  try { const v = Math.min(1.5, input.observed_drift_pct / input.measurement_tolerance_pct); results["drift_margin_ratio"] = Number.isFinite(v) ? v : 0; } catch { results["drift_margin_ratio"] = 0; }
+  try { const v = (input.environmental_stress_factor === 'low' ? 1.0 : (input.environmental_stress_factor === 'moderate' ? 1.2 : (input.environmental_stress_factor === 'high' ? 1.5 : (input.environmental_stress_factor === 'extreme' ? 2.0 : 1.2)))); results["environmental_multiplier"] = Number.isFinite(v) ? v : 0; } catch { results["environmental_multiplier"] = 0; }
+  try { const v = (input.criticality_level === 'low' ? 1.0 : (input.criticality_level === 'medium' ? 1.3 : (input.criticality_level === 'high' ? 1.7 : (input.criticality_level === 'critical' ? 2.5 : 1.3)))); results["criticality_multiplier"] = Number.isFinite(v) ? v : 0; } catch { results["criticality_multiplier"] = 0; }
+  try { const v = Math.min(1.0, input.historical_failure_rate / 50.0); results["historical_failure_factor"] = Number.isFinite(v) ? v : 0; } catch { results["historical_failure_factor"] = 0; }
+  try { const v = 0.30 * (results["time_based_drift_factor"] ?? 0) + 0.25 * (results["drift_margin_ratio"] ?? 0) + 0.15 * (results["environmental_multiplier"] ?? 0) / 2.0 + 0.20 * (results["criticality_multiplier"] ?? 0) / 2.5 + 0.10 * (results["historical_failure_factor"] ?? 0); results["drift_risk_index"] = Number.isFinite(v) ? v : 0; } catch { results["drift_risk_index"] = 0; }
+  try { const v = (results["drift_risk_index"] ?? 0) * (1 + (100 - input.data_confidence_score) / 200); results["data_confidence_adjusted_risk"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_adjusted_risk"] = 0; }
   return results;
 }
 

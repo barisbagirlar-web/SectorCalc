@@ -29,13 +29,13 @@ export const Chatter_surface_quality_lossInputSchema = z.object({
 
 function evaluateAllFormulas(input: Chatter_surface_quality_lossInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["chatter_index"] = (input.cutting_speed * input.feed_rate * input.depth_of_cut) / (input.tool_diameter**2 * input.machine_damping_ratio * (1 + 0.1 * (input.tool_overhang / input.tool_diameter - 2))); } catch { results["chatter_index"] = 0; }
-  try { results["surface_roughness_target"] = (input.feed_rate**2) / (32 * 0.8); } catch { results["surface_roughness_target"] = 0; }
-  try { results["surface_roughness_actual"] = (results["surface_roughness_target"] ?? 0) * (1 + 2 * (results["chatter_index"] ?? 0)); } catch { results["surface_roughness_actual"] = 0; }
-  try { results["material_hardness_factor"] = (input.workpiece_material_hardness / 200)**0.5; } catch { results["material_hardness_factor"] = 0; }
-  results["tool_material_factor"] = 0;
+  try { const v = (input.cutting_speed * input.feed_rate * input.depth_of_cut) / (input.tool_diameter**2 * input.machine_damping_ratio * (1 + 0.1 * (input.tool_overhang / input.tool_diameter - 2))); results["chatter_index"] = Number.isFinite(v) ? v : 0; } catch { results["chatter_index"] = 0; }
+  try { const v = (input.feed_rate**2) / (32 * 0.8); results["surface_roughness_target"] = Number.isFinite(v) ? v : 0; } catch { results["surface_roughness_target"] = 0; }
+  try { const v = (results["surface_roughness_target"] ?? 0) * (1 + 2 * (results["chatter_index"] ?? 0)); results["surface_roughness_actual"] = Number.isFinite(v) ? v : 0; } catch { results["surface_roughness_actual"] = 0; }
+  try { const v = (input.workpiece_material_hardness / 200)**0.5; results["material_hardness_factor"] = Number.isFinite(v) ? v : 0; } catch { results["material_hardness_factor"] = 0; }
+  try { const v = (input.tool_material === 'hss' ? 1.2 : (input.tool_material === 'carbide' ? 1.0 : (input.tool_material === 'ceramic' ? 0.8 : (input.tool_material === 'cbn' ? 0.6 : 1.0)))); results["tool_material_factor"] = Number.isFinite(v) ? v : 0; } catch { results["tool_material_factor"] = 0; }
   results["coolant_factor"] = 0;
-  try { results["total_quality_loss_percentage"] = 100 * (1 - Math.exp(-0.5 * (results["chatter_index"] ?? 0) * (results["material_hardness_factor"] ?? 0) * (results["tool_material_factor"] ?? 0) * (results["coolant_factor"] ?? 0))); } catch { results["total_quality_loss_percentage"] = 0; }
+  try { const v = 100 * (1 - Math.exp(-0.5 * (results["chatter_index"] ?? 0) * (results["material_hardness_factor"] ?? 0) * (results["tool_material_factor"] ?? 0) * (results["coolant_factor"] ?? 0))); results["total_quality_loss_percentage"] = Number.isFinite(v) ? v : 0; } catch { results["total_quality_loss_percentage"] = 0; }
   return results;
 }
 

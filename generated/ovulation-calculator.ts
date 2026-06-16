@@ -21,13 +21,13 @@ export const Ovulation_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Ovulation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["estimated_ovulation_date"] = input.cycle_length - input.luteal_phase_length; } catch { results["estimated_ovulation_date"] = 0; }
-  try { results["fertile_window_start"] = (results["estimated_ovulation_date"] ?? 0) - 5; } catch { results["fertile_window_start"] = 0; }
-  try { results["fertile_window_end"] = (results["estimated_ovulation_date"] ?? 0) + 1; } catch { results["fertile_window_end"] = 0; }
-  try { results["cycle_confidence_interval"] = 1.96 * input.cycle_variability; } catch { results["cycle_confidence_interval"] = 0; }
-  try { results["adjusted_fertile_window_start"] = (results["fertile_window_start"] ?? 0) - (results["cycle_confidence_interval"] ?? 0); } catch { results["adjusted_fertile_window_start"] = 0; }
-  try { results["adjusted_fertile_window_end"] = (results["fertile_window_end"] ?? 0) + (results["cycle_confidence_interval"] ?? 0); } catch { results["adjusted_fertile_window_end"] = 0; }
-  try { results["data_confidence_score"] = Math.max(0, 100 - (input.cycle_variability * 10) - (input.has_irregular_cycles ? 30 : 0)); } catch { results["data_confidence_score"] = 0; }
+  try { const v = input.cycle_length - input.luteal_phase_length; results["estimated_ovulation_date"] = Number.isFinite(v) ? v : 0; } catch { results["estimated_ovulation_date"] = 0; }
+  try { const v = (results["estimated_ovulation_date"] ?? 0) - 5; results["fertile_window_start"] = Number.isFinite(v) ? v : 0; } catch { results["fertile_window_start"] = 0; }
+  try { const v = (results["estimated_ovulation_date"] ?? 0) + 1; results["fertile_window_end"] = Number.isFinite(v) ? v : 0; } catch { results["fertile_window_end"] = 0; }
+  try { const v = 1.96 * input.cycle_variability; results["cycle_confidence_interval"] = Number.isFinite(v) ? v : 0; } catch { results["cycle_confidence_interval"] = 0; }
+  try { const v = (results["fertile_window_start"] ?? 0) - (results["cycle_confidence_interval"] ?? 0); results["adjusted_fertile_window_start"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_fertile_window_start"] = 0; }
+  try { const v = (results["fertile_window_end"] ?? 0) + (results["cycle_confidence_interval"] ?? 0); results["adjusted_fertile_window_end"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_fertile_window_end"] = 0; }
+  try { const v = Math.max(0, 100 - (input.cycle_variability * 10) - (input.has_irregular_cycles ? 30 : 0)); results["data_confidence_score"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_score"] = 0; }
   return results;
 }
 

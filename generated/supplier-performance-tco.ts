@@ -35,13 +35,13 @@ export const Supplier_performance_tcoInputSchema = z.object({
 
 function evaluateAllFormulas(input: Supplier_performance_tcoInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["quality_cost"] = input.inspection_cost_per_unit + (input.defect_rate / 1000000) * (input.purchase_price * 0.5); } catch { results["quality_cost"] = 0; }
-  try { results["logistics_cost"] = input.freight_cost_per_unit + (input.purchase_price * input.carrying_cost_rate / 100) * (input.lead_time_days / 365); } catch { results["logistics_cost"] = 0; }
-  try { results["warranty_cost"] = (input.warranty_claim_rate / 100) * input.average_claim_cost; } catch { results["warranty_cost"] = 0; }
-  try { results["environmental_cost"] = input.use_eco_cost ? (input.co2_per_unit * input.carbon_tax_rate) : 0; } catch { results["environmental_cost"] = 0; }
-  try { results["tco_per_unit"] = input.purchase_price + (results["quality_cost"] ?? 0) + (results["logistics_cost"] ?? 0) + (results["warranty_cost"] ?? 0) + (results["environmental_cost"] ?? 0); } catch { results["tco_per_unit"] = 0; }
-  try { results["annual_tco"] = (results["tco_per_unit"] ?? 0) * input.annual_quantity; } catch { results["annual_tco"] = 0; }
-  try { results["tco_index"] = (results["tco_per_unit"] ?? 0) / input.purchase_price; } catch { results["tco_index"] = 0; }
+  try { const v = input.inspection_cost_per_unit + (input.defect_rate / 1000000) * (input.purchase_price * 0.5); results["quality_cost"] = Number.isFinite(v) ? v : 0; } catch { results["quality_cost"] = 0; }
+  try { const v = input.freight_cost_per_unit + (input.purchase_price * input.carrying_cost_rate / 100) * (input.lead_time_days / 365); results["logistics_cost"] = Number.isFinite(v) ? v : 0; } catch { results["logistics_cost"] = 0; }
+  try { const v = (input.warranty_claim_rate / 100) * input.average_claim_cost; results["warranty_cost"] = Number.isFinite(v) ? v : 0; } catch { results["warranty_cost"] = 0; }
+  try { const v = input.use_eco_cost ? (input.co2_per_unit * input.carbon_tax_rate) : 0; results["environmental_cost"] = Number.isFinite(v) ? v : 0; } catch { results["environmental_cost"] = 0; }
+  try { const v = input.purchase_price + (results["quality_cost"] ?? 0) + (results["logistics_cost"] ?? 0) + (results["warranty_cost"] ?? 0) + (results["environmental_cost"] ?? 0); results["tco_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["tco_per_unit"] = 0; }
+  try { const v = (results["tco_per_unit"] ?? 0) * input.annual_quantity; results["annual_tco"] = Number.isFinite(v) ? v : 0; } catch { results["annual_tco"] = 0; }
+  try { const v = (results["tco_per_unit"] ?? 0) / input.purchase_price; results["tco_index"] = Number.isFinite(v) ? v : 0; } catch { results["tco_index"] = 0; }
   return results;
 }
 

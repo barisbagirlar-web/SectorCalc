@@ -27,18 +27,18 @@ export const Vacuum_leak_energy_loss_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Vacuum_leak_energy_loss_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["discharge_coefficient"] = (input.leak_type === 'round' ? 0.62 : (input.leak_type === 'sharp' ? 0.85 : (input.leak_type === 'long' ? 0.50 : 0))); } catch { results["discharge_coefficient"] = 0; }
-  try { results["orifice_area_m2"] = Math.PI * (input.leak_diameter_mm / 2000)**2; } catch { results["orifice_area_m2"] = 0; }
-  try { results["absolute_pressure_pa"] = (input.system_pressure_bar + 1.01325) * 100000; } catch { results["absolute_pressure_pa"] = 0; }
-  try { results["air_density_kg_per_m3"] = (results["absolute_pressure_pa"] ?? 0) / (287.058 * (input.ambient_temperature_c + 273.15)); } catch { results["air_density_kg_per_m3"] = 0; }
-  try { results["mass_flow_rate_kg_per_s"] = (results["discharge_coefficient"] ?? 0) * (results["orifice_area_m2"] ?? 0) * Math.sqrt(2 * (results["air_density_kg_per_m3"] ?? 0) * ((results["absolute_pressure_pa"] ?? 0) - 101325)); } catch { results["mass_flow_rate_kg_per_s"] = 0; }
-  try { results["volumetric_flow_rate_cfm"] = (results["mass_flow_rate_kg_per_s"] ?? 0) * (3600 / 1.225) * 0.5886; } catch { results["volumetric_flow_rate_cfm"] = 0; }
-  try { results["power_loss_kw"] = ((results["volumetric_flow_rate_cfm"] ?? 0) / 100) * input.compressor_specific_power; } catch { results["power_loss_kw"] = 0; }
-  try { results["annual_energy_loss_kwh"] = (results["power_loss_kw"] ?? 0) * input.operating_hours_per_year; } catch { results["annual_energy_loss_kwh"] = 0; }
-  try { results["annual_cost_usd"] = (results["annual_energy_loss_kwh"] ?? 0) * input.electricity_cost_per_kwh; } catch { results["annual_cost_usd"] = 0; }
+  try { const v = (input.leak_type === 'round' ? 0.62 : (input.leak_type === 'sharp' ? 0.85 : (input.leak_type === 'long' ? 0.50 : 0))); results["discharge_coefficient"] = Number.isFinite(v) ? v : 0; } catch { results["discharge_coefficient"] = 0; }
+  try { const v = Math.PI * (input.leak_diameter_mm / 2000)**2; results["orifice_area_m2"] = Number.isFinite(v) ? v : 0; } catch { results["orifice_area_m2"] = 0; }
+  try { const v = (input.system_pressure_bar + 1.01325) * 100000; results["absolute_pressure_pa"] = Number.isFinite(v) ? v : 0; } catch { results["absolute_pressure_pa"] = 0; }
+  try { const v = (results["absolute_pressure_pa"] ?? 0) / (287.058 * (input.ambient_temperature_c + 273.15)); results["air_density_kg_per_m3"] = Number.isFinite(v) ? v : 0; } catch { results["air_density_kg_per_m3"] = 0; }
+  try { const v = (results["discharge_coefficient"] ?? 0) * (results["orifice_area_m2"] ?? 0) * Math.sqrt(2 * (results["air_density_kg_per_m3"] ?? 0) * ((results["absolute_pressure_pa"] ?? 0) - 101325)); results["mass_flow_rate_kg_per_s"] = Number.isFinite(v) ? v : 0; } catch { results["mass_flow_rate_kg_per_s"] = 0; }
+  try { const v = (results["mass_flow_rate_kg_per_s"] ?? 0) * (3600 / 1.225) * 0.5886; results["volumetric_flow_rate_cfm"] = Number.isFinite(v) ? v : 0; } catch { results["volumetric_flow_rate_cfm"] = 0; }
+  try { const v = ((results["volumetric_flow_rate_cfm"] ?? 0) / 100) * input.compressor_specific_power; results["power_loss_kw"] = Number.isFinite(v) ? v : 0; } catch { results["power_loss_kw"] = 0; }
+  try { const v = (results["power_loss_kw"] ?? 0) * input.operating_hours_per_year; results["annual_energy_loss_kwh"] = Number.isFinite(v) ? v : 0; } catch { results["annual_energy_loss_kwh"] = 0; }
+  try { const v = (results["annual_energy_loss_kwh"] ?? 0) * input.electricity_cost_per_kwh; results["annual_cost_usd"] = Number.isFinite(v) ? v : 0; } catch { results["annual_cost_usd"] = 0; }
   results["annual_co2_kg"] = 0;
-  try { results["annual_carbon_cost_usd"] = (results["annual_co2_kg"] ?? 0) * 0.05; } catch { results["annual_carbon_cost_usd"] = 0; }
-  try { results["total_annual_cost_usd"] = (results["annual_cost_usd"] ?? 0) + (results["annual_carbon_cost_usd"] ?? 0); } catch { results["total_annual_cost_usd"] = 0; }
+  try { const v = (results["annual_co2_kg"] ?? 0) * 0.05; results["annual_carbon_cost_usd"] = Number.isFinite(v) ? v : 0; } catch { results["annual_carbon_cost_usd"] = 0; }
+  try { const v = (results["annual_cost_usd"] ?? 0) + (results["annual_carbon_cost_usd"] ?? 0); results["total_annual_cost_usd"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_cost_usd"] = 0; }
   return results;
 }
 

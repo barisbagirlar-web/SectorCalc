@@ -33,14 +33,14 @@ export const Contract_incentive_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Contract_incentive_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["throughput_ratio"] = input.actual_throughput / input.target_throughput; } catch { results["throughput_ratio"] = 0; }
-  try { results["quality_multiplier"] = Math.max(0, 1 - (input.defect_rate / input.quality_threshold_ppm)); } catch { results["quality_multiplier"] = 0; }
-  try { results["delivery_multiplier"] = Math.max(0, (input.on_time_delivery_percent - input.delivery_threshold_percent) / (100 - input.delivery_threshold_percent)); } catch { results["delivery_multiplier"] = 0; }
-  try { results["cost_savings_per_unit"] = Math.max(0, input.target_cost_per_unit - input.cost_per_unit); } catch { results["cost_savings_per_unit"] = 0; }
-  try { results["cost_savings_incentive"] = (results["cost_savings_per_unit"] ?? 0) * input.actual_throughput * (input.cost_reduction_sharing_percent / 100); } catch { results["cost_savings_incentive"] = 0; }
-  try { results["base_incentive"] = input.actual_throughput * input.incentive_base_rate; } catch { results["base_incentive"] = 0; }
-  try { results["performance_adjusted_incentive"] = (results["base_incentive"] ?? 0) * (results["quality_multiplier"] ?? 0) * (results["delivery_multiplier"] ?? 0); } catch { results["performance_adjusted_incentive"] = 0; }
-  try { results["total_incentive"] = (results["performance_adjusted_incentive"] ?? 0) + (results["cost_savings_incentive"] ?? 0); } catch { results["total_incentive"] = 0; }
+  try { const v = input.actual_throughput / input.target_throughput; results["throughput_ratio"] = Number.isFinite(v) ? v : 0; } catch { results["throughput_ratio"] = 0; }
+  try { const v = Math.max(0, 1 - (input.defect_rate / input.quality_threshold_ppm)); results["quality_multiplier"] = Number.isFinite(v) ? v : 0; } catch { results["quality_multiplier"] = 0; }
+  try { const v = Math.max(0, (input.on_time_delivery_percent - input.delivery_threshold_percent) / (100 - input.delivery_threshold_percent)); results["delivery_multiplier"] = Number.isFinite(v) ? v : 0; } catch { results["delivery_multiplier"] = 0; }
+  try { const v = Math.max(0, input.target_cost_per_unit - input.cost_per_unit); results["cost_savings_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["cost_savings_per_unit"] = 0; }
+  try { const v = (results["cost_savings_per_unit"] ?? 0) * input.actual_throughput * (input.cost_reduction_sharing_percent / 100); results["cost_savings_incentive"] = Number.isFinite(v) ? v : 0; } catch { results["cost_savings_incentive"] = 0; }
+  try { const v = input.actual_throughput * input.incentive_base_rate; results["base_incentive"] = Number.isFinite(v) ? v : 0; } catch { results["base_incentive"] = 0; }
+  try { const v = (results["base_incentive"] ?? 0) * (results["quality_multiplier"] ?? 0) * (results["delivery_multiplier"] ?? 0); results["performance_adjusted_incentive"] = Number.isFinite(v) ? v : 0; } catch { results["performance_adjusted_incentive"] = 0; }
+  try { const v = (results["performance_adjusted_incentive"] ?? 0) + (results["cost_savings_incentive"] ?? 0); results["total_incentive"] = Number.isFinite(v) ? v : 0; } catch { results["total_incentive"] = 0; }
   return results;
 }
 

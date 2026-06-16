@@ -37,20 +37,20 @@ export const Machine_economic_life_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Machine_economic_life_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["annual_operating_cost_year_n"] = input.annual_operating_cost * (1 + input.operating_cost_escalation_rate / 100) ^ (n - 1); } catch { results["annual_operating_cost_year_n"] = 0; }
-  try { results["annual_defect_cost"] = input.annual_production_units * (input.quality_defect_rate + input.defect_rate_annual_increase * (n - 1)) / 100 * (input.revenue_per_unit * 0.5); } catch { results["annual_defect_cost"] = 0; }
-  try { results["annual_energy_cost"] = input.power_consumption_kw * 24 * 365 * (input.utilization_rate / 100) * input.energy_cost_per_kwh; } catch { results["annual_energy_cost"] = 0; }
-  try { results["total_annual_cost_year_n"] = (results["annual_operating_cost_year_n"] ?? 0) + (results["annual_defect_cost"] ?? 0) + (results["annual_energy_cost"] ?? 0); } catch { results["total_annual_cost_year_n"] = 0; }
+  try { const v = input.annual_operating_cost * (1 + input.operating_cost_escalation_rate / 100) ^ (n - 1); results["annual_operating_cost_year_n"] = Number.isFinite(v) ? v : 0; } catch { results["annual_operating_cost_year_n"] = 0; }
+  try { const v = input.annual_production_units * (input.quality_defect_rate + input.defect_rate_annual_increase * (n - 1)) / 100 * (input.revenue_per_unit * 0.5); results["annual_defect_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_defect_cost"] = 0; }
+  try { const v = input.power_consumption_kw * 24 * 365 * (input.utilization_rate / 100) * input.energy_cost_per_kwh; results["annual_energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_energy_cost"] = 0; }
+  try { const v = (results["annual_operating_cost_year_n"] ?? 0) + (results["annual_defect_cost"] ?? 0) + (results["annual_energy_cost"] ?? 0); results["total_annual_cost_year_n"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_cost_year_n"] = 0; }
   results["npv_of_costs"] = 0;
   results["economic_life"] = 0;
-  try { results["primary_result"] = (results["economic_life"] ?? 0); } catch { results["primary_result"] = 0; }
+  try { const v = (results["economic_life"] ?? 0); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 
 
 export function calculateMachine_economic_life_calculator(input: Machine_economic_life_calculatorInput): Machine_economic_life_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["optimal_economic_life"] ?? 0;
+  const totalWasteCost = values["optimal_economic_life"] ?? values["primary_result"] ?? 0;
   const breakdown = {
     id: values["id"] ?? 0,
     label: values["label"] ?? 0,

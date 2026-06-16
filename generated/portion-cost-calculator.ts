@@ -29,12 +29,12 @@ export const Portion_cost_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Portion_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["effective_raw_material_cost"] = input.raw_material_cost_per_unit / (1 - input.trim_loss_percentage / 100) + input.waste_disposal_cost_per_kg * (input.trim_loss_percentage / 100); } catch { results["effective_raw_material_cost"] = 0; }
-  try { results["material_cost_per_portion"] = (results["effective_raw_material_cost"] ?? 0) * (input.portion_weight / 1000) / (input.yield_percentage / 100); } catch { results["material_cost_per_portion"] = 0; }
-  try { results["labor_cost_per_portion"] = input.labor_cost_per_hour * input.labor_hours_per_batch / input.batch_size; } catch { results["labor_cost_per_portion"] = 0; }
-  try { results["direct_cost_per_portion"] = (results["material_cost_per_portion"] ?? 0) + (results["labor_cost_per_portion"] ?? 0); } catch { results["direct_cost_per_portion"] = 0; }
-  try { results["overhead_cost_per_portion"] = (results["direct_cost_per_portion"] ?? 0) * (input.overhead_rate / 100); } catch { results["overhead_cost_per_portion"] = 0; }
-  try { results["total_cost_per_portion"] = (results["direct_cost_per_portion"] ?? 0) + (results["overhead_cost_per_portion"] ?? 0); } catch { results["total_cost_per_portion"] = 0; }
+  try { const v = input.raw_material_cost_per_unit / (1 - input.trim_loss_percentage / 100) + input.waste_disposal_cost_per_kg * (input.trim_loss_percentage / 100); results["effective_raw_material_cost"] = Number.isFinite(v) ? v : 0; } catch { results["effective_raw_material_cost"] = 0; }
+  try { const v = (results["effective_raw_material_cost"] ?? 0) * (input.portion_weight / 1000) / (input.yield_percentage / 100); results["material_cost_per_portion"] = Number.isFinite(v) ? v : 0; } catch { results["material_cost_per_portion"] = 0; }
+  try { const v = input.labor_cost_per_hour * input.labor_hours_per_batch / input.batch_size; results["labor_cost_per_portion"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost_per_portion"] = 0; }
+  try { const v = (results["material_cost_per_portion"] ?? 0) + (results["labor_cost_per_portion"] ?? 0); results["direct_cost_per_portion"] = Number.isFinite(v) ? v : 0; } catch { results["direct_cost_per_portion"] = 0; }
+  try { const v = (results["direct_cost_per_portion"] ?? 0) * (input.overhead_rate / 100); results["overhead_cost_per_portion"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost_per_portion"] = 0; }
+  try { const v = (results["direct_cost_per_portion"] ?? 0) + (results["overhead_cost_per_portion"] ?? 0); results["total_cost_per_portion"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_per_portion"] = 0; }
   return results;
 }
 

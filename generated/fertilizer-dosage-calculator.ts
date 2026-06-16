@@ -33,24 +33,24 @@ export const Fertilizer_dosage_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Fertilizer_dosage_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["nutrient_demand_n"] = input.target_yield * 0.017; } catch { results["nutrient_demand_n"] = 0; }
-  try { results["nutrient_demand_p"] = input.target_yield * 0.006; } catch { results["nutrient_demand_p"] = 0; }
-  try { results["nutrient_demand_k"] = input.target_yield * 0.015; } catch { results["nutrient_demand_k"] = 0; }
-  try { results["soil_supply_n"] = input.soil_nitrogen * 2.0 + input.organic_matter * 10; } catch { results["soil_supply_n"] = 0; }
-  try { results["soil_supply_p"] = input.soil_phosphorus * 1.5; } catch { results["soil_supply_p"] = 0; }
-  try { results["soil_supply_k"] = input.soil_potassium * 0.8; } catch { results["soil_supply_k"] = 0; }
-  try { results["net_requirement_n"] = Math.max(0, ((results["nutrient_demand_n"] ?? 0) - (results["soil_supply_n"] ?? 0)) / (input.application_efficiency / 100)); } catch { results["net_requirement_n"] = 0; }
-  try { results["net_requirement_p"] = Math.max(0, ((results["nutrient_demand_p"] ?? 0) - (results["soil_supply_p"] ?? 0)) / (input.application_efficiency / 100)); } catch { results["net_requirement_p"] = 0; }
-  try { results["net_requirement_k"] = Math.max(0, ((results["nutrient_demand_k"] ?? 0) - (results["soil_supply_k"] ?? 0)) / (input.application_efficiency / 100)); } catch { results["net_requirement_k"] = 0; }
-  try { results["fertilizer_rate_n"] = (results["net_requirement_n"] ?? 0) / n_concentration; } catch { results["fertilizer_rate_n"] = 0; }
-  try { results["fertilizer_rate_p"] = (results["net_requirement_p"] ?? 0) / p_concentration; } catch { results["fertilizer_rate_p"] = 0; }
-  try { results["fertilizer_rate_k"] = (results["net_requirement_k"] ?? 0) / k_concentration; } catch { results["fertilizer_rate_k"] = 0; }
-  try { results["loss_factor_n"] = 1 + (input.rainfall_forecast / 100) * (1 - input.soil_moisture / 100) * 0.3; } catch { results["loss_factor_n"] = 0; }
-  try { results["adjusted_rate_n"] = (results["fertilizer_rate_n"] ?? 0) * (results["loss_factor_n"] ?? 0); } catch { results["adjusted_rate_n"] = 0; }
-  try { results["adjusted_rate_p"] = (results["fertilizer_rate_p"] ?? 0); } catch { results["adjusted_rate_p"] = 0; }
-  try { results["adjusted_rate_k"] = (results["fertilizer_rate_k"] ?? 0); } catch { results["adjusted_rate_k"] = 0; }
-  try { results["total_fertilizer_cost"] = (results["adjusted_rate_n"] ?? 0) * 0.50 + (results["adjusted_rate_p"] ?? 0) * 0.60 + (results["adjusted_rate_k"] ?? 0) * 0.45; } catch { results["total_fertilizer_cost"] = 0; }
-  try { results["primary_result"] = (results["adjusted_rate_n"] ?? 0) + (results["adjusted_rate_p"] ?? 0) + (results["adjusted_rate_k"] ?? 0); } catch { results["primary_result"] = 0; }
+  try { const v = input.target_yield * 0.017; results["nutrient_demand_n"] = Number.isFinite(v) ? v : 0; } catch { results["nutrient_demand_n"] = 0; }
+  try { const v = input.target_yield * 0.006; results["nutrient_demand_p"] = Number.isFinite(v) ? v : 0; } catch { results["nutrient_demand_p"] = 0; }
+  try { const v = input.target_yield * 0.015; results["nutrient_demand_k"] = Number.isFinite(v) ? v : 0; } catch { results["nutrient_demand_k"] = 0; }
+  try { const v = input.soil_nitrogen * 2.0 + input.organic_matter * 10; results["soil_supply_n"] = Number.isFinite(v) ? v : 0; } catch { results["soil_supply_n"] = 0; }
+  try { const v = input.soil_phosphorus * 1.5; results["soil_supply_p"] = Number.isFinite(v) ? v : 0; } catch { results["soil_supply_p"] = 0; }
+  try { const v = input.soil_potassium * 0.8; results["soil_supply_k"] = Number.isFinite(v) ? v : 0; } catch { results["soil_supply_k"] = 0; }
+  try { const v = Math.max(0, ((results["nutrient_demand_n"] ?? 0) - (results["soil_supply_n"] ?? 0)) / (input.application_efficiency / 100)); results["net_requirement_n"] = Number.isFinite(v) ? v : 0; } catch { results["net_requirement_n"] = 0; }
+  try { const v = Math.max(0, ((results["nutrient_demand_p"] ?? 0) - (results["soil_supply_p"] ?? 0)) / (input.application_efficiency / 100)); results["net_requirement_p"] = Number.isFinite(v) ? v : 0; } catch { results["net_requirement_p"] = 0; }
+  try { const v = Math.max(0, ((results["nutrient_demand_k"] ?? 0) - (results["soil_supply_k"] ?? 0)) / (input.application_efficiency / 100)); results["net_requirement_k"] = Number.isFinite(v) ? v : 0; } catch { results["net_requirement_k"] = 0; }
+  try { const v = (results["net_requirement_n"] ?? 0) / n_concentration; results["fertilizer_rate_n"] = Number.isFinite(v) ? v : 0; } catch { results["fertilizer_rate_n"] = 0; }
+  try { const v = (results["net_requirement_p"] ?? 0) / p_concentration; results["fertilizer_rate_p"] = Number.isFinite(v) ? v : 0; } catch { results["fertilizer_rate_p"] = 0; }
+  try { const v = (results["net_requirement_k"] ?? 0) / k_concentration; results["fertilizer_rate_k"] = Number.isFinite(v) ? v : 0; } catch { results["fertilizer_rate_k"] = 0; }
+  try { const v = 1 + (input.rainfall_forecast / 100) * (1 - input.soil_moisture / 100) * 0.3; results["loss_factor_n"] = Number.isFinite(v) ? v : 0; } catch { results["loss_factor_n"] = 0; }
+  try { const v = (results["fertilizer_rate_n"] ?? 0) * (results["loss_factor_n"] ?? 0); results["adjusted_rate_n"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_rate_n"] = 0; }
+  try { const v = (results["fertilizer_rate_p"] ?? 0); results["adjusted_rate_p"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_rate_p"] = 0; }
+  try { const v = (results["fertilizer_rate_k"] ?? 0); results["adjusted_rate_k"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_rate_k"] = 0; }
+  try { const v = (results["adjusted_rate_n"] ?? 0) * 0.50 + (results["adjusted_rate_p"] ?? 0) * 0.60 + (results["adjusted_rate_k"] ?? 0) * 0.45; results["total_fertilizer_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_fertilizer_cost"] = 0; }
+  try { const v = (results["adjusted_rate_n"] ?? 0) + (results["adjusted_rate_p"] ?? 0) + (results["adjusted_rate_k"] ?? 0); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 

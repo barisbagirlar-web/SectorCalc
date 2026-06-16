@@ -27,20 +27,20 @@ export const Inventory_turnover_riskInputSchema = z.object({
 
 function evaluateAllFormulas(input: Inventory_turnover_riskInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["basic_turnover"] = input.cogs_annual / input.avg_inventory_value; } catch { results["basic_turnover"] = 0; }
-  try { results["adjusted_turnover"] = (results["basic_turnover"] ?? 0) * (1 - input.demand_variability_coefficient * 0.5); } catch { results["adjusted_turnover"] = 0; }
-  try { results["obsolescence_impact"] = 1 - (input.obsolescence_rate / 100); } catch { results["obsolescence_impact"] = 0; }
-  try { results["carrying_cost_exposure"] = (input.carrying_cost_rate / 100) * input.avg_inventory_value; } catch { results["carrying_cost_exposure"] = 0; }
-  try { results["safety_stock_factor"] = qnorm(input.service_level_target / 100) * Math.sqrt(input.lead_time_days / 365) * input.demand_variability_coefficient; } catch { results["safety_stock_factor"] = 0; }
-  try { results["accuracy_adjustment"] = input.inventory_accuracy_pct / 100; } catch { results["accuracy_adjustment"] = 0; }
-  try { results["primary_result"] = (results["adjusted_turnover"] ?? 0) * (results["obsolescence_impact"] ?? 0) * (results["accuracy_adjustment"] ?? 0) / (1 + (results["safety_stock_factor"] ?? 0)); } catch { results["primary_result"] = 0; }
+  try { const v = input.cogs_annual / input.avg_inventory_value; results["basic_turnover"] = Number.isFinite(v) ? v : 0; } catch { results["basic_turnover"] = 0; }
+  try { const v = (results["basic_turnover"] ?? 0) * (1 - input.demand_variability_coefficient * 0.5); results["adjusted_turnover"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_turnover"] = 0; }
+  try { const v = 1 - (input.obsolescence_rate / 100); results["obsolescence_impact"] = Number.isFinite(v) ? v : 0; } catch { results["obsolescence_impact"] = 0; }
+  try { const v = (input.carrying_cost_rate / 100) * input.avg_inventory_value; results["carrying_cost_exposure"] = Number.isFinite(v) ? v : 0; } catch { results["carrying_cost_exposure"] = 0; }
+  try { const v = qnorm(input.service_level_target / 100) * Math.sqrt(input.lead_time_days / 365) * input.demand_variability_coefficient; results["safety_stock_factor"] = Number.isFinite(v) ? v : 0; } catch { results["safety_stock_factor"] = 0; }
+  try { const v = input.inventory_accuracy_pct / 100; results["accuracy_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["accuracy_adjustment"] = 0; }
+  try { const v = (results["adjusted_turnover"] ?? 0) * (results["obsolescence_impact"] ?? 0) * (results["accuracy_adjustment"] ?? 0) / (1 + (results["safety_stock_factor"] ?? 0)); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 
 
 export function calculateInventory_turnover_risk(input: Inventory_turnover_riskInput): Inventory_turnover_riskOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["effective_turns"] ?? 0;
+  const totalWasteCost = values["effective_turns"] ?? values["primary_result"] ?? 0;
   const breakdown = {
     basic_turnover: values["basic_turnover"] ?? 0,
     adjusted_turnover: values["adjusted_turnover"] ?? 0,

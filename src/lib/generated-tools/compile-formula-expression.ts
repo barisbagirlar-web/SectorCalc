@@ -74,6 +74,126 @@ function transformIfFunction(expression: string): string {
   });
 }
 
+function stripBracketCitations(expression: string): string {
+  // e.g. "... [ISO 2859-1 Table]" or "... [CBAM Exposition]"
+  // Keep bracketed math out by requiring at least one ASCII letter inside.
+  return expression.replace(/\[[^\]]*[A-Za-z][^\]]*\]/g, "").trim();
+}
+
+function stripNullChecks(expression: string): string {
+  return expression
+    .replace(/\bIS\s+NOT\s+NULL\b/gi, "!= null")
+    .replace(/\bIS\s+NULL\b/gi, "== null");
+}
+
+function findKeywordAtTopLevel(expression: string, keyword: string): number | null {
+  const needle = keyword.toUpperCase();
+  let depth = 0;
+  let inSingleQuote = false;
+
+  for (let i = 0; i < expression.length; i += 1) {
+    const ch = expression[i]!;
+    if (ch === "'" && expression[i - 1] !== "\\") {
+      inSingleQuote = !inSingleQuote;
+      continue;
+    }
+    if (inSingleQuote) continue;
+
+    if (ch === "(") depth += 1;
+    if (ch === ")") depth = Math.max(0, depth - 1);
+    if (depth !== 0) continue;
+
+    const slice = expression.slice(i, i + keyword.length);
+    if (slice.toUpperCase() !== needle) continue;
+    const prev = i === 0 ? "" : expression[i - 1]!;
+    const next = i + keyword.length >= expression.length ? "" : expression[i + keyword.length]!;
+    if (/[A-Za-z0-9_]/.test(prev) || /[A-Za-z0-9_]/.test(next)) continue;
+    return i;
+  }
+
+  return null;
+}
+
+function transformIfThenElseKeywordExpression(expression: string): string {
+  const trimmed = expression.trim();
+  if (!/^IF\s+/i.test(trimmed)) {
+    return expression;
+  }
+
+  // Parse only top-level IF/THEN/ELSE chains.
+  const afterIf = trimmed.replace(/^IF\s+/i, "").trim();
+
+  const thenIdx = findKeywordAtTopLevel(afterIf, "THEN");
+  if (thenIdx === null) return expression;
+
+  const cond = afterIf.slice(0, thenIdx).trim();
+  const afterThen = afterIf.slice(thenIdx + "THEN".length).trim();
+
+  const elseIdx = findKeywordAtTopLevel(afterThen, "ELSE");
+  if (elseIdx === null) return expression;
+
+  const thenVal = afterThen.slice(0, elseIdx).trim();
+  const elseValRaw = afterThen.slice(elseIdx + "ELSE".length).trim();
+  const elseVal =
+    /^IF\s+/i.test(elseValRaw) ? transformIfThenElseKeywordExpression(elseValRaw) : elseValRaw;
+
+  return `((${cond}) ? (${thenVal}) : (${elseVal}))`;
+}
+
+function transformIfColonAssignments(
+  expression: string,
+  targetVar: string | undefined,
+): string {
+  if (!targetVar) return expression;
+
+  // Pseudo-code form:
+  // If cond: target = rhs1, other = ... . If cond2: target = rhs2, ...
+  // Convert into nested ternary selecting only targetVar assignment.
+  const clauseStarts: Array<{ start: number; end: number; cond: string }> = [];
+
+  // eslint-disable-next-line no-regex-spaces
+  const clauseRe = /\bIf\s+([^:]+?)\s*:\s*/gi;
+  let m: RegExpExecArray | null = null;
+  while ((m = clauseRe.exec(expression)) !== null) {
+    const cond = (m[1] ?? "").trim();
+    clauseStarts.push({ start: m.index, end: clauseRe.lastIndex, cond });
+  }
+
+  if (clauseStarts.length === 0) return expression;
+
+  const rhsForTarget = (body: string): string => {
+    const targetRe = new RegExp(`\\b${escapeRegExp(targetVar)}\\b\\s*=\\s*`, "i");
+    const mm = targetRe.exec(body);
+    if (!mm || mm.index === undefined) return "0";
+    const rhsStart = mm.index + mm[0]!.length;
+    const commaIdx = body.indexOf(",", rhsStart);
+    const dotIdx = body.indexOf(".", rhsStart);
+    const ends = [commaIdx, dotIdx].filter((x) => x !== -1);
+    const rhsEnd = ends.length > 0 ? Math.min(...ends) : body.length;
+    return body
+      .slice(rhsStart, rhsEnd)
+      .trim()
+      .replace(/[.]+$/, "")
+      .trim() || "0";
+  };
+
+  const clauses = clauseStarts.map((c, i) => {
+    const bodyStart = c.end;
+    const bodyEnd = i + 1 < clauseStarts.length ? clauseStarts[i + 1]!.start : expression.length;
+    const body = expression.slice(bodyStart, bodyEnd).trim().replace(/^\./, "").trim();
+    return { cond: c.cond, body };
+  });
+
+  let chain = "0";
+  for (let i = clauses.length - 1; i >= 0; i -= 1) {
+    const { cond, body } = clauses[i]!;
+    const rhs = rhsForTarget(body);
+    chain = `((${cond}) ? (${rhs}) : (${chain}))`;
+  }
+
+  return chain;
+}
+
 function stripAssignmentPrefix(expression: string): string {
   return expression.replace(/^[A-Za-z_][A-Za-z0-9_]*\s*=(?!=)\s*/, "").trim();
 }
@@ -109,8 +229,15 @@ function transformCaseWhenExpression(expression: string): string {
     const whenVal = inner.slice(0, thenIdx).trim();
     inner = inner.slice(thenIdx).replace(/^\s+THEN\s+/i, "");
     const nextWhen = inner.search(/\s+WHEN\s+/i);
-    const thenVal = nextWhen === -1 ? inner.trim() : inner.slice(0, nextWhen).trim();
-    inner = nextWhen === -1 ? "" : inner.slice(nextWhen).trim();
+    const nextElse = inner.search(/\s+ELSE\s+/i);
+    const stopIdx = (() => {
+      if (nextWhen === -1 && nextElse === -1) return -1;
+      if (nextWhen === -1) return nextElse;
+      if (nextElse === -1) return nextWhen;
+      return Math.min(nextWhen, nextElse);
+    })();
+    const thenVal = stopIdx === -1 ? inner.trim() : inner.slice(0, stopIdx).trim();
+    inner = stopIdx === -1 ? "" : inner.slice(stopIdx).trim();
     clauses.push({ when: whenVal, then: thenVal });
   }
 
@@ -118,12 +245,68 @@ function transformCaseWhenExpression(expression: string): string {
     return expression;
   }
 
-  let chain = "0";
+  const elseMatch = inner.match(/^ELSE\s+/i);
+  const elseVal = elseMatch ? inner.replace(/^ELSE\s+/i, "").trim() : "0";
+
+  let chain = elseVal;
   for (let index = clauses.length - 1; index >= 0; index -= 1) {
     const clause = clauses[index];
-    chain = `(${subject} === ${clause.when} ? ${clause.then} : ${chain})`;
+    if (subject.length === 0) {
+      chain = `((${clause.when}) ? (${clause.then}) : (${chain}))`;
+    } else {
+      chain = `(${subject} === ${clause.when} ? ${clause.then} : ${chain})`;
+    }
   }
   return chain;
+}
+
+function transformEmbeddedCaseWhenBlocks(expression: string): string {
+  // Replace CASE / case blocks even when embedded (e.g. "... * case when ... end").
+  const startRe = /\bcase\b/gi;
+  let match: RegExpExecArray | null = null;
+  let result = expression;
+
+  // eslint-disable-next-line no-cond-assign
+  while ((match = startRe.exec(expression)) !== null) {
+    const startIdx = match.index;
+
+    // Find matching END at top level (paren depth + string literals).
+    let depth = 0;
+    let inSingleQuote = false;
+    let endIdx: number | null = null;
+
+    for (let i = startIdx; i < expression.length; i += 1) {
+      const ch = expression[i]!;
+      if (ch === "'" && expression[i - 1] !== "\\") {
+        inSingleQuote = !inSingleQuote;
+        continue;
+      }
+      if (inSingleQuote) continue;
+      if (ch === "(") depth += 1;
+      if (ch === ")") depth = Math.max(0, depth - 1);
+      if (depth !== 0) continue;
+
+      if (
+        expression.slice(i, i + 3).toUpperCase() === "END" &&
+        (i === 0 || !/[A-Za-z0-9_]/.test(expression[i - 1]!)) &&
+        (i + 3 >= expression.length || !/[A-Za-z0-9_]/.test(expression[i + 3]!))
+      ) {
+        endIdx = i + 3;
+        break;
+      }
+    }
+
+    if (endIdx === null) break;
+
+    const block = expression.slice(startIdx, endIdx).trim();
+    const transformed = transformCaseWhenExpression(block);
+    result = result.replace(block, transformed);
+
+    // Move regex cursor to after this replaced block.
+    startRe.lastIndex = endIdx;
+  }
+
+  return result;
 }
 
 function stripNonAsciiOperators(expression: string): string {
@@ -157,7 +340,11 @@ export function compileFormulaExpression(
     readonly selfKey?: string;
   },
 ): string | null {
-  let expression = stripNonAsciiOperators(stripAssignmentPrefix(rawExpression.trim()));
+  let expression = rawExpression.trim();
+  expression = stripAssignmentPrefix(expression);
+  expression = stripBracketCitations(expression);
+  expression = stripNullChecks(expression);
+  expression = stripNonAsciiOperators(expression);
   if (!expression) {
     return null;
   }
@@ -166,11 +353,15 @@ export function compileFormulaExpression(
     return null;
   }
 
+  expression = transformEmbeddedCaseWhenBlocks(expression);
   expression = transformCaseWhenExpression(expression);
+  expression = transformIfThenElseKeywordExpression(expression);
+  expression = transformIfColonAssignments(expression, options.selfKey);
   expression = transformIfFunction(expression);
   expression = transformMathFunctions(expression);
   expression = transformPowerNotation(expression);
-  expression = replaceIdentifierExpression(expression, "PI", "Math.PI");
+  // Avoid producing Math.Math.PI when schema already used Math.PI.
+  expression = expression.replace(/(?<!Math\.)\bPI\b/g, "Math.PI");
 
   for (const inputId of options.inputIds) {
     expression = replaceIdentifierExpression(

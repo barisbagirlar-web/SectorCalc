@@ -35,13 +35,13 @@ export const Lightweight_cost_savings_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Lightweight_cost_savings_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["weight_reduction_kg"] = input.current_weight_kg - input.new_weight_kg; } catch { results["weight_reduction_kg"] = 0; }
-  try { results["material_savings_per_unit"] = (results["weight_reduction_kg"] ?? 0) * input.material_cost_per_kg * (1 + input.waste_rate_percent / 100); } catch { results["material_savings_per_unit"] = 0; }
-  try { results["shipping_savings_per_unit"] = (results["weight_reduction_kg"] ?? 0) * input.shipping_cost_per_kg; } catch { results["shipping_savings_per_unit"] = 0; }
-  try { results["energy_savings_per_unit"] = (results["weight_reduction_kg"] ?? 0) * input.energy_consumption_per_kg * input.energy_cost_per_kwh; } catch { results["energy_savings_per_unit"] = 0; }
-  try { results["labor_savings_per_unit"] = (results["weight_reduction_kg"] ?? 0) * 0.1 * input.labor_hours_per_unit * input.labor_rate_per_hour; } catch { results["labor_savings_per_unit"] = 0; }
-  try { results["overhead_savings_per_unit"] = ((results["material_savings_per_unit"] ?? 0) + (results["shipping_savings_per_unit"] ?? 0) + (results["energy_savings_per_unit"] ?? 0) + (results["labor_savings_per_unit"] ?? 0)) * (input.overhead_rate_percent / 100); } catch { results["overhead_savings_per_unit"] = 0; }
-  try { results["total_annual_savings"] = ((results["material_savings_per_unit"] ?? 0) + (results["shipping_savings_per_unit"] ?? 0) + (results["energy_savings_per_unit"] ?? 0) + (results["labor_savings_per_unit"] ?? 0) + (results["overhead_savings_per_unit"] ?? 0)) * input.annual_volume_units; } catch { results["total_annual_savings"] = 0; }
+  try { const v = input.current_weight_kg - input.new_weight_kg; results["weight_reduction_kg"] = Number.isFinite(v) ? v : 0; } catch { results["weight_reduction_kg"] = 0; }
+  try { const v = (results["weight_reduction_kg"] ?? 0) * input.material_cost_per_kg * (1 + input.waste_rate_percent / 100); results["material_savings_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["material_savings_per_unit"] = 0; }
+  try { const v = (results["weight_reduction_kg"] ?? 0) * input.shipping_cost_per_kg; results["shipping_savings_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["shipping_savings_per_unit"] = 0; }
+  try { const v = (results["weight_reduction_kg"] ?? 0) * input.energy_consumption_per_kg * input.energy_cost_per_kwh; results["energy_savings_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["energy_savings_per_unit"] = 0; }
+  try { const v = (results["weight_reduction_kg"] ?? 0) * 0.1 * input.labor_hours_per_unit * input.labor_rate_per_hour; results["labor_savings_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["labor_savings_per_unit"] = 0; }
+  try { const v = ((results["material_savings_per_unit"] ?? 0) + (results["shipping_savings_per_unit"] ?? 0) + (results["energy_savings_per_unit"] ?? 0) + (results["labor_savings_per_unit"] ?? 0)) * (input.overhead_rate_percent / 100); results["overhead_savings_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_savings_per_unit"] = 0; }
+  try { const v = ((results["material_savings_per_unit"] ?? 0) + (results["shipping_savings_per_unit"] ?? 0) + (results["energy_savings_per_unit"] ?? 0) + (results["labor_savings_per_unit"] ?? 0) + (results["overhead_savings_per_unit"] ?? 0)) * input.annual_volume_units; results["total_annual_savings"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_savings"] = 0; }
   return results;
 }
 

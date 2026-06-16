@@ -27,13 +27,13 @@ export const Break_even_safety_marginInputSchema = z.object({
 
 function evaluateAllFormulas(input: Break_even_safety_marginInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["contributionMarginPerUnit"] = input.sellingPricePerUnit - input.variableCostPerUnit; } catch { results["contributionMarginPerUnit"] = 0; }
-  try { results["contributionMarginRatio"] = (results["contributionMarginPerUnit"] ?? 0) / input.sellingPricePerUnit; } catch { results["contributionMarginRatio"] = 0; }
-  try { results["breakEvenUnits"] = input.fixedCosts / (results["contributionMarginPerUnit"] ?? 0); } catch { results["breakEvenUnits"] = 0; }
-  try { results["breakEvenRevenue"] = (results["breakEvenUnits"] ?? 0) * input.sellingPricePerUnit; } catch { results["breakEvenRevenue"] = 0; }
-  try { results["safetyMarginUnits"] = input.actualSalesVolume - (results["breakEvenUnits"] ?? 0); } catch { results["safetyMarginUnits"] = 0; }
-  try { results["safetyMarginPercent"] = ((results["safetyMarginUnits"] ?? 0) / input.actualSalesVolume) * 100; } catch { results["safetyMarginPercent"] = 0; }
-  try { results["adjustedBreakEvenUnits"] = input.fixedCosts / (input.sellingPricePerUnit - input.variableCostPerUnit * (1 + input.costEscalationRate/100)) * (1 + input.demandUncertainty/100); } catch { results["adjustedBreakEvenUnits"] = 0; }
+  try { const v = input.sellingPricePerUnit - input.variableCostPerUnit; results["contributionMarginPerUnit"] = Number.isFinite(v) ? v : 0; } catch { results["contributionMarginPerUnit"] = 0; }
+  try { const v = (results["contributionMarginPerUnit"] ?? 0) / input.sellingPricePerUnit; results["contributionMarginRatio"] = Number.isFinite(v) ? v : 0; } catch { results["contributionMarginRatio"] = 0; }
+  try { const v = input.fixedCosts / (results["contributionMarginPerUnit"] ?? 0); results["breakEvenUnits"] = Number.isFinite(v) ? v : 0; } catch { results["breakEvenUnits"] = 0; }
+  try { const v = (results["breakEvenUnits"] ?? 0) * input.sellingPricePerUnit; results["breakEvenRevenue"] = Number.isFinite(v) ? v : 0; } catch { results["breakEvenRevenue"] = 0; }
+  try { const v = input.actualSalesVolume - (results["breakEvenUnits"] ?? 0); results["safetyMarginUnits"] = Number.isFinite(v) ? v : 0; } catch { results["safetyMarginUnits"] = 0; }
+  try { const v = ((results["safetyMarginUnits"] ?? 0) / input.actualSalesVolume) * 100; results["safetyMarginPercent"] = Number.isFinite(v) ? v : 0; } catch { results["safetyMarginPercent"] = 0; }
+  try { const v = input.fixedCosts / (input.sellingPricePerUnit - input.variableCostPerUnit * (1 + input.costEscalationRate/100)) * (1 + input.demandUncertainty/100); results["adjustedBreakEvenUnits"] = Number.isFinite(v) ? v : 0; } catch { results["adjustedBreakEvenUnits"] = 0; }
   return results;
 }
 

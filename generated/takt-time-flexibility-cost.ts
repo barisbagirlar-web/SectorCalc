@@ -27,13 +27,13 @@ export const Takt_time_flexibility_costInputSchema = z.object({
 
 function evaluateAllFormulas(input: Takt_time_flexibility_costInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["takt_time"] = input.available_work_time_seconds / input.customer_demand_per_shift; } catch { results["takt_time"] = 0; }
-  try { results["takt_utilization"] = input.cycle_time_seconds / (input.available_work_time_seconds / input.customer_demand_per_shift); } catch { results["takt_utilization"] = 0; }
-  try { results["changeover_cost_per_unit"] = (input.changeover_time_minutes / 60) * input.labor_cost_per_hour * (1 + input.overhead_rate_percent / 100) / input.batch_size; } catch { results["changeover_cost_per_unit"] = 0; }
-  try { results["demand_uncertainty_penalty"] = input.demand_variability_coefficient * (input.labor_cost_per_hour / 3600) * (input.available_work_time_seconds / input.customer_demand_per_shift) * 0.5; } catch { results["demand_uncertainty_penalty"] = 0; }
-  try { results["flexibility_cost_per_unit"] = (results["changeover_cost_per_unit"] ?? 0) + (results["demand_uncertainty_penalty"] ?? 0); } catch { results["flexibility_cost_per_unit"] = 0; }
-  try { results["total_flexibility_cost_per_shift"] = (results["flexibility_cost_per_unit"] ?? 0) * input.customer_demand_per_shift; } catch { results["total_flexibility_cost_per_shift"] = 0; }
-  try { results["flexibility_cost_index"] = ((results["flexibility_cost_per_unit"] ?? 0) / ((input.labor_cost_per_hour / 3600) * input.cycle_time_seconds)) * 100; } catch { results["flexibility_cost_index"] = 0; }
+  try { const v = input.available_work_time_seconds / input.customer_demand_per_shift; results["takt_time"] = Number.isFinite(v) ? v : 0; } catch { results["takt_time"] = 0; }
+  try { const v = input.cycle_time_seconds / (input.available_work_time_seconds / input.customer_demand_per_shift); results["takt_utilization"] = Number.isFinite(v) ? v : 0; } catch { results["takt_utilization"] = 0; }
+  try { const v = (input.changeover_time_minutes / 60) * input.labor_cost_per_hour * (1 + input.overhead_rate_percent / 100) / input.batch_size; results["changeover_cost_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["changeover_cost_per_unit"] = 0; }
+  try { const v = input.demand_variability_coefficient * (input.labor_cost_per_hour / 3600) * (input.available_work_time_seconds / input.customer_demand_per_shift) * 0.5; results["demand_uncertainty_penalty"] = Number.isFinite(v) ? v : 0; } catch { results["demand_uncertainty_penalty"] = 0; }
+  try { const v = (results["changeover_cost_per_unit"] ?? 0) + (results["demand_uncertainty_penalty"] ?? 0); results["flexibility_cost_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["flexibility_cost_per_unit"] = 0; }
+  try { const v = (results["flexibility_cost_per_unit"] ?? 0) * input.customer_demand_per_shift; results["total_flexibility_cost_per_shift"] = Number.isFinite(v) ? v : 0; } catch { results["total_flexibility_cost_per_shift"] = 0; }
+  try { const v = ((results["flexibility_cost_per_unit"] ?? 0) / ((input.labor_cost_per_hour / 3600) * input.cycle_time_seconds)) * 100; results["flexibility_cost_index"] = Number.isFinite(v) ? v : 0; } catch { results["flexibility_cost_index"] = 0; }
   return results;
 }
 

@@ -29,13 +29,13 @@ export const Fuel_route_drift_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Fuel_route_drift_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["drift_distance"] = input.actual_distance_km - input.planned_distance_km; } catch { results["drift_distance"] = 0; }
-  try { results["drift_percentage"] = ((results["drift_distance"] ?? 0) / input.planned_distance_km) * 100; } catch { results["drift_percentage"] = 0; }
-  try { results["adjusted_fuel_rate"] = input.fuel_consumption_rate * input.terrain_factor * input.traffic_condition * (1 + (input.load_weight_tonnes * 0.005)) * (1 - (input.driver_behavior_score * 0.002)) * (1 + (input.vehicle_age_years * 0.02)); } catch { results["adjusted_fuel_rate"] = 0; }
-  try { results["planned_fuel_consumption"] = (input.planned_distance_km / 100) * (results["adjusted_fuel_rate"] ?? 0); } catch { results["planned_fuel_consumption"] = 0; }
-  try { results["actual_fuel_consumption"] = (input.actual_distance_km / 100) * (results["adjusted_fuel_rate"] ?? 0); } catch { results["actual_fuel_consumption"] = 0; }
-  try { results["excess_fuel_consumption"] = (results["actual_fuel_consumption"] ?? 0) - (results["planned_fuel_consumption"] ?? 0); } catch { results["excess_fuel_consumption"] = 0; }
-  try { results["excess_fuel_cost"] = (results["excess_fuel_consumption"] ?? 0) * input.fuel_price_per_liter; } catch { results["excess_fuel_cost"] = 0; }
+  try { const v = input.actual_distance_km - input.planned_distance_km; results["drift_distance"] = Number.isFinite(v) ? v : 0; } catch { results["drift_distance"] = 0; }
+  try { const v = ((results["drift_distance"] ?? 0) / input.planned_distance_km) * 100; results["drift_percentage"] = Number.isFinite(v) ? v : 0; } catch { results["drift_percentage"] = 0; }
+  try { const v = input.fuel_consumption_rate * input.terrain_factor * input.traffic_condition * (1 + (input.load_weight_tonnes * 0.005)) * (1 - (input.driver_behavior_score * 0.002)) * (1 + (input.vehicle_age_years * 0.02)); results["adjusted_fuel_rate"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_fuel_rate"] = 0; }
+  try { const v = (input.planned_distance_km / 100) * (results["adjusted_fuel_rate"] ?? 0); results["planned_fuel_consumption"] = Number.isFinite(v) ? v : 0; } catch { results["planned_fuel_consumption"] = 0; }
+  try { const v = (input.actual_distance_km / 100) * (results["adjusted_fuel_rate"] ?? 0); results["actual_fuel_consumption"] = Number.isFinite(v) ? v : 0; } catch { results["actual_fuel_consumption"] = 0; }
+  try { const v = (results["actual_fuel_consumption"] ?? 0) - (results["planned_fuel_consumption"] ?? 0); results["excess_fuel_consumption"] = Number.isFinite(v) ? v : 0; } catch { results["excess_fuel_consumption"] = 0; }
+  try { const v = (results["excess_fuel_consumption"] ?? 0) * input.fuel_price_per_liter; results["excess_fuel_cost"] = Number.isFinite(v) ? v : 0; } catch { results["excess_fuel_cost"] = 0; }
   return results;
 }
 

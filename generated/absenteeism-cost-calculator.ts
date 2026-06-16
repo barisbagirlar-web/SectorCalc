@@ -27,13 +27,13 @@ export const Absenteeism_cost_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Absenteeism_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["total_scheduled_hours"] = input.total_employees * input.avg_hours_per_day * input.working_days_per_year; } catch { results["total_scheduled_hours"] = 0; }
-  try { results["absent_hours"] = (results["total_scheduled_hours"] ?? 0) * (input.absenteeism_rate / 100); } catch { results["absent_hours"] = 0; }
-  try { results["direct_labor_cost"] = (results["absent_hours"] ?? 0) * input.avg_hourly_wage; } catch { results["direct_labor_cost"] = 0; }
-  try { results["replacement_cost"] = (results["absent_hours"] ?? 0) * input.replacement_cost_per_hour * (input.include_overtime_penalty ? 1.5 : 1.0); } catch { results["replacement_cost"] = 0; }
-  try { results["overhead_cost"] = (results["direct_labor_cost"] ?? 0) * (input.overhead_multiplier - 1); } catch { results["overhead_cost"] = 0; }
-  try { results["total_annual_cost"] = (results["direct_labor_cost"] ?? 0) + (results["replacement_cost"] ?? 0) + (results["overhead_cost"] ?? 0); } catch { results["total_annual_cost"] = 0; }
-  try { results["cost_per_absent_hour"] = (results["total_annual_cost"] ?? 0) / (results["absent_hours"] ?? 0); } catch { results["cost_per_absent_hour"] = 0; }
+  try { const v = input.total_employees * input.avg_hours_per_day * input.working_days_per_year; results["total_scheduled_hours"] = Number.isFinite(v) ? v : 0; } catch { results["total_scheduled_hours"] = 0; }
+  try { const v = (results["total_scheduled_hours"] ?? 0) * (input.absenteeism_rate / 100); results["absent_hours"] = Number.isFinite(v) ? v : 0; } catch { results["absent_hours"] = 0; }
+  try { const v = (results["absent_hours"] ?? 0) * input.avg_hourly_wage; results["direct_labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = (results["absent_hours"] ?? 0) * input.replacement_cost_per_hour * (input.include_overtime_penalty ? 1.5 : 1.0); results["replacement_cost"] = Number.isFinite(v) ? v : 0; } catch { results["replacement_cost"] = 0; }
+  try { const v = (results["direct_labor_cost"] ?? 0) * (input.overhead_multiplier - 1); results["overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
+  try { const v = (results["direct_labor_cost"] ?? 0) + (results["replacement_cost"] ?? 0) + (results["overhead_cost"] ?? 0); results["total_annual_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_cost"] = 0; }
+  try { const v = (results["total_annual_cost"] ?? 0) / (results["absent_hours"] ?? 0); results["cost_per_absent_hour"] = Number.isFinite(v) ? v : 0; } catch { results["cost_per_absent_hour"] = 0; }
   return results;
 }
 

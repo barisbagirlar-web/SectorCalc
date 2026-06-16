@@ -22,10 +22,10 @@ export const Z_score_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Z_score_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   results["sample_mean"] = 0;
-  try { results["sample_stddev"] = Math.sqrt( Σ (xi - x̄)**2 / (n - 1) ); } catch { results["sample_stddev"] = 0; }
-  try { results["effective_stddev"] = sigma_eff = ((input.population_stddev != null) ? (input.population_stddev) : ((results["sample_stddev"] ?? 0))); } catch { results["effective_stddev"] = 0; }
-  try { results["effective_mean"] = μ_eff = ((input.population_mean != null) ? (input.population_mean) : ((results["sample_mean"] ?? 0))); } catch { results["effective_mean"] = 0; }
-  try { results["z_score"] = (x̄ - μ_eff) / (sigma_eff / Math.sqrt(n)); } catch { results["z_score"] = 0; }
+  try { const v = Math.sqrt( Σ (xi - x̄)**2 / (n - 1) ); results["sample_stddev"] = Number.isFinite(v) ? v : 0; } catch { results["sample_stddev"] = 0; }
+  try { const v = sigma_eff = ((input.population_stddev != null) ? (input.population_stddev) : ((results["sample_stddev"] ?? 0))); results["effective_stddev"] = Number.isFinite(v) ? v : 0; } catch { results["effective_stddev"] = 0; }
+  try { const v = μ_eff = ((input.population_mean != null) ? (input.population_mean) : ((results["sample_mean"] ?? 0))); results["effective_mean"] = Number.isFinite(v) ? v : 0; } catch { results["effective_mean"] = 0; }
+  try { const v = (x̄ - μ_eff) / (sigma_eff / Math.sqrt(n)); results["z_score"] = Number.isFinite(v) ? v : 0; } catch { results["z_score"] = 0; }
   results["p_value"] = 0;
   results["confidence_interval"] = 0;
   return results;

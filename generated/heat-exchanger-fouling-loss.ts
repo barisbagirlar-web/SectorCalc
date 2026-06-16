@@ -35,13 +35,13 @@ export const Heat_exchanger_fouling_lossInputSchema = z.object({
 
 function evaluateAllFormulas(input: Heat_exchanger_fouling_lossInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["fouling_resistance"] = 0;
-  try { results["heat_duty_design"] = input.design_ua * ((input.hot_inlet_temp - input.cold_inlet_temp) / 2); } catch { results["heat_duty_design"] = 0; }
-  try { results["heat_duty_actual"] = input.actual_ua * ((input.hot_inlet_temp - input.cold_inlet_temp) / 2); } catch { results["heat_duty_actual"] = 0; }
-  try { results["energy_loss"] = (results["heat_duty_design"] ?? 0) - (results["heat_duty_actual"] ?? 0); } catch { results["energy_loss"] = 0; }
-  try { results["energy_loss_cost"] = (results["energy_loss"] ?? 0) * input.energy_cost * input.operating_hours_per_year; } catch { results["energy_loss_cost"] = 0; }
-  try { results["production_loss_cost"] = (input.production_loss_factor / 100) * input.hot_flow_rate * input.revenue_per_unit_product * input.operating_hours_per_year * 3600; } catch { results["production_loss_cost"] = 0; }
-  try { results["total_fouling_loss"] = (results["energy_loss_cost"] ?? 0) + (results["production_loss_cost"] ?? 0); } catch { results["total_fouling_loss"] = 0; }
+  try { const v = (((input.fouling_factor_known)) ? (input.measured_fouling_factor) : ((1/input.actual_ua - 1/input.design_ua))); results["fouling_resistance"] = Number.isFinite(v) ? v : 0; } catch { results["fouling_resistance"] = 0; }
+  try { const v = input.design_ua * ((input.hot_inlet_temp - input.cold_inlet_temp) / 2); results["heat_duty_design"] = Number.isFinite(v) ? v : 0; } catch { results["heat_duty_design"] = 0; }
+  try { const v = input.actual_ua * ((input.hot_inlet_temp - input.cold_inlet_temp) / 2); results["heat_duty_actual"] = Number.isFinite(v) ? v : 0; } catch { results["heat_duty_actual"] = 0; }
+  try { const v = (results["heat_duty_design"] ?? 0) - (results["heat_duty_actual"] ?? 0); results["energy_loss"] = Number.isFinite(v) ? v : 0; } catch { results["energy_loss"] = 0; }
+  try { const v = (results["energy_loss"] ?? 0) * input.energy_cost * input.operating_hours_per_year; results["energy_loss_cost"] = Number.isFinite(v) ? v : 0; } catch { results["energy_loss_cost"] = 0; }
+  try { const v = (input.production_loss_factor / 100) * input.hot_flow_rate * input.revenue_per_unit_product * input.operating_hours_per_year * 3600; results["production_loss_cost"] = Number.isFinite(v) ? v : 0; } catch { results["production_loss_cost"] = 0; }
+  try { const v = (results["energy_loss_cost"] ?? 0) + (results["production_loss_cost"] ?? 0); results["total_fouling_loss"] = Number.isFinite(v) ? v : 0; } catch { results["total_fouling_loss"] = 0; }
   return results;
 }
 

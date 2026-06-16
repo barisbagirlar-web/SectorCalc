@@ -23,13 +23,13 @@ export const Office_supplies_cost_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Office_supplies_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["order_quantity"] = Math.sqrt((2 * input.annual_usage_units * input.order_cost) / (input.unit_cost * (input.holding_cost_rate/100))); } catch { results["order_quantity"] = 0; }
-  try { results["total_order_cost"] = (input.annual_usage_units / (results["order_quantity"] ?? 0)) * input.order_cost; } catch { results["total_order_cost"] = 0; }
-  try { results["total_holding_cost"] = ((results["order_quantity"] ?? 0) / 2) * input.unit_cost * (input.holding_cost_rate/100); } catch { results["total_holding_cost"] = 0; }
-  try { results["waste_cost"] = input.annual_usage_units * input.unit_cost * (input.waste_percentage/100); } catch { results["waste_cost"] = 0; }
-  try { results["lean_adjustment"] = input.use_lean_inventory ? ((results["total_holding_cost"] ?? 0) * 0.7 + (results["waste_cost"] ?? 0) * 0.5) : ((results["total_holding_cost"] ?? 0) + (results["waste_cost"] ?? 0)); } catch { results["lean_adjustment"] = 0; }
-  try { results["total_supply_cost"] = input.annual_usage_units * input.unit_cost; } catch { results["total_supply_cost"] = 0; }
-  try { results["total_cost"] = (results["total_supply_cost"] ?? 0) + (results["total_order_cost"] ?? 0) + (results["lean_adjustment"] ?? 0); } catch { results["total_cost"] = 0; }
+  try { const v = Math.sqrt((2 * input.annual_usage_units * input.order_cost) / (input.unit_cost * (input.holding_cost_rate/100))); results["order_quantity"] = Number.isFinite(v) ? v : 0; } catch { results["order_quantity"] = 0; }
+  try { const v = (input.annual_usage_units / (results["order_quantity"] ?? 0)) * input.order_cost; results["total_order_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_order_cost"] = 0; }
+  try { const v = ((results["order_quantity"] ?? 0) / 2) * input.unit_cost * (input.holding_cost_rate/100); results["total_holding_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_holding_cost"] = 0; }
+  try { const v = input.annual_usage_units * input.unit_cost * (input.waste_percentage/100); results["waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["waste_cost"] = 0; }
+  try { const v = input.use_lean_inventory ? ((results["total_holding_cost"] ?? 0) * 0.7 + (results["waste_cost"] ?? 0) * 0.5) : ((results["total_holding_cost"] ?? 0) + (results["waste_cost"] ?? 0)); results["lean_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["lean_adjustment"] = 0; }
+  try { const v = input.annual_usage_units * input.unit_cost; results["total_supply_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_supply_cost"] = 0; }
+  try { const v = (results["total_supply_cost"] ?? 0) + (results["total_order_cost"] ?? 0) + (results["lean_adjustment"] ?? 0); results["total_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost"] = 0; }
   return results;
 }
 
@@ -38,9 +38,9 @@ export function calculateOffice_supplies_cost_calculator(input: Office_supplies_
   const values = evaluateAllFormulas(input);
   const totalWasteCost = values["total_cost"] ?? 0;
   const breakdown = {
-    supply_cost: values["supply_cost"] ?? 0,
-    order_cost: values["order_cost"] ?? 0,
-    holding_cost: values["holding_cost"] ?? 0,
+    supply_cost: values["supply_cost"] ?? values["total_supply_cost"] ?? 0,
+    order_cost: values["order_cost"] ?? values["total_order_cost"] ?? 0,
+    holding_cost: values["holding_cost"] ?? values["total_holding_cost"] ?? 0,
     waste_cost: values["waste_cost"] ?? 0,
     lean_adjustment: values["lean_adjustment"] ?? 0
   };

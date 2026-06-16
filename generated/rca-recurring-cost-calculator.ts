@@ -33,13 +33,13 @@ export const Rca_recurring_cost_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Rca_recurring_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["direct_labor_cost_per_unit"] = input.labor_rate * input.labor_hours_per_cycle; } catch { results["direct_labor_cost_per_unit"] = 0; }
-  try { results["quality_cost_per_unit"] = (input.defect_rate / 100) * input.rework_cost_per_defect; } catch { results["quality_cost_per_unit"] = 0; }
-  try { results["environmental_cost_per_unit"] = input.include_environmental_cost ? (0.05 * (input.material_cost_per_unit + input.energy_cost_per_cycle)) : 0; } catch { results["environmental_cost_per_unit"] = 0; }
-  results["shift_multiplier"] = 0;
-  try { results["total_direct_cost_per_unit"] = (results["direct_labor_cost_per_unit"] ?? 0) + input.material_cost_per_unit + input.energy_cost_per_cycle + input.maintenance_cost_per_cycle + (results["quality_cost_per_unit"] ?? 0) + (results["environmental_cost_per_unit"] ?? 0); } catch { results["total_direct_cost_per_unit"] = 0; }
-  try { results["overhead_cost_per_unit"] = (input.overhead_rate / 100) * (results["total_direct_cost_per_unit"] ?? 0) * (results["shift_multiplier"] ?? 0); } catch { results["overhead_cost_per_unit"] = 0; }
-  try { results["total_recurring_cost_per_unit"] = (results["total_direct_cost_per_unit"] ?? 0) + (results["overhead_cost_per_unit"] ?? 0); } catch { results["total_recurring_cost_per_unit"] = 0; }
+  try { const v = input.labor_rate * input.labor_hours_per_cycle; results["direct_labor_cost_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost_per_unit"] = 0; }
+  try { const v = (input.defect_rate / 100) * input.rework_cost_per_defect; results["quality_cost_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["quality_cost_per_unit"] = 0; }
+  try { const v = input.include_environmental_cost ? (0.05 * (input.material_cost_per_unit + input.energy_cost_per_cycle)) : 0; results["environmental_cost_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["environmental_cost_per_unit"] = 0; }
+  try { const v = (input.shift_pattern === 'single' ? 1.0 : (input.shift_pattern === 'double' ? 1.5 : (input.shift_pattern === 'continuous' ? 2.0 : 1.0))); results["shift_multiplier"] = Number.isFinite(v) ? v : 0; } catch { results["shift_multiplier"] = 0; }
+  try { const v = (results["direct_labor_cost_per_unit"] ?? 0) + input.material_cost_per_unit + input.energy_cost_per_cycle + input.maintenance_cost_per_cycle + (results["quality_cost_per_unit"] ?? 0) + (results["environmental_cost_per_unit"] ?? 0); results["total_direct_cost_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["total_direct_cost_per_unit"] = 0; }
+  try { const v = (input.overhead_rate / 100) * (results["total_direct_cost_per_unit"] ?? 0) * (results["shift_multiplier"] ?? 0); results["overhead_cost_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost_per_unit"] = 0; }
+  try { const v = (results["total_direct_cost_per_unit"] ?? 0) + (results["overhead_cost_per_unit"] ?? 0); results["total_recurring_cost_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["total_recurring_cost_per_unit"] = 0; }
   return results;
 }
 

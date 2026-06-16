@@ -45,13 +45,13 @@ export const Weld_volume_cost_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Weld_volume_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["cross_sectional_area"] = 0;
-  try { results["weld_volume"] = (results["cross_sectional_area"] ?? 0) * input.weld_length; } catch { results["weld_volume"] = 0; }
-  try { results["weld_mass"] = (results["weld_volume"] ?? 0) * input.material_density / 1000; } catch { results["weld_mass"] = 0; }
-  try { results["consumable_mass"] = (results["weld_mass"] ?? 0) / (input.deposition_efficiency / 100); } catch { results["consumable_mass"] = 0; }
-  try { results["arc_time"] = input.weld_length / input.weld_speed; } catch { results["arc_time"] = 0; }
-  try { results["total_labor_time"] = (results["arc_time"] ?? 0) / (input.operator_factor / 100); } catch { results["total_labor_time"] = 0; }
-  try { results["total_cost"] = ((results["total_labor_time"] ?? 0) / 60) * input.labor_rate * (1 + input.overhead_rate/100) + ((results["consumable_mass"] ?? 0) / 1000) * input.consumable_cost_per_kg; } catch { results["total_cost"] = 0; }
+  try { const v = ((input.joint_type == 'butt') ? (0) : (((input.joint_type == 'single_v') ? (0) : (((input.joint_type == 'double_v') ? (0) : (((input.joint_type == 'fillet') ? (0) : (((input.joint_type == 'single_bevel') ? (0) : (((input.joint_type == 'double_bevel') ? (0) : (0)))))))))))); results["cross_sectional_area"] = Number.isFinite(v) ? v : 0; } catch { results["cross_sectional_area"] = 0; }
+  try { const v = (results["cross_sectional_area"] ?? 0) * input.weld_length; results["weld_volume"] = Number.isFinite(v) ? v : 0; } catch { results["weld_volume"] = 0; }
+  try { const v = (results["weld_volume"] ?? 0) * input.material_density / 1000; results["weld_mass"] = Number.isFinite(v) ? v : 0; } catch { results["weld_mass"] = 0; }
+  try { const v = (results["weld_mass"] ?? 0) / (input.deposition_efficiency / 100); results["consumable_mass"] = Number.isFinite(v) ? v : 0; } catch { results["consumable_mass"] = 0; }
+  try { const v = input.weld_length / input.weld_speed; results["arc_time"] = Number.isFinite(v) ? v : 0; } catch { results["arc_time"] = 0; }
+  try { const v = (results["arc_time"] ?? 0) / (input.operator_factor / 100); results["total_labor_time"] = Number.isFinite(v) ? v : 0; } catch { results["total_labor_time"] = 0; }
+  try { const v = ((results["total_labor_time"] ?? 0) / 60) * input.labor_rate * (1 + input.overhead_rate/100) + ((results["consumable_mass"] ?? 0) / 1000) * input.consumable_cost_per_kg; results["total_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost"] = 0; }
   return results;
 }
 

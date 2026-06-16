@@ -33,15 +33,15 @@ export const Food_waste_margin_lossInputSchema = z.object({
 
 function evaluateAllFormulas(input: Food_waste_margin_lossInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["waste_percentage"] = (input.waste_kg / input.total_production_kg) * 100; } catch { results["waste_percentage"] = 0; }
-  try { results["direct_material_loss"] = input.waste_kg * input.cost_per_kg; } catch { results["direct_material_loss"] = 0; }
-  try { results["lost_revenue"] = input.waste_kg * input.selling_price_per_kg; } catch { results["lost_revenue"] = 0; }
-  try { results["disposal_cost"] = input.waste_kg * input.waste_disposal_cost_per_kg; } catch { results["disposal_cost"] = 0; }
-  try { results["rework_labor_cost"] = (input.rework_percentage / 100) * input.total_production_kg * input.rework_hours_per_kg * input.labor_hourly_rate; } catch { results["rework_labor_cost"] = 0; }
-  try { results["storage_cost_waste"] = input.waste_kg * input.storage_cost_per_kg_per_day * input.average_storage_days; } catch { results["storage_cost_waste"] = 0; }
-  try { results["hidden_overhead_allocation"] = ((input.include_hidden_costs) ? ((input.waste_kg / input.total_production_kg) * (input.total_production_kg * 0.1)) : (0)); } catch { results["hidden_overhead_allocation"] = 0; }
-  try { results["total_margin_loss"] = (results["direct_material_loss"] ?? 0) + (results["lost_revenue"] ?? 0) + (results["disposal_cost"] ?? 0) + (results["rework_labor_cost"] ?? 0) + (results["storage_cost_waste"] ?? 0) + (results["hidden_overhead_allocation"] ?? 0); } catch { results["total_margin_loss"] = 0; }
-  try { results["margin_loss_percentage"] = ((results["total_margin_loss"] ?? 0) / (input.total_production_kg * input.selling_price_per_kg)) * 100; } catch { results["margin_loss_percentage"] = 0; }
+  try { const v = (input.waste_kg / input.total_production_kg) * 100; results["waste_percentage"] = Number.isFinite(v) ? v : 0; } catch { results["waste_percentage"] = 0; }
+  try { const v = input.waste_kg * input.cost_per_kg; results["direct_material_loss"] = Number.isFinite(v) ? v : 0; } catch { results["direct_material_loss"] = 0; }
+  try { const v = input.waste_kg * input.selling_price_per_kg; results["lost_revenue"] = Number.isFinite(v) ? v : 0; } catch { results["lost_revenue"] = 0; }
+  try { const v = input.waste_kg * input.waste_disposal_cost_per_kg; results["disposal_cost"] = Number.isFinite(v) ? v : 0; } catch { results["disposal_cost"] = 0; }
+  try { const v = (input.rework_percentage / 100) * input.total_production_kg * input.rework_hours_per_kg * input.labor_hourly_rate; results["rework_labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["rework_labor_cost"] = 0; }
+  try { const v = input.waste_kg * input.storage_cost_per_kg_per_day * input.average_storage_days; results["storage_cost_waste"] = Number.isFinite(v) ? v : 0; } catch { results["storage_cost_waste"] = 0; }
+  try { const v = ((input.include_hidden_costs) ? ((input.waste_kg / input.total_production_kg) * (input.total_production_kg * 0.1)) : (0)); results["hidden_overhead_allocation"] = Number.isFinite(v) ? v : 0; } catch { results["hidden_overhead_allocation"] = 0; }
+  try { const v = (results["direct_material_loss"] ?? 0) + (results["lost_revenue"] ?? 0) + (results["disposal_cost"] ?? 0) + (results["rework_labor_cost"] ?? 0) + (results["storage_cost_waste"] ?? 0) + (results["hidden_overhead_allocation"] ?? 0); results["total_margin_loss"] = Number.isFinite(v) ? v : 0; } catch { results["total_margin_loss"] = 0; }
+  try { const v = ((results["total_margin_loss"] ?? 0) / (input.total_production_kg * input.selling_price_per_kg)) * 100; results["margin_loss_percentage"] = Number.isFinite(v) ? v : 0; } catch { results["margin_loss_percentage"] = 0; }
   return results;
 }
 

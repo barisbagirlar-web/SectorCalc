@@ -35,13 +35,13 @@ export const Haccp_deviation_costInputSchema = z.object({
 
 function evaluateAllFormulas(input: Haccp_deviation_costInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["material_loss_cost"] = input.affected_batch_kg * (1 - input.rework_percentage/100) * input.unit_cost_per_kg; } catch { results["material_loss_cost"] = 0; }
-  try { results["rework_cost"] = input.affected_batch_kg * (input.rework_percentage/100) * input.rework_cost_per_kg; } catch { results["rework_cost"] = 0; }
-  try { results["downtime_cost"] = input.downtime_hours * input.hourly_overhead_rate; } catch { results["downtime_cost"] = 0; }
-  try { results["regulatory_penalty_cost"] = input.regulatory_penalty_flag ? input.base_penalty_amount : 0; } catch { results["regulatory_penalty_cost"] = 0; }
-  try { results["recall_cost"] = input.recall_cost_flag ? (input.recall_fixed_cost + input.affected_batch_kg * input.recall_variable_per_kg) : 0; } catch { results["recall_cost"] = 0; }
-  try { results["waste_cost"] = (results["material_loss_cost"] ?? 0); } catch { results["waste_cost"] = 0; }
-  try { results["total_deviation_cost"] = (results["material_loss_cost"] ?? 0) + (results["rework_cost"] ?? 0) + (results["downtime_cost"] ?? 0) + (results["regulatory_penalty_cost"] ?? 0) + (results["recall_cost"] ?? 0); } catch { results["total_deviation_cost"] = 0; }
+  try { const v = input.affected_batch_kg * (1 - input.rework_percentage/100) * input.unit_cost_per_kg; results["material_loss_cost"] = Number.isFinite(v) ? v : 0; } catch { results["material_loss_cost"] = 0; }
+  try { const v = input.affected_batch_kg * (input.rework_percentage/100) * input.rework_cost_per_kg; results["rework_cost"] = Number.isFinite(v) ? v : 0; } catch { results["rework_cost"] = 0; }
+  try { const v = input.downtime_hours * input.hourly_overhead_rate; results["downtime_cost"] = Number.isFinite(v) ? v : 0; } catch { results["downtime_cost"] = 0; }
+  try { const v = input.regulatory_penalty_flag ? input.base_penalty_amount : 0; results["regulatory_penalty_cost"] = Number.isFinite(v) ? v : 0; } catch { results["regulatory_penalty_cost"] = 0; }
+  try { const v = input.recall_cost_flag ? (input.recall_fixed_cost + input.affected_batch_kg * input.recall_variable_per_kg) : 0; results["recall_cost"] = Number.isFinite(v) ? v : 0; } catch { results["recall_cost"] = 0; }
+  try { const v = (results["material_loss_cost"] ?? 0); results["waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["waste_cost"] = 0; }
+  try { const v = (results["material_loss_cost"] ?? 0) + (results["rework_cost"] ?? 0) + (results["downtime_cost"] ?? 0) + (results["regulatory_penalty_cost"] ?? 0) + (results["recall_cost"] ?? 0); results["total_deviation_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_deviation_cost"] = 0; }
   return results;
 }
 

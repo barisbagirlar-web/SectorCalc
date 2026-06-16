@@ -23,13 +23,13 @@ export const Oee_downtime_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Oee_downtime_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["operating_time"] = input.planned_production_time - input.downtime_minutes; } catch { results["operating_time"] = 0; }
-  try { results["availability"] = (results["operating_time"] ?? 0) / input.planned_production_time; } catch { results["availability"] = 0; }
-  try { results["net_operating_time"] = input.total_parts_produced * input.ideal_cycle_time; } catch { results["net_operating_time"] = 0; }
-  try { results["performance"] = (results["net_operating_time"] ?? 0) / (results["operating_time"] ?? 0); } catch { results["performance"] = 0; }
-  try { results["good_parts"] = input.total_parts_produced - input.defective_parts; } catch { results["good_parts"] = 0; }
-  try { results["quality"] = (results["good_parts"] ?? 0) / input.total_parts_produced; } catch { results["quality"] = 0; }
-  try { results["oee"] = (results["availability"] ?? 0) * (results["performance"] ?? 0) * (results["quality"] ?? 0); } catch { results["oee"] = 0; }
+  try { const v = input.planned_production_time - input.downtime_minutes; results["operating_time"] = Number.isFinite(v) ? v : 0; } catch { results["operating_time"] = 0; }
+  try { const v = (results["operating_time"] ?? 0) / input.planned_production_time; results["availability"] = Number.isFinite(v) ? v : 0; } catch { results["availability"] = 0; }
+  try { const v = input.total_parts_produced * input.ideal_cycle_time; results["net_operating_time"] = Number.isFinite(v) ? v : 0; } catch { results["net_operating_time"] = 0; }
+  try { const v = (results["net_operating_time"] ?? 0) / (results["operating_time"] ?? 0); results["performance"] = Number.isFinite(v) ? v : 0; } catch { results["performance"] = 0; }
+  try { const v = input.total_parts_produced - input.defective_parts; results["good_parts"] = Number.isFinite(v) ? v : 0; } catch { results["good_parts"] = 0; }
+  try { const v = (results["good_parts"] ?? 0) / input.total_parts_produced; results["quality"] = Number.isFinite(v) ? v : 0; } catch { results["quality"] = 0; }
+  try { const v = (results["availability"] ?? 0) * (results["performance"] ?? 0) * (results["quality"] ?? 0); results["oee"] = Number.isFinite(v) ? v : 0; } catch { results["oee"] = 0; }
   return results;
 }
 

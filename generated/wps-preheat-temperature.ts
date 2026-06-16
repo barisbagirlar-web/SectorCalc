@@ -21,12 +21,12 @@ export const Wps_preheat_temperatureInputSchema = z.object({
 
 function evaluateAllFormulas(input: Wps_preheat_temperatureInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["carbon_equivalent_factor"] = 0;
-  results["thickness_factor"] = 0;
+  try { const v = ((input.carbon_equivalent <= 0.35) ? (0) : (((input.carbon_equivalent <= 0.55) ? ((input.carbon_equivalent - 0.35) * 200) : ((input.carbon_equivalent - 0.35) * 250)))); results["carbon_equivalent_factor"] = Number.isFinite(v) ? v : 0; } catch { results["carbon_equivalent_factor"] = 0; }
+  try { const v = ((input.material_thickness <= 25) ? (input.material_thickness * 1.5) : (25 * 1.5 + (input.material_thickness - 25) * 1.2)); results["thickness_factor"] = Number.isFinite(v) ? v : 0; } catch { results["thickness_factor"] = 0; }
   results["hydrogen_factor"] = 0;
-  results["heat_input_factor"] = 0;
+  try { const v = ((input.heat_input < 1.0) ? ((1.0 - input.heat_input) * 80) : (((input.heat_input <= 2.5) ? (0) : ((input.heat_input - 2.5) * -20)))); results["heat_input_factor"] = Number.isFinite(v) ? v : 0; } catch { results["heat_input_factor"] = 0; }
   results["restraint_factor"] = 0;
-  try { results["preheat_temperature_raw"] = (results["carbon_equivalent_factor"] ?? 0) + (results["thickness_factor"] ?? 0) + (results["hydrogen_factor"] ?? 0) + (results["heat_input_factor"] ?? 0) + (results["restraint_factor"] ?? 0); } catch { results["preheat_temperature_raw"] = 0; }
+  try { const v = (results["carbon_equivalent_factor"] ?? 0) + (results["thickness_factor"] ?? 0) + (results["hydrogen_factor"] ?? 0) + (results["heat_input_factor"] ?? 0) + (results["restraint_factor"] ?? 0); results["preheat_temperature_raw"] = Number.isFinite(v) ? v : 0; } catch { results["preheat_temperature_raw"] = 0; }
   results["primaryResult"] = 0;
   return results;
 }

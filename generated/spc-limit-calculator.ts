@@ -25,13 +25,13 @@ export const Spc_limit_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Spc_limit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["d2_constant"] = lookup_d2(input.subgroup_size); } catch { results["d2_constant"] = 0; }
-  try { results["estimated_sigma"] = sigma_hat = input.average_range / d2; } catch { results["estimated_sigma"] = 0; }
-  try { results["ucl_xbar"] = input.overall_mean + (A2 * input.average_range); } catch { results["ucl_xbar"] = 0; }
-  try { results["lcl_xbar"] = input.overall_mean - (A2 * input.average_range); } catch { results["lcl_xbar"] = 0; }
-  try { results["ucl_r"] = D4 * input.average_range; } catch { results["ucl_r"] = 0; }
-  try { results["lcl_r"] = D3 * input.average_range; } catch { results["lcl_r"] = 0; }
-  try { results["cpk"] = Math.min((input.usl - input.overall_mean) / (3 * sigma_hat), (input.overall_mean - input.lsl) / (3 * sigma_hat)); } catch { results["cpk"] = 0; }
+  try { const v = lookup_d2(input.subgroup_size); results["d2_constant"] = Number.isFinite(v) ? v : 0; } catch { results["d2_constant"] = 0; }
+  try { const v = sigma_hat = input.average_range / d2; results["estimated_sigma"] = Number.isFinite(v) ? v : 0; } catch { results["estimated_sigma"] = 0; }
+  try { const v = input.overall_mean + (A2 * input.average_range); results["ucl_xbar"] = Number.isFinite(v) ? v : 0; } catch { results["ucl_xbar"] = 0; }
+  try { const v = input.overall_mean - (A2 * input.average_range); results["lcl_xbar"] = Number.isFinite(v) ? v : 0; } catch { results["lcl_xbar"] = 0; }
+  try { const v = D4 * input.average_range; results["ucl_r"] = Number.isFinite(v) ? v : 0; } catch { results["ucl_r"] = 0; }
+  try { const v = D3 * input.average_range; results["lcl_r"] = Number.isFinite(v) ? v : 0; } catch { results["lcl_r"] = 0; }
+  try { const v = Math.min((input.usl - input.overall_mean) / (3 * sigma_hat), (input.overall_mean - input.lsl) / (3 * sigma_hat)); results["cpk"] = Number.isFinite(v) ? v : 0; } catch { results["cpk"] = 0; }
   return results;
 }
 

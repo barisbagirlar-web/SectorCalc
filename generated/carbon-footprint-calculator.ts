@@ -25,13 +25,13 @@ export const Carbon_footprint_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Carbon_footprint_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["scope1_emissions"] = (input.natural_gas_therms * 0.0053) + (input.fuel_diesel_liters * 0.00268) + (input.fuel_gasoline_liters * 0.00231); } catch { results["scope1_emissions"] = 0; }
-  results["scope2_emissions"] = 0;
-  try { results["scope3_emissions"] = (input.waste_tonnes * 0.6) + (input.business_travel_km * 0.00015); } catch { results["scope3_emissions"] = 0; }
-  try { results["total_emissions_tco2e"] = (results["scope1_emissions"] ?? 0) + (results["scope2_emissions"] ?? 0) + (results["scope3_emissions"] ?? 0); } catch { results["total_emissions_tco2e"] = 0; }
-  try { results["emissions_per_revenue"] = (results["total_emissions_tco2e"] ?? 0) / 1000000; } catch { results["emissions_per_revenue"] = 0; }
-  try { results["data_confidence_factor"] = 1 - (0.2 * (5 - input.data_quality_score)); } catch { results["data_confidence_factor"] = 0; }
-  try { results["confidence_adjusted_emissions"] = (results["total_emissions_tco2e"] ?? 0) * (results["data_confidence_factor"] ?? 0); } catch { results["confidence_adjusted_emissions"] = 0; }
+  try { const v = (input.natural_gas_therms * 0.0053) + (input.fuel_diesel_liters * 0.00268) + (input.fuel_gasoline_liters * 0.00231); results["scope1_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["scope1_emissions"] = 0; }
+  try { const v = input.electricity_kwh * (input.region === 'US' ? 0.000417 : (input.region === 'EU' ? 0.000276 : (input.region === 'UK' ? 0.000233 : (input.region === 'China' ? 0.000555 : (input.region === 'India' ? 0.000708 : 0.000475))))); results["scope2_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["scope2_emissions"] = 0; }
+  try { const v = (input.waste_tonnes * 0.6) + (input.business_travel_km * 0.00015); results["scope3_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["scope3_emissions"] = 0; }
+  try { const v = (results["scope1_emissions"] ?? 0) + (results["scope2_emissions"] ?? 0) + (results["scope3_emissions"] ?? 0); results["total_emissions_tco2e"] = Number.isFinite(v) ? v : 0; } catch { results["total_emissions_tco2e"] = 0; }
+  try { const v = (results["total_emissions_tco2e"] ?? 0) / 1000000; results["emissions_per_revenue"] = Number.isFinite(v) ? v : 0; } catch { results["emissions_per_revenue"] = 0; }
+  try { const v = 1 - (0.2 * (5 - input.data_quality_score)); results["data_confidence_factor"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_factor"] = 0; }
+  try { const v = (results["total_emissions_tco2e"] ?? 0) * (results["data_confidence_factor"] ?? 0); results["confidence_adjusted_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["confidence_adjusted_emissions"] = 0; }
   return results;
 }
 

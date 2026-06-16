@@ -29,13 +29,13 @@ export const Bolt_torque_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Bolt_torque_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["tensile_stress_area"] = (π/4) * (d - 0.9382 * P)**2; } catch { results["tensile_stress_area"] = 0; }
-  try { results["yield_strength"] = sigma_y = lookup_yield(input.bolt_grade); } catch { results["yield_strength"] = 0; }
-  try { results["target_preload"] = (input.preload_percentage / 100) * sigma_y * A_s; } catch { results["target_preload"] = 0; }
+  try { const v = (π/4) * (d - 0.9382 * P)**2; results["tensile_stress_area"] = Number.isFinite(v) ? v : 0; } catch { results["tensile_stress_area"] = 0; }
+  try { const v = sigma_y = lookup_yield(input.bolt_grade); results["yield_strength"] = Number.isFinite(v) ? v : 0; } catch { results["yield_strength"] = 0; }
+  try { const v = (input.preload_percentage / 100) * sigma_y * A_s; results["target_preload"] = Number.isFinite(v) ? v : 0; } catch { results["target_preload"] = 0; }
   results["torque_coefficient"] = 0;
-  try { results["calculated_torque"] = K * F_p * d / 1000; } catch { results["calculated_torque"] = 0; }
-  try { results["preload_efficiency"] = eta = (F_p * P) / (2 * π * T * 1000); } catch { results["preload_efficiency"] = 0; }
-  try { results["clamp_load"] = F_p * (1 - embedment_loss_factor); } catch { results["clamp_load"] = 0; }
+  try { const v = K * F_p * d / 1000; results["calculated_torque"] = Number.isFinite(v) ? v : 0; } catch { results["calculated_torque"] = 0; }
+  try { const v = eta = (F_p * P) / (2 * π * T * 1000); results["preload_efficiency"] = Number.isFinite(v) ? v : 0; } catch { results["preload_efficiency"] = 0; }
+  try { const v = F_p * (1 - embedment_loss_factor); results["clamp_load"] = Number.isFinite(v) ? v : 0; } catch { results["clamp_load"] = 0; }
   return results;
 }
 

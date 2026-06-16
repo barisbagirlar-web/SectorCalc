@@ -23,20 +23,20 @@ export const Roof_area_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Roof_area_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["base_footprint_area"] = (input.building_length + 2 * input.overhang_length) * (input.building_width + 2 * input.overhang_length); } catch { results["base_footprint_area"] = 0; }
-  try { results["pitch_factor"] = Math.sqrt(1 + input.roof_pitch**2); } catch { results["pitch_factor"] = 0; }
-  try { results["gross_roof_area"] = (results["base_footprint_area"] ?? 0) * (results["pitch_factor"] ?? 0); } catch { results["gross_roof_area"] = 0; }
-  try { results["type_adjustment_factor"] = (input.roof_type === 'gable' ? 1.0 : (input.roof_type === 'hip' ? 1.15 : (input.roof_type === 'flat' ? 1.0 : (input.roof_type === 'shed' ? 1.05 : 0)))); } catch { results["type_adjustment_factor"] = 0; }
-  try { results["adjusted_roof_area"] = (results["gross_roof_area"] ?? 0) * (results["type_adjustment_factor"] ?? 0); } catch { results["adjusted_roof_area"] = 0; }
-  try { results["waste_adjusted_area"] = (results["adjusted_roof_area"] ?? 0) * (1 + input.waste_factor_percent / 100); } catch { results["waste_adjusted_area"] = 0; }
-  try { results["primary_result"] = (results["adjusted_roof_area"] ?? 0); } catch { results["primary_result"] = 0; }
+  try { const v = (input.building_length + 2 * input.overhang_length) * (input.building_width + 2 * input.overhang_length); results["base_footprint_area"] = Number.isFinite(v) ? v : 0; } catch { results["base_footprint_area"] = 0; }
+  try { const v = Math.sqrt(1 + input.roof_pitch**2); results["pitch_factor"] = Number.isFinite(v) ? v : 0; } catch { results["pitch_factor"] = 0; }
+  try { const v = (results["base_footprint_area"] ?? 0) * (results["pitch_factor"] ?? 0); results["gross_roof_area"] = Number.isFinite(v) ? v : 0; } catch { results["gross_roof_area"] = 0; }
+  try { const v = (input.roof_type === 'gable' ? 1.0 : (input.roof_type === 'hip' ? 1.15 : (input.roof_type === 'flat' ? 1.0 : (input.roof_type === 'shed' ? 1.05 : 0)))); results["type_adjustment_factor"] = Number.isFinite(v) ? v : 0; } catch { results["type_adjustment_factor"] = 0; }
+  try { const v = (results["gross_roof_area"] ?? 0) * (results["type_adjustment_factor"] ?? 0); results["adjusted_roof_area"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_roof_area"] = 0; }
+  try { const v = (results["adjusted_roof_area"] ?? 0) * (1 + input.waste_factor_percent / 100); results["waste_adjusted_area"] = Number.isFinite(v) ? v : 0; } catch { results["waste_adjusted_area"] = 0; }
+  try { const v = (results["adjusted_roof_area"] ?? 0); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 
 
 export function calculateRoof_area_calculator(input: Roof_area_calculatorInput): Roof_area_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["net_roof_area"] ?? 0;
+  const totalWasteCost = values["net_roof_area"] ?? values["primary_result"] ?? 0;
   const breakdown = {
     footprint_area: values["footprint_area"] ?? 0,
     pitch_factor: values["pitch_factor"] ?? 0,

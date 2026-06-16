@@ -27,13 +27,13 @@ export const Scrap_rate_optimizerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Scrap_rate_optimizerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["scrap_rate"] = input.defective_units / input.total_units_produced; } catch { results["scrap_rate"] = 0; }
-  try { results["rework_rate"] = input.rework_units / input.total_units_produced; } catch { results["rework_rate"] = 0; }
-  try { results["total_defect_rate"] = (input.defective_units + input.rework_units) / input.total_units_produced; } catch { results["total_defect_rate"] = 0; }
-  try { results["unit_cost"] = input.material_cost_per_unit + input.labor_cost_per_unit + input.overhead_cost_per_unit; } catch { results["unit_cost"] = 0; }
-  try { results["total_scrap_cost"] = ((input.include_rework_in_scrap) ? ((input.defective_units + input.rework_units) * (results["unit_cost"] ?? 0)) : (input.defective_units * (results["unit_cost"] ?? 0))); } catch { results["total_scrap_cost"] = 0; }
-  try { results["scrap_cost_percentage"] = (results["total_scrap_cost"] ?? 0) / (input.total_units_produced * (results["unit_cost"] ?? 0)) * 100; } catch { results["scrap_cost_percentage"] = 0; }
-  try { results["yield_rate"] = (input.total_units_produced - input.defective_units - input.rework_units) / input.total_units_produced * 100; } catch { results["yield_rate"] = 0; }
+  try { const v = input.defective_units / input.total_units_produced; results["scrap_rate"] = Number.isFinite(v) ? v : 0; } catch { results["scrap_rate"] = 0; }
+  try { const v = input.rework_units / input.total_units_produced; results["rework_rate"] = Number.isFinite(v) ? v : 0; } catch { results["rework_rate"] = 0; }
+  try { const v = (input.defective_units + input.rework_units) / input.total_units_produced; results["total_defect_rate"] = Number.isFinite(v) ? v : 0; } catch { results["total_defect_rate"] = 0; }
+  try { const v = input.material_cost_per_unit + input.labor_cost_per_unit + input.overhead_cost_per_unit; results["unit_cost"] = Number.isFinite(v) ? v : 0; } catch { results["unit_cost"] = 0; }
+  try { const v = ((input.include_rework_in_scrap) ? ((input.defective_units + input.rework_units) * (results["unit_cost"] ?? 0)) : (input.defective_units * (results["unit_cost"] ?? 0))); results["total_scrap_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_scrap_cost"] = 0; }
+  try { const v = (results["total_scrap_cost"] ?? 0) / (input.total_units_produced * (results["unit_cost"] ?? 0)) * 100; results["scrap_cost_percentage"] = Number.isFinite(v) ? v : 0; } catch { results["scrap_cost_percentage"] = 0; }
+  try { const v = (input.total_units_produced - input.defective_units - input.rework_units) / input.total_units_produced * 100; results["yield_rate"] = Number.isFinite(v) ? v : 0; } catch { results["yield_rate"] = 0; }
   return results;
 }
 

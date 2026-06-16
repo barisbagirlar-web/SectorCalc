@@ -23,13 +23,13 @@ export const Irr_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Irr_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["adjusted_cash_flow"] = 0;
+  try { const v = ((input.lean_six_sigma_adjustment) ? (input.annual_cash_inflow * 0.98) : (input.annual_cash_inflow)); results["adjusted_cash_flow"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_cash_flow"] = 0; }
   results["net_present_value"] = 0;
   results["internal_rate_of_return"] = 0;
-  try { results["payback_period"] = input.initial_investment / (results["adjusted_cash_flow"] ?? 0); } catch { results["payback_period"] = 0; }
+  try { const v = input.initial_investment / (results["adjusted_cash_flow"] ?? 0); results["payback_period"] = Number.isFinite(v) ? v : 0; } catch { results["payback_period"] = 0; }
   results["discounted_payback_period"] = 0;
   results["profitability_index"] = 0;
-  results["data_confidence_factor"] = 0;
+  try { const v = (input.cash_flow_variability === 'low' ? 0.95 : (input.cash_flow_variability === 'medium' ? 0.85 : (input.cash_flow_variability === 'high' ? 0.70 : 0))) * (1 - 0.02 * input.lean_six_sigma_adjustment); results["data_confidence_factor"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_factor"] = 0; }
   return results;
 }
 

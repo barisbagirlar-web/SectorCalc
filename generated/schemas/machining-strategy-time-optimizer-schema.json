@@ -193,6 +193,20 @@
       "expression": "(total_cutting_time + tool_change_downtime) * high_feed_adjustment",
       "unit": "min",
       "description": "Primary output; total time per part including cutting and tool changes."
+    },
+    {
+      "id": "cutting_time",
+      "label": "Cutting Time (Tctotal)",
+      "expression": "total_cutting_time",
+      "unit": "min",
+      "description": "Alias for total cutting time used by breakdown output."
+    },
+    {
+      "id": "optimized_cycle_time",
+      "label": "Optimized Cycle Time (Topt)",
+      "expression": "primary_result",
+      "unit": "min",
+      "description": "Alias for primary cycle time output."
     }
   ],
   "outputs": {

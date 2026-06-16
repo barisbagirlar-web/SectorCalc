@@ -21,20 +21,20 @@ export const Cpk_ppm_converterInputSchema = z.object({
 
 function evaluateAllFormulas(input: Cpk_ppm_converterInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["z_short"] = 3 * input.cpk; } catch { results["z_short"] = 0; }
-  try { results["z_long"] = (results["z_short"] ?? 0) - input.sigmaShift; } catch { results["z_long"] = 0; }
-  try { results["ppm_estimate"] = (1 - normCdf((results["z_long"] ?? 0))) * 1e6; } catch { results["ppm_estimate"] = 0; }
-  results["ppm_t_adjustment"] = 0;
+  try { const v = 3 * input.cpk; results["z_short"] = Number.isFinite(v) ? v : 0; } catch { results["z_short"] = 0; }
+  try { const v = (results["z_short"] ?? 0) - input.sigmaShift; results["z_long"] = Number.isFinite(v) ? v : 0; } catch { results["z_long"] = 0; }
+  try { const v = (1 - normCdf((results["z_long"] ?? 0))) * 1e6; results["ppm_estimate"] = Number.isFinite(v) ? v : 0; } catch { results["ppm_estimate"] = 0; }
+  try { const v = ((input.distributionType == 't-distribution') ? (ppm_adjusted = (1 - tcdf((results["z_long"] ?? 0), input.sampleSize - 1)) * 1e6) : (ppm_adjusted = (results["ppm_estimate"] ?? 0))); results["ppm_t_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["ppm_t_adjustment"] = 0; }
   results["confidence_interval"] = 0;
-  try { results["data_confidence_adjusted"] = ppm_adjusted * (1 + (1 - input.confidenceLevel) * (1 / Math.sqrt(input.sampleSize))); } catch { results["data_confidence_adjusted"] = 0; }
-  results["primary_result"] = 0;
+  try { const v = ppm_adjusted * (1 + (1 - input.confidenceLevel) * (1 / Math.sqrt(input.sampleSize))); results["data_confidence_adjusted"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_adjusted"] = 0; }
+  try { const v = ((input.useConfidenceInterval) ? (upperPPM) : (ppm_adjusted)); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 
 
 export function calculateCpk_ppm_converter(input: Cpk_ppm_converterInput): Cpk_ppm_converterOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["ppm"] ?? 0;
+  const totalWasteCost = values["ppm"] ?? values["primary_result"] ?? 0;
   const breakdown = {
     id: values["id"] ?? 0,
     label: values["label"] ?? 0,

@@ -29,18 +29,18 @@ export const Fabric_cutting_optimizerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Fabric_cutting_optimizerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["pattern_area"] = (input.pattern_length * input.pattern_width) / 10000; } catch { results["pattern_area"] = 0; }
-  try { results["total_pattern_area"] = (results["pattern_area"] ?? 0) * input.quantity; } catch { results["total_pattern_area"] = 0; }
-  try { results["fabric_area"] = (input.fabric_width * input.fabric_length) / 10000; } catch { results["fabric_area"] = 0; }
-  try { results["allowance_factor"] = 1 + (input.allowance_percentage / 100); } catch { results["allowance_factor"] = 0; }
-  try { results["adjusted_pattern_area"] = (results["total_pattern_area"] ?? 0) * (results["allowance_factor"] ?? 0); } catch { results["adjusted_pattern_area"] = 0; }
-  try { results["fabric_utilization"] = ((results["adjusted_pattern_area"] ?? 0) / (results["fabric_area"] ?? 0)) * 100; } catch { results["fabric_utilization"] = 0; }
-  try { results["waste_percentage"] = 100 - (results["fabric_utilization"] ?? 0); } catch { results["waste_percentage"] = 0; }
-  try { results["total_material_cost"] = (results["fabric_area"] ?? 0) * input.material_cost_per_m2; } catch { results["total_material_cost"] = 0; }
-  try { results["labor_hours"] = input.cutting_method == 'single_ply' ? input.quantity * 0.02 : (input.cutting_method == 'multi_ply' ? input.quantity * 0.005 : input.quantity * 0.003); } catch { results["labor_hours"] = 0; }
-  try { results["labor_cost"] = (results["labor_hours"] ?? 0) * input.labor_rate_per_hour; } catch { results["labor_cost"] = 0; }
-  try { results["total_cost"] = (results["total_material_cost"] ?? 0) + (results["labor_cost"] ?? 0); } catch { results["total_cost"] = 0; }
-  try { results["cost_per_piece"] = (results["total_cost"] ?? 0) / input.quantity; } catch { results["cost_per_piece"] = 0; }
+  try { const v = (input.pattern_length * input.pattern_width) / 10000; results["pattern_area"] = Number.isFinite(v) ? v : 0; } catch { results["pattern_area"] = 0; }
+  try { const v = (results["pattern_area"] ?? 0) * input.quantity; results["total_pattern_area"] = Number.isFinite(v) ? v : 0; } catch { results["total_pattern_area"] = 0; }
+  try { const v = (input.fabric_width * input.fabric_length) / 10000; results["fabric_area"] = Number.isFinite(v) ? v : 0; } catch { results["fabric_area"] = 0; }
+  try { const v = 1 + (input.allowance_percentage / 100); results["allowance_factor"] = Number.isFinite(v) ? v : 0; } catch { results["allowance_factor"] = 0; }
+  try { const v = (results["total_pattern_area"] ?? 0) * (results["allowance_factor"] ?? 0); results["adjusted_pattern_area"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_pattern_area"] = 0; }
+  try { const v = ((results["adjusted_pattern_area"] ?? 0) / (results["fabric_area"] ?? 0)) * 100; results["fabric_utilization"] = Number.isFinite(v) ? v : 0; } catch { results["fabric_utilization"] = 0; }
+  try { const v = 100 - (results["fabric_utilization"] ?? 0); results["waste_percentage"] = Number.isFinite(v) ? v : 0; } catch { results["waste_percentage"] = 0; }
+  try { const v = (results["fabric_area"] ?? 0) * input.material_cost_per_m2; results["total_material_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_material_cost"] = 0; }
+  try { const v = input.cutting_method == 'single_ply' ? input.quantity * 0.02 : (input.cutting_method == 'multi_ply' ? input.quantity * 0.005 : input.quantity * 0.003); results["labor_hours"] = Number.isFinite(v) ? v : 0; } catch { results["labor_hours"] = 0; }
+  try { const v = (results["labor_hours"] ?? 0) * input.labor_rate_per_hour; results["labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost"] = 0; }
+  try { const v = (results["total_material_cost"] ?? 0) + (results["labor_cost"] ?? 0); results["total_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost"] = 0; }
+  try { const v = (results["total_cost"] ?? 0) / input.quantity; results["cost_per_piece"] = Number.isFinite(v) ? v : 0; } catch { results["cost_per_piece"] = 0; }
   return results;
 }
 

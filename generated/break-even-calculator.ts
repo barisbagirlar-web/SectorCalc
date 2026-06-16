@@ -23,13 +23,13 @@ export const Break_even_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Break_even_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["contribution_margin_per_unit"] = input.selling_price_per_unit - input.variable_cost_per_unit; } catch { results["contribution_margin_per_unit"] = 0; }
-  try { results["contribution_margin_ratio"] = (input.selling_price_per_unit - input.variable_cost_per_unit) / input.selling_price_per_unit; } catch { results["contribution_margin_ratio"] = 0; }
-  try { results["break_even_units"] = input.fixed_costs / (input.selling_price_per_unit - input.variable_cost_per_unit); } catch { results["break_even_units"] = 0; }
-  try { results["break_even_revenue"] = (results["break_even_units"] ?? 0) * input.selling_price_per_unit; } catch { results["break_even_revenue"] = 0; }
-  try { results["quality_loss_per_unit"] = (input.defect_rate / 1000000) * input.rework_cost_per_unit; } catch { results["quality_loss_per_unit"] = 0; }
-  try { results["adjusted_break_even_units"] = input.fixed_costs / (input.selling_price_per_unit - input.variable_cost_per_unit - (results["quality_loss_per_unit"] ?? 0)); } catch { results["adjusted_break_even_units"] = 0; }
-  try { results["margin_of_safety"] = (input.production_volume - (results["break_even_units"] ?? 0)) / input.production_volume; } catch { results["margin_of_safety"] = 0; }
+  try { const v = input.selling_price_per_unit - input.variable_cost_per_unit; results["contribution_margin_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["contribution_margin_per_unit"] = 0; }
+  try { const v = (input.selling_price_per_unit - input.variable_cost_per_unit) / input.selling_price_per_unit; results["contribution_margin_ratio"] = Number.isFinite(v) ? v : 0; } catch { results["contribution_margin_ratio"] = 0; }
+  try { const v = input.fixed_costs / (input.selling_price_per_unit - input.variable_cost_per_unit); results["break_even_units"] = Number.isFinite(v) ? v : 0; } catch { results["break_even_units"] = 0; }
+  try { const v = (results["break_even_units"] ?? 0) * input.selling_price_per_unit; results["break_even_revenue"] = Number.isFinite(v) ? v : 0; } catch { results["break_even_revenue"] = 0; }
+  try { const v = (input.defect_rate / 1000000) * input.rework_cost_per_unit; results["quality_loss_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["quality_loss_per_unit"] = 0; }
+  try { const v = input.fixed_costs / (input.selling_price_per_unit - input.variable_cost_per_unit - (results["quality_loss_per_unit"] ?? 0)); results["adjusted_break_even_units"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_break_even_units"] = 0; }
+  try { const v = (input.production_volume - (results["break_even_units"] ?? 0)) / input.production_volume; results["margin_of_safety"] = Number.isFinite(v) ? v : 0; } catch { results["margin_of_safety"] = 0; }
   return results;
 }
 

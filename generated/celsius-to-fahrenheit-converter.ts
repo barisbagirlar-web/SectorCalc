@@ -19,13 +19,13 @@ export const Celsius_to_fahrenheit_converterInputSchema = z.object({
 
 function evaluateAllFormulas(input: Celsius_to_fahrenheit_converterInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["adjusted_celsius"] = input.celsius_input + input.calibration_offset; } catch { results["adjusted_celsius"] = 0; }
-  try { results["fahrenheit_conversion"] = ((results["adjusted_celsius"] ?? 0) * 9/5) + 32; } catch { results["fahrenheit_conversion"] = 0; }
-  try { results["rankine_conversion"] = ((results["adjusted_celsius"] ?? 0) + 273.15) * 9/5; } catch { results["rankine_conversion"] = 0; }
-  try { results["kelvin_conversion"] = (results["adjusted_celsius"] ?? 0) + 273.15; } catch { results["kelvin_conversion"] = 0; }
-  try { results["uncertainty_interval"] = 2 * input.sensor_accuracy; } catch { results["uncertainty_interval"] = 0; }
-  try { results["data_confidence"] = Math.max(0, 1 - (input.sensor_accuracy / 10)); } catch { results["data_confidence"] = 0; }
-  try { results["primary_result"] = (input.unit_system === 'Fahrenheit' ? (results["fahrenheit_conversion"] ?? 0) : (input.unit_system === 'Rankine' ? (results["rankine_conversion"] ?? 0) : (input.unit_system === 'Kelvin' ? (results["kelvin_conversion"] ?? 0) : 0))); } catch { results["primary_result"] = 0; }
+  try { const v = input.celsius_input + input.calibration_offset; results["adjusted_celsius"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_celsius"] = 0; }
+  try { const v = ((results["adjusted_celsius"] ?? 0) * 9/5) + 32; results["fahrenheit_conversion"] = Number.isFinite(v) ? v : 0; } catch { results["fahrenheit_conversion"] = 0; }
+  try { const v = ((results["adjusted_celsius"] ?? 0) + 273.15) * 9/5; results["rankine_conversion"] = Number.isFinite(v) ? v : 0; } catch { results["rankine_conversion"] = 0; }
+  try { const v = (results["adjusted_celsius"] ?? 0) + 273.15; results["kelvin_conversion"] = Number.isFinite(v) ? v : 0; } catch { results["kelvin_conversion"] = 0; }
+  try { const v = 2 * input.sensor_accuracy; results["uncertainty_interval"] = Number.isFinite(v) ? v : 0; } catch { results["uncertainty_interval"] = 0; }
+  try { const v = Math.max(0, 1 - (input.sensor_accuracy / 10)); results["data_confidence"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence"] = 0; }
+  try { const v = (input.unit_system === 'Fahrenheit' ? (results["fahrenheit_conversion"] ?? 0) : (input.unit_system === 'Rankine' ? (results["rankine_conversion"] ?? 0) : (input.unit_system === 'Kelvin' ? (results["kelvin_conversion"] ?? 0) : 0))); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 

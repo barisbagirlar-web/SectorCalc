@@ -31,13 +31,13 @@ export const Cobot_vs_manual_labor_comparatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Cobot_vs_manual_labor_comparatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["annual_manual_cost_total"] = input.annual_manual_labor_cost * input.number_of_workers * input.labor_productivity_factor; } catch { results["annual_manual_cost_total"] = 0; }
-  try { results["annual_cobot_operating_cost"] = input.cobot_annual_maintenance + (input.cobot_annual_maintenance * 0.05); } catch { results["annual_cobot_operating_cost"] = 0; }
-  try { results["annual_savings"] = ((results["annual_manual_cost_total"] ?? 0) * (input.shift_type == 'Single' ? 1 : (input.shift_type == 'Double' ? 2 : 3))) - (results["annual_cobot_operating_cost"] ?? 0); } catch { results["annual_savings"] = 0; }
-  try { results["initial_investment"] = input.cobot_purchase_price + (input.include_training_cost ? input.training_cost : 0); } catch { results["initial_investment"] = 0; }
+  try { const v = input.annual_manual_labor_cost * input.number_of_workers * input.labor_productivity_factor; results["annual_manual_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["annual_manual_cost_total"] = 0; }
+  try { const v = input.cobot_annual_maintenance + (input.cobot_annual_maintenance * 0.05); results["annual_cobot_operating_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_cobot_operating_cost"] = 0; }
+  try { const v = ((results["annual_manual_cost_total"] ?? 0) * (input.shift_type == 'Single' ? 1 : (input.shift_type == 'Double' ? 2 : 3))) - (results["annual_cobot_operating_cost"] ?? 0); results["annual_savings"] = Number.isFinite(v) ? v : 0; } catch { results["annual_savings"] = 0; }
+  try { const v = input.cobot_purchase_price + (input.include_training_cost ? input.training_cost : 0); results["initial_investment"] = Number.isFinite(v) ? v : 0; } catch { results["initial_investment"] = 0; }
   results["net_present_value"] = 0;
-  try { results["payback_years"] = (results["initial_investment"] ?? 0) / (results["annual_savings"] ?? 0); } catch { results["payback_years"] = 0; }
-  try { results["return_on_investment"] = (((results["annual_savings"] ?? 0) * input.cobot_lifespan_years - (results["initial_investment"] ?? 0)) / (results["initial_investment"] ?? 0)) * 100; } catch { results["return_on_investment"] = 0; }
+  try { const v = (results["initial_investment"] ?? 0) / (results["annual_savings"] ?? 0); results["payback_years"] = Number.isFinite(v) ? v : 0; } catch { results["payback_years"] = 0; }
+  try { const v = (((results["annual_savings"] ?? 0) * input.cobot_lifespan_years - (results["initial_investment"] ?? 0)) / (results["initial_investment"] ?? 0)) * 100; results["return_on_investment"] = Number.isFinite(v) ? v : 0; } catch { results["return_on_investment"] = 0; }
   return results;
 }
 

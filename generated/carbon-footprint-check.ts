@@ -25,20 +25,20 @@ export const Carbon_footprint_checkInputSchema = z.object({
 
 function evaluateAllFormulas(input: Carbon_footprint_checkInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["energy_emissions"] = 0;
-  try { results["fuel_emissions"] = input.fuel_consumption * 2.68; } catch { results["fuel_emissions"] = 0; }
-  try { results["waste_emissions"] = input.waste_generated * (1 - input.recycling_rate / 100) * 0.6 * 1000; } catch { results["waste_emissions"] = 0; }
-  try { results["transport_emissions"] = input.production_volume * input.transport_distance * 0.1; } catch { results["transport_emissions"] = 0; }
-  try { results["total_gross_emissions"] = (results["energy_emissions"] ?? 0) + (results["fuel_emissions"] ?? 0) + (results["waste_emissions"] ?? 0) + (results["transport_emissions"] ?? 0); } catch { results["total_gross_emissions"] = 0; }
-  try { results["offset_adjustment"] = input.has_carbon_offset_program ? (results["total_gross_emissions"] ?? 0) * 0.9 : (results["total_gross_emissions"] ?? 0); } catch { results["offset_adjustment"] = 0; }
-  try { results["primary_result"] = (results["offset_adjustment"] ?? 0) / 1000; } catch { results["primary_result"] = 0; }
+  try { const v = input.energy_consumption * (input.energy_source === 'grid_mix' ? 0.5 : (input.energy_source === 'solar' ? 0.05 : (input.energy_source === 'wind' ? 0.02 : (input.energy_source === 'natural_gas' ? 0.4 : (input.energy_source === 'coal' ? 0.9 : 0.5))))); results["energy_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["energy_emissions"] = 0; }
+  try { const v = input.fuel_consumption * 2.68; results["fuel_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["fuel_emissions"] = 0; }
+  try { const v = input.waste_generated * (1 - input.recycling_rate / 100) * 0.6 * 1000; results["waste_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["waste_emissions"] = 0; }
+  try { const v = input.production_volume * input.transport_distance * 0.1; results["transport_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["transport_emissions"] = 0; }
+  try { const v = (results["energy_emissions"] ?? 0) + (results["fuel_emissions"] ?? 0) + (results["waste_emissions"] ?? 0) + (results["transport_emissions"] ?? 0); results["total_gross_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["total_gross_emissions"] = 0; }
+  try { const v = input.has_carbon_offset_program ? (results["total_gross_emissions"] ?? 0) * 0.9 : (results["total_gross_emissions"] ?? 0); results["offset_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["offset_adjustment"] = 0; }
+  try { const v = (results["offset_adjustment"] ?? 0) / 1000; results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 
 
 export function calculateCarbon_footprint_check(input: Carbon_footprint_checkInput): Carbon_footprint_checkOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["carbon_footprint_total"] ?? 0;
+  const totalWasteCost = values["carbon_footprint_total"] ?? values["primary_result"] ?? 0;
   const breakdown = {
     energy_emissions_tco2e: values["energy_emissions_tco2e"] ?? 0,
     fuel_emissions_tco2e: values["fuel_emissions_tco2e"] ?? 0,

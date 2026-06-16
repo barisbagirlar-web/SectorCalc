@@ -51,13 +51,13 @@ export const Margin_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Margin_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["totalDirectCost"] = input.materialCost + input.laborCost + input.overheadCost; } catch { results["totalDirectCost"] = 0; }
-  try { results["qualityCost"] = (input.defectRate / 100) * input.unitsProduced * input.reworkCostPerUnit + (input.scrapRate / 100) * input.unitsProduced * input.materialCostPerUnit + (input.warrantyReturnRate / 100) * input.unitsProduced * input.warrantyCostPerReturn; } catch { results["qualityCost"] = 0; }
-  try { results["logisticsAndInventoryCost"] = input.logisticsCost + (input.inventoryHoldingCost / 100) * input.averageInventoryValue; } catch { results["logisticsAndInventoryCost"] = 0; }
-  try { results["setupAndDowntimeCost"] = (input.setupTimeHours * input.laborRate * (input.unitsProduced / input.batchSize)) + (input.machineDowntimePercent / 100) * (input.laborCost + input.overheadCost); } catch { results["setupAndDowntimeCost"] = 0; }
-  try { results["energyCost"] = input.energyCostPerUnit * input.unitsProduced; } catch { results["energyCost"] = 0; }
-  try { results["totalCost"] = (results["totalDirectCost"] ?? 0) + (results["qualityCost"] ?? 0) + (results["logisticsAndInventoryCost"] ?? 0) + (results["setupAndDowntimeCost"] ?? 0) + (results["energyCost"] ?? 0) + input.qualitySystemCost; } catch { results["totalCost"] = 0; }
-  try { results["grossMargin"] = ((input.revenue - (results["totalCost"] ?? 0)) / input.revenue) * 100; } catch { results["grossMargin"] = 0; }
+  try { const v = input.materialCost + input.laborCost + input.overheadCost; results["totalDirectCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalDirectCost"] = 0; }
+  try { const v = (input.defectRate / 100) * input.unitsProduced * input.reworkCostPerUnit + (input.scrapRate / 100) * input.unitsProduced * input.materialCostPerUnit + (input.warrantyReturnRate / 100) * input.unitsProduced * input.warrantyCostPerReturn; results["qualityCost"] = Number.isFinite(v) ? v : 0; } catch { results["qualityCost"] = 0; }
+  try { const v = input.logisticsCost + (input.inventoryHoldingCost / 100) * input.averageInventoryValue; results["logisticsAndInventoryCost"] = Number.isFinite(v) ? v : 0; } catch { results["logisticsAndInventoryCost"] = 0; }
+  try { const v = (input.setupTimeHours * input.laborRate * (input.unitsProduced / input.batchSize)) + (input.machineDowntimePercent / 100) * (input.laborCost + input.overheadCost); results["setupAndDowntimeCost"] = Number.isFinite(v) ? v : 0; } catch { results["setupAndDowntimeCost"] = 0; }
+  try { const v = input.energyCostPerUnit * input.unitsProduced; results["energyCost"] = Number.isFinite(v) ? v : 0; } catch { results["energyCost"] = 0; }
+  try { const v = (results["totalDirectCost"] ?? 0) + (results["qualityCost"] ?? 0) + (results["logisticsAndInventoryCost"] ?? 0) + (results["setupAndDowntimeCost"] ?? 0) + (results["energyCost"] ?? 0) + input.qualitySystemCost; results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = ((input.revenue - (results["totalCost"] ?? 0)) / input.revenue) * 100; results["grossMargin"] = Number.isFinite(v) ? v : 0; } catch { results["grossMargin"] = 0; }
   return results;
 }
 

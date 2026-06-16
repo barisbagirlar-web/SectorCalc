@@ -35,13 +35,13 @@ export const Dairy_profit_detectorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Dairy_profit_detectorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["net_milk_volume"] = input.milk_volume_liters * (1 - input.waste_percentage / 100); } catch { results["net_milk_volume"] = 0; }
-  try { results["total_variable_cost_per_day"] = (input.production_cost_per_liter + input.other_variable_cost_per_liter) * input.milk_volume_liters + input.labor_hours_per_day * input.labor_rate_per_hour + input.energy_cost_per_day; } catch { results["total_variable_cost_per_day"] = 0; }
-  try { results["total_cost_per_day"] = (results["total_variable_cost_per_day"] ?? 0) + input.fixed_cost_per_day; } catch { results["total_cost_per_day"] = 0; }
-  try { results["revenue_per_day"] = (results["net_milk_volume"] ?? 0) * input.selling_price_per_liter; } catch { results["revenue_per_day"] = 0; }
-  try { results["profit_per_day"] = (results["revenue_per_day"] ?? 0) - (results["total_cost_per_day"] ?? 0); } catch { results["profit_per_day"] = 0; }
-  try { results["profit_margin_percentage"] = ((results["profit_per_day"] ?? 0) / (results["revenue_per_day"] ?? 0)) * 100; } catch { results["profit_margin_percentage"] = 0; }
-  try { results["labor_efficiency"] = (results["net_milk_volume"] ?? 0) / input.labor_hours_per_day; } catch { results["labor_efficiency"] = 0; }
+  try { const v = input.milk_volume_liters * (1 - input.waste_percentage / 100); results["net_milk_volume"] = Number.isFinite(v) ? v : 0; } catch { results["net_milk_volume"] = 0; }
+  try { const v = (input.production_cost_per_liter + input.other_variable_cost_per_liter) * input.milk_volume_liters + input.labor_hours_per_day * input.labor_rate_per_hour + input.energy_cost_per_day; results["total_variable_cost_per_day"] = Number.isFinite(v) ? v : 0; } catch { results["total_variable_cost_per_day"] = 0; }
+  try { const v = (results["total_variable_cost_per_day"] ?? 0) + input.fixed_cost_per_day; results["total_cost_per_day"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_per_day"] = 0; }
+  try { const v = (results["net_milk_volume"] ?? 0) * input.selling_price_per_liter; results["revenue_per_day"] = Number.isFinite(v) ? v : 0; } catch { results["revenue_per_day"] = 0; }
+  try { const v = (results["revenue_per_day"] ?? 0) - (results["total_cost_per_day"] ?? 0); results["profit_per_day"] = Number.isFinite(v) ? v : 0; } catch { results["profit_per_day"] = 0; }
+  try { const v = ((results["profit_per_day"] ?? 0) / (results["revenue_per_day"] ?? 0)) * 100; results["profit_margin_percentage"] = Number.isFinite(v) ? v : 0; } catch { results["profit_margin_percentage"] = 0; }
+  try { const v = (results["net_milk_volume"] ?? 0) / input.labor_hours_per_day; results["labor_efficiency"] = Number.isFinite(v) ? v : 0; } catch { results["labor_efficiency"] = 0; }
   return results;
 }
 

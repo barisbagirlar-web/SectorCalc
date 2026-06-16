@@ -23,13 +23,13 @@ export const Steam_trap_energy_lossInputSchema = z.object({
 
 function evaluateAllFormulas(input: Steam_trap_energy_lossInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["effective_orifice_area"] = (π * (input.orifice_diameter/1000)**2 / 4) * F_mode; } catch { results["effective_orifice_area"] = 0; }
-  try { results["steam_flow_rate"] = 0.525 * A * (P_abs + 1.013) / Math.sqrt(273 + 170); } catch { results["steam_flow_rate"] = 0; }
-  try { results["annual_steam_loss_mass"] = m_dot * input.operating_hours_per_year * 3600; } catch { results["annual_steam_loss_mass"] = 0; }
-  try { results["energy_loss_kwh"] = M_annual * h_fg / 3600; } catch { results["energy_loss_kwh"] = 0; }
-  try { results["condensate_adjustment"] = E_loss * (1 - 0.2 * input.condensate_recovery); } catch { results["condensate_adjustment"] = 0; }
-  try { results["cost_loss"] = (M_annual / 1000) * input.steam_cost; } catch { results["cost_loss"] = 0; }
-  try { results["co2_emissions"] = E_net * 0.2; } catch { results["co2_emissions"] = 0; }
+  try { const v = (π * (input.orifice_diameter/1000)**2 / 4) * F_mode; results["effective_orifice_area"] = Number.isFinite(v) ? v : 0; } catch { results["effective_orifice_area"] = 0; }
+  try { const v = 0.525 * A * (P_abs + 1.013) / Math.sqrt(273 + 170); results["steam_flow_rate"] = Number.isFinite(v) ? v : 0; } catch { results["steam_flow_rate"] = 0; }
+  try { const v = m_dot * input.operating_hours_per_year * 3600; results["annual_steam_loss_mass"] = Number.isFinite(v) ? v : 0; } catch { results["annual_steam_loss_mass"] = 0; }
+  try { const v = M_annual * h_fg / 3600; results["energy_loss_kwh"] = Number.isFinite(v) ? v : 0; } catch { results["energy_loss_kwh"] = 0; }
+  try { const v = E_loss * (1 - 0.2 * input.condensate_recovery); results["condensate_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["condensate_adjustment"] = 0; }
+  try { const v = (M_annual / 1000) * input.steam_cost; results["cost_loss"] = Number.isFinite(v) ? v : 0; } catch { results["cost_loss"] = 0; }
+  try { const v = E_net * 0.2; results["co2_emissions"] = Number.isFinite(v) ? v : 0; } catch { results["co2_emissions"] = 0; }
   return results;
 }
 

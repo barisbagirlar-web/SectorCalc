@@ -29,13 +29,13 @@ export const Weld_strength_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Weld_strength_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["effective_area"] = input.throat_thickness * input.weld_length; } catch { results["effective_area"] = 0; }
-  results["stress_distribution_factor"] = 0;
-  results["allowable_stress"] = 0;
-  try { results["load_component_transverse"] = input.applied_load * SIN(input.load_angle * Math.PI() / 180); } catch { results["load_component_transverse"] = 0; }
-  try { results["load_component_longitudinal"] = input.applied_load * COS(input.load_angle * Math.PI() / 180); } catch { results["load_component_longitudinal"] = 0; }
+  try { const v = input.throat_thickness * input.weld_length; results["effective_area"] = Number.isFinite(v) ? v : 0; } catch { results["effective_area"] = 0; }
+  try { const v = (input.weld_type === 'fillet' ? 0.707 : (input.weld_type === 'groove' ? 1.0 : (input.weld_type === 'butt' ? 1.0 : 0.5))); results["stress_distribution_factor"] = Number.isFinite(v) ? v : 0; } catch { results["stress_distribution_factor"] = 0; }
+  try { const v = input.weld_material_tensile_strength * 0.3 * ((input.quality_level === 'B' ? 1.0 : (input.quality_level === 'C' ? 0.85 : (input.quality_level === 'D' ? 0.7 : 0)))); results["allowable_stress"] = Number.isFinite(v) ? v : 0; } catch { results["allowable_stress"] = 0; }
+  try { const v = input.applied_load * SIN(input.load_angle * Math.PI() / 180); results["load_component_transverse"] = Number.isFinite(v) ? v : 0; } catch { results["load_component_transverse"] = 0; }
+  try { const v = input.applied_load * COS(input.load_angle * Math.PI() / 180); results["load_component_longitudinal"] = Number.isFinite(v) ? v : 0; } catch { results["load_component_longitudinal"] = 0; }
   results["fatigue_reduction_factor"] = 0;
-  try { results["weld_strength_capacity"] = (results["effective_area"] ?? 0) * (results["allowable_stress"] ?? 0) * (results["stress_distribution_factor"] ?? 0) * (results["fatigue_reduction_factor"] ?? 0) / 1000; } catch { results["weld_strength_capacity"] = 0; }
+  try { const v = (results["effective_area"] ?? 0) * (results["allowable_stress"] ?? 0) * (results["stress_distribution_factor"] ?? 0) * (results["fatigue_reduction_factor"] ?? 0) / 1000; results["weld_strength_capacity"] = Number.isFinite(v) ? v : 0; } catch { results["weld_strength_capacity"] = 0; }
   return results;
 }
 

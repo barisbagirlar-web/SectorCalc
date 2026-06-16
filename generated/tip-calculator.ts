@@ -21,13 +21,13 @@ export const Tip_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Tip_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["base_tip_percentage"] = 0;
+  try { const v = (input.service_quality === 'poor' ? 10 : (input.service_quality === 'average' ? 15 : (input.service_quality === 'good' ? 18 : (input.service_quality === 'excellent' ? 20 : 15)))); results["base_tip_percentage"] = Number.isFinite(v) ? v : 0; } catch { results["base_tip_percentage"] = 0; }
   results["adjusted_tip_percentage"] = 0;
   results["effective_bill_amount"] = 0;
-  try { results["raw_tip_amount"] = (results["effective_bill_amount"] ?? 0) * ((results["adjusted_tip_percentage"] ?? 0) / 100); } catch { results["raw_tip_amount"] = 0; }
+  try { const v = (results["effective_bill_amount"] ?? 0) * ((results["adjusted_tip_percentage"] ?? 0) / 100); results["raw_tip_amount"] = Number.isFinite(v) ? v : 0; } catch { results["raw_tip_amount"] = 0; }
   results["final_tip_amount"] = 0;
-  try { results["total_paid"] = input.bill_amount + input.tax_amount + (results["final_tip_amount"] ?? 0); } catch { results["total_paid"] = 0; }
-  try { results["tip_percentage"] = (Math.round((((results["final_tip_amount"] ?? 0) / input.bill_amount) * 100) * 10**(2)) / 10**(2)); } catch { results["tip_percentage"] = 0; }
+  try { const v = input.bill_amount + input.tax_amount + (results["final_tip_amount"] ?? 0); results["total_paid"] = Number.isFinite(v) ? v : 0; } catch { results["total_paid"] = 0; }
+  try { const v = (Math.round((((results["final_tip_amount"] ?? 0) / input.bill_amount) * 100) * 10**(2)) / 10**(2)); results["tip_percentage"] = Number.isFinite(v) ? v : 0; } catch { results["tip_percentage"] = 0; }
   return results;
 }
 

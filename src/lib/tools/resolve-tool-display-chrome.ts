@@ -12,7 +12,7 @@ import { isSnakeCaseTechnicalKey } from "@/lib/i18n/locale-field-copy-quality";
 import {
   inferFreeTrafficCategory,
   type FreeTrafficCategory,
-} from "@/lib/tools/free-traffic-catalog";
+} from "@/lib/tools/free-traffic-infer";
 
 export type ToolDisplayChrome = {
   readonly summary: string;

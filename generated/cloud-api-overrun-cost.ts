@@ -35,13 +35,13 @@ export const Cloud_api_overrun_costInputSchema = z.object({
 
 function evaluateAllFormulas(input: Cloud_api_overrun_costInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["overrun_call_volume"] = input.api_call_volume * (input.overrun_rate / 100); } catch { results["overrun_call_volume"] = 0; }
-  try { results["direct_overrun_cost"] = (results["overrun_call_volume"] ?? 0) * input.cost_per_call; } catch { results["direct_overrun_cost"] = 0; }
-  try { results["retry_cost"] = (results["overrun_call_volume"] ?? 0) * (input.retry_rate / 100) * input.retry_cost_per_call; } catch { results["retry_cost"] = 0; }
-  try { results["egress_overrun_cost"] = input.data_egress_gb * input.egress_cost_per_gb * (input.overrun_rate / 100) * 0.5; } catch { results["egress_overrun_cost"] = 0; }
-  try { results["sla_penalty_cost"] = ((input.overrun_rate > 0) ? (input.monthly_service_fee * (input.sla_penalty_percentage / 100)) : (0)); } catch { results["sla_penalty_cost"] = 0; }
-  try { results["hidden_loss_drivers"] = ((input.include_hidden_costs = true) ? (((results["direct_overrun_cost"] ?? 0) + (results["retry_cost"] ?? 0)) * 0.3) : (0)); } catch { results["hidden_loss_drivers"] = 0; }
-  try { results["total_overrun_cost"] = (results["direct_overrun_cost"] ?? 0) + (results["retry_cost"] ?? 0) + (results["egress_overrun_cost"] ?? 0) + (results["sla_penalty_cost"] ?? 0) + (results["hidden_loss_drivers"] ?? 0); } catch { results["total_overrun_cost"] = 0; }
+  try { const v = input.api_call_volume * (input.overrun_rate / 100); results["overrun_call_volume"] = Number.isFinite(v) ? v : 0; } catch { results["overrun_call_volume"] = 0; }
+  try { const v = (results["overrun_call_volume"] ?? 0) * input.cost_per_call; results["direct_overrun_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_overrun_cost"] = 0; }
+  try { const v = (results["overrun_call_volume"] ?? 0) * (input.retry_rate / 100) * input.retry_cost_per_call; results["retry_cost"] = Number.isFinite(v) ? v : 0; } catch { results["retry_cost"] = 0; }
+  try { const v = input.data_egress_gb * input.egress_cost_per_gb * (input.overrun_rate / 100) * 0.5; results["egress_overrun_cost"] = Number.isFinite(v) ? v : 0; } catch { results["egress_overrun_cost"] = 0; }
+  try { const v = ((input.overrun_rate > 0) ? (input.monthly_service_fee * (input.sla_penalty_percentage / 100)) : (0)); results["sla_penalty_cost"] = Number.isFinite(v) ? v : 0; } catch { results["sla_penalty_cost"] = 0; }
+  try { const v = ((input.include_hidden_costs = true) ? (((results["direct_overrun_cost"] ?? 0) + (results["retry_cost"] ?? 0)) * 0.3) : (0)); results["hidden_loss_drivers"] = Number.isFinite(v) ? v : 0; } catch { results["hidden_loss_drivers"] = 0; }
+  try { const v = (results["direct_overrun_cost"] ?? 0) + (results["retry_cost"] ?? 0) + (results["egress_overrun_cost"] ?? 0) + (results["sla_penalty_cost"] ?? 0) + (results["hidden_loss_drivers"] ?? 0); results["total_overrun_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_overrun_cost"] = 0; }
   return results;
 }
 

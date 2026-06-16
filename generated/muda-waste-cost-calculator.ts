@@ -43,13 +43,13 @@ export const Muda_waste_cost_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Muda_waste_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["defect_cost"] = input.production_volume * (input.defect_rate/100) * ( (input.rework_time_per_unit * input.labor_cost_per_hour * (1 + input.overhead_rate/100)) + (input.scrap_rate/100 * input.material_cost_per_unit) ); } catch { results["defect_cost"] = 0; }
-  try { results["waiting_cost"] = input.production_volume * input.waiting_time_per_unit * input.labor_cost_per_hour * (1 + input.overhead_rate/100); } catch { results["waiting_cost"] = 0; }
-  try { results["overproduction_cost"] = input.overproduction_quantity * (input.material_cost_per_unit + input.labor_cost_per_hour * (1 + input.overhead_rate/100) * (input.shift_hours_per_day / input.production_volume) + input.inventory_holding_cost_per_unit); } catch { results["overproduction_cost"] = 0; }
-  try { results["motion_transport_processing_cost"] = input.production_volume * (input.excess_motion_cost_per_unit + input.transportation_cost_per_unit + input.processing_waste_per_unit); } catch { results["motion_transport_processing_cost"] = 0; }
-  try { results["inventory_waste_cost"] = input.production_volume * input.inventory_holding_cost_per_unit * (1 + input.defect_rate/100); } catch { results["inventory_waste_cost"] = 0; }
-  try { results["hidden_losses"] = input.include_hidden_losses ? ((results["defect_cost"] ?? 0) * 0.15 + (results["waiting_cost"] ?? 0) * 0.1 + (results["overproduction_cost"] ?? 0) * 0.2) : 0; } catch { results["hidden_losses"] = 0; }
-  try { results["total_waste_cost"] = ((results["defect_cost"] ?? 0) + (results["waiting_cost"] ?? 0) + (results["overproduction_cost"] ?? 0) + (results["motion_transport_processing_cost"] ?? 0) + (results["inventory_waste_cost"] ?? 0) + (results["hidden_losses"] ?? 0)) * dataConfidenceAdjusted; } catch { results["total_waste_cost"] = 0; }
+  try { const v = input.production_volume * (input.defect_rate/100) * ( (input.rework_time_per_unit * input.labor_cost_per_hour * (1 + input.overhead_rate/100)) + (input.scrap_rate/100 * input.material_cost_per_unit) ); results["defect_cost"] = Number.isFinite(v) ? v : 0; } catch { results["defect_cost"] = 0; }
+  try { const v = input.production_volume * input.waiting_time_per_unit * input.labor_cost_per_hour * (1 + input.overhead_rate/100); results["waiting_cost"] = Number.isFinite(v) ? v : 0; } catch { results["waiting_cost"] = 0; }
+  try { const v = input.overproduction_quantity * (input.material_cost_per_unit + input.labor_cost_per_hour * (1 + input.overhead_rate/100) * (input.shift_hours_per_day / input.production_volume) + input.inventory_holding_cost_per_unit); results["overproduction_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overproduction_cost"] = 0; }
+  try { const v = input.production_volume * (input.excess_motion_cost_per_unit + input.transportation_cost_per_unit + input.processing_waste_per_unit); results["motion_transport_processing_cost"] = Number.isFinite(v) ? v : 0; } catch { results["motion_transport_processing_cost"] = 0; }
+  try { const v = input.production_volume * input.inventory_holding_cost_per_unit * (1 + input.defect_rate/100); results["inventory_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["inventory_waste_cost"] = 0; }
+  try { const v = input.include_hidden_losses ? ((results["defect_cost"] ?? 0) * 0.15 + (results["waiting_cost"] ?? 0) * 0.1 + (results["overproduction_cost"] ?? 0) * 0.2) : 0; results["hidden_losses"] = Number.isFinite(v) ? v : 0; } catch { results["hidden_losses"] = 0; }
+  try { const v = ((results["defect_cost"] ?? 0) + (results["waiting_cost"] ?? 0) + (results["overproduction_cost"] ?? 0) + (results["motion_transport_processing_cost"] ?? 0) + (results["inventory_waste_cost"] ?? 0) + (results["hidden_losses"] ?? 0)) * dataConfidenceAdjusted; results["total_waste_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_waste_cost"] = 0; }
   return results;
 }
 

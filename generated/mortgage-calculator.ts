@@ -29,13 +29,13 @@ export const Mortgage_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Mortgage_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["property_value"] = input.loan_amount / (1 - input.down_payment_percent / 100); } catch { results["property_value"] = 0; }
-  try { results["monthly_interest_rate"] = input.annual_interest_rate / 100 / 12; } catch { results["monthly_interest_rate"] = 0; }
-  try { results["number_of_payments"] = input.loan_term_years * 12 * (input.payment_frequency == 'biweekly' ? 26/12 : input.payment_frequency == 'accelerated_biweekly' ? 26/12 : 1); } catch { results["number_of_payments"] = 0; }
-  try { results["monthly_principal_interest"] = input.loan_amount * ((results["monthly_interest_rate"] ?? 0) * (1 + (results["monthly_interest_rate"] ?? 0))^(results["number_of_payments"] ?? 0)) / ((1 + (results["monthly_interest_rate"] ?? 0))^(results["number_of_payments"] ?? 0) - 1); } catch { results["monthly_principal_interest"] = 0; }
-  try { results["monthly_taxes_insurance"] = ((results["property_value"] ?? 0) * (input.property_tax_rate / 100) + (results["property_value"] ?? 0) * (input.insurance_rate / 100)) / 12; } catch { results["monthly_taxes_insurance"] = 0; }
-  try { results["monthly_payment"] = (results["monthly_principal_interest"] ?? 0) + (results["monthly_taxes_insurance"] ?? 0) + input.monthly_hoa; } catch { results["monthly_payment"] = 0; }
-  try { results["total_interest"] = (results["monthly_principal_interest"] ?? 0) * (results["number_of_payments"] ?? 0) - input.loan_amount; } catch { results["total_interest"] = 0; }
+  try { const v = input.loan_amount / (1 - input.down_payment_percent / 100); results["property_value"] = Number.isFinite(v) ? v : 0; } catch { results["property_value"] = 0; }
+  try { const v = input.annual_interest_rate / 100 / 12; results["monthly_interest_rate"] = Number.isFinite(v) ? v : 0; } catch { results["monthly_interest_rate"] = 0; }
+  try { const v = input.loan_term_years * 12 * (input.payment_frequency == 'biweekly' ? 26/12 : input.payment_frequency == 'accelerated_biweekly' ? 26/12 : 1); results["number_of_payments"] = Number.isFinite(v) ? v : 0; } catch { results["number_of_payments"] = 0; }
+  try { const v = input.loan_amount * ((results["monthly_interest_rate"] ?? 0) * (1 + (results["monthly_interest_rate"] ?? 0))^(results["number_of_payments"] ?? 0)) / ((1 + (results["monthly_interest_rate"] ?? 0))^(results["number_of_payments"] ?? 0) - 1); results["monthly_principal_interest"] = Number.isFinite(v) ? v : 0; } catch { results["monthly_principal_interest"] = 0; }
+  try { const v = ((results["property_value"] ?? 0) * (input.property_tax_rate / 100) + (results["property_value"] ?? 0) * (input.insurance_rate / 100)) / 12; results["monthly_taxes_insurance"] = Number.isFinite(v) ? v : 0; } catch { results["monthly_taxes_insurance"] = 0; }
+  try { const v = (results["monthly_principal_interest"] ?? 0) + (results["monthly_taxes_insurance"] ?? 0) + input.monthly_hoa; results["monthly_payment"] = Number.isFinite(v) ? v : 0; } catch { results["monthly_payment"] = 0; }
+  try { const v = (results["monthly_principal_interest"] ?? 0) * (results["number_of_payments"] ?? 0) - input.loan_amount; results["total_interest"] = Number.isFinite(v) ? v : 0; } catch { results["total_interest"] = 0; }
   return results;
 }
 

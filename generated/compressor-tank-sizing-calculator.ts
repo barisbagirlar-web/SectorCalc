@@ -31,13 +31,13 @@ export const Compressor_tank_sizing_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Compressor_tank_sizing_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["airDensityCorrectionFactor"] = ( (520 / (input.ambientTemperature + 460)) * ( (14.7) / (14.7 - (input.altitude * 0.0005)) ) ); } catch { results["airDensityCorrectionFactor"] = 0; }
-  try { results["effectiveCompressorFlow"] = input.compressorFlowRate * (1 - input.systemLeakagePercent/100) * K_density; } catch { results["effectiveCompressorFlow"] = 0; }
-  try { results["netPeakSurplus"] = Math.max(0, input.peakDemandFlowRate - (results["effectiveCompressorFlow"] ?? 0)); } catch { results["netPeakSurplus"] = 0; }
-  try { results["requiredTankVolumeStandard"] = (Q_peak_surplus * input.peakDuration * 14.7) / (input.pressureDifferential * 60); } catch { results["requiredTankVolumeStandard"] = 0; }
-  results["controlTypeFactor"] = 0;
-  results["applicationSafetyFactor"] = 0;
-  try { results["calculatedTankSize"] = V_tank_std * F_ctrl * F_safe; } catch { results["calculatedTankSize"] = 0; }
+  try { const v = ( (520 / (input.ambientTemperature + 460)) * ( (14.7) / (14.7 - (input.altitude * 0.0005)) ) ); results["airDensityCorrectionFactor"] = Number.isFinite(v) ? v : 0; } catch { results["airDensityCorrectionFactor"] = 0; }
+  try { const v = input.compressorFlowRate * (1 - input.systemLeakagePercent/100) * K_density; results["effectiveCompressorFlow"] = Number.isFinite(v) ? v : 0; } catch { results["effectiveCompressorFlow"] = 0; }
+  try { const v = Math.max(0, input.peakDemandFlowRate - (results["effectiveCompressorFlow"] ?? 0)); results["netPeakSurplus"] = Number.isFinite(v) ? v : 0; } catch { results["netPeakSurplus"] = 0; }
+  try { const v = (Q_peak_surplus * input.peakDuration * 14.7) / (input.pressureDifferential * 60); results["requiredTankVolumeStandard"] = Number.isFinite(v) ? v : 0; } catch { results["requiredTankVolumeStandard"] = 0; }
+  try { const v = (input.compressorControlType === 'Load/Unload' ? 1.25 : (input.compressorControlType === 'Variable Speed Drive (VSD)' ? 1.0 : (input.compressorControlType === 'Modulating' ? 1.15 : (input.compressorControlType === 'Start/Stop' ? 1.5 : 1.2)))); results["controlTypeFactor"] = Number.isFinite(v) ? v : 0; } catch { results["controlTypeFactor"] = 0; }
+  try { const v = (input.applicationType === 'Instrument Air' ? 1.5 : (input.applicationType === 'Process Air' ? 1.3 : (input.applicationType === 'Pneumatic Tools' ? 1.2 : (input.applicationType === 'General Manufacturing' ? 1.1 : (input.applicationType === 'HVAC Control' ? 1.0 : 1.15))))); results["applicationSafetyFactor"] = Number.isFinite(v) ? v : 0; } catch { results["applicationSafetyFactor"] = 0; }
+  try { const v = V_tank_std * F_ctrl * F_safe; results["calculatedTankSize"] = Number.isFinite(v) ? v : 0; } catch { results["calculatedTankSize"] = 0; }
   return results;
 }
 

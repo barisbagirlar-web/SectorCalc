@@ -37,13 +37,13 @@ export const Auto_shop_margin_leakInputSchema = z.object({
 
 function evaluateAllFormulas(input: Auto_shop_margin_leakInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["labor_margin_leak"] = (input.labor_rate_charged - input.labor_rate_effective) * input.total_labor_hours_sold + (input.labor_rate_charged - input.warranty_labor_rate_reimbursed) * input.warranty_labor_hours; } catch { results["labor_margin_leak"] = 0; }
-  try { results["parts_margin_leak"] = (input.parts_markup_percent - input.parts_markup_realized) / 100 * input.total_parts_cost; } catch { results["parts_margin_leak"] = 0; }
-  try { results["shop_supply_margin_leak"] = Math.max(0, (input.shop_supply_cost_per_ro - input.shop_supply_charge_per_ro)) * input.number_of_repair_orders; } catch { results["shop_supply_margin_leak"] = 0; }
-  try { results["utilization_gap"] = input.target_utilization_rate - input.employee_utilization_rate; } catch { results["utilization_gap"] = 0; }
-  try { results["utilization_loss"] = Math.max(0, (input.target_utilization_rate - input.employee_utilization_rate) / 100 * input.total_labor_hours_sold * input.labor_rate_charged); } catch { results["utilization_loss"] = 0; }
-  try { results["total_margin_leak"] = (results["labor_margin_leak"] ?? 0) + (results["parts_margin_leak"] ?? 0) + (results["shop_supply_margin_leak"] ?? 0) + (input.include_hidden_loss_drivers ? (results["utilization_loss"] ?? 0) : 0); } catch { results["total_margin_leak"] = 0; }
-  try { results["data_confidence_adjusted"] = (results["total_margin_leak"] ?? 0) * (1 - 0.05 * (number_of_validation_errors + number_of_warnings)); } catch { results["data_confidence_adjusted"] = 0; }
+  try { const v = (input.labor_rate_charged - input.labor_rate_effective) * input.total_labor_hours_sold + (input.labor_rate_charged - input.warranty_labor_rate_reimbursed) * input.warranty_labor_hours; results["labor_margin_leak"] = Number.isFinite(v) ? v : 0; } catch { results["labor_margin_leak"] = 0; }
+  try { const v = (input.parts_markup_percent - input.parts_markup_realized) / 100 * input.total_parts_cost; results["parts_margin_leak"] = Number.isFinite(v) ? v : 0; } catch { results["parts_margin_leak"] = 0; }
+  try { const v = Math.max(0, (input.shop_supply_cost_per_ro - input.shop_supply_charge_per_ro)) * input.number_of_repair_orders; results["shop_supply_margin_leak"] = Number.isFinite(v) ? v : 0; } catch { results["shop_supply_margin_leak"] = 0; }
+  try { const v = input.target_utilization_rate - input.employee_utilization_rate; results["utilization_gap"] = Number.isFinite(v) ? v : 0; } catch { results["utilization_gap"] = 0; }
+  try { const v = Math.max(0, (input.target_utilization_rate - input.employee_utilization_rate) / 100 * input.total_labor_hours_sold * input.labor_rate_charged); results["utilization_loss"] = Number.isFinite(v) ? v : 0; } catch { results["utilization_loss"] = 0; }
+  try { const v = (results["labor_margin_leak"] ?? 0) + (results["parts_margin_leak"] ?? 0) + (results["shop_supply_margin_leak"] ?? 0) + (input.include_hidden_loss_drivers ? (results["utilization_loss"] ?? 0) : 0); results["total_margin_leak"] = Number.isFinite(v) ? v : 0; } catch { results["total_margin_leak"] = 0; }
+  try { const v = (results["total_margin_leak"] ?? 0) * (1 - 0.05 * (number_of_validation_errors + number_of_warnings)); results["data_confidence_adjusted"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_adjusted"] = 0; }
   return results;
 }
 

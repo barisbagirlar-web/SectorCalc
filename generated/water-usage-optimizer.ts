@@ -29,13 +29,13 @@ export const Water_usage_optimizerInputSchema = z.object({
 
 function evaluateAllFormulas(input: Water_usage_optimizerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["netWaterConsumption"] = input.totalWaterIn - input.recycledWater; } catch { results["netWaterConsumption"] = 0; }
-  try { results["waterIntensity"] = (results["netWaterConsumption"] ?? 0) / input.productionOutput; } catch { results["waterIntensity"] = 0; }
-  try { results["recycleRate"] = input.recycledWater / input.totalWaterIn; } catch { results["recycleRate"] = 0; }
-  try { results["processEfficiency"] = input.processWater / (results["netWaterConsumption"] ?? 0); } catch { results["processEfficiency"] = 0; }
-  try { results["wastewaterRatio"] = input.wastewaterDischarge / (results["netWaterConsumption"] ?? 0); } catch { results["wastewaterRatio"] = 0; }
-  try { results["totalWaterCost"] = (input.totalWaterIn + input.wastewaterDischarge) * input.waterCostPerM3; } catch { results["totalWaterCost"] = 0; }
-  try { results["waterUsageScore"] = 100 * (1 - ((results["waterIntensity"] ?? 0) / 0.5)) * 0.4 + 100 * (results["recycleRate"] ?? 0) * 0.4 + 100 * (1 - ((results["wastewaterRatio"] ?? 0) / 0.8)) * 0.2; } catch { results["waterUsageScore"] = 0; }
+  try { const v = input.totalWaterIn - input.recycledWater; results["netWaterConsumption"] = Number.isFinite(v) ? v : 0; } catch { results["netWaterConsumption"] = 0; }
+  try { const v = (results["netWaterConsumption"] ?? 0) / input.productionOutput; results["waterIntensity"] = Number.isFinite(v) ? v : 0; } catch { results["waterIntensity"] = 0; }
+  try { const v = input.recycledWater / input.totalWaterIn; results["recycleRate"] = Number.isFinite(v) ? v : 0; } catch { results["recycleRate"] = 0; }
+  try { const v = input.processWater / (results["netWaterConsumption"] ?? 0); results["processEfficiency"] = Number.isFinite(v) ? v : 0; } catch { results["processEfficiency"] = 0; }
+  try { const v = input.wastewaterDischarge / (results["netWaterConsumption"] ?? 0); results["wastewaterRatio"] = Number.isFinite(v) ? v : 0; } catch { results["wastewaterRatio"] = 0; }
+  try { const v = (input.totalWaterIn + input.wastewaterDischarge) * input.waterCostPerM3; results["totalWaterCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalWaterCost"] = 0; }
+  try { const v = 100 * (1 - ((results["waterIntensity"] ?? 0) / 0.5)) * 0.4 + 100 * (results["recycleRate"] ?? 0) * 0.4 + 100 * (1 - ((results["wastewaterRatio"] ?? 0) / 0.8)) * 0.2; results["waterUsageScore"] = Number.isFinite(v) ? v : 0; } catch { results["waterUsageScore"] = 0; }
   return results;
 }
 

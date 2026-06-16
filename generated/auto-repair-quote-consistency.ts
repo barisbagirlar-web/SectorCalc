@@ -25,13 +25,13 @@ export const Auto_repair_quote_consistencyInputSchema = z.object({
 
 function evaluateAllFormulas(input: Auto_repair_quote_consistencyInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["labor_cost"] = input.labor_rate * input.labor_hours; } catch { results["labor_cost"] = 0; }
-  try { results["parts_markup"] = input.use_original_parts ? 1.3 : 1.0; } catch { results["parts_markup"] = 0; }
-  try { results["adjusted_parts_cost"] = input.parts_cost * (results["parts_markup"] ?? 0); } catch { results["adjusted_parts_cost"] = 0; }
-  try { results["subtotal"] = (results["labor_cost"] ?? 0) + (results["adjusted_parts_cost"] ?? 0) + input.shop_supplies; } catch { results["subtotal"] = 0; }
-  try { results["tax_amount"] = ((results["adjusted_parts_cost"] ?? 0) + input.shop_supplies) * (input.tax_rate / 100); } catch { results["tax_amount"] = 0; }
-  try { results["total_quote"] = (results["subtotal"] ?? 0) + (results["tax_amount"] ?? 0); } catch { results["total_quote"] = 0; }
-  try { results["consistency_score"] = 1 - Math.abs(((results["total_quote"] ?? 0) - benchmark_total) / benchmark_total); } catch { results["consistency_score"] = 0; }
+  try { const v = input.labor_rate * input.labor_hours; results["labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost"] = 0; }
+  try { const v = input.use_original_parts ? 1.3 : 1.0; results["parts_markup"] = Number.isFinite(v) ? v : 0; } catch { results["parts_markup"] = 0; }
+  try { const v = input.parts_cost * (results["parts_markup"] ?? 0); results["adjusted_parts_cost"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_parts_cost"] = 0; }
+  try { const v = (results["labor_cost"] ?? 0) + (results["adjusted_parts_cost"] ?? 0) + input.shop_supplies; results["subtotal"] = Number.isFinite(v) ? v : 0; } catch { results["subtotal"] = 0; }
+  try { const v = ((results["adjusted_parts_cost"] ?? 0) + input.shop_supplies) * (input.tax_rate / 100); results["tax_amount"] = Number.isFinite(v) ? v : 0; } catch { results["tax_amount"] = 0; }
+  try { const v = (results["subtotal"] ?? 0) + (results["tax_amount"] ?? 0); results["total_quote"] = Number.isFinite(v) ? v : 0; } catch { results["total_quote"] = 0; }
+  try { const v = 1 - Math.abs(((results["total_quote"] ?? 0) - benchmark_total) / benchmark_total); results["consistency_score"] = Number.isFinite(v) ? v : 0; } catch { results["consistency_score"] = 0; }
   return results;
 }
 

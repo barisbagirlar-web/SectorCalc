@@ -23,20 +23,20 @@ export const Hp_to_kw_converterInputSchema = z.object({
 
 function evaluateAllFormulas(input: Hp_to_kw_converterInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["conversion_factor"] = (input.hp_type === 'mechanical' ? 0.7457 : (input.hp_type === 'metric' ? 0.7355 : (input.hp_type === 'electrical' ? 0.746 : 0))); } catch { results["conversion_factor"] = 0; }
-  try { results["input_power_kw"] = input.horsepower * (results["conversion_factor"] ?? 0); } catch { results["input_power_kw"] = 0; }
-  try { results["electrical_input_power"] = ((results["input_power_kw"] ?? 0) / (input.motor_efficiency / 100)) * (input.load_factor / 100); } catch { results["electrical_input_power"] = 0; }
-  try { results["apparent_power_kva"] = (results["electrical_input_power"] ?? 0) / input.power_factor; } catch { results["apparent_power_kva"] = 0; }
-  try { results["annual_energy_consumption"] = (results["electrical_input_power"] ?? 0) * input.operating_hours_per_year; } catch { results["annual_energy_consumption"] = 0; }
-  try { results["annual_energy_cost"] = (results["annual_energy_consumption"] ?? 0) * input.electricity_cost_per_kwh; } catch { results["annual_energy_cost"] = 0; }
-  try { results["primary_result"] = (results["input_power_kw"] ?? 0) * (input.load_factor / 100); } catch { results["primary_result"] = 0; }
+  try { const v = (input.hp_type === 'mechanical' ? 0.7457 : (input.hp_type === 'metric' ? 0.7355 : (input.hp_type === 'electrical' ? 0.746 : 0))); results["conversion_factor"] = Number.isFinite(v) ? v : 0; } catch { results["conversion_factor"] = 0; }
+  try { const v = input.horsepower * (results["conversion_factor"] ?? 0); results["input_power_kw"] = Number.isFinite(v) ? v : 0; } catch { results["input_power_kw"] = 0; }
+  try { const v = ((results["input_power_kw"] ?? 0) / (input.motor_efficiency / 100)) * (input.load_factor / 100); results["electrical_input_power"] = Number.isFinite(v) ? v : 0; } catch { results["electrical_input_power"] = 0; }
+  try { const v = (results["electrical_input_power"] ?? 0) / input.power_factor; results["apparent_power_kva"] = Number.isFinite(v) ? v : 0; } catch { results["apparent_power_kva"] = 0; }
+  try { const v = (results["electrical_input_power"] ?? 0) * input.operating_hours_per_year; results["annual_energy_consumption"] = Number.isFinite(v) ? v : 0; } catch { results["annual_energy_consumption"] = 0; }
+  try { const v = (results["annual_energy_consumption"] ?? 0) * input.electricity_cost_per_kwh; results["annual_energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_energy_cost"] = 0; }
+  try { const v = (results["input_power_kw"] ?? 0) * (input.load_factor / 100); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 
 
 export function calculateHp_to_kw_converter(input: Hp_to_kw_converterInput): Hp_to_kw_converterOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["equivalent_kw"] ?? 0;
+  const totalWasteCost = values["equivalent_kw"] ?? values["primary_result"] ?? 0;
   const breakdown = {
     input_hp: values["input_hp"] ?? 0,
     conversion_factor_used: values["conversion_factor_used"] ?? 0,

@@ -26,11 +26,11 @@ export const Volumetric_weight_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Volumetric_weight_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   results["volume_cm3"] = 0;
-  try { results["volume_m3"] = (results["volume_cm3"] ?? 0) / 1000000; } catch { results["volume_m3"] = 0; }
-  try { results["volumetric_weight_kg"] = (results["volume_cm3"] ?? 0) / input.carrier_factor; } catch { results["volumetric_weight_kg"] = 0; }
-  try { results["chargeable_weight_kg"] = Math.max(input.actual_weight_kg, (results["volumetric_weight_kg"] ?? 0)); } catch { results["chargeable_weight_kg"] = 0; }
-  try { results["dim_weight_ratio"] = (results["volumetric_weight_kg"] ?? 0) / NULLIF(input.actual_weight_kg, 0); } catch { results["dim_weight_ratio"] = 0; }
-  try { results["density_kg_m3"] = input.actual_weight_kg / NULLIF((results["volume_m3"] ?? 0), 0); } catch { results["density_kg_m3"] = 0; }
+  try { const v = (results["volume_cm3"] ?? 0) / 1000000; results["volume_m3"] = Number.isFinite(v) ? v : 0; } catch { results["volume_m3"] = 0; }
+  try { const v = (results["volume_cm3"] ?? 0) / input.carrier_factor; results["volumetric_weight_kg"] = Number.isFinite(v) ? v : 0; } catch { results["volumetric_weight_kg"] = 0; }
+  try { const v = Math.max(input.actual_weight_kg, (results["volumetric_weight_kg"] ?? 0)); results["chargeable_weight_kg"] = Number.isFinite(v) ? v : 0; } catch { results["chargeable_weight_kg"] = 0; }
+  try { const v = (results["volumetric_weight_kg"] ?? 0) / NULLIF(input.actual_weight_kg, 0); results["dim_weight_ratio"] = Number.isFinite(v) ? v : 0; } catch { results["dim_weight_ratio"] = 0; }
+  try { const v = input.actual_weight_kg / NULLIF((results["volume_m3"] ?? 0), 0); results["density_kg_m3"] = Number.isFinite(v) ? v : 0; } catch { results["density_kg_m3"] = 0; }
   results["cost_estimate_usd"] = 0;
   return results;
 }

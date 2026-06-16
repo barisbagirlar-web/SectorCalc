@@ -35,21 +35,21 @@ export const Irrigation_cost_checkInputSchema = z.object({
 
 function evaluateAllFormulas(input: Irrigation_cost_checkInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["effective_water_volume"] = input.water_volume * (1 - input.distribution_losses / 100); } catch { results["effective_water_volume"] = 0; }
-  try { results["water_cost_total"] = input.water_volume * input.water_cost_per_m3; } catch { results["water_cost_total"] = 0; }
-  try { results["energy_cost_total"] = input.water_volume * input.energy_cost_per_kwh * (100 / input.pump_efficiency); } catch { results["energy_cost_total"] = 0; }
-  try { results["labor_cost_total"] = input.labor_hours_per_year * input.labor_rate; } catch { results["labor_cost_total"] = 0; }
-  try { results["total_operating_cost"] = (results["water_cost_total"] ?? 0) + (results["energy_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0) + input.maintenance_cost; } catch { results["total_operating_cost"] = 0; }
-  try { results["cost_per_effective_m3"] = (results["total_operating_cost"] ?? 0) / (results["effective_water_volume"] ?? 0); } catch { results["cost_per_effective_m3"] = 0; }
-  try { results["irrigation_cost_per_ha"] = (results["total_operating_cost"] ?? 0) / input.irrigated_area; } catch { results["irrigation_cost_per_ha"] = 0; }
-  try { results["primary_result"] = (results["total_operating_cost"] ?? 0) / (input.irrigated_area * input.crop_value_per_ha); } catch { results["primary_result"] = 0; }
+  try { const v = input.water_volume * (1 - input.distribution_losses / 100); results["effective_water_volume"] = Number.isFinite(v) ? v : 0; } catch { results["effective_water_volume"] = 0; }
+  try { const v = input.water_volume * input.water_cost_per_m3; results["water_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["water_cost_total"] = 0; }
+  try { const v = input.water_volume * input.energy_cost_per_kwh * (100 / input.pump_efficiency); results["energy_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["energy_cost_total"] = 0; }
+  try { const v = input.labor_hours_per_year * input.labor_rate; results["labor_cost_total"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost_total"] = 0; }
+  try { const v = (results["water_cost_total"] ?? 0) + (results["energy_cost_total"] ?? 0) + (results["labor_cost_total"] ?? 0) + input.maintenance_cost; results["total_operating_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_operating_cost"] = 0; }
+  try { const v = (results["total_operating_cost"] ?? 0) / (results["effective_water_volume"] ?? 0); results["cost_per_effective_m3"] = Number.isFinite(v) ? v : 0; } catch { results["cost_per_effective_m3"] = 0; }
+  try { const v = (results["total_operating_cost"] ?? 0) / input.irrigated_area; results["irrigation_cost_per_ha"] = Number.isFinite(v) ? v : 0; } catch { results["irrigation_cost_per_ha"] = 0; }
+  try { const v = (results["total_operating_cost"] ?? 0) / (input.irrigated_area * input.crop_value_per_ha); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
   return results;
 }
 
 
 export function calculateIrrigation_cost_check(input: Irrigation_cost_checkInput): Irrigation_cost_checkOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["irrigation_cost_ratio"] ?? 0;
+  const totalWasteCost = values["irrigation_cost_ratio"] ?? values["primary_result"] ?? 0;
   const breakdown = {
     water_cost_total: values["water_cost_total"] ?? 0,
     energy_cost_total: values["energy_cost_total"] ?? 0,

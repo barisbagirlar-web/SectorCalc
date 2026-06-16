@@ -29,13 +29,13 @@ export const Signage_safe_price_toolInputSchema = z.object({
 
 function evaluateAllFormulas(input: Signage_safe_price_toolInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["direct_material_cost"] = input.material_cost * (1 + input.waste_factor / 100) * (1 + (input.complexity_factor == 'high' ? 0.15 : input.complexity_factor == 'medium' ? 0.05 : 0)); } catch { results["direct_material_cost"] = 0; }
-  try { results["direct_labor_cost"] = input.labor_hours * input.labor_rate * (1 + (input.complexity_factor == 'high' ? 0.20 : input.complexity_factor == 'medium' ? 0.10 : 0)) * (1 + (input.quality_level == 'premium' ? 0.15 : input.quality_level == 'standard' ? 0.05 : 0)); } catch { results["direct_labor_cost"] = 0; }
-  try { results["overhead_cost"] = ((results["direct_material_cost"] ?? 0) + (results["direct_labor_cost"] ?? 0)) * (input.overhead_rate / 100); } catch { results["overhead_cost"] = 0; }
-  try { results["total_cost_per_unit"] = (results["direct_material_cost"] ?? 0) + (results["direct_labor_cost"] ?? 0) + (results["overhead_cost"] ?? 0) + input.shipping_cost_per_unit; } catch { results["total_cost_per_unit"] = 0; }
-  try { results["volume_discount_factor"] = input.quantity >= 1000 ? 0.92 : input.quantity >= 500 ? 0.95 : input.quantity >= 100 ? 0.98 : 1.0; } catch { results["volume_discount_factor"] = 0; }
-  try { results["safe_price_before_risk"] = (results["total_cost_per_unit"] ?? 0) * (results["volume_discount_factor"] ?? 0); } catch { results["safe_price_before_risk"] = 0; }
-  try { results["safe_price"] = (results["safe_price_before_risk"] ?? 0) * (1 + input.risk_margin / 100); } catch { results["safe_price"] = 0; }
+  try { const v = input.material_cost * (1 + input.waste_factor / 100) * (1 + (input.complexity_factor == 'high' ? 0.15 : input.complexity_factor == 'medium' ? 0.05 : 0)); results["direct_material_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_material_cost"] = 0; }
+  try { const v = input.labor_hours * input.labor_rate * (1 + (input.complexity_factor == 'high' ? 0.20 : input.complexity_factor == 'medium' ? 0.10 : 0)) * (1 + (input.quality_level == 'premium' ? 0.15 : input.quality_level == 'standard' ? 0.05 : 0)); results["direct_labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["direct_labor_cost"] = 0; }
+  try { const v = ((results["direct_material_cost"] ?? 0) + (results["direct_labor_cost"] ?? 0)) * (input.overhead_rate / 100); results["overhead_cost"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_cost"] = 0; }
+  try { const v = (results["direct_material_cost"] ?? 0) + (results["direct_labor_cost"] ?? 0) + (results["overhead_cost"] ?? 0) + input.shipping_cost_per_unit; results["total_cost_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_per_unit"] = 0; }
+  try { const v = input.quantity >= 1000 ? 0.92 : input.quantity >= 500 ? 0.95 : input.quantity >= 100 ? 0.98 : 1.0; results["volume_discount_factor"] = Number.isFinite(v) ? v : 0; } catch { results["volume_discount_factor"] = 0; }
+  try { const v = (results["total_cost_per_unit"] ?? 0) * (results["volume_discount_factor"] ?? 0); results["safe_price_before_risk"] = Number.isFinite(v) ? v : 0; } catch { results["safe_price_before_risk"] = 0; }
+  try { const v = (results["safe_price_before_risk"] ?? 0) * (1 + input.risk_margin / 100); results["safe_price"] = Number.isFinite(v) ? v : 0; } catch { results["safe_price"] = 0; }
   return results;
 }
 

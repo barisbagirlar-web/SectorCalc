@@ -29,13 +29,13 @@ export const Shop_hourly_rate_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Shop_hourly_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { results["effective_labor_rate"] = input.direct_labor_hourly_rate * (1 + (input.include_benefits ? 0.30 : 0)) * input.shift_premium_factor; } catch { results["effective_labor_rate"] = 0; }
-  try { results["total_direct_labor_hours"] = input.num_direct_labor_employees * input.annual_operating_hours_per_employee; } catch { results["total_direct_labor_hours"] = 0; }
-  try { results["overhead_rate_per_hour"] = input.total_annual_overhead_costs / (results["total_direct_labor_hours"] ?? 0); } catch { results["overhead_rate_per_hour"] = 0; }
-  try { results["machine_rate_per_hour"] = input.total_annual_machine_costs / (results["total_direct_labor_hours"] ?? 0); } catch { results["machine_rate_per_hour"] = 0; }
-  try { results["gross_hourly_rate"] = (results["effective_labor_rate"] ?? 0) + (results["overhead_rate_per_hour"] ?? 0) + (results["machine_rate_per_hour"] ?? 0); } catch { results["gross_hourly_rate"] = 0; }
-  try { results["efficiency_adjustment_factor"] = (input.average_shop_efficiency_percent / 100) * (input.quality_yield_percent / 100); } catch { results["efficiency_adjustment_factor"] = 0; }
-  try { results["true_shop_hourly_rate"] = (results["gross_hourly_rate"] ?? 0) / (results["efficiency_adjustment_factor"] ?? 0); } catch { results["true_shop_hourly_rate"] = 0; }
+  try { const v = input.direct_labor_hourly_rate * (1 + (input.include_benefits ? 0.30 : 0)) * input.shift_premium_factor; results["effective_labor_rate"] = Number.isFinite(v) ? v : 0; } catch { results["effective_labor_rate"] = 0; }
+  try { const v = input.num_direct_labor_employees * input.annual_operating_hours_per_employee; results["total_direct_labor_hours"] = Number.isFinite(v) ? v : 0; } catch { results["total_direct_labor_hours"] = 0; }
+  try { const v = input.total_annual_overhead_costs / (results["total_direct_labor_hours"] ?? 0); results["overhead_rate_per_hour"] = Number.isFinite(v) ? v : 0; } catch { results["overhead_rate_per_hour"] = 0; }
+  try { const v = input.total_annual_machine_costs / (results["total_direct_labor_hours"] ?? 0); results["machine_rate_per_hour"] = Number.isFinite(v) ? v : 0; } catch { results["machine_rate_per_hour"] = 0; }
+  try { const v = (results["effective_labor_rate"] ?? 0) + (results["overhead_rate_per_hour"] ?? 0) + (results["machine_rate_per_hour"] ?? 0); results["gross_hourly_rate"] = Number.isFinite(v) ? v : 0; } catch { results["gross_hourly_rate"] = 0; }
+  try { const v = (input.average_shop_efficiency_percent / 100) * (input.quality_yield_percent / 100); results["efficiency_adjustment_factor"] = Number.isFinite(v) ? v : 0; } catch { results["efficiency_adjustment_factor"] = 0; }
+  try { const v = (results["gross_hourly_rate"] ?? 0) / (results["efficiency_adjustment_factor"] ?? 0); results["true_shop_hourly_rate"] = Number.isFinite(v) ? v : 0; } catch { results["true_shop_hourly_rate"] = 0; }
   return results;
 }
 
