@@ -283,4 +283,7 @@ writeFileSync(FIELD_LABEL_MAP_PATH, `${JSON.stringify(fieldLabelMap, null, 2)}\n
 console.log("\nRunning marketing-surface polish...");
 execSync("npm run generate:marketing-surface-i18n", { cwd: ROOT, stdio: "inherit" });
 
+console.log("\nRe-applying legal page translations (SSOT)...");
+execSync("node scripts/merge-legal-i18n.mjs", { cwd: ROOT, stdio: "inherit" });
+
 console.log("\npolish-locale-en-identical-residue complete");

@@ -216,7 +216,7 @@ export function PremiumDynamicToolFormLayout({
               {result ? (
                 <div className="sc-premium-dtf-result sc-premium-dtf-result--pass">
                   <div className="sc-premium-dtf-result__title">{tPremium("calculatedValueTitle")}</div>
-                  <div className="sc-premium-dtf-result__value">{formattedPrimary}</div>
+                  <div className="sc-premium-dtf-result__value result-value">{formattedPrimary}</div>
                   <div className="sc-premium-dtf-result__status">{tPremium("validStatus")}</div>
                   {breakdown && Object.keys(breakdown).length > 0 ? (
                     <div className="sc-premium-dtf-result__breakdown">

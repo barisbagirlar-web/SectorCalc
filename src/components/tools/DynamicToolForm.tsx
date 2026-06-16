@@ -452,6 +452,7 @@ export function DynamicToolForm({
       <EnhancedBreakdownChart
         breakdown={breakdown}
         labelMap={breakdownLabelMap ?? schema.outputs.breakdown}
+        unitHints={schema.outputs.breakdownUnits}
         locale={locale}
         currency={breakdownCurrency}
         isPro={isPro}

@@ -29,7 +29,7 @@ export const Mtbf_mttr_financial_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Mtbf_mttr_financial_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = λ = 1 / MTBF; results["failure_rate"] = Number.isFinite(v) ? v : 0; } catch { results["failure_rate"] = 0; }
+  try { const v = 1 / MTBF; results["failure_rate"] = Number.isFinite(v) ? v : 0; } catch { results["failure_rate"] = 0; }
   try { const v = input.operating_hours_per_year / MTBF; results["annual_failures_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["annual_failures_per_unit"] = 0; }
   try { const v = F_unit * input.number_of_units; results["total_annual_failures"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_failures"] = 0; }
   try { const v = F_total * MTTR; results["annual_downtime_hours"] = Number.isFinite(v) ? v : 0; } catch { results["annual_downtime_hours"] = 0; }

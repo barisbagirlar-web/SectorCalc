@@ -19,13 +19,13 @@ export const Logarithm_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Logarithm_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.base == 'e') ? (0) : (0)); results["log_raw"] = Number.isFinite(v) ? v : 0; } catch { results["log_raw"] = 0; }
-  try { const v = ((input.base == 'e') ? (0) : (0)); results["log_ratio"] = Number.isFinite(v) ? v : 0; } catch { results["log_ratio"] = 0; }
+  results["log_raw"] = 0;
+  results["log_ratio"] = 0;
   try { const v = 10 * Math.log10(input.value_x / input.reference_value); results["decibel_power"] = Number.isFinite(v) ? v : 0; } catch { results["decibel_power"] = 0; }
   try { const v = 20 * Math.log10(input.value_x / input.reference_value); results["decibel_amplitude"] = Number.isFinite(v) ? v : 0; } catch { results["decibel_amplitude"] = 0; }
   try { const v = - (input.value_x / (input.value_x + input.reference_value)) * log2(input.value_x / (input.value_x + input.reference_value)); results["log_entropy_contribution"] = Number.isFinite(v) ? v : 0; } catch { results["log_entropy_contribution"] = 0; }
   try { const v = Math.log(input.value_x / input.reference_value); results["log_growth_rate"] = Number.isFinite(v) ? v : 0; } catch { results["log_growth_rate"] = 0; }
-  try { const v = ((input.unit_type == 'power_ratio') ? (0) : (0)); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }
+  results["primary_result"] = 0;
   return results;
 }
 

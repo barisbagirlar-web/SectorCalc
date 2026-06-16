@@ -1,417 +1,60 @@
 {
-  "slug": "bolt-torque-calculator",
-  "title": "Bolt Torque Calculator",
-  "description": "Industrial-grade bolt torque calculation tool based on ISO 898, VDI 2230, and ASME PCC-1 standards. Computes optimal torque, preload, and joint integrity metrics with loss-driver analysis.",
-  "premiumRequired": true,
-  "standardOptions": [
-    {
-      "id": "metric",
-      "label": "Metrik (ISO)",
-      "description": "Milimetre, Newton-metre"
-    },
-    {
-      "id": "imperial",
-      "label": "Imperial (UNC/UNF)",
-      "description": "İnç, pound-feet (sonuç N·m olarak gösterilir)"
-    }
-  ],
-  "premiumFeatures": [
-    "PDF export",
-    "CSV export",
-    "Trend analysis",
-    "Multi-bolt pattern optimization",
-    "Friction coefficient sensitivity analysis",
-    "API integration for CMMS"
-  ],
+  "toolName": "bolt-torque-calculator",
   "inputs": [
     {
-      "id": "bolt_grade",
-      "label": "Bolt Grade / Property Class",
-      "type": "select",
-      "unit": "none",
-      "default": "8.8",
-      "options": [
-        "4.6",
-        "5.8",
-        "8.8",
-        "10.9",
-        "12.9"
-      ],
-      "businessContext": "Defines yield and tensile strength per ISO 898-1.",
-      "label_i18n": {
-        "en": "Bolt Grade / Property Class"
-      },
-      "businessContext_i18n": {
-        "en": "Defines yield and tensile strength per ISO 898-1."
-      }
-    },
-    {
-      "id": "nominal_diameter",
-      "label": "Nominal Bolt Diameter (d)",
+      "id": "diameter",
+      "label": "Nominal Bolt Diameter",
       "type": "number",
       "unit": "mm",
-      "default": 12,
-      "min": 3,
-      "max": 100,
-      "businessContext": "Major diameter of the bolt thread.",
-      "label_i18n": {
-        "en": "Nominal Bolt Diameter (d)"
-      },
-      "businessContext_i18n": {
-        "en": "Major diameter of the bolt thread."
-      }
+      "default": 10,
+      "businessContext": "The nominal diameter of the bolt's thread."
     },
     {
-      "id": "thread_pitch",
-      "label": "Thread Pitch (P)",
+      "id": "pitch",
+      "label": "Thread Pitch",
       "type": "number",
       "unit": "mm",
-      "default": 1.75,
-      "min": 0.5,
-      "max": 6,
-      "businessContext": "Distance between thread crests. Coarse or fine.",
-      "label_i18n": {
-        "en": "Thread Pitch (P)"
-      },
-      "businessContext_i18n": {
-        "en": "Distance between thread crests. Coarse or fine."
-      }
+      "default": 1.5,
+      "businessContext": "The distance between adjacent thread crests. For standard coarse threads, refer to ISO 724."
     },
     {
-      "id": "friction_coefficient_thread",
-      "label": "Friction Coefficient (Thread)",
+      "id": "yieldStrength",
+      "label": "Material Yield Strength",
       "type": "number",
-      "unit": "none",
-      "default": 0.12,
-      "min": 0.04,
-      "max": 0.3,
-      "businessContext": "µ_th: affects torque-preload relationship. Typical range 0.08-0.20 for lubricated steel.",
-      "label_i18n": {
-        "en": "Friction Coefficient (Thread)"
-      },
-      "businessContext_i18n": {
-        "en": "µ_th: affects torque-preload relationship. Typical range 0.08-0.20 for lubricated steel."
-      }
+      "unit": "MPa",
+      "default": 640,
+      "businessContext": "Yield strength of the bolt material (e.g., 640 MPa for Grade 8.8)."
     },
     {
-      "id": "friction_coefficient_head",
-      "label": "Friction Coefficient (Head/Nut face)",
+      "id": "safetyFactor",
+      "label": "Safety Factor",
       "type": "number",
-      "unit": "none",
-      "default": 0.14,
-      "min": 0.04,
-      "max": 0.35,
-      "businessContext": "µ_h: underhead or nut face friction. Higher values reduce preload efficiency.",
-      "label_i18n": {
-        "en": "Friction Coefficient (Head/Nut face)"
-      },
-      "businessContext_i18n": {
-        "en": "µ_h: underhead or nut face friction. Higher values reduce preload efficiency."
-      }
+      "unit": "dimensionless",
+      "default": 2,
+      "businessContext": "Design safety factor to ensure the bolt remains below yield under service loads."
     },
     {
-      "id": "preload_percentage",
-      "label": "Target Preload (% of Yield)",
+      "id": "nutFactor",
+      "label": "Nut Factor (K)",
       "type": "number",
-      "unit": "%",
-      "default": 75,
-      "min": 30,
-      "max": 90,
-      "businessContext": "Typical assembly preload target. ISO 898 recommends 70-80% for static joints.",
-      "label_i18n": {
-        "en": "Target Preload (% of Yield)"
-      },
-      "businessContext_i18n": {
-        "en": "Typical assembly preload target. ISO 898 recommends 70-80% for static joints."
-      }
-    },
-    {
-      "id": "lubrication_condition",
-      "label": "Lubrication Condition",
-      "type": "select",
-      "unit": "none",
-      "default": "light_oil",
-      "options": [
-        "dry",
-        "light_oil",
-        "moly_paste",
-        "zinc_plated"
-      ],
-      "businessContext": "Affects friction coefficients and torque scatter.",
-      "label_i18n": {
-        "en": "Lubrication Condition"
-      },
-      "businessContext_i18n": {
-        "en": "Affects friction coefficients and torque scatter."
-      }
-    },
-    {
-      "id": "joint_type",
-      "label": "Joint Type",
-      "type": "select",
-      "unit": "none",
-      "default": "steel_steel",
-      "options": [
-        "steel_steel",
-        "aluminum_steel",
-        "composite_steel",
-        "cast_iron_steel"
-      ],
-      "businessContext": "Influences embedment and relaxation behavior.",
-      "label_i18n": {
-        "en": "Joint Type"
-      },
-      "businessContext_i18n": {
-        "en": "Influences embedment and relaxation behavior."
-      }
-    },
-    {
-      "id": "temperature",
-      "label": "Operating Temperature",
-      "type": "number",
-      "unit": "°C",
-      "default": 20,
-      "min": -40,
-      "max": 300,
-      "businessContext": "High temperature reduces yield strength and alters friction.",
-      "label_i18n": {
-        "en": "Operating Temperature"
-      },
-      "businessContext_i18n": {
-        "en": "High temperature reduces yield strength and alters friction."
-      }
-    },
-    {
-      "id": "use_washers",
-      "label": "Use Washers (Under Head & Nut)",
-      "type": "boolean",
-      "unit": "none",
-      "default": true,
-      "businessContext": "Washers reduce embedment and distribute load.",
-      "label_i18n": {
-        "en": "Use Washers (Under Head & Nut)"
-      },
-      "businessContext_i18n": {
-        "en": "Washers reduce embedment and distribute load."
-      }
+      "unit": "dimensionless",
+      "default": 0.2,
+      "businessContext": "Empirical factor accounting for thread friction and underhead friction. Typical dry steel: 0.2."
     }
   ],
-  "validation": {
-    "rules": [
-      {
-        "id": "friction_ratio_check",
-        "condition": "friction_coefficient_thread > friction_coefficient_head",
-        "message": "Thread friction should typically be less than or equal to head friction for consistent torque-preload behavior."
-      },
-      {
-        "id": "preload_limit",
-        "condition": "preload_percentage > 85",
-        "message": "Preload above 85% of yield may cause bolt yielding or fracture. Verify joint design."
-      },
-      {
-        "id": "diameter_pitch_ratio",
-        "condition": "nominal_diameter / thread_pitch < 5",
-        "message": "Very coarse thread relative to diameter may reduce thread stripping strength."
-      }
-    ],
-    "thresholds": [
-      {
-        "id": "torque_high_alert",
-        "condition": "calculated_torque > 500",
-        "unit": "N·m",
-        "severity": "warning",
-        "message": "Torque exceeds 500 N·m. Consider hydraulic tensioning or multi-pass tightening."
-      },
-      {
-        "id": "preload_efficiency_low",
-        "condition": "preload_efficiency < 0.4",
-        "severity": "critical",
-        "message": "Preload efficiency below 40%. High friction losses. Review lubrication and surface finish."
-      },
-      {
-        "id": "clamp_load_under_min",
-        "condition": "clamp_load < required_clamp_load_min",
-        "severity": "critical",
-        "message": "Clamp load insufficient for joint sealing or slip resistance."
-      }
+  "formulas": {
+    "tensileStressArea": "(Math.PI / 4) * Math.pow((diameter - 0.9382 * pitch), 2)",
+    "clampLoad": "(yieldStrength * tensileStressArea) / safetyFactor",
+    "torque": "(nutFactor * diameter * clampLoad) / 1000"
+  },
+  "outputs": {
+    "primary": "torque",
+    "breakdown": [
+      "clampLoad",
+      "tensileStressArea"
     ]
   },
-  "formulas": [
-    {
-      "id": "tensile_stress_area",
-      "name": "Tensile Stress Area (A_s)",
-      "description": "Effective cross-sectional area of bolt per ISO 898.",
-      "equation": "A_s = (π/4) * (d - 0.9382 * P)^2",
-      "inputs": [
-        "nominal_diameter",
-        "thread_pitch"
-      ],
-      "unit": "mm²"
-    },
-    {
-      "id": "yield_strength",
-      "name": "Yield Strength (σ_y)",
-      "description": "Minimum yield strength based on property class.",
-      "equation": "σ_y = lookup_yield(bolt_grade)",
-      "inputs": [
-        "bolt_grade"
-      ],
-      "unit": "MPa",
-      "lookupTable": {
-        "4.6": 240,
-        "5.8": 420,
-        "8.8": 640,
-        "10.9": 940,
-        "12.9": 1100
-      }
-    },
-    {
-      "id": "target_preload",
-      "name": "Target Preload (F_p)",
-      "description": "Desired bolt preload as percentage of yield load.",
-      "equation": "F_p = (preload_percentage / 100) * σ_y * A_s",
-      "inputs": [
-        "preload_percentage",
-        "yield_strength",
-        "tensile_stress_area"
-      ],
-      "unit": "N"
-    },
-    {
-      "id": "torque_coefficient",
-      "name": "Torque Coefficient (K)",
-      "description": "Nut factor based on friction coefficients and geometry.",
-      "equation": "K = (0.5 * (P / (π * d))) + (0.5 * (friction_coefficient_thread / cos(30°))) + (0.5 * friction_coefficient_head * (d_head / d))",
-      "inputs": [
-        "thread_pitch",
-        "nominal_diameter",
-        "friction_coefficient_thread",
-        "friction_coefficient_head"
-      ],
-      "unit": "none",
-      "notes": "d_head approximated as 1.5*d for hex bolts."
-    },
-    {
-      "id": "calculated_torque",
-      "name": "Calculated Torque (T)",
-      "description": "Torque required to achieve target preload.",
-      "equation": "T = K * F_p * d / 1000",
-      "inputs": [
-        "torque_coefficient",
-        "target_preload",
-        "nominal_diameter"
-      ],
-      "unit": "N·m"
-    },
-    {
-      "id": "preload_efficiency",
-      "name": "Preload Efficiency (η)",
-      "description": "Ratio of preload to input torque energy.",
-      "equation": "η = (F_p * P) / (2 * π * T * 1000)",
-      "inputs": [
-        "target_preload",
-        "thread_pitch",
-        "calculated_torque"
-      ],
-      "unit": "none"
-    },
-    {
-      "id": "clamp_load",
-      "name": "Clamp Load (F_c)",
-      "description": "Actual clamp force after considering joint stiffness and embedment.",
-      "equation": "F_c = F_p * (1 - embedment_loss_factor)",
-      "inputs": [
-        "target_preload"
-      ],
-      "unit": "N",
-      "notes": "embedment_loss_factor = 0.05 for steel-steel with washers, 0.10 without washers."
-    }
-  ],
-  "outputs": {
-    "primary": {
-      "id": "calculated_torque",
-      "label": "Recommended Tightening Torque",
-      "value": null,
-      "unit": "N·m",
-      "confidenceInterval": "±15%"
-    },
-    "breakdown": {
-      "id": "torque_breakdown",
-      "label": "Torque Breakdown",
-      "components": [
-        {
-          "id": "thread_friction_torque",
-          "label": "Thread Friction Torque",
-          "unit": "N·m",
-          "description": "Torque consumed by thread friction."
-        },
-        {
-          "id": "head_friction_torque",
-          "label": "Head/Nut Face Friction Torque",
-          "unit": "N·m",
-          "description": "Torque consumed by underhead or nut face friction."
-        },
-        {
-          "id": "preload_torque",
-          "label": "Preload (Stretch) Torque",
-          "unit": "N·m",
-          "description": "Torque converted into bolt stretch (useful work)."
-        }
-      ]
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "friction_scatter",
-        "label": "Friction Coefficient Scatter",
-        "value": "±0.03",
-        "impact": "Can cause ±25% variation in preload."
-      },
-      {
-        "id": "embedment_relaxation",
-        "label": "Embedment & Relaxation",
-        "value": "5-15% loss",
-        "impact": "Reduces clamp load over time."
-      },
-      {
-        "id": "temperature_derating",
-        "label": "Temperature Derating",
-        "value": "0.1% per °C above 100°C",
-        "impact": "Reduces yield strength and preload."
-      },
-      {
-        "id": "tool_accuracy",
-        "label": "Tool Accuracy",
-        "value": "±5% for torque wrench",
-        "impact": "Adds systematic error."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_1",
-        "priority": 1,
-        "description": "Use calibrated torque wrench with accuracy ±3% or better."
-      },
-      {
-        "id": "action_2",
-        "priority": 2,
-        "description": "Apply molybdenum disulfide paste to threads and underhead to reduce friction scatter."
-      },
-      {
-        "id": "action_3",
-        "priority": 3,
-        "description": "Perform torque-tension verification test on 5% of bolts per batch."
-      },
-      {
-        "id": "action_4",
-        "priority": 4,
-        "description": "For critical joints, consider hydraulic tensioning instead of torque control."
-      },
-      {
-        "id": "action_5",
-        "priority": 5,
-        "description": "Re-torque after 24 hours to compensate for embedment loss."
-      }
-    ],
-    "dataConfidenceAdjusted": 0.82
-  }
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false
 }

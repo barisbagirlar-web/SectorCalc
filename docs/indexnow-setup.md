@@ -1,6 +1,6 @@
 # IndexNow Setup
 
-IndexNow notifies Bing and participating search engines when public URLs change. SectorCalc uses a manifest-driven submit script — not the full sitemap — for EN/TR indexable URLs.
+IndexNow notifies Bing and participating search engines when public URLs change. SectorCalc submits **all six locales** by default (`en`, `tr`, `de`, `fr`, `es`, `ar`) — ~21k URLs, auto-batched at 9,500/request. Use `INDEXNOW_MODE=en-tr` for a faster EN+TR-only pass (~7k).
 
 ## Prerequisites
 
@@ -44,7 +44,9 @@ https://sectorcalc-bf412.web.app/{INDEXNOW_KEY}.txt
 
 Should return HTTP 200 with the key as plain text.
 
-**Example placeholder in repo:** `public/indexnow-key-example.txt` — replace content with your real key in a separate file named after the key.
+**Vercel / dynamic hosting:** set `INDEXNOW_KEY` in hosting env only — `next.config.ts` rewrites `/{key}.txt` and `/.well-known/indexnow-key.txt` to `/api/indexnow-verification`. No committed `public/{key}.txt` required when env is configured.
+
+**Example placeholder in repo:** `public/indexnow-key-example.txt` — replace content with your real key in a separate file named after the key (Firebase static hosting).
 
 ## 3. Export URL manifest (automatic at prebuild)
 
@@ -60,22 +62,43 @@ Source: `src/lib/seo/indexable-url-manifest.ts`
 
 ## 4. Submit URLs
 
+Default (all six locales — recommended after deploy):
+
 ```bash
-INDEXNOW_KEY=your-key-here SITE_HOST=sectorcalc-bf412.web.app npm run seo:indexnow
+INDEXNOW_KEY=your-key-here SITE_HOST=www.sectorcalc.com npm run seo:indexnow
 ```
 
-Or with production domain after DNS cutover:
+Quick Tier-1 priority URLs only (~438):
 
 ```bash
-INDEXNOW_KEY=your-key-here SITE_HOST=sectorcalc.com npm run seo:indexnow
+npm run seo:indexnow:priority
+```
+
+English + Turkish only (~7k, single batch):
+
+```bash
+npm run seo:indexnow:en-tr
+```
+
+Verify live key file before submit:
+
+```bash
+INDEXNOW_VERIFY_KEY=1 INDEXNOW_KEY=your-key-here SITE_HOST=www.sectorcalc.com npm run seo:indexnow:prod
+```
+
+Staging host:
+
+```bash
+INDEXNOW_KEY=your-key-here SITE_HOST=sectorcalc-bf412.web.app npm run seo:indexnow
 ```
 
 ### Expected success output
 
 ```
-IndexNow OK — submitted N URLs (HTTP 200)
-Host: sectorcalc-bf412.web.app
-Key location: https://sectorcalc-bf412.web.app/your-key.txt
+IndexNow OK — submitted N URLs total
+Host: www.sectorcalc.com
+Key location: https://www.sectorcalc.com/your-key.txt
+IndexNow mode: all
 ```
 
 ### If key is missing

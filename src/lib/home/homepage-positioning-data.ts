@@ -52,6 +52,14 @@ export type HomepagePopularToolDef = {
   readonly tool: HomepageCriticalToolDef;
 };
 
+export const HOMEPAGE_POPULAR_CATEGORY_GROUP_ID: Readonly<Record<string, string>> = {
+  production: "productionManufacturing",
+  workshop: "workshopQuote",
+  engineering: "technicalEngineering",
+  construction: "constructionField",
+  energy: "energyCarbon",
+};
+
 export const HOMEPAGE_POPULAR_TOOLS: readonly HomepagePopularToolDef[] = [
   {
     categoryKey: "production",

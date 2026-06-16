@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
+import { GuideAuthorByline } from "@/components/guides/GuideAuthorByline";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
 import { JsonLd } from "@/components/seo/JsonLd";
 import type { AppLocale } from "@/i18n/routing";
@@ -21,12 +22,15 @@ import {
 import { getFreeTrafficToolBySlug } from "@/lib/tools/free-traffic-catalog";
 import { getPremiumSchemaBySlug } from "@/lib/premium-schema/schemas/index";
 import {
-  buildArticleJsonLd,
   buildBreadcrumbJsonLd,
   buildFAQJsonLd,
   buildItemListJsonLd,
+  sanitizeJsonLd,
   type JsonLdRecord,
 } from "@/lib/seo/schema-mesh";
+import { GUIDE_REFERENCE_AUTHOR, guideReferenceAuthorJsonLdId } from "@/config/guide-reference-author";
+import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
+import { siteUrl } from "@/config/site";
 import { getToolHref } from "@/lib/tools/paths";
 import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
 
@@ -98,15 +102,25 @@ function buildGuideJsonLd(guide: AuthorityGuide, locale: string): JsonLdRecord[]
       ],
       locale,
     ),
-    buildArticleJsonLd(
-      {
-        slug: guide.slug,
-        title: guide.title,
-        description: guide.seoDescription,
-        headline: guide.h1,
+    sanitizeJsonLd({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: guide.h1,
+      name: guide.title,
+      description: guide.seoDescription,
+      url: buildLocalizedUrl(getAuthorityGuideRoutePath(guide.slug), locale as AppLocale, siteUrl),
+      inLanguage: locale,
+      author: {
+        "@type": "Person",
+        "@id": guideReferenceAuthorJsonLdId(),
+        name: GUIDE_REFERENCE_AUTHOR.name,
+        url: GUIDE_REFERENCE_AUTHOR.externalProfileUrl,
       },
-      locale,
-    ),
+      publisher: {
+        "@id": `${siteUrl}/#organization`,
+      },
+      mainEntityOfPage: buildLocalizedUrl(getAuthorityGuideRoutePath(guide.slug), locale as AppLocale, siteUrl),
+    }) as JsonLdRecord,
     buildItemListJsonLd(freeItems, `${guide.title} — free calculators`, locale),
     buildItemListJsonLd(premiumItems, `${guide.title} — premium calculators`, locale),
   ];
@@ -160,6 +174,7 @@ export default async function AuthorityGuidePage({
           </nav>
           <p className="sc-pro-eyebrow">SectorCalc authority guide</p>
           <h1 className="sc-pro-title">{guide.h1}</h1>
+          <GuideAuthorByline locale={locale as AppLocale} />
         </Container>
       </section>
 

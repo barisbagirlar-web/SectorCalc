@@ -67,6 +67,11 @@ const COGNATES = new Set([
   "ASME BPVC",
   "ASTM / AISI",
   "ASME Y14.5",
+  "Scope 1",
+  "Scope 2",
+  "Scope 3",
+  "Diesel (litres)",
+  "Diesel (Liter)",
 ]);
 
 const ENGLISH_LEAK = /\b(the|and|with|what is|required|your|for|from|this|that|how|when|where|sign in|go to|return to|loading|calculate|resources|categories|reports|account|archive|pricing|checkout|waitlist|forever|baseline|verdict|deterministic|confidence|complete|updated|construction|logistics|industries|sectors|intelligence|utilities|waitlist)\b/i;

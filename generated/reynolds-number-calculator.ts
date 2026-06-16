@@ -25,7 +25,7 @@ export const Reynolds_number_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Reynolds_number_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ν = μ / ρ; results["kinematic_viscosity"] = Number.isFinite(v) ? v : 0; } catch { results["kinematic_viscosity"] = 0; }
+  try { const v = μ / ρ; results["kinematic_viscosity"] = Number.isFinite(v) ? v : 0; } catch { results["kinematic_viscosity"] = 0; }
   try { const v = (ρ * V * D) / μ; results["reynolds_number"] = Number.isFinite(v) ? v : 0; } catch { results["reynolds_number"] = 0; }
   results["relative_roughness"] = 0;
   results["friction_factor"] = 0;

@@ -4,7 +4,7 @@ import {
   normalizeWasteTypeKey,
   resolveBreakdownColor,
 } from "@/lib/chart-helpers";
-import { buildBreakdownChartData } from "@/lib/chart-helpers/breakdown-chart-data";
+import { buildBreakdownChartData, buildBreakdownChartGroups } from "@/lib/chart-helpers/breakdown-chart-data";
 import { resolveRelatedInputsForBreakdownKey } from "@/lib/chart-helpers/resolve-waste-related-inputs";
 
 describe("chart helpers", () => {
@@ -32,6 +32,28 @@ describe("chart helpers", () => {
     const overproduction = data.find((item) => item.key === "overproductionCost");
     expect(overproduction?.percent).toBe("80.0");
     expect(overproduction?.color).toBe("#ef4444");
+  });
+
+  it("omits zero and non-finite breakdown values", () => {
+    const data = buildBreakdownChartData(
+      { waitingCost: 0, overproductionCost: 800, invalid: Number.NaN },
+      "en-US",
+      "TRY",
+      (key) => key,
+    );
+
+    expect(data).toHaveLength(1);
+    expect(data[0]?.key).toBe("overproductionCost");
+  });
+
+  it("returns empty groups when breakdown has no positive finite values", () => {
+    const groups = buildBreakdownChartGroups(
+      { waitingCost: 0, invalid: Number.NaN },
+      "en-US",
+      "TRY",
+      (key) => key,
+    );
+    expect(groups).toHaveLength(0);
   });
 
   it("resolves related inputs for a waste breakdown key", () => {

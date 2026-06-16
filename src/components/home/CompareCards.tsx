@@ -3,12 +3,20 @@ import { Play, Sparkles } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
 import { HomepageStrokeIcon } from "@/components/home/HomepageStrokeIcon";
-import { readHomepageStringArray } from "@/lib/home/homepage-component-utils";
+import { readHomepageMessageList } from "@/lib/home/homepage-component-utils";
 
 export async function CompareCards() {
   const t = await getTranslations("homepageHybrid");
-  const freeHighlights = readHomepageStringArray(t.raw("freePremium.freeHighlights"));
-  const premiumHighlights = readHomepageStringArray(t.raw("freePremium.premiumHighlights"));
+  const freeHighlights = readHomepageMessageList(
+    t,
+    "freePremium.freeHighlights",
+    "freePremium.freeItems",
+  );
+  const premiumHighlights = readHomepageMessageList(
+    t,
+    "freePremium.premiumHighlights",
+    "freePremium.premiumItems",
+  );
 
   return (
     <section

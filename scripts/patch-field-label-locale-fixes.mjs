@@ -1,0 +1,176 @@
+#!/usr/bin/env node
+/**
+ * Patches scripts/data/calculator-field-labels-i18n.json with deterministic
+ * locale fixes for labels that otherwise stay English-identical in generated copy.
+ */
+import { readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+
+const ROOT = join(import.meta.dirname, "..");
+const TARGET = join(ROOT, "scripts/data/calculator-field-labels-i18n.json");
+
+const FIXES = {
+  tr: {
+    Distance: "Mesafe",
+    Volume: "Hacim",
+    Total: "Toplam",
+    "Input material": "Girdi malzemesi",
+    "Loan amount": "Kredi tutarı",
+    "Margin error": "Marj hatası",
+    "Fuel input": "Yakıt girdisi",
+    "Current year": "Cari yıl",
+    "Phase Type": "Faz Türü",
+    dimensionless: "boyutsuz",
+    "Booking fee": "Rezervasyon ücreti",
+    "Data point": "Veri noktası",
+    Divisor: "Bölen",
+    Dosage: "Dozaj",
+    Favorable: "Uygun",
+    Inspection: "Denetim",
+    "Motor kW": "Motor gücü (kW)",
+    Population: "Popülasyon",
+    Portions: "Porsiyonlar",
+    Proportion: "Oran",
+    "Pump motor kW": "Pompa motor gücü (kW)",
+    Servings: "Servis porsiyonları",
+    "Successful outcomes": "Başarılı sonuçlar",
+    Transport: "Nakliye",
+    "Initial deposit": "Peşinat",
+  },
+  de: {
+    Distance: "Entfernung",
+    Volume: "Volumen",
+    Total: "Summe",
+    "Input material": "Eingangsmaterial",
+    "Margin error": "Fehlermarge",
+    "Fuel input": "Kraftstoffeingabe",
+    Inspection: "Prüfung",
+    Dosage: "Dosierung",
+    Favorable: "Vorteilhaft",
+    Proportion: "Anteil",
+    Population: "Grundgesamtheit",
+    Portions: "Portionen",
+    Transport: "Beförderung",
+    Divisor: "Teiler",
+    "Current year": "Aktuelles Jahr",
+    "Phase Type": "Phasentyp",
+    dimensionless: "dimensionslos",
+    Amount: "Betrag",
+    Input: "Eingabe",
+    Time: "Zeit",
+    Error: "Fehler",
+    "Batch size": "Losgröße",
+    "Booking fee": "Buchungsgebühr",
+    "Motor kW": "Motorleistung (kW)",
+    "Pump motor kW": "Pumpenmotorleistung (kW)",
+    Servings: "Portionen",
+    "Initial deposit": "Anzahlung",
+    "Menu engineering score": "Menü-Engineering-Bewertung",
+  },
+  fr: {
+    Distance: "Distance (trajet)",
+    Volume: "Volume",
+    Total: "Somme",
+    "Input material": "Matière première",
+    "Margin error": "Marge d'erreur",
+    "Fuel input": "Entrée de carburant",
+    Inspection: "Contrôle",
+    Dosage: "Dose",
+    Favorable: "Positif",
+    Proportion: "Proportion (ratio)",
+    Population: "Population (échantillon)",
+    Portions: "Portions (parts)",
+    Transport: "Expédition",
+    Divisor: "Diviseur",
+    "Current year": "Année en cours",
+    "Phase Type": "Type de phase",
+    dimensionless: "sans dimension",
+    Amount: "Montant",
+    Input: "Entrée",
+    Time: "Temps",
+    Error: "Erreur",
+    "Batch size": "Taille du lot",
+    "Booking fee": "Frais de réservation",
+    "Motor kW": "Puissance moteur (kW)",
+    "Pump motor kW": "Puissance moteur de pompe (kW)",
+    Servings: "Portions",
+    "Initial deposit": "Dépôt initial",
+    "Menu engineering score": "Score d'ingénierie du menu",
+  },
+  es: {
+    Distance: "Distancia",
+    Volume: "Volumen",
+    Total: "Suma",
+    "Input material": "Material de entrada",
+    "Margin error": "Margen de error",
+    "Fuel input": "Entrada de combustible",
+    Inspection: "Inspección",
+    Dosage: "Dosis",
+    Favorable: "Auspicioso",
+    Proportion: "Proporción",
+    Population: "Población",
+    Portions: "Porciones",
+    Transport: "Transporte",
+    Divisor: "Divisor (factor)",
+    "Current year": "Año actual",
+    "Phase Type": "Tipo de fase",
+    dimensionless: "adimensional",
+    Amount: "Importe",
+    Input: "Entrada",
+    Time: "Tiempo",
+    Error: "Error",
+    "Batch size": "Tamaño del lote",
+    "Booking fee": "Tarifa de reserva",
+    "Motor kW": "Potencia del motor (kW)",
+    "Pump motor kW": "Potencia del motor de la bomba (kW)",
+    Servings: "Raciones",
+    "Initial deposit": "Depósito inicial",
+    "Menu engineering score": "Puntuación de ingeniería del menú",
+  },
+  ar: {
+    Distance: "المسافة",
+    Volume: "الحجم",
+    Total: "الإجمالي",
+    "Input material": "مادة الإدخال",
+    "Margin error": "هامش الخطأ",
+    "Fuel input": "مدخل الوقود",
+    Inspection: "فحص",
+    Dosage: "الجرعة",
+    Favorable: "مؤاتٍ",
+    Proportion: "النسبة",
+    Population: "السكان",
+    Portions: "حصص",
+    Transport: "النقل",
+    Divisor: "المقسوم",
+    "Current year": "السنة الحالية",
+    "Phase Type": "نوع الطور",
+    dimensionless: "بلا بُعد",
+    Amount: "المبلغ",
+    Input: "إدخال",
+    Time: "الوقت",
+    Error: "خطأ",
+    "Batch size": "حجم الدفعة",
+    "Booking fee": "رسوم الحجز",
+    "Motor kW": "قدرة المحرك (kW)",
+    "Pump motor kW": "قدرة محرك المضخة (kW)",
+    Servings: "حصص",
+    "Initial deposit": "الوديعة الأولية",
+    "Menu engineering score": "درجة هندسة القائمة",
+  },
+};
+
+const data = JSON.parse(readFileSync(TARGET, "utf8"));
+let changed = 0;
+
+for (const [locale, fixes] of Object.entries(FIXES)) {
+  data[locale] ??= {};
+  for (const [key, value] of Object.entries(fixes)) {
+    if (data[locale][key] !== value) {
+      data[locale][key] = value;
+      changed += 1;
+    }
+  }
+}
+
+writeFileSync(TARGET, `${JSON.stringify(data, null, 2)}\n`, "utf8");
+console.log(`patch-field-label-locale-fixes: changed=${changed}`);

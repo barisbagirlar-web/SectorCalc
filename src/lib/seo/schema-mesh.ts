@@ -1,4 +1,7 @@
+import { ORGANIZATION_TRUST, organizationDescriptionForLocale } from "@/config/organization-trust";
+import { buildFounderSameAs } from "@/config/knowledge-graph";
 import { SITE, siteUrl } from "@/config/site";
+import { absoluteImageUrl } from "@/lib/semantic/site-url";
 import { isSupportedLocale, type SupportedLocale } from "@/lib/i18n/locale-routing";
 import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
 import type { SeoAuthorityEntity } from "@/lib/seo/seo-authority-model";
@@ -47,20 +50,40 @@ export function sanitizeJsonLd(value: unknown): unknown {
   return value;
 }
 
+function organizationDescription(locale: string): string {
+  return organizationDescriptionForLocale(locale);
+}
+
 export function buildOrganizationJsonLd(locale = "en"): JsonLdRecord {
   return sanitizeJsonLd({
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${siteUrl}/#organization`,
-    name: SITE.siteName,
+    name: ORGANIZATION_TRUST.displayName,
     url: localizedUrl(locale, "/"),
-    description: SITE.defaultDescription,
-    email: SITE.contactEmail,
+    logo: absoluteImageUrl(ORGANIZATION_TRUST.logoPath),
+    description: organizationDescription(locale),
+    email: ORGANIZATION_TRUST.email,
+    founder: {
+      "@type": "Person",
+      "@id": `${siteUrl}/#founder-baris-bagirlar`,
+      name: ORGANIZATION_TRUST.founder.name,
+      email: ORGANIZATION_TRUST.founder.email,
+      sameAs: buildFounderSameAs(),
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: ORGANIZATION_TRUST.address.streetAddress,
+      addressLocality: ORGANIZATION_TRUST.address.addressLocality,
+      addressCountry: ORGANIZATION_TRUST.address.addressCountry,
+    },
     contactPoint: {
       "@type": "ContactPoint",
-      email: SITE.contactEmail,
-      contactType: "customer service",
+      telephone: ORGANIZATION_TRUST.phone,
+      email: ORGANIZATION_TRUST.email,
+      contactType: ORGANIZATION_TRUST.contactType,
     },
+    sameAs: ORGANIZATION_TRUST.sameAs,
   }) as JsonLdRecord;
 }
 
@@ -71,11 +94,20 @@ export function buildWebsiteJsonLd(locale = "en"): JsonLdRecord {
     "@id": `${siteUrl}/#website`,
     name: SITE.siteName,
     url: localizedUrl(locale, "/"),
-    description: SITE.defaultDescription,
+    description: organizationDescription(locale),
     publisher: {
       "@id": `${siteUrl}/#organization`,
     },
     inLanguage: locale,
+    sameAs: ORGANIZATION_TRUST.sameAs,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: localizedUrl(locale, "/free-tools?q={search_term_string}"),
+      },
+      "query-input": "required name=search_term_string",
+    },
   }) as JsonLdRecord;
 }
 

@@ -439,6 +439,9 @@ const PREMIUM_SCHEMA_I18N: Partial<Record<AppLocale, Record<string, LocalizedPre
   ar: AR_SCHEMAS,
 };
 
+/** Slugs with localized premium-schema vitrine copy (live premium-schema routes). */
+export const PREMIUM_SCHEMA_LOCALIZED_SLUGS: ReadonlySet<string> = new Set(Object.keys(TR_SCHEMAS));
+
 export function getLocalizedPremiumSchema(
   schemaId: string,
   locale: string,

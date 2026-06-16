@@ -96,6 +96,7 @@ function buildToolRecord(item: CategorizedToolItem): AiToolIndexRecord {
       locale,
       resolveGlobalCategoryTitle(
         listGlobalCategories().find((entry) => entry.slug === item.categorySlug) ?? {
+          slug: item.categorySlug,
           trTitle: item.categorySlug,
           enTitle: item.categorySlug,
         },

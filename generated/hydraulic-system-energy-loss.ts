@@ -34,7 +34,7 @@ function evaluateAllFormulas(input: Hydraulic_system_energy_lossInput): Record<s
   results["darcy_friction_factor"] = 0;
   results["pipe_friction_loss"] = 0;
   results["minor_losses"] = 0;
-  try { const v = ΔP_total = ΔP_pipe + ΔP_minor; results["total_pressure_loss"] = Number.isFinite(v) ? v : 0; } catch { results["total_pressure_loss"] = 0; }
+  try { const v = ΔP_pipe + ΔP_minor; results["total_pressure_loss"] = Number.isFinite(v) ? v : 0; } catch { results["total_pressure_loss"] = 0; }
   try { const v = ΔP_total * Q; results["primary_energy_loss"] = Number.isFinite(v) ? v : 0; } catch { results["primary_energy_loss"] = 0; }
   return results;
 }

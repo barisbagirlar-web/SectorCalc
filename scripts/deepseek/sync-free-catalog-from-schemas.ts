@@ -44,6 +44,25 @@ function main(): void {
   const listPath = defaultListFilePath();
   const listEntries = fs.existsSync(listPath) ? parseCalculatorListEntries(listPath) : [];
   const categoryMap = buildSlugCategoryMap(listEntries);
+
+  if (fs.existsSync(SCHEMAS_DIR)) {
+    for (const file of fs.readdirSync(SCHEMAS_DIR)) {
+      if (!file.endsWith("-schema.json")) continue;
+      const slug = file.replace(/-schema\.json$/, "");
+      const raw = JSON.parse(
+        fs.readFileSync(path.join(SCHEMAS_DIR, file), "utf-8"),
+      ) as { catalogCategory?: string; premiumRequired?: boolean };
+      if (raw.premiumRequired === true) continue;
+      const fromSchema =
+        typeof raw.catalogCategory === "string" ? raw.catalogCategory.trim() : "";
+      if (fromSchema) {
+        categoryMap[slug] = fromSchema;
+      } else if (!categoryMap[slug]) {
+        categoryMap[slug] = resolveSectionCategory("GENERAL");
+      }
+    }
+  }
+
   for (const slug of existing) {
     if (!categoryMap[slug]) {
       categoryMap[slug] = resolveSectionCategory("GENERAL");

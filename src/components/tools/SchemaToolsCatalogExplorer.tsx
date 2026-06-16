@@ -4,8 +4,9 @@ import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { Search, X } from "lucide-react";
+import { CategoryCardGrid } from "@/components/catalog/CategoryCardGrid";
+import type { CategoryCardItem } from "@/components/catalog/CategoryCardGrid";
 import type { ToolData } from "@/lib/tools/all-tools-data";
-import { CategoryFilterSidebar } from "@/components/tools/CategoryFilterSidebar";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import type { Tool } from "@/data/tools";
 
@@ -17,7 +18,6 @@ type SchemaToolsCatalogExplorerProps = {
   readonly variant: "free-tools" | "premium-tools" | "industries";
 };
 
-/** catalogExplorer uses camelCase section keys; labels use kebab-case variant ids. */
 const VARIANT_TITLE_KEY: Record<SchemaToolsCatalogExplorerProps["variant"], string> = {
   "free-tools": "freeTools.title",
   "premium-tools": "premiumTools.title",
@@ -54,6 +54,7 @@ export function SchemaToolsCatalogExplorer({
   variant,
 }: SchemaToolsCatalogExplorerProps) {
   const t = useTranslations("catalogExplorer");
+  const tBrowse = useTranslations("premiumCategoryCatalog");
   const locale = useLocale();
   const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
@@ -61,6 +62,7 @@ export function SchemaToolsCatalogExplorer({
   const rawFilter = searchParams?.get(filterParamKey) ?? "";
   const selectedFilter = rawFilter === "all" ? "" : rawFilter;
   const isSearching = searchQuery.trim().length > 0;
+  const isIndustry = variant === "industries";
 
   const groups = useMemo(() => {
     const counts = new Map<string, { label: string; count: number }>();
@@ -85,6 +87,24 @@ export function SchemaToolsCatalogExplorer({
       }))
       .sort((left, right) => left.label.localeCompare(right.label, locale));
   }, [filterBy, locale, selectedFilter, tools]);
+
+  const categoryCards = useMemo((): CategoryCardItem[] => {
+    const formatCount = (count: number) => t(`labels.${variant}.countLabel`, { count });
+    return [
+      {
+        slug: "all",
+        label: t(`labels.${variant}.allLabel`),
+        count: tools.length,
+        isActive: selectedFilter === "" || selectedFilter === "all",
+      },
+      ...groups.map((group) => ({
+        slug: group.slug,
+        label: group.label,
+        count: group.count,
+        isActive: group.isActive,
+      })),
+    ];
+  }, [groups, selectedFilter, t, tools.length, variant]);
 
   const categoryFilteredTools = useMemo(() => {
     if (!selectedFilter) {
@@ -112,7 +132,7 @@ export function SchemaToolsCatalogExplorer({
 
   const tileTools = useMemo(() => visibleTools.map(toToolTile), [visibleTools]);
   const activeGroup = groups.find((group) => group.isActive);
-  const formatCount = (count: number) => t(`labels.${variant}.countLabel`, { count });
+  const formatCardCount = (count: number) => t(`labels.${variant}.countLabel`, { count });
 
   return (
     <div className="sc-catalog-explorer-stack flex min-w-0 flex-col gap-6">
@@ -141,42 +161,45 @@ export function SchemaToolsCatalogExplorer({
         ) : null}
       </div>
 
-      <div className="flex flex-col gap-8 md:flex-row">
-        {!isSearching ? (
-          <CategoryFilterSidebar
-            title={t(`labels.${variant}.navLabel`)}
-            allLabel={t(`labels.${variant}.allLabel`)}
-            allCount={tools.length}
-            allIsActive={selectedFilter === "" || selectedFilter === "all"}
-            categories={groups}
+      {!isSearching ? (
+        <section aria-labelledby="schema-catalog-browse-heading">
+          <h2
+            id="schema-catalog-browse-heading"
+            className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-700"
+          >
+            {tBrowse("browseByCategory")}
+          </h2>
+          <CategoryCardGrid
+            items={categoryCards}
+            formatCount={formatCardCount}
             filterParamKey={filterParamKey}
             allFilterValue="all"
-            formatCount={formatCount}
+            variant={isIndustry ? "industry" : "default"}
           />
-        ) : null}
+        </section>
+      ) : null}
 
-        <div className="min-w-0 flex-1" id="tools-list">
-          <header className="mb-4">
-            <h2 className="text-2xl font-semibold text-gray-900">
-              {isSearching
-                ? t("search.label")
-                : activeGroup
-                  ? t(`labels.${variant}.categoryToolsTitle`, { category: activeGroup.label })
-                  : t(VARIANT_TITLE_KEY[variant])}
-            </h2>
-            <p className="mt-1 text-sm text-gray-500">
-              {t(`labels.${variant}.categoryToolsSubtitle`, { count: visibleTools.length })}
-            </p>
-          </header>
+      <div className="min-w-0 flex-1" id="tools-list">
+        <header className="mb-4">
+          <h2 className="text-2xl font-semibold text-gray-900">
+            {isSearching
+              ? t("search.label")
+              : activeGroup
+                ? t(`labels.${variant}.categoryToolsTitle`, { category: activeGroup.label })
+                : t(VARIANT_TITLE_KEY[variant])}
+          </h2>
+          <p className="mt-1 text-sm text-gray-500">
+            {t(`labels.${variant}.categoryToolsSubtitle`, { count: visibleTools.length })}
+          </p>
+        </header>
 
-          {tileTools.length > 0 ? (
-            <ToolsTileGrid tools={tileTools} />
-          ) : (
-            <p className="text-sm text-body-charcoal" role="status">
-              {t("search.noResults")}
-            </p>
-          )}
-        </div>
+        {tileTools.length > 0 ? (
+          <ToolsTileGrid tools={tileTools} />
+        ) : (
+          <p className="text-sm text-body-charcoal" role="status">
+            {t("search.noResults")}
+          </p>
+        )}
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
 import { HomepageStrokeIcon } from "@/components/home/HomepageStrokeIcon";
 import { HOMEPAGE_AUDIENCE_ICON_MAP } from "@/lib/home/homepage-icon-map";
+import { resolveHomepageMessage } from "@/lib/home/homepage-component-utils";
 import { HOMEPAGE_AUDIENCE_IDS } from "@/lib/home/homepage-positioning-data";
 
 export async function AudienceGrid() {
@@ -28,7 +29,13 @@ export async function AudienceGrid() {
                   <HomepageStrokeIcon icon={Icon} className="sc-home-omni__audience-icon" />
                   <div className="sc-home-omni__audience-body">
                     <h3 className="sc-home-omni__audience-title">{t(`audiences.items.${id}.title`)}</h3>
-                    <p className="sc-home-omni__audience-text">{t(`audiences.items.${id}.examples`)}</p>
+                    <p className="sc-home-omni__audience-text">
+                      {resolveHomepageMessage(
+                        t,
+                        `audiences.items.${id}.examples`,
+                        `audiences.items.${id}.text`,
+                      )}
+                    </p>
                   </div>
                 </article>
               </li>

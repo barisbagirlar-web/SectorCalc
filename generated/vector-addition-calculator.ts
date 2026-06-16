@@ -21,11 +21,11 @@ export const Vector_addition_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Vector_addition_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["vector1_components"] = 0;
-  results["vector2_components"] = 0;
-  results["resultant_components"] = 0;
+  try { const v = input.vector1_magnitude * sin(input.vector1_angle * Math.PI / 180); results["vector1_components"] = Number.isFinite(v) ? v : 0; } catch { results["vector1_components"] = 0; }
+  try { const v = input.vector2_magnitude * sin(input.vector2_angle * Math.PI / 180); results["vector2_components"] = Number.isFinite(v) ? v : 0; } catch { results["vector2_components"] = 0; }
+  try { const v = v1y + v2y; results["resultant_components"] = Number.isFinite(v) ? v : 0; } catch { results["resultant_components"] = 0; }
   try { const v = Math.sqrt(rx**2 + ry**2); results["resultant_magnitude"] = Number.isFinite(v) ? v : 0; } catch { results["resultant_magnitude"] = 0; }
-  results["resultant_angle"] = 0;
+  try { const v = atan2(ry, rx) * 180 / Math.PI; results["resultant_angle"] = Number.isFinite(v) ? v : 0; } catch { results["resultant_angle"] = 0; }
   results["unit_conversion"] = 0;
   try { const v = (results["resultant_magnitude"] ?? 0) * (input.confidence_level / 100); results["data_confidence_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_adjustment"] = 0; }
   return results;

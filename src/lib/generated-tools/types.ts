@@ -33,6 +33,12 @@ export type GeneratedToolInput = {
 
 export type GeneratedToolSchema = {
   readonly toolName: string;
+  /** Free-traffic catalog category (e.g. finance-business). */
+  readonly catalogCategory?: string;
+  /** Industry hub slug for sector pages (e.g. cnc-manufacturing). */
+  readonly sectorSlug?: string;
+  /** Premium 152 global category slug (e.g. lean-production). */
+  readonly categorySlug?: string;
   /** Optional ISO date (YYYY-MM-DD) when formulas/inputs were last reviewed. */
   readonly lastUpdated?: string;
   readonly standardOptions?: readonly GeneratedToolStandardOption[];
@@ -45,6 +51,8 @@ export type GeneratedToolSchema = {
   readonly outputs: {
     readonly primary: string;
     readonly breakdown: Readonly<Record<string, string>>;
+    /** Formula/output units keyed by breakdown id (e.g. minutes, %, dimensionless). */
+    readonly breakdownUnits?: Readonly<Record<string, string>>;
     readonly hiddenLossDrivers: readonly string[];
     readonly suggestedActions: readonly string[];
     readonly dataConfidenceAdjusted: string;

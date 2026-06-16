@@ -119,3 +119,27 @@ describe("translateCalculatorPhrase — machining surface + drivers", () => {
   }
 });
 
+describe("translateCalculatorPhrase — SMED breakdown labels", () => {
+  const SMED_LABEL_MAP = {
+    external_operations_percentage: "External Operations Percentage",
+    waste_motion_factor: "Waste Motion Factor",
+    reduction_percentage: "Reduction Percentage",
+  } as const;
+
+  it("does not corrupt operations/percentage substrings in Turkish", () => {
+    expect(
+      resolveGeneratedBreakdownLabel(
+        "external_operations_percentage",
+        SMED_LABEL_MAP,
+        "tr",
+      ),
+    ).toBe("Harici Operasyon Yüzdesi");
+    expect(
+      resolveGeneratedBreakdownLabel("waste_motion_factor", SMED_LABEL_MAP, "tr"),
+    ).toBe("Atık Hareket Faktörü");
+    expect(
+      resolveGeneratedBreakdownLabel("reduction_percentage", SMED_LABEL_MAP, "tr"),
+    ).toBe("İyileştirme Yüzdesi");
+  });
+});
+

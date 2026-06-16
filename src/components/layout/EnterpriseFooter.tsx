@@ -1,7 +1,8 @@
 "use client";
 
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { ORGANIZATION_TRUST, organizationDescriptionForLocale } from "@/config/organization-trust";
 import { SITE_SOCIAL } from "@/config/site";
 import {
   SECTOR_FOOTER_COST_LINKS,
@@ -135,13 +136,26 @@ function FooterResourceAndSocial() {
 
 export function EnterpriseFooter() {
   const t = useTranslations("sectorFooter");
+  const locale = useLocale();
   const showToolPanels = hasCanonicalToolCatalog();
+  const trustDescription = organizationDescriptionForLocale(locale);
 
   const resolveHref = (link: SectorFooterPanelLink) =>
     resolveSectorFooterPremiumHref(link.premiumSchemaSlug, link.fallbackHref);
 
   return (
-    <footer className="sch-footer">
+    <footer className="sch-footer" itemScope itemType="https://schema.org/LocalBusiness">
+      <div className="sr-only" aria-hidden="true">
+        <span itemProp="name">{ORGANIZATION_TRUST.displayName}</span>
+        <span itemProp="description">{trustDescription}</span>
+        <span itemProp="telephone">{ORGANIZATION_TRUST.phone}</span>
+        <span itemProp="email">{ORGANIZATION_TRUST.email}</span>
+        <span itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+          <span itemProp="streetAddress">{ORGANIZATION_TRUST.address.streetAddress}</span>
+          <span itemProp="addressLocality">{ORGANIZATION_TRUST.address.addressLocality}</span>
+          <span itemProp="addressCountry">{ORGANIZATION_TRUST.address.addressCountry}</span>
+        </span>
+      </div>
       <div className="sch-container">
         <div className="sch-hud-bar">
           <div className="sch-hud-left">

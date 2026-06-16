@@ -120,15 +120,14 @@ function resolveCategoryKey(
   normalized: GeneratedToolSchema | null,
   categorySlugFromIndex?: string,
 ): string {
-  const schemaCategory = asString(raw.category);
-
-  if (schemaCategory && schemaCategory !== DEFAULT_LABEL) {
-    return resolveSchemaCategoryKey(schemaCategory);
-  }
-
   const categorySlug = resolveCategorySlugFallback(slug, raw, normalized, categorySlugFromIndex);
   if (categorySlug) {
     return categorySlug;
+  }
+
+  const schemaCategory = asString(raw.category);
+  if (schemaCategory && schemaCategory !== DEFAULT_LABEL) {
+    return resolveSchemaCategoryKey(schemaCategory);
   }
 
   return "diger";
@@ -139,15 +138,14 @@ function resolveSectorKey(
   raw: RawSchemaRecord,
   normalized: GeneratedToolSchema | null,
 ): string {
-  const schemaSector = asString(raw.sector);
-
-  if (schemaSector && schemaSector !== DEFAULT_LABEL) {
-    return resolveSchemaSectorKey(schemaSector);
-  }
-
   const sectorSlug = resolveSectorSlugFallback(slug, raw, normalized);
   if (sectorSlug) {
     return sectorSlug;
+  }
+
+  const schemaSector = asString(raw.sector);
+  if (schemaSector && schemaSector !== DEFAULT_LABEL) {
+    return resolveSchemaSectorKey(schemaSector);
   }
 
   return "diger";

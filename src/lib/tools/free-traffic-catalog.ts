@@ -8,6 +8,7 @@ import {
   humanizeCanonicalSlug,
 } from "@/lib/tools/canonical-tool-slugs";
 import slugCategoryMap from "@/data/free-traffic-slug-categories.generated.json";
+import schemaCatalogMetadata from "@/data/schema-catalog-metadata.generated.json";
 import {
   inferFreeTrafficCategory,
   type FreeTrafficCategory,
@@ -78,8 +79,15 @@ const FREE_TRAFFIC_CATEGORY_IDS: readonly FreeTrafficCategory[] = [
 ] as const;
 
 const SLUG_CATEGORY_MAP = slugCategoryMap as Readonly<Record<string, string>>;
+const SCHEMA_CATALOG_MAP = schemaCatalogMetadata as Readonly<
+  Record<string, { readonly catalogCategory?: string }>
+>;
 
 function resolveCategoryForSlug(slug: string): FreeTrafficCategory {
+  const fromSchema = SCHEMA_CATALOG_MAP[slug]?.catalogCategory;
+  if (fromSchema && (FREE_TRAFFIC_CATEGORY_IDS as readonly string[]).includes(fromSchema)) {
+    return fromSchema as FreeTrafficCategory;
+  }
   const mapped = SLUG_CATEGORY_MAP[slug];
   if (mapped && (FREE_TRAFFIC_CATEGORY_IDS as readonly string[]).includes(mapped)) {
     return mapped as FreeTrafficCategory;

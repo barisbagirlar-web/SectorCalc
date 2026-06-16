@@ -4,6 +4,7 @@ import {
   type CaseStudyEntry,
 } from "@/lib/case-studies/case-study-types";
 import { listP7First5CaseStudySlugs } from "@/lib/case-studies/case-study-p7-first-5";
+import { listPublishedCaseStudySlugs } from "@/lib/case-studies/published-case-study-locale";
 
 export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
   {
@@ -453,4 +454,8 @@ export function getCaseStudyBySlug(slug: string): CaseStudyEntry | undefined {
 
 export function listCaseStudySlugs(): readonly string[] {
   return CASE_STUDY_REGISTRY.map((entry) => entry.slug);
+}
+
+export function listAllCaseStudySlugs(): readonly string[] {
+  return [...listPublishedCaseStudySlugs(), ...listCaseStudySlugs()];
 }

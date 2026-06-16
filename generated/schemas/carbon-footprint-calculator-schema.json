@@ -1,321 +1,66 @@
 {
-  "slug": "carbon-footprint-calculator",
-  "name": "Carbon Footprint Calculator",
-  "description": "Industrial-grade carbon footprint estimation tool compliant with ISO 14064, GHG Protocol, and Lean Six Sigma principles. Calculates Scope 1, 2, and 3 emissions with data confidence adjustment.",
-  "premiumRequired": false,
-  "premiumFeatures": [
-    "PDF export",
-    "CSV export",
-    "Trend analysis",
-    "Benchmarking against industry standards",
-    "Automated reduction target setting"
-  ],
+  "toolName": "carbon-footprint-calculator",
   "inputs": [
     {
       "id": "electricity_kwh",
       "label": "Electricity Consumption",
       "type": "number",
       "unit": "kWh",
-      "default": 0,
-      "min": 0,
-      "max": 100000000,
-      "businessContext": "Annual electricity usage from utility bills or submeters. Scope 2 emission source.",
-      "label_i18n": {
-        "en": "Electricity Consumption"
-      },
-      "businessContext_i18n": {
-        "en": "Annual electricity usage from utility bills or submeters. Scope 2 emission source."
-      }
+      "default": 1000,
+      "businessContext": "Monthly electricity usage from grid, converted to CO2 using an emission factor of 0.5 kg CO2/kWh."
     },
     {
-      "id": "natural_gas_therms",
+      "id": "natural_gas_m3",
       "label": "Natural Gas Consumption",
       "type": "number",
-      "unit": "therms",
-      "default": 0,
-      "min": 0,
-      "max": 1000000,
-      "businessContext": "Annual natural gas usage from utility bills. Scope 1 emission source.",
-      "label_i18n": {
-        "en": "Natural Gas Consumption"
-      },
-      "businessContext_i18n": {
-        "en": "Annual natural gas usage from utility bills. Scope 1 emission source."
-      }
+      "unit": "m³",
+      "default": 500,
+      "businessContext": "Monthly natural gas consumption in cubic meters, with an emission factor of 2.0 kg CO2/m³."
     },
     {
-      "id": "fuel_diesel_liters",
-      "label": "Diesel Fuel Consumption (Fleet)",
+      "id": "fuel_liters",
+      "label": "Fuel Consumption (Vehicles)",
       "type": "number",
-      "unit": "liters",
-      "default": 0,
-      "min": 0,
-      "max": 10000000,
-      "businessContext": "Annual diesel consumption for owned fleet vehicles. Scope 1 emission source.",
-      "label_i18n": {
-        "en": "Diesel Fuel Consumption (Fleet)"
-      },
-      "businessContext_i18n": {
-        "en": "Annual diesel consumption for owned fleet vehicles. Scope 1 emission source."
-      }
+      "unit": "L",
+      "default": 2000,
+      "businessContext": "Monthly fuel (gasoline/diesel) consumption in liters, using factor 2.3 kg CO2/L."
     },
     {
-      "id": "fuel_gasoline_liters",
-      "label": "Gasoline Fuel Consumption (Fleet)",
-      "type": "number",
-      "unit": "liters",
-      "default": 0,
-      "min": 0,
-      "max": 10000000,
-      "businessContext": "Annual gasoline consumption for owned fleet vehicles. Scope 1 emission source.",
-      "label_i18n": {
-        "en": "Gasoline Fuel Consumption (Fleet)"
-      },
-      "businessContext_i18n": {
-        "en": "Annual gasoline consumption for owned fleet vehicles. Scope 1 emission source."
-      }
-    },
-    {
-      "id": "waste_tonnes",
+      "id": "waste_kg",
       "label": "Waste Generated",
       "type": "number",
-      "unit": "tonnes",
-      "default": 0,
-      "min": 0,
-      "max": 100000,
-      "businessContext": "Total waste sent to landfill or incineration. Scope 3 emission source.",
-      "label_i18n": {
-        "en": "Waste Generated"
-      },
-      "businessContext_i18n": {
-        "en": "Total waste sent to landfill or incineration. Scope 3 emission source."
-      }
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Monthly solid waste sent to landfill, emission factor 0.5 kg CO2/kg."
     },
     {
-      "id": "business_travel_km",
-      "label": "Business Travel (Air & Rail)",
+      "id": "water_m3",
+      "label": "Water Consumption",
       "type": "number",
-      "unit": "km",
-      "default": 0,
-      "min": 0,
-      "max": 10000000,
-      "businessContext": "Annual distance traveled by employees for business purposes (air, rail). Scope 3 emission source.",
-      "label_i18n": {
-        "en": "Business Travel (Air & Rail)"
-      },
-      "businessContext_i18n": {
-        "en": "Annual distance traveled by employees for business purposes (air, rail). Scope 3 emission source."
-      }
-    },
-    {
-      "id": "region",
-      "label": "Operational Region",
-      "type": "select",
-      "unit": "",
-      "default": "US",
-      "min": null,
-      "max": null,
-      "businessContext": "Geographic region determines emission factors for electricity grid and fuel standards.",
-      "options": [
-        "US",
-        "EU",
-        "UK",
-        "China",
-        "India",
-        "Global Average"
-      ],
-      "label_i18n": {
-        "en": "Operational Region"
-      },
-      "businessContext_i18n": {
-        "en": "Geographic region determines emission factors for electricity grid and fuel standards."
-      }
-    },
-    {
-      "id": "data_quality_score",
-      "label": "Data Quality Score (1-5)",
-      "type": "number",
-      "unit": "",
-      "default": 3,
-      "min": 1,
-      "max": 5,
-      "businessContext": "Subjective score of input data reliability: 1=estimated, 3=measured, 5=audited. Used for confidence adjustment.",
-      "label_i18n": {
-        "en": "Data Quality Score (1-5)"
-      },
-      "businessContext_i18n": {
-        "en": "Subjective score of input data reliability: 1=estimated, 3=measured, 5=audited. Used for confidence adjustment."
-      }
+      "unit": "m³",
+      "default": 50,
+      "businessContext": "Monthly water usage, including treatment and pumping, factor 0.3 kg CO2/m³."
     }
   ],
-  "validation": {
-    "rules": [
-      {
-        "id": "rule_energy_nonzero",
-        "condition": "electricity_kwh > 0 OR natural_gas_therms > 0 OR fuel_diesel_liters > 0 OR fuel_gasoline_liters > 0",
-        "message": "At least one energy input must be greater than zero to calculate Scope 1 & 2 emissions."
-      },
-      {
-        "id": "rule_data_quality_range",
-        "condition": "data_quality_score >= 1 AND data_quality_score <= 5",
-        "message": "Data quality score must be between 1 and 5."
-      },
-      {
-        "id": "rule_waste_travel_conditional",
-        "condition": "IF waste_tonnes > 0 OR business_travel_km > 0 THEN electricity_kwh > 0 OR natural_gas_therms > 0",
-        "message": "Scope 3 inputs require at least one Scope 1 or 2 input for baseline context."
-      }
-    ],
-    "thresholds": [
-      {
-        "id": "threshold_high_emissions",
-        "condition": "total_emissions_tco2e > 10000",
-        "alert": "Total emissions exceed 10,000 tCO2e. Consider detailed audit and reduction plan."
-      },
-      {
-        "id": "threshold_low_data_quality",
-        "condition": "data_quality_score < 3",
-        "alert": "Data quality score is low. Results may have high uncertainty. Improve data collection."
-      },
-      {
-        "id": "threshold_scope3_dominance",
-        "condition": "scope3_emissions > 0.5 * total_emissions_tco2e",
-        "alert": "Scope 3 emissions dominate. Engage supply chain for reduction initiatives."
-      }
+  "formulas": {
+    "totalCO2": "electricity_kwh * 0.5 + natural_gas_m3 * 2 + fuel_liters * 2.3 + waste_kg * 0.5 + water_m3 * 0.3",
+    "electricityCO2": "electricity_kwh * 0.5",
+    "naturalGasCO2": "natural_gas_m3 * 2",
+    "fuelCO2": "fuel_liters * 2.3",
+    "wasteCO2": "waste_kg * 0.5",
+    "waterCO2": "water_m3 * 0.3"
+  },
+  "outputs": {
+    "primary": "Total Carbon Footprint: {{totalCO2}} kg CO2/year",
+    "breakdown": [
+      "Electricity: {{electricityCO2}} kg CO2/year",
+      "Natural Gas: {{naturalGasCO2}} kg CO2/year",
+      "Fuel: {{fuelCO2}} kg CO2/year",
+      "Waste: {{wasteCO2}} kg CO2/year",
+      "Water: {{waterCO2}} kg CO2/year"
     ]
   },
-  "formulas": [
-    {
-      "id": "scope1_emissions",
-      "description": "Scope 1: Direct emissions from owned sources (natural gas, fleet fuels).",
-      "formula": "(natural_gas_therms * 0.0053) + (fuel_diesel_liters * 0.00268) + (fuel_gasoline_liters * 0.00231)",
-      "unit": "tCO2e"
-    },
-    {
-      "id": "scope2_emissions",
-      "description": "Scope 2: Indirect emissions from purchased electricity. Emission factor varies by region.",
-      "formula": "electricity_kwh * CASE region WHEN 'US' THEN 0.000417 WHEN 'EU' THEN 0.000276 WHEN 'UK' THEN 0.000233 WHEN 'China' THEN 0.000555 WHEN 'India' THEN 0.000708 ELSE 0.000475 END",
-      "unit": "tCO2e"
-    },
-    {
-      "id": "scope3_emissions",
-      "description": "Scope 3: Other indirect emissions (waste, business travel).",
-      "formula": "(waste_tonnes * 0.6) + (business_travel_km * 0.00015)",
-      "unit": "tCO2e"
-    },
-    {
-      "id": "total_emissions_tco2e",
-      "description": "Total carbon footprint (Scope 1 + Scope 2 + Scope 3).",
-      "formula": "scope1_emissions + scope2_emissions + scope3_emissions",
-      "unit": "tCO2e"
-    },
-    {
-      "id": "emissions_per_revenue",
-      "description": "Carbon intensity per unit revenue (placeholder, user provides revenue).",
-      "formula": "total_emissions_tco2e / 1000000",
-      "unit": "tCO2e / million USD"
-    },
-    {
-      "id": "data_confidence_factor",
-      "description": "Adjustment factor based on data quality score (1-5).",
-      "formula": "1 - (0.2 * (5 - data_quality_score))",
-      "unit": "dimensionless"
-    },
-    {
-      "id": "confidence_adjusted_emissions",
-      "description": "Total emissions adjusted for data confidence.",
-      "formula": "total_emissions_tco2e * data_confidence_factor",
-      "unit": "tCO2e"
-    }
-  ],
-  "outputs": {
-    "primary": {
-      "id": "total_emissions_tco2e",
-      "label": "Total Carbon Footprint",
-      "value": null,
-      "unit": "tCO2e",
-      "description": "Sum of Scope 1, 2, and 3 emissions in metric tonnes of CO2 equivalent."
-    },
-    "breakdown": {
-      "scope1": {
-        "id": "scope1_emissions",
-        "label": "Scope 1 Emissions",
-        "value": null,
-        "unit": "tCO2e",
-        "percentage": null
-      },
-      "scope2": {
-        "id": "scope2_emissions",
-        "label": "Scope 2 Emissions",
-        "value": null,
-        "unit": "tCO2e",
-        "percentage": null
-      },
-      "scope3": {
-        "id": "scope3_emissions",
-        "label": "Scope 3 Emissions",
-        "value": null,
-        "unit": "tCO2e",
-        "percentage": null
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "driver_energy_inefficiency",
-        "label": "Energy Inefficiency",
-        "description": "High electricity or fuel consumption relative to industry benchmarks (e.g., kWh/m²).",
-        "severity": "medium"
-      },
-      {
-        "id": "driver_fleet_fuel_mix",
-        "label": "Fleet Fuel Mix",
-        "description": "High diesel/gasoline ratio indicates potential for electrification.",
-        "severity": "high"
-      },
-      {
-        "id": "driver_waste_management",
-        "label": "Waste Management",
-        "description": "High waste tonnage suggests lack of recycling or circular economy practices.",
-        "severity": "low"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_energy_audit",
-        "label": "Conduct Energy Audit",
-        "description": "Identify energy-saving opportunities in lighting, HVAC, and machinery.",
-        "impact": "high",
-        "cost": "medium"
-      },
-      {
-        "id": "action_fleet_electrification",
-        "label": "Electrify Fleet Vehicles",
-        "description": "Replace diesel/gasoline vehicles with electric alternatives to reduce Scope 1 emissions.",
-        "impact": "high",
-        "cost": "high"
-      },
-      {
-        "id": "action_renewable_energy",
-        "label": "Switch to Renewable Energy",
-        "description": "Purchase renewable energy certificates or install on-site solar/wind.",
-        "impact": "high",
-        "cost": "medium"
-      },
-      {
-        "id": "action_waste_reduction",
-        "label": "Implement Waste Reduction Program",
-        "description": "Reduce, reuse, recycle to lower Scope 3 waste emissions.",
-        "impact": "medium",
-        "cost": "low"
-      },
-      {
-        "id": "action_travel_policy",
-        "label": "Optimize Business Travel",
-        "description": "Encourage virtual meetings and use of low-carbon transport.",
-        "impact": "low",
-        "cost": "low"
-      }
-    ],
-    "dataConfidenceAdjusted": null
-  }
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false
 }

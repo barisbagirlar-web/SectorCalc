@@ -100,6 +100,17 @@ export function createPageMetadata(options: PageMetadataOptions = {}): Metadata 
     description,
     metadataBase: new URL(SITE.url),
     icons: SITE_ICONS,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-snippet": 160,
+        "max-image-preview": "large",
+        "max-video-preview": -1,
+      },
+    },
     openGraph: {
       title,
       description,
@@ -116,6 +127,11 @@ export function createPageMetadata(options: PageMetadataOptions = {}): Metadata 
     alternates: {
       canonical: url,
       ...hreflang,
+    },
+    verification: {
+      other: {
+        "msvalidate.01": "C97289CA0F699D6B9053113A5E8FAD2A",
+      },
     },
   };
 }

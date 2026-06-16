@@ -27,7 +27,7 @@ export const Calorie_deficit_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Calorie_deficit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.gender == 'male') ? (0) : (0)); results["bmr_mifflin"] = Number.isFinite(v) ? v : 0; } catch { results["bmr_mifflin"] = 0; }
+  results["bmr_mifflin"] = 0;
   try { const v = 370 + 21.6 * (input.weight * (1 - input.bodyFatPercent/100)); results["bmr_katch"] = Number.isFinite(v) ? v : 0; } catch { results["bmr_katch"] = 0; }
   try { const v = bmr * activityMultiplier; results["tdee"] = Number.isFinite(v) ? v : 0; } catch { results["tdee"] = 0; }
   try { const v = goalRateDeficit; results["deficit_target"] = Number.isFinite(v) ? v : 0; } catch { results["deficit_target"] = 0; }

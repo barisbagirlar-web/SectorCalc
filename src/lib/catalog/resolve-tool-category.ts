@@ -81,7 +81,7 @@ const INDUSTRY_SLUG_TO_GLOBAL: Partial<Record<IndustrySlug, GlobalToolCategorySl
   "landscaping-lawn-care": "packaging-local-business",
 };
 
-const FREE_TRAFFIC_CATEGORY_TO_GLOBAL: Readonly<
+export const FREE_TRAFFIC_CATEGORY_TO_GLOBAL: Readonly<
   Partial<Record<FreeTrafficCategory, GlobalToolCategorySlug>>
 > = {
   "construction-measurement": "project-construction-management",

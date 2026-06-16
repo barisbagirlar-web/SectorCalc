@@ -2,34 +2,29 @@
 import * as z from 'zod';
 
 export interface Irr_calculatorInput {
-  initial_investment: number;
-  annual_cash_inflow: number;
-  project_life_years: number;
-  discount_rate: number;
-  terminal_value: number;
-  cash_flow_variability: string;
-  lean_six_sigma_adjustment: boolean;
+  initialInvestment: number;
+  year1: number;
+  year2: number;
+  year3: number;
+  year4: number;
+  year5: number;
+  guess: number;
 }
 
 export const Irr_calculatorInputSchema = z.object({
-  initial_investment: z.number().min(0).max(1000000000).default(100000),
-  annual_cash_inflow: z.number().min(0).max(1000000000).default(25000),
-  project_life_years: z.number().min(1).max(50).default(5),
-  discount_rate: z.number().min(0).max(100).default(10),
-  terminal_value: z.number().min(0).max(1000000000).default(0),
-  cash_flow_variability: z.enum(['low', 'medium', 'high']).default('medium'),
-  lean_six_sigma_adjustment: z.boolean().default(false),
+  initialInvestment: z.number().default(-1000),
+  year1: z.number().default(300),
+  year2: z.number().default(400),
+  year3: z.number().default(500),
+  year4: z.number().default(500),
+  year5: z.number().default(400),
+  guess: z.number().default(10),
 });
 
 function evaluateAllFormulas(input: Irr_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.lean_six_sigma_adjustment) ? (input.annual_cash_inflow * 0.98) : (input.annual_cash_inflow)); results["adjusted_cash_flow"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_cash_flow"] = 0; }
-  results["net_present_value"] = 0;
-  results["internal_rate_of_return"] = 0;
-  try { const v = input.initial_investment / (results["adjusted_cash_flow"] ?? 0); results["payback_period"] = Number.isFinite(v) ? v : 0; } catch { results["payback_period"] = 0; }
-  results["discounted_payback_period"] = 0;
-  results["profitability_index"] = 0;
-  try { const v = (input.cash_flow_variability === 'low' ? 0.95 : (input.cash_flow_variability === 'medium' ? 0.85 : (input.cash_flow_variability === 'high' ? 0.70 : 0))) * (1 - 0.02 * input.lean_six_sigma_adjustment); results["data_confidence_factor"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_factor"] = 0; }
+  results["irr"] = 0;
+  results["npvAtIrr"] = 0;
   return results;
 }
 
@@ -38,14 +33,10 @@ export function calculateIrr_calculator(input: Irr_calculatorInput): Irr_calcula
   const values = evaluateAllFormulas(input);
   const totalWasteCost = values["irr"] ?? 0;
   const breakdown = {
-    net_present_value: values["net_present_value"] ?? 0,
-    payback_period: values["payback_period"] ?? 0,
-    discounted_payback_period: values["discounted_payback_period"] ?? 0,
-    profitability_index: values["profitability_index"] ?? 0,
-    adjusted_cash_flow: values["adjusted_cash_flow"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Process Waste (Lean)","Variability Risk Premium","Opportunity Cost of Capital"];
-  const suggestedActions: string[] = ["Consider reducing initial investment, increasing cash inflows, or extending project life.","Implement Six Sigma DMAIC to reduce cash flow variability and improve confidence.","Enable Lean Six Sigma adjustment to identify and eliminate process waste.","Run sensitivity analysis on discount rate and cash inflows to assess robustness."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -56,15 +47,15 @@ export function calculateIrr_calculator(input: Irr_calculatorInput): Irr_calcula
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    premiumRequired: true,
-    premiumFeatures: ["PDF export","CSV export","Trend analysis","Sensitivity analysis","Multi-scenario comparison","Audit trail logging"],
+    premiumRequired: false,
+    premiumFeatures: [],
   };
 }
 
 
 export interface Irr_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { net_present_value: number; payback_period: number; discounted_payback_period: number; profitability_index: number; adjusted_cash_flow: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

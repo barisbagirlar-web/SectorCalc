@@ -1,406 +1,82 @@
 {
-  "slug": "product-carbon-footprint",
-  "premiumRequired": true,
-  "premiumFeatures": [
-    "PDF export",
-    "CSV export",
-    "Trend analysis",
-    "Scenario simulation",
-    "Benchmarking against industry standards"
-  ],
+  "toolName": "product-carbon-footprint",
   "inputs": [
     {
-      "id": "material_weight",
-      "label": "Material Weight",
+      "id": "rawMaterial",
+      "label": "Raw Material Footprint",
       "type": "number",
-      "unit": "kg",
-      "default": 100,
-      "min": 0,
-      "max": 100000,
-      "businessContext": "Total weight of raw materials used in the product, including all components and packaging.",
-      "label_i18n": {
-        "en": "Material Weight"
-      },
-      "businessContext_i18n": {
-        "en": "Total weight of raw materials used in the product, including all components and packaging."
-      }
+      "unit": "kg CO₂e",
+      "default": 0,
+      "businessContext": "Carbon footprint from raw material extraction and processing"
     },
     {
-      "id": "material_type",
-      "label": "Material Type",
-      "type": "select",
-      "unit": "",
-      "default": "steel",
-      "min": null,
-      "max": null,
-      "businessContext": "Primary material category to determine emission factors per ISO 14067.",
-      "options": [
-        "steel",
-        "aluminum",
-        "plastic",
-        "glass",
-        "wood",
-        "composite"
-      ],
-      "label_i18n": {
-        "en": "Material Type"
-      },
-      "businessContext_i18n": {
-        "en": "Primary material category to determine emission factors per ISO 14067."
-      }
-    },
-    {
-      "id": "energy_consumption",
-      "label": "Energy Consumption in Manufacturing",
+      "id": "manufacturing",
+      "label": "Manufacturing Footprint",
       "type": "number",
-      "unit": "kWh",
-      "default": 500,
-      "min": 0,
-      "max": 1000000,
-      "businessContext": "Total electrical energy used during production processes (machining, assembly, etc.).",
-      "label_i18n": {
-        "en": "Energy Consumption in Manufacturing"
-      },
-      "businessContext_i18n": {
-        "en": "Total electrical energy used during production processes (machining, assembly, etc.)."
-      }
+      "unit": "kg CO₂e",
+      "default": 0,
+      "businessContext": "Emissions from manufacturing process energy and waste"
     },
     {
-      "id": "transport_distance",
+      "id": "transportDistance",
       "label": "Transport Distance",
       "type": "number",
       "unit": "km",
-      "default": 1000,
-      "min": 0,
-      "max": 50000,
-      "businessContext": "Average distance from raw material source to manufacturing facility, and from facility to customer.",
-      "label_i18n": {
-        "en": "Transport Distance"
-      },
-      "businessContext_i18n": {
-        "en": "Average distance from raw material source to manufacturing facility, and from facility to customer."
-      }
+      "default": 0,
+      "businessContext": "Total distance transported over product lifecycle"
     },
     {
-      "id": "transport_mode",
-      "label": "Transport Mode",
-      "type": "select",
-      "unit": "",
-      "default": "truck",
-      "min": null,
-      "max": null,
-      "businessContext": "Mode of transport affecting emission factors per ton-km (WERC guidelines).",
-      "options": [
-        "truck",
-        "rail",
-        "ship",
-        "air"
-      ],
-      "label_i18n": {
-        "en": "Transport Mode"
-      },
-      "businessContext_i18n": {
-        "en": "Mode of transport affecting emission factors per ton-km (WERC guidelines)."
-      }
-    },
-    {
-      "id": "recycled_content",
-      "label": "Recycled Content",
+      "id": "transportFactor",
+      "label": "Transport Emission Factor",
       "type": "number",
-      "unit": "%",
-      "default": 20,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Percentage of recycled material in the product, reducing virgin material emissions.",
-      "label_i18n": {
-        "en": "Recycled Content"
-      },
-      "businessContext_i18n": {
-        "en": "Percentage of recycled material in the product, reducing virgin material emissions."
-      }
+      "unit": "kg CO₂e/km",
+      "default": 0.1,
+      "businessContext": "Emission factor per kilometer for transport mode"
     },
     {
-      "id": "use_phase_efficiency",
-      "label": "Use Phase Efficiency",
+      "id": "useEnergy",
+      "label": "Use Phase Energy",
       "type": "number",
-      "unit": "kWh/year",
-      "default": 50,
-      "min": 0,
-      "max": 10000,
-      "businessContext": "Annual energy consumption of the product during its use phase (e.g., for appliances).",
-      "label_i18n": {
-        "en": "Use Phase Efficiency"
-      },
-      "businessContext_i18n": {
-        "en": "Annual energy consumption of the product during its use phase (e.g., for appliances)."
-      }
+      "unit": "kWh",
+      "default": 0,
+      "businessContext": "Energy consumed during product use phase"
     },
     {
-      "id": "lifespan",
-      "label": "Product Lifespan",
+      "id": "useFactor",
+      "label": "Use Phase Emission Factor",
       "type": "number",
-      "unit": "years",
-      "default": 10,
-      "min": 1,
-      "max": 50,
-      "businessContext": "Expected useful life of the product, used to allocate use-phase emissions.",
-      "label_i18n": {
-        "en": "Product Lifespan"
-      },
-      "businessContext_i18n": {
-        "en": "Expected useful life of the product, used to allocate use-phase emissions."
-      }
+      "unit": "kg CO₂e/kWh",
+      "default": 0.5,
+      "businessContext": "Grid emission factor for use phase electricity"
     },
     {
-      "id": "end_of_life_recycling_rate",
-      "label": "End-of-Life Recycling Rate",
+      "id": "endOfLife",
+      "label": "End-of-Life Footprint",
       "type": "number",
-      "unit": "%",
-      "default": 50,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Percentage of product mass that is recycled at end of life, reducing disposal emissions.",
-      "label_i18n": {
-        "en": "End-of-Life Recycling Rate"
-      },
-      "businessContext_i18n": {
-        "en": "Percentage of product mass that is recycled at end of life, reducing disposal emissions."
-      }
-    },
-    {
-      "id": "energy_source",
-      "label": "Energy Source",
-      "type": "select",
-      "unit": "",
-      "default": "grid",
-      "min": null,
-      "max": null,
-      "businessContext": "Type of energy used in manufacturing, affecting emission factor per kWh.",
-      "options": [
-        "grid",
-        "solar",
-        "wind",
-        "hydro",
-        "natural_gas",
-        "coal"
-      ],
-      "label_i18n": {
-        "en": "Energy Source"
-      },
-      "businessContext_i18n": {
-        "en": "Type of energy used in manufacturing, affecting emission factor per kWh."
-      }
+      "unit": "kg CO₂e",
+      "default": 0,
+      "businessContext": "Emissions from disposal, recycling, or incineration"
     }
   ],
-  "validation": {
-    "rules": [
-      {
-        "id": "rule_material_weight_positive",
-        "condition": "material_weight > 0",
-        "message": "Material weight must be greater than zero."
-      },
-      {
-        "id": "rule_recycled_content_range",
-        "condition": "recycled_content >= 0 AND recycled_content <= 100",
-        "message": "Recycled content must be between 0% and 100%."
-      },
-      {
-        "id": "rule_transport_mode_conditional",
-        "condition": "transport_mode == 'air' AND transport_distance > 10000",
-        "message": "Air transport distance exceeds typical threshold; consider alternative modes."
-      },
-      {
-        "id": "rule_energy_source_manufacturing",
-        "condition": "energy_source == 'coal' AND energy_consumption > 1000",
-        "message": "High coal-based energy consumption; recommend switching to renewable sources."
-      }
-    ],
-    "thresholds": [
-      {
-        "id": "threshold_carbon_intensity",
-        "condition": "primary_result > 5000",
-        "level": "warning",
-        "message": "Total carbon footprint exceeds 5000 kg CO2e. Investigate reduction opportunities."
-      },
-      {
-        "id": "threshold_material_impact",
-        "condition": "material_emissions > 3000",
-        "level": "critical",
-        "message": "Material emissions exceed 3000 kg CO2e. Consider material substitution or increased recycled content."
-      },
-      {
-        "id": "threshold_transport_impact",
-        "condition": "transport_emissions > 1000",
-        "level": "warning",
-        "message": "Transport emissions exceed 1000 kg CO2e. Optimize logistics or switch to lower-emission modes."
-      }
+  "formulas": {
+    "rawMaterial": "rawMaterial",
+    "manufacturing": "manufacturing",
+    "transportFootprint": "transportDistance * transportFactor",
+    "useFootprint": "useEnergy * useFactor",
+    "endOfLife": "endOfLife",
+    "totalCarbonFootprint": "rawMaterial + manufacturing + (transportDistance * transportFactor) + (useEnergy * useFactor) + endOfLife"
+  },
+  "outputs": {
+    "primary": "totalCarbonFootprint",
+    "breakdown": [
+      "rawMaterial",
+      "manufacturing",
+      "transportFootprint",
+      "useFootprint",
+      "endOfLife"
     ]
   },
-  "formulas": [
-    {
-      "id": "material_emissions",
-      "description": "Emissions from raw material extraction and processing, adjusted for recycled content.",
-      "formula": "material_weight * (1 - recycled_content/100) * emission_factor_material",
-      "variables": {
-        "emission_factor_material": {
-          "steel": 1.8,
-          "aluminum": 8,
-          "plastic": 2.5,
-          "glass": 0.6,
-          "wood": 0.2,
-          "composite": 3
-        }
-      },
-      "unit": "kg CO2e"
-    },
-    {
-      "id": "manufacturing_emissions",
-      "description": "Emissions from energy used in manufacturing processes.",
-      "formula": "energy_consumption * emission_factor_energy",
-      "variables": {
-        "emission_factor_energy": {
-          "grid": 0.5,
-          "solar": 0.05,
-          "wind": 0.02,
-          "hydro": 0.01,
-          "natural_gas": 0.4,
-          "coal": 0.9
-        }
-      },
-      "unit": "kg CO2e"
-    },
-    {
-      "id": "transport_emissions",
-      "description": "Emissions from transporting raw materials and finished goods.",
-      "formula": "transport_distance * material_weight * emission_factor_transport",
-      "variables": {
-        "emission_factor_transport": {
-          "truck": 0.1,
-          "rail": 0.02,
-          "ship": 0.01,
-          "air": 0.5
-        }
-      },
-      "unit": "kg CO2e"
-    },
-    {
-      "id": "use_phase_emissions",
-      "description": "Emissions from energy consumed during the product's use phase over its lifespan.",
-      "formula": "use_phase_efficiency * lifespan * emission_factor_energy_grid",
-      "variables": {
-        "emission_factor_energy_grid": 0.5
-      },
-      "unit": "kg CO2e"
-    },
-    {
-      "id": "end_of_life_emissions",
-      "description": "Net emissions from end-of-life treatment, considering recycling credits.",
-      "formula": "material_weight * (1 - end_of_life_recycling_rate/100) * emission_factor_disposal - material_weight * (end_of_life_recycling_rate/100) * emission_factor_recycling_credit",
-      "variables": {
-        "emission_factor_disposal": 0.1,
-        "emission_factor_recycling_credit": 0.5
-      },
-      "unit": "kg CO2e"
-    },
-    {
-      "id": "total_carbon_footprint",
-      "description": "Primary result: total product carbon footprint across all life cycle stages.",
-      "formula": "material_emissions + manufacturing_emissions + transport_emissions + use_phase_emissions + end_of_life_emissions",
-      "unit": "kg CO2e"
-    }
-  ],
-  "outputs": {
-    "primary": {
-      "id": "total_carbon_footprint",
-      "label": "Total Product Carbon Footprint",
-      "unit": "kg CO2e",
-      "description": "Sum of all life cycle stage emissions."
-    },
-    "breakdown": {
-      "material_emissions": {
-        "label": "Material Emissions",
-        "unit": "kg CO2e",
-        "description": "Emissions from raw material extraction and processing."
-      },
-      "manufacturing_emissions": {
-        "label": "Manufacturing Emissions",
-        "unit": "kg CO2e",
-        "description": "Emissions from energy used in production."
-      },
-      "transport_emissions": {
-        "label": "Transport Emissions",
-        "unit": "kg CO2e",
-        "description": "Emissions from transportation of materials and products."
-      },
-      "use_phase_emissions": {
-        "label": "Use Phase Emissions",
-        "unit": "kg CO2e",
-        "description": "Emissions from product energy consumption during use."
-      },
-      "end_of_life_emissions": {
-        "label": "End-of-Life Emissions",
-        "unit": "kg CO2e",
-        "description": "Net emissions from disposal and recycling."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "high_material_emission_factor",
-        "label": "High Material Emission Factor",
-        "description": "The selected material type has a high emission factor per kg. Consider alternative materials."
-      },
-      {
-        "id": "low_recycled_content",
-        "label": "Low Recycled Content",
-        "description": "Recycled content is below 30%, increasing virgin material emissions."
-      },
-      {
-        "id": "inefficient_transport_mode",
-        "label": "Inefficient Transport Mode",
-        "description": "Air transport has a high emission factor per ton-km. Use rail or ship if possible."
-      },
-      {
-        "id": "high_use_phase_energy",
-        "label": "High Use Phase Energy",
-        "description": "Annual energy consumption is above average for this product category."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "increase_recycled_content",
-        "label": "Increase Recycled Content",
-        "description": "Raise recycled content to at least 50% to reduce material emissions by up to 40%."
-      },
-      {
-        "id": "switch_to_renewable_energy",
-        "label": "Switch to Renewable Energy",
-        "description": "Replace coal or grid energy with solar or wind to cut manufacturing emissions by 80%."
-      },
-      {
-        "id": "optimize_transport",
-        "label": "Optimize Transport Logistics",
-        "description": "Consolidate shipments and switch from air to rail or ship to reduce transport emissions."
-      },
-      {
-        "id": "improve_use_phase_efficiency",
-        "label": "Improve Use Phase Efficiency",
-        "description": "Redesign product to reduce annual energy consumption by 20% through better insulation or electronics."
-      },
-      {
-        "id": "enhance_end_of_life_recycling",
-        "label": "Enhance End-of-Life Recycling",
-        "description": "Design for disassembly and partner with recyclers to achieve 80% recycling rate."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "confidence_adjusted_footprint",
-      "label": "Data Confidence Adjusted Footprint",
-      "unit": "kg CO2e",
-      "description": "Total footprint adjusted by a confidence factor (0.8 to 1.2) based on data quality and completeness.",
-      "formula": "total_carbon_footprint * confidence_factor",
-      "variables": {
-        "confidence_factor": 0.95
-      }
-    }
-  }
+  "category": "Enerji & Karbon",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false
 }

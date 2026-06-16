@@ -1,3 +1,4 @@
+import { ORGANIZATION_TRUST } from "@/config/organization-trust";
 import { buildOrganizationJsonLd } from "@/lib/seo/schema-mesh";
 import { buildPlatformFinancialServiceSchema } from "@/lib/semantic/build-financial-service-schema";
 import { buildHomeSoftwareApplicationSchema } from "@/lib/semantic/build-software-application-schema";
@@ -12,11 +13,14 @@ export function buildWebsiteSchema(locale: string): JsonLdRecord {
     name: "SectorCalc",
     url: absoluteLocalizedUrl(locale, "/"),
     description:
-      "Sector calculators for production, industry and business decisions.",
+      locale === "tr"
+        ? ORGANIZATION_TRUST.description.tr
+        : ORGANIZATION_TRUST.description.en,
     inLanguage: locale,
     publisher: {
       "@id": `${SITE_URL}/#organization`,
     },
+    sameAs: ORGANIZATION_TRUST.sameAs,
     potentialAction: {
       "@type": "SearchAction",
       target: {

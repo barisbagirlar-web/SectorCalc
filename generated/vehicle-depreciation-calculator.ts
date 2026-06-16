@@ -36,7 +36,7 @@ function evaluateAllFormulas(input: Vehicle_depreciation_calculatorInput): Recor
   try { const v = (remaining_years / sum_of_years) * (input.purchase_price - input.residual_value); results["annual_depreciation_sum_of_years"] = Number.isFinite(v) ? v : 0; } catch { results["annual_depreciation_sum_of_years"] = 0; }
   try { const v = (input.annual_mileage / input.fuel_efficiency_mpg) * input.fuel_price_per_gallon; results["annual_fuel_cost"] = Number.isFinite(v) ? v : 0; } catch { results["annual_fuel_cost"] = 0; }
   try { const v = (input.maintenance_cost_per_year + input.insurance_cost_per_year + (results["annual_fuel_cost"] ?? 0)) * input.holding_period_years; results["total_operating_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_operating_cost"] = 0; }
-  results["net_present_value_operating"] = 0;
+  try { const v = (((input.discount_rate/100)) === 0 ? (annual_operating_cost) * (input.holding_period_years) : (annual_operating_cost) * (Math.pow(1 + (input.discount_rate/100), (input.holding_period_years)) - 1) / (((input.discount_rate/100)) * Math.pow(1 + (input.discount_rate/100), (input.holding_period_years)))); results["net_present_value_operating"] = Number.isFinite(v) ? v : 0; } catch { results["net_present_value_operating"] = 0; }
   try { const v = input.purchase_price - input.residual_value + (results["net_present_value_operating"] ?? 0); results["total_cost_of_ownership"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_of_ownership"] = 0; }
   return results;
 }

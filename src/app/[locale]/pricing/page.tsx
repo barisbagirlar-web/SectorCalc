@@ -14,17 +14,27 @@ export const dynamic = "force-static";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
+const ENTRY_PRICE_USD = CREDIT_PACKAGE_OPTIONS[0]?.priceUsd ?? 1.99;
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "creditsPricing.meta" });
 
-  return createPageMetadata({
+  const base = createPageMetadata({
     title: t("title"),
     description: t("description"),
     path: "/pricing",
     locale: locale as AppLocale,
   });
+
+  return {
+    ...base,
+    other: {
+      "product:price:amount": ENTRY_PRICE_USD.toFixed(2),
+      "product:price:currency": "USD",
+    },
+  };
 }
 
 export default async function PricingPage({ params }: PageProps) {

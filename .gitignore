@@ -24,6 +24,7 @@ ai-repair-history.jsonl
 # env / secrets
 .env
 .env.local
+.env.batch.keys.local
 .env.*.local
 *.pem
 *.key
@@ -54,3 +55,7 @@ generated/
 tsconfig.tsbuildinfo
 .vercel
 .env*.local
+
+# DeepSeek batch runner progress (local only)
+.batch-progress*.json
+scripts/data/omni-batch.pid

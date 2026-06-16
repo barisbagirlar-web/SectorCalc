@@ -45,7 +45,7 @@ export const Weld_volume_cost_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Weld_volume_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.joint_type == 'butt') ? (0) : (((input.joint_type == 'single_v') ? (0) : (((input.joint_type == 'double_v') ? (0) : (((input.joint_type == 'fillet') ? (0) : (((input.joint_type == 'single_bevel') ? (0) : (((input.joint_type == 'double_bevel') ? (0) : (0)))))))))))); results["cross_sectional_area"] = Number.isFinite(v) ? v : 0; } catch { results["cross_sectional_area"] = 0; }
+  try { const v = ((input.joint_type == 'double_bevel') ? (0) : (0)); results["cross_sectional_area"] = Number.isFinite(v) ? v : 0; } catch { results["cross_sectional_area"] = 0; }
   try { const v = (results["cross_sectional_area"] ?? 0) * input.weld_length; results["weld_volume"] = Number.isFinite(v) ? v : 0; } catch { results["weld_volume"] = 0; }
   try { const v = (results["weld_volume"] ?? 0) * input.material_density / 1000; results["weld_mass"] = Number.isFinite(v) ? v : 0; } catch { results["weld_mass"] = 0; }
   try { const v = (results["weld_mass"] ?? 0) / (input.deposition_efficiency / 100); results["consumable_mass"] = Number.isFinite(v) ? v : 0; } catch { results["consumable_mass"] = 0; }

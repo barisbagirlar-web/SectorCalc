@@ -2,34 +2,24 @@
 
 import { useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import {
-  Bar,
-  BarChart,
-  Cell,
-  Legend,
-  Pie,
-  PieChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
 import { Link } from "@/i18n/routing";
 import { normalizeWasteTypeKey } from "@/lib/chart-helpers";
 import {
-  buildBreakdownChartData,
-  formatChartValue,
-  shouldUseCurrencyAxis,
+  buildBreakdownChartGroups,
   type BreakdownChartItem,
 } from "@/lib/chart-helpers/breakdown-chart-data";
+import type { BreakdownChartDimension } from "@/lib/chart-helpers/breakdown-chart-dimensions";
+import { resolveBreakdownTimeUnitSuffix } from "@/lib/chart-helpers/breakdown-chart-dimensions";
 import { resolveGeneratedBreakdownLabel } from "@/lib/generated-tools/resolve-generated-display-text";
 import type { GeneratedToolBreakdown } from "@/lib/generated-tools/types";
+import { BreakdownChartGroupPanel } from "@/components/tools/BreakdownChartGroupPanel";
 
 type ChartType = "bar" | "pie";
 
 export type EnhancedBreakdownChartProps = {
   readonly breakdown: GeneratedToolBreakdown;
   readonly labelMap?: Readonly<Record<string, string>>;
+  readonly unitHints?: Readonly<Record<string, string>>;
   readonly locale?: string;
   readonly currency?: string;
   readonly isPro?: boolean;
@@ -44,6 +34,7 @@ function resolveWasteDescriptionKey(key: string): string {
 export function EnhancedBreakdownChart({
   breakdown,
   labelMap,
+  unitHints,
   locale: localeProp,
   currency = "TRY",
   isPro = false,
@@ -68,17 +59,23 @@ export function EnhancedBreakdownChart({
     };
   }, [labelMap, locale, wasteT]);
 
-  const chartData = useMemo(
-    () => buildBreakdownChartData(breakdown, locale, currency, resolveBreakdownLabel),
-    [breakdown, currency, locale, resolveBreakdownLabel],
+  const chartGroups = useMemo(
+    () =>
+      buildBreakdownChartGroups(breakdown, locale, currency, resolveBreakdownLabel, unitHints),
+    [breakdown, currency, locale, resolveBreakdownLabel, unitHints],
   );
 
-  const useCurrency = useMemo(() => shouldUseCurrencyAxis(breakdown), [breakdown]);
+  const resolveGroupTitle = (dimension: BreakdownChartDimension): string =>
+    tChart(`unitGroups.${dimension}`);
 
-  const axisFormatter = useMemo(
-    () => (value: number) => formatChartValue(value, "", locale, currency, useCurrency),
-    [currency, locale, useCurrency],
-  );
+  const resolveAxisSuffix = (dimension: BreakdownChartDimension, items: readonly BreakdownChartItem[]) => {
+    if (dimension !== "time") {
+      return undefined;
+    }
+    const firstUnit = items.find((item) => item.unitHint)?.unitHint;
+    const suffixKey = resolveBreakdownTimeUnitSuffix(firstUnit);
+    return tChart(`unitGroups.timeUnit.${suffixKey}`);
+  };
 
   const resolveDescription = (item: BreakdownChartItem): string => {
     const wasteKey = resolveWasteDescriptionKey(item.key);
@@ -111,7 +108,7 @@ export function EnhancedBreakdownChart({
     readonly payload?: ReadonlyArray<{ payload?: BreakdownChartItem }>;
   };
 
-  const CustomTooltip = ({ active, payload }: BreakdownTooltipProps) => {
+  const renderTooltip = ({ active, payload }: BreakdownTooltipProps) => {
     const item = payload?.[0]?.payload;
     if (!active || !item) {
       return null;
@@ -142,8 +139,12 @@ export function EnhancedBreakdownChart({
     onItemClick?.(item);
   };
 
-  if (chartData.length === 0) {
-    return null;
+  if (chartGroups.length === 0) {
+    return (
+      <div className="rounded-xl border border-technical-gray bg-white p-4 text-sm text-body-charcoal/70">
+        {tChart("noChartData")}
+      </div>
+    );
   }
 
   return (
@@ -179,63 +180,27 @@ export function EnhancedBreakdownChart({
           </div>
         </div>
 
-        <div className="h-[300px] w-full">
-          <ResponsiveContainer width="100%" height="100%">
-            {chartType === "bar" ? (
-              <BarChart
-                layout="vertical"
-                data={chartData}
-                margin={{ top: 5, right: 30, left: 8, bottom: 5 }}
-              >
-                <XAxis type="number" tickFormatter={axisFormatter} />
-                <YAxis type="category" dataKey="name" width={120} tick={{ fontSize: 12 }} />
-                <Tooltip content={<CustomTooltip />} />
-                <Bar
-                  dataKey="value"
-                  radius={[0, 4, 4, 0]}
-                  cursor="pointer"
-                  onClick={(barData) => {
-                    const item = (barData as { payload?: BreakdownChartItem }).payload;
-                    if (item) {
-                      handleBarClick(item);
-                    }
-                  }}
-                >
-                  {chartData.map((entry) => (
-                    <Cell key={entry.key} fill={entry.color} />
-                  ))}
-                </Bar>
-              </BarChart>
-            ) : (
-              <PieChart>
-                <Pie
-                  data={chartData}
-                  dataKey="value"
-                  nameKey="name"
-                  cx="50%"
-                  cy="50%"
-                  outerRadius={100}
-                  label={(entry) => `${entry.name}: ${entry.percent}%`}
-                  cursor="pointer"
-                  onClick={(_data, index) => {
-                    const item = chartData[index];
-                    if (item) {
-                      handleBarClick(item);
-                    }
-                  }}
-                >
-                  {chartData.map((entry) => (
-                    <Cell key={entry.key} fill={entry.color} />
-                  ))}
-                </Pie>
-                <Tooltip content={<CustomTooltip />} />
-                <Legend />
-              </PieChart>
-            )}
-          </ResponsiveContainer>
+        {chartGroups.length > 1 ? (
+          <p className="mb-4 text-xs text-body-charcoal/80">{tChart("unitGroups.splitNote")}</p>
+        ) : null}
+
+        <div className="space-y-4">
+          {chartGroups.map((group) => (
+            <BreakdownChartGroupPanel
+              key={group.dimension}
+              group={group}
+              chartType={chartType}
+              locale={locale}
+              currency={currency}
+              groupTitle={resolveGroupTitle(group.dimension)}
+              axisSuffix={resolveAxisSuffix(group.dimension, group.items)}
+              renderTooltip={renderTooltip}
+              onItemClick={handleBarClick}
+            />
+          ))}
         </div>
 
-        <p className="mt-2 text-xs text-body-charcoal">{tChart("clickHint")}</p>
+        <p className="mt-3 text-xs text-body-charcoal">{tChart("clickHint")}</p>
         <p className="mt-1 text-xs text-body-charcoal/70">{t("breakdownFootnote")}</p>
       </div>
 

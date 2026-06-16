@@ -521,7 +521,7 @@ export function FreeToolForm({
               {result && formattedPrimary !== null ? (
                 <div className="sc-premium-dtf-result sc-premium-dtf-result--pass">
                   <div className="sc-premium-dtf-result__title">{tFree("resultLabel")}</div>
-                  <div className="sc-premium-dtf-result__value">{formattedPrimary}</div>
+                  <div className="sc-premium-dtf-result__value result-value">{formattedPrimary}</div>
                   {breakdown && Object.keys(breakdown).length > 0 ? (
                     <div className="sc-premium-dtf-result__breakdown">
                       {Object.entries(breakdown).map(([key, value]) => {

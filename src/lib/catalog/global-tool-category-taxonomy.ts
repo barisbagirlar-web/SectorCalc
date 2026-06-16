@@ -1,3 +1,4 @@
+import { resolveGlobalCategoryTitleForLocale } from "@/lib/catalog/global-category-title-overrides";
 import {
   getPremium152Categories,
   getPremium152CategoryBySlug,
@@ -53,13 +54,15 @@ export function listGlobalCategories(): readonly GlobalToolCategory[] {
 }
 
 export function resolveGlobalCategoryTitle(
-  category: Pick<GlobalToolCategory, "trTitle" | "enTitle">,
+  category: Pick<GlobalToolCategory, "slug" | "trTitle" | "enTitle">,
   locale: string,
 ): string {
-  if (locale === "tr") {
-    return category.trTitle;
-  }
-  return category.enTitle;
+  return resolveGlobalCategoryTitleForLocale(
+    category.slug,
+    locale,
+    category.trTitle,
+    category.enTitle,
+  );
 }
 
 export function assertValidGlobalCategorySlug(slug: string): GlobalToolCategorySlug {

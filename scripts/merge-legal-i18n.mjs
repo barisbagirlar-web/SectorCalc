@@ -623,7 +623,7 @@ const packs = {
           "Dans la mesure permise par la loi, Sector Calculator ne saurait être tenu responsable des dommages indirects, accessoires, spéciaux, consécutifs ou punitifs résultant de votre utilisation de nos services.",
       },
       section6: {
-        title: "6. Modifications",
+        title: "6. Mise à jour des conditions",
         content:
           "Nous pouvons mettre à jour ces Conditions à tout moment. La poursuite de l'utilisation du service après modification vaut acceptation des nouvelles Conditions.",
       },

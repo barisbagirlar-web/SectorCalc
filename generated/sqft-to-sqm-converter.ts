@@ -19,7 +19,7 @@ function evaluateAllFormulas(input: Sqft_to_sqm_converterInput): Record<string, 
   const results: Record<string, number> = {};
   try { const v = input.area_sqft * 0.09290304; results["raw_conversion"] = Number.isFinite(v) ? v : 0; } catch { results["raw_conversion"] = 0; }
   try { const v = (input.measurement_accuracy === 'high' ? 1.0 : (input.measurement_accuracy === 'standard' ? 0.95 : (input.measurement_accuracy === 'low' ? 0.85 : 0))); results["accuracy_factor"] = Number.isFinite(v) ? v : 0; } catch { results["accuracy_factor"] = 0; }
-  results["tolerance_calculation"] = 0;
+  try { const v = area_sqm_raw - tolerance_value; results["tolerance_calculation"] = Number.isFinite(v) ? v : 0; } catch { results["tolerance_calculation"] = 0; }
   results["rounded_conversion"] = 0;
   try { const v = (results["accuracy_factor"] ?? 0) * (1 - (input.area_sqft / 1000000) * 0.1); results["confidence_score"] = Number.isFinite(v) ? v : 0; } catch { results["confidence_score"] = 0; }
   results["hidden_loss_drivers"] = 0;

@@ -32,4 +32,32 @@ describe("compileFormulaExpression", () => {
     expect(compiled).toBe("Math.abs(Math.sqrt(input.design_pressure))");
     expect(compiled).not.toContain("Math.Math");
   });
+
+  it("expands uniform discounted sum geometric series", () => {
+    const compiled = compileFormulaExpression(
+      "-initial_investment + SUM_{t=1}^{project_life_years} (adjusted_cash_flow / (1 + discount_rate/100)^t)",
+      {
+        inputIds: ["initial_investment", "project_life_years", "adjusted_cash_flow", "discount_rate"],
+        inputToAccess: (id: string) => `input.${id}`,
+        formulaKeys: ["net_present_value"],
+        selfKey: "net_present_value",
+      },
+    );
+    expect(compiled).toContain("Math.pow");
+    expect(compiled).not.toBeNull();
+  });
+
+  it("strips unicode assignment prefix and maps IF THEN", () => {
+    const compiled = compileFormulaExpression(
+      "μ_eff = IF(population_mean != null, population_mean, sample_mean)",
+      {
+        inputIds: ["population_mean", "sample_mean"],
+        inputToAccess: (id: string) => `input.${id}`,
+        formulaKeys: ["effective_mean", "sample_mean", "population_mean"],
+        selfKey: "effective_mean",
+      },
+    );
+    expect(compiled).toContain("population_mean");
+    expect(compiled).not.toBeNull();
+  });
 });

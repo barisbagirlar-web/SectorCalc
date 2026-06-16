@@ -83,6 +83,60 @@ const TR_PREMIUM_GROUP_DESCRIPTIONS: Record<PremiumSchemaCatalogGroupId, string>
   benchmark_health: "Kıyaslama sapması, stok baskısı ve sağlık sinyalleri.",
 };
 
+const DE_PREMIUM_GROUP_LABELS: Record<PremiumSchemaCatalogGroupId, string> = {
+  measurement_calibration: "Messung & Kalibrierung",
+  scrap_waste: "Ausschuss & Abfall",
+  oee_productivity: "OEE & Produktivität",
+  time_delay: "Zeit & Verzögerung",
+  route_logistics: "Route & Logistik",
+  cost_margin: "Kosten & Marge",
+  energy_carbon: "Energie & CO₂",
+  benchmark_health: "Benchmark & Gesundheit",
+};
+
+const FR_PREMIUM_GROUP_LABELS: Record<PremiumSchemaCatalogGroupId, string> = {
+  measurement_calibration: "Mesure et calibration",
+  scrap_waste: "Rebut et gaspillage",
+  oee_productivity: "OEE et productivité",
+  time_delay: "Temps et retard",
+  route_logistics: "Route et logistique",
+  cost_margin: "Coût et marge",
+  energy_carbon: "Énergie et carbone",
+  benchmark_health: "Benchmark et santé",
+};
+
+const ES_PREMIUM_GROUP_LABELS: Record<PremiumSchemaCatalogGroupId, string> = {
+  measurement_calibration: "Medición y calibración",
+  scrap_waste: "Scrap y desperdicio",
+  oee_productivity: "OEE y productividad",
+  time_delay: "Tiempo y retraso",
+  route_logistics: "Ruta y logística",
+  cost_margin: "Coste y margen",
+  energy_carbon: "Energía y carbono",
+  benchmark_health: "Benchmark y salud",
+};
+
+const AR_PREMIUM_GROUP_LABELS: Record<PremiumSchemaCatalogGroupId, string> = {
+  measurement_calibration: "القياس والمعايرة",
+  scrap_waste: "الهدر والخردة",
+  oee_productivity: "OEE والإنتاجية",
+  time_delay: "الوقت والتأخير",
+  route_logistics: "المسار واللوجستيات",
+  cost_margin: "التكلفة والهامش",
+  energy_carbon: "الطاقة والكربون",
+  benchmark_health: "المقارنة المرجعية والصحة",
+};
+
+const PREMIUM_GROUP_LABELS_BY_LOCALE: Readonly<
+  Record<string, Record<PremiumSchemaCatalogGroupId, string>>
+> = {
+  tr: TR_PREMIUM_GROUP_LABELS,
+  de: DE_PREMIUM_GROUP_LABELS,
+  fr: FR_PREMIUM_GROUP_LABELS,
+  es: ES_PREMIUM_GROUP_LABELS,
+  ar: AR_PREMIUM_GROUP_LABELS,
+};
+
 export type CatalogCtaLabels = {
   readonly openIndustry: string;
   readonly viewAnalyzer: string;
@@ -107,14 +161,108 @@ const EN_CATALOG_CTA: CatalogCtaLabels = {
   premiumBadge: "Premium",
 };
 
+const DE_CATALOG_CTA: CatalogCtaLabels = {
+  openIndustry: "Branche öffnen →",
+  viewAnalyzer: "Rechner öffnen →",
+  viewCalculator: "Rechner öffnen →",
+  openCalculator: "Rechner öffnen →",
+  premiumBadge: "Premium",
+};
+
+const FR_CATALOG_CTA: CatalogCtaLabels = {
+  openIndustry: "Ouvrir le secteur →",
+  viewAnalyzer: "Ouvrir le calculateur →",
+  viewCalculator: "Ouvrir le calculateur →",
+  openCalculator: "Ouvrir le calculateur →",
+  premiumBadge: "Premium",
+};
+
+const ES_CATALOG_CTA: CatalogCtaLabels = {
+  openIndustry: "Abrir sector →",
+  viewAnalyzer: "Abrir calculadora →",
+  viewCalculator: "Abrir calculadora →",
+  openCalculator: "Abrir calculadora →",
+  premiumBadge: "Premium",
+};
+
+const AR_CATALOG_CTA: CatalogCtaLabels = {
+  openIndustry: "فتح القطاع →",
+  viewAnalyzer: "فتح الحاسبة →",
+  viewCalculator: "فتح الحاسبة →",
+  openCalculator: "فتح الحاسبة →",
+  premiumBadge: "بريميوم",
+};
+
+const CATALOG_CTA_BY_LOCALE: Readonly<Record<string, CatalogCtaLabels>> = {
+  tr: TR_CATALOG_CTA,
+  en: EN_CATALOG_CTA,
+  de: DE_CATALOG_CTA,
+  fr: FR_CATALOG_CTA,
+  es: ES_CATALOG_CTA,
+  ar: AR_CATALOG_CTA,
+};
+
+const DE_INDUSTRY_CATEGORY_LABELS: Record<IndustryCategory, string> = {
+  "heavy-industry": "Schwerindustrie",
+  "building-trades": "Baugewerbe",
+  "field-services": "Außendienst",
+  "food-retail": "Lebensmittel & Einzelhandel",
+  "custom-manufacturing": "Einzel- und Sonderfertigung",
+  "logistics-transport": "Logistik & Transport",
+  "agriculture-livestock": "Landwirtschaft & Viehzucht",
+  "energy-environment": "Energie & Umwelt",
+  "daily-life": "Alltag",
+};
+
+const FR_INDUSTRY_CATEGORY_LABELS: Record<IndustryCategory, string> = {
+  "heavy-industry": "Industrie lourde",
+  "building-trades": "Bâtiment et travaux",
+  "field-services": "Services sur site",
+  "food-retail": "Alimentation et retail",
+  "custom-manufacturing": "Fabrication sur mesure",
+  "logistics-transport": "Logistique et transport",
+  "agriculture-livestock": "Agriculture et élevage",
+  "energy-environment": "Énergie et environnement",
+  "daily-life": "Vie quotidienne",
+};
+
+const ES_INDUSTRY_CATEGORY_LABELS: Record<IndustryCategory, string> = {
+  "heavy-industry": "Industria pesada",
+  "building-trades": "Construcción y oficios",
+  "field-services": "Servicios de campo",
+  "food-retail": "Alimentación y retail",
+  "custom-manufacturing": "Fabricación personalizada",
+  "logistics-transport": "Logística y transporte",
+  "agriculture-livestock": "Agricultura y ganadería",
+  "energy-environment": "Energía y medio ambiente",
+  "daily-life": "Vida diaria",
+};
+
+const AR_INDUSTRY_CATEGORY_LABELS: Record<IndustryCategory, string> = {
+  "heavy-industry": "الصناعة الثقيلة",
+  "building-trades": "البناء والحرف",
+  "field-services": "خدمات ميدانية",
+  "food-retail": "الغذاء والتجزئة",
+  "custom-manufacturing": "تصنيع مخصص",
+  "logistics-transport": "اللوجستيات والنقل",
+  "agriculture-livestock": "الزراعة والثروة الحيوانية",
+  "energy-environment": "الطاقة والبيئة",
+  "daily-life": "الحياة اليومية",
+};
+
+const INDUSTRY_LABELS_BY_LOCALE: Readonly<Record<string, Record<IndustryCategory, string>>> = {
+  tr: TR_INDUSTRY_CATEGORY_LABELS,
+  de: DE_INDUSTRY_CATEGORY_LABELS,
+  fr: FR_INDUSTRY_CATEGORY_LABELS,
+  es: ES_INDUSTRY_CATEGORY_LABELS,
+  ar: AR_INDUSTRY_CATEGORY_LABELS,
+};
+
 export function resolveIndustryCategoryLabel(
   category: IndustryCategory,
   locale: string
 ): string {
-  if (locale === "tr") {
-    return TR_INDUSTRY_CATEGORY_LABELS[category];
-  }
-  return INDUSTRY_CATEGORY_LABELS[category];
+  return INDUSTRY_LABELS_BY_LOCALE[locale]?.[category] ?? INDUSTRY_CATEGORY_LABELS[category];
 }
 
 export function resolveIndustryCategoryDescription(
@@ -131,10 +279,10 @@ export function resolvePremiumCatalogGroupLabel(
   groupId: PremiumSchemaCatalogGroupId,
   locale: string
 ): string {
-  if (locale === "tr") {
-    return TR_PREMIUM_GROUP_LABELS[groupId];
-  }
-  return PREMIUM_SCHEMA_CATALOG_GROUP_LABELS[groupId];
+  return (
+    PREMIUM_GROUP_LABELS_BY_LOCALE[locale]?.[groupId] ??
+    (locale === "tr" ? TR_PREMIUM_GROUP_LABELS[groupId] : PREMIUM_SCHEMA_CATALOG_GROUP_LABELS[groupId])
+  );
 }
 
 export function resolvePremiumCatalogGroupDescription(
@@ -148,7 +296,7 @@ export function resolvePremiumCatalogGroupDescription(
 }
 
 export function resolveCatalogCtaLabels(locale: string): CatalogCtaLabels {
-  return locale === "tr" ? TR_CATALOG_CTA : EN_CATALOG_CTA;
+  return CATALOG_CTA_BY_LOCALE[locale] ?? EN_CATALOG_CTA;
 }
 
 export function shouldRenderCrawlIndexForLocale(locale: string): boolean {

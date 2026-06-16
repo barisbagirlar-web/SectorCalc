@@ -26,7 +26,7 @@ export const Spc_limit_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Spc_limit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = lookup_d2(input.subgroup_size); results["d2_constant"] = Number.isFinite(v) ? v : 0; } catch { results["d2_constant"] = 0; }
-  try { const v = sigma_hat = input.average_range / d2; results["estimated_sigma"] = Number.isFinite(v) ? v : 0; } catch { results["estimated_sigma"] = 0; }
+  try { const v = input.average_range / d2; results["estimated_sigma"] = Number.isFinite(v) ? v : 0; } catch { results["estimated_sigma"] = 0; }
   try { const v = input.overall_mean + (A2 * input.average_range); results["ucl_xbar"] = Number.isFinite(v) ? v : 0; } catch { results["ucl_xbar"] = 0; }
   try { const v = input.overall_mean - (A2 * input.average_range); results["lcl_xbar"] = Number.isFinite(v) ? v : 0; } catch { results["lcl_xbar"] = 0; }
   try { const v = D4 * input.average_range; results["ucl_r"] = Number.isFinite(v) ? v : 0; } catch { results["ucl_r"] = 0; }

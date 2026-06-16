@@ -12,9 +12,12 @@ describe("buildToolReferenceCreatorPersonJsonLd", () => {
     expect(schema["@type"]).toBe("Person");
     expect(schema["@id"]).toBe(toolReferenceCreatorJsonLdId());
     expect(schema.name).toBe("Prof. Dr. Neela Nataraj");
-    expect(schema.url).toContain("linkedin.com");
+    expect(schema.url).toContain("iitb.ac.in");
     expect(schema.sameAs).toEqual(
-      expect.arrayContaining([expect.stringContaining("linkedin.com")]),
+      expect.arrayContaining([
+        expect.stringContaining("mathscinet.ams.org"),
+        expect.stringContaining("linkedin.com"),
+      ]),
     );
     expect(schema.worksFor).toEqual(
       expect.objectContaining({

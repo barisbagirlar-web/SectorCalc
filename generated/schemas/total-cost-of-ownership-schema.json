@@ -1,500 +1,68 @@
 {
-  "slug": "total-cost-of-ownership",
-  "premiumRequired": true,
-  "premiumFeatures": [
-    "PDF export",
-    "CSV export",
-    "Trend analysis",
-    "Multi-scenario comparison",
-    "Custom depreciation schedules"
-  ],
+  "toolName": "total-cost-of-ownership",
   "inputs": [
     {
-      "id": "purchase_price",
+      "id": "purchasePrice",
       "label": "Purchase Price",
       "type": "number",
-      "unit": "USD",
-      "default": 100000,
-      "min": 0,
-      "max": 10000000,
-      "businessContext": "Initial capital expenditure for acquiring the asset (ISO 15663 lifecycle costing).",
-      "label_i18n": {
-        "en": "Purchase Price"
-      },
-      "businessContext_i18n": {
-        "en": "Initial capital expenditure for acquiring the asset (ISO 15663 lifecycle costing)."
-      }
+      "unit": "EUR",
+      "default": 10000,
+      "businessContext": "Initial acquisition cost of the asset"
     },
     {
-      "id": "annual_energy_cost",
-      "label": "Annual Energy Cost",
-      "type": "number",
-      "unit": "USD/year",
-      "default": 12000,
-      "min": 0,
-      "max": 500000,
-      "businessContext": "Yearly electricity, fuel, or other energy consumption costs (Lean energy efficiency).",
-      "label_i18n": {
-        "en": "Annual Energy Cost"
-      },
-      "businessContext_i18n": {
-        "en": "Yearly electricity, fuel, or other energy consumption costs (Lean energy efficiency)."
-      }
-    },
-    {
-      "id": "annual_maintenance_cost",
+      "id": "annualMaintenance",
       "label": "Annual Maintenance Cost",
       "type": "number",
-      "unit": "USD/year",
-      "default": 8000,
-      "min": 0,
-      "max": 500000,
-      "businessContext": "Planned and unplanned maintenance expenses (Six Sigma reliability).",
-      "label_i18n": {
-        "en": "Annual Maintenance Cost"
-      },
-      "businessContext_i18n": {
-        "en": "Planned and unplanned maintenance expenses (Six Sigma reliability)."
-      }
+      "unit": "EUR",
+      "default": 200,
+      "businessContext": "Yearly maintenance expense"
     },
     {
-      "id": "annual_labor_cost",
-      "label": "Annual Labor Cost",
+      "id": "annualEnergy",
+      "label": "Annual Energy Cost",
       "type": "number",
-      "unit": "USD/year",
-      "default": 50000,
-      "min": 0,
-      "max": 1000000,
-      "businessContext": "Operator and technician wages directly attributable to the asset (WERC DC metrics).",
-      "label_i18n": {
-        "en": "Annual Labor Cost"
-      },
-      "businessContext_i18n": {
-        "en": "Operator and technician wages directly attributable to the asset (WERC DC metrics)."
-      }
+      "unit": "EUR",
+      "default": 500,
+      "businessContext": "Yearly energy or fuel cost"
     },
     {
-      "id": "annual_consumables_cost",
-      "label": "Annual Consumables Cost",
+      "id": "resaleValue",
+      "label": "Resale Value",
       "type": "number",
-      "unit": "USD/year",
+      "unit": "EUR",
       "default": 3000,
-      "min": 0,
-      "max": 200000,
-      "businessContext": "Filters, lubricants, spare parts, and other recurring supplies.",
-      "label_i18n": {
-        "en": "Annual Consumables Cost"
-      },
-      "businessContext_i18n": {
-        "en": "Filters, lubricants, spare parts, and other recurring supplies."
-      }
+      "businessContext": "Expected resale or salvage value at end of ownership period"
     },
     {
-      "id": "useful_life_years",
-      "label": "Useful Life (Years)",
+      "id": "ownershipYears",
+      "label": "Ownership Period",
       "type": "number",
       "unit": "years",
-      "default": 10,
-      "min": 1,
-      "max": 50,
-      "businessContext": "Expected operational lifespan per ISO 15663 or manufacturer specification.",
-      "label_i18n": {
-        "en": "Useful Life (Years)"
-      },
-      "businessContext_i18n": {
-        "en": "Expected operational lifespan per ISO 15663 or manufacturer specification."
-      }
+      "default": 5,
+      "businessContext": "Duration of ownership in years"
     },
     {
-      "id": "salvage_value",
-      "label": "Salvage Value",
-      "type": "number",
-      "unit": "USD",
-      "default": 10000,
-      "min": 0,
-      "max": 5000000,
-      "businessContext": "Residual value at end of useful life (accounting standard).",
-      "label_i18n": {
-        "en": "Salvage Value"
-      },
-      "businessContext_i18n": {
-        "en": "Residual value at end of useful life (accounting standard)."
-      }
-    },
-    {
-      "id": "discount_rate",
-      "label": "Discount Rate (%)",
+      "id": "discountRate",
+      "label": "Annual Discount Rate",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "min": 0,
-      "max": 30,
-      "businessContext": "Weighted average cost of capital or hurdle rate for NPV calculation.",
-      "label_i18n": {
-        "en": "Discount Rate (%)"
-      },
-      "businessContext_i18n": {
-        "en": "Weighted average cost of capital or hurdle rate for NPV calculation."
-      }
-    },
-    {
-      "id": "inflation_rate",
-      "label": "Inflation Rate (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 2,
-      "min": 0,
-      "max": 20,
-      "businessContext": "Expected annual inflation for future cost escalation.",
-      "label_i18n": {
-        "en": "Inflation Rate (%)"
-      },
-      "businessContext_i18n": {
-        "en": "Expected annual inflation for future cost escalation."
-      }
-    },
-    {
-      "id": "utilization_hours_per_year",
-      "label": "Utilization Hours per Year",
-      "type": "number",
-      "unit": "hours/year",
-      "default": 2000,
-      "min": 0,
-      "max": 8760,
-      "businessContext": "Actual operating hours per year (OEE availability).",
-      "label_i18n": {
-        "en": "Utilization Hours per Year"
-      },
-      "businessContext_i18n": {
-        "en": "Actual operating hours per year (OEE availability)."
-      }
-    },
-    {
-      "id": "downtime_cost_per_hour",
-      "label": "Downtime Cost per Hour",
-      "type": "number",
-      "unit": "USD/hour",
-      "default": 500,
-      "min": 0,
-      "max": 100000,
-      "businessContext": "Lost revenue or penalty cost per hour of unplanned downtime.",
-      "label_i18n": {
-        "en": "Downtime Cost per Hour"
-      },
-      "businessContext_i18n": {
-        "en": "Lost revenue or penalty cost per hour of unplanned downtime."
-      }
-    },
-    {
-      "id": "expected_downtime_hours_per_year",
-      "label": "Expected Downtime Hours per Year",
-      "type": "number",
-      "unit": "hours/year",
-      "default": 100,
-      "min": 0,
-      "max": 8760,
-      "businessContext": "Planned and unplanned downtime (MTBF/MTTR based).",
-      "label_i18n": {
-        "en": "Expected Downtime Hours per Year"
-      },
-      "businessContext_i18n": {
-        "en": "Planned and unplanned downtime (MTBF/MTTR based)."
-      }
-    },
-    {
-      "id": "training_cost_per_operator",
-      "label": "Training Cost per Operator",
-      "type": "number",
-      "unit": "USD",
-      "default": 2000,
-      "min": 0,
-      "max": 50000,
-      "businessContext": "Initial and recurring training cost per operator (Lean skill matrix).",
-      "label_i18n": {
-        "en": "Training Cost per Operator"
-      },
-      "businessContext_i18n": {
-        "en": "Initial and recurring training cost per operator (Lean skill matrix)."
-      }
-    },
-    {
-      "id": "number_of_operators",
-      "label": "Number of Operators",
-      "type": "number",
-      "unit": "persons",
-      "default": 2,
-      "min": 1,
-      "max": 100,
-      "businessContext": "Direct operators assigned to the asset.",
-      "label_i18n": {
-        "en": "Number of Operators"
-      },
-      "businessContext_i18n": {
-        "en": "Direct operators assigned to the asset."
-      }
-    },
-    {
-      "id": "environmental_compliance_cost_per_year",
-      "label": "Environmental Compliance Cost per Year",
-      "type": "number",
-      "unit": "USD/year",
-      "default": 5000,
-      "min": 0,
-      "max": 500000,
-      "businessContext": "Permits, emissions monitoring, waste disposal (ISO 14001).",
-      "label_i18n": {
-        "en": "Environmental Compliance Cost per Year"
-      },
-      "businessContext_i18n": {
-        "en": "Permits, emissions monitoring, waste disposal (ISO 14001)."
-      }
-    },
-    {
-      "id": "asset_type",
-      "label": "Asset Type",
-      "type": "select",
-      "unit": "",
-      "default": "manufacturing",
-      "options": [
-        "manufacturing",
-        "logistics",
-        "energy",
-        "construction"
-      ],
-      "businessContext": "Category influences depreciation method and maintenance factors.",
-      "label_i18n": {
-        "en": "Asset Type"
-      },
-      "businessContext_i18n": {
-        "en": "Category influences depreciation method and maintenance factors."
-      }
-    },
-    {
-      "id": "depreciation_method",
-      "label": "Depreciation Method",
-      "type": "select",
-      "unit": "",
-      "default": "straight_line",
-      "options": [
-        "straight_line",
-        "declining_balance",
-        "sum_of_years_digits"
-      ],
-      "businessContext": "Accounting method for annual depreciation expense.",
-      "label_i18n": {
-        "en": "Depreciation Method"
-      },
-      "businessContext_i18n": {
-        "en": "Accounting method for annual depreciation expense."
-      }
-    },
-    {
-      "id": "include_downtime",
-      "label": "Include Downtime Costs",
-      "type": "boolean",
-      "unit": "",
-      "default": true,
-      "businessContext": "Toggle to include or exclude downtime-related costs in TCO.",
-      "label_i18n": {
-        "en": "Include Downtime Costs"
-      },
-      "businessContext_i18n": {
-        "en": "Toggle to include or exclude downtime-related costs in TCO."
-      }
+      "businessContext": "Discount rate reflecting time value of money"
     }
   ],
-  "validation": {
-    "rules": [
-      {
-        "condition": "useful_life_years <= 0",
-        "message": "Useful life must be greater than zero."
-      },
-      {
-        "condition": "purchase_price < 0",
-        "message": "Purchase price cannot be negative."
-      },
-      {
-        "condition": "discount_rate < 0 || discount_rate > 30",
-        "message": "Discount rate must be between 0% and 30%."
-      },
-      {
-        "condition": "utilization_hours_per_year > 8760",
-        "message": "Utilization hours cannot exceed 8760 hours per year."
-      },
-      {
-        "condition": "expected_downtime_hours_per_year > utilization_hours_per_year",
-        "message": "Downtime hours cannot exceed utilization hours."
-      },
-      {
-        "condition": "salvage_value > purchase_price",
-        "message": "Salvage value cannot exceed purchase price."
-      }
-    ],
-    "thresholds": [
-      {
-        "id": "tco_alert",
-        "condition": "primaryResult > 500000",
-        "level": "warning",
-        "message": "Total Cost of Ownership exceeds $500,000. Consider value engineering review."
-      },
-      {
-        "id": "energy_alert",
-        "condition": "annual_energy_cost > 0.2 * purchase_price",
-        "level": "critical",
-        "message": "Annual energy cost exceeds 20% of purchase price. Investigate energy efficiency improvements."
-      },
-      {
-        "id": "downtime_alert",
-        "condition": "expected_downtime_hours_per_year > 0.1 * utilization_hours_per_year",
-        "level": "warning",
-        "message": "Downtime exceeds 10% of utilization hours. Consider preventive maintenance optimization."
-      }
+  "formulas": {
+    "totalUndiscounted": "purchasePrice + (annualMaintenance + annualEnergy) * ownershipYears - resaleValue",
+    "r": "discountRate / 100",
+    "netPresentValue": "purchasePrice + (annualMaintenance + annualEnergy) * ((1 - (1 + discountRate/100) ** (-ownershipYears)) / (discountRate/100)) - resaleValue * (1 + discountRate/100) ** (-ownershipYears)"
+  },
+  "outputs": {
+    "primary": "netPresentValue",
+    "breakdown": [
+      "totalUndiscounted",
+      "netPresentValue"
     ]
   },
-  "formulas": [
-    {
-      "id": "annual_depreciation",
-      "label": "Annual Depreciation",
-      "description": "Calculates annual depreciation based on selected method.",
-      "formula": "if depreciation_method == 'straight_line' then (purchase_price - salvage_value) / useful_life_years else if depreciation_method == 'declining_balance' then (purchase_price - salvage_value) * (2 / useful_life_years) else (purchase_price - salvage_value) * (2 * (useful_life_years - 0) / (useful_life_years * (useful_life_years + 1)))",
-      "unit": "USD/year"
-    },
-    {
-      "id": "total_annual_operating_cost",
-      "label": "Total Annual Operating Cost",
-      "description": "Sum of all recurring annual costs, escalated for inflation.",
-      "formula": "(annual_energy_cost + annual_maintenance_cost + annual_labor_cost + annual_consumables_cost + environmental_compliance_cost_per_year) * (1 + inflation_rate / 100)",
-      "unit": "USD/year"
-    },
-    {
-      "id": "annual_downtime_cost",
-      "label": "Annual Downtime Cost",
-      "description": "Cost of lost production due to downtime.",
-      "formula": "if include_downtime then expected_downtime_hours_per_year * downtime_cost_per_hour else 0",
-      "unit": "USD/year"
-    },
-    {
-      "id": "total_training_cost",
-      "label": "Total Training Cost",
-      "description": "One-time training cost for all operators.",
-      "formula": "training_cost_per_operator * number_of_operators",
-      "unit": "USD"
-    },
-    {
-      "id": "npv_operating_costs",
-      "label": "NPV of Operating Costs",
-      "description": "Net present value of all operating costs over useful life.",
-      "formula": "(total_annual_operating_cost + annual_downtime_cost) * ((1 - (1 + discount_rate / 100) ^ (-useful_life_years)) / (discount_rate / 100))",
-      "unit": "USD"
-    },
-    {
-      "id": "npv_depreciation_tax_shield",
-      "label": "NPV of Depreciation Tax Shield",
-      "description": "Tax benefit from depreciation (assumes 30% tax rate).",
-      "formula": "annual_depreciation * 0.3 * ((1 - (1 + discount_rate / 100) ^ (-useful_life_years)) / (discount_rate / 100))",
-      "unit": "USD"
-    },
-    {
-      "id": "primaryResult",
-      "label": "Total Cost of Ownership (TCO)",
-      "description": "Comprehensive TCO including purchase, operating, downtime, training, minus salvage and tax shield.",
-      "formula": "purchase_price + npv_operating_costs + total_training_cost - (salvage_value / (1 + discount_rate / 100) ^ useful_life_years) - npv_depreciation_tax_shield",
-      "unit": "USD"
-    }
-  ],
-  "outputs": {
-    "primary": {
-      "id": "primaryResult",
-      "label": "Total Cost of Ownership (TCO)",
-      "unit": "USD",
-      "description": "The comprehensive lifecycle cost of the asset."
-    },
-    "breakdown": {
-      "purchase_price": {
-        "id": "purchase_price",
-        "label": "Purchase Price",
-        "value": null,
-        "unit": "USD"
-      },
-      "npv_operating_costs": {
-        "id": "npv_operating_costs",
-        "label": "NPV of Operating Costs",
-        "value": null,
-        "unit": "USD"
-      },
-      "total_training_cost": {
-        "id": "total_training_cost",
-        "label": "Total Training Cost",
-        "value": null,
-        "unit": "USD"
-      },
-      "npv_depreciation_tax_shield": {
-        "id": "npv_depreciation_tax_shield",
-        "label": "NPV of Depreciation Tax Shield",
-        "value": null,
-        "unit": "USD"
-      },
-      "salvage_value_pv": {
-        "id": "salvage_value_pv",
-        "label": "Present Value of Salvage Value",
-        "value": null,
-        "unit": "USD"
-      },
-      "annual_downtime_cost": {
-        "id": "annual_downtime_cost",
-        "label": "Annual Downtime Cost",
-        "value": null,
-        "unit": "USD/year"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "energy_inefficiency",
-        "label": "Energy Inefficiency",
-        "description": "If annual energy cost > 15% of purchase price, energy is a significant hidden cost driver.",
-        "condition": "annual_energy_cost > 0.15 * purchase_price"
-      },
-      {
-        "id": "excessive_downtime",
-        "label": "Excessive Downtime",
-        "description": "Downtime cost > 10% of total operating cost indicates reliability issues.",
-        "condition": "annual_downtime_cost > 0.1 * total_annual_operating_cost"
-      },
-      {
-        "id": "high_training_burden",
-        "label": "High Training Burden",
-        "description": "Training cost > 5% of purchase price suggests skill gap or high turnover.",
-        "condition": "total_training_cost > 0.05 * purchase_price"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_energy",
-        "label": "Implement Energy Efficiency Program",
-        "description": "Conduct energy audit and invest in high-efficiency motors, LED lighting, and VFDs."
-      },
-      {
-        "id": "improve_maintenance",
-        "label": "Adopt Predictive Maintenance",
-        "description": "Use vibration analysis and thermography to reduce unplanned downtime by 30%."
-      },
-      {
-        "id": "optimize_training",
-        "label": "Standardize Operator Training",
-        "description": "Develop Lean cross-training matrix to reduce training costs and improve flexibility."
-      },
-      {
-        "id": "review_depreciation",
-        "label": "Review Depreciation Method",
-        "description": "Consider accelerated depreciation to improve tax shield if cash flow is a priority."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "dataConfidenceAdjusted",
-      "label": "Data Confidence Adjusted TCO",
-      "description": "TCO adjusted by a confidence factor (0.8 to 1.2) based on input data completeness and accuracy.",
-      "value": null,
-      "unit": "USD"
-    }
-  }
+  "category": "Finans & Kredi",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false
 }

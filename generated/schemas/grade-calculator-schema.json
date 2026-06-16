@@ -1,398 +1,50 @@
 {
-  "slug": "grade-calculator",
-  "title": "Grade Calculator – Industrial Engineering Performance Score",
-  "description": "Calculates an overall performance grade based on quality, throughput, cost, safety, and delivery metrics, aligned with ISO 9001, Lean, Six Sigma, and WERC standards.",
-  "premiumRequired": false,
-  "premiumFeatures": [
-    "PDF export",
-    "CSV export",
-    "Trend analysis",
-    "Benchmarking against industry standards",
-    "Custom weighting profiles"
-  ],
+  "toolName": "grade-calculator",
   "inputs": [
     {
-      "id": "defect_rate",
-      "label": "Defect Rate (ppm)",
+      "id": "initialElevation",
+      "label": "Initial Elevation",
       "type": "number",
-      "unit": "ppm",
-      "default": 5000,
-      "min": 0,
-      "max": 100000,
-      "businessContext": "Parts per million defective – Six Sigma quality metric. Lower is better.",
-      "label_i18n": {
-        "en": "Defect Rate (ppm)"
-      },
-      "businessContext_i18n": {
-        "en": "Parts per million defective – Six Sigma quality metric. Lower is better."
-      }
-    },
-    {
-      "id": "throughput",
-      "label": "Throughput (units/hour)",
-      "type": "number",
-      "unit": "units/hr",
+      "unit": "m",
       "default": 100,
-      "min": 0,
-      "max": 10000,
-      "businessContext": "Actual production rate per hour. Used to calculate OEE and capacity utilization.",
-      "label_i18n": {
-        "en": "Throughput (units/hour)"
-      },
-      "businessContext_i18n": {
-        "en": "Actual production rate per hour. Used to calculate OEE and capacity utilization."
-      }
+      "businessContext": "The elevation at the starting point."
     },
     {
-      "id": "planned_throughput",
-      "label": "Planned Throughput (units/hour)",
+      "id": "finalElevation",
+      "label": "Final Elevation",
       "type": "number",
-      "unit": "units/hr",
-      "default": 120,
-      "min": 1,
-      "max": 10000,
-      "businessContext": "Target production rate per hour. Must be >0 to avoid division by zero.",
-      "label_i18n": {
-        "en": "Planned Throughput (units/hour)"
-      },
-      "businessContext_i18n": {
-        "en": "Target production rate per hour. Must be >0 to avoid division by zero."
-      }
+      "unit": "m",
+      "default": 105,
+      "businessContext": "The elevation at the ending point."
     },
     {
-      "id": "cost_per_unit",
-      "label": "Cost per Unit ($)",
+      "id": "horizontalDistance",
+      "label": "Horizontal Distance",
       "type": "number",
-      "unit": "$",
-      "default": 50,
-      "min": 0,
-      "max": 10000,
-      "businessContext": "Direct manufacturing cost per unit. Includes material, labor, overhead.",
-      "label_i18n": {
-        "en": "Cost per Unit ($)"
-      },
-      "businessContext_i18n": {
-        "en": "Direct manufacturing cost per unit. Includes material, labor, overhead."
-      }
+      "unit": "m",
+      "default": 1000,
+      "businessContext": "The horizontal distance between the two points."
     },
     {
-      "id": "target_cost_per_unit",
-      "label": "Target Cost per Unit ($)",
+      "id": "roundDecimals",
+      "label": "Decimal Places",
       "type": "number",
-      "unit": "$",
-      "default": 45,
-      "min": 0.01,
-      "max": 10000,
-      "businessContext": "Budgeted or standard cost per unit. Must be >0.",
-      "label_i18n": {
-        "en": "Target Cost per Unit ($)"
-      },
-      "businessContext_i18n": {
-        "en": "Budgeted or standard cost per unit. Must be >0."
-      }
-    },
-    {
-      "id": "safety_incidents",
-      "label": "Safety Incidents (last 12 months)",
-      "type": "number",
-      "unit": "count",
+      "unit": "",
       "default": 2,
-      "min": 0,
-      "max": 1000,
-      "businessContext": "Total recordable incidents per year. Lower is better (ISO 45001).",
-      "label_i18n": {
-        "en": "Safety Incidents (last 12 months)"
-      },
-      "businessContext_i18n": {
-        "en": "Total recordable incidents per year. Lower is better (ISO 45001)."
-      }
-    },
-    {
-      "id": "on_time_delivery_pct",
-      "label": "On-Time Delivery (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 95,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Percentage of orders delivered on or before promised date. WERC metric.",
-      "label_i18n": {
-        "en": "On-Time Delivery (%)"
-      },
-      "businessContext_i18n": {
-        "en": "Percentage of orders delivered on or before promised date. WERC metric."
-      }
-    },
-    {
-      "id": "shift_type",
-      "label": "Shift Type",
-      "type": "select",
-      "unit": "",
-      "default": "day",
-      "min": null,
-      "max": null,
-      "options": [
-        "day",
-        "night",
-        "rotating"
-      ],
-      "businessContext": "Shift pattern affects fatigue and error rates. Used in safety adjustment.",
-      "label_i18n": {
-        "en": "Shift Type"
-      },
-      "businessContext_i18n": {
-        "en": "Shift pattern affects fatigue and error rates. Used in safety adjustment."
-      }
-    },
-    {
-      "id": "oee_override",
-      "label": "Override OEE Calculation?",
-      "type": "boolean",
-      "unit": "",
-      "default": false,
-      "min": null,
-      "max": null,
-      "businessContext": "If true, user can manually enter OEE instead of computing from throughput.",
-      "label_i18n": {
-        "en": "Override OEE Calculation?"
-      },
-      "businessContext_i18n": {
-        "en": "If true, user can manually enter OEE instead of computing from throughput."
-      }
-    },
-    {
-      "id": "manual_oee",
-      "label": "Manual OEE (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 85,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Overall Equipment Effectiveness if override is enabled.",
-      "label_i18n": {
-        "en": "Manual OEE (%)"
-      },
-      "businessContext_i18n": {
-        "en": "Overall Equipment Effectiveness if override is enabled."
-      }
+      "businessContext": "Number of decimal places to round the output values."
     }
   ],
-  "validation": {
-    "rules": [
-      {
-        "id": "throughput_positive",
-        "condition": "throughput > 0",
-        "message": "Throughput must be greater than zero."
-      },
-      {
-        "id": "planned_throughput_positive",
-        "condition": "planned_throughput > 0",
-        "message": "Planned throughput must be greater than zero."
-      },
-      {
-        "id": "target_cost_positive",
-        "condition": "target_cost_per_unit > 0",
-        "message": "Target cost per unit must be greater than zero."
-      },
-      {
-        "id": "oee_override_consistency",
-        "condition": "if oee_override == true then manual_oee >= 0 and manual_oee <= 100",
-        "message": "When OEE override is enabled, manual OEE must be between 0 and 100."
-      },
-      {
-        "id": "defect_rate_range",
-        "condition": "defect_rate >= 0 and defect_rate <= 100000",
-        "message": "Defect rate must be between 0 and 100,000 ppm."
-      }
-    ],
-    "thresholds": [
-      {
-        "id": "quality_alert",
-        "condition": "defect_rate > 10000",
-        "severity": "warning",
-        "message": "Defect rate exceeds 10,000 ppm – immediate quality review recommended."
-      },
-      {
-        "id": "cost_alert",
-        "condition": "cost_per_unit > target_cost_per_unit * 1.2",
-        "severity": "critical",
-        "message": "Cost per unit exceeds target by more than 20% – cost reduction action required."
-      },
-      {
-        "id": "safety_alert",
-        "condition": "safety_incidents > 5",
-        "severity": "critical",
-        "message": "Safety incidents exceed 5 per year – escalate to EHS team."
-      },
-      {
-        "id": "delivery_alert",
-        "condition": "on_time_delivery_pct < 90",
-        "severity": "warning",
-        "message": "On-time delivery below 90% – investigate supply chain bottlenecks."
-      }
+  "formulas": {
+    "gradePercent": "((finalElevation - initialElevation) / horizontalDistance) * 100",
+    "slopeRatio": "horizontalDistance / (finalElevation - initialElevation)"
+  },
+  "outputs": {
+    "primary": "gradePercent",
+    "breakdown": [
+      "slopeRatio"
     ]
   },
-  "formulas": [
-    {
-      "id": "quality_score",
-      "label": "Quality Score (0-100)",
-      "description": "Based on defect rate using Six Sigma scale. 100 = zero defects.",
-      "formula": "max(0, 100 - (defect_rate / 1000))",
-      "unit": "score"
-    },
-    {
-      "id": "oee",
-      "label": "Overall Equipment Effectiveness (%)",
-      "description": "If override is true, use manual OEE; else compute as throughput/planned_throughput * 100.",
-      "formula": "if oee_override then manual_oee else (throughput / planned_throughput) * 100",
-      "unit": "%"
-    },
-    {
-      "id": "cost_efficiency",
-      "label": "Cost Efficiency Score (0-100)",
-      "description": "Ratio of target cost to actual cost, capped at 100.",
-      "formula": "min(100, (target_cost_per_unit / cost_per_unit) * 100)",
-      "unit": "score"
-    },
-    {
-      "id": "safety_score",
-      "label": "Safety Score (0-100)",
-      "description": "Based on incident count. 0 incidents = 100, each incident reduces score by 10, with shift adjustment.",
-      "formula": "max(0, 100 - (safety_incidents * 10) - (shift_type == 'night' ? 5 : 0))",
-      "unit": "score"
-    },
-    {
-      "id": "delivery_score",
-      "label": "Delivery Score (0-100)",
-      "description": "Direct mapping of on-time delivery percentage.",
-      "formula": "on_time_delivery_pct",
-      "unit": "score"
-    },
-    {
-      "id": "weighted_grade",
-      "label": "Weighted Grade (0-100)",
-      "description": "Composite score using equal weights (20% each) for quality, OEE, cost, safety, delivery.",
-      "formula": "(quality_score * 0.2) + (oee * 0.2) + (cost_efficiency * 0.2) + (safety_score * 0.2) + (delivery_score * 0.2)",
-      "unit": "score"
-    },
-    {
-      "id": "data_confidence_adjusted",
-      "label": "Data Confidence Adjusted Score",
-      "description": "Reduces weighted grade by 5% if any input is at extreme (defect_rate > 50000 or safety_incidents > 20) to reflect lower data reliability.",
-      "formula": "weighted_grade * (1 - 0.05 * (if defect_rate > 50000 or safety_incidents > 20 then 1 else 0))",
-      "unit": "score"
-    }
-  ],
-  "outputs": {
-    "primary": {
-      "id": "overall_grade",
-      "label": "Overall Grade",
-      "description": "Final performance grade (A-F) based on data_confidence_adjusted score.",
-      "value": "if data_confidence_adjusted >= 90 then 'A' else if data_confidence_adjusted >= 80 then 'B' else if data_confidence_adjusted >= 70 then 'C' else if data_confidence_adjusted >= 60 then 'D' else 'F'",
-      "unit": "grade"
-    },
-    "breakdown": {
-      "quality_score": {
-        "id": "quality_score",
-        "label": "Quality Score",
-        "value": "quality_score",
-        "unit": "score"
-      },
-      "oee": {
-        "id": "oee",
-        "label": "OEE",
-        "value": "oee",
-        "unit": "%"
-      },
-      "cost_efficiency": {
-        "id": "cost_efficiency",
-        "label": "Cost Efficiency",
-        "value": "cost_efficiency",
-        "unit": "score"
-      },
-      "safety_score": {
-        "id": "safety_score",
-        "label": "Safety Score",
-        "value": "safety_score",
-        "unit": "score"
-      },
-      "delivery_score": {
-        "id": "delivery_score",
-        "label": "Delivery Score",
-        "value": "delivery_score",
-        "unit": "score"
-      },
-      "weighted_grade": {
-        "id": "weighted_grade",
-        "label": "Weighted Grade",
-        "value": "weighted_grade",
-        "unit": "score"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "low_quality",
-        "condition": "quality_score < 70",
-        "label": "Low Quality",
-        "description": "Defect rate is high, causing rework and scrap losses."
-      },
-      {
-        "id": "low_oee",
-        "condition": "oee < 75",
-        "label": "Low OEE",
-        "description": "Equipment effectiveness is below target, indicating downtime or speed losses."
-      },
-      {
-        "id": "high_cost",
-        "condition": "cost_efficiency < 70",
-        "label": "High Cost",
-        "description": "Actual cost significantly exceeds target, eroding margins."
-      },
-      {
-        "id": "safety_risk",
-        "condition": "safety_score < 70",
-        "label": "Safety Risk",
-        "description": "Incident rate is high, leading to potential fines and lost workdays."
-      },
-      {
-        "id": "delivery_failure",
-        "condition": "delivery_score < 80",
-        "label": "Delivery Failure",
-        "description": "On-time delivery below 80% causing customer dissatisfaction."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "improve_quality",
-        "condition": "quality_score < 70",
-        "action": "Implement Six Sigma DMAIC project to reduce defect rate. Consider root cause analysis and SPC."
-      },
-      {
-        "id": "improve_oee",
-        "condition": "oee < 75",
-        "action": "Conduct TPM (Total Productive Maintenance) and reduce changeover times using SMED."
-      },
-      {
-        "id": "reduce_cost",
-        "condition": "cost_efficiency < 70",
-        "action": "Perform value stream mapping to identify waste. Target material and labor cost reduction."
-      },
-      {
-        "id": "enhance_safety",
-        "condition": "safety_score < 70",
-        "action": "Review safety protocols, increase training, and implement near-miss reporting per ISO 45001."
-      },
-      {
-        "id": "boost_delivery",
-        "condition": "delivery_score < 80",
-        "action": "Analyze supply chain lead times, implement Kanban or pull system to improve on-time delivery."
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "data_confidence_adjusted",
-      "label": "Data Confidence Adjusted Score",
-      "value": "data_confidence_adjusted",
-      "unit": "score"
-    }
-  }
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false
 }

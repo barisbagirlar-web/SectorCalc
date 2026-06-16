@@ -2,8 +2,12 @@
 
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { ClaimReviewJsonLd } from "@/components/seo/ClaimReviewJsonLd";
 import { DynamicToolForm } from "@/components/tools/DynamicToolForm";
+import { ExportPDFButton } from "@/components/tools/ExportPDFButton";
 import { FreeToolForm } from "@/components/tools/FreeToolForm";
+import { ToolAcademicReferences } from "@/components/tools/ToolAcademicReferences";
+import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
 import {
   resolveGeneratedToolTitle,
   resolvePrimaryOutputKey,
@@ -13,6 +17,12 @@ import {
   useToolSchema,
 } from "@/lib/generated-tools/use-tool-schema";
 import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/generated-tools/types";
+import {
+  buildPdfExportBreakdownRows,
+  buildPdfExportInputRows,
+} from "@/lib/pdf/build-pdf-export-rows";
+import { absoluteLocalizedUrl } from "@/lib/semantic/site-url";
+import { usePathname } from "@/i18n/routing";
 
 export type GeneratedToolFormViewProps = {
   readonly slug: string;
@@ -21,6 +31,7 @@ export type GeneratedToolFormViewProps = {
 
 export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewProps) {
   const locale = useLocale();
+  const pathname = usePathname();
   const t = useTranslations("generatedTool");
   const { loading, error, calculator, zodSchema } = useToolSchema(slug, schema);
   const [result, setResult] = useState<GeneratedToolResult | null>(null);
@@ -29,6 +40,7 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
   const title = resolveGeneratedToolTitle(slug, schema, locale);
   const primaryOutputKey = resolvePrimaryOutputKey(schema);
   const isPremium = schema.premiumRequired === true;
+  const pageUrl = absoluteLocalizedUrl(locale, `/tools/generated/${slug}`);
 
   if (loading) {
     return (
@@ -51,8 +63,28 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
     setResult(runGeneratedToolCalculation(calculator, values));
   };
 
+  const primaryRaw = result?.[primaryOutputKey];
+  const formattedPrimary =
+    typeof primaryRaw === "number" && Number.isFinite(primaryRaw)
+      ? formatGeneratedNumericValue(primaryRaw, primaryOutputKey, locale)
+      : null;
+
+  const pdfInputRows = buildPdfExportInputRows({
+    schema,
+    values: lastInputs,
+    locale,
+  });
+  const pdfBreakdownRows = buildPdfExportBreakdownRows({
+    schema,
+    breakdown: result?.breakdown,
+    locale,
+  });
+
   return (
     <div className="container mx-auto max-w-6xl px-4 py-6">
+      {result && formattedPrimary ? (
+        <ClaimReviewJsonLd claimReviewed={`${title}: ${formattedPrimary}`} pageUrl={pageUrl} />
+      ) : null}
       {isPremium ? (
         <DynamicToolForm
           slug={slug}
@@ -77,6 +109,20 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
           onSubmit={handleCalculate}
         />
       )}
+
+      {!isPremium && result && formattedPrimary && pdfInputRows.length > 0 ? (
+        <ExportPDFButton
+          toolName={title}
+          toolSlug={slug}
+          locale={locale}
+          pagePath={pathname}
+          primaryResult={formattedPrimary}
+          inputRows={pdfInputRows}
+          breakdownRows={pdfBreakdownRows}
+        />
+      ) : null}
+
+      <ToolAcademicReferences />
     </div>
   );
 }

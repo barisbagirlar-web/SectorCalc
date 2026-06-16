@@ -110,7 +110,10 @@ function normalizePrimaryOutput(raw: unknown): string {
   return "total";
 }
 
-function normalizeBreakdownMap(raw: unknown): Readonly<Record<string, string>> {
+function normalizeBreakdownMap(
+  raw: unknown,
+  formulaNames: Readonly<Record<string, string>> = {},
+): Readonly<Record<string, string>> {
   const record = asRecord(raw);
   if (!record) {
     return {};
@@ -118,14 +121,65 @@ function normalizeBreakdownMap(raw: unknown): Readonly<Record<string, string>> {
 
   const breakdown: Record<string, string> = {};
   for (const [key, value] of Object.entries(record)) {
-    if (typeof value === "string") {
-      breakdown[key] = value;
+    if (typeof value === "string" && value.trim()) {
+      breakdown[key] = value.trim();
       continue;
     }
     const item = asRecord(value);
-    breakdown[key] = asString(item?.label, key);
+    const fromItem = asString(item?.label);
+    breakdown[key] = fromItem || formulaNames[key] || key;
   }
   return breakdown;
+}
+
+function buildFormulaNameMap(record: RawRecord): Readonly<Record<string, string>> {
+  const formulasRaw = record.formulas;
+  const names: Record<string, string> = {};
+
+  if (Array.isArray(formulasRaw)) {
+    for (const entry of formulasRaw) {
+      const formula = asRecord(entry);
+      const id = asString(formula?.id);
+      const name = asString(formula?.name);
+      if (id && name) {
+        names[id] = name;
+      }
+    }
+  }
+
+  return names;
+}
+
+function buildFormulaUnitMap(record: RawRecord): Readonly<Record<string, string>> {
+  const formulasRaw = record.formulas;
+  const units: Record<string, string> = {};
+
+  if (Array.isArray(formulasRaw)) {
+    for (const entry of formulasRaw) {
+      const formula = asRecord(entry);
+      const id = asString(formula?.id);
+      const unit = asString(formula?.unit);
+      if (id && unit) {
+        units[id] = unit;
+      }
+    }
+  }
+
+  return units;
+}
+
+function normalizeBreakdownUnits(
+  breakdownKeys: readonly string[],
+  formulaUnits: Readonly<Record<string, string>>,
+): Readonly<Record<string, string>> | undefined {
+  const units: Record<string, string> = {};
+  for (const key of breakdownKeys) {
+    const unit = formulaUnits[key];
+    if (unit) {
+      units[key] = unit;
+    }
+  }
+  return Object.keys(units).length > 0 ? units : undefined;
 }
 
 function normalizeStringList(raw: unknown): readonly string[] {
@@ -259,6 +313,9 @@ export function normalizeRawGeneratedSchema(
 
   const outputsRecord = asRecord(record.outputs) ?? {};
   const validationRecord = asRecord(record.validation) ?? {};
+  const formulaNames = buildFormulaNameMap(record);
+  const formulaUnits = buildFormulaUnitMap(record);
+  const breakdownMap = normalizeBreakdownMap(outputsRecord.breakdown, formulaNames);
 
   const toolName =
     asString(record.toolName) ||
@@ -272,8 +329,15 @@ export function normalizeRawGeneratedSchema(
       ? dataConfidenceRaw
       : asString(asRecord(dataConfidenceRaw)?.id, "dataConfidenceAdjusted");
 
+  const catalogCategory = asString(record.catalogCategory) || undefined;
+  const sectorSlug = asString(record.sectorSlug) || undefined;
+  const categorySlug = asString(record.categorySlug) || undefined;
+
   return {
     toolName,
+    catalogCategory,
+    sectorSlug,
+    categorySlug,
     lastUpdated: normalizeLastUpdated(record.lastUpdated),
     standardOptions: normalizeStandardOptions(record.standardOptions),
     inputs,
@@ -288,7 +352,8 @@ export function normalizeRawGeneratedSchema(
     formulas: normalizeFormulaMap(record.formulas),
     outputs: {
       primary: normalizePrimaryOutput(outputsRecord.primary),
-      breakdown: normalizeBreakdownMap(outputsRecord.breakdown),
+      breakdown: breakdownMap,
+      breakdownUnits: normalizeBreakdownUnits(Object.keys(breakdownMap), formulaUnits),
       hiddenLossDrivers: normalizeStringList(outputsRecord.hiddenLossDrivers),
       suggestedActions: normalizeStringList(outputsRecord.suggestedActions),
       dataConfidenceAdjusted,

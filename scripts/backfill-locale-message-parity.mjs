@@ -320,4 +320,7 @@ execSync("npm run generate:marketing-surface-i18n", { cwd: ROOT, stdio: "inherit
 console.log("\nRunning patch:p31-i18n...");
 execSync("npm run patch:p31-i18n", { cwd: ROOT, stdio: "inherit" });
 
+console.log("\nRe-applying legal page translations (SSOT)...");
+execSync("node scripts/merge-legal-i18n.mjs", { cwd: ROOT, stdio: "inherit" });
+
 console.log("\nbackfill-locale-message-parity complete");

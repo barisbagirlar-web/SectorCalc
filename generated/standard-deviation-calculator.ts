@@ -25,7 +25,7 @@ export const Standard_deviation_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Standard_deviation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = μ = (1/n) * Σ(x_i); results["mean"] = Number.isFinite(v) ? v : 0; } catch { results["mean"] = 0; }
+  try { const v = (1/n) * Σ(x_i); results["mean"] = Number.isFinite(v) ? v : 0; } catch { results["mean"] = 0; }
   try { const v = Σ(x_i - μ)**2; results["sum_squared_deviations"] = Number.isFinite(v) ? v : 0; } catch { results["sum_squared_deviations"] = 0; }
   results["variance"] = 0;
   results["standard_deviation"] = 0;

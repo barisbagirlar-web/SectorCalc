@@ -2,12 +2,17 @@
 /**
  * Premium schema field copy — same pipeline as free-tool-inputs (6 locales).
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { execSync } from "node:child_process";
+import { createPhraseTranslator } from "./lib/generate-translate-phrase.mjs";
 
 const ROOT = join(import.meta.dirname, "..");
 const LOCALES = ["en", "tr", "de", "fr", "es", "ar"];
+const COPY_MAP_PATH = join(ROOT, "scripts/data/generated-schema-copy-i18n.json");
+const COPY_MAP = existsSync(COPY_MAP_PATH)
+  ? JSON.parse(readFileSync(COPY_MAP_PATH, "utf8"))
+  : { labels: {}, helpers: {} };
 
 const PHRASE_GLOSSARY = JSON.parse(
   readFileSync(join(ROOT, "src/data/calculator-phrase-glossary.json"), "utf8"),
@@ -16,14 +21,6 @@ const FIELD_LABEL_MAP = JSON.parse(
   readFileSync(join(ROOT, "scripts/data/calculator-field-labels-i18n.json"), "utf8"),
 );
 
-const PLACEHOLDER_TEMPLATES = {
-  en: (label) => `Enter ${label.toLowerCase()}`,
-  tr: (label) => `${label} girin`,
-  de: (label) => `${label} eingeben`,
-  fr: (label) => `Saisir ${label.toLowerCase()}`,
-  es: (label) => `Introduzca ${label.toLowerCase()}`,
-  ar: (label) => `أدخل ${label}`,
-};
 
 const PREMIUM_MANUAL_TR = {
   "Weld throat": "Kaynak boğazı",
@@ -163,47 +160,17 @@ function loadPremiumTools() {
   return JSON.parse(raw);
 }
 
-function sortedGlossaryEntries(locale) {
-  const glossary = {
-    ...(locale === "tr" ? PREMIUM_MANUAL_TR : {}),
-    ...(PREMIUM_MANUAL[locale] ?? {}),
-    ...(PHRASE_GLOSSARY[locale] ?? {}),
-  };
-  return Object.entries(glossary).sort((a, b) => b[0].length - a[0].length);
-}
-
-function translatePhrase(text, locale) {
-  if (!text || locale === "en") {
-    return text;
-  }
-  const fieldLabel = FIELD_LABEL_MAP[locale]?.[text];
-  if (fieldLabel) {
-    return fieldLabel;
-  }
-  const manual =
-    locale === "tr" ? PREMIUM_MANUAL_TR[text] : PREMIUM_MANUAL[locale]?.[text];
-  if (manual) {
-    return manual;
-  }
-  if (PHRASE_GLOSSARY[locale]?.[text]) {
-    return PHRASE_GLOSSARY[locale][text];
-  }
-  let result = text;
-  for (const [en, localized] of sortedGlossaryEntries(locale)) {
-    const re = new RegExp(en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
-    result = result.replace(re, localized);
-  }
-  return result;
-}
-
-function buildFieldCopy(locale, enLabel, enHelper, key) {
-  const labelSource = enLabel?.trim() || key;
-  const helperSource = enHelper?.trim() || labelSource;
-  const label = locale === "en" ? labelSource : translatePhrase(labelSource, locale);
-  const helper = locale === "en" ? helperSource : translatePhrase(helperSource, locale);
-  const placeholder = PLACEHOLDER_TEMPLATES[locale](label);
-  return { label, placeholder, helper };
-}
+const { buildFieldCopy } = createPhraseTranslator({
+  phraseGlossary: PHRASE_GLOSSARY,
+  fieldLabelMap: FIELD_LABEL_MAP,
+  extraGlossaryByLocale: {
+    tr: PREMIUM_MANUAL_TR,
+    de: PREMIUM_MANUAL.de,
+    fr: PREMIUM_MANUAL.fr,
+    es: PREMIUM_MANUAL.es,
+    ar: PREMIUM_MANUAL.ar,
+  },
+});
 
 const tools = loadPremiumTools();
 const bundle = Object.fromEntries(LOCALES.map((l) => [l, {}]));
@@ -218,6 +185,7 @@ for (const tool of tools) {
         input.label,
         input.helper,
         input.key,
+        COPY_MAP,
       );
     }
   }
@@ -233,18 +201,6 @@ for (const tool of tools) {
 console.log(`Wrote ${outPath}`);
 console.log(`premium schemas=${tools.length} fields=${fieldCount} locales=${LOCALES.length}`);
 
-// Merge into messages.freeToolInputs (premium slugs share resolver pipeline)
-for (const locale of LOCALES) {
-  const messagesPath = join(ROOT, "messages", `${locale}.json`);
-  const messages = JSON.parse(readFileSync(messagesPath, "utf8"));
-  messages.freeToolInputs = {
-    ...(messages.freeToolInputs ?? {}),
-    ...bundle[locale],
-  };
-  writeFileSync(messagesPath, `${JSON.stringify(messages, null, 2)}\n`, "utf8");
-  console.log(`Merged premium schema inputs → messages/${locale}.json`);
-}
-
 // Merge into master free-tool-inputs bundle file
 const freeBundlePath = join(ROOT, "src/data/free-tool-inputs-i18n.generated.json");
 const freeBundle = JSON.parse(readFileSync(freeBundlePath, "utf8"));
@@ -253,7 +209,3 @@ for (const locale of LOCALES) {
 }
 writeFileSync(freeBundlePath, `${JSON.stringify(freeBundle, null, 2)}\n`, "utf8");
 console.log(`Merged premium schema inputs → ${freeBundlePath}`);
-
-// Canonical sync — messages must mirror bundle (no stale overrides)
-const { execSync } = await import("node:child_process");
-execSync("node scripts/sync-free-tool-inputs-from-bundle.mjs", { cwd: ROOT, stdio: "inherit" });

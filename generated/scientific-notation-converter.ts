@@ -2,48 +2,38 @@
 import * as z from 'zod';
 
 export interface Scientific_notation_converterInput {
-  inputNumber: number;
-  conversionDirection: string;
-  significantDigits: number;
-  decimalPlaces: number;
-  engineeringNotation: boolean;
-  useEpsilon: boolean;
+  decimalNumber: number;
+  scientificCoefficient: number;
+  scientificExponent: number;
+  conversionMode: number;
+  precision: number;
 }
 
 export const Scientific_notation_converterInputSchema = z.object({
-  inputNumber: z.number().min(-1e+308).max(1e+308).default(1),
-  conversionDirection: z.enum(['toScientific', 'toDecimal']).default('toScientific'),
-  significantDigits: z.number().min(1).max(15).default(4),
-  decimalPlaces: z.number().min(0).max(15).default(4),
-  engineeringNotation: z.boolean().default(false),
-  useEpsilon: z.boolean().default(true),
+  decimalNumber: z.number().default(12345.67),
+  scientificCoefficient: z.number().default(1.234567),
+  scientificExponent: z.number().default(3),
+  conversionMode: z.number().default(0),
+  precision: z.number().default(6),
 });
 
 function evaluateAllFormulas(input: Scientific_notation_converterInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.abs(input.inputNumber); results["subformula_absoluteValue"] = Number.isFinite(v) ? v : 0; } catch { results["subformula_absoluteValue"] = 0; }
-  try { const v = (absVal === 0) ? 0 : Math.floor(Math.log10(absVal)); results["subformula_exponent"] = Number.isFinite(v) ? v : 0; } catch { results["subformula_exponent"] = 0; }
-  try { const v = (absVal === 0) ? 0 : parseFloat((absVal / Math.pow(10, exponent)).toPrecision(input.significantDigits)); results["subformula_mantissa"] = Number.isFinite(v) ? v : 0; } catch { results["subformula_mantissa"] = 0; }
-  results["subformula_engineeringAdjustment"] = 0;
-  try { const v = (input.inputNumber < 0) ? -mantissa : mantissa; results["subformula_signHandling"] = Number.isFinite(v) ? v : 0; } catch { results["subformula_signHandling"] = 0; }
-  try { const v = signedMantissa + ' × 10^' + exponent; results["subformula_scientificNotation"] = Number.isFinite(v) ? v : 0; } catch { results["subformula_scientificNotation"] = 0; }
-  results["subformula_decimalConversion"] = 0;
+  try { const v = input.conversionMode === 0 ? (input.decimalNumber === 0 ? '0' : (input.decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(input.decimalNumber))))).toFixed(input.precision) + 'e' + Math.floor(Math.log10(Math.abs(input.decimalNumber)))) : (input.scientificCoefficient * Math.pow(10, input.scientificExponent)).toFixed(input.precision); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = input.conversionMode === 0 ? (input.decimalNumber === 0 ? 'Coefficient: 0' : 'Coefficient: ' + (input.decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(input.decimalNumber))))).toFixed(input.precision)) : 'Decimal: ' + (input.scientificCoefficient * Math.pow(10, input.scientificExponent)).toFixed(input.precision); results["breakdown0"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown0"] = 0; }
+  try { const v = input.conversionMode === 0 ? (input.decimalNumber === 0 ? 'Exponent: 0' : 'Exponent: ' + Math.floor(Math.log10(Math.abs(input.decimalNumber)))) : 'Scientific Input: ' + input.scientificCoefficient + 'e' + input.scientificExponent; results["breakdown1"] = Number.isFinite(v) ? v : 0; } catch { results["breakdown1"] = 0; }
   return results;
 }
 
 
 export function calculateScientific_notation_converter(input: Scientific_notation_converterInput): Scientific_notation_converterOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["convertedValue"] ?? 0;
+  const totalWasteCost = values["conversionMode"] ?? 0;
   const breakdown = {
-    mantissa: values["mantissa"] ?? 0,
-    exponent: values["exponent"] ?? 0,
-    significantDigitsUsed: values["significantDigitsUsed"] ?? 0,
-    engineeringNotationFlag: values["engineeringNotationFlag"] ?? 0,
-    decimalValue: values["decimalValue"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Rounding Error","Underflow Risk","Overflow Risk"];
-  const suggestedActions: string[] = ["Increase Significant Digits","Disable Engineering Notation","Check Input Scale"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -55,14 +45,14 @@ export function calculateScientific_notation_converter(input: Scientific_notatio
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: false,
-    premiumFeatures: ["PDF export","CSV export","Trend analysis"],
+    premiumFeatures: [],
   };
 }
 
 
 export interface Scientific_notation_converterOutput {
   totalWasteCost: number;
-  breakdown: { mantissa: number; exponent: number; significantDigitsUsed: number; engineeringNotationFlag: number; decimalValue: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

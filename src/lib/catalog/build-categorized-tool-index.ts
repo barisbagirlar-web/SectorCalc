@@ -4,6 +4,7 @@ import {
   type GlobalToolCategorySlug,
 } from "@/lib/catalog/global-tool-category-taxonomy";
 import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";
+import type { FreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
 import { getFormulaContractBySlug } from "@/lib/formula-governance/contracts";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 import { resolveFreeToolLocalizedCopy } from "@/lib/i18n/free-tool-i18n";
@@ -13,12 +14,14 @@ import {
   CANONICAL_TRAFFIC_FREE_SLUGS,
   humanizeCanonicalSlug,
 } from "@/lib/tools/canonical-tool-slugs";
+import schemaCatalogMetadata from "@/data/schema-catalog-metadata.generated.json";
 import { getRevenueToolByFreeSlug } from "@/lib/tools/revenue-tools";
+import { getPremium152Tools } from "@/lib/premium/premium-152-seed-reader";
 import { SUPPORTED_LOCALES } from "@/lib/i18n/locale-config";
 
 export type CategorizedToolTier = "free" | "premium" | "premium-schema";
 
-export type CategorizedToolSource = "existing-free" | "existing-premium";
+export type CategorizedToolSource = "existing-free" | "existing-premium" | "user-premium-152";
 
 export type CategorizedToolMigrationSource = never;
 
@@ -62,18 +65,66 @@ function resolveFormulaContractStatus(slug: string): CategorizedToolFormulaStatu
   return getFormulaContractBySlug(slug) ? "ready" : "missing";
 }
 
+const SCHEMA_CATALOG_MAP = schemaCatalogMetadata as Readonly<
+  Record<string, { readonly categorySlug?: string; readonly catalogCategory?: string }>
+>;
+
+function resolveCategorySlugForSlug(
+  slug: string,
+  title: string,
+  description: string,
+  tier: "free" | "premium",
+  source: CategorizedToolSource,
+): GlobalToolCategorySlug {
+  const fromSchema = SCHEMA_CATALOG_MAP[slug]?.categorySlug;
+  if (fromSchema) {
+    return fromSchema as GlobalToolCategorySlug;
+  }
+  return resolveToolCategory({
+    slug,
+    title,
+    description,
+    tier,
+    source,
+    freeTrafficCategory: SCHEMA_CATALOG_MAP[slug]?.catalogCategory as FreeTrafficCategory | undefined,
+  });
+}
+
+function buildPremium152SeedItems(): CategorizedToolItem[] {
+  return getPremium152Tools().map((tool) => {
+    const description = tool.pain ?? tool.trTitle;
+    const categorySlug = tool.categorySlug as GlobalToolCategorySlug;
+
+    return {
+      slug: tool.slug,
+      title: fillLocaleRecord((locale) =>
+        locale === "tr" ? tool.trTitle : humanizeCanonicalSlug(tool.slug),
+      ),
+      description: fillLocaleRecord((locale) => (locale === "tr" ? description : description)),
+      tier: "premium",
+      categorySlug,
+      source: "user-premium-152",
+      routePath: null,
+      formulaContractStatus:
+        tool.formulaStatus === "source-formula-provided" ? "ready" : "missing",
+      publicStatus: tool.publicStatus as CategorizedToolPublicStatus,
+      seedId: tool.id,
+    };
+  });
+}
+
 function buildPremiumItems(): CategorizedToolItem[] {
   return CANONICAL_PREMIUM_SLUGS.map((slug) => {
     const revenueTool = getRevenueToolByFreeSlug(slug);
     const title = revenueTool?.freeTitle ?? humanizeCanonicalSlug(slug);
     const description = revenueTool?.paidValue ?? revenueTool?.painStatement ?? "Regeneration pending.";
-    const categorySlug = resolveToolCategory({
+    const categorySlug = resolveCategorySlugForSlug(
       slug,
       title,
       description,
-      tier: "premium",
-      source: "existing-premium",
-    });
+      "premium",
+      "existing-premium",
+    );
 
     return {
       slug,
@@ -97,13 +148,13 @@ function buildFreeItems(): CategorizedToolItem[] {
   return CANONICAL_TRAFFIC_FREE_SLUGS.map((slug) => {
     const title = humanizeCanonicalSlug(slug);
     const copyEn = resolveFreeToolLocalizedCopy(slug, "en");
-    const categorySlug = resolveToolCategory({
+    const categorySlug = resolveCategorySlugForSlug(
       slug,
-      title: copyEn.title || title,
-      description: copyEn.description ?? copyEn.title ?? title,
-      tier: "free",
-      source: "existing-free",
-    });
+      copyEn.title || title,
+      copyEn.description ?? copyEn.title ?? title,
+      "free",
+      "existing-free",
+    );
 
     return {
       slug,
@@ -127,7 +178,8 @@ function buildFreeItems(): CategorizedToolItem[] {
 function mergeBySlug(items: readonly CategorizedToolItem[]): readonly CategorizedToolItem[] {
   const bySlug = new Map<string, CategorizedToolItem>();
   const priority: Record<CategorizedToolSource, number> = {
-    "existing-premium": 2,
+    "existing-premium": 3,
+    "user-premium-152": 2,
     "existing-free": 1,
   };
 
@@ -152,7 +204,11 @@ export function buildCategorizedToolIndex(): readonly CategorizedToolItem[] {
     return cachedIndex;
   }
 
-  const merged = mergeBySlug([...buildPremiumItems(), ...buildFreeItems()]);
+  const merged = mergeBySlug([
+    ...buildPremiumItems(),
+    ...buildPremium152SeedItems(),
+    ...buildFreeItems(),
+  ]);
 
   const uncategorized = merged.filter((item) =>
     ["uncategorized", "misc", "other", "genel"].includes(item.categorySlug),

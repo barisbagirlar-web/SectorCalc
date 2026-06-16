@@ -1,0 +1,4 @@
+# IndexNow verification key is served dynamically when INDEXNOW_KEY is configured.
+# Production: https://www.sectorcalc.com/.well-known/indexnow-key.txt
+# Alternate: https://www.sectorcalc.com/{INDEXNOW_KEY}.txt
+# See docs/indexnow-setup.md

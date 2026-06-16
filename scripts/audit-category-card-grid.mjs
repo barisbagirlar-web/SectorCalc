@@ -25,6 +25,34 @@ const css = read("src/styles/premium-category-catalog.css");
 const card = read("src/components/catalog/PremiumSectorCard.tsx");
 const grid = read("src/components/catalog/PremiumSectorGrid.tsx");
 const iconMap = read("src/lib/catalog/category-icon-map.tsx");
+const freeToolsPage = read("src/app/[locale]/free-tools/page.tsx");
+const industriesPage = read("src/app/[locale]/industries/page.tsx");
+const schemaExplorer = read("src/components/tools/SchemaToolsCatalogExplorer.tsx");
+
+if (schemaExplorer.includes("CategoryCardGrid")) {
+  pass("SchemaToolsCatalogExplorer uses CategoryCardGrid");
+} else {
+  fail("SchemaToolsCatalogExplorer missing CategoryCardGrid");
+}
+
+if (freeToolsPage.includes("SchemaToolsCatalogExplorer")) {
+  pass("free-tools page uses SchemaToolsCatalogExplorer");
+} else {
+  fail("free-tools page missing SchemaToolsCatalogExplorer");
+}
+
+if (industriesPage.includes("SchemaToolsCatalogExplorer")) {
+  pass("industries page uses SchemaToolsCatalogExplorer");
+} else {
+  fail("industries page missing SchemaToolsCatalogExplorer");
+}
+
+if (!schemaExplorer.includes("CategoryFilterSidebar")) {
+  pass("SchemaToolsCatalogExplorer no longer uses legacy sidebar");
+} else {
+  fail("SchemaToolsCatalogExplorer still uses CategoryFilterSidebar");
+}
+
 const premiumPage = read("src/app/[locale]/premium-tools/page.tsx");
 
 if (css.includes(".sc-premium-category-grid")) {

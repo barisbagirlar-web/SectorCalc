@@ -37,6 +37,7 @@ function main() {
   }
 
   console.log("ensure-generated-artifacts: regenerating tools from schemas");
+  execSync("npm run assign:schema-categories", { stdio: "inherit", cwd: root });
   execSync("npm run generate:all", { stdio: "inherit", cwd: root });
   execSync("npm run generate:registry", { stdio: "inherit", cwd: root });
 }

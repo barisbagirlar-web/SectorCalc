@@ -18,7 +18,11 @@ const nextConfig: NextConfig = {
   },
   // Large generated-tool SSG can exceed the default 60s per page.
   staticPageGenerationTimeout: 180,
-  webpack: (config) => {
+  webpack: (config, { dev }) => {
+    // Filesystem pack cache races with controlled .next retries on large SSG trees (ENOENT rename).
+    if (!dev) {
+      config.cache = false;
+    }
     config.resolve.alias = {
       ...config.resolve.alias,
       "@generated": path.join(process.cwd(), "generated"),
@@ -59,7 +63,10 @@ const nextConfig: NextConfig = {
   async rewrites() {
     const indexNowKey = process.env.INDEXNOW_KEY?.trim();
     const indexNowVerification = indexNowKey
-      ? [{ source: `/${indexNowKey}.txt`, destination: "/api/indexnow-verification" }]
+      ? [
+          { source: `/${indexNowKey}.txt`, destination: "/api/indexnow-verification" },
+          { source: "/.well-known/indexnow-key.txt", destination: "/api/indexnow-verification" },
+        ]
       : [];
 
     return {

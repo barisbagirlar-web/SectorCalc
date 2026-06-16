@@ -1,7 +1,19 @@
 import { sectorCalcPremium152Seed } from "@/data/premium/sectorcalc-premium-152.seed";
 
 export type Premium152SeedCategory = (typeof sectorCalcPremium152Seed.categories)[number];
-export type Premium152SeedTool = (typeof sectorCalcPremium152Seed.tools)[number];
+
+/** Explicit shape — avoids TS union-size collapse on 152-item `as const` tools array. */
+export type Premium152SeedTool = {
+  readonly id: number;
+  readonly slug: string;
+  readonly trTitle: string;
+  readonly categorySlug: string;
+  readonly tier: "premium";
+  readonly formulaNote: string;
+  readonly pain: string;
+  readonly formulaStatus: "source-formula-provided" | "needs-contract" | string;
+  readonly publicStatus: "active" | "active-after-contract-validation" | "blocked" | string;
+};
 
 const EXPECTED_TOOL_COUNT = 152;
 const EXPECTED_CATEGORY_COUNT = 20;
@@ -96,14 +108,16 @@ export function getPremium152Categories(): readonly Premium152SeedCategory[] {
 
 export function getPremium152Tools(): readonly Premium152SeedTool[] {
   validatePremium152Seed();
-  return sectorCalcPremium152Seed.tools;
+  return sectorCalcPremium152Seed.tools as readonly Premium152SeedTool[];
 }
 
 export function getPremium152ToolsByCategory(
   categorySlug: string,
 ): readonly Premium152SeedTool[] {
   validatePremium152Seed();
-  return sectorCalcPremium152Seed.tools.filter((tool) => tool.categorySlug === categorySlug);
+  return (sectorCalcPremium152Seed.tools as readonly Premium152SeedTool[]).filter(
+    (tool) => tool.categorySlug === categorySlug,
+  );
 }
 
 export function getPremium152CategoryBySlug(

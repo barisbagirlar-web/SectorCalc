@@ -37,7 +37,7 @@ function evaluateAllFormulas(input: Beam_deflection_calculatorInput): Record<str
   try { const v = ((input.load_type == 'point_center') ? (0) : (((input.load_type == 'point_any') ? (0) : (((input.load_type == 'uniform') ? (0) : (((input.load_type == 'triangular') ? (0) : (0)))))))); results["max_deflection"] = Number.isFinite(v) ? v : 0; } catch { results["max_deflection"] = 0; }
   results["max_bending_stress"] = 0;
   try { const v = sigma_y / sigma_max; results["actual_safety_factor"] = Number.isFinite(v) ? v : 0; } catch { results["actual_safety_factor"] = 0; }
-  try { const v = eta = sigma_max / sigma_y; results["material_utilization"] = Number.isFinite(v) ? v : 0; } catch { results["material_utilization"] = 0; }
+  try { const v = sigma_max / sigma_y; results["material_utilization"] = Number.isFinite(v) ? v : 0; } catch { results["material_utilization"] = 0; }
   results["lean_mass_reduction_percent"] = 0;
   return results;
 }

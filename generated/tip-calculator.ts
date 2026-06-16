@@ -2,49 +2,38 @@
 import * as z from 'zod';
 
 export interface Tip_calculatorInput {
-  bill_amount: number;
-  service_quality: string;
-  party_size: number;
-  include_tax_in_tip: boolean;
-  tax_amount: number;
-  round_up: boolean;
+  billAmount: number;
+  tipPercent: number;
+  numberOfPeople: number;
+  taxRate: number;
 }
 
 export const Tip_calculatorInputSchema = z.object({
-  bill_amount: z.number().min(0.01).max(100000).default(50),
-  service_quality: z.enum(['poor', 'average', 'good', 'excellent']).default('average'),
-  party_size: z.number().min(1).max(100).default(2),
-  include_tax_in_tip: z.boolean().default(false),
-  tax_amount: z.number().min(0).max(10000).default(5),
-  round_up: z.boolean().default(false),
+  billAmount: z.number().default(100),
+  tipPercent: z.number().default(15),
+  numberOfPeople: z.number().default(2),
+  taxRate: z.number().default(8),
 });
 
 function evaluateAllFormulas(input: Tip_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.service_quality === 'poor' ? 10 : (input.service_quality === 'average' ? 15 : (input.service_quality === 'good' ? 18 : (input.service_quality === 'excellent' ? 20 : 15)))); results["base_tip_percentage"] = Number.isFinite(v) ? v : 0; } catch { results["base_tip_percentage"] = 0; }
-  results["adjusted_tip_percentage"] = 0;
-  results["effective_bill_amount"] = 0;
-  try { const v = (results["effective_bill_amount"] ?? 0) * ((results["adjusted_tip_percentage"] ?? 0) / 100); results["raw_tip_amount"] = Number.isFinite(v) ? v : 0; } catch { results["raw_tip_amount"] = 0; }
-  results["final_tip_amount"] = 0;
-  try { const v = input.bill_amount + input.tax_amount + (results["final_tip_amount"] ?? 0); results["total_paid"] = Number.isFinite(v) ? v : 0; } catch { results["total_paid"] = 0; }
-  try { const v = (Math.round((((results["final_tip_amount"] ?? 0) / input.bill_amount) * 100) * 10**(2)) / 10**(2)); results["tip_percentage"] = Number.isFinite(v) ? v : 0; } catch { results["tip_percentage"] = 0; }
+  try { const v = input.billAmount * (input.taxRate / 100); results["taxAmount"] = Number.isFinite(v) ? v : 0; } catch { results["taxAmount"] = 0; }
+  try { const v = input.billAmount + (results["taxAmount"] ?? 0); results["totalWithTax"] = Number.isFinite(v) ? v : 0; } catch { results["totalWithTax"] = 0; }
+  try { const v = input.billAmount * (input.tipPercent / 100); results["tipAmount"] = Number.isFinite(v) ? v : 0; } catch { results["tipAmount"] = 0; }
+  try { const v = (results["totalWithTax"] ?? 0) + (results["tipAmount"] ?? 0); results["totalAmount"] = Number.isFinite(v) ? v : 0; } catch { results["totalAmount"] = 0; }
+  try { const v = (results["totalAmount"] ?? 0) / input.numberOfPeople; results["totalPerPerson"] = Number.isFinite(v) ? v : 0; } catch { results["totalPerPerson"] = 0; }
   return results;
 }
 
 
 export function calculateTip_calculator(input: Tip_calculatorInput): Tip_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["final_tip_amount"] ?? 0;
+  const totalWasteCost = values["totalPerPerson"] ?? 0;
   const breakdown = {
-    base_tip_percentage: values["base_tip_percentage"] ?? 0,
-    adjusted_tip_percentage: values["adjusted_tip_percentage"] ?? 0,
-    effective_bill_amount: values["effective_bill_amount"] ?? 0,
-    raw_tip_amount: values["raw_tip_amount"] ?? 0,
-    total_paid: values["total_paid"] ?? 0,
-    tip_percentage: values["tip_percentage"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Rounding Loss","Tax Inclusion Effect","Party Size Premium"];
-  const suggestedActions: string[] = ["Consider discussing service concerns with management to improve future experiences.","Consider splitting the tip equally among party members for convenience.","Verify if automatic gratuity has already been added to the bill before adding additional tip.","Consider rounding up the tip to the nearest dollar for simplicity."];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -56,14 +45,14 @@ export function calculateTip_calculator(input: Tip_calculatorInput): Tip_calcula
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: false,
-    premiumFeatures: ["PDF export","CSV export","Trend analysis"],
+    premiumFeatures: [],
   };
 }
 
 
 export interface Tip_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { base_tip_percentage: number; adjusted_tip_percentage: number; effective_bill_amount: number; raw_tip_amount: number; total_paid: number; tip_percentage: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

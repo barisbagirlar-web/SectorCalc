@@ -2,64 +2,42 @@
 import * as z from 'zod';
 
 export interface Auto_loan_calculatorInput {
-  vehicle_price: number;
-  down_payment: number;
-  trade_in_value: number;
-  annual_interest_rate: number;
-  loan_term_months: number;
-  credit_score: number;
-  monthly_income: number;
-  existing_monthly_debt: number;
-  insurance_cost_monthly: number;
-  fuel_cost_monthly: number;
-  maintenance_cost_monthly: number;
-  depreciation_rate_annual: number;
-  sales_tax_rate: number;
-  registration_fee_annual: number;
+  vehiclePrice: number;
+  downPayment: number;
+  tradeInValue: number;
+  salesTaxRate: number;
+  interestRate: number;
+  loanTerm: number;
 }
 
 export const Auto_loan_calculatorInputSchema = z.object({
-  vehicle_price: z.number().min(1000).max(200000).default(35000),
-  down_payment: z.number().min(0).max(100000).default(5000),
-  trade_in_value: z.number().min(0).max(100000).default(0),
-  annual_interest_rate: z.number().min(0.5).max(25).default(6.5),
-  loan_term_months: z.number().min(12).max(84).default(60),
-  credit_score: z.number().min(300).max(850).default(700),
-  monthly_income: z.number().min(1000).max(50000).default(5000),
-  existing_monthly_debt: z.number().min(0).max(20000).default(500),
-  insurance_cost_monthly: z.number().min(30).max(500).default(120),
-  fuel_cost_monthly: z.number().min(0).max(1000).default(150),
-  maintenance_cost_monthly: z.number().min(0).max(500).default(80),
-  depreciation_rate_annual: z.number().min(5).max(40).default(15),
-  sales_tax_rate: z.number().min(0).max(15).default(7),
-  registration_fee_annual: z.number().min(0).max(2000).default(200),
+  vehiclePrice: z.number().default(30000),
+  downPayment: z.number().default(5000),
+  tradeInValue: z.number().default(0),
+  salesTaxRate: z.number().default(8),
+  interestRate: z.number().default(5),
+  loanTerm: z.number().default(60),
 });
 
 function evaluateAllFormulas(input: Auto_loan_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.vehicle_price - input.down_payment - input.trade_in_value; results["loan_amount"] = Number.isFinite(v) ? v : 0; } catch { results["loan_amount"] = 0; }
-  try { const v = (input.annual_interest_rate / 100) / 12; results["monthly_interest_rate"] = Number.isFinite(v) ? v : 0; } catch { results["monthly_interest_rate"] = 0; }
-  try { const v = (results["loan_amount"] ?? 0) * ((results["monthly_interest_rate"] ?? 0) * (1 + (results["monthly_interest_rate"] ?? 0))^input.loan_term_months) / ((1 + (results["monthly_interest_rate"] ?? 0))^input.loan_term_months - 1); results["estimated_monthly_payment"] = Number.isFinite(v) ? v : 0; } catch { results["estimated_monthly_payment"] = 0; }
-  try { const v = (results["estimated_monthly_payment"] ?? 0) * input.loan_term_months - (results["loan_amount"] ?? 0); results["total_interest_paid"] = Number.isFinite(v) ? v : 0; } catch { results["total_interest_paid"] = 0; }
-  try { const v = (results["estimated_monthly_payment"] ?? 0) + input.insurance_cost_monthly + input.fuel_cost_monthly + input.maintenance_cost_monthly + (input.registration_fee_annual / 12); results["total_operating_cost_monthly"] = Number.isFinite(v) ? v : 0; } catch { results["total_operating_cost_monthly"] = 0; }
-  try { const v = (results["loan_amount"] ?? 0) + (results["total_interest_paid"] ?? 0) + ((results["total_operating_cost_monthly"] ?? 0) * 60) + (input.vehicle_price * (input.depreciation_rate_annual / 100) * 5) + (input.vehicle_price * (input.sales_tax_rate / 100)); results["total_cost_of_ownership"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost_of_ownership"] = 0; }
-  try { const v = (input.existing_monthly_debt + (results["estimated_monthly_payment"] ?? 0)) / input.monthly_income * 100; results["debt_to_income_ratio"] = Number.isFinite(v) ? v : 0; } catch { results["debt_to_income_ratio"] = 0; }
+  try { const v = input.vehiclePrice + (input.vehiclePrice - input.tradeInValue) * input.salesTaxRate / 100 - input.downPayment - input.tradeInValue; results["loanAmount"] = Number.isFinite(v) ? v : 0; } catch { results["loanAmount"] = 0; }
+  try { const v = input.interestRate / 100 / 12; results["monthlyInterestRate"] = Number.isFinite(v) ? v : 0; } catch { results["monthlyInterestRate"] = 0; }
+  try { const v = (results["loanAmount"] ?? 0) * (results["monthlyInterestRate"] ?? 0) * Math.pow(1 + (results["monthlyInterestRate"] ?? 0), input.loanTerm) / (Math.pow(1 + (results["monthlyInterestRate"] ?? 0), input.loanTerm) - 1); results["monthlyPayment"] = Number.isFinite(v) ? v : 0; } catch { results["monthlyPayment"] = 0; }
+  try { const v = (results["monthlyPayment"] ?? 0) * input.loanTerm - (results["loanAmount"] ?? 0); results["totalInterest"] = Number.isFinite(v) ? v : 0; } catch { results["totalInterest"] = 0; }
+  try { const v = (results["monthlyPayment"] ?? 0) * input.loanTerm; results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
   return results;
 }
 
 
 export function calculateAuto_loan_calculator(input: Auto_loan_calculatorInput): Auto_loan_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["estimated_monthly_payment"] ?? 0;
+  const totalWasteCost = values["monthlyPayment"] ?? 0;
   const breakdown = {
-    loan_amount: values["loan_amount"] ?? 0,
-    total_interest_paid: values["total_interest_paid"] ?? 0,
-    total_operating_cost_monthly: values["total_operating_cost_monthly"] ?? 0,
-    total_cost_of_ownership: values["total_cost_of_ownership"] ?? 0,
-    debt_to_income_ratio: values["debt_to_income_ratio"] ?? 0
+    
   };
-  const hiddenLossDrivers: string[] = ["Depreciation Impact","Opportunity Cost of Down Payment","Insurance Premium Inflation"];
-  const suggestedActions: string[] = ["Increase Down Payment","Shorten Loan Term to 48 Months","Improve Credit Score to 740+","Reduce Operating Costs"];
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
   const dataConfidenceAdjusted =
     typeof (input as Record<string, unknown>).dataConfidence === "number"
       ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
@@ -78,7 +56,7 @@ export function calculateAuto_loan_calculator(input: Auto_loan_calculatorInput):
 
 export interface Auto_loan_calculatorOutput {
   totalWasteCost: number;
-  breakdown: { loan_amount: number; total_interest_paid: number; total_operating_cost_monthly: number; total_cost_of_ownership: number; debt_to_income_ratio: number };
+  breakdown: {  };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;

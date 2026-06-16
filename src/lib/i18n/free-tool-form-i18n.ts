@@ -123,12 +123,24 @@ function finalizeFieldCopy(
   };
 }
 
-function isEnglishIdenticalToEn(locale: string, slug: string, normalizedKey: string, label: string): boolean {
-  if (locale === "en" || !label) {
-    return false;
+function hasDistinctBundleCopy(
+  locale: string,
+  slug: string,
+  normalizedKey: string,
+  fromBundle: FieldDisplayCopy,
+): boolean {
+  if (locale === "en") {
+    return true;
   }
-  const enLabel = readGeneratedFieldCopy("en", slug, normalizedKey)?.label ?? "";
-  return Boolean(enLabel && label === enLabel);
+  const enBundle = readGeneratedFieldCopy("en", slug, normalizedKey);
+  if (!enBundle?.label) {
+    return Boolean(fromBundle.label);
+  }
+  return (
+    fromBundle.label !== enBundle.label ||
+    fromBundle.placeholder !== enBundle.placeholder ||
+    (fromBundle.helper ?? "") !== (enBundle.helper ?? "")
+  );
 }
 
 export function resolveFreeToolFieldDisplay(
@@ -140,7 +152,7 @@ export function resolveFreeToolFieldDisplay(
   const normalizedKey = fieldKey.toLowerCase();
 
   const fromBundle = readGeneratedFieldCopy(locale, slug, normalizedKey);
-  if (fromBundle?.label && !isEnglishIdenticalToEn(locale, slug, normalizedKey, fromBundle.label)) {
+  if (fromBundle?.label && hasDistinctBundleCopy(locale, slug, normalizedKey, fromBundle)) {
     return finalizeFieldCopy(fromBundle, locale, locale !== "en");
   }
 

@@ -1,285 +1,55 @@
 {
-  "slug": "tip-calculator",
-  "title": "Tip Calculator",
-  "description": "Industrial-grade tip calculator for service transactions, incorporating lean efficiency and Six Sigma accuracy standards.",
-  "premiumRequired": false,
-  "premiumFeatures": [
-    "PDF export",
-    "CSV export",
-    "Trend analysis"
-  ],
+  "toolName": "tip-calculator",
   "inputs": [
     {
-      "id": "bill_amount",
+      "id": "billAmount",
       "label": "Bill Amount",
       "type": "number",
       "unit": "USD",
-      "default": 50,
-      "min": 0.01,
-      "max": 100000,
-      "businessContext": "Total pre-tax bill amount for the service transaction.",
-      "label_i18n": {
-        "en": "Bill Amount"
-      },
-      "businessContext_i18n": {
-        "en": "Total pre-tax bill amount for the service transaction."
-      }
+      "default": 100,
+      "businessContext": "Total pre-tax bill amount"
     },
     {
-      "id": "service_quality",
-      "label": "Service Quality Rating",
-      "type": "select",
-      "unit": "rating",
-      "default": "average",
-      "min": null,
-      "max": null,
-      "businessContext": "Customer's perception of service quality, used to determine base tip percentage.",
-      "options": [
-        "poor",
-        "average",
-        "good",
-        "excellent"
-      ],
-      "label_i18n": {
-        "en": "Service Quality Rating"
-      },
-      "businessContext_i18n": {
-        "en": "Customer's perception of service quality, used to determine base tip percentage."
-      }
-    },
-    {
-      "id": "party_size",
-      "label": "Party Size",
+      "id": "tipPercent",
+      "label": "Tip Percentage",
       "type": "number",
-      "unit": "persons",
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Tip percentage on pre-tax amount"
+    },
+    {
+      "id": "numberOfPeople",
+      "label": "Number of People",
+      "type": "number",
+      "unit": "people",
       "default": 2,
-      "min": 1,
-      "max": 100,
-      "businessContext": "Number of people in the dining party, affects automatic gratuity thresholds.",
-      "label_i18n": {
-        "en": "Party Size"
-      },
-      "businessContext_i18n": {
-        "en": "Number of people in the dining party, affects automatic gratuity thresholds."
-      }
+      "businessContext": "Number of diners splitting the bill"
     },
     {
-      "id": "include_tax_in_tip",
-      "label": "Include Tax in Tip Calculation",
-      "type": "boolean",
-      "unit": null,
-      "default": false,
-      "min": null,
-      "max": null,
-      "businessContext": "If true, tip is calculated on bill amount including tax; otherwise on pre-tax amount.",
-      "label_i18n": {
-        "en": "Include Tax in Tip Calculation"
-      },
-      "businessContext_i18n": {
-        "en": "If true, tip is calculated on bill amount including tax; otherwise on pre-tax amount."
-      }
-    },
-    {
-      "id": "tax_amount",
-      "label": "Tax Amount",
+      "id": "taxRate",
+      "label": "Tax Rate",
       "type": "number",
-      "unit": "USD",
-      "default": 5,
-      "min": 0,
-      "max": 10000,
-      "businessContext": "Applicable sales tax or VAT on the bill, used when include_tax_in_tip is true.",
-      "label_i18n": {
-        "en": "Tax Amount"
-      },
-      "businessContext_i18n": {
-        "en": "Applicable sales tax or VAT on the bill, used when include_tax_in_tip is true."
-      }
-    },
-    {
-      "id": "round_up",
-      "label": "Round Up Tip to Nearest Dollar",
-      "type": "boolean",
-      "unit": null,
-      "default": false,
-      "min": null,
-      "max": null,
-      "businessContext": "If true, the final tip amount is rounded up to the next whole dollar.",
-      "label_i18n": {
-        "en": "Round Up Tip to Nearest Dollar"
-      },
-      "businessContext_i18n": {
-        "en": "If true, the final tip amount is rounded up to the next whole dollar."
-      }
+      "unit": "%",
+      "default": 8,
+      "businessContext": "Sales tax rate applied to bill"
     }
   ],
-  "validation": {
-    "rules": [
-      {
-        "id": "bill_positive",
-        "condition": "bill_amount > 0",
-        "message": "Bill amount must be greater than zero."
-      },
-      {
-        "id": "party_size_positive",
-        "condition": "party_size >= 1",
-        "message": "Party size must be at least 1."
-      },
-      {
-        "id": "tax_positive_if_included",
-        "condition": "include_tax_in_tip == false OR tax_amount >= 0",
-        "message": "Tax amount must be non-negative when including tax."
-      },
-      {
-        "id": "service_quality_valid",
-        "condition": "service_quality in ['poor','average','good','excellent']",
-        "message": "Service quality must be one of: poor, average, good, excellent."
-      }
-    ],
-    "thresholds": [
-      {
-        "id": "high_tip_alert",
-        "condition": "final_tip_amount > 100",
-        "message": "Tip amount exceeds $100, consider reviewing service quality."
-      },
-      {
-        "id": "large_party_auto_gratuity",
-        "condition": "party_size >= 8",
-        "message": "Party size of 8 or more may be subject to automatic gratuity per restaurant policy."
-      },
-      {
-        "id": "low_tip_warning",
-        "condition": "tip_percentage < 10",
-        "message": "Tip percentage is below 10%, which may be considered low for standard service."
-      }
+  "formulas": {
+    "taxAmount": "billAmount * (taxRate / 100)",
+    "totalWithTax": "billAmount + taxAmount",
+    "tipAmount": "billAmount * (tipPercent / 100)",
+    "totalAmount": "totalWithTax + tipAmount",
+    "totalPerPerson": "totalAmount / numberOfPeople"
+  },
+  "outputs": {
+    "primary": "totalPerPerson",
+    "breakdown": [
+      "tipAmount",
+      "totalAmount",
+      "totalPerPerson"
     ]
   },
-  "formulas": [
-    {
-      "id": "base_tip_percentage",
-      "description": "Determine base tip percentage from service quality rating (ISO 9001 customer satisfaction mapping).",
-      "expression": "CASE service_quality WHEN 'poor' THEN 10 WHEN 'average' THEN 15 WHEN 'good' THEN 18 WHEN 'excellent' THEN 20 ELSE 15 END"
-    },
-    {
-      "id": "adjusted_tip_percentage",
-      "description": "Adjust tip percentage for party size using lean efficiency factor (larger parties may warrant higher tip due to complexity).",
-      "expression": "base_tip_percentage + (CASE WHEN party_size >= 6 THEN 2 ELSE 0 END)"
-    },
-    {
-      "id": "effective_bill_amount",
-      "description": "Calculate the bill amount on which tip is based, including tax if selected.",
-      "expression": "CASE WHEN include_tax_in_tip == true THEN bill_amount + tax_amount ELSE bill_amount END"
-    },
-    {
-      "id": "raw_tip_amount",
-      "description": "Compute raw tip amount before rounding.",
-      "expression": "effective_bill_amount * (adjusted_tip_percentage / 100)"
-    },
-    {
-      "id": "final_tip_amount",
-      "description": "Apply rounding if selected, producing the final tip amount.",
-      "expression": "CASE WHEN round_up == true THEN CEIL(raw_tip_amount) ELSE ROUND(raw_tip_amount, 2) END"
-    },
-    {
-      "id": "total_paid",
-      "description": "Total amount paid including bill, tax, and tip.",
-      "expression": "bill_amount + tax_amount + final_tip_amount"
-    },
-    {
-      "id": "tip_percentage",
-      "description": "Actual tip percentage relative to original bill amount (excluding tax) for reporting.",
-      "expression": "ROUND((final_tip_amount / bill_amount) * 100, 2)"
-    }
-  ],
-  "outputs": {
-    "primary": {
-      "id": "final_tip_amount",
-      "label": "Recommended Tip Amount",
-      "unit": "USD",
-      "description": "Final tip amount calculated based on inputs and rounding preference."
-    },
-    "breakdown": {
-      "base_tip_percentage": {
-        "id": "base_tip_percentage",
-        "label": "Base Tip Percentage",
-        "unit": "%",
-        "value": null
-      },
-      "adjusted_tip_percentage": {
-        "id": "adjusted_tip_percentage",
-        "label": "Adjusted Tip Percentage",
-        "unit": "%",
-        "value": null
-      },
-      "effective_bill_amount": {
-        "id": "effective_bill_amount",
-        "label": "Effective Bill Amount",
-        "unit": "USD",
-        "value": null
-      },
-      "raw_tip_amount": {
-        "id": "raw_tip_amount",
-        "label": "Raw Tip Amount",
-        "unit": "USD",
-        "value": null
-      },
-      "total_paid": {
-        "id": "total_paid",
-        "label": "Total Paid",
-        "unit": "USD",
-        "value": null
-      },
-      "tip_percentage": {
-        "id": "tip_percentage",
-        "label": "Actual Tip Percentage",
-        "unit": "%",
-        "value": null
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "rounding_loss",
-        "label": "Rounding Loss",
-        "description": "Difference between raw tip and final tip due to rounding, representing potential loss/gain.",
-        "unit": "USD",
-        "formula": "final_tip_amount - raw_tip_amount"
-      },
-      {
-        "id": "tax_inclusion_effect",
-        "label": "Tax Inclusion Effect",
-        "description": "Additional tip amount generated by including tax in the base, representing hidden cost to customer.",
-        "unit": "USD",
-        "formula": "CASE WHEN include_tax_in_tip == true THEN (tax_amount * adjusted_tip_percentage / 100) ELSE 0 END"
-      },
-      {
-        "id": "party_size_premium",
-        "label": "Party Size Premium",
-        "description": "Extra tip percentage added due to party size adjustment, representing incremental service cost.",
-        "unit": "%",
-        "formula": "CASE WHEN party_size >= 6 THEN 2 ELSE 0 END"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "review_service_quality",
-        "condition": "tip_percentage < 12",
-        "action": "Consider discussing service concerns with management to improve future experiences."
-      },
-      {
-        "id": "split_tip",
-        "condition": "party_size > 1",
-        "action": "Consider splitting the tip equally among party members for convenience."
-      },
-      {
-        "id": "check_auto_gratuity",
-        "condition": "party_size >= 8",
-        "action": "Verify if automatic gratuity has already been added to the bill before adding additional tip."
-      },
-      {
-        "id": "round_up_suggestion",
-        "condition": "round_up == false AND raw_tip_amount - FLOOR(raw_tip_amount) > 0.5",
-        "action": "Consider rounding up the tip to the nearest dollar for simplicity."
-      }
-    ],
-    "dataConfidenceAdjusted": 0.95
-  }
+  "category": "Finans & Kredi",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false
 }

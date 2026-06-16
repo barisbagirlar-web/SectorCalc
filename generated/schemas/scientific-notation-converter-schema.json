@@ -1,300 +1,60 @@
 {
-  "slug": "scientific-notation-converter",
-  "title": "Scientific Notation Converter",
-  "description": "Converts numbers between decimal and scientific notation with precision control, error analysis, and industrial-grade validation. Compliant with ISO 80000-1 and NIST SP 811.",
-  "premiumRequired": false,
-  "premiumFeatures": [
-    "PDF export",
-    "CSV export",
-    "Trend analysis"
-  ],
+  "toolName": "scientific-notation-converter",
   "inputs": [
     {
-      "id": "inputNumber",
-      "label": "Input Number",
+      "id": "decimalNumber",
+      "label": "Decimal Number",
       "type": "number",
-      "unit": "dimensionless",
-      "default": 1,
-      "min": -1e+308,
-      "max": 1e+308,
-      "businessContext": "The numeric value to be converted. Accepts any real number within double-precision floating-point range.",
-      "label_i18n": {
-        "en": "Input Number"
-      },
-      "businessContext_i18n": {
-        "en": "The numeric value to be converted. Accepts any real number within double-precision floating-point range."
-      }
+      "unit": "",
+      "default": 12345.67,
+      "businessContext": "Number to convert to scientific notation (when converting from decimal)."
     },
     {
-      "id": "conversionDirection",
-      "label": "Conversion Direction",
-      "type": "select",
-      "unit": "dimensionless",
-      "default": "toScientific",
-      "min": null,
-      "max": null,
-      "options": [
-        "toScientific",
-        "toDecimal"
-      ],
-      "businessContext": "Select whether to convert from decimal to scientific notation or from scientific notation to decimal.",
-      "label_i18n": {
-        "en": "Conversion Direction"
-      },
-      "businessContext_i18n": {
-        "en": "Select whether to convert from decimal to scientific notation or from scientific notation to decimal."
-      }
-    },
-    {
-      "id": "significantDigits",
-      "label": "Significant Digits",
+      "id": "scientificCoefficient",
+      "label": "Scientific Coefficient",
       "type": "number",
-      "unit": "dimensionless",
-      "default": 4,
-      "min": 1,
-      "max": 15,
-      "businessContext": "Number of significant digits in the scientific notation output. Follows ISO 80000-1 rounding rules.",
-      "label_i18n": {
-        "en": "Significant Digits"
-      },
-      "businessContext_i18n": {
-        "en": "Number of significant digits in the scientific notation output. Follows ISO 80000-1 rounding rules."
-      }
+      "unit": "",
+      "default": 1.234567,
+      "businessContext": "Coefficient in scientific notation (when converting from scientific)."
     },
     {
-      "id": "decimalPlaces",
-      "label": "Decimal Places",
+      "id": "scientificExponent",
+      "label": "Scientific Exponent",
       "type": "number",
-      "unit": "dimensionless",
-      "default": 4,
-      "min": 0,
-      "max": 15,
-      "businessContext": "Number of decimal places for the decimal output. Used when converting from scientific to decimal.",
-      "label_i18n": {
-        "en": "Decimal Places"
-      },
-      "businessContext_i18n": {
-        "en": "Number of decimal places for the decimal output. Used when converting from scientific to decimal."
-      }
+      "unit": "",
+      "default": 3,
+      "businessContext": "Exponent in scientific notation (when converting from scientific)."
     },
     {
-      "id": "engineeringNotation",
-      "label": "Engineering Notation",
-      "type": "boolean",
-      "unit": "dimensionless",
-      "default": false,
-      "min": null,
-      "max": null,
-      "businessContext": "If true, exponent is forced to a multiple of 3 for engineering applications (IEC 60027).",
-      "label_i18n": {
-        "en": "Engineering Notation"
-      },
-      "businessContext_i18n": {
-        "en": "If true, exponent is forced to a multiple of 3 for engineering applications (IEC 60027)."
-      }
+      "id": "conversionMode",
+      "label": "Conversion Mode",
+      "type": "number",
+      "unit": "0=Decimal to Sci, 1=Sci to Decimal",
+      "default": 0,
+      "businessContext": "Select conversion direction."
     },
     {
-      "id": "useEpsilon",
-      "label": "Use Epsilon Threshold",
-      "type": "boolean",
-      "unit": "dimensionless",
-      "default": true,
-      "min": null,
-      "max": null,
-      "businessContext": "If true, numbers below machine epsilon (2.22e-16) are flagged as potential underflow.",
-      "label_i18n": {
-        "en": "Use Epsilon Threshold"
-      },
-      "businessContext_i18n": {
-        "en": "If true, numbers below machine epsilon (2.22e-16) are flagged as potential underflow."
-      }
+      "id": "precision",
+      "label": "Decimal Precision",
+      "type": "number",
+      "unit": "places",
+      "default": 6,
+      "businessContext": "Number of decimal places in output."
     }
   ],
-  "validation": {
-    "rules": [
-      {
-        "id": "rule_significantDigits_range",
-        "condition": "significantDigits < 1 || significantDigits > 15",
-        "message": "Significant digits must be between 1 and 15."
-      },
-      {
-        "id": "rule_decimalPlaces_range",
-        "condition": "decimalPlaces < 0 || decimalPlaces > 15",
-        "message": "Decimal places must be between 0 and 15."
-      },
-      {
-        "id": "rule_inputNumber_finite",
-        "condition": "!isFinite(inputNumber)",
-        "message": "Input number must be a finite real number."
-      },
-      {
-        "id": "rule_engineering_exponent",
-        "condition": "engineeringNotation == true && conversionDirection == 'toScientific' && (Math.abs(exponent) % 3) != 0",
-        "message": "Engineering notation requires exponent to be a multiple of 3. Adjust significant digits or disable engineering notation."
-      }
-    ],
-    "thresholds": [
-      {
-        "id": "threshold_underflow",
-        "condition": "useEpsilon == true && Math.abs(inputNumber) < 2.22e-16 && inputNumber != 0",
-        "alert": "Input number is below machine epsilon. Result may be affected by floating-point underflow."
-      },
-      {
-        "id": "threshold_overflow",
-        "condition": "Math.abs(inputNumber) > 1e308",
-        "alert": "Input number exceeds double-precision range. Result will be Infinity."
-      },
-      {
-        "id": "threshold_precision_loss",
-        "condition": "significantDigits > 12",
-        "alert": "High significant digit count may introduce rounding errors beyond typical measurement precision."
-      }
+  "formulas": {
+    "primary": "conversionMode === 0 ? (decimalNumber === 0 ? '0' : (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision) + 'e' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)",
+    "breakdown0": "conversionMode === 0 ? (decimalNumber === 0 ? 'Coefficient: 0' : 'Coefficient: ' + (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision)) : 'Decimal: ' + (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)",
+    "breakdown1": "conversionMode === 0 ? (decimalNumber === 0 ? 'Exponent: 0' : 'Exponent: ' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : 'Scientific Input: ' + scientificCoefficient + 'e' + scientificExponent"
+  },
+  "outputs": {
+    "primary": "conversionMode === 0 ? (decimalNumber === 0 ? '0' : (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision) + 'e' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)",
+    "breakdown": [
+      "conversionMode === 0 ? (decimalNumber === 0 ? 'Coefficient: 0' : 'Coefficient: ' + (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision)) : 'Decimal: ' + (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)",
+      "conversionMode === 0 ? (decimalNumber === 0 ? 'Exponent: 0' : 'Exponent: ' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : 'Scientific Input: ' + scientificCoefficient + 'e' + scientificExponent"
     ]
   },
-  "formulas": [
-    {
-      "id": "subformula_absoluteValue",
-      "name": "Absolute Value",
-      "description": "Absolute value of the input number for exponent calculation.",
-      "formula": "absVal = Math.abs(inputNumber)"
-    },
-    {
-      "id": "subformula_exponent",
-      "name": "Exponent Calculation",
-      "description": "Base-10 exponent of the absolute value. For zero, exponent is set to 0.",
-      "formula": "exponent = (absVal === 0) ? 0 : Math.floor(Math.log10(absVal))"
-    },
-    {
-      "id": "subformula_mantissa",
-      "name": "Mantissa Calculation",
-      "description": "Mantissa (coefficient) rounded to the specified number of significant digits.",
-      "formula": "mantissa = (absVal === 0) ? 0 : parseFloat((absVal / Math.pow(10, exponent)).toPrecision(significantDigits))"
-    },
-    {
-      "id": "subformula_engineeringAdjustment",
-      "name": "Engineering Notation Adjustment",
-      "description": "If engineering notation is enabled, adjust exponent to nearest multiple of 3 and shift mantissa accordingly.",
-      "formula": "if (engineeringNotation && conversionDirection === 'toScientific') { let remainder = exponent % 3; if (remainder < 0) remainder += 3; exponent = exponent - remainder; mantissa = mantissa * Math.pow(10, remainder); mantissa = parseFloat(mantissa.toPrecision(significantDigits)); }"
-    },
-    {
-      "id": "subformula_signHandling",
-      "name": "Sign Handling",
-      "description": "Apply the sign of the original number to the mantissa.",
-      "formula": "signedMantissa = (inputNumber < 0) ? -mantissa : mantissa"
-    },
-    {
-      "id": "subformula_scientificNotation",
-      "name": "Scientific Notation String",
-      "description": "Construct the scientific notation string: signedMantissa × 10^exponent.",
-      "formula": "scientificString = signedMantissa + ' × 10^' + exponent"
-    },
-    {
-      "id": "subformula_decimalConversion",
-      "name": "Decimal Conversion",
-      "description": "If conversion direction is to decimal, compute the decimal value from scientific notation input. Assumes inputNumber is in scientific notation format (e.g., 1.23e4).",
-      "formula": "if (conversionDirection === 'toDecimal') { decimalValue = parseFloat(inputNumber.toExponential(decimalPlaces)); } else { decimalValue = inputNumber; }"
-    }
-  ],
-  "outputs": {
-    "primary": {
-      "id": "convertedValue",
-      "label": "Converted Value",
-      "description": "The primary result: either the scientific notation string or the decimal number, depending on conversion direction.",
-      "type": "string",
-      "unit": "dimensionless",
-      "formula": "conversionDirection === 'toScientific' ? scientificString : decimalValue.toString()"
-    },
-    "breakdown": {
-      "mantissa": {
-        "id": "mantissa",
-        "label": "Mantissa (Coefficient)",
-        "description": "The coefficient part of the scientific notation.",
-        "type": "number",
-        "unit": "dimensionless",
-        "formula": "signedMantissa"
-      },
-      "exponent": {
-        "id": "exponent",
-        "label": "Exponent",
-        "description": "The exponent part of the scientific notation.",
-        "type": "number",
-        "unit": "dimensionless",
-        "formula": "exponent"
-      },
-      "significantDigitsUsed": {
-        "id": "significantDigitsUsed",
-        "label": "Significant Digits Used",
-        "description": "Actual number of significant digits in the mantissa.",
-        "type": "number",
-        "unit": "dimensionless",
-        "formula": "significantDigits"
-      },
-      "engineeringNotationFlag": {
-        "id": "engineeringNotationFlag",
-        "label": "Engineering Notation Applied",
-        "description": "Indicates whether engineering notation was applied.",
-        "type": "boolean",
-        "unit": "dimensionless",
-        "formula": "engineeringNotation"
-      },
-      "decimalValue": {
-        "id": "decimalValue",
-        "label": "Decimal Value",
-        "description": "The decimal representation of the input number.",
-        "type": "number",
-        "unit": "dimensionless",
-        "formula": "decimalValue"
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "loss_roundingError",
-        "label": "Rounding Error",
-        "description": "Potential loss of precision due to rounding to significant digits.",
-        "value": "Math.abs(inputNumber - parseFloat(scientificString.replace(' × 10^', 'e')))"
-      },
-      {
-        "id": "loss_underflowRisk",
-        "label": "Underflow Risk",
-        "description": "Indicator if input is near machine epsilon and may cause underflow.",
-        "value": "useEpsilon && Math.abs(inputNumber) < 2.22e-16 && inputNumber !== 0 ? 1 : 0"
-      },
-      {
-        "id": "loss_overflowRisk",
-        "label": "Overflow Risk",
-        "description": "Indicator if input exceeds safe double-precision range.",
-        "value": "Math.abs(inputNumber) > 1e308 ? 1 : 0"
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "action_increaseSignificantDigits",
-        "label": "Increase Significant Digits",
-        "description": "If rounding error is significant, increase the number of significant digits up to 15.",
-        "condition": "loss_roundingError > 1e-10"
-      },
-      {
-        "id": "action_disableEngineering",
-        "label": "Disable Engineering Notation",
-        "description": "If engineering notation causes exponent adjustment that reduces precision, consider disabling it.",
-        "condition": "engineeringNotation && (Math.abs(exponent) % 3) !== 0"
-      },
-      {
-        "id": "action_checkInputScale",
-        "label": "Check Input Scale",
-        "description": "If underflow or overflow risk is detected, verify the input number scale for measurement errors.",
-        "condition": "loss_underflowRisk === 1 || loss_overflowRisk === 1"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "dataConfidenceAdjusted",
-      "label": "Data Confidence Adjusted",
-      "description": "Confidence score (0-1) adjusted for precision and risk factors. 1 = high confidence, 0 = no confidence.",
-      "type": "number",
-      "unit": "dimensionless",
-      "min": 0,
-      "max": 1,
-      "formula": "Math.max(0, Math.min(1, 1 - (loss_roundingError / Math.abs(inputNumber || 1)) - (loss_underflowRisk * 0.5) - (loss_overflowRisk * 0.8)))"
-    }
-  }
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false
 }

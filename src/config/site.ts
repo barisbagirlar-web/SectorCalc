@@ -32,12 +32,13 @@ export const SITE = {
  defaultCurrency: "USD" as const,
 } as const;
 
-/** Desktop header nav — Free → Premium → Industry → Pricing. */
+/** Desktop header nav — Free → Premium → Industry → Case Studies → Pricing. */
 export const DESKTOP_HEADER_NAV = [
- { key: "freeCalculators", href: "/free-tools" },
- { key: "premiumCalculators", href: "/premium-tools" },
- { key: "industryCalculators", href: "/industries" },
- { key: "pricing", href: "/pricing" },
+  { key: "freeCalculators", href: "/free-tools" },
+  { key: "premiumCalculators", href: "/premium-tools" },
+  { key: "industryCalculators", href: "/industries" },
+  { key: "caseStudies", href: "/case-studies" },
+  { key: "pricing", href: "/pricing" },
 ] as const;
 
 /** Mobile drawer nav — same order as desktop header. */

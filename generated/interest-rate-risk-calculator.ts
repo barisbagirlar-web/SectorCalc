@@ -25,10 +25,10 @@ export const Interest_rate_risk_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Interest_rate_risk_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ΔP_dur = -input.duration * (input.rate_change / 10000) * input.portfolio_value; results["price_change_duration"] = Number.isFinite(v) ? v : 0; } catch { results["price_change_duration"] = 0; }
-  try { const v = ΔP_conv = 0.5 * input.convexity * (input.rate_change / 10000)**2 * input.portfolio_value; results["price_change_convexity"] = Number.isFinite(v) ? v : 0; } catch { results["price_change_convexity"] = 0; }
-  try { const v = ΔP_total = ΔP_dur + ΔP_conv; results["total_price_change"] = Number.isFinite(v) ? v : 0; } catch { results["total_price_change"] = 0; }
-  try { const v = ΔP_hedged = ΔP_total * (1 - input.hedge_ratio / 100); results["hedged_price_change"] = Number.isFinite(v) ? v : 0; } catch { results["hedged_price_change"] = 0; }
+  try { const v = -input.duration * (input.rate_change / 10000) * input.portfolio_value; results["price_change_duration"] = Number.isFinite(v) ? v : 0; } catch { results["price_change_duration"] = 0; }
+  try { const v = 0.5 * input.convexity * (input.rate_change / 10000)**2 * input.portfolio_value; results["price_change_convexity"] = Number.isFinite(v) ? v : 0; } catch { results["price_change_convexity"] = 0; }
+  try { const v = ΔP_dur + ΔP_conv; results["total_price_change"] = Number.isFinite(v) ? v : 0; } catch { results["total_price_change"] = 0; }
+  try { const v = ΔP_total * (1 - input.hedge_ratio / 100); results["hedged_price_change"] = Number.isFinite(v) ? v : 0; } catch { results["hedged_price_change"] = 0; }
   results["value_at_risk"] = 0;
   try { const v = ΔP_hedged * (1 - 0.1 * (volatility_regime_index)); results["data_confidence_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["data_confidence_adjustment"] = 0; }
   try { const v = DCA; results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }

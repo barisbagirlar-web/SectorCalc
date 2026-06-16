@@ -1,374 +1,60 @@
 {
-  "slug": "concrete-volume-calculator",
-  "name": "Concrete Volume Calculator",
-  "description": "Industrial-grade calculator for estimating concrete volume, material waste, and cost with lean and Six Sigma principles.",
-  "version": "1.0.0",
-  "premiumRequired": true,
-  "premiumFeatures": [
-    "PDF export",
-    "CSV export",
-    "Trend analysis",
-    "Multi-project comparison",
-    "Real-time cost escalation modeling"
-  ],
+  "toolName": "concrete-volume-calculator",
   "inputs": [
     {
       "id": "length",
-      "label": "Length",
+      "label": "Uzunluk",
       "type": "number",
       "unit": "m",
       "default": 10,
-      "min": 0.1,
-      "max": 1000,
-      "businessContext": "Length of the concrete slab or structure in meters. Based on ISO 9001 measurement standards.",
-      "label_i18n": {
-        "en": "Length"
-      },
-      "businessContext_i18n": {
-        "en": "Length of the concrete slab or structure in meters. Based on ISO 9001 measurement standards."
-      }
+      "businessContext": "Döşeme uzunluğu"
     },
     {
       "id": "width",
-      "label": "Width",
+      "label": "Genişlik",
       "type": "number",
       "unit": "m",
       "default": 5,
-      "min": 0.1,
-      "max": 500,
-      "businessContext": "Width of the concrete element in meters. Typical for industrial floors and foundations.",
-      "label_i18n": {
-        "en": "Width"
-      },
-      "businessContext_i18n": {
-        "en": "Width of the concrete element in meters. Typical for industrial floors and foundations."
-      }
+      "businessContext": "Döşeme genişliği"
     },
     {
-      "id": "depth",
-      "label": "Depth / Thickness",
+      "id": "thickness",
+      "label": "Kalınlık",
       "type": "number",
-      "unit": "m",
-      "default": 0.15,
-      "min": 0.05,
-      "max": 5,
-      "businessContext": "Thickness of the concrete pour in meters. Common range for slabs: 0.1–0.3 m.",
-      "label_i18n": {
-        "en": "Depth / Thickness"
-      },
-      "businessContext_i18n": {
-        "en": "Thickness of the concrete pour in meters. Common range for slabs: 0.1–0.3 m."
-      }
-    },
-    {
-      "id": "shape",
-      "label": "Shape",
-      "type": "select",
-      "unit": "",
-      "default": "rectangular",
-      "options": [
-        "rectangular",
-        "circular",
-        "L-shaped",
-        "trapezoidal"
-      ],
-      "businessContext": "Geometric shape of the pour area. Affects volume calculation and waste factors.",
-      "label_i18n": {
-        "en": "Shape"
-      },
-      "businessContext_i18n": {
-        "en": "Geometric shape of the pour area. Affects volume calculation and waste factors."
-      }
+      "unit": "cm",
+      "default": 15,
+      "businessContext": "Beton kalınlığı"
     },
     {
       "id": "wasteFactor",
-      "label": "Waste Factor",
+      "label": "Fire Oranı",
       "type": "number",
       "unit": "%",
       "default": 5,
-      "min": 0,
-      "max": 25,
-      "businessContext": "Expected material waste due to spillage, over-excavation, or formwork leakage. Lean target < 3%.",
-      "label_i18n": {
-        "en": "Waste Factor"
-      },
-      "businessContext_i18n": {
-        "en": "Expected material waste due to spillage, over-excavation, or formwork leakage. Lean target < 3%."
-      }
+      "businessContext": "Beton fire payı"
     },
     {
-      "id": "compressionStrength",
-      "label": "Compression Strength Class",
-      "type": "select",
-      "unit": "MPa",
-      "default": "C25/30",
-      "options": [
-        "C20/25",
-        "C25/30",
-        "C30/37",
-        "C35/45",
-        "C40/50"
-      ],
-      "businessContext": "Concrete strength class per EN 206. Higher strength increases cost and reduces volume yield slightly.",
-      "label_i18n": {
-        "en": "Compression Strength Class"
-      },
-      "businessContext_i18n": {
-        "en": "Concrete strength class per EN 206. Higher strength increases cost and reduces volume yield slightly."
-      }
-    },
-    {
-      "id": "reinforcementRatio",
-      "label": "Reinforcement Ratio",
+      "id": "density",
+      "label": "Beton Yoğunluğu",
       "type": "number",
-      "unit": "%",
-      "default": 1.5,
-      "min": 0,
-      "max": 5,
-      "businessContext": "Steel reinforcement as percentage of concrete volume. Typical range 0.5–3% for structural slabs.",
-      "label_i18n": {
-        "en": "Reinforcement Ratio"
-      },
-      "businessContext_i18n": {
-        "en": "Steel reinforcement as percentage of concrete volume. Typical range 0.5–3% for structural slabs."
-      }
-    },
-    {
-      "id": "laborRate",
-      "label": "Labor Rate",
-      "type": "number",
-      "unit": "USD/hr",
-      "default": 45,
-      "min": 15,
-      "max": 150,
-      "businessContext": "Hourly labor cost for concrete placement and finishing. Based on regional wage data.",
-      "label_i18n": {
-        "en": "Labor Rate"
-      },
-      "businessContext_i18n": {
-        "en": "Hourly labor cost for concrete placement and finishing. Based on regional wage data."
-      }
-    },
-    {
-      "id": "materialCostPerM3",
-      "label": "Material Cost per m³",
-      "type": "number",
-      "unit": "USD/m³",
-      "default": 120,
-      "min": 50,
-      "max": 500,
-      "businessContext": "Cost of ready-mix concrete delivered to site. Includes additives if specified.",
-      "label_i18n": {
-        "en": "Material Cost per m³"
-      },
-      "businessContext_i18n": {
-        "en": "Cost of ready-mix concrete delivered to site. Includes additives if specified."
-      }
-    },
-    {
-      "id": "usePump",
-      "label": "Use Concrete Pump",
-      "type": "boolean",
-      "unit": "",
-      "default": false,
-      "businessContext": "Indicates if a concrete pump is required for placement. Adds cost and reduces waste.",
-      "label_i18n": {
-        "en": "Use Concrete Pump"
-      },
-      "businessContext_i18n": {
-        "en": "Indicates if a concrete pump is required for placement. Adds cost and reduces waste."
-      }
+      "unit": "kg/m³",
+      "default": 2400,
+      "businessContext": "Beton yoğunluğu"
     }
   ],
-  "validation": {
-    "rules": [
-      {
-        "id": "waste_vs_shape",
-        "condition": "shape == 'L-shaped' && wasteFactor < 5",
-        "message": "For L-shaped pours, minimum waste factor should be 5% due to formwork complexity.",
-        "severity": "warning"
-      },
-      {
-        "id": "depth_vs_strength",
-        "condition": "depth < 0.1 && compressionStrength == 'C40/50'",
-        "message": "High strength concrete in thin sections may cause thermal cracking. Consider lower strength or increase depth.",
-        "severity": "warning"
-      },
-      {
-        "id": "reinforcement_ratio_max",
-        "condition": "reinforcementRatio > 3.5",
-        "message": "Reinforcement ratio above 3.5% may cause congestion and placement issues per ACI 318.",
-        "severity": "error"
-      }
-    ],
-    "thresholds": [
-      {
-        "id": "volume_alert",
-        "metric": "totalVolume",
-        "operator": ">",
-        "value": 500,
-        "message": "Volume exceeds 500 m³. Consider phased pouring to control thermal and shrinkage cracking.",
-        "severity": "warning"
-      },
-      {
-        "id": "cost_alert",
-        "metric": "totalCost",
-        "operator": ">",
-        "value": 100000,
-        "message": "Total cost exceeds $100,000. Recommend value engineering review.",
-        "severity": "warning"
-      },
-      {
-        "id": "waste_alert",
-        "metric": "wasteVolume",
-        "operator": ">",
-        "value": 10,
-        "message": "Waste volume > 10 m³. Investigate process waste reduction using DMAIC.",
-        "severity": "critical"
-      }
+  "formulas": {
+    "volume": "length * width * thickness / 100",
+    "volumeWithWaste": "volume * (1 + wasteFactor / 100)",
+    "weight": "volumeWithWaste * density"
+  },
+  "outputs": {
+    "primary": "volumeWithWaste",
+    "breakdown": [
+      "volume",
+      "weight"
     ]
   },
-  "formulas": [
-    {
-      "id": "baseVolume",
-      "name": "Base Geometric Volume",
-      "description": "Calculates the nominal volume based on shape.",
-      "formula": "if shape == 'rectangular': length * width * depth; if shape == 'circular': pi * (length/2)^2 * depth; if shape == 'L-shaped': (length * width * depth) + (0.5 * length * width * depth); if shape == 'trapezoidal': ((length + width)/2) * depth * width",
-      "unit": "m³"
-    },
-    {
-      "id": "adjustedVolume",
-      "name": "Adjusted Volume with Waste",
-      "description": "Applies waste factor to base volume.",
-      "formula": "baseVolume * (1 + wasteFactor / 100)",
-      "unit": "m³"
-    },
-    {
-      "id": "steelVolume",
-      "name": "Steel Reinforcement Volume",
-      "description": "Volume of steel based on reinforcement ratio.",
-      "formula": "adjustedVolume * (reinforcementRatio / 100)",
-      "unit": "m³"
-    },
-    {
-      "id": "netConcreteVolume",
-      "name": "Net Concrete Volume",
-      "description": "Concrete volume excluding steel displacement.",
-      "formula": "adjustedVolume - steelVolume",
-      "unit": "m³"
-    },
-    {
-      "id": "materialCost",
-      "name": "Material Cost",
-      "description": "Total cost of concrete material.",
-      "formula": "netConcreteVolume * materialCostPerM3",
-      "unit": "USD"
-    },
-    {
-      "id": "laborHours",
-      "name": "Labor Hours Estimate",
-      "description": "Estimated labor hours based on volume and complexity.",
-      "formula": "netConcreteVolume * 1.2 + (usePump ? 2 : 0)",
-      "unit": "hours"
-    },
-    {
-      "id": "totalCost",
-      "name": "Total Cost",
-      "description": "Sum of material and labor costs.",
-      "formula": "materialCost + (laborHours * laborRate) + (usePump ? 250 : 0)",
-      "unit": "USD"
-    }
-  ],
-  "outputs": {
-    "primary": {
-      "id": "totalVolume",
-      "label": "Total Concrete Volume Required",
-      "value": null,
-      "unit": "m³",
-      "description": "Net concrete volume including waste, excluding steel displacement."
-    },
-    "breakdown": {
-      "baseVolume": {
-        "label": "Base Geometric Volume",
-        "unit": "m³",
-        "description": "Volume before waste and steel adjustment."
-      },
-      "adjustedVolume": {
-        "label": "Adjusted Volume (with waste)",
-        "unit": "m³",
-        "description": "Volume after applying waste factor."
-      },
-      "steelVolume": {
-        "label": "Steel Reinforcement Volume",
-        "unit": "m³",
-        "description": "Volume displaced by steel reinforcement."
-      },
-      "netConcreteVolume": {
-        "label": "Net Concrete Volume",
-        "unit": "m³",
-        "description": "Final concrete volume to order."
-      },
-      "materialCost": {
-        "label": "Material Cost",
-        "unit": "USD",
-        "description": "Cost of concrete material."
-      },
-      "laborHours": {
-        "label": "Labor Hours",
-        "unit": "hours",
-        "description": "Estimated labor hours."
-      },
-      "totalCost": {
-        "label": "Total Cost",
-        "unit": "USD",
-        "description": "Total project cost (material + labor + pump)."
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "wasteFactor",
-        "label": "Waste Factor",
-        "value": null,
-        "unit": "%",
-        "impact": "High waste factor increases volume and cost. Lean target < 3%."
-      },
-      {
-        "id": "reinforcementRatio",
-        "label": "Reinforcement Ratio",
-        "value": null,
-        "unit": "%",
-        "impact": "Higher ratio reduces net concrete volume but increases steel cost and placement complexity."
-      },
-      {
-        "id": "shapeComplexity",
-        "label": "Shape Complexity",
-        "value": null,
-        "unit": "",
-        "impact": "Non-rectangular shapes increase waste and labor. L-shaped and trapezoidal have higher loss."
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_waste",
-        "action": "Implement lean construction techniques to reduce waste factor below 3%.",
-        "expectedImpact": "Save up to 2% of total concrete volume."
-      },
-      {
-        "id": "optimize_reinforcement",
-        "action": "Review structural design to minimize reinforcement ratio without compromising strength.",
-        "expectedImpact": "Reduce steel volume and cost by 5-10%."
-      },
-      {
-        "id": "use_pump",
-        "action": "Use concrete pump for complex shapes to reduce placement waste.",
-        "expectedImpact": "Reduce waste by 1-2% and labor hours by 10%."
-      },
-      {
-        "id": "batch_optimization",
-        "action": "Order concrete in full truck batches (6 m³) to minimize leftover and cost.",
-        "expectedImpact": "Reduce material cost by 3-5%."
-      }
-    ],
-    "dataConfidenceAdjusted": 0.92
-  }
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false
 }

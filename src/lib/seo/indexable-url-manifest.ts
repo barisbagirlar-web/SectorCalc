@@ -52,6 +52,8 @@ const CRITICAL_INSPECTION_PATHS: readonly string[] = [
   "/tr/industries",
   "/pricing",
   "/tr/pricing",
+  "/case-studies",
+  "/tr/case-studies",
   "/seo/manufacturing-cost-calculators",
   "/tr/seo/manufacturing-cost-calculators",
   "/guides/what-is-oee-and-how-to-calculate-it",

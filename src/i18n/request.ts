@@ -15,6 +15,22 @@ async function loadManufacturingOsMessages(locale: string) {
   }
 }
 
+async function loadSeoAuthorityMessages(locale: string) {
+  try {
+    return (await import(`./locales/${locale}/seo-authority.json`)).default;
+  } catch {
+    return (await import("./locales/en/seo-authority.json")).default;
+  }
+}
+
+async function loadLeadMagnetMessages(locale: string) {
+  try {
+    return (await import(`./locales/${locale}/lead-magnet.json`)).default;
+  } catch {
+    return (await import("./locales/en/lead-magnet.json")).default;
+  }
+}
+
 async function loadBaseMessages(locale: string): Promise<Record<string, unknown>> {
   try {
     return (await import(`../../messages/${locale}.json`)).default as Record<string, unknown>;
@@ -48,10 +64,13 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale = routing.defaultLocale;
   }
 
-  const [enMessages, localeMessages, manufacturingOsMessages] = await Promise.all([
+  const [enMessages, localeMessages, manufacturingOsMessages, seoAuthorityMessages, leadMagnetMessages] =
+    await Promise.all([
     loadBaseMessages("en"),
     loadBaseMessages(locale),
     loadManufacturingOsMessages(locale),
+    loadSeoAuthorityMessages(locale),
+    loadLeadMagnetMessages(locale),
   ]);
 
   const messages =
@@ -76,6 +95,8 @@ export default getRequestConfig(async ({ requestLocale }) => {
     messages: {
       ...messages,
       manufacturingOs: manufacturingOsMessages,
+      seoAuthority: seoAuthorityMessages,
+      leadMagnet: leadMagnetMessages,
     },
   };
 });

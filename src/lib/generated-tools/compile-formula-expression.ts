@@ -195,7 +195,60 @@ function transformIfColonAssignments(
 }
 
 function stripAssignmentPrefix(expression: string): string {
-  return expression.replace(/^[A-Za-z_][A-Za-z0-9_]*\s*=(?!=)\s*/, "").trim();
+  return expression.replace(/^[\p{L}][\p{L}\p{N}_]*\s*=(?![=<>])\s*/u, "").trim();
+}
+
+function stripFormulaProse(expression: string): string {
+  return expression
+    .replace(/\s+for\s+(two-tailed|upper-tailed|lower-tailed).+$/i, "")
+    .replace(/\s+such\s+that\s+.+$/i, "")
+    .trim();
+}
+
+function extractSemicolonEquation(expression: string, selfKey?: string): string {
+  if (!expression.includes(";")) {
+    return expression;
+  }
+  const parts = expression.split(";").map((part) => part.trim()).filter(Boolean);
+  if (selfKey) {
+    for (const part of parts) {
+      const match = part.match(/^([\p{L}][\p{L}\p{N}_]*)\s*=(?![=<>])/u);
+      if (match?.[1] === selfKey) {
+        return part;
+      }
+    }
+  }
+  return parts[parts.length - 1] ?? expression;
+}
+
+/** SUM_{t=1}^{n} (cash / (1 + rate)^t) for uniform cash flows (geometric series). */
+function transformUniformSumDiscount(expression: string): string {
+  return expression.replace(
+    /SUM_\{t=1\}\^\{([^}]+)\}\s*\(\s*([^/]+?)\s*\/\s*\(1\s*\+\s*([^)]+?)\)\^t\s*\)/gi,
+    (_match, periodVar, cashVar, rateExpr) => {
+      const rate = `(${rateExpr.trim()})`;
+      const periods = `(${periodVar.trim()})`;
+      const cash = cashVar.trim();
+      return `((${rate}) === 0 ? (${cash}) * ${periods} : (${cash}) * (Math.pow(1 + ${rate}, ${periods}) - 1) / ((${rate}) * Math.pow(1 + ${rate}, ${periods})))`;
+    },
+  );
+}
+
+function normalizeGreekFormulaAliases(expression: string): string {
+  const aliases: Readonly<Record<string, string>> = {
+    "x̄": "sample_mean",
+    xbar: "sample_mean",
+    "μ_eff": "effective_mean",
+    mu_eff: "effective_mean",
+    "σ_eff": "effective_stddev",
+    sigma_eff: "effective_stddev",
+    Z_crit: "z_critical",
+  };
+  let result = expression;
+  for (const [from, to] of Object.entries(aliases)) {
+    result = replaceIdentifierExpression(result, from, to);
+  }
+  return result;
 }
 
 function transformPowerNotation(expression: string): string {
@@ -311,10 +364,12 @@ function transformEmbeddedCaseWhenBlocks(expression: string): string {
 
 function stripNonAsciiOperators(expression: string): string {
   return expression
+    .replace(/π/g, "Math.PI")
     .replace(/σ/g, "sigma")
     .replace(/δ/g, "delta")
     .replace(/η/g, "eta")
-    .replace(/→/g, "->");
+    .replace(/→/g, "->")
+    .replace(/±/g, "+");
 }
 
 export function isValidJavaScriptExpression(expression: string): boolean {
@@ -341,15 +396,25 @@ export function compileFormulaExpression(
   },
 ): string | null {
   let expression = rawExpression.trim();
+  expression = extractSemicolonEquation(expression, options.selfKey);
   expression = stripAssignmentPrefix(expression);
+  expression = stripFormulaProse(expression);
   expression = stripBracketCitations(expression);
   expression = stripNullChecks(expression);
   expression = stripNonAsciiOperators(expression);
+  expression = normalizeGreekFormulaAliases(expression);
+  expression = transformUniformSumDiscount(expression);
   if (!expression) {
     return null;
   }
 
-  if (/\bsolve\s*\(/i.test(expression) || /\([^)]*straight_line[^)]*\)/i.test(expression)) {
+  if (
+    /\bsolve\s+(for\b|smallest)/i.test(expression) ||
+    /\bsolve\s*\(/i.test(expression) ||
+    /\([^)]*straight_line[^)]*\)/i.test(expression) ||
+    /\bΦ\s*\(/i.test(expression) ||
+    /\bIRR\s*=\s*r\s+such\b/i.test(expression)
+  ) {
     return null;
   }
 

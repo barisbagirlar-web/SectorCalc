@@ -23,7 +23,7 @@ export const Steam_trap_energy_lossInputSchema = z.object({
 
 function evaluateAllFormulas(input: Steam_trap_energy_lossInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (π * (input.orifice_diameter/1000)**2 / 4) * F_mode; results["effective_orifice_area"] = Number.isFinite(v) ? v : 0; } catch { results["effective_orifice_area"] = 0; }
+  try { const v = (Math.PI * (input.orifice_diameter/1000)**2 / 4) * F_mode; results["effective_orifice_area"] = Number.isFinite(v) ? v : 0; } catch { results["effective_orifice_area"] = 0; }
   try { const v = 0.525 * A * (P_abs + 1.013) / Math.sqrt(273 + 170); results["steam_flow_rate"] = Number.isFinite(v) ? v : 0; } catch { results["steam_flow_rate"] = 0; }
   try { const v = m_dot * input.operating_hours_per_year * 3600; results["annual_steam_loss_mass"] = Number.isFinite(v) ? v : 0; } catch { results["annual_steam_loss_mass"] = 0; }
   try { const v = M_annual * h_fg / 3600; results["energy_loss_kwh"] = Number.isFinite(v) ? v : 0; } catch { results["energy_loss_kwh"] = 0; }

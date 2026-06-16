@@ -2,6 +2,7 @@ import {
   getGlobalCategoryBySlug,
   resolveGlobalCategoryTitle,
 } from "@/lib/catalog/global-tool-category-taxonomy";
+import { resolveIndustrySectorDisplayLabel } from "@/lib/i18n/industry-sector-display-labels";
 import type { SupportedLocale } from "@/lib/i18n/locale-config";
 import { SUPPORTED_LOCALES } from "@/lib/i18n/locale-config";
 
@@ -222,6 +223,11 @@ export function resolveSchemaCatalogCategoryLabel(categoryKey: string, locale: s
 }
 
 export function resolveSchemaCatalogSectorLabel(sectorKey: string, locale: string): string {
+  const industryLabel = resolveIndustrySectorDisplayLabel(sectorKey, locale);
+  if (industryLabel) {
+    return industryLabel;
+  }
+
   const fromCategoryMap = SCHEMA_CATEGORY_LABELS[sectorKey];
   if (fromCategoryMap) {
     return resolveLocalizedLabel(fromCategoryMap, locale) ?? humanizeSlug(sectorKey);

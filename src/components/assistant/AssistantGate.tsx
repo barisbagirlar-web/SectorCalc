@@ -1,20 +1,14 @@
 "use client";
 
 import { usePathname } from "@/i18n/routing";
-import { useUserSubscription } from "@/lib/billing/use-user-subscription";
-import { SectorCalcAssistant } from "@/components/assistant/SectorCalcAssistant";
+import { TraceFloatingButton } from "@/components/trace/TraceFloatingButton";
 
 export function AssistantGate() {
-  const { user, loading } = useUserSubscription();
   const pathname = usePathname();
 
-  if (loading || !user) {
+  if (pathname.includes("/print") || pathname.includes("/admin")) {
     return null;
   }
 
-  if (pathname.includes("/print")) {
-    return null;
-  }
-
-  return <SectorCalcAssistant />;
+  return <TraceFloatingButton />;
 }

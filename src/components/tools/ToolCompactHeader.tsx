@@ -20,7 +20,7 @@ export function ToolCompactHeader({
       </div>
       <div className="sc-tool-compact-header__copy">
         <h1 className="sc-tool-compact-header__title">{toolName}</h1>
-        {summary ? <p className="sc-tool-compact-header__summary">{summary}</p> : null}
+        {summary ? <p className="sc-tool-compact-header__summary tool-description">{summary}</p> : null}
         {keywordTags.length > 0 ? (
           <div className="sc-tool-compact-header__tags">
             {keywordTags.map((tag) => (

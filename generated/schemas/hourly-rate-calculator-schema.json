@@ -1,395 +1,62 @@
 {
-  "slug": "hourly-rate-calculator",
-  "name": "Hourly Rate Calculator",
-  "description": "Industrial-grade hourly rate calculator incorporating labor, overhead, tooling, and quality costs per ISO 9001, Lean, and Six Sigma standards.",
-  "premiumRequired": true,
-  "premiumFeatures": [
-    "PDF export",
-    "CSV export",
-    "Trend analysis",
-    "Multi-currency support",
-    "Benchmarking against industry standards"
-  ],
+  "toolName": "hourly-rate-calculator",
   "inputs": [
     {
-      "id": "direct_labor_hours",
-      "label": "Direct Labor Hours per Unit",
+      "id": "annualSalary",
+      "label": "Annual Salary",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "businessContext": "Annual base salary before taxes"
+    },
+    {
+      "id": "weeksWorked",
+      "label": "Weeks Worked per Year",
+      "type": "number",
+      "unit": "weeks",
+      "default": 52,
+      "businessContext": "Number of weeks typically worked in a year (e.g., 52 for full year)"
+    },
+    {
+      "id": "hoursPerWeek",
+      "label": "Hours Worked per Week",
       "type": "number",
       "unit": "hours",
-      "default": 1,
-      "min": 0.1,
-      "max": 100,
-      "businessContext": "Standard time per unit from time studies (ISO 9001 clause 7.1.4).",
-      "label_i18n": {
-        "en": "Direct Labor Hours per Unit"
-      },
-      "businessContext_i18n": {
-        "en": "Standard time per unit from time studies (ISO 9001 clause 7.1.4)."
-      }
+      "default": 40,
+      "businessContext": "Standard weekly working hours"
     },
     {
-      "id": "hourly_wage",
-      "label": "Average Hourly Wage",
+      "id": "benefitsRate",
+      "label": "Benefits Rate",
       "type": "number",
-      "unit": "currency/hour",
-      "default": 25,
-      "min": 7.25,
-      "max": 200,
-      "businessContext": "Weighted average of direct labor wages including shift differentials.",
-      "label_i18n": {
-        "en": "Average Hourly Wage"
-      },
-      "businessContext_i18n": {
-        "en": "Weighted average of direct labor wages including shift differentials."
-      }
+      "unit": "ratio",
+      "default": 0.3,
+      "businessContext": "Employer cost of benefits as a decimal of salary (e.g., 0.3 for 30%)"
     },
     {
-      "id": "overhead_rate",
+      "id": "overheadRate",
       "label": "Overhead Rate",
       "type": "number",
-      "unit": "% of direct labor",
-      "default": 150,
-      "min": 0,
-      "max": 500,
-      "businessContext": "Includes facility, utilities, indirect labor, and depreciation (WERC DC Measures).",
-      "label_i18n": {
-        "en": "Overhead Rate"
-      },
-      "businessContext_i18n": {
-        "en": "Includes facility, utilities, indirect labor, and depreciation (WERC DC Measures)."
-      }
-    },
-    {
-      "id": "tooling_cost_per_unit",
-      "label": "Tooling Cost per Unit",
-      "type": "number",
-      "unit": "currency",
-      "default": 2.5,
-      "min": 0,
-      "max": 1000,
-      "businessContext": "Amortized cost of jigs, fixtures, and perishable tools (Lean TPM).",
-      "label_i18n": {
-        "en": "Tooling Cost per Unit"
-      },
-      "businessContext_i18n": {
-        "en": "Amortized cost of jigs, fixtures, and perishable tools (Lean TPM)."
-      }
-    },
-    {
-      "id": "quality_cost_per_unit",
-      "label": "Quality Cost per Unit",
-      "type": "number",
-      "unit": "currency",
-      "default": 1.2,
-      "min": 0,
-      "max": 500,
-      "businessContext": "Cost of inspection, rework, scrap, and warranty (Six Sigma COPQ).",
-      "label_i18n": {
-        "en": "Quality Cost per Unit"
-      },
-      "businessContext_i18n": {
-        "en": "Cost of inspection, rework, scrap, and warranty (Six Sigma COPQ)."
-      }
-    },
-    {
-      "id": "batch_size",
-      "label": "Batch Size",
-      "type": "number",
-      "unit": "units",
-      "default": 100,
-      "min": 1,
-      "max": 100000,
-      "businessContext": "Number of units produced per setup (Lean SMED).",
-      "label_i18n": {
-        "en": "Batch Size"
-      },
-      "businessContext_i18n": {
-        "en": "Number of units produced per setup (Lean SMED)."
-      }
-    },
-    {
-      "id": "setup_time_hours",
-      "label": "Setup Time per Batch",
-      "type": "number",
-      "unit": "hours",
-      "default": 2,
-      "min": 0,
-      "max": 48,
-      "businessContext": "Time to change over equipment between batches (Lean SMED).",
-      "label_i18n": {
-        "en": "Setup Time per Batch"
-      },
-      "businessContext_i18n": {
-        "en": "Time to change over equipment between batches (Lean SMED)."
-      }
-    },
-    {
-      "id": "machine_rate",
-      "label": "Machine Hourly Rate",
-      "type": "number",
-      "unit": "currency/hour",
-      "default": 50,
-      "min": 0,
-      "max": 1000,
-      "businessContext": "Includes maintenance, power, and depreciation (ISO 14224).",
-      "label_i18n": {
-        "en": "Machine Hourly Rate"
-      },
-      "businessContext_i18n": {
-        "en": "Includes maintenance, power, and depreciation (ISO 14224)."
-      }
-    },
-    {
-      "id": "profit_margin",
-      "label": "Target Profit Margin",
-      "type": "number",
-      "unit": "%",
-      "default": 20,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Desired markup over total cost (strategic pricing).",
-      "label_i18n": {
-        "en": "Target Profit Margin"
-      },
-      "businessContext_i18n": {
-        "en": "Desired markup over total cost (strategic pricing)."
-      }
-    },
-    {
-      "id": "currency",
-      "label": "Currency",
-      "type": "select",
-      "unit": "",
-      "default": "USD",
-      "min": null,
-      "max": null,
-      "options": [
-        "USD",
-        "EUR",
-        "GBP",
-        "JPY",
-        "CNY"
-      ],
-      "businessContext": "ISO 4217 currency code for financial reporting.",
-      "label_i18n": {
-        "en": "Currency"
-      },
-      "businessContext_i18n": {
-        "en": "ISO 4217 currency code for financial reporting."
-      }
-    },
-    {
-      "id": "include_setup",
-      "label": "Include Setup Cost in Rate",
-      "type": "boolean",
-      "unit": "",
-      "default": true,
-      "min": null,
-      "max": null,
-      "businessContext": "If true, setup time is amortized across batch size.",
-      "label_i18n": {
-        "en": "Include Setup Cost in Rate"
-      },
-      "businessContext_i18n": {
-        "en": "If true, setup time is amortized across batch size."
-      }
+      "unit": "ratio",
+      "default": 0.5,
+      "businessContext": "Overhead allocation as a decimal of total labor cost (e.g., 0.5 for 50%)"
     }
   ],
-  "validation": {
-    "rules": [
-      {
-        "id": "setup_amortization_rule",
-        "condition": "inputs.include_setup == true && inputs.batch_size < 10",
-        "message": "Batch size is very small; setup cost per unit may dominate. Consider increasing batch size or excluding setup cost.",
-        "severity": "warning"
-      },
-      {
-        "id": "overhead_wage_ratio",
-        "condition": "inputs.overhead_rate > 300 && inputs.hourly_wage < 15",
-        "message": "Overhead rate exceeds 300% of low wages. Verify overhead allocation basis.",
-        "severity": "error"
-      },
-      {
-        "id": "quality_cost_threshold",
-        "condition": "inputs.quality_cost_per_unit > 0.1 * (inputs.hourly_wage * inputs.direct_labor_hours)",
-        "message": "Quality cost exceeds 10% of direct labor cost. Investigate COPQ reduction opportunities.",
-        "severity": "warning"
-      }
-    ],
-    "thresholds": [
-      {
-        "id": "labor_cost_alert",
-        "condition": "direct_labor_cost > 100",
-        "message": "Direct labor cost per unit exceeds $100. Consider automation or process improvement.",
-        "severity": "warning"
-      },
-      {
-        "id": "total_cost_alert",
-        "condition": "total_cost_per_unit > 500",
-        "message": "Total cost per unit exceeds $500. Review value stream for waste reduction.",
-        "severity": "critical"
-      }
+  "formulas": {
+    "annualCost": "annualSalary * (1 + benefitsRate)",
+    "effectiveAnnualCost": "annualCost * (1 + overheadRate)",
+    "hourlyRate": "effectiveAnnualCost / (weeksWorked * hoursPerWeek)",
+    "weeklyRate": "effectiveAnnualCost / weeksWorked"
+  },
+  "outputs": {
+    "primary": "hourlyRate",
+    "breakdown": [
+      "annualCost",
+      "effectiveAnnualCost",
+      "weeklyRate"
     ]
   },
-  "formulas": [
-    {
-      "id": "direct_labor_cost",
-      "label": "Direct Labor Cost per Unit",
-      "expression": "direct_labor_hours * hourly_wage",
-      "unit": "currency",
-      "description": "Base labor cost per unit from time study data."
-    },
-    {
-      "id": "overhead_cost",
-      "label": "Overhead Cost per Unit",
-      "expression": "direct_labor_cost * (overhead_rate / 100)",
-      "unit": "currency",
-      "description": "Allocated overhead using traditional rate method."
-    },
-    {
-      "id": "setup_cost_per_unit",
-      "label": "Setup Cost per Unit",
-      "expression": "include_setup ? (setup_time_hours * machine_rate) / batch_size : 0",
-      "unit": "currency",
-      "description": "Amortized setup cost per unit based on batch size."
-    },
-    {
-      "id": "machine_cost_per_unit",
-      "label": "Machine Cost per Unit",
-      "expression": "direct_labor_hours * machine_rate",
-      "unit": "currency",
-      "description": "Machine usage cost assuming machine runs concurrently with labor."
-    },
-    {
-      "id": "total_cost_per_unit",
-      "label": "Total Cost per Unit",
-      "expression": "direct_labor_cost + overhead_cost + tooling_cost_per_unit + quality_cost_per_unit + setup_cost_per_unit + machine_cost_per_unit",
-      "unit": "currency",
-      "description": "Sum of all cost components per unit."
-    },
-    {
-      "id": "hourly_rate",
-      "label": "Hourly Rate (Primary Result)",
-      "expression": "total_cost_per_unit / direct_labor_hours",
-      "unit": "currency/hour",
-      "description": "Effective hourly rate to cover all costs."
-    },
-    {
-      "id": "selling_price_per_unit",
-      "label": "Selling Price per Unit",
-      "expression": "total_cost_per_unit * (1 + profit_margin / 100)",
-      "unit": "currency",
-      "description": "Price including target profit margin."
-    }
-  ],
-  "outputs": {
-    "primary": {
-      "id": "hourly_rate",
-      "label": "Recommended Hourly Rate",
-      "value": null,
-      "unit": "currency/hour",
-      "description": "Final hourly rate covering all costs and profit margin."
-    },
-    "breakdown": {
-      "direct_labor_cost": {
-        "label": "Direct Labor Cost",
-        "value": null,
-        "unit": "currency",
-        "percentage": null
-      },
-      "overhead_cost": {
-        "label": "Overhead Cost",
-        "value": null,
-        "unit": "currency",
-        "percentage": null
-      },
-      "tooling_cost_per_unit": {
-        "label": "Tooling Cost",
-        "value": null,
-        "unit": "currency",
-        "percentage": null
-      },
-      "quality_cost_per_unit": {
-        "label": "Quality Cost",
-        "value": null,
-        "unit": "currency",
-        "percentage": null
-      },
-      "setup_cost_per_unit": {
-        "label": "Setup Cost",
-        "value": null,
-        "unit": "currency",
-        "percentage": null
-      },
-      "machine_cost_per_unit": {
-        "label": "Machine Cost",
-        "value": null,
-        "unit": "currency",
-        "percentage": null
-      },
-      "profit_margin_amount": {
-        "label": "Profit Margin",
-        "value": null,
-        "unit": "currency",
-        "percentage": null
-      }
-    },
-    "hiddenLossDrivers": [
-      {
-        "id": "excessive_setup_time",
-        "label": "Excessive Setup Time",
-        "description": "Setup time > 10% of total batch processing time indicates SMED opportunity.",
-        "detected": false
-      },
-      {
-        "id": "high_quality_cost",
-        "label": "High Quality Cost",
-        "description": "Quality cost > 15% of total cost suggests need for Six Sigma DMAIC.",
-        "detected": false
-      },
-      {
-        "id": "overhead_bloat",
-        "label": "Overhead Bloat",
-        "description": "Overhead rate > 200% may indicate non-value-added activities.",
-        "detected": false
-      }
-    ],
-    "suggestedActions": [
-      {
-        "id": "reduce_setup_time",
-        "label": "Reduce Setup Time",
-        "description": "Implement SMED techniques to reduce setup time by 50%.",
-        "potentialSavings": null,
-        "priority": "high"
-      },
-      {
-        "id": "improve_quality",
-        "label": "Improve Quality",
-        "description": "Deploy Six Sigma to reduce quality cost by 30%.",
-        "potentialSavings": null,
-        "priority": "medium"
-      },
-      {
-        "id": "review_overhead",
-        "label": "Review Overhead Allocation",
-        "description": "Conduct activity-based costing to identify non-value-added overhead.",
-        "potentialSavings": null,
-        "priority": "medium"
-      },
-      {
-        "id": "increase_batch_size",
-        "label": "Increase Batch Size",
-        "description": "Consolidate orders to reduce setup cost per unit.",
-        "potentialSavings": null,
-        "priority": "low"
-      }
-    ],
-    "dataConfidenceAdjusted": {
-      "id": "confidence_score",
-      "label": "Data Confidence Score",
-      "value": null,
-      "unit": "%",
-      "description": "Adjusted confidence based on input variability and completeness (0-100%)."
-    }
-  }
+  "category": "Maliyet & Marj",
+  "sector": "Finans & İK",
+  "premiumRequired": false
 }

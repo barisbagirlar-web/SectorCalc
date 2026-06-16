@@ -5,6 +5,7 @@ import {
   type StrategicPremiumCalculator,
 } from "@/data/strategic-premium-calculators";
 import { CANONICAL_FREE_SLUGS, CANONICAL_PREMIUM_SLUGS } from "@/lib/tools/canonical-tool-slugs";
+import { PREMIUM_SCHEMA_LOCALIZED_SLUGS } from "@/data/premium-schema-i18n";
 import { listPremiumSchemaIds } from "@/lib/premium-schema/schema-registry";
 import { revenueTools } from "@/lib/tools/revenue-tools";
 import {
@@ -15,7 +16,10 @@ import {
 const FREE_TRAFFIC_SLUGS = new Set(CANONICAL_FREE_SLUGS);
 const REVENUE_FREE_SLUGS = new Set(CANONICAL_PREMIUM_SLUGS);
 const REVENUE_PAID_SLUGS = new Set(revenueTools.map((tool) => tool.paidSlug));
-const PREMIUM_SCHEMA_IDS = new Set(listPremiumSchemaIds());
+const PREMIUM_SCHEMA_IDS = new Set([
+  ...listPremiumSchemaIds(),
+  ...PREMIUM_SCHEMA_LOCALIZED_SLUGS,
+]);
 
 export type StrategicPremiumRoadmapCard = {
   readonly id: string;

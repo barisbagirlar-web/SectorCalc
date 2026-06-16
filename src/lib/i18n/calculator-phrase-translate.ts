@@ -11,6 +11,15 @@ function sortedEntries(locale: string): readonly (readonly [string, string])[] {
   return Object.entries(map).sort((a, b) => b[0].length - a[0].length);
 }
 
+/** Single-token glossary keys must not match inside longer words (e.g. per → operations). */
+function glossaryReplacePattern(english: string): RegExp {
+  const escaped = english.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  if (/^[\p{L}\p{N}_'-]+$/u.test(english)) {
+    return new RegExp(`\\b${escaped}\\b`, "giu");
+  }
+  return new RegExp(escaped, "gi");
+}
+
 export function isSupportedCalculatorLocale(locale: string): locale is SupportedLocale {
   return (SUPPORTED_LOCALES as readonly string[]).includes(locale);
 }
@@ -23,8 +32,7 @@ export function translateCalculatorPhrase(text: string, locale: string): string 
 
   let result = text;
   for (const [en, localized] of sortedEntries(locale)) {
-    const re = new RegExp(en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
-    result = result.replace(re, localized);
+    result = result.replace(glossaryReplacePattern(en), localized);
   }
   return polishCalculatorSurfaceResidue(result, locale);
 }
