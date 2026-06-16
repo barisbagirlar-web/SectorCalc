@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "@/lib/navigation/next-link";
+import { Coins } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { LegalContactBlock } from "@/components/legal/LegalContactBlock";
 import { Container } from "@/components/ui/Container";
@@ -64,7 +65,12 @@ export default async function PricingPage({ params }: PageProps) {
                       </span>
                     ) : null}
                     <div className="text-center">
-                      <h2 className="text-2xl font-semibold text-text-primary">
+                      <Coins
+                        className="mx-auto h-8 w-8 text-gray-700"
+                        strokeWidth={1.5}
+                        aria-hidden="true"
+                      />
+                      <h2 className="mt-2 text-2xl font-semibold text-text-primary">
                         {t("creditsLabel", { count: pkg.credits })}
                       </h2>
                       <p className="mt-2 text-3xl font-bold text-text-primary">

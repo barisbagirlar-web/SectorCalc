@@ -22,13 +22,33 @@ import {
   needsEnglishLocaleRewrite,
   rewritePathToEnglishLocale,
   shouldRedirectUnlocalizedPath,
+  stripLocaleFromPath,
   type SupportedLocale,
 } from "@/lib/i18n/locale-routing";
+import { shouldAllowToolPageFraming } from "@/lib/tools/embed-policy";
 
 /**
  * Locale routing (root English + prefixed locales) + regional compliance.
  */
 const intlMiddleware = createIntlMiddleware(routing);
+
+function isPaidToolPath(pathname: string): boolean {
+  const path = stripLocaleFromPath(pathname);
+  return path.startsWith("/tools/premium/") || path.startsWith("/tools/premium-schema/");
+}
+
+function applyToolFramingHeaders(response: NextResponse, pathname: string): void {
+  if (!pathname.includes("/tools/")) {
+    return;
+  }
+  if (shouldAllowToolPageFraming(pathname)) {
+    return;
+  }
+  if (isPaidToolPath(pathname)) {
+    response.headers.set("X-Frame-Options", "DENY");
+    response.headers.set("Content-Security-Policy", "frame-ancestors 'none'");
+  }
+}
 
 function applyRegionHeaders(response: NextResponse, request: NextRequest): NextResponse {
   const { region, source } = detectRegionFromRequest(request);
@@ -72,6 +92,7 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
     });
   }
 
+  applyToolFramingHeaders(response, request.nextUrl.pathname);
   return response;
 }
 
@@ -94,6 +115,11 @@ function redirectToLocale(
   url.pathname = addLocaleToPath(pathname, locale);
   const response = NextResponse.redirect(url, 307);
   response.cookies.set(LOCALE_COOKIE, locale, {
+    path: "/",
+    maxAge: 60 * 60 * 24 * 365,
+    sameSite: "lax",
+  });
+  response.cookies.set(NEXT_LOCALE_COOKIE, locale, {
     path: "/",
     maxAge: 60 * 60 * 24 * 365,
     sameSite: "lax",

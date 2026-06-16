@@ -9,6 +9,7 @@ import { getServerRegion } from "@/lib/compliance/server-region";
 import { AttributionBootstrap } from "@/components/campaign/AttributionBootstrap";
 import { RegionProvider } from "@/lib/compliance/region-context";
 import { ServiceWorkerRegister } from "@/components/field-mode/ServiceWorkerRegister";
+import { GeoLocaleBootstrapScript } from "@/components/i18n/GeoLocaleBootstrapScript";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -49,6 +50,7 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
       data-region={region}
     >
       <head>
+        {locale === "en" ? <GeoLocaleBootstrapScript /> : null}
         <SeoHeadLinks />
         <LlmsTxtLink />
         <link rel="manifest" href="/manifest.webmanifest" />

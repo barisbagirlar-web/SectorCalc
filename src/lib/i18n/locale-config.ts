@@ -158,6 +158,7 @@ export const COUNTRY_COOKIE = "sectorcalc_country";
 
 export const COUNTRY_TO_LOCALE: Readonly<Record<string, SupportedLocale>> = {
   TR: "tr",
+  CY: "tr",
   DE: "de",
   AT: "de",
   CH: "de",

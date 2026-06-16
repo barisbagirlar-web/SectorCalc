@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocale, useTranslations } from "next-intl";
 import type { z } from "zod";
 import { FreeToolReportModal } from "@/components/tools/FreeToolReportModal";
+import { ToolOmniMetaSection } from "@/components/tools/ToolOmniMetaSection";
 import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
 import { useGeneratedToolFieldDisplay } from "@/hooks/use-generated-tool-field-display";
 import {
@@ -13,11 +14,8 @@ import {
   submitToolFeedback,
 } from "@/lib/feedback/feedback-service";
 import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
-import { resolvePrimaryOutputLabel } from "@/lib/generated-tools/resolve-tool-display";
-import {
-  firstSelectOptionValue,
-  resolveGeneratedSelectOptions,
-} from "@/lib/generated-tools/select-options";
+import { resolveToolDisplayChrome } from "@/lib/tools/resolve-tool-display-chrome";
+import { resolveGeneratedSelectOptions } from "@/lib/generated-tools/select-options";
 import { buildGeneratedInputGroups } from "@/lib/generated-tools/input-groups";
 import {
   buildInitialSelectedUnits,
@@ -61,9 +59,8 @@ function buildDefaultValues(
       fallback[input.id] = input.default;
     } else if (input.type === "boolean") {
       fallback[input.id] = false;
-    } else if (input.type === "select") {
-      const firstOption = firstSelectOptionValue(input);
-      fallback[input.id] = firstOption ?? "";
+    } else if (input.type === "select" && input.options?.[0]) {
+      fallback[input.id] = input.options[0];
     } else {
       fallback[input.id] = "";
     }
@@ -351,7 +348,7 @@ export function FreeToolForm({
   const { user } = useUserSubscription();
 
   const [selectedUnits, setSelectedUnits] = useState<Record<string, string>>({});
-  const [vote, setVote] = useState<"up" | "down" | null>(null);
+  const [voteResetKey, setVoteResetKey] = useState(0);
   const [voteNotice, setVoteNotice] = useState<string | null>(null);
   const [reportModalOpen, setReportModalOpen] = useState(false);
 
@@ -382,6 +379,10 @@ export function FreeToolForm({
   }, [schema.inputs]);
 
   const routePath = `/tools/generated/${slug}`;
+  const displayChrome = useMemo(
+    () => resolveToolDisplayChrome(slug, schema, locale),
+    [locale, schema, slug],
+  );
 
   const resolveInputLabel = useCallback(
     (input: GeneratedToolInput) =>
@@ -414,12 +415,11 @@ export function FreeToolForm({
       selectedUnits,
     );
     onSubmit(converted);
-    setVote(null);
+    setVoteResetKey((current) => current + 1);
     setVoteNotice(null);
   };
 
-  const handleVote = async (type: "up" | "down") => {
-    setVote(type);
+  const handleVoteFeedback = async (type: "up" | "down") => {
     setVoteNotice(null);
 
     const message =
@@ -464,17 +464,20 @@ export function FreeToolForm({
         data-testid="free-tool-form"
         data-tool-slug={slug}
       >
-        <div className="sc-premium-dtf-card">
-          <header className="sc-premium-dtf-header">
-            <span className="sc-premium-dtf-header__accent" aria-hidden="true" />
-            <div>
-              <h2 className="sc-premium-dtf-header__title">{toolTitle}</h2>
-              <p className="sc-premium-dtf-header__subtitle">
-                {resolvePrimaryOutputLabel(schema) || tFree("defaultDescription")}
-              </p>
-            </div>
-          </header>
+        <ToolOmniMetaSection
+          toolName={toolTitle}
+          slug={slug}
+          tier="free"
+          summary={displayChrome.summary}
+          keywordTags={displayChrome.keywordTags}
+          icon={displayChrome.icon}
+          voteResetKey={voteResetKey}
+          onVoteFeedback={handleVoteFeedback}
+          onFeedback={() => setReportModalOpen(true)}
+          voteNotice={voteNotice}
+        />
 
+        <div className="sc-premium-dtf-card">
           <div className="sc-premium-dtf-columns">
             <div className="sc-premium-dtf-input-panel">
               <form onSubmit={handleSubmit(handleFormSubmit)} className="sc-premium-dtf-input-grid" noValidate>
@@ -551,44 +554,6 @@ export function FreeToolForm({
                   <div className="sc-premium-dtf-result__title">{t("clickToCompute")}</div>
                 </div>
               )}
-
-              <div className="sc-premium-dtf-operator-bar">
-                <div className="sc-premium-dtf-vote-group">
-                  <button
-                    type="button"
-                    onClick={() => void handleVote("up")}
-                    className={[
-                      "sc-premium-dtf-btn-vote",
-                      vote === "up" ? "sc-premium-dtf-btn-vote--active-up" : "",
-                    ].join(" ")}
-                  >
-                    {tFree("voteYes")}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => void handleVote("down")}
-                    className={[
-                      "sc-premium-dtf-btn-vote",
-                      vote === "down" ? "sc-premium-dtf-btn-vote--active-down" : "",
-                    ].join(" ")}
-                  >
-                    {tFree("voteNo")}
-                  </button>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setReportModalOpen(true)}
-                  className="sc-premium-dtf-btn-report"
-                >
-                  {tFree("reportIssue")}
-                </button>
-              </div>
-
-              {voteNotice ? (
-                <p className="sc-premium-dtf-notice" role="status">
-                  {voteNotice}
-                </p>
-              ) : null}
             </div>
           </div>
         </div>

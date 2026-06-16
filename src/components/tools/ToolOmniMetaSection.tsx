@@ -1,97 +1,156 @@
 "use client";
 
+import { useEffect, useMemo } from "react";
+import type { LucideIcon } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { InteractionActionBar } from "@/components/tools/InteractionActionBar";
+import { ToolCompactHeader } from "@/components/tools/ToolCompactHeader";
+import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
+import { useToolHelpfulVote } from "@/hooks/use-tool-helpful-vote";
+import { buildToolPageCreatorJsonLd } from "@/lib/semantic/build-tool-creator-jsonld";
 import {
-  formatToolHelpfulCount,
-  resolveToolHelpfulCount,
-} from "@/lib/tools/resolve-tool-helpful-count";
+  formatHelpfulCountDisplay,
+  type ToolHelpfulCountTier,
+} from "@/lib/tools/tool-helpful-count";
+import {
+  resolveGeneratedToolPath,
+  resolvePremiumToolPath,
+} from "@/lib/tools/paths";
+import { absoluteLocalizedUrl } from "@/lib/semantic/site-url";
+import { shouldOfferToolEmbed } from "@/lib/tools/embed-policy";
 
-const CREATOR_AVATAR_SRC = "/img/creators/neela-nataraj.png";
-
-type ToolOmniMetaSectionProps = {
+export type ToolOmniMetaSectionProps = {
   readonly toolName: string;
   readonly slug: string;
-  readonly isPremium: boolean;
-  readonly liked?: boolean;
-  readonly disliked?: boolean;
-  readonly onLike?: () => void;
-  readonly onDislike?: () => void;
-  readonly onFeedback?: () => void;
+  readonly tier: ToolHelpfulCountTier;
   readonly excerpt?: string;
-  readonly url?: string;
+  readonly summary?: string;
+  readonly keywordTags?: readonly string[];
+  readonly icon?: LucideIcon;
+  readonly canonicalPath?: string;
+  /** Set when the route already emits tool JSON-LD (e.g. premium-schema pages). */
+  readonly skipStructuredData?: boolean;
+  /** Increment after recalculate to clear the active vote and revert its count delta. */
+  readonly voteResetKey?: number;
+  readonly onVoteFeedback?: (type: "up" | "down") => void | Promise<void>;
+  readonly onFeedback?: () => void;
+  readonly voteNotice?: string | null;
 };
+
+function resolveCanonicalPath(
+  slug: string,
+  tier: ToolHelpfulCountTier,
+  canonicalPath?: string,
+): string {
+  if (canonicalPath) {
+    return canonicalPath;
+  }
+  return tier === "premium" ? resolvePremiumToolPath(slug) : resolveGeneratedToolPath(slug);
+}
 
 export function ToolOmniMetaSection({
   toolName,
   slug,
-  isPremium,
-  liked,
-  disliked,
-  onLike,
-  onDislike,
-  onFeedback,
+  tier,
   excerpt,
-  url,
+  summary,
+  keywordTags = [],
+  icon,
+  canonicalPath,
+  skipStructuredData = false,
+  voteResetKey = 0,
+  onVoteFeedback,
+  onFeedback,
+  voteNotice,
 }: ToolOmniMetaSectionProps) {
   const locale = useLocale();
-  const t = useTranslations("generatedTool.toolMeta");
+  const t = useTranslations("generatedTool.omniMeta");
+  const { helpfulCount, vote, applyVote, clearVote } = useToolHelpfulVote(slug, tier);
 
-  const helpfulCount = resolveToolHelpfulCount(slug, isPremium);
-  const formattedHelpfulCount = formatToolHelpfulCount(helpfulCount, locale);
+  const helpfulCountLabel = formatHelpfulCountDisplay(helpfulCount, locale);
+  const resolvedCanonicalPath = resolveCanonicalPath(slug, tier, canonicalPath);
+  const shareUrl = absoluteLocalizedUrl(locale, resolvedCanonicalPath);
+  const showEmbed = shouldOfferToolEmbed(tier);
+  const shareExcerpt = summary ?? excerpt;
+
+  const creatorJsonLd = useMemo(
+    () =>
+      buildToolPageCreatorJsonLd({
+        toolName,
+        description: shareExcerpt,
+        urlPath: resolvedCanonicalPath,
+        locale,
+      }),
+    [locale, resolvedCanonicalPath, shareExcerpt, toolName],
+  );
+
+  useEffect(() => {
+    if (voteResetKey > 0) {
+      clearVote();
+    }
+  }, [voteResetKey, clearVote]);
+
+  const handleLike = () => {
+    applyVote("up");
+    void onVoteFeedback?.("up");
+  };
+
+  const handleDislike = () => {
+    applyVote("down");
+    void onVoteFeedback?.("down");
+  };
 
   return (
-    <section
-      className="mb-4 rounded-xl border border-[#E8EDF2] bg-white px-4 py-3 shadow-sm"
-      aria-label={t("sectionLabel")}
-    >
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <div className="flex min-w-0 items-start gap-3">
-          <img
-            src={CREATOR_AVATAR_SRC}
-            alt={t("creatorName")}
-            width={40}
-            height={40}
-            className="h-10 w-10 shrink-0 rounded-full border border-[#E2E8F0] object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-          <div className="min-w-0">
-            <h1 className="text-lg font-semibold leading-tight text-[#0F172A] sm:text-xl">
-              {toolName}
-            </h1>
-            <p className="mt-0.5 text-sm text-[#64748B]">
-              <span>{t("creatorsLabel")}</span>
-              <span className="font-medium text-[#334155]">{t("creatorName")}</span>
-            </p>
-          </div>
-        </div>
+    <>
+      {skipStructuredData ? null : <SemanticJsonLd data={creatorJsonLd} />}
+      <section className="sc-tool-omni-meta" aria-label={t("sectionLabel")}>
+        <div className="sc-tool-omni-meta__top">
+          {icon ? (
+            <ToolCompactHeader
+              toolName={toolName}
+              summary={summary ?? excerpt ?? ""}
+              keywordTags={keywordTags}
+              icon={icon}
+            />
+          ) : (
+            <div className="sc-tool-omni-meta__identity">
+              <div className="sc-tool-omni-meta__copy">
+                <h1 className="sc-tool-omni-meta__title">{toolName}</h1>
+                {shareExcerpt ? (
+                  <p className="sc-tool-omni-meta__summary">{shareExcerpt}</p>
+                ) : null}
+              </div>
+            </div>
+          )}
 
-        <div className="shrink-0 text-right">
-          <div className="text-xl font-bold leading-none text-[#16A34A] sm:text-2xl">
-            {formattedHelpfulCount}
-          </div>
-          <p className="mt-0.5 max-w-[9rem] text-[0.6875rem] leading-snug text-[#94A3B8]">
-            {t("helpfulLabel")}
+          <p className="sc-tool-omni-meta__helpful">
+            <span className="sc-tool-omni-meta__helpful-count">{helpfulCountLabel}</span>{" "}
+            <span className="sc-tool-omni-meta__helpful-label">{t("helpfulLabel")}</span>
           </p>
         </div>
-      </div>
 
-      <div className="mt-3 border-t border-[#EEF2F6] pt-3">
-        <InteractionActionBar
-          likeCount={helpfulCount}
-          liked={liked}
-          disliked={disliked}
-          title={toolName}
-          excerpt={excerpt}
-          siteName="SectorCalc"
-          url={url}
-          onLike={onLike}
-          onDislike={onDislike}
-          onFeedback={onFeedback}
-          compact
-        />
-      </div>
-    </section>
+        <div className="sc-tool-omni-meta__actions">
+          <InteractionActionBar
+            likeCount={helpfulCount}
+            liked={vote === "up"}
+            disliked={vote === "down"}
+            title={toolName}
+            excerpt={shareExcerpt}
+            siteName="SectorCalc"
+            url={shareUrl}
+            embedUrl={showEmbed ? shareUrl : undefined}
+            showEmbed={showEmbed}
+            onLike={handleLike}
+            onDislike={handleDislike}
+            onFeedback={onFeedback}
+          />
+          {voteNotice ? (
+            <p className="sc-tool-omni-meta__notice" role="status">
+              {voteNotice}
+            </p>
+          ) : null}
+        </div>
+      </section>
+    </>
   );
 }

@@ -29,8 +29,8 @@ export const Evm_cost_forecastInputSchema = z.object({
 
 function evaluateAllFormulas(input: Evm_cost_forecastInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["calculated_cpi"] = 0;
-  results["calculated_spi"] = 0;
+  try { results["calculated_cpi"] = input.ac === 0 ? 1 : input.ev / input.ac; } catch { results["calculated_cpi"] = 0; }
+  try { results["calculated_spi"] = input.pv === 0 ? 1 : input.ev / input.pv; } catch { results["calculated_spi"] = 0; }
   try { results["effective_cpi"] = input.cpi !== undefined && input.cpi !== null ? input.cpi : (results["calculated_cpi"] ?? 0); } catch { results["effective_cpi"] = 0; }
   try { results["effective_spi"] = input.spi !== undefined && input.spi !== null ? input.spi : (results["calculated_spi"] ?? 0); } catch { results["effective_spi"] = 0; }
   try { results["weighted_performance_factor"] = input.useWeightedMethod ? (0.8 * (results["effective_cpi"] ?? 0) + 0.2 * (results["effective_spi"] ?? 0)) : (results["effective_cpi"] ?? 0); } catch { results["weighted_performance_factor"] = 0; }

@@ -299,7 +299,7 @@
         "free-tools": "Buscar calculadoras gratuitas...",
         "premium-tools": "Buscar calculadoras premium...",
         "industries": "Buscar calculadoras sectoriales...",
-        "homepage": "¿Qué sector, costo o cálculo técnico necesita?"
+        "homepage": "Buscar sector, coste o cálculo técnico..."
       },
       "noResults": "No se encontraron herramientas.",
       "moreResults": "+ {count} resultados más",
@@ -719,7 +719,10 @@
       "subtitle": "Empieza con herramientas gratis y pasa a informes Premium cuando los necesites.",
       "primary": "Herramientas gratis",
       "secondary": "Ver informe de ejemplo"
-    }
+    },
+    "heroTitle": "De la producción a la industria, gestione todos los cálculos críticos de su negocio en un solo lugar.",
+    "heroSub1": "Pruebe gratis cálculos como coste, merma, energía y OEE.",
+    "heroSub2": "Compare sus resultados con herramientas premium para decisiones más profundas."
   },
   "homeDashboard": {
     "meta": {
@@ -1020,7 +1023,7 @@
       "subtitle": "SectorCalc reúne calculadoras sectoriales para producción, taller, obra, logística, energía y finanzas en una plataforma enfocada.",
       "supporting": "SIN COMPLEJIDAD ERP — PARA PYMES Y EQUIPOS DE CAMPO",
       "ctaPrimary": "Calculadoras gratuitas",
-      "ctaSecondary": "Calculadoras premium",
+      "ctaSecondary": "Ver Premium",
       "panelTitle": "Lo que los equipos calculan primero",
       "panelItems": {
         "production": "Tarifa máquina, OEE y desperdicio",
@@ -1034,40 +1037,88 @@
       }
     },
     "coverage": {
-      "title": "Calculadoras sectoriales en toda su operación",
-      "subtitle": "Explore por sector, tipo de cálculo o decisión pendiente — no por hojas de cálculo dispersas.",
+      "title": "Herramientas de cálculo sectoriales",
+      "subtitle": "Calculadoras adaptadas a su sector y a sus decisiones.",
       "items": {
         "production": {
           "title": "Producción y fabricación",
-          "description": "Tarifa horaria de máquina, OEE, velocidad de corte, riesgo de desperdicio y eficiencia de planta."
+          "description": "Tarifa horaria de máquina, OEE, velocidad de corte, riesgo de desperdicio y eficiencia de planta.",
+          "shortTitle": "Producción",
+          "tags": [
+            "CNC",
+            "OEE",
+            "Merma"
+          ]
         },
         "industrial": {
           "title": "Talleres industriales",
-          "description": "Margen de cotización, punto de equilibrio, cotización de reparación y margen de producto antes de enviar el precio."
+          "description": "Margen de cotización, punto de equilibrio, cotización de reparación y margen de producto antes de enviar el precio.",
+          "shortTitle": "Taller",
+          "tags": [
+            "Cotización",
+            "Setup",
+            "Shop Rate"
+          ]
         },
         "technical": {
           "title": "Técnica e ingeniería",
-          "description": "Torque de apriete, conexiones soldadas, acumulación de tolerancias y fuerza de cilindro para números de campo."
+          "description": "Torque de apriete, conexiones soldadas, acumulación de tolerancias y fuerza de cilindro para números de campo.",
+          "shortTitle": "Ingeniería",
+          "tags": [
+            "Par",
+            "Tolerancia",
+            "Cilindro"
+          ]
         },
         "construction": {
           "title": "Construcción y obra",
-          "description": "Volumen de hormigón, metros cuadrados, cobertura de pintura y área de cubierta para cantidades de proyecto."
+          "description": "Volumen de hormigón, metros cuadrados, cobertura de pintura y área de cubierta para cantidades de proyecto.",
+          "shortTitle": "Construcción",
+          "tags": [
+            "Hormigón",
+            "Metrado",
+            "Tejado"
+          ]
         },
         "logistics": {
           "title": "Logística y transporte",
-          "description": "Costo de ruta, deriva de combustible, viajes en vacío y visibilidad del margen de entrega."
+          "description": "Costo de ruta, deriva de combustible, viajes en vacío y visibilidad del margen de entrega.",
+          "shortTitle": "Logística",
+          "tags": [
+            "Combustible",
+            "Volumen",
+            "Flete"
+          ]
         },
         "energy": {
           "title": "Energía y carbono",
-          "description": "Costo kWh, fugas de compresor, paquetes de ahorro y huella de carbono CBAM."
+          "description": "Costo kWh, fugas de compresor, paquetes de ahorro y huella de carbono CBAM.",
+          "shortTitle": "Energía",
+          "tags": [
+            "kWh",
+            "Fuga",
+            "Carbono"
+          ]
         },
         "finance": {
           "title": "Finanzas y negocio",
-          "description": "IVA, cuota de préstamo, costo total del empleado y costo de mantenimiento de inventario con EOQ."
+          "description": "IVA, cuota de préstamo, costo total del empleado y costo de mantenimiento de inventario con EOQ.",
+          "shortTitle": "Finanzas",
+          "tags": [
+            "IVA",
+            "Personal",
+            "Amortización"
+          ]
         },
         "foodRetail": {
           "title": "Alimentación y retail",
-          "description": "Margen de menú, deriva de desperdicio, rotación de inventario y variación de costo por porción."
+          "description": "Margen de menú, deriva de desperdicio, rotación de inventario y variación de costo por porción.",
+          "shortTitle": "Retail",
+          "tags": [
+            "Merma",
+            "Stock",
+            "Margen"
+          ]
         }
       }
     },
@@ -1090,28 +1141,33 @@
       }
     },
     "losses": {
-      "title": "Lo que ocultan los números no calculados",
+      "title": "Convierta pérdidas invisibles en números",
       "items": {
         "monetary": {
-          "title": "Dinero y margen",
-          "text": "Brechas de precio, deriva de cotización y carga de nómina que no aparecen en la primera fila de la hoja."
+          "title": "Pérdida monetaria",
+          "text": "Brechas de precio, deriva de cotización y carga de nómina que no aparecen en la primera fila de la hoja.",
+          "examples": "Cotización incorrecta, margen bajo, plazo de pago."
         },
         "material": {
-          "title": "Material y desperdicio",
-          "text": "Deriva de desperdicio, merma invisible y pérdida de inventario entre compra y producción."
+          "title": "Material y Merma",
+          "text": "Deriva de desperdicio, merma invisible y pérdida de inventario entre compra y producción.",
+          "examples": "Chatarra, sobreconsumo, pérdida de calidad."
         },
         "time": {
-          "title": "Tiempo y rendimiento",
-          "text": "Excesos de preparación, costo de parada y pérdida de rendimiento después de un presupuesto optimista."
+          "title": "Tiempo y Operación",
+          "text": "Excesos de preparación, costo de parada y pérdida de rendimiento después de un presupuesto optimista.",
+          "examples": "Setup, parada, desvío de ruta."
         },
         "energy": {
-          "title": "Energía y carbono",
-          "text": "Exposición a picos de demanda, fugas de compresor y presión de huella de carbono en exportación y cumplimiento."
+          "title": "Energía y Carbono",
+          "text": "Exposición a picos de demanda, fugas de compresor y presión de huella de carbono en exportación y cumplimiento.",
+          "examples": "Fugas, pico de consumo, huella de carbono."
         }
-      }
+      },
+      "subtitle": "Descubra costes que pasan desapercibidos en el día a día."
     },
     "freePremium": {
-      "title": "Los cálculos básicos son gratuitos. Los resúmenes de decisión completos son premium.",
+      "title": "Calculadoras gratuitas y premium",
       "freeTitle": "Calculadoras gratuitas",
       "freeText": "Controles sectoriales rápidos en el navegador con entradas esenciales y señales de riesgo visibles.",
       "freeItems": {
@@ -1120,7 +1176,7 @@
         "category": "Explorar por sector y tipo de cálculo",
         "noSignup": "Explorar sin registro"
       },
-      "freeCta": "Abrir calculadoras gratuitas",
+      "freeCta": "Probar ahora",
       "premiumTitle": "Calculadoras premium",
       "premiumText": "Añada más entradas, comparación de escenarios y resúmenes exportables cuando aumente el riesgo.",
       "premiumItems": {
@@ -1129,10 +1185,20 @@
         "summary": "Resumen de decisión con impulsores y acción",
         "export": "Exportación PDF y CSV cuando esté disponible"
       },
-      "premiumCta": "Ver calculadoras premium"
+      "premiumCta": "Explorar",
+      "freeHighlights": [
+        "Resultado rápido",
+        "Sin registro",
+        "Fórmulas básicas"
+      ],
+      "premiumHighlights": [
+        "Comparación de escenarios",
+        "Resumen de decisión",
+        "Más entradas"
+      ]
     },
     "criticalTools": {
-      "title": "Calculadoras críticas que los equipos abren primero",
+      "title": "Calculadoras más usadas",
       "subtitle": "Calculadoras sectoriales de alta intención para producción, cotización, ingeniería, construcción, energía y finanzas.",
       "badgeSoon": "Próximamente",
       "groups": {
@@ -1140,7 +1206,7 @@
           "title": "Producción y fabricación",
           "items": {
             "shopRate": {
-              "title": "Calculadora de tarifa horaria de máquina"
+              "title": "Coste hora máquina"
             },
             "oee": {
               "title": "Calculadora OEE"
@@ -1157,7 +1223,7 @@
           "title": "Taller y cotización",
           "items": {
             "quoteMargin": {
-              "title": "Calculadora de precio de cotización y margen de beneficio"
+              "title": "Asistente de cotización"
             },
             "breakEven": {
               "title": "Calculadora de punto de equilibrio"
@@ -1174,7 +1240,7 @@
           "title": "Técnica e ingeniería",
           "items": {
             "boltTorque": {
-              "title": "Calculadora de torque de apriete de pernos"
+              "title": "Par de apriete"
             },
             "weldedConnection": {
               "title": "Calculadora de conexiones soldadas y atornilladas"
@@ -1191,7 +1257,7 @@
           "title": "Construcción y obra",
           "items": {
             "concreteVolume": {
-              "title": "Calculadora de volumen de hormigón"
+              "title": "Volumen de hormigón"
             },
             "squareMeter": {
               "title": "Calculadora de metros cuadrados"
@@ -1208,7 +1274,7 @@
           "title": "Energía y carbono",
           "items": {
             "compressorLeak": {
-              "title": "Calculadora de costo de fuga de compresor"
+              "title": "Fuga de compresor"
             },
             "kwhCost": {
               "title": "Calculadora de costo kWh"
@@ -1238,57 +1304,70 @@
             }
           }
         }
+      },
+      "popularCategories": {
+        "production": "Producción",
+        "workshop": "Taller",
+        "engineering": "Ingeniería",
+        "construction": "Construcción",
+        "energy": "Energía"
       }
     },
     "audiences": {
-      "title": "Para equipos que necesitan números antes del ERP",
+      "title": "¿Para quién es SectorCalc?",
       "items": {
         "production": {
-          "title": "Responsables de producción",
-          "text": "Revise tarifa de máquina, OEE y desperdicio antes de aceptar trabajos repetidos o repricing de línea."
+          "title": "Empresas de producción",
+          "text": "Revise tarifa de máquina, OEE y desperdicio antes de aceptar trabajos repetidos o repricing de línea.",
+          "examples": "OEE, merma, cotización"
         },
         "industrial": {
-          "title": "Dueños de taller",
-          "text": "Margen de cotización, punto de equilibrio y mano de obra de reparación antes de la presión de precio del cliente."
+          "title": "Talleres industriales",
+          "text": "Margen de cotización, punto de equilibrio y mano de obra de reparación antes de la presión de precio del cliente.",
+          "examples": "Shop rate, setup"
         },
         "engineering": {
-          "title": "Ingenieros y mantenimiento",
-          "text": "Torque, acumulación de tolerancias y fuerza de cilindro sin un cuaderno de ingeniería aparte."
+          "title": "Ingeniería",
+          "text": "Torque, acumulación de tolerancias y fuerza de cilindro sin un cuaderno de ingeniería aparte.",
+          "examples": "Par, tolerancia"
         },
         "construction": {
-          "title": "Construcción y oficios",
-          "text": "Cantidades de hormigón, área, pintura y cubierta antes de pedir materiales o movilizar la cuadrilla."
+          "title": "Equipos de construcción",
+          "text": "Cantidades de hormigón, área, pintura y cubierta antes de pedir materiales o movilizar la cuadrilla.",
+          "examples": "Metrado, volumen, hormigón"
         },
         "logistics": {
-          "title": "Equipos de logística",
-          "text": "Cálculo de ruta y flete cuando viajes en vacío y combustible comen el margen de entrega."
+          "title": "Logística y Servicio",
+          "text": "Cálculo de ruta y flete cuando viajes en vacío y combustible comen el margen de entrega.",
+          "examples": "Combustible, ruta, flete"
         },
         "finance": {
           "title": "Finanzas y RR. HH.",
-          "text": "IVA, cuota de préstamo, costo total del empleado y costo de mantenimiento de inventario para precios y contratación."
+          "text": "IVA, cuota de préstamo, costo total del empleado y costo de mantenimiento de inventario para precios y contratación.",
+          "examples": "Crédito, personal"
         }
       }
     },
     "whyNotExcel": {
-      "title": "¿Por qué calculadoras sectoriales en lugar de Excel dispersos?",
+      "title": "Por qué Excel no basta",
       "items": {
         "formula": {
-          "title": "Fórmulas consistentes",
-          "text": "Deje de reconstruir la misma matemática de margen, desperdicio y energía entre notas, chats y pestañas sueltas."
+          "title": "Se olvidan las fórmulas",
+          "text": "Merma, energía y mano de obra pueden omitirse."
         },
         "sector": {
-          "title": "Contexto sectorial integrado",
-          "text": "Entradas y etiquetas adaptadas a fabricación, construcción, logística y energía — no celdas genéricas."
+          "title": "Se pierde el contexto sectorial",
+          "text": "CNC no se mide con la misma plantilla que el hormigón."
         },
         "decision": {
-          "title": "Del control gratuito al resumen de decisión",
-          "text": "Empiece con un número rápido y abra calculadoras premium cuando la cotización, el trabajo o la compra necesite más salida."
+          "title": "La decisión llega tarde",
+          "text": "La pérdida aparece a fin de mes — demasiado tarde."
         }
       },
       "closing": "SectorCalc mantiene las calculadoras sectoriales visibles, comparables y repetibles — sin despliegue ERP."
     },
     "finalCta": {
-      "title": "Abra la calculadora sectorial que necesita",
+      "title": "¿Qué cálculo aclaramos hoy?",
       "subtitle": "Empiece gratis y pase a calculadoras premium cuando la decisión requiera más entradas y un resumen más claro.",
       "ctaPrimary": "Calculadoras gratuitas",
       "ctaSecondary": "Calculadoras premium"
@@ -3204,6 +3283,45 @@
       "reportMessageTooShort": "Ingrese al menos 10 caracteres.",
       "reportSubmitFailed": "No se pudo enviar el reporte. Inténtelo de nuevo."
     },
+    "omniMeta": {
+      "sectionLabel": "Información de la calculadora",
+      "creatorsLabel": "Creadores:",
+      "creatorName": "Prof. Dr. Neela Nataraj",
+      "creatorProfileAria": "Prof. Dr. Neela Nataraj, Indian Institute of Technology Bombay (abre el perfil de LinkedIn)",
+      "helpfulLabel": "personas encuentran útil esta calculadora"
+    },
+    "interactionActionBar": {
+      "reactionGroupLabel": "Comentarios de utilidad",
+      "likeTooltip": "Útil",
+      "dislikeTooltip": "No útil",
+      "likeAria": "Encontré útil este contenido",
+      "dislikeAria": "No encontré útil este contenido",
+      "feedbackTooltip": "Enviar comentarios",
+      "feedbackAria": "Enviar comentarios",
+      "shareTooltip": "Compartir",
+      "shareAria": "Compartir este contenido",
+      "shareMenuLabel": "Opciones para compartir",
+      "shareCopyLink": "Copiar enlace",
+      "shareFacebook": "Compartir en Facebook",
+      "shareX": "Compartir en X",
+      "shareLinkedIn": "Compartir en LinkedIn",
+      "sharePinterest": "Compartir en Pinterest",
+      "shareReddit": "Compartir en Reddit",
+      "shareEmbed": "Obtener código de inserción",
+      "shareQuote": "Citar",
+      "embedTooltip": "Obtener código de inserción",
+      "embedAria": "Obtener código de inserción de este contenido",
+      "quoteTooltip": "Citar",
+      "quoteAria": "Citar este contenido",
+      "linkCopied": "Enlace copiado",
+      "embedCopied": "Código de inserción copiado",
+      "quoteCopied": "Cita copiada",
+      "embedModalTitle": "Código de inserción",
+      "embedCopyCode": "Copiar código",
+      "quoteModalTitle": "Cita",
+      "quoteCopy": "Copiar cita",
+      "close": "Cerrar"
+    },
     "shopRateSelector": {
       "title": "Aplicar perfil de costo de máquina",
       "description": "Seleccione una máquina de su pool para completar automáticamente los campos de costo por hora.",
@@ -3336,6 +3454,18 @@
       "supplierFetchSuccess": "Se añadieron {value} kg CO2e ({unit}, {source}) a bienes comprados.",
       "supplierLastFetch": "Última obtención: {product} a {factor} kg CO2e/{unit}."
     }
+  },
+  "generatedToolCatalog": {
+    "eyebrow": "Calculadoras basadas en esquema",
+    "title": "Calculadoras generadas",
+    "subtitle": "Calculadoras sectoriales basadas en esquema con entradas dinámicas, diagramas SVG y resultados instantáneos en el navegador.",
+    "subtitleCompact": "Encuentre la calculadora que necesita por sector.",
+    "metaTitle": "Calculadoras generadas | SectorCalc",
+    "metaDescription": "Calculadoras sectoriales basadas en esquema con entradas dinámicas, diagramas SVG y resultados instantáneos.",
+    "searchPlaceholder": "Buscar por nombre o tema…",
+    "resultsCount": "{count} calculadoras",
+    "noResults": "Ninguna calculadora coincide con su búsqueda.",
+    "allCategories": "← Todas las categorías"
   },
   "wasteTypes": {
     "overproduction": "Sobreproducción",
@@ -15435,7 +15565,6 @@
     "legalNavAria": "Enlaces legales",
     "legalPrivacy": "Política de privacidad",
     "legalTerms": "Términos de uso",
-    "legalRefund": "Política de reembolso",
     "legalDisclaimer": "Descargo de responsabilidad",
     "metaCopyright": "© 2026 SectorCalc",
     "metaRights": "Todos los derechos reservados.",
@@ -15462,8 +15591,7 @@
     "servicesLabel": "services-products.txt",
     "freeToolsLabel": "Calculadoras gratuitas",
     "premiumToolsLabel": "Calculadoras premium",
-    "industriesLabel": "Centros sectoriales",
-    "generatedToolsLabel": "Calculadoras generadas"
+    "industriesLabel": "Centros sectoriales"
   },
   "guidance": {
     "inputGuide": {
@@ -15662,150 +15790,5 @@
       "title": "Veredicto margen fontaneria",
       "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
     }
-  },
-  "legalCommon": {
-    "eyebrow": "Legal",
-    "readPrivacy": "Privacy Policy",
-    "readTerms": "Terms of Service",
-    "readRefund": "Refund Policy",
-    "seeAlso": "See also",
-    "termsFooter": "Read our <privacy>Privacy Policy</privacy> and <refund>Refund Policy</refund>.",
-    "privacyFooter": "See also <terms>Terms of Service</terms> and <refund>Refund Policy</refund>.",
-    "refundFooter": "See also <terms>Terms of Service</terms> and <privacy>Privacy Policy</privacy>.",
-    "contactIntro": "For questions, contact us using the details below.",
-    "dataControllerIntro": "The data controller for SectorCalc is:",
-    "refundContactIntro": "For refund requests or billing questions, contact us using the details below."
-  },
-  "terms": {
-    "meta": {
-      "title": "Terms of Service",
-      "description": "Legal terms and conditions for using SectorCalc calculators and services."
-    },
-    "heroDescription": "By accessing or using SectorCalc, you agree to these Terms of Service.",
-    "title": "Terms of Service",
-    "lastUpdated": "Last updated: {date}",
-    "lastUpdatedDate": "June 15, 2026",
-    "intro": "Welcome to SectorCalc. By accessing or using our website and calculation tools, you agree to be bound by these Terms of Service.",
-    "section1": {
-      "title": "1. Our Services",
-      "content": "SectorCalc provides industrial and business calculators for informational and decision-support purposes. Our tools do not constitute professional engineering, financial, or legal advice. You are solely responsible for verifying any results before making business decisions."
-    },
-    "section2": {
-      "title": "2. Premium Features & Credits",
-      "content": "Premium tools require credits. Credits are non-refundable and expire 12 months after purchase. You may purchase credit packages through our secure payment provider. Unused credits do not roll over."
-    },
-    "section3": {
-      "title": "3. User Accounts",
-      "content": "You must create an account to access premium features. You are responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account."
-    },
-    "section4": {
-      "title": "4. Intellectual Property",
-      "content": "All content, formulas, algorithms, designs, and trademarks are the exclusive property of Sector Calculator (operating as SectorCalc). You may not reproduce, distribute, or create derivative works without prior written permission."
-    },
-    "section5": {
-      "title": "5. Limitation of Liability",
-      "content": "To the maximum extent permitted by law, Sector Calculator shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services."
-    },
-    "section6": {
-      "title": "6. Modifications",
-      "content": "We may update these Terms at any time. Continued use of the service after changes constitutes acceptance of the new Terms."
-    },
-    "section7": {
-      "title": "7. Contact Information",
-      "content": "For questions about these Terms, contact us using the details below."
-    }
-  },
-  "privacy": {
-    "meta": {
-      "title": "Privacy Policy",
-      "description": "How SectorCalc collects, uses, and protects your personal data."
-    },
-    "heroDescription": "What data we collect, how we use it, and your rights.",
-    "title": "Privacy Policy",
-    "effective": "Effective: June 15, 2026",
-    "intro": "Your privacy is important to us. This policy explains what data we collect, how we use it, and your rights.",
-    "section1": {
-      "title": "1. Information We Collect",
-      "content": "We collect personal information you provide (e.g., email address when you register). We also automatically collect usage data (IP address, browser type, pages visited) to improve our tools."
-    },
-    "section2": {
-      "title": "2. How We Use Your Information",
-      "content": "We use your data to operate, maintain, and improve SectorCalc, to process payments, and to communicate with you about your account or updates."
-    },
-    "section3": {
-      "title": "3. Cookies & Tracking",
-      "content": "We use essential cookies for authentication and optional analytics cookies (e.g., Google Analytics) to analyze usage. You can disable non-essential cookies in your browser settings."
-    },
-    "section4": {
-      "title": "4. Data Sharing",
-      "content": "We do not sell your personal data. We share data only with trusted third-party services (payment processors — Stripe/Paddle, hosting — Vercel) as necessary to provide our services."
-    },
-    "section5": {
-      "title": "5. Data Retention & Security",
-      "content": "We retain your data as long as your account is active. We implement reasonable security measures, but no method of transmission over the Internet is 100% secure."
-    },
-    "section6": {
-      "title": "6. Your Rights",
-      "content": "You may request access, correction, or deletion of your personal data by contacting us at info@sectorcalc.com."
-    },
-    "section7": {
-      "title": "7. Children's Privacy",
-      "content": "Our services are not directed to individuals under 16. We do not knowingly collect personal information from children."
-    },
-    "section8": {
-      "title": "8. Changes to This Policy",
-      "content": "We may update this policy from time to time. The \"Effective\" date at the top indicates when the latest version was posted."
-    },
-    "section9": {
-      "title": "9. Data Controller",
-      "content": "The data controller for SectorCalc is:"
-    }
-  },
-  "refundPolicy": {
-    "meta": {
-      "title": "Refund Policy",
-      "description": "Refund terms for credit purchases and subscriptions on SectorCalc."
-    },
-    "heroDescription": "Refund terms for credit purchases and subscriptions.",
-    "title": "Refund Policy",
-    "lastUpdated": "Last updated: June 15, 2026",
-    "intro": "We want you to be satisfied with your purchase. Please read this Refund Policy carefully.",
-    "section1": {
-      "title": "1. Credits & Subscriptions",
-      "content": "Credits: Purchases of credits are final and non-refundable. Unused credits expire 12 months after purchase. No cash refunds will be issued for unused credits. Subscriptions: If you purchase a recurring subscription, you may request a full refund within 14 days of your first payment, provided you have not used any premium tool during that period. After 14 days or after first use, subscription fees are non-refundable."
-    },
-    "section2": {
-      "title": "2. Faulty or Incorrect Tools",
-      "content": "If a premium tool produces demonstrably incorrect results due to a bug in our system, we will refund the credits used for that calculation (up to the number of credits spent) or provide replacement credits. Please report the issue with screenshots and details to info@sectorcalc.com."
-    },
-    "section3": {
-      "title": "3. How to Request a Refund",
-      "content": "To request a refund, contact us at info@sectorcalc.com with your transaction ID (from your payment provider) and the reason for the request. We will respond within 7–14 business days."
-    },
-    "section4": {
-      "title": "4. Chargebacks",
-      "content": "If you initiate a chargeback without first contacting us, we may suspend your account until the matter is resolved."
-    },
-    "section5": {
-      "title": "5. Changes to this Policy",
-      "content": "We reserve the right to modify this refund policy at any time. Changes will be posted on this page."
-    },
-    "section6": {
-      "title": "6. Contact Information",
-      "content": "For refund requests or billing questions, contact us using the details below."
-    }
-  },
-  "creditsPricing": {
-    "meta": {
-      "title": "Pricing – SectorCalc Credits",
-      "description": "Purchase credits to unlock premium industrial calculators. Plans start at $1.99."
-    },
-    "title": "Choose your credits",
-    "subtitle": "One credit unlocks one premium calculation. Credits expire 12 months after purchase.",
-    "creditsLabel": "{count} credits",
-    "perCredit": "/ credit",
-    "buyNow": "Buy credits",
-    "popular": "Most popular",
-    "legalNote": "All prices are in USD. Credits are non-refundable and expire 12 months after purchase."
   }
 }

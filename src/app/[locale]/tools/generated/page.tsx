@@ -4,7 +4,9 @@ import { getTranslations } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
 import { Container } from "@/components/ui/Container";
+import { Suspense } from "react";
 import { GeneratedToolsHub } from "@/components/tools/GeneratedToolsHub";
+import { ToolsCategoryHub } from "@/components/tools/ToolsCategoryHub";
 import { buildGeneratedToolCatalog } from "@/lib/generated-tools/build-generated-catalog";
 import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
@@ -57,11 +59,13 @@ export default async function GeneratedToolsHubPage({ params }: PageProps) {
       <JsonLd data={jsonLd} />
       <CatalogPageHero
         title={t("title")}
-        subtitle={t("subtitle")}
+        subtitle={t("subtitleCompact")}
         eyebrow={t("eyebrow")}
       />
       <Container className="pb-12 pt-4 sm:pb-16">
-        <GeneratedToolsHub tools={tools} />
+        <Suspense fallback={<GeneratedToolsHub tools={tools} />}>
+          <ToolsCategoryHub tools={tools} />
+        </Suspense>
       </Container>
     </PageLayout>
   );

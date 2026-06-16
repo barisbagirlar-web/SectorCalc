@@ -3,7 +3,7 @@
  * Builds complete DE/FR/ES/AR field-label map from catalog + glossaries.
  * Target: TR-level parity — no meaningful EN-identical labels.
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { execSync } from "node:child_process";
 
@@ -26,7 +26,7 @@ const PHRASE_GLOSSARY = JSON.parse(
   readFileSync(join(ROOT, "src/data/calculator-phrase-glossary.json"), "utf8"),
 );
 
-const TARGET_LOCALES = ["de", "fr", "es", "ar"];
+const TARGET_LOCALES = ["tr", "de", "fr", "es", "ar"];
 
 function loadPremiumSchemaLabels() {
   try {
@@ -137,11 +137,24 @@ function isTechnicalToken(label) {
 
 /** Manual overrides for labels word-compose cannot split reliably. */
 const MANUAL_OVERRIDES = {
+  tr: {
+    "Target Safety Factor (SF)": "Hedef güvenlik faktörü (SF)",
+    "Allowable Stress (S)": "İzin verilen gerilme (S)",
+    "Override Safety Factor": "Güvenlik faktörünü geçersiz kıl",
+    "Custom Safety Factor": "Özel güvenlik faktörü",
+    "Safety Factor (SF)": "Güvenlik faktörü (SF)",
+  },
   de: {
     "Access factor": "Zugangsfaktor",
     "Actual": "Istwert",
     "Age factor": "Altersfaktor",
     "Allowable stress": "Zulässige Spannung",
+    "Allowable Stress (S)": "Zulässige Spannung (S)",
+    "Override Safety Factor": "Sicherheitsfaktor überschreiben",
+    "Custom Safety Factor": "Benutzerdefinierter Sicherheitsfaktor",
+    "Safety Factor (SF)": "Sicherheitsfaktor (SF)",
+    "Safety factor target": "Sicherheitsfaktor-Zielwert",
+    "Target Safety Factor (SF)": "Sollwert Sicherheitsfaktor (SF)",
     "Attenuation": "Dämpfung",
     "Base A": "Basis A",
     "Base B": "Basis B",
@@ -276,6 +289,12 @@ const MANUAL_OVERRIDES = {
     Actual: "Réel",
     "Age factor": "Facteur d'âge",
     "Allowable stress": "Contrainte admissible",
+    "Allowable Stress (S)": "Contrainte admissible (S)",
+    "Override Safety Factor": "Remplacer le facteur de sécurité",
+    "Custom Safety Factor": "Facteur de sécurité personnalisé",
+    "Safety Factor (SF)": "Facteur de sécurité (SF)",
+    "Safety factor target": "Cible du facteur de sécurité",
+    "Target Safety Factor (SF)": "Cible du facteur de sécurité (SF)",
     Attenuation: "Atténuation",
     "Base A": "Base A",
     "Base B": "Base B",
@@ -449,6 +468,12 @@ const MANUAL_OVERRIDES = {
     Actual: "Real",
     "Age factor": "Factor de edad",
     "Allowable stress": "Esfuerzo admisible",
+    "Allowable Stress (S)": "Esfuerzo admisible (S)",
+    "Override Safety Factor": "Anular factor de seguridad",
+    "Custom Safety Factor": "Factor de seguridad personalizado",
+    "Safety Factor (SF)": "Factor de seguridad (SF)",
+    "Safety factor target": "Objetivo del factor de seguridad",
+    "Target Safety Factor (SF)": "Objetivo del factor de seguridad (SF)",
     Attenuation: "Atenuación",
     "Base A": "Base A",
     "Base B": "Base B",
@@ -609,6 +634,12 @@ const MANUAL_OVERRIDES = {
     Actual: "فعلي",
     "Age factor": "معامل العمر",
     "Allowable stress": "إجهاد مسموح",
+    "Allowable Stress (S)": "إجهاد مسموح (S)",
+    "Override Safety Factor": "تجاوز معامل الأمان",
+    "Custom Safety Factor": "معامل أمان مخصص",
+    "Safety Factor (SF)": "معامل الأمان (SF)",
+    "Safety factor target": "هدف معامل الأمان",
+    "Target Safety Factor (SF)": "هدف معامل الأمان (SF)",
     Attenuation: "توهين",
     "Base A": "أساس أ",
     "Base B": "أساس ب",
@@ -759,11 +790,15 @@ const MANUAL_OVERRIDES = {
 };
 
 const labels = loadCatalogLabels();
-const output = Object.fromEntries(TARGET_LOCALES.map((l) => [l, {}]));
+const existing = existsSync(OUT) ? JSON.parse(readFileSync(OUT, "utf8")) : {};
+const output = Object.fromEntries(TARGET_LOCALES.map((l) => [l, { ...(existing[l] ?? {}) }]));
 
 for (const locale of TARGET_LOCALES) {
   let unresolved = 0;
   for (const label of labels) {
+    if (output[locale][label] && output[locale][label] !== label) {
+      continue;
+    }
     if (isTechnicalToken(label)) {
       output[locale][label] = label;
       continue;

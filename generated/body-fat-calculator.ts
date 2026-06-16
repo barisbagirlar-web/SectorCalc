@@ -26,7 +26,7 @@ export const Body_fat_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Body_fat_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { results["bmi"] = input.weight / ((input.height / 100) ^ 2); } catch { results["bmi"] = 0; }
-  results["bodyDensity"] = 0;
+  try { results["bodyDensity"] = input.gender == 'male' ? (1.0323 - 0.000154 * input.waistCircumference + 0.0001557 * input.neckCircumference - 0.000069 * input.height) : (1.0296 - 0.000154 * input.waistCircumference + 0.0001557 * input.neckCircumference + 0.000069 * input.hipCircumference - 0.000069 * input.height); } catch { results["bodyDensity"] = 0; }
   try { results["bodyFatPercentage"] = (495 / (results["bodyDensity"] ?? 0)) - 450; } catch { results["bodyFatPercentage"] = 0; }
   try { results["fatMass"] = input.weight * ((results["bodyFatPercentage"] ?? 0) / 100); } catch { results["fatMass"] = 0; }
   try { results["leanMass"] = input.weight - (results["fatMass"] ?? 0); } catch { results["leanMass"] = 0; }

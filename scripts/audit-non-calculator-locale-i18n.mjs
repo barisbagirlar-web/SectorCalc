@@ -58,10 +58,15 @@ const COGNATES = new Set([
   "{region} · {currency}",
   "REG: GLOBAL",
   "© 2026 SECTORCALC",
+  "© 2026 SectorCalc",
   "FREE + PREMIUM",
   "27 LIVE",
   "MarginCore · Phase 2",
   "Global · USD",
+  "Prof. Dr. Neela Nataraj",
+  "ASME BPVC",
+  "ASTM / AISI",
+  "ASME Y14.5",
 ]);
 
 const ENGLISH_LEAK = /\b(the|and|with|what is|required|your|for|from|this|that|how|when|where|sign in|go to|return to|loading|calculate|resources|categories|reports|account|archive|pricing|checkout|waitlist|forever|baseline|verdict|deterministic|confidence|complete|updated|construction|logistics|industries|sectors|intelligence|utilities|waitlist)\b/i;

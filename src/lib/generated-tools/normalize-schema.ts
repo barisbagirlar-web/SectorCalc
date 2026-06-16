@@ -219,6 +219,7 @@ export function normalizeRawGeneratedSchema(
 
   const toolName =
     asString(record.toolName) ||
+    asString(record.title) ||
     asString(record.name) ||
     slug.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
 

@@ -1,6 +1,7 @@
 import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
 import { Container } from "@/components/ui/Container";
 import { PageLayout } from "@/components/layout/PageLayout";
+import { Target, Eye, Users } from "lucide-react";
 
 export type ManifestoPageVariant = "manifesto" | "about" | "methodology" | "trust";
 
@@ -10,6 +11,27 @@ type Section = {
   readonly body: string;
   readonly bullets?: readonly string[];
 };
+
+const ABOUT_CARDS = [
+  {
+    id: "mission",
+    title: "Our mission",
+    body: "Make sector-specific calculations accessible to every operator — without ERP complexity or consultant retainers.",
+    icon: Target,
+  },
+  {
+    id: "vision",
+    title: "Our vision",
+    body: "Become the most trusted sector calculation platform for teams that need governed formulas and decision-ready outputs.",
+    icon: Eye,
+  },
+  {
+    id: "team",
+    title: "Our team",
+    body: "Engineers, designers, and sector specialists building calculators operators can trust on the shop floor.",
+    icon: Users,
+  },
+] as const;
 
 const ALL_SECTIONS: readonly Section[] = [
   {
@@ -136,23 +158,41 @@ export function ManifestoPageContent({ variant, headline, lead }: ManifestoPageC
 
       <section className="sc-craft-section overflow-x-hidden">
         <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0 space-y-8">
-          {sections.map((section) => (
-            <article
-              key={section.id}
-              id={section.id}
-              className="sc-industrial-panel sc-ledger-panel p-4 sm:p-6 min-w-0"
-            >
-              <h2 className="text-lg font-semibold text-navy sm:text-xl">{section.title}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-body-charcoal sm:text-base">{section.body}</p>
-              {section.bullets ? (
-                <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-body-charcoal">
-                  {section.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
-                  ))}
-                </ul>
-              ) : null}
-            </article>
-          ))}
+          {variant === "about" ? (
+            <div className="grid gap-6 md:grid-cols-3">
+              {ABOUT_CARDS.map((card) => {
+                const Icon = card.icon;
+                return (
+                  <article
+                    key={card.id}
+                    className="rounded-xl border border-gray-100 bg-white p-6 text-center"
+                  >
+                    <Icon className="mx-auto h-12 w-12 text-gray-700" strokeWidth={1.5} aria-hidden="true" />
+                    <h2 className="mt-2 text-lg font-semibold text-navy">{card.title}</h2>
+                    <p className="mt-2 text-sm text-body-charcoal">{card.body}</p>
+                  </article>
+                );
+              })}
+            </div>
+          ) : (
+            sections.map((section) => (
+              <article
+                key={section.id}
+                id={section.id}
+                className="sc-industrial-panel sc-ledger-panel p-4 sm:p-6 min-w-0"
+              >
+                <h2 className="text-lg font-semibold text-navy sm:text-xl">{section.title}</h2>
+                <p className="mt-3 text-sm leading-relaxed text-body-charcoal sm:text-base">{section.body}</p>
+                {section.bullets ? (
+                  <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-body-charcoal">
+                    {section.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                ) : null}
+              </article>
+            ))
+          )}
 
           <DecisionToolLegalDisclaimer />
         </Container>

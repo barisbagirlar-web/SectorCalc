@@ -160,7 +160,7 @@ export function DynamicToolForm({
   const [selectedBreakdownItem, setSelectedBreakdownItem] = useState<BreakdownChartItem | null>(
     null,
   );
-  const [vote, setVote] = useState<"up" | "down" | null>(null);
+  const [voteResetKey, setVoteResetKey] = useState(0);
   const [voteNotice, setVoteNotice] = useState<string | null>(null);
   const [reportModalOpen, setReportModalOpen] = useState(false);
   const [selectedStandard, setSelectedStandard] = useState<string>(
@@ -341,12 +341,11 @@ export function DynamicToolForm({
     );
     const standard = selectedStandard || schema.standardOptions?.[0]?.id;
     onSubmit(withCalculationStandard(converted, standard));
-    setVote(null);
+    setVoteResetKey((current) => current + 1);
     setVoteNotice(null);
   };
 
-  const handleVote = async (type: "up" | "down") => {
-    setVote(type);
+  const handleVoteFeedback = async (type: "up" | "down") => {
     setVoteNotice(null);
 
     const message =
@@ -517,8 +516,8 @@ export function DynamicToolForm({
           creditGateError={creditGateError}
           disabled={disabled || spendingCredits || creditsLoading}
           loading={loading || spendingCredits}
-          vote={vote}
-          onVote={handleVote}
+          voteResetKey={voteResetKey}
+          onVoteFeedback={handleVoteFeedback}
           voteNotice={voteNotice}
           modalOpen={reportModalOpen}
           onOpenReport={() => setReportModalOpen(true)}
@@ -529,7 +528,6 @@ export function DynamicToolForm({
           }}
           selectedStandard={selectedStandard}
           onStandardChange={setSelectedStandard}
-          lastUpdatedIso={lastUpdatedIso}
         />
       ) : null}
 

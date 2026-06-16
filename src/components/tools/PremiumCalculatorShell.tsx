@@ -10,6 +10,7 @@ export type PremiumCalculatorShellProps = {
   readonly inputPanel: ReactNode;
   readonly resultPanel: ReactNode;
   readonly emptyResultPanel?: ReactNode;
+  readonly showHeader?: boolean;
 };
 
 export function PremiumCalculatorShell({
@@ -19,16 +20,19 @@ export function PremiumCalculatorShell({
   inputPanel,
   resultPanel,
   emptyResultPanel,
+  showHeader = true,
 }: PremiumCalculatorShellProps) {
   const t = useTranslations("calculator");
 
   return (
     <section className="sc-premium-tool-shell" data-premium-calculator-shell="true" data-testid="calculator-form">
-      <header className="sc-tool-header">
-        <span className="sc-tool-eyebrow">{t("premiumEyebrow")}</span>
-        <h1>{title}</h1>
-        <p>{description}</p>
-      </header>
+      {showHeader ? (
+        <header className="sc-tool-header">
+          <span className="sc-tool-eyebrow">{t("premiumEyebrow")}</span>
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </header>
+      ) : null}
 
       <div className="sc-tool-workspace sc-tool-workspace--dual">
         <section className="sc-tool-panel sc-input-panel">

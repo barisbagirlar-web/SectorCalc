@@ -25,20 +25,65 @@ export const HOMEPAGE_COVERAGE_IDS = [
   "foodRetail",
 ] as const;
 
+export type HomepageCoverageId = (typeof HOMEPAGE_COVERAGE_IDS)[number];
+
 export const HOMEPAGE_LOSS_IDS = ["monetary", "material", "time", "energy"] as const;
 
-export const HOMEPAGE_DIFFERENTIATION_IDS = ["bySector", "byType", "byDecision"] as const;
+export type HomepageLossId = (typeof HOMEPAGE_LOSS_IDS)[number];
 
 export const HOMEPAGE_AUDIENCE_IDS = [
   "production",
-  "industrial",
-  "engineering",
   "construction",
+  "industrial",
   "logistics",
+  "engineering",
   "finance",
 ] as const;
 
+export type HomepageAudienceId = (typeof HOMEPAGE_AUDIENCE_IDS)[number];
+
 export const HOMEPAGE_EXCEL_IDS = ["formula", "sector", "decision"] as const;
+
+export type HomepageExcelId = (typeof HOMEPAGE_EXCEL_IDS)[number];
+
+export type HomepagePopularToolDef = {
+  readonly categoryKey: string;
+  readonly groupId: string;
+  readonly tool: HomepageCriticalToolDef;
+};
+
+export const HOMEPAGE_POPULAR_TOOLS: readonly HomepagePopularToolDef[] = [
+  {
+    categoryKey: "production",
+    groupId: "productionManufacturing",
+    tool: { id: "shopRate", slug: "shop-rate-hourly-cost-calculator", tier: "premium-schema" },
+  },
+  {
+    categoryKey: "production",
+    groupId: "productionManufacturing",
+    tool: { id: "oee", slug: "oee-equipment-effectiveness-calculator", tier: "premium-schema" },
+  },
+  {
+    categoryKey: "workshop",
+    groupId: "workshopQuote",
+    tool: { id: "quoteMargin", slug: "quote-price-profit-margin-calculator", tier: "premium-schema" },
+  },
+  {
+    categoryKey: "engineering",
+    groupId: "technicalEngineering",
+    tool: { id: "boltTorque", slug: "bolt-tightening-torque-calculator", tier: "premium-schema" },
+  },
+  {
+    categoryKey: "construction",
+    groupId: "constructionField",
+    tool: { id: "concreteVolume", slug: "concrete-volume-calculator", tier: "free" },
+  },
+  {
+    categoryKey: "energy",
+    groupId: "energyCarbon",
+    tool: { id: "compressorLeak", slug: "compressor-leak-cost-calculator", tier: "premium-schema" },
+  },
+];
 
 export type HomepageCriticalToolTier = "free" | "premium-schema" | "premium";
 

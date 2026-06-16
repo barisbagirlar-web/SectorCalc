@@ -14,11 +14,10 @@ import {
   mapCarbonToolInputsToReport,
 } from "@/lib/carbon/carbon-footprint-report";
 import {
-  resolveGeneratedToolDescription,
   resolveGeneratedToolTitle,
   resolvePrimaryOutputKey,
-  resolvePrimaryOutputLabel,
 } from "@/lib/generated-tools/resolve-tool-display";
+import { formatSelectOptionLabel } from "@/lib/generated-tools/select-options";
 import {
   runGeneratedToolCalculation,
   useToolSchema,
@@ -75,7 +74,6 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
   const [showQuoteBuilder, setShowQuoteBuilder] = useState(false);
 
   const title = resolveGeneratedToolTitle(slug, schema, locale);
-  const description = resolveGeneratedToolDescription(slug, schema, locale);
   const primaryKey = resolvePrimaryOutputKey(schema);
   const hasDiagram = Boolean(diagramSrc);
 
@@ -146,11 +144,6 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
 
   return (
     <div className="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
-      <header className="space-y-2">
-        <h1 className="text-2xl font-bold text-premium-velvet sm:text-3xl">{title}</h1>
-        <p className="max-w-3xl text-sm text-body-charcoal sm:text-base">{description}</p>
-      </header>
-
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         {hasDiagram ? (
           <div className="rounded-lg bg-surface-cream p-4 md:col-span-1">
@@ -176,7 +169,8 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
                 {formatPrimaryValue(primaryValue, locale)}
               </p>
               <p className="text-sm text-body-charcoal">
-                {resolvePrimaryOutputLabel(schema)}
+                {schema.outputs.breakdown[resolvePrimaryOutputKey(schema)]?.trim() ||
+                  formatSelectOptionLabel(resolvePrimaryOutputKey(schema))}
               </p>
             </div>
           ) : (

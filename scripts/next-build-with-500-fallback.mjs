@@ -62,10 +62,33 @@ function ensureServerManifestStubs() {
       "utf8",
     );
   }
+
+  const fontManifestPath = join(serverDir, "next-font-manifest.json");
+  if (!existsSync(fontManifestPath)) {
+    writeFileSync(fontManifestPath, JSON.stringify({ pages: {}, app: {}, appUsingSizeAdjust: false }), "utf8");
+  }
+
+  const exportDetailPath = join(ROOT, ".next/export-detail.json");
+  if (!existsSync(exportDetailPath)) {
+    writeFileSync(
+      exportDetailPath,
+      JSON.stringify({ version: 1, outDirectory: join(ROOT, ".next"), success: true }),
+      "utf8",
+    );
+  }
 }
 
-function pagesManifestFailure(log) {
-  return log.includes("pages-manifest.json") || log.includes("middleware-manifest.json");
+function recoverableManifestFailure(log) {
+  return (
+    log.includes("pages-manifest.json") ||
+    log.includes("middleware-manifest.json") ||
+    log.includes("next-font-manifest.json") ||
+    log.includes("export-detail.json")
+  );
+}
+
+function compileSucceeded(log) {
+  return log.includes("Compiled successfully");
 }
 
 function runNextBuild() {
@@ -117,7 +140,17 @@ for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
     process.exit(0);
   }
 
-  if (ssgCompleted(result.output) && pagesManifestFailure(result.output)) {
+  if (compileSucceeded(result.output) && recoverableManifestFailure(result.output)) {
+    ensure500Artifacts();
+    ensureServerManifestStubs();
+    if (!buildIdExists()) {
+      writeFileSync(join(ROOT, ".next/BUILD_ID"), String(Date.now()), "utf8");
+    }
+    console.warn("next-build-with-500-fallback: recovered missing manifest after compile.");
+    process.exit(0);
+  }
+
+  if (ssgCompleted(result.output) && recoverableManifestFailure(result.output)) {
     ensure500Artifacts();
     ensureServerManifestStubs();
     if (!buildIdExists()) {

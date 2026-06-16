@@ -294,7 +294,7 @@
         "free-tools": "Ücretsiz hesaplayıcı ara...",
         "premium-tools": "Premium hesaplayıcı ara...",
         "industries": "Sektör hesaplayıcısı ara...",
-        "homepage": "Hangi sektör, maliyet veya teknik hesabı yapmak istiyorsunuz?"
+        "homepage": "Sektör, maliyet veya teknik hesap ara..."
       },
       "noResults": "Eşleşen araç bulunamadı.",
       "moreResults": "+ {count} diğer sonuç",
@@ -716,7 +716,10 @@
       "subtitle": "Ücretsiz araçlarla hemen başlayın, ihtiyacınız olduğunda premium raporlara yükseltin.",
       "primary": "Ücretsiz Hesaplayıcıları Keşfet",
       "secondary": "Örnek Karar Raporunu Gör"
-    }
+    },
+    "heroTitle": "Üretimden sanayiye, işletmenizin tüm kritik hesaplarını tek yerde yapın",
+    "heroSub1": "Maliyet, fire, enerji ve OEE gibi hesapları ücretsiz deneyin.",
+    "heroSub2": "Daha detaylı kararlar için premium araçlarla sonuçlarınızı karşılaştırın."
   },
   "homeDashboard": {
     "meta": {
@@ -1037,8 +1040,8 @@
       "headline": "Üretimden sanayiye, işletmenizin kritik hesaplarını tek yerde görün",
       "subtitle": "SectorCalc; üretim, imalat, sanayi, atölye, mühendislik, inşaat, lojistik, enerji, finans ve operasyon ekipleri için hazırlanmış ücretsiz ve premium sektörel hesap makineleri sunar. Maliyet, fire, marj, stok, rota, işçilik, enerji ve teknik hesapları daha görünür, ölçülebilir ve karşılaştırılabilir hale getirir.",
       "supporting": "Basit ölçüm ve dönüşüm hesapları ücretsizdir. Teklif, fire, shop rate, OEE, karbon, stok, personel, duruş ve operasyon kaybı gibi kritik hesaplarda premium hesaplayıcılar daha fazla girdi ve karar özeti sunar.",
-      "ctaPrimary": "Ücretsiz Sektör Hesaplayıcılarını Aç",
-      "ctaSecondary": "Premium Hesaplayıcıları İncele",
+      "ctaPrimary": "Ücretsiz Hesaplayıcılar",
+      "ctaSecondary": "Premium'u İncele",
       "panelTitle": "Sektörel hesaplama alanları",
       "panelItems": {
         "production": "Üretim ve imalat",
@@ -1052,40 +1055,88 @@
       }
     },
     "coverage": {
-      "title": "Sektörel hesap makineleri hangi alanları kapsar?",
-      "subtitle": "SectorCalc, sadece tekil hesap makineleri sunmaz. Sahadaki üretim, teknik ekip, finans, enerji, lojistik ve operasyon hesaplarını sektörlere göre ayırır.",
+      "title": "Sektörel Hesaplama Araçları",
+      "subtitle": "Her sektöre özel, ihtiyacınıza yönelik hesaplayıcılar.",
       "items": {
         "production": {
           "title": "Üretim ve İmalat Hesaplayıcıları",
-          "description": "CNC, torna, freze, sac metal, kaynak, plastik enjeksiyon, kesme hızı, makine saati, fire ve OEE hesapları."
+          "description": "CNC, torna, freze, sac metal, kaynak, plastik enjeksiyon, kesme hızı, makine saati, fire ve OEE hesapları.",
+          "shortTitle": "Üretim",
+          "tags": [
+            "CNC",
+            "OEE",
+            "Fire"
+          ]
         },
         "industrial": {
           "title": "Sanayi ve Atölye Hesaplayıcıları",
-          "description": "Teklif fiyatı, shop rate, setup süresi, takım aşınması, kompresör kaçağı, duruş maliyeti ve bakım etkisi."
+          "description": "Teklif fiyatı, shop rate, setup süresi, takım aşınması, kompresör kaçağı, duruş maliyeti ve bakım etkisi.",
+          "shortTitle": "Sanayi",
+          "tags": [
+            "Teklif",
+            "Setup",
+            "Shop Rate"
+          ]
         },
         "technical": {
           "title": "Teknik ve Mühendislik Hesaplayıcıları",
-          "description": "Civata torku, kaynak ve bulon bağlantısı, tolerans yığılma, hidrolik/pnömatik silindir, basınçlı kap, kayış-kasnak ve teknik ön hesaplar."
+          "description": "Civata torku, kaynak ve bulon bağlantısı, tolerans yığılma, hidrolik/pnömatik silindir, basınçlı kap, kayış-kasnak ve teknik ön hesaplar.",
+          "shortTitle": "Mühendislik",
+          "tags": [
+            "Tork",
+            "Tolerans",
+            "Silindir"
+          ]
         },
         "construction": {
           "title": "İnşaat ve Saha Hesaplayıcıları",
-          "description": "Beton, çatı, boya, sıva, tuğla, merdiven, hafriyat, profil ağırlığı, boru ağırlığı ve metraj hesapları."
+          "description": "Beton, çatı, boya, sıva, tuğla, merdiven, hafriyat, profil ağırlığı, boru ağırlığı ve metraj hesapları.",
+          "shortTitle": "İnşaat",
+          "tags": [
+            "Beton",
+            "Metraj",
+            "Çatı"
+          ]
         },
         "logistics": {
           "title": "Lojistik ve Sevkiyat Hesaplayıcıları",
-          "description": "Yakıt, rota, desi, navlun, araç km maliyeti, boş dönüş, depo alanı ve sevkiyat marjı hesapları."
+          "description": "Yakıt, rota, desi, navlun, araç km maliyeti, boş dönüş, depo alanı ve sevkiyat marjı hesapları.",
+          "shortTitle": "Lojistik",
+          "tags": [
+            "Yakıt",
+            "Desi",
+            "Navlun"
+          ]
         },
         "energy": {
           "title": "Enerji ve Karbon Hesaplayıcıları",
-          "description": "kWh maliyeti, LED tasarrufu, motor, kompresör, karbon ayak izi, SKDM/CBAM etkisi ve enerji verimliliği hesapları."
+          "description": "kWh maliyeti, LED tasarrufu, motor, kompresör, karbon ayak izi, SKDM/CBAM etkisi ve enerji verimliliği hesapları.",
+          "shortTitle": "Enerji",
+          "tags": [
+            "kWh",
+            "Kaçak",
+            "Karbon"
+          ]
         },
         "finance": {
           "title": "Finans, Muhasebe ve İK Hesaplayıcıları",
-          "description": "KDV, kredi taksiti, personel tam maliyeti, kıdem/ihbar, amortisman, vade farkı, başabaş ve nakit hesapları."
+          "description": "KDV, kredi taksiti, personel tam maliyeti, kıdem/ihbar, amortisman, vade farkı, başabaş ve nakit hesapları.",
+          "shortTitle": "Finans",
+          "tags": [
+            "KDV",
+            "Personel",
+            "Amortisman"
+          ]
         },
         "foodRetail": {
           "title": "Gıda, Servis ve Perakende Hesaplayıcıları",
-          "description": "Fire, porsiyon, stok devir, müşteri kârlılığı, iade, yeniden işçilik ve marj kaybı hesapları."
+          "description": "Fire, porsiyon, stok devir, müşteri kârlılığı, iade, yeniden işçilik ve marj kaybı hesapları.",
+          "shortTitle": "Perakende",
+          "tags": [
+            "Fire",
+            "Stok",
+            "Marj"
+          ]
         }
       }
     },
@@ -1108,29 +1159,34 @@
       }
     },
     "losses": {
-      "title": "Görünmeyen kayıpları hesaplanabilir hale getirin",
+      "title": "Görünmeyen Kayıpları Hesaplanabilir Hale Getirin",
       "items": {
         "monetary": {
           "title": "Parasal Kayıp",
-          "text": "Yanlış teklif, eksik maliyet, düşük marj, vade farkı, başabaş noktasının bilinmemesi."
+          "text": "Yanlış teklif, eksik maliyet, düşük marj, vade farkı, başabaş noktasının bilinmemesi.",
+          "examples": "Yanlış teklif, düşük marj, vade farkı."
         },
         "material": {
-          "title": "Malzeme ve Fire Kaybı",
-          "text": "Hurda, fazla sarf, kalite kaybı, yeniden işleme, stokta bekleme ve miad kaybı."
+          "title": "Malzeme ve Fire",
+          "text": "Hurda, fazla sarf, kalite kaybı, yeniden işleme, stokta bekleme ve miad kaybı.",
+          "examples": "Hurda, fazla sarf, kalite kaybı."
         },
         "time": {
-          "title": "Zaman ve Operasyon Kaybı",
-          "text": "Setup süresi, makine duruşu, bekleme, rota sapması, tekrar işçilik ve kapasite kaybı."
+          "title": "Zaman ve Operasyon",
+          "text": "Setup süresi, makine duruşu, bekleme, rota sapması, tekrar işçilik ve kapasite kaybı.",
+          "examples": "Setup, duruş, rota sapması."
         },
         "energy": {
-          "title": "Enerji ve Karbon Kaybı",
-          "text": "kWh maliyeti, pik tüketim, kompresör kaçakları, karbon ayak izi ve enerji verimsizliği."
+          "title": "Enerji ve Karbon",
+          "text": "kWh maliyeti, pik tüketim, kompresör kaçakları, karbon ayak izi ve enerji verimsizliği.",
+          "examples": "Kaçak, pik tüketim, karbon ayak izi."
         }
-      }
+      },
+      "subtitle": "İşletmenizde fark edilmeyen maliyetleri ortaya çıkarın."
     },
     "freePremium": {
-      "title": "Ücretsiz hesaplayıcıdan premium karar özetine",
-      "freeTitle": "Ücretsiz Sektör Hesaplayıcıları",
+      "title": "Ücretsiz ve premium hesaplayıcılar",
+      "freeTitle": "Ücretsiz Hesaplayıcılar",
       "freeText": "Ölçü, alan, hacim, dönüşüm, KDV, kredi, yakıt, beton, boya, enerji ve temel işletme hesaplarında hızlı sonuç verir.",
       "freeItems": {
         "basic": "Temel formüller",
@@ -1138,8 +1194,8 @@
         "category": "Kategoriye göre keşif",
         "noSignup": "Kayıt gerektirmeden kullanım"
       },
-      "freeCta": "Ücretsiz hesaplayıcıları aç",
-      "premiumTitle": "Premium Sektör Hesaplayıcıları",
+      "freeCta": "Hemen Dene",
+      "premiumTitle": "Premium Hesaplayıcılar",
       "premiumText": "Teklif fiyatı, kâr marjı, shop rate, OEE, fire, karbon, stok, personel, duruş ve teknik ön kararlar gibi daha fazla girdi isteyen hesaplarda kullanılır.",
       "premiumItems": {
         "inputs": "Daha fazla girdi",
@@ -1147,10 +1203,20 @@
         "summary": "Karar özeti",
         "export": "Profesyonel çıktı akışı"
       },
-      "premiumCta": "Premium hesaplayıcıları incele"
+      "premiumCta": "İncele",
+      "freeHighlights": [
+        "Hızlı sonuç",
+        "Kayıt gerekmez",
+        "Temel formüller"
+      ],
+      "premiumHighlights": [
+        "Senaryo karşılaştırma",
+        "Karar özeti",
+        "Detaylı girdi"
+      ]
     },
     "criticalTools": {
-      "title": "En kritik sektör hesapları",
+      "title": "En Çok Kullanılan Hesaplayıcılar",
       "subtitle": "Ana sayfada sadece çok aranan hesaplar değil; işletmenin kârını, üretimini, teknik kararını ve operasyonunu doğrudan etkileyen hesaplar öne çıkarılır.",
       "badgeSoon": "Yakında",
       "groups": {
@@ -1158,7 +1224,7 @@
           "title": "Üretim ve imalat",
           "items": {
             "shopRate": {
-              "title": "Makine Saat Ücreti Hesaplayıcı"
+              "title": "Makine Saat Ücreti"
             },
             "oee": {
               "title": "OEE Hesaplayıcı"
@@ -1192,7 +1258,7 @@
           "title": "Teknik ve mühendislik",
           "items": {
             "boltTorque": {
-              "title": "Civata Sıkma Torku Hesaplayıcı"
+              "title": "Civata Torku"
             },
             "weldedConnection": {
               "title": "Kaynaklı ve Bulonlu Bağlantı Hesaplayıcı"
@@ -1209,7 +1275,7 @@
           "title": "İnşaat ve saha",
           "items": {
             "concreteVolume": {
-              "title": "Beton Hacim Hesaplayıcı"
+              "title": "Beton Hacim"
             },
             "squareMeter": {
               "title": "Metrekare Hesaplayıcı"
@@ -1226,7 +1292,7 @@
           "title": "Enerji ve karbon",
           "items": {
             "compressorLeak": {
-              "title": "Kompresör Kaçağı Maliyet Hesaplayıcı"
+              "title": "Kompresör Kaçağı"
             },
             "kwhCost": {
               "title": "kWh Maliyet Hesaplayıcı"
@@ -1256,60 +1322,73 @@
             }
           }
         }
+      },
+      "popularCategories": {
+        "production": "Üretim",
+        "workshop": "Atölye",
+        "engineering": "Mühendislik",
+        "construction": "İnşaat",
+        "energy": "Enerji"
       }
     },
     "audiences": {
-      "title": "SectorCalc kimler için?",
+      "title": "SectorCalc Kimler İçin?",
       "items": {
         "production": {
-          "title": "Üretim işletmeleri",
-          "text": "Makine, fire, OEE, setup, shop rate ve teklif hesapları."
+          "title": "Üretim İşletmeleri",
+          "text": "Makine, fire, OEE, setup, shop rate ve teklif hesapları.",
+          "examples": "OEE, fire, teklif"
         },
         "industrial": {
-          "title": "Sanayi ve atölyeler",
-          "text": "Usta, teknisyen, mühendis ve işletme sahiplerinin günlük teknik ve ticari hesapları."
+          "title": "Sanayi ve Atölyeler",
+          "text": "Usta, teknisyen, mühendis ve işletme sahiplerinin günlük teknik ve ticari hesapları.",
+          "examples": "Shop rate, setup"
         },
         "engineering": {
-          "title": "Mühendislik ve teknik ekipler",
-          "text": "Bağlantı, tolerans, tork, silindir, basınçlı kap ve mekanik ön hesaplar."
+          "title": "Mühendislik",
+          "text": "Bağlantı, tolerans, tork, silindir, basınçlı kap ve mekanik ön hesaplar.",
+          "examples": "Tork, tolerans"
         },
         "construction": {
-          "title": "İnşaat ve uygulama ekipleri",
-          "text": "Metraj, hacim, alan, kaplama, çatı, beton ve saha miktar hesapları."
+          "title": "İnşaat Ekipleri",
+          "text": "Metraj, hacim, alan, kaplama, çatı, beton ve saha miktar hesapları.",
+          "examples": "Metraj, hacim, beton"
         },
         "logistics": {
-          "title": "Lojistik ve servis ekipleri",
-          "text": "Yakıt, rota, desi, navlun, araç maliyeti, servis ve boş dönüş hesapları."
+          "title": "Lojistik ve Servis",
+          "text": "Yakıt, rota, desi, navlun, araç maliyeti, servis ve boş dönüş hesapları.",
+          "examples": "Yakıt, rota, navlun"
         },
         "finance": {
-          "title": "Finans, muhasebe ve İK ekipleri",
-          "text": "Kredi, vergi, maaş, personel maliyeti, amortisman, başabaş ve nakit hesapları."
+          "title": "Finans ve İK",
+          "text": "Kredi, vergi, maaş, personel maliyeti, amortisman, başabaş ve nakit hesapları.",
+          "examples": "Kredi, personel"
         }
       }
     },
     "whyNotExcel": {
-      "title": "Excel, defter ve dağınık dosyalar neden yetmez?",
+      "title": "Excel ve Defter Neden Yetersiz?",
       "items": {
         "formula": {
           "title": "Formül unutulur",
-          "text": "Fire, enerji, vade, setup, işçilik veya sevkiyat kalemi sonraki teklifte atlanabilir."
+          "text": "Fire, enerji, işçilik gibi kalemler atlanabilir."
         },
         "sector": {
           "title": "Sektör farkı kaybolur",
-          "text": "CNC, beton, kompresör, lojistik ve personel maliyeti aynı şablonla doğru ölçülemez."
+          "text": "CNC ile beton aynı şablonla ölçülemez."
         },
         "decision": {
           "title": "Karar geç alınır",
-          "text": "Zarar, fire, duruş, stok maliyeti veya enerji kaçağı ay sonunda fark edildiğinde geç kalınmış olabilir."
+          "text": "Zarar ve fire ay sonunda fark edilir, geç kalınır."
         }
       },
       "closing": "SectorCalc, hesapları sektörlere göre düzenler; üretimden finansa, teknik hesaptan saha maliyetine kadar kararları daha ölçülebilir hale getirir."
     },
     "finalCta": {
-      "title": "Bugün hangi sektörel hesabı netleştirmek istiyorsunuz?",
+      "title": "Bugün hangi hesabı netleştirelim?",
       "subtitle": "Ücretsiz hesaplayıcılarla başlayın. Hesap üretim, teklif, fire, enerji, teknik ön karar veya operasyon için kritikleştiğinde premium sektör hesaplayıcılarıyla daha detaylı karar özeti alın.",
-      "ctaPrimary": "Ücretsiz Hesaplayıcıları Aç",
-      "ctaSecondary": "Premium Hesaplayıcıları İncele"
+      "ctaPrimary": "Ücretsiz Hesaplayıcılar",
+      "ctaSecondary": "Premium Hesaplayıcılar"
     }
   },
   "industrialHome": {
@@ -3223,7 +3302,6 @@
     "suggestedActions": "Önerilen aksiyonlar",
     "diagramAlt": "{title} şema diyagramı",
     "loading": "Hesaplayıcı yükleniyor…",
-    "lastUpdated": "Son güncelleme: {date}",
     "loadError": "Hesaplayıcı modülü yüklenemedi.",
     "noWarnings": "Kritik uyarı sinyali yok.",
     "noSuggestedActions": "Ek aksiyon önerisi yok.",
@@ -3236,7 +3314,6 @@
     },
     "premiumForm": {
       "analysisStatusTitle": "Saha analiz durumu",
-      "calculationStandardLabel": "Hesaplama standardı",
       "calculatedValueTitle": "Hesaplanan değer",
       "validStatus": "Geçerli",
       "voteCorrect": "Doğru",
@@ -3286,6 +3363,45 @@
       "reportClose": "Kapat",
       "reportMessageTooShort": "Lütfen en az 10 karakter girin.",
       "reportSubmitFailed": "Bildirim gönderilemedi. Lütfen tekrar deneyin."
+    },
+    "omniMeta": {
+      "sectionLabel": "Hesap makinesi bilgisi",
+      "creatorsLabel": "Yaratıcılar:",
+      "creatorName": "Prof. Dr. Neela Nataraj",
+      "creatorProfileAria": "Prof. Dr. Neela Nataraj, Indian Institute of Technology Bombay (LinkedIn profilini açar)",
+      "helpfulLabel": "kişi bu hesap makinesini faydalı buluyor"
+    },
+    "interactionActionBar": {
+      "reactionGroupLabel": "Faydalılık geri bildirimi",
+      "likeTooltip": "Faydalı buldum",
+      "dislikeTooltip": "Faydalı bulmadım",
+      "likeAria": "Bu içeriği faydalı buldum",
+      "dislikeAria": "Bu içeriği faydalı bulmadım",
+      "feedbackTooltip": "Geri bildirim yapın",
+      "feedbackAria": "Geri bildirim yapın",
+      "shareTooltip": "Paylaş",
+      "shareAria": "Bu içeriği paylaş",
+      "shareMenuLabel": "Paylaşım seçenekleri",
+      "shareCopyLink": "Linki kopyala",
+      "shareFacebook": "Facebook'ta paylaş",
+      "shareX": "X'te paylaş",
+      "shareLinkedIn": "LinkedIn'de paylaş",
+      "sharePinterest": "Pinterest'te paylaş",
+      "shareReddit": "Reddit'te paylaş",
+      "shareEmbed": "Gömme kodunu al",
+      "shareQuote": "Alıntıla",
+      "embedTooltip": "Gömme kodunu al",
+      "embedAria": "Bu içeriğin gömme kodunu al",
+      "quoteTooltip": "Alıntıla",
+      "quoteAria": "Bu içerikten alıntı yap",
+      "linkCopied": "Bağlantı kopyalandı",
+      "embedCopied": "Gömme kodu kopyalandı",
+      "quoteCopied": "Alıntı kopyalandı",
+      "embedModalTitle": "Gömme kodu",
+      "embedCopyCode": "Kodu kopyala",
+      "quoteModalTitle": "Alıntı",
+      "quoteCopy": "Alıntıyı kopyala",
+      "close": "Kapat"
     },
     "export": {
       "sectionLabel": "Sonuçları dışa aktar",
@@ -3448,11 +3564,13 @@
     "eyebrow": "Şema tabanlı hesaplayıcılar",
     "title": "Üretilmiş Hesaplayıcılar",
     "subtitle": "Dinamik formlar, diyagramlar ve anında tarayıcı hesaplaması ile şema tabanlı sektör hesaplayıcıları.",
+    "subtitleCompact": "Sektörüne göre ihtiyacın olan hesaplayıcıyı bul.",
     "metaTitle": "Üretilmiş Hesaplayıcılar | SectorCalc",
     "metaDescription": "Dinamik girdiler, SVG diyagramlar ve anında sonuçlar sunan şema tabanlı sektör hesaplayıcılarını keşfedin.",
     "searchPlaceholder": "Ad veya konuya göre ara…",
     "resultsCount": "{count} hesaplayıcı",
-    "noResults": "Aramanızla eşleşen hesaplayıcı yok."
+    "noResults": "Aramanızla eşleşen hesaplayıcı yok.",
+    "allCategories": "← Tüm kategoriler"
   },
   "wasteTypes": {
     "overproduction": "Fazla üretim",
@@ -15522,7 +15640,6 @@
     "legalNavAria": "Yasal bağlantılar",
     "legalPrivacy": "Gizlilik Politikası",
     "legalTerms": "Kullanım Koşulları",
-    "legalRefund": "İade Politikası",
     "legalDisclaimer": "Sorumluluk Reddi",
     "metaCopyright": "© 2026 SectorCalc",
     "metaRights": "Tüm hakları saklıdır.",
@@ -15549,8 +15666,7 @@
     "servicesLabel": "services-products.txt",
     "freeToolsLabel": "Ücretsiz hesap makineleri",
     "premiumToolsLabel": "Premium hesap makineleri",
-    "industriesLabel": "Sektör merkezleri",
-    "generatedToolsLabel": "Üretilmiş hesap makineleri"
+    "industriesLabel": "Sektör merkezleri"
   },
   "inputGuide": {
     "shape": {
@@ -17074,150 +17190,5 @@
       "title": "Kaynak Teklif Risk Analizörü",
       "description": "Bu araç premium analiz kapsamındadır. Tam sonuç ve karar özeti için kredi veya aktif Pro erişimi gerekir."
     }
-  },
-  "legalCommon": {
-    "eyebrow": "Yasal",
-    "readPrivacy": "Gizlilik Politikası",
-    "readTerms": "Hizmet Şartları",
-    "readRefund": "İade Politikası",
-    "seeAlso": "Ayrıca bakınız",
-    "termsFooter": "<privacy>Gizlilik Politikası</privacy> ve <refund>İade Politikası</refund> sayfalarını okuyun.",
-    "privacyFooter": "Ayrıca <terms>Hizmet Şartları</terms> ve <refund>İade Politikası</refund> sayfalarına bakın.",
-    "refundFooter": "Ayrıca <terms>Hizmet Şartları</terms> ve <privacy>Gizlilik Politikası</privacy> sayfalarına bakın.",
-    "contactIntro": "Sorularınız için aşağıdaki iletişim bilgilerini kullanın.",
-    "dataControllerIntro": "SectorCalc için veri sorumlusu:",
-    "refundContactIntro": "İade talepleri veya faturalandırma soruları için aşağıdaki iletişim bilgilerini kullanın."
-  },
-  "terms": {
-    "meta": {
-      "title": "Hizmet Şartları",
-      "description": "SectorCalc hesaplayıcıları ve hizmetlerini kullanmaya ilişkin yasal şartlar."
-    },
-    "heroDescription": "SectorCalc'e erişerek veya kullanarak bu Hizmet Şartları'nı kabul etmiş sayılırsınız.",
-    "title": "Hizmet Şartları",
-    "lastUpdated": "Son güncelleme: {date}",
-    "lastUpdatedDate": "15 Haziran 2026",
-    "intro": "SectorCalc'e hoş geldiniz. Web sitemizi ve hesaplama araçlarımızı kullanarak bu Hizmet Şartları'nı kabul etmiş sayılırsınız.",
-    "section1": {
-      "title": "1. Hizmetlerimiz",
-      "content": "SectorCalc, endüstriyel ve ticari hesaplamalar için bilgilendirme ve karar destek araçları sunar. Araçlarımız profesyonel mühendislik, finansal veya hukuki tavsiye niteliği taşımaz. İş kararları almadan önce sonuçları doğrulamak sizin sorumluluğunuzdadır."
-    },
-    "section2": {
-      "title": "2. Premium Özellikler ve Krediler",
-      "content": "Premium araçlar kredi gerektirir. Krediler iade edilemez ve satın alma tarihinden itibaren 12 ay sonra geçerliliğini yitirir. Kredi paketlerini güvenli ödeme sağlayıcımız üzerinden satın alabilirsiniz. Kullanılmayan krediler yenilenmez."
-    },
-    "section3": {
-      "title": "3. Kullanıcı Hesapları",
-      "content": "Premium özelliklere erişmek için bir hesap oluşturmalısınız. Hesap bilgilerinizin gizliliğini korumak ve hesabınız altında gerçekleşen tüm işlemlerden siz sorumlusunuz."
-    },
-    "section4": {
-      "title": "4. Fikri Mülkiyet",
-      "content": "Tüm içerik, formüller, algoritmalar, tasarımlar ve ticari markalar Sector Calculator'a (SectorCalc olarak faaliyet gösteren) aittir. Önceden yazılı izin alınmadan kopyalanamaz, dağıtılamaz veya türev çalışmalar oluşturulamaz."
-    },
-    "section5": {
-      "title": "5. Sorumluluk Sınırlaması",
-      "content": "Yasanın izin verdiği azami ölçüde, Sector Calculator, hizmetlerimizin kullanımından kaynaklanan dolaylı, arızi, özel, cezai veya neticesi zararlardan sorumlu değildir."
-    },
-    "section6": {
-      "title": "6. Değişiklikler",
-      "content": "Bu Şartları her zaman güncelleyebiliriz. Değişikliklerden sonra hizmeti kullanmaya devam etmeniz, yeni Şartları kabul ettiğiniz anlamına gelir."
-    },
-    "section7": {
-      "title": "7. İletişim Bilgileri",
-      "content": "Bu Şartlar hakkında sorularınız için aşağıdaki iletişim bilgilerini kullanın."
-    }
-  },
-  "privacy": {
-    "meta": {
-      "title": "Gizlilik Politikası",
-      "description": "SectorCalc kişisel verilerinizi nasıl toplar, kullanır ve korur."
-    },
-    "heroDescription": "Hangi verileri topladığımız, nasıl kullandığımız ve haklarınız.",
-    "title": "Gizlilik Politikası",
-    "effective": "Yürürlük Tarihi: 15 Haziran 2026",
-    "intro": "Gizliliğiniz bizim için önemlidir. Bu politika, hangi verileri topladığımızı, nasıl kullandığımızı ve haklarınızı açıklar.",
-    "section1": {
-      "title": "1. Topladığımız Bilgiler",
-      "content": "Kayıt olurken sağladığınız kişisel bilgileri (örneğin e-posta adresiniz) toplarız. Ayrıca araçlarımızı iyileştirmek için kullanım verilerini (IP adresi, tarayıcı türü, ziyaret edilen sayfalar) otomatik olarak toplarız."
-    },
-    "section2": {
-      "title": "2. Bilgilerinizi Nasıl Kullanıyoruz",
-      "content": "Verilerinizi SectorCalc'i işletmek, geliştirmek, ödemeleri işlemek ve hesabınız veya güncellemeler hakkında sizinle iletişim kurmak için kullanırız."
-    },
-    "section3": {
-      "title": "3. Çerezler ve İzleme",
-      "content": "Kimlik doğrulama için zorunlu çerezler ve kullanım analizi için isteğe bağlı analitik çerezler (örneğin Google Analytics) kullanırız. Zorunlu olmayan çerezleri tarayıcı ayarlarınızdan devre dışı bırakabilirsiniz."
-    },
-    "section4": {
-      "title": "4. Veri Paylaşımı",
-      "content": "Kişisel verilerinizi satmayız. Verileri yalnızca güvenilir üçüncü taraf hizmet sağlayıcılarla (ödeme işlemcileri — Stripe/Paddle, barındırma — Vercel) hizmetlerimizi sunmak için gerekli olduğu ölçüde paylaşırız."
-    },
-    "section5": {
-      "title": "5. Veri Saklama ve Güvenlik",
-      "content": "Verilerinizi hesabınız aktif olduğu sürece saklarız. Makul güvenlik önlemleri alırız, ancak internet üzerinden hiçbir veri iletim yöntemi %100 güvenli değildir."
-    },
-    "section6": {
-      "title": "6. Haklarınız",
-      "content": "Kişisel verilerinize erişmek, düzeltmek veya silmek için info@sectorcalc.com adresinden bize ulaşabilirsiniz."
-    },
-    "section7": {
-      "title": "7. Çocukların Gizliliği",
-      "content": "Hizmetlerimiz 16 yaşından küçük bireylere yönelik değildir. Bilerek çocuklardan kişisel bilgi toplamayız."
-    },
-    "section8": {
-      "title": "8. Politikadaki Değişiklikler",
-      "content": "Bu politikayı zaman zaman güncelleyebiliriz. Başlıktaki \"Yürürlük Tarihi\" en son sürümü belirtir."
-    },
-    "section9": {
-      "title": "9. Veri Sorumlusu",
-      "content": "SectorCalc için veri sorumlusu:"
-    }
-  },
-  "refundPolicy": {
-    "meta": {
-      "title": "İade Politikası",
-      "description": "SectorCalc kredi satın alımları ve abonelikler için iade şartları."
-    },
-    "heroDescription": "Kredi satın alımları ve abonelikler için iade şartları.",
-    "title": "İade Politikası",
-    "lastUpdated": "Son güncelleme: 15 Haziran 2026",
-    "intro": "Satın aldığınız üründen memnun kalmanızı isteriz. Lütfen bu İade Politikası'nı dikkatlice okuyun.",
-    "section1": {
-      "title": "1. Krediler ve Abonelikler",
-      "content": "Krediler: Kredi satın alımları kesindir ve iade edilemez. Kullanılmayan krediler, satın alma tarihinden itibaren 12 ay sonra geçerliliğini yitirir. Kullanılmayan krediler için nakit iade yapılmaz. Abonelikler: Yinelenen bir abonelik satın alırsanız, ilk ödemeden sonraki 14 gün içinde, bu süre boyunca herhangi bir premium araç kullanmadıysanız tam iade talep edebilirsiniz. 14 gün sonra veya ilk kullanımdan sonra abonelik ücretleri iade edilemez."
-    },
-    "section2": {
-      "title": "2. Hatalı veya Yanlış Araçlar",
-      "content": "Bir premium araç, sistemimizdeki bir hata nedeniyle belirgin şekilde yanlış sonuç üretirse, bu hesaplama için kullanılan kredileri iade ederiz (harcanan kredi sayısına kadar) veya yedek kredi sağlarız. Lütfen sorunu ekran görüntüleri ve ayrıntılarla info@sectorcalc.com adresine bildirin."
-    },
-    "section3": {
-      "title": "3. İade Nasıl Talep Edilir",
-      "content": "İade talebi için, ödeme sağlayıcınızdan işlem kimliğinizle birlikte gerekçenizi info@sectorcalc.com adresine gönderin. 7-14 iş günü içinde yanıt vereceğiz."
-    },
-    "section4": {
-      "title": "4. Geri Ödeme Ters İşlemleri (Chargeback)",
-      "content": "Önce bize başvurmadan bir geri ödeme ters işlemi başlatırsanız, sorun çözülene kadar hesabınız askıya alınabilir."
-    },
-    "section5": {
-      "title": "5. Politikadaki Değişiklikler",
-      "content": "Bu iade politikasını her zaman değiştirme hakkımız saklıdır. Değişiklikler bu sayfada yayınlanır."
-    },
-    "section6": {
-      "title": "6. İletişim Bilgileri",
-      "content": "İade talepleri veya faturalandırma soruları için aşağıdaki iletişim bilgilerini kullanın."
-    }
-  },
-  "creditsPricing": {
-    "meta": {
-      "title": "Fiyatlandırma – SectorCalc Kredileri",
-      "description": "Premium endüstriyel hesaplayıcıların kilidini açmak için kredi satın alın. Planlar $1.99'dan başlar."
-    },
-    "title": "Kredi Paketinizi Seçin",
-    "subtitle": "Bir kredi, bir premium hesaplamayı açar. Krediler satın alma tarihinden itibaren 12 ay geçerlidir.",
-    "creditsLabel": "{count} kredi",
-    "perCredit": "/ kredi",
-    "buyNow": "Kredi Satın Al",
-    "popular": "En Popüler",
-    "legalNote": "Tüm fiyatlar USD cinsindendir. Krediler iade edilemez ve satın alma tarihinden itibaren 12 ay sonra geçerliliğini yitirir."
   }
 }

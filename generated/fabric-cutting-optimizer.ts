@@ -37,7 +37,7 @@ function evaluateAllFormulas(input: Fabric_cutting_optimizerInput): Record<strin
   try { results["fabric_utilization"] = ((results["adjusted_pattern_area"] ?? 0) / (results["fabric_area"] ?? 0)) * 100; } catch { results["fabric_utilization"] = 0; }
   try { results["waste_percentage"] = 100 - (results["fabric_utilization"] ?? 0); } catch { results["waste_percentage"] = 0; }
   try { results["total_material_cost"] = (results["fabric_area"] ?? 0) * input.material_cost_per_m2; } catch { results["total_material_cost"] = 0; }
-  results["labor_hours"] = 0;
+  try { results["labor_hours"] = input.cutting_method == 'single_ply' ? input.quantity * 0.02 : (input.cutting_method == 'multi_ply' ? input.quantity * 0.005 : input.quantity * 0.003); } catch { results["labor_hours"] = 0; }
   try { results["labor_cost"] = (results["labor_hours"] ?? 0) * input.labor_rate_per_hour; } catch { results["labor_cost"] = 0; }
   try { results["total_cost"] = (results["total_material_cost"] ?? 0) + (results["labor_cost"] ?? 0); } catch { results["total_cost"] = 0; }
   try { results["cost_per_piece"] = (results["total_cost"] ?? 0) / input.quantity; } catch { results["cost_per_piece"] = 0; }

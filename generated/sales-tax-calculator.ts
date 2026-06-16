@@ -26,7 +26,7 @@ function evaluateAllFormulas(input: Sales_tax_calculatorInput): Record<string, n
   try { results["taxable_base"] = input.net_sales * (1 - input.exempt_ratio/100) + (input.include_shipping ? input.shipping_charge : 0); } catch { results["taxable_base"] = 0; }
   try { results["effective_tax_rate"] = input.tax_rate * (1 + 0.05 * (input.tax_jurisdiction == 'state_county' ? 1 : (input.tax_jurisdiction == 'state_county_city' ? 2 : 0))); } catch { results["effective_tax_rate"] = 0; }
   try { results["gross_tax_amount"] = (results["taxable_base"] ?? 0) * ((results["effective_tax_rate"] ?? 0) / 100); } catch { results["gross_tax_amount"] = 0; }
-  results["sourcing_adjustment"] = 0;
+  try { results["sourcing_adjustment"] = input.use_sourcing == 'origin' ? 1.0 : 1.02; } catch { results["sourcing_adjustment"] = 0; }
   try { results["adjusted_tax_amount"] = (results["gross_tax_amount"] ?? 0) * (results["sourcing_adjustment"] ?? 0); } catch { results["adjusted_tax_amount"] = 0; }
   try { results["rounding_loss"] = (results["adjusted_tax_amount"] ?? 0) - Math.round((results["adjusted_tax_amount"] ?? 0) * 100) / 100; } catch { results["rounding_loss"] = 0; }
   try { results["total_tax_liability"] = Math.round((results["adjusted_tax_amount"] ?? 0) * 100) / 100; } catch { results["total_tax_liability"] = 0; }

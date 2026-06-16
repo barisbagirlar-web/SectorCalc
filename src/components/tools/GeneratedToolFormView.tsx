@@ -5,7 +5,6 @@ import { useLocale, useTranslations } from "next-intl";
 import { DynamicToolForm } from "@/components/tools/DynamicToolForm";
 import { FreeToolForm } from "@/components/tools/FreeToolForm";
 import {
-  resolveGeneratedToolDescription,
   resolveGeneratedToolTitle,
   resolvePrimaryOutputKey,
 } from "@/lib/generated-tools/resolve-tool-display";
@@ -28,13 +27,12 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
   const [lastInputs, setLastInputs] = useState<Record<string, unknown>>({});
 
   const title = resolveGeneratedToolTitle(slug, schema, locale);
-  const description = resolveGeneratedToolDescription(slug, schema, locale);
   const primaryOutputKey = resolvePrimaryOutputKey(schema);
   const isPremium = schema.premiumRequired === true;
 
   if (loading) {
     return (
-      <div className="container mx-auto max-w-6xl px-4 py-8">
+      <div className="container mx-auto max-w-6xl px-4 py-6">
         <p className="text-sm text-body-charcoal">{t("loading")}</p>
       </div>
     );
@@ -42,7 +40,7 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
 
   if (error || !calculator || !zodSchema) {
     return (
-      <div className="container mx-auto max-w-6xl px-4 py-8">
+      <div className="container mx-auto max-w-6xl px-4 py-6">
         <p className="text-sm text-red-800">{error ?? t("loadError")}</p>
       </div>
     );
@@ -53,13 +51,9 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
     setResult(runGeneratedToolCalculation(calculator, values));
   };
 
-  if (isPremium) {
-    return (
-      <div className="container mx-auto max-w-6xl px-4 py-8">
-        <header className="mb-6 space-y-2">
-          <h1 className="text-3xl font-bold text-premium-velvet">{title}</h1>
-          <p className="max-w-3xl text-sm text-body-charcoal sm:text-base">{description}</p>
-        </header>
+  return (
+    <div className="container mx-auto max-w-6xl px-4 py-6">
+      {isPremium ? (
         <DynamicToolForm
           slug={slug}
           schema={schema}
@@ -72,14 +66,7 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
           breakdownInputs={lastInputs}
           breakdownLabelMap={schema.outputs.breakdown}
         />
-      </div>
-    );
-  }
-
-  return (
-    <div className="min-h-screen bg-industrial-matte py-8">
-      <div className="container mx-auto max-w-6xl px-4">
-        <p className="mb-4 max-w-3xl text-sm text-body-charcoal sm:text-base">{description}</p>
+      ) : (
         <FreeToolForm
           slug={slug}
           schema={schema}
@@ -89,7 +76,7 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
           result={result}
           onSubmit={handleCalculate}
         />
-      </div>
+      )}
     </div>
   );
 }

@@ -22,9 +22,9 @@ export const Bmi_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Bmi_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { results["bmi"] = input.weight_kg / ((input.height_cm / 100) ** 2); } catch { results["bmi"] = 0; }
-  results["lean_body_mass"] = 0;
+  try { results["lean_body_mass"] = input.gender == 'male' ? (0.407 * input.weight_kg + 0.267 * input.height_cm - 19.2) : (0.252 * input.weight_kg + 0.473 * input.height_cm - 48.3); } catch { results["lean_body_mass"] = 0; }
   try { results["body_fat_percentage"] = (1.20 * (results["bmi"] ?? 0)) + (0.23 * input.age_years) - (10.8 * (input.gender == 'male' ? 1 : 0)) - 5.4; } catch { results["body_fat_percentage"] = 0; }
-  results["basal_metabolic_rate"] = 0;
+  try { results["basal_metabolic_rate"] = input.gender == 'male' ? (10 * input.weight_kg + 6.25 * input.height_cm - 5 * input.age_years + 5) : (10 * input.weight_kg + 6.25 * input.height_cm - 5 * input.age_years - 161); } catch { results["basal_metabolic_rate"] = 0; }
   try { results["total_energy_expenditure"] = (results["basal_metabolic_rate"] ?? 0) * (input.activity_level == 'sedentary' ? 1.2 : input.activity_level == 'light' ? 1.375 : input.activity_level == 'moderate' ? 1.55 : input.activity_level == 'active' ? 1.725 : 1.9); } catch { results["total_energy_expenditure"] = 0; }
   try { results["waist_to_height_ratio"] = input.waist_circumference_cm / input.height_cm; } catch { results["waist_to_height_ratio"] = 0; }
   try { results["health_risk_score"] = ((results["bmi"] ?? 0) >= 30 ? 3 : (results["bmi"] ?? 0) >= 25 ? 2 : (results["bmi"] ?? 0) >= 18.5 ? 1 : 3) + ((results["waist_to_height_ratio"] ?? 0) > 0.5 ? 2 : 1) + (input.age_years > 50 ? 1 : 0); } catch { results["health_risk_score"] = 0; }

@@ -1,3 +1,4 @@
+import { buildToolReferenceCreatorPersonJsonLd } from "@/lib/semantic/build-tool-creator-jsonld";
 import { buildCalculateActionSchema } from "@/lib/semantic/build-calculate-action-schema";
 import {
   buildFinancialServiceSchema,
@@ -55,6 +56,7 @@ export function buildToolJsonLd(input: {
 }): readonly JsonLdRecord[] {
   const { tool, locale } = input;
   const schemas: JsonLdRecord[] = [
+    buildToolReferenceCreatorPersonJsonLd(),
     buildSoftwareApplicationSchema(tool, locale),
     buildCalculateActionSchema(tool, locale),
     buildToolBreadcrumbSchema(tool, locale),

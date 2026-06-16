@@ -30,8 +30,8 @@ if (args[0] === "build") {
 }
 
 const realNextCandidates = [
-  join(ROOT, "node_modules/.bin/next.firebase-backup"),
   join(ROOT, "node_modules/next/dist/bin/next"),
+  join(ROOT, "node_modules/.bin/next.firebase-backup"),
 ];
 
 const realNext = realNextCandidates.find((candidate) => existsSync(candidate));

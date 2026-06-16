@@ -59,7 +59,7 @@ export type FreeTrafficTool = {
 /** @deprecated All catalog tools are active; kept for backward compatibility */
 export type FreeTrafficToolInput = FreeTrafficInput;
 
-function inferTrafficCategory(slug: string): FreeTrafficCategory {
+export function inferFreeTrafficCategory(slug: string): FreeTrafficCategory {
   if (/mortgage|loan|tax|margin|roi|npv|apy|salary|discount|interest|break-even|compound/.test(slug)) {
     return "finance-business";
   }
@@ -86,7 +86,7 @@ function buildCatalogEntry(slug: string): FreeTrafficTool {
   return {
     slug,
     title,
-    category: inferTrafficCategory(slug),
+    category: inferFreeTrafficCategory(slug),
     description: "",
     seoTitle: title,
     seoDescription: "",

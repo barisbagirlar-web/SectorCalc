@@ -35,6 +35,7 @@ import { GuidanceFieldFocus } from "@/components/guidance/GuidanceFieldFocus";
 import { ToolGuidanceLayout } from "@/components/guidance/ToolGuidanceLayout";
 import { ResultLayerTabs } from "@/components/results/ResultLayerTabs";
 import { PremiumCalculatorShell } from "@/components/tools/PremiumCalculatorShell";
+import { ToolOmniMetaSection } from "@/components/tools/ToolOmniMetaSection";
 import { resolveCalculatorInputDisplay } from "@/lib/i18n/free-tool-form-i18n";
 import {
   resolvePremiumSchemaDisplayName,
@@ -368,9 +369,21 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
       toolTitle={displayName}
       toolSector={schema.sectorSlug}
     >
+      <ToolOmniMetaSection
+        toolName={displayName}
+        slug={schema.id}
+        tier="premium"
+        excerpt={displayPain}
+        canonicalPath={`/tools/premium-schema/${schema.id}`}
+        skipStructuredData
+        onFeedback={() => {
+          document.getElementById("feedback")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }}
+      />
       <PremiumCalculatorShell
         title={displayName}
         description={displayPain}
+        showHeader={false}
         hasCalculated={Boolean(result && reportData)}
         inputPanel={
           <div className="flex min-w-0 flex-col gap-4">
@@ -454,7 +467,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
         }
       />
       {feedbackSnapshots ? (
-        <div className="mt-6 space-y-4">
+        <div id="feedback" className="mt-6 space-y-4">
           <PremiumReportFeedback
             schemaSlug={schema.id}
             sectorSlug={schema.sectorSlug}

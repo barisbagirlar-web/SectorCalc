@@ -133,8 +133,12 @@ function isSupportedLocale(locale: string): locale is SupportedLocale {
   return (SUPPORTED_LOCALES as readonly string[]).includes(locale);
 }
 
-function finalizeFieldCopy(copy: FieldDisplayCopy, locale: string): FieldDisplayCopy {
-  if (locale === "en") {
+function finalizeFieldCopy(
+  copy: FieldDisplayCopy,
+  locale: string,
+  alreadyLocalized = false,
+): FieldDisplayCopy {
+  if (locale === "en" || alreadyLocalized) {
     return copy;
   }
   return {
@@ -163,12 +167,12 @@ export function resolveFreeToolFieldDisplay(
   const normalizedKey = fieldKey.toLowerCase();
   const fromMessages = readFreeToolInputField(LOCALE_MESSAGES[locale], slug, normalizedKey);
   if (fromMessages) {
-    return finalizeFieldCopy(fromMessages, locale);
+    return finalizeFieldCopy(fromMessages, locale, locale !== "en");
   }
 
   const fromGenerated = readGeneratedFieldCopy(locale, slug, normalizedKey);
   if (fromGenerated && !isEnglishIdenticalToEn(locale, slug, normalizedKey, fromGenerated.label)) {
-    return finalizeFieldCopy(fromGenerated, locale);
+    return finalizeFieldCopy(fromGenerated, locale, locale !== "en");
   }
 
   if (locale !== "en" && isSupportedLocale(locale)) {

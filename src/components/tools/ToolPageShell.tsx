@@ -1,7 +1,7 @@
 import { PageLayout } from "@/components/layout/PageLayout";
-import PageHero from "@/components/shared/PageHero";
 import { Container } from "@/components/ui/Container";
 import { Breadcrumb } from "@/components/tools/Breadcrumb";
+import { ToolOmniMetaSection } from "@/components/tools/ToolOmniMetaSection";
 import { PremiumTeaserPanel } from "@/components/tools/PremiumTeaserPanel";
 import { RelatedTools } from "@/components/tools/RelatedTools";
 import { CTASection } from "@/components/sections/CTASection";
@@ -43,12 +43,15 @@ export function ToolPageShell({ definition: rawDefinition, locale }: ToolPageShe
  <div id="sector-product">
  <div className={CALC_TOOL_PAGE_CLASS}>
  <div className={CALC_TOOL_PAGE_CHROME_CLASS}>
- <PageHero
- eyebrow={classificationLabel}
- title={definition.title}
- description={definition.longDescription}
- statusSlot={<FormulaGateToolStatus slug={definition.slug} locale={locale} />}
- />
+ <section className="mb-6">
+ <p className="label-badge mb-3 text-body-charcoal">{classificationLabel}</p>
+ <div className="mb-3">
+ <FormulaGateToolStatus slug={definition.slug} locale={locale} />
+ </div>
+ <p className="max-w-3xl text-sm leading-relaxed text-body-charcoal sm:text-base">
+ {definition.longDescription}
+ </p>
+ </section>
  <p className="mb-6 text-sm leading-relaxed text-text-secondary">
  {isPremium
  ? MARGINCORE_TERMS.premiumVerdict
@@ -60,6 +63,13 @@ export function ToolPageShell({ definition: rawDefinition, locale }: ToolPageShe
  <section className="fourth-tab border-t border-border-subtle bg-white">
  <Container size="wide" className="min-w-0 py-4">
         <div className={CALC_TOOL_PAGE_FORM_ZONE_CLASS}>
+          <ToolOmniMetaSection
+            toolName={definition.title}
+            slug={definition.slug}
+            tier={isPremium ? "premium" : "free"}
+            excerpt={definition.longDescription}
+            canonicalPath={definition.seo.canonicalPath}
+          />
           <div className="rounded-lg border border-technical-gray bg-surface-cream p-6 text-sm text-body-charcoal">
             Calculator regeneration in progress. Schema scan will restore this tool.
           </div>

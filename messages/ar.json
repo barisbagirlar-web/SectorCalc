@@ -294,7 +294,7 @@
         "free-tools": "البحث في الحاسبات المجانية...",
         "premium-tools": "البحث في الحاسبات المميزة...",
         "industries": "البحث في الحاسبات القطاعية...",
-        "homepage": "أي قطاع أو تكلفة أو حساب تقني تحتاجه؟"
+        "homepage": "ابحث عن قطاع أو تكلفة أو حساب تقني..."
       },
       "noResults": "لم تُعثر على أدوات مطابقة.",
       "moreResults": "+ {count} نتائج إضافية",
@@ -714,7 +714,10 @@
       "subtitle": "ابدأ بالأدوات المجانية، وارتقِ إلى تقارير Premium عند الحاجة.",
       "primary": "Explore Free Tools",
       "secondary": "عرض تقرير حكم نموذجي"
-    }
+    },
+    "heroTitle": "من التصنيع إلى الصناعة، نفّذوا كل حسابات أعمالكم الحرجة في مكان واحد.",
+    "heroSub1": "جرّبوا مجاناً حسابات التكلفة والهدر والطاقة وOEE.",
+    "heroSub2": "قارنوا نتائجكم بأدوات مميزة لاتخاذ قرارات أعمق."
   },
   "homeDashboard": {
     "meta": {
@@ -1015,7 +1018,7 @@
       "subtitle": "يجمع SectorCalc حاسبات قطاعية للإنتاج والورشة والموقع والخدمات اللوجستية والطاقة والمالية في منصة مركّزة.",
       "supporting": "بدون تعقيد ERP — للفرق الصغيرة والمتوسطة وفرق الميدان",
       "ctaPrimary": "حاسبات مجانية",
-      "ctaSecondary": "حاسبات مميزة",
+      "ctaSecondary": "استكشف المميز",
       "panelTitle": "ما يحسبه الفريق أولاً",
       "panelItems": {
         "production": "سعر ساعة الآلة وOEE والهدر",
@@ -1029,40 +1032,88 @@
       }
     },
     "coverage": {
-      "title": "حاسبات قطاعية عبر عملياتك",
-      "subtitle": "تصفّح حسب القطاع أو نوع الحساب أو القرار المطلوب — لا حسب جداول متفرقة.",
+      "title": "أدوات الحساب القطاعية",
+      "subtitle": "حاسبات مبنية لقطاعكم وللقرارات التي تواجهونها.",
       "items": {
         "production": {
           "title": "الإنتاج والتصنيع",
-          "description": "سعر ساعة الآلة وOEE وسرعة القطع ومخاطر الهدر وكفاءة خط الإنتاج."
+          "description": "سعر ساعة الآلة وOEE وسرعة القطع ومخاطر الهدر وكفاءة خط الإنتاج.",
+          "shortTitle": "الإنتاج",
+          "tags": [
+            "CNC",
+            "OEE",
+            "هدر"
+          ]
         },
         "industrial": {
           "title": "الورش الصناعية",
-          "description": "هامش العرض ونقطة التعادل وعرض الإصلاح وهامش المنتج قبل إرسال السعر."
+          "description": "هامش العرض ونقطة التعادل وعرض الإصلاح وهامش المنتج قبل إرسال السعر.",
+          "shortTitle": "الورش",
+          "tags": [
+            "عرض سعر",
+            "إعداد",
+            "Shop Rate"
+          ]
         },
         "technical": {
           "title": "التقنية والهندسة",
-          "description": "عزم شد البراغي والوصلات الملحومة وتراكم التسامحات وقوة الأسطوانة لأرقام ميدانية."
+          "description": "عزم شد البراغي والوصلات الملحومة وتراكم التسامحات وقوة الأسطوانة لأرقام ميدانية.",
+          "shortTitle": "الهندسة",
+          "tags": [
+            "عزم",
+            "تسامح",
+            "أسطوانة"
+          ]
         },
         "construction": {
           "title": "البناء والموقع",
-          "description": "حجم الخرسانة والمتر المربع وتغطية الدهان ومساحة السقف لكميات المشروع."
+          "description": "حجم الخرسانة والمتر المربع وتغطية الدهان ومساحة السقف لكميات المشروع.",
+          "shortTitle": "البناء",
+          "tags": [
+            "خرسانة",
+            "كميات",
+            "سقف"
+          ]
         },
         "logistics": {
           "title": "الخدمات اللوجستية والنقل",
-          "description": "تكلفة المسار وانحراف الوقود والرحلات الفارغة ووضوح هامش التسليم."
+          "description": "تكلفة المسار وانحراف الوقود والرحلات الفارغة ووضوح هامش التسليم.",
+          "shortTitle": "اللوجستيات",
+          "tags": [
+            "وقود",
+            "حجم",
+            "شحن"
+          ]
         },
         "energy": {
           "title": "الطاقة والكربون",
-          "description": "تكلفة kWh وتسريبات الضاغط وحزم التوفير وبصمة الكربون وفق CBAM."
+          "description": "تكلفة kWh وتسريبات الضاغط وحزم التوفير وبصمة الكربون وفق CBAM.",
+          "shortTitle": "الطاقة",
+          "tags": [
+            "kWh",
+            "تسرب",
+            "كربون"
+          ]
         },
         "finance": {
           "title": "المالية والأعمال",
-          "description": "ضريبة القيمة المضافة وقسط القرض والتكلفة الإجمالية للموظف وتكلفة حمل المخزون مع EOQ."
+          "description": "ضريبة القيمة المضافة وقسط القرض والتكلفة الإجمالية للموظف وتكلفة حمل المخزون مع EOQ.",
+          "shortTitle": "المالية",
+          "tags": [
+            "ضريبة",
+            "رواتب",
+            "إهلاك"
+          ]
         },
         "foodRetail": {
           "title": "الأغذية والتجزئة",
-          "description": "هامش القائمة وانحراف الهدر ودوران المخزون وتباين تكلفة الحصة."
+          "description": "هامش القائمة وانحراف الهدر ودوران المخزون وتباين تكلفة الحصة.",
+          "shortTitle": "التجزئة",
+          "tags": [
+            "هدر",
+            "مخزون",
+            "هامش"
+          ]
         }
       }
     },
@@ -1085,28 +1136,33 @@
       }
     },
     "losses": {
-      "title": "ما تخفيه الأرقام غير المحسوبة",
+      "title": "اجعل الخسائر غير المرئية قابلة للحساب",
       "items": {
         "monetary": {
-          "title": "المال والهامش",
-          "text": "فجوات التسعير وانحراف العرض وعبء الرواتب التي لا تظهر في الصف الأول من الجدول."
+          "title": "خسارة مالية",
+          "text": "فجوات التسعير وانحراف العرض وعبء الرواتب التي لا تظهر في الصف الأول من الجدول.",
+          "examples": "عرض خاطئ، هامش منخفض، فرق آجل."
         },
         "material": {
-          "title": "المواد والهدر",
-          "text": "انحراف الهدر والفاقد غير المرئي وفقدان المخزون بين الشراء والإنتاج."
+          "title": "مواد وهدر",
+          "text": "انحراف الهدر والفاقد غير المرئي وفقدان المخزون بين الشراء والإنتاج.",
+          "examples": "خردة، استهلاك زائد، فقد جودة."
         },
         "time": {
-          "title": "الوقت والإنتاجية",
-          "text": "تجاوز الإعداد وتكلفة التوقف وفقدان الإنتاجية بعد تقدير يبدو جيداً."
+          "title": "وقت وتشغيل",
+          "text": "تجاوز الإعداد وتكلفة التوقف وفقدان الإنتاجية بعد تقدير يبدو جيداً.",
+          "examples": "إعداد، توقف، انحراف مسار."
         },
         "energy": {
-          "title": "الطاقة والكربون",
-          "text": "تعرض ذروة الطلب وتسريبات الضاغط وضغط البصمة الكربونية في التصدير والامتثال."
+          "title": "طاقة وكربون",
+          "text": "تعرض ذروة الطلب وتسريبات الضاغط وضغط البصمة الكربونية في التصدير والامتثال.",
+          "examples": "تسرب، ذروة استهلاك، بصمة كربون."
         }
-      }
+      },
+      "subtitle": "اكشف التكاليف التي تمر دون ملاحظة في العمل اليومي."
     },
     "freePremium": {
-      "title": "الحسابات الأساسية مجانية. ملخصات القرار الأكمل مميزة.",
+      "title": "حاسبات مجانية ومميزة",
       "freeTitle": "حاسبات مجانية",
       "freeText": "فحوصات قطاعية سريعة في المتصفح بمدخلات أساسية وإشارات مخاطر واضحة.",
       "freeItems": {
@@ -1115,7 +1171,7 @@
         "category": "تصفح حسب القطاع ونوع الحساب",
         "noSignup": "استكشف دون تسجيل"
       },
-      "freeCta": "افتح الحاسبات المجانية",
+      "freeCta": "جرّب الآن",
       "premiumTitle": "حاسبات مميزة",
       "premiumText": "أضف مدخلات أعمق ومقارنة سيناريوهات وملخصات قرار قابلة للتصدير عندما يرتفع المخاطر.",
       "premiumItems": {
@@ -1124,10 +1180,20 @@
         "summary": "ملخص قرار مع محركات وإجراء مقترح",
         "export": "تصدير PDF وCSV عند التوفر"
       },
-      "premiumCta": "استعرض الحاسبات المميزة"
+      "premiumCta": "استكشف",
+      "freeHighlights": [
+        "نتيجة سريعة",
+        "بدون تسجيل",
+        "صيغ أساسية"
+      ],
+      "premiumHighlights": [
+        "مقارنة سيناريوهات",
+        "ملخص قرار",
+        "مدخلات أعمق"
+      ]
     },
     "criticalTools": {
-      "title": "الحاسبات الحرجة التي يفتحها الفريق أولاً",
+      "title": "الحاسبات الأكثر استخداماً",
       "subtitle": "حاسبات قطاعية عالية النية للإنتاج والتسعير والهندسة والبناء والطاقة والمالية.",
       "badgeSoon": "قريباً",
       "groups": {
@@ -1135,10 +1201,10 @@
           "title": "الإنتاج والتصنيع",
           "items": {
             "shopRate": {
-              "title": "حاسبة سعر الساعة للآلة"
+              "title": "تكلفة ساعة الآلة"
             },
             "oee": {
-              "title": "حاسبة كفاءة المعدات الشاملة"
+              "title": "حاسبة OEE"
             },
             "cuttingSpeed": {
               "title": "حاسبة سرعة القطع"
@@ -1152,7 +1218,7 @@
           "title": "الورشة والتسعير",
           "items": {
             "quoteMargin": {
-              "title": "حاسبة سعر العرض وهامش الربح"
+              "title": "مساعد عروض الأسعار"
             },
             "breakEven": {
               "title": "حاسبة نقطة التعادل"
@@ -1169,7 +1235,7 @@
           "title": "التقنية والهندسة",
           "items": {
             "boltTorque": {
-              "title": "حاسبة عزم شد البراغي"
+              "title": "عزم البرغي"
             },
             "weldedConnection": {
               "title": "حاسبة الوصلات الملحومة والمثبتة بالبراغي"
@@ -1186,7 +1252,7 @@
           "title": "البناء والموقع",
           "items": {
             "concreteVolume": {
-              "title": "حاسبة حجم الخرسانة"
+              "title": "حجم الخرسانة"
             },
             "squareMeter": {
               "title": "حاسبة المتر المربع"
@@ -1203,7 +1269,7 @@
           "title": "الطاقة والكربون",
           "items": {
             "compressorLeak": {
-              "title": "حاسبة تكلفة تسرب الضاغط"
+              "title": "تسرب الضاغط"
             },
             "kwhCost": {
               "title": "حاسبة تكلفة الكيلوواط ساعة"
@@ -1233,57 +1299,70 @@
             }
           }
         }
+      },
+      "popularCategories": {
+        "production": "إنتاج",
+        "workshop": "ورشة",
+        "engineering": "هندسة",
+        "construction": "بناء",
+        "energy": "طاقة"
       }
     },
     "audiences": {
-      "title": "للفرق التي تحتاج أرقاماً قبل ERP",
+      "title": "لمن SectorCalc؟",
       "items": {
         "production": {
-          "title": "مديرو الإنتاج",
-          "text": "راجع سعر الآلة وOEE والهدر قبل قبول أعمال متكررة أو إعادة تسعير الخط."
+          "title": "شركات الإنتاج",
+          "text": "راجع سعر الآلة وOEE والهدر قبل قبول أعمال متكررة أو إعادة تسعير الخط.",
+          "examples": "OEE، هدر، عروض"
         },
         "industrial": {
-          "title": "أصحاب الورش",
-          "text": "هامش العرض ونقطة التعادل وعمالة الإصلاح قبل ضغط العميل على السعر."
+          "title": "الورش الصناعية",
+          "text": "هامش العرض ونقطة التعادل وعمالة الإصلاح قبل ضغط العميل على السعر.",
+          "examples": "Shop rate، إعداد"
         },
         "engineering": {
-          "title": "المهندسون والصيانة",
-          "text": "عزم الدوران وتراكم التسامحات وقوة الأسطوانة دون دفتر هندسة منفصل."
+          "title": "الهندسة",
+          "text": "عزم الدوران وتراكم التسامحات وقوة الأسطوانة دون دفتر هندسة منفصل.",
+          "examples": "عزم، تسامح"
         },
         "construction": {
-          "title": "البناء والحرف",
-          "text": "كميات الخرسانة والمساحة والدهان والسقف قبل طلب المواد أو تحريك الطاقم."
+          "title": "فرق البناء",
+          "text": "كميات الخرسانة والمساحة والدهان والسقف قبل طلب المواد أو تحريك الطاقم.",
+          "examples": "كميات، حجم، خرسانة"
         },
         "logistics": {
-          "title": "فرق الخدمات اللوجستية",
-          "text": "حساب المسار والشحن عندما تلتهم الرحلات الفارغة والوقود هامش التسليم."
+          "title": "اللوجستيات والخدمة",
+          "text": "حساب المسار والشحن عندما تلتهم الرحلات الفارغة والوقود هامش التسليم.",
+          "examples": "وقود، مسار، شحن"
         },
         "finance": {
-          "title": "المالية والموارد البشرية",
-          "text": "ضريبة القيمة المضافة وقسط القرض والتكلفة الإجمالية للموظف وتكلفة حمل المخزون للتسعير والتوظيف."
+          "title": "المالية والموارد",
+          "text": "ضريبة القيمة المضافة وقسط القرض والتكلفة الإجمالية للموظف وتكلفة حمل المخزون للتسعير والتوظيف.",
+          "examples": "ائتمان، رواتب"
         }
       }
     },
     "whyNotExcel": {
-      "title": "لماذا حاسبات قطاعية بدلاً من ملفات Excel متفرقة؟",
+      "title": "لماذا لا يكفي Excel؟",
       "items": {
         "formula": {
-          "title": "صيغ متسقة",
-          "text": "توقف عن إعادة بناء نفس حساب الهامش والهدر والطاقة بين الملاحظات والمحادثات والأوراق المنفصلة."
+          "title": "تُنسى الصيغ",
+          "text": "قد تُتجاهل بنود الهدر والطاقة والعمالة."
         },
         "sector": {
-          "title": "سياق قطاعي مدمج",
-          "text": "مدخلات وتسميات تناسب التصنيع والبناء والخدمات اللوجستية والطاقة — لا خلايا عامة."
+          "title": "يضيع السياق القطاعي",
+          "text": "لا يُقاس CNC والخرسانة بنفس القالب."
         },
         "decision": {
-          "title": "من الفحص المجاني إلى ملخص القرار",
-          "text": "ابدأ برقم سريع ثم افتح الحاسبات المميزة عندما يحتاج العرض أو العمل أو الشراء إلى مخرجات أوسع."
+          "title": "يُتأخر القرار",
+          "text": "تظهر الخسارة في نهاية الشهر — متأخراً."
         }
       },
       "closing": "يحافظ SectorCalc على الحاسبات القطاعية مرئية وقابلة للمقارنة والتكرار — دون نشر ERP."
     },
     "finalCta": {
-      "title": "افتح الحاسبة القطاعية التي تحتاجها",
+      "title": "أي حساب نوضحه اليوم؟",
       "subtitle": "ابدأ مجاناً ثم انتقل إلى الحاسبات المميزة عندما يتطلب القرار مدخلات أكثر وملخصاً أوضح.",
       "ctaPrimary": "حاسبات مجانية",
       "ctaSecondary": "حاسبات مميزة"
@@ -3223,6 +3302,45 @@
       "reportMessageTooShort": "يرجى إدخال 10 أحرف على الأقل.",
       "reportSubmitFailed": "تعذر إرسال البلاغ. حاول مرة أخرى."
     },
+    "omniMeta": {
+      "sectionLabel": "معلومات الحاسبة",
+      "creatorsLabel": "المبدعون:",
+      "creatorName": "Prof. Dr. Neela Nataraj",
+      "creatorProfileAria": "Prof. Dr. Neela Nataraj، Indian Institute of Technology Bombay (يفتح ملف LinkedIn)",
+      "helpfulLabel": "شخصًا يجدون هذه الحاسبة مفيدة"
+    },
+    "interactionActionBar": {
+      "reactionGroupLabel": "ملاحظات الفائدة",
+      "likeTooltip": "مفيد",
+      "dislikeTooltip": "غير مفيد",
+      "likeAria": "وجدت هذا المحتوى مفيدًا",
+      "dislikeAria": "لم أجد هذا المحتوى مفيدًا",
+      "feedbackTooltip": "إرسال ملاحظات",
+      "feedbackAria": "إرسال ملاحظات",
+      "shareTooltip": "مشاركة",
+      "shareAria": "مشاركة هذا المحتوى",
+      "shareMenuLabel": "خيارات المشاركة",
+      "shareCopyLink": "نسخ الرابط",
+      "shareFacebook": "مشاركة على Facebook",
+      "shareX": "مشاركة على X",
+      "shareLinkedIn": "مشاركة على LinkedIn",
+      "sharePinterest": "مشاركة على Pinterest",
+      "shareReddit": "مشاركة على Reddit",
+      "shareEmbed": "الحصول على كود التضمين",
+      "shareQuote": "اقتباس",
+      "embedTooltip": "الحصول على كود التضمين",
+      "embedAria": "الحصول على كود التضمين لهذا المحتوى",
+      "quoteTooltip": "اقتباس",
+      "quoteAria": "اقتباس هذا المحتوى",
+      "linkCopied": "تم نسخ الرابط",
+      "embedCopied": "تم نسخ كود التضمين",
+      "quoteCopied": "تم نسخ الاقتباس",
+      "embedModalTitle": "كود التضمين",
+      "embedCopyCode": "نسخ الكود",
+      "quoteModalTitle": "اقتباس",
+      "quoteCopy": "نسخ الاقتباس",
+      "close": "إغلاق"
+    },
     "shopRateSelector": {
       "title": "تطبيق ملف تكلفة الآلة",
       "description": "اختر آلة من مجموعتك لملء حقول التكلفة بالساعة تلقائياً.",
@@ -3355,6 +3473,18 @@
       "supplierFetchSuccess": "تمت إضافة {value} kg CO2e ({unit}، {source}) إلى البضائع المشتراة.",
       "supplierLastFetch": "آخر جلب: {product} بمعدل {factor} kg CO2e/{unit}."
     }
+  },
+  "generatedToolCatalog": {
+    "eyebrow": "حاسبات قائمة على المخطط",
+    "title": "حاسبات مُولَّدة",
+    "subtitle": "حاسبات قطاعية قائمة على المخطط مع مدخلات ديناميكية ومخططات SVG ونتائج فورية في المتصفح.",
+    "subtitleCompact": "اعثر على الحاسبة التي تحتاجها حسب القطاع.",
+    "metaTitle": "حاسبات مُولَّدة | SectorCalc",
+    "metaDescription": "حاسبات قطاعية قائمة على المخطط مع مدخلات ديناميكية ومخططات SVG ونتائج فورية.",
+    "searchPlaceholder": "ابحث بالاسم أو الموضوع…",
+    "resultsCount": "{count} حاسبة",
+    "noResults": "لا توجد حاسبة تطابق بحثك.",
+    "allCategories": "← جميع الفئات"
   },
   "wasteTypes": {
     "overproduction": "الإنتاج الزائد",
@@ -15430,7 +15560,6 @@
     "legalNavAria": "روابط قانونية",
     "legalPrivacy": "سياسة الخصوصية",
     "legalTerms": "شروط الاستخدام",
-    "legalRefund": "سياسة الاسترداد",
     "legalDisclaimer": "إخلاء المسؤولية",
     "metaCopyright": "© 2026 SectorCalc",
     "metaRights": "جميع الحقوق محفوظة.",
@@ -15457,8 +15586,7 @@
     "servicesLabel": "services-products.txt",
     "freeToolsLabel": "حاسبات مجانية",
     "premiumToolsLabel": "حاسبات مميزة",
-    "industriesLabel": "مراكز القطاعات",
-    "generatedToolsLabel": "حاسبات مُولَّدة"
+    "industriesLabel": "مراكز القطاعات"
   },
   "guidance": {
     "inputGuide": {
@@ -15657,150 +15785,5 @@
       "title": "حكم هامش السباكة",
       "description": "أداة premium. النتائج الكاملة تتطلب رصيدًا أو Pro."
     }
-  },
-  "legalCommon": {
-    "eyebrow": "Legal",
-    "readPrivacy": "Privacy Policy",
-    "readTerms": "Terms of Service",
-    "readRefund": "Refund Policy",
-    "seeAlso": "See also",
-    "termsFooter": "Read our <privacy>Privacy Policy</privacy> and <refund>Refund Policy</refund>.",
-    "privacyFooter": "See also <terms>Terms of Service</terms> and <refund>Refund Policy</refund>.",
-    "refundFooter": "See also <terms>Terms of Service</terms> and <privacy>Privacy Policy</privacy>.",
-    "contactIntro": "For questions, contact us using the details below.",
-    "dataControllerIntro": "The data controller for SectorCalc is:",
-    "refundContactIntro": "For refund requests or billing questions, contact us using the details below."
-  },
-  "terms": {
-    "meta": {
-      "title": "Terms of Service",
-      "description": "Legal terms and conditions for using SectorCalc calculators and services."
-    },
-    "heroDescription": "By accessing or using SectorCalc, you agree to these Terms of Service.",
-    "title": "Terms of Service",
-    "lastUpdated": "Last updated: {date}",
-    "lastUpdatedDate": "June 15, 2026",
-    "intro": "Welcome to SectorCalc. By accessing or using our website and calculation tools, you agree to be bound by these Terms of Service.",
-    "section1": {
-      "title": "1. Our Services",
-      "content": "SectorCalc provides industrial and business calculators for informational and decision-support purposes. Our tools do not constitute professional engineering, financial, or legal advice. You are solely responsible for verifying any results before making business decisions."
-    },
-    "section2": {
-      "title": "2. Premium Features & Credits",
-      "content": "Premium tools require credits. Credits are non-refundable and expire 12 months after purchase. You may purchase credit packages through our secure payment provider. Unused credits do not roll over."
-    },
-    "section3": {
-      "title": "3. User Accounts",
-      "content": "You must create an account to access premium features. You are responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account."
-    },
-    "section4": {
-      "title": "4. Intellectual Property",
-      "content": "All content, formulas, algorithms, designs, and trademarks are the exclusive property of Sector Calculator (operating as SectorCalc). You may not reproduce, distribute, or create derivative works without prior written permission."
-    },
-    "section5": {
-      "title": "5. Limitation of Liability",
-      "content": "To the maximum extent permitted by law, Sector Calculator shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services."
-    },
-    "section6": {
-      "title": "6. Modifications",
-      "content": "We may update these Terms at any time. Continued use of the service after changes constitutes acceptance of the new Terms."
-    },
-    "section7": {
-      "title": "7. Contact Information",
-      "content": "For questions about these Terms, contact us using the details below."
-    }
-  },
-  "privacy": {
-    "meta": {
-      "title": "Privacy Policy",
-      "description": "How SectorCalc collects, uses, and protects your personal data."
-    },
-    "heroDescription": "What data we collect, how we use it, and your rights.",
-    "title": "Privacy Policy",
-    "effective": "Effective: June 15, 2026",
-    "intro": "Your privacy is important to us. This policy explains what data we collect, how we use it, and your rights.",
-    "section1": {
-      "title": "1. Information We Collect",
-      "content": "We collect personal information you provide (e.g., email address when you register). We also automatically collect usage data (IP address, browser type, pages visited) to improve our tools."
-    },
-    "section2": {
-      "title": "2. How We Use Your Information",
-      "content": "We use your data to operate, maintain, and improve SectorCalc, to process payments, and to communicate with you about your account or updates."
-    },
-    "section3": {
-      "title": "3. Cookies & Tracking",
-      "content": "We use essential cookies for authentication and optional analytics cookies (e.g., Google Analytics) to analyze usage. You can disable non-essential cookies in your browser settings."
-    },
-    "section4": {
-      "title": "4. Data Sharing",
-      "content": "We do not sell your personal data. We share data only with trusted third-party services (payment processors — Stripe/Paddle, hosting — Vercel) as necessary to provide our services."
-    },
-    "section5": {
-      "title": "5. Data Retention & Security",
-      "content": "We retain your data as long as your account is active. We implement reasonable security measures, but no method of transmission over the Internet is 100% secure."
-    },
-    "section6": {
-      "title": "6. Your Rights",
-      "content": "You may request access, correction, or deletion of your personal data by contacting us at info@sectorcalc.com."
-    },
-    "section7": {
-      "title": "7. Children's Privacy",
-      "content": "Our services are not directed to individuals under 16. We do not knowingly collect personal information from children."
-    },
-    "section8": {
-      "title": "8. Changes to This Policy",
-      "content": "We may update this policy from time to time. The \"Effective\" date at the top indicates when the latest version was posted."
-    },
-    "section9": {
-      "title": "9. Data Controller",
-      "content": "The data controller for SectorCalc is:"
-    }
-  },
-  "refundPolicy": {
-    "meta": {
-      "title": "Refund Policy",
-      "description": "Refund terms for credit purchases and subscriptions on SectorCalc."
-    },
-    "heroDescription": "Refund terms for credit purchases and subscriptions.",
-    "title": "Refund Policy",
-    "lastUpdated": "Last updated: June 15, 2026",
-    "intro": "We want you to be satisfied with your purchase. Please read this Refund Policy carefully.",
-    "section1": {
-      "title": "1. Credits & Subscriptions",
-      "content": "Credits: Purchases of credits are final and non-refundable. Unused credits expire 12 months after purchase. No cash refunds will be issued for unused credits. Subscriptions: If you purchase a recurring subscription, you may request a full refund within 14 days of your first payment, provided you have not used any premium tool during that period. After 14 days or after first use, subscription fees are non-refundable."
-    },
-    "section2": {
-      "title": "2. Faulty or Incorrect Tools",
-      "content": "If a premium tool produces demonstrably incorrect results due to a bug in our system, we will refund the credits used for that calculation (up to the number of credits spent) or provide replacement credits. Please report the issue with screenshots and details to info@sectorcalc.com."
-    },
-    "section3": {
-      "title": "3. How to Request a Refund",
-      "content": "To request a refund, contact us at info@sectorcalc.com with your transaction ID (from your payment provider) and the reason for the request. We will respond within 7–14 business days."
-    },
-    "section4": {
-      "title": "4. Chargebacks",
-      "content": "If you initiate a chargeback without first contacting us, we may suspend your account until the matter is resolved."
-    },
-    "section5": {
-      "title": "5. Changes to this Policy",
-      "content": "We reserve the right to modify this refund policy at any time. Changes will be posted on this page."
-    },
-    "section6": {
-      "title": "6. Contact Information",
-      "content": "For refund requests or billing questions, contact us using the details below."
-    }
-  },
-  "creditsPricing": {
-    "meta": {
-      "title": "Pricing – SectorCalc Credits",
-      "description": "Purchase credits to unlock premium industrial calculators. Plans start at $1.99."
-    },
-    "title": "Choose your credits",
-    "subtitle": "One credit unlocks one premium calculation. Credits expire 12 months after purchase.",
-    "creditsLabel": "{count} credits",
-    "perCredit": "/ credit",
-    "buyNow": "Buy credits",
-    "popular": "Most popular",
-    "legalNote": "All prices are in USD. Credits are non-refundable and expire 12 months after purchase."
   }
 }

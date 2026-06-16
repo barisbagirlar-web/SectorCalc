@@ -1,18 +1,20 @@
 "use client";
 
 import type { Control, FieldErrors } from "react-hook-form";
+import { useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { PremiumDynamicToolFormField } from "@/components/tools/PremiumDynamicToolFormField";
 import { PremiumToolReportModal } from "@/components/tools/PremiumToolReportModal";
+import { ToolOmniMetaSection } from "@/components/tools/ToolOmniMetaSection";
 import { ToolStandardSelector } from "@/components/tools/ToolStandardSelector";
-import { ToolLastUpdatedLabel } from "@/components/tools/ToolLastUpdatedLabel";
 import type {
   GeneratedToolInput,
   GeneratedToolResult,
   GeneratedToolSchema,
 } from "@/lib/generated-tools/types";
 import type { FeedbackSnapshotValue } from "@/lib/feedback/types";
+import { resolveToolDisplayChrome } from "@/lib/tools/resolve-tool-display-chrome";
 
 type PremiumDynamicToolFormLayoutProps = {
   readonly slug: string;
@@ -34,8 +36,8 @@ type PremiumDynamicToolFormLayoutProps = {
   readonly creditGateError: string | null;
   readonly disabled: boolean;
   readonly loading: boolean;
-  readonly vote: "up" | "down" | null;
-  readonly onVote: (type: "up" | "down") => void;
+  readonly voteResetKey?: number;
+  readonly onVoteFeedback?: (type: "up" | "down") => void | Promise<void>;
   readonly voteNotice: string | null;
   readonly modalOpen: boolean;
   readonly onOpenReport: () => void;
@@ -44,7 +46,6 @@ type PremiumDynamicToolFormLayoutProps = {
   readonly onCalculate: () => void;
   readonly selectedStandard?: string;
   readonly onStandardChange?: (standardId: string) => void;
-  readonly lastUpdatedIso?: string | null;
 };
 
 function resolvePrimaryNumericValue(
@@ -130,8 +131,8 @@ export function PremiumDynamicToolFormLayout({
   creditGateError,
   disabled,
   loading,
-  vote,
-  onVote,
+  voteResetKey,
+  onVoteFeedback,
   voteNotice,
   modalOpen,
   onOpenReport,
@@ -140,11 +141,15 @@ export function PremiumDynamicToolFormLayout({
   onCalculate,
   selectedStandard,
   onStandardChange,
-  lastUpdatedIso = null,
 }: PremiumDynamicToolFormLayoutProps) {
   const t = useTranslations("generatedTool");
   const tPremium = useTranslations("generatedTool.premiumForm");
   const tFree = useTranslations("generatedTool.freeForm");
+
+  const displayChrome = useMemo(
+    () => resolveToolDisplayChrome(slug, schema, locale),
+    [locale, schema, slug],
+  );
 
   const primaryValue = result ? resolvePrimaryNumericValue(result, primaryOutputKey) : null;
   const formattedPrimary =
@@ -157,15 +162,21 @@ export function PremiumDynamicToolFormLayout({
   return (
     <>
       <div className="sc-premium-dtf-container">
-        <div className="sc-premium-dtf-card">
-          <header className="sc-premium-dtf-header">
-            <span className="sc-premium-dtf-header__accent" aria-hidden="true" />
-            <div>
-              {lastUpdatedIso ? <ToolLastUpdatedLabel isoDate={lastUpdatedIso} /> : null}
-              <h2 className="sc-premium-dtf-header__title">{toolTitle || schema.toolName}</h2>
-            </div>
-          </header>
+        <ToolOmniMetaSection
+          toolName={toolTitle || schema.toolName}
+          slug={slug}
+          tier="premium"
+          canonicalPath={routePath}
+          summary={displayChrome.summary}
+          keywordTags={displayChrome.keywordTags}
+          icon={displayChrome.icon}
+          voteResetKey={voteResetKey}
+          onVoteFeedback={onVoteFeedback}
+          onFeedback={onOpenReport}
+          voteNotice={voteNotice}
+        />
 
+        <div className="sc-premium-dtf-card">
           <div className="sc-premium-dtf-columns">
             <div className="sc-premium-dtf-input-panel">
               <div className="sc-premium-dtf-input-grid">
@@ -238,40 +249,6 @@ export function PremiumDynamicToolFormLayout({
                   <div className="sc-premium-dtf-result__title">{t("clickToCompute")}</div>
                 </div>
               )}
-
-              <div className="sc-premium-dtf-operator-bar">
-                <div className="sc-premium-dtf-vote-group">
-                  <button
-                    type="button"
-                    onClick={() => onVote("up")}
-                    className={[
-                      "sc-premium-dtf-btn-vote",
-                      vote === "up" ? "sc-premium-dtf-btn-vote--active-up" : "",
-                    ].join(" ")}
-                  >
-                    {tPremium("voteCorrect")}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => onVote("down")}
-                    className={[
-                      "sc-premium-dtf-btn-vote",
-                      vote === "down" ? "sc-premium-dtf-btn-vote--active-down" : "",
-                    ].join(" ")}
-                  >
-                    {tPremium("voteIncorrect")}
-                  </button>
-                </div>
-                <button type="button" onClick={onOpenReport} className="sc-premium-dtf-btn-report">
-                  {tPremium("reportIssue")}
-                </button>
-              </div>
-
-              {voteNotice ? (
-                <p className="sc-premium-dtf-notice" role="status">
-                  {voteNotice}
-                </p>
-              ) : null}
             </div>
           </div>
         </div>

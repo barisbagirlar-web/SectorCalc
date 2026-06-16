@@ -1,0 +1,692 @@
+{
+  "tr": {
+    "home": {
+      "heroTitle": "Üretimden sanayiye, işletmenizin tüm kritik hesaplarını tek yerde yapın",
+      "heroSub1": "Maliyet, fire, enerji ve OEE gibi hesapları ücretsiz deneyin.",
+      "heroSub2": "Daha detaylı kararlar için premium araçlarla sonuçlarınızı karşılaştırın."
+    },
+    "catalogExplorer": {
+      "search": {
+        "placeholder": {
+          "homepage": "Sektör, maliyet veya teknik hesap ara..."
+        }
+      }
+    },
+    "homepageHybrid": {
+      "hero": {
+        "ctaPrimary": "Ücretsiz Hesaplayıcılar",
+        "ctaSecondary": "Premium'u İncele"
+      },
+      "coverage": {
+        "title": "Sektörel Hesaplama Araçları",
+        "subtitle": "Her sektöre özel, ihtiyacınıza yönelik hesaplayıcılar.",
+        "items": {
+          "production": { "shortTitle": "Üretim", "tags": ["CNC", "OEE", "Fire"] },
+          "industrial": { "shortTitle": "Sanayi", "tags": ["Teklif", "Setup", "Shop Rate"] },
+          "technical": { "shortTitle": "Mühendislik", "tags": ["Tork", "Tolerans", "Silindir"] },
+          "construction": { "shortTitle": "İnşaat", "tags": ["Beton", "Metraj", "Çatı"] },
+          "logistics": { "shortTitle": "Lojistik", "tags": ["Yakıt", "Desi", "Navlun"] },
+          "energy": { "shortTitle": "Enerji", "tags": ["kWh", "Kaçak", "Karbon"] },
+          "finance": { "shortTitle": "Finans", "tags": ["KDV", "Personel", "Amortisman"] },
+          "foodRetail": { "shortTitle": "Perakende", "tags": ["Fire", "Stok", "Marj"] }
+        }
+      },
+      "losses": {
+        "title": "Görünmeyen Kayıpları Hesaplanabilir Hale Getirin",
+        "subtitle": "İşletmenizde fark edilmeyen maliyetleri ortaya çıkarın.",
+        "items": {
+          "monetary": { "title": "Parasal Kayıp", "examples": "Yanlış teklif, düşük marj, vade farkı." },
+          "material": { "title": "Malzeme ve Fire", "examples": "Hurda, fazla sarf, kalite kaybı." },
+          "time": { "title": "Zaman ve Operasyon", "examples": "Setup, duruş, rota sapması." },
+          "energy": { "title": "Enerji ve Karbon", "examples": "Kaçak, pik tüketim, karbon ayak izi." }
+        }
+      },
+      "freePremium": {
+        "title": "Ücretsiz ve premium hesaplayıcılar",
+        "freeTitle": "Ücretsiz Hesaplayıcılar",
+        "freeHighlights": ["Hızlı sonuç", "Kayıt gerekmez", "Temel formüller"],
+        "freeCta": "Hemen Dene",
+        "premiumTitle": "Premium Hesaplayıcılar",
+        "premiumHighlights": ["Senaryo karşılaştırma", "Karar özeti", "Detaylı girdi"],
+        "premiumCta": "İncele"
+      },
+      "criticalTools": {
+        "title": "En Çok Kullanılan Hesaplayıcılar",
+        "popularCategories": {
+          "production": "Üretim",
+          "workshop": "Atölye",
+          "engineering": "Mühendislik",
+          "construction": "İnşaat",
+          "energy": "Enerji"
+        },
+        "groups": {
+          "productionManufacturing": {
+            "items": {
+              "shopRate": { "title": "Makine Saat Ücreti" },
+              "oee": { "title": "OEE Hesaplayıcı" }
+            }
+          },
+          "workshopQuote": {
+            "items": {
+              "quoteMargin": { "title": "Fiyat Teklif Sihirbazı" }
+            }
+          },
+          "technicalEngineering": {
+            "items": {
+              "boltTorque": { "title": "Civata Torku" }
+            }
+          },
+          "constructionField": {
+            "items": {
+              "concreteVolume": { "title": "Beton Hacim" }
+            }
+          },
+          "energyCarbon": {
+            "items": {
+              "compressorLeak": { "title": "Kompresör Kaçağı" }
+            }
+          }
+        }
+      },
+      "audiences": {
+        "title": "SectorCalc Kimler İçin?",
+        "items": {
+          "production": { "title": "Üretim İşletmeleri", "examples": "OEE, fire, teklif" },
+          "construction": { "title": "İnşaat Ekipleri", "examples": "Metraj, hacim, beton" },
+          "industrial": { "title": "Sanayi ve Atölyeler", "examples": "Shop rate, setup" },
+          "logistics": { "title": "Lojistik ve Servis", "examples": "Yakıt, rota, navlun" },
+          "engineering": { "title": "Mühendislik", "examples": "Tork, tolerans" },
+          "finance": { "title": "Finans ve İK", "examples": "Kredi, personel" }
+        }
+      },
+      "whyNotExcel": {
+        "title": "Excel ve Defter Neden Yetersiz?",
+        "items": {
+          "formula": { "title": "Formül unutulur", "text": "Fire, enerji, işçilik gibi kalemler atlanabilir." },
+          "sector": { "title": "Sektör farkı kaybolur", "text": "CNC ile beton aynı şablonla ölçülemez." },
+          "decision": { "title": "Karar geç alınır", "text": "Zarar ve fire ay sonunda fark edilir, geç kalınır." }
+        }
+      },
+      "finalCta": {
+        "title": "Bugün hangi hesabı netleştirelim?",
+        "ctaPrimary": "Ücretsiz Hesaplayıcılar",
+        "ctaSecondary": "Premium Hesaplayıcılar"
+      }
+    }
+  },
+  "en": {
+    "home": {
+      "heroTitle": "From manufacturing to industry, handle all your critical business calculations in one place.",
+      "heroSub1": "Try calculations like cost, scrap, energy, and OEE for free.",
+      "heroSub2": "Compare your results with premium tools for deeper decision-making."
+    },
+    "catalogExplorer": {
+      "search": {
+        "placeholder": {
+          "homepage": "Search sector, cost or technical calculations..."
+        }
+      }
+    },
+    "homepageHybrid": {
+      "hero": {
+        "ctaPrimary": "Free Calculators",
+        "ctaSecondary": "Explore Premium"
+      },
+      "coverage": {
+        "title": "Sector-Specific Calculation Tools",
+        "subtitle": "Calculators built for your sector and the decisions you face.",
+        "items": {
+          "production": { "shortTitle": "Production", "tags": ["CNC", "OEE", "Scrap"] },
+          "industrial": { "shortTitle": "Workshops", "tags": ["Quote", "Setup", "Shop Rate"] },
+          "technical": { "shortTitle": "Engineering", "tags": ["Torque", "Tolerance", "Cylinder"] },
+          "construction": { "shortTitle": "Construction", "tags": ["Concrete", "Qty", "Roof"] },
+          "logistics": { "shortTitle": "Logistics", "tags": ["Fuel", "Dim Wt", "Freight"] },
+          "energy": { "shortTitle": "Energy", "tags": ["kWh", "Leak", "Carbon"] },
+          "finance": { "shortTitle": "Finance", "tags": ["VAT", "Payroll", "Depreciation"] },
+          "foodRetail": { "shortTitle": "Retail", "tags": ["Waste", "Stock", "Margin"] }
+        }
+      },
+      "losses": {
+        "title": "Turn Invisible Losses into Numbers",
+        "subtitle": "Surface costs that stay hidden in day-to-day operations.",
+        "items": {
+          "monetary": { "title": "Monetary Loss", "examples": "Bad quotes, thin margin, payment terms." },
+          "material": { "title": "Material & Scrap", "examples": "Scrap, overuse, quality drift." },
+          "time": { "title": "Time & Operations", "examples": "Setup, downtime, route drift." },
+          "energy": { "title": "Energy & Carbon", "examples": "Leaks, peak demand, carbon footprint." }
+        }
+      },
+      "freePremium": {
+        "title": "Free and premium calculators",
+        "freeTitle": "Free Calculators",
+        "freeHighlights": ["Fast results", "No sign-up", "Core formulas"],
+        "freeCta": "Try Now",
+        "premiumTitle": "Premium Calculators",
+        "premiumHighlights": ["Scenario compare", "Decision summary", "Deeper inputs"],
+        "premiumCta": "Explore"
+      },
+      "criticalTools": {
+        "title": "Most Used Calculators",
+        "popularCategories": {
+          "production": "Production",
+          "workshop": "Workshop",
+          "engineering": "Engineering",
+          "construction": "Construction",
+          "energy": "Energy"
+        },
+        "groups": {
+          "productionManufacturing": {
+            "items": {
+              "shopRate": { "title": "Machine Hour Rate" },
+              "oee": { "title": "OEE Calculator" }
+            }
+          },
+          "workshopQuote": {
+            "items": {
+              "quoteMargin": { "title": "Quote Wizard" }
+            }
+          },
+          "technicalEngineering": {
+            "items": {
+              "boltTorque": { "title": "Bolt Torque" }
+            }
+          },
+          "constructionField": {
+            "items": {
+              "concreteVolume": { "title": "Concrete Volume" }
+            }
+          },
+          "energyCarbon": {
+            "items": {
+              "compressorLeak": { "title": "Compressor Leak" }
+            }
+          }
+        }
+      },
+      "audiences": {
+        "title": "Who Is SectorCalc For?",
+        "items": {
+          "production": { "title": "Production Teams", "examples": "OEE, scrap, quotes" },
+          "construction": { "title": "Construction Crews", "examples": "Qty, volume, concrete" },
+          "industrial": { "title": "Workshops", "examples": "Shop rate, setup" },
+          "logistics": { "title": "Logistics & Service", "examples": "Fuel, routes, freight" },
+          "engineering": { "title": "Engineering", "examples": "Torque, tolerance" },
+          "finance": { "title": "Finance & HR", "examples": "Loans, payroll" }
+        }
+      },
+      "whyNotExcel": {
+        "title": "Why Spreadsheets Fall Short",
+        "items": {
+          "formula": { "title": "Formulas get forgotten", "text": "Scrap, energy and labor lines get skipped." },
+          "sector": { "title": "Sector context is lost", "text": "CNC math cannot share a template with concrete." },
+          "decision": { "title": "Decisions arrive late", "text": "Loss shows up at month-end — too late to act." }
+        }
+      },
+      "finalCta": {
+        "title": "Which calculation should we clarify today?",
+        "ctaPrimary": "Free Calculators",
+        "ctaSecondary": "Premium Calculators"
+      }
+    }
+  },
+  "de": {
+    "home": {
+      "heroTitle": "Von der Produktion bis zur Industrie — alle kritischen Unternehmensberechnungen an einem Ort.",
+      "heroSub1": "Testen Sie Berechnungen wie Kosten, Ausschuss, Energie und OEE kostenlos.",
+      "heroSub2": "Vergleichen Sie Ihre Ergebnisse mit Premium-Tools für fundiertere Entscheidungen."
+    },
+    "catalogExplorer": {
+      "search": {
+        "placeholder": {
+          "homepage": "Branche, Kosten oder technische Berechnung suchen..."
+        }
+      }
+    },
+    "homepageHybrid": {
+      "hero": {
+        "ctaPrimary": "Kostenlose Rechner",
+        "ctaSecondary": "Premium ansehen"
+      },
+      "coverage": {
+        "title": "Branchenspezifische Berechnungstools",
+        "subtitle": "Rechner für Ihre Branche und Ihre Entscheidungssituation.",
+        "items": {
+          "production": { "shortTitle": "Produktion", "tags": ["CNC", "OEE", "Ausschuss"] },
+          "industrial": { "shortTitle": "Werkstatt", "tags": ["Angebot", "Setup", "Shop Rate"] },
+          "technical": { "shortTitle": "Technik", "tags": ["Drehmoment", "Toleranz", "Zylinder"] },
+          "construction": { "shortTitle": "Bau", "tags": ["Beton", "Menge", "Dach"] },
+          "logistics": { "shortTitle": "Logistik", "tags": ["Kraftstoff", "Volumen", "Fracht"] },
+          "energy": { "shortTitle": "Energie", "tags": ["kWh", "Leck", "Karbon"] },
+          "finance": { "shortTitle": "Finanzen", "tags": ["MwSt", "Personal", "AfA"] },
+          "foodRetail": { "shortTitle": "Handel", "tags": ["Ausschuss", "Lager", "Marge"] }
+        }
+      },
+      "losses": {
+        "title": "Unsichtbare Verluste messbar machen",
+        "subtitle": "Kosten sichtbar machen, die im Tagesgeschäft untergehen.",
+        "items": {
+          "monetary": { "title": "Geldverlust", "examples": "Falsche Angebote, niedrige Marge, Zahlungsziel." },
+          "material": { "title": "Material & Ausschuss", "examples": "Schrott, Mehrverbrauch, Qualitätsverlust." },
+          "time": { "title": "Zeit & Betrieb", "examples": "Setup, Stillstand, Routenabweichung." },
+          "energy": { "title": "Energie & CO₂", "examples": "Leckagen, Spitzenlast, CO₂-Fußabdruck." }
+        }
+      },
+      "freePremium": {
+        "title": "Kostenlose und Premium-Rechner",
+        "freeTitle": "Kostenlose Rechner",
+        "freeHighlights": ["Schnelles Ergebnis", "Keine Anmeldung", "Kernformeln"],
+        "freeCta": "Jetzt testen",
+        "premiumTitle": "Premium-Rechner",
+        "premiumHighlights": ["Szenariovergleich", "Entscheidungsübersicht", "Mehr Eingaben"],
+        "premiumCta": "Ansehen"
+      },
+      "criticalTools": {
+        "title": "Meistgenutzte Rechner",
+        "popularCategories": {
+          "production": "Produktion",
+          "workshop": "Werkstatt",
+          "engineering": "Technik",
+          "construction": "Bau",
+          "energy": "Energie"
+        },
+        "groups": {
+          "productionManufacturing": {
+            "items": {
+              "shopRate": { "title": "Maschinenstundensatz" },
+              "oee": { "title": "OEE-Rechner" }
+            }
+          },
+          "workshopQuote": {
+            "items": {
+              "quoteMargin": { "title": "Angebots-Assistent" }
+            }
+          },
+          "technicalEngineering": {
+            "items": {
+              "boltTorque": { "title": "Schraubendrehmoment" }
+            }
+          },
+          "constructionField": {
+            "items": {
+              "concreteVolume": { "title": "Betonvolumen" }
+            }
+          },
+          "energyCarbon": {
+            "items": {
+              "compressorLeak": { "title": "Kompressorleck" }
+            }
+          }
+        }
+      },
+      "audiences": {
+        "title": "Für wen ist SectorCalc?",
+        "items": {
+          "production": { "title": "Produktionsbetriebe", "examples": "OEE, Ausschuss, Angebote" },
+          "construction": { "title": "Bau-Teams", "examples": "Menge, Volumen, Beton" },
+          "industrial": { "title": "Werkstätten", "examples": "Shop Rate, Setup" },
+          "logistics": { "title": "Logistik & Service", "examples": "Kraftstoff, Route, Fracht" },
+          "engineering": { "title": "Technik", "examples": "Drehmoment, Toleranz" },
+          "finance": { "title": "Finanzen & HR", "examples": "Kredit, Personal" }
+        }
+      },
+      "whyNotExcel": {
+        "title": "Warum Excel nicht reicht",
+        "items": {
+          "formula": { "title": "Formeln werden vergessen", "text": "Ausschuss, Energie und Arbeit können fehlen." },
+          "sector": { "title": "Branchenkontext geht verloren", "text": "CNC lässt sich nicht mit Beton in einer Vorlage messen." },
+          "decision": { "title": "Entscheidungen kommen spät", "text": "Verlust fällt erst am Monatsende auf — zu spät." }
+        }
+      },
+      "finalCta": {
+        "title": "Welche Berechnung klären wir heute?",
+        "ctaPrimary": "Kostenlose Rechner",
+        "ctaSecondary": "Premium-Rechner"
+      }
+    }
+  },
+  "fr": {
+    "home": {
+      "heroTitle": "De la production à l'industrie, regroupez tous les calculs critiques de votre entreprise en un seul endroit.",
+      "heroSub1": "Essayez gratuitement des calculs de coût, rebut, énergie et OEE.",
+      "heroSub2": "Comparez vos résultats avec les outils premium pour des décisions plus approfondies."
+    },
+    "catalogExplorer": {
+      "search": {
+        "placeholder": {
+          "homepage": "Rechercher secteur, coût ou calcul technique..."
+        }
+      }
+    },
+    "homepageHybrid": {
+      "hero": {
+        "ctaPrimary": "Calculateurs gratuits",
+        "ctaSecondary": "Voir Premium"
+      },
+      "coverage": {
+        "title": "Outils de calcul sectoriels",
+        "subtitle": "Des calculateurs adaptés à votre secteur et à vos décisions.",
+        "items": {
+          "production": { "shortTitle": "Production", "tags": ["CNC", "OEE", "Rebut"] },
+          "industrial": { "shortTitle": "Atelier", "tags": ["Devis", "Setup", "Shop Rate"] },
+          "technical": { "shortTitle": "Ingénierie", "tags": ["Couple", "Tolérance", "Cylindre"] },
+          "construction": { "shortTitle": "BTP", "tags": ["Béton", "Métré", "Toiture"] },
+          "logistics": { "shortTitle": "Logistique", "tags": ["Carburant", "Volumétrie", "Fret"] },
+          "energy": { "shortTitle": "Énergie", "tags": ["kWh", "Fuite", "Carbone"] },
+          "finance": { "shortTitle": "Finance", "tags": ["TVA", "Personnel", "Amortissement"] },
+          "foodRetail": { "shortTitle": "Retail", "tags": ["Perte", "Stock", "Marge"] }
+        }
+      },
+      "losses": {
+        "title": "Rendez les pertes invisibles calculables",
+        "subtitle": "Révélez les coûts qui passent inaperçus au quotidien.",
+        "items": {
+          "monetary": { "title": "Perte financière", "examples": "Mauvais devis, marge basse, délai de paiement." },
+          "material": { "title": "Matière & Rebut", "examples": "Rebut, surconsommation, perte de qualité." },
+          "time": { "title": "Temps & Opérations", "examples": "Setup, arrêt, écart de route." },
+          "energy": { "title": "Énergie & Carbone", "examples": "Fuites, pic de conso, empreinte carbone." }
+        }
+      },
+      "freePremium": {
+        "title": "Calculateurs gratuits et premium",
+        "freeTitle": "Calculateurs gratuits",
+        "freeHighlights": ["Résultat rapide", "Sans inscription", "Formules de base"],
+        "freeCta": "Essayer",
+        "premiumTitle": "Calculateurs premium",
+        "premiumHighlights": ["Comparaison de scénarios", "Résumé décisionnel", "Entrées détaillées"],
+        "premiumCta": "Explorer"
+      },
+      "criticalTools": {
+        "title": "Calculateurs les plus utilisés",
+        "popularCategories": {
+          "production": "Production",
+          "workshop": "Atelier",
+          "engineering": "Ingénierie",
+          "construction": "BTP",
+          "energy": "Énergie"
+        },
+        "groups": {
+          "productionManufacturing": {
+            "items": {
+              "shopRate": { "title": "Coût horaire machine" },
+              "oee": { "title": "Calculateur OEE" }
+            }
+          },
+          "workshopQuote": {
+            "items": {
+              "quoteMargin": { "title": "Assistant devis" }
+            }
+          },
+          "technicalEngineering": {
+            "items": {
+              "boltTorque": { "title": "Couple de serrage" }
+            }
+          },
+          "constructionField": {
+            "items": {
+              "concreteVolume": { "title": "Volume béton" }
+            }
+          },
+          "energyCarbon": {
+            "items": {
+              "compressorLeak": { "title": "Fuite compresseur" }
+            }
+          }
+        }
+      },
+      "audiences": {
+        "title": "Pour qui est SectorCalc ?",
+        "items": {
+          "production": { "title": "Entreprises de production", "examples": "OEE, rebut, devis" },
+          "construction": { "title": "Équipes BTP", "examples": "Métré, volume, béton" },
+          "industrial": { "title": "Ateliers industriels", "examples": "Shop rate, setup" },
+          "logistics": { "title": "Logistique & Service", "examples": "Carburant, route, fret" },
+          "engineering": { "title": "Ingénierie", "examples": "Couple, tolérance" },
+          "finance": { "title": "Finance & RH", "examples": "Crédit, personnel" }
+        }
+      },
+      "whyNotExcel": {
+        "title": "Pourquoi Excel ne suffit pas",
+        "items": {
+          "formula": { "title": "Les formules s'oublient", "text": "Rebut, énergie et main-d'œuvre peuvent être omis." },
+          "sector": { "title": "Le contexte sectoriel se perd", "text": "Le CNC ne se mesure pas comme le béton dans un même modèle." },
+          "decision": { "title": "La décision arrive tard", "text": "La perte apparaît en fin de mois — trop tard." }
+        }
+      },
+      "finalCta": {
+        "title": "Quel calcul clarifions-nous aujourd'hui ?",
+        "ctaPrimary": "Calculateurs gratuits",
+        "ctaSecondary": "Calculateurs premium"
+      }
+    }
+  },
+  "es": {
+    "home": {
+      "heroTitle": "De la producción a la industria, gestione todos los cálculos críticos de su negocio en un solo lugar.",
+      "heroSub1": "Pruebe gratis cálculos como coste, merma, energía y OEE.",
+      "heroSub2": "Compare sus resultados con herramientas premium para decisiones más profundas."
+    },
+    "catalogExplorer": {
+      "search": {
+        "placeholder": {
+          "homepage": "Buscar sector, coste o cálculo técnico..."
+        }
+      }
+    },
+    "homepageHybrid": {
+      "hero": {
+        "ctaPrimary": "Calculadoras gratuitas",
+        "ctaSecondary": "Ver Premium"
+      },
+      "coverage": {
+        "title": "Herramientas de cálculo sectoriales",
+        "subtitle": "Calculadoras adaptadas a su sector y a sus decisiones.",
+        "items": {
+          "production": { "shortTitle": "Producción", "tags": ["CNC", "OEE", "Merma"] },
+          "industrial": { "shortTitle": "Taller", "tags": ["Cotización", "Setup", "Shop Rate"] },
+          "technical": { "shortTitle": "Ingeniería", "tags": ["Par", "Tolerancia", "Cilindro"] },
+          "construction": { "shortTitle": "Construcción", "tags": ["Hormigón", "Metrado", "Tejado"] },
+          "logistics": { "shortTitle": "Logística", "tags": ["Combustible", "Volumen", "Flete"] },
+          "energy": { "shortTitle": "Energía", "tags": ["kWh", "Fuga", "Carbono"] },
+          "finance": { "shortTitle": "Finanzas", "tags": ["IVA", "Personal", "Amortización"] },
+          "foodRetail": { "shortTitle": "Retail", "tags": ["Merma", "Stock", "Margen"] }
+        }
+      },
+      "losses": {
+        "title": "Convierta pérdidas invisibles en números",
+        "subtitle": "Descubra costes que pasan desapercibidos en el día a día.",
+        "items": {
+          "monetary": { "title": "Pérdida monetaria", "examples": "Cotización incorrecta, margen bajo, plazo de pago." },
+          "material": { "title": "Material y Merma", "examples": "Chatarra, sobreconsumo, pérdida de calidad." },
+          "time": { "title": "Tiempo y Operación", "examples": "Setup, parada, desvío de ruta." },
+          "energy": { "title": "Energía y Carbono", "examples": "Fugas, pico de consumo, huella de carbono." }
+        }
+      },
+      "freePremium": {
+        "title": "Calculadoras gratuitas y premium",
+        "freeTitle": "Calculadoras gratuitas",
+        "freeHighlights": ["Resultado rápido", "Sin registro", "Fórmulas básicas"],
+        "freeCta": "Probar ahora",
+        "premiumTitle": "Calculadoras premium",
+        "premiumHighlights": ["Comparación de escenarios", "Resumen de decisión", "Más entradas"],
+        "premiumCta": "Explorar"
+      },
+      "criticalTools": {
+        "title": "Calculadoras más usadas",
+        "popularCategories": {
+          "production": "Producción",
+          "workshop": "Taller",
+          "engineering": "Ingeniería",
+          "construction": "Construcción",
+          "energy": "Energía"
+        },
+        "groups": {
+          "productionManufacturing": {
+            "items": {
+              "shopRate": { "title": "Coste hora máquina" },
+              "oee": { "title": "Calculadora OEE" }
+            }
+          },
+          "workshopQuote": {
+            "items": {
+              "quoteMargin": { "title": "Asistente de cotización" }
+            }
+          },
+          "technicalEngineering": {
+            "items": {
+              "boltTorque": { "title": "Par de apriete" }
+            }
+          },
+          "constructionField": {
+            "items": {
+              "concreteVolume": { "title": "Volumen de hormigón" }
+            }
+          },
+          "energyCarbon": {
+            "items": {
+              "compressorLeak": { "title": "Fuga de compresor" }
+            }
+          }
+        }
+      },
+      "audiences": {
+        "title": "¿Para quién es SectorCalc?",
+        "items": {
+          "production": { "title": "Empresas de producción", "examples": "OEE, merma, cotización" },
+          "construction": { "title": "Equipos de construcción", "examples": "Metrado, volumen, hormigón" },
+          "industrial": { "title": "Talleres industriales", "examples": "Shop rate, setup" },
+          "logistics": { "title": "Logística y Servicio", "examples": "Combustible, ruta, flete" },
+          "engineering": { "title": "Ingeniería", "examples": "Par, tolerancia" },
+          "finance": { "title": "Finanzas y RR. HH.", "examples": "Crédito, personal" }
+        }
+      },
+      "whyNotExcel": {
+        "title": "Por qué Excel no basta",
+        "items": {
+          "formula": { "title": "Se olvidan las fórmulas", "text": "Merma, energía y mano de obra pueden omitirse." },
+          "sector": { "title": "Se pierde el contexto sectorial", "text": "CNC no se mide con la misma plantilla que el hormigón." },
+          "decision": { "title": "La decisión llega tarde", "text": "La pérdida aparece a fin de mes — demasiado tarde." }
+        }
+      },
+      "finalCta": {
+        "title": "¿Qué cálculo aclaramos hoy?",
+        "ctaPrimary": "Calculadoras gratuitas",
+        "ctaSecondary": "Calculadoras premium"
+      }
+    }
+  },
+  "ar": {
+    "home": {
+      "heroTitle": "من التصنيع إلى الصناعة، نفّذوا كل حسابات أعمالكم الحرجة في مكان واحد.",
+      "heroSub1": "جرّبوا مجاناً حسابات التكلفة والهدر والطاقة وOEE.",
+      "heroSub2": "قارنوا نتائجكم بأدوات مميزة لاتخاذ قرارات أعمق."
+    },
+    "catalogExplorer": {
+      "search": {
+        "placeholder": {
+          "homepage": "ابحث عن قطاع أو تكلفة أو حساب تقني..."
+        }
+      }
+    },
+    "homepageHybrid": {
+      "hero": {
+        "ctaPrimary": "حاسبات مجانية",
+        "ctaSecondary": "استكشف المميز"
+      },
+      "coverage": {
+        "title": "أدوات الحساب القطاعية",
+        "subtitle": "حاسبات مبنية لقطاعكم وللقرارات التي تواجهونها.",
+        "items": {
+          "production": { "shortTitle": "الإنتاج", "tags": ["CNC", "OEE", "هدر"] },
+          "industrial": { "shortTitle": "الورش", "tags": ["عرض سعر", "إعداد", "Shop Rate"] },
+          "technical": { "shortTitle": "الهندسة", "tags": ["عزم", "تسامح", "أسطوانة"] },
+          "construction": { "shortTitle": "البناء", "tags": ["خرسانة", "كميات", "سقف"] },
+          "logistics": { "shortTitle": "اللوجستيات", "tags": ["وقود", "حجم", "شحن"] },
+          "energy": { "shortTitle": "الطاقة", "tags": ["kWh", "تسرب", "كربون"] },
+          "finance": { "shortTitle": "المالية", "tags": ["ضريبة", "رواتب", "إهلاك"] },
+          "foodRetail": { "shortTitle": "التجزئة", "tags": ["هدر", "مخزون", "هامش"] }
+        }
+      },
+      "losses": {
+        "title": "اجعل الخسائر غير المرئية قابلة للحساب",
+        "subtitle": "اكشف التكاليف التي تمر دون ملاحظة في العمل اليومي.",
+        "items": {
+          "monetary": { "title": "خسارة مالية", "examples": "عرض خاطئ، هامش منخفض، فرق آجل." },
+          "material": { "title": "مواد وهدر", "examples": "خردة، استهلاك زائد، فقد جودة." },
+          "time": { "title": "وقت وتشغيل", "examples": "إعداد، توقف، انحراف مسار." },
+          "energy": { "title": "طاقة وكربون", "examples": "تسرب، ذروة استهلاك، بصمة كربون." }
+        }
+      },
+      "freePremium": {
+        "title": "حاسبات مجانية ومميزة",
+        "freeTitle": "حاسبات مجانية",
+        "freeHighlights": ["نتيجة سريعة", "بدون تسجيل", "صيغ أساسية"],
+        "freeCta": "جرّب الآن",
+        "premiumTitle": "حاسبات مميزة",
+        "premiumHighlights": ["مقارنة سيناريوهات", "ملخص قرار", "مدخلات أعمق"],
+        "premiumCta": "استكشف"
+      },
+      "criticalTools": {
+        "title": "الحاسبات الأكثر استخداماً",
+        "popularCategories": {
+          "production": "إنتاج",
+          "workshop": "ورشة",
+          "engineering": "هندسة",
+          "construction": "بناء",
+          "energy": "طاقة"
+        },
+        "groups": {
+          "productionManufacturing": {
+            "items": {
+              "shopRate": { "title": "تكلفة ساعة الآلة" },
+              "oee": { "title": "حاسبة OEE" }
+            }
+          },
+          "workshopQuote": {
+            "items": {
+              "quoteMargin": { "title": "مساعد عروض الأسعار" }
+            }
+          },
+          "technicalEngineering": {
+            "items": {
+              "boltTorque": { "title": "عزم البرغي" }
+            }
+          },
+          "constructionField": {
+            "items": {
+              "concreteVolume": { "title": "حجم الخرسانة" }
+            }
+          },
+          "energyCarbon": {
+            "items": {
+              "compressorLeak": { "title": "تسرب الضاغط" }
+            }
+          }
+        }
+      },
+      "audiences": {
+        "title": "لمن SectorCalc؟",
+        "items": {
+          "production": { "title": "شركات الإنتاج", "examples": "OEE، هدر، عروض" },
+          "construction": { "title": "فرق البناء", "examples": "كميات، حجم، خرسانة" },
+          "industrial": { "title": "الورش الصناعية", "examples": "Shop rate، إعداد" },
+          "logistics": { "title": "اللوجستيات والخدمة", "examples": "وقود، مسار، شحن" },
+          "engineering": { "title": "الهندسة", "examples": "عزم، تسامح" },
+          "finance": { "title": "المالية والموارد", "examples": "ائتمان، رواتب" }
+        }
+      },
+      "whyNotExcel": {
+        "title": "لماذا لا يكفي Excel؟",
+        "items": {
+          "formula": { "title": "تُنسى الصيغ", "text": "قد تُتجاهل بنود الهدر والطاقة والعمالة." },
+          "sector": { "title": "يضيع السياق القطاعي", "text": "لا يُقاس CNC والخرسانة بنفس القالب." },
+          "decision": { "title": "يُتأخر القرار", "text": "تظهر الخسارة في نهاية الشهر — متأخراً." }
+        }
+      },
+      "finalCta": {
+        "title": "أي حساب نوضحه اليوم؟",
+        "ctaPrimary": "حاسبات مجانية",
+        "ctaSecondary": "حاسبات مميزة"
+      }
+    }
+  }
+}

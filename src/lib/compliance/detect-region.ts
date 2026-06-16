@@ -12,8 +12,13 @@ import { resolveRegionFromRequestContext } from "@/lib/compliance/resolve-region
 const GEO_COUNTRY_HEADERS = [
   "x-vercel-ip-country",
   "cf-ipcountry",
+  "cf-ip-country",
   "x-country-code",
+  "x-country",
   "cloudfront-viewer-country",
+  "x-appengine-country",
+  "fastly-client-ip-country",
+  "x-real-country",
 ] as const;
 
 export type RegionSource =

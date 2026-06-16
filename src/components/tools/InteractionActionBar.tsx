@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useTranslations } from "next-intl";
 import {
   Code2,
@@ -17,9 +18,13 @@ import {
   copyTextToClipboard,
   formatCount,
   getCurrentUrl,
-  openShareWindow,
+  getSelectedPageText,
+  isExternalSharePlatform,
   type SharePlatform,
-} from "@/lib/interaction-action-bar/helpers";
+} from "@/components/tools/interaction-action-bar-utils";
+import { useFocusTrap } from "@/hooks/use-focus-trap";
+
+export type { SharePlatform };
 
 export type InteractionActionBarProps = {
   readonly likeCount: number | string;
@@ -36,7 +41,8 @@ export type InteractionActionBarProps = {
   readonly onShare?: (platform: SharePlatform) => void;
   readonly onEmbed?: () => void;
   readonly onQuote?: () => void;
-  readonly compact?: boolean;
+  /** Premium catalog / industry premium tools: embed disabled. */
+  readonly showEmbed?: boolean;
 };
 
 type ShareMenuItem = {
@@ -46,36 +52,33 @@ type ShareMenuItem = {
 
 const SHARE_MENU_ITEMS: readonly ShareMenuItem[] = [
   { id: "copy", labelKey: "shareCopyLink" },
-  { id: "facebook", labelKey: "shareFacebook" },
-  { id: "x", labelKey: "shareX" },
   { id: "linkedin", labelKey: "shareLinkedIn" },
-  { id: "pinterest", labelKey: "sharePinterest" },
+  { id: "x", labelKey: "shareX" },
   { id: "reddit", labelKey: "shareReddit" },
+  { id: "facebook", labelKey: "shareFacebook" },
+  { id: "pinterest", labelKey: "sharePinterest" },
   { id: "embed", labelKey: "shareEmbed" },
   { id: "quote", labelKey: "shareQuote" },
 ] as const;
 
-const actionButtonClass =
-  "inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-[#CBD3E1] bg-white px-3 text-[#30343B] transition hover:border-[#A8B4C7] hover:bg-[#F1F5F9] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B82F6]";
+type ShareMenuPosition = {
+  readonly top: number;
+  readonly left: number;
+};
 
-function resolveSizing(compact: boolean): {
-  readonly shell: string;
-  readonly segment: string;
-  readonly count: string;
-} {
-  if (compact) {
-    return {
-      shell: "min-h-11",
-      segment: "min-h-11 min-w-10 md:min-w-11",
-      count: "min-w-[2.75rem] text-sm",
-    };
-  }
-  return {
-    shell: "min-h-11 md:min-h-[72px]",
-    segment: "min-h-11 min-w-11 md:min-h-[72px] md:min-w-[72px]",
-    count: "min-w-[3rem] text-sm md:min-w-[4.5rem] md:text-base",
-  };
-}
+const shareMenuItemClass =
+  "flex w-full rounded-lg px-3 py-2 text-left text-sm text-[#30343B] hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#30343B]";
+
+const iconClass = "h-4 w-4";
+
+const actionButtonClass =
+  "inline-flex h-10 min-h-10 w-10 min-w-10 shrink-0 items-center justify-center rounded-lg border border-[#CBD3E1] bg-white text-[#30343B] transition hover:border-slate-400 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#30343B]";
+
+const reactionGroupClass =
+  "inline-flex h-10 shrink-0 items-stretch overflow-hidden rounded-lg border border-[#CBD3E1] bg-[#F8FAFC]";
+
+const reactionSideButtonClass =
+  "inline-flex h-10 min-h-10 min-w-10 items-center justify-center px-2 text-[#30343B] transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#30343B]";
 
 export function InteractionActionBar({
   likeCount,
@@ -92,36 +95,89 @@ export function InteractionActionBar({
   onShare,
   onEmbed,
   onQuote,
-  compact = false,
+  showEmbed = false,
 }: InteractionActionBarProps) {
   const t = useTranslations("generatedTool.interactionActionBar");
-  const sizing = resolveSizing(compact);
   const shareMenuId = useId();
   const shareButtonRef = useRef<HTMLButtonElement>(null);
   const shareMenuRef = useRef<HTMLDivElement>(null);
-  const embedTextareaRef = useRef<HTMLTextAreaElement>(null);
+  const embedDialogRef = useRef<HTMLDivElement>(null);
+  const quoteDialogRef = useRef<HTMLDivElement>(null);
 
-  const [resolvedUrl, setResolvedUrl] = useState(url ?? "");
   const [shareOpen, setShareOpen] = useState(false);
+  const [shareMenuPosition, setShareMenuPosition] = useState<ShareMenuPosition | null>(null);
+  const [mounted, setMounted] = useState(false);
   const [embedOpen, setEmbedOpen] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
+  const [resolvedUrl, setResolvedUrl] = useState(url ?? "");
+  const [quoteText, setQuoteText] = useState("");
+  const [localLiked, setLocalLiked] = useState(false);
+  const [localDisliked, setLocalDisliked] = useState(false);
+
+  const isControlled = onLike !== undefined || onDislike !== undefined;
+  const isLiked = isControlled ? Boolean(liked) : localLiked;
+  const isDisliked = isControlled ? Boolean(disliked) : localDisliked;
 
   const formattedLikeCount = formatCount(likeCount);
-  const pageUrl = resolvedUrl || url || "";
-  const iframeUrl = embedUrl ?? pageUrl;
-  const embedCode = buildEmbedCode(iframeUrl, title || siteName);
-  const quoteText = buildQuoteText(title, siteName, pageUrl, excerpt);
+  const resolvedEmbedUrl = embedUrl ?? resolvedUrl;
+  const embedCode = buildEmbedCode(resolvedEmbedUrl, title || siteName);
+  const shareMenuItems = useMemo(
+    () => (showEmbed ? SHARE_MENU_ITEMS : SHARE_MENU_ITEMS.filter((item) => item.id !== "embed")),
+    [showEmbed],
+  );
 
   useEffect(() => {
-    if (!url) {
-      setResolvedUrl(getCurrentUrl());
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (url) {
+      setResolvedUrl(url);
+      return;
     }
+    setResolvedUrl(getCurrentUrl());
   }, [url]);
+
+  const updateShareMenuPosition = useCallback(() => {
+    const rect = shareButtonRef.current?.getBoundingClientRect();
+    if (!rect) {
+      return;
+    }
+    setShareMenuPosition({
+      top: rect.bottom + 8,
+      left: Math.max(8, rect.left),
+    });
+  }, []);
+
+  const toggleShareMenu = useCallback(() => {
+    setShareOpen((current) => {
+      if (current) {
+        return false;
+      }
+      updateShareMenuPosition();
+      return true;
+    });
+  }, [updateShareMenuPosition]);
+
+  useEffect(() => {
+    if (!shareOpen) {
+      return;
+    }
+
+    updateShareMenuPosition();
+    const handleReposition = () => updateShareMenuPosition();
+    window.addEventListener("resize", handleReposition);
+    window.addEventListener("scroll", handleReposition, true);
+    return () => {
+      window.removeEventListener("resize", handleReposition);
+      window.removeEventListener("scroll", handleReposition, true);
+    };
+  }, [shareOpen, updateShareMenuPosition]);
 
   useEffect(() => {
     if (!toast) {
-      return undefined;
+      return;
     }
     const timer = window.setTimeout(() => setToast(null), 2400);
     return () => window.clearTimeout(timer);
@@ -131,7 +187,7 @@ export function InteractionActionBar({
     setToast(message);
   }, []);
 
-  const closeOverlays = useCallback(() => {
+  const closeAllOverlays = useCallback(() => {
     setShareOpen(false);
     setEmbedOpen(false);
     setQuoteOpen(false);
@@ -139,23 +195,23 @@ export function InteractionActionBar({
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        closeOverlays();
+      if (event.key !== "Escape") {
+        return;
       }
+      closeAllOverlays();
     };
+
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [closeOverlays]);
+  }, [closeAllOverlays]);
 
   useEffect(() => {
     if (!shareOpen) {
-      return undefined;
+      return;
     }
+
     const handlePointerDown = (event: MouseEvent) => {
-      const target = event.target;
-      if (!(target instanceof Node)) {
-        return;
-      }
+      const target = event.target as Node;
       if (
         shareMenuRef.current?.contains(target) ||
         shareButtonRef.current?.contains(target)
@@ -164,46 +220,44 @@ export function InteractionActionBar({
       }
       setShareOpen(false);
     };
+
     document.addEventListener("mousedown", handlePointerDown);
     return () => document.removeEventListener("mousedown", handlePointerDown);
   }, [shareOpen]);
 
   useEffect(() => {
-    if (embedOpen) {
-      embedTextareaRef.current?.focus();
+    if (!embedOpen) {
+      return;
     }
+    embedDialogRef.current?.querySelector<HTMLElement>("textarea")?.focus();
   }, [embedOpen]);
 
-  const handleShareAction = async (platform: SharePlatform) => {
-    onShare?.(platform);
-    setShareOpen(false);
-
-    if (platform === "copy") {
-      const copied = await copyTextToClipboard(pageUrl);
-      showToast(copied ? t("linkCopied") : t("copyFailed"));
+  useEffect(() => {
+    if (!quoteOpen) {
       return;
     }
+    quoteDialogRef.current?.querySelector<HTMLElement>("textarea")?.focus();
+  }, [quoteOpen]);
 
-    if (platform === "embed") {
-      if (onEmbed) {
-        onEmbed();
-        return;
-      }
-      setEmbedOpen(true);
+  useFocusTrap(embedOpen, embedDialogRef);
+  useFocusTrap(quoteOpen, quoteDialogRef);
+
+  const handleLikeClick = () => {
+    if (onLike) {
+      onLike();
       return;
     }
+    setLocalLiked(true);
+    setLocalDisliked(false);
+  };
 
-    if (platform === "quote") {
-      if (onQuote) {
-        onQuote();
-        return;
-      }
-      setQuoteOpen(true);
+  const handleDislikeClick = () => {
+    if (onDislike) {
+      onDislike();
       return;
     }
-
-    const shareTarget = buildShareUrl(platform, pageUrl, title || siteName);
-    openShareWindow(shareTarget);
+    setLocalDisliked(true);
+    setLocalLiked(false);
   };
 
   const handleFeedback = () => {
@@ -211,26 +265,14 @@ export function InteractionActionBar({
       onFeedback();
       return;
     }
+
     const feedbackAnchor = document.getElementById("feedback");
     if (feedbackAnchor) {
       feedbackAnchor.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
-  const handleEmbedCopy = async () => {
-    const copied = await copyTextToClipboard(embedCode);
-    showToast(copied ? t("embedCopied") : t("copyFailed"));
-  };
-
-  const handleQuoteCopy = async () => {
-    const selectedText =
-      typeof window !== "undefined" ? window.getSelection()?.toString() : undefined;
-    const text = buildQuoteText(title, siteName, pageUrl, excerpt, selectedText);
-    const copied = await copyTextToClipboard(text);
-    showToast(copied ? t("quoteCopied") : t("copyFailed"));
-  };
-
-  const handleEmbedButton = () => {
+  const openEmbedModal = () => {
     if (onEmbed) {
       onEmbed();
       return;
@@ -238,179 +280,254 @@ export function InteractionActionBar({
     setEmbedOpen(true);
   };
 
-  const handleQuoteButton = () => {
+  const openQuoteModal = () => {
+    const nextQuote = buildQuoteText(
+      title || siteName,
+      siteName,
+      resolvedUrl,
+      excerpt,
+      getSelectedPageText(),
+    );
+    setQuoteText(nextQuote);
+
     if (onQuote) {
       onQuote();
       return;
     }
+
     setQuoteOpen(true);
   };
 
+  const handleShareItem = async (platform: SharePlatform) => {
+    onShare?.(platform);
+    setShareOpen(false);
+
+    if (platform === "copy") {
+      const shareUrl = resolvedUrl.trim() || getCurrentUrl();
+      const copied = await copyTextToClipboard(shareUrl);
+      if (copied) {
+        showToast(t("linkCopied"));
+      }
+      return;
+    }
+
+    if (platform === "embed") {
+      openEmbedModal();
+      return;
+    }
+
+    if (platform === "quote") {
+      openQuoteModal();
+      return;
+    }
+  };
+
+  const shareTitle = title || siteName;
+  const sharePageUrl = resolvedUrl.trim() || getCurrentUrl();
+
+  const handleCopyEmbed = async () => {
+    const copied = await copyTextToClipboard(embedCode);
+    if (copied) {
+      showToast(t("embedCopied"));
+    }
+  };
+
+  const handleCopyQuote = async () => {
+    const copied = await copyTextToClipboard(quoteText);
+    if (copied) {
+      showToast(t("quoteCopied"));
+      setQuoteOpen(false);
+    }
+  };
+
   return (
-    <div className="relative">
-      <div className="flex items-stretch gap-4 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        <div
-          className={[
-            "inline-flex shrink-0 items-stretch overflow-hidden rounded-xl border border-[#CBD3E1] bg-[#F8FAFC]",
-            sizing.shell,
-          ].join(" ")}
-          role="group"
-          aria-label={t("reactionGroupLabel")}
-        >
+    <>
+      <div className="relative flex flex-wrap items-center gap-2">
+        <div className={reactionGroupClass} role="group" aria-label={t("reactionGroupLabel")}>
           <button
             type="button"
-            onClick={onLike}
+            className={[
+              reactionSideButtonClass,
+              isLiked ? "bg-sky-50 text-sky-700" : "",
+            ].join(" ")}
             title={t("likeTooltip")}
             aria-label={t("likeAria")}
-            aria-pressed={liked}
-            className={[
-              "inline-flex items-center justify-center px-3 transition hover:bg-[#EEF2F7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#3B82F6]",
-              sizing.segment,
-              liked ? "bg-[#E8F5EE] text-[#15803D]" : "text-[#30343B]",
-            ].join(" ")}
+            aria-pressed={isLiked}
+            onClick={handleLikeClick}
           >
-            <ThumbsUp className="h-5 w-5" aria-hidden="true" />
+            <ThumbsUp className={iconClass} aria-hidden="true" />
           </button>
 
           <span
-            className={[
-              "inline-flex items-center justify-center border-x border-[#CBD3E1] px-3 font-semibold text-[#30343B]",
-              sizing.count,
-            ].join(" ")}
-            aria-label={t("likeCountLabel", { count: formattedLikeCount })}
+            className="flex min-w-[2.5rem] items-center justify-center border-x border-[#CBD3E1] px-2 text-xs font-semibold text-[#30343B]"
+            aria-hidden="true"
           >
             {formattedLikeCount}
           </span>
 
           <button
             type="button"
-            onClick={onDislike}
+            className={[
+              reactionSideButtonClass,
+              isDisliked ? "bg-rose-50 text-rose-700" : "",
+            ].join(" ")}
             title={t("dislikeTooltip")}
             aria-label={t("dislikeAria")}
-            aria-pressed={disliked}
-            className={[
-              "inline-flex items-center justify-center px-3 transition hover:bg-[#EEF2F7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#3B82F6]",
-              sizing.segment,
-              disliked ? "bg-[#FCEBEB] text-[#B91C1C]" : "text-[#30343B]",
-            ].join(" ")}
+            aria-pressed={isDisliked}
+            onClick={handleDislikeClick}
           >
-            <ThumbsDown className="h-5 w-5" aria-hidden="true" />
+            <ThumbsDown className={iconClass} aria-hidden="true" />
           </button>
         </div>
 
         <button
           type="button"
-          onClick={handleFeedback}
+          className={actionButtonClass}
           title={t("feedbackTooltip")}
           aria-label={t("feedbackAria")}
-          className={actionButtonClass}
+          onClick={handleFeedback}
         >
-          <MessageSquare className="h-5 w-5" aria-hidden="true" />
+          <MessageSquare className={iconClass} aria-hidden="true" />
         </button>
 
         <div className="relative shrink-0">
           <button
             ref={shareButtonRef}
             type="button"
-            onClick={() => setShareOpen((open) => !open)}
+            className={[
+              actionButtonClass,
+              shareOpen ? "border-slate-500 bg-slate-50" : "",
+            ].join(" ")}
             title={t("shareTooltip")}
             aria-label={t("shareAria")}
+            aria-haspopup="menu"
             aria-expanded={shareOpen}
             aria-controls={shareMenuId}
-            className={actionButtonClass}
+            onClick={toggleShareMenu}
           >
-            <Share2 className="h-5 w-5" aria-hidden="true" />
+            <Share2 className={iconClass} aria-hidden="true" />
           </button>
 
-          {shareOpen ? (
-            <div
-              ref={shareMenuRef}
-              id={shareMenuId}
-              role="menu"
-              className="absolute left-0 top-[calc(100%+0.5rem)] z-30 min-w-[12rem] rounded-xl border border-[#CBD3E1] bg-white p-1 shadow-lg"
-            >
-              {SHARE_MENU_ITEMS.map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  role="menuitem"
-                  onClick={() => void handleShareAction(item.id)}
-                  className="flex w-full rounded-lg px-3 py-2 text-left text-sm text-[#30343B] transition hover:bg-[#F1F5F9] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#3B82F6]"
+          {shareOpen && mounted && shareMenuPosition
+            ? createPortal(
+                <div
+                  ref={shareMenuRef}
+                  id={shareMenuId}
+                  role="menu"
+                  aria-label={t("shareMenuLabel")}
+                  className="sc-interaction-share-menu"
+                  style={{
+                    top: shareMenuPosition.top,
+                    left: shareMenuPosition.left,
+                  }}
                 >
-                  {t(item.labelKey)}
-                </button>
-              ))}
-            </div>
-          ) : null}
+                  {shareMenuItems.map((item) => {
+                    if (isExternalSharePlatform(item.id)) {
+                      const href = buildShareUrl(item.id, sharePageUrl, shareTitle);
+                      if (!href) {
+                        return null;
+                      }
+                      return (
+                        <a
+                          key={item.id}
+                          href={href}
+                          role="menuitem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={shareMenuItemClass}
+                          onClick={() => {
+                            onShare?.(item.id);
+                            setShareOpen(false);
+                          }}
+                        >
+                          {t(item.labelKey)}
+                        </a>
+                      );
+                    }
+
+                    return (
+                      <button
+                        key={item.id}
+                        type="button"
+                        role="menuitem"
+                        className={shareMenuItemClass}
+                        onClick={() => void handleShareItem(item.id)}
+                      >
+                        {t(item.labelKey)}
+                      </button>
+                    );
+                  })}
+                </div>,
+                document.body,
+              )
+            : null}
         </div>
 
-        <button
-          type="button"
-          onClick={handleEmbedButton}
-          title={t("embedTooltip")}
-          aria-label={t("embedAria")}
-          className={actionButtonClass}
-        >
-          <Code2 className="h-5 w-5" aria-hidden="true" />
-        </button>
+        {showEmbed ? (
+          <button
+            type="button"
+            className={actionButtonClass}
+            title={t("embedTooltip")}
+            aria-label={t("embedAria")}
+            onClick={openEmbedModal}
+          >
+            <Code2 className={iconClass} aria-hidden="true" />
+          </button>
+        ) : null}
 
         <button
           type="button"
-          onClick={handleQuoteButton}
+          className={actionButtonClass}
           title={t("quoteTooltip")}
           aria-label={t("quoteAria")}
-          className={actionButtonClass}
+          onClick={openQuoteModal}
         >
-          <Quote className="h-5 w-5" aria-hidden="true" />
+          <Quote className={iconClass} aria-hidden="true" />
         </button>
       </div>
 
       {toast ? (
-        <p
-          role="status"
-          className="absolute left-0 top-[calc(100%+0.35rem)] text-xs font-medium text-[#15803D]"
-        >
+        <p className="mt-2 text-xs text-slate-600" role="status" aria-live="polite">
           {toast}
         </p>
       ) : null}
 
-      {embedOpen ? (
+      {embedOpen && showEmbed ? (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
-          role="presentation"
-          onClick={closeOverlays}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/45 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="interaction-embed-title"
+          onClick={() => setEmbedOpen(false)}
         >
           <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="embed-dialog-title"
+            ref={embedDialogRef}
             className="w-full max-w-xl rounded-xl border border-[#CBD3E1] bg-white p-4 shadow-xl"
             onClick={(event) => event.stopPropagation()}
           >
-            <h2 id="embed-dialog-title" className="text-base font-semibold text-[#30343B]">
-              {t("embedDialogTitle")}
-            </h2>
+            <h3 id="interaction-embed-title" className="text-sm font-semibold text-[#30343B]">
+              {t("embedModalTitle")}
+            </h3>
             <textarea
-              ref={embedTextareaRef}
               readOnly
               value={embedCode}
               rows={4}
-              className="mt-3 w-full rounded-lg border border-[#CBD3E1] bg-[#F8FAFC] px-3 py-2 font-mono text-xs text-[#30343B]"
+              className="mt-3 w-full rounded-lg border border-[#CBD3E1] bg-[#F8FAFC] p-3 font-mono text-xs text-[#30343B]"
             />
             <div className="mt-3 flex justify-end gap-2">
               <button
                 type="button"
-                onClick={closeOverlays}
-                className="rounded-lg border border-[#CBD3E1] px-3 py-2 text-sm text-[#30343B] hover:bg-[#F1F5F9]"
+                className="rounded-lg border border-[#CBD3E1] px-3 py-2 text-sm text-[#30343B] hover:bg-slate-50"
+                onClick={() => setEmbedOpen(false)}
               >
                 {t("close")}
               </button>
               <button
                 type="button"
-                onClick={() => void handleEmbedCopy()}
-                className="rounded-lg bg-[#30343B] px-3 py-2 text-sm font-medium text-white hover:bg-[#1F2937]"
+                className="rounded-lg bg-[#30343B] px-3 py-2 text-sm text-white hover:bg-slate-800"
+                onClick={() => void handleCopyEmbed()}
               >
-                {t("copyCode")}
+                {t("embedCopyCode")}
               </button>
             </div>
           </div>
@@ -419,42 +536,45 @@ export function InteractionActionBar({
 
       {quoteOpen ? (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
-          role="presentation"
-          onClick={closeOverlays}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/45 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="interaction-quote-title"
+          onClick={() => setQuoteOpen(false)}
         >
           <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="quote-dialog-title"
+            ref={quoteDialogRef}
             className="w-full max-w-xl rounded-xl border border-[#CBD3E1] bg-white p-4 shadow-xl"
             onClick={(event) => event.stopPropagation()}
           >
-            <h2 id="quote-dialog-title" className="text-base font-semibold text-[#30343B]">
-              {t("quoteDialogTitle")}
-            </h2>
-            <pre className="mt-3 whitespace-pre-wrap rounded-lg border border-[#CBD3E1] bg-[#F8FAFC] px-3 py-2 text-sm text-[#30343B]">
-              {quoteText}
-            </pre>
+            <h3 id="interaction-quote-title" className="text-sm font-semibold text-[#30343B]">
+              {t("quoteModalTitle")}
+            </h3>
+            <textarea
+              readOnly
+              value={quoteText}
+              rows={5}
+              className="mt-3 w-full rounded-lg border border-[#CBD3E1] bg-[#F8FAFC] p-3 text-sm text-[#30343B]"
+            />
             <div className="mt-3 flex justify-end gap-2">
               <button
                 type="button"
-                onClick={closeOverlays}
-                className="rounded-lg border border-[#CBD3E1] px-3 py-2 text-sm text-[#30343B] hover:bg-[#F1F5F9]"
+                className="rounded-lg border border-[#CBD3E1] px-3 py-2 text-sm text-[#30343B] hover:bg-slate-50"
+                onClick={() => setQuoteOpen(false)}
               >
                 {t("close")}
               </button>
               <button
                 type="button"
-                onClick={() => void handleQuoteCopy()}
-                className="rounded-lg bg-[#30343B] px-3 py-2 text-sm font-medium text-white hover:bg-[#1F2937]"
+                className="rounded-lg bg-[#30343B] px-3 py-2 text-sm text-white hover:bg-slate-800"
+                onClick={() => void handleCopyQuote()}
               >
-                {t("copyQuote")}
+                {t("quoteCopy")}
               </button>
             </div>
           </div>
         </div>
       ) : null}
-    </div>
+    </>
   );
 }

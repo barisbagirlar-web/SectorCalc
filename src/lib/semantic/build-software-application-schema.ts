@@ -1,3 +1,4 @@
+import { buildToolReferenceCreatorAuthorRef } from "@/lib/semantic/build-tool-creator-jsonld";
 import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/seo/schema-mesh";
 import { absoluteImageUrl, absoluteLocalizedUrl } from "@/lib/semantic/site-url";
 import { pickLocaleText } from "@/lib/semantic/semantic-locale-utils";
@@ -33,6 +34,8 @@ export function buildSoftwareApplicationSchema(
       "@type": "Organization",
       name: "SectorCalc",
     },
+    author: buildToolReferenceCreatorAuthorRef(),
+    creator: buildToolReferenceCreatorAuthorRef(),
     potentialAction: buildPotentialAction(canonicalUrl),
   }) as JsonLdRecord;
 }

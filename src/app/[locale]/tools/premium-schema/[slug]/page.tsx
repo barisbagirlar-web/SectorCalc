@@ -135,9 +135,6 @@ export default async function PremiumSchemaPilotPage({
         <Container className="py-8 sm:py-10">
           <p className="sc-ledger-eyebrow">{tPage("eyebrow")}</p>
           <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
-            <h1 className="text-2xl font-semibold text-premium-velvet sm:text-3xl">
-              {displayName}
-            </h1>
             <FormulaGateToolStatus slug={slug} locale={locale} surface="premium" />
           </div>
           <p className="mt-3 max-w-2xl text-sm text-body-charcoal sm:text-base">

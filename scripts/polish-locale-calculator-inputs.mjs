@@ -159,7 +159,7 @@ for (const locale of LOCALES) {
       if (!copy || typeof copy !== "object") {
         continue;
       }
-      for (const part of ["label", "placeholder", "helper"]) {
+      for (const part of ["label", "placeholder"]) {
         const raw = copy[part];
         if (typeof raw !== "string" || !raw.trim()) {
           continue;
@@ -170,6 +170,7 @@ for (const locale of LOCALES) {
           localePolished += 1;
         }
       }
+      // Never word-polish helpers — full-phrase DeepSeek map owns helper copy.
     }
   }
 
