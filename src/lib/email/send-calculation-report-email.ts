@@ -16,6 +16,17 @@ export type SendCalculationReportEmailResult =
   | { readonly ok: true }
   | { readonly ok: false; readonly error: string };
 
+const BREVO_ENDPOINT = "https://api.brevo.com/v3/smtp/email";
+
+function resolveBrevoConfig(): { apiKey: string; fromEmail: string } | null {
+  const apiKey = process.env.BREVO_API_KEY?.trim();
+  const fromEmail = process.env.BREVO_FROM_EMAIL?.trim();
+  if (!apiKey || !fromEmail) {
+    return null;
+  }
+  return { apiKey, fromEmail };
+}
+
 function resolveSmtpConfig(): {
   user: string;
   pass: string;
@@ -36,7 +47,51 @@ function resolveSmtpConfig(): {
   return { user, pass, host, port, secure };
 }
 
-export async function sendCalculationReportEmail(
+async function sendViaBrevo(
+  input: SendCalculationReportEmailInput,
+): Promise<SendCalculationReportEmailResult> {
+  const brevo = resolveBrevoConfig();
+  if (!brevo) {
+    return { ok: false, error: "email_not_configured" };
+  }
+
+  const copy = getCalculationReportEmailCopy(input.locale, input.toolName);
+
+  try {
+    const response = await fetch(BREVO_ENDPOINT, {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "content-type": "application/json",
+        "api-key": brevo.apiKey,
+      },
+      body: JSON.stringify({
+        sender: { email: brevo.fromEmail, name: "SectorCalc" },
+        to: [{ email: input.to }],
+        subject: copy.subject,
+        htmlContent: buildCalculationReportEmailHtml(input.locale, input.toolName),
+        attachment: [
+          {
+            name: input.fileName,
+            content: input.pdfBuffer.toString("base64"),
+          },
+        ],
+      }),
+    });
+
+    if (!response.ok) {
+      const body = await response.text();
+      return { ok: false, error: body.slice(0, 240) || "brevo_send_failed" };
+    }
+
+    return { ok: true };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "brevo_send_failed";
+    return { ok: false, error: message };
+  }
+}
+
+async function sendViaSmtp(
   input: SendCalculationReportEmailInput,
 ): Promise<SendCalculationReportEmailResult> {
   const smtp = resolveSmtpConfig();
@@ -76,6 +131,15 @@ export async function sendCalculationReportEmail(
   }
 }
 
+export async function sendCalculationReportEmail(
+  input: SendCalculationReportEmailInput,
+): Promise<SendCalculationReportEmailResult> {
+  if (resolveBrevoConfig()) {
+    return sendViaBrevo(input);
+  }
+  return sendViaSmtp(input);
+}
+
 export function isCalculationReportEmailConfigured(): boolean {
-  return resolveSmtpConfig() !== null;
+  return resolveBrevoConfig() !== null || resolveSmtpConfig() !== null;
 }
