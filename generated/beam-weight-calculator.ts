@@ -36,7 +36,7 @@ function evaluateAllFormulas(input: Beam_weight_calculatorInput): Record<string,
   try { const v = 2 * (input.flange_width * input.flange_thickness) + (input.web_height * input.web_thickness); results["cross_sectional_area"] = Number.isFinite(v) ? v : 0; } catch { results["cross_sectional_area"] = 0; }
   try { const v = (results["cross_sectional_area"] ?? 0) * input.length * 1e-6; results["volume_per_beam"] = Number.isFinite(v) ? v : 0; } catch { results["volume_per_beam"] = 0; }
   try { const v = (results["volume_per_beam"] ?? 0) * input.material_density; results["weight_per_beam"] = Number.isFinite(v) ? v : 0; } catch { results["weight_per_beam"] = 0; }
-  results["coating_weight_per_beam"] = 0;
+  try { const v = ((input.include_coating_weight) ? ((2 * (input.flange_width + input.web_height) * input.length * 1e-6 * 0.2 * input.material_density)) : (0)); results["coating_weight_per_beam"] = Number.isFinite(v) ? v : 0; } catch { results["coating_weight_per_beam"] = 0; }
   try { const v = (results["weight_per_beam"] ?? 0) + (results["coating_weight_per_beam"] ?? 0); results["total_weight_per_beam"] = Number.isFinite(v) ? v : 0; } catch { results["total_weight_per_beam"] = 0; }
   try { const v = (results["total_weight_per_beam"] ?? 0) * input.quantity; results["total_weight"] = Number.isFinite(v) ? v : 0; } catch { results["total_weight"] = 0; }
   try { const v = (results["total_weight"] ?? 0) * input.material_cost_per_kg * (1 + input.cutting_loss_factor / 100); results["total_material_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_material_cost"] = 0; }

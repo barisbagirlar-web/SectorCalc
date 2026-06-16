@@ -22,7 +22,7 @@ export const Currency_risk_calculatorInputSchema = z.object({
 function evaluateAllFormulas(input: Currency_risk_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
   try { const v = input.volatility_annual / 100 / Math.sqrt(252); results["daily_volatility"] = Number.isFinite(v) ? v : 0; } catch { results["daily_volatility"] = 0; }
-  results["z_score"] = 0;
+  try { const v = (input.confidence_level === "'90'" ? 1.2816 : (input.confidence_level === "'95'" ? 1.6449 : (input.confidence_level === "'99'" ? 2.3263 : 1.6449))); results["z_score"] = Number.isFinite(v) ? v : 0; } catch { results["z_score"] = 0; }
   try { const v = input.enable_lean_adjustment ? 1.0 + (0.1 * (1 - input.hedge_ratio/100)) : 1.0; results["lean_adjustment_factor"] = Number.isFinite(v) ? v : 0; } catch { results["lean_adjustment_factor"] = 0; }
   try { const v = input.exposure_amount * (1 - Math.exp(-(results["z_score"] ?? 0) * (results["daily_volatility"] ?? 0) * Math.sqrt(input.time_horizon_days) * (results["lean_adjustment_factor"] ?? 0))); results["value_at_risk"] = Number.isFinite(v) ? v : 0; } catch { results["value_at_risk"] = 0; }
   try { const v = (results["value_at_risk"] ?? 0) * (1 + 0.2 * (1 - input.hedge_ratio/100)); results["expected_shortfall"] = Number.isFinite(v) ? v : 0; } catch { results["expected_shortfall"] = 0; }

@@ -31,7 +31,7 @@ function evaluateAllFormulas(input: Downtime_cost_calculatorInput): Record<strin
   try { const v = (results["lost_production_units"] ?? 0) * input.revenue_per_unit; results["lost_revenue"] = Number.isFinite(v) ? v : 0; } catch { results["lost_revenue"] = 0; }
   try { const v = input.direct_labor_cost_per_hour * input.downtime_duration * ((input.shift_type === 'night' ? 1.15 : (input.shift_type === 'weekend' ? 1.5 : 1.0))); results["labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["labor_cost"] = 0; }
   try { const v = input.energy_cost_per_hour * input.downtime_duration; results["energy_cost"] = Number.isFinite(v) ? v : 0; } catch { results["energy_cost"] = 0; }
-  results["quality_loss_cost"] = 0;
+  try { const v = ((input.include_quality_loss = true) ? ((lost_production_units * (input.scrap_rate_during_downtime / 100) * input.revenue_per_unit * 0.5)) : (0)); results["quality_loss_cost"] = Number.isFinite(v) ? v : 0; } catch { results["quality_loss_cost"] = 0; }
   try { const v = (results["lost_revenue"] ?? 0) * input.recovery_time_factor; results["recovery_cost"] = Number.isFinite(v) ? v : 0; } catch { results["recovery_cost"] = 0; }
   try { const v = (results["lost_revenue"] ?? 0) + (results["labor_cost"] ?? 0) + (results["energy_cost"] ?? 0) + (results["quality_loss_cost"] ?? 0) + (results["recovery_cost"] ?? 0); results["total_downtime_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_downtime_cost"] = 0; }
   return results;

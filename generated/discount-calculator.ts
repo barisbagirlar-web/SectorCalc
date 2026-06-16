@@ -23,7 +23,7 @@ export const Discount_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Discount_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.discount_type='percentage') ? (input.list_price * input.discount_percent/100) : (IF(input.discount_type='fixed_amount', input.discount_percent, 0))); results["discount_amount_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["discount_amount_per_unit"] = 0; }
+  try { const v = ((input.discount_type='percentage') ? (input.list_price * input.discount_percent/100) : (((input.discount_type='fixed_amount') ? (input.discount_percent) : (0)))); results["discount_amount_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["discount_amount_per_unit"] = 0; }
   try { const v = input.list_price - (results["discount_amount_per_unit"] ?? 0); results["discounted_price_per_unit"] = Number.isFinite(v) ? v : 0; } catch { results["discounted_price_per_unit"] = 0; }
   try { const v = (results["discounted_price_per_unit"] ?? 0) * input.quantity; results["total_revenue"] = Number.isFinite(v) ? v : 0; } catch { results["total_revenue"] = 0; }
   try { const v = input.variable_cost_per_unit * input.quantity; results["total_variable_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_variable_cost"] = 0; }

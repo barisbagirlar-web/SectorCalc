@@ -23,8 +23,8 @@ export const Irr_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Irr_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["irr"] = 0;
-  results["npvAtIrr"] = 0;
+  try { const v = (function(){var c=[initialInvestment,year1,year2,year3,year4,year5];var r=guess/100;var tol=1e-7;var max=1000;for(var i=0;i<max;i++){var npv=0;for(var t=0;t<c.length;t++){npv+=c[t]/Math.pow(1+r,t);}if(Math.abs(npv)<tol)break;var d=0;for(var t=1;t<c.length;t++){d+=-t*c[t]/Math.pow(1+r,t+1);}r-=npv/d;}return r*100;})(); results["irr"] = Number.isFinite(v) ? v : 0; } catch { results["irr"] = 0; }
+  try { const v = (function(){var c=[initialInvestment,year1,year2,year3,year4,year5];var r=guess/100;var tol=1e-7;var max=1000;for(var i=0;i<max;i++){var npv=0;for(var t=0;t<c.length;t++){npv+=c[t]/Math.pow(1+r,t);}if(Math.abs(npv)<tol)break;var d=0;for(var t=1;t<c.length;t++){d+=-t*c[t]/Math.pow(1+r,t+1);}r-=npv/d;}var npvFinal=0;for(var t=0;t<c.length;t++){npvFinal+=c[t]/Math.pow(1+r,t);}return npvFinal;})(); results["npvAtIrr"] = Number.isFinite(v) ? v : 0; } catch { results["npvAtIrr"] = 0; }
   return results;
 }
 

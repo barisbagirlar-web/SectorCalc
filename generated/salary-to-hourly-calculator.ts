@@ -27,7 +27,7 @@ function evaluateAllFormulas(input: Salary_to_hourly_calculatorInput): Record<st
   try { const v = (results["base_hourly_rate"] ?? 0) * input.overtime_multiplier * (1 + input.benefits_percentage / 100); results["overtime_cost_per_hour"] = Number.isFinite(v) ? v : 0; } catch { results["overtime_cost_per_hour"] = 0; }
   try { const v = (results["base_hourly_rate"] ?? 0) * (input.benefits_percentage / 100); results["benefits_cost_per_hour"] = Number.isFinite(v) ? v : 0; } catch { results["benefits_cost_per_hour"] = 0; }
   try { const v = (input.shift_type === 'day' ? 0 : (input.shift_type === 'night' ? 0.15 : (input.shift_type === 'rotating' ? 0.10 : 0))); results["shift_differential"] = Number.isFinite(v) ? v : 0; } catch { results["shift_differential"] = 0; }
-  results["productivity_factor"] = 0;
+  try { const v = ((input.include_productivity_factor) ? (0.85) : (1.0)); results["productivity_factor"] = Number.isFinite(v) ? v : 0; } catch { results["productivity_factor"] = 0; }
   try { const v = ((results["base_hourly_rate"] ?? 0) + (results["benefits_cost_per_hour"] ?? 0)) * (1 + (results["shift_differential"] ?? 0)) / (results["productivity_factor"] ?? 0); results["effective_hourly_rate"] = Number.isFinite(v) ? v : 0; } catch { results["effective_hourly_rate"] = 0; }
   try { const v = (results["effective_hourly_rate"] ?? 0) * input.work_hours_per_week * input.paid_weeks_per_year; results["total_annual_labor_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_labor_cost"] = 0; }
   return results;

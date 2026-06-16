@@ -34,7 +34,7 @@ function evaluateAllFormulas(input: Weld_strength_calculatorInput): Record<strin
   try { const v = input.weld_material_tensile_strength * 0.3 * ((input.quality_level === 'B' ? 1.0 : (input.quality_level === 'C' ? 0.85 : (input.quality_level === 'D' ? 0.7 : 0)))); results["allowable_stress"] = Number.isFinite(v) ? v : 0; } catch { results["allowable_stress"] = 0; }
   try { const v = input.applied_load * SIN(input.load_angle * Math.PI() / 180); results["load_component_transverse"] = Number.isFinite(v) ? v : 0; } catch { results["load_component_transverse"] = 0; }
   try { const v = input.applied_load * COS(input.load_angle * Math.PI() / 180); results["load_component_longitudinal"] = Number.isFinite(v) ? v : 0; } catch { results["load_component_longitudinal"] = 0; }
-  results["fatigue_reduction_factor"] = 0;
+  try { const v = ((input.is_fatigue_loading = true) ? (0.5) : (1.0)); results["fatigue_reduction_factor"] = Number.isFinite(v) ? v : 0; } catch { results["fatigue_reduction_factor"] = 0; }
   try { const v = (results["effective_area"] ?? 0) * (results["allowable_stress"] ?? 0) * (results["stress_distribution_factor"] ?? 0) * (results["fatigue_reduction_factor"] ?? 0) / 1000; results["weld_strength_capacity"] = Number.isFinite(v) ? v : 0; } catch { results["weld_strength_capacity"] = 0; }
   return results;
 }

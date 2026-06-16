@@ -60,4 +60,32 @@ describe("compileFormulaExpression", () => {
     expect(compiled).toContain("population_mean");
     expect(compiled).not.toBeNull();
   });
+
+  it("compiles multi-statement inputs.* loan formula via script fallback", () => {
+    const compiled = compileFormulaExpression(
+      "const boatPrice = inputs.boatPrice; const salesTaxRate = inputs.salesTaxRate; return boatPrice * (1 + salesTaxRate / 100);",
+      {
+        inputIds: ["boatPrice", "salesTaxRate"],
+        inputToAccess: (id: string) => `input.${id}`,
+        formulaKeys: ["monthlyPayment"],
+        selfKey: "monthlyPayment",
+      },
+    );
+    expect(compiled).toContain("input.boatPrice");
+    expect(compiled).not.toBeNull();
+  });
+
+  it("compiles invoked arrow function formulas", () => {
+    const compiled = compileFormulaExpression(
+      "((n,k,d) => { return k > 0 ? n * k : 0; })(n, k_eff, decimalPlaces)",
+      {
+        inputIds: ["n", "k", "decimalPlaces"],
+        inputToAccess: (id: string) => `input.${id}`,
+        formulaKeys: ["k_eff", "primary"],
+        selfKey: "primary",
+      },
+    );
+    expect(compiled).toContain("input.n");
+    expect(compiled).not.toBeNull();
+  });
 });

@@ -23,7 +23,7 @@ function evaluateAllFormulas(input: Probability_calculatorInput): Record<string,
   const results: Record<string, number> = {};
   try { const v = input.defect_count / input.sample_size; results["defect_rate"] = Number.isFinite(v) ? v : 0; } catch { results["defect_rate"] = 0; }
   try { const v = Math.sqrt( ((results["defect_rate"] ?? 0) * (1 - (results["defect_rate"] ?? 0))) / input.sample_size ); results["standard_error"] = Number.isFinite(v) ? v : 0; } catch { results["standard_error"] = 0; }
-  results["z_score"] = 0;
+  try { const v = ((input.confidence_level == '90') ? (1.645) : (((input.confidence_level == '95') ? (1.96) : (2.576)))); results["z_score"] = Number.isFinite(v) ? v : 0; } catch { results["z_score"] = 0; }
   try { const v = (results["defect_rate"] ?? 0) + (results["z_score"] ?? 0) * (results["standard_error"] ?? 0); results["confidence_interval"] = Number.isFinite(v) ? v : 0; } catch { results["confidence_interval"] = 0; }
   try { const v = (results["defect_rate"] ?? 0) * 1000000; results["dpm"] = Number.isFinite(v) ? v : 0; } catch { results["dpm"] = 0; }
   try { const v = normsinv(1 - (results["defect_rate"] ?? 0)) + input.sigma_shift; results["sigma_level"] = Number.isFinite(v) ? v : 0; } catch { results["sigma_level"] = 0; }

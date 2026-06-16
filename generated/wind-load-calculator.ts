@@ -28,7 +28,7 @@ function evaluateAllFormulas(input: Wind_load_calculatorInput): Record<string, n
   try { const v = 0.5 * input.air_density * input.basic_wind_speed**2 * input.exposure_factor * input.gust_factor; results["velocity_pressure"] = Number.isFinite(v) ? v : 0; } catch { results["velocity_pressure"] = 0; }
   try { const v = (input.terrain_category === 'A' ? 2.01 * (input.building_height / 365.76)^(2/7.0) : (input.terrain_category === 'B' ? 2.01 * (input.building_height / 274.32)^(2/9.5) : (input.terrain_category === 'C' ? 2.01 * (input.building_height / 213.36)^(2/11.5) : (input.terrain_category === 'D' ? 2.01 * (input.building_height / 152.4)^(2/15.0) : 0)))); results["terrain_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["terrain_adjustment"] = 0; }
   try { const v = (results["velocity_pressure"] ?? 0) * input.pressure_coefficient * (results["terrain_adjustment"] ?? 0); results["design_wind_pressure"] = Number.isFinite(v) ? v : 0; } catch { results["design_wind_pressure"] = 0; }
-  results["cyclic_reduction"] = 0;
+  try { const v = ((input.is_cyclic_loading) ? (0.85) : (1.0)); results["cyclic_reduction"] = Number.isFinite(v) ? v : 0; } catch { results["cyclic_reduction"] = 0; }
   try { const v = (results["design_wind_pressure"] ?? 0) * (results["cyclic_reduction"] ?? 0); results["adjusted_wind_pressure"] = Number.isFinite(v) ? v : 0; } catch { results["adjusted_wind_pressure"] = 0; }
   try { const v = (results["adjusted_wind_pressure"] ?? 0) * 1.0; results["total_wind_force"] = Number.isFinite(v) ? v : 0; } catch { results["total_wind_force"] = 0; }
   try { const v = (results["total_wind_force"] ?? 0); results["primary_result"] = Number.isFinite(v) ? v : 0; } catch { results["primary_result"] = 0; }

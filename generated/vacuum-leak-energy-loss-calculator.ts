@@ -36,7 +36,7 @@ function evaluateAllFormulas(input: Vacuum_leak_energy_loss_calculatorInput): Re
   try { const v = ((results["volumetric_flow_rate_cfm"] ?? 0) / 100) * input.compressor_specific_power; results["power_loss_kw"] = Number.isFinite(v) ? v : 0; } catch { results["power_loss_kw"] = 0; }
   try { const v = (results["power_loss_kw"] ?? 0) * input.operating_hours_per_year; results["annual_energy_loss_kwh"] = Number.isFinite(v) ? v : 0; } catch { results["annual_energy_loss_kwh"] = 0; }
   try { const v = (results["annual_energy_loss_kwh"] ?? 0) * input.electricity_cost_per_kwh; results["annual_cost_usd"] = Number.isFinite(v) ? v : 0; } catch { results["annual_cost_usd"] = 0; }
-  results["annual_co2_kg"] = 0;
+  try { const v = ((input.include_carbon_cost = true) ? (annual_energy_loss_kwh * input.emission_factor_kg_co2_per_kwh) : (0)); results["annual_co2_kg"] = Number.isFinite(v) ? v : 0; } catch { results["annual_co2_kg"] = 0; }
   try { const v = (results["annual_co2_kg"] ?? 0) * 0.05; results["annual_carbon_cost_usd"] = Number.isFinite(v) ? v : 0; } catch { results["annual_carbon_cost_usd"] = 0; }
   try { const v = (results["annual_cost_usd"] ?? 0) + (results["annual_carbon_cost_usd"] ?? 0); results["total_annual_cost_usd"] = Number.isFinite(v) ? v : 0; } catch { results["total_annual_cost_usd"] = 0; }
   return results;

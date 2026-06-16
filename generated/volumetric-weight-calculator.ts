@@ -25,7 +25,7 @@ export const Volumetric_weight_calculatorInputSchema = z.object({
 
 function evaluateAllFormulas(input: Volumetric_weight_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results["volume_cm3"] = 0;
+  try { const v = ((input.package_type = 'cylinder') ? (PI() * (input.width_cm/2)^2 * input.length_cm) : (input.length_cm * input.width_cm * input.height_cm)); results["volume_cm3"] = Number.isFinite(v) ? v : 0; } catch { results["volume_cm3"] = 0; }
   try { const v = (results["volume_cm3"] ?? 0) / 1000000; results["volume_m3"] = Number.isFinite(v) ? v : 0; } catch { results["volume_m3"] = 0; }
   try { const v = (results["volume_cm3"] ?? 0) / input.carrier_factor; results["volumetric_weight_kg"] = Number.isFinite(v) ? v : 0; } catch { results["volumetric_weight_kg"] = 0; }
   try { const v = Math.max(input.actual_weight_kg, (results["volumetric_weight_kg"] ?? 0)); results["chargeable_weight_kg"] = Number.isFinite(v) ? v : 0; } catch { results["chargeable_weight_kg"] = 0; }

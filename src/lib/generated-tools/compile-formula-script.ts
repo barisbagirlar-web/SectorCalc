@@ -65,6 +65,7 @@ function looksLikeScript(expression: string): boolean {
     /^\(\(\)\s*=>/.test(trimmed) ||
     /^\([^)]*\)\s*=>/.test(trimmed) ||
     /^function\s*\(/.test(trimmed) ||
+    /=>\s*\{/.test(trimmed) ||
     /\binputs\./.test(trimmed) ||
     /\binputs\[/.test(trimmed) ||
     /\bformulas\./.test(trimmed) ||
@@ -294,11 +295,57 @@ function unwrapInputsArrowFunction(expression: string): string {
   return expression;
 }
 
+function splitTopLevelArgs(rawArgs: string): readonly string[] {
+  const args: string[] = [];
+  let current = "";
+  let depth = 0;
+  for (let i = 0; i < rawArgs.length; i += 1) {
+    const ch = rawArgs[i];
+    if (ch === "(") depth += 1;
+    if (ch === ")") depth = Math.max(0, depth - 1);
+    if (ch === "," && depth === 0) {
+      args.push(current.trim());
+      current = "";
+      continue;
+    }
+    current += ch;
+  }
+  if (current.trim().length > 0) {
+    args.push(current.trim());
+  }
+  return args;
+}
+
+function mapInvokeArgument(arg: string, options: ScriptCompileOptions): string {
+  const trimmed = arg.trim();
+  if (options.inputIds.includes(trimmed)) {
+    return options.inputToAccess(trimmed);
+  }
+  if (options.formulaKeys.includes(trimmed)) {
+    return `(results[${JSON.stringify(trimmed)}] ?? 0)`;
+  }
+  return trimmed;
+}
+
 function unwrapLeadingArrowFunction(
   expression: string,
   options: ScriptCompileOptions,
 ): string {
   const trimmed = expression.trim();
+  const invokedMatch = trimmed.match(
+    /^\(\(([^)]+)\)\s*=>\s*\{([\s\S]*)\}\)\s*\(([^)]*)\)\s*$/,
+  );
+  if (invokedMatch?.[1] && invokedMatch[2] && invokedMatch[3] !== undefined) {
+    const params = invokedMatch[1]
+      .split(",")
+      .map((param) => param.trim())
+      .filter(Boolean);
+    const args = splitTopLevelArgs(invokedMatch[3]).map((arg) =>
+      mapInvokeArgument(arg, options),
+    );
+    return `(((${params.join(", ")}) => { ${invokedMatch[2].trim()} })(${args.join(", ")}))`;
+  }
+
   const patterns = [
     /^\(\(([^)]+)\)\s*=>\s*\{([\s\S]*)\}\)\s*$/,
     /^\(([^)]+)\)\s*=>\s*\{([\s\S]*)\}\s*$/,
@@ -474,7 +521,11 @@ function replaceBareInputUsages(
   expression: string,
   options: ScriptCompileOptions,
 ): string {
-  if (/^\(\(?function\s*\(/.test(expression.trim())) {
+  if (
+    /^\(\(?function\s*\(/.test(expression.trim()) ||
+    /=>\s*\{/.test(expression) ||
+    /\bfunction\s+[A-Za-z_]\w*\s*\(/.test(expression)
+  ) {
     return expression;
   }
   let result = expression;
