@@ -55,7 +55,7 @@ export function TraceIntro({ freeCount, premiumCount }: TraceIntroProps) {
                 {t("intro.title")}
               </h2>
 
-              <p className="sc-trace-intro__description">{t("intro.description")}</p>
+              <p className="sc-trace-intro__description whitespace-pre-line">{t("intro.description")}</p>
 
               <ul className="sc-trace-intro__features">
                 <li className="sc-trace-intro__feature">
