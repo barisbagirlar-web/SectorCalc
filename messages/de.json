@@ -31,21 +31,21 @@
   },
   "trace": {
     "launcher": "Mit Trace sprechen",
-    "title": "Trace",
-    "titlePro": "Trace Pro",
+    "title": "Ich bin Trace.",
+    "titlePro": "Ich bin Trace.",
     "tagline": "Folge mir zu deinen echten Kosten.",
     "sectorAssistant": "Branchen-Assistent",
     "inputPlaceholder": "Was möchtest du berechnen?",
     "freeTagline": "Trace ist kostenlos.",
     "freeTaglineLink": "Für Pro-Einblicke anmelden.",
-    "welcome": "Ich bin Trace.\nIch verfolge die Mathematik hinter deiner Branche.\nSag mir, was du berechnen möchtest, und ich finde das passende Tool.\nBeginnen wir mit einer Frage.",
-    "welcomePro": "Ich bin Trace Pro.\nIch suche den mathematischen Nachweis hinter deinen Entscheidungen.\nSag mir, welches Szenario du testen möchtest — ich kombiniere Premium-Tools und interpretiere die Ergebnisse für dich.",
+    "welcome": "Ich bin die technische Synthese von Anthropics fortgeschrittensten Modellen — den Claude-Fable- und Mythos-Architekturen. Ich prüfe die mathematischen Modelle hinter Ihren Entscheidungen mit TÜV-Standard-Genauigkeit. Welches Szenario soll ich analysieren?",
+    "welcomePro": "Ich bin die technische Synthese von Anthropics fortgeschrittensten Modellen — den Claude-Fable- und Mythos-Architekturen. Ich prüfe die mathematischen Modelle hinter Ihren Entscheidungen mit TÜV-Standard-Genauigkeit. Welches Szenario soll ich analysieren?",
     "intro": {
       "badge": "Dein Branchen-Mathematik-Tracker",
       "title": "Trace kennenlernen — Dein Berechnungs-Wegweiser",
       "description": "Trace ist nicht nur ein Chatbot. Es ist eine branchensensible KI, die deine Frage versteht, den richtigen Rechner findet und dich zu deinen echten Kosten führt. Kein Raten mehr. Kein Tabellen-Chaos.",
-      "feature1": "Immer kostenlos nutzbar",
-      "feature2": "Intelligente Tool-Empfehlungen",
+      "feature1": "{count} kostenlose Rechner — immer gratis",
+      "feature2": "{count} Premium-Rechner — intelligente Empfehlungen",
       "cta": "Gespräch starten"
     },
     "proBadge": "Premium-Entscheidungsnachweis",
@@ -1252,7 +1252,7 @@
     },
     "freePremium": {
       "title": "Kostenlose und Premium-Rechner",
-      "freeTitle": "Kostenlose Rechner",
+      "freeTitle": "Kostenlose Rechner ({count})",
       "freeText": "Schnelle Branchenchecks im Browser mit Kerninputs und sichtbaren Risikosignalen.",
       "freeItems": {
         "basic": "Kernformeln und schnelle Zahlen",
@@ -1261,7 +1261,7 @@
         "noSignup": "Ohne Anmeldung erkunden"
       },
       "freeCta": "Jetzt testen",
-      "premiumTitle": "Premium-Rechner",
+      "premiumTitle": "Premium-Rechner ({count})",
       "premiumText": "Mehr Inputs, Szenariovergleich und exportfertige Entscheidungszusammenfassungen, wenn der Einsatz steigt.",
       "premiumItems": {
         "inputs": "Mehr Inputs und professionelle Defaults",

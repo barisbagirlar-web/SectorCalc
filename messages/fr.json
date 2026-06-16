@@ -31,21 +31,21 @@
   },
   "trace": {
     "launcher": "Parler à Trace",
-    "title": "Trace",
-    "titlePro": "Trace Pro",
+    "title": "Je suis Trace.",
+    "titlePro": "Je suis Trace.",
     "tagline": "Suivez-moi jusqu'à votre coût réel.",
     "sectorAssistant": "Assistant sectoriel",
     "inputPlaceholder": "Que souhaitez-vous calculer ?",
     "freeTagline": "Trace est gratuit.",
     "freeTaglineLink": "Connectez-vous pour les analyses Pro.",
-    "welcome": "Je suis Trace.\nJe suis la mathématique derrière votre secteur.\nDites-moi ce que vous voulez calculer, et je trouverai le bon outil.\nCommençons par une question.",
-    "welcomePro": "Je suis Trace Pro.\nJe recherche la preuve mathématique derrière vos décisions.\nDites-moi quel scénario vous voulez tester — je combinerai les outils premium et interpréterai les résultats pour vous.",
+    "welcome": "Je suis la synthèse de qualité ingénierie des modèles les plus avancés d'Anthropic — les architectures Claude Fable et Mythos. J'examine les modèles mathématiques derrière vos décisions avec la rigueur des normes TÜV. Quel scénario souhaitez-vous que j'analyse ?",
+    "welcomePro": "Je suis la synthèse de qualité ingénierie des modèles les plus avancés d'Anthropic — les architectures Claude Fable et Mythos. J'examine les modèles mathématiques derrière vos décisions avec la rigueur des normes TÜV. Quel scénario souhaitez-vous que j'analyse ?",
     "intro": {
       "badge": "Votre traceur mathématique sectoriel",
       "title": "Découvrez Trace — Votre pionnier du calcul",
       "description": "Trace n'est pas qu'un chatbot. C'est une IA sectorielle qui comprend votre question, trouve le bon calculateur et vous guide vers votre coût réel. Fini les approximations. Fini le chaos des tableurs.",
-      "feature1": "Gratuit, toujours",
-      "feature2": "Recommandations d'outils intelligentes",
+      "feature1": "{count} calculateurs gratuits — toujours gratuit",
+      "feature2": "{count} calculateurs premium — recommandations intelligentes",
       "cta": "Démarrer une conversation"
     },
     "proBadge": "Preuve de décision premium",
@@ -1252,7 +1252,7 @@
     },
     "freePremium": {
       "title": "Calculateurs gratuits et premium",
-      "freeTitle": "Calculateurs gratuits",
+      "freeTitle": "Calculateurs gratuits ({count})",
       "freeText": "Contrôles sectoriels rapides dans le navigateur avec entrées essentielles et signaux de risque visibles.",
       "freeItems": {
         "basic": "Formules essentielles et chiffres rapides",
@@ -1261,7 +1261,7 @@
         "noSignup": "Explorer sans inscription"
       },
       "freeCta": "Essayer",
-      "premiumTitle": "Calculateurs premium",
+      "premiumTitle": "Calculateurs premium ({count})",
       "premiumText": "Ajoutez plus d'entrées, comparaison de scénarios et résumés exportables quand l'enjeu monte.",
       "premiumItems": {
         "inputs": "Plus d'entrées et valeurs par défaut pro",

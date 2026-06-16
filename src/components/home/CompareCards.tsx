@@ -4,9 +4,11 @@ import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
 import { HomepageStrokeIcon } from "@/components/home/HomepageStrokeIcon";
 import { readHomepageMessageList } from "@/lib/home/homepage-component-utils";
+import { getHomepageCatalogToolCounts } from "@/lib/home/homepage-stats";
 
 export async function CompareCards() {
   const t = await getTranslations("homepageHybrid");
+  const { freeCount, premiumCount } = getHomepageCatalogToolCounts();
   const freeHighlights = readHomepageMessageList(
     t,
     "freePremium.freeHighlights",
@@ -30,7 +32,9 @@ export async function CompareCards() {
         <div className="sc-home-omni__split">
           <article className="sc-home-omni__split-card">
             <HomepageStrokeIcon icon={Play} className="sc-home-omni__split-icon" size={40} />
-            <h3 className="sc-home-omni__split-title">{t("freePremium.freeTitle")}</h3>
+            <h3 className="sc-home-omni__split-title">
+              {t("freePremium.freeTitle", { count: freeCount })}
+            </h3>
             <ul className="sc-home-omni__split-list">
               {freeHighlights.map((item) => (
                 <li key={item}>{item}</li>
@@ -46,7 +50,9 @@ export async function CompareCards() {
               className="sc-home-omni__split-icon sc-home-omni__split-icon--premium"
               size={40}
             />
-            <h3 className="sc-home-omni__split-title">{t("freePremium.premiumTitle")}</h3>
+            <h3 className="sc-home-omni__split-title">
+              {t("freePremium.premiumTitle", { count: premiumCount })}
+            </h3>
             <ul className="sc-home-omni__split-list">
               {premiumHighlights.map((item) => (
                 <li key={item}>{item}</li>

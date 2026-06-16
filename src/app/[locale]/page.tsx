@@ -5,7 +5,7 @@ import { AudienceGrid } from "@/components/home/AudienceGrid";
 import { CategoryGrid } from "@/components/home/CategoryGrid";
 import { CompareCards } from "@/components/home/CompareCards";
 import { CTASection } from "@/components/home/CTASection";
-import { TraceIntro } from "@/components/trace/TraceIntro";
+import { TraceIntroSection } from "@/components/trace/TraceIntroSection";
 import { HeroSection } from "@/components/home/HeroSection";
 import { LimitsGrid } from "@/components/home/LimitsGrid";
 import { LossGrid } from "@/components/home/LossGrid";
@@ -55,7 +55,7 @@ export default async function HomePage({ params }: PageProps) {
       <SemanticJsonLd data={buildHomeJsonLd(locale)} />
       <div className="sc-home-omni">
         <HeroSection searchEntries={searchEntries} />
-        <TraceIntro />
+        <TraceIntroSection />
         <CategoryGrid />
         <LossGrid />
         <CompareCards />

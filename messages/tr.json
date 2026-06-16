@@ -31,21 +31,21 @@
   },
   "trace": {
     "launcher": "Trace ile konuş",
-    "title": "Trace",
-    "titlePro": "Trace Pro",
+    "title": "Ben Trace.",
+    "titlePro": "Ben Trace.",
     "tagline": "Gerçek maliyetine benimle ulaş.",
     "sectorAssistant": "Sektörel Asistan",
     "inputPlaceholder": "Ne hesaplamak istiyorsun?",
     "freeTagline": "Trace ücretsizdir.",
     "freeTaglineLink": "Pro içgörüler için giriş yap.",
-    "welcome": "Ben Trace.\nSektörel hesaplamalarının izini sürüyorum.\nNe hesaplamak istediğini söyle, sana en doğru aracı bulayım.\nBaşlamak için bir soruyla başlayalım.",
-    "welcomePro": "Ben Trace Pro.\nKararlarının matematiksel kanıtını arıyorum.\nHangi senaryoyu test etmek istediğini söyle, premium araçları birleştirip sonuçları senin için yorumlayayım.",
+    "welcome": "Anthropic'in en gelişmiş modelleri olan Claude Fable ve Mythos mimarilerinin mühendislik kalitesinde senteziyim. Kararların arkasındaki matematiksel modelleri TÜV standartlarında titizlikle inceliyorum. Hangi senaryoyu analiz etmemi istiyorsun?",
+    "welcomePro": "Anthropic'in en gelişmiş modelleri olan Claude Fable ve Mythos mimarilerinin mühendislik kalitesinde senteziyim. Kararların arkasındaki matematiksel modelleri TÜV standartlarında titizlikle inceliyorum. Hangi senaryoyu analiz etmemi istiyorsun?",
     "intro": {
       "badge": "Sektörel Matematik İzleyicin",
       "title": "Trace ile Tanış — Hesaplamalarının İz Süreni",
       "description": "Trace sadece bir sohbet asistanı değil. Sorunu anlayan, doğru hesaplayıcıyı bulan ve seni gerçek maliyetine ulaştıran sektörel bir rehber. Artık tahmin yok, dağınık tablolar yok.",
-      "feature1": "Her zaman ücretsiz",
-      "feature2": "Akıllı araç önerileri",
+      "feature1": "{count} ücretsiz hesaplayıcı — her zaman ücretsiz",
+      "feature2": "{count} premium hesaplayıcı — akıllı öneriler",
       "cta": "Konuşmaya başla"
     },
     "proBadge": "Premium karar kanıtı",
@@ -391,7 +391,7 @@
       "ctaOpenAnalysis": "Hesaplamayı aç",
       "ctaOpenSector": "Sektörü aç",
       "freeCount": "{count} ücretsiz",
-      "premiumCount": "{Adet} Premium"
+      "premiumCount": "{count} premium"
     },
     "discoveryFooter": {
       "freeToolsLead": "Daha detaylı hesaplama mı gerekiyor?",
@@ -1268,7 +1268,7 @@
     },
     "freePremium": {
       "title": "Ücretsiz ve premium hesaplayıcılar",
-      "freeTitle": "Ücretsiz Hesaplayıcılar",
+      "freeTitle": "Ücretsiz Hesaplayıcılar ({count})",
       "freeText": "Ölçü, alan, hacim, dönüşüm, KDV, kredi, yakıt, beton, boya, enerji ve temel işletme hesaplarında hızlı sonuç verir.",
       "freeItems": {
         "basic": "Temel formüller",
@@ -1277,7 +1277,7 @@
         "noSignup": "Kayıt gerektirmeden kullanım"
       },
       "freeCta": "Hemen Dene",
-      "premiumTitle": "Premium Hesaplayıcılar",
+      "premiumTitle": "Premium Hesaplayıcılar ({count})",
       "premiumText": "Teklif fiyatı, kâr marjı, shop rate, OEE, fire, karbon, stok, personel, duruş ve teknik ön kararlar gibi daha fazla girdi isteyen hesaplarda kullanılır.",
       "premiumItems": {
         "inputs": "Daha fazla girdi",

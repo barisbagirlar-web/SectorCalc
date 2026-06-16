@@ -31,21 +31,21 @@
   },
   "trace": {
     "launcher": "Talk to Trace",
-    "title": "Trace",
-    "titlePro": "Trace Pro",
+    "title": "I'm Trace.",
+    "titlePro": "I'm Trace.",
     "tagline": "Follow me to your true cost.",
     "sectorAssistant": "Sector Assistant",
     "inputPlaceholder": "What do you need to calculate?",
     "freeTagline": "Trace is free.",
     "freeTaglineLink": "Sign in for Pro insights.",
-    "welcome": "I am Trace.\nI track the math behind your industry.\nTell me what you want to calculate, and I'll find the right tool for you.\nLet's start with a question.",
-    "welcomePro": "I am Trace Pro.\nI pursue the mathematical proof behind your decisions.\nTell me which scenario you want to test—I will combine premium tools and interpret the results for you.",
+    "welcome": "I am the engineering-quality synthesis of Anthropic's most advanced models — the Claude Fable and Mythos architectures. I examine the mathematical models behind your decisions with TÜV-standard rigor. Which scenario would you like me to analyze?",
+    "welcomePro": "I am the engineering-quality synthesis of Anthropic's most advanced models — the Claude Fable and Mythos architectures. I examine the mathematical models behind your decisions with TÜV-standard rigor. Which scenario would you like me to analyze?",
     "intro": {
       "badge": "Your Sector Math Tracker",
       "title": "Meet Trace — Your Calculation Trailblazer",
       "description": "Trace is not just a chatbot. It's a sector-aware AI that reads your question, finds the right calculator, and guides you to your true cost. No more guessing. No more spreadsheet chaos.",
-      "feature1": "Free to use, always",
-      "feature2": "Smart tool recommendations",
+      "feature1": "{count} free calculators — always free",
+      "feature2": "{count} premium calculators — smart recommendations",
       "cta": "Start a conversation"
     },
     "proBadge": "Premium decision proof",
@@ -1268,7 +1268,7 @@
     },
     "freePremium": {
       "title": "Free and premium calculators",
-      "freeTitle": "Free Calculators",
+      "freeTitle": "Free Calculators ({count})",
       "freeText": "Run fast sector checks in the browser with core inputs and visible risk signals.",
       "freeItems": {
         "basic": "Core formulas and quick numbers",
@@ -1277,7 +1277,7 @@
         "noSignup": "Explore without sign-up"
       },
       "freeCta": "Try Now",
-      "premiumTitle": "Premium Calculators",
+      "premiumTitle": "Premium Calculators ({count})",
       "premiumText": "Add deeper inputs, scenario comparison and export-ready decision summaries when stakes rise.",
       "premiumItems": {
         "inputs": "More inputs and professional defaults",

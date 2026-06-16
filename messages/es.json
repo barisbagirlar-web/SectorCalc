@@ -31,21 +31,21 @@
   },
   "trace": {
     "launcher": "Hablar con Trace",
-    "title": "Trace",
-    "titlePro": "Trace Pro",
+    "title": "Soy Trace.",
+    "titlePro": "Soy Trace.",
     "tagline": "Sígueme hasta tu coste real.",
     "sectorAssistant": "Asistente sectorial",
     "inputPlaceholder": "¿Qué necesitas calcular?",
     "freeTagline": "Trace es gratuito.",
     "freeTaglineLink": "Inicia sesión para análisis Pro.",
-    "welcome": "Soy Trace.\nSigo las matemáticas detrás de tu sector.\nDime qué quieres calcular y encontraré la herramienta adecuada.\nEmpecemos con una pregunta.",
-    "welcomePro": "Soy Trace Pro.\nBusco la prueba matemática detrás de tus decisiones.\nDime qué escenario quieres probar — combinaré herramientas premium e interpretaré los resultados por ti.",
+    "welcome": "Soy la síntesis de calidad de ingeniería de los modelos más avanzados de Anthropic: las arquitecturas Claude Fable y Mythos. Examino los modelos matemáticos detrás de tus decisiones con el rigor de los estándares TÜV. ¿Qué escenario quieres que analice?",
+    "welcomePro": "Soy la síntesis de calidad de ingeniería de los modelos más avanzados de Anthropic: las arquitecturas Claude Fable y Mythos. Examino los modelos matemáticos detrás de tus decisiones con el rigor de los estándares TÜV. ¿Qué escenario quieres que analice?",
     "intro": {
       "badge": "Tu rastreador matemático sectorial",
       "title": "Conoce Trace — Tu pionero del cálculo",
       "description": "Trace no es solo un chatbot. Es una IA sectorial que entiende tu pregunta, encuentra la calculadora correcta y te guía hacia tu coste real. Se acabaron las suposiciones. Se acabó el caos de las hojas de cálculo.",
-      "feature1": "Gratis, siempre",
-      "feature2": "Recomendaciones inteligentes de herramientas",
+      "feature1": "{count} calculadoras gratuitas — siempre gratis",
+      "feature2": "{count} calculadoras premium — recomendaciones inteligentes",
       "cta": "Iniciar conversación"
     },
     "proBadge": "Prueba de decisión premium",
@@ -1252,7 +1252,7 @@
     },
     "freePremium": {
       "title": "Calculadoras gratuitas y premium",
-      "freeTitle": "Calculadoras gratuitas",
+      "freeTitle": "Calculadoras gratuitas ({count})",
       "freeText": "Controles sectoriales rápidos en el navegador con entradas esenciales y señales de riesgo visibles.",
       "freeItems": {
         "basic": "Fórmulas esenciales y números rápidos",
@@ -1261,7 +1261,7 @@
         "noSignup": "Explorar sin registro"
       },
       "freeCta": "Probar ahora",
-      "premiumTitle": "Calculadoras premium",
+      "premiumTitle": "Calculadoras premium ({count})",
       "premiumText": "Añada más entradas, comparación de escenarios y resúmenes exportables cuando aumente el riesgo.",
       "premiumItems": {
         "inputs": "Más entradas y valores predeterminados profesionales",

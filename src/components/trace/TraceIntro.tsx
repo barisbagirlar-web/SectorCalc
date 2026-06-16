@@ -22,7 +22,12 @@ export function openTraceChat(): void {
   window.dispatchEvent(new CustomEvent("trace:open"));
 }
 
-export function TraceIntro() {
+type TraceIntroProps = {
+  readonly freeCount: number;
+  readonly premiumCount: number;
+};
+
+export function TraceIntro({ freeCount, premiumCount }: TraceIntroProps) {
   const t = useTranslations("trace");
 
   return (
@@ -55,11 +60,11 @@ export function TraceIntro() {
               <ul className="sc-trace-intro__features">
                 <li className="sc-trace-intro__feature">
                   <Sparkles className="sc-trace-intro__feature-icon" aria-hidden />
-                  <span>{t("intro.feature1")}</span>
+                  <span>{t("intro.feature1", { count: freeCount })}</span>
                 </li>
                 <li className="sc-trace-intro__feature">
                   <Route className="sc-trace-intro__feature-icon" aria-hidden />
-                  <span>{t("intro.feature2")}</span>
+                  <span>{t("intro.feature2", { count: premiumCount })}</span>
                 </li>
               </ul>
 
