@@ -8,32 +8,13 @@ import {
   humanizeCanonicalSlug,
 } from "@/lib/tools/canonical-tool-slugs";
 import slugCategoryMap from "@/data/free-traffic-slug-categories.generated.json";
-import { getGeneratedToolSchema } from "@/lib/generated-tools/schema-loader";
 import {
-  resolveGeneratedToolDescription,
-  resolveGeneratedToolTitle,
-} from "@/lib/generated-tools/resolve-tool-display";
+  inferFreeTrafficCategory,
+  type FreeTrafficCategory,
+} from "@/lib/tools/free-traffic-infer";
 
-export type FreeTrafficCategory =
-  | "construction-measurement"
-  | "finance-business"
-  | "manufacturing-workshop"
-  | "energy-carbon"
-  | "logistics-travel"
-  | "agriculture-food"
-  | "everyday-life"
-  | "math-statistics"
-  | "conversion"
-  | "health-body"
-  | "physics-science"
-  | "chemistry-science"
-  | "engineering-science"
-  | "food-cooking"
-  | "date-time"
-  | "education-academic"
-  | "ecology-environment"
-  | "gaming-entertainment"
-  | "hobbies-diy";
+export type { FreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
+export { inferFreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
 
 export type FreeTrafficInput = {
   readonly key: string;
@@ -74,31 +55,6 @@ export type FreeTrafficTool = {
 /** @deprecated All catalog tools are active; kept for backward compatibility */
 export type FreeTrafficToolInput = FreeTrafficInput;
 
-export function inferFreeTrafficCategory(slug: string): FreeTrafficCategory {
-  if (/machining|cnc|cutting|feed-rate|tool-|oee|cycle-time|manufacturing|gage|msa|muda|setup|mtbf|mttr|spindle/.test(slug)) {
-    return "manufacturing-workshop";
-  }
-  if (/mortgage|loan|tax|margin|roi|npv|apy|salary|discount|interest|break-even|compound/.test(slug)) {
-    return "finance-business";
-  }
-  if (/concrete|beam|pipe|reynolds|wind|voltage|thermal|deflection|flow/.test(slug)) {
-    return "construction-measurement";
-  }
-  if (/carbon|kwh|energy|ohms|hp-to|psi-to/.test(slug)) {
-    return "energy-carbon";
-  }
-  if (/mpg|liter|gallon|kg-to|lbs-to|cm-to|mm-to|sqft|celsius|converter/.test(slug)) {
-    return "conversion";
-  }
-  if (/bmi|bmr|tdee|calorie|body-fat|ovulation|pregnancy|sleep|water-intake/.test(slug)) {
-    return "health-body";
-  }
-  if (/percent|fraction|lcm|quadratic|probability|z-score|logarithm|vector|scientific|standard-deviation/.test(slug)) {
-    return "math-statistics";
-  }
-  return "everyday-life";
-}
-
 const FREE_TRAFFIC_CATEGORY_IDS: readonly FreeTrafficCategory[] = [
   "construction-measurement",
   "finance-business",
@@ -132,19 +88,14 @@ function resolveCategoryForSlug(slug: string): FreeTrafficCategory {
 }
 
 function buildCatalogEntry(slug: string): FreeTrafficTool {
-  const locale = "en";
-  const schema = getGeneratedToolSchema(slug);
-  const title = schema
-    ? resolveGeneratedToolTitle(slug, schema, locale)
-    : humanizeCanonicalSlug(slug);
-  const description = schema ? resolveGeneratedToolDescription(slug, schema, locale) : "";
+  const title = humanizeCanonicalSlug(slug);
   return {
     slug,
     title,
     category: resolveCategoryForSlug(slug),
-    description,
+    description: "",
     seoTitle: title,
-    seoDescription: description,
+    seoDescription: "",
     inputs: [],
     resultType: "quantity",
     missingFactors: [],

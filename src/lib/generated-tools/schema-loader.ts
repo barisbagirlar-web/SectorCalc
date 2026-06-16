@@ -1,5 +1,7 @@
-import * as fs from "node:fs";
-import * as path from "node:path";
+import "server-only";
+
+import * as fs from "fs";
+import * as path from "path";
 import { normalizeGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
 import { normalizeRawGeneratedSchema } from "@/lib/generated-tools/normalize-schema";
 import type { GeneratedToolInput, GeneratedToolSchema } from "@/lib/generated-tools/types";

@@ -1,4 +1,4 @@
-import type { FreeTrafficCategory } from "@/lib/tools/free-traffic-catalog";
+import type { FreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
 
 export type FreeTrafficCategoryMeta = {
   readonly id: FreeTrafficCategory;
