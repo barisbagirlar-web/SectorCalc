@@ -5,6 +5,7 @@ import type { LucideIcon } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { InteractionActionBar } from "@/components/tools/InteractionActionBar";
 import { ToolCompactHeader } from "@/components/tools/ToolCompactHeader";
+import { ToolReferenceCreatorAttribution } from "@/components/tools/ToolReferenceCreatorAttribution";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
 import { useToolHelpfulVote } from "@/hooks/use-tool-helpful-vote";
 import { buildToolPageCreatorJsonLd } from "@/lib/semantic/build-tool-creator-jsonld";
@@ -105,23 +106,24 @@ export function ToolOmniMetaSection({
       {skipStructuredData ? null : <SemanticJsonLd data={creatorJsonLd} />}
       <section className="sc-tool-omni-meta" aria-label={t("sectionLabel")}>
         <div className="sc-tool-omni-meta__top">
-          {icon ? (
-            <ToolCompactHeader
-              toolName={toolName}
-              summary={summary ?? excerpt ?? ""}
-              keywordTags={keywordTags}
-              icon={icon}
-            />
-          ) : (
-            <div className="sc-tool-omni-meta__identity">
-              <div className="sc-tool-omni-meta__copy">
-                <h1 className="sc-tool-omni-meta__title">{toolName}</h1>
-                {shareExcerpt ? (
-                  <p className="sc-tool-omni-meta__summary">{shareExcerpt}</p>
-                ) : null}
-              </div>
-            </div>
-          )}
+          <div className="sc-tool-omni-meta__main">
+            {icon ? (
+              <>
+                <ToolCompactHeader
+                  toolName={toolName}
+                  summary={summary ?? excerpt ?? ""}
+                  keywordTags={keywordTags}
+                  icon={icon}
+                />
+                <ToolReferenceCreatorAttribution belowHeader />
+              </>
+            ) : (
+              <ToolReferenceCreatorAttribution
+                toolName={toolName}
+                shareExcerpt={shareExcerpt}
+              />
+            )}
+          </div>
 
           <p className="sc-tool-omni-meta__helpful">
             <span className="sc-tool-omni-meta__helpful-count">{helpfulCountLabel}</span>{" "}

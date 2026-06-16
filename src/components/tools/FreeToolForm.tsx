@@ -13,7 +13,6 @@ import {
   getOrCreateFeedbackSessionId,
   submitToolFeedback,
 } from "@/lib/feedback/feedback-service";
-import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
 import { resolveToolDisplayChrome } from "@/lib/tools/resolve-tool-display-chrome";
 import { resolveGeneratedSelectOptions } from "@/lib/generated-tools/select-options";
 import { buildGeneratedInputGroups } from "@/lib/generated-tools/input-groups";
@@ -162,7 +161,7 @@ type FreeToolFormFieldProps = {
   readonly errors: ReturnType<typeof useForm<Record<string, unknown>>>["formState"]["errors"];
   readonly selectedUnit?: string;
   readonly onUnitChange?: (unit: string) => void;
-  readonly resolveInputLabel: (input: GeneratedToolInput) => string;
+  readonly enterValuePlaceholder: string;
 };
 
 function FreeToolFormField({
@@ -172,9 +171,8 @@ function FreeToolFormField({
   errors,
   selectedUnit,
   onUnitChange,
-  resolveInputLabel,
   enterValuePlaceholder,
-}: FreeToolFormFieldProps & { readonly enterValuePlaceholder: string }) {
+}: FreeToolFormFieldProps) {
   const locale = useLocale();
   const unitSystem = usePreferredUnitSystem();
   const display = useGeneratedToolFieldDisplay(slug, input);
@@ -196,7 +194,7 @@ function FreeToolFormField({
         render={({ field }) => (
           <div className="sc-premium-dtf-input-row">
             <div className="sc-premium-dtf-input-label">
-              <div className="sc-premium-dtf-input-title">{resolveInputLabel(input)}</div>
+              <div className="sc-premium-dtf-input-title">{display.label}</div>
               {display.helper ? (
                 <div className="sc-premium-dtf-input-desc">{display.helper}</div>
               ) : null}
@@ -211,7 +209,7 @@ function FreeToolFormField({
                 aria-invalid={Boolean(errorMessage)}
                 aria-describedby={errorMessage ? errorId : undefined}
               />
-              <span>{resolveInputLabel(input)}</span>
+              <span>{display.label}</span>
             </label>
             {errorMessage ? (
               <p id={errorId} className="sc-premium-dtf-field-error" role="alert">
@@ -233,7 +231,7 @@ function FreeToolFormField({
         render={({ field }) => (
           <div className="sc-premium-dtf-input-row">
             <div className="sc-premium-dtf-input-label">
-              <div className="sc-premium-dtf-input-title">{resolveInputLabel(input)}</div>
+              <div className="sc-premium-dtf-input-title">{display.label}</div>
               {display.helper ? (
                 <div className="sc-premium-dtf-input-desc">{display.helper}</div>
               ) : null}
@@ -274,7 +272,7 @@ function FreeToolFormField({
         <div className="sc-premium-dtf-input-row">
           <div className="sc-premium-dtf-input-label">
             <div className="sc-premium-dtf-input-title">
-              {resolveInputLabel(input)}
+              {display.label}
               {showStaticUnit ? (
                 <span className="ml-1 text-[0.75rem] font-normal text-body-charcoal">
                   ({input.unit})
@@ -308,7 +306,7 @@ function FreeToolFormField({
                 value={selectedUnit ?? input.unit}
                 onChange={(event) => onUnitChange?.(event.target.value)}
                 className="sc-premium-dtf-unit-select"
-                aria-label={`${resolveInputLabel(input)} unit`}
+                aria-label={`${display.label} unit`}
               >
                 {unitOptions.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -382,12 +380,6 @@ export function FreeToolForm({
   const displayChrome = useMemo(
     () => resolveToolDisplayChrome(slug, schema, locale),
     [locale, schema, slug],
-  );
-
-  const resolveInputLabel = useCallback(
-    (input: GeneratedToolInput) =>
-      resolveGeneratedI18nText(input.label_i18n, locale, input.label),
-    [locale],
   );
 
   const resolveGroupTitle = useCallback(
@@ -506,7 +498,6 @@ export function FreeToolForm({
                             errors={errors}
                             selectedUnit={selectedUnits[input.id]}
                             onUnitChange={(unit) => handleUnitChange(input.id, unit)}
-                            resolveInputLabel={resolveInputLabel}
                             enterValuePlaceholder={tFree("enterValue")}
                           />
                         );

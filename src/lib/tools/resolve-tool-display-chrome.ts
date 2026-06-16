@@ -7,6 +7,8 @@ import {
   resolveGeneratedToolTitle,
 } from "@/lib/generated-tools/resolve-tool-display";
 import type { GeneratedToolSchema } from "@/lib/generated-tools/types";
+import { resolveFreeToolFieldDisplay } from "@/lib/i18n/free-tool-form-i18n";
+import { isSnakeCaseTechnicalKey } from "@/lib/i18n/locale-field-copy-quality";
 import {
   inferFreeTrafficCategory,
   type FreeTrafficCategory,
@@ -25,7 +27,7 @@ function resolveOneLineSummary(
   locale: string,
 ): string {
   const primary = schema.outputs.primary.trim();
-  if (primary.length > 0 && primary.length <= 120) {
+  if (primary.length > 0 && primary.length <= 120 && !isSnakeCaseTechnicalKey(primary)) {
     return primary;
   }
 
@@ -42,14 +44,25 @@ function resolveOneLineSummary(
 }
 
 export function resolveToolKeywordTags(
+  slug: string,
   schema: GeneratedToolSchema,
   locale: string,
   limit = 3,
 ): readonly string[] {
   const tags = schema.inputs
-    .map((input) =>
-      resolveGeneratedI18nText(input.label_i18n, locale, input.label).trim(),
-    )
+    .map((input) => {
+      const fallbackLabel = resolveGeneratedI18nText(input.label_i18n, locale, input.label).trim();
+      const fallbackHelper = resolveGeneratedI18nText(
+        input.businessContext_i18n,
+        locale,
+        input.businessContext,
+      ).trim();
+      return resolveFreeToolFieldDisplay(slug, input.id, locale, {
+        label: fallbackLabel,
+        placeholder: fallbackHelper || fallbackLabel,
+        helper: fallbackHelper,
+      }).label.trim();
+    })
     .filter((label) => label.length > 0);
 
   const unique = [...new Set(tags)];
@@ -66,7 +79,7 @@ export function resolveToolDisplayChrome(
 
   return {
     summary: resolveOneLineSummary(slug, schema, locale),
-    keywordTags: resolveToolKeywordTags(schema, locale),
+    keywordTags: resolveToolKeywordTags(slug, schema, locale),
     categoryId,
     icon,
   };

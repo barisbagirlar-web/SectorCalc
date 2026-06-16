@@ -1,7 +1,14 @@
 #!/usr/bin/env node
 /**
- * Post-process messages.freeToolInputs — glossary + surface residue polish for non-EN locales.
+ * DEPRECATED — corrupts freeToolInputs via word-by-word glossary polish.
+ * Field copy SSOT: src/data/free-tool-inputs-i18n.generated.json
+ * Use: npm run sync:free-tool-inputs
  */
+console.error(
+  "polish-locale-calculator-inputs: DEPRECATED — skipped (use sync:free-tool-inputs + generate:calculator-i18n)",
+);
+process.exit(0);
+
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 

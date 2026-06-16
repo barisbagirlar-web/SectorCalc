@@ -1,4 +1,14 @@
 #!/usr/bin/env node
+/**
+ * DEPRECATED — mutates TR field labels in messages.freeToolInputs (hybrid garbage risk).
+ * Field copy SSOT: src/data/free-tool-inputs-i18n.generated.json
+ * Use: npm run sync:free-tool-inputs
+ */
+console.error(
+  "polish-tr-field-label-residue: DEPRECATED — skipped (use sync:free-tool-inputs + generate:calculator-i18n)",
+);
+process.exit(0);
+
 /** One-shot TR field label residue polish. */
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";

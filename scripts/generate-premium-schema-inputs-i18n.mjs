@@ -253,3 +253,7 @@ for (const locale of LOCALES) {
 }
 writeFileSync(freeBundlePath, `${JSON.stringify(freeBundle, null, 2)}\n`, "utf8");
 console.log(`Merged premium schema inputs → ${freeBundlePath}`);
+
+// Canonical sync — messages must mirror bundle (no stale overrides)
+const { execSync } = await import("node:child_process");
+execSync("node scripts/sync-free-tool-inputs-from-bundle.mjs", { cwd: ROOT, stdio: "inherit" });

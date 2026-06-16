@@ -13,7 +13,7 @@ import {
   getOrCreateFeedbackSessionId,
   submitToolFeedback,
 } from "@/lib/feedback/feedback-service";
-import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
+import { resolveFreeToolFieldDisplay } from "@/lib/i18n/free-tool-form-i18n";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
 import { BreakdownWasteDetailModal } from "@/components/tools/BreakdownWasteDetailModal";
 import { EnhancedBreakdownChart } from "@/components/tools/EnhancedBreakdownChart";
@@ -204,10 +204,14 @@ export function DynamicToolForm({
   const inputLabels = useMemo(() => {
     const labels: Record<string, string> = {};
     for (const input of schema.inputs) {
-      labels[input.id] = resolveGeneratedI18nText(input.label_i18n, locale, input.label);
+      labels[input.id] = resolveFreeToolFieldDisplay(slug, input.id, locale, {
+        label: input.label,
+        placeholder: input.businessContext || input.label,
+        helper: input.businessContext,
+      }).label;
     }
     return labels;
-  }, [locale, schema.inputs]);
+  }, [locale, schema.inputs, slug]);
 
   const formValues = useMemo(
     () => watchedValues as Record<string, unknown>,
@@ -218,14 +222,22 @@ export function DynamicToolForm({
 
   const resolveInputLabel = useCallback(
     (input: GeneratedToolInput) =>
-      resolveGeneratedI18nText(input.label_i18n, locale, input.label),
-    [locale],
+      resolveFreeToolFieldDisplay(slug, input.id, locale, {
+        label: input.label,
+        placeholder: input.businessContext || input.label,
+        helper: input.businessContext,
+      }).label,
+    [locale, slug],
   );
 
   const resolveBusinessContext = useCallback(
     (input: GeneratedToolInput) =>
-      resolveGeneratedI18nText(input.businessContext_i18n, locale, input.businessContext),
-    [locale],
+      resolveFreeToolFieldDisplay(slug, input.id, locale, {
+        label: input.label,
+        placeholder: input.businessContext || input.label,
+        helper: input.businessContext,
+      }).helper ?? input.businessContext,
+    [locale, slug],
   );
 
   const usePremiumLayout =

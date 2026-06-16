@@ -4,6 +4,7 @@ import {
 } from "@/lib/i18n/premium-schema-display-i18n";
 import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
 import type { GeneratedToolSchema } from "@/lib/generated-tools/types";
+import { resolveGeneratedToolDisplayTitle } from "@/lib/i18n/generated-tool-display-i18n";
 
 function humanizeSlug(slug: string): string {
   return slug
@@ -21,6 +22,12 @@ export function resolveGeneratedToolTitle(
   if (premiumName !== schema.toolName) {
     return premiumName;
   }
+
+  const localizedTitle = resolveGeneratedToolDisplayTitle(slug, schema.toolName, locale);
+  if (localizedTitle.trim() && localizedTitle !== schema.toolName) {
+    return localizedTitle;
+  }
+
   if (schema.toolName.trim()) {
     return schema.toolName;
   }

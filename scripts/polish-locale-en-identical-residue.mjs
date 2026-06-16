@@ -269,34 +269,16 @@ for (const locale of LOCALES) {
   }
 
   messages = JSON.parse(readFileSync(messagesPath, "utf8"));
-  if (!fieldLabelMap[locale]) {
-    fieldLabelMap[locale] = {};
-  }
 
-  const labelLeaks = collectFieldLabelLeaks(en, messages, fieldLabelMap, locale);
-  console.log(`${locale}: ${labelLeaks.length} unique field labels to map`);
-
-  let labelApplied = 0;
-  for (const [index, chunk] of chunkArray(labelLeaks, 45).entries()) {
-    console.log(`  labels batch ${index + 1}/${Math.ceil(labelLeaks.length / 45) || 1}`);
-    const translatedMap = await deepseekTranslateBatch(locale, chunk);
-    for (const item of chunk) {
-      const translated = translatedMap[item.key];
-      if (typeof translated === "string" && translated.trim() && translated !== item.enValue) {
-        fieldLabelMap[locale][item.enValue] = translated.trim();
-        labelApplied += 1;
-      }
-    }
-  }
+  // freeToolInputs field labels: SSOT is free-tool-inputs-i18n.generated.json — do not polish here
+  console.log(`${locale}: field label polish skipped (bundle SSOT)`);
+  const labelApplied = 0;
 
   writeFileSync(FIELD_LABEL_MAP_PATH, `${JSON.stringify(fieldLabelMap, null, 2)}\n`, "utf8");
   console.log(`  ${locale}: messages ${messageApplied}, field labels ${labelApplied}`);
 }
 
 writeFileSync(FIELD_LABEL_MAP_PATH, `${JSON.stringify(fieldLabelMap, null, 2)}\n`, "utf8");
-
-console.log("\nRegenerating calculator field copy from updated label map...");
-execSync("npm run generate:calculator-i18n", { cwd: ROOT, stdio: "inherit" });
 
 console.log("\nRunning marketing-surface polish...");
 execSync("npm run generate:marketing-surface-i18n", { cwd: ROOT, stdio: "inherit" });

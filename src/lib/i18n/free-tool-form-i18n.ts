@@ -18,6 +18,7 @@ type FieldDisplayCopy = {
   readonly helper?: string;
 };
 
+/** UI chrome only — field copy must not read messages.freeToolInputs (legacy override risk). */
 const LOCALE_MESSAGES: Record<string, MessageRecord> = {
   en: enMessages as MessageRecord,
   tr: trMessages as MessageRecord,
@@ -27,6 +28,7 @@ const LOCALE_MESSAGES: Record<string, MessageRecord> = {
   ar: arMessages as MessageRecord,
 };
 
+/** Single source of truth for calculator field label / helper copy. */
 const FIELD_I18N = fieldI18nBundle as Record<
   string,
   Record<string, Record<string, FieldDisplayCopy>>
@@ -70,33 +72,6 @@ function readGeneratedFieldCopy(
     return undefined;
   }
   return localeBundle;
-}
-
-function readFreeToolInputField(
-  messages: MessageRecord | undefined,
-  slug: string,
-  fieldKey: string,
-): FieldDisplayCopy | undefined {
-  const inputsRoot = messages?.freeToolInputs;
-  if (inputsRoot && typeof inputsRoot === "object" && !Array.isArray(inputsRoot)) {
-    const toolEntry = (inputsRoot as MessageRecord)[slug];
-    if (toolEntry && typeof toolEntry === "object" && !Array.isArray(toolEntry)) {
-      const fieldEntry = (toolEntry as MessageRecord)[fieldKey.toLowerCase()];
-      if (fieldEntry && typeof fieldEntry === "object" && !Array.isArray(fieldEntry)) {
-        const record = fieldEntry as MessageRecord;
-        const label = readString(record, "label");
-        const placeholder = readString(record, "placeholder");
-        if (label && placeholder) {
-          return {
-            label,
-            placeholder,
-            helper: readString(record, "helper"),
-          };
-        }
-      }
-    }
-  }
-  return undefined;
 }
 
 export function resolveFreeToolDisplayTitle(
@@ -152,9 +127,7 @@ function isEnglishIdenticalToEn(locale: string, slug: string, normalizedKey: str
   if (locale === "en" || !label) {
     return false;
   }
-  const enGenerated = readGeneratedFieldCopy("en", slug, normalizedKey);
-  const enMessages = readFreeToolInputField(LOCALE_MESSAGES.en, slug, normalizedKey);
-  const enLabel = enMessages?.label ?? enGenerated?.label ?? "";
+  const enLabel = readGeneratedFieldCopy("en", slug, normalizedKey)?.label ?? "";
   return Boolean(enLabel && label === enLabel);
 }
 
@@ -165,24 +138,20 @@ export function resolveFreeToolFieldDisplay(
   fallback: { readonly label: string; readonly placeholder: string; readonly helper?: string },
 ): FieldDisplayCopy {
   const normalizedKey = fieldKey.toLowerCase();
-  const fromMessages = readFreeToolInputField(LOCALE_MESSAGES[locale], slug, normalizedKey);
-  if (fromMessages) {
-    return finalizeFieldCopy(fromMessages, locale, locale !== "en");
-  }
 
-  const fromGenerated = readGeneratedFieldCopy(locale, slug, normalizedKey);
-  if (fromGenerated && !isEnglishIdenticalToEn(locale, slug, normalizedKey, fromGenerated.label)) {
-    return finalizeFieldCopy(fromGenerated, locale, locale !== "en");
+  const fromBundle = readGeneratedFieldCopy(locale, slug, normalizedKey);
+  if (fromBundle?.label && !isEnglishIdenticalToEn(locale, slug, normalizedKey, fromBundle.label)) {
+    return finalizeFieldCopy(fromBundle, locale, locale !== "en");
   }
 
   if (locale !== "en" && isSupportedLocale(locale)) {
-    const fromEnGenerated = readGeneratedFieldCopy("en", slug, normalizedKey);
-    if (fromEnGenerated) {
+    const fromEnBundle = readGeneratedFieldCopy("en", slug, normalizedKey);
+    if (fromEnBundle) {
       return finalizeFieldCopy(
         {
-          label: fromEnGenerated.label,
-          placeholder: PLACEHOLDER_BY_LOCALE[locale](translateCalculatorPhrase(fromEnGenerated.label, locale)),
-          helper: fromEnGenerated.helper,
+          label: fromEnBundle.label,
+          placeholder: PLACEHOLDER_BY_LOCALE[locale](translateCalculatorPhrase(fromEnBundle.label, locale)),
+          helper: fromEnBundle.helper,
         },
         locale,
       );

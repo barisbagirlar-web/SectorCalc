@@ -549,6 +549,15 @@
   gap: 0.75rem 1rem;
 }
 
+.sc-tool-omni-meta__main {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.sc-tool-omni-meta__identity--below-header {
+  margin-top: 0.625rem;
+}
+
 .sc-tool-omni-meta__identity {
   display: flex;
   align-items: center;

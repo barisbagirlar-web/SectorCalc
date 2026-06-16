@@ -125,7 +125,7 @@ console.log(`Merged generated schema inputs → ${freeBundlePath}`);
 for (const locale of LOCALES) {
   const messagesPath = join(ROOT, "messages", `${locale}.json`);
   const messages = JSON.parse(readFileSync(messagesPath, "utf8"));
-  messages.freeToolInputs = mergeToolBundle(messages.freeToolInputs ?? {}, bundle[locale]);
+  messages.freeToolInputs = freeBundle[locale] ?? {};
   writeFileSync(messagesPath, `${JSON.stringify(messages, null, 2)}\n`, "utf8");
-  console.log(`Merged generated schema inputs → messages/${locale}.json`);
+  console.log(`Synced messages/${locale}.json freeToolInputs from bundle`);
 }
