@@ -6,6 +6,7 @@
  */
 import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { createPhraseTranslator } from "./lib/generate-translate-phrase.mjs";
 
 const ROOT = join(import.meta.dirname, "..");
 const SCHEMAS_DIR = join(ROOT, "generated", "schemas");
@@ -20,45 +21,14 @@ const COPY_MAP = existsSync(COPY_MAP_PATH)
   ? JSON.parse(readFileSync(COPY_MAP_PATH, "utf8"))
   : { labels: {}, helpers: {} };
 
-const PLACEHOLDER_TEMPLATES = {
-  en: (label) => `Enter ${label.toLowerCase()}`,
-  tr: (label) => `${label} girin`,
-  de: (label) => `${label} eingeben`,
-  fr: (label) => `Saisir ${label.toLowerCase()}`,
-  es: (label) => `Introduzca ${label.toLowerCase()}`,
-  ar: (label) => `أدخل ${label}`,
-};
+const PHRASE_GLOSSARY = JSON.parse(
+  readFileSync(join(ROOT, "src/data/calculator-phrase-glossary.json"), "utf8"),
+);
 
-function resolvePhrase(mapBucket, enText, locale) {
-  if (!enText || locale === "en") {
-    return enText;
-  }
-  const fromMap = mapBucket?.[enText]?.[locale];
-  if (typeof fromMap === "string" && fromMap.trim()) {
-    return fromMap.trim();
-  }
-  const fromFieldLabel = FIELD_LABEL_MAP[locale]?.[enText];
-  if (typeof fromFieldLabel === "string" && fromFieldLabel.trim()) {
-    return fromFieldLabel.trim();
-  }
-  return enText;
-}
-
-function humanizeKey(key) {
-  return key
-    .replace(/([A-Z])/g, " $1")
-    .replace(/^./, (c) => c.toUpperCase())
-    .trim();
-}
-
-function buildFieldCopy(locale, enLabel, enHelper, key) {
-  const labelSource = enLabel?.trim() || humanizeKey(key);
-  const helperSource = enHelper?.trim() || labelSource;
-  const label = resolvePhrase(COPY_MAP.labels, labelSource, locale);
-  const helper = resolvePhrase(COPY_MAP.helpers, helperSource, locale);
-  const placeholder = PLACEHOLDER_TEMPLATES[locale](label);
-  return { label, placeholder, helper };
-}
+const { buildFieldCopy } = createPhraseTranslator({
+  phraseGlossary: PHRASE_GLOSSARY,
+  fieldLabelMap: FIELD_LABEL_MAP,
+});
 
 function loadGeneratedSchemaTools() {
   if (!readdirSync(ROOT).includes("generated")) {
@@ -84,7 +54,7 @@ function loadGeneratedSchemaTools() {
 function mergeToolBundle(existing, incoming) {
   const merged = { ...existing };
   for (const [slug, fields] of Object.entries(incoming)) {
-    merged[slug] = { ...(merged[slug] ?? {}), ...fields };
+    merged[slug] = fields;
   }
   return merged;
 }
@@ -102,6 +72,7 @@ for (const tool of tools) {
         input.label,
         input.helper,
         input.key,
+        COPY_MAP,
       );
     }
   }
@@ -119,13 +90,6 @@ const freeBundle = JSON.parse(readFileSync(freeBundlePath, "utf8"));
 for (const locale of LOCALES) {
   freeBundle[locale] = mergeToolBundle(freeBundle[locale] ?? {}, bundle[locale]);
 }
+
 writeFileSync(freeBundlePath, `${JSON.stringify(freeBundle, null, 2)}\n`, "utf8");
 console.log(`Merged generated schema inputs → ${freeBundlePath}`);
-
-for (const locale of LOCALES) {
-  const messagesPath = join(ROOT, "messages", `${locale}.json`);
-  const messages = JSON.parse(readFileSync(messagesPath, "utf8"));
-  messages.freeToolInputs = freeBundle[locale] ?? {};
-  writeFileSync(messagesPath, `${JSON.stringify(messages, null, 2)}\n`, "utf8");
-  console.log(`Synced messages/${locale}.json freeToolInputs from bundle`);
-}

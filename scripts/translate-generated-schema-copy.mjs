@@ -23,7 +23,7 @@ const LOCALE_NAMES = {
   es: "Spanish",
   ar: "Arabic",
 };
-const BATCH_SIZE = 25;
+const BATCH_SIZE = 50;
 
 const args = process.argv.slice(2);
 const slugFilter = args.includes("--slug") ? args[args.indexOf("--slug") + 1] : null;
@@ -70,8 +70,64 @@ function resolveToolTitleEn(raw, slug) {
   );
 }
 
-function needsLocale(entry, locale) {
-  return !entry?.[locale]?.trim();
+const ENGLISH_MARKERS = [
+  /\bthe\b/i,
+  /\bfor\b/i,
+  /\bper\b/i,
+  /\bwith\b/i,
+  /\bfrom\b/i,
+  /\bwhen\b/i,
+  /\bthat\b/i,
+  /\bthis\b/i,
+  /\bused\b/i,
+  /\bminimum\b/i,
+  /\bmaximum\b/i,
+  /\bacceptable\b/i,
+  /\bmeasure\b/i,
+  /\bprocess\b/i,
+  /\bengineering\b/i,
+  /\bcustomer\b/i,
+  /\bspecification\b/i,
+  /\bideal\b/i,
+  /\bcharacteristic\b/i,
+  /\binclude\b/i,
+  /\bif true\b/i,
+  /\be\.g\./i,
+  /\btypical\b/i,
+  /\bexpected\b/i,
+  /\bavailable\b/i,
+  /\bnumber of\b/i,
+];
+
+const LOCALE_MARKERS = {
+  tr: [/[çğıöşüÇĞİÖŞÜ]/, /\b(için|veya|başına|olarak|girin|hedef|proses|maliyet|birim)\b/i],
+  de: [/[äöüßÄÖÜ]/, /\b(und|oder|für|pro|eingeben|der|die|das)\b/i],
+  fr: [/[àâçéèêëîïôùûü]/i, /\b(pour|ou|de|le|la|saisir)\b/i],
+  es: [/[áéíóúñü¿¡]/i, /\b(para|o|de|el|la|introduzca)\b/i],
+  ar: [/[\u0600-\u06FF]/],
+};
+
+function isHybrid(text, locale) {
+  if (!text || locale === "en") {
+    return false;
+  }
+  const hasEnglish = ENGLISH_MARKERS.some((re) => re.test(text));
+  if (!hasEnglish) {
+    return false;
+  }
+  const markers = LOCALE_MARKERS[locale] ?? [];
+  return markers.some((re) => re.test(text));
+}
+
+function localeNeedsTranslation(entry, locale, enSource) {
+  const value = entry?.[locale]?.trim();
+  if (!value) {
+    return true;
+  }
+  if (enSource && value === enSource.trim()) {
+    return true;
+  }
+  return isHybrid(value, locale);
 }
 
 function collectWork(tools, map) {
@@ -87,7 +143,7 @@ function collectWork(tools, map) {
       map.toolTitles[slug].en = titleEn;
     }
     for (const locale of TARGET_LOCALES) {
-      if (needsLocale(map.toolTitles[slug], locale)) {
+      if (localeNeedsTranslation(map.toolTitles[slug], locale, titleEn)) {
         titleQueue.push({ kind: "title", slug, en: titleEn });
         break;
       }
@@ -100,7 +156,7 @@ function collectWork(tools, map) {
         if (!map.labels[labelEn]) {
           map.labels[labelEn] = {};
         }
-        if (TARGET_LOCALES.some((locale) => needsLocale(map.labels[labelEn], locale))) {
+        if (TARGET_LOCALES.some((locale) => localeNeedsTranslation(map.labels[labelEn], locale, labelEn))) {
           if (!labelQueue.includes(labelEn)) {
             labelQueue.push(labelEn);
           }
@@ -110,7 +166,7 @@ function collectWork(tools, map) {
         if (!map.helpers[helperEn]) {
           map.helpers[helperEn] = {};
         }
-        if (TARGET_LOCALES.some((locale) => needsLocale(map.helpers[helperEn], locale))) {
+        if (TARGET_LOCALES.some((locale) => localeNeedsTranslation(map.helpers[helperEn], locale, helperEn))) {
           if (!helperQueue.includes(helperEn)) {
             helperQueue.push(helperEn);
           }
@@ -122,7 +178,21 @@ function collectWork(tools, map) {
   return { labelQueue, helperQueue, titleQueue };
 }
 
-async function translateBatch(kind, entries) {
+function parseDeepSeekJson(raw) {
+  const cleaned = raw.trim().replace(/^```(?:json)?\s*\n?([\s\S]*?)\n?```\s*$/i, "$1").trim();
+  try {
+    return JSON.parse(cleaned);
+  } catch {
+    const start = cleaned.indexOf("{");
+    const end = cleaned.lastIndexOf("}");
+    if (start >= 0 && end > start) {
+      return JSON.parse(cleaned.slice(start, end + 1));
+    }
+    throw new Error(`Unparseable DeepSeek JSON (${cleaned.length} chars)`);
+  }
+}
+
+async function translateBatch(kind, entries, attempt = 1) {
   const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
   if (!apiKey) {
     throw new Error("DEEPSEEK_API_KEY missing — set in .env.local");
@@ -133,59 +203,81 @@ async function translateBatch(kind, entries) {
 
   const localeList = TARGET_LOCALES.map((locale) => `${locale} (${LOCALE_NAMES[locale]})`).join(", ");
 
-  const response = await fetch("https://api.deepseek.com/chat/completions", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      model: "deepseek-chat",
-      temperature: 0.1,
-      response_format: { type: "json_object" },
-      messages: [
-        {
-          role: "system",
-          content:
-            `You translate industrial calculator ${kind} to ${localeList}. ` +
-            "Return JSON only. Each input key maps to an object with locale keys tr, de, fr, es, ar. " +
-            "Translate the ENTIRE phrase naturally — never leave English words mixed into Turkish/German/French/Spanish/Arabic. " +
-            "Preserve symbols, units in parentheses (T), (LSL), (USL), (σ), (μ), brand tokens (Taguchi, Six Sigma, ISO), and numerals. " +
-            "For Arabic use Modern Standard Arabic.",
-        },
-        { role: "user", content: JSON.stringify(payload) },
-      ],
-    }),
-  });
+  try {
+    const response = await fetch("https://api.deepseek.com/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "deepseek-chat",
+        temperature: 0.1,
+        response_format: { type: "json_object" },
+        messages: [
+          {
+            role: "system",
+            content:
+              `You translate industrial calculator ${kind} to ${localeList}. ` +
+              "Return JSON only. Each input key maps to an object with locale keys tr, de, fr, es, ar. " +
+              "Translate the ENTIRE phrase naturally — never leave English words mixed into Turkish/German/French/Spanish/Arabic. " +
+              "Preserve symbols, units in parentheses (T), (LSL), (USL), (σ), (μ), brand tokens (Taguchi, Six Sigma, ISO), and numerals. " +
+              "For Arabic use Modern Standard Arabic.",
+          },
+          { role: "user", content: JSON.stringify(payload) },
+        ],
+      }),
+    });
 
-  if (!response.ok) {
-    const body = await response.text();
-    throw new Error(`DeepSeek HTTP ${response.status}: ${body.slice(0, 400)}`);
-  }
-
-  const json = await response.json();
-  const raw = json?.choices?.[0]?.message?.content ?? "{}";
-  const cleaned = raw.trim().replace(/^```(?:json)?\s*\n?([\s\S]*?)\n?```\s*$/i, "$1").trim();
-  const parsed = JSON.parse(cleaned);
-
-  const results = new Map();
-  for (const [key, value] of Object.entries(parsed)) {
-    const source = reverse[key];
-    if (!source || !value || typeof value !== "object") {
-      continue;
+    if (!response.ok) {
+      const body = await response.text();
+      throw new Error(`DeepSeek HTTP ${response.status}: ${body.slice(0, 400)}`);
     }
-    const locales = {};
-    for (const locale of TARGET_LOCALES) {
-      const translated = value[locale];
-      if (typeof translated === "string" && translated.trim() && translated.trim() !== source) {
-        locales[locale] = translated.trim();
+
+    const json = await response.json();
+    const raw = json?.choices?.[0]?.message?.content ?? "{}";
+    const parsed = parseDeepSeekJson(raw);
+
+    const results = new Map();
+    for (const [key, value] of Object.entries(parsed)) {
+      const source = reverse[key];
+      if (!source || !value || typeof value !== "object") {
+        continue;
+      }
+      const locales = {};
+      for (const locale of TARGET_LOCALES) {
+        const translated = value[locale];
+        if (typeof translated === "string" && translated.trim() && translated.trim() !== source) {
+          locales[locale] = translated.trim();
+        }
+      }
+      if (Object.keys(locales).length > 0) {
+        results.set(source, locales);
       }
     }
-    if (Object.keys(locales).length > 0) {
-      results.set(source, locales);
+    return results;
+  } catch (error) {
+    if (attempt < 3) {
+      await new Promise((resolve) => setTimeout(resolve, 800 * attempt));
+      return translateBatch(kind, entries, attempt + 1);
     }
+    throw error;
   }
-  return results;
+}
+
+async function translateBatchResilient(kind, entries) {
+  try {
+    return await translateBatch(kind, entries);
+  } catch (error) {
+    if (entries.length <= 1) {
+      console.warn(`  skip ${kind} item (${entries[0]?.slice(0, 60) ?? "?"}): ${error.message}`);
+      return new Map();
+    }
+    const mid = Math.ceil(entries.length / 2);
+    const left = await translateBatchResilient(kind, entries.slice(0, mid));
+    const right = await translateBatchResilient(kind, entries.slice(mid));
+    return new Map([...left, ...right]);
+  }
 }
 
 async function drainQueue(kind, queue, bucket, map) {
@@ -196,7 +288,7 @@ async function drainQueue(kind, queue, bucket, map) {
     if (dryRun) {
       continue;
     }
-    const results = await translateBatch(kind, batch);
+    const results = await translateBatchResilient(kind, batch);
     for (const [source, locales] of results) {
       bucket[source] = { ...(bucket[source] ?? {}), ...locales };
       translated += Object.keys(locales).length;
@@ -239,7 +331,7 @@ async function main() {
     for (let i = 0; i < uniqueTitles.length; i += BATCH_SIZE) {
       const batch = uniqueTitles.slice(i, i + BATCH_SIZE);
       console.log(`  titles batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(uniqueTitles.length / BATCH_SIZE)}`);
-      const results = await translateBatch("tool titles", batch);
+      const results = await translateBatchResilient("tool titles", batch);
       for (const { slug, en } of titleQueue) {
         const locales = results.get(en);
         if (locales) {

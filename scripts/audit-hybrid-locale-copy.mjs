@@ -12,32 +12,20 @@ const ROOT = join(import.meta.dirname, "..");
 const SCHEMAS_DIR = join(ROOT, "generated", "schemas");
 const LOCALES = ["tr", "de", "fr", "es", "ar"];
 
-const ENGLISH_MARKERS = [
+/** Unambiguous English leakage — avoid cognates (ideal, minimum, process, acceptable in FR/ES). */
+const ENGLISH_FUNCTION_WORDS = [
   /\bthe\b/i,
-  /\bfor\b/i,
-  /\bper\b/i,
+  /\bthis\b/i,
+  /\bthat\b/i,
   /\bwith\b/i,
   /\bfrom\b/i,
   /\bwhen\b/i,
-  /\bthat\b/i,
-  /\bthis\b/i,
-  /\bused\b/i,
-  /\bminimum\b/i,
-  /\bmaximum\b/i,
-  /\bacceptable\b/i,
-  /\bmeasure\b/i,
-  /\bprocess\b/i,
-  /\bengineering\b/i,
-  /\bcustomer\b/i,
-  /\bspecification\b/i,
-  /\bideal\b/i,
-  /\bcharacteristic\b/i,
-  /\binclude\b/i,
+  /\byour\b/i,
+  /\bwill\b/i,
+  /\bused to\b/i,
+  /\benter your\b/i,
   /\bif true\b/i,
-  /\be\.g\./i,
-  /\btypical\b/i,
-  /\bexpected\b/i,
-  /\bavailable\b/i,
+  /\be\.g\.\b/i,
 ];
 
 const TURKISH_MARKERS = [/[çğıöşüÇĞİÖŞÜ]/, /\b(için|veya|başına|olarak|girin|hedef|proses|maliyet|birim)\b/i];
@@ -54,16 +42,28 @@ const LOCALE_MARKERS = {
   ar: ARABIC_MARKERS,
 };
 
+const HYBRID_GARBAGE_PATTERNS = [
+  /\bPrimary input for\b/i,
+  /\bSecondary input for\b/i,
+  /\bOptional modifier for\b/i,
+  /\bNumber of\b/i,
+  /\bfor .+ Calculator\b/i,
+  /\bFixed Minimum Amount\b/i,
+  /\bFixed Minimum\b/i,
+];
+
 function isHybrid(text, locale) {
   if (!text || locale === "en") {
     return false;
   }
-  const hasEnglish = ENGLISH_MARKERS.some((re) => re.test(text));
-  if (!hasEnglish) {
+  const markers = LOCALE_MARKERS[locale] ?? [];
+  if (!markers.some((re) => re.test(text))) {
     return false;
   }
-  const markers = LOCALE_MARKERS[locale] ?? [];
-  return markers.some((re) => re.test(text));
+  if (HYBRID_GARBAGE_PATTERNS.some((re) => re.test(text))) {
+    return true;
+  }
+  return ENGLISH_FUNCTION_WORDS.some((re) => re.test(text));
 }
 
 function loadGeneratedSlugs() {
@@ -71,6 +71,13 @@ function loadGeneratedSlugs() {
     .filter((name) => name.endsWith("-schema.json"))
     .map((name) => name.replace(/-schema\.json$/, ""));
 }
+
+const EN_IDENTICAL_COGNATES = new Set([
+  "AQL (%)",
+  "Region",
+  "Distance (km)",
+  "Altitude (m)",
+]);
 
 function auditMessages(locale, generatedSlugs) {
   const messages = JSON.parse(readFileSync(join(ROOT, "messages", `${locale}.json`), "utf8"));
@@ -87,7 +94,7 @@ function auditMessages(locale, generatedSlugs) {
           continue;
         }
         const enValue = enFields[fieldKey]?.[part] ?? "";
-        if (value === enValue && enValue.length > 4) {
+        if (value === enValue && enValue.length > 4 && !EN_IDENTICAL_COGNATES.has(enValue)) {
           leaks.push({ slug, fieldKey, part, kind: "en-identical", sample: value.slice(0, 80) });
         } else if (isHybrid(value, locale)) {
           leaks.push({ slug, fieldKey, part, kind: "hybrid", sample: value.slice(0, 120) });
