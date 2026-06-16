@@ -27,8 +27,11 @@ interface GeneratedToolRouteParams {
   locale: string;
 }
 
+/** ISR: build only predeclared slugs; other tool pages render on first visit and revalidate hourly. */
 export const dynamic = "force-static";
 export const dynamicParams = true;
+export const revalidate = 3600;
+export const maxDuration = 300;
 
 export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
   const params = listGeneratedToolSchemaSlugs().map((slug) => ({ slug }));

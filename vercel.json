@@ -14,6 +14,11 @@
       ]
     }
   ],
+  "functions": {
+    "app/**/*.js": {
+      "maxDuration": 300
+    }
+  },
   "build": {
     "env": {
       "SECTORCALC_VERCEL_BUILD_LIMIT": "1",
