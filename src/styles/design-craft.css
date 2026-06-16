@@ -2205,6 +2205,14 @@ form[data-calculation-form="true"] {
   padding-right: 0.25rem;
 }
 
+.sc-category-filter-sidebar {
+  position: sticky;
+  top: 5rem;
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
 .sc-catalog-explorer__category-btn,
 .sc-free-tools-explorer__category-btn {
   display: block;

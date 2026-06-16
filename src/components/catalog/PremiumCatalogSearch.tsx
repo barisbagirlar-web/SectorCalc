@@ -3,9 +3,9 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/routing";
-import { buildCatalogFilterHref } from "@/lib/navigation/catalog-filter-href";
+import { Link } from "@/i18n/routing";
 import { FormulaGateCatalogMeta } from "@/components/formula/FormulaGateCatalogMeta";
+import { CategoryFilterSidebar } from "@/components/tools/CategoryFilterSidebar";
 import {
   buildPremiumCatalogSearchEntries,
 } from "@/lib/catalog/premium-catalog-source";
@@ -13,7 +13,6 @@ import {
   CATALOG_SEARCH_MAX_RESULTS,
   filterCatalogSearchEntries,
 } from "@/lib/catalog/catalog-search";
-import { getCategoryCardIcon } from "@/lib/catalog/category-card-icons";
 
 export type SearchablePremiumTool = {
   readonly slug: string;
@@ -75,7 +74,6 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
   const tSearch = useTranslations("catalogExplorer.search");
   const locale = useLocale();
   const searchParams = useSearchParams();
-  const pathname = usePathname();
 
   const validCategorySlugs = useMemo(
     () => new Set(categories.map((category) => category.slug)),
@@ -115,6 +113,15 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
       })),
     ],
     [tools.length, categories, selectedCategory, t],
+  );
+
+  const allCategoryCard = categoryCards.find((card) => card.slug === "all");
+  const filterCategories = categoryCards.filter((card) => card.slug !== "all");
+  const activeCategoryLabel =
+    filterCategories.find((card) => card.isActive)?.label ?? t("title");
+  const formatPremiumCount = useCallback(
+    (count: number) => t("premiumCount", { count }),
+    [t],
   );
 
   const typeaheadEntries = useMemo(
@@ -243,138 +250,83 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
         ) : null}
       </div>
 
-      <div className="min-w-0">
-        <h2 className="text-sm font-semibold text-premium-velvet">{t("browseByCategory")}</h2>
-        <div className="mt-3">
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
-            {categoryCards.map((item) => {
-              const iconMeta = getCategoryCardIcon(item.slug);
-              const Icon = iconMeta.icon;
+      <div className="flex flex-col gap-8 md:flex-row">
+        {allCategoryCard ? (
+          <CategoryFilterSidebar
+            title={t("browseByCategory")}
+            allLabel={t("allCategory")}
+            allCount={allCategoryCard.count}
+            allIsActive={allCategoryCard.isActive ?? false}
+            categories={filterCategories}
+            formatCount={formatPremiumCount}
+          />
+        ) : null}
 
-              const iconKey = categories.find((c) => c.slug === item.slug)?.iconKey ?? "flow";
-              const colorMap: Record<string, string> = {
-                flow: "text-blue-600",
-                quality: "text-green-600",
-                flask: "text-orange-600",
-                cnc: "text-slate-600",
-                metal: "text-gray-500",
-                build: "text-amber-600",
-                automation: "text-cyan-600",
-                maintenance: "text-lime-600",
-                shield: "text-orange-500",
-                truck: "text-purple-600",
-                people: "text-teal-600",
-                finance: "text-[#d4af37]",
-                chip: "text-indigo-600",
-                leaf: "text-emerald-600",
-                food: "text-emerald-700",
-                lab: "text-fuchsia-600",
-                electric: "text-yellow-500",
-                energy: "text-sky-600",
-                box: "text-stone-600",
-                globe: "text-blue-400",
-              };
+        <div className="min-w-0 flex-1">
+          <header className="mb-4">
+            <h2 className="text-2xl font-semibold text-gray-900">
+              {selectedCategory === "all"
+                ? t("title")
+                : t("categoryToolsTitle", { category: activeCategoryLabel })}
+            </h2>
+            <p className="mt-1 text-sm text-gray-500">
+              {t("categoryToolsSubtitle", { count: visibleTools.length })}
+            </p>
+          </header>
 
-              const iconColorClass = colorMap[iconKey] ?? "text-body-charcoal";
-              const active = item.isActive ?? false;
+          <p className="text-xs text-body-charcoal">
+            {t("resultCount", { count: visibleTools.length })}
+          </p>
 
-              return (
-                <Link
-                  key={item.slug}
-                  href={buildCatalogFilterHref(pathname, "category", item.slug, "all")}
-                  scroll={false}
-                  aria-current={active ? "true" : undefined}
-                  onClick={() => {
-                    if (!active) {
-                      scrollToToolsList();
-                    }
-                  }}
-                  className={[
-                    "group rounded-2xl border p-8 text-center transition-all duration-200",
-                    active
-                      ? "border-[#d4af37] bg-gray-50 ring-1 ring-[#d4af37]"
-                      : "border-gray-100 hover:border-gray-300",
-                  ].join(" ")}
-                >
-                  <div className="flex justify-center mb-4">
-                    <Icon
-                      className={[
-                        "w-14 h-14 transition-colors",
-                        active ? "text-[#d4af37]" : iconColorClass,
-                        !active ? "group-hover:text-[#d4af37]" : "",
-                      ].join(" ")}
-                      strokeWidth={1.5}
-                      aria-hidden="true"
-                    />
-                  </div>
-
-                  <h3 className="font-semibold text-gray-800 text-base">{item.label}</h3>
-                  <p className="text-sm text-gray-400 mt-1">
-                    {t("premiumCount", { count: item.count })}
-                  </p>
-                  {active ? (
-                    <span className="mt-2 inline-block text-xs font-medium text-[#d4af37]">
-                      {t("selectedCategory")}
-                    </span>
-                  ) : null}
-                </Link>
-              );
-            })}
-          </div>
+          <section id="tools-list" className="mt-4 min-w-0">
+            {visibleTools.length === 0 ? (
+              <div className="py-10 text-center" role="status">
+                <p className="text-sm text-body-charcoal">{t("noResults")}</p>
+                <p className="mt-1 text-xs text-body-charcoal">{t("noResultsHint")}</p>
+              </div>
+            ) : (
+              <div className="sc-premium-tool-grid">
+                {visibleTools.map((tool) =>
+                  tool.isActive && tool.routePath ? (
+                    <article
+                      key={tool.slug}
+                      id={"tool-" + tool.slug}
+                      className="sc-premium-tool-card sc-premium-tool-card--active"
+                    >
+                      <Link href={tool.routePath} prefetch={false} className="sc-premium-tool-card__link">
+                        <h3 className="sc-premium-tool-card__title">{tool.title}</h3>
+                        <p className="sc-premium-tool-card__description">{tool.description}</p>
+                        <FormulaGateCatalogMeta
+                          slug={tool.slug}
+                          locale={locale}
+                          openLabel={t("openCalculator")}
+                          isClickable
+                        />
+                      </Link>
+                    </article>
+                  ) : (
+                    <article
+                      key={tool.slug}
+                      id={"tool-" + tool.slug}
+                      className="sc-premium-tool-card sc-premium-tool-card--pending"
+                      aria-disabled="true"
+                    >
+                      <h3 className="sc-premium-tool-card__title">{tool.title}</h3>
+                      <p className="sc-premium-tool-card__description">{tool.description}</p>
+                      <FormulaGateCatalogMeta
+                        slug={tool.slug}
+                        locale={locale}
+                        openLabel={t("openCalculator")}
+                        isClickable={false}
+                      />
+                    </article>
+                  ),
+                )}
+              </div>
+            )}
+          </section>
         </div>
       </div>
-
-      <p className="text-xs text-body-charcoal">
-        {t("resultCount", { count: visibleTools.length })}
-      </p>
-
-      <section id="tools-list" className="min-w-0">
-        {visibleTools.length === 0 ? (
-          <div className="py-10 text-center" role="status">
-            <p className="text-sm text-body-charcoal">{t("noResults")}</p>
-            <p className="mt-1 text-xs text-body-charcoal">{t("noResultsHint")}</p>
-          </div>
-        ) : (
-          <div className="sc-premium-tool-grid">
-            {visibleTools.map((tool) =>
-              tool.isActive && tool.routePath ? (
-                <article
-                  key={tool.slug}
-                  id={"tool-" + tool.slug}
-                  className="sc-premium-tool-card sc-premium-tool-card--active"
-                >
-                  <Link href={tool.routePath} prefetch={false} className="sc-premium-tool-card__link">
-                    <h3 className="sc-premium-tool-card__title">{tool.title}</h3>
-                    <p className="sc-premium-tool-card__description">{tool.description}</p>
-                    <FormulaGateCatalogMeta
-                      slug={tool.slug}
-                      locale={locale}
-                      openLabel={t("openCalculator")}
-                      isClickable
-                    />
-                  </Link>
-                </article>
-              ) : (
-                <article
-                  key={tool.slug}
-                  id={"tool-" + tool.slug}
-                  className="sc-premium-tool-card sc-premium-tool-card--pending"
-                  aria-disabled="true"
-                >
-                  <h3 className="sc-premium-tool-card__title">{tool.title}</h3>
-                  <p className="sc-premium-tool-card__description">{tool.description}</p>
-                  <FormulaGateCatalogMeta
-                    slug={tool.slug}
-                    locale={locale}
-                    openLabel={t("openCalculator")}
-                    isClickable={false}
-                  />
-                </article>
-              ),
-            )}
-          </div>
-        )}
-      </section>
     </div>
   );
 }

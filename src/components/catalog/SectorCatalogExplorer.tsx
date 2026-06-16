@@ -6,8 +6,8 @@ import { useLocale, useTranslations } from "next-intl";
 import { Search, X } from "lucide-react";
 import { CatalogGroupedSearch } from "@/components/catalog/CatalogGroupedSearch";
 import { CategoryExplorer } from "@/components/catalog/CategoryExplorer";
-import { CategoryCardGrid } from "@/components/catalog/CategoryCardGrid";
 import type { CategoryCardItem } from "@/components/catalog/CategoryCardGrid";
+import { CategoryFilterSidebar } from "@/components/tools/CategoryFilterSidebar";
 import { CalculatorCard } from "@/components/catalog/CalculatorCard";
 import { CalculatorCardGrid } from "@/components/catalog/CalculatorCardGrid";
 import { DiscoveryCatalogExplorer } from "@/components/catalog/DiscoveryCatalogExplorer";
@@ -21,6 +21,7 @@ import {
   getItemsForDiscoveryTab,
   resolveDiscoveryTabLabelKey,
 } from "@/lib/catalog/discovery-tab-groups";
+import { resolveFreeToolsFilterCategoryId } from "@/lib/catalog/free-tools-category-filter";
 
 function normalizeStr(value: string, locale: string): string {
   return value
@@ -59,20 +60,7 @@ function resolveCategoryFromSearchParam(
   allowedCategoryIds: ReadonlySet<string>,
   fallbackCategoryId?: string,
 ): string {
-  if (categoryParam === CATEGORY_ALL) {
-    return CATEGORY_ALL;
-  }
-  if (categoryParam && allowedCategoryIds.has(categoryParam)) {
-    return categoryParam;
-  }
-  if (
-    categoryParam === "" &&
-    fallbackCategoryId &&
-    allowedCategoryIds.has(fallbackCategoryId)
-  ) {
-    return fallbackCategoryId;
-  }
-  return CATEGORY_ALL;
+  return resolveFreeToolsFilterCategoryId(categoryParam, allowedCategoryIds, fallbackCategoryId);
 }
 
 type FreeToolsCategoryCardExplorerProps = {
@@ -87,14 +75,19 @@ function FreeToolsCategoryCardExplorer({ groups }: FreeToolsCategoryCardExplorer
   const [searchQuery, setSearchQuery] = useState("");
   const didScrollForDeepLink = useRef(false);
 
-  const discoveryTabs = useMemo(
-    () => getDiscoveryTabsForVariant("free-tools", groups),
+  const groupsWithItems = useMemo(
+    () => groups.filter((group) => group.items.length > 0),
     [groups],
   );
 
+  const totalToolCount = useMemo(
+    () => groupsWithItems.reduce((sum, group) => sum + group.items.length, 0),
+    [groupsWithItems],
+  );
+
   const allowedCategoryIds = useMemo(
-    () => new Set(discoveryTabs.map((tab) => tab.id)),
-    [discoveryTabs],
+    () => new Set([CATEGORY_ALL, ...groupsWithItems.map((group) => group.id)]),
+    [groupsWithItems],
   );
 
   const categoryParam = searchParams?.get("category") ?? "";
@@ -107,45 +100,64 @@ function FreeToolsCategoryCardExplorer({ groups }: FreeToolsCategoryCardExplorer
     if (didScrollForDeepLink.current) {
       return;
     }
-    if (categoryParam && categoryParam !== CATEGORY_ALL && allowedCategoryIds.has(categoryParam)) {
+    if (categoryParam && categoryParam !== CATEGORY_ALL && allowedCategoryIds.has(selectedCategoryId)) {
       didScrollForDeepLink.current = true;
       scrollToToolsList();
     }
-  }, [allowedCategoryIds, categoryParam]);
+  }, [allowedCategoryIds, categoryParam, selectedCategoryId]);
 
   const categoryCards: CategoryCardItem[] = useMemo(
-    () =>
-      discoveryTabs.map((tab) => {
-        const labelKey = resolveDiscoveryTabLabelKey("free-tools", tab.id);
-        return {
-          slug: tab.id,
-          label: labelKey != null ? t(labelKey) : tab.id,
-          count: countItemsForDiscoveryTab(groups, tab),
-          isActive: selectedCategoryId === tab.id,
-        };
-      }),
-    [discoveryTabs, groups, selectedCategoryId, t],
+    () => [
+      {
+        slug: CATEGORY_ALL,
+        label: t("discoveryTabs.all"),
+        count: totalToolCount,
+        isActive: selectedCategoryId === CATEGORY_ALL,
+      },
+      ...groupsWithItems.map((group) => ({
+        slug: group.id,
+        label: group.label,
+        count: group.items.length,
+        isActive: selectedCategoryId === group.id,
+      })),
+    ],
+    [groupsWithItems, selectedCategoryId, t, totalToolCount],
   );
 
   const categoryItems = useMemo(() => {
-    const activeTab =
-      discoveryTabs.find((tab) => tab.id === selectedCategoryId) ??
-      discoveryTabs.find((tab) => tab.id === CATEGORY_ALL) ??
-      discoveryTabs[0];
+    if (selectedCategoryId === CATEGORY_ALL) {
+      return groupsWithItems.flatMap((group) =>
+        group.items.map((item) => ({
+          ...item,
+          groupId: group.id,
+          groupLabel: group.label,
+        })),
+      );
+    }
 
-    if (!activeTab) {
+    const group = groupsWithItems.find((entry) => entry.id === selectedCategoryId);
+    if (!group) {
       return [];
     }
 
-    return getItemsForDiscoveryTab(groups, activeTab);
-  }, [discoveryTabs, groups, selectedCategoryId]);
+    return group.items.map((item) => ({
+      ...item,
+      groupId: group.id,
+      groupLabel: group.label,
+    }));
+  }, [groupsWithItems, selectedCategoryId]);
 
-  const allItems = useMemo(() => {
-    const allTab =
-      discoveryTabs.find((tab) => tab.id === CATEGORY_ALL) ?? discoveryTabs[0];
-    if (!allTab) return [];
-    return getItemsForDiscoveryTab(groups, allTab);
-  }, [discoveryTabs, groups]);
+  const allItems = useMemo(
+    () =>
+      groupsWithItems.flatMap((group) =>
+        group.items.map((item) => ({
+          ...item,
+          groupId: group.id,
+          groupLabel: group.label,
+        })),
+      ),
+    [groupsWithItems],
+  );
 
   const visibleItems = useMemo(() => {
     const q = normalizeStr(searchQuery, locale);
@@ -168,6 +180,11 @@ function FreeToolsCategoryCardExplorer({ groups }: FreeToolsCategoryCardExplorer
   );
   const badgeFree = t("search.badgeFree");
   const badgePremium = t("search.badgePremium");
+
+  const allCategoryCard = categoryCards.find((card) => card.slug === CATEGORY_ALL);
+  const filterCategories = categoryCards.filter((card) => card.slug !== CATEGORY_ALL);
+  const activeCategoryLabel =
+    filterCategories.find((card) => card.isActive)?.label ?? t("freeTools.title");
 
   return (
     <div className="sc-catalog-explorer-stack flex min-w-0 flex-col gap-6">
@@ -196,52 +213,71 @@ function FreeToolsCategoryCardExplorer({ groups }: FreeToolsCategoryCardExplorer
         )}
       </div>
 
-      {!isSearching && (
-        <CategoryCardGrid
-          items={categoryCards}
-          formatCount={formatCount}
-        />
-      )}
+      <div className="flex flex-col gap-8 md:flex-row">
+        {!isSearching && allCategoryCard ? (
+          <CategoryFilterSidebar
+            title={t("labels.free-tools.navLabel")}
+            allLabel={t("labels.free-tools.allLabel")}
+            allCount={allCategoryCard.count}
+            allIsActive={allCategoryCard.isActive ?? false}
+            categories={filterCategories}
+            formatCount={formatCount}
+          />
+        ) : null}
 
-      <p className="sc-results-label" role="status">
-        {tCards.rich("resultsLabel", {
-          count: visibleItems.length,
-          strong: (chunks) => <strong>{chunks}</strong>,
-        })}
-      </p>
-      <section id="tools-list">
-        {visibleItems.length === 0 ? (
-          <p className="mt-4 text-sm text-body-charcoal" role="status">
-            {t("search.noResults")}
+        <div className="min-w-0 flex-1">
+          <header className="mb-4">
+            <h2 className="text-2xl font-semibold text-gray-900">
+              {selectedCategoryId === CATEGORY_ALL
+                ? t("freeTools.title")
+                : t("labels.free-tools.categoryToolsTitle", { category: activeCategoryLabel })}
+            </h2>
+            <p className="mt-1 text-sm text-gray-500">
+              {t("labels.free-tools.categoryToolsSubtitle", { count: visibleItems.length })}
+            </p>
+          </header>
+
+          <p className="sc-results-label" role="status">
+            {tCards.rich("resultsLabel", {
+              count: visibleItems.length,
+              strong: (chunks) => <strong>{chunks}</strong>,
+            })}
           </p>
-        ) : (
-          <CalculatorCardGrid className="mt-4">
-            {visibleItems.map((item) => (
-              <li key={item.href} className="min-w-0">
-                <CalculatorCard
-                  title={item.title}
-                  description={item.description}
-                  href={item.href}
-                  categoryLabel={item.groupLabel}
-                  tier="free"
-                  variant="calculator"
-                  inputCount={item.inputCount}
-                  freeToolCount={item.freeToolCount}
-                  premiumToolCount={item.premiumToolCount}
-                  accent={resolveCalculatorCardAccent(item.groupId, "free")}
-                  badgeFreeLabel={badgeFree}
-                  badgePremiumLabel={badgePremium}
-                  ctaLabel={item.ctaLabel ?? tCards("ctaCalculate")}
-                  inputCountLabel={(count) => tCards("inputCount", { count })}
-                  sectorCountLabel={(free, premium) =>
-                    tCards("sectorToolCounts", { free, premium })
-                  }
-                />
-              </li>
-            ))}
-          </CalculatorCardGrid>
-        )}
-      </section>
+          <section id="tools-list">
+            {visibleItems.length === 0 ? (
+              <p className="mt-4 text-sm text-body-charcoal" role="status">
+                {t("search.noResults")}
+              </p>
+            ) : (
+              <CalculatorCardGrid className="mt-4">
+                {visibleItems.map((item) => (
+                  <li key={item.href} className="min-w-0">
+                    <CalculatorCard
+                      title={item.title}
+                      description={item.description}
+                      href={item.href}
+                      categoryLabel={item.groupLabel}
+                      tier="free"
+                      variant="calculator"
+                      inputCount={item.inputCount}
+                      freeToolCount={item.freeToolCount}
+                      premiumToolCount={item.premiumToolCount}
+                      accent={resolveCalculatorCardAccent(item.groupId, "free")}
+                      badgeFreeLabel={badgeFree}
+                      badgePremiumLabel={badgePremium}
+                      ctaLabel={item.ctaLabel ?? tCards("ctaCalculate")}
+                      inputCountLabel={(count) => tCards("inputCount", { count })}
+                      sectorCountLabel={(free, premium) =>
+                        tCards("sectorToolCounts", { free, premium })
+                      }
+                    />
+                  </li>
+                ))}
+              </CalculatorCardGrid>
+            )}
+          </section>
+        </div>
+      </div>
     </div>
   );
 }
@@ -349,6 +385,11 @@ function IndustriesCategoryCardExplorer({
   );
   const badgePremium = t("search.badgePremium");
 
+  const allCategoryCard = categoryCards.find((card) => card.slug === CATEGORY_ALL);
+  const filterCategories = categoryCards.filter((card) => card.slug !== CATEGORY_ALL);
+  const activeCategoryLabel =
+    filterCategories.find((card) => card.isActive)?.label ?? t("industries.title");
+
   if (groups.every((group) => group.items.length === 0)) {
     return (
       <p className="text-sm text-body-charcoal" role="status">
@@ -384,52 +425,72 @@ function IndustriesCategoryCardExplorer({
         )}
       </div>
 
-      <CategoryCardGrid
-        items={categoryCards}
-        variant="industry"
-        formatCount={formatCount}
-      />
+      <div className="flex flex-col gap-8 md:flex-row">
+        {!isSearching && allCategoryCard ? (
+          <CategoryFilterSidebar
+            title={t("labels.industries.navLabel")}
+            allLabel={t("labels.industries.allLabel")}
+            allCount={allCategoryCard.count}
+            allIsActive={allCategoryCard.isActive ?? false}
+            categories={filterCategories}
+            formatCount={formatCount}
+          />
+        ) : null}
 
-      <p className="sc-results-label" role="status">
-        {tCards.rich("resultsLabel", {
-          count: visibleItems.length,
-          strong: (chunks) => <strong>{chunks}</strong>,
-        })}
-      </p>
+        <div className="min-w-0 flex-1">
+          <header className="mb-4">
+            <h2 className="text-2xl font-semibold text-gray-900">
+              {selectedCategoryId === CATEGORY_ALL
+                ? t("industries.title")
+                : t("labels.industries.categoryToolsTitle", { category: activeCategoryLabel })}
+            </h2>
+            <p className="mt-1 text-sm text-gray-500">
+              {t("labels.industries.categoryToolsSubtitle", { count: visibleItems.length })}
+            </p>
+          </header>
 
-      <section id="tools-list">
-        {visibleItems.length === 0 ? (
-          <p className="mt-4 text-sm text-body-charcoal" role="status">
-            {t("search.noResults")}
+          <p className="sc-results-label" role="status">
+            {tCards.rich("resultsLabel", {
+              count: visibleItems.length,
+              strong: (chunks) => <strong>{chunks}</strong>,
+            })}
           </p>
-        ) : (
-          <CalculatorCardGrid className="mt-4">
-            {visibleItems.map((item) => (
-              <li key={item.href} className="min-w-0">
-                <CalculatorCard
-                  title={item.title}
-                  description={item.description}
-                  href={item.href}
-                  categoryLabel={item.groupLabel}
-                  tier="free"
-                  variant="industry"
-                  inputCount={item.inputCount}
-                  freeToolCount={item.freeToolCount}
-                  premiumToolCount={item.premiumToolCount}
-                  accent={resolveCalculatorCardAccent(item.groupId, "free")}
-                  badgeFreeLabel={tCards("badgeSector")}
-                  badgePremiumLabel={badgePremium}
-                  ctaLabel={tCards("ctaOpenSector")}
-                  inputCountLabel={(count) => tCards("inputCount", { count })}
-                  sectorCountLabel={(free, premium) =>
-                    tCards("sectorToolCounts", { free, premium })
-                  }
-                />
-              </li>
-            ))}
-          </CalculatorCardGrid>
-        )}
-      </section>
+
+          <section id="tools-list">
+            {visibleItems.length === 0 ? (
+              <p className="mt-4 text-sm text-body-charcoal" role="status">
+                {t("search.noResults")}
+              </p>
+            ) : (
+              <CalculatorCardGrid className="mt-4">
+                {visibleItems.map((item) => (
+                  <li key={item.href} className="min-w-0">
+                    <CalculatorCard
+                      title={item.title}
+                      description={item.description}
+                      href={item.href}
+                      categoryLabel={item.groupLabel}
+                      tier="free"
+                      variant="industry"
+                      inputCount={item.inputCount}
+                      freeToolCount={item.freeToolCount}
+                      premiumToolCount={item.premiumToolCount}
+                      accent={resolveCalculatorCardAccent(item.groupId, "free")}
+                      badgeFreeLabel={tCards("badgeSector")}
+                      badgePremiumLabel={badgePremium}
+                      ctaLabel={tCards("ctaOpenSector")}
+                      inputCountLabel={(count) => tCards("inputCount", { count })}
+                      sectorCountLabel={(free, premium) =>
+                        tCards("sectorToolCounts", { free, premium })
+                      }
+                    />
+                  </li>
+                ))}
+              </CalculatorCardGrid>
+            )}
+          </section>
+        </div>
+      </div>
     </div>
   );
 }
