@@ -3,6 +3,12 @@ import type { PublishedCaseStudyBase } from "@/lib/case-studies/types";
 /** Non-localized metadata for published success-story case studies. */
 export const publishedCaseStudyBase: readonly PublishedCaseStudyBase[] = [
   {
+    slug: "muller-prazision-5s-optimization",
+    tools: ["oee-downtime-calculator", "scrap-rate-optimizer", "downtime-cost-calculator"],
+    publishedAt: "2026-05-30",
+    readTime: 4,
+  },
+  {
     slug: "cnc-oee-improvement",
     tools: ["oee-downtime-calculator", "smed-changeover-optimizer", "scrap-rate-optimizer"],
     publishedAt: "2026-06-01",

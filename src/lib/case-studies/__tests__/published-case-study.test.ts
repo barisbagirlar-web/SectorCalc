@@ -10,9 +10,10 @@ import { SUPPORTED_LOCALES } from "@/lib/i18n/locale-config";
 import { resolveGeneratedToolPath } from "@/lib/tools/paths";
 
 describe("published case studies", () => {
-  it("defines three published success stories", () => {
-    expect(publishedCaseStudyBase).toHaveLength(3);
+  it("defines four published success stories", () => {
+    expect(publishedCaseStudyBase).toHaveLength(4);
     expect(listPublishedCaseStudySlugs()).toEqual([
+      "muller-prazision-5s-optimization",
       "cnc-oee-improvement",
       "carbon-reporting-automation",
       "welding-cost-reduction",
@@ -22,7 +23,7 @@ describe("published case studies", () => {
   it("localizes every published study across six locales", () => {
     for (const locale of SUPPORTED_LOCALES) {
       const studies = listPublishedCaseStudies(locale);
-      expect(studies).toHaveLength(3);
+      expect(studies).toHaveLength(4);
       for (const study of studies) {
         expect(study.title.length).toBeGreaterThan(5);
         expect(study.results.length).toBeGreaterThanOrEqual(3);
