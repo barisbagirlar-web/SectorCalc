@@ -19,6 +19,9 @@ export {
   SITEMAP_STATIC_ROUTES,
 };
 
+/** Keeps each ISR sitemap shard under Vercel's ~19 MB fallback limit. */
+export const SITEMAP_URLS_PER_CHUNK = 2500;
+
 export function buildSitemapEntries(now = new Date()): MetadataRoute.Sitemap {
   const manifest = getSitemapManifest();
   const entries: MetadataRoute.Sitemap = [];
@@ -36,4 +39,14 @@ export function buildSitemapEntries(now = new Date()): MetadataRoute.Sitemap {
   }
 
   return entries;
+}
+
+export function getSitemapChunkCount(entries?: MetadataRoute.Sitemap): number {
+  const total = entries?.length ?? buildSitemapEntries().length;
+  return Math.max(1, Math.ceil(total / SITEMAP_URLS_PER_CHUNK));
+}
+
+export function buildSitemapChunk(chunkId: number, now = new Date()): MetadataRoute.Sitemap {
+  const start = chunkId * SITEMAP_URLS_PER_CHUNK;
+  return buildSitemapEntries(now).slice(start, start + SITEMAP_URLS_PER_CHUNK);
 }
