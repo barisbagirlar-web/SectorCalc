@@ -17,6 +17,7 @@ import {
   isSupportedLocale,
 } from "@/lib/i18n/locale-config";
 import { migrateLegacyToolPath } from "@/lib/tools/paths";
+import { migrateGeneratedToolSlugPath } from "@/lib/tools/generated-tool-slug-redirects";
 
 export {
   COUNTRY_COOKIE,
@@ -166,11 +167,28 @@ export function getLegacyEnRedirectPath(pathname: string): string | null {
     if (!rest) {
       return "/";
     }
+    const generatedSlugRedirect = migrateGeneratedToolSlugPath(rest);
+    if (generatedSlugRedirect) {
+      return generatedSlugRedirect;
+    }
     const migratedToolPath = migrateLegacyToolPath(rest);
     if (migratedToolPath) {
       return migratedToolPath;
     }
     return rest;
+  }
+  return null;
+}
+
+export function getLocalizedPathRedirect(pathname: string): string | null {
+  const locale = parseLocaleFromPath(pathname);
+  if (!locale) {
+    return null;
+  }
+  const pathWithoutLocale = stripLocaleFromPath(pathname);
+  const generatedSlugRedirect = migrateGeneratedToolSlugPath(pathWithoutLocale);
+  if (generatedSlugRedirect) {
+    return addLocaleToPath(generatedSlugRedirect, locale);
   }
   return null;
 }

@@ -14,6 +14,7 @@ import {
   addLocaleToPath,
   COUNTRY_COOKIE,
   getLegacyEnRedirectPath,
+  getLocalizedPathRedirect,
   isLocalizedPath,
   isMiddlewareExcludedPath,
   LOCALE_COOKIE,
@@ -25,6 +26,7 @@ import {
   stripLocaleFromPath,
   type SupportedLocale,
 } from "@/lib/i18n/locale-routing";
+import { migrateGeneratedToolSlugPath } from "@/lib/tools/generated-tool-slug-redirects";
 import { shouldAllowToolPageFraming } from "@/lib/tools/embed-policy";
 import { SITE_URL } from "@/lib/semantic/site-url";
 
@@ -145,10 +147,24 @@ export default function middleware(request: NextRequest) {
     return applyRegionHeaders(NextResponse.next(), request);
   }
 
+  const bareGeneratedRedirect = migrateGeneratedToolSlugPath(pathname);
+  if (bareGeneratedRedirect !== null) {
+    const url = request.nextUrl.clone();
+    url.pathname = bareGeneratedRedirect;
+    return applyRegionHeaders(NextResponse.redirect(url, 301), request);
+  }
+
   const legacyRedirect = getLegacyEnRedirectPath(pathname);
   if (legacyRedirect !== null) {
     const url = request.nextUrl.clone();
     url.pathname = legacyRedirect;
+    return applyRegionHeaders(NextResponse.redirect(url, 301), request);
+  }
+
+  const localizedRedirect = getLocalizedPathRedirect(pathname);
+  if (localizedRedirect !== null) {
+    const url = request.nextUrl.clone();
+    url.pathname = localizedRedirect;
     return applyRegionHeaders(NextResponse.redirect(url, 301), request);
   }
 
