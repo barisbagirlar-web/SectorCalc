@@ -4,8 +4,10 @@ import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
+import { Search } from "lucide-react";
+import { CategoryCardGrid } from "@/components/catalog/CategoryCardGrid";
+import type { CategoryCardItem } from "@/components/catalog/CategoryCardGrid";
 import { FormulaGateCatalogMeta } from "@/components/formula/FormulaGateCatalogMeta";
-import { CategoryFilterSidebar } from "@/components/tools/CategoryFilterSidebar";
 import {
   buildPremiumCatalogSearchEntries,
 } from "@/lib/catalog/premium-catalog-source";
@@ -37,6 +39,7 @@ export type SearchablePremiumCategory = {
 type Props = {
   readonly tools: readonly SearchablePremiumTool[];
   readonly categories: readonly SearchablePremiumCategory[];
+  readonly totalActiveCount?: number;
 };
 
 function useDebouncedValue<T>(value: T, delayMs: number): T {
@@ -69,7 +72,7 @@ function resolveCategoryFromParam(
   return validSlugs.has(categoryParam) ? categoryParam : "all";
 }
 
-export function PremiumCatalogSearch({ tools, categories }: Props) {
+export function PremiumCatalogSearch({ tools, categories, totalActiveCount }: Props) {
   const t = useTranslations("premiumCategoryCatalog");
   const tSearch = useTranslations("catalogExplorer.search");
   const locale = useLocale();
@@ -97,32 +100,31 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
     }
   }, [selectedCategory]);
 
-  const categoryCards = useMemo(
-    () => [
+  const categoryCards = useMemo((): CategoryCardItem[] => {
+    const allCount = totalActiveCount ?? tools.filter((tool) => tool.isActive && tool.routePath).length;
+    return [
       {
         slug: "all",
         label: t("allCategory"),
-        count: tools.length,
+        count: allCount,
         isActive: selectedCategory === "all",
       },
-      ...categories.map((c) => ({
-        slug: c.slug,
-        label: c.title,
-        count: c.count,
-        isActive: selectedCategory === c.slug,
+      ...categories.map((category) => ({
+        slug: category.slug,
+        label: category.title,
+        count: category.count,
+        isActive: selectedCategory === category.slug,
       })),
-    ],
-    [tools.length, categories, selectedCategory, t],
-  );
+    ];
+  }, [categories, selectedCategory, t, tools, totalActiveCount]);
 
-  const allCategoryCard = categoryCards.find((card) => card.slug === "all");
-  const filterCategories = categoryCards.filter((card) => card.slug !== "all");
   const activeCategoryLabel =
-    filterCategories.find((card) => card.isActive)?.label ?? t("title");
+    categories.find((category) => category.slug === selectedCategory)?.title ?? t("title");
   const formatPremiumCount = useCallback(
     (count: number) => t("premiumCount", { count }),
     [t],
   );
+  const isSearching = debouncedQuery.trim().length > 0;
 
   const typeaheadEntries = useMemo(
     () => buildPremiumCatalogSearchEntries(tools),
@@ -169,13 +171,11 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
         data-search-result-count={showTypeahead ? typeaheadResult.totalMatches : 0}
         data-search-has-more={showTypeahead && typeaheadResult.hiddenCount > 0}
       >
-        <div className="sc-search-wrapper sc-search-wrap">
-          <span className="sc-search-icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="11" cy="11" r="7" />
-              <path d="M20 20l-3-3" strokeLinecap="round" />
-            </svg>
-          </span>
+        <div className="sc-search-wrapper sc-search-wrap relative">
+          <Search
+            className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
+            aria-hidden="true"
+          />
           <label className="sc-catalog-search__field block w-full">
             <span className="sr-only">{t("searchLabel")}</span>
             <input
@@ -183,7 +183,7 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={tSearch("placeholder.premium-tools")}
-              className="sc-search-input sc-catalog-search__input"
+              className="sc-search-input sc-catalog-search__input w-full min-h-[44px] rounded-lg border border-slate-200 bg-white py-2.5 pl-10 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-400 focus:outline-none"
               autoComplete="off"
               enterKeyHint="search"
               aria-controls={showTypeahead ? typeaheadListId : undefined}
@@ -194,7 +194,7 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
               type="button"
               onClick={() => setSearchQuery("")}
               aria-label={tSearch("clearSearch")}
-              className="min-h-[44px] min-w-[44px] px-2 text-lg leading-none text-body-charcoal hover:text-premium-velvet"
+              className="absolute right-3 top-1/2 -translate-y-1/2 min-h-[44px] min-w-[44px] px-2 text-lg leading-none text-body-charcoal hover:text-premium-velvet"
             >
               ×
             </button>
@@ -250,35 +250,40 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
         ) : null}
       </div>
 
-      <div className="flex flex-col gap-8 md:flex-row">
-        {allCategoryCard ? (
-          <CategoryFilterSidebar
-            title={t("browseByCategory")}
-            allLabel={t("allCategory")}
-            allCount={allCategoryCard.count}
-            allIsActive={allCategoryCard.isActive ?? false}
-            categories={filterCategories}
+      {!isSearching ? (
+        <section aria-labelledby="premium-browse-category-heading">
+          <h2
+            id="premium-browse-category-heading"
+            className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-700"
+          >
+            {t("browseByCategory")}
+          </h2>
+          <CategoryCardGrid
+            items={categoryCards}
             formatCount={formatPremiumCount}
+            filterParamKey="category"
+            allFilterValue="all"
           />
-        ) : null}
+        </section>
+      ) : null}
 
-        <div className="min-w-0 flex-1">
-          <header className="mb-4">
-            <h2 className="text-2xl font-semibold text-gray-900">
-              {selectedCategory === "all"
-                ? t("title")
-                : t("categoryToolsTitle", { category: activeCategoryLabel })}
-            </h2>
-            <p className="mt-1 text-sm text-gray-500">
-              {t("categoryToolsSubtitle", { count: visibleTools.length })}
-            </p>
-          </header>
-
-          <p className="text-xs text-body-charcoal">
-            {t("resultCount", { count: visibleTools.length })}
+      <div className="min-w-0">
+        <header className="mb-4">
+          <h2 className="text-2xl font-semibold text-gray-900">
+            {selectedCategory === "all"
+              ? t("title")
+              : t("categoryToolsTitle", { category: activeCategoryLabel })}
+          </h2>
+          <p className="mt-1 text-sm text-gray-500">
+            {t("categoryToolsSubtitle", { count: visibleTools.length })}
           </p>
+        </header>
 
-          <section id="tools-list" className="mt-4 min-w-0">
+        <p className="text-xs text-body-charcoal">
+          {t("resultCount", { count: visibleTools.length })}
+        </p>
+
+        <section id="tools-list" className="mt-4 min-w-0">
             {visibleTools.length === 0 ? (
               <div className="py-10 text-center" role="status">
                 <p className="text-sm text-body-charcoal">{t("noResults")}</p>
@@ -325,7 +330,6 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
               </div>
             )}
           </section>
-        </div>
       </div>
     </div>
   );

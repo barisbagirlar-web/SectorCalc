@@ -70,10 +70,10 @@ if (cssWithoutMedia.includes("repeat(3")) {
   pass("no repeat(3) outside tablet/mobile breakpoints");
 }
 
-if (grid.includes("sc-premium-category-grid")) {
-  pass("PremiumSectorGrid uses sc-premium-category-grid");
+if (premiumPage.includes("CategoryCardGrid") || premiumPage.includes("PremiumCatalogSearch")) {
+  pass("premium category card grid wired through PremiumCatalogSearch");
 } else {
-  fail("PremiumSectorGrid missing sc-premium-category-grid");
+  fail("premium page missing category card grid explorer");
 }
 
 if (card.includes("sc-premium-category-card") && card.includes("getCategoryIcon")) {

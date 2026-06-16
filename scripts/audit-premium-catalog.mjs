@@ -43,16 +43,16 @@ const forbiddenPublic = [
   "Omni Calculator",
 ];
 
-if (premiumPage.includes("PremiumSectorGrid")) {
-  pass("/premium-tools uses PremiumSectorGrid");
+if (premiumPage.includes("PremiumCatalogSearch") && premiumPage.includes("listPremiumCatalogCategories")) {
+  pass("/premium-tools uses PremiumCatalogSearch + global category resolver");
 } else {
-  fail("/premium-tools missing PremiumSectorGrid");
+  fail("/premium-tools missing PremiumCatalogSearch category grid wiring");
 }
 
-if (!premiumPage.includes("SectorCatalogExplorer")) {
-  pass("/premium-tools no longer dumps SectorCatalogExplorer tool list");
+if (!premiumPage.includes("SectorCatalogExplorer") && !premiumPage.includes("SchemaToolsCatalogExplorer")) {
+  pass("/premium-tools no longer dumps SchemaToolsCatalogExplorer flat listing");
 } else {
-  fail("/premium-tools still uses SectorCatalogExplorer flat listing");
+  fail("/premium-tools still uses SchemaToolsCatalogExplorer flat listing");
 }
 
 if (!premiumPage.includes("getPremiumSchemaCatalogItems")) {
