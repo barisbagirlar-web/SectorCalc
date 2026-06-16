@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocale, useTranslations } from "next-intl";
 import type { z } from "zod";
 import { FreeToolReportModal } from "@/components/tools/FreeToolReportModal";
+import { PremiumUpsell } from "@/components/tools/PremiumUpsell";
 import { ToolOmniMetaSection } from "@/components/tools/ToolOmniMetaSection";
 import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
 import { useGeneratedToolFieldDisplay } from "@/hooks/use-generated-tool-field-display";
@@ -554,6 +555,8 @@ export function FreeToolForm({
           </div>
         </div>
       </div>
+
+      <PremiumUpsell />
 
       {reportModalOpen ? (
         <FreeToolReportModal

@@ -379,5 +379,8 @@
       "formula": "0.7 + (CASE inspection_method WHEN 'ultrasonic' THEN 0.2 WHEN 'radiographic' THEN 0.25 WHEN 'magnetic_particle' THEN 0.15 ELSE 0.0 END) - (CASE quality_level WHEN 'D' THEN 0.1 WHEN 'C' THEN 0.05 ELSE 0.0 END)",
       "description": "Confidence factor (0 to 1) based on NDT method and quality level."
     }
-  }
+  },
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
 }

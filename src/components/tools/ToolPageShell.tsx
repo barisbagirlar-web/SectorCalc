@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { Breadcrumb } from "@/components/tools/Breadcrumb";
 import { ToolOmniMetaSection } from "@/components/tools/ToolOmniMetaSection";
 import { PremiumTeaserPanel } from "@/components/tools/PremiumTeaserPanel";
+import { PremiumUpsell } from "@/components/tools/PremiumUpsell";
 import { RelatedTools } from "@/components/tools/RelatedTools";
 import { CTASection } from "@/components/sections/CTASection";
 import type { ToolDefinition } from "@/data/tool-schema";
@@ -73,6 +74,7 @@ export function ToolPageShell({ definition: rawDefinition, locale }: ToolPageShe
           <div className="rounded-lg border border-technical-gray bg-surface-cream p-6 text-sm text-body-charcoal">
             Calculator regeneration in progress. Schema scan will restore this tool.
           </div>
+          {!isPremium ? <PremiumUpsell /> : null}
  {definition.premiumTeaser && !definition.features?.decisionReport && (
  <div className="mt-10">
  <PremiumTeaserPanel

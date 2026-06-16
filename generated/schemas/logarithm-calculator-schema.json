@@ -344,5 +344,8 @@
       "description": "Primary result adjusted for data quality and hidden loss drivers. Scale factor between 0.8 and 1.2 applied based on input range and threshold violations.",
       "calculation": "primaryResult * (1 - 0.1 * (number of active high-severity hidden losses) + 0.05 * (if all inputs within recommended range))"
     }
-  }
+  },
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
 }

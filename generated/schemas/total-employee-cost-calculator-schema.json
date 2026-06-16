@@ -399,5 +399,8 @@
       "description": "Total cost adjusted for data quality confidence (e.g., ±10% uncertainty).",
       "formula": "total_employee_cost * (1 + (1 - productivity_factor) * 0.1)"
     }
-  }
+  },
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
 }

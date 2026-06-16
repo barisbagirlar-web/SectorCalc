@@ -52,9 +52,6 @@ export function HeaderAuthCta({ onNavigate, mobile = false }: HeaderAuthCtaProps
       <Link href="/account" prefetch={false} onClick={onNavigate} className={linkClass}>
         {t("account")}
       </Link>
-      <Link href="/account/reports" prefetch={false} onClick={onNavigate} className={linkClass}>
-        {t("myReports")}
-      </Link>
     </div>
   );
 }

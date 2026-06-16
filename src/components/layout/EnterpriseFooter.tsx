@@ -3,7 +3,7 @@
 import { Link } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { ORGANIZATION_TRUST, organizationDescriptionForLocale } from "@/config/organization-trust";
-import { SITE_SOCIAL } from "@/config/site";
+import { FOOTER_PLATFORM_NAV, SITE_SOCIAL } from "@/config/site";
 import {
   SECTOR_FOOTER_COST_LINKS,
   SECTOR_FOOTER_LOSS_LINKS,
@@ -136,6 +136,7 @@ function FooterResourceAndSocial() {
 
 export function EnterpriseFooter() {
   const t = useTranslations("sectorFooter");
+  const tNav = useTranslations("nav");
   const locale = useLocale();
   const showToolPanels = hasCanonicalToolCatalog();
   const trustDescription = organizationDescriptionForLocale(locale);
@@ -224,13 +225,22 @@ export function EnterpriseFooter() {
         <FooterResourceAndSocial />
 
         <div className="sch-bottom-nav">
-          <nav className="sch-legal-links" aria-label={t("legalNavAria")}>
-            {LEGAL_LINKS.map((item) => (
-              <Link key={item.key} href={item.href} prefetch={false}>
-                {t(item.key)}
-              </Link>
-            ))}
-          </nav>
+          <div className="sch-bottom-links">
+            <nav className="sch-platform-links" aria-label={t("platformNavAria")}>
+              {FOOTER_PLATFORM_NAV.map((item) => (
+                <Link key={item.href} href={item.href} prefetch={false}>
+                  {tNav(item.key)}
+                </Link>
+              ))}
+            </nav>
+            <nav className="sch-legal-links" aria-label={t("legalNavAria")}>
+              {LEGAL_LINKS.map((item) => (
+                <Link key={item.key} href={item.href} prefetch={false}>
+                  {t(item.key)}
+                </Link>
+              ))}
+            </nav>
+          </div>
           <div className="sch-meta-info">
             <span className="sch-mono-text">{t("metaCopyright")}</span>
             <span className="sch-mono-text">{t("metaRights")}</span>

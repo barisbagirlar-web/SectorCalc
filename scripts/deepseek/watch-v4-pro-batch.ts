@@ -11,12 +11,17 @@ import { execSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { resolveShardCount } from "./deepseek-key-pool";
 import { PROJECT_ROOT } from "./load-env";
+import { collectPendingTools } from "./resume-failed-batch";
 
 const PROGRESS_FILE = path.join(PROJECT_ROOT, ".batch-progress.json");
+const RESUME_PROGRESS_FILE = path.join(PROJECT_ROOT, ".batch-progress-failed-retry.json");
 const OUTPUT_DIR = path.join(PROJECT_ROOT, "generated", "schemas");
 const BATCH_LOG = "/tmp/v4-pro-batch.log";
 const SCREEN_NAME = "v4-pro-batch";
+
+type BatchMode = "full" | "resume" | "resume-parallel";
 
 type ProgressState = {
   completed: string[];
@@ -24,12 +29,14 @@ type ProgressState = {
 };
 
 type Snapshot = {
+  mode: BatchMode;
   completed: number;
   failed: number;
   schemas: number;
   listSize: number;
   batchAlive: boolean;
   screenAlive: boolean;
+  activeShards: number;
   currentTool: string | null;
   progressLine: string | null;
   ts: number;
@@ -51,11 +58,70 @@ function parseArgv(): { intervalMs: number; once: boolean } {
   };
 }
 
-function loadProgress(): ProgressState {
-  if (!fs.existsSync(PROGRESS_FILE)) {
+function isResumeParallelRunning(): boolean {
+  try {
+    const out = execSync("ps aux", { encoding: "utf-8" });
+    return out.includes("resume-failed-batch.ts --shard-id");
+  } catch {
+    return false;
+  }
+}
+
+function isResumeBatchRunning(): boolean {
+  try {
+    const out = execSync("ps aux", { encoding: "utf-8" });
+    return out.includes("resume-failed-batch.ts");
+  } catch {
+    return false;
+  }
+}
+
+function detectMode(): BatchMode {
+  if (isResumeParallelRunning()) return "resume-parallel";
+  if (isResumeBatchRunning()) return "resume";
+  if (fs.existsSync(RESUME_PROGRESS_FILE) && isScreenRunning()) return "resume";
+  return "full";
+}
+
+function loadResumeShardProgress(): ProgressState {
+  const merged: ProgressState = { completed: [], failed: [] };
+  const files = fs
+    .readdirSync(PROJECT_ROOT)
+    .filter((f) => f.startsWith(".batch-progress-failed-retry") && f.endsWith(".json"));
+
+  for (const file of files) {
+    try {
+      const raw = JSON.parse(
+        fs.readFileSync(path.join(PROJECT_ROOT, file), "utf-8"),
+      ) as ProgressState;
+      for (const name of raw.completed ?? []) {
+        if (!merged.completed.includes(name)) merged.completed.push(name);
+      }
+      for (const name of raw.failed ?? []) {
+        if (!merged.failed.includes(name) && !merged.completed.includes(name)) {
+          merged.failed.push(name);
+        }
+      }
+    } catch {
+      // skip
+    }
+  }
+  return merged;
+}
+
+function resolveProgressFile(mode: BatchMode): string {
+  return mode === "resume" ? RESUME_PROGRESS_FILE : PROGRESS_FILE;
+}
+
+function loadProgress(mode: BatchMode): ProgressState {
+  if (mode === "resume" || mode === "resume-parallel") {
+    return loadResumeShardProgress();
+  }
+  const file = resolveProgressFile(mode);
+  if (!fs.existsSync(file)) {
     return { completed: [], failed: [] };
   }
-  return JSON.parse(fs.readFileSync(PROGRESS_FILE, "utf-8")) as ProgressState;
+  return JSON.parse(fs.readFileSync(file, "utf-8")) as ProgressState;
 }
 
 function countSchemas(): number {
@@ -81,57 +147,111 @@ function estimateListSize(): number {
 function isBatchRunning(): boolean {
   try {
     const out = execSync("ps aux", { encoding: "utf-8" });
-    return out.includes("generate-batch-final.ts");
+    return out.includes("generate-batch-final.ts") || out.includes("resume-failed-batch.ts");
   } catch {
     return false;
+  }
+}
+
+function countResumeScreens(): number {
+  try {
+    const out = execSync("screen -ls", {
+      encoding: "utf-8",
+      stdio: ["pipe", "pipe", "pipe"],
+    });
+    return (out.match(/resume-shard-\d+/g) ?? []).length;
+  } catch (error) {
+    if (error && typeof error === "object" && "stdout" in error) {
+      const stdout = String((error as { stdout?: string }).stdout ?? "");
+      return (stdout.match(/resume-shard-\d+/g) ?? []).length;
+    }
+    return 0;
   }
 }
 
 function isScreenRunning(): boolean {
+  if (countResumeScreens() > 0) return true;
   try {
-    const out = execSync("screen -ls", { encoding: "utf-8", stdio: ["pipe", "pipe", "pipe"] });
+    const out = execSync("screen -ls", {
+      encoding: "utf-8",
+      stdio: ["pipe", "pipe", "pipe"],
+    });
     return out.includes(SCREEN_NAME);
-  } catch {
+  } catch (error) {
+    if (error && typeof error === "object" && "stdout" in error) {
+      const stdout = String((error as { stdout?: string }).stdout ?? "");
+      return stdout.includes(SCREEN_NAME);
+    }
     return false;
   }
 }
 
-function parseLogTail(): { currentTool: string | null; progressLine: string | null; recent: string[] } {
-  if (!fs.existsSync(BATCH_LOG)) {
-    return { currentTool: null, progressLine: null, recent: [] };
-  }
-  const lines = fs.readFileSync(BATCH_LOG, "utf-8").trim().split("\n").filter(Boolean);
-  const recent = lines.slice(-8);
+function parseLogTail(mode: BatchMode): {
+  currentTool: string | null;
+  progressLine: string | null;
+  queueTotal: number | null;
+  recent: string[];
+} {
+  const logPaths =
+    mode === "resume-parallel"
+      ? Array.from({ length: resolveShardCount() }, (_, i) => `/tmp/resume-shard-${i + 1}.log`)
+      : [BATCH_LOG];
 
   let currentTool: string | null = null;
   let progressLine: string | null = null;
+  let queueTotal: number | null = null;
+  const recent: string[] = [];
 
-  for (let i = lines.length - 1; i >= 0; i -= 1) {
-    const line = lines[i];
-    const toolMatch = line.match(/^\s*🔧\s+(.+)\.\.\.$/);
-    if (toolMatch && !currentTool) {
-      currentTool = toolMatch[1];
+  for (const logPath of logPaths) {
+    if (!fs.existsSync(logPath)) continue;
+    const lines = fs.readFileSync(logPath, "utf-8").trim().split("\n").filter(Boolean);
+    recent.push(...lines.slice(-2));
+
+    for (let i = lines.length - 1; i >= 0; i -= 1) {
+      const line = lines[i];
+      const toolMatch = line.match(/^\s*🔧\s+(.+)\.\.\.$/);
+      if (toolMatch && !currentTool) currentTool = toolMatch[1];
+      const progressMatch = line.match(/^📡\s+([\d\-]+)\/(\d+)/);
+      if (progressMatch && !progressLine) {
+        progressLine = `${progressMatch[1]}/${progressMatch[2]}`;
+      }
+      const queueMatch = line.match(/Global schema eksik:\s*(\d+)/);
+      if (queueMatch && queueTotal === null) {
+        queueTotal = Number(queueMatch[1]) || null;
+      }
+      const legacyQueue = line.match(/Schema eksik \(kuyruk\):\s*(\d+)/);
+      if (legacyQueue && queueTotal === null) {
+        queueTotal = Number(legacyQueue[1]) || null;
+      }
     }
-    const progressMatch = line.match(/^📡\s+(\d+)\/(\d+)/);
-    if (progressMatch && !progressLine) {
-      progressLine = `${progressMatch[1]}/${progressMatch[2]}`;
-    }
-    if (currentTool && progressLine) break;
   }
 
-  return { currentTool, progressLine, recent };
+  return {
+    currentTool,
+    progressLine,
+    queueTotal,
+    recent: recent.slice(-10),
+  };
 }
 
 function takeSnapshot(): Snapshot {
-  const progress = loadProgress();
-  const log = parseLogTail();
+  const mode = detectMode();
+  const progress = loadProgress(mode);
+  const log = parseLogTail(mode);
+  const resumeTotal = collectPendingTools().length + progress.completed.length + progress.failed.length;
+  const listSize =
+    mode === "resume" || mode === "resume-parallel"
+      ? log.queueTotal ?? resumeTotal
+      : estimateListSize();
   return {
+    mode,
     completed: progress.completed.length,
     failed: progress.failed.length,
     schemas: countSchemas(),
-    listSize: estimateListSize(),
+    listSize,
     batchAlive: isBatchRunning(),
     screenAlive: isScreenRunning(),
+    activeShards: mode === "resume-parallel" ? countResumeScreens() : mode === "resume" ? 1 : 0,
     currentTool: log.currentTool,
     progressLine: log.progressLine,
     ts: Date.now(),
@@ -155,11 +275,17 @@ function bar(ratio: number, width = 32): string {
 }
 
 function render(snap: Snapshot, prev: Snapshot | null, startedAt: number): void {
-  const progress = loadProgress();
-  const log = parseLogTail();
+  const progress = loadProgress(snap.mode);
+  const log = parseLogTail(snap.mode);
   const done = snap.completed + snap.failed;
   const total = snap.listSize || done;
   const pct = total > 0 ? (done / total) * 100 : 0;
+  const modeLabel =
+    snap.mode === "resume-parallel"
+      ? `failed-retry ×${snap.activeShards} key (${total.toLocaleString("tr-TR")} araç)`
+      : snap.mode === "resume"
+        ? `failed-retry (${total.toLocaleString("tr-TR")} araç)`
+        : `full batch (${total.toLocaleString("tr-TR")} araç)`;
 
   let eta = "hesaplanıyor…";
   if (prev && snap.ts > prev.ts) {
@@ -185,9 +311,10 @@ function render(snap: Snapshot, prev: Snapshot | null, startedAt: number): void 
   console.log(`║  ${now.padEnd(58)}║`);
   console.log("╚══════════════════════════════════════════════════════════════╝");
   console.log();
+  console.log(`  Mod           : ${modeLabel}`);
   console.log(`  Model         : deepseek-v4-pro`);
   console.log(
-    `  Screen        : ${SCREEN_NAME} ${snap.screenAlive ? "🟢 aktif" : "⚪ yok"}`,
+    `  Screen        : ${snap.activeShards > 0 ? `${snap.activeShards} resume-shard 🟢` : `${SCREEN_NAME} ${snap.screenAlive ? "🟢 aktif" : "⚪ yok"}`}`,
   );
   console.log(
     `  Batch süreci  : ${snap.batchAlive ? "🟢 çalışıyor" : "🔴 durdu"}`,
@@ -217,7 +344,7 @@ function render(snap: Snapshot, prev: Snapshot | null, startedAt: number): void 
   }
 
   console.log();
-  console.log("  ── Son log satırları (/tmp/v4-pro-batch.log) ──");
+  console.log("  ── Son log satırları (resume-shard / v4-pro-batch) ──");
   for (const line of log.recent) {
     console.log(`  ${line}`);
   }

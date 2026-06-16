@@ -354,5 +354,8 @@
       "description": "Confidence in the due date estimate based on input quality and variability.",
       "formula": "max(0, min(100, 100 - (cycle_variability * 5) - (abs(luteal_phase_length - 14) * 2) - (parity * 1) - (risk_factors != 'none' ? 10 : 0)))"
     }
-  }
+  },
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
 }

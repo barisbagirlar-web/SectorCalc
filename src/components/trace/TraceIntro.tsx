@@ -27,12 +27,8 @@ export function TraceIntro() {
 
   return (
     <section className="sc-trace-intro" aria-labelledby="trace-intro-heading">
-      <Container size="wide">
+      <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
         <div className="sc-trace-intro__card">
-          <div className="sc-trace-intro__glow sc-trace-intro__glow--top" aria-hidden />
-          <div className="sc-trace-intro__glow sc-trace-intro__glow--bottom" aria-hidden />
-          <div className="sc-trace-intro__glow sc-trace-intro__glow--center" aria-hidden />
-
           <div className="sc-trace-intro__inner">
             <div className="sc-trace-intro__avatar-wrap">
               <Image
@@ -67,7 +63,7 @@ export function TraceIntro() {
                 </li>
               </ul>
 
-              <button type="button" className="sc-trace-intro__cta" onClick={openTraceChat}>
+              <button type="button" className="sc-cta-primary sc-trace-intro__cta" onClick={openTraceChat}>
                 <span>{t("intro.cta")}</span>
                 <ArrowRight className="sc-trace-intro__cta-icon" aria-hidden />
               </button>

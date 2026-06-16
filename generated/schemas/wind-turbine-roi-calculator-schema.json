@@ -382,5 +382,8 @@
       "description": "NPV adjusted by a confidence factor based on input variability (Monte Carlo simulation proxy).",
       "formula": "npv * (1 - 0.1 * (1 - (capacity_factor / 50)))"
     }
-  }
+  },
+  "catalogCategory": "finance-business",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "finance-sales-working-capital"
 }

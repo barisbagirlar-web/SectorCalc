@@ -411,5 +411,8 @@
       "description": "Total life cycle cost adjusted by data confidence factor (lower confidence increases uncertainty range).",
       "formula": "total_life_cycle_cost * (1 + (100 - data_confidence) / 100)"
     }
-  }
+  },
+  "catalogCategory": "math-statistics",
+  "sectorSlug": "ecommerce",
+  "categorySlug": "technology-ai-cloud-cyber"
 }

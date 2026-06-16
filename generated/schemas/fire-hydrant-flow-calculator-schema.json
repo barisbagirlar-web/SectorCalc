@@ -384,5 +384,8 @@
       "description": "Available flow reduced by a confidence factor based on input quality and test compliance.",
       "adjustment_formula": "confidence_adjusted_flow = available_flow * (0.9 if is_test_standard else 0.7) * (1 - 0.02 * (number_of_hydrants - 1))"
     }
-  }
+  },
+  "catalogCategory": "construction-measurement",
+  "sectorSlug": "construction",
+  "categorySlug": "project-construction-management"
 }

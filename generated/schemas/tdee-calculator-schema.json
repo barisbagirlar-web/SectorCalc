@@ -353,5 +353,8 @@
       "description": "Multiplier between 0.85 and 1.0 based on input completeness and consistency.",
       "calculation": "1.0 - (if bodyFatPercent == null then 0.05 else 0) - (if age < 18 || age > 80 then 0.03 else 0) - (if isAthlete && activityLevel == 'moderate' then 0.02 else 0)"
     }
-  }
+  },
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
 }
