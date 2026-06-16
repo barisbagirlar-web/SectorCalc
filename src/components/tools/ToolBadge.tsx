@@ -1,6 +1,6 @@
 "use client";
 
-import { BadgeCheck, ExternalLink } from "lucide-react";
+import { BadgeCheck } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { TOOL_REFERENCE_CREATOR } from "@/config/tool-reference-creator";
 
@@ -13,7 +13,7 @@ export function ToolBadge() {
         <BadgeCheck className="sc-tool-academic-badge__icon" aria-hidden="true" />
         {t("academicBadge")}
       </span>
-      <span className="sc-tool-academic-badge__mr" title={t("mathSciNetLinkLabel")}>
+      <span className="sc-tool-academic-badge__mr">
         {t("mrIdBadge", { mrId: TOOL_REFERENCE_CREATOR.mrId })}
       </span>
       <a
@@ -23,8 +23,7 @@ export function ToolBadge() {
         rel="author noopener noreferrer"
         aria-label={t("mathSciNetAria", { name: TOOL_REFERENCE_CREATOR.name })}
       >
-        {t("mathSciNetLinkLabel")}
-        <ExternalLink className="sc-tool-academic-badge__link-icon" aria-hidden="true" />
+        {t("mathSciNetLinkLabel")} ↗
       </a>
     </div>
   );
