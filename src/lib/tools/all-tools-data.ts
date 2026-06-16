@@ -3,15 +3,15 @@ import "server-only";
 import fs from "fs";
 import path from "path";
 import schemaCatalogMetadata from "@/data/schema-catalog-metadata.generated.json";
-import {
-  getGlobalCategoryBySlug,
-  resolveGlobalCategoryTitle,
-} from "@/lib/catalog/global-tool-category-taxonomy";
 import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
 import { normalizeRawGeneratedSchema } from "@/lib/generated-tools/normalize-schema";
 import { resolveGeneratedToolTitle } from "@/lib/generated-tools/resolve-tool-display";
 import type { GeneratedToolSchema } from "@/lib/generated-tools/types";
 import { resolveGeneratedToolPath } from "@/lib/tools/paths";
+import {
+  resolveSchemaCatalogCategoryLabel,
+  resolveSchemaCatalogSectorLabel,
+} from "@/lib/i18n/schema-catalog-sidebar-labels";
 import {
   resolveSchemaCategoryKey,
   resolveSchemaSectorKey,
@@ -114,6 +114,45 @@ function resolveSectorSlugFallback(
   return normalized?.sectorSlug || asString(raw.sectorSlug) || SCHEMA_CATALOG_MAP[slug]?.sectorSlug;
 }
 
+function resolveCategoryKey(
+  slug: string,
+  raw: RawSchemaRecord,
+  normalized: GeneratedToolSchema | null,
+  categorySlugFromIndex?: string,
+): string {
+  const schemaCategory = asString(raw.category);
+
+  if (schemaCategory && schemaCategory !== DEFAULT_LABEL) {
+    return resolveSchemaCategoryKey(schemaCategory);
+  }
+
+  const categorySlug = resolveCategorySlugFallback(slug, raw, normalized, categorySlugFromIndex);
+  if (categorySlug) {
+    return categorySlug;
+  }
+
+  return "diger";
+}
+
+function resolveSectorKey(
+  slug: string,
+  raw: RawSchemaRecord,
+  normalized: GeneratedToolSchema | null,
+): string {
+  const schemaSector = asString(raw.sector);
+
+  if (schemaSector && schemaSector !== DEFAULT_LABEL) {
+    return resolveSchemaSectorKey(schemaSector);
+  }
+
+  const sectorSlug = resolveSectorSlugFallback(slug, raw, normalized);
+  if (sectorSlug) {
+    return sectorSlug;
+  }
+
+  return "diger";
+}
+
 function resolveCategory(
   slug: string,
   raw: RawSchemaRecord,
@@ -121,29 +160,10 @@ function resolveCategory(
   locale: string,
   categorySlugFromIndex?: string,
 ): Pick<ToolData, "category" | "categoryKey"> {
-  const schemaCategory = asString(raw.category);
-
-  if (schemaCategory && schemaCategory !== DEFAULT_LABEL) {
-    return {
-      category: schemaCategory,
-      categoryKey: resolveSchemaCategoryKey(schemaCategory),
-    };
-  }
-
-  const categorySlug = resolveCategorySlugFallback(slug, raw, normalized, categorySlugFromIndex);
-  if (categorySlug) {
-    const globalCategory = getGlobalCategoryBySlug(categorySlug);
-    return {
-      category: globalCategory
-        ? resolveGlobalCategoryTitle(globalCategory, locale)
-        : humanizeSlug(categorySlug),
-      categoryKey: categorySlug,
-    };
-  }
-
+  const categoryKey = resolveCategoryKey(slug, raw, normalized, categorySlugFromIndex);
   return {
-    category: DEFAULT_LABEL,
-    categoryKey: "diger",
+    categoryKey,
+    category: resolveSchemaCatalogCategoryLabel(categoryKey, locale),
   };
 }
 
@@ -151,27 +171,12 @@ function resolveSector(
   slug: string,
   raw: RawSchemaRecord,
   normalized: GeneratedToolSchema | null,
+  locale: string,
 ): Pick<ToolData, "sector" | "sectorKey"> {
-  const schemaSector = asString(raw.sector);
-
-  if (schemaSector && schemaSector !== DEFAULT_LABEL) {
-    return {
-      sector: schemaSector,
-      sectorKey: resolveSchemaSectorKey(schemaSector),
-    };
-  }
-
-  const sectorSlug = resolveSectorSlugFallback(slug, raw, normalized);
-  if (sectorSlug) {
-    return {
-      sector: schemaSector || humanizeSlug(sectorSlug),
-      sectorKey: sectorSlug,
-    };
-  }
-
+  const sectorKey = resolveSectorKey(slug, raw, normalized);
   return {
-    sector: DEFAULT_LABEL,
-    sectorKey: "diger",
+    sectorKey,
+    sector: resolveSchemaCatalogSectorLabel(sectorKey, locale),
   };
 }
 
@@ -218,7 +223,7 @@ export function getAllTools(locale = "tr"): ToolData[] {
         locale,
         catalogItem?.categorySlug,
       );
-      const sector = resolveSector(slug, raw, normalized);
+      const sector = resolveSector(slug, raw, normalized, locale);
 
       return {
         slug,
