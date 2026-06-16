@@ -26,9 +26,6 @@ export function CaseStudyProofPanel({ entry }: CaseStudyProofPanelProps) {
       <h2 id="case-study-proof-heading" className="mt-1 text-lg font-semibold text-navy sm:text-xl">
         {entry.title}
       </h2>
-      <p className="mt-2 rounded-md border border-copper/20 bg-copper/5 px-3 py-2 text-xs text-body-charcoal">
-        {t("representativeNote")}
-      </p>
 
       <div className="mt-4 space-y-4">
         <div>

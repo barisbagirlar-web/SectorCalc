@@ -62,7 +62,6 @@ export default async function CaseStudiesIndexPage({ params }: PageProps) {
       <section className="sc-craft-section overflow-x-hidden">
         <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
           <h2 className="sc-craft-headline text-lg">{t("featuredTitle")}</h2>
-          <p className="mt-2 max-w-3xl text-sm text-body-charcoal">{t("featuredSubtitle")}</p>
           <div className="mt-4 grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((entry) => (
               <CaseStudyCard

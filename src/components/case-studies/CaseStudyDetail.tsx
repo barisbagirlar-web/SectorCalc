@@ -17,9 +17,6 @@ export function CaseStudyDetail({ entry }: CaseStudyDetailProps) {
       <header className="sc-industrial-panel sc-ledger-panel p-4 sm:p-6">
         <p className="text-xs font-medium uppercase tracking-wide text-copper">{entry.sectorLabel}</p>
         <h1 className="mt-2 text-xl font-semibold text-navy sm:text-2xl">{entry.title}</h1>
-        <p className="mt-2 rounded-md border border-copper/20 bg-copper/5 px-3 py-2 text-xs text-body-charcoal">
-          Representative case study — not a verified customer outcome.
-        </p>
         <p className="mt-4 text-sm leading-relaxed text-body-charcoal">{entry.problem}</p>
       </header>
 
@@ -74,7 +71,6 @@ export function CaseStudyDetail({ entry }: CaseStudyDetailProps) {
         </Link>
       </section>
 
-      <p className="text-xs leading-relaxed text-body-charcoal">{entry.disclaimer}</p>
       <DecisionToolLegalDisclaimer />
     </article>
   );

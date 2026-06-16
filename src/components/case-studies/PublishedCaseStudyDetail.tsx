@@ -53,9 +53,6 @@ export async function PublishedCaseStudyDetail({ study, locale }: Props) {
             {t("readTime", { count: study.readTime })}
           </span>
         </div>
-        <p className="mt-4 rounded-md border border-sc-copper/20 bg-white/80 px-3 py-2 text-xs text-body-charcoal">
-          {t("publishedDisclaimer")}
-        </p>
       </header>
 
       <div className="mb-8 flex flex-wrap items-center gap-2">
