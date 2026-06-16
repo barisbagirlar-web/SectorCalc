@@ -20,6 +20,7 @@ const CALCULATOR_LIBRARY = {
     freeToolsLabel: "Free calculators",
     premiumToolsLabel: "Premium calculators",
     industriesLabel: "Industry hubs",
+    generatedToolsLabel: "Generated calculators",
   },
   tr: {
     metaTitle: "Hesap Makinesi Kütüphanesi — SectorCalc",
@@ -36,6 +37,7 @@ const CALCULATOR_LIBRARY = {
     freeToolsLabel: "Ücretsiz hesap makineleri",
     premiumToolsLabel: "Premium hesap makineleri",
     industriesLabel: "Sektör merkezleri",
+    generatedToolsLabel: "Üretilmiş hesaplayıcılar",
   },
   de: {
     metaTitle: "Rechner-Bibliothek — SectorCalc",
@@ -52,6 +54,7 @@ const CALCULATOR_LIBRARY = {
     freeToolsLabel: "Kostenlose Rechner",
     premiumToolsLabel: "Premium-Rechner",
     industriesLabel: "Branchen-Hubs",
+    generatedToolsLabel: "Generierte Rechner",
   },
   fr: {
     metaTitle: "Bibliothèque de calculateurs — SectorCalc",
@@ -68,6 +71,7 @@ const CALCULATOR_LIBRARY = {
     freeToolsLabel: "Calculateurs gratuits",
     premiumToolsLabel: "Calculateurs premium",
     industriesLabel: "Hubs sectoriels",
+    generatedToolsLabel: "Calculateurs générés",
   },
   es: {
     metaTitle: "Biblioteca de calculadoras — SectorCalc",
@@ -84,6 +88,7 @@ const CALCULATOR_LIBRARY = {
     freeToolsLabel: "Calculadoras gratuitas",
     premiumToolsLabel: "Calculadoras premium",
     industriesLabel: "Centros sectoriales",
+    generatedToolsLabel: "Calculadoras generadas",
   },
   ar: {
     metaTitle: "مكتبة الحاسبات — SectorCalc",
@@ -100,13 +105,17 @@ const CALCULATOR_LIBRARY = {
     freeToolsLabel: "حاسبات مجانية",
     premiumToolsLabel: "حاسبات مميزة",
     industriesLabel: "مراكز القطاعات",
+    generatedToolsLabel: "حاسبات مُولَّدة",
   },
 };
 
 for (const [locale, calculatorLibrary] of Object.entries(CALCULATOR_LIBRARY)) {
   const path = join(ROOT, "messages", `${locale}.json`);
   const messages = JSON.parse(readFileSync(path, "utf8"));
-  messages.calculatorLibrary = calculatorLibrary;
+  messages.calculatorLibrary = {
+    ...(messages.calculatorLibrary ?? {}),
+    ...calculatorLibrary,
+  };
   writeFileSync(path, `${JSON.stringify(messages, null, 2)}\n`, "utf8");
   console.log(`Patched calculatorLibrary → messages/${locale}.json`);
 }

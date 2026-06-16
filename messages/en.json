@@ -300,7 +300,7 @@
         "free-tools": "Search free calculators...",
         "premium-tools": "Search premium calculators...",
         "industries": "Search industry calculators...",
-        "homepage": "Which industry, cost or technical calculation do you need?"
+        "homepage": "Search sector, cost or technical calculations..."
       },
       "noResults": "No matching tools found.",
       "moreResults": "+ {count} more results",
@@ -1064,8 +1064,8 @@
       "headline": "See critical business, manufacturing and technical calculations in one place",
       "subtitle": "SectorCalc provides free and premium industry calculators for manufacturing, workshops, engineering, construction, logistics, energy, finance and operations. It helps make cost, waste, margin, inventory, routing, labor, energy and technical calculations more visible and comparable.",
       "supporting": "Basic measurement and conversion calculators are free. For quotes, scrap, shop rate, OEE, carbon, inventory, payroll, downtime and operational loss, premium industry calculators add more inputs and a decision summary.",
-      "ctaPrimary": "Open free industry calculators",
-      "ctaSecondary": "Browse premium calculators",
+      "ctaPrimary": "Free Calculators",
+      "ctaSecondary": "Explore Premium",
       "panelTitle": "Industry calculation domains",
       "panelItems": {
         "production": "Production and manufacturing",
@@ -1079,40 +1079,88 @@
       }
     },
     "coverage": {
-      "title": "Industry calculators across your operation",
-      "subtitle": "Browse by sector, calculation type or the decision you need to make — not by scattered spreadsheets.",
+      "title": "Sector-Specific Calculation Tools",
+      "subtitle": "Calculators built for your sector and the decisions you face.",
       "items": {
         "production": {
           "title": "Production & manufacturing",
-          "description": "Machine hour rate, OEE, cutting speed, scrap risk and shop-floor efficiency checks."
+          "description": "Machine hour rate, OEE, cutting speed, scrap risk and shop-floor efficiency checks.",
+          "shortTitle": "Production",
+          "tags": [
+            "CNC",
+            "OEE",
+            "Scrap"
+          ]
         },
         "industrial": {
           "title": "Industrial workshops",
-          "description": "Quote margin, break-even, repair quotes and product margin before you send the price."
+          "description": "Quote margin, break-even, repair quotes and product margin before you send the price.",
+          "shortTitle": "Workshops",
+          "tags": [
+            "Quote",
+            "Setup",
+            "Shop Rate"
+          ]
         },
         "technical": {
           "title": "Technical & engineering",
-          "description": "Bolt torque, welded connections, tolerance stack-up and cylinder force for field-ready numbers."
+          "description": "Bolt torque, welded connections, tolerance stack-up and cylinder force for field-ready numbers.",
+          "shortTitle": "Engineering",
+          "tags": [
+            "Torque",
+            "Tolerance",
+            "Cylinder"
+          ]
         },
         "construction": {
           "title": "Construction & field",
-          "description": "Concrete volume, square meters, paint coverage and roofing area for project quantities."
+          "description": "Concrete volume, square meters, paint coverage and roofing area for project quantities.",
+          "shortTitle": "Construction",
+          "tags": [
+            "Concrete",
+            "Qty",
+            "Roof"
+          ]
         },
         "logistics": {
           "title": "Logistics & transport",
-          "description": "Route cost, fuel drift, deadhead exposure and delivery margin visibility."
+          "description": "Route cost, fuel drift, deadhead exposure and delivery margin visibility.",
+          "shortTitle": "Logistics",
+          "tags": [
+            "Fuel",
+            "Dim Wt",
+            "Freight"
+          ]
         },
         "energy": {
           "title": "Energy & carbon",
-          "description": "kWh cost, compressor leaks, savings packages and CBAM carbon footprint checks."
+          "description": "kWh cost, compressor leaks, savings packages and CBAM carbon footprint checks.",
+          "shortTitle": "Energy",
+          "tags": [
+            "kWh",
+            "Leak",
+            "Carbon"
+          ]
         },
         "finance": {
           "title": "Finance & business",
-          "description": "VAT, loan payments, employee total cost and inventory carrying cost with EOQ."
+          "description": "VAT, loan payments, employee total cost and inventory carrying cost with EOQ.",
+          "shortTitle": "Finance",
+          "tags": [
+            "VAT",
+            "Payroll",
+            "Depreciation"
+          ]
         },
         "foodRetail": {
           "title": "Food & retail",
-          "description": "Menu margin, waste drift, inventory turnover and portion cost variance."
+          "description": "Menu margin, waste drift, inventory turnover and portion cost variance.",
+          "shortTitle": "Retail",
+          "tags": [
+            "Waste",
+            "Stock",
+            "Margin"
+          ]
         }
       }
     },
@@ -1135,28 +1183,33 @@
       }
     },
     "losses": {
-      "title": "What uncalculated numbers hide",
+      "title": "Turn Invisible Losses into Numbers",
       "items": {
         "monetary": {
-          "title": "Money & margin",
-          "text": "Pricing gaps, quote drift and payroll burden that never show up in the first spreadsheet row."
+          "title": "Monetary Loss",
+          "text": "Pricing gaps, quote drift and payroll burden that never show up in the first spreadsheet row.",
+          "examples": "Bad quotes, thin margin, payment terms."
         },
         "material": {
-          "title": "Material & scrap",
-          "text": "Scrap drift, waste you cannot see and inventory loss between purchase and production."
+          "title": "Material & Scrap",
+          "text": "Scrap drift, waste you cannot see and inventory loss between purchase and production.",
+          "examples": "Scrap, overuse, quality drift."
         },
         "time": {
-          "title": "Time & throughput",
-          "text": "Setup overruns, downtime cost and throughput loss that erode margin after the estimate looks fine."
+          "title": "Time & Operations",
+          "text": "Setup overruns, downtime cost and throughput loss that erode margin after the estimate looks fine.",
+          "examples": "Setup, downtime, route drift."
         },
         "energy": {
-          "title": "Energy & carbon",
-          "text": "Peak cost exposure, compressor leaks and carbon footprint pressure on export and compliance."
+          "title": "Energy & Carbon",
+          "text": "Peak cost exposure, compressor leaks and carbon footprint pressure on export and compliance.",
+          "examples": "Leaks, peak demand, carbon footprint."
         }
-      }
+      },
+      "subtitle": "Surface costs that stay hidden in day-to-day operations."
     },
     "freePremium": {
-      "title": "Basic calculations are free. Fuller decision summaries are premium.",
+      "title": "Free and premium calculators",
       "freeTitle": "Free Calculators",
       "freeText": "Run fast sector checks in the browser with core inputs and visible risk signals.",
       "freeItems": {
@@ -1165,7 +1218,7 @@
         "category": "Browse by industry and calculation type",
         "noSignup": "Explore without sign-up"
       },
-      "freeCta": "Open free calculators",
+      "freeCta": "Try Now",
       "premiumTitle": "Premium Calculators",
       "premiumText": "Add deeper inputs, scenario comparison and export-ready decision summaries when stakes rise.",
       "premiumItems": {
@@ -1174,10 +1227,20 @@
         "summary": "Decision summary with drivers and action",
         "export": "PDF and CSV export when available"
       },
-      "premiumCta": "Browse premium calculators"
+      "premiumCta": "Explore",
+      "freeHighlights": [
+        "Fast results",
+        "No sign-up",
+        "Core formulas"
+      ],
+      "premiumHighlights": [
+        "Scenario compare",
+        "Decision summary",
+        "Deeper inputs"
+      ]
     },
     "criticalTools": {
-      "title": "Critical calculators teams open first",
+      "title": "Most Used Calculators",
       "subtitle": "High-intent industry calculators across production, quoting, engineering, construction, energy and finance.",
       "badgeSoon": "Coming soon",
       "groups": {
@@ -1185,7 +1248,7 @@
           "title": "Production & manufacturing",
           "items": {
             "shopRate": {
-              "title": "Machine Hour Rate Calculator"
+              "title": "Machine Hour Rate"
             },
             "oee": {
               "title": "OEE Calculator"
@@ -1202,7 +1265,7 @@
           "title": "Workshop & quoting",
           "items": {
             "quoteMargin": {
-              "title": "Quote Price & Profit Margin Calculator"
+              "title": "Quote Wizard"
             },
             "breakEven": {
               "title": "Break-Even Calculator"
@@ -1219,7 +1282,7 @@
           "title": "Technical & engineering",
           "items": {
             "boltTorque": {
-              "title": "Bolt Tightening Torque Calculator"
+              "title": "Bolt Torque"
             },
             "weldedConnection": {
               "title": "Welded & Bolted Connection Calculator"
@@ -1236,7 +1299,7 @@
           "title": "Construction & field",
           "items": {
             "concreteVolume": {
-              "title": "Concrete Volume Calculator"
+              "title": "Concrete Volume"
             },
             "squareMeter": {
               "title": "Square Meter Calculator"
@@ -1253,7 +1316,7 @@
           "title": "Energy & carbon",
           "items": {
             "compressorLeak": {
-              "title": "Compressor Leak Cost Calculator"
+              "title": "Compressor Leak"
             },
             "kwhCost": {
               "title": "kWh Cost Calculator"
@@ -1283,57 +1346,70 @@
             }
           }
         }
+      },
+      "popularCategories": {
+        "production": "Production",
+        "workshop": "Workshop",
+        "engineering": "Engineering",
+        "construction": "Construction",
+        "energy": "Energy"
       }
     },
     "audiences": {
-      "title": "Built for operators who need numbers before ERP",
+      "title": "Who Is SectorCalc For?",
       "items": {
         "production": {
-          "title": "Production managers",
-          "text": "Check machine rate, OEE and scrap before accepting repeat jobs or repricing a line."
+          "title": "Production Teams",
+          "text": "Check machine rate, OEE and scrap before accepting repeat jobs or repricing a line.",
+          "examples": "OEE, scrap, quotes"
         },
         "industrial": {
-          "title": "Workshop owners",
-          "text": "Quote margin, break-even and repair labor before the customer pushes on price."
+          "title": "Workshops",
+          "text": "Quote margin, break-even and repair labor before the customer pushes on price.",
+          "examples": "Shop rate, setup"
         },
         "engineering": {
-          "title": "Engineers & maintenance",
-          "text": "Torque, tolerance stack-up and cylinder force without opening a separate engineering notebook."
+          "title": "Engineering",
+          "text": "Torque, tolerance stack-up and cylinder force without opening a separate engineering notebook.",
+          "examples": "Torque, tolerance"
         },
         "construction": {
-          "title": "Construction & trades",
-          "text": "Concrete, area, paint and roofing quantities before materials are ordered or the crew mobilizes."
+          "title": "Construction Crews",
+          "text": "Concrete, area, paint and roofing quantities before materials are ordered or the crew mobilizes.",
+          "examples": "Qty, volume, concrete"
         },
         "logistics": {
-          "title": "Logistics teams",
-          "text": "Route and freight math when deadhead and fuel drift are eating the delivery margin."
+          "title": "Logistics & Service",
+          "text": "Route and freight math when deadhead and fuel drift are eating the delivery margin.",
+          "examples": "Fuel, routes, freight"
         },
         "finance": {
           "title": "Finance & HR",
-          "text": "VAT, loan payment, employee total cost and inventory carrying cost for pricing and hiring calls."
+          "text": "VAT, loan payment, employee total cost and inventory carrying cost for pricing and hiring calls.",
+          "examples": "Loans, payroll"
         }
       }
     },
     "whyNotExcel": {
-      "title": "Why industry calculators instead of scattered Excel files?",
+      "title": "Why Spreadsheets Fall Short",
       "items": {
         "formula": {
-          "title": "Formulas stay consistent",
-          "text": "Stop rebuilding the same margin, scrap and energy math across notebooks, chats and one-off tabs."
+          "title": "Formulas get forgotten",
+          "text": "Scrap, energy and labor lines get skipped."
         },
         "sector": {
-          "title": "Sector context is built in",
-          "text": "Inputs and labels match manufacturing, construction, logistics and energy work — not generic cells."
+          "title": "Sector context is lost",
+          "text": "CNC math cannot share a template with concrete."
         },
         "decision": {
-          "title": "Free checks upgrade to decision summaries",
-          "text": "Start with a quick number, then open premium calculators when the quote, job or purchase needs a fuller output."
+          "title": "Decisions arrive late",
+          "text": "Loss shows up at month-end — too late to act."
         }
       },
       "closing": "SectorCalc keeps industry calculators visible, comparable and repeatable — without ERP rollout."
     },
     "finalCta": {
-      "title": "Open the industry calculator you need",
+      "title": "Which calculation should we clarify today?",
       "subtitle": "Start free, then move to premium calculators when the decision needs more inputs and a clearer summary.",
       "ctaPrimary": "Free Calculators",
       "ctaSecondary": "Premium Calculators"
@@ -65750,7 +65826,8 @@
     "servicesLabel": "services-products.txt",
     "freeToolsLabel": "Free calculators",
     "premiumToolsLabel": "Premium calculators",
-    "industriesLabel": "Industry hubs"
+    "industriesLabel": "Industry hubs",
+    "generatedToolsLabel": "Generated calculators"
   },
   "inputGuide": {
     "shape": {

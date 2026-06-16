@@ -305,7 +305,7 @@
         "free-tools": "Rechercher des calculateurs gratuits...",
         "premium-tools": "Rechercher des calculateurs premium...",
         "industries": "Rechercher des calculateurs sectoriels...",
-        "homepage": "Quel secteur, coût ou calcul technique recherchez-vous ?"
+        "homepage": "Rechercher secteur, coût ou calcul technique..."
       },
       "noResults": "Aucun outil correspondant.",
       "moreResults": "+ {count} autres résultats",
@@ -1049,7 +1049,7 @@
       "subtitle": "SectorCalc regroupe des calculateurs sectoriels pour production, atelier, chantier, logistique, énergie et finance sur une plateforme ciblée.",
       "supporting": "SANS COMPLEXITÉ ERP — POUR PME ET ÉQUIPES TERRAIN",
       "ctaPrimary": "Calculateurs gratuits",
-      "ctaSecondary": "Calculateurs premium",
+      "ctaSecondary": "Voir Premium",
       "panelTitle": "Ce que les équipes calculent en premier",
       "panelItems": {
         "production": "Taux machine, TRS et rebut",
@@ -1063,40 +1063,88 @@
       }
     },
     "coverage": {
-      "title": "Calculateurs sectoriels sur toute votre activité",
-      "subtitle": "Parcourez par secteur, type de calcul ou décision à prendre — pas par fichiers Excel éparpillés.",
+      "title": "Outils de calcul sectoriels",
+      "subtitle": "Des calculateurs adaptés à votre secteur et à vos décisions.",
       "items": {
         "production": {
           "title": "Production & fabrication",
-          "description": "Taux horaire machine, TRS, vitesse de coupe, risque rebut et efficacité atelier."
+          "description": "Taux horaire machine, TRS, vitesse de coupe, risque rebut et efficacité atelier.",
+          "shortTitle": "Production",
+          "tags": [
+            "CNC",
+            "OEE",
+            "Rebut"
+          ]
         },
         "industrial": {
           "title": "Ateliers industriels",
-          "description": "Marge devis, seuil de rentabilité, devis réparation et marge produit avant l'envoi du prix."
+          "description": "Marge devis, seuil de rentabilité, devis réparation et marge produit avant l'envoi du prix.",
+          "shortTitle": "Atelier",
+          "tags": [
+            "Devis",
+            "Setup",
+            "Shop Rate"
+          ]
         },
         "technical": {
           "title": "Technique & ingénierie",
-          "description": "Couple de serrage, connexions soudées, empilement de tolérances et force cylindre pour des chiffres terrain."
+          "description": "Couple de serrage, connexions soudées, empilement de tolérances et force cylindre pour des chiffres terrain.",
+          "shortTitle": "Ingénierie",
+          "tags": [
+            "Couple",
+            "Tolérance",
+            "Cylindre"
+          ]
         },
         "construction": {
           "title": "Construction & chantier",
-          "description": "Volume béton, mètres carrés, couverture peinture et surface toiture pour les quantités projet."
+          "description": "Volume béton, mètres carrés, couverture peinture et surface toiture pour les quantités projet.",
+          "shortTitle": "BTP",
+          "tags": [
+            "Béton",
+            "Métré",
+            "Toiture"
+          ]
         },
         "logistics": {
           "title": "Logistique & transport",
-          "description": "Coût route, dérive carburant, trajets à vide et visibilité marge livraison."
+          "description": "Coût route, dérive carburant, trajets à vide et visibilité marge livraison.",
+          "shortTitle": "Logistique",
+          "tags": [
+            "Carburant",
+            "Volumétrie",
+            "Fret"
+          ]
         },
         "energy": {
           "title": "Énergie & carbone",
-          "description": "Coût kWh, fuites compresseur, packages d'économies et empreinte carbone CBAM."
+          "description": "Coût kWh, fuites compresseur, packages d'économies et empreinte carbone CBAM.",
+          "shortTitle": "Énergie",
+          "tags": [
+            "kWh",
+            "Fuite",
+            "Carbone"
+          ]
         },
         "finance": {
           "title": "Finance & entreprise",
-          "description": "TVA, mensualité crédit, coût total employé et coût de détention stock avec EOQ."
+          "description": "TVA, mensualité crédit, coût total employé et coût de détention stock avec EOQ.",
+          "shortTitle": "Finance",
+          "tags": [
+            "TVA",
+            "Personnel",
+            "Amortissement"
+          ]
         },
         "foodRetail": {
           "title": "Alimentation & retail",
-          "description": "Marge menu, dérive gaspillage, rotation stocks et variance coût portion."
+          "description": "Marge menu, dérive gaspillage, rotation stocks et variance coût portion.",
+          "shortTitle": "Retail",
+          "tags": [
+            "Perte",
+            "Stock",
+            "Marge"
+          ]
         }
       }
     },
@@ -1119,28 +1167,33 @@
       }
     },
     "losses": {
-      "title": "Ce que les chiffres non calculés cachent",
+      "title": "Rendez les pertes invisibles calculables",
       "items": {
         "monetary": {
-          "title": "Argent & marge",
-          "text": "Écarts de prix, dérive devis et charge paie absents de la première ligne du tableur."
+          "title": "Perte financière",
+          "text": "Écarts de prix, dérive devis et charge paie absents de la première ligne du tableur.",
+          "examples": "Mauvais devis, marge basse, délai de paiement."
         },
         "material": {
-          "title": "Matériau & rebut",
-          "text": "Dérive rebut, déchets invisibles et perte stock entre achat et production."
+          "title": "Matière & Rebut",
+          "text": "Dérive rebut, déchets invisibles et perte stock entre achat et production.",
+          "examples": "Rebut, surconsommation, perte de qualité."
         },
         "time": {
-          "title": "Temps & débit",
-          "text": "Dépassements préparation, coût d'arrêt et perte de débit après un devis rassurant."
+          "title": "Temps & Opérations",
+          "text": "Dépassements préparation, coût d'arrêt et perte de débit après un devis rassurant.",
+          "examples": "Setup, arrêt, écart de route."
         },
         "energy": {
-          "title": "Énergie & carbone",
-          "text": "Exposition pic de demande, fuites compresseur et pression carbone export et conformité."
+          "title": "Énergie & Carbone",
+          "text": "Exposition pic de demande, fuites compresseur et pression carbone export et conformité.",
+          "examples": "Fuites, pic de conso, empreinte carbone."
         }
-      }
+      },
+      "subtitle": "Révélez les coûts qui passent inaperçus au quotidien."
     },
     "freePremium": {
-      "title": "Les calculs de base sont gratuits. Les résumés de décision complets sont premium.",
+      "title": "Calculateurs gratuits et premium",
       "freeTitle": "Calculateurs gratuits",
       "freeText": "Contrôles sectoriels rapides dans le navigateur avec entrées essentielles et signaux de risque visibles.",
       "freeItems": {
@@ -1149,7 +1202,7 @@
         "category": "Parcourir par secteur et type de calcul",
         "noSignup": "Explorer sans inscription"
       },
-      "freeCta": "Ouvrir les calculateurs gratuits",
+      "freeCta": "Essayer",
       "premiumTitle": "Calculateurs premium",
       "premiumText": "Ajoutez plus d'entrées, comparaison de scénarios et résumés exportables quand l'enjeu monte.",
       "premiumItems": {
@@ -1158,10 +1211,20 @@
         "summary": "Résumé de décision avec leviers et action",
         "export": "Export PDF et CSV quand disponible"
       },
-      "premiumCta": "Voir les calculateurs premium"
+      "premiumCta": "Explorer",
+      "freeHighlights": [
+        "Résultat rapide",
+        "Sans inscription",
+        "Formules de base"
+      ],
+      "premiumHighlights": [
+        "Comparaison de scénarios",
+        "Résumé décisionnel",
+        "Entrées détaillées"
+      ]
     },
     "criticalTools": {
-      "title": "Calculateurs critiques ouverts en premier",
+      "title": "Calculateurs les plus utilisés",
       "subtitle": "Calculateurs sectoriels à forte intention pour production, devis, ingénierie, construction, énergie et finance.",
       "badgeSoon": "Bientôt",
       "groups": {
@@ -1169,10 +1232,10 @@
           "title": "Production & fabrication",
           "items": {
             "shopRate": {
-              "title": "Calculateur de taux horaire machine"
+              "title": "Coût horaire machine"
             },
             "oee": {
-              "title": "Calculateur TRS (OEE)"
+              "title": "Calculateur OEE"
             },
             "cuttingSpeed": {
               "title": "Calculateur de vitesse de coupe"
@@ -1186,7 +1249,7 @@
           "title": "Atelier & devis",
           "items": {
             "quoteMargin": {
-              "title": "Calculateur de prix de devis et marge bénéficiaire"
+              "title": "Assistant devis"
             },
             "breakEven": {
               "title": "Calculateur de seuil de rentabilité"
@@ -1203,7 +1266,7 @@
           "title": "Technique & ingénierie",
           "items": {
             "boltTorque": {
-              "title": "Calculateur de couple de serrage boulon"
+              "title": "Couple de serrage"
             },
             "weldedConnection": {
               "title": "Calculateur de connexions soudées et boulonnées"
@@ -1220,7 +1283,7 @@
           "title": "Construction & chantier",
           "items": {
             "concreteVolume": {
-              "title": "Calculateur de volume de béton"
+              "title": "Volume béton"
             },
             "squareMeter": {
               "title": "Calculateur de mètres carrés"
@@ -1237,7 +1300,7 @@
           "title": "Énergie & carbone",
           "items": {
             "compressorLeak": {
-              "title": "Calculateur de coût de fuite compresseur"
+              "title": "Fuite compresseur"
             },
             "kwhCost": {
               "title": "Calculateur de coût kWh"
@@ -1267,57 +1330,70 @@
             }
           }
         }
+      },
+      "popularCategories": {
+        "production": "Production",
+        "workshop": "Atelier",
+        "engineering": "Ingénierie",
+        "construction": "BTP",
+        "energy": "Énergie"
       }
     },
     "audiences": {
-      "title": "Pour les équipes qui ont besoin de chiffres avant l'ERP",
+      "title": "Pour qui est SectorCalc ?",
       "items": {
         "production": {
-          "title": "Responsables production",
-          "text": "Vérifier taux machine, TRS et rebut avant d'accepter des jobs répétitifs ou de repricer une ligne."
+          "title": "Entreprises de production",
+          "text": "Vérifier taux machine, TRS et rebut avant d'accepter des jobs répétitifs ou de repricer une ligne.",
+          "examples": "OEE, rebut, devis"
         },
         "industrial": {
-          "title": "Propriétaires d'atelier",
-          "text": "Marge devis, seuil de rentabilité et main-d'œuvre réparation avant la pression prix client."
+          "title": "Ateliers industriels",
+          "text": "Marge devis, seuil de rentabilité et main-d'œuvre réparation avant la pression prix client.",
+          "examples": "Shop rate, setup"
         },
         "engineering": {
-          "title": "Ingénieurs & maintenance",
-          "text": "Couple, empilement tolérances et force cylindre sans carnet d'ingénierie séparé."
+          "title": "Ingénierie",
+          "text": "Couple, empilement tolérances et force cylindre sans carnet d'ingénierie séparé.",
+          "examples": "Couple, tolérance"
         },
         "construction": {
-          "title": "Construction & métiers",
-          "text": "Quantités béton, surface, peinture et toiture avant commande matériaux ou mobilisation équipe."
+          "title": "Équipes BTP",
+          "text": "Quantités béton, surface, peinture et toiture avant commande matériaux ou mobilisation équipe.",
+          "examples": "Métré, volume, béton"
         },
         "logistics": {
-          "title": "Équipes logistique",
-          "text": "Calcul route et fret quand trajets à vide et carburant grignotent la marge livraison."
+          "title": "Logistique & Service",
+          "text": "Calcul route et fret quand trajets à vide et carburant grignotent la marge livraison.",
+          "examples": "Carburant, route, fret"
         },
         "finance": {
           "title": "Finance & RH",
-          "text": "TVA, mensualité crédit, coût total employé et coût détention stock pour prix et recrutement."
+          "text": "TVA, mensualité crédit, coût total employé et coût détention stock pour prix et recrutement.",
+          "examples": "Crédit, personnel"
         }
       }
     },
     "whyNotExcel": {
-      "title": "Pourquoi des calculateurs sectoriels plutôt que des Excel éparpillés ?",
+      "title": "Pourquoi Excel ne suffit pas",
       "items": {
         "formula": {
-          "title": "Formules cohérentes",
-          "text": "Arrêtez de reconstruire la même marge, rebut et énergie entre notes, chats et onglets isolés."
+          "title": "Les formules s'oublient",
+          "text": "Rebut, énergie et main-d'œuvre peuvent être omis."
         },
         "sector": {
-          "title": "Contexte sectoriel intégré",
-          "text": "Entrées et libellés adaptés à fabrication, construction, logistique et énergie — pas des cellules génériques."
+          "title": "Le contexte sectoriel se perd",
+          "text": "Le CNC ne se mesure pas comme le béton dans un même modèle."
         },
         "decision": {
-          "title": "Du contrôle gratuit au résumé de décision",
-          "text": "Commencez par un chiffre rapide, ouvrez les calculateurs premium quand devis, chantier ou achat exige plus de sortie."
+          "title": "La décision arrive tard",
+          "text": "La perte apparaît en fin de mois — trop tard."
         }
       },
       "closing": "SectorCalc rend les calculateurs sectoriels visibles, comparables et reproductibles — sans déploiement ERP."
     },
     "finalCta": {
-      "title": "Ouvrez le calculateur sectoriel dont vous avez besoin",
+      "title": "Quel calcul clarifions-nous aujourd'hui ?",
       "subtitle": "Commencez gratuitement, passez aux calculateurs premium quand la décision demande plus d'entrées et un résumé plus clair.",
       "ctaPrimary": "Calculateurs gratuits",
       "ctaSecondary": "Calculateurs premium"
@@ -66124,7 +66200,8 @@
     "servicesLabel": "services-products.txt",
     "freeToolsLabel": "Calculateurs gratuits",
     "premiumToolsLabel": "Calculateurs premium",
-    "industriesLabel": "Hubs sectoriels"
+    "industriesLabel": "Hubs sectoriels",
+    "generatedToolsLabel": "Calculateurs générés"
   },
   "guidance": {
     "inputGuide": {

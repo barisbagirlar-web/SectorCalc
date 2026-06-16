@@ -305,7 +305,7 @@
         "free-tools": "Buscar calculadoras gratuitas...",
         "premium-tools": "Buscar calculadoras premium...",
         "industries": "Buscar calculadoras sectoriales...",
-        "homepage": "¿Qué sector, costo o cálculo técnico necesita?"
+        "homepage": "Buscar sector, coste o cálculo técnico..."
       },
       "noResults": "No se encontraron herramientas.",
       "moreResults": "+ {count} resultados más",
@@ -1049,7 +1049,7 @@
       "subtitle": "SectorCalc reúne calculadoras sectoriales para producción, taller, obra, logística, energía y finanzas en una plataforma enfocada.",
       "supporting": "SIN COMPLEJIDAD ERP — PARA PYMES Y EQUIPOS DE CAMPO",
       "ctaPrimary": "Calculadoras gratuitas",
-      "ctaSecondary": "Calculadoras premium",
+      "ctaSecondary": "Ver Premium",
       "panelTitle": "Lo que los equipos calculan primero",
       "panelItems": {
         "production": "Tarifa máquina, OEE y desperdicio",
@@ -1063,40 +1063,88 @@
       }
     },
     "coverage": {
-      "title": "Calculadoras sectoriales en toda su operación",
-      "subtitle": "Explore por sector, tipo de cálculo o decisión pendiente — no por hojas de cálculo dispersas.",
+      "title": "Herramientas de cálculo sectoriales",
+      "subtitle": "Calculadoras adaptadas a su sector y a sus decisiones.",
       "items": {
         "production": {
           "title": "Producción y fabricación",
-          "description": "Tarifa horaria de máquina, OEE, velocidad de corte, riesgo de desperdicio y eficiencia de planta."
+          "description": "Tarifa horaria de máquina, OEE, velocidad de corte, riesgo de desperdicio y eficiencia de planta.",
+          "shortTitle": "Producción",
+          "tags": [
+            "CNC",
+            "OEE",
+            "Merma"
+          ]
         },
         "industrial": {
           "title": "Talleres industriales",
-          "description": "Margen de cotización, punto de equilibrio, cotización de reparación y margen de producto antes de enviar el precio."
+          "description": "Margen de cotización, punto de equilibrio, cotización de reparación y margen de producto antes de enviar el precio.",
+          "shortTitle": "Taller",
+          "tags": [
+            "Cotización",
+            "Setup",
+            "Shop Rate"
+          ]
         },
         "technical": {
           "title": "Técnica e ingeniería",
-          "description": "Torque de apriete, conexiones soldadas, acumulación de tolerancias y fuerza de cilindro para números de campo."
+          "description": "Torque de apriete, conexiones soldadas, acumulación de tolerancias y fuerza de cilindro para números de campo.",
+          "shortTitle": "Ingeniería",
+          "tags": [
+            "Par",
+            "Tolerancia",
+            "Cilindro"
+          ]
         },
         "construction": {
           "title": "Construcción y obra",
-          "description": "Volumen de hormigón, metros cuadrados, cobertura de pintura y área de cubierta para cantidades de proyecto."
+          "description": "Volumen de hormigón, metros cuadrados, cobertura de pintura y área de cubierta para cantidades de proyecto.",
+          "shortTitle": "Construcción",
+          "tags": [
+            "Hormigón",
+            "Metrado",
+            "Tejado"
+          ]
         },
         "logistics": {
           "title": "Logística y transporte",
-          "description": "Costo de ruta, deriva de combustible, viajes en vacío y visibilidad del margen de entrega."
+          "description": "Costo de ruta, deriva de combustible, viajes en vacío y visibilidad del margen de entrega.",
+          "shortTitle": "Logística",
+          "tags": [
+            "Combustible",
+            "Volumen",
+            "Flete"
+          ]
         },
         "energy": {
           "title": "Energía y carbono",
-          "description": "Costo kWh, fugas de compresor, paquetes de ahorro y huella de carbono CBAM."
+          "description": "Costo kWh, fugas de compresor, paquetes de ahorro y huella de carbono CBAM.",
+          "shortTitle": "Energía",
+          "tags": [
+            "kWh",
+            "Fuga",
+            "Carbono"
+          ]
         },
         "finance": {
           "title": "Finanzas y negocio",
-          "description": "IVA, cuota de préstamo, costo total del empleado y costo de mantenimiento de inventario con EOQ."
+          "description": "IVA, cuota de préstamo, costo total del empleado y costo de mantenimiento de inventario con EOQ.",
+          "shortTitle": "Finanzas",
+          "tags": [
+            "IVA",
+            "Personal",
+            "Amortización"
+          ]
         },
         "foodRetail": {
           "title": "Alimentación y retail",
-          "description": "Margen de menú, deriva de desperdicio, rotación de inventario y variación de costo por porción."
+          "description": "Margen de menú, deriva de desperdicio, rotación de inventario y variación de costo por porción.",
+          "shortTitle": "Retail",
+          "tags": [
+            "Merma",
+            "Stock",
+            "Margen"
+          ]
         }
       }
     },
@@ -1119,28 +1167,33 @@
       }
     },
     "losses": {
-      "title": "Lo que ocultan los números no calculados",
+      "title": "Convierta pérdidas invisibles en números",
       "items": {
         "monetary": {
-          "title": "Dinero y margen",
-          "text": "Brechas de precio, deriva de cotización y carga de nómina que no aparecen en la primera fila de la hoja."
+          "title": "Pérdida monetaria",
+          "text": "Brechas de precio, deriva de cotización y carga de nómina que no aparecen en la primera fila de la hoja.",
+          "examples": "Cotización incorrecta, margen bajo, plazo de pago."
         },
         "material": {
-          "title": "Material y desperdicio",
-          "text": "Deriva de desperdicio, merma invisible y pérdida de inventario entre compra y producción."
+          "title": "Material y Merma",
+          "text": "Deriva de desperdicio, merma invisible y pérdida de inventario entre compra y producción.",
+          "examples": "Chatarra, sobreconsumo, pérdida de calidad."
         },
         "time": {
-          "title": "Tiempo y rendimiento",
-          "text": "Excesos de preparación, costo de parada y pérdida de rendimiento después de un presupuesto optimista."
+          "title": "Tiempo y Operación",
+          "text": "Excesos de preparación, costo de parada y pérdida de rendimiento después de un presupuesto optimista.",
+          "examples": "Setup, parada, desvío de ruta."
         },
         "energy": {
-          "title": "Energía y carbono",
-          "text": "Exposición a picos de demanda, fugas de compresor y presión de huella de carbono en exportación y cumplimiento."
+          "title": "Energía y Carbono",
+          "text": "Exposición a picos de demanda, fugas de compresor y presión de huella de carbono en exportación y cumplimiento.",
+          "examples": "Fugas, pico de consumo, huella de carbono."
         }
-      }
+      },
+      "subtitle": "Descubra costes que pasan desapercibidos en el día a día."
     },
     "freePremium": {
-      "title": "Los cálculos básicos son gratuitos. Los resúmenes de decisión completos son premium.",
+      "title": "Calculadoras gratuitas y premium",
       "freeTitle": "Calculadoras gratuitas",
       "freeText": "Controles sectoriales rápidos en el navegador con entradas esenciales y señales de riesgo visibles.",
       "freeItems": {
@@ -1149,7 +1202,7 @@
         "category": "Explorar por sector y tipo de cálculo",
         "noSignup": "Explorar sin registro"
       },
-      "freeCta": "Abrir calculadoras gratuitas",
+      "freeCta": "Probar ahora",
       "premiumTitle": "Calculadoras premium",
       "premiumText": "Añada más entradas, comparación de escenarios y resúmenes exportables cuando aumente el riesgo.",
       "premiumItems": {
@@ -1158,10 +1211,20 @@
         "summary": "Resumen de decisión con impulsores y acción",
         "export": "Exportación PDF y CSV cuando esté disponible"
       },
-      "premiumCta": "Ver calculadoras premium"
+      "premiumCta": "Explorar",
+      "freeHighlights": [
+        "Resultado rápido",
+        "Sin registro",
+        "Fórmulas básicas"
+      ],
+      "premiumHighlights": [
+        "Comparación de escenarios",
+        "Resumen de decisión",
+        "Más entradas"
+      ]
     },
     "criticalTools": {
-      "title": "Calculadoras críticas que los equipos abren primero",
+      "title": "Calculadoras más usadas",
       "subtitle": "Calculadoras sectoriales de alta intención para producción, cotización, ingeniería, construcción, energía y finanzas.",
       "badgeSoon": "Próximamente",
       "groups": {
@@ -1169,7 +1232,7 @@
           "title": "Producción y fabricación",
           "items": {
             "shopRate": {
-              "title": "Calculadora de tarifa horaria de máquina"
+              "title": "Coste hora máquina"
             },
             "oee": {
               "title": "Calculadora OEE"
@@ -1186,7 +1249,7 @@
           "title": "Taller y cotización",
           "items": {
             "quoteMargin": {
-              "title": "Calculadora de precio de cotización y margen de beneficio"
+              "title": "Asistente de cotización"
             },
             "breakEven": {
               "title": "Calculadora de punto de equilibrio"
@@ -1203,7 +1266,7 @@
           "title": "Técnica e ingeniería",
           "items": {
             "boltTorque": {
-              "title": "Calculadora de torque de apriete de pernos"
+              "title": "Par de apriete"
             },
             "weldedConnection": {
               "title": "Calculadora de conexiones soldadas y atornilladas"
@@ -1220,7 +1283,7 @@
           "title": "Construcción y obra",
           "items": {
             "concreteVolume": {
-              "title": "Calculadora de volumen de hormigón"
+              "title": "Volumen de hormigón"
             },
             "squareMeter": {
               "title": "Calculadora de metros cuadrados"
@@ -1237,7 +1300,7 @@
           "title": "Energía y carbono",
           "items": {
             "compressorLeak": {
-              "title": "Calculadora de costo de fuga de compresor"
+              "title": "Fuga de compresor"
             },
             "kwhCost": {
               "title": "Calculadora de costo kWh"
@@ -1267,57 +1330,70 @@
             }
           }
         }
+      },
+      "popularCategories": {
+        "production": "Producción",
+        "workshop": "Taller",
+        "engineering": "Ingeniería",
+        "construction": "Construcción",
+        "energy": "Energía"
       }
     },
     "audiences": {
-      "title": "Para equipos que necesitan números antes del ERP",
+      "title": "¿Para quién es SectorCalc?",
       "items": {
         "production": {
-          "title": "Responsables de producción",
-          "text": "Revise tarifa de máquina, OEE y desperdicio antes de aceptar trabajos repetidos o repricing de línea."
+          "title": "Empresas de producción",
+          "text": "Revise tarifa de máquina, OEE y desperdicio antes de aceptar trabajos repetidos o repricing de línea.",
+          "examples": "OEE, merma, cotización"
         },
         "industrial": {
-          "title": "Dueños de taller",
-          "text": "Margen de cotización, punto de equilibrio y mano de obra de reparación antes de la presión de precio del cliente."
+          "title": "Talleres industriales",
+          "text": "Margen de cotización, punto de equilibrio y mano de obra de reparación antes de la presión de precio del cliente.",
+          "examples": "Shop rate, setup"
         },
         "engineering": {
-          "title": "Ingenieros y mantenimiento",
-          "text": "Torque, acumulación de tolerancias y fuerza de cilindro sin un cuaderno de ingeniería aparte."
+          "title": "Ingeniería",
+          "text": "Torque, acumulación de tolerancias y fuerza de cilindro sin un cuaderno de ingeniería aparte.",
+          "examples": "Par, tolerancia"
         },
         "construction": {
-          "title": "Construcción y oficios",
-          "text": "Cantidades de hormigón, área, pintura y cubierta antes de pedir materiales o movilizar la cuadrilla."
+          "title": "Equipos de construcción",
+          "text": "Cantidades de hormigón, área, pintura y cubierta antes de pedir materiales o movilizar la cuadrilla.",
+          "examples": "Metrado, volumen, hormigón"
         },
         "logistics": {
-          "title": "Equipos de logística",
-          "text": "Cálculo de ruta y flete cuando viajes en vacío y combustible comen el margen de entrega."
+          "title": "Logística y Servicio",
+          "text": "Cálculo de ruta y flete cuando viajes en vacío y combustible comen el margen de entrega.",
+          "examples": "Combustible, ruta, flete"
         },
         "finance": {
           "title": "Finanzas y RR. HH.",
-          "text": "IVA, cuota de préstamo, costo total del empleado y costo de mantenimiento de inventario para precios y contratación."
+          "text": "IVA, cuota de préstamo, costo total del empleado y costo de mantenimiento de inventario para precios y contratación.",
+          "examples": "Crédito, personal"
         }
       }
     },
     "whyNotExcel": {
-      "title": "¿Por qué calculadoras sectoriales en lugar de Excel dispersos?",
+      "title": "Por qué Excel no basta",
       "items": {
         "formula": {
-          "title": "Fórmulas consistentes",
-          "text": "Deje de reconstruir la misma matemática de margen, desperdicio y energía entre notas, chats y pestañas sueltas."
+          "title": "Se olvidan las fórmulas",
+          "text": "Merma, energía y mano de obra pueden omitirse."
         },
         "sector": {
-          "title": "Contexto sectorial integrado",
-          "text": "Entradas y etiquetas adaptadas a fabricación, construcción, logística y energía — no celdas genéricas."
+          "title": "Se pierde el contexto sectorial",
+          "text": "CNC no se mide con la misma plantilla que el hormigón."
         },
         "decision": {
-          "title": "Del control gratuito al resumen de decisión",
-          "text": "Empiece con un número rápido y abra calculadoras premium cuando la cotización, el trabajo o la compra necesite más salida."
+          "title": "La decisión llega tarde",
+          "text": "La pérdida aparece a fin de mes — demasiado tarde."
         }
       },
       "closing": "SectorCalc mantiene las calculadoras sectoriales visibles, comparables y repetibles — sin despliegue ERP."
     },
     "finalCta": {
-      "title": "Abra la calculadora sectorial que necesita",
+      "title": "¿Qué cálculo aclaramos hoy?",
       "subtitle": "Empiece gratis y pase a calculadoras premium cuando la decisión requiera más entradas y un resumen más claro.",
       "ctaPrimary": "Calculadoras gratuitas",
       "ctaSecondary": "Calculadoras premium"
@@ -66124,7 +66200,8 @@
     "servicesLabel": "services-products.txt",
     "freeToolsLabel": "Calculadoras gratuitas",
     "premiumToolsLabel": "Calculadoras premium",
-    "industriesLabel": "Centros sectoriales"
+    "industriesLabel": "Centros sectoriales",
+    "generatedToolsLabel": "Calculadoras generadas"
   },
   "guidance": {
     "inputGuide": {
